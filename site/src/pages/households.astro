@@ -2,6 +2,8 @@
 import Base from "../layouts/Base.astro";
 import Household from "../components/Household.astro";
 import hs from "../data/households.json";
+import Lineage from "../components/Lineage.astro";
+import lin from "../data/lineages.json";
 const big = hs.filter(h => h.n >= 4);
 const rest = hs.filter(h => h.n === 3);
 const byPlace = {};
@@ -48,4 +50,40 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
       <tr><td>{p}</td><td class="m">{n}</td></tr>))}</tbody></table>
   </div>
 </section>
+
+<section class="blk">
+  <h2>Linked into lineages</h2>
+  <p class="dek">A household is the child of another when a recorded child of the first grew up to be the father named in the second. {lin.links.length} such links survive the tests; {lin.ambiguous.length} candidates were too ambiguous to draw.</p>
+
+  <div class="note" style="margin-top:24px">The tests: the normalised given name must match; the man must be male and not have died in childhood; the gap between his own baptism and his first recorded child must fall between 17 and 48 years; the parishes must be compatible; and descent is never drawn across regions on a bare name match. A link is <b>strong</b> only when there is exactly one candidate, the parish is the same, and the generation gap is ordinary. Everything else is <b>probable</b>. None of it is proven — two men of one name in one parish is the ordinary case, not the exception.</div>
+
+  {lin.lineages.map(L => (
+    <div style="margin-top:34px">
+      <div class="lab">{L.generations} generations · {L.size} households</div>
+      <div style="margin-top:14px"><Lineage node={L.tree} /></div>
+    </div>
+  ))}
+</section>
+
+{lin.ambiguous.length > 0 && (
+<section class="blk">
+  <h2>Too ambiguous to draw</h2>
+  <p class="dek">Where two or more men of the same name could equally be the father. Published because the next person to read the register pages will resolve them in an afternoon.</p>
+  <div class="grid g2" style="margin-top:24px">
+    {lin.ambiguous.map(a => {
+      const h = hs.find(x => x.id === a.household);
+      return (
+        <div class="ambig">
+          <div class="q">{h.father} &amp; {h.mother}</div>
+          <div class="mono" style="color:var(--ink-3);margin-top:4px">{h.place || "not localised"} · from {h.from}</div>
+          <ul>{a.options.map(o => {
+            const p = hs.find(x => x.id === o.parent);
+            return <li>could be the son of <b>{p.father}</b> &amp; {p.mother} — through {o.via}, {o.gap}y</li>;
+          })}</ul>
+        </div>
+      );
+    })}
+  </div>
+</section>
+)}
 </Base>

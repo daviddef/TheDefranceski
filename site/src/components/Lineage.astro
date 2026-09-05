@@ -1,0 +1,25 @@
+---
+import lin from "../data/lineages.json";
+const { node, depth = 0 } = Astro.props;
+const h = node.household;
+const l = node.link;
+const kids = (h.children || []).map(c => c.name);
+---
+<div class="gen" style={`--d:${depth}`}>
+  {l && (
+    <div class="via">
+      <span class="chip {l.confidence === 'strong' ? 'doc' : 'inf'}">{l.confidence}</span>
+      <span>through <b>{l.via}</b>, {l.gap} years between his own baptism and his first recorded child</span>
+    </div>
+  )}
+  <div class="genbox">
+    <div class="gp">{h.father}<span class="amp">&amp;</span>{h.mother}</div>
+    <div class="gmeta mono">{h.place || "parish not localised"} · {h.from}{h.to !== h.from ? `–${h.to}` : ""} · {h.n} children</div>
+    <div class="gkids">{kids.map(k => <span>{k}</span>)}</div>
+  </div>
+  {node.children.length > 0 && (
+    <div class="genkids">
+      {node.children.map(c => <Astro.self node={c} depth={depth + 1} />)}
+    </div>
+  )}
+</div>

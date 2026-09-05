@@ -1,0 +1,626 @@
+{
+ "links": [
+  {
+   "child": "h013",
+   "parent": "h011",
+   "via": "Valentinus Franciscus Xaverius Defranceschi",
+   "viaId": "XQMQ-ZQKM",
+   "gap": 22,
+   "confidence": "strong",
+   "score": 3
+  },
+  {
+   "child": "h023",
+   "parent": "h013",
+   "via": "Petrum Julium Paschalem Defranceschi",
+   "viaId": "6YBR-ZDKH",
+   "gap": 19,
+   "confidence": "probable",
+   "score": 1
+  },
+  {
+   "child": "h024",
+   "parent": "h013",
+   "via": "Joannem Nepomuc Aloysium Paschalem Defranceschi",
+   "viaId": "6YBR-HBHG",
+   "gap": 20,
+   "confidence": "probable",
+   "score": 1
+  },
+  {
+   "child": "h028",
+   "parent": "h013",
+   "via": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
+   "viaId": "6YBR-89WD",
+   "gap": 27,
+   "confidence": "probable",
+   "score": 2
+  }
+ ],
+ "ambiguous": [
+  {
+   "household": "h034",
+   "options": [
+    {
+     "parent": "h021",
+     "via": "Domenico Giovanni Anto De Franceschi",
+     "gap": 38,
+     "score": 2
+    },
+    {
+     "parent": "h026",
+     "via": "Domenico Franceschini",
+     "gap": 32,
+     "score": 2
+    }
+   ]
+  },
+  {
+   "household": "h035",
+   "options": [
+    {
+     "parent": "h023",
+     "via": "Giovanni De Franceschi",
+     "gap": 31,
+     "score": 2
+    },
+    {
+     "parent": "h024",
+     "via": "Giovanni De Franceschi",
+     "gap": 29,
+     "score": 2
+    },
+    {
+     "parent": "h028",
+     "via": "Johannes Defranceschi",
+     "gap": 26,
+     "score": 2
+    }
+   ]
+  },
+  {
+   "household": "h036",
+   "options": [
+    {
+     "parent": "h023",
+     "via": "Giovanni De Franceschi",
+     "gap": 33,
+     "score": 2
+    },
+    {
+     "parent": "h024",
+     "via": "Giovanni De Franceschi",
+     "gap": 31,
+     "score": 2
+    },
+    {
+     "parent": "h028",
+     "via": "Johannes Defranceschi",
+     "gap": 28,
+     "score": 2
+    }
+   ]
+  },
+  {
+   "household": "h039",
+   "options": [
+    {
+     "parent": "h028",
+     "via": "Johannes Defranceschi",
+     "gap": 41,
+     "score": 2
+    },
+    {
+     "parent": "h033",
+     "via": "Giovanni Giuseppe Maria Franceschi",
+     "gap": 19,
+     "score": 2
+    },
+    {
+     "parent": "h023",
+     "via": "Giovanni De Franceschi",
+     "gap": 46,
+     "score": 1
+    },
+    {
+     "parent": "h024",
+     "via": "Giovanni De Franceschi",
+     "gap": 44,
+     "score": 1
+    }
+   ]
+  }
+ ],
+ "lineages": [
+  {
+   "root": "h011",
+   "generations": 3,
+   "tree": {
+    "id": "h011",
+    "household": {
+     "key": "francesca + giuseppe",
+     "fatherKey": "giuseppe",
+     "motherKey": "francesca",
+     "father": "Giuseppe Defranceschi",
+     "mother": "Francesca Defranceschi",
+     "place": "Rijeka",
+     "region": "kvarner",
+     "from": 1772,
+     "to": 1775,
+     "n": 4,
+     "children": [
+      {
+       "name": "Valentino Defranceschi",
+       "sex": "Male",
+       "birth": "1772",
+       "death": "22 Aug 1775",
+       "place": "Fiume, Modrus-Fiume, Ungheria",
+       "y": 1772,
+       "id": "6YBR-GND2",
+       "key": "valentino",
+       "ours": true,
+       "by": 1772,
+       "dy": 1775
+      },
+      {
+       "name": "Valentinus Franciscus Xaverius Defranceschi",
+       "sex": "Male",
+       "birth": "22 Nov 1772",
+       "death": "",
+       "place": "Vitipolis, Modrus-Fiume, Magyarország",
+       "y": 1772,
+       "id": "XQMQ-ZQKM",
+       "key": "valentino francesco",
+       "ours": true,
+       "by": 1772,
+       "dy": null
+      },
+      {
+       "name": "Hellena Margaritha Maria Defranceschi",
+       "sex": "Female",
+       "birth": "11 Jul 1774",
+       "death": "",
+       "place": "Vitipolis, Modrus-Fiume, Magyarország",
+       "y": 1774,
+       "id": "XQMQ-X59Q",
+       "key": "hellena margaritha",
+       "ours": true,
+       "by": 1774,
+       "dy": null
+      },
+      {
+       "name": "Ellena Defranceschi",
+       "sex": "Female",
+       "birth": "1775",
+       "death": "2 Mar 1776",
+       "place": "Fiume, Modrus-Fiume, Ungheria",
+       "y": 1775,
+       "id": "6YBR-2GVW",
+       "key": "elena",
+       "ours": true,
+       "by": 1775,
+       "dy": 1776
+      }
+     ],
+     "id": "h011"
+    },
+    "link": null,
+    "children": [
+     {
+      "id": "h013",
+      "household": {
+       "key": "orsola + valentino",
+       "fatherKey": "valentino",
+       "motherKey": "orsola",
+       "father": "Valentini Defranceschi",
+       "mother": "Ursulæ Defranceschi",
+       "place": "Rijeka",
+       "region": "kvarner",
+       "from": 1794,
+       "to": 1805,
+       "n": 12,
+       "children": [
+        {
+         "name": "Theresiam Mariam Josepham Nepomucenam Defranceschi",
+         "sex": "Female",
+         "birth": "17 Sep 1794",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1794,
+         "id": "6YBR-7HSS",
+         "key": "teresa maria",
+         "ours": true,
+         "by": 1794,
+         "dy": null
+        },
+        {
+         "name": "Giosefa Defranceschi",
+         "sex": "Female",
+         "birth": "1796",
+         "death": "7 Aug 1797",
+         "place": "Fiume, Modrus-Fiume, Ungheria",
+         "y": 1796,
+         "id": "6YBR-P4S1",
+         "key": "giosefa",
+         "ours": true,
+         "by": 1796,
+         "dy": 1797
+        },
+        {
+         "name": "Josepham Joannam Nepomucenam Defranceschi",
+         "sex": "Female",
+         "birth": "20 Feb 1796",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1796,
+         "id": "6YBR-FS91",
+         "key": "giuseppa joannam",
+         "ours": true,
+         "by": 1796,
+         "dy": null
+        },
+        {
+         "name": "Franciscum Josephum Aloysium Joannem Nepomuc Defranceschi",
+         "sex": "Male",
+         "birth": "17 Jun 1797",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1797,
+         "id": "6YBR-8XBV",
+         "key": "francesco josephum",
+         "ours": true,
+         "by": 1797,
+         "dy": null
+        },
+        {
+         "name": "Annam Mariam Josepham Nepomucenam Defranceschi",
+         "sex": "Female",
+         "birth": "19 Jan 1799",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1799,
+         "id": "6YBR-DQ23",
+         "key": "anna maria",
+         "ours": true,
+         "by": 1799,
+         "dy": null
+        },
+        {
+         "name": "Anna Defranceschi",
+         "sex": "Female",
+         "birth": "1799",
+         "death": "18 Nov 1800",
+         "place": "Fiume, Modrus-Fiume, Ungheria",
+         "y": 1799,
+         "id": "6YBR-PBSC",
+         "key": "anna",
+         "ours": true,
+         "by": 1799,
+         "dy": 1800
+        },
+        {
+         "name": "Annam Mariam Ludovicam Defranceschi",
+         "sex": "Female",
+         "birth": "2 Mar 1801",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1801,
+         "id": "6YBR-64M9",
+         "key": "anna maria",
+         "ours": true,
+         "by": 1801,
+         "dy": null
+        },
+        {
+         "name": "Joannem Nepomuc Aloysium Paschalem Defranceschi",
+         "sex": "Male",
+         "birth": "16 Apr 1802",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1802,
+         "id": "6YBR-HBHG",
+         "key": "giovanni nepomuc",
+         "ours": true,
+         "by": 1802,
+         "dy": null
+        },
+        {
+         "name": "Petrum Julium Paschalem Defranceschi",
+         "sex": "Male",
+         "birth": "8 Apr 1803",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1803,
+         "id": "6YBR-ZDKH",
+         "key": "pietro julium",
+         "ours": true,
+         "by": 1803,
+         "dy": null
+        },
+        {
+         "name": "Maria Defranceschi",
+         "sex": "Female",
+         "birth": "1804",
+         "death": "2 Aug 1804",
+         "place": "Fiume, Modrus-Fiume, Ungheria",
+         "y": 1804,
+         "id": "6YBR-6D1T",
+         "key": "maria",
+         "ours": true,
+         "by": 1804,
+         "dy": 1804
+        },
+        {
+         "name": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
+         "sex": "Male",
+         "birth": "21 Dec 1805",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": 1805,
+         "id": "6YBR-89WD",
+         "key": "antonio pietro",
+         "ours": true,
+         "by": 1805,
+         "dy": null
+        },
+        {
+         "name": "Josepham Ludovicam Joannam Nepomuc Defranceschi",
+         "sex": "Female",
+         "birth": "",
+         "death": "",
+         "place": "Vitipolis, Modrus-Fiume, Magyarország",
+         "y": null,
+         "id": "6YBR-FSZZ",
+         "key": "giuseppa ludovicam",
+         "ours": true,
+         "by": null,
+         "dy": null
+        }
+       ],
+       "id": "h013"
+      },
+      "link": {
+       "child": "h013",
+       "parent": "h011",
+       "via": "Valentinus Franciscus Xaverius Defranceschi",
+       "viaId": "XQMQ-ZQKM",
+       "gap": 22,
+       "confidence": "strong",
+       "score": 3
+      },
+      "children": [
+       {
+        "id": "h023",
+        "household": {
+         "key": "maddalena francin + pietro de",
+         "fatherKey": "pietro de",
+         "motherKey": "maddalena francin",
+         "father": "Pietro De Franceschi",
+         "mother": "Maddalena Francin",
+         "place": "",
+         "region": "",
+         "from": 1822,
+         "to": 1828,
+         "n": 4,
+         "children": [
+          {
+           "name": "Maria Martina De Franceschi",
+           "sex": "Female",
+           "birth": "1822",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1822,
+           "id": "6B47-438M",
+           "key": "maria martina",
+           "ours": true,
+           "by": 1822,
+           "dy": null
+          },
+          {
+           "name": "Pasqua De Franceschi",
+           "sex": "Female",
+           "birth": "Jan 1824",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1824,
+           "id": "6B47-82WB",
+           "key": "pasqua de",
+           "ours": true,
+           "by": 1824,
+           "dy": null
+          },
+          {
+           "name": "Giovanni De Franceschi",
+           "sex": "Male",
+           "birth": "1827",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1827,
+           "id": "6B47-9BJ9",
+           "key": "giovanni de",
+           "ours": true,
+           "by": 1827,
+           "dy": null
+          },
+          {
+           "name": "Lucia De Franceschi",
+           "sex": "Female",
+           "birth": "25 Aug 1828",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1828,
+           "id": "6B47-4QQV",
+           "key": "lucia de",
+           "ours": true,
+           "by": 1828,
+           "dy": null
+          }
+         ],
+         "id": "h023"
+        },
+        "link": {
+         "child": "h023",
+         "parent": "h013",
+         "via": "Petrum Julium Paschalem Defranceschi",
+         "viaId": "6YBR-ZDKH",
+         "gap": 19,
+         "confidence": "probable",
+         "score": 1
+        },
+        "children": []
+       },
+       {
+        "id": "h024",
+        "household": {
+         "key": "giovanni maria + lucia bonassin",
+         "fatherKey": "giovanni maria",
+         "motherKey": "lucia bonassin",
+         "father": "Gio Maria De Franceschi",
+         "mother": "Lucia Bonassin",
+         "place": "",
+         "region": "",
+         "from": 1822,
+         "to": 1831,
+         "n": 3,
+         "children": [
+          {
+           "name": "Veniera De Franceschi",
+           "sex": "Female",
+           "birth": "29 Mar 1822",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1822,
+           "id": "6B47-4SJC",
+           "key": "veniera de",
+           "ours": true,
+           "by": 1822,
+           "dy": null
+          },
+          {
+           "name": "Giovanni De Franceschi",
+           "sex": "Male",
+           "birth": "2 Apr 1829",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1829,
+           "id": "6B47-D95P",
+           "key": "giovanni de",
+           "ours": true,
+           "by": 1829,
+           "dy": null
+          },
+          {
+           "name": "Stefano De Franceschi",
+           "sex": "Male",
+           "birth": "26 Dec 1831",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1831,
+           "id": "6B47-CD76",
+           "key": "stefano de",
+           "ours": true,
+           "by": 1831,
+           "dy": null
+          }
+         ],
+         "id": "h024"
+        },
+        "link": {
+         "child": "h024",
+         "parent": "h013",
+         "via": "Joannem Nepomuc Aloysium Paschalem Defranceschi",
+         "viaId": "6YBR-HBHG",
+         "gap": 20,
+         "confidence": "probable",
+         "score": 1
+        },
+        "children": []
+       },
+       {
+        "id": "h028",
+        "household": {
+         "key": "antonio + maria bergamo",
+         "fatherKey": "antonio",
+         "motherKey": "maria bergamo",
+         "father": "Antonius Defranceschi",
+         "mother": "Maria Bergamo",
+         "place": "",
+         "region": "",
+         "from": 1832,
+         "to": 1845,
+         "n": 4,
+         "children": [
+          {
+           "name": "Johannes Defranceschi",
+           "sex": "",
+           "birth": "1832",
+           "death": "",
+           "place": "",
+           "y": 1832,
+           "id": "6B47-WT5X",
+           "key": "giovanni",
+           "ours": true,
+           "by": 1832,
+           "dy": null
+          },
+          {
+           "name": "Antonio Defranceschi",
+           "sex": "Male",
+           "birth": "Nov 1839",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1839,
+           "id": "X9DP-3CMT",
+           "key": "antonio",
+           "ours": true,
+           "by": 1839,
+           "dy": null
+          },
+          {
+           "name": "Domenico Defranceschi",
+           "sex": "Male",
+           "birth": "Sep 1841",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1841,
+           "id": "X9DG-B129",
+           "key": "domenico",
+           "ours": true,
+           "by": 1841,
+           "dy": null
+          },
+          {
+           "name": "Victorius Defranceschi",
+           "sex": "",
+           "birth": "1845",
+           "death": "",
+           "place": "",
+           "y": 1845,
+           "id": "6B47-WKQ1",
+           "key": "vittorio",
+           "ours": true,
+           "by": 1845,
+           "dy": null
+          }
+         ],
+         "id": "h028"
+        },
+        "link": {
+         "child": "h028",
+         "parent": "h013",
+         "via": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
+         "viaId": "6YBR-89WD",
+         "gap": 27,
+         "confidence": "probable",
+         "score": 2
+        },
+        "children": []
+       }
+      ]
+     }
+    ]
+   },
+   "size": 5
+  }
+ ]
+}
