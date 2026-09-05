@@ -1,0 +1,58 @@
+---
+import m from "../data/marriages.json";
+const GROUPS=[
+ {k:"venetian",label:"Venetian & Istrian Romance",col:"--r-venice"},
+ {k:"slavic",label:"Slavic Istria",col:"--accent"},
+ {k:"carnia",label:"Friuli & Carnia",col:"--terra"},
+ {k:"austrian",label:"Austrian",col:"--r-habsburg"},
+ {k:"maritime",label:"Kvarner shipping",col:"--r-italy"},
+ {k:"uskok",label:"Uskok",col:"--r-yugo"},
+];
+const CX=470, CY=372, R0=150;
+const total=m.inlaw.length;
+const GAP=6;
+let ang=-90 - (360-GAP*GROUPS.length)/2 + 90; // start at top-left sweep
+ang=-90;
+const arcs=[];
+for(const g of GROUPS){
+  const members=m.inlaw.filter(x=>x.o===g.k).sort((a,b)=>b.c-a.c);
+  const span=(360-GAP*GROUPS.length)*members.length/total;
+  arcs.push({...g, members, from:ang, to:ang+span});
+  ang+=span+GAP;
+}
+const rad=d=>(d-90)*Math.PI/180;
+const nodes=[];
+for(const a of arcs){
+  a.members.forEach((mem,i)=>{
+    const t=a.members.length===1 ? (a.from+a.to)/2 : a.from + (a.to-a.from)*(i+0.5)/a.members.length;
+    const r=R0 + (i%2===0?0:46) + Math.min(mem.c,8)*2;
+    const x=CX+r*Math.cos(rad(t)), y=CY+r*Math.sin(rad(t));
+    const flip = t>90 && t<270;
+    nodes.push({...mem, t, r, x, y, flip, col:a.col});
+  });
+}
+---
+<div class="scroll">
+<svg viewBox="0 0 940 745" width="940" style="min-width:900px;display:block" role="img"
+     aria-label="The families the Defranceschi married into, grouped by origin">
+  {nodes.map(n=>(
+    <line x1={CX} y1={CY} x2={n.x} y2={n.y} style={`stroke:var(${n.col});opacity:.32`} stroke-width="1"/>
+  ))}
+  {nodes.map(n=>(
+    <circle cx={n.x} cy={n.y} r={2.5+Math.sqrt(n.c)*1.5} style={`fill:var(${n.col})`}/>
+  ))}
+  {nodes.map(n=>(
+    <text x={n.x} y={n.y} font-size="11.5" dy="3.6"
+          transform={`rotate(${n.flip ? n.t+90 : n.t-90} ${n.x} ${n.y}) translate(${n.flip?-9:9} 0)`}
+          text-anchor={n.flip?"end":"start"}
+          style="fill:var(--ink);font-family:var(--sans)">{n.n}{n.c>2?` ·${n.c}`:""}</text>
+  ))}
+  <circle cx={CX} cy={CY} r="60" style="fill:var(--panel);stroke:var(--ink)" stroke-width="1.5"/>
+  <text x={CX} y={CY-4} text-anchor="middle" font-size="15" style="fill:var(--ink);font-family:var(--serif);font-weight:600">Defranceschi</text>
+  <text x={CX} y={CY+13} text-anchor="middle" font-size="10" style="fill:var(--ink-3);font-family:var(--mono)">71 in-law names</text>
+</svg>
+</div>
+<div class="legend">
+  {GROUPS.map(g=>{const n=m.inlaw.filter(x=>x.o===g.k).length;
+    return <span><i style={`background:var(${g.col})`}></i>{g.label} · {n}</span>;})}
+</div>

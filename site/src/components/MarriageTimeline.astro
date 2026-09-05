@@ -1,0 +1,47 @@
+---
+import m from "../data/marriages.json";
+const FROM=1770, TO=1900, X0=70, X1=915;
+const x=y=>X0+(y-FROM)*((X1-X0)/(TO-FROM));
+const eras=[
+ [1770,1790,"Josephine reforms","--r-habsburg"],
+ [1797,1805,"Venice falls","--r-venice"],
+ [1805,1813,"Napoleonic Illyria","--r-napo"],
+ [1813,1848,"Austrian restoration","--r-habsburg"],
+ [1848,1866,"Revolution & reaction","--r-italy"],
+ [1866,1900,"Austria–Hungary","--r-habsburg"],
+];
+const marks=[
+ [1797,"Treaty of Campo Formio"],[1809,"Illyrian Provinces"],
+ [1816,"The year without a summer"],[1817,"Europe's last famine"],
+ [1848,"Carlo elected for Pisino"],[1854,"Carlo expelled from the bench"],
+ [1866,"Austria loses Venetia"],[1880,"Phylloxera reaches Istria"],
+];
+const rows=m.couples.filter(c=>+c.y>=FROM&&+c.y<=TO);
+const LANES=9, TOP=112, LH=27;
+const placed=rows.map((c,i)=>({...c, lane:i%LANES}));
+const H=TOP+LANES*LH+66;
+---
+<div class="scroll">
+<svg viewBox={`0 0 940 ${H}`} width="940" style="min-width:900px;display:block" role="img"
+     aria-label="Dated marriages of the family, 1770 to 1900, against the politics of the period">
+  {eras.map(([a,b,l,c])=><g>
+    <rect x={x(a)} y="30" width={x(b)-x(a)} height="22" style={`fill:var(${c});opacity:.85`}/>
+    {x(b)-x(a)>70 && <text x={x(a)+7} y="45" font-size="10" style="fill:var(--band-label);font-family:var(--sans)">{l}</text>}
+  </g>)}
+  {marks.map(([y,l])=><g>
+    <line x1={x(y)} y1="52" x2={x(y)} y2={TOP+LANES*LH} style="stroke:var(--ochre);opacity:.45" stroke-width="1" stroke-dasharray="2 4"/>
+    <text x={x(y)+4} y="68" font-size="9.5" style="fill:var(--ochre);font-family:var(--mono)">{y} {l}</text>
+  </g>)}
+  {placed.map(c=><g>
+    <circle cx={x(+c.y)} cy={TOP+c.lane*LH} r="3.6" style="fill:var(--terra)"/>
+    <text x={x(+c.y)+8} y={TOP+c.lane*LH+4} font-size="11"
+          style="fill:var(--ink);font-family:var(--sans)">{c.b}<tspan style="fill:var(--ink-3)"> · {c.y}</tspan></text>
+  </g>)}
+  <line x1={X0} y1={H-42} x2={X1} y2={H-42} style="stroke:var(--rule-strong)" stroke-width="1"/>
+  {[1780,1800,1820,1840,1860,1880,1900].map(t=><g>
+    <line x1={x(t)} y1={H-42} x2={x(t)} y2={H-36} style="stroke:var(--rule-strong)" stroke-width="1"/>
+    <text x={x(t)} y={H-22} text-anchor="middle" font-size="10" style="fill:var(--ink-3);font-family:var(--mono)">{t}</text>
+  </g>)}
+</svg>
+</div>
+<p class="cap">Each dot is a woman (or, where the record runs the other way, a husband) marrying into the family, placed at the year of the record. Names as the register spells them.</p>
