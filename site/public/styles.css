@@ -211,3 +211,8 @@ section.blk > .dek{margin-top:10px}
 .ped .pn{display:block;font-family:var(--sans);font-size:11px;color:var(--ink-3);margin-top:5px;line-height:1.45;max-width:52ch}
 .pednest{margin-top:10px;margin-left:14px}
 @media (max-width:620px){.ped .pjoin{display:none}.pedcouple{gap:7px}.pedkids{margin-left:6px;padding-left:10px}}
+.qz{border-left:2px solid var(--terra);padding-left:22px}
+.qz .qit{font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5;color:var(--ink);max-width:60ch}
+.qz .qen{font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--ink-2);margin-top:10px;max-width:62ch}
+.qz .qwhy{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-3);margin-top:12px;max-width:66ch;
+  padding-top:10px;border-top:1px solid var(--rule)}

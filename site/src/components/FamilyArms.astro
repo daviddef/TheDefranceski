@@ -1,0 +1,65 @@
+---
+// Blazoned by Carlo De Franceschi in his letter to Kobler, c.1873:
+// upper field a Greek cross crossed by two arrows; lower field a pomegranate;
+// a plumed helm above the shield. Tinctures are not given in the letter.
+const shield = "M14,34 H106 V78 C106,110 84,130 60,142 C36,130 14,110 14,78 Z";
+const FIELD_U = "#8E9BAE", FIELD_L = "#C8B48A", METAL = "#E8E6DF",
+      DARK = "#2B3540", FRUIT = "#9E2B2B", LEAF = "#3E6B3A", SHAFT = "#8A6A45";
+---
+<figure class="armfig">
+  <svg viewBox="0 0 120 160" width="212" role="img"
+       aria-label="Arms blazoned by Carlo De Franceschi: a Greek cross crossed by two arrows above, a pomegranate below, a plumed helm over the shield">
+    <defs><clipPath id="famclip"><path d={shield}/></clipPath></defs>
+
+    <!-- plumed helm -->
+    <g>
+      <path d="M44,6 C52,0 68,0 76,6 C82,11 82,18 79,22 L41,22 C38,18 38,11 44,6 Z" fill={DARK}/>
+      <path d="M41,22 H79 L76,30 H44 Z" fill={DARK}/>
+      <rect x="46" y="14" width="28" height="3.4" fill={METAL} opacity=".55"/>
+      <path d="M60,2 C48,-2 34,4 33,14 C40,10 50,8 58,10 Z" fill={METAL} opacity=".8"/>
+      <path d="M60,2 C72,-2 86,4 87,14 C80,10 70,8 62,10 Z" fill={METAL} opacity=".8"/>
+    </g>
+
+    <g clip-path="url(#famclip)">
+      <rect x="0" y="0" width="120" height="88" fill={FIELD_U}/>
+      <rect x="0" y="88" width="120" height="72" fill={FIELD_L}/>
+
+      <!-- two arrows in saltire, behind the cross -->
+      <g stroke={SHAFT} stroke-width="3" stroke-linecap="round">
+        <line x1="34" y1="42" x2="86" y2="76"/>
+        <line x1="86" y1="42" x2="34" y2="76"/>
+      </g>
+      <g fill={METAL}>
+        <path d="M86,42 l-9,1.5 4.5,5.5 Z"/><path d="M34,42 l9,1.5 -4.5,5.5 Z"/>
+      </g>
+      <g fill={METAL} opacity=".85">
+        <path d="M34,76 l7,-1 -1,5 Z"/><path d="M86,76 l-7,-1 1,5 Z"/>
+      </g>
+
+      <!-- Greek cross, arms equal -->
+      <g fill={METAL}>
+        <rect x="53" y="40" width="14" height="40" rx="1"/>
+        <rect x="40" y="53" width="40" height="14" rx="1"/>
+      </g>
+
+      <!-- pomegranate: fruit, crown and split showing seeds -->
+      <g>
+        <circle cx="60" cy="112" r="17" fill={FRUIT}/>
+        <path d="M60,95 l-4,-7 4,2 4,-2 Z" fill={LEAF}/>
+        <path d="M54,100 C58,112 62,112 66,100 C64,116 56,116 54,100 Z" fill={METAL} opacity=".35"/>
+        <g fill={METAL} opacity=".9">
+          <circle cx="56" cy="110" r="2"/><circle cx="63" cy="109" r="2"/>
+          <circle cx="59" cy="115" r="2"/><circle cx="66" cy="115" r="2"/>
+          <circle cx="53" cy="116" r="2"/>
+        </g>
+      </g>
+    </g>
+    <path d={shield} fill="none" style="stroke:var(--ink)" stroke-width="2.6"/>
+  </svg>
+  <figcaption>
+    <p class="bl">“Nella parte superiore dello scudo una croce greca attraversata da due freccie, nell'inferiore un melagrano; sovra lo scudo elmo piumato.”</p>
+    <p class="at">In the upper part of the shield a Greek cross crossed by two arrows, in the lower a pomegranate; above the shield a plumed helm. Blazoned by <strong>Carlo De Franceschi</strong> in his letter to Giovanni Kobler, about 1873 — of his own family.</p>
+    <p class="dr">Every element the letter names is drawn. Carlo gives no tinctures, so the colours here are a reading, not a record.</p>
+    <p class="vd"><span class="chip doc">The family's own, in its own words</span></p>
+  </figcaption>
+</figure>

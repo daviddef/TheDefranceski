@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+import k from "../data/kobler.json";
+---
+<Base title="Carlo's Letter" eyebrow="Parenzo, about 1873"
+      dek="Giovanni Kobler wrote to Carlo De Franceschi asking about the families of Fiume who carried his surname. Carlo's reply answers, in his own hand, most of what this archive has spent its time trying to establish."
+
+>
+<section class="blk">
+  <div class="prose">
+    <p>The existing family research has always said its account of the lines came “from historical correspondence between Carlo de Franceschi and Kobler.” That correspondence was printed in 1928 and runs to a hundred pages. This is what is actually in it.</p>
+    <p>Carlo is writing from Parenzo. He is in his sixties, he has just published <em>L'Istria: note storiche</em>, and Kobler — the historian of Fiume — has sent him notes on the Defranceschi families of that city. Carlo replies as a man identifying his own relatives.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>What he says</h2>
+  <div class="stack" style="margin-top:26px">
+    {k.quotes.map(q => (
+      <div class="qz">
+        <p class="qit">“{q.it}”</p>
+        <p class="qen">{q.en}</p>
+        <p class="qwhy">{q.why}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The pedigree he gives</h2>
+  <p class="dek">Four generations, named in a single sentence and the story that follows it.</p>
+  <div class="scroll" style="margin-top:20px">
+    <table><thead><tr><th>Name</th><th class="m">When</th><th>What Carlo says</th></tr></thead>
+    <tbody>{k.pedigree.map(([n,w,t])=>(<tr><td>{n}</td><td class="m">{w}</td><td>{t}</td></tr>))}</tbody></table>
+  </div>
+  <div class="prose" style="margin-top:26px">
+    <p>The younger son is the one who matters. Intended for the priesthood and sent to study at Fiume, he <em>felt a vocation for the sword instead</em>, volunteered into the army of Maria Theresa, and was made <strong>castellan of Bribir</strong> for his service, marrying a woman of the <strong>D'Agnese</strong> family. He is the Giovanni Battista Defranceschi whom Kobler had found arriving at Fiume around 1740 — the man every account of this family, including its own, has filed as a separate and unrelated line.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>And the cousins he can place</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table><tbody>{k.descendants.map(([n,t])=>(<tr><td style="width:150px">{n}</td><td>{t}</td></tr>))}</tbody></table>
+  </div>
+  <div class="prose" style="margin-top:24px">
+    <p>Note what he does with <strong>Valentino</strong>. He does not claim him. He says the port captain Francesco descends from Valentino rather than from Giambattista, that Valentino came to Fiume <em>directly from Carnia</em>, and that Francesco confirmed to him that his ancestors came from there. Then he adds, carefully: the Valentino branch <em>“potrebbe essere stato congiunto del mio trisavolo nato in Carnia”</em> — might have been connected to my great-great-grandfather, born in Carnia.</p>
+    <p>That is exactly the question this archive framed a hundred and fifty years later, and Carlo left it exactly where the evidence leaves it: open, and probable.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>What this closes</h2>
+  <div class="prose">
+    <p><strong>Carnia is not a hypothesis.</strong> The 1679 headmen's list put a Zuane De Franceschi of Mione at work in the Habsburg County of Pazin. Carlo, who had never seen that list, says his family came from Carnia and settled in Istria around 1700, and that there were still De Franceschi at Mione and Muina in his own day. Two independent sources, a hundred and ninety years apart, describing the same road.</p>
+    <p><strong>The 1711 house has a builder.</strong> Giambattista del fu Leonardo — and the register confirms the name, because a godparent entry of 1769 records a <em>“Joannes Baptista Defranceschi filius Leonardi”</em>, which is where the casa-31 branch gets its byname <em>detti Leonardi</em>.</p>
+    <p><strong>The spelling has an author.</strong> Not drift, not a clerk's ear — Austrian officials who mistook the Italian <em>de</em> for a claim of nobility, and family members who fused it rather than risk a fine they could not answer. This archive argued that from the pattern of the records; Carlo states it as something done to him.</p>
+    <p><strong>And there is a coat of arms after all.</strong> A Greek cross crossed by two arrows above, a pomegranate below, a plumed helm over the shield. Not one of the achievements sold by surname; his own, described in a private letter, and matching nothing in any catalogue this archive consulted.</p>
+  </div>
+  <div class="note" style="margin-top:26px">A caution that Carlo himself would want kept. This is testimony, not a register: a man in his sixties reporting what his family believed, some of it at second hand from a cousin's papers. The Bergamo origin, the castles in Carnia and the claim to the patriarchal nobility «dei Germani» are family tradition. The Carnian origin, the 1711 house, the two sons and the Fiume connection are things he was in a position to know. <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> where he is repeating tradition; <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> as his own testimony throughout.</div>
+  <p class="cap">{k.source}</p>
+</section>
+</Base>
