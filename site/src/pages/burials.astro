@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import data from "../data/burials.json";
 const rows = data.rows, S = data.summary;
@@ -82,6 +84,16 @@ const places = S.places.filter(([p]) => p !== "not stated");
   </div>
   <p class="prose" style="margin-top:20px">Valentino Defranceschi came from Carnia, was made a citizen of Fiume in 1739, built the chapel of St Helena in 1764 and made himself a tomb in the cathedral with an epigraph in 1785. He is the most conspicuously successful man in the family's own account of itself. He also buried Mattio and Nicolò in 1742, Antonio in 1753, and Aloysia and Maria in 1757 — and the last two in the same year. The chapel and the tomb are the part of a life that gets written down. See <a href={u("/carlos-letter/")}>Carlo's Letter</a>, where Valentino's story is told without any of this.</p>
 
+  <h2 style="font-size:30px;margin-top:52px">Two men in the hospital at San Daniele del Friuli</h2>
+  <p class="dek" style="margin-top:8px">Four years apart, in the same civic hospital in a small Friulian town, two men of this surname died — and neither of them lived there.</p>
+  <div class="prose" style="margin-top:20px">
+    <p>On 30 March 1895, at five in the morning, <strong>Pietro De Franceschi</strong> died in the Civic Hospital of San Daniele del Friuli. He was forty-four, and the register calls him <em>mura…</em> — a mason. The same trade the Gračišće register gives Antonius in 1863: <em>lapicida</em>.</p>
+    <p>On 12 August 1899, at five in the morning, in the same building, died <strong>Edoardo De Franceschi</strong>. Forty-eight, <em>già Ufficiale</em> — a former officer — <em>nato in Zara e domiciliato in Zara</em>, son of the late Giovanni and the late Maria Zenardi, husband of Regina Pappafava.</p>
+    <p>Edoardo was a Zadar man, and he died seven hundred kilometres from Zadar. Both entries were written out by the same registrar, Giovanni Stocchi, from a notice sent over by the hospital director that morning. Whether the two men knew each other, or whether San Daniele's hospital simply took in cases from a wide catchment, the archive cannot say — but the coincidence is on the page, and Friuli is the country this family says it came from.</p>
+    <p>A third Italian entry belongs with these: at Concesio above Brescia on 15 July 1916, <strong>Giovanni De Franceschi</strong>, aged three, died at Via Pieve 17. The death was reported by his own father, <em>De Franceschi prof. Umberto</em>, forty, a schoolmaster of Brescia, who walked to the town hall the next morning and gave his son's age as three.</p>
+  </div>
+  <div style="margin-top:22px"><Plates ids={["pietro-1895","edoardo-1899"]} /></div>
+
   <h2 style="font-size:30px;margin-top:52px">Every life this archive can measure</h2>
   <p class="dek" style="margin-top:8px">One bar per person, from birth to burial, on a single scale from 1580 to 2000. Red is a first year not survived; amber a childhood; teal a life.</p>
   <div class="lifebars">
@@ -132,4 +144,5 @@ const places = S.places.filter(([p]) => p !== "not stated");
     <h3>What to ask for next</h3>
     <p>The Poreč and Rovinj death registers, by name and year, from the Pazin State Archive — the same way the two <em>Status Animarum</em> pages were obtained. That would turn the Carlo identification from strong to settled, and would give his wife's name, which this archive still does not have.</p>
   </section>
+  <Lightbox />
 </Base>

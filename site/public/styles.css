@@ -384,3 +384,18 @@ dialog.lb::backdrop{background:rgba(10,14,18,.88)}
 .bigstat b{display:block;font-family:var(--serif);font-size:38px;line-height:1;color:var(--accent);
   font-variant-numeric:tabular-nums}
 .bigstat span{display:block;font-family:var(--sans);font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.45}
+
+/* ---- gazetteer ---- */
+.bars{display:flex;flex-direction:column;gap:7px;margin-top:20px}
+.bar{display:grid;grid-template-columns:160px minmax(0,1fr) 44px;gap:12px;align-items:center;
+  font-family:var(--sans);font-size:13px}
+.bar .l{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .t{height:16px;background:var(--panel-2);border-radius:2px;overflow:hidden}
+.bar .f{height:100%;background:var(--accent);border-radius:2px}
+.bar.hi .f{background:var(--terra)}
+.bar .v{font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:right}
+@media (max-width:600px){.bar{grid-template-columns:110px minmax(0,1fr) 38px}}
+.one{background:var(--panel);border:1px solid var(--terra);border-left-width:3px;border-radius:3px;
+  padding:22px 24px;margin-top:26px}
+.one h3{font-size:26px;line-height:1.2}
+.one p{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:10px}

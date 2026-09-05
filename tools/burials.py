@@ -28,6 +28,8 @@ PLACE = [
     (r"bakar", "Bakar"),
     (r"sovignacco|buzet", "Sovinjak"),
     (r"\btar\b", "Tar"),
+    (r"san daniele", "San Daniele del Friuli"),
+    (r"concesio|brescia", "Concesio, Brescia"),
 ]
 
 def year(s):
