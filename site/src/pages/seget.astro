@@ -1,0 +1,64 @@
+---
+import Base from "../layouts/Base.astro";
+import s from "../data/seget.json";
+---
+<Base title="Seget, and Crete" eyebrow="The other Istrian branch"
+      dek="A published monograph on an estate near Umag says something no family account here had: that there were two branches of this family in Istria — one seated at Gologorica, the other at Umag and Seget — and that the second came out of Crete.">
+
+<section class="blk">
+  <div class="prose">
+    <p>The <em>stancija</em> at Seget, a few kilometres south of Umag, is the subject of a 2019 monograph published by the Croatian Ministry of Culture. Its second chapter is titled <em>Obitelj de Franceschi i Seget u povijesnim izvorima</em> — the de Franceschi family and Seget in the historical sources — and it states the thing plainly:</p>
+    <p style="font-family:var(--serif);font-size:19px;font-style:italic;color:var(--ink);border-left:2px solid var(--terra);padding-left:20px">“There were two branches of the family in Istria, one seated at Gologorica, and the other at Umag and Seget. Family archives survive from both.”</p>
+    <p>The Umag branch reached Istria by fleeing <strong>Crete after the Candian War of 1669</strong>, when the Ottomans took the island from Venice. Half a century later they bought the estate.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>How the estate came to them</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table><tbody>{s.timeline.map(([y,t])=>(
+      <tr><td class="m" style="width:64px">{y}</td><td>{t}</td></tr>))}</tbody></table>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The household</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table><thead><tr><th>Name</th><th class="m">Dates</th><th>What the sources say</th></tr></thead>
+    <tbody>{s.people.map(([n,d,w])=>(<tr><td>{n}</td><td class="m">{d}</td><td>{w}</td></tr>))}</tbody></table>
+  </div>
+  <div class="grid g2" style="margin-top:24px">
+    <div class="panel"><div class="lab">Marc'Antonio &amp; Crissulla's eleven children</div>
+      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-top:10px">{s.children_marcantonio.join(" · ")}</p></div>
+    <div class="panel"><div class="lab">Alvise &amp; Francesca Borella's six</div>
+      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-top:10px">{s.children_alvise.join(" · ")}</p></div>
+  </div>
+  <div class="prose" style="margin-top:26px">
+    <p>Two details carry the Cretan origin without needing to argue it. Marc'Antonio's wife is <strong>Crissulla Marulli</strong> — Chrysoula Marouli, a Greek name, not an Istrian one. And his son <strong>Alvise</strong> is recorded in the family's own genealogy as <em>Dragomanno alla Porta ottomana</em>: dragoman, the interpreter-diplomat, at the Ottoman court. A family two generations out of Crete would have the Greek and the Turkish to do that work.</p>
+    <p>The estate itself still carries their marks. A portal cut with <strong>1724</strong>; the stone well-head in front of the house cut with <strong>1732</strong> and the initials <strong>M A · F</strong>.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Two family archives, and two family trees</h2>
+  <p class="dek">This is the most valuable thing on the page. Both branches deposited their papers, and both are catalogued.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table><thead><tr><th class="m">Fond</th><th>Where</th><th>What it holds</th></tr></thead>
+    <tbody>{s.archives.map(([f,w,h])=>(<tr><td class="m">{f}</td><td>{w}</td><td>{h}</td></tr>))}</tbody></table>
+  </div>
+  <div class="note" style="margin-top:26px">Two genealogies of this family already exist in Croatian state archives — one drawn up about <b>1896</b> at Rijeka giving every member with birth, death and marriage dates, and one drawn up in <b>1927</b> at Pazin giving the male line. Neither has been read for this archive. Between them they would almost certainly settle several of the questions still open on the research log.</div>
+</section>
+
+<section class="blk">
+  <h2>What Carlo's own book adds</h2>
+  <p class="dek">Reading <em>L'Istria: note storiche</em> (1879) for the family rather than for the history turns up four things.</p>
+  <div class="scroll" style="margin-top:20px">
+    <table><tbody>{s.carlo.map(([y,t])=>(
+      <tr><td class="m" style="width:64px">{y}</td><td>{t}</td></tr>))}</tbody></table>
+  </div>
+  <div class="prose" style="margin-top:24px">
+    <p>The first is worth sitting with. Carlo De Franceschi spent his life arguing for the Italian character of Istria. In the middle of a passage on when Slavic place-names begin to appear in the record, he notes that in <strong>1102</strong> one finds <em>Golgoriza</em> — and adds the Italian name in brackets, <em>Moncalvo</em>. It is the earliest documented mention of his own birthplace, and he is recording it as evidence of Slavic settlement.</p>
+  </div>
+  <p class="cap">{s.source}</p>
+</section>
+</Base>
