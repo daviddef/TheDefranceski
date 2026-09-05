@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import o from "../data/omis.json";
+---
+<Base title="The Omiš Line" eyebrow="Seventeen generations published · 1318–1948"
+      dek="A family chart for the Dalmatian branch, running from an envoy of Pope Urban V to the middle of the twentieth century. Three of its people were already in this archive under other sources, and they match."
+>
+<section class="blk">
+  <div class="note">{o.caveat}</div>
+  <div class="prose" style="margin-top:26px">
+    <p>The chart is titled <em>Rodoslovno stablo obitelji Franceschi</em>. Read from the bottom it starts at Zadar — a notary, a municipal archivist, an officer of the port salt-house — moves to Omiš with an admiral, and then holds there as <em>posjednici</em>, landholders, for three hundred years.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The direct line</h2>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Generation</th><th class="m">Dates</th><th>What the chart records</th></tr></thead>
+      <tbody>{o.line.map(([n,d,w],i)=>(
+        <tr><td><span class="mono" style="color:var(--ink-3);margin-right:9px">{String(i+1).padStart(2,"0")}</span>{n}</td>
+        <td class="m">{d}</td><td>{w}</td></tr>))}</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Where it meets the rest of this archive</h2>
+  <p class="dek">Six points where the chart and independently-found records touch. This is the test of a family tree: whether it survives contact with sources it was not drawn from.</p>
+  <div class="stack" style="margin-top:26px">
+    {o.matches.map(([n,t])=>(
+      <div class="qrow">
+        <div><h3 class="qq">{n}</h3></div>
+        <div><p class="qw">{t}</p></div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The wider family on the chart</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table><tbody>{o.siblings.map(([y,t])=>(
+      <tr><td class="m" style="width:110px">{y}</td><td>{t}</td></tr>))}</tbody></table>
+  </div>
+  <div class="note" style="margin-top:26px">{o.omittedNote}</div>
+  <p class="cap">{o.source}</p>
+</section>
+</Base>
