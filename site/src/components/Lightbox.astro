@@ -1,0 +1,56 @@
+---
+/* One dialog serves every plate grid on the page. */
+---
+<dialog class="lb" id="lb" aria-label="Document plate">
+  <div class="lb-in" style="position:relative">
+    <div class="lb-img"><img id="lb-img" src="" alt="" /></div>
+    <div class="lb-txt">
+      <div class="lab" id="lb-holder"></div>
+      <h3 id="lb-title"></h3>
+      <p id="lb-cap"></p>
+      <div class="lb-nav">
+        <button type="button" id="lb-prev">← Previous</button>
+        <button type="button" id="lb-next">Next →</button>
+      </div>
+    </div>
+    <button class="lb-close" type="button" id="lb-x">Close ✕</button>
+  </div>
+</dialog>
+<script>
+  const dlg = document.getElementById("lb");
+  if (dlg) {
+    const img = document.getElementById("lb-img");
+    const ttl = document.getElementById("lb-title");
+    const cap = document.getElementById("lb-cap");
+    const hol = document.getElementById("lb-holder");
+    let set = [], at = 0;
+
+    const show = (n) => {
+      if (!set.length) return;
+      at = (n + set.length) % set.length;
+      const p = set[at];
+      img.src = p.src; img.alt = p.title;
+      ttl.textContent = p.title; cap.textContent = p.caption; hol.textContent = p.holder;
+    };
+
+    document.querySelectorAll("[data-plates]").forEach((grid) => {
+      const data = JSON.parse(grid.getAttribute("data-plates"));
+      grid.querySelectorAll(".plate").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          set = data; show(+btn.dataset.i);
+          dlg.showModal();
+        });
+      });
+    });
+
+    document.getElementById("lb-x").addEventListener("click", () => dlg.close());
+    document.getElementById("lb-prev").addEventListener("click", () => show(at - 1));
+    document.getElementById("lb-next").addEventListener("click", () => show(at + 1));
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+    document.addEventListener("keydown", (e) => {
+      if (!dlg.open) return;
+      if (e.key === "ArrowLeft") show(at - 1);
+      if (e.key === "ArrowRight") show(at + 1);
+    });
+  }
+</script>

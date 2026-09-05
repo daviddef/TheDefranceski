@@ -1,0 +1,96 @@
+---
+import Base from "../layouts/Base.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { u } from "../lib/url.js";
+import ns from "../data/namesakes.json";
+import artsrc from "../data/art-src.json";
+import plates from "../data/plates.json";
+
+const art = Object.fromEntries(artsrc.map(a => [a.id, a]));
+const plate = Object.fromEntries(plates.map(p => [p.id, p]));
+
+// One lightbox set for everything illustrated on this page.
+const set = ns.filter(n => n.art || n.plate).map(n => {
+  const a = n.art ? art[n.art] : plate[n.plate];
+  const credit = n.art
+    ? `Wikimedia Commons · ${a.licence}`
+    : a.holder;
+  return { id: n.id, src: u(a.src), thumb: u(a.thumb), title: n.name,
+           caption: n.text, holder: credit, w: a.w, h: a.h };
+});
+const idx = Object.fromEntries(set.map((s, i) => [s.id, i]));
+const fields = [...new Set(ns.map(n => n.field))].sort();
+---
+<Base
+  title="The Other Franceschi"
+  eyebrow="Fifteen who carried the name"
+  dek="A chancellor of Venice painted by Titian, a bishop who was a rabbi's son, two Venetian presses, a Napoleonic baron, and the painter every history of perspective begins with. Some are certainly kin to this family. Most are certainly not. The point is the name, and what it did.">
+
+  <section class="prose">
+    <p>Franceschi is a patronymic — <em>of Francesco</em> — and patronymics arise wherever the given name is common, which in Italy it was everywhere. So the surname was invented many times over, in Tuscany and Friuli and Corsica and the Veneto, by people with no ancestor in common. Any archive of the name has to say that plainly, or it becomes the sort of thing that sells crests.</p>
+    <p>What the name did carry, again and again, was a particular kind of career: the chancery, the press, the parish, the notarial office. Literate trades. Men who wrote things down are men who get written down, which is why the record survives at all.</p>
+  </section>
+
+  <div class="filters" role="group" aria-label="Filter by field" style="margin-top:30px">
+    <button type="button" data-f="all" aria-pressed="true">All fifteen</button>
+    {fields.map(f => <button type="button" data-f={f} aria-pressed="false">{f}</button>)}
+    <span class="count" id="ncount"></span>
+  </div>
+
+  <div class="figs" id="figs" data-plates={JSON.stringify(set)}>
+    {ns.map((n) => {
+      const a = n.art ? art[n.art] : (n.plate ? plate[n.plate] : null);
+      return (
+        <article class="fig" data-field={n.field}>
+          {a && (
+            <button class="art plate" type="button" data-i={idx[n.id]} aria-label={`Open image for ${n.name}`}>
+              <img src={u(a.thumb)} alt={n.name} width={a.w} height={a.h} loading="lazy" decoding="async" />
+            </button>
+          )}
+          <div class="in">
+            <span class="field">{n.field}</span>
+            <h3>{n.name}</h3>
+            <div class="who"><span>{n.dates}</span><span>{n.where}</span></div>
+            <p>{n.text}</p>
+            {n.note && <div class="src">{n.note}</div>}
+          </div>
+        </article>
+      );
+    })}
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>Picture credits</h3>
+    <p>Four paintings and prints on this page are public-domain works reproduced from Wikimedia Commons:{" "}
+      {artsrc.map((a, i) => <>{i > 0 && "; "}<a href={a.page} rel="noopener">{a.file.replace(/^File:/, "")}</a></>)}.
+      The photograph of Carlo De Franceschi is reproduced from the family's own copy.</p>
+    <h3>Who is actually kin</h3>
+    <p>Carlo and Camillo are this family's own, by the letter Carlo wrote to Kobler. The Omiš men — Zuane and Giovanni — belong to the Zadar-Omiš descent, which the family's own twenty-generation chart connects to Niccolò. Everyone else on this page is here as a namesake, and is labelled as one. See <a href={u("/name/")}>The Name</a> for how the spellings actually behave, and <a href={u("/lines/")}>The Lines</a> for which descents this archive can defend.</p>
+  </section>
+
+  <Lightbox />
+</Base>
+
+<script>
+  const bar = document.querySelector(".filters");
+  const figs = document.getElementById("figs");
+  const count = document.getElementById("ncount");
+  if (bar && figs) {
+    const cards = [...figs.querySelectorAll(".fig")];
+    const apply = (f) => {
+      let n = 0;
+      cards.forEach((c) => {
+        const on = f === "all" || c.dataset.field === f;
+        c.hidden = !on; if (on) n++;
+      });
+      count.textContent = `${n} of ${cards.length}`;
+    };
+    bar.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-f]");
+      if (!b) return;
+      bar.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      apply(b.dataset.f);
+    });
+    apply("all");
+  }
+</script>

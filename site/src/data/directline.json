@@ -1,0 +1,110 @@
+{
+ "note": "The descent from Gologorica to Brisbane. Generations 1-4 rest on two Status Animarum entries and one baptismal entry from the Gracisce parish books, certified by the Pazin State Archive in 2021. Generations 5-6 rest on wartime and displaced-persons paper held by the Arolsen Archives. The last two generations are given as the family itself publishes them, without dates.",
+ "generations": [
+  {
+   "n": 1,
+   "name": "Giovanni Defranceschi",
+   "latin": "Joannes",
+   "born": 1750, "died": 1829,
+   "place": "Gologorica → Gračišće",
+   "confidence": "family",
+   "evidence": "Carried on the family's own descent chart. The Status Animarum entry for his son calls that son Joan. Bapt. Defranceschi, and the next generation is styled q. Joannis — son of the late Giovanni — so a Giovanni stands at the head of the line. The 1750-1829 dates come from the family chart, not yet from a register page.",
+   "sources": []
+  },
+  {
+   "n": 2,
+   "name": "Giovanni Battista Defranceschi",
+   "latin": "Joan. Bapt. Defranceschi",
+   "born": 1787, "bornExact": "13 August 1787",
+   "died": 1846, "diedExact": "1 September 1846",
+   "married": "1819",
+   "occupation": "agricola — farmer",
+   "place": "Gračišće (Gallignana), house 5",
+   "spouse": {"name": "Francisca Salomon", "born": "17 March 1797"},
+   "children": [
+    {"name": "Raymundus", "born": "9 October 1823"},
+    {"name": "Antonius", "born": "20 September 1825", "line": true},
+    {"name": "Joannes", "born": "30 June 1833"},
+    {"name": "Franciscus", "born": "26 January 1840"}
+   ],
+   "confidence": "documented",
+   "evidence": "Status Animarum of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and four sons beneath him.",
+   "plate": "status-animarum-gb",
+   "sources": [{"label": "DAPA ZM34K 217, M01072071", "note": "Supplied by the Pazin State Archive, 24 June 2021"}]
+  },
+  {
+   "n": 3,
+   "name": "Antonio Defranceschi",
+   "latin": "Antonius Defranceschi q. Joannis",
+   "born": 1825, "bornExact": "20 September 1825",
+   "died": 1894, "diedExact": "4 August 1894",
+   "married": "25 November 1856",
+   "occupation": "lapicida — stonecutter",
+   "place": "Gračišće (Gallignana), house 19",
+   "spouse": {"name": "Maria née Fernasar", "born": "17 October 1832"},
+   "children": [
+    {"name": "Antonius", "born": "6 August 1856"},
+    {"name": "Josephus", "born": "22 March 1863", "line": true},
+    {"name": "Leopolda", "born": "6 November 1865"},
+    {"name": "Catharina", "born": "3 February 1869"},
+    {"name": "Modestus", "born": "15 June 1875"}
+   ],
+   "confidence": "documented",
+   "evidence": "Status Animarum, house 19, with the cross of death before his name. He is styled q. Joannis, which welds this household to house 5. His trade comes from the 1863 baptismal entry for his son, where he is entered as lapicida.",
+   "plate": "status-animarum-ant",
+   "sources": [
+    {"label": "DAPA ZM34K 217, M01071656", "note": "Supplied by the Pazin State Archive, 24 June 2021"},
+    {"label": "MKR Gračišće 1841-1899", "note": "Certified copy supplied 26 April 2021"}
+   ]
+  },
+  {
+   "n": 4,
+   "name": "Josip Defranceschi",
+   "latin": "Josephus",
+   "born": 1863, "bornExact": "22 March 1863",
+   "died": 1951,
+   "place": "Gračišće → Crikvenica",
+   "confidence": "documented",
+   "evidence": "Baptised at Gallignana on 23 March 1863, born the day before, son of Antonius the stonecutter. He is the generation that leaves Istria for the Kvarner coast: his son is born at Crikvenica in 1890. The 1951 death date is the family's.",
+   "plate": "gracisce-1863",
+   "sources": [{"label": "MKR Gračišće 1841-1899, entry 23", "note": "Certified copy, Pazin State Archive, 26 April 2021"}]
+  },
+  {
+   "n": 5,
+   "name": "Antonio Defranceski",
+   "born": 1890, "bornExact": "20 January 1890",
+   "died": 1943,
+   "place": "Crikvenica → Pfullingen",
+   "confidence": "documented",
+   "evidence": "Named on the Pfullingen list of foreigners registered between September 1939 and April 1945, and on a certificate signed by the mayor of Pfullingen on 28 February 1950 giving his birth as 20 January 1890 at Crikvenica and his workplace as Hermann Sauer, Reutlingen-Süd. The family records his death in 1943; the 1950 certificate is retrospective and does not contradict that, but the two want reconciling.",
+   "plate": "cert-anton-1890",
+   "flag": "The mayor's certificate is dated seven years after the death year the family carries. Retrospective certificates of this kind were commonly obtained by a surviving son for a pension or restitution claim, but the point is open.",
+   "sources": [{"label": "Arolsen Archives, ITS", "note": "Pfullingen list, 10 March 1947; municipal certificate, 28 February 1950"}]
+  },
+  {
+   "n": 6,
+   "name": "Ivan Defranceski",
+   "born": 1925, "bornExact": "24 or 25 June 1925",
+   "died": 1995,
+   "place": "Crikvenica → Pfullingen → Senj",
+   "confidence": "documented",
+   "evidence": "On the Pfullingen list as Iwan, born 24 June 1925 at Crikvenica. His own German sickness-fund card gives 25 June and puts him at Brunnenstraße 7, Pfullingen, entering work on 21 October 1941 as an unskilled hand. He was sixteen.",
+   "plate": "kk-ivan",
+   "sources": [{"label": "Arolsen Archives, ITS", "note": "Pfullingen list; Allgemeine Ortskrankenkasse membership card"}]
+  },
+  {
+   "n": 7,
+   "name": "Ivan",
+   "place": "Senj → Johannesburg → Brisbane",
+   "confidence": "living",
+   "evidence": "Dates withheld. The same name in three languages: Ivan in Croatian, Giovanni in Italian, John in English — one man, three registers."
+  },
+  {
+   "n": 8,
+   "name": "David",
+   "place": "Johannesburg → Brisbane",
+   "confidence": "living",
+   "evidence": "Dates withheld. Keeper of this archive."
+  }
+ ]
+}

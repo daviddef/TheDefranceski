@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import all from "../data/plates.json";
+const groups = [
+  ["photographs", "Photographs"],
+  ["dp", "Camp cards"],
+  ["gracisce", "Gračišće registers"],
+  ["documents", "Documents"],
+  ["places", "Places"],
+];
+const counts = Object.fromEntries(groups.map(([k]) => [k, all.filter(p => p.group === k).length]));
+---
+<Base
+  title="The Plate Room"
+  eyebrow={`${all.length} images from the family's own holdings`}
+  dek="Every image here comes from the family's own papers or from an archive that sent them on request. Click any plate to read what it shows; arrow keys move through the set.">
+
+  <div class="filters" role="group" aria-label="Filter plates">
+    <button type="button" data-g="all" aria-pressed="true">All</button>
+    {groups.map(([k, l]) => <button type="button" data-g={k} aria-pressed="false">{l} <span style="opacity:.6">{counts[k]}</span></button>)}
+    <span class="count" id="pcount"></span>
+  </div>
+
+  <Plates />
+
+  <section class="prose" style="margin-top:48px">
+    <h3>What is here and what is not</h3>
+    <p>Six photographs, three camp portraits, five pages of the Gračišće parish books with the archive's letters that released them, and the working papers of a family in Württemberg between 1941 and 1950. Nothing on this page was found on the open web; all of it was either kept by the family or bought, page by page, from an archive.</p>
+    <p>Faces of people who may be living are not published, and the children entered on the camp cards as <em>enfant</em> are named nowhere on this site.</p>
+    <h3>If you hold more</h3>
+    <p>A photograph with a name and a decade attached is worth more than a chart. Studio marks on the back of a print name the town; a uniform names the army; a dress names the decade to within about five years. Send what you have.</p>
+  </section>
+
+  <Lightbox />
+</Base>
+
+<script>
+  const bar = document.querySelector(".filters");
+  const grid = document.querySelector(".plates");
+  const count = document.getElementById("pcount");
+  if (bar && grid) {
+    const data = JSON.parse(grid.getAttribute("data-plates"));
+    const cards = [...grid.querySelectorAll(".plate")];
+    const apply = (g) => {
+      let n = 0;
+      cards.forEach((c, i) => {
+        const on = g === "all" || data[i].group === g;
+        c.hidden = !on;
+        if (on) n++;
+      });
+      count.textContent = `${n} showing`;
+    };
+    bar.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-g]");
+      if (!b) return;
+      bar.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      apply(b.dataset.g);
+    });
+    apply("all");
+  }
+</script>

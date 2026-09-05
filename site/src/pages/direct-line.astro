@@ -1,0 +1,80 @@
+---
+import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { u } from "../lib/url.js";
+import dl from "../data/directline.json";
+const gens = dl.generations;
+const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart"], living: ["lore", "Living — withheld"] };
+---
+<Base
+  title="The Spine"
+  eyebrow="Gologorica to Brisbane"
+  dek="Eight generations, and for four of them a page of the Gračišće parish books that names the household, the wife and the trade. Two entries from the Status Animarum carry the whole eighteenth- and nineteenth-century descent; the twentieth century is carried by wartime paper from Württemberg.">
+
+  <section class="prose" style="margin-bottom:34px">
+    <p>Most of this archive works outward — every Defranceschi it can find, in every spelling, across every parish. This page works the other way. It follows one line down, and it stops at each generation to ask what document says so.</p>
+    <p>The turning point was a pair of pages from the <em>Status Animarum</em>, the parish book of souls, obtained from the Državni arhiv u Pazinu in June 2021 and unread until now. A book of souls is not a register of events; it is a register of <em>households</em>. One ruled row holds a man, his condition, his birth, his marriage, his death — and beneath him his wife and every child, each with a date. Two such rows, house 5 and house 19 of Gallignana, contain four generations between them, and the second is tied to the first by three Latin words: <span class="mono">q. Joannis</span> — son of the late Giovanni.</p>
+  </section>
+
+  <div class="spine">
+    {gens.map((g) => (
+      <article class={`gen ${g.confidence}`} id={`gen-${g.n}`}>
+        <div class="rail"><span class="dot"></span></div>
+        <div class="body">
+          <div class="lab">Generation {g.n}</div>
+          <h3>{g.name}</h3>
+          {g.latin && <div class="lat">{g.latin}</div>}
+
+          <div class="facts">
+            {g.bornExact ? <span><b>Born</b>{g.bornExact}</span> : g.born ? <span><b>Born</b>{g.born}</span> : null}
+            {g.married && <span><b>Married</b>{g.married}</span>}
+            {g.diedExact ? <span><b>Died</b>{g.diedExact}</span> : g.died ? <span><b>Died</b>{g.died}</span> : null}
+            {g.occupation && <span><b>Trade</b>{g.occupation}</span>}
+            <span><b>Where</b>{g.place}</span>
+            <span class={`chip ${conf[g.confidence][0]}`}>{conf[g.confidence][1]}</span>
+          </div>
+
+          {g.spouse && (
+            <div class="house">
+              <div class="hl">Wife</div>
+              <div class="kids"><span class="kid">{g.spouse.name}<i>b. {g.spouse.born}</i></span></div>
+              {g.children && <>
+                <div class="hl" style="margin-top:16px">Children in the house</div>
+                <div class="kids">{g.children.map((c) => (
+                  <span class={`kid${c.line ? " line" : ""}`}>{c.name}<i>{c.born}</i></span>
+                ))}</div>
+              </>}
+            </div>
+          )}
+
+          <p class="cap" style="max-width:62ch">{g.evidence}</p>
+          {g.flag && <p class="note" style="margin-top:12px">{g.flag}</p>}
+
+          {g.sources && g.sources.length > 0 && (
+            <p class="mono" style="margin-top:10px;color:var(--ink-3)">
+              {g.sources.map((s, i) => <>{i > 0 && " · "}{s.label}</>)}
+            </p>
+          )}
+
+          {g.plate && <div style="margin-top:16px;max-width:340px"><Plates ids={[g.plate]} cols={1} /></div>}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <section style="margin-top:48px">
+    <h2 style="font-size:28px">What the two rows say, side by side</h2>
+    <p class="dek" style="margin-top:8px">The book of souls for the parish of Gallignana. Left, the household of the farmer; right, the household of the stonecutter who was his second son.</p>
+    <div style="margin-top:20px"><Plates ids={["status-animarum-gb","status-animarum-ant","gracisce-1863","dapa-letter-1","dapa-letter-2"]} /></div>
+  </section>
+
+  <section class="prose" style="margin-top:44px">
+    <h3>On the last two generations</h3>
+    <p>This archive omits living people rather than hiding them — it does not build a page and lock it. The seventh and eighth generations are therefore given as names and journeys only, in the form the family itself publishes them, with no dates and no collateral relatives. The line does not stop at 1925; the record of it does.</p>
+    <h3>What would settle generation one</h3>
+    <p>Giovanni, 1750–1829, is carried on the family's chart and implied by <span class="mono">q. Joannis</span>, but no page has yet been put in front of him. The Gračišće registers begin earlier than 1841 — the volumes for the second half of the eighteenth century are the ones to ask Pazin for next, by name and by year, the way the 2021 requests were made. See <a href={u("/parish-books/")}>Parish Books</a> for what survives and where.</p>
+  </section>
+
+  <Lightbox />
+</Base>

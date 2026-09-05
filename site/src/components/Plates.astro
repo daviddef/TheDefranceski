@@ -1,0 +1,21 @@
+---
+import { u } from "../lib/url.js";
+import all from "../data/plates.json";
+const { group, ids, cols } = Astro.props;
+let list = all;
+if (ids) list = ids.map(i => all.find(p => p.id === i)).filter(Boolean);
+else if (group) list = all.filter(p => (Array.isArray(group) ? group : [group]).includes(p.group));
+const data = list.map(p => ({ ...p, src: u(p.src), thumb: u(p.thumb) }));
+---
+<div class="plates" style={cols ? `grid-template-columns:repeat(${cols},minmax(0,1fr))` : undefined} data-plates={JSON.stringify(data)}>
+  {data.map((p, i) => (
+    <button class={`plate${p.h > p.w ? " tall" : ""}`} data-i={i} type="button">
+      <img class="shot" src={p.thumb} alt={p.title} width={p.w} height={p.h} loading="lazy" decoding="async" />
+      <span class="meta">
+        <span class="t">{p.title}</span>
+        <span class="h">{p.holder}</span>
+        <span class="zoomhint">Open plate</span>
+      </span>
+    </button>
+  ))}
+</div>

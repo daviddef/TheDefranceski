@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { u } from "../lib/url.js";
+import d from "../data/pfullingen.json";
+---
+<Base
+  title="Six Names at Pfullingen"
+  eyebrow="Crikvenica → Württemberg, 1939–1949"
+  dek="On 10 March 1947 the town of Pfullingen drew up a list of every foreigner registered there between the outbreak of war and the end of it. Under the heading Kroatien, six of the names are Defranceski, and five of the six were born at Crikvenica.">
+
+  <section class="prose">
+    <p>The list is a bureaucratic object — a table of names, birth dates and birthplaces, typed to satisfy an Allied inquiry two years after the fact. But read down the birthplace column and it becomes something else: a village on the Kvarner coast, reassembled a thousand kilometres inland, in a small Swabian town below the Alb.</p>
+    <p>They were not deported together and they did not all come for the same reason. Petar left in April 1939, five months before the war, of his own accord and to qualify — he was a ship's engineer at Split and wanted the German papers. Ivan entered work in October 1941 at sixteen, six months after Yugoslavia was partitioned. Zdravko's route is the one that stops you: a clerk pencilled it in the margin of his sickness-fund card, and it says he was taken by the Partisans in 1943, held three or four months, and then went straight to Germany.</p>
+    <p>What they did there was, almost all of them, the same thing. Motor mechanics. Three of the men worked for the same employer, <strong>Hermann Sauer</strong> of Reutlingen and Pfullingen — a firm repairing vehicles through the war years. On the French camp cards after it, under <em>Profession</em>, the word recurs: <span class="mono">auto-mécanicien</span>.</p>
+  </section>
+
+  <h2 style="font-size:28px;margin-top:44px">The six, and the two wives</h2>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Name</th><th class="m">Born</th><th>Birthplace</th><th>Trade</th><th>What the file says</th></tr></thead>
+      <tbody>{d.people.map((p) => (
+        <tr style={p.status === "withheld" ? "opacity:.72" : undefined}>
+          <td>{p.name}</td><td class="m">{p.born}</td><td>{p.birthplace}</td>
+          <td>{p.trade}</td><td>{p.role}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:28px;margin-top:48px">Three faces</h2>
+  <p class="dek" style="margin-top:8px">The <em>Fiche Individuelle</em> of the French occupation zone carried a clipped passport photograph and five fingerprints in red ink. These are the only likenesses of the Crikvenica family the archive holds.</p>
+  <div style="margin-top:20px"><Plates group="dp" /></div>
+
+  <h2 style="font-size:28px;margin-top:48px">Ten years, in the order the paper falls</h2>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th><th>Around it</th></tr></thead>
+      <tbody>{d.chronology.map((c) => (
+        <tr><td class="m">{c.y}</td><td>{c.t}</td><td>{c.w}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:28px;margin-top:48px">The paper itself</h2>
+  <div style="margin-top:20px"><Plates group="documents" /></div>
+
+  <section class="prose" style="margin-top:44px">
+    <h3>Where they went</h3>
+    <p>Petar asked for the United States, and named California, because his aunt <strong>Jacomina Alafetić</strong> was at San Pedro — the fishing and cannery port south of Los Angeles that drew Dalmatian and Kvarner families for two generations. Zdravko, Ruža and their son were on a resettlement roll in February 1949 with their numbers already assigned. Ivan went the other way: back to the coast, to Senj, and the line this archive follows runs on through him. See <a href={u("/direct-line/")}>The Spine</a>.</p>
+    <h3>A discrepancy worth naming</h3>
+    <p>The family records Anton, born 1890, as dying in 1943. Yet a certificate about his wartime employment was issued by the mayor of Pfullingen on 28 February 1950. Certificates of that kind were routinely obtained after a man's death, by a son making a claim, so the two need not conflict — but nothing here proves it either way, and it is left open.</p>
+    <h3>On dates that do not agree</h3>
+    <p>Three of the six have two birth dates in these files: Ivan 24 or 25 June 1925, Zdravko 1 or 2 April 1921, Ruža 13 February or 2 May 1922. Nothing sinister — a town clerk copying from a list, a camp officer copying from a man's memory in a second language. Both forms are shown rather than one silently chosen.</p>
+    <h3>Source</h3>
+    <p>All the documents on this page come from the <strong>Arolsen Archives</strong>, the former International Tracing Service at Bad Arolsen, holder of the Nazi-era and displaced-persons records of some seventeen and a half million people. The file for this family is numbered <span class="mono">ITS D-1.505</span>. The copies were obtained by the family and are reproduced here from their own scans.</p>
+  </section>
+
+  <Lightbox />
+</Base>
