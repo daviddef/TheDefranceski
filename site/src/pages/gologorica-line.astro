@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Pedigree from "../components/Pedigree.astro";
 import g from "../data/gologorica.json";
+import j from "../data/josip1863.json";
 import roots from "../data/gologorica_roots.json";
 const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 ---
@@ -43,5 +44,19 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     <p><strong>Gologorica marriages from about 1790 to 1849 are missing from these films entirely.</strong> The 1790 marriage of Leonardus and Matthea, which the 1826 census dates to 23 November, falls in that gap. So does the 1807 marriage of Josephus and Lambertina — the record that would name Lambertina Peschle's father.</p>
   </div>
   <div class="note" style="margin-top:24px">A reading trap worth carrying forward: in this cursive <em>defuncti</em> — “of the late” — looks very like <em>Defran-</em>. A separate family called <strong>Deprato</strong> also appears constantly as godparents. Neither is this family.</div>
+</section>
+
+<section class="blk">
+  <h2>And a stonemason at Gračišće</h2>
+  <p class="dek">One certified record, ordered from the Pazin archive by name in 2021, sits slightly apart from everything above — and may matter more than any of it.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table><tbody>{j.record.map(([k,v,n])=>(
+      <tr><td style="width:170px">{k}</td><td style="color:var(--ink)">{v}</td><td>{n}</td></tr>))}</tbody></table>
+  </div>
+  <div class="prose" style="margin-top:26px">
+    {j.why.map(t => <p>{t}</p>)}
+  </div>
+  <div class="note" style="margin-top:24px">Worth correcting a claim made earlier in this archive. The State Archives in Pazin does say publicly that its staff will not undertake extensive genealogical research — but this record shows what they <em>will</em> do: given a name, a place and a period, they searched the register, certified the copy and posted it to Australia, for a hundred and seventeen kuna. The refusal is of open-ended research, not of a specific request.</div>
+  <p class="cap">{j.source}</p>
 </section>
 </Base>
