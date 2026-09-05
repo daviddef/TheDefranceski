@@ -1,0 +1,117 @@
+---
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import gn from "../data/givennames.json";
+const rows = gn.rows;
+
+// One flat lookup: every recorded form points back to its row.
+const index = {};
+rows.forEach((r, i) => {
+  ["latin", "italian", "venetian", "croatian", "german", "english"].forEach(k => {
+    (r[k] || "").split(",").map(s => s.trim()).filter(s => s && s !== "—")
+      .forEach(form => { index[form.toLowerCase()] = i; });
+  });
+  index[r.canon.toLowerCase()] = i;
+});
+const totalForms = rows.reduce((s, r) => s + (r.forms || 0), 0);
+const langs = [
+  ["latin", "Latin", "The language of every Catholic register in Istria and the Kvarner until the 1820s, and of many for decades after. This is how the priest actually wrote it."],
+  ["italian", "Italian", "The language of Venetian Istria, of the Austrian administration's Italian-speaking towns, and of the family's own letters."],
+  ["venetian", "Venetian", "Not a dialect of Italian but the language of the Republic. It gives Zuane for Giovanni, and it is why a Zane in a photograph caption is a Giovanni."],
+  ["croatian", "Croatian", "The language of the villages, of the Vinodol and the Kvarner coast, and of every Yugoslav and Croatian document after 1945."],
+  ["german", "German", "The language of the Habsburg bureaucracy, of the Pazin gymnasium, and of the wartime sickness-fund cards at Reutlingen."],
+  ["english", "English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane. Usually the last change a name makes."],
+];
+---
+<Base
+  title="Say Your Name"
+  eyebrow={`${rows.length} names, ${totalForms} recorded forms`}
+  dek="One person, written down six different ways by six different clerks. Type a given name and see every form the same human being would have been entered under across four centuries of registers.">
+
+  <section class="prose">
+    <p>This archive's owner puts it best: <em>my own father can be Ivan or Giovanni or John.</em> One man, three registers, three languages, no change of person.</p>
+    <p>That is not a curiosity, it is the central difficulty of the work. A Josip in a Croatian register, a Giuseppe in an Italian one and a Josephus in a Latin one are the same name, and an index that treats them as three people will never join a family up. Every name below was reconciled by hand from the forms that actually appear in these registers — not from a dictionary.</p>
+  </section>
+
+  <div class="namebox" style="margin-top:30px">
+    <input type="search" id="n" placeholder="Josephus · Ivan · Zuane · Frank · Antun" autocomplete="off"
+           data-index={JSON.stringify(index)} data-rows={JSON.stringify(rows)} />
+  </div>
+  <div class="suggest" id="sug">
+    {["Giovanni", "Josephus", "Zuane", "Frane", "Antun", "Jakov", "Franz", "Nicolaus", "Orsola", "Mathæus"]
+      .filter(x => index[x.toLowerCase()] !== undefined).map(x => (
+      <button type="button" data-n={x}>{x}</button>
+    ))}
+  </div>
+
+  <div id="out"></div>
+
+  <section class="prose" style="margin-top:48px">
+    <h3>Why it matters, in one example</h3>
+    <p>The Rijeka registers hold three households that looked like three different families, because the father's name was written <em>Giovanni Antonio</em> in one, <em>Gioannis Antonÿ</em> in another and <em>Zuane Antonio</em> in a third. Reconciling the given names merged them into one. That single change moved the earliest documented Rijeka household back by decades. See <a href={u("/explorer/")}>the household explorer</a>, where the reconciled forms are what you are searching.</p>
+    <h3>The forms this does not cover</h3>
+    <p>Diminutives and household names — <em>Bepi</em>, <em>Checo</em>, <em>Nane</em>, <em>Toni</em>, <em>Ivo</em> — appear in speech and occasionally in a burial entry, and a few are listed above where a register actually used them. Saints' second and third names, which Austrian registers piled on (<em>Valentinus Franciscus Xaverius</em>, <em>Joannes Nepomucenus Aloysius Paschalis</em>), are kept whole in the records and only the first is reconciled.</p>
+    <h3>And the surname does the same thing</h3>
+    <p>De Franceschi, Defranceschi, Dei Franceschi, Defranceski, Defrančeski, De Franceski, Franceschi. Nine spellings, one family — and the spellings move with the border, not with the bloodline. See <a href={u("/name/")}>The Name</a>.</p>
+  </section>
+</Base>
+
+<script>
+  const box = document.getElementById("n");
+  const out = document.getElementById("out");
+  if (box && out) {
+    const index = JSON.parse(box.getAttribute("data-index"));
+    const rows = JSON.parse(box.getAttribute("data-rows"));
+    const langs = {
+      latin: ["Latin", "The language of every Catholic register here until the 1820s, and of many for decades after. This is how the priest actually wrote it."],
+      italian: ["Italian", "Venetian Istria, the Austrian administration's Italian towns, and the family's own letters."],
+      venetian: ["Venetian", "The language of the Republic, not a dialect of Italian. It gives Zuane for Giovanni."],
+      croatian: ["Croatian", "The villages, the Vinodol, the Kvarner coast, and every document after 1945."],
+      german: ["German", "The Habsburg bureaucracy, the Pazin gymnasium, the sickness-fund cards at Reutlingen."],
+      english: ["English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane."],
+    };
+    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    const render = (q) => {
+      const t = q.trim().toLowerCase();
+      if (!t) { out.innerHTML = ""; return; }
+      let i = index[t];
+      if (i === undefined) {
+        // fall back to a prefix match across every recorded form
+        const key = Object.keys(index).find(k => k.startsWith(t) || t.startsWith(k));
+        if (key !== undefined) i = index[key];
+      }
+      if (i === undefined) {
+        out.innerHTML = `<div class="nomatch"><strong>${esc(q)}</strong> is not among the ${rows.length} names reconciled here.
+          That does not mean it is not in the registers — it means no two spellings of it have yet needed joining up.
+          If you have it in a document, it belongs in this table.</div>`;
+        return;
+      }
+      const r = rows[i];
+      const cards = Object.entries(langs).map(([k, [label, note]]) => {
+        const v = (r[k] || "—").trim();
+        const empty = !v || v === "—";
+        return `<div class="form ${k}">
+          <div class="lang">${label}</div>
+          <div class="val${empty ? " none" : ""}">${empty ? "not recorded" : esc(v)}</div>
+          <div class="when">${note}</div>
+        </div>`;
+      }).join("");
+      out.innerHTML = `
+        <p class="dek" style="margin-top:26px;max-width:62ch">
+          <strong style="color:var(--ink);font-size:16px">${esc(r.canon[0].toUpperCase() + r.canon.slice(1))}</strong>
+          — ${r.forms} distinct spellings of this one name appear in the records gathered here.
+          Every form below is the same person.</p>
+        <div class="forms">${cards}</div>`;
+    };
+
+    box.addEventListener("input", () => render(box.value));
+    document.getElementById("sug").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-n]");
+      if (!b) return;
+      box.value = b.dataset.n; render(box.value); box.focus();
+    });
+    render("Giovanni");
+    box.value = "Giovanni";
+  }
+</script>

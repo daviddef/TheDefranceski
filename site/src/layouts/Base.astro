@@ -3,10 +3,17 @@ import { u } from "../lib/url.js";
 const { title, dek, eyebrow } = Astro.props;
 const SITE = "The Defranceschi Archive";
 const nav = [
-  ["/", "Home"], ["/name/", "The Name"], ["/lines/", "The Lines"],
-  ["/people/", "People"], ["/marriages/", "Marriages"], ["/households/", "Households"], ["/explorer/", "Explorer"], ["/direct-line/", "The Spine"], ["/gologorica-line/", "The Line"], ["/seget/", "Seget"], ["/omis-line/", "Omiš"], ["/carlos-letter/", "Carlo's Letter"], ["/places/", "Places"], ["/timeline/", "Timeline"],
-  ["/journeys/", "Journeys"], ["/emigration/", "Leaving"], ["/pfullingen/", "Pfullingen"], ["/burials/", "Burials"], ["/graves/", "Graves"], ["/gallery/", "Gallery"], ["/namesakes/", "Namesakes"], ["/arms/", "Arms & Flags"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"],
-  ["/research-log/", "Research Log"], ["/about/", "About"], ["/search/", "Search"],
+  ["Start", [["/", "Home"], ["/search/", "Search"], ["/about/", "About"]]],
+  ["The line", [["/direct-line/", "The Spine"], ["/gologorica-line/", "Gologorica"], ["/pfullingen/", "Pfullingen"],
+                ["/seget/", "Seget"], ["/omis-line/", "Omiš"], ["/lines/", "All lines"]]],
+  ["People", [["/people/", "People"], ["/namesakes/", "Namesakes"], ["/households/", "Households"],
+              ["/explorer/", "Explorer"], ["/marriages/", "Marriages"], ["/carlos-letter/", "Carlo's Letter"]]],
+  ["Places", [["/places/", "Places"], ["/journeys/", "Journeys"], ["/emigration/", "Leaving"],
+              ["/timeline/", "Timeline"]]],
+  ["The dead", [["/burials/", "Burials"], ["/graves/", "Graves"]]],
+  ["Names & signs", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"]]],
+  ["Sources", [["/gallery/", "Gallery"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"],
+               ["/research-log/", "Research Log"]]],
 ];
 const here = Astro.url.pathname;
 ---
@@ -25,8 +32,11 @@ const here = Astro.url.pathname;
 <header class="site">
   <div class="wrap sitein">
     <a class="brand" href={u("/")}>The Defranceschi Archive</a>
-    <nav>{nav.map(([h,l]) => (
-      <a href={u(h)} class={here===u(h) ? "on" : ""}>{l}</a>
+    <nav class="grouped">{nav.map(([label, links]) => (
+      <span class="grp">
+        <span class="gl">{label}</span>
+        {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
+      </span>
     ))}</nav>
   </div>
 </header>

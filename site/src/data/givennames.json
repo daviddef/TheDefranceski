@@ -2,155 +2,605 @@
  "rows": [
   {
    "canon": "giovanni",
-   "latin": "Joannes, Gioannis, Ioannes",
-   "italian": "Giovanni, Gio, Nane",
-   "venetian": "Zuane, Zuanne",
-   "croatian": "Ivan, Ivo",
-   "german": "Johann, Hans",
-   "english": "John",
-   "forms": 30
-  },
-  {
-   "canon": "giuseppe",
-   "latin": "Josephus, Josephi",
-   "italian": "Giuseppe, Bepi",
-   "venetian": "—",
-   "croatian": "Josip, Jozo",
-   "german": "Josef",
-   "english": "Joseph",
-   "forms": 11
-  },
-  {
-   "canon": "giacomo",
-   "latin": "Jacobus",
-   "italian": "Giacomo",
-   "venetian": "—",
-   "croatian": "Jakov",
-   "german": "Jakob",
-   "english": "James, Jacob",
-   "forms": 7
-  },
-  {
-   "canon": "francesco",
-   "latin": "Franciscus, Francisci",
-   "italian": "Francesco, Checo",
-   "venetian": "—",
-   "croatian": "Frane, Franjo",
-   "german": "Franz",
-   "english": "Francis, Frank",
-   "forms": 12
+   "forms": 29,
+   "latin": "Joannes, Joannem, Joanni, Joannis, Gioannes, Ioannes",
+   "italian": "Giovanni, Giovan, Gio, Gioanni, Joan, Nep",
+   "venetian": "Zuane, Zuanne, Nane, Zanne, Zan",
+   "croatian": "Ivan, Ivo, Ive",
+   "german": "Johann, Johannes, Hans",
+   "english": "John"
   },
   {
    "canon": "antonio",
-   "latin": "Antonius, Antonii",
-   "italian": "Antonio, Toni",
-   "venetian": "Anto",
+   "forms": 13,
+   "latin": "Antonius, Antonium, Antonii",
+   "italian": "Antonio, Antal",
+   "venetian": "Anto, Toni",
    "croatian": "Ante, Antun",
    "german": "Anton",
-   "english": "Anthony",
-   "forms": 13
+   "english": "Anthony, Antony, Antonÿ"
+  },
+  {
+   "canon": "matteo",
+   "forms": 13,
+   "latin": "Mattheus, Mathaeus, Mathæus, Mathæi, Matheus, Mathias",
+   "italian": "Matteo, Mattio, Matio",
+   "venetian": "—",
+   "croatian": "Mate, Matij, Matija",
+   "german": "—",
+   "english": "Matthew"
+  },
+  {
+   "canon": "francesco",
+   "forms": 12,
+   "latin": "Franciscus, Francisci, Franciscum",
+   "italian": "Francesco, Franco, Francescho",
+   "venetian": "Checo",
+   "croatian": "Frane, Franjo",
+   "german": "Franz",
+   "english": "Frank, Francis"
+  },
+  {
+   "canon": "giuseppe",
+   "forms": 11,
+   "latin": "Josephus, Josephi",
+   "italian": "Giuseppe, Bepo, Pepi",
+   "venetian": "Bepi",
+   "croatian": "Josip, Jozo, Joso",
+   "german": "Josef",
+   "english": "Joseph"
   },
   {
    "canon": "nicolo",
+   "forms": 11,
    "latin": "Nicolaus",
-   "italian": "Nicolò",
+   "italian": "Nicolo, Niccolo, Nicolaa, Nicoló, Nicolò, Miko",
    "venetian": "—",
    "croatian": "Nikola, Mikula",
    "german": "Nikolaus",
-   "english": "Nicholas",
-   "forms": 11
+   "english": "Nicholas"
+  },
+  {
+   "canon": "caterina",
+   "forms": 11,
+   "latin": "Catharina, Catharinæ",
+   "italian": "Caterina, Cattarina, Catterina, Catharinam, Kate",
+   "venetian": "—",
+   "croatian": "Katarina, Kata",
+   "german": "Katharina",
+   "english": "Catherine"
+  },
+  {
+   "canon": "pietro",
+   "forms": 10,
+   "latin": "Petrus, Petrum, Petri",
+   "italian": "Pietro, Pier, Pieto",
+   "venetian": "Piero",
+   "croatian": "Petar, Pere",
+   "german": "Peter",
+   "english": "—"
+  },
+  {
+   "canon": "maria",
+   "forms": 9,
+   "latin": "Mariæ, Mariae",
+   "italian": "Maria, Mariam, Marie, Marietta, Mare",
+   "venetian": "—",
+   "croatian": "Marija",
+   "german": "Maria",
+   "english": "Mary"
+  },
+  {
+   "canon": "elena",
+   "forms": 9,
+   "latin": "Helena, Helenæ",
+   "italian": "Elena, Ellena, Elenam, Ellenam, Ilona",
+   "venetian": "—",
+   "croatian": "Jelena",
+   "german": "—",
+   "english": "Helen"
   },
   {
    "canon": "stefano",
+   "forms": 9,
    "latin": "Stephanus",
-   "italian": "Stefano",
+   "italian": "Stefano, Steffano, Steven",
    "venetian": "—",
-   "croatian": "Stjepan, Stipe",
+   "croatian": "Stjepan, Stipe, Stipan",
    "german": "Stefan",
-   "english": "Stephen",
-   "forms": 9
+   "english": "Stephen"
   },
   {
    "canon": "michele",
-   "latin": "Michael, Michaelis",
-   "italian": "Michele",
-   "venetian": "Michiel",
-   "croatian": "Mijo, Miho",
+   "forms": 9,
+   "latin": "Michaelis",
+   "italian": "Michele, Michiel, Michiele, Mijo, Miho, Mihael",
+   "venetian": "—",
+   "croatian": "Mihovil",
    "german": "Michael",
-   "english": "Michael",
-   "forms": 9
+   "english": "—"
+  },
+  {
+   "canon": "battista",
+   "forms": 8,
+   "latin": "Baptae",
+   "italian": "Battista, Batta, Baptista, Bapt, Batista, Bata",
+   "venetian": "—",
+   "croatian": "Krstitelj",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "francesca",
+   "forms": 8,
+   "latin": "Franciscae, Franciscæ",
+   "italian": "Francesca, Francisca, Franca, Franka, Franica, Frances",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "domenica",
+   "forms": 8,
+   "latin": "Domenicae, Dominicae",
+   "italian": "Domenica, Dominica, Domca, Domča, Doma, Dominika",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "vittorio",
+   "forms": 8,
+   "latin": "Victorius",
+   "italian": "Vittorio, Vitorio, Victorii, Vitorii, Vitnio, Viktor",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "bartolo",
+   "forms": 8,
+   "latin": "—",
+   "italian": "Bartolo, Bartholomaei, Barthol, Bartolomeo",
+   "venetian": "Bortolo",
+   "croatian": "Bartol",
+   "german": "Bartholomaeus",
+   "english": "Bartholomew"
+  },
+  {
+   "canon": "anna",
+   "forms": 8,
+   "latin": "Annæ",
+   "italian": "Anna, Annam, Anta, Anzoletta, Ane",
+   "venetian": "—",
+   "croatian": "Ana",
+   "german": "Anna",
+   "english": "Anne"
+  },
+  {
+   "canon": "andrea",
+   "forms": 8,
+   "latin": "Andreæ, Andrae",
+   "italian": "Andrea, Andra, Andre",
+   "venetian": "—",
+   "croatian": "Andrija",
+   "german": "Andreas",
+   "english": "Andrew"
+  },
+  {
+   "canon": "valentino",
+   "forms": 7,
+   "latin": "Valentinus, Valentini, Valentinum",
+   "italian": "Valentino, Valentio, Valentine",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "Valentin",
+   "english": "—"
+  },
+  {
+   "canon": "orsola",
+   "forms": 7,
+   "latin": "Ursulæ, Ursulae",
+   "italian": "Orsola, Ursulam",
+   "venetian": "—",
+   "croatian": "Ursa",
+   "german": "Ursula, Uršula",
+   "english": "—"
+  },
+  {
+   "canon": "gasparo",
+   "forms": 7,
+   "latin": "Gasparus",
+   "italian": "Gasparo, Gaspero, Gaspo, Gaspar, Gaspare, Jasper",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "lucia",
+   "forms": 7,
+   "latin": "Luciae, Luciæ",
+   "italian": "Lucia, Lutia, Luce",
+   "venetian": "—",
+   "croatian": "Lucija",
+   "german": "—",
+   "english": "Lucy"
+  },
+  {
+   "canon": "natale",
+   "forms": 7,
+   "latin": "Natalis",
+   "italian": "Natale, Nadal, Nataliem, Bozo, Božo, Noel",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "eufemia",
+   "forms": 7,
+   "latin": "Euphemiae",
+   "italian": "Eufemia, Euphemia, Euphemię, Fuma, Fumia, Fumija",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "giacomo",
+   "forms": 7,
+   "latin": "Jacobus",
+   "italian": "Giacomo, Jacomo",
+   "venetian": "—",
+   "croatian": "Jakov",
+   "german": "Jakob",
+   "english": "James, Jacob"
+  },
+  {
+   "canon": "carlo",
+   "forms": 7,
+   "latin": "Carolus",
+   "italian": "Carlo, Caroli, Karlo, Karl, Carl",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "Charles"
   },
   {
    "canon": "lorenzo",
-   "latin": "Laurentius",
-   "italian": "Lorenzo",
+   "forms": 7,
+   "latin": "Laurentius, Laurentii",
+   "italian": "Lorenzo, Lovro",
    "venetian": "—",
-   "croatian": "Lovro, Lovre",
+   "croatian": "Lovre",
    "german": "Lorenz",
-   "english": "Lawrence",
-   "forms": 7
+   "english": "Lawrence"
+  },
+  {
+   "canon": "giovanna",
+   "forms": 7,
+   "latin": "—",
+   "italian": "Giovanna, Joanna, Johanna, Ivana, Jovana, Jane",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "luigi",
+   "forms": 7,
+   "latin": "Aloysius",
+   "italian": "Luigi, Aloisio, Alojz",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "Alois",
+   "english": "Louis, Lewis"
+  },
+  {
+   "canon": "antonia",
+   "forms": 6,
+   "latin": "Antoniae, Antoniæ",
+   "italian": "Antonia, Anta, Antonietta",
+   "venetian": "—",
+   "croatian": "Antonija",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "giuseppa",
+   "forms": 6,
+   "latin": "Josephae",
+   "italian": "Giuseppa, Josepha, Josepham, Josipa, Josephine",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "domenico",
+   "forms": 6,
+   "latin": "Dominicus",
+   "italian": "Domenico, Domco, Dominic",
+   "venetian": "Menego",
+   "croatian": "—",
+   "german": "Dominik",
+   "english": "—"
+  },
+  {
+   "canon": "paolo",
+   "forms": 6,
+   "latin": "Paulus",
+   "italian": "Paolo, Paoli, Pavle",
+   "venetian": "—",
+   "croatian": "Pavao",
+   "german": "Paul",
+   "english": "—"
+  },
+  {
+   "canon": "teresa",
+   "forms": 6,
+   "latin": "—",
+   "italian": "Teresa, Teresia, Theresiam, Terezija",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "Theresia",
+   "english": "Teresa, Theresa"
   },
   {
    "canon": "vincenzo",
-   "latin": "Vincentius",
+   "forms": 6,
+   "latin": "Vincentius, Vincentii",
    "italian": "Vincenzo",
    "venetian": "—",
    "croatian": "Vinko",
    "german": "Vinzenz",
-   "english": "Vincent",
-   "forms": 6
+   "english": "Vincent"
   },
   {
-   "canon": "elena",
-   "latin": "Helena",
-   "italian": "Elena",
+   "canon": "tomaso",
+   "forms": 6,
+   "latin": "—",
+   "italian": "Tomaso, Tommaso, Toma, Tomislav",
    "venetian": "—",
-   "croatian": "Jelena",
-   "german": "Helena",
-   "english": "Helen",
-   "forms": 9
+   "croatian": "Tomo",
+   "german": "Thomas",
+   "english": "—"
   },
   {
-   "canon": "caterina",
-   "latin": "Catharina",
-   "italian": "Caterina",
-   "venetian": "Cattarina",
-   "croatian": "Katarina, Kata",
-   "german": "Katharina",
-   "english": "Catherine",
-   "forms": 11
-  },
-  {
-   "canon": "orsola",
-   "latin": "Ursula, Ursulæ",
-   "italian": "Orsola",
-   "venetian": "—",
-   "croatian": "Uršula",
-   "german": "Ursula",
-   "english": "Ursula",
-   "forms": 7
-  },
-  {
-   "canon": "eufemia",
-   "latin": "Euphemia",
-   "italian": "Eufemia",
-   "venetian": "Fuma",
-   "croatian": "Fumija",
+   "canon": "girolamo",
+   "forms": 6,
+   "latin": "Hieronymus",
+   "italian": "Girolamo, Jerolim, Jere, Jerome",
+   "venetian": "Momolo",
+   "croatian": "—",
    "german": "—",
-   "english": "—",
-   "forms": 7
+   "english": "—"
+  },
+  {
+   "canon": "margarita",
+   "forms": 6,
+   "latin": "Margarita",
+   "italian": "Margarita, Margaretha, Margherita, Margareta, Marta",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "Margaret"
   },
   {
    "canon": "madalena",
-   "latin": "Magdalena",
-   "italian": "Maddalena",
+   "forms": 6,
+   "latin": "—",
+   "italian": "Madalena, Maddalena, Magdalene, Mande, Manda",
    "venetian": "—",
-   "croatian": "Manda, Mande",
+   "croatian": "—",
    "german": "Magdalena",
-   "english": "Madeline",
-   "forms": 6
+   "english": "—"
+  },
+  {
+   "canon": "stella",
+   "forms": 5,
+   "latin": "—",
+   "italian": "Stella, Stela, Steffa, Etella, Zvijezda",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "gregorio",
+   "forms": 5,
+   "latin": "Gregorius, Gregorii",
+   "italian": "Gregorio",
+   "venetian": "—",
+   "croatian": "Grgur",
+   "german": "—",
+   "english": "Gregory"
+  },
+  {
+   "canon": "angelo",
+   "forms": 5,
+   "latin": "Angelus",
+   "italian": "Angelo, Andjelo, Anđelo, Angel",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "simone",
+   "forms": 5,
+   "latin": "—",
+   "italian": "Simone, Simeon",
+   "venetian": "—",
+   "croatian": "Sime, Šime",
+   "german": "Simon",
+   "english": "—"
+  },
+  {
+   "canon": "rosa",
+   "forms": 5,
+   "latin": "—",
+   "italian": "Rosa, Rosina",
+   "venetian": "—",
+   "croatian": "Ruza, Ruža",
+   "german": "Rosa",
+   "english": "Rose"
+  },
+  {
+   "canon": "pasqua",
+   "forms": 5,
+   "latin": "Paschalis",
+   "italian": "Pasqua, Pasqualina, Pasko, Paško",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "vittoria",
+   "forms": 4,
+   "latin": "—",
+   "italian": "Vittoria, Victoria, Vittoriam, Viktorija",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "agata",
+   "forms": 4,
+   "latin": "Agathæ",
+   "italian": "Agata, Agneza",
+   "venetian": "—",
+   "croatian": "Agata",
+   "german": "—",
+   "english": "Agatha"
+  },
+  {
+   "canon": "giacoma",
+   "forms": 4,
+   "latin": "—",
+   "italian": "Giacoma, Jacobina, Jacoba, Jakovina",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "luca",
+   "forms": 4,
+   "latin": "—",
+   "italian": "Luca, Lucas",
+   "venetian": "—",
+   "croatian": "Luka",
+   "german": "—",
+   "english": "Luke"
+  },
+  {
+   "canon": "marco",
+   "forms": 4,
+   "latin": "Marcus",
+   "italian": "Marco",
+   "venetian": "—",
+   "croatian": "Marko",
+   "german": "—",
+   "english": "Mark"
+  },
+  {
+   "canon": "filippo",
+   "forms": 4,
+   "latin": "Philippus",
+   "italian": "Filippo, Filip",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "Philip"
+  },
+  {
+   "canon": "benedetto",
+   "forms": 4,
+   "latin": "Benedictus",
+   "italian": "Benedetto, Benko, Benedict",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "ignazio",
+   "forms": 4,
+   "latin": "Ignatius",
+   "italian": "Ignazio, Ignac, Ignatz",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "felice",
+   "forms": 4,
+   "latin": "—",
+   "italian": "Felice, Felix, Srecko, Srećko",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "martino",
+   "forms": 3,
+   "latin": "Martinus",
+   "italian": "Martino",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "Martin",
+   "english": "—"
+  },
+  {
+   "canon": "filomena",
+   "forms": 3,
+   "latin": "—",
+   "italian": "Filomena, Philomena, Fila",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "urbano",
+   "forms": 3,
+   "latin": "Urbanus",
+   "italian": "Urbano, Urban",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "gasparina",
+   "forms": 2,
+   "latin": "—",
+   "italian": "Gasparina, Gasperina",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
+  },
+  {
+   "canon": "veneranda",
+   "forms": 2,
+   "latin": "—",
+   "italian": "Veneranda, Venera",
+   "venetian": "—",
+   "croatian": "—",
+   "german": "—",
+   "english": "—"
   }
  ],
- "names": 60,
- "forms": 421
+ "note": "Reconciled by hand from the forms that actually occur in these registers.",
+ "totalForms": 418
 }
