@@ -1,0 +1,39 @@
+---
+import g from "../data/gologorica.json";
+const { famId, depth = 0 } = Astro.props;
+const by = Object.fromEntries(g.people.map(p => [p.gid, p]));
+const fam = g.families.find(f => f.gid === famId);
+const h = fam?.husb ? by[fam.husb] : null;
+const w = fam?.wife ? by[fam.wife] : null;
+const kids = (fam?.chil || []).map(c => by[c]).filter(Boolean)
+  .sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
+const life = p => p ? [p.birthYear, p.deathYear].filter(Boolean).join("–") : "";
+const nameOf = p => p ? `${p.title ? p.title + " " : ""}${p.name}` : "unknown";
+// a child heads a family of their own if they appear as a spouse anywhere
+const headsOf = p => g.families.filter(f => f.husb === p.gid || f.wife === p.gid).map(f => f.gid);
+---
+{fam && (
+<div class="ped" style={`--d:${depth}`}>
+  <div class="pedcouple">
+    <div class="pp"><span class="pl">{h?.sex === "F" ? "Wife" : "Husband"}</span>{nameOf(h)}<span class="py">{life(h)}</span></div>
+    <div class="pjoin" aria-hidden="true"></div>
+    <div class="pp"><span class="pl">Wife</span>{nameOf(w)}<span class="py">{life(w)}</span></div>
+  </div>
+  {fam.marriage && <div class="pmar mono">married {fam.marriage.toLowerCase()}{fam.marriagePlace ? ` · ${fam.marriagePlace}` : ""}</div>}
+  {kids.length > 0 && (
+    <div class="pedkids">
+      {kids.map(k => {
+        const own = headsOf(k).filter(x => x !== famId);
+        return (
+          <div class="pedkid">
+            <div class="pk">{nameOf(k)}<span class="py">{life(k)}</span>
+              {k.notes?.[0] && <span class="pn">{k.notes[0].slice(0, 120)}</span>}
+            </div>
+            {own.map(o => <div class="pednest"><Astro.self famId={o} depth={depth + 1} /></div>)}
+          </div>
+        );
+      })}
+    </div>
+  )}
+</div>
+)}

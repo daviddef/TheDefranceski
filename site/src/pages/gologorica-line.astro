@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import Pedigree from "../components/Pedigree.astro";
+import g from "../data/gologorica.json";
+import roots from "../data/gologorica_roots.json";
+const yrs = g.people.map(p => p.birthYear).filter(Boolean);
+---
+<Base title="The Gologorica Line" eyebrow={`${g.counts.individuals} people · ${g.counts.families} families · ${Math.min(...yrs)}–${Math.max(...yrs)}`}
+      dek="Read off the parish register itself, page by page, from microfilm of the Gologorica books held by the Pazin Records Office. This is the ancestral line, and it is the only part of this archive built from the pages rather than from an index.">
+
+<section class="blk">
+  <div class="note">Everything on this page comes from two microfilm volumes, <span class="mono">ZM34K-214</span> and <span class="mono">ZM34K-215</span> — about 1,465 page images of the Roman Catholic registers for <strong>Gologorica, Gračišće and Lindar</strong>, baptisms, marriages, deaths, confirmations and household censuses. FamilySearch does not hold these films; they came from the Pazin Records Office directly. That is why this line exists and the rest of the archive's Istrian interior does not.</div>
+  <div class="prose" style="margin-top:26px">
+    <p>Two Defranceschi households sit in the 1780s baptism register, both headed by a <strong>Joannes Baptista</strong>, both with a wife called <strong>Mariana</strong>, living in different houses — <em>casa 31</em>, carrying the byname <em>“detti Leonardi”</em>, and <em>casa 36</em>, recorded as <em>son of the late Josephus</em>. By 1826 the household census shows three heads of that generation: <strong>Jacobus</strong> (b. 1761, a bachelor), <strong>Josephus</strong> (b. 1763) and <strong>Leonardus</strong> (b. 1766).</p>
+    <p>Above them stands <strong>Dominus Josephus Defranceschi</strong> and his wife <strong>Helena</strong>, who appear through the 1760s and 1770s as godparents — the title <em>Dominus</em> marking the family's standing. And the parish priest of the 1780s was himself one of them: he signs <em>“Ego Joannes Mathias Franceschi Parochus.”</em></p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The pedigree</h2>
+  <p class="dek">Two branches, drawn from their earliest recorded couple down. The register knows them apart by house and byname long before it knows how they join.</p>
+  {roots.map(r => (
+    <div style="margin-top:34px"><Pedigree famId={r} /></div>
+  ))}
+</section>
+
+<section class="blk">
+  <h2>Carlo, in his own register</h2>
+  <div class="prose">
+    <p>The historian is here, with his full baptismal name and the exact dates the printed accounts give: <strong>Carolus Josephus Defranceschi, born 17 October 1809, died 8 January 1893</strong>, second son of <strong>Dominus Josephus de Franceschi</strong> and <strong>Lambertina née Peschle</strong>, house 17, class <em>Civilis</em>.</p>
+    <p>His parents married on <strong>3 February 1807</strong> and had ten children. The 1808 baptism of his elder brother Josephus Lambertus is the entry that fixes the generation above: it names the father as <em>“Dnus Josephus de Franceschi defuncti Josephi filius”</em> — son of the late Josephus — which is what joins this household to Dominus Josephus at the top of the tree.</p>
+    <p>Lambertina's census row carries the word <strong>Volosca</strong>, the town near Opatija, which is exactly where every printed biography of Carlo says his mother came from. Her own godmother-kin appear too: an <strong>Eugenia Peschle</strong> stood godmother at the 1808 baptism. She died on 16 July 1863, aged 76.</p>
+    <p>One of the ten was born abroad. <strong>Aloysius</strong>, 4 May 1832, is recorded <em>natus Polonia</em> — born in Poland. Four of the children were not baptised at Gologorica at all, which fits a household that moved.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>What the registers could not give</h2>
+  <div class="prose">
+    <p>Three limits are worth recording, because they define what is left to do.</p>
+    <p><strong>No Defranceschi child was baptised at Gologorica between 1764 and 1770</strong>, and there is no earlier baptism book in these films. The 1760s cohort — Jacobus, Josephus, Leonardus — were therefore born before 1764 or in another parish, so their own baptisms cannot be recovered here. The links from Dominus Josephus down to them rest on naming patterns and the <em>“detti Leonardi”</em> byname, not on a decisive entry.</p>
+    <p><strong>No Defranceschi married at Gologorica between 1771 and 1789.</strong> The whole marriage section was read. The surname appears only as witnesses — <em>Dominus Jacobus de Franceschi</em> in 1784, and an <em>Antonio</em> with a <em>Margarita de Franceschi</em> in 1782. The men married in their brides' parishes, which is the ordinary practice, so those records are at Gračišće, Lindar, Pićan or Pazin.</p>
+    <p><strong>Gologorica marriages from about 1790 to 1849 are missing from these films entirely.</strong> The 1790 marriage of Leonardus and Matthea, which the 1826 census dates to 23 November, falls in that gap. So does the 1807 marriage of Josephus and Lambertina — the record that would name Lambertina Peschle's father.</p>
+  </div>
+  <div class="note" style="margin-top:24px">A reading trap worth carrying forward: in this cursive <em>defuncti</em> — “of the late” — looks very like <em>Defran-</em>. A separate family called <strong>Deprato</strong> also appears constantly as godparents. Neither is this family.</div>
+</section>
+</Base>
