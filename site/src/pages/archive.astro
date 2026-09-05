@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import registers from "../data/registers.json";
 import fs from "../data/familysearch.json";
+import recs from "../data/fsrecords.json";
 const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
 const places=[...new Set(registers.map(r=>r.place))].sort();
 const dig=registers.filter(r=>r.digitised==="yes").length;
@@ -100,4 +101,45 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   </div>
   <p class="cap">Country figures are raw index hits and are fuzzy — they include Franceschi, Franceschini and De Francesco. They show where to look, not how many people are ours. The search interface stops returning new results past about 1,100 per query, so exhaustive worldwide harvesting needs the query split by spelling and place; that work is not finished.</p>
 </section>
+
+<section class="blk">
+  <h2>The named dead</h2>
+  <p class="dek">388 individuals recovered from the index with a name, a date and, usually, their parents — the raw material every other page here is built from.</p>
+  <div class="filters">
+    <label>Place <select id="r-place"><option value="">All</option></select></label>
+    <label>Century <select id="r-cent"><option value="">All</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option></select></label>
+    <span class="count" id="r-count"></span>
+  </div>
+  <div class="scroll" style="margin-top:18px">
+    <table id="rectable">
+      <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died / buried</th><th>Place</th><th>Parents, or spouse</th></tr></thead>
+      <tbody>{recs.map(r=>(
+        <tr data-place={(r.place||"").split(",")[0].trim()} data-y={((r.birth+" "+r.death+" "+r.burial).match(/1[5-9]\d\d/)||[""])[0]}>
+          <td>{r.name}</td><td class="m">{r.birth}</td><td class="m">{r.death||r.burial}</td>
+          <td>{(r.place||"").split(",")[0]}</td><td>{r.parents||r.spouses}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap">From FamilySearch's index of the Croatian church books. Spelling and Latin case endings are the clerk's. Where a place reads only “Croazia, Austria” the index did not localise it further; those are mostly Istrian and Kvarner parishes.</p>
+</section>
+
+<script is:inline>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('#rectable tbody tr'));
+  var sel=document.getElementById('r-place'), cent=document.getElementById('r-cent'), out=document.getElementById('r-count');
+  var places={};
+  rows.forEach(function(r){var p=r.dataset.place; if(p) places[p]=(places[p]||0)+1;});
+  Object.keys(places).sort(function(a,b){return places[b]-places[a]}).forEach(function(p){
+    var o=document.createElement('option'); o.textContent=p+' ('+places[p]+')'; o.value=p; sel.appendChild(o);});
+  function apply(){
+    var n=0;
+    rows.forEach(function(r){
+      var okP=!sel.value||r.dataset.place===sel.value;
+      var okC=!cent.value||(r.dataset.y&&r.dataset.y.slice(0,2)===cent.value);
+      r.hidden=!(okP&&okC); if(okP&&okC)n++;});
+    out.textContent=n+' of '+rows.length+' people';
+  }
+  sel.addEventListener('change',apply); cent.addEventListener('change',apply); apply();
+})();
+</script>
 </Base>

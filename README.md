@@ -13,11 +13,15 @@ and **Franceschi** families of Istria, Kvarner, Carnia and Dalmatia — and the 
 - **1,151 parish registers** across 14 Istrian parishes, read from the State Archives in Pazin inventory
   (997 digitised). Earliest: Vodnjan 1559, Svetvinčenat 1568, Pazin 1582, Gologorica 1644, Gračišće 1667.
 - **The 1945 census of the surname** — 25 families in 12 Istrian settlements on 1 October 1945, from the
-  *Cadastre National de l'Istrie* (Institut Adriatique, Sušak 1946).
+  *Cadastre National de l'Istrie* (Institut Adriatique, Sušak 1946). The spaced spelling survives only in
+  formerly Venetian territory; the fused form is found on both sides of the old border.
 - **The 1679 Mione link** — the headmen's list of the Ovaro and Luincis parishes records
   *"Zuane De Franceschi con un suo fiolo, Zuane d'Erman: questi tre nell'Istria, luogo imperiale"* —
   a De Franceschi of Mione working in the Habsburg County of Pazin.
 - **The Dalmatian line** — Omiš from 1590, Imotski from 1717, and why they are called Franceschi today.
+- **388 named individuals** recovered from the FamilySearch index of the Croatian church books, 1581–1946,
+  including three generations of the Fiume household of Valentino Defranceschi and his wife Elena.
+- **The marriage network** — 71 in-law surnames across Venetian, Slavic and Friulian-Carnian Istria.
 - Sovereignty, name-drift, migration, distribution and heraldry, all rendered from the data.
 
 ## Method
