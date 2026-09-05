@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import pb from "../data/parishbooks.json";
+const RING = ["Pazin","Stari Pazin","Tinjan","Kringa","Krbune","Boljun","Lupoglav (Pazin)","Petar u Šumi","Polje Čepić","Kršan"];
+const ring = pb.list.filter(p => RING.includes(p.parish));
+const rest = pb.list.filter(p => !RING.includes(p.parish));
+---
+<Base title="Parish Books" eyebrow={`${pb.volumes} volumes · ${pb.parishes} Istrian parishes`}
+      dek="Every Roman Catholic register volume photographed for Istria, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name.">
+
+<section class="blk">
+  <div class="note">Gologorica and Gračišće are not here, and neither is Pićan, Cerovlje, Vodnjan, Motovun or Lindar. But <strong>the ring of parishes around them is</strong>, and a family at Gologorica married, buried and stood godparent across that ring constantly. These are the books to read next, and none of their contents is name-indexed — a search returns nothing while the pages may be full of the surname.</div>
+
+  <h2 style="margin-top:38px">The ring around Gologorica</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Parish</th><th class="m">From</th><th>Volumes</th></tr></thead>
+      <tbody>{ring.map(p => (
+        <tr><td>{p.parish}</td><td class="m">{p.earliest}</td>
+          <td>{p.books.map(b => <div style="padding:1px 0">{b}</div>)}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:26px">
+    <p><strong>Pazin</strong> is the prize. Births reaching back to <strong>1582</strong> with a continuous run from 1685 to 1847, marriages from 1597 to 1852, deaths from 1655. Gračišće is four kilometres away and Gologorica about eight; Pazin was their market, their court and their county town, and it is the parish a Gologorica family would most often turn up in.</p>
+    <p><strong>Tinjan</strong> is the other one to open — births 1703–1880 and marriages 1703–1896, an unbroken two-century run six kilometres from Gračišće. <strong>Lupoglav</strong> has births from 1656. <strong>Krbune</strong>, the small village that already yielded six indexed records, has a single combined volume covering births, deaths and marriages 1803–1870.</p>
+    <p>And the marriage books matter more than the baptisms here. The Gologorica registers show that <em>no Defranceschi married in their own parish between 1771 and 1789</em> — the men married in their brides' parishes. Those marriages are in this ring.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The rest of Istria</h2>
+  <p class="dek">Sorted by the earliest year the parish holds. Labin opens in 1536; Rovinj has twenty-nine volumes; Poreč has thirty-two.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Parish</th><th class="m">From</th><th class="m">Volumes</th></tr></thead>
+      <tbody>{rest.map(p => (
+        <tr><td>{p.parish}</td><td class="m">{p.earliest || "—"}</td><td class="m">{p.volumes}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap">{pb.source}</p>
+</section>
+</Base>
