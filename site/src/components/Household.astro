@@ -1,0 +1,37 @@
+---
+const { h } = Astro.props;
+const yr = (c) => {
+  const b = (c.birth||'').match(/1[5-9]\d\d|20\d\d/)?.[0];
+  const d = (c.death||'').match(/1[5-9]\d\d|20\d\d/)?.[0];
+  if (b && d) return `${b}–${d}`;
+  if (b) return b;
+  if (d) return `d. ${d}`;
+  return '';
+};
+const shortLife = (c) => {
+  const b = +((c.birth||'').match(/1[5-9]\d\d/)?.[0] || 0);
+  const d = +((c.death||'').match(/1[5-9]\d\d/)?.[0] || 0);
+  return b && d && (d - b) <= 5;
+};
+---
+<figure class="house">
+  <div class="parents">
+    <div class="par"><span class="pl">Father</span>{h.father}</div>
+    <div class="join" aria-hidden="true"></div>
+    <div class="par"><span class="pl">Mother</span>{h.mother}</div>
+  </div>
+  <div class="drop" aria-hidden="true"></div>
+  <div class="kids">
+    {h.children.map(c => (
+      <div class={`kid${shortLife(c) ? ' short' : ''}`}>
+        <div class="kn">{c.name}</div>
+        <div class="ky">{yr(c)}</div>
+      </div>
+    ))}
+  </div>
+  <figcaption>
+    <span class="mono">{h.place || 'place not localised'}</span>
+    <span class="mono">{h.from}{h.to && h.to !== h.from ? `–${h.to}` : ''}</span>
+    <span class="mono">{h.n} children recorded</span>
+  </figcaption>
+</figure>

@@ -4,6 +4,7 @@ import registers from "../data/registers.json";
 import fs from "../data/familysearch.json";
 import recs from "../data/fsrecords.json";
 import at from "../data/austria.json";
+import sweep from "../data/sweep.json";
 const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
 const places=[...new Set(registers.map(r=>r.place))].sort();
 const dig=registers.filter(r=>r.digitised==="yes").length;
@@ -171,5 +172,38 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
     <p>Neither man is shown to be related to this family, and both carry the Friulian <em>-ini</em> ending rather than ours. They are set down here because an archive that publishes a count of 268,000 index hits and says nothing about the two men who died in a camp has failed at the only thing it is for.</p>
   </div>
   <div class="note" style="margin-top:22px">Recorded as <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> dates and places; the identification of that Gusen with the concentration camp is <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> from the place and the dates, and the underlying record set has not yet been traced to its collection.</div>
+</section>
+
+<section class="blk">
+  <h2>The systematic sweep</h2>
+  <p class="dek">Seventy-five places across Istria, Kvarner, Carnia and Dalmatia, and their neighbours, checked one by one against the FamilySearch catalogue by place-authority id. {sweep.items.length} items found across {new Set(sweep.items.map(i=>i.place)).size} places.</p>
+
+  <div class="note" style="margin-top:26px">And the result that matters most is a negative one. <strong>Gologorica and Gračišće have no FamilySearch holdings at all.</strong> Neither does Pićan, Cerovlje, Motovun, Lindar, Čepić — nor Mione. The Genealogical Society of Utah never filmed the central Istrian interior, which is exactly where this family is from. Every other route into these parishes leads back to the State Archives in Pazin and to the books still sitting in the village parish offices. There is no remote substitute.</div>
+
+  <div class="grid g2" style="margin-top:28px">
+    <div class="panel">
+      <div class="lab">No FamilySearch holdings</div>
+      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.7;color:var(--ink);margin-top:12px">{sweep.noHoldings.join(" · ")}</p>
+      <p class="cap" style="margin-top:10px">Fourteen of seventy-five. The concentration in the Pazin interior is not an accident of sampling — it is where the filming stopped.</p>
+    </div>
+    <div class="panel">
+      <div class="lab">Deepest series found</div>
+      <div style="margin-top:12px">
+        {sweep.items.filter(i=>i.start && i.start<1600).slice(0,9).map(i=>(
+          <p style="font-family:var(--sans);font-size:13px;color:var(--ink-2);margin-top:7px">
+            <b class="mono" style="color:var(--terra)">{i.start}</b> &nbsp;{i.place} — {i.title.length>58?i.title.slice(0,58)+"…":i.title}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll" style="margin-top:30px">
+    <table>
+      <thead><tr><th>Place</th><th class="m">From</th><th>Series</th></tr></thead>
+      <tbody>{sweep.items.map(i=>(
+        <tr><td>{i.place}</td><td class="m">{i.start||"—"}</td><td>{i.title}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <p class="cap">{sweep.source} Eight false matches were dropped where a Croatian or Friulian place name resolved to a Tuscan one — “Prato Carnico” pulling a register of Prato near Florence, for instance.</p>
 </section>
 </Base>

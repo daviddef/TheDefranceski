@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+import Household from "../components/Household.astro";
+import hs from "../data/households.json";
+const big = hs.filter(h => h.n >= 4);
+const rest = hs.filter(h => h.n === 3);
+const byPlace = {};
+for (const h of hs) { const p = h.place || "not localised"; byPlace[p] = (byPlace[p]||0) + 1; }
+const infant = hs.reduce((s,h) => s + h.children.filter(c => {
+  const b=+((c.birth||'').match(/1[5-9]\d\d/)?.[0]||0), d=+((c.death||'').match(/1[5-9]\d\d/)?.[0]||0);
+  return b && d && (d-b) <= 5; }).length, 0);
+const kids = hs.reduce((s,h)=>s+h.n,0);
+---
+<Base title="Households" eyebrow={`${hs.length} families reconstructed from the registers`}
+      dek="Not a family tree handed down — a family tree rebuilt. Each of these is a set of siblings who name the same two parents in the index, grouped and de-duplicated across Latin case endings and spelling drift.">
+
+<section class="blk">
+  <div class="grid g4">
+    <div class="stat"><div class="n">{hs.length}</div><div class="l">households with two or more recorded children</div></div>
+    <div class="stat"><div class="n">{kids}</div><div class="l">children placed with their parents</div></div>
+    <div class="stat"><div class="n">{infant}</div><div class="l">who did not reach five years old</div></div>
+    <div class="stat"><div class="n">1645</div><div class="l">earliest reconstructed household</div></div>
+  </div>
+  <div class="note" style="margin-top:28px">How this is built, and where it can be wrong. Each indexed record names its parents. Grouping records by a normalised parent pair recovers the sibling set — but the index writes the same man as <em>Valentino</em>, <em>Valentini</em> and <em>Valentinus</em>, and the same woman as <em>Ursula</em>, <em>Ursulæ</em> and <em>Orsola</em>, so a normaliser collapses Latin case endings and known spelling variants before grouping. Two different men of the same name in the same parish will merge wrongly. Every household here is <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> and needs the register page to confirm it.</div>
+</section>
+
+<section class="blk">
+  <h2>The large households</h2>
+  <p class="dek">Four or more children recorded. Dashed cards are children who died before their fifth birthday.</p>
+  <div class="stack" style="margin-top:26px">
+    {big.map(h => <Household h={h} />)}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Smaller groups</h2>
+  <p class="dek">Three recorded children — often a household whose register years are only partly indexed.</p>
+  <div class="grid g2" style="margin-top:24px">
+    {rest.map(h => <Household h={h} />)}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Where they sit</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table><thead><tr><th>Place</th><th class="m">Households</th></tr></thead>
+    <tbody>{Object.entries(byPlace).sort((a,b)=>b[1]-a[1]).map(([p,n])=>(
+      <tr><td>{p}</td><td class="m">{n}</td></tr>))}</tbody></table>
+  </div>
+</section>
+</Base>
