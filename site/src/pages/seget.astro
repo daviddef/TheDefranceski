@@ -1,6 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 import s from "../data/seget.json";
+import v from "../data/seget-voce.json";
+import SegetArms from "../components/SegetArms.astro";
+import { u } from "../lib/url.js";
 ---
 <Base title="Seget, and Crete" eyebrow="The other Istrian branch"
       dek="A published monograph on an estate near Umag says something no family account here had: that there were two branches of this family in Istria — one seated at Gologorica, the other at Umag and Seget — and that the second came out of Crete.">
@@ -61,4 +64,60 @@ import s from "../data/seget.json";
   </div>
   <p class="cap">{s.source}</p>
 </section>
+
+<section class="blk">
+  <h2>A county in Crete, and a shipwreck coming home</h2>
+  <p class="dek">A 2020 feature in <em>la Voce del popolo</em> — the Italian-language daily of Rijeka — sets out the Seghetto family's own account of itself, and it explains what the branch was doing in Crete in the first place.</p>
+  <div class="prose" style="margin-top:22px">
+    <p>They were not merchants there. They held a county. In the Veneto-Turkish war of <strong>1538</strong> the counts de Franceschi defended the Cretan ports of Calus, Lemiores and Sabionera with <strong>nine hundred vassals</strong> of their own county, at their own expense — and in 1581 the Duke of Candia, Marcantonio Querini, confirmed them the privileges of <em>mero et misto imperio</em>, the delegated power to administer justice, for services rendered <em>“nelle più ardue ricorrenze, col somministrar gente, haveri et cavalli, esponendo ancora se stessi ai rischi di guerra per la difesa del Regno”</em> — in the hardest of times, supplying men, goods and horses, and exposing themselves to the risks of war for the defence of the Kingdom.</p>
+    <p class="note" style="margin-top:14px">{v.wreck}</p>
+    <p>That is the sentence the Seget story turns on. The family did not simply relocate. They were evacuated by Morosini's galleys with the other Venetian families of Candia, and the fleet that carried them was wrecked in a storm on the way home. The people who bought the Umago estate fifty-one years later were the ones who got out of the water.</p>
+  </div>
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th class="m">When</th><th>The honours, as the family records them</th></tr></thead>
+      <tbody>{v.honours.map(([y, t]) => <tr><td class="m">{y}</td><td>{t}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:22px">The 474 story is a nobiliary origin legend of the kind every counted house in Italy acquired, and it is set out here as one. What is not legend is that the family went on giving the name <strong>Ferramondo</strong> to its sons: a Ferramondo de Franceschi was a commissioner of Umago between 1918 and 1945. A family that keeps naming children after its own myth is telling you something true about itself, whatever the myth is worth.</div>
+</section>
+
+<section class="blk">
+  <h2>The arms on the tympanum</h2>
+  <div class="grid g2" style="margin-top:24px;align-items:start">
+    <SegetArms />
+    <div class="prose">
+      <p>The <em>Blasonario Giuliano</em> lists a second family of this name whose arms it can only give as <em>“Di … al leone di …”</em> — a lion, tinctures unrecorded. The Seghetto façade supplies them: <strong>troncato di azzurro e d'oro al leone rampante al naturale</strong>, per fess azure and or.</p>
+      <p>{v.trade}</p>
+      <p>Two men of standing are recorded as guests of the house: {v.guests.map((g, i) => <><strong>{g[0]}</strong> ({g[1]}), {g[2]}{i < v.guests.length - 1 ? " And " : ""}</>)}</p>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>How the house was built, and what happened to the library</h2>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th></tr></thead>
+      <tbody>{v.estate.map(([y, t]) => <tr><td class="m">{y}</td><td>{t}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:24px">
+    <p>The east wing held <strong>over four thousand volumes</strong>, bought from the booksellers of Trieste, Piran, Buje and Poreč, and beside them the family archive — held by some scholars to be one of the richest libraries in Istria. Both were destroyed in the twentieth century, and the room that held them was cut up into smaller rooms.</p>
+    <p>Set that against the <a href={u("/research-log/")}>research log</a>, where two surviving de Franceschi family archives — HR-DARI-382 at Rijeka and HR-DAPA-828 at Pazin — are listed as the largest untouched source in this project. The Seghetto library is the counter-example, and the reason to write those letters now rather than later.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The two branches, and what they did</h2>
+  <p class="dek">The family split. One branch held the farms of Seghetto, Giubba and Spinel; the other, the Umago branch, held Rosazzo, Macalè — formerly Casoni — and Carsette.</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Who</th><th class="m">When</th><th>What</th></tr></thead>
+      <tbody>{v.offices.map(([n, y, t]) => <tr><td>{n}</td><td class="m">{y}</td><td>{t}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:18px">Source: {v.source}</p>
+</section>
+
 </Base>

@@ -1,0 +1,36 @@
+---
+/* Arms of the de Franceschi counts of Seghetto, read off the tympanum of the
+   1843–45 façade and recorded in la Voce del popolo:
+   "Troncato di azzurro e d'oro al leone rampante al naturale."
+   Per fess azure and or, a lion rampant proper.
+
+   The division and the two tinctures are drawn, because a blazon fixes them
+   exactly. The lion is named and not drawn, on the same rule this archive
+   applies to every other lion: an invented beast becomes the thing people
+   copy, and adds nothing the words did not already say. */
+const shield = "M12,10 H108 V62 C108,96 84,118 60,130 C36,118 12,96 12,62 Z";
+const AZ = "#2C4C86", OR = "#C79A2B";
+---
+<figure class="armfig">
+  <svg viewBox="0 0 120 140" width="200" role="img"
+       aria-label="Per fess azure and or; the lion rampant proper is named in the caption, not drawn">
+    <defs><clipPath id="segclip"><path d={shield}/></clipPath></defs>
+    <g clip-path="url(#segclip)">
+      <rect x="0" y="0" width="120" height="70" fill={AZ}/>
+      <rect x="0" y="70" width="120" height="70" fill={OR}/>
+      <!-- the place the charge occupies, left deliberately empty -->
+      <g opacity=".42" style="stroke:var(--ground)" stroke-width="1.4"
+         stroke-dasharray="4 5" fill="none">
+        <rect x="40" y="30" width="40" height="72" rx="3"/>
+      </g>
+    </g>
+    <path d={shield} fill="none" style="stroke:var(--ink)" stroke-width="2.4"/>
+  </svg>
+  <figcaption>
+    <p class="bl">“Troncato di azzurro e d'oro al leone rampante al naturale.”</p>
+    <ul class="chg"><li>a lion rampant proper, over the division</li></ul>
+    <p class="at">Per fess azure and or, a lion rampant proper. Cut into the tympanum that <strong>Giorgio de Franceschi</strong> (1788–1865) added to the Seghetto façade in 1843–45. An older eighteenth-century achievement, cartouche-framed with an oval shield, stands over the entrance below it.</p>
+    <p class="dr">Division and tinctures drawn. The lion named only — the dashed field marks where it stands. The <em>Blasonario Giuliano</em> knows a second family of this name bearing simply “un leone” with no tinctures given; the Seghetto building supplies them.</p>
+    <p class="vd"><span class="chip doc">Read off the building</span></p>
+  </figcaption>
+</figure>
