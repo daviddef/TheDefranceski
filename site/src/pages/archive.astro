@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import registers from "../data/registers.json";
+import fs from "../data/familysearch.json";
 const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
 const places=[...new Set(registers.map(r=>r.place))].sort();
 const dig=registers.filter(r=>r.digitised==="yes").length;
@@ -58,4 +59,45 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   apply();
 })();
 </script>
+
+<section class="blk">
+  <h2>What FamilySearch holds — the microfilm</h2>
+  <p class="dek">The Pazin inventory covers Istria. For Kvarner, Dalmatia and Carnia the films are the way in — made by the Genealogical Society of Utah from originals in Zagreb, Zadar and Udine, and viewable with a free account.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Place</th><th>Parish or office</th><th>Series</th><th class="m">Covers</th><th>Filmed from</th></tr></thead>
+      <tbody>{fs.rows.map(r=>(
+        <tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td class="m">{r[3]}</td><td>{r[4]}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap">{fs.source}</p>
+  <div class="note" style="margin-top:24px">Two results matter most here. <b>Omiš opens in 1588</b> — two years before Gaspar de Franceschi is said to have owned a warship there — so the Dalmatian family's earliest claim is testable. And <b>Ovaro has no parish books on film at all</b>, only the Napoleonic civil registration, which confirms that the Carnian church registers before 1806 exist nowhere online and must be asked for at the parish.</div>
+</section>
+
+<section class="blk">
+  <h2>The indexed records</h2>
+  <p class="dek">Beyond the film, the name index. A search of the Croatian church books returns 3,652 hits for this surname; 2,388 of them are genuine variants rather than Franchini or Francetich, and 2,200 are distinct people.</p>
+  <div class="grid g3" style="margin-top:24px">
+    <div class="stat"><div class="n">2,200</div><div class="l">distinct indexed people in Croatia</div></div>
+    <div class="stat"><div class="n">1619</div><div class="l">earliest — Pietro De Franceschi</div></div>
+    <div class="stat"><div class="n">447</div><div class="l">at Rijeka, the largest single cluster</div></div>
+  </div>
+  <div class="scroll" style="margin-top:26px">
+    <table>
+      <thead><tr><th>Cluster</th><th class="m">Indexed records</th></tr></thead>
+      <tbody>{fs.clusters.sort((a,b)=>b[1]-a[1]).map(c=>(
+        <tr><td>{c[0]}</td><td class="m">{c[1]}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <h3 class="lab" style="margin-top:38px">And worldwide</h3>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Country</th><th class="m">Index hits</th></tr></thead>
+      <tbody>{Object.entries(fs.counts.worldwide).map(([k,v])=>(
+        <tr><td>{k}</td><td class="m">{v.toLocaleString()}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <p class="cap">Country figures are raw index hits and are fuzzy — they include Franceschi, Franceschini and De Francesco. They show where to look, not how many people are ours. The search interface stops returning new results past about 1,100 per query, so exhaustive worldwide harvesting needs the query split by spelling and place; that work is not finished.</p>
+</section>
 </Base>
