@@ -32,8 +32,12 @@ def candidates(hs):
     links, ambiguous = [], []
     by_id = {h['id']: h for h in hs}
     for h in hs:
-        fk = first(h['fatherKey'])
-        if not fk or not h.get('from'):
+        # descent is traced through whichever parent actually carries the surname:
+        # the father in a male-line household, the mother in a daughter's household
+        via_mother = h.get('line') == 'female'
+        pk = first(h['motherKey'] if via_mother else h['fatherKey'])
+        want_sex = 'Female' if via_mother else 'Male'
+        if not pk or not h.get('from'):
             continue
         scored = []
         for p in hs:
@@ -45,9 +49,14 @@ def candidates(hs):
             if pc == 0:
                 continue
             for c in p['children']:
-                if first(c['key']) != fk:
+                if first(c['key']) != pk:
                     continue
-                if c['sex'] == 'Female':
+                if not c.get('ours'):
+                    continue          # the child must carry the surname being traced
+                if via_mother:
+                    if c['sex'] == 'Male':
+                        continue
+                elif c['sex'] == 'Female':
                     continue
                 if not c['by']:
                     continue
@@ -55,10 +64,11 @@ def candidates(hs):
                 if not (17 <= gap <= 48):
                     continue
                 if c['dy'] and c['by'] and (c['dy'] - c['by']) < 15:
-                    continue          # died before he could be a father
+                    continue          # died before they could be a parent
                 s = pc
-                if len(c['key'].split()) > 1 and len(h['fatherKey'].split()) > 1 \
-                   and c['key'].split()[1] == h['fatherKey'].split()[1]:
+                pkey = h['motherKey'] if via_mother else h['fatherKey']
+                if len(c['key'].split()) > 1 and len(pkey.split()) > 1 \
+                   and c['key'].split()[1] == pkey.split()[1]:
                     s += 1
                 if 22 <= gap <= 42:
                     s += 1

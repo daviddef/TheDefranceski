@@ -4,8 +4,10 @@ import Household from "../components/Household.astro";
 import hs from "../data/households.json";
 import Lineage from "../components/Lineage.astro";
 import lin from "../data/lineages.json";
-const big = hs.filter(h => h.n >= 4);
-const rest = hs.filter(h => h.n === 3);
+const male = hs.filter(h => h.line !== 'female');
+const female = hs.filter(h => h.line === 'female');
+const big = male.filter(h => h.n >= 4);
+const rest = male.filter(h => h.n === 3);
 const byPlace = {};
 for (const h of hs) { const p = h.place || "not localised"; byPlace[p] = (byPlace[p]||0) + 1; }
 const infant = hs.reduce((s,h) => s + h.children.filter(c => {
@@ -32,6 +34,15 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
   <div class="stack" style="margin-top:26px">
     {big.map(h => <Household h={h} />)}
   </div>
+</section>
+
+<section class="blk">
+  <h2>The daughters' households</h2>
+  <p class="dek">Found by searching the in-law families rather than our own: {female.length} households where a Defranceschi woman is the mother. This is the half of the family the surname loses.</p>
+  <div class="stack" style="margin-top:26px">
+    {female.map(h => <Household h={h} />)}
+  </div>
+  <div class="note" style="margin-top:26px">These come from sweeping 33 in-law surnames through the index and keeping only records that name our family — 209 of them. <strong>Francesca Defranceschi and Giovanni Bergamo</strong> had seven children between 1831 and 1846. <strong>Jacoba Defranceschi married a Johannes Baptista Crosilla</strong> — the Crosilla being one of the leading houses of Mione — and their children are recorded in 1831 and 1833; she was buried as his wife in 1882. Two more daughters married a Moscarda and a Tamborin at Fažana within a year of each other.</div>
 </section>
 
 <section class="blk">

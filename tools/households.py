@@ -7,7 +7,9 @@ and spelling drift mean the normaliser does most of the work.
 import csv, json, re, unicodedata
 from collections import defaultdict
 
-OURS = re.compile(r'franceschi|franceski|franzeschi|francheschi', re.I)
+# the surname, but not the given names Franceschina/Franceschino nor the
+# separate family Franceschini/Franceschinis
+OURS = re.compile(r'(?:franceschi|franceski|franzeschi|francheschi)(?![a-z])', re.I)
 
 # Latin/Italian/Croatian forms of the same given name
 CANON = {
@@ -198,10 +200,14 @@ def build(rows):
             kids.append(c)
         if not h['mother'] or len(kids) < 2:
             continue
+        ours = bool(OURS.search(h['father'] or '')) or bool(OURS.search(h['mother'] or ''))
+        if not ours:
+            continue
         place = max(h['places'].items(), key=lambda x: x[1])[0] if h['places'] else ''
         out.append({'key': ' + '.join(sorted(keyset)), 'fatherKey': h['fatherKey'], 'motherKey': h['motherKey'],
                     'father': h['father'], 'mother': h['mother'],
                     'place': place, 'region': h.get('region',''),
+                    'line': 'male' if OURS.search(h['father'] or '') else 'female',
                     'from': min(h['years']) if h['years'] else None,
                     'to': max(h['years']) if h['years'] else None,
                     'n': len(kids), 'children': kids})
@@ -249,7 +255,9 @@ def build(rows):
     return merged
 
 if __name__ == '__main__':
-    rows = load('data/familysearch-croatia.csv', 'croatia') + load('data/familysearch-austria.csv', 'austria')
+    rows = (load('data/familysearch-croatia.csv', 'croatia')
+            + load('data/familysearch-austria.csv', 'austria')
+            + load('data/familysearch-inlaws.csv', 'croatia'))
     hs = build(rows)
     json.dump(hs, open('site/src/data/households.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'{len(rows)} records -> {len(hs)} households with 2+ children')
