@@ -152,3 +152,8 @@ section.blk > .dek{margin-top:10px}
 .qn b{color:var(--terra);font-weight:600}
 .ab{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink-2);margin-top:12px}
 @media (max-width:760px){.qrow{grid-template-columns:1fr}}
+.armfig .chg{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.armfig .chg li{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-left:14px;position:relative}
+.armfig .chg li::before{content:"·";position:absolute;left:4px;color:var(--terra)}
+.armfig .dr{font-family:var(--sans);font-size:11.5px;line-height:1.45;color:var(--ink-3);margin-top:10px;
+  padding-top:10px;border-top:1px solid var(--rule)}

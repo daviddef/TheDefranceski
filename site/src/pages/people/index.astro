@@ -1,4 +1,5 @@
 ---
+import { u } from "../../lib/url.js";
 import Base from "../../layouts/Base.astro";
 import Chip from "../../components/Chip.astro";
 import people from "../../data/people.json";
@@ -10,7 +11,7 @@ import notables from "../../data/notables.json";
   <h2>In this family</h2>
   <div class="grid g2" style="margin-top:22px">
     {people.map(p=>(
-      <a class="cardlink" href={`/people/${p.slug}/`}>
+      <a class="cardlink" href={u(`/people/${p.slug}/`)}>
         <div class="nm">{p.name}</div>
         <div class="alt">{p.born||"?"}–{p.died||"?"} · {p.roles.join(", ")}</div>
         <div style="margin-top:10px"><Chip c={p.confidence} /></div>

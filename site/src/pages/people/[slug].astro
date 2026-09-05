@@ -1,4 +1,5 @@
 ---
+import { u } from "../../lib/url.js";
 import Base from "../../layouts/Base.astro";
 import Chip from "../../components/Chip.astro";
 import people from "../../data/people.json";
@@ -41,7 +42,7 @@ const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died|
 
 {place && <section class="blk">
   <h2>Where he came from</h2>
-  <a class="cardlink" href={`/places/${place.slug}/`} style="max-width:520px">
+  <a class="cardlink" href={u(`/places/${place.slug}/`)} style="max-width:520px">
     <div class="nm">{place.name}</div>
     <div class="alt">{Object.values(place.alt||{}).join(" · ")}</div>
     <div class="txt">{place.lead}</div>

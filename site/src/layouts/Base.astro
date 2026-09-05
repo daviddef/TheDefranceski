@@ -1,4 +1,5 @@
 ---
+import { u } from "../lib/url.js";
 const { title, dek, eyebrow } = Astro.props;
 const nav = [
   ["/", "Home"], ["/name/", "The Name"], ["/lines/", "The Lines"],
@@ -17,14 +18,14 @@ const here = Astro.url.pathname;
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href={u("/styles.css")} />
 </head>
 <body>
 <header class="site">
   <div class="wrap sitein">
-    <a class="brand" href="/">The Defranceschi Archive</a>
+    <a class="brand" href={u("/")}>The Defranceschi Archive</a>
     <nav>{nav.map(([h,l]) => (
-      <a href={h} class={here===h ? "on" : ""}>{l}</a>
+      <a href={u(h)} class={here===u(h) ? "on" : ""}>{l}</a>
     ))}</nav>
   </div>
 </header>
@@ -43,7 +44,7 @@ const here = Astro.url.pathname;
 <footer class="site">
   <div class="wrap">
     <p class="foot">An evidence-first family archive for the Defranceschi, De Franceschi, Defranceski and de Franceski families of Istria, Kvarner, Carnia and the diaspora. Every claim carries its confidence. Living people are excluded from this build.</p>
-    <p class="foot dim">Built {new Date().getFullYear()} · Sources listed on <a href="/about/">About</a> · Corrections welcome</p>
+    <p class="foot dim">Built {new Date().getFullYear()} · Sources listed on <a href={u("/about/")}>About</a> · Corrections welcome</p>
   </div>
 </footer>
 </body>

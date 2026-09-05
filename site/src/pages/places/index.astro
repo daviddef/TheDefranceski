@@ -1,4 +1,5 @@
 ---
+import { u } from "../../lib/url.js";
 import Base from "../../layouts/Base.astro";
 import places from "../../data/places.json";
 const alt=(p)=>Object.entries(p.alt||{}).map(([k,v])=>`${k}. ${v}`).join(" · ");
@@ -11,7 +12,7 @@ const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"
     <h2>{label}</h2>
     <div class="grid g2" style="margin-top:22px">
       {places.filter(p=>p.lane===g).map(p=>(
-        <a class="cardlink" href={`/places/${p.slug}/`}>
+        <a class="cardlink" href={u(`/places/${p.slug}/`)}>
           <div class="nm">{p.name}</div>
           <div class="alt">{alt(p)}</div>
           <div class="txt">{p.lead}</div>

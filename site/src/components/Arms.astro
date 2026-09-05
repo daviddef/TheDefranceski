@@ -1,79 +1,60 @@
 ---
-// Schematic emblazonments from recorded blazons. Tinctures and ordinaries are
-// rendered faithfully; figurative charges are stylised, not emblazoned to armorial standard.
-const AZ="#2C4C86", OR="#C79A2B", ARG="#E8E6DF", GU="#9E2B2B", VERT="#3E6B3A",
-      PROP="#8A6A45", SABLE="#20242A";
+// Tinctures and ordinaries are rendered faithfully from the blazon.
+// Figurative charges beyond the tree are named, not drawn — see the note below.
+const AZ="#2C4C86", OR="#C79A2B", ARG="#E8E6DF", VERT="#3E6B3A", PROP="#8A6A45";
 const shield="M12,10 H108 V62 C108,96 84,118 60,130 C36,118 12,96 12,62 Z";
 const arms=[
- {id:"pine", blazon:"Azure, on a mount vert a pine tree proper fructed or, supported by two lions or.",
+ {id:"pine",
+  blazon:"Azure, on a mount vert a pine tree proper fructed or, supported by two lions or.",
   attested:"Recorded for the De Franceschi of Corsica, of Florentine origin — the line descending from a Taddeo who moved to Corsica early in the fourteenth century.",
-  link:"no"},
- {id:"perfess", blazon:"Per fess azure and or, a lion rampant proper over all.",
-  attested:"A second recorded variation for families of the name.", link:"no"},
- {id:"bend", blazon:"Azure, a bend argent charged with three lions gules.",
-  attested:"A third recorded variation for families of the name.", link:"no"},
+  drawn:"Field, mount and tree drawn. Supporters named only.",
+  charges:["two lions or, as supporters"]},
+ {id:"perfess",
+  blazon:"Per fess azure and or, a lion rampant proper over all.",
+  attested:"A second recorded variation for families of the name.",
+  drawn:"Division of the field drawn. Charge named only.",
+  charges:["a lion rampant proper"]},
+ {id:"bend",
+  blazon:"Azure, a bend argent charged with three lions gules.",
+  attested:"A third recorded variation for families of the name.",
+  drawn:"Field and bend drawn. Charges named only.",
+  charges:["three lions gules, on the bend"]},
 ];
 ---
 <div class="grid g3">
 {arms.map(a=>(
   <figure class="armfig">
-    <svg viewBox="0 0 120 140" width="180" role="img" aria-label={a.blazon}>
+    <svg viewBox="0 0 120 140" width="176" role="img" aria-label={a.blazon}>
       <defs><clipPath id={`c-${a.id}`}><path d={shield}/></clipPath></defs>
 
       {a.id==="pine" && <g clip-path={`url(#c-${a.id})`}>
         <rect x="0" y="0" width="120" height="140" fill={AZ}/>
-        <path d="M0,110 Q60,96 120,110 L120,140 L0,140 Z" fill={VERT}/>
-        <rect x="57" y="86" width="6" height="24" fill={PROP}/>
-        <path d="M60,26 L78,60 L42,60 Z" fill="#2F5B33"/>
-        <path d="M60,44 L84,82 L36,82 Z" fill="#37693C"/>
-        <path d="M60,62 L90,100 L30,100 Z" fill="#2F5B33"/>
-        <circle cx="50" cy="74" r="2.6" fill={OR}/><circle cx="72" cy="80" r="2.6" fill={OR}/>
-        <circle cx="60" cy="92" r="2.6" fill={OR}/>
-        <g fill={OR}>
-          <g transform="translate(14,58) scale(0.62)">
-            <circle cx="13" cy="11" r="8"/><circle cx="6" cy="14" r="4"/>
-            <ellipse cx="23" cy="28" rx="8.5" ry="12"/>
-            <path d="M15,19 L5,24 M15,25 L7,32 M27,38 L25,50 M25,50 L32,51" stroke={OR} stroke-width="4.5" stroke-linecap="round" fill="none"/>
-            <path d="M30,20 Q42,13 35,3" stroke={OR} stroke-width="3.4" fill="none" stroke-linecap="round"/>
-            <circle cx="35" cy="3" r="3.4"/>
-          </g>
-          <g transform="translate(106,58) scale(-0.62,0.62)">
-            <circle cx="13" cy="11" r="8"/><circle cx="6" cy="14" r="4"/>
-            <ellipse cx="23" cy="28" rx="8.5" ry="12"/>
-            <path d="M15,19 L5,24 M15,25 L7,32 M27,38 L25,50 M25,50 L32,51" stroke={OR} stroke-width="4.5" stroke-linecap="round" fill="none"/>
-            <path d="M30,20 Q42,13 35,3" stroke={OR} stroke-width="3.4" fill="none" stroke-linecap="round"/>
-            <circle cx="35" cy="3" r="3.4"/>
-          </g>
-        </g>
+        <path d="M0,108 Q60,94 120,108 L120,140 L0,140 Z" fill={VERT}/>
+        <rect x="57.5" y="84" width="5" height="24" fill={PROP}/>
+        <path d="M60,26 L76,58 L44,58 Z" fill="#2F5B33"/>
+        <path d="M60,42 L81,80 L39,80 Z" fill="#37693C"/>
+        <path d="M60,60 L86,100 L34,100 Z" fill="#2F5B33"/>
+        <circle cx="51" cy="72" r="2.4" fill={OR}/><circle cx="70" cy="78" r="2.4" fill={OR}/>
+        <circle cx="60" cy="92" r="2.4" fill={OR}/>
       </g>}
 
       {a.id==="perfess" && <g clip-path={`url(#c-${a.id})`}>
         <rect x="0" y="0" width="120" height="70" fill={AZ}/>
         <rect x="0" y="70" width="120" height="70" fill={OR}/>
-        <g fill={PROP} transform="translate(34,36) scale(1.05)">
-          <circle cx="13" cy="11" r="8"/><circle cx="6" cy="14" r="4"/>
-          <ellipse cx="23" cy="28" rx="8.5" ry="12"/>
-          <path d="M15,19 L5,24 M15,25 L7,32 M27,38 L25,50 M25,50 L32,51" stroke={PROP} stroke-width="4.5" stroke-linecap="round" fill="none"/>
-          <path d="M30,20 Q42,13 35,3" stroke={PROP} stroke-width="3.4" fill="none" stroke-linecap="round"/>
-          <circle cx="35" cy="3" r="3.4"/>
-        </g>
       </g>}
 
       {a.id==="bend" && <g clip-path={`url(#c-${a.id})`}>
         <rect x="0" y="0" width="120" height="140" fill={AZ}/>
-        <path d="M4,26 L92,132 L118,110 L30,4 Z" fill={ARG}/>
-        <g fill={GU}>
-          <g transform="translate(24,20) rotate(50) scale(0.42)"><circle cx="13" cy="11" r="8"/><ellipse cx="23" cy="28" rx="8.5" ry="12"/><circle cx="35" cy="3" r="3.4"/></g>
-          <g transform="translate(52,55) rotate(50) scale(0.42)"><circle cx="13" cy="11" r="8"/><ellipse cx="23" cy="28" rx="8.5" ry="12"/><circle cx="35" cy="3" r="3.4"/></g>
-          <g transform="translate(80,90) rotate(50) scale(0.42)"><circle cx="13" cy="11" r="8"/><ellipse cx="23" cy="28" rx="8.5" ry="12"/><circle cx="35" cy="3" r="3.4"/></g>
-        </g>
+        <path d="M2,28 L90,134 L120,110 L32,4 Z" fill={ARG}/>
       </g>}
 
       <path d={shield} fill="none" style="stroke:var(--ink)" stroke-width="2.5"/>
     </svg>
     <figcaption>
       <p class="bl">{a.blazon}</p>
+      <ul class="chg">{a.charges.map(c=><li>{c}</li>)}</ul>
       <p class="at">{a.attested}</p>
+      <p class="dr">{a.drawn}</p>
       <p class="vd"><span class="chip lore">Not demonstrated for our line</span></p>
     </figcaption>
   </figure>

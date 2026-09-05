@@ -1,4 +1,5 @@
 ---
+import { u } from "../lib/url.js";
 import Base from "../layouts/Base.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
 import Census1945 from "../components/Census1945.astro";
@@ -31,7 +32,7 @@ const stats=[
   <h2>Three places, three histories</h2>
   <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Every date in this archive has to be read against this chart.</p>
   <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
-  <p class="cap"><a href="/timeline/">The full timeline, with lives and pressures →</a></p>
+  <p class="cap"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
 </section>
 
 <section class="blk">
@@ -46,7 +47,7 @@ const stats=[
   <p class="dek">Six. Two are documented, two inferred, one is family lore, and one was found during this research and belongs to nobody yet.</p>
   <div class="grid g2" style="margin-top:24px">
     {lines.map(l=>(
-      <a class="cardlink" href="/lines/">
+      <a class="cardlink" href={u("/lines/")}>
         <div class="nm">{l.name}</div>
         <div style="margin-top:9px"><Chip c={l.status} /></div>
         <div class="alt" style="margin-top:10px">{l.route}</div>
