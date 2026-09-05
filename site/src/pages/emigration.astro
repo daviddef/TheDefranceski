@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+import mig from "../data/migration.json";
+const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
+---
+<Base title="Leaving" eyebrow="314 migration records · 221 publishable"
+      dek="Passenger manifests, naturalisation petitions and draft cards, searched across every destination country the family is known to have reached. One thread runs straight out of Gračišće to Brooklyn.">
+
+<section class="blk">
+  <h2>Gallignana to Brooklyn</h2>
+  <p class="dek">Gallignana is the Italian name of Gračišće. Four people carrying this surname were born there and are recorded in New York.</p>
+  <div class="prose" style="margin-top:24px">
+    <p><strong>Joseph Defranceschi</strong>, born 12 March 1892 at Gallignana, was naturalised in New York on <strong>2 February 1912</strong>. When he registered for the draft in 1917 the clerk wrote his birthplace as “Frieste, Austria” — Trieste, which is almost certainly the port he sailed from rather than the village he was born in. The naturalisation file has it right.</p>
+    <p>Ten years later, on <strong>9 September 1922</strong>, two more arrived together at Ellis Island. <strong>Antonio De Franceschi</strong>, born 18 February 1887, gave his last residence as <em>“G. Pedena”</em> — Gallignana in the district of Pedena, which is Pićan. <strong>Albina De Franceschi</strong>, born 14 April 1900, gave <em>“G. Gallig…”</em>. They were on the same manifest.</p>
+    <p>Antonio was naturalised at Brooklyn nine days after landing, on 18 September 1922, and again in April 1929; his wife is recorded as Marta, then Martha. Albina was naturalised in New York on 5 April 1928, by then married to a Frank <strong>Schinkepen</strong>.</p>
+    <p>And the village kept sending people. <strong>Dario Defranceschi</strong> was born at Gallignana on <strong>26 September 1937</strong> — son of <strong>Basilio Defranceschi and Maria L. Rovina</strong> — and died in Brooklyn on 29 January 1991. A household still in Gračišće in 1937, in the years the 1945 census would count as one of its remaining Defranceschi families, with a son who ended up in the same New York borough as the 1922 arrivals.</p>
+    <p>Separately, <strong>Lidia De Franceschi</strong> was born at Pola on 3 April 1900 to <strong>Giovanni Defranceschi and Domenica Clagnan</strong>, and lived at Clifton, New Jersey. Clagnan is one of the Friulian in-law surnames that turns up repeatedly in the Istrian registers.</p>
+  </div>
+  <div class="scroll" style="margin-top:26px">
+    <table>
+      <thead><tr><th>Name</th><th>Recorded in</th><th>What the record says</th></tr></thead>
+      <tbody>{mig.istria.map(r=>(
+        <tr><td>{r.name}</td><td class="m">{r.coll}</td><td>{r.events}</td></tr>))}</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Where the records are</h2>
+  <div class="grid g4" style="margin-top:22px">
+    {dests.map(([d,n]) => (
+      <div class="stat"><div class="n">{n}</div><div class="l">{d}</div></div>
+    ))}
+  </div>
+  <div class="scroll" style="margin-top:28px">
+    <table>
+      <thead><tr><th>Collection</th><th class="m">Records</th></tr></thead>
+      <tbody>{mig.collections.map(([c,n])=>(<tr><td>{c}</td><td class="m">{n}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:28px">
+    <p>The shape is not what the family story predicts. <strong>Canada is second</strong>, on the strength of the 1881–1922 passenger lists and the 1919–24 immigration records, and no line in the received account mentions Canada at all. <strong>Australia is third</strong>, almost entirely through the Victorian inward, outward and coastal passenger lists and the Western Australian arrivals at Fremantle and Albany — which fits a family that reached Australia by sea in the nineteenth and early twentieth centuries rather than after 1945.</p>
+    <p>Two absences matter as much. <strong>Germany returns nothing</strong> — 334 records scanned, not one from a migration collection. <strong>South Africa returns nothing either</strong>, from 73 records, even though thirteen of the seventeen people spelling it <em>Defranceski</em> live there. Botswana has no indexed collection at all. Those routes are real; they are simply not in this index.</p>
+    <p>And nothing yet comes from a <strong>Trieste departure list</strong>. Trieste was the Austro-Hungarian emigration port, and the Austro-Americana line sailed from it to New York, but its outward manifests are not in the collections searched here. That is the single most valuable gap left on the leaving side.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>What is not published here</h2>
+  <div class="note">{mig.rule} Of {mig.total} records found, {mig.published} meet that test. The rest are Social Security, residence and public-records entries for people who may be alive, and they are excluded from the build rather than hidden in it.</div>
+</section>
+</Base>
