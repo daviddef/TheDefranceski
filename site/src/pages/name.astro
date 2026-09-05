@@ -4,6 +4,7 @@ import NameDrift from "../components/NameDrift.astro";
 import Distribution from "../components/Distribution.astro";
 import Census1945 from "../components/Census1945.astro";
 import names from "../data/names.json";
+import gn from "../data/givennames.json";
 ---
 <Base title="The Name" eyebrow="Nine spellings, one family"
       dek="Every shift has a cause, and the cause is almost always a change of ruler, clerk or language. The name is the family's best surviving record of what happened to it.">
@@ -80,5 +81,22 @@ import names from "../data/names.json";
     </table>
   </div>
   <p class="cap">Source: {names.spellings_world.source}. {names.spellings_world.note} Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
+</section>
+
+<section class="blk">
+  <h2>And the given names move too</h2>
+  <p class="dek">The surname is only half of it. The same man is Joannes in the register, Giovanni in the town, Zuane on the Venetian coast, Ivan to his neighbours, Johann to the Austrian clerk and John when he lands in New York. A living member of this family can be Ivan, Giovanni or John depending on who is writing.</p>
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th>Latin, in the register</th><th>Italian</th><th>Venetian</th><th>Croatian</th><th>German</th><th>English</th></tr></thead>
+      <tbody>{gn.rows.map(r=>(
+        <tr><td>{r.latin}</td><td>{r.italian}</td><td>{r.venetian}</td><td>{r.croatian}</td><td>{r.german}</td><td>{r.english}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:26px">
+    <p>This is not a curiosity — it decides whether a family can be reconstructed at all. Grouping records by parents only works if the machine knows that <em>Valentini</em>, <em>Valentino</em> and <em>Valentinus</em> are one man, and that <em>Ursula</em>, <em>Ursulæ</em> and <em>Orsola</em> are one woman. The normaliser behind the household pages now carries <strong>{gn.names} canonical names across {gn.forms} recorded forms</strong>, in Latin, Italian, Venetian, Croatian, German and English, and it peels Latin case endings and drops the <em>de</em> of a surname before comparing.</p>
+    <p>Adding the Slavic and English forms alone merged three separate Rijeka households of the 1620s into one — <strong>Gioannis Antonÿ De Franceschi and Lutia</strong>, six children between 1626 and 1632 — which had been split three ways purely because the index wrote his name differently on different pages.</p>
+  </div>
 </section>
 </Base>

@@ -3,14 +3,14 @@
   "key": "giovanni antonio + lucia",
   "fatherKey": "giovanni antonio",
   "motherKey": "lucia",
-  "father": "Gio Anto De Franceschi",
-  "mother": "Lucia",
+  "father": "Gioannis Antonÿ De Franceschi",
+  "mother": "Lutia",
   "place": "Rijeka",
   "region": "kvarner",
   "line": "male",
   "from": 1626,
-  "to": 1626,
-  "n": 2,
+  "to": 1632,
+  "n": 6,
   "children": [
    {
     "name": "Joannem Anto de Franceschi",
@@ -26,35 +26,6 @@
     "dy": null
    },
    {
-    "name": "Zuane De Franceschi",
-    "sex": "Male",
-    "birth": "",
-    "death": "",
-    "place": "Fiume, Modrus-Fiume, Ungheria",
-    "y": null,
-    "id": "6YBR-D3RB",
-    "key": "giovanni de",
-    "ours": true,
-    "by": null,
-    "dy": null
-   }
-  ],
-  "id": "h000"
- },
- {
-  "key": "gioannis antonio + lucia",
-  "fatherKey": "gioannis antonio",
-  "motherKey": "lucia",
-  "father": "Gioannis Antonii de Franceschi",
-  "mother": "Lutia",
-  "place": "Rijeka",
-  "region": "kvarner",
-  "line": "male",
-  "from": 1628,
-  "to": 1632,
-  "n": 2,
-  "children": [
-   {
     "name": "Gioanna Victoriam de Franceschi",
     "sex": "Female",
     "birth": "19 Apr 1628",
@@ -62,7 +33,7 @@
     "place": "Rijeka, Primorsko-goranska, Hrvatska",
     "y": 1628,
     "id": "QLYD-Z35Q",
-    "key": "gioanna victoriam",
+    "key": "giovanni vittorio",
     "ours": true,
     "by": 1628,
     "dy": null
@@ -75,27 +46,79 @@
     "place": "Rijeka, Primorsko-goranska, Hrvatska",
     "y": 1632,
     "id": "QLYD-H7YJ",
-    "key": "maria de",
+    "key": "maria",
     "ours": true,
     "by": 1632,
     "dy": null
+   },
+   {
+    "name": "Mariam De Franceschi",
+    "sex": "Female",
+    "birth": "",
+    "death": "",
+    "place": "Rijeka, Modrus-Fiume, Hungary",
+    "y": null,
+    "id": "QKMD-LKFC",
+    "key": "maria",
+    "ours": true,
+    "by": null,
+    "dy": null
+   },
+   {
+    "name": "Zuane De Franceschi",
+    "sex": "Male",
+    "birth": "",
+    "death": "",
+    "place": "Fiume, Modrus-Fiume, Ungheria",
+    "y": null,
+    "id": "6YBR-D3RB",
+    "key": "giovanni",
+    "ours": true,
+    "by": null,
+    "dy": null
+   },
+   {
+    "name": "Gioanná Victoriam Franceschi",
+    "sex": "Female",
+    "birth": "",
+    "death": "",
+    "place": "Rijeka, Modrus-Fiume, Hungary",
+    "y": null,
+    "id": "QKMD-L1WY",
+    "key": "giovanni vittorio",
+    "ours": true,
+    "by": null,
+    "dy": null
    }
   ],
-  "id": "h001"
+  "id": "h000"
  },
  {
-  "key": "elena + giovanni de",
-  "fatherKey": "giovanni de",
+  "key": "elena + giovanni",
+  "fatherKey": "giovanni",
   "motherKey": "elena",
   "father": "Zuanne De Franceschi",
   "mother": "Elena",
   "place": "Omiš",
   "region": "dalmatia",
   "line": "male",
-  "from": 1644,
-  "to": 1644,
-  "n": 2,
+  "from": 1639,
+  "to": 1867,
+  "n": 9,
   "children": [
+   {
+    "name": "Margarita Franceschi",
+    "sex": "Female",
+    "birth": "4 Mar 1639",
+    "death": "",
+    "place": "Omiš, Split-Dalmatia, Croazia",
+    "y": 1639,
+    "id": "XQMM-PKVY",
+    "key": "margarita",
+    "ours": true,
+    "by": 1639,
+    "dy": null
+   },
    {
     "name": "Nicolaa De Franceschi",
     "sex": "Female",
@@ -104,9 +127,87 @@
     "place": "Omiš, Split-Dalmatia, Croazia",
     "y": 1644,
     "id": "XQMM-L1FZ",
-    "key": "nicolo de",
+    "key": "nicolo",
     "ours": true,
     "by": 1644,
+    "dy": null
+   },
+   {
+    "name": "Johan-Antonius",
+    "sex": "Male",
+    "birth": "5 Nov 1858",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1858,
+    "id": "X9DP-3C2R",
+    "key": "johan-antonius",
+    "ours": false,
+    "by": 1858,
+    "dy": null
+   },
+   {
+    "name": "Maria",
+    "sex": "Female",
+    "birth": "1 Dec 1859",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1859,
+    "id": "X9DG-TSN9",
+    "key": "maria",
+    "ours": false,
+    "by": 1859,
+    "dy": null
+   },
+   {
+    "name": "Rosa",
+    "sex": "Female",
+    "birth": "30 Sep 1861",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1861,
+    "id": "X9DP-S7ZW",
+    "key": "rosa",
+    "ours": false,
+    "by": 1861,
+    "dy": null
+   },
+   {
+    "name": "Euphemia",
+    "sex": "Female",
+    "birth": "30 Nov 1863",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1863,
+    "id": "X9DP-9T5Q",
+    "key": "eufemia",
+    "ours": false,
+    "by": 1863,
+    "dy": null
+   },
+   {
+    "name": "Anna",
+    "sex": "Female",
+    "birth": "1 Apr 1865",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1865,
+    "id": "X9DP-9Y3G",
+    "key": "anna",
+    "ours": false,
+    "by": 1865,
+    "dy": null
+   },
+   {
+    "name": "Victorius-Joseph",
+    "sex": "Male",
+    "birth": "10 Mar 1867",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1867,
+    "id": "X9DP-M8PN",
+    "key": "victorius-joseph",
+    "ours": false,
+    "by": 1867,
     "dy": null
    },
    {
@@ -117,13 +218,13 @@
     "place": "Omiš, Split-Dalmatia, Croazia",
     "y": null,
     "id": "XQMM-K32H",
-    "key": "mandalina de",
+    "key": "mandalina",
     "ours": true,
     "by": null,
     "dy": null
    }
   ],
-  "id": "h002"
+  "id": "h001"
  },
  {
   "key": "francesco + lucretia",
@@ -178,12 +279,12 @@
     "dy": null
    }
   ],
-  "id": "h003"
+  "id": "h002"
  },
  {
-  "key": "bartolo + lucia de",
+  "key": "bartolo + lucia gregorio",
   "fatherKey": "bartolo",
-  "motherKey": "lucia de",
+  "motherKey": "lucia gregorio",
   "father": "Barthol Franceschi",
   "mother": "Luciae De Gregorius",
   "place": "",
@@ -220,12 +321,12 @@
     "dy": null
    }
   ],
-  "id": "h004"
+  "id": "h003"
  },
  {
-  "key": "antonio de + marta",
-  "fatherKey": "antonio de",
-  "motherKey": "marta",
+  "key": "antonio + margarita",
+  "fatherKey": "antonio",
+  "motherKey": "margarita",
   "father": "Anto De Franceschi",
   "mother": "Marta",
   "place": "",
@@ -243,7 +344,7 @@
     "place": "Croazia, Austria",
     "y": 1667,
     "id": "X9DG-TK98",
-    "key": "francesca de",
+    "key": "franceschina",
     "ours": true,
     "by": 1667,
     "dy": null
@@ -256,7 +357,7 @@
     "place": "Croazia, Austria",
     "y": 1669,
     "id": "X9DP-MZG6",
-    "key": "matteo de",
+    "key": "matteo",
     "ours": true,
     "by": 1669,
     "dy": null
@@ -269,7 +370,7 @@
     "place": "Croazia, Austria",
     "y": 1671,
     "id": "X9DG-BT6G",
-    "key": "antonio de",
+    "key": "antonio",
     "ours": true,
     "by": 1671,
     "dy": null
@@ -282,17 +383,17 @@
     "place": "Croazia, Austria",
     "y": 1674,
     "id": "X9DG-1K8S",
-    "key": "matteo de",
+    "key": "matteo",
     "ours": true,
     "by": 1674,
     "dy": null
    }
   ],
-  "id": "h005"
+  "id": "h004"
  },
  {
-  "key": "antonia + gasparo de",
-  "fatherKey": "gasparo de",
+  "key": "antonia + gasparo",
+  "fatherKey": "gasparo",
   "motherKey": "antonia",
   "father": "Gasparo De Franceschi",
   "mother": "Antonia",
@@ -311,7 +412,7 @@
     "place": "Croazia, Austria",
     "y": 1692,
     "id": "X9DG-BYD4",
-    "key": "battista de",
+    "key": "battista",
     "ours": true,
     "by": 1692,
     "dy": null
@@ -324,7 +425,7 @@
     "place": "Croazia, Austria",
     "y": 1701,
     "id": "X9DP-3KRP",
-    "key": "veneranda de",
+    "key": "veneranda",
     "ours": true,
     "by": 1701,
     "dy": null
@@ -337,17 +438,17 @@
     "place": "Croazia, Austria",
     "y": 1706,
     "id": "X9DP-34JT",
-    "key": "giacomo de",
+    "key": "giacomo",
     "ours": true,
     "by": 1706,
     "dy": null
    }
   ],
-  "id": "h006"
+  "id": "h005"
  },
  {
-  "key": "pietro de + vittoria",
-  "fatherKey": "pietro de",
+  "key": "pietro + vittoria",
+  "fatherKey": "pietro",
   "motherKey": "vittoria",
   "father": "Piero De Franceschi",
   "mother": "Vittoria",
@@ -366,7 +467,7 @@
     "place": "Croazia, Austria",
     "y": 1703,
     "id": "X9DP-34V2",
-    "key": "domenica de",
+    "key": "domenica",
     "ours": true,
     "by": 1703,
     "dy": null
@@ -379,7 +480,7 @@
     "place": "Croazia, Austria",
     "y": 1705,
     "id": "X9DP-3H8Z",
-    "key": "domenica de",
+    "key": "domenica",
     "ours": true,
     "by": 1705,
     "dy": null
@@ -392,17 +493,59 @@
     "place": "Croazia, Austria",
     "y": 1710,
     "id": "X9DP-3HTQ",
-    "key": "marina de",
+    "key": "marina",
     "ours": true,
     "by": 1710,
+    "dy": null
+   }
+  ],
+  "id": "h006"
+ },
+ {
+  "key": "elisabetta + matteo",
+  "fatherKey": "matteo",
+  "motherKey": "elisabetta",
+  "father": "Mattio De Franceschi",
+  "mother": "Elisabetta",
+  "place": "",
+  "region": "",
+  "line": "male",
+  "from": 1722,
+  "to": 1726,
+  "n": 2,
+  "children": [
+   {
+    "name": "Martino De Franceschi",
+    "sex": "Male",
+    "birth": "1722",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1722,
+    "id": "6B4Q-ZC63",
+    "key": "martino",
+    "ours": true,
+    "by": 1722,
+    "dy": null
+   },
+   {
+    "name": "Benedetto Franceschi",
+    "sex": "Male",
+    "birth": "23 Oct 1726",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1726,
+    "id": "6B4Q-4FFW",
+    "key": "benedetto",
+    "ours": true,
+    "by": 1726,
     "dy": null
    }
   ],
   "id": "h007"
  },
  {
-  "key": "anna + natale de",
-  "fatherKey": "natale de",
+  "key": "anna + natale",
+  "fatherKey": "natale",
   "motherKey": "anna",
   "father": "Nadal De Franceschi",
   "mother": "Anta",
@@ -421,7 +564,7 @@
     "place": "Croazia, Austria",
     "y": 1734,
     "id": "X9DP-MS9B",
-    "key": "pietro de",
+    "key": "pietro",
     "ours": true,
     "by": 1734,
     "dy": null
@@ -434,7 +577,7 @@
     "place": "Croazia, Austria",
     "y": 1735,
     "id": "X9DG-R1SW",
-    "key": "battista de",
+    "key": "battista",
     "ours": true,
     "by": 1735,
     "dy": null
@@ -453,7 +596,7 @@
   "line": "male",
   "from": 1742,
   "to": 1757,
-  "n": 6,
+  "n": 10,
   "children": [
    {
     "name": "Mattio Defranceschi",
@@ -482,6 +625,19 @@
     "dy": 1742
    },
    {
+    "name": "Antonio De Franceschi",
+    "sex": "Male",
+    "birth": "1753",
+    "death": "1 Sep 1753",
+    "place": "Fiume, Modrus-Fiume, Ungheria",
+    "y": 1753,
+    "id": "X9DP-GGW8",
+    "key": "antonio",
+    "ours": true,
+    "by": 1753,
+    "dy": 1753
+   },
+   {
     "name": "Aloysia Defranceschi",
     "sex": "Female",
     "birth": "1757",
@@ -489,7 +645,7 @@
     "place": "Fiume, Modrus-Fiume, Ungheria",
     "y": 1757,
     "id": "X9DP-3TXC",
-    "key": "aloysia",
+    "key": "luigi",
     "ours": true,
     "by": 1757,
     "dy": 1757
@@ -508,6 +664,32 @@
     "dy": 1757
    },
    {
+    "name": "Matheus Franciscus De Franceschi",
+    "sex": "Male",
+    "birth": "",
+    "death": "",
+    "place": "Vitipolis, Modrus-Fiume, Magyarország",
+    "y": null,
+    "id": "XQMQ-HGYH",
+    "key": "matteo francesco",
+    "ours": true,
+    "by": null,
+    "dy": null
+   },
+   {
+    "name": "Aloysium Joannes Petre Defranceschi",
+    "sex": "Male",
+    "birth": "",
+    "death": "",
+    "place": "Vitipolis, Modrus-Fiume, Magyarország",
+    "y": null,
+    "id": "XQMQ-8HDY",
+    "key": "luigi giovanni",
+    "ours": true,
+    "by": null,
+    "dy": null
+   },
+   {
     "name": "Franciscam Joanne Theresiam Defranceschi",
     "sex": "Female",
     "birth": "",
@@ -515,7 +697,20 @@
     "place": "Vitipolis, Modrus-Fiume, Magyarország",
     "y": null,
     "id": "XQMQ-FRDT",
-    "key": "franciscam joanne",
+    "key": "francesco giovanna",
+    "ours": true,
+    "by": null,
+    "dy": null
+   },
+   {
+    "name": "Nicolaus Francus De Franceschi",
+    "sex": "Male",
+    "birth": "",
+    "death": "",
+    "place": "Vitipolis, Modrus-Fiume, Magyarország",
+    "y": null,
+    "id": "XQMQ-HGQD",
+    "key": "nicolo francesco",
     "ours": true,
     "by": null,
     "dy": null
@@ -535,61 +730,6 @@
    }
   ],
   "id": "h009"
- },
- {
-  "key": "elena de + valentino de",
-  "fatherKey": "valentino de",
-  "motherKey": "elena de",
-  "father": "Valentino De Franceschi",
-  "mother": "Elena De Franceschi",
-  "place": "Rijeka",
-  "region": "kvarner",
-  "line": "male",
-  "from": 1753,
-  "to": 1753,
-  "n": 3,
-  "children": [
-   {
-    "name": "Antonio De Franceschi",
-    "sex": "Male",
-    "birth": "1753",
-    "death": "1 Sep 1753",
-    "place": "Fiume, Modrus-Fiume, Ungheria",
-    "y": 1753,
-    "id": "X9DP-GGW8",
-    "key": "antonio de",
-    "ours": true,
-    "by": 1753,
-    "dy": 1753
-   },
-   {
-    "name": "Matheus Franciscus De Franceschi",
-    "sex": "Male",
-    "birth": "",
-    "death": "",
-    "place": "Vitipolis, Modrus-Fiume, Magyarország",
-    "y": null,
-    "id": "XQMQ-HGYH",
-    "key": "matteo francesco",
-    "ours": true,
-    "by": null,
-    "dy": null
-   },
-   {
-    "name": "Nicolaus Francus De Franceschi",
-    "sex": "Male",
-    "birth": "",
-    "death": "",
-    "place": "Vitipolis, Modrus-Fiume, Magyarország",
-    "y": null,
-    "id": "XQMQ-HGQD",
-    "key": "nicolo francus",
-    "ours": true,
-    "by": null,
-    "dy": null
-   }
-  ],
-  "id": "h010"
  },
  {
   "key": "francesca + giuseppe",
@@ -657,11 +797,11 @@
     "dy": 1776
    }
   ],
-  "id": "h011"
+  "id": "h010"
  },
  {
-  "key": "giustina + matteo de",
-  "fatherKey": "matteo de",
+  "key": "giustina + matteo",
+  "fatherKey": "matteo",
   "motherKey": "giustina",
   "father": "Mattio De Franceschi",
   "mother": "Giustina",
@@ -680,7 +820,7 @@
     "place": "Promontore, Istra, Croazia",
     "y": 1791,
     "id": "6YB5-8KNK",
-    "key": "maria de",
+    "key": "maria",
     "ours": true,
     "by": 1791,
     "dy": null
@@ -693,13 +833,13 @@
     "place": "Promontore, Istra, Croazia",
     "y": 1794,
     "id": "6YB5-8KJB",
-    "key": "nicolo de",
+    "key": "nicolo",
     "ours": true,
     "by": 1794,
     "dy": null
    }
   ],
-  "id": "h012"
+  "id": "h011"
  },
  {
   "key": "orsola + valentino",
@@ -748,7 +888,7 @@
     "place": "Vitipolis, Modrus-Fiume, Magyarország",
     "y": 1796,
     "id": "6YBR-FS91",
-    "key": "giuseppa joannam",
+    "key": "giuseppa giovanna",
     "ours": true,
     "by": 1796,
     "dy": null
@@ -761,7 +901,7 @@
     "place": "Vitipolis, Modrus-Fiume, Magyarország",
     "y": 1797,
     "id": "6YBR-8XBV",
-    "key": "francesco josephum",
+    "key": "francesco giuseppe",
     "ours": true,
     "by": 1797,
     "dy": null
@@ -871,7 +1011,7 @@
     "dy": null
    }
   ],
-  "id": "h013"
+  "id": "h012"
  },
  {
   "key": "giovanni battista + maria",
@@ -894,7 +1034,7 @@
     "place": "Sterna, Litorale Austriaco, Austria",
     "y": 1809,
     "id": "X9DG-T2DY",
-    "key": "caterina de",
+    "key": "caterina",
     "ours": true,
     "by": 1809,
     "dy": null
@@ -913,7 +1053,7 @@
     "dy": null
    }
   ],
-  "id": "h014"
+  "id": "h013"
  },
  {
   "key": "elena + gregorio",
@@ -955,7 +1095,7 @@
     "dy": null
    }
   ],
-  "id": "h015"
+  "id": "h014"
  },
  {
   "key": "francesca + ludovico",
@@ -997,11 +1137,11 @@
     "dy": null
    }
   ],
-  "id": "h016"
+  "id": "h015"
  },
  {
-  "key": "maria malusa + pietro de",
-  "fatherKey": "pietro de",
+  "key": "maria malusa + pietro",
+  "fatherKey": "pietro",
   "motherKey": "maria malusa",
   "father": "Pietro De Franceschi",
   "mother": "Maria Malusá",
@@ -1033,7 +1173,7 @@
     "place": "Croazia, Austria",
     "y": 1818,
     "id": "6B47-8H1G",
-    "key": "domenica michiela",
+    "key": "domenica michele",
     "ours": true,
     "by": 1818,
     "dy": null
@@ -1059,17 +1199,17 @@
     "place": "Croazia, Austria",
     "y": 1824,
     "id": "6B47-8CZ7",
-    "key": "cristoforo de",
+    "key": "cristoforo",
     "ours": true,
     "by": 1824,
     "dy": null
    }
   ],
-  "id": "h017"
+  "id": "h016"
  },
  {
-  "key": "domenico de + zacchera cerlon",
-  "fatherKey": "domenico de",
+  "key": "domenico + zacchera cerlon",
+  "fatherKey": "domenico",
   "motherKey": "zacchera cerlon",
   "father": "Domenico De Franceschi",
   "mother": "Zacchera Cerlon",
@@ -1088,7 +1228,7 @@
     "place": "Croazia, Austria",
     "y": 1817,
     "id": "6B47-Q92L",
-    "key": "pietro de",
+    "key": "pietro",
     "ours": true,
     "by": 1817,
     "dy": null
@@ -1101,7 +1241,7 @@
     "place": "Croazia, Austria",
     "y": 1819,
     "id": "6B47-467C",
-    "key": "pietro de",
+    "key": "pietro",
     "ours": true,
     "by": 1819,
     "dy": null
@@ -1114,7 +1254,7 @@
     "place": "Croazia, Austria",
     "y": 1822,
     "id": "6B47-437Q",
-    "key": "domenica de",
+    "key": "domenica",
     "ours": true,
     "by": 1822,
     "dy": null
@@ -1127,7 +1267,7 @@
     "place": "Croazia, Austria",
     "y": 1825,
     "id": "6B47-SMHN",
-    "key": "pasqua de",
+    "key": "pasqua",
     "ours": true,
     "by": 1825,
     "dy": null
@@ -1140,7 +1280,7 @@
     "place": "Croazia, Austria",
     "y": 1830,
     "id": "6B47-83BK",
-    "key": "domenica de",
+    "key": "domenica",
     "ours": true,
     "by": 1830,
     "dy": null
@@ -1153,17 +1293,17 @@
     "place": "Croazia, Austria",
     "y": 1833,
     "id": "6B47-91RH",
-    "key": "maria de",
+    "key": "maria",
     "ours": true,
     "by": 1833,
     "dy": null
    }
   ],
-  "id": "h018"
+  "id": "h017"
  },
  {
-  "key": "bonetta vellico + stefano de",
-  "fatherKey": "stefano de",
+  "key": "bonetta vellico + stefano",
+  "fatherKey": "stefano",
   "motherKey": "bonetta vellico",
   "father": "Stefano De Franceschi",
   "mother": "Bonetta Vellico",
@@ -1195,7 +1335,7 @@
     "place": "Croazia, Austria",
     "y": 1824,
     "id": "6B47-43M8",
-    "key": "martina de",
+    "key": "martino",
     "ours": true,
     "by": 1824,
     "dy": null
@@ -1208,13 +1348,110 @@
     "place": "Croazia, Austria",
     "y": 1829,
     "id": "6B47-D8NP",
-    "key": "maria de",
+    "key": "maria",
     "ours": true,
     "by": 1829,
     "dy": null
    }
   ],
+  "id": "h018"
+ },
+ {
+  "key": "stella + vittorio",
+  "fatherKey": "vittorio",
+  "motherKey": "stella",
+  "father": "Vittorio Defranceschi",
+  "mother": "Stella",
+  "place": "Pula",
+  "region": "istria",
+  "line": "male",
+  "from": 1819,
+  "to": 1825,
+  "n": 2,
+  "children": [
+   {
+    "name": "Maria Defranceschi",
+    "sex": "Female",
+    "birth": "6 Dec 1819",
+    "death": "",
+    "place": "Pola, Italia",
+    "y": 1819,
+    "id": "6BKV-PNF5",
+    "key": "maria",
+    "ours": true,
+    "by": 1819,
+    "dy": null
+   },
+   {
+    "name": "Giovanni Eliseo De Franceschi",
+    "sex": "Male",
+    "birth": "1825",
+    "death": "",
+    "place": "Pola, Italia",
+    "y": 1825,
+    "id": "6BKJ-7QFN",
+    "key": "giovanni eliseo",
+    "ours": true,
+    "by": 1825,
+    "dy": null
+   }
+  ],
   "id": "h019"
+ },
+ {
+  "key": "stella tamborin + vittorio",
+  "fatherKey": "vittorio",
+  "motherKey": "stella tamborin",
+  "father": "Vitorio De Franceschi",
+  "mother": "Stela Tamborin",
+  "place": "Pula",
+  "region": "istria",
+  "line": "male",
+  "from": 1821,
+  "to": 1821,
+  "n": 3,
+  "children": [
+   {
+    "name": "Matteo Giovanni Defranceschi",
+    "sex": "Male",
+    "birth": "7 Apr 1821",
+    "death": "",
+    "place": "Pola, Italia",
+    "y": 1821,
+    "id": "6BKV-GBT7",
+    "key": "matteo giovanni",
+    "ours": true,
+    "by": 1821,
+    "dy": null
+   },
+   {
+    "name": "Vitorio De Franceschi",
+    "sex": "Male",
+    "birth": "",
+    "death": "",
+    "place": "Pola, Italia",
+    "y": null,
+    "id": "6BKV-8W2Y",
+    "key": "vittorio",
+    "ours": true,
+    "by": null,
+    "dy": null
+   },
+   {
+    "name": "Perina De Franceschi",
+    "sex": "Female",
+    "birth": "",
+    "death": "",
+    "place": "Pola, Italia",
+    "y": null,
+    "id": "6BKV-P7LM",
+    "key": "perina",
+    "ours": true,
+    "by": null,
+    "dy": null
+   }
+  ],
+  "id": "h020"
  },
  {
   "key": "giovanni maria + lucia bonassin",
@@ -1237,7 +1474,7 @@
     "place": "Croazia, Austria",
     "y": 1822,
     "id": "6B47-4SJC",
-    "key": "veniera de",
+    "key": "veniera",
     "ours": true,
     "by": 1822,
     "dy": null
@@ -1250,7 +1487,7 @@
     "place": "Croazia, Austria",
     "y": 1824,
     "id": "6B47-9BBP",
-    "key": "pietro da",
+    "key": "pietro",
     "ours": true,
     "by": 1824,
     "dy": null
@@ -1263,7 +1500,7 @@
     "place": "Croazia, Austria",
     "y": 1829,
     "id": "6B47-D95P",
-    "key": "giovanni de",
+    "key": "giovanni",
     "ours": true,
     "by": 1829,
     "dy": null
@@ -1276,18 +1513,18 @@
     "place": "Croazia, Austria",
     "y": 1831,
     "id": "6B47-CD76",
-    "key": "stefano de",
+    "key": "stefano",
     "ours": true,
     "by": 1831,
     "dy": null
    }
   ],
-  "id": "h020"
+  "id": "h021"
  },
  {
-  "key": "maddalena francin + pietro de",
-  "fatherKey": "pietro de",
-  "motherKey": "maddalena francin",
+  "key": "madalena francin + pietro",
+  "fatherKey": "pietro",
+  "motherKey": "madalena francin",
   "father": "Pietro De Franceschi",
   "mother": "Maddalena Francin",
   "place": "",
@@ -1305,7 +1542,7 @@
     "place": "Croazia, Austria",
     "y": 1822,
     "id": "6B47-438M",
-    "key": "maria martina",
+    "key": "maria martino",
     "ours": true,
     "by": 1822,
     "dy": null
@@ -1318,7 +1555,7 @@
     "place": "Croazia, Austria",
     "y": 1824,
     "id": "6B47-82WB",
-    "key": "pasqua de",
+    "key": "pasqua",
     "ours": true,
     "by": 1824,
     "dy": null
@@ -1331,7 +1568,7 @@
     "place": "Croazia, Austria",
     "y": 1827,
     "id": "6B47-9BJ9",
-    "key": "giovanni de",
+    "key": "giovanni",
     "ours": true,
     "by": 1827,
     "dy": null
@@ -1344,17 +1581,17 @@
     "place": "Croazia, Austria",
     "y": 1828,
     "id": "6B47-4QQV",
-    "key": "lucia de",
+    "key": "lucia",
     "ours": true,
     "by": 1828,
     "dy": null
    }
   ],
-  "id": "h021"
+  "id": "h022"
  },
  {
-  "key": "alois + rosa pachmann",
-  "fatherKey": "alois",
+  "key": "luigi + rosa pachmann",
+  "fatherKey": "luigi",
   "motherKey": "rosa pachmann",
   "father": "Alois Defranceschi",
   "mother": "Rosa Pachmann",
@@ -1386,273 +1623,40 @@
     "place": "Austria",
     "y": 1823,
     "id": "6V3N-8DHK",
-    "key": "katharina johanna",
+    "key": "caterina giovanna",
     "ours": true,
     "by": 1823,
-    "dy": null
-   }
-  ],
-  "id": "h022"
- },
- {
-  "key": "francesco vellico + michiela de",
-  "fatherKey": "michiela de",
-  "motherKey": "francesco vellico",
-  "father": "Michiela De Franceschi",
-  "mother": "Francesco Vellico",
-  "place": "",
-  "region": "",
-  "line": "male",
-  "from": 1826,
-  "to": 1833,
-  "n": 3,
-  "children": [
-   {
-    "name": "Maria Vellico",
-    "sex": "Female",
-    "birth": "21 Dec 1826",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1826,
-    "id": "6B47-898D",
-    "key": "maria vellico",
-    "ours": false,
-    "by": 1826,
-    "dy": null
-   },
-   {
-    "name": "Bonetta Vellico",
-    "sex": "Female",
-    "birth": "16 Nov 1828",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1828,
-    "id": "6B47-4QXW",
-    "key": "bonetta vellico",
-    "ours": false,
-    "by": 1828,
-    "dy": null
-   },
-   {
-    "name": "Cristoforo Vellico",
-    "sex": "Male",
-    "birth": "11 Dec 1833",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1833,
-    "id": "6B47-43XC",
-    "key": "cristoforo vellico",
-    "ours": false,
-    "by": 1833,
     "dy": null
    }
   ],
   "id": "h023"
  },
  {
-  "key": "antonio + maria glavinich",
-  "fatherKey": "antonio",
-  "motherKey": "maria glavinich",
-  "father": "Antonio Franceschi",
-  "mother": "Maria Glavinich",
-  "place": "Postira",
-  "region": "dalmatia",
-  "line": "male",
-  "from": 1828,
-  "to": 1832,
-  "n": 2,
-  "children": [
-   {
-    "name": "Giuseppe Domenico Franceschi",
-    "sex": "Male",
-    "birth": "13 Sep 1828",
-    "death": "",
-    "place": "Postira, Spalato, Dalmazia, Austria",
-    "y": 1828,
-    "id": "XQM9-H5QM",
-    "key": "giuseppe domenico",
-    "ours": true,
-    "by": 1828,
-    "dy": null
-   },
-   {
-    "name": "Elena Franceschi",
-    "sex": "Female",
-    "birth": "10 Feb 1832",
-    "death": "",
-    "place": "Postira, Spalato, Dalmazia, Austria",
-    "y": 1832,
-    "id": "XQM9-H54Z",
-    "key": "elena",
-    "ours": true,
-    "by": 1832,
-    "dy": null
-   }
-  ],
-  "id": "h024"
- },
- {
-  "key": "francesca + giovanni bergamo",
-  "fatherKey": "giovanni bergamo",
-  "motherKey": "francesca",
-  "father": "Giovanni Bergamo",
-  "mother": "Francesca Defranceschi",
-  "place": "",
-  "region": "",
-  "line": "female",
-  "from": 1831,
-  "to": 1846,
-  "n": 7,
-  "children": [
-   {
-    "name": "Joannes Bergamo",
-    "sex": "",
-    "birth": "1831",
-    "death": "",
-    "place": "",
-    "y": 1831,
-    "id": "6B47-WT6J",
-    "key": "giovanni bergamo",
-    "ours": false,
-    "by": 1831,
-    "dy": null
-   },
-   {
-    "name": "Dominicus Bergamo",
-    "sex": "",
-    "birth": "1836",
-    "death": "",
-    "place": "",
-    "y": 1836,
-    "id": "6B47-4JT2",
-    "key": "domenico bergamo",
-    "ours": false,
-    "by": 1836,
-    "dy": null
-   },
-   {
-    "name": "Vicenzo Bergamo",
-    "sex": "Male",
-    "birth": "1840",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1840,
-    "id": "X9DG-BBG7",
-    "key": "vicenzo bergamo",
-    "ours": false,
-    "by": 1840,
-    "dy": null
-   },
-   {
-    "name": "Vincentius Bergamo",
-    "sex": "",
-    "birth": "1840",
-    "death": "",
-    "place": "",
-    "y": 1840,
-    "id": "6B47-MLKH",
-    "key": "vincentius bergamo",
-    "ours": false,
-    "by": 1840,
-    "dy": null
-   },
-   {
-    "name": "Benedetta Bergamo",
-    "sex": "Female",
-    "birth": "29 Jul 1842",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1842,
-    "id": "X9DP-3CQB",
-    "key": "benedetta bergamo",
-    "ours": false,
-    "by": 1842,
-    "dy": null
-   },
-   {
-    "name": "Antonio Bergamo",
-    "sex": "Male",
-    "birth": "2 Jul 1845",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1845,
-    "id": "X9DG-BBV4",
-    "key": "antonio bergamo",
-    "ours": false,
-    "by": 1845,
-    "dy": null
-   },
-   {
-    "name": "Antonius Bergamo",
-    "sex": "",
-    "birth": "1846",
-    "death": "",
-    "place": "",
-    "y": 1846,
-    "id": "6B47-WKW3",
-    "key": "antonio bergamo",
-    "ours": false,
-    "by": 1846,
-    "dy": null
-   }
-  ],
-  "id": "h025"
- },
- {
-  "key": "giacoma + giovanni battista",
-  "fatherKey": "giovanni battista",
-  "motherKey": "giacoma",
-  "father": "Johannes Bapt Crosilla",
-  "mother": "Jacoba Defranceschi",
-  "place": "",
-  "region": "",
-  "line": "female",
-  "from": 1831,
-  "to": 1833,
-  "n": 2,
-  "children": [
-   {
-    "name": "Johannes Crosilla",
-    "sex": "",
-    "birth": "1831",
-    "death": "",
-    "place": "",
-    "y": 1831,
-    "id": "6B47-SK6J",
-    "key": "giovanni crosilla",
-    "ours": false,
-    "by": 1831,
-    "dy": null
-   },
-   {
-    "name": "Benedictus",
-    "sex": "Male",
-    "birth": "15 Apr 1833",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1833,
-    "id": "X9DG-TDTK",
-    "key": "benedictus",
-    "ours": false,
-    "by": 1833,
-    "dy": null
-   }
-  ],
-  "id": "h026"
- },
- {
   "key": "antonio + maria bergamo",
   "fatherKey": "antonio",
   "motherKey": "maria bergamo",
-  "father": "Antonius Defranceschi",
+  "father": "Antonio De Franceschi",
   "mother": "Maria Bergamo",
   "place": "",
   "region": "",
   "line": "male",
-  "from": 1832,
+  "from": 1825,
   "to": 1845,
-  "n": 5,
+  "n": 6,
   "children": [
+   {
+    "name": "Maria Maddalena De Franceschi",
+    "sex": "Female",
+    "birth": "2 Dec 1825",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1825,
+    "id": "X9DG-BBMY",
+    "key": "maria madalena",
+    "ours": true,
+    "by": 1825,
+    "dy": null
+   },
    {
     "name": "Johannes Defranceschi",
     "sex": "",
@@ -1719,7 +1723,266 @@
     "dy": null
    }
   ],
+  "id": "h024"
+ },
+ {
+  "key": "giacoma + giovanni battista",
+  "fatherKey": "giovanni battista",
+  "motherKey": "giacoma",
+  "father": "Gio Battista Crosilla",
+  "mother": "Giacoma De Franceschi",
+  "place": "",
+  "region": "",
+  "line": "female",
+  "from": 1825,
+  "to": 1831,
+  "n": 2,
+  "children": [
+   {
+    "name": "Gio Battista Crosilla",
+    "sex": "Male",
+    "birth": "15 Oct 1825",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1825,
+    "id": "X9DP-MSC5",
+    "key": "giovanni battista",
+    "ours": false,
+    "by": 1825,
+    "dy": null
+   },
+   {
+    "name": "Johannes Crosilla",
+    "sex": "",
+    "birth": "1831",
+    "death": "",
+    "place": "",
+    "y": 1831,
+    "id": "6B47-SK6J",
+    "key": "giovanni crosilla",
+    "ours": false,
+    "by": 1831,
+    "dy": null
+   }
+  ],
+  "id": "h025"
+ },
+ {
+  "key": "francesco vellico + michele",
+  "fatherKey": "michele",
+  "motherKey": "francesco vellico",
+  "father": "Michiela De Franceschi",
+  "mother": "Francesco Vellico",
+  "place": "",
+  "region": "",
+  "line": "male",
+  "from": 1826,
+  "to": 1833,
+  "n": 4,
+  "children": [
+   {
+    "name": "Maria Vellico",
+    "sex": "Female",
+    "birth": "21 Dec 1826",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1826,
+    "id": "6B47-898D",
+    "key": "maria vellico",
+    "ours": false,
+    "by": 1826,
+    "dy": null
+   },
+   {
+    "name": "Bonetta Vellico",
+    "sex": "Female",
+    "birth": "16 Nov 1828",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1828,
+    "id": "6B47-4QXW",
+    "key": "bonetta vellico",
+    "ours": false,
+    "by": 1828,
+    "dy": null
+   },
+   {
+    "name": "Domenico Vellico",
+    "sex": "Male",
+    "birth": "25 Aug 1831",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1831,
+    "id": "6B47-91VS",
+    "key": "domenico vellico",
+    "ours": false,
+    "by": 1831,
+    "dy": null
+   },
+   {
+    "name": "Cristoforo Vellico",
+    "sex": "Male",
+    "birth": "11 Dec 1833",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1833,
+    "id": "6B47-43XC",
+    "key": "cristoforo vellico",
+    "ours": false,
+    "by": 1833,
+    "dy": null
+   }
+  ],
+  "id": "h026"
+ },
+ {
+  "key": "antonio + maria glavinich",
+  "fatherKey": "antonio",
+  "motherKey": "maria glavinich",
+  "father": "Antonio Franceschi",
+  "mother": "Maria Glavinich",
+  "place": "Postira",
+  "region": "dalmatia",
+  "line": "male",
+  "from": 1828,
+  "to": 1832,
+  "n": 2,
+  "children": [
+   {
+    "name": "Giuseppe Domenico Franceschi",
+    "sex": "Male",
+    "birth": "13 Sep 1828",
+    "death": "",
+    "place": "Postira, Spalato, Dalmazia, Austria",
+    "y": 1828,
+    "id": "XQM9-H5QM",
+    "key": "giuseppe domenico",
+    "ours": true,
+    "by": 1828,
+    "dy": null
+   },
+   {
+    "name": "Elena Franceschi",
+    "sex": "Female",
+    "birth": "10 Feb 1832",
+    "death": "",
+    "place": "Postira, Spalato, Dalmazia, Austria",
+    "y": 1832,
+    "id": "XQM9-H54Z",
+    "key": "elena",
+    "ours": true,
+    "by": 1832,
+    "dy": null
+   }
+  ],
   "id": "h027"
+ },
+ {
+  "key": "francesca + giovanni bergamo",
+  "fatherKey": "giovanni bergamo",
+  "motherKey": "francesca",
+  "father": "Giovanni Bergamo",
+  "mother": "Francesca Defranceschi",
+  "place": "",
+  "region": "",
+  "line": "female",
+  "from": 1831,
+  "to": 1846,
+  "n": 7,
+  "children": [
+   {
+    "name": "Joannes Bergamo",
+    "sex": "",
+    "birth": "1831",
+    "death": "",
+    "place": "",
+    "y": 1831,
+    "id": "6B47-WT6J",
+    "key": "giovanni bergamo",
+    "ours": false,
+    "by": 1831,
+    "dy": null
+   },
+   {
+    "name": "Dominicus Bergamo",
+    "sex": "",
+    "birth": "1836",
+    "death": "",
+    "place": "",
+    "y": 1836,
+    "id": "6B47-4JT2",
+    "key": "domenico bergamo",
+    "ours": false,
+    "by": 1836,
+    "dy": null
+   },
+   {
+    "name": "Vicenzo Bergamo",
+    "sex": "Male",
+    "birth": "1840",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1840,
+    "id": "X9DG-BBG7",
+    "key": "vicenzo bergamo",
+    "ours": false,
+    "by": 1840,
+    "dy": null
+   },
+   {
+    "name": "Vincentius Bergamo",
+    "sex": "",
+    "birth": "1840",
+    "death": "",
+    "place": "",
+    "y": 1840,
+    "id": "6B47-MLKH",
+    "key": "vincenzo bergamo",
+    "ours": false,
+    "by": 1840,
+    "dy": null
+   },
+   {
+    "name": "Benedetta Bergamo",
+    "sex": "Female",
+    "birth": "29 Jul 1842",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1842,
+    "id": "X9DP-3CQB",
+    "key": "benedetto bergamo",
+    "ours": false,
+    "by": 1842,
+    "dy": null
+   },
+   {
+    "name": "Antonio Bergamo",
+    "sex": "Male",
+    "birth": "2 Jul 1845",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1845,
+    "id": "X9DG-BBV4",
+    "key": "antonio bergamo",
+    "ours": false,
+    "by": 1845,
+    "dy": null
+   },
+   {
+    "name": "Antonius Bergamo",
+    "sex": "",
+    "birth": "1846",
+    "death": "",
+    "place": "",
+    "y": 1846,
+    "id": "6B47-WKW3",
+    "key": "antonio bergamo",
+    "ours": false,
+    "by": 1846,
+    "dy": null
+   }
+  ],
+  "id": "h028"
  },
  {
   "key": "giovanni moscarda + maria",
@@ -1774,7 +2037,7 @@
     "dy": null
    }
   ],
-  "id": "h028"
+  "id": "h029"
  },
  {
   "key": "antonio tamborin + perina",
@@ -1816,21 +2079,47 @@
     "dy": null
    }
   ],
-  "id": "h029"
+  "id": "h030"
  },
  {
-  "key": "domenico + maria oliva",
+  "key": "domenico + maria dorliguzzo",
   "fatherKey": "domenico",
-  "motherKey": "maria oliva",
-  "father": "Domenico Defranceschi",
-  "mother": "Maria Oliva Dorliquzzo",
+  "motherKey": "maria dorliguzzo",
+  "father": "Domenico De Franceschi",
+  "mother": "Maria Dorliguzzo",
   "place": "",
   "region": "",
   "line": "male",
-  "from": 1844,
+  "from": 1837,
   "to": 1851,
-  "n": 2,
+  "n": 5,
   "children": [
+   {
+    "name": "Pietro De Franceschi",
+    "sex": "Male",
+    "birth": "17 Mar 1837",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1837,
+    "id": "6B47-D978",
+    "key": "pietro",
+    "ours": true,
+    "by": 1837,
+    "dy": null
+   },
+   {
+    "name": "Bonetta De Franceschi",
+    "sex": "Female",
+    "birth": "19 Dec 1841",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1841,
+    "id": "6B47-DSVB",
+    "key": "bonetta",
+    "ours": true,
+    "by": 1841,
+    "dy": null
+   },
    {
     "name": "Arveneria Defranceschi",
     "sex": "Male",
@@ -1842,6 +2131,19 @@
     "key": "arveneria",
     "ours": true,
     "by": 1844,
+    "dy": null
+   },
+   {
+    "name": "Augustinus",
+    "sex": "Male",
+    "birth": "11 Jul 1847",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1847,
+    "id": "6B47-8QQB",
+    "key": "augustinus",
+    "ours": false,
+    "by": 1847,
     "dy": null
    },
    {
@@ -1858,7 +2160,7 @@
     "dy": null
    }
   ],
-  "id": "h030"
+  "id": "h031"
  },
  {
   "key": "caterina vlahovich + luca raschich",
@@ -1900,7 +2202,7 @@
     "dy": null
    }
   ],
-  "id": "h031"
+  "id": "h032"
  },
  {
   "key": "caterina vlahovich + luca",
@@ -1942,7 +2244,7 @@
     "dy": null
    }
   ],
-  "id": "h032"
+  "id": "h033"
  },
  {
   "key": "domenica chersin + natale",
@@ -1984,7 +2286,7 @@
     "dy": null
    }
   ],
-  "id": "h033"
+  "id": "h034"
  },
  {
   "key": "domenica chersin + natale",
@@ -2026,20 +2328,20 @@
     "dy": null
    }
   ],
-  "id": "h034"
+  "id": "h035"
  },
  {
-  "key": "francesco + maria caralipeo",
+  "key": "francesco + maria caralipco",
   "fatherKey": "francesco",
-  "motherKey": "maria caralipeo",
+  "motherKey": "maria caralipco",
   "father": "Francesco Franceschi",
-  "mother": "Maria Caralipeo",
+  "mother": "Maria De Caralipco",
   "place": "Omiš",
   "region": "dalmatia",
   "line": "male",
   "from": 1854,
   "to": 1877,
-  "n": 15,
+  "n": 17,
   "children": [
    {
     "name": "Giovanni Giuseppe Maria Franceschi",
@@ -2118,6 +2420,32 @@
     "ours": true,
     "by": 1861,
     "dy": null
+   },
+   {
+    "name": "Niccolò Pasquale Maria Franceschi",
+    "sex": "Male",
+    "birth": "20 Apr 1862",
+    "death": "",
+    "place": "Almissa, Spalato, Dalmazia, Austria",
+    "y": 1862,
+    "id": "X31Y-JNW8",
+    "key": "nicolo pasquale",
+    "ours": true,
+    "by": 1862,
+    "dy": null
+   },
+   {
+    "name": "Niccolo Franceschi",
+    "sex": "Male",
+    "birth": "1862",
+    "death": "17 Nov 1862",
+    "place": "Almissa, Spalato, Dalmazia, Austria",
+    "y": 1862,
+    "id": "X31Y-GV8V",
+    "key": "nicolo",
+    "ours": true,
+    "by": 1862,
+    "dy": 1862
    },
    {
     "name": "Alessandro Paolo Pietro Maria Franceschi",
@@ -2237,7 +2565,7 @@
     "dy": null
    }
   ],
-  "id": "h035"
+  "id": "h036"
  },
  {
   "key": "maria francin + stefano",
@@ -2250,7 +2578,7 @@
   "line": "male",
   "from": 1854,
   "to": 1865,
-  "n": 4,
+  "n": 5,
   "children": [
    {
     "name": "Petrus",
@@ -2263,6 +2591,19 @@
     "key": "pietro",
     "ours": false,
     "by": 1854,
+    "dy": null
+   },
+   {
+    "name": "Josephus",
+    "sex": "Male",
+    "birth": "13 Apr 1858",
+    "death": "",
+    "place": "Croazia, Austria",
+    "y": 1858,
+    "id": "6B47-D3HB",
+    "key": "giuseppe",
+    "ours": false,
+    "by": 1858,
     "dy": null
    },
    {
@@ -2305,100 +2646,6 @@
     "dy": null
    }
   ],
-  "id": "h036"
- },
- {
-  "key": "giovanni + joanna cleva",
-  "fatherKey": "giovanni",
-  "motherKey": "joanna cleva",
-  "father": "Joannes Defranceschi",
-  "mother": "Joanna Cleva",
-  "place": "",
-  "region": "",
-  "line": "male",
-  "from": 1858,
-  "to": 1867,
-  "n": 6,
-  "children": [
-   {
-    "name": "Johan-Antonius",
-    "sex": "Male",
-    "birth": "5 Nov 1858",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1858,
-    "id": "X9DP-3C2R",
-    "key": "johan-antonius",
-    "ours": false,
-    "by": 1858,
-    "dy": null
-   },
-   {
-    "name": "Maria",
-    "sex": "Female",
-    "birth": "1 Dec 1859",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1859,
-    "id": "X9DG-TSN9",
-    "key": "maria",
-    "ours": false,
-    "by": 1859,
-    "dy": null
-   },
-   {
-    "name": "Rosa",
-    "sex": "Female",
-    "birth": "30 Sep 1861",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1861,
-    "id": "X9DP-S7ZW",
-    "key": "rosa",
-    "ours": false,
-    "by": 1861,
-    "dy": null
-   },
-   {
-    "name": "Euphemia",
-    "sex": "Female",
-    "birth": "30 Nov 1863",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1863,
-    "id": "X9DP-9T5Q",
-    "key": "eufemia",
-    "ours": false,
-    "by": 1863,
-    "dy": null
-   },
-   {
-    "name": "Anna",
-    "sex": "Female",
-    "birth": "1 Apr 1865",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1865,
-    "id": "X9DP-9Y3G",
-    "key": "anna",
-    "ours": false,
-    "by": 1865,
-    "dy": null
-   },
-   {
-    "name": "Victorius-Joseph",
-    "sex": "Male",
-    "birth": "10 Mar 1867",
-    "death": "",
-    "place": "Croazia, Austria",
-    "y": 1867,
-    "id": "X9DP-M8PN",
-    "key": "victorius-joseph",
-    "ours": false,
-    "by": 1867,
-    "dy": null
-   }
-  ],
   "id": "h037"
  },
  {
@@ -2422,7 +2669,7 @@
     "place": "Austria",
     "y": 1858,
     "id": "6V3N-6VN7",
-    "key": "rosina teresa",
+    "key": "rosa teresa",
     "ours": true,
     "by": 1858,
     "dy": null
@@ -2542,7 +2789,7 @@
     "place": "Almissa, Spalato, Dalmazia, Austria",
     "y": 1874,
     "id": "X31Y-LFSS",
-    "key": "natale tommaso",
+    "key": "natale tomaso",
     "ours": true,
     "by": 1874,
     "dy": null
@@ -2707,7 +2954,7 @@
     "place": "Ližnjan, Istria, Italia",
     "y": null,
     "id": "XQM3-RCLV",
-    "key": "magdalena",
+    "key": "madalena",
     "ours": false,
     "by": null,
     "dy": null
@@ -2907,9 +3154,9 @@
   "id": "h045"
  },
  {
-  "key": "ana kalanj + josip",
-  "fatherKey": "josip",
-  "motherKey": "ana kalanj",
+  "key": "anna kalanj + giuseppe",
+  "fatherKey": "giuseppe",
+  "motherKey": "anna kalanj",
   "father": "Josip Defranceschi",
   "mother": "Ana Kalanj",
   "place": "Ledenice",
@@ -2940,7 +3187,7 @@
     "place": "Ledenice, Modrus-Fiume, Mađarska",
     "y": 1892,
     "id": "XQM9-8K2Q",
-    "key": "marija stjepanka",
+    "key": "maria stjepanka",
     "ours": true,
     "by": 1892,
     "dy": null
@@ -2969,7 +3216,7 @@
     "place": "Croazia, Austria",
     "y": 1891,
     "id": "6YB5-FXYN",
-    "key": "francesca angela",
+    "key": "francesca angelo",
     "ours": false,
     "by": 1891,
     "dy": null
@@ -2982,7 +3229,7 @@
     "place": "Croazia, Austria",
     "y": 1893,
     "id": "6YB5-ZG4C",
-    "key": "alexander angelus",
+    "key": "alexander angelo",
     "ours": false,
     "by": 1893,
     "dy": null
@@ -2995,7 +3242,7 @@
     "place": "Croazia, Austria",
     "y": 1894,
     "id": "6YB5-FJ4Q",
-    "key": "angela regina",
+    "key": "angelo regina",
     "ours": false,
     "by": 1894,
     "dy": null
@@ -3092,7 +3339,7 @@
     "place": "Bakar, Primorsko-goranska, Hrvatska",
     "y": null,
     "id": "D4TV-BR6Z",
-    "key": "antoniam",
+    "key": "antonio",
     "ours": true,
     "by": null,
     "dy": null
@@ -3141,89 +3388,5 @@
    }
   ],
   "id": "h050"
- },
- {
-  "key": "gioannis antony + lucia",
-  "fatherKey": "gioannis antony",
-  "motherKey": "lucia",
-  "father": "Gioannis Antonÿ De Franceschi",
-  "mother": "Lutia",
-  "place": "Rijeka",
-  "region": "kvarner",
-  "line": "male",
-  "from": null,
-  "to": null,
-  "n": 2,
-  "children": [
-   {
-    "name": "Mariam De Franceschi",
-    "sex": "Female",
-    "birth": "",
-    "death": "",
-    "place": "Rijeka, Modrus-Fiume, Hungary",
-    "y": null,
-    "id": "QKMD-LKFC",
-    "key": "maria de",
-    "ours": true,
-    "by": null,
-    "dy": null
-   },
-   {
-    "name": "Gioanná Victoriam Franceschi",
-    "sex": "Female",
-    "birth": "",
-    "death": "",
-    "place": "Rijeka, Modrus-Fiume, Hungary",
-    "y": null,
-    "id": "QKMD-L1WY",
-    "key": "gioanna victoriam",
-    "ours": true,
-    "by": null,
-    "dy": null
-   }
-  ],
-  "id": "h051"
- },
- {
-  "key": "stella tamborin + vittorio de",
-  "fatherKey": "vittorio de",
-  "motherKey": "stella tamborin",
-  "father": "Vitorio De Franceschi",
-  "mother": "Stela Tamborin",
-  "place": "Pula",
-  "region": "istria",
-  "line": "male",
-  "from": null,
-  "to": null,
-  "n": 2,
-  "children": [
-   {
-    "name": "Vitorio De Franceschi",
-    "sex": "Male",
-    "birth": "",
-    "death": "",
-    "place": "Pola, Italia",
-    "y": null,
-    "id": "6BKV-8W2Y",
-    "key": "vittorio de",
-    "ours": true,
-    "by": null,
-    "dy": null
-   },
-   {
-    "name": "Perina De Franceschi",
-    "sex": "Female",
-    "birth": "",
-    "death": "",
-    "place": "Pola, Italia",
-    "y": null,
-    "id": "6BKV-P7LM",
-    "key": "perina de",
-    "ours": true,
-    "by": null,
-    "dy": null
-   }
-  ],
-  "id": "h052"
  }
 ]

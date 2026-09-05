@@ -13,45 +13,72 @@ OURS = re.compile(r'(?:franceschi|franceski|franzeschi|francheschi)(?![a-z])', r
 
 # Latin/Italian/Croatian forms of the same given name
 CANON = {
- 'giovanni': 'joannes joannem joanni joannis joannem gioannes gioanni zuanne zuane zuanne giovanni ivan johann johannes joan gio giovan nep',
- 'battista': 'battista batta baptista baptae bapt batista bata',
- 'antonio':  'antonio antonius antonium antonii anto anton',
- 'antonia':  'antonia antoniae antoniæ anta antonietta',
- 'matteo':   'matteo mattio matio mattheus mathaeus mathæus mathæi matheus mattia matthia mateo',
- 'francesco':'francesco franciscus francisci franciscum franco franz francescho',
- 'francesca':'francesca francisca franciscae franciscæ franca franceschina',
- 'pietro':   'pietro pier piero pieto petrus petrum petri',
- 'valentino':'valentino valentinus valentini valentinum valentio valentin',
- 'giuseppe': 'giuseppe josephus josephi joseph josef',
- 'giuseppa': 'giuseppa josepha josepham josephae',
- 'maria':    'maria mariam mariæ mariae marie marietta',
- 'elena':    'elena ellena helena helenæ helena elenam ellenam',
- 'orsola':   'orsola ursula ursulæ ursulam ursulae',
- 'domenico': 'domenico dominicus domco domco',
- 'domenica': 'domenica dominica domca domča domenicae dominicae doma',
- 'gasparo':  'gasparo gaspero gaspo gaspar gasparus gasparina',
- 'nicolo':   'nicolo niccolo nicolaus nicolaa nicoló nicolò nicolaus',
- 'vittorio': 'vittorio victorius vitorio victorii vitorii vitnio',
- 'vittoria': 'vittoria victoria vittoriam',
- 'caterina': 'caterina catharina cattarina catterina katarina catharinam catharinæ',
- 'bartolo':  'bartolo bortolo bartholomaeus bartholomaei barthol',
- 'lucia':    'lucia luciae luciæ lutia',
- 'anna':     'anna annam annæ anta anzoletta',
- 'stella':   'stella stela steffa etella',
- 'gregorio': 'gregorio gregorius gregorii',
- 'natale':   'natale nadal natalis nataliem',
- 'stefano':  'stefano stephanus stephanus steffano',
- 'agata':    'agata agatha agathæ',
- 'eufemia':  'eufemia euphemia euphemię euphemiae',
- 'giacomo':  'giacomo jacobus',
- 'giacoma':  'giacoma jacobina jacoba',
- 'andrea':   'andrea andreas andreæ andra andrae',
- 'luca':     'luca lucas',
- 'paolo':    'paolo paola paulus paoli',
- 'carlo':    'carlo carolus caroli karlo',
- 'michele':  'michele michiel michaelis michiele michael',
- 'teresa':   'teresa theresia teresia theresiam',
+ # Each line: one person, however four languages and three centuries wrote them.
+ # Latin (register) · Italian · Venetian · Croatian · German · English
+ 'giovanni': 'giovanni giovan gio giovanni joannes joannem joanni joannis gioannes gioanni ioannes '
+             'zuane zuanne nane ivan ivo ive johann johannes hans john joan nep giovanbattista '
+             'gioannis gioanne ioannis ianni zanne zan',
+ 'battista': 'battista batta baptista baptae bapt batista bata krstitelj',
+ 'antonio':  'antonio antonius antonium antonii anto anton ante antun toni anthony antal antony antonÿ',
+ 'antonia':  'antonia antoniae antoniæ anta antonietta antonija',
+ 'matteo':   'matteo mattio matio mattheus mathaeus mathæus mathæi matheus mate matij matthew mathias matija',
+ 'francesco':'francesco franciscus francisci franciscum franco franz francescho frane franjo frank francis checo',
+ 'francesca':'francesca francisca franciscae franciscæ franca franka franica frances',
+ 'pietro':   'pietro pier piero pieto petrus petrum petri petar pere peter petar',
+ 'valentino':'valentino valentinus valentini valentinum valentio valentin valentine',
+ 'giuseppe': 'giuseppe josephus josephi joseph josef josip bepo bepi jozo joso pepi',
+ 'giuseppa': 'giuseppa josepha josepham josephae josipa josephine',
+ 'maria':    'maria mariam mariæ mariae marie marietta marija mare mary marija',
+ 'elena':    'elena ellena helena helenæ elenam ellenam jelena helen ilona',
+ 'orsola':   'orsola ursula ursulæ ursulam ursulae ursa uršula',
+ 'domenico': 'domenico dominicus domco menego dominik dominic',
+ 'domenica': 'domenica dominica domca domča domenicae dominicae doma dominika',
+ 'gasparo':  'gasparo gaspero gaspo gaspar gasparus gaspare jasper',
+ 'gasparina':'gasparina gasperina',
+ 'nicolo':   'nicolo niccolo nicolaus nicolaa nicoló nicolò nikola nicholas nikolaus mikula miko',
+ 'vittorio': 'vittorio victorius vitorio victorii vitorii vitnio viktor victor',
+ 'vittoria': 'vittoria victoria vittoriam viktorija',
+ 'caterina': 'caterina catharina cattarina catterina katarina catharinam catharinæ kate katharina catherine kata',
+ 'bartolo':  'bartolo bortolo bartholomaeus bartholomaei barthol bartol bartolomeo bartholomew',
+ 'lucia':    'lucia luciae luciæ lutia luce lucija lucy',
+ 'anna':     'anna annam annæ anta anzoletta ana ane anne',
+ 'stella':   'stella stela steffa etella zvijezda',
+ 'gregorio': 'gregorio gregorius gregorii grgur gregory',
+ 'natale':   'natale nadal natalis nataliem bozo božo noel',
+ 'stefano':  'stefano stephanus steffano stjepan stipe stipan stephen steven stefan',
+ 'agata':    'agata agatha agathæ agneza',
+ 'eufemia':  'eufemia euphemia euphemię euphemiae fuma fumia fumija',
+ 'giacomo':  'giacomo jacobus jakov jakob james jacob jacomo',
+ 'giacoma':  'giacoma jacobina jacoba jakovina',
+ 'andrea':   'andrea andreas andreæ andra andrae andrija andrew andre',
+ 'luca':     'luca lucas luka luke',
+ 'paolo':    'paolo paulus paoli pavao pavle paul',
+ 'carlo':    'carlo carolus caroli karlo karl charles carl',
+ 'michele':  'michele michiel michaelis michiele michael mijo miho mihovil mihael',
+ 'teresa':   'teresa theresia teresia theresiam terezija theresa',
+ 'marco':    'marco marcus marko mark',
+ 'vincenzo': 'vincenzo vincentius vincentii vinko vincent vinzenz',
+ 'lorenzo':  'lorenzo laurentius laurentii lovro lovre lawrence lorenz',
+ 'martino':  'martino martinus martin',
+ 'tomaso':   'tomaso thomas tommaso toma tomo tomislav',
+ 'angelo':   'angelo angelus andjelo anđelo angel',
+ 'simone':   'simone simon simeon sime šime',
+ 'filippo':  'filippo philippus filip philip',
+ 'girolamo': 'girolamo hieronymus jerolim jere momolo jerome',
+ 'margarita':'margarita margaretha margherita margareta marta margaret',
+ 'giovanna': 'giovanna joanna johanna ivana jovana jane joan',
+ 'madalena': 'madalena maddalena magdalena magdalene mande manda',
+ 'rosa':     'rosa rosina ruza ruža rose',
+ 'filomena': 'filomena philomena fila',
+ 'veneranda':'veneranda venera',
+ 'pasqua':   'pasqua paschalis pasqualina pasko paško',
+ 'benedetto':'benedetto benedictus benko benedict',
+ 'ignazio':  'ignazio ignatius ignac ignatz',
+ 'luigi':    'luigi aloysius aloisio alois alojz louis lewis',
+ 'felice':   'felice felix srecko srećko',
+ 'urbano':   'urbano urbanus urban',
 }
+
 LOOKUP = {}
 for k, v in CANON.items():
     for form in v.split():
@@ -71,9 +98,26 @@ def canon_place(p):
 def strip_accents(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
+# nobiliary and connective particles are not given names
+PARTICLES = {'de', 'di', 'da', 'del', 'della', 'dei', 'degli', 'dal', 'von', 'van', 'y', 'or', 'o'}
+# Latin declension endings, longest first
+LATIN_ENDINGS = ('issimus', 'orum', 'arum', 'ibus', 'ium', 'ii', 'is', 'us', 'um', 'am',
+                 'ae', 'os', 'as', 'es', 'em', 'e', 'i', 'a', 'o')
+
 def norm_token(t):
-    t = strip_accents(t.lower()).strip('.,')
-    return LOOKUP.get(t, t)
+    t = strip_accents(t.lower()).strip('.,;:')
+    if not t or t in PARTICLES:
+        return ''
+    if t in LOOKUP:
+        return LOOKUP[t]
+    # try again with Latin case endings peeled off, longest ending first
+    for end in LATIN_ENDINGS:
+        if len(t) > len(end) + 2 and t.endswith(end):
+            stem = t[:-len(end)]
+            for probe in (stem, stem + 'o', stem + 'us', stem + 'a', stem + 'e', stem + 'es', stem + 'i'):
+                if probe in LOOKUP:
+                    return LOOKUP[probe]
+    return t
 
 def parse_person(full):
     """Return (given_key, surname_is_ours, display)."""
@@ -86,7 +130,10 @@ def parse_person(full):
     given = [t for t in toks if not OURS.search(t)]
     if not given:
         given = toks[:1]
-    key = ' '.join(norm_token(t) for t in given[:2])
+    parts = [n for n in (norm_token(t) for t in given) if n]
+    if not parts:
+        parts = [strip_accents(given[0].lower())]
+    key = ' '.join(parts[:2])
     return key, ours, full
 
 def year(*vals):
@@ -117,13 +164,14 @@ def load(path, src):
     for r in rows: r['_src'] = src
     return rows
 
-MALE = {'giovanni','battista','antonio','matteo','francesco','pietro','valentino','giuseppe','domenico',
-        'gasparo','nicolo','vittorio','bartolo','gregorio','natale','stefano','giacomo','andrea','luca',
-        'paolo','carlo','michele','martino','tomaso','angelo','ignazio','simone','felice','luigi'}
-FEMALE = {'maria','elena','orsola','caterina','lucia','anna','stella','agata','eufemia','teresa','domenica',
-          'francesca','giovanna','margarita','marta','antonia','vittoria','zuanna','giustina','madalena',
-          'maddalena','filomena','veneranda','pasqua','fioretta','colotta','bonetta','zacchera','giacoma',
-          'giuseppa','perina','petrina','stella','irene','agatha','lamberta','virginia','aurelia','nicolaa'}
+MALE = {'giovanni','battista','antonio','matteo','francesco','pietro','valentino','giuseppe',
+        'domenico','gasparo','nicolo','vittorio','bartolo','gregorio','natale','stefano','giacomo',
+        'andrea','luca','paolo','carlo','michele','marco','vincenzo','lorenzo','martino','tomaso',
+        'angelo','simone','filippo','girolamo','benedetto','ignazio','luigi','felice','urbano'}
+FEMALE = {'maria','elena','orsola','caterina','lucia','anna','stella','agata','eufemia','teresa',
+          'domenica','francesca','giovanna','margarita','antonia','vittoria','giustina','madalena',
+          'filomena','veneranda','pasqua','giacoma','giuseppa','gasparina','rosa','perina','petrina',
+          'irene','lamberta','virginia','aurelia','zuanna','fioretta','colotta','bonetta','zacchera'}
 
 def sex_of(key):
     first = (key or '').split()[0] if key else ''

@@ -1,8 +1,17 @@
 {
  "links": [
   {
-   "child": "h013",
-   "parent": "h011",
+   "child": "h007",
+   "parent": "h004",
+   "via": "Mattio De Franceschi",
+   "viaId": "X9DG-1K8S",
+   "gap": 48,
+   "confidence": "probable",
+   "score": 1
+  },
+  {
+   "child": "h012",
+   "parent": "h010",
    "via": "Valentinus Franciscus Xaverius Defranceschi",
    "viaId": "XQMQ-ZQKM",
    "gap": 22,
@@ -10,8 +19,8 @@
    "score": 3
   },
   {
-   "child": "h020",
-   "parent": "h013",
+   "child": "h021",
+   "parent": "h012",
    "via": "Joannem Nepomuc Aloysium Paschalem Defranceschi",
    "viaId": "6YBR-HBHG",
    "gap": 20,
@@ -19,8 +28,8 @@
    "score": 1
   },
   {
-   "child": "h021",
-   "parent": "h013",
+   "child": "h022",
+   "parent": "h012",
    "via": "Petrum Julium Paschalem Defranceschi",
    "viaId": "6YBR-ZDKH",
    "gap": 19,
@@ -28,61 +37,38 @@
    "score": 1
   },
   {
-   "child": "h027",
-   "parent": "h013",
+   "child": "h024",
+   "parent": "h012",
    "via": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
    "viaId": "6YBR-89WD",
-   "gap": 27,
+   "gap": 20,
    "confidence": "probable",
-   "score": 2
+   "score": 1
   },
   {
-   "child": "h030",
-   "parent": "h019",
+   "child": "h031",
+   "parent": "h018",
    "via": "Domenico Giovanni Anto De Franceschi",
    "viaId": "6B47-4SSG",
-   "gap": 25,
+   "gap": 18,
    "confidence": "probable",
-   "score": 2
+   "score": 1
   }
  ],
  "ambiguous": [
   {
-   "household": "h036",
+   "household": "h037",
    "options": [
     {
-     "parent": "h017",
+     "parent": "h016",
      "via": "Stefano Matteo De Franceschi",
      "gap": 32,
      "score": 2
     },
     {
-     "parent": "h020",
+     "parent": "h021",
      "via": "Stefano De Franceschi",
      "gap": 23,
-     "score": 2
-    }
-   ]
-  },
-  {
-   "household": "h037",
-   "options": [
-    {
-     "parent": "h020",
-     "via": "Giovanni De Franceschi",
-     "gap": 29,
-     "score": 2
-    },
-    {
-     "parent": "h021",
-     "via": "Giovanni De Franceschi",
-     "gap": 31,
-     "score": 2
-    },
-    {
-     "parent": "h027",
-     "via": "Johannes Defranceschi",
-     "gap": 26,
      "score": 2
     }
    ]
@@ -91,19 +77,19 @@
    "household": "h038",
    "options": [
     {
-     "parent": "h020",
+     "parent": "h021",
      "via": "Giovanni De Franceschi",
      "gap": 29,
      "score": 2
     },
     {
-     "parent": "h021",
+     "parent": "h022",
      "via": "Giovanni De Franceschi",
      "gap": 31,
      "score": 2
     },
     {
-     "parent": "h027",
+     "parent": "h024",
      "via": "Johannes Defranceschi",
      "gap": 26,
      "score": 2
@@ -114,19 +100,19 @@
    "household": "h039",
    "options": [
     {
-     "parent": "h020",
+     "parent": "h021",
      "via": "Giovanni De Franceschi",
      "gap": 31,
      "score": 2
     },
     {
-     "parent": "h021",
+     "parent": "h022",
      "via": "Giovanni De Franceschi",
      "gap": 33,
      "score": 2
     },
     {
-     "parent": "h027",
+     "parent": "h024",
      "via": "Johannes Defranceschi",
      "gap": 28,
      "score": 2
@@ -137,25 +123,25 @@
    "household": "h044",
    "options": [
     {
-     "parent": "h027",
+     "parent": "h024",
      "via": "Johannes Defranceschi",
      "gap": 41,
      "score": 2
     },
     {
-     "parent": "h035",
+     "parent": "h036",
      "via": "Giovanni Giuseppe Maria Franceschi",
      "gap": 19,
      "score": 2
     },
     {
-     "parent": "h020",
+     "parent": "h021",
      "via": "Giovanni De Franceschi",
      "gap": 44,
      "score": 1
     },
     {
-     "parent": "h021",
+     "parent": "h022",
      "via": "Giovanni De Franceschi",
      "gap": 46,
      "score": 1
@@ -166,13 +152,13 @@
    "household": "h047",
    "options": [
     {
-     "parent": "h035",
+     "parent": "h036",
      "via": "Giovanni Giuseppe Maria Franceschi",
      "gap": 37,
      "score": 2
     },
     {
-     "parent": "h035",
+     "parent": "h036",
      "via": "Giovanni Girolamo Andrea Felice Franceschi",
      "gap": 34,
      "score": 2
@@ -188,10 +174,10 @@
  ],
  "lineages": [
   {
-   "root": "h011",
+   "root": "h010",
    "generations": 3,
    "tree": {
-    "id": "h011",
+    "id": "h010",
     "household": {
      "key": "francesca + giuseppe",
      "fatherKey": "giuseppe",
@@ -258,12 +244,12 @@
        "dy": 1776
       }
      ],
-     "id": "h011"
+     "id": "h010"
     },
     "link": null,
     "children": [
      {
-      "id": "h013",
+      "id": "h012",
       "household": {
        "key": "orsola + valentino",
        "fatherKey": "valentino",
@@ -311,7 +297,7 @@
          "place": "Vitipolis, Modrus-Fiume, Magyarország",
          "y": 1796,
          "id": "6YBR-FS91",
-         "key": "giuseppa joannam",
+         "key": "giuseppa giovanna",
          "ours": true,
          "by": 1796,
          "dy": null
@@ -324,7 +310,7 @@
          "place": "Vitipolis, Modrus-Fiume, Magyarország",
          "y": 1797,
          "id": "6YBR-8XBV",
-         "key": "francesco josephum",
+         "key": "francesco giuseppe",
          "ours": true,
          "by": 1797,
          "dy": null
@@ -434,11 +420,11 @@
          "dy": null
         }
        ],
-       "id": "h013"
+       "id": "h012"
       },
       "link": {
-       "child": "h013",
-       "parent": "h011",
+       "child": "h012",
+       "parent": "h010",
        "via": "Valentinus Franciscus Xaverius Defranceschi",
        "viaId": "XQMQ-ZQKM",
        "gap": 22,
@@ -447,7 +433,7 @@
       },
       "children": [
        {
-        "id": "h020",
+        "id": "h021",
         "household": {
          "key": "giovanni maria + lucia bonassin",
          "fatherKey": "giovanni maria",
@@ -469,7 +455,7 @@
            "place": "Croazia, Austria",
            "y": 1822,
            "id": "6B47-4SJC",
-           "key": "veniera de",
+           "key": "veniera",
            "ours": true,
            "by": 1822,
            "dy": null
@@ -482,7 +468,7 @@
            "place": "Croazia, Austria",
            "y": 1824,
            "id": "6B47-9BBP",
-           "key": "pietro da",
+           "key": "pietro",
            "ours": true,
            "by": 1824,
            "dy": null
@@ -495,7 +481,7 @@
            "place": "Croazia, Austria",
            "y": 1829,
            "id": "6B47-D95P",
-           "key": "giovanni de",
+           "key": "giovanni",
            "ours": true,
            "by": 1829,
            "dy": null
@@ -508,17 +494,17 @@
            "place": "Croazia, Austria",
            "y": 1831,
            "id": "6B47-CD76",
-           "key": "stefano de",
+           "key": "stefano",
            "ours": true,
            "by": 1831,
            "dy": null
           }
          ],
-         "id": "h020"
+         "id": "h021"
         },
         "link": {
-         "child": "h020",
-         "parent": "h013",
+         "child": "h021",
+         "parent": "h012",
          "via": "Joannem Nepomuc Aloysium Paschalem Defranceschi",
          "viaId": "6YBR-HBHG",
          "gap": 20,
@@ -528,11 +514,11 @@
         "children": []
        },
        {
-        "id": "h021",
+        "id": "h022",
         "household": {
-         "key": "maddalena francin + pietro de",
-         "fatherKey": "pietro de",
-         "motherKey": "maddalena francin",
+         "key": "madalena francin + pietro",
+         "fatherKey": "pietro",
+         "motherKey": "madalena francin",
          "father": "Pietro De Franceschi",
          "mother": "Maddalena Francin",
          "place": "",
@@ -550,7 +536,7 @@
            "place": "Croazia, Austria",
            "y": 1822,
            "id": "6B47-438M",
-           "key": "maria martina",
+           "key": "maria martino",
            "ours": true,
            "by": 1822,
            "dy": null
@@ -563,7 +549,7 @@
            "place": "Croazia, Austria",
            "y": 1824,
            "id": "6B47-82WB",
-           "key": "pasqua de",
+           "key": "pasqua",
            "ours": true,
            "by": 1824,
            "dy": null
@@ -576,7 +562,7 @@
            "place": "Croazia, Austria",
            "y": 1827,
            "id": "6B47-9BJ9",
-           "key": "giovanni de",
+           "key": "giovanni",
            "ours": true,
            "by": 1827,
            "dy": null
@@ -589,17 +575,17 @@
            "place": "Croazia, Austria",
            "y": 1828,
            "id": "6B47-4QQV",
-           "key": "lucia de",
+           "key": "lucia",
            "ours": true,
            "by": 1828,
            "dy": null
           }
          ],
-         "id": "h021"
+         "id": "h022"
         },
         "link": {
-         "child": "h021",
-         "parent": "h013",
+         "child": "h022",
+         "parent": "h012",
          "via": "Petrum Julium Paschalem Defranceschi",
          "viaId": "6YBR-ZDKH",
          "gap": 19,
@@ -609,20 +595,33 @@
         "children": []
        },
        {
-        "id": "h027",
+        "id": "h024",
         "household": {
          "key": "antonio + maria bergamo",
          "fatherKey": "antonio",
          "motherKey": "maria bergamo",
-         "father": "Antonius Defranceschi",
+         "father": "Antonio De Franceschi",
          "mother": "Maria Bergamo",
          "place": "",
          "region": "",
          "line": "male",
-         "from": 1832,
+         "from": 1825,
          "to": 1845,
-         "n": 5,
+         "n": 6,
          "children": [
+          {
+           "name": "Maria Maddalena De Franceschi",
+           "sex": "Female",
+           "birth": "2 Dec 1825",
+           "death": "",
+           "place": "Croazia, Austria",
+           "y": 1825,
+           "id": "X9DG-BBMY",
+           "key": "maria madalena",
+           "ours": true,
+           "by": 1825,
+           "dy": null
+          },
           {
            "name": "Johannes Defranceschi",
            "sex": "",
@@ -689,16 +688,16 @@
            "dy": null
           }
          ],
-         "id": "h027"
+         "id": "h024"
         },
         "link": {
-         "child": "h027",
-         "parent": "h013",
+         "child": "h024",
+         "parent": "h012",
          "via": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
          "viaId": "6YBR-89WD",
-         "gap": 27,
+         "gap": 20,
          "confidence": "probable",
-         "score": 2
+         "score": 1
         },
         "children": []
        }
@@ -709,13 +708,147 @@
    "size": 5
   },
   {
-   "root": "h019",
+   "root": "h004",
    "generations": 2,
    "tree": {
-    "id": "h019",
+    "id": "h004",
     "household": {
-     "key": "bonetta vellico + stefano de",
-     "fatherKey": "stefano de",
+     "key": "antonio + margarita",
+     "fatherKey": "antonio",
+     "motherKey": "margarita",
+     "father": "Anto De Franceschi",
+     "mother": "Marta",
+     "place": "",
+     "region": "",
+     "line": "male",
+     "from": 1667,
+     "to": 1674,
+     "n": 4,
+     "children": [
+      {
+       "name": "Franceschina De Franceschi",
+       "sex": "Female",
+       "birth": "6 Oct 1667",
+       "death": "",
+       "place": "Croazia, Austria",
+       "y": 1667,
+       "id": "X9DG-TK98",
+       "key": "franceschina",
+       "ours": true,
+       "by": 1667,
+       "dy": null
+      },
+      {
+       "name": "Mattia De Franceschi",
+       "sex": "Female",
+       "birth": "8 Nov 1669",
+       "death": "",
+       "place": "Croazia, Austria",
+       "y": 1669,
+       "id": "X9DP-MZG6",
+       "key": "matteo",
+       "ours": true,
+       "by": 1669,
+       "dy": null
+      },
+      {
+       "name": "Anto De Franceschi",
+       "sex": "Male",
+       "birth": "1671",
+       "death": "",
+       "place": "Croazia, Austria",
+       "y": 1671,
+       "id": "X9DG-BT6G",
+       "key": "antonio",
+       "ours": true,
+       "by": 1671,
+       "dy": null
+      },
+      {
+       "name": "Mattio De Franceschi",
+       "sex": "Male",
+       "birth": "1674",
+       "death": "",
+       "place": "Croazia, Austria",
+       "y": 1674,
+       "id": "X9DG-1K8S",
+       "key": "matteo",
+       "ours": true,
+       "by": 1674,
+       "dy": null
+      }
+     ],
+     "id": "h004"
+    },
+    "link": null,
+    "children": [
+     {
+      "id": "h007",
+      "household": {
+       "key": "elisabetta + matteo",
+       "fatherKey": "matteo",
+       "motherKey": "elisabetta",
+       "father": "Mattio De Franceschi",
+       "mother": "Elisabetta",
+       "place": "",
+       "region": "",
+       "line": "male",
+       "from": 1722,
+       "to": 1726,
+       "n": 2,
+       "children": [
+        {
+         "name": "Martino De Franceschi",
+         "sex": "Male",
+         "birth": "1722",
+         "death": "",
+         "place": "Croazia, Austria",
+         "y": 1722,
+         "id": "6B4Q-ZC63",
+         "key": "martino",
+         "ours": true,
+         "by": 1722,
+         "dy": null
+        },
+        {
+         "name": "Benedetto Franceschi",
+         "sex": "Male",
+         "birth": "23 Oct 1726",
+         "death": "",
+         "place": "Croazia, Austria",
+         "y": 1726,
+         "id": "6B4Q-4FFW",
+         "key": "benedetto",
+         "ours": true,
+         "by": 1726,
+         "dy": null
+        }
+       ],
+       "id": "h007"
+      },
+      "link": {
+       "child": "h007",
+       "parent": "h004",
+       "via": "Mattio De Franceschi",
+       "viaId": "X9DG-1K8S",
+       "gap": 48,
+       "confidence": "probable",
+       "score": 1
+      },
+      "children": []
+     }
+    ]
+   },
+   "size": 2
+  },
+  {
+   "root": "h018",
+   "generations": 2,
+   "tree": {
+    "id": "h018",
+    "household": {
+     "key": "bonetta vellico + stefano",
+     "fatherKey": "stefano",
      "motherKey": "bonetta vellico",
      "father": "Stefano De Franceschi",
      "mother": "Bonetta Vellico",
@@ -747,7 +880,7 @@
        "place": "Croazia, Austria",
        "y": 1824,
        "id": "6B47-43M8",
-       "key": "martina de",
+       "key": "martino",
        "ours": true,
        "by": 1824,
        "dy": null
@@ -760,31 +893,57 @@
        "place": "Croazia, Austria",
        "y": 1829,
        "id": "6B47-D8NP",
-       "key": "maria de",
+       "key": "maria",
        "ours": true,
        "by": 1829,
        "dy": null
       }
      ],
-     "id": "h019"
+     "id": "h018"
     },
     "link": null,
     "children": [
      {
-      "id": "h030",
+      "id": "h031",
       "household": {
-       "key": "domenico + maria oliva",
+       "key": "domenico + maria dorliguzzo",
        "fatherKey": "domenico",
-       "motherKey": "maria oliva",
-       "father": "Domenico Defranceschi",
-       "mother": "Maria Oliva Dorliquzzo",
+       "motherKey": "maria dorliguzzo",
+       "father": "Domenico De Franceschi",
+       "mother": "Maria Dorliguzzo",
        "place": "",
        "region": "",
        "line": "male",
-       "from": 1844,
+       "from": 1837,
        "to": 1851,
-       "n": 2,
+       "n": 5,
        "children": [
+        {
+         "name": "Pietro De Franceschi",
+         "sex": "Male",
+         "birth": "17 Mar 1837",
+         "death": "",
+         "place": "Croazia, Austria",
+         "y": 1837,
+         "id": "6B47-D978",
+         "key": "pietro",
+         "ours": true,
+         "by": 1837,
+         "dy": null
+        },
+        {
+         "name": "Bonetta De Franceschi",
+         "sex": "Female",
+         "birth": "19 Dec 1841",
+         "death": "",
+         "place": "Croazia, Austria",
+         "y": 1841,
+         "id": "6B47-DSVB",
+         "key": "bonetta",
+         "ours": true,
+         "by": 1841,
+         "dy": null
+        },
         {
          "name": "Arveneria Defranceschi",
          "sex": "Male",
@@ -796,6 +955,19 @@
          "key": "arveneria",
          "ours": true,
          "by": 1844,
+         "dy": null
+        },
+        {
+         "name": "Augustinus",
+         "sex": "Male",
+         "birth": "11 Jul 1847",
+         "death": "",
+         "place": "Croazia, Austria",
+         "y": 1847,
+         "id": "6B47-8QQB",
+         "key": "augustinus",
+         "ours": false,
+         "by": 1847,
          "dy": null
         },
         {
@@ -812,16 +984,16 @@
          "dy": null
         }
        ],
-       "id": "h030"
+       "id": "h031"
       },
       "link": {
-       "child": "h030",
-       "parent": "h019",
+       "child": "h031",
+       "parent": "h018",
        "via": "Domenico Giovanni Anto De Franceschi",
        "viaId": "6B47-4SSG",
-       "gap": 25,
+       "gap": 18,
        "confidence": "probable",
-       "score": 2
+       "score": 1
       },
       "children": []
      }
