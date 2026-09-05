@@ -39,7 +39,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
             <div class="house">
               <div class="hl">Wife</div>
               <div class="kids"><span class="kid">{g.spouse.name}<i>b. {g.spouse.born}</i></span></div>
-              {g.children && <>
+              {g.children && g.children.length > 0 && <>
                 <div class="hl" style="margin-top:16px">Children in the house</div>
                 <div class="kids">{g.children.map((c) => (
                   <span class={`kid${c.line ? " line" : ""}`}>{c.name}<i>{c.born}</i></span>
@@ -57,7 +57,11 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
             </p>
           )}
 
-          {g.plate && <div style="margin-top:16px;max-width:340px"><Plates ids={[g.plate]} cols={1} /></div>}
+          {(g.plates || (g.plate ? [g.plate] : [])).length > 0 && (
+            <div style="margin-top:16px;max-width:700px">
+              <Plates ids={g.plates || [g.plate]} cols={(g.plates || [g.plate]).length} />
+            </div>
+          )}
         </div>
       </article>
     ))}
