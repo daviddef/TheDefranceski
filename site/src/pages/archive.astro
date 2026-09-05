@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import registers from "../data/registers.json";
 import fs from "../data/familysearch.json";
 import recs from "../data/fsrecords.json";
+import at from "../data/austria.json";
 const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
 const places=[...new Set(registers.map(r=>r.place))].sort();
 const dig=registers.filter(r=>r.digitised==="yes").length;
@@ -142,4 +143,33 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   sel.addEventListener('change',apply); cent.addEventListener('change',apply); apply();
 })();
 </script>
+
+<section class="blk">
+  <h2>Austria, Tyrol and the other family</h2>
+  <p class="dek">147 records from the Austrian index — and they settle the Trentino question. This is not our family.</p>
+  <div class="prose" style="margin-top:22px">
+    <p>Seventy-four per cent of Italy's Defranceschi live in Trentino-Alto Adige, and the obvious question was whether that is a branch of the Istrian family or an independent formation of the same patronymic. The Austrian records answer it, because Trentino and the South Tyrol were Austrian until 1918 and their registers sit in the Austrian index.</p>
+    <p>Sixteen records are from <strong>Bozen</strong> and <strong>Salorno in the Tirolo</strong>, and they show settled households: Joseph Franzeschini and Veronika Kohl baptising at Bozen from 1815 to 1823; Franz Defranceschi and Maria Kassler in 1852; Franciski Franceschi and Maria Koßler in 1855; Leonardo Franzeschini and Dominica Perini in 1871. Behind them, a seventeenth-century family — Bartholomaeus De Franceschi and Lucia de Gregorys, with children Urbanus in 1645, Maria in 1649, Joannes and Lucia in 1651.</p>
+    <p>Look at who they married. <strong>Kohl, Kolin, Koßler, Kassler, Knoll, Pachmann, Rossler, Webern, Pfeifer, Moser, Angerer, Steiner, Niedermaier, Volser, Klinzer, Tschigg</strong> — German and Tyrolean names, mixed with Trentino Italian ones: Perini, Trentini, Tabarelli, Nardelli, Benedetti, Maistri, Festi, Scrinzi, Covi, Marchetti, Galeazzi, Avi, Piffer, Sandri, Mosna.</p>
+    <p>There is no overlap with the Istrian in-law world at all — not one Skifich, Malusà, Bergamo, Cerlon or Cleva. Two families, the same patronymic, four hundred kilometres apart, marrying in entirely separate worlds. The 74 per cent is a coincidence of a very common name and the same Austrian habit of fusing the prefix, acting twice.</p>
+    <p>A third group sits at <strong>Klagenfurt in Carinthia</strong>, spelling it <em>Franceschinis</em> — Vittorio Franceschinis and Margaretha Bierlotter, five children between 1900 and 1909. The <em>-is</em> ending is Friulian, and Carinthia borders Friuli. These are almost certainly Carnian emigrants who went north instead of south, the other half of the road that took a De Franceschi of Mione into the County of Pazin in 1679.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Two men at Gusen</h2>
+  <div class="prose">
+    <p>Two records in the Austrian index stop you.</p>
+  </div>
+  <div class="scroll" style="margin-top:20px">
+    <table><thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th>Place</th></tr></thead>
+    <tbody>{at.filter(r=>(r.place||"").includes("Gusen")).map(r=>(
+      <tr><td>{r.name}</td><td class="m">{r.birth}</td><td class="m">{r.death}</td><td>{r.place}</td></tr>))}</tbody></table>
+  </div>
+  <div class="prose" style="margin-top:24px">
+    <p><strong>Gusen</strong>, in the Perg district of Upper Austria, was a subcamp of <a href="https://en.wikipedia.org/wiki/Mauthausen-Gusen_concentration_camp">Mauthausen</a>. Pier Giovanni Franceschini, born 29 September 1915, is recorded dead there on 5 April 1945, a month before the camp was reached. Attilio Franceschini, born 23 March 1896, is recorded dead there on 13 May 1945 — eight days <em>after</em> liberation, which was common: thousands died of starvation and typhus in the weeks after the gates opened.</p>
+    <p>Neither man is shown to be related to this family, and both carry the Friulian <em>-ini</em> ending rather than ours. They are set down here because an archive that publishes a count of 268,000 index hits and says nothing about the two men who died in a camp has failed at the only thing it is for.</p>
+  </div>
+  <div class="note" style="margin-top:22px">Recorded as <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> dates and places; the identification of that Gusen with the concentration camp is <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> from the place and the dates, and the underlying record set has not yet been traced to its collection.</div>
+</section>
 </Base>
