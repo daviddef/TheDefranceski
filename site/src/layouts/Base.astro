@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url.js";
 const { title, dek, eyebrow } = Astro.props;
+const SITE = "The Defranceschi Archive";
 const nav = [
   ["/", "Home"], ["/name/", "The Name"], ["/lines/", "The Lines"],
   ["/people/", "People"], ["/places/", "Places"], ["/timeline/", "Timeline"],
@@ -13,7 +14,7 @@ const here = Astro.url.pathname;
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>{title} — The Defranceschi Archive</title>
+<title>{title === SITE ? SITE : `${title} — ${SITE}`}</title>
 <meta name="description" content={dek} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
