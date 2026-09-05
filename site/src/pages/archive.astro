@@ -5,6 +5,7 @@ import fs from "../data/familysearch.json";
 import recs from "../data/fsrecords.json";
 import at from "../data/austria.json";
 import sweep from "../data/sweep.json";
+import wp from "../data/waypoints.json";
 const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
 const places=[...new Set(registers.map(r=>r.place))].sort();
 const dig=registers.filter(r=>r.digitised==="yes").length;
@@ -205,5 +206,37 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
     </table>
   </div>
   <p class="cap">{sweep.source} Eight false matches were dropped where a Croatian or Friulian place name resolved to a Tuscan one — “Prato Carnico” pulling a register of Prato near Florence, for instance.</p>
+</section>
+
+<section class="blk">
+  <h2>The images, which are a different thing entirely</h2>
+  <p class="dek">The catalogue lists what was filmed. The image collection lists what you can actually open. They do not agree, and the second is the one that matters.</p>
+
+  <div class="grid g3" style="margin-top:24px">
+    <div class="stat"><div class="n">{wp.totalParishes}</div><div class="l">Roman Catholic parishes with images in the Croatian collection</div></div>
+    <div class="stat"><div class="n">24%</div><div class="l">of that collection is name-indexed. The rest can only be browsed.</div></div>
+    <div class="stat"><div class="n">{wp.istria.length}</div><div class="l">of those parishes are Istrian</div></div>
+  </div>
+
+  <div class="note" style="margin-top:28px">That 24 per cent is the single most important number on this page. FamilySearch reports the collection as <b>0.24 complete</b> for indexing — so three-quarters of the Croatian church books that <em>have</em> been photographed cannot be found by typing a name. Everything the name index has given this archive comes from a quarter of what is actually sitting there.</div>
+
+  <div class="grid g2" style="margin-top:28px">
+    <div class="panel">
+      <div class="lab">Istrian parishes you can open</div>
+      <p style="font-family:var(--sans);font-size:13px;line-height:1.8;color:var(--ink-2);margin-top:12px">{wp.istria.join(" · ")}</p>
+    </div>
+    <div class="panel">
+      <div class="lab">Kvarner parishes you can open</div>
+      <p style="font-family:var(--sans);font-size:13px;line-height:1.8;color:var(--ink-2);margin-top:12px">{wp.kvarner.join(" · ")}</p>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top:30px">
+    <h3>And the villages that are still not there</h3>
+    <p><strong>Gologorica, Gračišće, Pićan, Cerovlje, Vodnjan, Motovun and Lindar have no images either.</strong> They were absent from the catalogue and they are absent from the image collection. That is now checked twice, by two different routes, and it is settled: the central Istrian interior was never photographed.</p>
+    <h3>But the neighbours were</h3>
+    <p>What the image collection does have, and the catalogue sweep missed, is the ring of parishes immediately around them: <strong>{wp.neighbours.join(", ")}</strong>. A family living at Gologorica married, buried and stood godparent across that ring. Gračišće is four kilometres from Pazin and six from Tinjan. Those books are open, and they are the nearest thing to the missing ones that exists.</p>
+    <p>The catch is the 24 per cent. Of the neighbouring parishes, only a fraction is name-indexed — which is why a search for a Defranceschi at Tinjan or Kringa returns nothing while the books themselves may be full of them. Reading them means opening images page by page, in Latin, and that is work for a person, not for this.</p>
+  </div>
 </section>
 </Base>
