@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+import registers from "../data/registers.json";
+const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
+const places=[...new Set(registers.map(r=>r.place))].sort();
+const dig=registers.filter(r=>r.digitised==="yes").length;
+---
+<Base title="The Archive" eyebrow={`${registers.length} registers catalogued`}
+      dek="Read directly from the State Archives in Pazin inventory. This is not a plan — these are books that exist, with dates, custodians and digitisation status.">
+
+<section class="blk">
+  <div class="grid g4">
+    <div class="stat"><div class="n">{registers.length}</div><div class="l">registers catalogued across nine parishes</div></div>
+    <div class="stat"><div class="n">{dig}</div><div class="l">digitised — {Math.round(dig/registers.length*100)}% of the total</div></div>
+    <div class="stat"><div class="n">1582</div><div class="l">earliest book — Pazin baptisms</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">separate custodians, each with its own door</div></div>
+  </div>
+  <div class="note" style="margin-top:28px">Custody codes: <b>ŽU</b> parish office, still in the village · <b>BA Poreč</b> diocesan archive of Poreč-Pula · <b>DAPA</b> State Archives in Pazin · <b>MU</b> civil registry office. The State Archives states publicly that its staff do not undertake genealogical research, will not act on a request lacking a name, an approximate period and a place, and will not review large quantities of material. Research is done by the user in the reading room, by appointment.</div>
+</section>
+
+<section class="blk">
+  <h2>Search the holdings</h2>
+  <div class="filters">
+    <label>Parish <select id="f-place"><option value="">All</option>{places.map(p=><option>{p}</option>)}</select></label>
+    <label>Type <select id="f-kind"><option value="">All</option>{Object.entries(kinds).map(([k,v])=><option value={k}>{v}</option>)}</select></label>
+    <label>Digitised <select id="f-dig"><option value="">All</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+    <span class="count" id="f-count"></span>
+  </div>
+  <div class="scroll" style="margin-top:18px">
+    <table id="regtable">
+      <thead><tr><th>Parish</th><th>Type</th><th class="m">Period</th><th>Held at</th><th class="m">Digitised</th></tr></thead>
+      <tbody>{registers.map(r=>(
+        <tr data-place={r.place} data-kind={r.type} data-dig={r.digitised}>
+          <td>{r.place}</td><td>{kinds[r.type]||r.type}</td><td class="m">{r.period}</td>
+          <td>{r.held_at}</td>
+          <td class="m" style={r.digitised==="yes"?"color:var(--accent)":"color:var(--terra)"}>{r.digitised}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+</section>
+
+<script is:inline>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('#regtable tbody tr'));
+  var f=['place','kind','dig'].map(function(k){return document.getElementById('f-'+k)});
+  var out=document.getElementById('f-count');
+  function apply(){
+    var v=f.map(function(s){return s.value});
+    var n=0;
+    rows.forEach(function(r){
+      var ok=(!v[0]||r.dataset.place===v[0])&&(!v[1]||r.dataset.kind===v[1])&&(!v[2]||r.dataset.dig===v[2]);
+      r.hidden=!ok; if(ok)n++;
+    });
+    out.textContent=n+' of '+rows.length+' registers';
+  }
+  f.forEach(function(s){s.addEventListener('change',apply)});
+  apply();
+})();
+</script>
+</Base>

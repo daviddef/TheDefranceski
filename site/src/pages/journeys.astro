@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+import JourneyMap from "../components/JourneyMap.astro";
+import Distribution from "../components/Distribution.astro";
+---
+<Base title="Journeys" eyebrow="Carnia → Istria → the world"
+      dek="Three movements, five centuries: weavers walking south out of the mountains, two men arriving at one port in the same eighteen months, and a twentieth-century scatter across four continents.">
+<section class="blk">
+  <JourneyMap />
+  <p class="cap">Schematic; positions approximate to real geography, coastline omitted. The next build replaces this with a real map carrying the Franciscan Cadastre of 1817–20 and the Austrian military surveys as overlays, so a journey can be traced across the map the traveller would have recognised.</p>
+</section>
+<section class="blk">
+  <h2>The road out of Carnia</h2>
+  <div class="prose">
+    <p>Carnia's economy ran on emigration for three centuries. The <em>cramars</em> — itinerant pedlars — went north and east, as far as Hungary and Transylvania; some 68.7 per cent of emigrants from the Gorto valleys went to Austria and southern Germany. The weavers and tailors went the other way, down into the Veneto and into Istria.</p>
+    <p>From the parishes of Ovaro and Luincis a long series of weavers took that road. The documents become numerous in the seventeenth century and frequent in the eighteenth, and alongside the artisans went clergy, schoolmasters, artists and musicians. Migration was seasonal at first — out in autumn, home in late spring — and in some cases became permanent.</p>
+    <p>This matters because it turns two unconnected origins into one story. Mione and Gologorica are not separate dots on a map; they are the two ends of a documented labour migration that was running at exactly the time a Valentino Defranceschi came out of Carnia and was made a citizen of Fiume.</p>
+  </div>
+</section>
+<section class="blk">
+  <h2>Where they ended up</h2>
+  <p class="dek">The fused spelling, by country. Italy and the United States lead, but the Croatian figure is the one that matters — it has been falling for seventy years.</p>
+  <div style="margin-top:22px"><Distribution spelling="Defranceschi" /></div>
+</section>
+</Base>

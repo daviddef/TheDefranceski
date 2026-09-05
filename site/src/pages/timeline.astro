@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
+import sov from "../data/sovereignty.json";
+import pressures from "../data/pressures.json";
+---
+<Base title="Timeline" eyebrow="Lives against history"
+      dek="Sovereignty, pressure and family event on one scale. The point is not when people were born — it is what was happening to them when they were.">
+
+<section class="blk">
+  <SovereigntyTimeline events={true} />
+  <div class="evlist">
+    {sov.events.map(e=><span><b>{e.year}</b>{e.text}</span>)}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>What they were up against</h2>
+  <p class="dek">War, plague, famine and policy, on the same scale. A life bar crossing one of these is the beginning of a question worth asking.</p>
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th class="m">Years</th><th>Pressure</th><th>Falls on</th></tr></thead>
+      <tbody>{pressures.map(p=>(
+        <tr><td class="m">{p.from}–{p.to}</td><td style="color:var(--ink)">{p.label}</td>
+        <td>{p.lane==="all"?"All three regions":p.lane==="istria"?"Istria":"Senj & Vinodol"}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:26px">Once the GEDCOM is imported, each life becomes a bar drawn over these bands, so that a man born at Gračišće in 1935 is shown becoming Italian, then Yugoslav, before he was ten. That view needs people; the frame is ready for them.</div>
+</section>
+</Base>

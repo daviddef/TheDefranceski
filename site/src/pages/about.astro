@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+const sources=[
+ ["State Archives in Pazin — register inventory","dapa.hr","The 407 registers in the Archive section"],
+ ["Cadastre National de l'Istrie, Institut Adriatique, Sušak 1946","via istrianet.org","The 1945 village census of the surname"],
+ ["Istria on the Internet — Prominent Istrians","istrianet.org","Biographies of Carlo and Camillo De Franceschi"],
+ ["House of de Franceski","defranceski.com","The received account of the lines and the migrations"],
+ ["Forebears — surname incidence","forebears.io","Worldwide distribution by spelling"],
+ ["Acta Croatica","actacroatica.com","Surname distribution within Croatia"],
+ ["Portale Antenati / Archivio di Stato di Udine","antenati.cultura.gov.it","Ovaro civil registration 1806–15 and 1871–1911"],
+ ["FamilySearch","familysearch.org","Microfilmed registers; 770+ Croatian Catholic parishes"],
+ ["Archivio Storico Diocesano, Udine","archiviodiocesano.it","Parish duplicates for Carnia"],
+ ["State Archives in Rijeka","riarhiv.hr","Senj, Crikvenica and Vinodol — not yet inventoried"],
+];
+---
+<Base title="About" eyebrow="Method, ethics and sources"
+      dek="How this archive decides what it is willing to say.">
+<section class="blk">
+  <h2>The confidence system</h2>
+  <div class="prose">
+    <p>A claim is never stored as a fact. It is stored as an assertion with a source and a confidence, and the interface always shows which. Three states, on every date, every relationship and every claim about character.</p>
+  </div>
+  <div class="grid g3" style="margin-top:26px">
+    <div class="panel"><span class="chip doc">Documented</span>
+      <p class="ab">A named source with a folio reference and, wherever possible, the scan itself.</p></div>
+    <div class="panel"><span class="chip inf">Inferred</span>
+      <p class="ab">A reasoned conclusion from documented facts, with the reasoning written out so it can be challenged and overturned.</p></div>
+    <div class="panel"><span class="chip lore">Family lore</span>
+      <p class="ab">Told, remembered, not corroborated. Kept because it is precious and the family said it; labelled because pretending otherwise is how family myths become family history.</p></div>
+  </div>
+</section>
+<section class="blk">
+  <h2>Living people</h2>
+  <div class="prose">
+    <p>Data protection law reaches the living and not the dead, and a private tree is exempt from it while a public website is not. So the rule is structural rather than editorial: anyone marked living is <strong>omitted from the generated site at build time</strong> — not hidden behind CSS, not behind a login, not present in the data with a flag. Not rendered at all.</p>
+    <p>A living person appears only if they have asked to. A removal request is honoured within days, without argument and without requiring a reason.</p>
+  </div>
+</section>
+<section class="blk">
+  <h2>Successes and failings both</h2>
+  <div class="prose">
+    <p>Illegitimacy, poverty, desertion, debt, drink, crime, children who did not survive — these are in the registers and they are the truth of most families. The policy: the closer to living memory, the higher the bar. Beyond about 1920, nothing without a named source. Within living memory, nothing about anyone without their family's consent.</p>
+    <p>Hardship is told in its context. Camillo De Franceschi went to prison for two years at twenty-one; that is not a stain to be managed but the most interesting fact about him, and it belongs on his page in full.</p>
+    <p>These places sit on the fault line of one of Europe's most contested memories. Between a quarter and a third of a million people left Istria, Kvarner and Dalmatia after 1943, and there are two national narratives that do not agree about any of it. This archive's position: <strong>report what happened to our people, with sources; use both toponyms always; do not adjudicate between national grievances.</strong> Some of this family stayed and some left, and both are owed the same dignity.</p>
+  </div>
+</section>
+<section class="blk">
+  <h2>Sources</h2>
+  <div class="scroll" style="margin-top:22px">
+    <table><thead><tr><th>Source</th><th>Where</th><th>Used for</th></tr></thead>
+    <tbody>{sources.map(([s,w,u])=><tr><td>{s}</td><td class="m">{w}</td><td>{u}</td></tr>)}</tbody></table>
+  </div>
+  <div class="note" style="margin-top:26px">Nothing here yet establishes descent. The register holdings are documented; the lines above them are not. That is the work.</div>
+</section>
+</Base>

@@ -1,0 +1,35 @@
+---
+import Base from "../../layouts/Base.astro";
+import Chip from "../../components/Chip.astro";
+import people from "../../data/people.json";
+import notables from "../../data/notables.json";
+---
+<Base title="People" eyebrow="Five in the archive, ten more who share the name"
+      dek="The record first, cold and cited. Then the life. Then what was happening around them.">
+<section class="blk">
+  <h2>In this family</h2>
+  <div class="grid g2" style="margin-top:22px">
+    {people.map(p=>(
+      <a class="cardlink" href={`/people/${p.slug}/`}>
+        <div class="nm">{p.name}</div>
+        <div class="alt">{p.born||"?"}–{p.died||"?"} · {p.roles.join(", ")}</div>
+        <div style="margin-top:10px"><Chip c={p.confidence} /></div>
+        <div class="txt">{p.lead}</div>
+      </a>
+    ))}
+  </div>
+</section>
+<section class="blk">
+  <h2>Others who carried the name</h2>
+  <p class="dek">Listed because people search for them and arrive here. Almost none of them is demonstrably related — a shared patronymic is not a shared ancestor, and saying otherwise is how family myths start.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Name</th><th class="m">Dates</th><th>What</th><th>Where</th><th>Link to this family</th></tr></thead>
+      <tbody>{notables.map(n=>(
+        <tr><td>{n.name}</td><td class="m">{n.dates}</td><td>{n.what}</td><td>{n.where}</td>
+        <td><Chip c={n.conn} />{n.link && <div style="margin-top:6px;font-size:12px">{n.link}</div>}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+</section>
+</Base>

@@ -1,0 +1,35 @@
+---
+const pts=[
+ {n:"Mione · Ovaro",x:174,y:57,big:true,sub:"1600s–1700s weavers south"},
+ {n:"Trieste",x:341,y:190,port:true},
+ {n:"Venice",x:80,y:224},
+ {n:"Gologorica · Gračišće",x:388,y:248,big:true},
+ {n:"Pazin",x:372,y:262,a:"end"},
+ {n:"Poreč",x:310,y:258,a:"end"},
+ {n:"Pula",x:355,y:316},
+ {n:"Vodnjan",x:349,y:302,a:"end"},
+ {n:"Rijeka",x:462,y:242,port:true,sub:"citizen 1739 & c.1740"},
+ {n:"Crikvenica",x:507,y:268,big:true,sub:"the Gologorica branch"},
+ {n:"Senj",x:546,y:297,big:true},
+];
+const arcs=["M174,57 Q321,122 388,248","M174,57 Q350,110 462,242","M372,262 Q417,228 462,242",
+ "M388,248 Q349,280 310,258","M388,248 Q448,292 507,268","M546,297 Q527,288 507,268"];
+---
+<div class="scroll">
+<svg viewBox="0 0 640 410" width="640" style="min-width:600px;display:block" role="img"
+     aria-label="Schematic map of migration routes between Carnia, Istria and the Kvarner coast">
+  {arcs.map(d=><path d={d} fill="none" style="stroke:var(--accent);opacity:.72" stroke-width="1.4"/>)}
+  {pts.map(p=><>
+    <circle cx={p.x} cy={p.y} r={p.big?4.5:3} style={`fill:var(${p.port?"--terra":"--ink"})`}/>
+    {p.port && <circle cx={p.x} cy={p.y} r="9" fill="none" style="stroke:var(--terra);opacity:.85" stroke-width="1.2"/>}
+    <text x={p.a==="end"?p.x-10:p.x+11} y={p.y+4} text-anchor={p.a||"start"} font-size="11.5"
+          style="fill:var(--ink);font-family:var(--sans)">{p.n}</text>
+    {p.sub && <text x={p.a==="end"?p.x-10:p.x+11} y={p.y+17} text-anchor={p.a||"start"} font-size="9.5"
+          style="fill:var(--ink-3);font-family:var(--mono)">{p.sub}</text>}
+  </>)}
+  <line x1="40" y1="372" x2="600" y2="372" style="stroke:var(--rule)" stroke-width="1"/>
+  <text x="40" y="391" font-size="11" style="fill:var(--ink-2);font-family:var(--sans)">
+    ◎ Departure ports — onward to New York, Sydney, Cape Town, Buenos Aires
+  </text>
+</svg>
+</div>

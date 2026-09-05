@@ -1,0 +1,26 @@
+---
+import Base from "../../layouts/Base.astro";
+import places from "../../data/places.json";
+const alt=(p)=>Object.entries(p.alt||{}).map(([k,v])=>`${k}. ${v}`).join(" · ");
+const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"],["carnia","Carnia, Friuli"]];
+---
+<Base title="Places" eyebrow="Nine settlements, three jurisdictions"
+      dek="Every place carries all of its names, because which name a document uses tells you who was keeping it.">
+{groups.map(([g,label])=>(
+  <section class="blk">
+    <h2>{label}</h2>
+    <div class="grid g2" style="margin-top:22px">
+      {places.filter(p=>p.lane===g).map(p=>(
+        <a class="cardlink" href={`/places/${p.slug}/`}>
+          <div class="nm">{p.name}</div>
+          <div class="alt">{alt(p)}</div>
+          <div class="txt">{p.lead}</div>
+          {p.registers && <div class="alt" style="margin-top:10px;color:var(--terra)">
+            {p.registers.books ? `${p.registers.books} registers · ${p.registers.digitised} digitised` : "registers not yet inventoried"}
+          </div>}
+        </a>
+      ))}
+    </div>
+  </section>
+))}
+</Base>

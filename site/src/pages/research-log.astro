@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+const open=[
+ {q:"Are the Carnia and Pazin-county lines one family?",s:"open",
+  w:"Valentino Defranceschi from Carnia was made a citizen of Fiume in 1739. Giovanni Battista Defranceschi from the County of Pazin arrived around 1740 and was made a citizen in 1746. The existing research treats them as unrelated — an inference from an absent record, not a finding.",
+  n:"Y-DNA on the senior male line settles it faster than any archive. Then the Fiume citizenship files at the State Archives in Trieste."},
+ {q:"Who are the twelve Defranceschi families of Vodnjan?",s:"open",
+  w:"Found during this research in the 1945 cadastre. Twelve families at Vodnjan against two at Gologorica and one at Gračišće — the largest concentration anywhere in Istria, and accounted for by no line in the existing family narrative. Vodnjan's registers are now inventoried here and are exceptionally deep: 133 books, baptisms from 1559, 118 digitised.",
+  n:"Read the Vodnjan baptisms. This is the most tractable open question in the archive — the books are catalogued and nearly all digitised."},
+ {q:"Which Carnian parish is Valentino's?",s:"blocked",
+  w:"The record says only ‘from Carnia’. Mione and Ovaro are the working hypothesis because they are the family's known Carnian places and because the Gorto weaver migration into Istria is documented — but nothing ties Valentino to that valley specifically.",
+  n:"Ovaro's parish registers before 1866 are not online and not in any portal. Contact the parish directly; check the Archivio Storico Diocesano at Udine for duplicates. Antenati covers only civil registration, 1806–15 and 1871–1911."},
+ {q:"What is in the six oldest Gologorica books?",s:"blocked",
+  w:"Baptisms 1644–1763, marriages 1656–1781 and burials 1646–1777 are the only significant undigitised material in the Istrian parishes — and they are precisely the eighteenth-century window that matters for Giovanni Battista.",
+  n:"They must be read on paper, in the village or the Pazin reading room. The archive states it will not do this for you. This is the case for a paid researcher or a trip."},
+ {q:"What survives, parish by parish, for Senj and Crikvenica?",s:"blocked",
+  w:"The fond is identified: HR-DARI-275, the register collection for the Primorje-Gorski Kotar area, eastern Istria and the Kvarner islands — 1,822 books across 40 linear metres, 1564 to 1949, archivally arranged. But it is only partially filmed and only partially available to the public, and no parish-level inventory is published. Six books came from the Senj registry office in March 2018 and sit at the Senj collection centre.",
+  n:"ARHiNET, the national catalogue that would carry the item list, failed to resolve on every attempt made. Write to the Rijeka archive directly. Until then the Kvarner half of this family has a fond reference and nothing finer."},
+ {q:"Where do the South African Defranceski come from?",s:"blocked",
+  w:"Thirteen of the seventeen people spelling it this way live in South Africa — the largest concentration of your own spelling anywhere. The existing family account lists South Africa as one of three destinations for the Gologorica branch. Nothing on the open web connects a named individual to a named ship or year.",
+  n:"South African naturalisation and immigration records. Worth noting that several thousand Italian former internees settled in South Africa at the end of the 1940s, which fits both the date and the direction — but that is context, not evidence."},
+ {q:"Why is the fused spelling concentrated in Trentino?",s:"open",
+  w:"Seventy-four per cent of Italy's 221 Defranceschi live in Trentino-Alto Adige, which was Austrian until 1918 — the same administrative culture that fused the prefix in the County of Pazin. Whether that is a shared origin or the same clerical habit acting twice on the same common patronymic is unknown.",
+  n:"Trentino parish records are unusually well indexed. A comparison of earliest attestations would at least date the two fusions."},
+ {q:"Is there anything carved on the 1711 house?",s:"open",
+  w:"Istrian lintels and doorheads frequently carry a date with a house mark or arms. The De Franceschi house stands on the main square at Gologorica.",
+  n:"A photograph. Anybody visiting can close this one."},
+];
+const closed=[
+ ["Which archive holds the Gologorica and Gračišće registers?","Not Pićan, as first assumed. Both are full parishes keeping their own books, split between the parish offices, the diocesan archive at Poreč, the State Archives in Pazin, and the Pazin civil registry office."],
+ ["Do the registers reach back far enough to matter?","Yes, and further than expected. Gologorica baptisms open in 1644, Gračišće in 1667, Pazin in 1582, Svetvinčenat in 1568 and Vodnjan in 1559 — a century and more before the Fiume arrivals."],
+ ["Was the surname still in the ancestral villages in 1945?","Yes. Two Defranceschi families at Gologorica and one at Gračišće on 1 October 1945."],
+ ["Is the fused spelling meaningful or just noise?","Meaningful. In 1945 it sorts almost perfectly along the old Habsburg–Venetian border: fused throughout the Pazin district, spaced only at Seghetto and Svetvinčenat, both west of the line."],
+ ["Is plain ‘Franceschi’ part of this story in Istria?","No. Not one household in the whole 1945 cadastre spells it without the prefix."],
+ ["Where does the Defranceski spelling live?","Seventeen people worldwide; thirteen in South Africa, one each in Argentina, Australia, Serbia and Slovenia."],
+ ["How much of the Istrian record can be read remotely?","997 of 1,151 catalogued registers are digitised — 87 per cent. Umag is complete at 128 of 128; Ližnjan is worst at 14 of 24."],
+];
+---
+<Base title="Research Log" eyebrow="Eight open, seven closed"
+      dek="Publishing the dead ends is what separates an archive from a scrapbook. It is also the page most likely to recruit somebody who can answer one of these.">
+<section class="blk">
+  <h2>Open and blocked</h2>
+  <p class="dek">‘Blocked’ means the next step is known and cannot be taken from a desk.</p>
+  <div class="stack" style="margin-top:26px">
+    {open.map(o=>(
+      <div class="qrow">
+        <div><h3 class="qq">{o.q}</h3><span class={`chip ${o.s==="blocked"?"lore":"inf"}`}>{o.s==="blocked"?"Blocked":"Open"}</span></div>
+        <div><p class="qw">{o.w}</p><p class="qn"><b>Next:</b> {o.n}</p></div>
+      </div>
+    ))}
+  </div>
+</section>
+<section class="blk">
+  <h2>Closed in this round</h2>
+  <div class="scroll" style="margin-top:22px">
+    <table><tbody>{closed.map(([q,a])=>(
+      <tr><td style="width:34%">{q}</td><td>{a}</td></tr>
+    ))}</tbody></table>
+  </div>
+</section>
+</Base>

@@ -1,0 +1,39 @@
+---
+import names from "../data/names.json";
+const coords={ "Vodnjan":[44.96,13.85],"Barban":[44.97,14.06],"Gologorica":[45.29,14.03],
+ "Gračišće":[45.28,14.02],"Pazin":[45.24,13.94],"Pićan":[45.27,14.09],"Motovun":[45.34,13.83],
+ "Vižinada":[45.33,13.75],"Čepić":[45.39,13.86],"Opatija":[45.34,14.31],
+ "Seghetto":[45.43,13.52],"Svetvinčenat":[45.08,13.90] };
+const anchor={ "Gračišće":"end","Vižinada":"end","Motovun":"end","Seghetto":"start","Čepić":"start" };
+const LON0=13.45,LON1=14.40,LAT0=44.85,LAT1=45.50;
+const px=(lon)=>40+((lon-LON0)/(LON1-LON0))*530;
+const py=(lat)=>34+((LAT1-lat)/(LAT1-LAT0))*370;
+const rows=[...names.census1945.rows].sort((a,b)=>b[4]-a[4]);
+const r=(n)=>4+Math.sqrt(n)*3.1;
+const total=rows.reduce((s,x)=>s+x[4],0);
+---
+<div class="scroll">
+<svg viewBox="0 0 640 470" width="640" style="min-width:600px;display:block" role="img"
+     aria-label="Where Defranceschi families were counted in Istria on 1 October 1945">
+  {rows.map(([sp,ham,town,dist,n])=>{
+    const c=coords[ham]; if(!c) return null;
+    const cx=px(c[1]), cy=py(c[0]), a=anchor[ham]||"start";
+    const off = a==="end" ? -(r(n)+8) : (r(n)+8);
+    return <g>
+      <circle cx={cx} cy={cy} r={r(n)} style={`fill:var(${sp==="Defranceschi"?"--terra":"--accent"});opacity:.82`}/>
+      <text x={cx+off} y={cy-1} text-anchor={a} font-size="12"
+            style="fill:var(--ink);font-family:var(--sans)">{ham}</text>
+      <text x={cx+off} y={cy+12} text-anchor={a} font-size="10.5"
+            style="fill:var(--ink-3);font-family:var(--mono)">{n} {n===1?"family":"families"} · {sp}</text>
+    </g>;
+  })}
+  <line x1="40" y1="432" x2="600" y2="432" style="stroke:var(--rule)" stroke-width="1"/>
+  <text x="40" y="452" font-size="11.5" style="fill:var(--ink-2);font-family:var(--sans)">
+    {total} families in 12 settlements · circle area is proportional to families · schematic, positions approximate
+  </text>
+</svg>
+</div>
+<div class="legend">
+  <span><i style="background:var(--terra)"></i>Defranceschi — the fused, Habsburg-interior form</span>
+  <span><i style="background:var(--accent)"></i>De Franceschi — the spaced, Venetian-coast form</span>
+</div>

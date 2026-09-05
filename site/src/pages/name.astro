@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+import NameDrift from "../components/NameDrift.astro";
+import Distribution from "../components/Distribution.astro";
+import Census1945 from "../components/Census1945.astro";
+import names from "../data/names.json";
+---
+<Base title="The Name" eyebrow="Nine spellings, one family"
+      dek="Every shift has a cause, and the cause is almost always a change of ruler, clerk or language. The name is the family's best surviving record of what happened to it.">
+
+<section class="blk">
+  <NameDrift />
+</section>
+
+<section class="blk">
+  <h2>Why each form exists</h2>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Form</th><th class="m">Era</th><th>Where</th><th>What produced it</th></tr></thead>
+      <tbody>{names.variants.map(v=>(
+        <tr><td>{v.form}</td><td class="m">{v.era}</td><td>{v.where}</td><td>{v.why}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:26px">Two political events force name changes rather than merely allowing them. Between 1918 and 1943 Italian authorities in Istria Italianised Slavic surnames wholesale — by translating the meaning where there was one, otherwise by clipping and re-suffixing. After 1945 the pressure ran the other way, and some families who changed back in 1956 kept the Italianised spelling anyway. A Defranceschi in Istria may therefore appear under a name that is not etymologically this name at all — and a family of entirely different origin may appear under yours.</div>
+</section>
+
+<section class="blk">
+  <h2>The border is visible in the spelling</h2>
+  <p class="dek">This is the finding this archive is proudest of. In the 1945 census the fused form and the spaced form are not scattered — they sort geographically, along a border abolished in 1797.</p>
+  <div style="margin-top:26px"><Census1945 /></div>
+  <div class="prose" style="margin-top:26px">
+    <p>Every <strong>Defranceschi</strong> household in the Pazin district — Gologorica, Gračišće, Pazin, Pićan — writes the name as one word. The two <strong>De Franceschi</strong> households, at Seghetto near Umag and at Svetvinčenat, are both on the Venetian side of the old line.</p>
+    <p>The fusion of the prefix is an Austrian administrative habit, and it is the same habit that produced the modern concentration of the fused spelling in Trentino — Austrian territory until 1918, and today home to 74 per cent of Italy's Defranceschi. And in all of Istria in 1945 there was not one household spelling it plainly <em>Franceschi</em>.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Where the name is now</h2>
+  <p class="dek">628 people carry the fused spelling worldwide, across fourteen countries.</p>
+  <div style="margin-top:24px"><Distribution spelling="Defranceschi" /></div>
+  <p class="cap">Within Italy: {names.distribution.sets[0].italy.map(i=>`${i[0]} ${i[1]}%`).join(" · ")}.</p>
+
+  <h3 class="lab" style="margin-top:40px">And the spelling this archive's owner carries</h3>
+  <p class="dek" style="margin-top:10px">Seventeen people worldwide spell it <em>Defranceski</em> — and thirteen of them are in South Africa, which is one of the three destinations the Gologorica branch is recorded as reaching.</p>
+  <div style="margin-top:22px"><Distribution spelling="Defranceski" /></div>
+
+  <h3 class="lab" style="margin-top:40px">The parent name, for scale</h3>
+  <div style="margin-top:22px"><Distribution spelling="Franceschi" /></div>
+  <p class="cap">Franceschi without the prefix is a different order of magnitude and a different history — heavily Corsican and Caribbean-Latin American. Shared spelling is not shared descent. Source: Forebears.</p>
+</section>
+</Base>

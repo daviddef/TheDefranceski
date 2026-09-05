@@ -1,0 +1,50 @@
+---
+import Base from "../../layouts/Base.astro";
+import Chip from "../../components/Chip.astro";
+import people from "../../data/people.json";
+import places from "../../data/places.json";
+import sov from "../../data/sovereignty.json";
+export function getStaticPaths(){ return people.map(p=>({params:{slug:p.slug},props:{p}})); }
+const { p } = Astro.props;
+const place = places.find(x=>x.slug===p.birthPlace);
+const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died||p.born+70)) : [];
+---
+<Base title={p.name} eyebrow={`${p.born||"?"}–${p.died||"?"} · ${p.roles.join(" · ")}`} dek={p.lead}>
+
+<section class="blk">
+  <div class="lab">The record</div>
+  <div style="margin-top:6px"><Chip c={p.confidence} /></div>
+  <div class="rec" style="margin-top:18px">
+    {p.record.map(([k,v,w])=>(<>
+      <div class="k">{k}</div><div class="v">{v}</div><div class="w">{w}</div>
+    </>))}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The life</h2>
+  <div class="prose" style="margin-top:22px">{p.life.map(t=><p set:html={t.replace(/\*(.+?)\*/g,"<em>$1</em>")} />)}</div>
+</section>
+
+{p.works && <section class="blk">
+  <h2>What he published</h2>
+  <div class="scroll" style="margin-top:20px"><table><tbody>
+    {p.works.map(([t,pub,yr])=>(<tr><td>{t}</td><td>{pub}</td><td class="m">{yr}</td></tr>))}
+  </tbody></table></div>
+</section>}
+
+{world.length>0 && <section class="blk">
+  <h2>The world around him</h2>
+  <p class="dek">Assembled automatically from the timeline for the years of his life.</p>
+  <div class="evlist">{world.map(e=><span><b>{e.year}</b>{e.text}</span>)}</div>
+</section>}
+
+{place && <section class="blk">
+  <h2>Where he came from</h2>
+  <a class="cardlink" href={`/places/${place.slug}/`} style="max-width:520px">
+    <div class="nm">{place.name}</div>
+    <div class="alt">{Object.values(place.alt||{}).join(" · ")}</div>
+    <div class="txt">{place.lead}</div>
+  </a>
+</section>}
+</Base>

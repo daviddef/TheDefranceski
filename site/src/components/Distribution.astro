@@ -1,0 +1,25 @@
+---
+import names from "../data/names.json";
+const { spelling } = Astro.props;
+const set = names.distribution.sets.find(s=>s.spelling===spelling);
+const max = Math.max(...set.rows.map(r=>r[1]));
+const BW=560, LW=150, RH=22;
+const H = set.rows.length*RH + 26;
+---
+<div class="scroll">
+<svg viewBox={`0 0 ${LW+BW+70} ${H}`} width={LW+BW+70} style="min-width:520px;display:block" role="img"
+     aria-label={`Worldwide incidence of the spelling ${spelling}`}>
+  {set.rows.map(([c,n],i)=>(
+    <g>
+      <text x={LW-12} y={i*RH+16} text-anchor="end" font-size="12"
+            style="fill:var(--ink-2);font-family:var(--sans)">{c}</text>
+      <rect x={LW} y={i*RH+4} width={Math.max(2,(n/max)*BW)} height={14} rx="1"
+            style={`fill:var(${i===0?"--accent":"--r-habsburg"})`}/>
+      <text x={LW+Math.max(2,(n/max)*BW)+8} y={i*RH+16} font-size="11.5"
+            style="fill:var(--ink-3);font-family:var(--mono)">{n.toLocaleString()}</text>
+    </g>
+  ))}
+  <line x1={LW} y1={set.rows.length*RH+6} x2={LW+BW} y2={set.rows.length*RH+6}
+        style="stroke:var(--rule)" stroke-width="1"/>
+</svg>
+</div>

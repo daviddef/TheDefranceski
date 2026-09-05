@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
+import Census1945 from "../components/Census1945.astro";
+import Chip from "../components/Chip.astro";
+import lines from "../data/lines.json";
+import names from "../data/names.json";
+const stats=[
+  ["1644","Gologorica's baptism register opens"],
+  ["25","Defranceschi families in Istria, 1 Oct 1945"],
+  ["628","people named Defranceschi worldwide"],
+  ["~10","left in Croatia today"],
+];
+---
+<Base title="The Defranceschi Archive" eyebrow="Istria · Kvarner · Carnia · and the diaspora"
+      dek="A family written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing.">
+
+<section class="blk">
+  <div class="prose">
+    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's. <strong>There is no single founding Defranceschi family.</strong></p>
+    <p>That is this archive's organising idea rather than its disappointment. The work is to establish which lines are actually connected, to say plainly where the evidence stops, and to keep the good stories without letting them pretend to be facts.</p>
+  </div>
+  <div class="grid g4" style="margin-top:34px">
+    {stats.map(([n,l])=>(
+      <div class="stat"><div class="n">{n}</div><div class="l">{l}</div></div>
+    ))}
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Three places, three histories</h2>
+  <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Every date in this archive has to be read against this chart.</p>
+  <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
+  <p class="cap"><a href="/timeline/">The full timeline, with lives and pressures →</a></p>
+</section>
+
+<section class="blk">
+  <h2>Istria, 1 October 1945</h2>
+  <p class="dek">A census taken months after the war and weeks before the exodus counted the surname village by village. Twenty-five families in twelve settlements — and the two spellings fall along the old Habsburg–Venetian border almost perfectly.</p>
+  <div style="margin-top:26px"><Census1945 /></div>
+  <p class="cap">Source: {names.census1945.source}. Counts are families, not individuals.</p>
+</section>
+
+<section class="blk">
+  <h2>The lines</h2>
+  <p class="dek">Seven, of which one is documented, two are inferred, three are family lore, and one was found during this research and belongs to nobody yet.</p>
+  <div class="grid g2" style="margin-top:24px">
+    {lines.map(l=>(
+      <a class="cardlink" href="/lines/">
+        <div class="nm">{l.name}</div>
+        <div style="margin-top:9px"><Chip c={l.status} /></div>
+        <div class="alt" style="margin-top:10px">{l.route}</div>
+        <div class="txt">{l.note}</div>
+      </a>
+    ))}
+  </div>
+</section>
+</Base>

@@ -1,0 +1,64 @@
+---
+import Base from "../../layouts/Base.astro";
+import places from "../../data/places.json";
+import names from "../../data/names.json";
+export function getStaticPaths(){
+  return places.map(p=>({params:{slug:p.slug},props:{p}}));
+}
+const { p } = Astro.props;
+const r = p.registers;
+const census = names.census1945.rows.filter(x=>x[1]===p.name);
+const alt=Object.entries(p.alt||{});
+const langName={it:"Italian",de:"German",fur:"Friulian",other:"also written"};
+---
+<Base title={p.name} eyebrow={alt.map(([k,v])=>v).join(" · ") || "Place"} dek={p.lead}>
+
+<section class="blk">
+  <div class="grid g2">
+    <div class="prose">
+      {p.body.map(t=><p>{t}</p>)}
+    </div>
+    <div>
+      <div class="panel">
+        <div class="lab">Names</div>
+        <div class="rec" style="margin-top:12px">
+          <div class="k">Croatian / local</div><div class="v">{p.name}</div><div class="w"></div>
+          {alt.map(([k,v])=>(<>
+            <div class="k">{langName[k]||k}</div><div class="v">{v}</div><div class="w"></div>
+          </>))}
+          <div class="k">Parish</div><div class="v">{p.parish||"—"}</div><div class="w"></div>
+          <div class="k">Diocese</div><div class="v">{p.diocese||"—"}</div><div class="w"></div>
+          {p.pop && <><div class="k">Population</div>
+            <div class="v">{Object.entries(p.pop).map(([y,n])=>`${n} (${y})`).join(" · ")}</div><div class="w"></div></>}
+        </div>
+      </div>
+      {census.length>0 && <div class="panel" style="margin-top:14px">
+        <div class="lab">In the 1945 census</div>
+        {census.map(c=>(
+          <p style="font-family:var(--sans);font-size:14px;color:var(--ink);margin-top:10px">
+            <b style="font-family:var(--mono);color:var(--terra)">{c[4]}</b> {c[4]===1?"family":"families"} spelling it <b>{c[0]}</b>
+          </p>
+        ))}
+      </div>}
+    </div>
+  </div>
+</section>
+
+{r && <section class="blk">
+  <h2>The registers</h2>
+  <p class="dek">What survives, where it is kept, and whether you can see it without going there.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <tbody>
+        <tr><td>Baptisms</td><td class="m">{r.baptisms}</td></tr>
+        <tr><td>Marriages</td><td class="m">{r.marriages}</td></tr>
+        <tr><td>Burials</td><td class="m">{r.burials}</td></tr>
+        {r.statusAnimarum?.length>0 && <tr><td>Household censuses</td><td class="m">{r.statusAnimarum.join(" · ")}</td></tr>}
+        {r.books && <tr><td>Books catalogued</td><td class="m">{r.books} — {r.digitised} digitised</td></tr>}
+        <tr><td>Held at</td><td class="m">{r.held.join(" · ")}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  {r.note && <div class="note" style="margin-top:24px">{r.note}</div>}
+</section>}
+</Base>

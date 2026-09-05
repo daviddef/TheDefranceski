@@ -1,0 +1,30 @@
+---
+import Base from "../../layouts/Base.astro";
+import Chip from "../../components/Chip.astro";
+import JourneyMap from "../../components/JourneyMap.astro";
+import lines from "../../data/lines.json";
+---
+<Base title="The Lines" eyebrow="Seven, and only one of them proven"
+      dek="Branches are treated as first-class subjects here, not as nodes on a chart. Each one states its own evidence and its own doubt.">
+<section class="blk">
+  <div class="stack">
+    {lines.map(l=>(
+      <div class="linerow">
+        <div>
+          <h2 style="font-size:26px">{l.name}</h2>
+          <div style="margin-top:10px"><Chip c={l.status} /></div>
+        </div>
+        <div>
+          <div class="meta"><span><b>Route</b> {l.route}</span><span><b>Earliest</b> {l.earliest}</span></div>
+          <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:12px;max-width:62ch">{l.note}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+<section class="blk">
+  <h2>How they move</h2>
+  <p class="dek">The Carnian road south, the two arrivals at Fiume eighteen months apart, and the branch that reached Crikvenica by way of Poreč.</p>
+  <div style="margin-top:24px"><JourneyMap /></div>
+</section>
+</Base>

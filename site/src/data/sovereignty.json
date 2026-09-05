@@ -1,0 +1,263 @@
+{
+  "scale": {
+    "break": 1800,
+    "from": 1200,
+    "to": 2026,
+    "note": "Linear to 1800, then expanded — the family's documented life is after 1800."
+  },
+  "regimes": {
+    "feudal": {
+      "label": "Aquileia · Gorizia · Frankopan",
+      "color": "--r-feudal"
+    },
+    "venice": {
+      "label": "Republic of Venice",
+      "color": "--r-venice"
+    },
+    "habsburg": {
+      "label": "Habsburg / Austria–Hungary",
+      "color": "--r-habsburg"
+    },
+    "napo": {
+      "label": "Napoleonic 1805–15",
+      "color": "--r-napo"
+    },
+    "italy": {
+      "label": "Italy",
+      "color": "--r-italy"
+    },
+    "german": {
+      "label": "German occupation 1943–45",
+      "color": "--r-german"
+    },
+    "yugo": {
+      "label": "Yugoslavia",
+      "color": "--r-yugo"
+    },
+    "croatia": {
+      "label": "Croatia",
+      "color": "--r-croatia"
+    }
+  },
+  "lanes": [
+    {
+      "id": "istria",
+      "label": "Central Istria",
+      "sub": "Gologorica, Gračišće",
+      "bands": [
+        [
+          1200,
+          1374,
+          "feudal",
+          "Aquileia · Gorizia"
+        ],
+        [
+          1374,
+          1805,
+          "habsburg",
+          "Habsburg — County of Pazin"
+        ],
+        [
+          1805,
+          1815,
+          "napo",
+          ""
+        ],
+        [
+          1815,
+          1918,
+          "habsburg",
+          "Austria–Hungary"
+        ],
+        [
+          1920,
+          1943,
+          "italy",
+          "Italy"
+        ],
+        [
+          1943,
+          1945,
+          "german",
+          ""
+        ],
+        [
+          1945,
+          1991,
+          "yugo",
+          "Yugoslavia"
+        ],
+        [
+          1991,
+          2026,
+          "croatia",
+          "Croatia"
+        ]
+      ]
+    },
+    {
+      "id": "kvarner",
+      "label": "Senj & Vinodol",
+      "sub": "Senj, Crikvenica",
+      "bands": [
+        [
+          1200,
+          1469,
+          "feudal",
+          "Frankopan lords"
+        ],
+        [
+          1469,
+          1918,
+          "habsburg",
+          "Croatian crown → Habsburg Military Frontier"
+        ],
+        [
+          1918,
+          1991,
+          "yugo",
+          "Yugoslavia"
+        ],
+        [
+          1991,
+          2026,
+          "croatia",
+          "Croatia"
+        ]
+      ]
+    },
+    {
+      "id": "carnia",
+      "label": "Carnia, Friuli",
+      "sub": "Mione, Ovaro",
+      "bands": [
+        [
+          1200,
+          1420,
+          "feudal",
+          "Patriarchate of Aquileia"
+        ],
+        [
+          1420,
+          1797,
+          "venice",
+          "Republic of Venice"
+        ],
+        [
+          1797,
+          1805,
+          "habsburg",
+          ""
+        ],
+        [
+          1805,
+          1815,
+          "napo",
+          ""
+        ],
+        [
+          1815,
+          1866,
+          "habsburg",
+          "Austria"
+        ],
+        [
+          1866,
+          2026,
+          "italy",
+          "Kingdom of Italy → Italian Republic"
+        ]
+      ]
+    }
+  ],
+  "events": [
+    {
+      "year": 1185,
+      "text": "Mione first recorded, 15 June"
+    },
+    {
+      "year": 1199,
+      "text": "Gračišće first recorded"
+    },
+    {
+      "year": 1288,
+      "text": "Vinodol Law codified at Novi"
+    },
+    {
+      "year": 1412,
+      "text": "Frankopan grants the Crikvenica monastery to the Paulines"
+    },
+    {
+      "year": 1486,
+      "text": "Bishop Paskazije of Pićan consecrates the Gračišće chapel in his birthplace"
+    },
+    {
+      "year": 1582,
+      "text": "Pazin baptisms begin — the oldest register in the county"
+    },
+    {
+      "year": 1617,
+      "text": "Uskoks expelled from Senj"
+    },
+    {
+      "year": 1644,
+      "text": "Gologorica baptism register begins"
+    },
+    {
+      "year": 1667,
+      "text": "Gračišće baptism register begins"
+    },
+    {
+      "year": 1711,
+      "text": "De Franceschi house built on the Gologorica square"
+    },
+    {
+      "year": 1739,
+      "text": "Valentino Defranceschi, from Carnia, made a citizen of Fiume"
+    },
+    {
+      "year": 1740,
+      "text": "Giovanni Battista Defranceschi arrives from the County of Pazin"
+    },
+    {
+      "year": 1775,
+      "text": "First Gračišće status animarum"
+    },
+    {
+      "year": 1786,
+      "text": "Joseph II dissolves the Pauline order at Crikvenica"
+    },
+    {
+      "year": 1809,
+      "text": "Carlo De Franceschi born at Moncalvo, 16 October"
+    },
+    {
+      "year": 1848,
+      "text": "Carlo elected deputy for Pisino to the Imperial Constituent Parliament"
+    },
+    {
+      "year": 1854,
+      "text": "Carlo expelled from the imperial magistrature as 'a known apostle of Mazzini'"
+    },
+    {
+      "year": 1868,
+      "text": "Camillo De Franceschi born at Parenzo, 3 August"
+    },
+    {
+      "year": 1890,
+      "text": "Camillo sentenced to two years for irredentist activity"
+    },
+    {
+      "year": 1920,
+      "text": "Treaty of Rapallo — Istria to Italy"
+    },
+    {
+      "year": 1945,
+      "text": "25 Defranceschi families counted in Istria, 1 October"
+    },
+    {
+      "year": 1956,
+      "text": "The exodus is largely complete"
+    }
+  ]
+}

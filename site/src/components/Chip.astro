@@ -1,0 +1,8 @@
+---
+const { c } = Astro.props;
+const map = { documented:["doc","Documented"], inferred:["inf","Inferred"],
+              lore:["lore","Family lore"], open:["lore","Open question"], yes:["doc","Same family"],
+              unproven:["inf","Unproven"], no:["lore","Name only"] };
+const [cls,label] = map[c] || ["lore", c];
+---
+<span class={`chip ${cls}`}>{label}</span>

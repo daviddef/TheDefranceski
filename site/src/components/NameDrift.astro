@@ -1,0 +1,58 @@
+---
+const X0=130,X1=955,Y0=1450,Y1=2026;
+const x=(y)=>X0+(y-Y0)*((X1-X0)/(Y1-Y0));
+const rows=[
+ {id:"root", label:"de' Franceschi",  from:1450,to:1625,lang:"it", note:"genitive plural"},
+ {id:"lat",  label:"de Franceschis",  from:1550,to:1900,lang:"la", note:"Latin case ending — not a variant"},
+ {id:"sp",   label:"De Franceschi",   from:1600,to:2026,lang:"it", note:"Venetian coast · western Istria"},
+ {id:"bare", label:"Franceschi",      from:1600,to:2026,lang:"it", note:"prefix dropped — absent from Istria in 1945"},
+ {id:"fus",  label:"Defranceschi",    from:1740,to:2026,lang:"de", note:"Habsburg fusion · Pazin county, Trentino"},
+ {id:"franz",label:"Franzeschi",      from:1750,to:1900,lang:"de", note:"German orthography"},
+ {id:"ich",  label:"Franceschich",    from:1850,to:1918,lang:"de", note:"Slavic -ić written the Austrian way"},
+ {id:"ski",  label:"Defranceski",     from:1900,to:2026,lang:"en", note:"heard, not read · South Africa, Australia"},
+ {id:"deski",label:"de Franceski",    from:1950,to:2026,lang:"en", note:"prefix deliberately restored"},
+];
+const H=42, TOP=46;
+const y=(i)=>TOP+i*H;
+const idx=Object.fromEntries(rows.map((r,i)=>[r.id,i]));
+const links=[["root","lat",1550],["root","sp",1600],["root","bare",1600],
+             ["sp","fus",1740],["sp","franz",1750],["sp","ich",1850],
+             ["fus","ski",1900],["ski","deski",1950]];
+const col={it:"--accent",la:"--ochre",de:"--r-habsburg",en:"--terra"};
+const TH=22;
+const HGT=y(rows.length-1)+TH+58;
+const ticks=[1500,1600,1700,1800,1900,2000];
+---
+<div class="scroll">
+<svg viewBox={`0 0 1000 ${HGT}`} width="1000" style="min-width:920px;display:block" role="img"
+     aria-label="How the surname's spellings branch across five centuries">
+  {links.map(([a,b,yr])=>{
+    const ya=y(idx[a])+TH/2, yb=y(idx[b])+TH/2, xx=x(yr);
+    return <path d={`M${x(rows[idx[a]].from)+14},${ya} L${xx-16},${ya} Q${xx},${ya} ${xx},${(ya+yb)/2} Q${xx},${yb} ${xx+10},${yb}`}
+                 fill="none" style="stroke:var(--rule-strong)" stroke-width="1.2"/>;
+  })}
+  {rows.map((r,i)=>(
+    <g>
+      <rect x={x(r.from)} y={y(i)} width={x(r.to)-x(r.from)} height={TH} rx="2"
+            style={`fill:var(${col[r.lang]});${r.lang==="la"?"opacity:.55":""}`}/>
+      {r.lang==="la" && <rect x={x(r.from)} y={y(i)} width={x(r.to)-x(r.from)} height={TH} rx="2"
+            fill="none" style="stroke:var(--ground)" stroke-width="1.5" stroke-dasharray="4 3"/>}
+      <text x={x(r.from)-10} y={y(i)+15} text-anchor="end" font-size="13"
+            style="fill:var(--ink);font-family:var(--serif);font-weight:500">{r.label}</text>
+      <text x={x(r.to)+9} y={y(i)+15} font-size="10"
+            style="fill:var(--ink-3);font-family:var(--sans)">{r.note}</text>
+    </g>
+  ))}
+  <line x1={X0} y1={HGT-40} x2={X1} y2={HGT-40} style="stroke:var(--rule-strong)" stroke-width="1"/>
+  {ticks.map(t=><g>
+    <line x1={x(t)} y1={HGT-40} x2={x(t)} y2={HGT-34} style="stroke:var(--rule-strong)" stroke-width="1"/>
+    <text x={x(t)} y={HGT-20} text-anchor="middle" font-size="10"
+          style="fill:var(--ink-3);font-family:var(--mono)">{t}</text></g>)}
+</svg>
+</div>
+<div class="legend">
+  <span><i style="background:var(--accent)"></i>Italian</span>
+  <span><i style="background:var(--ochre);opacity:.55"></i>Latin — a case ending, not a spelling</span>
+  <span><i style="background:var(--r-habsburg)"></i>German / Habsburg administration</span>
+  <span><i style="background:var(--terra)"></i>English-speaking emigration</span>
+</div>

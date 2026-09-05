@@ -1,0 +1,50 @@
+---
+const { title, dek, eyebrow } = Astro.props;
+const nav = [
+  ["/", "Home"], ["/name/", "The Name"], ["/lines/", "The Lines"],
+  ["/people/", "People"], ["/places/", "Places"], ["/timeline/", "Timeline"],
+  ["/journeys/", "Journeys"], ["/arms/", "Arms & Flags"], ["/archive/", "Archive"],
+  ["/research-log/", "Research Log"], ["/about/", "About"],
+];
+const here = Astro.url.pathname;
+---
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{title} — The Defranceschi Archive</title>
+<meta name="description" content={dek} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header class="site">
+  <div class="wrap sitein">
+    <a class="brand" href="/">The Defranceschi Archive</a>
+    <nav>{nav.map(([h,l]) => (
+      <a href={h} class={here===h ? "on" : ""}>{l}</a>
+    ))}</nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="pagehead">
+      {eyebrow && <div class="lab">{eyebrow}</div>}
+      <h1>{title}</h1>
+      {dek && <p class="dek lead">{dek}</p>}
+    </div>
+    <slot />
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="foot">An evidence-first family archive for the Defranceschi, De Franceschi, Defranceski and de Franceski families of Istria, Kvarner, Carnia and the diaspora. Every claim carries its confidence. Living people are excluded from this build.</p>
+    <p class="foot dim">Built {new Date().getFullYear()} · Sources listed on <a href="/about/">About</a> · Corrections welcome</p>
+  </div>
+</footer>
+</body>
+</html>
