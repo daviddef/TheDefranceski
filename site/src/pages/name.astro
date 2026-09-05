@@ -49,4 +49,36 @@ import names from "../data/names.json";
   <div style="margin-top:22px"><Distribution spelling="Franceschi" /></div>
   <p class="cap">Franceschi without the prefix is a different order of magnitude and a different history — heavily Corsican and Caribbean-Latin American. Shared spelling is not shared descent. Source: Forebears.</p>
 </section>
+
+<section class="blk">
+  <h2>Three Croatian clusters, three fates</h2>
+  <p class="dek">The same patronymic settles in three parts of Croatia under three spellings — and only one of them is surviving.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Spelling</th><th>Where it belongs</th><th>Where they live now</th><th class="m">Today</th><th class="m">Mid-century</th><th>Trend</th></tr></thead>
+      <tbody>{names.croatia_clusters.rows.map(r=>(
+        <tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td class="m">{r[3]}</td><td class="m">{r[4]}</td>
+        <td style={r[5]==="growing"?"color:var(--accent)":"color:var(--terra)"}>{r[5]}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:26px">
+    <p>The Istrian <strong>Defranceschi</strong> have fallen from about fifty to about ten. The Rijeka <strong>Franceski</strong> — thirty at mid-century, in Rijeka and at Donja Banda on Pelješac — are down to a single household. The Dalmatian <strong>Franceschi</strong> of Split and Imotski have gone the other way, from fifty to sixty, in thirty households.</p>
+    <p>And the Dalmatian spelling has a cause no other form on this page shares. Their <em>de</em> was not dropped by a clerk or worn away by emigration. It was <strong>abolished by decree of the Napoleonic administration</strong>, which stripped nobiliary particles — so the descendants of a count who stormed Imotski in 1717 are plain Franceschi today.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Every spelling, counted</h2>
+  <p class="dek">Thirteen recorded forms worldwide. The tail is long and thin — several spellings have a single bearer alive.</p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Spelling</th><th class="m">Bearers</th><th>Notes</th></tr></thead>
+      <tbody>{names.spellings_world.rows.map(r=>(
+        <tr><td>{r[0]}</td><td class="m">{r[1].toLocaleString()}</td><td>{r[2]}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap">Source: {names.spellings_world.source}. {names.spellings_world.note} Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
+</section>
 </Base>

@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import places from "../../data/places.json";
 const alt=(p)=>Object.entries(p.alt||{}).map(([k,v])=>`${k}. ${v}`).join(" · ");
-const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"],["carnia","Carnia, Friuli"]];
+const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"],["carnia","Carnia, Friuli"],["dalmatia","Dalmatia — Omiš, Imotski, Split"]];
 ---
 <Base title="Places" eyebrow="Nine settlements, three jurisdictions"
       dek="Every place carries all of its names, because which name a document uses tells you who was keeping it.">
