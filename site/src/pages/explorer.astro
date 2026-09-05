@@ -1,0 +1,163 @@
+---
+import Base from "../layouts/Base.astro";
+import ex from "../data/explorer.json";
+const nodes = ex.nodes;
+const years = nodes.map(n => n.from).filter(Boolean);
+const minY = Math.min(...years), maxY = Math.max(...years);
+const regions = [...new Set(nodes.map(n => n.region).filter(Boolean))].sort();
+const linked = nodes.filter(n => n.up.length || n.down.length).length;
+const kids = nodes.reduce((s, n) => s + n.children.length, 0);
+---
+<Base
+  title="Household Explorer"
+  eyebrow={`${nodes.length} households · ${kids} children · ${minY}–${maxY}`}
+  dek="Every parent pair this archive has reconstructed from the registers, with the children recorded under them. Search a name, drag the year, pick a region — then open a household and walk to the ones it connects to.">
+
+  <section class="prose">
+    <p>A household here is not a guess about a family. It is a set of baptisms that name the same two parents, gathered under those parents and sorted by date. That is the smallest honest unit the registers will give you: a father, a mother, and the children a priest wrote down between two dates in one parish.</p>
+    <p>Six of these households can be linked to another — a son in one becomes the father in the next, at the right remove, in the right parish. <strong>{linked} of {nodes.length}</strong> sit in a chain; the rest float. Households that float are not failures. They are the shape of what survives when a parish's register begins in 1750 and the family arrived in 1700.</p>
+  </section>
+
+  <div class="controls" style="margin-top:26px">
+    <div class="ctl">
+      <label for="q">Search names and places</label>
+      <input type="search" id="q" placeholder="Valentino, Rijeka, Elena…" autocomplete="off" />
+    </div>
+    <div class="ctl">
+      <label for="reg">Region</label>
+      <select id="reg">
+        <option value="">All regions</option>
+        {regions.map(r => <option value={r}>{r}</option>)}
+      </select>
+    </div>
+    <div class="ctl">
+      <label for="yr">Households beginning after</label>
+      <input type="range" id="yr" min={minY} max={maxY} value={minY} step="5" />
+    </div>
+    <div class="ctl">
+      <label for="lk">Show</label>
+      <select id="lk">
+        <option value="">All households</option>
+        <option value="1">Only those in a chain</option>
+      </select>
+    </div>
+    <div class="yearout" id="yout"></div>
+  </div>
+
+  <div class="exp">
+    <div>
+      <div class="hcards" id="cards" data-nodes={JSON.stringify(nodes)}>
+        {nodes.map(n => (
+          <button class={`hc ${n.region}${n.up.length || n.down.length ? " linked" : ""}`}
+                  type="button" data-id={n.id} aria-current="false">
+            <span class="f">{n.father}</span>
+            <span class="m">{n.mother}</span>
+            <span class="w"><span>{n.place}</span><span>{n.from}–{n.to}</span><span>{n.n} ch.</span></span>
+          </button>
+        ))}
+      </div>
+      <p class="empty" id="none" hidden>Nothing matches. Clear the search, or drag the year back.</p>
+    </div>
+
+    <aside class="detail" id="detail" aria-live="polite">
+      <div class="lab">Open a household</div>
+      <p class="sub">Pick any card. You will get the parents as the register spells them, the children in birth order, and any household this one links up or down to.</p>
+    </aside>
+  </div>
+
+  <section class="prose" style="margin-top:44px">
+    <h3>How the links were made</h3>
+    <p>A link is drawn only when a child in one household carries the surname, appears as the parent heading another household in the same region, the parishes are compatible, and the gap between the two households falls between 17 and 48 years. Where more than one candidate fits, the link is not drawn at all — those cases are listed as ambiguous rather than resolved by preference. Confidence is <em>strong</em> when the candidate is unique, the parish is the same, and the gap sits between 20 and 45.</p>
+    <h3>What the colours mean</h3>
+    <p>The stripe down the left of each card is the region: Kvarner, Istria, Dalmatia, Tyrol. The word <em>linked</em> appears on any household that stands in a chain.</p>
+  </section>
+</Base>
+
+<script>
+  const cards = document.getElementById("cards");
+  if (cards) {
+    const nodes = JSON.parse(cards.getAttribute("data-nodes"));
+    const by = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const btns = [...cards.querySelectorAll(".hc")];
+    const detail = document.getElementById("detail");
+    const none = document.getElementById("none");
+    const q = document.getElementById("q");
+    const reg = document.getElementById("reg");
+    const yr = document.getElementById("yr");
+    const lk = document.getElementById("lk");
+    const yout = document.getElementById("yout");
+
+    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    const hay = (n) =>
+      (n.father + " " + n.mother + " " + n.place + " " +
+       n.children.map(c => c.name).join(" ")).toLowerCase();
+
+    const filter = () => {
+      const t = q.value.trim().toLowerCase();
+      const r = reg.value, y = +yr.value, only = lk.value;
+      let shown = 0;
+      btns.forEach((b, i) => {
+        const n = nodes[i];
+        const on =
+          (!t || hay(n).includes(t)) &&
+          (!r || n.region === r) &&
+          (!n.from || n.from >= y) &&
+          (!only || n.up.length || n.down.length);
+        b.hidden = !on;
+        if (on) shown++;
+      });
+      none.hidden = shown > 0;
+      yout.textContent = `${shown} shown · from ${y}`;
+    };
+
+    const open = (id) => {
+      const n = by[id];
+      if (!n) return;
+      btns.forEach(b => b.setAttribute("aria-current", String(b.dataset.id === id)));
+      const kid = (c) =>
+        `<span class="kid${c.ours ? " line" : ""}">${esc(c.name)}${c.y ? `<i>${c.y}</i>` : ""}</span>`;
+      const rel = (l, dir) => {
+        const o = by[l.id];
+        return `<button class="linkbtn" data-go="${l.id}">
+          <b>${dir} · ${esc(o.father)}</b>
+          ${esc(o.place)} ${o.from}–${o.to} · through ${esc(l.via)} · ${l.gap} years · ${l.conf}
+        </button>`;
+      };
+      detail.innerHTML = `
+        <div class="lab">${esc(n.place)} · ${esc(n.region || "region unknown")}</div>
+        <h3>${esc(n.father)}</h3>
+        <p class="sub">and ${esc(n.mother)}</p>
+        <div class="stats">
+          <span>${n.from}–${n.to}</span><span>${n.n} children</span>
+          <span>${n.line === "female" ? "surname through the mother" : "surname through the father"}</span>
+        </div>
+        <div class="hl lab" style="margin-top:6px">Children, in the order baptised</div>
+        <div class="kids">${n.children.map(kid).join("")}</div>
+        ${n.up.length ? `<div class="hl lab" style="margin-top:14px">Descends from</div>
+          <div class="linkrow">${n.up.map(l => rel(l, "Parent household")).join("")}</div>` : ""}
+        ${n.down.length ? `<div class="hl lab" style="margin-top:14px">Leads to</div>
+          <div class="linkrow">${n.down.map(l => rel(l, "Child household")).join("")}</div>` : ""}
+        ${!n.up.length && !n.down.length
+          ? `<p class="sub" style="margin-top:14px;color:var(--ink-3)">This household stands alone. No household in the data can be joined to it at a defensible remove.</p>`
+          : ""}
+      `;
+      detail.querySelectorAll("[data-go]").forEach(b =>
+        b.addEventListener("click", () => {
+          const t = b.dataset.go;
+          const card = btns.find(x => x.dataset.id === t);
+          if (card) { card.hidden = false; card.scrollIntoView({ block: "nearest" }); }
+          open(t);
+        }));
+    };
+
+    cards.addEventListener("click", e => {
+      const b = e.target.closest(".hc");
+      if (b) open(b.dataset.id);
+    });
+    [q, reg, lk].forEach(el => el.addEventListener("input", filter));
+    yr.addEventListener("input", filter);
+    filter();
+    open(nodes.find(n => n.down.length)?.id || nodes[0].id);
+  }
+</script>

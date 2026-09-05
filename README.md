@@ -75,3 +75,38 @@ Canale di Gorto emigration · Maja Delić Peršen on the de Franceschi of Imotsk
 Pisino* (Venice 1964) · Acta Croatica · Forebears · Portale Antenati · FamilySearch · State Archives in Rijeka.
 
 Nothing here yet establishes descent. That is the work.
+
+## The spine, closed (September 2026)
+
+Two ruled rows from the *Status Animarum* of the parish of Gallignana (Gračišće),
+obtained from the Državni arhiv u Pazinu in June 2021 and unread until now,
+carry four generations of the direct line with wives, dates and trades:
+
+| | |
+|---|---|
+| **House 5** | *Joan. Bapt. Defranceschi, agricola* — b. 13 Aug 1787, m. 1819, d. 1 Sept 1846. Wife **Francisca Salomon**, b. 17 Mar 1797. Sons Raymundus 1823, **Antonius 20 Sept 1825**, Joannes 1833, Franciscus 1840. |
+| **House 19** | *† Antonius Defranceschi **q. Joannis*** — b. 20 Sept 1825, m. 25 Nov 1856, d. 4 Aug 1894, *lapicida*. Wife **Maria née Fernasar**, b. 17 Oct 1832. Children Antonius 1856, **Josephus 22 Mar 1863**, Leopolda 1865, Catharina 1869, Modestus 1875. |
+
+*q. Joannis* — son of the late Giovanni — welds house 19 to house 5. Josephus is
+the man on the certified 1863 baptism already held, and the line runs on through
+Crikvenica and Senj to Brisbane. Eight generations at `/direct-line/`.
+
+## Also new
+
+- **`/pfullingen/`** — six Defranceskis registered in one Württemberg town between
+  1939 and 1945, five born at Crikvenica; three with photographs from French-zone
+  camp cards. Source: Arolsen Archives, ITS file D-1.505.
+- **`/burials/`** — 99 burials, 1619–1997, found by searching the registers of the
+  dead by surname rather than by parish. Includes four children buried by Carlo
+  De Franceschi, one named for his own mother.
+- **`/explorer/`** — 52 reconstructed households, searchable, filterable by region
+  and year, with the descent links walkable.
+- **`/search/`** — one index over 435 entries; press `/` anywhere on the site.
+- **`/gallery/`** — 28 plates from the family's own scans, with a lightbox.
+- **`/namesakes/`** — fifteen who carried the name, with public-domain art from
+  Wikimedia Commons, credited.
+- **`/arms/`** — the family arms redrawn. The *Blasonario Giuliano* independently
+  records the achievement Carlo De Franceschi described in a private letter of
+  c.1873: per fess, argent a cross issuing from the division pierced by two
+  arrows in bend sinister, all gules; vert, a pomegranate proper. Two sources,
+  neither quoting the other.

@@ -308,3 +308,79 @@ dialog.lb::backdrop{background:rgba(10,14,18,.88)}
 .field{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.12em;
   text-transform:uppercase;color:var(--accent);background:var(--accent-wash);
   border:1px solid var(--accent);border-radius:2px;padding:2px 8px}
+
+/* ---- household explorer ---- */
+.exp{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,400px);gap:22px;
+  align-items:start;margin-top:24px}
+@media (max-width:960px){.exp{grid-template-columns:1fr}}
+.controls{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:end;
+  background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:16px 18px}
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl label{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ctl input[type=search],.ctl select{font-family:var(--sans);font-size:13px;padding:7px 10px;
+  background:var(--ground);color:var(--ink);border:1px solid var(--rule-strong);border-radius:2px;min-width:170px}
+.ctl input[type=range]{width:230px;accent-color:var(--accent)}
+.yearout{font-family:var(--mono);font-size:12.5px;color:var(--accent);min-width:96px}
+.hcards{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));
+  max-height:70vh;overflow:auto;padding:2px 4px 6px 2px}
+.hc{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule-strong);
+  border-radius:2px;padding:11px 13px;text-align:left;cursor:pointer;font:inherit;color:inherit;
+  display:flex;flex-direction:column;gap:4px;transition:.14s}
+.hc:hover{border-color:var(--accent);border-left-color:var(--accent)}
+.hc[aria-current="true"]{border-color:var(--accent);border-left-color:var(--accent);
+  background:var(--accent-wash)}
+.hc .f{font-family:var(--sans);font-size:12.5px;font-weight:600;line-height:1.3;color:var(--ink)}
+.hc .m{font-family:var(--sans);font-size:12px;color:var(--ink-2);line-height:1.3}
+.hc .w{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:flex;gap:9px;flex-wrap:wrap}
+.hc.kv{border-left-color:var(--r-croatia)} .hc.istria{border-left-color:var(--r-venice)}
+.hc.dalmatia{border-left-color:var(--r-yugo)} .hc.tyrol{border-left-color:var(--r-habsburg)}
+.hc.linked::after{content:"linked";font-family:var(--sans);font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent)}
+.detail{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;
+  position:sticky;top:112px;display:flex;flex-direction:column;gap:12px;max-height:78vh;overflow:auto}
+.detail h3{font-size:24px;line-height:1.15}
+.detail .sub{font-family:var(--sans);font-size:13px;color:var(--ink-2)}
+.detail .stats{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.linkrow{display:flex;flex-direction:column;gap:6px}
+.linkbtn{font-family:var(--sans);font-size:12px;text-align:left;background:var(--ground);
+  border:1px solid var(--rule-strong);border-radius:2px;padding:8px 11px;cursor:pointer;color:var(--ink-2)}
+.linkbtn:hover{border-color:var(--accent);color:var(--accent)}
+.linkbtn b{display:block;font-weight:600;color:var(--ink);font-size:12.5px}
+.empty{font-family:var(--sans);font-size:13px;color:var(--ink-3);padding:26px 4px}
+
+/* ---- search ---- */
+.searchbox{position:relative}
+.searchbox input{width:100%;font-family:var(--sans);font-size:17px;padding:15px 18px;
+  background:var(--panel);color:var(--ink);border:1px solid var(--rule-strong);border-radius:3px}
+.searchbox input::placeholder{color:var(--ink-3)}
+.hits{display:flex;flex-direction:column;gap:1px;margin-top:20px;
+  border-top:1px solid var(--rule);max-height:none}
+.hit{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px 4px;
+  border-bottom:1px solid var(--rule);text-decoration:none;color:inherit;align-items:baseline}
+.hit:hover{background:var(--panel)}
+.hit .k{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+.hit .t{font-family:var(--sans);font-size:14.5px;font-weight:500;color:var(--ink);line-height:1.35}
+.hit .s{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);line-height:1.45;margin-top:2px}
+.hit mark{background:var(--accent-wash);color:var(--accent);padding:0 2px;border-radius:2px}
+.searchhint{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px}
+.kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--rule-strong);
+  border-bottom-width:2px;border-radius:3px;padding:1px 5px;color:var(--ink-2);background:var(--panel)}
+
+/* ---- the register of the dead ---- */
+.lifebars{display:flex;flex-direction:column;gap:3px;margin-top:18px}
+.lifebar{display:grid;grid-template-columns:190px minmax(0,1fr) 62px;gap:12px;align-items:center;
+  font-family:var(--sans);font-size:12.5px}
+.lifebar .nm{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lifebar .track{height:11px;background:var(--panel-2);border-radius:2px;position:relative;overflow:hidden}
+.lifebar .span{position:absolute;top:0;bottom:0;background:var(--accent);border-radius:2px;min-width:2px}
+.lifebar.inf .span{background:var(--terra)}
+.lifebar.ch .span{background:var(--ochre)}
+.lifebar .ag{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-align:right}
+@media (max-width:640px){.lifebar{grid-template-columns:130px minmax(0,1fr) 50px}}
+.bigstat{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:22px}
+.bigstat div{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:16px 18px}
+.bigstat b{display:block;font-family:var(--serif);font-size:38px;line-height:1;color:var(--accent);
+  font-variant-numeric:tabular-nums}
+.bigstat span{display:block;font-family:var(--sans);font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.45}

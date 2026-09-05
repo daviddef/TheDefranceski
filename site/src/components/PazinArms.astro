@@ -1,0 +1,66 @@
+---
+/* Defranceschi of Pisino (Pazin) — Blasonario Giuliano:
+   "Partito: nel 1° d'azzurro al mezzo castello d'argento murato di nero con
+    la porta visibile a metà, aperta del campo, uscente dalla partizione;
+    nel 2° d'argento al palo di rosso caricato nel cuore di una melagrana.
+    (Giacomo, 1788)  Da un suggello appare che lo scudo è sostenuto da un
+    capitello di rosso."  */
+const shield = "M14,20 H106 V66 C106,100 84,122 60,135 C36,122 14,100 14,66 Z";
+const AZURE = "#28527A", ARGENT = "#EFEDE6", SABLE = "#232A2E",
+      GULES = "#A62A25", FRUIT = "#7E1F1C";
+---
+<figure class="armfig">
+  <svg viewBox="0 0 120 156" width="216" role="img"
+       aria-label="Per pale: azure, a demi-castle argent masoned sable issuing from the partition; argent, a pale gules charged in the heart with a pomegranate">
+    <defs><clipPath id="pazclip"><path d={shield}/></clipPath></defs>
+    <g clip-path="url(#pazclip)">
+      <rect x="0" y="0" width="60" height="152" fill={AZURE}/>
+      <rect x="60" y="0" width="60" height="152" fill={ARGENT}/>
+
+      <!-- demi-castle, issuing from the partition: only the dexter half is drawn -->
+      <g>
+        <rect x="22" y="56" width="38" height="46" fill={ARGENT}/>
+        <rect x="22" y="40" width="14" height="18" fill={ARGENT}/>
+        <rect x="46" y="40" width="14" height="18" fill={ARGENT}/>
+        <g fill={SABLE}>
+          <rect x="22" y="40" width="5" height="7"/><rect x="31" y="40" width="5" height="7"/>
+          <rect x="46" y="40" width="5" height="7"/><rect x="55" y="40" width="5" height="7"/>
+          <!-- masoning -->
+          <g opacity=".55">
+            <rect x="22" y="68" width="38" height="1"/><rect x="22" y="80" width="38" height="1"/>
+            <rect x="22" y="92" width="38" height="1"/>
+            <rect x="34" y="56" width="1" height="12"/><rect x="46" y="68" width="1" height="12"/>
+            <rect x="34" y="80" width="1" height="12"/><rect x="46" y="92" width="1" height="10"/>
+          </g>
+        </g>
+        <!-- the gate, visible by half, open of the field -->
+        <path d="M48,102 V84 C48,77 56,74 60,74 V102 Z" fill={AZURE}/>
+      </g>
+
+      <!-- pale gules, charged in the heart with a pomegranate -->
+      <rect x="76" y="0" width="20" height="152" fill={GULES}/>
+      <g transform="translate(86,72)">
+        <path d="M0,-10 C6.6,-10 10,-4.4 10,0 C10,5.5 5.5,10 0,10 C-5.5,10 -10,5.5 -10,0 C-10,-4.4 -6.6,-10 0,-10 Z"
+              fill={FRUIT} stroke={ARGENT} stroke-width="1.4"/>
+        <path d="M-4.5,-3.5 C-2.5,4.5 2.5,4.5 4.5,-3.5 C3.5,7 -3.5,7 -4.5,-3.5 Z" fill={ARGENT} opacity=".38"/>
+        <g fill={ARGENT} opacity=".92">
+          <circle cx="-2.6" cy="-0.5" r="1.5"/><circle cx="2.4" cy="-1.4" r="1.5"/>
+          <circle cx="0.2" cy="3.4" r="1.5"/><circle cx="4" cy="2.6" r="1.5"/>
+          <circle cx="-4.4" cy="3.2" r="1.5"/>
+        </g>
+        <path d="M-3.4,-12.5 L-4.2,-9 L-1.4,-10.6 L0,-14 L1.4,-10.6 L4.2,-9 L3.4,-12.5 Z"
+              fill={ARGENT} stroke={FRUIT} stroke-width=".5"/>
+      </g>
+    </g>
+    <path d={shield} fill="none" style="stroke:var(--ink)" stroke-width="2.4"/>
+    <!-- the seal shows the shield resting on a capital gules -->
+    <g fill={GULES}><rect x="42" y="136" width="36" height="5" rx="1"/>
+      <path d="M46,141 H74 L70,148 H50 Z"/></g>
+  </svg>
+  <figcaption>
+    <p class="bl">“Partito: nel 1° d'azzurro al mezzo castello d'argento murato di nero con la porta visibile a metà, aperta del campo, uscente dalla partizione; nel 2° d'argento al palo di rosso caricato nel cuore di una melagrana.”</p>
+    <p class="at">Per pale: in the first, azure, a demi-castle argent masoned sable issuing from the partition, its gate visible by half and open of the field; in the second, argent, a pale gules charged in the heart with a pomegranate. Borne by <strong>Giacomo Defranceschi</strong>, traceable at Fiume to 1788. From a seal, the shield rests on a capital gules.</p>
+    <p class="dr">A different family of the name, at Pisino — the county the Gologorica house lived in. The pomegranate recurs; the castle does not.</p>
+    <p class="vd"><span class="chip doc">Blasonario Giuliano</span></p>
+  </figcaption>
+</figure>

@@ -1,65 +1,90 @@
 ---
-// Blazoned by Carlo De Franceschi in his letter to Kobler, c.1873:
-// upper field a Greek cross crossed by two arrows; lower field a pomegranate;
-// a plumed helm above the shield. Tinctures are not given in the letter.
-const shield = "M14,34 H106 V78 C106,110 84,130 60,142 C36,130 14,110 14,78 Z";
-const FIELD_U = "#8E9BAE", FIELD_L = "#C8B48A", METAL = "#E8E6DF",
-      DARK = "#2B3540", FRUIT = "#9E2B2B", LEAF = "#3E6B3A", SHAFT = "#8A6A45";
+/* Defranceschi of Fiume — the third family of the name in the Blasonario
+   Giuliano (from Sen. Riccardo Gigante's Blasonario Fiumano):
+
+   "Spaccato: nel 1° d'argento alla croce movente dallo spaccato trapassata da
+    due freccie poste in sbarra con la punta rivolta in alto, il tutto di
+    rosso; nel 2° di verde alla melagrana al naturale; con fascia ristretta
+    di rosso sullo spaccato."
+
+   Per fess. In the first, argent, a cross issuing from the line of division
+   pierced by two arrows in bend sinister, points upward, the whole gules.
+   In the second, vert, a pomegranate proper. A narrow fess gules on the
+   division.
+
+   Every element drawn below is named in that blazon and nothing else is
+   added. The division sits at the blazoned proportion; the drawing style is
+   ours, as any emblazonment's must be. */
+const shield = "M14,26 H106 V72 C106,106 84,128 60,141 C36,128 14,106 14,72 Z";
+const ARGENT = "#EFEDE6", GULES = "#A62A25", VERT = "#3C6B45",
+      FRUIT = "#B33227", CALYX = "#7C9A55", SEED = "#F0DED2";
+const FESS = 74;           // the line of division
+const helm = "M44,0 C52,-6 68,-6 76,0 C82,5 82,12 79,16 L41,16 C38,12 38,5 44,0 Z";
 ---
 <figure class="armfig">
-  <svg viewBox="0 0 120 160" width="212" role="img"
-       aria-label="Arms blazoned by Carlo De Franceschi: a Greek cross crossed by two arrows above, a pomegranate below, a plumed helm over the shield">
-    <defs><clipPath id="famclip"><path d={shield}/></clipPath></defs>
-
-    <!-- plumed helm -->
-    <g>
-      <path d="M44,6 C52,0 68,0 76,6 C82,11 82,18 79,22 L41,22 C38,18 38,11 44,6 Z" fill={DARK}/>
-      <path d="M41,22 H79 L76,30 H44 Z" fill={DARK}/>
-      <rect x="46" y="14" width="28" height="3.4" fill={METAL} opacity=".55"/>
-      <path d="M60,2 C48,-2 34,4 33,14 C40,10 50,8 58,10 Z" fill={METAL} opacity=".8"/>
-      <path d="M60,2 C72,-2 86,4 87,14 C80,10 70,8 62,10 Z" fill={METAL} opacity=".8"/>
-    </g>
+  <svg viewBox="0 -18 120 172" width="216" role="img"
+       aria-label="Per fess: argent, a cross issuing from the division pierced by two arrows in bend sinister points upward, all gules; vert, a pomegranate proper; a narrow fess gules on the division">
+    <defs>
+      <clipPath id="famclip"><path d={shield}/></clipPath>
+      <marker id="ahead" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="3.9" markerHeight="3.9" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 L2.6,5 Z" fill={GULES} stroke="#EFEDE6" stroke-width="1.1" stroke-linejoin="round"/>
+      </marker>
+    </defs>
 
     <g clip-path="url(#famclip)">
-      <rect x="0" y="0" width="120" height="88" fill={FIELD_U}/>
-      <rect x="0" y="88" width="120" height="72" fill={FIELD_L}/>
+      <rect x="0" y="0" width="120" height={FESS} fill={ARGENT}/>
+      <rect x="0" y={FESS} width="120" height={152 - FESS} fill={VERT}/>
 
-      <!-- two arrows in saltire, behind the cross -->
-      <g stroke={SHAFT} stroke-width="3" stroke-linecap="round">
-        <line x1="34" y1="42" x2="86" y2="76"/>
-        <line x1="86" y1="42" x2="34" y2="76"/>
-      </g>
-      <g fill={METAL}>
-        <path d="M86,42 l-9,1.5 4.5,5.5 Z"/><path d="M34,42 l9,1.5 -4.5,5.5 Z"/>
-      </g>
-      <g fill={METAL} opacity=".85">
-        <path d="M34,76 l7,-1 -1,5 Z"/><path d="M86,76 l-7,-1 1,5 Z"/>
+      <!-- the cross, issuing from the line of division -->
+      <g fill={GULES}>
+        <rect x="52.5" y="22" width="15" height="52"/>
+        <rect x="34" y="37" width="52" height="15"/>
       </g>
 
-      <!-- Greek cross, arms equal -->
-      <g fill={METAL}>
-        <rect x="53" y="40" width="14" height="40" rx="1"/>
-        <rect x="40" y="53" width="40" height="14" rx="1"/>
+      <!-- two arrows in bend sinister, passing across the cross, points to chief.
+           Outlined argent so that gules-on-gules still reads, as it must on a real shield. -->
+      <g stroke-linecap="butt">
+        <g stroke={ARGENT} stroke-width="6.2">
+          <line x1="24" y1="70" x2="59" y2="34"/>
+          <line x1="47" y1="72" x2="82" y2="36"/>
+        </g>
+        <g stroke={GULES} stroke-width="3.6" marker-end="url(#ahead)">
+          <line x1="24" y1="70" x2="59" y2="34"/>
+          <line x1="47" y1="72" x2="82" y2="36"/>
+        </g>
       </g>
 
-      <!-- pomegranate: fruit, crown and split showing seeds -->
-      <g>
-        <circle cx="60" cy="112" r="17" fill={FRUIT}/>
-        <path d="M60,95 l-4,-7 4,2 4,-2 Z" fill={LEAF}/>
-        <path d="M54,100 C58,112 62,112 66,100 C64,116 56,116 54,100 Z" fill={METAL} opacity=".35"/>
-        <g fill={METAL} opacity=".9">
-          <circle cx="56" cy="110" r="2"/><circle cx="63" cy="109" r="2"/>
-          <circle cx="59" cy="115" r="2"/><circle cx="66" cy="115" r="2"/>
-          <circle cx="53" cy="116" r="2"/>
+      <!-- the narrow fess on the division -->
+      <rect x="0" y={FESS - 3} width="120" height="6" fill={GULES}/>
+
+      <!-- pomegranate proper: split fruit, seeds, calyx crown -->
+      <g transform="translate(60,106)">
+        <path d="M0,-19 C13,-19 19,-9 19,1 C19,12 10,20 0,20 C-10,20 -19,12 -19,1 C-19,-9 -13,-19 0,-19 Z"
+              fill={FRUIT}/>
+        <path d="M-7,-25 L-8,-18 L-3,-21 L0,-27 L3,-21 L8,-18 L7,-25 L3,-23 L0,-24 L-3,-23 Z" fill={CALYX}/>
+        <path d="M-9,-6 C-6,8 6,8 9,-6 C7,12 -7,12 -9,-6 Z" fill={SEED} opacity=".55"/>
+        <g fill={SEED}>
+          <circle cx="-5" cy="0" r="2.1"/><circle cx="1" cy="-2" r="2.1"/>
+          <circle cx="6" cy="1" r="2.1"/><circle cx="-2" cy="5" r="2.1"/>
+          <circle cx="4" cy="7" r="2.1"/><circle cx="-7" cy="6" r="2.1"/>
         </g>
       </g>
     </g>
-    <path d={shield} fill="none" style="stroke:var(--ink)" stroke-width="2.6"/>
+
+    <path d={shield} fill="none" style="stroke:var(--ink)" stroke-width="2.4"/>
+    <g transform="translate(0,-2)" opacity=".92">
+      <path d={helm} style="fill:var(--ink)"/>
+      <path d="M41,16 H79 L76,24 H44 Z" style="fill:var(--ink)"/>
+      <rect x="46" y="8" width="28" height="3.2" fill={ARGENT} opacity=".6"/>
+      <path d="M60,-4 C48,-8 34,-2 33,8 C40,4 50,2 58,4 Z" style="fill:var(--ink)" opacity=".55"/>
+      <path d="M60,-4 C72,-8 86,-2 87,8 C80,4 70,2 62,4 Z" style="fill:var(--ink)" opacity=".55"/>
+    </g>
   </svg>
   <figcaption>
-    <p class="bl">“Nella parte superiore dello scudo una croce greca attraversata da due freccie, nell'inferiore un melagrano; sovra lo scudo elmo piumato.”</p>
-    <p class="at">In the upper part of the shield a Greek cross crossed by two arrows, in the lower a pomegranate; above the shield a plumed helm. Blazoned by <strong>Carlo De Franceschi</strong> in his letter to Giovanni Kobler, about 1873 — of his own family.</p>
-    <p class="dr">Every element the letter names is drawn. Carlo gives no tinctures, so the colours here are a reading, not a record.</p>
-    <p class="vd"><span class="chip doc">The family's own, in its own words</span></p>
+    <p class="bl">“Spaccato: nel 1° d'argento alla croce movente dallo spaccato trapassata da due freccie poste in sbarra con la punta rivolta in alto, il tutto di rosso; nel 2° di verde alla melagrana al naturale; con fascia ristretta di rosso sullo spaccato.”</p>
+    <p class="at">Per fess: in the first, argent, a cross issuing from the line of division and pierced by two arrows placed in bend sinister with their points upward, the whole gules; in the second, vert, a pomegranate proper; with a narrow fess gules upon the division. <strong>Blasonario Giuliano</strong>, after Sen. Riccardo Gigante's <em>Blasonario Fiumano</em> — the third family named Defranceschi at Fiume.</p>
+    <p class="dr">Every charge drawn is named in the blazon; the plumed helm is Carlo's addition, not the armorial's. Tinctures here are the record, not a reading.</p>
+    <p class="vd"><span class="chip doc">Blazoned twice, independently</span></p>
   </figcaption>
 </figure>

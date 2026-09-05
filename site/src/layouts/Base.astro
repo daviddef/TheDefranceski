@@ -4,9 +4,9 @@ const { title, dek, eyebrow } = Astro.props;
 const SITE = "The Defranceschi Archive";
 const nav = [
   ["/", "Home"], ["/name/", "The Name"], ["/lines/", "The Lines"],
-  ["/people/", "People"], ["/marriages/", "Marriages"], ["/households/", "Households"], ["/direct-line/", "The Spine"], ["/gologorica-line/", "The Line"], ["/seget/", "Seget"], ["/omis-line/", "Omiš"], ["/carlos-letter/", "Carlo's Letter"], ["/places/", "Places"], ["/timeline/", "Timeline"],
-  ["/journeys/", "Journeys"], ["/emigration/", "Leaving"], ["/pfullingen/", "Pfullingen"], ["/gallery/", "Gallery"], ["/namesakes/", "Namesakes"], ["/arms/", "Arms & Flags"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"],
-  ["/research-log/", "Research Log"], ["/about/", "About"],
+  ["/people/", "People"], ["/marriages/", "Marriages"], ["/households/", "Households"], ["/explorer/", "Explorer"], ["/direct-line/", "The Spine"], ["/gologorica-line/", "The Line"], ["/seget/", "Seget"], ["/omis-line/", "Omiš"], ["/carlos-letter/", "Carlo's Letter"], ["/places/", "Places"], ["/timeline/", "Timeline"],
+  ["/journeys/", "Journeys"], ["/emigration/", "Leaving"], ["/pfullingen/", "Pfullingen"], ["/burials/", "Burials"], ["/gallery/", "Gallery"], ["/namesakes/", "Namesakes"], ["/arms/", "Arms & Flags"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"],
+  ["/research-log/", "Research Log"], ["/about/", "About"], ["/search/", "Search"],
 ];
 const here = Astro.url.pathname;
 ---
@@ -48,5 +48,17 @@ const here = Astro.url.pathname;
     <p class="foot dim">Built {new Date().getFullYear()} · Sources listed on <a href={u("/about/")}>About</a> · Corrections welcome</p>
   </div>
 </footer>
+
+<script define:vars={{ searchUrl: u("/search/") }}>
+  /* "/" opens search from anywhere, the way an archive catalogue should.
+     Ignored while the caret is in a field, so it never eats a typed slash. */
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    e.preventDefault();
+    location.href = searchUrl;
+  });
+</script>
 </body>
 </html>

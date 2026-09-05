@@ -1,0 +1,135 @@
+---
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import data from "../data/burials.json";
+const rows = data.rows, S = data.summary;
+
+// Carlo De Franceschi's dead children, gathered from the Rovinj and Poreč registers
+const carlo = rows.filter(r => /^(Julius|Lamberta|Aurelia Augusta|Virginia|Elisabetta)/.test(r.name)
+  && ["Rovinj", "Poreč"].includes(r.place));
+// The Ližnjan children of the hungry years
+const liznjan = rows.filter(r => r.place === "Ližnjan" && r.dy && r.dy >= 1843 && r.dy <= 1856);
+// Valentino and Elena's children, buried at Fiume
+const valentino = rows.filter(r => /Valentin|Ellena|Elena/i.test(r.kin) && r.place === "Rijeka");
+// a life-bar chart of everyone whose age we know
+const known = rows.filter(r => r.age !== null && r.by).sort((a, b) => a.by - b.by);
+const minY = 1580, maxY = 2000, span = maxY - minY;
+const pct = (y) => ((y - minY) / span) * 100;
+const places = S.places.filter(([p]) => p !== "not stated");
+---
+<Base
+  title="The Register of the Dead"
+  eyebrow={`${S.total} burials, ${S.earliest}–${S.latest}`}
+  dek="Baptisms tell you a family had children. Only the burial register tells you how many of them it kept. This is the part of the parish paper that genealogy usually skips.">
+
+  <section class="prose">
+    <p>Every parish kept three books: baptisms, marriages, deaths. Family trees are built almost entirely from the first two, because those are the entries that carry a line forward. The third book records the people who did not carry it forward, and it is therefore the only place most of them appear at all.</p>
+    <p>Ninety-nine burials of this surname have been recovered from the Croatian and Istrian registers. Read as a set, they say something the baptisms cannot.</p>
+  </section>
+
+  <div class="bigstat">
+    <div><b>{S.infants}</b><span>died at one year old or less</span></div>
+    <div><b>{S.children}</b><span>of {S.withAge} known ages were children under twelve</span></div>
+    <div><b>{S.medianAge}</b><span>years — the median age at death in this set</span></div>
+    <div><b>{S.oldestAge}</b><span>years — {S.oldest}, the longest life here</span></div>
+  </div>
+
+  <div class="note" style="margin-top:22px">Read that median carefully. It is the median of <em>this sample</em>, not of the population: indexes favour entries that are legible and complete, and infant burials are short entries. What the number honestly shows is that when you go looking for this family in the register of the dead, half of what you find is children.</div>
+
+  <h2 style="font-size:30px;margin-top:52px">Carlo De Franceschi buried four children</h2>
+  <p class="dek" style="margin-top:8px">The historian of Istria is the best-documented man in this archive. Here is what the burial registers of the two towns he worked in add to the record.</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Child</th><th class="m">Born</th><th class="m">Died</th><th class="m">Age</th><th>Buried</th><th>Named in the entry as child of</th></tr></thead>
+      <tbody>{carlo.map(r => (
+        <tr><td>{r.name.replace(/ (De|Defranceschi).*$/, "")}</td><td class="m">{r.born}</td>
+          <td class="m">{r.died}</td><td class="m">{r.age === null ? "—" : r.age === 0 ? "infant" : r.age}</td>
+          <td>{r.place}</td><td>{r.kin || "—"}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:24px">
+    <p>Carlo sat in the district court at <strong>Rovinj</strong> from 1833; a Julius, son of <em>Caroli</em>, was buried there in February 1854, aged a few months. He later moved to <strong>Poreč</strong>, where his son Camillo was born on 3 August 1868. In July 1867 — thirteen months before that birth — two infant daughters of a <em>Caroli</em> were buried at Poreč within weeks of one another.</p>
+    <p>One of them was called <strong>Lamberta</strong>.</p>
+    <p>Carlo's mother was <strong>Lambertina Peschle</strong> of Volosca. He gave his daughter his mother's name, and buried her before her second birthday. In 1876 he buried Virginia, who was eighteen.</p>
+    <p>Camillo is described in the reference literature as <em>the youngest of the four children of Carlo de Franceschi</em>. Four is the number who survived. This page is the difference.</p>
+    <p><span class="chip inf">Inferred</span> The entries give the father only as <em>Caroli</em> or <em>Carlo De Franceschi</em>, without a patronymic. The identification rests on the towns matching Carlo's own postings, on the dates falling inside his married life, and on the name Lamberta, which is not a common Istrian name and is his mother's. It is strong, and it is not proof. The parish books at Poreč and Rovinj would settle it.</p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">Ližnjan, 1846</h2>
+  <p class="dek" style="margin-top:8px">A village on the southern tip of Istria, and thirteen months in which one family buried three children.</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th class="m">Age</th><th>Named with</th></tr></thead>
+      <tbody>{liznjan.map(r => (
+        <tr><td>{r.name}</td><td class="m">{r.born || "—"}</td><td class="m">{r.died || r.buried}</td>
+          <td class="m">{r.age === null ? "—" : r.age === 0 ? "infant" : r.age}</td><td>{r.kin || "—"}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose" style="margin-top:20px">Giovanni, born 1845, died 11 November 1846. Maria, born 1846, died 8 December 1846. Antonio, born and dead within 1846. Across Europe those are the hunger years: the potato blight reached the continent in 1845, the 1846 grain harvest failed, and typhus followed the failed harvest everywhere it went. Istria was not Ireland, but it was a subsistence countryside in the same two years.</p>
+
+  <h2 style="font-size:30px;margin-top:52px">Valentino and Elena, at Fiume</h2>
+  <p class="dek" style="margin-top:8px">The family account says ten sons and four daughters. The burial register says what happened to five of them.</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Buried</th><th class="m">Age</th></tr></thead>
+      <tbody>{valentino.map(r => (
+        <tr><td>{r.name}</td><td class="m">{r.born || "—"}</td><td class="m">{r.buried || r.died}</td>
+          <td class="m">{r.age === null ? "—" : r.age === 0 ? "infant" : r.age}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose" style="margin-top:20px">Valentino Defranceschi came from Carnia, was made a citizen of Fiume in 1739, built the chapel of St Helena in 1764 and made himself a tomb in the cathedral with an epigraph in 1785. He is the most conspicuously successful man in the family's own account of itself. He also buried Mattio and Nicolò in 1742, Antonio in 1753, and Aloysia and Maria in 1757 — and the last two in the same year. The chapel and the tomb are the part of a life that gets written down. See <a href={u("/carlos-letter/")}>Carlo's Letter</a>, where Valentino's story is told without any of this.</p>
+
+  <h2 style="font-size:30px;margin-top:52px">Every life this archive can measure</h2>
+  <p class="dek" style="margin-top:8px">One bar per person, from birth to burial, on a single scale from 1580 to 2000. Red is a first year not survived; amber a childhood; teal a life.</p>
+  <div class="lifebars">
+    {known.map(r => (
+      <div class={`lifebar${r.infant ? " inf" : r.child ? " ch" : ""}`}>
+        <span class="nm" title={r.name}>{r.name}</span>
+        <span class="track"><span class="span" style={`left:${pct(r.by)}%;width:${Math.max(0.35, (r.age / span) * 100)}%`}></span></span>
+        <span class="ag">{r.age === 0 ? "<1" : r.age}</span>
+      </div>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">Where they are buried</h2>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Parish or region</th><th class="m">Burials</th><th>What it means</th></tr></thead>
+      <tbody>{places.map(([p, n]) => (
+        <tr><td>{p}</td><td class="m">{n}</td>
+          <td>{p === "Rijeka" ? "The Vitipolis cluster — the city of St Vitus, the largest single body of this family's records anywhere."
+            : p === "Ližnjan" ? "Southern Istria. A distinct family, and the one whose children the register keeps returning to."
+            : p === "Poreč" ? "Carlo's town after Rovinj, and where Camillo was born."
+            : p === "Croatia, parish not named" ? "Indexed with a country but no parish. Each of these is a page in a book somewhere that could be found."
+            : p === "Pazin" ? "The county town. One burial, an infant of 1792, son of a Vincentius — the Pisino family that bore the half-castle."
+            : p === "Split" || p === "Omiš" ? "The Dalmatian branch."
+            : "—"}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">The whole register</h2>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th class="m">Buried</th><th class="m">Age</th><th>Named with</th></tr></thead>
+      <tbody>{rows.map(r => (
+        <tr><td>{r.name}</td><td class="m">{r.born || "—"}</td><td class="m">{r.died || "—"}</td>
+          <td class="m">{r.buried || "—"}</td>
+          <td class="m">{r.age === null ? "—" : r.age === 0 ? "<1" : r.age}</td>
+          <td>{r.kin || "—"}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>Where these came from</h3>
+    <p>All ninety-nine were pulled from FamilySearch's indexed Croatian and Istrian registers of deaths and burials, searched by surname rather than by place — which is why they surfaced now, having been missed by every sweep this archive ran through parishes. Several of the most important entries carry no place at all in the index; they were found by the parents' names.</p>
+    <h3>Stones, as against paper</h3>
+    <p>None of this is a headstone. Two are recorded: Valentino's tomb with its 1785 epigraph in the cathedral at Rijeka, and the old family tomb with carved arms before the altar of the church at Piska, near Omiš, from the Imotski campaign of 1718. Neither has been photographed for this archive. Istrian village cemeteries were also heavily reordered in the twentieth century, and graves without a paying family are cleared on a cycle — so for most of the people above, the paper is the grave.</p>
+    <h3>What to ask for next</h3>
+    <p>The Poreč and Rovinj death registers, by name and year, from the Pazin State Archive — the same way the two <em>Status Animarum</em> pages were obtained. That would turn the Carlo identification from strong to settled, and would give his wife's name, which this archive still does not have.</p>
+  </section>
+</Base>

@@ -1,0 +1,90 @@
+---
+import Base from "../layouts/Base.astro";
+import idx from "../data/searchindex.json";
+import { u } from "../lib/url.js";
+const kinds = [...new Set(idx.map(r => r.k))].sort();
+const counts = Object.fromEntries(kinds.map(k => [k, idx.filter(r => r.k === k).length]));
+---
+<Base
+  title="Search the Archive"
+  eyebrow={`${idx.length} entries across every page`}
+  dek="People, places, households, register entries, document plates, namesakes and the direct line — one box. Try a surname spelling, a village, a year, or a mother's maiden name.">
+
+  <div class="searchbox">
+    <label class="lab" for="s" style="display:block;margin-bottom:8px">Search</label>
+    <input type="search" id="s" placeholder="Fernasar · Gračišće · Valentino · 1863 · Crikvenica" autocomplete="off" autofocus />
+  </div>
+  <p class="searchhint">Press <span class="kbd">/</span> anywhere on the site to jump here. Two letters is enough to start.</p>
+
+  <div class="filters" style="margin-top:18px" role="group" aria-label="Filter by kind">
+    <button type="button" data-k="all" aria-pressed="true">Everything</button>
+    {kinds.map(k => <button type="button" data-k={k} aria-pressed="false">{k} <span style="opacity:.6">{counts[k]}</span></button>)}
+    <span class="count" id="scount"></span>
+  </div>
+
+  <div class="hits" id="hits" data-idx={JSON.stringify(idx)} data-base={u("/")}></div>
+  <p class="empty" id="snone">Start typing. Or browse: try <em>Fernasar</em>, the maiden name that had been lost until this week.</p>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>What is indexed</h3>
+    <p>Every reconstructed household with its children; every register entry pulled from FamilySearch; every place with its Italian, Croatian and Latin names; every document plate with its caption; the fifteen namesakes; and each generation of the direct line with its spouse and siblings. Searching a Latin form finds the Italian one, because both are in the index.</p>
+    <h3>What it will not do</h3>
+    <p>It does not search the parish books themselves. Almost none of the Gračišće and Gologorica registers are indexed anywhere — see <a href={u("/parish-books/")}>Parish Books</a> for what survives on film and what has to be asked for by letter. The two most important pages in this archive were obtained that way, not found by searching.</p>
+  </section>
+</Base>
+
+<script>
+  const box = document.getElementById("s");
+  const hits = document.getElementById("hits");
+  const none = document.getElementById("snone");
+  const count = document.getElementById("scount");
+  const bar = document.querySelector(".filters");
+  if (box && hits) {
+    const idx = JSON.parse(hits.getAttribute("data-idx"));
+    const base = hits.getAttribute("data-base").replace(/\/$/, "");
+    let kind = "all";
+
+    const fold = (s) => s.normalize("NFD").replace(/\p{Mn}/gu, "").replace(/đ/g, "d");
+    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const mark = (s, t) => {
+      if (!t) return esc(s);
+      const i = fold(s.toLowerCase()).indexOf(t);
+      if (i < 0) return esc(s);
+      return esc(s.slice(0, i)) + "<mark>" + esc(s.slice(i, i + t.length)) + "</mark>" + esc(s.slice(i + t.length));
+    };
+
+    const run = () => {
+      const t = fold(box.value.trim().toLowerCase());
+      if (t.length < 2) {
+        hits.innerHTML = ""; none.hidden = false; count.textContent = "";
+        return;
+      }
+      const terms = t.split(/\s+/);
+      const found = idx
+        .filter(r => (kind === "all" || r.k === kind) && terms.every(w => r.q.includes(w)))
+        .sort((a, b) => {
+          // a name that starts with the query beats one that merely contains it
+          const s = (r) => { const n = fold(r.t.toLowerCase()); return n.startsWith(terms[0]) ? 0 : n.includes(terms[0]) ? 1 : 2; };
+          return s(a) - s(b) || a.t.localeCompare(b.t);
+        });
+      none.hidden = found.length > 0;
+      count.textContent = `${found.length} found`;
+      hits.innerHTML = found.slice(0, 200).map(r =>
+        `<a class="hit" href="${base}${r.h}">
+           <span class="k">${esc(r.k)}</span>
+           <span><span class="t">${mark(r.t, terms[0])}</span><span class="s">${mark(r.s, terms[0])}</span></span>
+         </a>`).join("");
+      if (found.length > 200) hits.innerHTML += `<p class="searchhint">Showing the first 200 of ${found.length}. Add a word to narrow it.</p>`;
+    };
+
+    box.addEventListener("input", run);
+    bar.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-k]");
+      if (!b) return;
+      bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      kind = b.dataset.k; run();
+    });
+    const q = new URLSearchParams(location.search).get("q");
+    if (q) { box.value = q; run(); }
+  }
+</script>
