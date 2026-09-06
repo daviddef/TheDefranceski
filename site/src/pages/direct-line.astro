@@ -98,6 +98,13 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <ul class="prose" style="display:block;margin-top:10px">
     {dl.gracisce_town.next.map(x => <li style="margin:.45em 0">{x}</li>)}
   </ul>
+  <div class="one" style="border-left-color:var(--ochre);margin-top:22px">
+    <div class="lab">Chased, and blocked</div>
+    <h3>{dl.gracisce_town.cadastre.heading}</h3>
+    <p>{dl.gracisce_town.cadastre.text}</p>
+    <p style="margin-top:12px">{dl.gracisce_town.cadastre.ask}</p>
+    <p style="margin-top:12px"><strong>{dl.gracisce_town.cadastre.why}</strong></p>
+  </div>
   <p class="cap" style="margin-top:14px">{dl.gracisce_town.source}</p>
 </section>
 

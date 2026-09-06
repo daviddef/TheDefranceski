@@ -377,6 +377,17 @@ PLATES = [
   "The same form, the same day: Defranceski Rose geb. Hreljac, born 13.2.22 at Fusine/Delnice, resident Pfullingen, employer Licht und Kraft, Reutlingen. Her birthplace is given here with its district — the fullest form the archive has.",
   "Family collection — the Reutlingen file"),
 
+
+ # ---- ANNO: the Istrian Diet in the press, read Sept 2026 ---------------
+ ("igp-1895-p1", "ANNO 2026/giovine-pensiero-1895-p1.jpg", 0,
+  "documents", "Il giovine Pensiero, Pola, 16 January 1895",
+  "Front page. The stenographic record of the opening of the Provincial Diet of Istria at Parenzo. The provincial captain gives the floor to «l'on. Giovanni Battista de Franceschi, che a nome della maggioranza intera cosi si esprime» — and the speech that follows protests to the Imperial Government at the treatment of the Italians of Istria. Further down the same page, among the bills before the session: the establishment of new local communes at Pisino, Novacco, Lindaro, Terviso, Gallignana and Pedena.",
+  "Osterreichische Nationalbibliothek, ANNO — igp18950116"),
+ ("igp-1895-p2", "ANNO 2026/giovine-pensiero-1895-p2.jpg", 0,
+  "documents", "The same issue, page two",
+  "The motions and their signatories. G. B. de Franceschi signs the interpellation on the missing vice-president and Dr Bubba's motion against the bilingual signs in the Istrian district courts. Later he acts as teller in the election of a substitute assessor, and speaks again for the majority asking the Captain to talk the resigning assessors into staying.",
+  "Osterreichische Nationalbibliothek, ANNO — igp18950116"),
+
 ]
 
 def run(cmd):

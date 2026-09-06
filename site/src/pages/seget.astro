@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import s from "../data/seget.json";
 import v from "../data/seget-voce.json";
 import SegetArms from "../components/SegetArms.astro";
@@ -167,5 +169,37 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:16px">{s.voce.caveat}</p>
 </section>
 
-  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos"]} />
+<section class="blk">
+  <h2>{s.diet.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.diet.lead}</p>
+
+  <blockquote class="qz" style="margin-top:20px">
+    <p style="font-style:italic">{s.diet.quote}</p>
+    <p class="cap" style="margin-top:12px">{s.diet.en}</p>
+  </blockquote>
+
+  <h3 style="font-size:22px;margin-top:30px">What he does in that one sitting</h3>
+  <ul class="prose" style="display:block;margin-top:10px">
+    {s.diet.roles.map(r => <li style="margin:.45em 0">{r}</li>)}
+  </ul>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:26px">
+    <div class="lab">On the same order paper</div>
+    <h3>{s.diet.gallignana.heading}</h3>
+    <p>{s.diet.gallignana.text}</p>
+  </div>
+
+  <div class="one" style="margin-top:18px">
+    <div class="lab">Identity</div>
+    <h3>{s.diet.who.heading}</h3>
+    <p>{s.diet.who.text}</p>
+    <p class="cap" style="margin-top:12px">{s.diet.who.caution}</p>
+  </div>
+
+  <div style="margin-top:24px"><Plates ids={["igp-1895-p1","igp-1895-p2"]} /></div>
+  <p class="cap" style="margin-top:14px">{s.diet.source}</p>
+</section>
+
+  <Lightbox />
+  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno"]} />
 </Base>
