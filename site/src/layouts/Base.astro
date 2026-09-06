@@ -56,6 +56,7 @@ const here = Astro.url.pathname;
         {dek && <p class="dek lead">{dek}</p>}
       </div>
     )}
+    <div id="onthispage" hidden></div>
     <slot />
   </div>
 </main>
@@ -90,6 +91,53 @@ const here = Astro.url.pathname;
     (mq.addEventListener ? mq.addEventListener("change", sync) : mq.addListener(sync));
     d.addEventListener("click", function (ev) {
       if (mq.matches && ev.target.closest("nav a")) d.open = false;
+    });
+  })();
+</script>
+
+<script>
+  /* On a long page, build a jump list from the section headings.
+     Done in the browser so no page has to declare its own contents. */
+  (function () {
+    var host = document.getElementById("onthispage");
+    if (!host) return;
+    var hs = [].slice.call(document.querySelectorAll("main section > h2"));
+    if (hs.length < 4) return;
+    var slug = function (t) {
+      return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48);
+    };
+    var seen = {}, items = [];
+    hs.forEach(function (h) {
+      var t = (h.textContent || "").trim();
+      if (!t) return;
+      var id = h.id || slug(t) || "s";
+      if (seen[id]) id = id + "-" + (++seen[id]); else seen[id] = 1;
+      h.id = id;
+      items.push([id, t]);
+    });
+    if (items.length < 4) return;
+    var det = document.createElement("details");
+    det.className = "toc";
+    var sum = document.createElement("summary");
+    sum.textContent = "On this page · " + items.length + " sections";
+    det.appendChild(sum);
+    var nav = document.createElement("nav");
+    items.forEach(function (it) {
+      var a = document.createElement("a");
+      a.href = "#" + it[0];
+      a.textContent = it[1];
+      nav.appendChild(a);
+    });
+    det.appendChild(nav);
+    host.appendChild(det);
+    host.hidden = false;
+    var mq = window.matchMedia("(min-width: 901px)");
+    var sync = function (e) { det.open = e.matches; };
+    sync(mq);
+    (mq.addEventListener ? mq.addEventListener("change", sync) : mq.addListener(sync));
+    det.addEventListener("click", function (ev) {
+      if (!mq.matches && ev.target.closest("nav a")) det.open = false;
     });
   })();
 </script>
