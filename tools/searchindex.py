@@ -50,6 +50,16 @@ for g in L("directline.json")["generations"]:
     add("Direct line", g["name"], f"Generation {g['n']} · {g['place']}",
         f"/direct-line/#gen-{g['n']}", f"{g.get('latin','')} {sp} {kids}")
 
+im = L("imotski.json")
+for g in im["chain"]:
+    add("Imotski line", g["who"], f"{g['dates']} · Dalmatia — a separate family", "/imotski/", g["what"][:180])
+for c in im["children"]:
+    if c["dates"]:
+        add("Imotski line", c["who"], f"{c['dates']} · Perinuša — a separate family", "/imotski/", c["what"][:180])
+for r in im["salvage"]["rows"]:
+    if r["died"]:
+        add("Person", r["who"], f"{r['born'] or '?'} – {r['died']}", "/imotski/", r["what"][:180])
+
 for p in L("parishbooks.json") if os.path.exists(os.path.join(D, "parishbooks.json")) else []:
     if isinstance(p, dict) and p.get("parish"):
         add("Parish book", p["parish"], p.get("span") or p.get("kind") or "", "/parish-books/")

@@ -1,0 +1,93 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/imotski.json";
+---
+<Base
+  title="The Imotski Franceschi"
+  eyebrow="Perinuša · Proložac · Omiš"
+  dek="A second Franceschi family, Venetian nobility on the Vrljika, which a widely-copied online tree has joined to this one by mistake. Here is what they actually are, where the seam is, and what the same file gave us that nothing else had.">
+
+  <section class="prose">
+    <p>{d.why}</p>
+  </section>
+
+  <h2 style="font-size:30px;margin-top:50px">The Dalmatian house</h2>
+  <p class="dek" style="margin-top:8px">As the tree gives it. None of this is register-cited; it is a compiled noble pedigree, and it is recorded here as theirs, not verified as ours.</p>
+
+  <div class="spine" style="margin-top:22px">
+    {d.chain.map(g => (
+      <article class={g.key ? "gen documented" : "gen"}>
+        <div class="rail"><span class="dot"></span></div>
+        <div class="body">
+          <div class="lab">Generation {g.n}</div>
+          <h3 style="font-size:22px">{g.who} <span class="mono" style="font-size:13px;color:var(--ink-3);font-weight:400">{g.dates}</span></h3>
+          {g.what && <p>{g.what}</p>}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:50px">The nine children of Perinuša</h2>
+  <p class="dek" style="margin-top:8px">Two of these lives are worth the visit on their own.</p>
+  <div class="grid g2" style="margin-top:20px">
+    {d.children.map(c => (
+      <div class="one" style={c.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{c.dates || "dates unknown"}</div>
+        <h3 style="font-size:20px">{c.who}</h3>
+        {c.what && <p>{c.what}</p>}
+      </div>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:56px">{d.seam.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.seam.lead}</p>
+
+  <div class="grid g2" style="margin-top:22px">
+    {d.seam.points.map(p => (
+      <div class="one" style={p.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{p.lab}</div>
+        <p style="margin-top:8px">{p.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="prose note" style="margin-top:26px">{d.seam.close}</p>
+
+  <h2 style="font-size:30px;margin-top:56px">{d.salvage.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.salvage.lead}</p>
+
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Who</th><th class="m">Born</th><th class="m">Died</th><th>What the file adds</th></tr></thead>
+      <tbody>{d.salvage.rows.map(r => (
+        <tr>
+          <td>{r.key ? <strong>{r.who}</strong> : r.who}</td>
+          <td class="m">{r.born || "—"}</td>
+          <td class="m">{r.died || "—"}</td>
+          <td>{r.what}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:12px">Living people are omitted from this archive, and several of this generation's children are living. They are not listed above, and their absence is not an oversight.</p>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:44px">
+    <div class="lab">A correction</div>
+    <h3>{d.zdravko.heading}</h3>
+    <p>{d.zdravko.text}</p>
+    <p style="margin-top:12px">{d.zdravko.how}</p>
+    <p class="cap" style="margin-top:12px">The memorials are on the <a href={u("/graves/")}>graves</a> page. Zdravko and Ruža's road to Horsham is on <a href={u("/pfullingen/")}>Pfullingen</a>.</p>
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>Why keep the error on the site</h3>
+    <p>Because it is going to be found again. The tree has been public since 2017 and its Smart Matching has pushed the join outward into other people's trees ever since; anyone researching this surname on the Kvarner coast will meet a governor of Imotski and a Venetian pedigree back to 1520, and will have no reason to doubt it. The seam is only visible if you hold the Klenovica baptism of 1890 and the Gračišće baptism of 1863 in the other hand.</p>
+    <p>And there is a second reason. Strip out the join and the file is <em>excellent</em> — it dates nine people this archive could not date, it puts Anton's birth at Reutlingen in August 1944, and it moves Zdravko's death twenty years. A source can be wrong at the top and right at the bottom. Most compiled trees are.</p>
+    <h3>What to ask for next</h3>
+    <p>The Crikvenica death register for <strong>1980</strong> would confirm Pepe, and the same book for <strong>1971</strong> would settle whether Poldo belongs to Crikvenica or to Perinuša — the one individual whose side of the seam is genuinely open. For the Imotski family, the parish of Proložac holds the burials, and the Vrljika mills at Perinuša are still standing.</p>
+  </section>
+
+  <Sources ids={["myheritage", "findagrave", "dapa"]} />
+</Base>
