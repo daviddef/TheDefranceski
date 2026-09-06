@@ -77,6 +77,11 @@ import d from "../data/library.json";
     <ol class="prose" style="margin-top:16px;display:block">
       {d.ask.steps.map(s => <li style="margin:.5em 0">{s}</li>)}
     </ol>
+    <div class="one" style="border-left-color:var(--accent);margin-top:24px">
+      <div class="lab">Already written</div>
+      <p>{d.ask.drafted}</p>
+    </div>
+    <p class="prose note" style="margin-top:20px">{d.ask.caution}</p>
     <p class="cap" style="margin-top:20px">Carlo's own account of the house is on <a href={u("/carlos-letter/")}>Carlo's Letter</a>; what his family did at Gologorica is there too. The seventy-two people the parish registers give for that village are on <a href={u("/gologorica-line/")}>Gologorica</a>.</p>
   </section>
 
