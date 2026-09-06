@@ -1,0 +1,92 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/listria.json";
+---
+<Base
+  title="Carlo's Book"
+  eyebrow="L'Istria: note storiche · Parenzo, 1879"
+  dek="The family's historian wrote a history of his province and it has been online, free, all along. Read whole, it gives the home parishes a diocese, the Seget estate a chain of owners and a roll of its people — and stays silent about Carnia.">
+
+  <section class="prose">
+    <p>{d.lead}</p>
+  </section>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:34px">
+    <div class="lab">A negative worth publishing</div>
+    <h3>{d.silence.heading}</h3>
+    <p>{d.silence.text}</p>
+    <p style="margin-top:12px">{d.silence.why}</p>
+    <p class="cap" style="margin-top:12px">{d.silence.detail} — <a href={u("/carnia/")}>Back to Carnia →</a></p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.pedena.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.pedena.lead}</p>
+  <p class="prose note" style="margin-top:16px"><strong>The diocese of Pedena, entire:</strong> {d.pedena.parishes}</p>
+
+  <div class="grid g2" style="margin-top:22px">
+    {d.pedena.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.wars.heading}</h2>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th><th>As the book has it</th></tr></thead>
+      <tbody>{d.wars.rows.map(r => (
+        <tr><td class="m">{r.y}</td><td><strong>{r.t}</strong></td><td>{r.w}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.seget.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.seget.lead}</p>
+
+  <blockquote class="qz" style="margin-top:20px">
+    <p style="font-style:italic">{d.seget.quote}</p>
+    <p class="cap" style="margin-top:12px">{d.seget.trans}</p>
+  </blockquote>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">The footnote under it</div>
+    <p style="margin-top:8px">{d.seget.footnote}</p>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:40px">{d.seget.list.heading}</h3>
+  <p class="dek" style="margin-top:8px">{d.seget.list.lead}</p>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Head of household</th><th class="m">Souls</th><th>From</th></tr></thead>
+      <tbody>{d.seget.list.rows.map(r => (
+        <tr><td>{r.who}</td><td class="m">{r.n}</td><td>{r.from}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose" style="margin-top:18px">{d.seget.list.close}</p>
+  <p class="cap" style="margin-top:8px"><a href={u("/seget/")}>The Seget house and the branch that held it →</a></p>
+
+  <h2 style="font-size:30px;margin-top:52px">Two more of the name, by two more roads</h2>
+  <div class="grid g2" style="margin-top:20px">
+    {d.elsewhere.map(e => (
+      <div class="one">
+        <div class="lab">{e.y}</div>
+        <h3 style="font-size:20px">{e.t}</h3>
+        <p>{e.w}</p>
+      </div>
+    ))}
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>What this changes</h3>
+    <p>The archive has had four separate arrivals of this surname in Istria and Dalmatia and has treated them as a puzzle to be solved into one tree. Carlo's book makes the opposite case without meaning to: a Bolognese contractor at Pola in 1562, a Capodistrian family at Pola before 1631, a Cretan family buying Seget after 1669, and a stonecutting household on the hill at Gallignana. <em>De Franceschi</em> is a patronymic — the sons of Francesco — and it was formed independently wherever the name Francesco was common, which was everywhere. The right question is not which trunk they all hang from. It is which of them this line actually is, and the registers answer that: <a href={u("/direct-line/")}>Gallignana</a>.</p>
+    <h3>On the OCR</h3>
+    <p>{d.sourcing}</p>
+  </section>
+
+  <Sources ids={["carlo1879", "puhmajer", "dapa"]} />
+</Base>

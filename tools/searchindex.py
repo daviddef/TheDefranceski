@@ -60,6 +60,14 @@ for r in im["salvage"]["rows"]:
     if r["died"]:
         add("Person", r["who"], f"{r['born'] or '?'} – {r['died']}", "/imotski/", r["what"][:180])
 
+li = L("listria.json")
+for r in li["seget"]["list"]["rows"]:
+    add("Seget colonist 1764", r["who"], f"{r['n']} souls · from {r['from']}", "/carlos-book/",
+        "Roll of colonist families on the Seget and Giuba estate, 30 April 1764")
+for r in li["pedena"]["rows"] + li["wars"]["rows"]:
+    add("Carlo's book", r.get("lab") or r.get("t"), r.get("y", "L'Istria, 1879"), "/carlos-book/",
+        (r.get("text") or r.get("w"))[:180])
+
 for p in L("parishbooks.json") if os.path.exists(os.path.join(D, "parishbooks.json")) else []:
     if isinstance(p, dict) and p.get("parish"):
         add("Parish book", p["parish"], p.get("span") or p.get("kind") or "", "/parish-books/")
