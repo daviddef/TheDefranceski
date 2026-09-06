@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/library.json";
+---
+<Base
+  title="The Library in Zagreb"
+  eyebrow="Poklon De Franceschi · 2,480 items · 14 boxes"
+  dek="The books and the family archive from the house at Gologorica were not destroyed in 1945. They are in the National and University Library, they have been catalogued, and this project did not know.">
+
+  <section class="prose">
+    <p>{d.lead}</p>
+  </section>
+
+  <div class="grid g4" style="margin-top:32px">
+    {d.what.rows.map(r => (
+      <div class="stat">
+        <div class="n" style="font-size:30px">{r.n}</div>
+        <div class="l"><strong>{r.l}</strong><br />{r.w}</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:34px">
+    <div class="lab">The part that matters</div>
+    <h3>{d.archive.heading}</h3>
+    <p>{d.archive.text}</p>
+    <p style="margin-top:12px"><strong>{d.archive.why}</strong></p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.fate.heading}</h2>
+  <div class="spine" style="margin-top:22px">
+    {d.fate.steps.map(s => (
+      <article class={s.key ? "gen documented" : "gen"}>
+        <div class="rail"><span class="dot"></span></div>
+        <div class="body">
+          <div class="lab">{s.y}</div>
+          <h3 style="font-size:21px">{s.t}</h3>
+          <p style="margin-top:8px">{s.w}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.marks.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.marks.text}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Signature as it appears</th><th class="m">Books</th><th>Who</th></tr></thead>
+      <tbody>{d.marks.names.map(n => (
+        <tr><td>{n.who}</td><td class="m">{n.n ?? "—"}</td><td>{n.w}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.people.heading}</h2>
+  <div class="grid g2" style="margin-top:20px">
+    {d.people.rows.map(p => (
+      <div class="one" style={p.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{p.d}</div>
+        <h3 style="font-size:20px">{p.who}</h3>
+        <p>{p.w}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="margin-top:34px">
+    <div class="lab">Tomaso Luciani's seventeen bookplates</div>
+    <h3>{d.house.heading}</h3>
+    <p>{d.house.text}</p>
+    <p style="margin-top:12px">{d.house.then}</p>
+  </div>
+
+  <section class="blk" style="margin-top:40px">
+    <h2>{d.ask.heading}</h2>
+    <ol class="prose" style="margin-top:16px;display:block">
+      {d.ask.steps.map(s => <li style="margin:.5em 0">{s}</li>)}
+    </ol>
+    <p class="cap" style="margin-top:20px">Carlo's own account of the house is on <a href={u("/carlos-letter/")}>Carlo's Letter</a>; what his family did at Gologorica is there too. The seventy-two people the parish registers give for that village are on <a href={u("/gologorica-line/")}>Gologorica</a>.</p>
+  </section>
+
+  <p class="cap" style="margin-top:26px">{d.source}</p>
+
+  <Sources ids={["libellarium", "kobler", "carlo1879", "dapa"]} />
+</Base>
