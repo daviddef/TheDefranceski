@@ -253,6 +253,10 @@ PLATES = [
   "gracisce", "Osvaldo de Franceschi marries Appolonia Salante, 28 January 1808",
   "The deepest document in this archive. Osvaldo de Franceschi, farmer, aged twenty, of Muina, «figlio di Antonio de Franceschi, e di Maria nata Corva, pure agricoltori», marries Appolonia Salante, aged twenty-five and a half, daughter of Antonio Salante and Speranza née Micoli. His birth act is read out: born 14 March 1788 at Muina, «da legittimo Matrimonio di Antonio qm. Leonardo de Franceschi, e di Maria nata Corva» — Antonio, son of the late Leonardo. His father's written consent is dated 25 October 1807. Four witnesses, three of them Micoli of Muina. Both spouses sign.",
   "Archivio di Stato di Udine, Stato civile napoleonico, Mione, Matrimoni 1808, atto 1"),
+ ("mione-matr-1806", "Antenati - Mione/Mione-Matrimoni-1806-Giacoma-deFranceschi.jpg", 0,
+  "gracisce", "Giacoma de Franceschi marries, 7 August 1806",
+  "The earliest De Franceschi act found in Carnia. At Mione, in the «Distretto della Carnia, Cantone di Gorto», Giacoma de Franceschi — seventeen years, two months and twelve days old, «figlia del fu Osualdo de Franceschi, e di Catterina nata Fabris» — marries Ignazio di Prato, a merchant of Chialina. Her birth act of 25 May 1789 is read into the record. She signs herself «Giacoma de Franceschi q.m Osualdo». All four witnesses are tailors; the registrar is Giovanni Micoli-Toscano and the secretary Battà Micoli-Toscano.",
+  "Archivio di Stato di Udine, Stato civile napoleonico, Mione, Matrimoni 1806"),
  # ---- other holdings -----------------------------------------------------
  ("omis-chart", "Research & Historical Documents/franceschi omis - family tree.jpg", 0,
   "documents", "The Omiš descent chart",

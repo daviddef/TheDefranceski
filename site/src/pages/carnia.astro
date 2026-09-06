@@ -85,6 +85,22 @@ import c from "../data/carnia.json";
 
   <p class="prose" style="margin-top:24px">{c.muina.witnesses}</p>
 
+  <h2 style="font-size:30px;margin-top:50px">{c.households1806.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.households1806.intro}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Household</th><th>Where</th><th>Trade</th><th>What names them</th></tr></thead>
+      <tbody>{c.households1806.rows.map(r => (
+        <tr><td>{r.who}</td><td>{r.where}</td><td><em>{r.trade}</em></td><td>{r.evidence}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div style="margin-top:22px"><Plates ids={["mione-matr-1806"]} cols={1} /></div>
+  <div class="prose" style="margin-top:24px">
+    <p class="note">{c.households1806.tailors}</p>
+    <p>{c.households1806.micoli}</p>
+  </div>
+
   <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
   <p class="dek" style="margin-top:8px">Twenty-five kilometres east of Mione, over the shoulder of the mountain. A De Franceschi family documented from the eighteenth century into the nineteenth.</p>
   <div class="scroll" style="margin-top:18px">
