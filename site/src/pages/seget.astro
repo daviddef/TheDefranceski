@@ -235,6 +235,40 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:18px">{s.umago.source_umago}</p>
 </section>
 
+<section class="blk">
+  <h2>{s.dossier.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.dossier.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {s.dossier.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:26px">
+    <div class="lab">L'Istria Agricola, 1927 and 1934</div>
+    <h3>{s.dossier.later.heading}</h3>
+    <p style="margin-top:10px">{s.dossier.later.text}</p>
+    <p style="margin-top:12px">{s.dossier.later.also}</p>
+  </div>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:20px">
+    <div class="lab">Il Piccolo di Trieste, 25 November 1897</div>
+    <h3>{s.dossier.death.heading}</h3>
+    <p style="margin-top:10px">{s.dossier.death.text}</p>
+    <div class="qz" style="margin-top:12px">
+      <p class="qit">“{s.dossier.death.quote}”</p>
+      <p class="qen">{s.dossier.death.en}</p>
+    </div>
+    <p style="margin-top:12px"><strong>{s.dossier.death.why}</strong></p>
+  </div>
+
+  <p class="prose note" style="margin-top:22px">{s.dossier.candia_note}</p>
+  <p class="cap" style="margin-top:14px">{s.dossier.source_dossier}</p>
+</section>
+
   <Lightbox />
-  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "archiveorg"]} />
+  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "archiveorg"]} />
 </Base>
