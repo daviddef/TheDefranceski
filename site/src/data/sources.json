@@ -496,5 +496,35 @@
     "what": "Free and open, and it holds runs of the Austrian Littoral periodicals — including Kandler's «L'Istria» of 1846–52, which Irma Huić cites for Gračišće. A surname search returns Slovenian notices of the family's scholarship: Camillo's «Chartularium Piranense», his «I castelli della Val d'Arsa», and a review of Carlo's history of Istria.",
     "cites": [],
     "note": "Reached without a bot check. Its value here is the periodicals rather than the notices; L'Istria has not yet been read for this family."
+  },
+  {
+    "id": "grah",
+    "kind": "Publication",
+    "title": "Ivan Grah, «Izvještaji pićanskih biskupa Svetoj Stolici (1589–1780)»",
+    "where": "Croatica Christiana Periodica IV (1980), no. 6",
+    "url": "https://archive.org/details/izvjestaji_picanskih_biskupa_svetoj_stolici_1589-1780-ivan_grah_1980",
+    "what": "Every report the bishops of Pićan (Pedena) sent to Rome between 1589 and 1780, summarised from the Vatican archive. Pedena was the diocese of Gallignana and Gologorica, and the bishop was the temporal lord of Gologorica from about 1600. The reports give the lordship, the colonus tenants and what was done to them, the diocese's revenue, the names and ages of the clergy, and the replacement of the Glagolitic liturgy with Latin.",
+    "cites": [
+      "Bishop Zara, 1606 and 1614 — lordship of Gologorica «lately» acquired",
+      "Bishop Aldrago, 1770s — «gospodar Gologorice, Škopljaka i Tupljaka»",
+      "1656 and 1661 — Juraj Kukurin, parish priest of Gologorica, aged 52",
+      "The fifteen colonus families of Tupljak, sold for sixty florins of tax"
+    ],
+    "note": "Free full text on the Internet Archive. The De Franceschi in its footnotes are Carlo and Camillo, cited as authorities; no member of this family appears in the text itself."
+  },
+  {
+    "id": "archiveorg",
+    "kind": "Portal",
+    "title": "Internet Archive — full-text search",
+    "where": "archive.org",
+    "url": "https://archive.org/search?query=Defranceschi&sin=TXT",
+    "what": "Not only the scanned books. The Archive's full-text index reaches inside them, and inside long runs of newspapers and journals that matter here: «Il Piccolo» of Trieste from 1881, «La Patria del Friuli» and the «Giornale di Udine» for Carnia, and the complete «Atti del Centro di ricerche storiche di Rovigno», the scholarly journal of Istrian history. Searching the surname alone returns 2,435 documents and is useless; paired with a place it becomes a finding aid.",
+    "cites": [
+      "«Defranceschi» + Gallignana — 92 documents",
+      "«De Franceschi» + Gologorica — 48 documents",
+      "«Defranceschi» + Mione — 181 documents",
+      "«Defranceski» — 117 documents"
+    ],
+    "note": "Swept in September 2026. The search endpoint behind the site answers plain requests, so the sweep can be run by term and by place rather than page by page. Much of what the bare surname returns is a modern Italian mathematician and OCR noise; every hit used here was opened and read."
   }
 ]

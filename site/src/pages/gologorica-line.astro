@@ -144,5 +144,20 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.argument.sourcing}</p>
 </section>
 
-  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "hrcak", "familysearch"]} />
+<section class="blk">
+  <h2>{g.bishop.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.bishop.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
+    {g.bishop.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px">{g.bishop.why}</p>
+  <p class="cap" style="margin-top:14px">{g.bishop.source}</p>
+</section>
+
+  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "archiveorg", "hrcak", "familysearch"]} />
 </Base>
