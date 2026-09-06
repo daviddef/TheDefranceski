@@ -36,6 +36,27 @@ import d from "../data/diaspora.json";
     <p><strong>Rotilio in Buenos Aires.</strong> Named in the 2012 reunion album as the eighth of eleven children of Antonio DeFranceschi of Gallignana, married to Albina Chinkopan, with two daughters. Argentina's arrival records are held by <a href="https://cemla.com/buscador/" rel="noopener">CEMLA</a> and are free to search — but the search sits behind a CAPTCHA, which this archive does not bypass. It is a twenty-minute job for a human being.</p>
     <p><strong>Broken Hill.</strong> Three Defranceschi graves in the New South Wales silver field and nothing else about them anywhere. Australian newspapers are digitised and searchable at <a href="https://trove.nla.gov.au/" rel="noopener">Trove</a>, whose search needs a free registered key — again, a job for a person with an account, and family notices are exactly what Trove is best at.</p>
   </section>
+<section class="blk">
+  <h2>{d.american_vitals.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.american_vitals.lead}</p>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:24px">
+    <div class="lab">The one that names the parish</div>
+    <h3>{d.american_vitals.hit.heading}</h3>
+    <p>{d.american_vitals.hit.text}</p>
+    <p style="margin-top:12px"><strong>{d.american_vitals.hit.why}</strong></p>
+    <p class="cap" style="margin-top:12px">{d.american_vitals.hit.next}</p>
+  </div>
+
+  <div class="grid g3" style="margin-top:20px">
+    {d.american_vitals.clusters.map(c => (
+      <div class="one"><h3 style="font-size:18px">{c.t}</h3><p>{c.w}</p></div>
+    ))}
+  </div>
+  <p class="prose" style="margin-top:20px">{d.american_vitals.manifests}</p>
+  <p class="cap" style="margin-top:12px">{d.american_vitals.source}</p>
+</section>
+
 
   <Sources ids={["familysearch","findagrave","album2012","arolsen"]} />
 </Base>

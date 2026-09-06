@@ -2,14 +2,25 @@
 import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
 import all from "../data/sources.json";
-const kinds = ["Archive", "Database", "Publication", "Reference", "Family"];
 const blurb = {
   Archive: "Places that hold the original paper, and that will copy it for you if you write.",
   Database: "Indexes and image collections searched online.",
-  Publication: "Books, articles and dissertations — including two written by members of this family.",
+  Portal: "Open gateways to whole bodies of scholarship or press — free, and the ones that actually let this archive in.",
+  Publication: "Books, articles and dissertations — including several written by members of this family.",
+  Transcription: "Published texts of works this archive otherwise reads only as page images.",
+  Index: "Aggregated name indexes: useful for finding a person, never sufficient for proving one.",
   Reference: "Standing works of reference consulted for particular facts.",
   Family: "What the family itself holds: photographs, charts, a reunion album, and a website.",
+  "Family file": "The family's own compiled files — genealogy software, exports and document scans.",
+  "Online tree": "Trees published by other researchers. Read for leads, never taken as proof.",
 };
+/* Sections are derived from the data, in this order, and anything with a new
+   kind is appended rather than silently dropped. */
+const order = ["Archive", "Portal", "Database", "Index", "Publication", "Transcription",
+               "Reference", "Family", "Family file", "Online tree"];
+const present = [...new Set(all.map(s => s.kind))];
+const kinds = [...order.filter(k => present.includes(k)),
+               ...present.filter(k => !order.includes(k))];
 ---
 <Base
   title="Sources"
@@ -29,7 +40,7 @@ const blurb = {
   {kinds.map(k => (
     <section class="kindsec" data-kind={k} style="margin-top:38px">
       <h2 style="font-size:28px">{k}</h2>
-      <p class="dek" style="margin-top:6px">{blurb[k]}</p>
+      <p class="dek" style="margin-top:6px">{blurb[k] || "Other material this archive rests on."}</p>
       <div class="srcfull" style="margin-top:14px">
         {all.filter(s => s.kind === k).map(s => (
           <article class="srcrow" id={s.id}>
