@@ -289,9 +289,14 @@
   "source": "Irma Huić, «Urbanistički razvoj Gračišća u Istri: nove spoznaje i čimbenici identiteta naselja», Prostor 23 (2015) 2, pp. 208–221. Open access.",
   "cadastre": {
    "heading": "Where the cadastre actually is — checked, September 2026",
-   "text": "The Franciscan cadastre of Gallignana was chased and is not free online. The Habsburg cadastral layer on MAPIRE — both maps.arcanum.com and mapire.eu, which is the same service — renders blank over Gračišće behind «Full access to maps requires subscription». The Archivio di Stato di Trieste holds the originals, as Huić cites them, but its online viewer covers the Catasto di Trieste, the city's own cadastre, not the Istrian districts.",
+   "text": "The Franciscan cadastre of Gallignana was chased properly in September 2026 and it is not free online. The Habsburg cadastral layer on MAPIRE — maps.arcanum.com and mapire.eu are the same service — renders blank over Gračišće behind «Full access to maps requires subscription», and its tile server returns 403 rather than 404 at the village's own coordinates, which says the sheets are there and the door is locked rather than that they are missing. The Archivio di Stato di Trieste holds the originals, as Huić cites them, but its online viewer covers only the Catasto di Trieste, the city's own. The Croatian land-registry portals serve the modern cadastre, not the nineteenth-century plans.",
    "ask": "So it is a written request or a subscription, not a download. To the Archivio di Stato di Trieste, quoting Huić's own citation: «Catasto franceschino, Mappe del Catasto franceschino, Distretto di Pisino, Comune di Gallignana d'Istria, foglio IV sezione IV» — with a note that the sheets wanted are the ones covering the built-up village, where houses 5 and 19 stand. Their correspondence-research service is advertised on their site; data-protected records open after seventy-five years, and an 1820 map is long past that.",
-   "why": "It is worth the letter. A Franciscan cadastral sheet is a numbered parcel map with a register of holders — so it would show not just where houses 5 and 19 were, but who was down as holding them in about 1820, when the farmer Joannes Baptista of house 5 was thirty-three and married a year."
+   "why": "It is worth the letter. A Franciscan cadastral sheet is a numbered parcel map with a register of holders — so it would show not just where houses 5 and 19 were, but who was down as holding them in about 1820, when the farmer Joannes Baptista of house 5 was thirty-three and married a year.",
+   "routes": [
+    "Write to the Archivio di Stato di Trieste, quoting Huić's citation, and ask for the sheets covering the built-up village. Their correspondence-research service is advertised; an 1820 map is far past any protection period.",
+    "Ask the Državni arhiv u Pazinu whether it holds a duplicate set for the Croatian Istrian communes — it answered this family twice in 2021 for about a hundred kuna.",
+    "Or simply subscribe to Arcanum for a month. The tiles appear to be there; it would put the sheet on screen tonight rather than in eight weeks."
+   ]
   }
  }
 }
