@@ -58,6 +58,33 @@ import c from "../data/carnia.json";
     <p><strong>What to do next is now obvious.</strong> The same series holds nine volumes of <em>Matrimoni</em> and thirteen of <em>Matrimoni, allegati</em> for Mione. In Napoleonic practice the <em>allegati</em> are the supporting papers filed with a marriage — birth extracts for the bride and groom, and often death extracts for their parents. A single De Franceschi marriage at Mione between 1806 and 1815 would therefore reach back into the middle of the eighteenth century, and possibly to the generation of the Zuane of 1679. Nothing else available to this project can do that.</p>
   </div>
 
+  <h2 style="font-size:30px;margin-top:50px">{c.muina.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.muina.intro}</p>
+
+  <div class="spine" style="margin-top:20px">
+    {c.muina.chain.map(g => (
+      <article class="gen documented">
+        <div class="rail"><span class="dot"></span></div>
+        <div class="body">
+          <div class="lab">Generation {g.n}</div>
+          <h3 style="font-size:24px">{g.who}</h3>
+          <p class="cap" style="max-width:64ch">{g.what}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div style="margin-top:24px"><Plates ids={["mione-matr-index","mione-matr-1808"]} /></div>
+
+  <div class="one" style="border-left-color:var(--ochre);margin-top:28px">
+    <div class="lab">The name in the chain</div>
+    <h3>Antonio, son of the late Leonardo</h3>
+    <p>{c.muina.leonardo}</p>
+    <p class="cap" style="margin-top:12px"><span class="chip inf">Inferred, and weakly</span> This is a name recurring in a family, not a link between two families. It is set out here because it is the kind of thing that later turns out to matter, and because saying it plainly is better than either suppressing it or overselling it.</p>
+  </div>
+
+  <p class="prose" style="margin-top:24px">{c.muina.witnesses}</p>
+
   <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
   <p class="dek" style="margin-top:8px">Twenty-five kilometres east of Mione, over the shoulder of the mountain. A De Franceschi family documented from the eighteenth century into the nineteenth.</p>
   <div class="scroll" style="margin-top:18px">
