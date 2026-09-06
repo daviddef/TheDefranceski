@@ -153,6 +153,28 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <p class="cap" style="margin-top:12px">{dl.town.source}</p>
 </section>
 
+<section class="blk">
+  <h2>{dl.film215.heading}</h2>
+  <p class="dek" style="margin-top:8px">{dl.film215.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {dl.film215.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--terra);margin-top:24px">
+    <div class="lab">1679, the year of the headmen's list</div>
+    <h3>{dl.film215.year1679.heading}</h3>
+    <p style="margin-top:10px">{dl.film215.year1679.text}</p>
+    <p style="margin-top:12px"><strong>{dl.film215.year1679.why}</strong></p>
+  </div>
+  <p class="prose note" style="margin-top:22px">{dl.film215.todo}</p>
+  <p class="prose" style="margin-top:14px">{dl.film215.caution}</p>
+  <p class="cap" style="margin-top:12px">{dl.film215.source}</p>
+</section>
+
 
   <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak", "ivetic", "attirovigno", "archiveorg"]} />
 </Base>
