@@ -143,6 +143,30 @@ import k from "../data/kobler.json";
 </section>
 
 <section class="blk">
+  <h2>{k.funeral.heading}</h2>
+  <p class="dek" style="margin-top:8px">{k.funeral.lead}</p>
+  <p class="cap" style="margin-top:12px">{k.funeral.caution}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:22px">
+    {k.funeral.items.map(it => (
+      <div class="one" style={it.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{it.kicker}</div>
+        {it.text && <p style="margin-top:10px">{it.text}</p>}
+        {it.quote && (
+          <div class="qz" style="margin-top:12px">
+            <p class="qit">“{it.quote}”</p>
+            <p class="qen">{it.en}</p>
+          </div>
+        )}
+        {it.why && <p style="margin-top:12px">{it.why}</p>}
+        <p class="cap" style="margin-top:12px">{it.cite}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px">{k.funeral.croatian}</p>
+  <p class="prose" style="margin-top:16px">{k.funeral.close}</p>
+</section>
+
+<section class="blk">
   <h2>What this closes</h2>
   <div class="prose">
     <p><strong>Carnia is not a hypothesis.</strong> The 1679 headmen's list put a Zuane De Franceschi of Mione at work in the Habsburg County of Pazin. Carlo, who had never seen that list, says his family came from Carnia and settled in Istria around 1700, and that there were still De Franceschi at Mione and Muina in his own day. Two independent sources, a hundred and ninety years apart, describing the same road.</p>

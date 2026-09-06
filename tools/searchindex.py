@@ -89,6 +89,11 @@ for grp in sj["karlobag"]["gens"]:
         add("Karlobag ancestry", r["who"], f"{r['b'] or '?'} – {r['d'] or '?'}", "/senj-line/",
             "From the ancestor chart of Matia Papic, born Pilipic, of Karlobag")
 
+kb = L("kobler.json")
+for it in kb["funeral"]["items"]:
+    add("Press notice", it["kicker"], it["cite"], "/carlos-letter/",
+        f"{it.get('text','')} {it.get('quote','')} {it.get('en','')} {it.get('why','')}"[:400])
+
 for p in L("parishbooks.json") if os.path.exists(os.path.join(D, "parishbooks.json")) else []:
     if isinstance(p, dict) and p.get("parish"):
         add("Parish book", p["parish"], p.get("span") or p.get("kind") or "", "/parish-books/")
