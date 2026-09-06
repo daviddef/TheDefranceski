@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/diaspora.json";
+---
+<Base
+  title="Where the Name Went"
+  eyebrow="Seven clusters on four continents"
+  dek="Searching the migration indexes by country rather than by name turns up whole branches this archive had never seen — the largest of them in southern Brazil, where dozens of De Franceschi settled among the Veneto colonies of Rio Grande do Sul.">
+
+  <section class="prose">
+    <p>Every previous sweep in this project searched for people. This one searched for places, and it changes the picture: the surname is not thinly scattered across the world, it is <em>clustered</em>, and each cluster has a date and a reason.</p>
+    <p>Read the in-law surnames rather than the given names. They say which Italy a family came out of, and often which decade, more reliably than anything the migrant wrote on a form.</p>
+  </section>
+
+  {d.clusters.map(c => (
+    <article class="cluster">
+      <h3>{c.place}</h3>
+      <div class="hdr">
+        <b>{c.size}</b>
+        {c.when && <span>{c.when}</span>}
+      </div>
+      <p class="wh">{c.where}</p>
+      <ul>{c.families.map(f => <li>{f}</li>)}</ul>
+      <p class="read">{c.read}</p>
+    </article>
+  ))}
+
+  <section class="prose" style="margin-top:46px">
+    <h3>What this is not</h3>
+    <p>It is not a family tree, and none of these clusters is claimed as kin to the Istrian line except where the page says so. <em>De Franceschi</em> was invented independently wherever an Italian-speaking clerk had to tell one Francesco's sons from another's — see <a href={u("/name/")}>The Name</a> — and a shared surname across four continents is exactly what that predicts.</p>
+    <p>What it does show is that the two branches this archive can document, the Gallignana people and the Crikvenica people, moved inside much larger movements: the Istrians into Brooklyn and, after 1949, into displaced-persons resettlement; the Venetians and Friulians into Brazil, Michigan and, later, Australia.</p>
+    <h3>The three best loose threads</h3>
+    <p><strong>The Philadelphia family of 1954.</strong> Bosiljka, Brank, Jela and Mojuil Defranceski — Croatian names, arriving nine years after the war, in no Croatian register searched here.</p>
+    <p><strong>Rotilio in Buenos Aires.</strong> Named in the 2012 reunion album as the eighth of eleven children of Antonio DeFranceschi of Gallignana, married to Albina Chinkopan, with two daughters. Argentina's arrival records are held by <a href="https://cemla.com/buscador/" rel="noopener">CEMLA</a> and are free to search — but the search sits behind a CAPTCHA, which this archive does not bypass. It is a twenty-minute job for a human being.</p>
+    <p><strong>Broken Hill.</strong> Three Defranceschi graves in the New South Wales silver field and nothing else about them anywhere. Australian newspapers are digitised and searchable at <a href="https://trove.nla.gov.au/" rel="noopener">Trove</a>, whose search needs a free registered key — again, a job for a person with an account, and family notices are exactly what Trove is best at.</p>
+  </section>
+
+  <Sources ids={["familysearch","findagrave","album2012","arolsen"]} />
+</Base>
