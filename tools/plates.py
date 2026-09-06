@@ -311,6 +311,37 @@ PLATES = [
   "places", "Seget, near Umag",
   "The western-Istrian estate of the other branch, which reached Istria from Crete after the Candian War ended in 1669.",
   "Family research collection"),
+
+ # ---- French zone: DP folder DP0758, Bad Arolsen, read Sept 2026 ---------
+ ("fz-petar-fiche", "Arolsen - French Zone 2026/petar-fiche-photo.jpg", 0,
+  "documents", "Petar's fiche individuelle, with his photograph",
+  "The French occupation authorities' individual card. Nationality Yougoslav, born 15.06.13, profession Auto-mecancien, address Kelterstr. 30 Neuhausen, married. Card 30609; the number written across the head is 148.902 CB Bj. Five fingerprints in red ink, and a passport photograph: dark jacket, dark tie, hair combed back. Under Vaccins, in a clerk's hand: tetanus once, typhus twice.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+ ("fz-counselling", "Arolsen - French Zone 2026/counselling-front.jpg", 0,
+  "documents", "The counselling card, front",
+  "Headed COUNSELLING in a red box. DEFRANCESKI, Peter and Luise; IRO 148.902; category CB; born 15.6.13 Yougoslavie (Cirkvenica) and 5.10.19. Address, as at 1 April 1951: Kellterstrasse 30, Neuhaus Kr. Reutlingen. Under other members of the family, the wife and two children with their birth dates. Three lines under EXPOSE, dated 22.7.49, 28.4.51 and 25.5.51 — he wants to stay, he confirms it, and he is entered on the list of displaced persons living privately.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+ ("fz-counselling-back", "Arolsen - French Zone 2026/counselling-back.jpg", 0,
+  "documents", "The counselling card, reverse",
+  "Two columns, DATE and INTERVENTIONS, and one line written in them: 30.7.49 — «Proposons a Mr. Boesch de le mettre \u00abBj\u00bb». Eight days after Petar told the counsellor he had a house and two cars and meant to stay, the office proposed to reclassify him off IRO care.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+ ("fz-anton-australia", "Arolsen - French Zone 2026/anton-index-australia.jpg", 0,
+  "documents", "The card that gives the day they left",
+  "Reutlingen, 148.901. DEFRANCESKI, Anton 22.8.44 youg., a household of three, category CB. In ink across the middle: «Emigre Australie le 8.3.49», with 17.3.49 beneath it. At the foot, a red stamp: CM/1 destroyed — which is why no care-and-maintenance file survives for Zdravko's family, and why his brother has one.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+ ("fz-luise-apatride", "Arolsen - French Zone 2026/luise-index-apatride.jpg", 0,
+  "documents", "Apatride",
+  "Reutlingen, 148.902. «DEFRANCESKI, Luise 5.10.19 apatr.» — apatride, stateless; a household of four; category Bj. She was born German at Neuhausen in the Reutlingen district, and on marrying a Yugoslav in February 1942 took his nationality and lost her own. One abbreviated word is the whole of her legal position.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+ ("fz-petar-index", "Arolsen - French Zone 2026/petar-index-reutlingen.jpg", 0,
+  "documents", "Petar's index card at Reutlingen",
+  "Reutlingen, 148.902. DEFRANCESKI, Petar 15.6.13 youg., a household of four, category CB. Beneath, in four hands: «C.V. 15.12.45»; «73-(102) Re. 1, B. rev. 1./10.7.49»; «Tit 1165, 11.8.49, BJ»; «03.Tr.16, \u00abBJ\u00bb 23.8.49». The reclassification going through the books, one office at a time.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+ ("fz-petar-1951", "Arolsen - French Zone 2026/petar-fiche-1951.jpg", 0,
+  "documents", "Stamped 16 October 1951",
+  "The same printed form as his brother's child's card, filled for the man himself and stamped in red: 16 Okt 1951, IRO. The place of birth is written in by hand beside the typed date — Crikvenica. Marked BJ and CB across the head.",
+  "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
+
 ]
 
 def run(cmd):

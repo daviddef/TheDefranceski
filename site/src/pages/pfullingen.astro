@@ -89,6 +89,28 @@ import d from "../data/pfullingen.json";
     <p><a href={u("/graves/")}>The grave gazetteer →</a></p>
   </div>
 
+  <h2 style="font-size:28px;margin-top:52px">{d.frenchzone.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.frenchzone.lead}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">148.901 and 148.902</div>
+    <p style="margin-top:8px">{d.frenchzone.numbers}</p>
+  </div>
+
+  <div class="grid g2" style="margin-top:20px">
+    {d.frenchzone.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="prose note" style="margin-top:24px">{d.frenchzone.close}</p>
+
+  <div style="margin-top:26px"><Plates ids={["fz-petar-fiche","fz-counselling","fz-counselling-back","fz-anton-australia","fz-luise-apatride","fz-petar-index","fz-petar-1951"]} /></div>
+
+
   <section class="prose" style="margin-top:44px">
     <h3>And Petar stayed</h3>
     <p><strong>He never went.</strong> A counselling card found in the Arolsen collections in 2026 — not in the file the family holds — carries three lines that end the story. On <strong>22 July 1949</strong>: <em>«Veut rester en Allemagne, a une maison, 2 autos etc.»</em> — wants to stay in Germany, has a house, two cars. On <strong>28 April 1951</strong> he confirmed that the family wished to remain. On <strong>25 May 1951</strong> they were entered on the list of displaced persons living privately. The address is the same one he gave in 1947: Kelternstraße 30, Neuhausen.</p>
