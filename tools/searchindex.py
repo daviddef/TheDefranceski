@@ -113,6 +113,11 @@ for it in kb["funeral"]["items"]:
     add("Press notice", it["kicker"], it["cite"], "/carlos-letter/",
         f"{it.get('text','')} {it.get('quote','')} {it.get('en','')} {it.get('why','')}"[:400])
 
+sjb = L("senjline.json")["behind"]
+for key, lab in (("blazevic", "Blažević line"), ("zubrinic", "Žubrinić line")):
+    for who, what in sjb[key]["rows"]:
+        add("Maternal line", who, lab + " · family file", "/senj-line/", what)
+
 for p in L("parishbooks.json") if os.path.exists(os.path.join(D, "parishbooks.json")) else []:
     if isinstance(p, dict) and p.get("parish"):
         add("Parish book", p["parish"], p.get("span") or p.get("kind") or "", "/parish-books/")

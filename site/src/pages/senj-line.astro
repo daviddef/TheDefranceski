@@ -78,5 +78,46 @@ import d from "../data/senjline.json";
     <p>Because a family is not a surname. The line this archive was built to follow comes down through Crikvenica and Istria to <a href={u("/crikvenica-house/")}>Ivan</a>; the line that meets it at Senj is the other half of the same people, and it happens to be the older and better-recorded half. Half of everyone descended from that marriage is standing on this page.</p>
   </section>
 
-  <Sources ids={["maticne", "myheritage", "familysearch"]} />
+<section class="blk">
+  <h2>{d.behind.heading}</h2>
+  <p class="dek" style="margin-top:10px">{d.behind.lead}</p>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:24px">
+    <div class="lab">Family file · lore</div>
+    <h3>{d.behind.blazevic.heading}</h3>
+    <div class="scroll" style="margin-top:12px">
+      <table><tbody>{d.behind.blazevic.rows.map(([w, x]) => (
+        <tr><td style="width:180px"><strong>{w}</strong></td><td>{x}</td></tr>
+      ))}</tbody></table>
+    </div>
+    <p style="margin-top:12px">{d.behind.blazevic.more}</p>
+    <p style="margin-top:12px">{d.behind.blazevic.siblings}</p>
+  </div>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:18px">
+    <div class="lab">Family file · lore</div>
+    <h3>{d.behind.zubrinic.heading}</h3>
+    <div class="scroll" style="margin-top:12px">
+      <table><tbody>{d.behind.zubrinic.rows.map(([w, x]) => (
+        <tr><td style="width:180px"><strong>{w}</strong></td><td>{x}</td></tr>
+      ))}</tbody></table>
+    </div>
+    <p style="margin-top:12px"><strong>{d.behind.zubrinic.why}</strong></p>
+  </div>
+
+  <p class="prose" style="margin-top:20px">{d.behind.hreljac}</p>
+  <p class="prose note" style="margin-top:16px">{d.behind.caution}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:24px">
+    <div class="lab">Josip's wife, again</div>
+    <h3>{d.behind.conflict.heading}</h3>
+    <p style="margin-top:10px">{d.behind.conflict.text}</p>
+    <p style="margin-top:12px">{d.behind.conflict.detail}</p>
+    <p style="margin-top:12px">{d.behind.conflict.plus}</p>
+    <p style="margin-top:12px"><strong>{d.behind.conflict.next}</strong></p>
+  </div>
+  <p class="cap" style="margin-top:16px">{d.behind.source_behind}</p>
+</section>
+
+  <Sources ids={["maticne", "myheritage", "familysearch", "mftree"]} />
 </Base>
