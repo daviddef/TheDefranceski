@@ -406,6 +406,16 @@ PLATES = [
   "A false lead, kept because a negative result is a result. Among the local notices: «Nacelnikom u Umagu bijase izabran dne 9. t. mj. g. Fr. de Franceschi, bivsi nacelnik one obcine» — a Fr. de Franceschi elected mayor of Umag on 9 April 1900, having held the office before. Umag is at the far western tip of Istria, ninety kilometres from Gologorica, and nothing yet connects him to this family.",
   "Osterreichische Nationalbibliothek, ANNO — nsp19000413"),
 
+ # ---- ANNO: the band night at Gologorica, 1894-95 -----------------------
+ ("igp-1894-p2", "ANNO 2026/giovine-pensiero-1894-07-26-p2.jpg", 0,
+  "documents", "Il giovine Pensiero, 26 July 1894, page two",
+  "Correspondence datelined Moncalvo, dist. di Pisino, 24 July. The amateur band and many townspeople of Pisino came out on the Sunday, invited by the whole village, to the birthplace of Carlo De Franceschi. Two stones, apparently thrown from the bell tower, smashed the flower vase the village women had brought and crushed a trumpet; at half past eight the band tried to leave and was set on at the village exit by about ten men with stones and drawn blades. Fifteen wounded. The two hurt worst were carried into the Peschle house and the Defranceschi house, and four gendarmes came out from Pisino that night with the district doctor. The paper records, twice, that the communal representative Ivic was the same man who had refused burial to Carlo's body the year before -- and that none of the attackers was a native of Moncalvo.",
+  "Osterreichische Nationalbibliothek, ANNO — igp18940726"),
+ ("igp-1895-jun-p3", "ANNO 2026/giovine-pensiero-1895-06-15-p3.jpg", 0,
+  "documents", "Il giovine Pensiero, 15 June 1895, page three",
+  "The trial of the band night, taken down witness by witness. Right-hand column: \u00abEntra Vittorio Defranceschi fu Francesco, Gollogorizza d'anni 23\u00bb -- Vittorio Defranceschi, son of the late Francesco, of Gologorica, aged twenty-three, so born about 1872. He appears in other men's evidence as well. The shouts the court was trying to fix were \u00abcrepa i taliani, bastonemoli\u00bb and \u00abzivio\u00bb, and the advocate Dr Trinajstic addressed the bench in Croatian.",
+  "Osterreichische Nationalbibliothek, ANNO — igp18950615"),
+
 ]
 
 def run(cmd):

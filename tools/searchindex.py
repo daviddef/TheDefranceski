@@ -89,6 +89,16 @@ for grp in sj["karlobag"]["gens"]:
         add("Karlobag ancestry", r["who"], f"{r['b'] or '?'} – {r['d'] or '?'}", "/senj-line/",
             "From the ancestor chart of Matia Papic, born Pilipic, of Karlobag")
 
+gg = L("gologorica.json")
+for r in gg["bandnight"]["rows"]:
+    add("Village 1893–95", r["t"], f"{r['y']} · Gologorica", "/gologorica-line/", r["w"][:300])
+add("Person", "Piero (Pietro) De Franceschi", "m. 22 Jan 1795 at Valle · of Gologorizza",
+    "/gologorica-line/", gg["bembo"]["quote"][:300])
+add("Person", "Anna Bembo", "m. 22 Jan 1795 at Valle · daughter of Tommaso Bembo",
+    "/gologorica-line/", gg["bembo"]["en"][:300])
+add("Person", "Vittorio Defranceschi", "b. c. 1872 · son of Francesco · Gologorica",
+    "/gologorica-line/", gg["bandnight"]["person"])
+
 kb = L("kobler.json")
 for it in kb["funeral"]["items"]:
     add("Press notice", it["kicker"], it["cite"], "/carlos-letter/",

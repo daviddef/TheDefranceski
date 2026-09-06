@@ -151,6 +151,13 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     <p style="margin-top:12px">{g.argument.third.but}</p>
   </div>
 
+  <div class="one" style="border-left-color:var(--terra);margin-top:14px">
+    <div class="lab">Posted the same day</div>
+    <h3>{g.argument.third.correction.heading}</h3>
+    <p style="margin-top:10px">{g.argument.third.correction.text}</p>
+    <p style="margin-top:12px">{g.argument.third.correction.then}</p>
+  </div>
+
   <p class="prose note" style="margin-top:24px">{g.argument.why}</p>
   <p class="cap" style="margin-top:14px">{g.argument.sourcing}</p>
 </section>
@@ -171,6 +178,48 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 
 <section class="blk">
+  <h2>{g.bandnight.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.bandnight.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {g.bandnight.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.y} · {r.t}</div>
+        <p style="margin-top:8px">{r.w}</p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--terra);margin-top:22px">
+    <div class="lab">One new person</div>
+    <p style="margin-top:8px">{g.bandnight.person}</p>
+  </div>
+  <p class="prose note" style="margin-top:22px">{g.bandnight.caution}</p>
+  <p class="cap" style="margin-top:14px">{g.bandnight.source}</p>
+</section>
+
+<section class="blk">
+  <h2>{g.bembo.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.bembo.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">“{g.bembo.quote}”</p>
+    <p class="qen">{g.bembo.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {g.bembo.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--accent);margin-top:20px">
+    <div class="lab">A fourth witness to Friuli</div>
+    <p style="margin-top:8px">{g.bembo.friuli}</p>
+  </div>
+  <p class="prose note" style="margin-top:20px">{g.bembo.caution}</p>
+  <p class="cap" style="margin-top:14px">{g.bembo.source}</p>
+</section>
+
+<section class="blk">
   <h2>{g.bishop.heading}</h2>
   <p class="dek" style="margin-top:10px">{g.bishop.lead}</p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
@@ -185,5 +234,5 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.bishop.source}</p>
 </section>
 
-  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "archiveorg", "hrcak", "familysearch"]} />
+  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "archiveorg", "hrcak", "familysearch"]} />
 </Base>
