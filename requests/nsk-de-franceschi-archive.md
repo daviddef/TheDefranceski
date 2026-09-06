@@ -32,25 +32,27 @@ obitelji De Franceschi“* (*Libellarium* 15 (2), 2024., str. 25–46). Do tada 
 knjižna i arhivska građa iz kuće u Gologorici uopće postoji. Zahvaljujem Vam na tome
 rade — za nas je to bilo otkriće.
 
-Zanima me **obiteljski arhiv**, onaj dio građe koji ste opisali kao smješten u **14 kutija i
-7 mapa**, a koji sadrži rukopisne koncepte radova Carla starijeg i Camilla, obiteljsku
+Zanima me **obiteljski arhiv**, onaj dio građe koji ste opisali kao smješten u **14 kutija i 9 mapa**, a koji sadrži rukopisne koncepte radova Carla starijeg i Camilla, obiteljsku
 korespondenciju, osobnu i gospodarsku dokumentaciju, fotografije i jedan fotoalbum te
 crteže slikara Giulija De Franceschija.
 
-Ljubazno Vas molim za sljedeće:
+Pročitao sam i Vaš rad s kolegicama Jurišić i Matijaca u *Arhivskom vjesniku* 67, pa
+znam da zbirni opis arhiva (signatura PDF 2.337, 14 kutija i 9 mapa) već postoji i da je
+objavljen. Zato Vas ne molim za popis, nego za snimke nekoliko određenih jedinica:
 
-1. **Zbirni opis arhiva** — popis sadržaja svih 14 kutija i 7 mapa, onako kako ste ga
-   izradili pri sređivanju. Već i sam popis mnogo bi nam značio.
-2. **Obiteljska korespondencija** — postoji li popis dopisnika ili raspon godina? Osobito
-   me zanima prepiska Carla De Franceschija s Giovannijem Koblerom, jer je objavljena
-   samo jedna strana te prepiske (1928.).
-3. **Fotoalbum i fotografije** — postoji li opis njihova sadržaja? Naša obitelj nikada nije
-   vidjela fotografiju kuće u Gologorici.
-4. **Gospodarska dokumentacija** — ima li u njoj išta o zakupu koji je obitelj držala od
-   pićanskih biskupa? Carlo u pismu Kobleru navodi da je njegova obitelj naplaćivala
-   „affitto fermo“ Gologorice sve do ukinuća biskupije.
-5. **Uvjeti pristupa i reprodukcije** — je li građa dostupna korisnicima, mogu li se
-   naručiti digitalne snimke i po kojoj cijeni? Rado ću podmiriti troškove.
+1. **Fotoalbum i obiteljske fotografije iz kutije 6** — osobito portrete Carla, potpisane
+   školske fotografije iz Trsta i fotografiju s poleđinom „Maria De Franceschi, Parenzo,
+   187[?]“. Naša obitelj nikada nije vidjela nijednu fotografiju te kuće ni tih ljudi.
+2. **„Lettere archeologiche a Pietro Kandler“ iz kutija 7–11** — postoji li popis pisama
+   ili raspon godina? Zanima me opseg te prepiske.
+3. **Nacrt obiteljske kapele iz kutije 12** — „Cappella della famiglia di Carlo de
+   Franceschi nel cimitero di Moncalvo di Pisino“ arhitekta Giuseppea Hirscha. Znate li
+   postoji li ta kapela još uvijek na groblju u Gologorici?
+4. **Prigodnica iz mape 6** — „Nelle fauste occasioni delle nozze Maria De Franceschi —
+   Luigi Salamon, Pola, 25 ottobre 1897“. Zanima me zato što se u našoj lozi 1819. godine
+   jedan Defranceschi ženi Franciscom Salomon, pa bi to moglo biti isto prezime.
+5. **Uvjeti pristupa i reprodukcije** — mogu li se naručiti digitalne snimke i po kojoj
+   cijeni? Rado ću podmiriti troškove.
 
 Ako bi bilo jednostavnije da dođem osobno, spreman sam doputovati u Zagreb.
 
@@ -80,26 +82,30 @@ that the books and archival material from the house at Gologorica survived at al
 you for that work — for us it was a discovery.
 
 My interest is in the **family archive**: the material you describe as arranged in
-**fourteen boxes and seven folders**, containing the manuscript drafts of the works of
+**fourteen boxes and nine folders**, containing the manuscript drafts of the works of
 Carlo senior and Camillo, the family correspondence, personal and estate documentation,
 photographs and one photograph album, and the pencil drawings of the painter Giulio De
 Franceschi.
 
-I would be very grateful for the following:
+I have also read your paper with Ms Jurišić and Ms Matijaca in *Arhivski vjesnik* 67, so
+I know the summary description of the archive (shelfmark PDF 2.337, fourteen boxes and
+nine folders) already exists and is published. I am therefore not asking for the list, but
+for images of a few particular items:
 
-1. **The summary description of the archive** — the list of contents of all fourteen boxes
-   and seven folders, as you compiled it during processing. The list alone would mean a
-   great deal to us.
-2. **The family correspondence** — is there a list of correspondents, or a range of years?
-   I am particularly interested in Carlo De Franceschi's correspondence with Giovanni
-   Kobler, because only one side of it has ever been printed (in 1928).
-3. **The photograph album and photographs** — is there any description of what they show?
-   Our family has never seen a photograph of the house at Gologorica.
-4. **The estate documentation** — is there anything in it about the lease the family held
-   from the bishops of Pedena? Carlo writes to Kobler that his family collected the
-   *affitto fermo* of Gologorica until the bishopric was suppressed.
-5. **Access and reproduction** — is the material available to readers, can digital images
-   be ordered, and at what cost? I am happy to pay any fees.
+1. **The photograph album and the family photographs in box 6** — especially the portraits
+   of Carlo, the signed school photographs from Trieste, and the one inscribed on the back
+   *"Maria De Franceschi, Parenzo, 187[?]"*. Our family has never seen a single photograph
+   of that house or of those people.
+2. **"Lettere archeologiche a Pietro Kandler" in boxes 7–11** — is there a list of the
+   letters, or a range of years? I would like to know how large that correspondence is.
+3. **The plan of the family chapel in box 12** — *"Cappella della famiglia di Carlo de
+   Franceschi nel cimitero di Moncalvo di Pisino"*, by the architect Giuseppe Hirsch. Do
+   you know whether the chapel still stands in the cemetery at Gologorica?
+4. **The wedding piece in folder 6** — *"Nelle fauste occasioni delle nozze Maria De
+   Franceschi — Luigi Salamon, Pola, 25 ottobre 1897"*. I ask because in our own line a
+   Defranceschi married a Francisca Salomon in 1819, and it may be the same surname.
+5. **Access and reproduction** — can digital images be ordered, and at what cost? I am
+   happy to pay any fees.
 
 If it would be simpler for me to come in person, I am willing to travel to Zagreb.
 
@@ -118,8 +124,11 @@ david.defranceski@gmail.com
 - **Add your postal address** under your name.
 - **Attach nothing on the first email.** If she asks who you are, the site is the answer:
   https://daviddef.github.io/TheDefranceski/
-- **The shelfmark is the key.** `PDF` = *Poklon De Franceschi*. Records run from PDF 0.001
-  to beyond PDF 0.745, and 2,480 items are catalogued. Quoting it routes the request.
+- **The shelfmarks are the key.** `PDF` = *Poklon De Franceschi* for the 2,480 books;
+  `PDF 2.337` is the family archive itself. Quoting them routes the request.
+- **The box list is already published** — Arhivski vjesnik 67 (2024), doi 10.36506/av.67.7,
+  free at ojs.srce.hr. Read it before you send; you may find you want to ask for something
+  different from what is in this draft.
 - **One caution to keep in mind, and worth being open about if it comes up:** no document
   yet links our Gračišće line to the Gologorica household of Carlo the historian. They are
   two families of one surname in two neighbouring parishes, and the connection is an open
