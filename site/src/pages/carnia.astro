@@ -214,8 +214,46 @@ import c from "../data/carnia.json";
     <h3>What to ask for next</h3>
     <p>The <strong>Ovaro parish registers before 1806</strong>, which are in no portal and must be requested from the parish, and the <strong>Archivio Storico Diocesano at Udine</strong>, which may hold duplicates. Ask for baptisms and marriages at Mione and Muina between 1650 and 1720, looking for a Zuane with a son of working age in 1679. Separately, the <strong>Micoli Toscano family archive at Mione</strong> holds Gorto contracts, including ones naming the Erman who travelled with Zuane. See the <a href={u("/research-log/")}>research log</a>.</p>
     <h3>The road these people were on</h3>
-    <p>From the sixteenth century the villages of the parishes of Ovaro and Luincis sent weavers and pedlars — the <em>cramars</em> — down what was called the road of the Furlans, into Istria. It began as seasonal work: out in the autumn, home in late spring. The 1679 entry catches exactly that, a father and a son wintering in the County of Pazin. Some of them stopped coming home.</p>
+    <p>From the sixteenth century the villages of the parishes of Ovaro and Luincis sent weavers down what was called the road of the Furlans, into Istria. It began as seasonal work: out in the autumn, home in late spring. The 1679 entry catches exactly that, a father and a son wintering in the County of Pazin. Some of them stopped coming home. The section below sets out the documents behind that sentence, which this archive had been asserting before it could show them.</p>
   </section>
-  <Sources ids={["familysearch", "geneanet", "jelincic", "carlo1879", "kobler", "soravito", "sandaniele"]} />
+<section class="blk">
+  <h2>{c.weavers.heading}</h2>
+  <p class="dek" style="margin-top:10px">{c.weavers.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">“{c.weavers.quote}”</p>
+    <p class="qen">{c.weavers.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.weavers.gains.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:22px;margin-top:40px">{c.weavers.road.heading}</h3>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
+    {c.weavers.road.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose" style="margin-top:20px">{c.weavers.road.where}</p>
+  <p class="prose note" style="margin-top:16px">{c.weavers.road.word}</p>
+  <p class="prose" style="margin-top:20px">{c.weavers.lawsuit}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:30px">
+    <div class="lab">Archivio di Stato di Udine · Notarile antico · B. 2979</div>
+    <h3>{c.weavers.notary.heading}</h3>
+    <p style="margin-top:10px">{c.weavers.notary.text}</p>
+    <p style="margin-top:12px"><strong>{c.weavers.notary.why}</strong></p>
+  </div>
+  <p class="cap" style="margin-top:18px">{c.weavers.sourcing}</p>
+</section>
+
+  <Sources ids={["familysearch", "geneanet", "jelincic", "carlo1879", "kobler", "soravito", "sandaniele", "ferigo", "ovaro1995", "archiveorg"]} />
   <Lightbox />
 </Base>
