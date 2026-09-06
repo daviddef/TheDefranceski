@@ -123,6 +123,21 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   </div>
   <p class="cap" style="margin-top:14px">{dl.gracisce_town.source}</p>
 </section>
+<section class="blk">
+  <h2>{dl.village_1895.heading}</h2>
+  <p class="dek" style="margin-top:8px">{dl.village_1895.lead}</p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th><th>As the paper has it</th></tr></thead>
+      <tbody>{dl.village_1895.rows.map(r => (
+        <tr><td class="m">{r.y}</td><td>{r.key ? <strong>{r.t}</strong> : r.t}</td><td>{r.w}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:18px">{dl.village_1895.close}</p>
+  <p class="cap" style="margin-top:12px">{dl.village_1895.source}</p>
+</section>
 
-  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "hrcak"]} />
+
+  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak"]} />
 </Base>
