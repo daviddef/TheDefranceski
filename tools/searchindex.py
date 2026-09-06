@@ -103,6 +103,12 @@ for st in L("kobler.json")["threestocks"]["stocks"]:
     for w, x in st["rows"]:
         add("Fiume family", w, f"Kobler, stock {st['n']} · {st['t']}", "/carlos-letter/", x[:320])
 
+cg = L("carnia.json")
+for n, dt, x in cg["gorto"]["stones"]:
+    add("Gorto grave", n, f"{dt} · Pieve di Santa Maria di Gorto", "/carnia/", x)
+for r in cg["gorto_war"]["rows"]:
+    add("War memorial", r["lab"], "Val Degano", "/carnia/", r["text"][:320])
+
 sg = L("seget.json")
 for i, m in enumerate(sg["umago"]["mayors"]):
     if "Franceschi" in m["n"]:
