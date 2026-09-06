@@ -220,6 +220,39 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 
 <section class="blk">
+  <h2>{g.palazzetto.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.palazzetto.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">“{g.palazzetto.quote}”</p>
+    <p class="qen">{g.palazzetto.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {g.palazzetto.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--terra);margin-top:20px">
+    <div class="lab">What to ask for next</div>
+    <p style="margin-top:8px">{g.palazzetto.todo}</p>
+  </div>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:26px">
+    <div class="lab">Visita Spirituale alla Diocesi di Pedena · 7 April 1788</div>
+    <h3>{g.palazzetto.parroco.heading}</h3>
+    <p style="margin-top:10px">{g.palazzetto.parroco.text}</p>
+    <div class="qz" style="margin-top:12px">
+      <p class="qit">“{g.palazzetto.parroco.quote}”</p>
+      <p class="qen">{g.palazzetto.parroco.en}</p>
+    </div>
+    <p style="margin-top:12px"><strong>{g.palazzetto.parroco.why}</strong></p>
+  </div>
+  <p class="cap" style="margin-top:18px">{g.palazzetto.source_palazzo}</p>
+</section>
+
+<section class="blk">
   <h2>{g.bishop.heading}</h2>
   <p class="dek" style="margin-top:10px">{g.bishop.lead}</p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
