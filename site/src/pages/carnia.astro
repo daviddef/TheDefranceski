@@ -254,6 +254,21 @@ import c from "../data/carnia.json";
   <p class="cap" style="margin-top:18px">{c.weavers.sourcing}</p>
 </section>
 
-  <Sources ids={["familysearch", "geneanet", "jelincic", "carlo1879", "kobler", "soravito", "sandaniele", "ferigo", "ovaro1995", "archiveorg"]} />
+<section class="blk">
+  <h2>{c.brhan.heading}</h2>
+  <p class="dek" style="margin-top:10px">{c.brhan.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {c.brhan.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px">{c.brhan.why}</p>
+  <p class="cap" style="margin-top:14px">{c.brhan.source}</p>
+</section>
+
+  <Sources ids={["familysearch", "geneanet", "jelincic", "carlo1879", "kobler", "soravito", "sandaniele", "ferigo", "ovaro1995", "brhan", "attirovigno", "archiveorg"]} />
   <Lightbox />
 </Base>

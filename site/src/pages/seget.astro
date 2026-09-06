@@ -208,6 +208,33 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:14px">{s.diet.source}</p>
 </section>
 
+<section class="blk">
+  <h2>{s.umago.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.umago.lead}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table><tbody>{s.umago.mayors.map((m, i) => (
+      <tr><td style="width:44px">{i + 1}</td><td><strong>{m.n}</strong></td><td>{m.note}</td></tr>
+    ))}</tbody></table>
+  </div>
+  <p class="prose" style="margin-top:16px">{s.umago.count}</p>
+  <p class="prose" style="margin-top:14px">{s.umago.after}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:26px">
+    <div class="lab">A collector of unpublished manuscripts</div>
+    <h3>{s.umago.historian.heading}</h3>
+    <p style="margin-top:10px">{s.umago.historian.text}</p>
+    <p style="margin-top:12px"><strong>{s.umago.historian.why}</strong></p>
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:18px">
+    <div class="lab">Verteneglio, 1775 and 1819</div>
+    <h3>{s.umago.woods.heading}</h3>
+    <p style="margin-top:10px">{s.umago.woods.text}</p>
+    <p style="margin-top:12px">{s.umago.woods.then}</p>
+  </div>
+  <p class="cap" style="margin-top:18px">{s.umago.source_umago}</p>
+</section>
+
   <Lightbox />
-  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno"]} />
+  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "archiveorg"]} />
 </Base>
