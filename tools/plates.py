@@ -342,6 +342,41 @@ PLATES = [
   "The same printed form as his brother's child's card, filled for the man himself and stamped in red: 16 Okt 1951, IRO. The place of birth is written in by hand beside the typed date — Crikvenica. Marked BJ and CB across the head.",
   "Arolsen Archives, DP folder DP0758 (03010101 05 070)"),
 
+
+ # ---- the family's own copy of the Reutlingen file, read Sept 2026 -------
+ ("pf-zdravko-fiche", "Peter Family File 2026/zdravko-fiche.jpg", 0,
+  "documents", "Zdravko's fiche individuelle, with his photograph",
+  "Card 30560, IRO 148.901. DEFRANCESKI Zdravko, Yougoslav, born 01.04.21, Auto-mecanicien. Address Neuhausen, Friedrichstrasse 4. Five fingerprints in red and a small photograph: dark jacket, hair combed back, the same studio hand as his brother's. Arolsen's own copy of this household's file is stamped CM/1 destroyed; the family kept theirs.",
+  "Family collection — the Reutlingen file"),
+ ("pf-zdravko-card", "Peter Family File 2026/zdravko-dp-card.jpg", 0,
+  "documents", "Zdravko's displaced-person identity card",
+  "Commandement en chef francais en Allemagne, issued 27 November 1946. Height 175, brown eyes, chestnut hair; profession auto-mecanicien; married. And across the corner in red pencil, added later: 8/3/1949 Australie.",
+  "Family collection — the Reutlingen file"),
+ ("pf-ruza-anton", "Peter Family File 2026/ruza-with-anton.jpg", 0,
+  "photographs", "Ruza, with Anton on her arm",
+  "Card 30561. The photograph pasted to Ruza's fiche individuelle shows her holding the baby — the same child whose own card, a few numbers along, has the word enfant written across the fingerprint boxes in red crayon.",
+  "Family collection — the Reutlingen file"),
+ ("pf-ruza-card", "Peter Family File 2026/ruza-dp-card.jpg", 0,
+  "documents", "Ruza's identity card, with the child",
+  "Issued 27 November 1946 at Neuhausen, Friedrichstrasse 4. Born 13 February 1922 at Fusine, Yugoslavia; married. The photograph is of mother and child together. Annotated 8/3/1949 Austr.",
+  "Family collection — the Reutlingen file"),
+ ("pf-iro-letter", "Peter Family File 2026/iro-letter-1949.jpg", 0,
+  "documents", "The letter that explains the code",
+  "27 May 1949, from A. Poignant, Director of the IRO for the French zone, to the Chef de Service du Wurtemberg at Ebingen. Subject: «Cas de DEFRANCESKI (148.902)». Eligibility verified on 15.12.48 — and then the sentence the whole file turns on: «Le Chef de famille et les deux enfants sont classes B, l'epouse BJ.»",
+  "Family collection — the Reutlingen file"),
+ ("pf-health-brazil", "Peter Family File 2026/health-brazil.jpg", 0,
+  "documents", "Screened for Brazil",
+  "A small green slip signed by Dr S. Birietaite, Chef de Service de Sante: «M. Defranceski est passe au screening — Bresil», and beneath in blue, «Rien a signaler». He passed the medical for Brazil. He did not go.",
+  "Family collection — the Reutlingen file"),
+ ("pf-cert-zdravko", "Peter Family File 2026/cert-zdravko.jpg", 0,
+  "documents", "Zdravko's Reutlingen certificate, 1950",
+  "Stadt Reutlingen, stamped 28 February 1950: Defranceski Strawko, born 1.4.21 at Zvekvenica (Crikvenica), Croatian-Yugoslav, resident Pfullingen, employer Hermann Sauer, Reutlingen-Sud.",
+  "Family collection — the Reutlingen file"),
+ ("pf-cert-ruza", "Peter Family File 2026/cert-ruza.jpg", 0,
+  "documents", "Ruza's Reutlingen certificate, 1950",
+  "The same form, the same day: Defranceski Rose geb. Hreljac, born 13.2.22 at Fusine/Delnice, resident Pfullingen, employer Licht und Kraft, Reutlingen. Her birthplace is given here with its district — the fullest form the archive has.",
+  "Family collection — the Reutlingen file"),
+
 ]
 
 def run(cmd):
