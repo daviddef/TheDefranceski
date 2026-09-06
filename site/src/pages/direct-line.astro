@@ -82,5 +82,24 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   </section>
 
   <Lightbox />
-  <Sources ids={["dapa", "maticne", "familysearch", "album2012"]} />
+<section class="blk">
+  <h2>{dl.gracisce_town.heading}</h2>
+  <p class="dek" style="margin-top:8px">{dl.gracisce_town.lead}</p>
+  <div class="grid g3" style="margin-top:22px">
+    {dl.gracisce_town.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <h3 style="font-size:18px">{r.t}</h3>
+        <p>{r.w}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:20px">{dl.gracisce_town.caution}</p>
+  <h3 style="font-size:22px;margin-top:32px">What to look at next</h3>
+  <ul class="prose" style="display:block;margin-top:10px">
+    {dl.gracisce_town.next.map(x => <li style="margin:.45em 0">{x}</li>)}
+  </ul>
+  <p class="cap" style="margin-top:14px">{dl.gracisce_town.source}</p>
+</section>
+
+  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "hrcak"]} />
 </Base>

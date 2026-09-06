@@ -54,6 +54,11 @@ objavljen. Zato Vas ne molim za popis, nego za snimke nekoliko određenih jedini
 5. **Uvjeti pristupa i reprodukcije** — mogu li se naručiti digitalne snimke i po kojoj
    cijeni? Rado ću podmiriti troškove.
 
+Na kraju, jedno malo pitanje izvan arhiva: tražim rad Miroslava Bertoše „Gologorički
+De Franceschi: između etosa i etnosa“ (u: *Etos i etnos zavičaja*, Čakavski sabor, Pula –
+Rijeka, 1985., str. 177–253). Nije dostupan na internetu. Znate li gdje bih mogao doći do
+preslike ili do primjerka?
+
 Ako bi bilo jednostavnije da dođem osobno, spreman sam doputovati u Zagreb.
 
 Unaprijed zahvaljujem na Vašem vremenu i trudu.
@@ -106,6 +111,11 @@ for images of a few particular items:
    Defranceschi married a Francisca Salomon in 1819, and it may be the same surname.
 5. **Access and reproduction** — can digital images be ordered, and at what cost? I am
    happy to pay any fees.
+
+One small question outside the archive: I am trying to find Miroslav Bertoša's essay
+*"Gologorički De Franceschi: između etosa i etnosa"* (in *Etos i etnos zavičaja*, Čakavski
+sabor, Pula – Rijeka, 1985, pp. 177–253). It does not appear to be online. Would you know
+where I might obtain a copy or a scan?
 
 If it would be simpler for me to come in person, I am willing to travel to Zagreb.
 
