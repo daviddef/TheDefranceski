@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
@@ -92,4 +93,5 @@ const g = c.nextGen;
   </section>
 
   <Lightbox />
+  <Sources ids={["mftpkg", "maticne", "familysearch", "arolsen", "dapa"]} />
 </Base>

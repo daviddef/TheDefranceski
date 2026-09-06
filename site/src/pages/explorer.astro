@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import ex from "../data/explorer.json";
 const nodes = ex.nodes;
 const years = nodes.map(n => n.from).filter(Boolean);
@@ -71,6 +72,7 @@ const kids = nodes.reduce((s, n) => s + n.children.length, 0);
     <h3>What the colours mean</h3>
     <p>The stripe down the left of each card is the region: Kvarner, Istria, Dalmatia, Tyrol. The word <em>linked</em> appears on any household that stands in a chain.</p>
   </section>
+  <Sources ids={["familysearch"]} />
 </Base>
 
 <script>

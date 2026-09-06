@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import c from "../data/carnia.json";
 ---
@@ -59,4 +60,5 @@ import c from "../data/carnia.json";
     <h3>The road these people were on</h3>
     <p>From the sixteenth century the villages of the parishes of Ovaro and Luincis sent weavers and pedlars — the <em>cramars</em> — down what was called the road of the Furlans, into Istria. It began as seasonal work: out in the autumn, home in late spring. The 1679 entry catches exactly that, a father and a son wintering in the County of Pazin. Some of them stopped coming home.</p>
   </section>
+  <Sources ids={["familysearch", "kobler", "soravito", "sandaniele"]} />
 </Base>

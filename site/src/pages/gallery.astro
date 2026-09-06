@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import all from "../data/plates.json";
@@ -35,6 +36,7 @@ const counts = Object.fromEntries(groups.map(([k]) => [k, all.filter(p => p.grou
   </section>
 
   <Lightbox />
+  <Sources ids={["mftpkg", "arolsen", "dapa", "omisphotos"]} />
 </Base>
 
 <script>

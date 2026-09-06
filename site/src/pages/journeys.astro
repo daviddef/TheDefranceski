@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import JourneyMap from "../components/JourneyMap.astro";
 import Distribution from "../components/Distribution.astro";
 ---
@@ -22,4 +23,5 @@ import Distribution from "../components/Distribution.astro";
   <p class="dek">The fused spelling, by country. Italy and the United States lead, but the Croatian figure is the one that matters — it has been falling for seventy years.</p>
   <div style="margin-top:22px"><Distribution spelling="Defranceschi" /></div>
 </section>
+  <Sources ids={["familysearch", "album2012", "arolsen"]} />
 </Base>

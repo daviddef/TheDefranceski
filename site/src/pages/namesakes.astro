@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import ns from "../data/namesakes.json";
@@ -69,6 +70,7 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
   </section>
 
   <Lightbox />
+  <Sources ids={["howard", "banic", "dbi", "blasonario", "commons", "dfcom"]} />
 </Base>
 
 <script>

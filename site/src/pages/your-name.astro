@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import gn from "../data/givennames.json";
 const rows = gn.rows;
@@ -54,6 +55,7 @@ const langs = [
     <h3>And the surname does the same thing</h3>
     <p>De Franceschi, Defranceschi, Dei Franceschi, Defranceski, Defrančeski, De Franceski, Franceschi. Nine spellings, one family — and the spellings move with the border, not with the bloodline. See <a href={u("/name/")}>The Name</a>.</p>
   </section>
+  <Sources ids={["familysearch", "dapa"]} />
 </Base>
 
 <script>

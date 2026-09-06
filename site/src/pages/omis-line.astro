@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import o from "../data/omis.json";
 ---
 <Base title="The Omiš Line" eyebrow="Seventeen generations published · 1318–1948"
@@ -46,4 +47,5 @@ import o from "../data/omis.json";
   <div class="note" style="margin-top:26px">{o.omittedNote}</div>
   <p class="cap">{o.source}</p>
 </section>
+  <Sources ids={["plemstvo", "omisphotos", "familysearch"]} />
 </Base>

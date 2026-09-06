@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Pedigree from "../components/Pedigree.astro";
 import g from "../data/gologorica.json";
 import j from "../data/josip1863.json";
@@ -59,4 +60,5 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div class="note" style="margin-top:24px">Worth correcting a claim made earlier in this archive. The State Archives in Pazin does say publicly that its staff will not undertake extensive genealogical research — but this record shows what they <em>will</em> do: given a name, a place and a period, they searched the register, certified the copy and posted it to Australia, for a hundred and seventeen kuna. The refusal is of open-ended research, not of a specific request.</div>
   <p class="cap">{j.source}</p>
 </section>
+  <Sources ids={["dapa", "kobler", "familysearch"]} />
 </Base>

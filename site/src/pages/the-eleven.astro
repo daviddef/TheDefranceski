@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
@@ -74,4 +75,5 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
   </section>
 
   <Lightbox />
+  <Sources ids={["album2012", "dapa", "familysearch", "findagrave"]} />
 </Base>

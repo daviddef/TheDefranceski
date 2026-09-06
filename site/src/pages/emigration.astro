@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import mig from "../data/migration.json";
 const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
 ---
@@ -49,4 +50,5 @@ const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
   <h2>What is not published here</h2>
   <div class="note">{mig.rule} Of {mig.total} records found, {mig.published} meet that test. The rest are Social Security, residence and public-records entries for people who may be alive, and they are excluded from the build rather than hidden in it.</div>
 </section>
+  <Sources ids={["familysearch", "arolsen", "findagrave", "album2012"]} />
 </Base>

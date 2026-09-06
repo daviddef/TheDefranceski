@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
 import sov from "../data/sovereignty.json";
 import pressures from "../data/pressures.json";
@@ -28,4 +29,5 @@ import pressures from "../data/pressures.json";
   </div>
   <div class="note" style="margin-top:26px">Once the GEDCOM is imported, each life becomes a bar drawn over these bands, so that a man born at Gračišće in 1935 is shown becoming Italian, then Yugoslav, before he was ten. That view needs people; the frame is ready for them.</div>
 </section>
+  <Sources ids={["carlo1879", "kobler", "familysearch"]} />
 </Base>

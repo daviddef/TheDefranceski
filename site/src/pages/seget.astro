@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import s from "../data/seget.json";
 import v from "../data/seget-voce.json";
 import SegetArms from "../components/SegetArms.astro";
@@ -120,4 +121,5 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:18px">Source: {v.source}</p>
 </section>
 
+  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos"]} />
 </Base>

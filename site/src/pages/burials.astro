@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
@@ -145,4 +146,5 @@ const places = S.places.filter(([p]) => p !== "not stated");
     <p>The Poreč and Rovinj death registers, by name and year, from the Pazin State Archive — the same way the two <em>Status Animarum</em> pages were obtained. That would turn the Carlo identification from strong to settled, and would give his wife's name, which this archive still does not have.</p>
   </section>
   <Lightbox />
+  <Sources ids={["familysearch", "sandaniele", "dapa"]} />
 </Base>

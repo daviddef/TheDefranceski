@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
@@ -81,4 +82,5 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   </section>
 
   <Lightbox />
+  <Sources ids={["dapa", "maticne", "familysearch", "album2012"]} />
 </Base>

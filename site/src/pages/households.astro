@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Household from "../components/Household.astro";
 import hs from "../data/households.json";
 import Lineage from "../components/Lineage.astro";
@@ -97,4 +98,5 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
   </div>
 </section>
 )}
+  <Sources ids={["familysearch"]} />
 </Base>

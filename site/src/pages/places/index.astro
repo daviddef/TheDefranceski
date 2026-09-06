@@ -1,6 +1,7 @@
 ---
 import { u } from "../../lib/url.js";
 import Base from "../../layouts/Base.astro";
+import Sources from "../../components/Sources.astro";
 import places from "../../data/places.json";
 const alt=(p)=>Object.entries(p.alt||{}).map(([k,v])=>`${k}. ${v}`).join(" · ");
 const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"],["carnia","Carnia, Friuli"],["dalmatia","Dalmatia — Omiš, Imotski, Split"]];
@@ -24,4 +25,5 @@ const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"
     </div>
   </section>
 ))}
+  <Sources ids={["familysearch", "steiner", "carlo1879"]} />
 </Base>

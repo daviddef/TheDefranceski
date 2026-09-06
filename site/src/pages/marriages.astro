@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import InlawNetwork from "../components/InlawNetwork.astro";
 import MarriageTimeline from "../components/MarriageTimeline.astro";
 import m from "../data/marriages.json";
@@ -83,4 +84,5 @@ import m from "../data/marriages.json";
   </div>
   <p class="cap">Source: {m.source}. Some entries are parent-of relationships the index records alongside a burial rather than marriages proper; both are kept, because both name a family this one was joined to.</p>
 </section>
+  <Sources ids={["familysearch", "dapa"]} />
 </Base>

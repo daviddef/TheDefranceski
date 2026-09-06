@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import kv from "../data/kvarner-books.json";
 import pb from "../data/parishbooks.json";
 const RING = ["Pazin","Stari Pazin","Tinjan","Kringa","Krbune","Boljun","Lupoglav (Pazin)","Petar u Šumi","Polje Čepić","Kršan"];
 const ring = pb.list.filter(p => RING.includes(p.parish));
@@ -41,4 +43,25 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
   </div>
   <p class="cap">{pb.source}</p>
 </section>
+
+<section class="blk">
+  <h2>The Kvarner coast and the Vinodol</h2>
+  <p class="dek">The Istrian parishes above are where the line begins. These are the parishes it moved to — and unlike Gologorica and Gračišće, which have no film at all, every one of these is photographed. None of it is name-indexed. The point of the list is to say which volume to open.</p>
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th>Parish</th><th>What survives on film</th><th>Why it matters</th></tr></thead>
+      <tbody>{kv.parishes.map(p => (
+        <tr>
+          <td><a href={`https://www.familysearch.org/search/image/index?owc=${encodeURIComponent(p.owc)}%3Fcc%3D2040054`} rel="noopener">{p.name}</a></td>
+          <td>{p.books.length ? <ul style="margin:0;padding-left:16px">{p.books.map(b => <li style="font-size:12.5px;line-height:1.5">{b}</li>)}</ul> : <span style="color:var(--ink-3)">not listed in the map extract</span>}</td>
+          <td>{p.why}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:24px">{kv.gap}</div>
+  <p class="cap" style="margin-top:16px">{kv.note}</p>
+</section>
+
+  <Sources ids={["familysearch", "steiner", "dapa"]} />
 </Base>

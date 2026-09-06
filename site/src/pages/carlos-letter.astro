@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import k from "../data/kobler.json";
 ---
 <Base title="Carlo's Letter" eyebrow="Parenzo, about 1873"
@@ -60,4 +61,5 @@ import k from "../data/kobler.json";
   <div class="note" style="margin-top:26px">A caution that Carlo himself would want kept. This is testimony, not a register: a man in his sixties reporting what his family believed, some of it at second hand from a cousin's papers. The Bergamo origin, the castles in Carnia and the claim to the patriarchal nobility «dei Germani» are family tradition. The Carnian origin, the 1711 house, the two sons and the Fiume connection are things he was in a position to know. <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> where he is repeating tradition; <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> as his own testimony throughout.</div>
   <p class="cap">{k.source}</p>
 </section>
+  <Sources ids={["kobler", "carlo1879"]} />
 </Base>

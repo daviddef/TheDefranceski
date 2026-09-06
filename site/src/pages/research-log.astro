@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 const open=[
  {q:"Is there a Trieste departure manifest anywhere?",s:"blocked",
   w:"Trieste was the Austro-Hungarian emigration port and the Austro-Americana line sailed from it to New York, and a 1917 draft card even records a Gallignana-born man's birthplace as ‘Frieste’ — the port standing in for the village. But no Trieste outward manifest appears in any collection searched.",
@@ -119,4 +120,5 @@ const closed=[
     ))}</tbody></table>
   </div>
 </section>
+  <Sources ids={["dapa", "familysearch", "arolsen", "kobler"]} />
 </Base>

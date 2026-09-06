@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
@@ -66,4 +67,5 @@ import d from "../data/pfullingen.json";
   </section>
 
   <Lightbox />
+  <Sources ids={["arolsen", "findagrave", "mftpkg"]} />
 </Base>

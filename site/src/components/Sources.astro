@@ -1,0 +1,20 @@
+---
+/* A short "what this page rests on" block, linking into the bibliography. */
+import { u } from "../lib/url.js";
+import all from "../data/sources.json";
+const { ids, note } = Astro.props;
+const list = ids.map(i => all.find(s => s.id === i)).filter(Boolean);
+---
+<section class="srcblock">
+  <div class="lab">What this page rests on</div>
+  <div class="srclist">
+    {list.map(s => (
+      <div class="srcitem">
+        <a href={u(`/sources/#${s.id}`)}>{s.title}</a>
+        <span>{s.kind}{s.where ? ` · ${s.where}` : ""}</span>
+      </div>
+    ))}
+  </div>
+  {note && <p class="cap" style="margin-top:14px">{note}</p>}
+  <p class="cap" style="margin-top:10px"><a href={u("/sources/")}>The full bibliography, with what each source gave and where it is weak →</a></p>
+</section>

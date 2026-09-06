@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import all from "../data/sources.json";
+const kinds = ["Archive", "Database", "Publication", "Reference", "Family"];
+const blurb = {
+  Archive: "Places that hold the original paper, and that will copy it for you if you write.",
+  Database: "Indexes and image collections searched online.",
+  Publication: "Books, articles and dissertations — including two written by members of this family.",
+  Reference: "Standing works of reference consulted for particular facts.",
+  Family: "What the family itself holds: photographs, charts, a reunion album, and a website.",
+};
+---
+<Base
+  title="Sources"
+  eyebrow={`${all.length} sources`}
+  dek="Everything this archive is built on, what each one actually gave, and where each one is weak. Every page carries a block linking back to the entries here that it rests on.">
+
+  <section class="prose">
+    <p>An archive that will not say where it got something is a rumour with a stylesheet. This page is the answer to “how do you know that?”, and it is meant to be usable: where a source can be written to, its address is here; where it can be searched, the link is live; where it is wrong or thin, that is said in the entry rather than buried.</p>
+    <p>Three of these sources conflict with others on points of fact. In every case this archive prefers the contemporaneous register over the later family memory, says so on the page where the conflict appears, and leaves the question open rather than quietly picking a winner.</p>
+  </section>
+
+  <div class="filters" role="group" aria-label="Filter sources" style="margin-top:28px">
+    <button type="button" data-k="all" aria-pressed="true">All {all.length}</button>
+    {kinds.map(k => <button type="button" data-k={k} aria-pressed="false">{k} <span style="opacity:.6">{all.filter(s => s.kind === k).length}</span></button>)}
+  </div>
+
+  {kinds.map(k => (
+    <section class="kindsec" data-kind={k} style="margin-top:38px">
+      <h2 style="font-size:28px">{k}</h2>
+      <p class="dek" style="margin-top:6px">{blurb[k]}</p>
+      <div class="srcfull" style="margin-top:14px">
+        {all.filter(s => s.kind === k).map(s => (
+          <article class="srcrow" id={s.id}>
+            <h3>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}</h3>
+            <div class="meta">
+              {s.where && <span>{s.where}</span>}
+              {s.url && <span class="mono">{s.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>}
+            </div>
+            <p>{s.what}</p>
+            {s.cites.length > 0 && <div class="refs">{s.cites.map(c => <code>{c}</code>)}</div>}
+            {s.note && <p class="cav">{s.note}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="prose" style="margin-top:48px">
+    <h3>What was deliberately not done</h3>
+    <p>The Antenati search at the Italian state archives sits behind a bot check, and it was not bypassed. FamilySearch's images were not bulk-downloaded: their terms do not permit it, and seventeenth- to nineteenth-century secretary hand defeats optical character recognition anyway. Commercial heraldry sites were read for leads and their pictures were not reproduced. No image of a living person appears anywhere on this site.</p>
+    <h3>If you want to check something</h3>
+    <p>Start with the page it appears on — each carries its own source block — then come here for the address. The two archives most worth writing to are <a href={u("/sources/#dapa")}>Pazin</a>, which answered this family twice in 2021 for about a hundred kuna a time, and <a href={u("/sources/#arolsen")}>Arolsen</a>, which is free.</p>
+  </section>
+</Base>
+
+<script>
+  const bar = document.querySelector(".filters");
+  if (bar) {
+    const secs = [...document.querySelectorAll(".kindsec")];
+    bar.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-k]");
+      if (!b) return;
+      bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      secs.forEach(s => { s.hidden = b.dataset.k !== "all" && s.dataset.kind !== b.dataset.k; });
+    });
+  }
+</script>

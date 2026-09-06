@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import registers from "../data/registers.json";
 import fs from "../data/familysearch.json";
 import recs from "../data/fsrecords.json";
@@ -239,4 +240,5 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
     <p>The catch is the 24 per cent. Of the neighbouring parishes, only a fraction is name-indexed — which is why a search for a Defranceschi at Tinjan or Kringa returns nothing while the books themselves may be full of them. Reading them means opening images page by page, in Latin, and that is work for a person, not for this.</p>
   </div>
 </section>
+  <Sources ids={["familysearch"]} />
 </Base>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import NameDrift from "../components/NameDrift.astro";
 import Distribution from "../components/Distribution.astro";
 import Census1945 from "../components/Census1945.astro";
@@ -99,4 +100,5 @@ import gn from "../data/givennames.json";
     <p>Adding the Slavic and English forms alone merged three separate Rijeka households of the 1620s into one — <strong>Gioannis Antonÿ De Franceschi and Lutia</strong>, six children between 1626 and 1632 — which had been split three ways purely because the index wrote his name differently on different pages.</p>
   </div>
 </section>
+  <Sources ids={["blasonario", "familysearch", "dfcom"]} />
 </Base>

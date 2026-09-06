@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
@@ -117,4 +118,5 @@ const millbrook = rows.filter(r => /Nine Partners/.test(r.cem));
     <p>Source: Find a Grave memorial index, searched under Defranceschi, De Franceschi, DeFranceschi, Defranceski and De Franceski. Each name links to its own memorial.</p>
   </section>
   <Lightbox />
+  <Sources ids={["findagrave", "mftpkg"]} />
 </Base>
