@@ -109,6 +109,18 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
       {dl.gracisce_town.cadastre.routes.map(r => <li style="margin:.4em 0">{r}</li>)}
     </ul>
   </div>
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">Located</div>
+    <h3>{dl.gracisce_town.urbaria.heading}</h3>
+    <p>{dl.gracisce_town.urbaria.text}</p>
+    <div class="scroll" style="margin-top:14px">
+      <table><tbody>{dl.gracisce_town.urbaria.rows.map(([a,b,c]) => (
+        <tr><td>{a}</td><td>{b}</td><td class="m">{c}</td></tr>
+      ))}</tbody></table>
+    </div>
+    <p style="margin-top:14px"><strong>{dl.gracisce_town.urbaria.why}</strong></p>
+    <p class="cap" style="margin-top:12px">{dl.gracisce_town.urbaria.note}</p>
+  </div>
   <p class="cap" style="margin-top:14px">{dl.gracisce_town.source}</p>
 </section>
 
