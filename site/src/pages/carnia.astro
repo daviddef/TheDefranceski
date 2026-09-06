@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import c from "../data/carnia.json";
 ---
@@ -21,6 +23,39 @@ import c from "../data/carnia.json";
     <p>{c.mione.found}</p>
     <p>{c.mione.why}</p>
     <p class="cap" style="margin-top:12px">A bishop is a public figure and his dates are published; this archive names him for that reason and stops there. No claim of descent is made — what the record shows is that the surname persisted in the village the family's own tradition points to, for two hundred and sixty years after the only document that puts it there.</p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:50px">And then the registers of Mione itself</h2>
+  <p class="dek" style="margin-top:8px">The Archivio di Stato di Udine has digitised the Napoleonic civil registers of the <strong>Comune di Mione</strong> — fifty-nine volumes — and publishes them openly. Nobody had looked.</p>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:24px">
+    <div class="lab">The first three lines of the book</div>
+    <h3>Defranceschi. Defranceschi. De Franceschi.</h3>
+    <p>{c.mione.registers.index}</p>
+  </div>
+
+  <div style="margin-top:24px"><Plates ids={["mione-index"]} cols={1} /></div>
+
+  <h3 style="font-size:24px;margin-top:38px">The households, as the acts give them</h3>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Who</th><th>Where</th><th>Trade</th><th>The child</th><th class="m">Act</th></tr></thead>
+      <tbody>{c.mione.registers.households.map(h => (
+        <tr>
+          <td>{h.who}</td><td>{h.where}</td><td><em>{h.trade}</em></td>
+          <td>{h.child}<br /><span class="mono" style="font-size:11px;color:var(--ink-3)">{h.note}</span></td>
+          <td class="m">{h.act}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:24px"><Plates ids={["mione-1809-32","mione-1810-1","mione-1810-21"]} /></div>
+
+  <div class="prose" style="margin-top:28px">
+    <p class="note">{c.mione.registers.read}</p>
+    <p>The witnesses to these acts are worth reading too. A shoemaker and a tailor of Luint; a household servant; Lupieri Matteo, <em>possidente</em>. The registrar through all of them is <strong>Giacomo Micoli</strong> — the Micoli of Mione, whose family archive is listed on this archive's research log as holding the Gorto contracts that name the Erman who travelled to Istria with Zuane De Franceschi in 1679. The same dozen surnames run through the village for a hundred and thirty years.</p>
+    <p><strong>What to do next is now obvious.</strong> The same series holds nine volumes of <em>Matrimoni</em> and thirteen of <em>Matrimoni, allegati</em> for Mione. In Napoleonic practice the <em>allegati</em> are the supporting papers filed with a marriage — birth extracts for the bride and groom, and often death extracts for their parents. A single De Franceschi marriage at Mione between 1806 and 1815 would therefore reach back into the middle of the eighteenth century, and possibly to the generation of the Zuane of 1679. Nothing else available to this project can do that.</p>
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
@@ -61,4 +96,5 @@ import c from "../data/carnia.json";
     <p>From the sixteenth century the villages of the parishes of Ovaro and Luincis sent weavers and pedlars — the <em>cramars</em> — down what was called the road of the Furlans, into Istria. It began as seasonal work: out in the autumn, home in late spring. The 1679 entry catches exactly that, a father and a son wintering in the County of Pazin. Some of them stopped coming home.</p>
   </section>
   <Sources ids={["familysearch", "kobler", "soravito", "sandaniele"]} />
+  <Lightbox />
 </Base>
