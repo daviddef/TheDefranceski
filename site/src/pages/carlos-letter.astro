@@ -156,6 +156,35 @@ import k from "../data/kobler.json";
 </section>
 
 <section class="blk">
+  <h2>{k.threestocks.heading}</h2>
+  <p class="dek" style="margin-top:10px">{k.threestocks.lead}</p>
+  <p class="prose note" style="margin-top:16px">{k.threestocks.open}</p>
+
+  {k.threestocks.stocks.map(st => (
+    <div class="one" style="border-left-color:var(--accent);margin-top:24px">
+      <div class="lab">Stock {st.n}</div>
+      <h3>{st.t}</h3>
+      <div class="scroll" style="margin-top:12px">
+        <table><tbody>{st.rows.map(([w, x]) => (
+          <tr><td style="width:150px"><strong>{w}</strong></td><td>{x}</td></tr>
+        ))}</tbody></table>
+      </div>
+    </div>
+  ))}
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:26px">
+    <div class="lab">Where the two accounts meet</div>
+    <h3>{k.threestocks.collision.heading}</h3>
+    <p style="margin-top:10px">{k.threestocks.collision.text}</p>
+    <p style="margin-top:12px">{k.threestocks.collision.then}</p>
+    <p style="margin-top:12px"><strong>{k.threestocks.collision.why}</strong></p>
+  </div>
+
+  <p class="prose note" style="margin-top:22px">{k.threestocks.discrepancies}</p>
+  <p class="cap" style="margin-top:14px">{k.threestocks.source_stocks}</p>
+</section>
+
+<section class="blk">
   <h2>{k.obituary.heading}</h2>
   <p class="dek" style="margin-top:8px">{k.obituary.lead}</p>
   <div class="qz" style="margin-top:18px">

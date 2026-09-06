@@ -99,6 +99,10 @@ add("Person", "Anna Bembo", "m. 22 Jan 1795 at Valle · daughter of Tommaso Bemb
 add("Person", "Vittorio Defranceschi", "b. c. 1872 · son of Francesco · Gologorica",
     "/gologorica-line/", gg["bandnight"]["person"])
 
+for st in L("kobler.json")["threestocks"]["stocks"]:
+    for w, x in st["rows"]:
+        add("Fiume family", w, f"Kobler, stock {st['n']} · {st['t']}", "/carlos-letter/", x[:320])
+
 sg = L("seget.json")
 for i, m in enumerate(sg["umago"]["mayors"]):
     if "Franceschi" in m["n"]:
