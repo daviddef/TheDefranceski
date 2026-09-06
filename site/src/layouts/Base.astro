@@ -1,19 +1,22 @@
 ---
 import { u } from "../lib/url.js";
-const { title, dek, eyebrow } = Astro.props;
+const { title, dek, eyebrow, bare } = Astro.props;
 const SITE = "The Defranceschi Archive";
 const nav = [
-  ["Start", [["/", "Home"], ["/search/", "Search"], ["/about/", "About"]]],
-  ["The line", [["/direct-line/", "The Spine"], ["/carnia/", "Carnia"], ["/gologorica-line/", "Gologorica"], ["/the-eleven/", "The Eleven"], ["/crikvenica-house/", "Crikvenica"], ["/pfullingen/", "Pfullingen"],
-                ["/seget/", "Seget"], ["/omis-line/", "Omiš"], ["/imotski/", "Imotski"], ["/senj-line/", "Senj"], ["/lines/", "All lines"]]],
-  ["People", [["/people/", "People"], ["/namesakes/", "Namesakes"], ["/households/", "Households"],
-              ["/explorer/", "Explorer"], ["/marriages/", "Marriages"], ["/carlos-letter/", "Carlo's Letter"], ["/carlos-book/", "Carlo's Book"]]],
-  ["Places", [["/places/", "Places"], ["/istria-sweep/", "Every Town"], ["/journeys/", "Journeys"], ["/emigration/", "Leaving"], ["/diaspora/", "Diaspora"],
-              ["/timeline/", "Timeline"]]],
+  ["Start", [["/", "Home"], ["/story/", "The Story"], ["/tree/", "The Tree"], ["/atlas/", "The Atlas"], ["/search/", "Search"]]],
+  ["The line", [["/direct-line/", "The Spine"], ["/carnia/", "Carnia"], ["/gologorica-line/", "Gologorica"],
+                ["/crikvenica-house/", "Crikvenica"], ["/pfullingen/", "Pfullingen"], ["/senj-line/", "Senj"]]],
+  ["Other families", [["/lines/", "All lines"], ["/the-eleven/", "The Eleven"], ["/seget/", "Seget"],
+                      ["/omis-line/", "Omiš"], ["/imotski/", "Imotski"], ["/istria-sweep/", "Every Town"],
+                      ["/diaspora/", "Diaspora"], ["/namesakes/", "Namesakes"]]],
+  ["People & places", [["/people/", "People"], ["/households/", "Households"], ["/explorer/", "Explorer"],
+                       ["/marriages/", "Marriages"], ["/places/", "Places"], ["/journeys/", "Journeys"],
+                       ["/emigration/", "Leaving"], ["/timeline/", "Timeline"]]],
   ["The dead", [["/burials/", "Burials"], ["/graves/", "Graves"]]],
   ["Names & signs", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"]]],
   ["Sources", [["/gallery/", "Gallery"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"],
-               ["/sources/", "Sources"], ["/research-log/", "Research Log"]]],
+               ["/carlos-letter/", "Carlo's Letter"], ["/carlos-book/", "Carlo's Book"],
+               ["/sources/", "Sources"], ["/research-log/", "Research Log"], ["/about/", "About"]]],
 ];
 const here = Astro.url.pathname;
 ---
@@ -43,11 +46,13 @@ const here = Astro.url.pathname;
 
 <main>
   <div class="wrap">
-    <div class="pagehead">
-      {eyebrow && <div class="lab">{eyebrow}</div>}
-      <h1>{title}</h1>
-      {dek && <p class="dek lead">{dek}</p>}
-    </div>
+    {!bare && (
+      <div class="pagehead">
+        {eyebrow && <div class="lab">{eyebrow}</div>}
+        <h1>{title}</h1>
+        {dek && <p class="dek lead">{dek}</p>}
+      </div>
+    )}
     <slot />
   </div>
 </main>

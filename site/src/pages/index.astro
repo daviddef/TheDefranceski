@@ -2,94 +2,116 @@
 import { u } from "../lib/url.js";
 import Base from "../layouts/Base.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
-import Census1945 from "../components/Census1945.astro";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
-import names from "../data/names.json";
-const stats=[
-  ["1679","a De Franceschi of Mione, weaving in the County of Pazin"],
-  ["25","Defranceschi families in Istria, 1 Oct 1945"],
-  ["628","people named Defranceschi worldwide"],
-  ["~10","left in Croatia today"],
-  ["1787","the farmer of house 5, Gallignana — the line's earliest dated ancestor"],
-  ["zavičaj","the word in the 1890 register that ties the coast to Istria"],
-  ["99","burials recovered from the registers of the dead"],
-  ["28","plates of the family's own paper, now published"],
-  ["96","graves found worldwide — one of them in Croatia"],
-  ["11","children of Josip's brother, in five countries"],
-  ["1788","Osvaldo, born at Muina — and his grandfather named"],
-  ["1810","a De Franceschi tailor of Mione, in the register"],
-  ["1939","a De Franceschi still born at Mione"],
-  ["247","family photographs opened out of one genealogy file"],
-  ["442","entries in one searchable index"],
+
+/* Every number links to the page that earns it. */
+const stats = [
+  ["1679", "a De Franceschi of Mione, weaving in the County of Pazin", "/carnia/"],
+  ["1615", "the earliest the name is indexed anywhere in Istria — at Labin", "/istria-sweep/"],
+  ["1711", "the year cut on the house Carlo's great-great-grandfather built", "/carlos-letter/"],
+  ["1787", "the farmer of house 5, Gallignana — the line's earliest dated ancestor", "/direct-line/"],
+  ["zavičaj", "the word in the 1890 register that ties the coast to Istria", "/direct-line/"],
+  ["1364", "the date on a bell in the family's own parish tower", "/carlos-letter/"],
+  ["25", "Defranceschi families in Istria on 1 October 1945", "/name/"],
+  ["~10", "left in Croatia today", "/diaspora/"],
+  ["66", "indexed entries at Rijeka — the heaviest cluster in Istria", "/istria-sweep/"],
+  ["99", "burials recovered from the registers of the dead", "/burials/"],
+  ["96", "graves found worldwide — exactly one of them in Croatia", "/graves/"],
+  ["11", "children of Josip's brother, scattered across five countries", "/the-eleven/"],
+  ["28", "colonist households on the Seget estate, named in 1764", "/carlos-book/"],
+  ["148.901", "and 148.902 — two brothers' refugee numbers, one apart", "/pfullingen/"],
+  ["77", "plates of the family's own paper, published here", "/gallery/"],
+  ["594", "entries in one searchable index", "/search/"],
+];
+
+const finds = [
+  ["Sept 2026", "The day they sailed", "Anton's index card reads «Emigré Australie le 8.3.49», and is stamped CM/1 destroyed. That is the morning Zdravko, Ruža and the child left Germany for good.", "/pfullingen/"],
+  ["Sept 2026", "A governor we do not have", "The family's online tree descends this house from a Venetian governor of Imotski. It is a mis-splice, and the tree records its own doubt in the names.", "/imotski/"],
+  ["Sept 2026", "What they did at Gologorica", "Not landowners, not peasants. They farmed the bishop of Pedena's rent — wine, wheat, oats, lambs, hens and eggs — on a lease renewed at every episcopal succession.", "/carlos-letter/"],
+  ["Sept 2026", "Svetvinčenat, 1674", "A sweep of sixty Istrian parishes found a De Franceschi household nobody here had looked for — older than the Mione list, older than the arrival Carlo claims.", "/istria-sweep/"],
+  ["Sept 2026", "Ivan, aged two", "The file marked as a birth is a death. He was buried on 28 March 1896, and his sister Zorica was conceived the month he died.", "/crikvenica-house/"],
+  ["Sept 2026", "The other half", "Behind the Senj marriage stands a line of packhorse carriers and tobacco-factory workers, and a Karlobag ancestry reaching people born about 1690.", "/senj-line/"],
 ];
 ---
 <Base title="The Defranceschi Archive" eyebrow="Istria · Kvarner · Carnia · and the diaspora"
-      dek="A family written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing.">
+      dek="A family written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing."
+      bare={true}>
+
+<section class="opener">
+  <div class="kicker">A family history, kept honestly</div>
+  <h1>Six generations back, a stonemason on an Istrian hill.</h1>
+  <p class="lede">
+    This archive was built for <b>David Defranceski</b>, born in Johannesburg, living in Brisbane —
+    and it runs backwards from him: to <b>Senj</b>, where his grandfather Ivan is buried; to
+    <b>Crikvenica</b>, where the household came ashore; to <b>Gračišće</b> in Istria, where in 1863 a
+    stonecutter's son called Josephus was baptised; and to the mountains of <b>Carnia</b>, where the
+    family says it began and where the documents run out.
+  </p>
+  <p class="lede" style="margin-top:14px">
+    It is a public archive with one rule: <b>the living are left out</b> — omitted, not hidden. And a
+    second rule, which is harder: every claim says how well it is known.
+    <span class="chip doc" style="padding:2px 8px;font-size:10px">Documented</span>
+    <span class="chip inf" style="padding:2px 8px;font-size:10px">Inferred</span>
+    <span class="chip lore" style="padding:2px 8px;font-size:10px">Family lore</span>
+  </p>
+
+  <div class="doors">
+    <a class="door" href={u("/story/")}>
+      <div class="dn">Read the story</div>
+      <div class="dd">Nine chapters, 1679 to Brisbane. The whole descent told once, in order, with the document behind every claim.</div>
+      <div class="go">Start at Mione →</div>
+    </a>
+    <a class="door" href={u("/tree/")}>
+      <div class="dn">Look up a person</div>
+      <div class="dd">The family tree, openable generation by generation — or search 594 people, places, records and plates at once.</div>
+      <div class="go">Open the tree →</div>
+    </a>
+    <a class="door" href={u("/atlas/")}>
+      <div class="dn">See where it happened</div>
+      <div class="dd">Every place the archive can put a document in, on one map — from the Gorto valley to the Wimmera.</div>
+      <div class="go">Open the atlas →</div>
+    </a>
+  </div>
+</section>
 
 <section class="blk">
-  <div class="prose">
-    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's. <strong>There is no single founding Defranceschi family.</strong></p>
-    <p>That is this archive's organising idea rather than its disappointment. The work is to establish which lines are actually connected, to say plainly where the evidence stops, and to keep the good stories without letting them pretend to be facts.</p>
-  </div>
-  <div class="grid g4" style="margin-top:34px">
-    {stats.map(([n,l])=>(
-      <div class="stat"><div class="n">{n}</div><div class="l">{l}</div></div>
+  <h2>The archive in numbers</h2>
+  <p class="dek">Every one of these is a link to the page that earns it.</p>
+  <div class="statgrid">
+    {stats.map(([n, l, href]) => (
+      <a class="stat" href={u(href)}>
+        <div class="n">{n}</div>
+        <div class="l">{l}</div>
+        <div class="go">See the evidence →</div>
+      </a>
     ))}
   </div>
 </section>
 
-<section class="blk" id="new">
-  <h2>What the parish book of souls closed</h2>
-  <p class="dek">Two ruled rows from the Gračišće <em>Status Animarum</em> — bought from the Pazin archive in 2021 and read for the first time this week — carry four generations, with the wives named and the trades given. They join the certified 1863 baptism already held, and the line runs unbroken from a farmer's house in Istria to Brisbane.</p>
-  <div class="grid g2" style="margin-top:26px;align-items:start">
-    <div class="prose">
-      <p><strong>House 5.</strong> <em>Joan. Bapt. Defranceschi, agricola</em> — born 13 August 1787, married 1819, died 1 September 1846. His wife <strong>Francisca Salomon</strong>, born 17 March 1797. Four sons: Raymundus, <strong>Antonius</strong>, Joannes, Franciscus.</p>
-      <p><strong>House 19.</strong> <em>† Antonius Defranceschi <span class="mono">q. Joannis</span></em> — son of the late Giovanni — born 20 September 1825, married 25 November 1856, died 4 August 1894; a <em>lapicida</em>, a stonecutter. His wife <strong>Maria née Fernasar</strong>, born 17 October 1832. Five children, among them <strong>Josephus, born 22 March 1863</strong>.</p>
-      <p>Three Latin words weld the two houses together, and Josephus is the man on the certified baptism.</p>
-      <p><strong>And the coast is welded to Istria by one word in a different column.</strong> The Klenovica baptism of 20 January 1890 enters Anton Rudolf as the legitimate son of <em>Josip Defranceschi i žena Ana Kalanj rodjena</em>, at house 22 — and beside it, under the parents' place of origin: <em>Gallignana u Istriji</em>. That is the <em>zavičaj</em>, the inherited Austrian commune of legal settlement. The register is saying that this Kvarner household's home commune was Gračišće. The link the family carried on a chart is on a page.</p>
-      <p><a href={u("/direct-line/")}>Walk the eight generations →</a></p>
-    </div>
-    <div class="prose">
-      <p><strong>And six names at Pfullingen.</strong> The family's Arolsen file — ninety-two images, read this week — shows six Defranceskis registered in one Swabian town between 1939 and 1945, five of them born at Crikvenica. Three of them have faces, on French-zone camp cards. A clerk pencilled on the back of one card that its holder had been taken by the Partisans in 1943 and held three or four months before coming to Germany.</p>
-      <p><strong>And Petar never went to California.</strong> A counselling card found in the Arolsen collections this week — not in the file the family holds — carries three lines. 22 July 1949: <em>«Veut rester en Allemagne, a une maison, 2 autos etc.»</em> 28 April 1951: confirms they will stay. The ship's engineer who left Split in 1939 with nothing had a house and two cars ten years later, and decided that was enough.</p>
-      <p><a href={u("/pfullingen/")}>The six, and the paper →</a></p>
-      <p><strong>And the graves say where they went.</strong> Zdravko, who was taken by the Partisans, is buried at Horsham in the Victorian Wimmera under the name Frank; his wife Ruža lies beside him; and their son Anton — the child written on the camp card as <em>enfant</em> — is buried at Willowbank in the City of Ipswich, an hour from Brisbane. Of ninety-six graves of this surname found anywhere in the world, exactly one is in Croatia.</p>
-      <p><a href={u("/graves/")}>Where the name is cut in stone →</a></p>
-      <p><strong>And the cousins are found.</strong> An American branch printed a family tree for its first reunion in 2012. It begins with Antonio DeFranceschi, born <strong>6 August 1856</strong> — which is the eldest son in house 19 of the Gračišće book of souls, and Josip's elder brother by six and a half years. Their eleven children went to New York, Buenos Aires, Tuscany, Slovenia and Croatia. Two brothers in one Istrian house, and everything after.</p>
-      <p><a href={u("/the-eleven/")}>The eleven →</a></p>
-      <p><strong>And Carnia stops being an assertion.</strong> Searching the Italian indexes by place instead of by name turns up twelve De Franceschi in the mountains the family says it came from — at Paluzza from the 1780s, at Ovaro in the 1870s. Monsignor Lucio Soravito de Franceschi was born at <strong>Mione di Ovaro on 8 December 1939</strong>: the surname still in the village two hundred and sixty years after the headmen's list of 1679 put a Zuane De Franceschi of Mione at work in the County of Pazin.</p>
-      <p><strong>And then the registers of the village itself.</strong> The Italian state archives have digitised fifty-nine civil registers for the <em>Comune di Mione</em> and publish them openly. The alphabetical index of births for 1806–1810 opens on three De Franceschi entries — the first three lines of the whole book — and the acts behind them name the households: <strong>Osvaldo and Appolonia Salante, farmers of Muina</strong>; <strong>Francesco, a tailor, and Margherita Gortan of Mione</strong>; <strong>Osvaldo, a carpenter, and Cattarina Brencis</strong>, whose son born on 15 October 1810 they named <strong>Giovanni Battista</strong>.</p>
-      <p><strong>And the marriage register goes deeper still.</strong> On 28 January 1808 at Muina, Osvaldo de Franceschi, farmer, aged twenty, married Appolonia Salante. The act reads his birth certificate into the record: born 14 March 1788 at Muina, of the lawful marriage of <strong>Antonio, son of the late LEONARDO de Franceschi</strong>, and Maria née Corva. Four generations of the family in a Carnian village, and a name — Leonardo — that Carlo De Franceschi also gives to the father of the man who built the Gologorica house in 1711.</p>
-      <p><strong>And the marriage file goes back further still.</strong> Filed with that wedding is a parish certificate, sealed and revenue-stamped: <em>Giacoma, lawful daughter of Osvaldo, son of the late <strong>Giovanni Battista de' Franceschi of Mione</strong>, born 25 May 1789, as appears from the Book of Baptisms.</em> Both names Carlo De Franceschi gave for his own ancestors — Giambattista, and the Leonardo who was his father — are in the eighteenth-century De Franceschi of Mione.</p>
-      <p><a href={u("/carnia/")}>Back to Carnia →</a></p>
-      <p><strong>And the name is on four continents.</strong> Searching the migration indexes by country rather than by name turns up whole branches this archive had never seen — dozens of De Franceschi among the Veneto colonies of <strong>Rio Grande do Sul</strong>, an iron-mining family in Michigan, thirteen graves in one Connecticut town, and a Croatian family of four arriving at Philadelphia in 1954 who appear in no register yet searched.</p>
-      <p><a href={u("/diaspora/")}>Where the name went →</a></p>
-      <p><strong>And ninety-nine burials.</strong> Searching the registers of the dead by surname rather than by parish turned up what every place-by-place sweep had missed — including four children buried by Carlo De Franceschi, one of them named for his own mother.</p>
-      <p><a href={u("/burials/")}>The register of the dead →</a></p>
-    </div>
+<section class="blk">
+  <h2>Recently found</h2>
+  <p class="dek">What the last stretch of work turned up. The research log has the rest.</p>
+  <div class="finds">
+    {finds.map(([w, h, t, href]) => (
+      <a class="find" href={u(href)}>
+        <div class="fw">{w}</div>
+        <div class="fh">{h}</div>
+        <div class="ft">{t}</div>
+      </a>
+    ))}
   </div>
+  <p class="cap"><a href={u("/research-log/")}>The research log →</a></p>
 </section>
 
 <section class="blk">
-  <h2>Three places, three histories</h2>
-  <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Every date in this archive has to be read against this chart.</p>
-  <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
-  <p class="cap"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
-</section>
-
-<section class="blk">
-  <h2>Istria, 1 October 1945</h2>
-  <p class="dek">A census taken months after the war and weeks before the exodus counted the surname village by village. Twenty-five families in twelve settlements — and the spaced spelling survives only where Venice ruled, though the fused form is found on both sides.</p>
-  <div style="margin-top:26px"><Census1945 /></div>
-  <p class="cap">Source: {names.census1945.source}. Counts are families, not individuals.</p>
-</section>
-
-<section class="blk">
-  <h2>The lines</h2>
-  <p class="dek">Seven. Three documented, two inferred, one family lore, and one found during this research that belongs to nobody yet.</p>
+  <h2>There is no single Defranceschi family</h2>
+  <div class="prose" style="margin-top:14px">
+    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's.</p>
+    <p>That is this archive's organising idea rather than its disappointment. The work is to establish which lines are actually connected, to say plainly where the evidence stops, and to keep the good stories without letting them pretend to be facts.</p>
+  </div>
   <div class="grid g2" style="margin-top:24px">
-    {lines.map(l=>(
+    {lines.map(l => (
       <a class="cardlink" href={u("/lines/")}>
         <div class="nm">{l.name}</div>
         <div style="margin-top:9px"><Chip c={l.status} /></div>
@@ -98,5 +120,12 @@ const stats=[
       </a>
     ))}
   </div>
+</section>
+
+<section class="blk">
+  <h2>Three places, three histories</h2>
+  <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Every date in this archive has to be read against this chart.</p>
+  <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
+  <p class="cap"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
 </section>
 </Base>

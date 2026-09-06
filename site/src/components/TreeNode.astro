@@ -1,0 +1,28 @@
+---
+import { u } from "../lib/url.js";
+const { node, depth = 0 } = Astro.props;
+const kids = node.kids || [];
+const cls = "tnode " + (node.conf === "doc" ? "doc" : node.conf === "inf" ? "inf" : "lore");
+---
+{kids.length > 0 ? (
+  <details class="tb" open={depth < 3}>
+    <summary>
+      <span class={cls}>
+        <span class="tn">{node.name}</span>
+        <span class="td">{node.dates}{node.place ? " · " + node.place : ""}</span>
+      </span>
+    </summary>
+    {node.note && <p class="cap" style="margin:8px 0 0 4px;max-width:60ch">{node.note}{node.href && <> <a href={u(node.href)}>More →</a></>}</p>}
+    <div class="tkids">
+      {kids.map(k => <div class="tbranch"><Astro.self node={k} depth={depth + 1} /></div>)}
+    </div>
+  </details>
+) : (
+  <div>
+    <span class={cls}>
+      <span class="tn">{node.name}</span>
+      <span class="td">{node.dates}{node.place ? " · " + node.place : ""}</span>
+    </span>
+    {node.note && <p class="cap" style="margin:8px 0 0 4px;max-width:60ch">{node.note}{node.href && <> <a href={u(node.href)}>More →</a></>}</p>}
+  </div>
+)}

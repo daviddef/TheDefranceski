@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import s from "../data/story.json";
+---
+<Base
+  title="The Story"
+  eyebrow="Nine chapters · 1679 to Brisbane"
+  dek="The whole descent told once, in order. Every chapter carries the document it rests on, and says plainly where the evidence stops.">
+
+  <div class="walk">
+    {s.chapters.map(c => (
+      <article class="chap">
+        <div class="cn">
+          <span class="yr">{c.yr}</span>
+          {c.n}
+        </div>
+        <div class="cb">
+          <div class="lab">{c.place}</div>
+          <h3 style="margin-top:8px">{c.title}</h3>
+          <p class="cw">{c.text}</p>
+          <blockquote class="cq">{c.quote}</blockquote>
+          <p class="cap" style="margin-top:8px">{c.qsrc}</p>
+          <p class="cw" style="margin-top:14px"><strong>{c.hard}</strong></p>
+          <div class="cl">{c.links.map(([t, h]) => <a href={u(h)}>{t} →</a>)}</div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <section class="blk" style="border-top:1px solid var(--rule);margin-top:10px">
+    <h2>{s.after.heading}</h2>
+    <p class="dek" style="margin-top:10px">{s.after.text}</p>
+    <div class="cl" style="margin-top:18px">{s.after.links.map(([t, h]) => <a href={u(h)}>{t} →</a>)}</div>
+  </section>
+
+  <Sources ids={["dapa", "maticne", "kobler", "arolsen", "familysearch"]} />
+</Base>

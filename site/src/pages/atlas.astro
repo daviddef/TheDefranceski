@@ -1,0 +1,102 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import a from "../data/atlas.json";
+const cats = [
+  ["spine",    "The documented line",       "#A8442B"],
+  ["carnia",   "Carnia — where it may start","#9A6B18"],
+  ["sweep",    "Istria, where the name is",  "#1F5C6B"],
+  ["other",    "Other families of the name", "#6E6A86"],
+  ["senj",     "The Senj and Karlobag side", "#4E7A55"],
+  ["diaspora", "Where they went",            "#2E7C8C"],
+];
+const payload = JSON.stringify({ places: a.places, base: u("/") });
+---
+<Base
+  title="The Atlas"
+  eyebrow="Fifty places, one map"
+  dek="Every place this archive can put a document in — from the Gorto valley in Carnia to a cemetery in the Victorian Wimmera. The dark line is the documented descent, walked in order.">
+
+  <div id="atlas" data-atlas={payload}></div>
+
+  <div class="atlas-key">
+    {cats.map(([k, label, c]) => (
+      <span><i style={`background:${c}`}></i>{label}</span>
+    ))}
+  </div>
+  <p class="cap">Click any marker for what happened there and a way into the page that proves it. Scroll to zoom; the line joins the nine places of the direct descent in order.</p>
+
+  <section class="blk" style="margin-top:34px">
+    <h2>Reading the map</h2>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="panel">
+        <div class="lab">The line is short</div>
+        <p class="dek" style="margin-top:8px">Nine places carry the whole documented descent, and seven of them sit inside a hundred kilometres of each other. The family did not move much until 1939, and then it moved to three continents in a decade.</p>
+      </div>
+      <div class="panel">
+        <div class="lab">The cluster is not the line</div>
+        <p class="dek" style="margin-top:8px">Rijeka, Pula and Ližnjan carry far more of the surname than Gračišće ever did — and none of them is connected to this family by any document. Weight on the map is not kinship.</p>
+      </div>
+      <div class="panel">
+        <div class="lab">The gap is the argument</div>
+        <p class="dek" style="margin-top:8px">Between Mione in 1679 and Gologorica in 1711 there is nothing but a house with a date on it. That two-hundred-kilometre jump is the one thing this archive cannot yet prove.</p>
+      </div>
+    </div>
+  </section>
+
+  <Sources ids={["familysearch", "dapa", "kobler", "arolsen", "findagrave"]} />
+</Base>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script is:inline define:vars={{ payload }}>
+  window.addEventListener("load", function () {
+    var el = document.getElementById("atlas");
+    if (!el || typeof L === "undefined") return;
+    var d = JSON.parse(payload);
+    var COLORS = { spine:"#A8442B", carnia:"#9A6B18", sweep:"#1F5C6B",
+                   other:"#6E6A86", senj:"#4E7A55", diaspora:"#2E7C8C" };
+
+    var map = L.map(el, { scrollWheelZoom: true, worldCopyJump: true });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; OpenStreetMap contributors', maxZoom: 18
+    }).addTo(map);
+
+    var pts = [];
+    d.places.forEach(function (p) {
+      var isSpine = !!p.order;
+      var m = L.circleMarker([p.lat, p.lon], {
+        radius: isSpine ? 8 : 5.5,
+        color: "#ffffff", weight: isSpine ? 2 : 1.2,
+        fillColor: COLORS[p.cat] || "#666", fillOpacity: 0.92
+      }).addTo(map);
+      var link = p.href ? '<br><a href="' + d.base.replace(/\/$/, "") + p.href + '">Read more &rarr;</a>' : "";
+      m.bindPopup("<b>" + p.name + "</b><br><i>" + p.when + "</i><br>" + p.what + link);
+      m.bindTooltip(p.name, { direction: "top", offset: [0, -6] });
+      pts.push([p.lat, p.lon]);
+    });
+
+    var spine = d.places.filter(function (p) { return p.order; })
+                        .sort(function (x, y) { return x.order - y.order; })
+                        .map(function (p) { return [p.lat, p.lon]; });
+    L.polyline(spine, { color: "#A8442B", weight: 2.5, opacity: 0.75, dashArray: "1 7", lineCap: "round" }).addTo(map);
+
+    map.fitBounds(L.latLngBounds([[35, 9], [49, 26]]), { padding: [24, 24] });
+
+    var btn = L.control({ position: "topright" });
+    btn.onAdd = function () {
+      var b = L.DomUtil.create("div", "leaflet-bar");
+      b.innerHTML = '<a href="#" title="Show the whole world" style="width:auto;padding:0 9px;font:500 11px/26px system-ui">Whole world</a>';
+      var wide = false;
+      L.DomEvent.on(b, "click", function (e) {
+        L.DomEvent.stop(e);
+        wide = !wide;
+        if (wide) { map.fitBounds(L.latLngBounds(pts), { padding: [24, 24] }); b.querySelector("a").textContent = "Back to Istria"; }
+        else { map.fitBounds(L.latLngBounds([[35, 9], [49, 26]]), { padding: [24, 24] }); b.querySelector("a").textContent = "Whole world"; }
+      });
+      return b;
+    };
+    btn.addTo(map);
+  });
+</script>

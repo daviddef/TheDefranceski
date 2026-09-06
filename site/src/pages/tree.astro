@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import TreeNode from "../components/TreeNode.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import t from "../data/tree.json";
+---
+<Base
+  title="The Tree"
+  eyebrow="Seven generations · openable"
+  dek="The documented descent, generation by generation. Click a name to open or close its children; every branch that goes anywhere carries a link down to the page that proves it.">
+
+  <div class="legend" style="margin-bottom:18px">
+    <span><i style="background:var(--accent);border-radius:0;width:3px;height:14px"></i>Documented — a register page or certified extract</span>
+    <span><i style="background:var(--ochre);border-radius:0;width:3px;height:14px"></i>Inferred</span>
+    <span><i style="background:var(--ink-3);border-radius:0;width:3px;height:14px"></i>Family lore, or deliberately withheld</span>
+  </div>
+
+  <div class="treewrap">
+    <TreeNode node={t.root} />
+  </div>
+
+  <p class="cap" style="margin-top:16px">{t.note}</p>
+
+  <section class="blk" style="margin-top:30px">
+    <h2>Other ways in</h2>
+    <div class="doors" style="margin-top:20px">
+      <a class="door" href={u("/search/")}>
+        <div class="dn">Search everything</div>
+        <div class="dd">594 people, places, households, records, plates and namesakes in one index — diacritics folded, so «Gracisce» finds Gračišće.</div>
+        <div class="go">Open search →</div>
+      </a>
+      <a class="door" href={u("/people/")}>
+        <div class="dn">The people list</div>
+        <div class="dd">Everyone the archive names, with dates, places and the role each played.</div>
+        <div class="go">Browse people →</div>
+      </a>
+      <a class="door" href={u("/households/")}>
+        <div class="dn">Households</div>
+        <div class="dd">Fifty-two reconstructed households, by house number where the register gives one.</div>
+        <div class="go">Browse households →</div>
+      </a>
+    </div>
+  </section>
+
+  <Sources ids={["dapa", "maticne", "mftpkg", "arolsen", "myheritage"]} />
+</Base>
