@@ -253,6 +253,29 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 
 <section class="blk">
+  <h2>{g.casa31.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.casa31.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {g.casa31.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:26px">
+    <div class="lab">Inferred, not documented</div>
+    <h3>{g.casa31.join.heading}</h3>
+    <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:17px;margin-top:12px">{g.casa31.join.text}</p>
+    <p style="margin-top:12px">{g.casa31.join.then}</p>
+    <p style="margin-top:12px"><strong>{g.casa31.join.why}</strong></p>
+    <p style="margin-top:12px">{g.casa31.join.against}</p>
+  </div>
+  <p class="cap" style="margin-top:16px">{g.casa31.source_casa31}</p>
+</section>
+
+<section class="blk">
   <h2>{g.bishop.heading}</h2>
   <p class="dek" style="margin-top:10px">{g.bishop.lead}</p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
