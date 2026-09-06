@@ -23,7 +23,7 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
 ---
 <Base
   title="The Other Franceschi"
-  eyebrow="Fifteen who carried the name"
+  eyebrow={`${ns.length} who carried the name`}
   dek="A chancellor of Venice painted by Titian, a bishop who was a rabbi's son, two Venetian presses, a Napoleonic baron, and the painter every history of perspective begins with. Some are certainly kin to this family. Most are certainly not. The point is the name, and what it did.">
 
   <section class="prose">
@@ -32,7 +32,7 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
   </section>
 
   <div class="filters" role="group" aria-label="Filter by field" style="margin-top:30px">
-    <button type="button" data-f="all" aria-pressed="true">All fifteen</button>
+    <button type="button" data-f="all" aria-pressed="true">All {ns.length}</button>
     {fields.map(f => <button type="button" data-f={f} aria-pressed="false">{f}</button>)}
     <span class="count" id="ncount"></span>
   </div>
