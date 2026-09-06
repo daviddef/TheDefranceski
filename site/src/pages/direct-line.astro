@@ -138,6 +138,21 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <p class="cap" style="margin-top:12px">{dl.village_1895.source}</p>
 </section>
 
+<section class="blk">
+  <h2>{dl.town.heading}</h2>
+  <p class="dek" style="margin-top:8px">{dl.town.lead}</p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th><th>What Ivetic shows</th></tr></thead>
+      <tbody>{dl.town.rows.map(r => (
+        <tr><td class="m">{r.y}</td><td>{r.key ? <strong>{r.t}</strong> : r.t}</td><td>{r.w}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:18px">{dl.town.close}</p>
+  <p class="cap" style="margin-top:12px">{dl.town.source}</p>
+</section>
 
-  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak"]} />
+
+  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak", "ivetic", "attirovigno", "archiveorg"]} />
 </Base>

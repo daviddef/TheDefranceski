@@ -1,355 +1,396 @@
 {
- "note": "The descent from Gologorica to Brisbane. Generations 1-4 rest on two Status Animarum entries and one baptismal entry from the Gracisce parish books, certified by the Pazin State Archive in 2021. Generations 5-6 rest on wartime and displaced-persons paper held by the Arolsen Archives. The last two generations are given as the family itself publishes them, without dates.",
- "generations": [
-  {
-   "n": 1,
-   "name": "Giovanni Defranceschi",
-   "latin": "Joannes",
-   "born": 1750,
-   "died": 1829,
-   "place": "Gologorica → Gračišće",
-   "confidence": "family",
-   "evidence": "Carried on the family's own descent chart. The Status Animarum entry for his son calls that son Joan. Bapt. Defranceschi, and the next generation is styled q. Joannis — son of the late Giovanni — so a Giovanni stands at the head of the line. The 1750–1829 dates come from the family chart, not yet from a register page. What is no longer in doubt is the place: the Klenovica register of 1890 records Gallignana as this family's zavičaj, its inherited commune, four generations downstream.",
-   "sources": []
-  },
-  {
-   "n": 2,
-   "name": "Giovanni Battista Defranceschi",
-   "latin": "Joan. Bapt. Defranceschi",
-   "born": 1787,
-   "bornExact": "13 August 1787",
-   "died": 1846,
-   "diedExact": "1 September 1846",
-   "married": "1819",
-   "occupation": "agricola — farmer",
-   "place": "Gračišće (Gallignana), house 5",
-   "spouse": {
-    "name": "Francisca Salomon",
-    "born": "17 March 1797"
-   },
-   "children": [
+  "note": "The descent from Gologorica to Brisbane. Generations 1-4 rest on two Status Animarum entries and one baptismal entry from the Gracisce parish books, certified by the Pazin State Archive in 2021. Generations 5-6 rest on wartime and displaced-persons paper held by the Arolsen Archives. The last two generations are given as the family itself publishes them, without dates.",
+  "generations": [
     {
-     "name": "Raymundus",
-     "born": "9 October 1823"
+      "n": 1,
+      "name": "Giovanni Defranceschi",
+      "latin": "Joannes",
+      "born": 1750,
+      "died": 1829,
+      "place": "Gologorica → Gračišće",
+      "confidence": "family",
+      "evidence": "Carried on the family's own descent chart. The Status Animarum entry for his son calls that son Joan. Bapt. Defranceschi, and the next generation is styled q. Joannis — son of the late Giovanni — so a Giovanni stands at the head of the line. The 1750–1829 dates come from the family chart, not yet from a register page. What is no longer in doubt is the place: the Klenovica register of 1890 records Gallignana as this family's zavičaj, its inherited commune, four generations downstream.",
+      "sources": []
     },
     {
-     "name": "Antonius",
-     "born": "20 September 1825",
-     "line": true
+      "n": 2,
+      "name": "Giovanni Battista Defranceschi",
+      "latin": "Joan. Bapt. Defranceschi",
+      "born": 1787,
+      "bornExact": "13 August 1787",
+      "died": 1846,
+      "diedExact": "1 September 1846",
+      "married": "1819",
+      "occupation": "agricola — farmer",
+      "place": "Gračišće (Gallignana), house 5",
+      "spouse": {
+        "name": "Francisca Salomon",
+        "born": "17 March 1797"
+      },
+      "children": [
+        {
+          "name": "Raymundus",
+          "born": "9 October 1823"
+        },
+        {
+          "name": "Antonius",
+          "born": "20 September 1825",
+          "line": true
+        },
+        {
+          "name": "Joannes",
+          "born": "30 June 1833"
+        },
+        {
+          "name": "Franciscus",
+          "born": "26 January 1840"
+        }
+      ],
+      "confidence": "documented",
+      "evidence": "Status Animarum of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and four sons beneath him.",
+      "plate": "status-animarum-gb",
+      "sources": [
+        {
+          "label": "DAPA ZM34K 217, M01072071",
+          "note": "Supplied by the Pazin State Archive, 24 June 2021"
+        }
+      ]
     },
     {
-     "name": "Joannes",
-     "born": "30 June 1833"
+      "n": 3,
+      "name": "Antonio Defranceschi",
+      "latin": "Antonius Defranceschi q. Joannis",
+      "born": 1825,
+      "bornExact": "20 September 1825",
+      "died": 1894,
+      "diedExact": "4 August 1894",
+      "married": "25 November 1856",
+      "occupation": "lapicida — stonecutter",
+      "place": "Gračišće (Gallignana), house 19",
+      "spouse": {
+        "name": "Maria née Fernasar",
+        "born": "17 October 1832"
+      },
+      "children": [
+        {
+          "name": "Antonius",
+          "born": "6 August 1856",
+          "note": "b. 6 Aug 1856 — head of the American family's 2012 reunion chart; d. 23 Oct 1924"
+        },
+        {
+          "name": "Josephus",
+          "born": "22 March 1863",
+          "line": true
+        },
+        {
+          "name": "Leopolda",
+          "born": "6 November 1865"
+        },
+        {
+          "name": "Catharina",
+          "born": "3 February 1869"
+        },
+        {
+          "name": "Modestus",
+          "born": "15 June 1875"
+        }
+      ],
+      "confidence": "documented",
+      "evidence": "Status Animarum, house 19, with the cross of death before his name. He is styled q. Joannis, which welds this household to house 5. His trade comes from the 1863 baptismal entry for his son, where he is entered as lapicida. His eldest son Antonius, born 6 August 1856, is the man at the head of the chart the American branch printed for its first reunion in 2012 — the same date, to the day. That family's eleven children went to New York, Buenos Aires, Tuscany, Slovenia and Croatia.",
+      "plate": "status-animarum-ant",
+      "sources": [
+        {
+          "label": "DAPA ZM34K 217, M01071656",
+          "note": "Supplied by the Pazin State Archive, 24 June 2021"
+        },
+        {
+          "label": "MKR Gračišće 1841-1899",
+          "note": "Certified copy supplied 26 April 2021"
+        }
+      ]
     },
     {
-     "name": "Franciscus",
-     "born": "26 January 1840"
+      "n": 4,
+      "name": "Josip Defranceschi",
+      "latin": "Josephus",
+      "born": 1863,
+      "bornExact": "22 March 1863",
+      "died": 1951,
+      "place": "Gračišće → Crikvenica",
+      "confidence": "documented",
+      "evidence": "Baptised at Gallignana on 23 March 1863, born the day before, son of Antonius the stonecutter. He is the generation that leaves Istria for the Kvarner coast: his son is born at Crikvenica in 1890. The family identifies his wife as Anna Kalanj, and her own baptism survives — Ledenice register, entry 2 of 1864, daughter of Josephus Kalanj and Rosalia née Perković, at Rijenovica house 22, in the Vinodol valley directly above Crikvenica. That is very probably the reason a Gračišće stonecutter's son ended up on that stretch of coast: he married into it. The 1951 death date is the family's. The Crikvenica death register of 1906 gives his trade: «vešti klesar sada tvorničar» — a skilled stonemason, now a factory worker. His father Antonius was a lapicida at Gračišće. The stone came down to the coast with him.",
+      "plate": "gracisce-1863",
+      "sources": [
+        {
+          "label": "MKR Gračišće 1841-1899, entry 23",
+          "note": "Certified copy, Pazin State Archive, 26 April 2021"
+        },
+        {
+          "label": "Ledenice baptisms, entry 2 of 1864",
+          "note": "Anna Kalanj's own baptismal entry"
+        }
+      ],
+      "spouse": {
+        "name": "Anna Kalanj",
+        "born": "3 January 1864, at Rijenovica in the Vinodol"
+      },
+      "children": [
+        {
+          "name": "Anton Rudolf",
+          "born": "20 January 1890",
+          "line": true
+        },
+        {
+          "name": "Marija Stjepanka",
+          "born": "8 Dec 1892 – 29 Sep 1905"
+        },
+        {
+          "name": "Ivan",
+          "born": "November 1894"
+        },
+        {
+          "name": "Zorica",
+          "born": "14 December 1896"
+        },
+        {
+          "name": "Marija",
+          "born": "Oct 1905 – 4 Feb 1906"
+        }
+      ],
+      "plates": [
+        "gracisce-1863",
+        "ana-kalanj",
+        "anton-1890"
+      ],
+      "flag": "The marriage itself has still not been found. And the family's own genealogy file gives Josip a wife Ana Grubišić, 1863–1936, whose gravestone it photographs — a different birth date and a different maiden name from the Ana Kalanj the registers name in all four children's entries. The registers govern here; the stone is an open question worth a letter.",
+      "occupation": "vešti klesar sada tvorničar — skilled stonemason, later a factory worker"
+    },
+    {
+      "n": 5,
+      "name": "Anton Rudolf Defranceski",
+      "born": 1890,
+      "bornExact": "20 January 1890, baptised 9 February",
+      "died": 1943,
+      "place": "Klenovica, house 22 → Pfullingen",
+      "confidence": "documented",
+      "evidence": "Entry 9 of the Klenovica baptisms for 1890: Anton Rudolf, legitimate, son of «Josip Defranceschi i žena Ana Kalanj rodjena», at house 22 — and in the column for the parents' place of origin, «Gallignana u Istriji». That is the zavičaj, the inherited Austrian commune of legal settlement, and it is the register itself stating that this coastal household's home commune was Gračišće. Fifty-seven years later he is on the Pfullingen list of foreigners, and a certificate of 1950 gives his birth as 20 January 1890 at Crikvenica — the same day, the same man, the coastal parish named by its market town rather than its village.",
+      "plate": "cert-anton-1890",
+      "flag": "The mayor's certificate is dated seven years after the death year the family carries. Retrospective certificates of this kind were commonly obtained by a surviving son for a pension or restitution claim, but the point is open.",
+      "sources": [
+        {
+          "label": "Klenovica baptisms 1890, entry 9",
+          "note": "Names both parents and gives Gallignana as their place of origin"
+        },
+        {
+          "label": "Arolsen Archives, ITS",
+          "note": "Pfullingen list, 10 March 1947; municipal certificate, 28 February 1950"
+        }
+      ],
+      "plates": [
+        "anton-1890",
+        "cert-anton-1890",
+        "ursula-kovacina"
+      ],
+      "spouse": {
+        "name": "Ursula, born Kovačina",
+        "born": "about 1890"
+      },
+      "children": [
+        {
+          "name": "Pepe",
+          "born": "—"
+        },
+        {
+          "name": "Petar",
+          "born": "15 June 1913"
+        },
+        {
+          "name": "Zdravko",
+          "born": "1 April 1921"
+        },
+        {
+          "name": "Ivan",
+          "born": "24 or 25 June 1925",
+          "line": true
+        },
+        {
+          "name": "Anka",
+          "born": "dates unknown"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "name": "Ivan Defranceski",
+      "born": 1925,
+      "bornExact": "24 or 25 June 1925",
+      "died": 1995,
+      "place": "Crikvenica → Pfullingen → Senj",
+      "confidence": "documented",
+      "evidence": "On the Pfullingen list as Iwan, born 24 June 1925 at Crikvenica. His own German sickness-fund card gives 25 June and puts him at Brunnenstraße 7, Pfullingen, entering work on 21 October 1941 as an unskilled hand. He was sixteen. He went home, married Hedviga Blažević, and is buried on his own coast under polished granite cut with a plain cross and the name in Croatian orthography: IVAN DEFRANČESKI, 1925–1995.",
+      "plate": "kk-ivan",
+      "sources": [
+        {
+          "label": "Arolsen Archives, ITS",
+          "note": "Pfullingen list; Allgemeine Ortskrankenkasse membership card"
+        }
+      ],
+      "diedExact": "30 October 1995",
+      "spouse": {
+        "name": "Hedviga, born Blažević",
+        "born": "dates withheld"
+      },
+      "plates": [
+        "kk-ivan",
+        "ivan-grave"
+      ]
+    },
+    {
+      "n": 7,
+      "name": "Ivan",
+      "place": "Senj → Johannesburg → Brisbane",
+      "confidence": "living",
+      "evidence": "Dates withheld. The same name in three languages: Ivan in Croatian, Giovanni in Italian, John in English — one man, three registers."
+    },
+    {
+      "n": 8,
+      "name": "David",
+      "place": "Johannesburg → Brisbane",
+      "confidence": "living",
+      "evidence": "Dates withheld. Keeper of this archive."
     }
-   ],
-   "confidence": "documented",
-   "evidence": "Status Animarum of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and four sons beneath him.",
-   "plate": "status-animarum-gb",
-   "sources": [
-    {
-     "label": "DAPA ZM34K 217, M01072071",
-     "note": "Supplied by the Pazin State Archive, 24 June 2021"
-    }
-   ]
-  },
-  {
-   "n": 3,
-   "name": "Antonio Defranceschi",
-   "latin": "Antonius Defranceschi q. Joannis",
-   "born": 1825,
-   "bornExact": "20 September 1825",
-   "died": 1894,
-   "diedExact": "4 August 1894",
-   "married": "25 November 1856",
-   "occupation": "lapicida — stonecutter",
-   "place": "Gračišće (Gallignana), house 19",
-   "spouse": {
-    "name": "Maria née Fernasar",
-    "born": "17 October 1832"
-   },
-   "children": [
-    {
-     "name": "Antonius",
-     "born": "6 August 1856",
-     "note": "b. 6 Aug 1856 — head of the American family's 2012 reunion chart; d. 23 Oct 1924"
-    },
-    {
-     "name": "Josephus",
-     "born": "22 March 1863",
-     "line": true
-    },
-    {
-     "name": "Leopolda",
-     "born": "6 November 1865"
-    },
-    {
-     "name": "Catharina",
-     "born": "3 February 1869"
-    },
-    {
-     "name": "Modestus",
-     "born": "15 June 1875"
-    }
-   ],
-   "confidence": "documented",
-   "evidence": "Status Animarum, house 19, with the cross of death before his name. He is styled q. Joannis, which welds this household to house 5. His trade comes from the 1863 baptismal entry for his son, where he is entered as lapicida. His eldest son Antonius, born 6 August 1856, is the man at the head of the chart the American branch printed for its first reunion in 2012 — the same date, to the day. That family's eleven children went to New York, Buenos Aires, Tuscany, Slovenia and Croatia.",
-   "plate": "status-animarum-ant",
-   "sources": [
-    {
-     "label": "DAPA ZM34K 217, M01071656",
-     "note": "Supplied by the Pazin State Archive, 24 June 2021"
-    },
-    {
-     "label": "MKR Gračišće 1841-1899",
-     "note": "Certified copy supplied 26 April 2021"
-    }
-   ]
-  },
-  {
-   "n": 4,
-   "name": "Josip Defranceschi",
-   "latin": "Josephus",
-   "born": 1863,
-   "bornExact": "22 March 1863",
-   "died": 1951,
-   "place": "Gračišće → Crikvenica",
-   "confidence": "documented",
-   "evidence": "Baptised at Gallignana on 23 March 1863, born the day before, son of Antonius the stonecutter. He is the generation that leaves Istria for the Kvarner coast: his son is born at Crikvenica in 1890. The family identifies his wife as Anna Kalanj, and her own baptism survives — Ledenice register, entry 2 of 1864, daughter of Josephus Kalanj and Rosalia née Perković, at Rijenovica house 22, in the Vinodol valley directly above Crikvenica. That is very probably the reason a Gračišće stonecutter's son ended up on that stretch of coast: he married into it. The 1951 death date is the family's. The Crikvenica death register of 1906 gives his trade: «vešti klesar sada tvorničar» — a skilled stonemason, now a factory worker. His father Antonius was a lapicida at Gračišće. The stone came down to the coast with him.",
-   "plate": "gracisce-1863",
-   "sources": [
-    {
-     "label": "MKR Gračišće 1841-1899, entry 23",
-     "note": "Certified copy, Pazin State Archive, 26 April 2021"
-    },
-    {
-     "label": "Ledenice baptisms, entry 2 of 1864",
-     "note": "Anna Kalanj's own baptismal entry"
-    }
-   ],
-   "spouse": {
-    "name": "Anna Kalanj",
-    "born": "3 January 1864, at Rijenovica in the Vinodol"
-   },
-   "children": [
-    {
-     "name": "Anton Rudolf",
-     "born": "20 January 1890",
-     "line": true
-    },
-    {
-     "name": "Marija Stjepanka",
-     "born": "8 Dec 1892 – 29 Sep 1905"
-    },
-    {
-     "name": "Ivan",
-     "born": "November 1894"
-    },
-    {
-     "name": "Zorica",
-     "born": "14 December 1896"
-    },
-    {
-     "name": "Marija",
-     "born": "Oct 1905 – 4 Feb 1906"
-    }
-   ],
-   "plates": [
-    "gracisce-1863",
-    "ana-kalanj",
-    "anton-1890"
-   ],
-   "flag": "The marriage itself has still not been found. And the family's own genealogy file gives Josip a wife Ana Grubišić, 1863–1936, whose gravestone it photographs — a different birth date and a different maiden name from the Ana Kalanj the registers name in all four children's entries. The registers govern here; the stone is an open question worth a letter.",
-   "occupation": "vešti klesar sada tvorničar — skilled stonemason, later a factory worker"
-  },
-  {
-   "n": 5,
-   "name": "Anton Rudolf Defranceski",
-   "born": 1890,
-   "bornExact": "20 January 1890, baptised 9 February",
-   "died": 1943,
-   "place": "Klenovica, house 22 → Pfullingen",
-   "confidence": "documented",
-   "evidence": "Entry 9 of the Klenovica baptisms for 1890: Anton Rudolf, legitimate, son of «Josip Defranceschi i žena Ana Kalanj rodjena», at house 22 — and in the column for the parents' place of origin, «Gallignana u Istriji». That is the zavičaj, the inherited Austrian commune of legal settlement, and it is the register itself stating that this coastal household's home commune was Gračišće. Fifty-seven years later he is on the Pfullingen list of foreigners, and a certificate of 1950 gives his birth as 20 January 1890 at Crikvenica — the same day, the same man, the coastal parish named by its market town rather than its village.",
-   "plate": "cert-anton-1890",
-   "flag": "The mayor's certificate is dated seven years after the death year the family carries. Retrospective certificates of this kind were commonly obtained by a surviving son for a pension or restitution claim, but the point is open.",
-   "sources": [
-    {
-     "label": "Klenovica baptisms 1890, entry 9",
-     "note": "Names both parents and gives Gallignana as their place of origin"
-    },
-    {
-     "label": "Arolsen Archives, ITS",
-     "note": "Pfullingen list, 10 March 1947; municipal certificate, 28 February 1950"
-    }
-   ],
-   "plates": [
-    "anton-1890",
-    "cert-anton-1890",
-    "ursula-kovacina"
-   ],
-   "spouse": {
-    "name": "Ursula, born Kovačina",
-    "born": "about 1890"
-   },
-   "children": [
-    {
-     "name": "Pepe",
-     "born": "—"
-    },
-    {
-     "name": "Petar",
-     "born": "15 June 1913"
-    },
-    {
-     "name": "Zdravko",
-     "born": "1 April 1921"
-    },
-    {
-     "name": "Ivan",
-     "born": "24 or 25 June 1925",
-     "line": true
-    },
-    {
-     "name": "Anka",
-     "born": "dates unknown"
-    }
-   ]
-  },
-  {
-   "n": 6,
-   "name": "Ivan Defranceski",
-   "born": 1925,
-   "bornExact": "24 or 25 June 1925",
-   "died": 1995,
-   "place": "Crikvenica → Pfullingen → Senj",
-   "confidence": "documented",
-   "evidence": "On the Pfullingen list as Iwan, born 24 June 1925 at Crikvenica. His own German sickness-fund card gives 25 June and puts him at Brunnenstraße 7, Pfullingen, entering work on 21 October 1941 as an unskilled hand. He was sixteen. He went home, married Hedviga Blažević, and is buried on his own coast under polished granite cut with a plain cross and the name in Croatian orthography: IVAN DEFRANČESKI, 1925–1995.",
-   "plate": "kk-ivan",
-   "sources": [
-    {
-     "label": "Arolsen Archives, ITS",
-     "note": "Pfullingen list; Allgemeine Ortskrankenkasse membership card"
-    }
-   ],
-   "diedExact": "30 October 1995",
-   "spouse": {
-    "name": "Hedviga, born Blažević",
-    "born": "dates withheld"
-   },
-   "plates": [
-    "kk-ivan",
-    "ivan-grave"
-   ]
-  },
-  {
-   "n": 7,
-   "name": "Ivan",
-   "place": "Senj → Johannesburg → Brisbane",
-   "confidence": "living",
-   "evidence": "Dates withheld. The same name in three languages: Ivan in Croatian, Giovanni in Italian, John in English — one man, three registers."
-  },
-  {
-   "n": 8,
-   "name": "David",
-   "place": "Johannesburg → Brisbane",
-   "confidence": "living",
-   "evidence": "Dates withheld. Keeper of this archive."
-  }
- ],
- "gracisce_town": {
-  "heading": "The town the line came from, and a palace called Salamon",
-  "lead": "Irma Huić's study of the urban development of Gračišće — «Prostor» 23 (2015) — is the first anybody has written, and it puts a shape around the two houses this archive's spine runs through.",
-  "rows": [
-   {
-    "t": "There was a bishop's palace in the village",
-    "w": "Gračišće was a residence of the bishops of Pedena. Huić locates the palace by the wall of the episcopal building and a large parcel that matches its footprint; the entrance to the bell tower survives and was part of the same complex. The family Carlo describes as farming the bishop's «affitto fermo» was doing it in a village where the bishop had a house."
-   },
-   {
-    "t": "And facing it, the palace of the Salamon",
-    "w": "«Gotovo istovremeno nasuprot biskupskoj rezidenciji gradi se palača Salamon» — almost at the same time, facing the bishop's residence, the Salamon palace is built. Huić places its masonry in the fifteenth century; the Istrian Encyclopedia dates the building to 1570.",
-    "key": true
-   },
-   {
-    "t": "Which matters, because generation two married one",
-    "w": "The Status Animarum of Gallignana gives Joannes Baptista Defranceschi of house 5 married in 1819 to Francisca Salomon, born 17 March 1797. This archive has never had anything on her but a name. She was of a family with a palace on the square, facing the bishop's. And in the De Franceschi archive at Zagreb, folder 6, there is a wedding piece printed at Pola: «Nelle fauste occasioni delle nozze Maria De Franceschi — Luigi Salamon, Pola, 25 ottobre 1897.» The two surnames marry twice, seventy-eight years apart.",
-    "key": true
-   }
   ],
-  "caution": "Salamon is not a rare name in Istria and none of this is proof of anything about Francisca herself. What it does is turn her from a surname into a household with a known address, which is a thing that can be looked up.",
-  "next": [
-   "The Franciscan cadastre of Gallignana — Archivio di Stato di Trieste, «Catasto franceschino, Distretto di Pisino, Comune di Gallignana d'Istria, foglio IV sezione IV», drawn about 1820. A parcel map of the whole village at exactly the period of houses 5 and 19. Nothing in this archive has ever shown where those houses actually stood.",
-   "Danilo Klen's edition of the «Urbar Pazinske grofovije» of 1498, published in the Vjesnik historijskih arhiva u Rijeci i Pazinu 14 — the households of the county, Gallignana among them, listed in 1498.",
-   "Vjekoslav Bratulić, «Urbari Pazinskog feuda (16. stoljeća)», in the same Vjesnik, vols 8–9 and 10 — the sixteenth-century urbaria. If a Defranceschi was at Gallignana before the registers begin, this is where the name would stand.",
-   "All three are published, and the last two are on Hrčak."
-  ],
-  "source": "Irma Huić, «Urbanistički razvoj Gračišća u Istri: nove spoznaje i čimbenici identiteta naselja», Prostor 23 (2015) 2, pp. 208–221. Open access.",
-  "cadastre": {
-   "heading": "Where the cadastre actually is — checked, September 2026",
-   "text": "The Franciscan cadastre of Gallignana was chased properly in September 2026 and it is not free online. The Habsburg cadastral layer on MAPIRE — maps.arcanum.com and mapire.eu are the same service — renders blank over Gračišće behind «Full access to maps requires subscription», and its tile server returns 403 rather than 404 at the village's own coordinates, which says the sheets are there and the door is locked rather than that they are missing. The Archivio di Stato di Trieste holds the originals, as Huić cites them, but its online viewer covers only the Catasto di Trieste, the city's own. The Croatian land-registry portals serve the modern cadastre, not the nineteenth-century plans.",
-   "ask": "So it is a written request or a subscription, not a download. To the Archivio di Stato di Trieste, quoting Huić's own citation: «Catasto franceschino, Mappe del Catasto franceschino, Distretto di Pisino, Comune di Gallignana d'Istria, foglio IV sezione IV» — with a note that the sheets wanted are the ones covering the built-up village, where houses 5 and 19 stand. Their correspondence-research service is advertised on their site; data-protected records open after seventy-five years, and an 1820 map is long past that.",
-   "why": "It is worth the letter. A Franciscan cadastral sheet is a numbered parcel map with a register of holders — so it would show not just where houses 5 and 19 were, but who was down as holding them in about 1820, when the farmer Joannes Baptista of house 5 was thirty-three and married a year.",
-   "routes": [
-    "Write to the Archivio di Stato di Trieste, quoting Huić's citation, and ask for the sheets covering the built-up village. Their correspondence-research service is advertised; an 1820 map is far past any protection period.",
-    "Ask the Državni arhiv u Pazinu whether it holds a duplicate set for the Croatian Istrian communes — it answered this family twice in 2021 for about a hundred kuna.",
-    "Or simply subscribe to Arcanum for a month. The tiles appear to be there; it would put the sheet on screen tonight rather than in eight weeks."
-   ]
-  },
-  "urbaria": {
-   "heading": "The urbaria of the County of Pazin — located, not yet read",
-   "text": "Both published urbaria were tracked down on Hrčak in September 2026 and are free to anyone. They are the oldest documents in which a Defranceschi at Gallignana could possibly appear — the parish registers do not begin until long after.",
-   "rows": [
-    [
-     "Danilo Klen, «Urbar Pazinske grofovije (1498)»",
-     "Vjesnik historijskih arhiva u Rijeci i Pazinu, vol. 14 (1970), pp. 51–160",
-     "hrcak.srce.hr/clanak/187264"
+  "gracisce_town": {
+    "heading": "The town the line came from, and a palace called Salamon",
+    "lead": "Irma Huić's study of the urban development of Gračišće — «Prostor» 23 (2015) — is the first anybody has written, and it puts a shape around the two houses this archive's spine runs through.",
+    "rows": [
+      {
+        "t": "There was a bishop's palace in the village",
+        "w": "Gračišće was a residence of the bishops of Pedena. Huić locates the palace by the wall of the episcopal building and a large parcel that matches its footprint; the entrance to the bell tower survives and was part of the same complex. The family Carlo describes as farming the bishop's «affitto fermo» was doing it in a village where the bishop had a house."
+      },
+      {
+        "t": "And facing it, the palace of the Salamon",
+        "w": "«Gotovo istovremeno nasuprot biskupskoj rezidenciji gradi se palača Salamon» — almost at the same time, facing the bishop's residence, the Salamon palace is built. Huić places its masonry in the fifteenth century; the Istrian Encyclopedia dates the building to 1570.",
+        "key": true
+      },
+      {
+        "t": "Which matters, because generation two married one",
+        "w": "The Status Animarum of Gallignana gives Joannes Baptista Defranceschi of house 5 married in 1819 to Francisca Salomon, born 17 March 1797. This archive has never had anything on her but a name. She was of a family with a palace on the square, facing the bishop's. And in the De Franceschi archive at Zagreb, folder 6, there is a wedding piece printed at Pola: «Nelle fauste occasioni delle nozze Maria De Franceschi — Luigi Salamon, Pola, 25 ottobre 1897.» The two surnames marry twice, seventy-eight years apart.",
+        "key": true
+      }
     ],
-    [
-     "Vjekoslav Bratulić, «Urbari pazinskog feuda (XVI stoljeća)»",
-     "the same Vjesnik, vol. 8–9 (1963–64), pp. 139–204",
-     "hrcak.srce.hr/clanak/187152"
+    "caution": "Salamon is not a rare name in Istria and none of this is proof of anything about Francisca herself. What it does is turn her from a surname into a household with a known address, which is a thing that can be looked up.",
+    "next": [
+      "The Franciscan cadastre of Gallignana — Archivio di Stato di Trieste, «Catasto franceschino, Distretto di Pisino, Comune di Gallignana d'Istria, foglio IV sezione IV», drawn about 1820. A parcel map of the whole village at exactly the period of houses 5 and 19. Nothing in this archive has ever shown where those houses actually stood.",
+      "Danilo Klen's edition of the «Urbar Pazinske grofovije» of 1498, published in the Vjesnik historijskih arhiva u Rijeci i Pazinu 14 — the households of the county, Gallignana among them, listed in 1498.",
+      "Vjekoslav Bratulić, «Urbari Pazinskog feuda (16. stoljeća)», in the same Vjesnik, vols 8–9 and 10 — the sixteenth-century urbaria. If a Defranceschi was at Gallignana before the registers begin, this is where the name would stand.",
+      "All three are published, and the last two are on Hrčak."
     ],
-    [
-     "Bratulić, the continuation",
-     "vol. 10 (1964–65), pp. 245–290",
-     "hrcak.srce.hr/clanak/187183"
-    ]
-   ],
-   "why": "An urbarium is a rent-roll: it lists, holding by holding, who owed what to the lord. The 1498 roll would name the households of Gallignana two hundred and eighty-nine years before the earliest ancestor this archive can date, and the sixteenth-century ones would carry that forward. If the surname is in the County of Pazin before 1600 — and the sweep has already found it at Labin in 1615 and Svetvinčenat in 1674 — this is where it would stand.",
-   "note": "Not yet read. Hrčak put up a bot check after this project had already taken four papers from it in one evening, and it was not circumvented. The article numbers above are exact and the downloads are free; it is a job for a browser and a quiet morning."
+    "source": "Irma Huić, «Urbanistički razvoj Gračišća u Istri: nove spoznaje i čimbenici identiteta naselja», Prostor 23 (2015) 2, pp. 208–221. Open access.",
+    "cadastre": {
+      "heading": "Where the cadastre actually is — checked, September 2026",
+      "text": "The Franciscan cadastre of Gallignana was chased properly in September 2026 and it is not free online. The Habsburg cadastral layer on MAPIRE — maps.arcanum.com and mapire.eu are the same service — renders blank over Gračišće behind «Full access to maps requires subscription», and its tile server returns 403 rather than 404 at the village's own coordinates, which says the sheets are there and the door is locked rather than that they are missing. The Archivio di Stato di Trieste holds the originals, as Huić cites them, but its online viewer covers only the Catasto di Trieste, the city's own. The Croatian land-registry portals serve the modern cadastre, not the nineteenth-century plans.",
+      "ask": "So it is a written request or a subscription, not a download. To the Archivio di Stato di Trieste, quoting Huić's own citation: «Catasto franceschino, Mappe del Catasto franceschino, Distretto di Pisino, Comune di Gallignana d'Istria, foglio IV sezione IV» — with a note that the sheets wanted are the ones covering the built-up village, where houses 5 and 19 stand. Their correspondence-research service is advertised on their site; data-protected records open after seventy-five years, and an 1820 map is long past that.",
+      "why": "It is worth the letter. A Franciscan cadastral sheet is a numbered parcel map with a register of holders — so it would show not just where houses 5 and 19 were, but who was down as holding them in about 1820, when the farmer Joannes Baptista of house 5 was thirty-three and married a year.",
+      "routes": [
+        "Write to the Archivio di Stato di Trieste, quoting Huić's citation, and ask for the sheets covering the built-up village. Their correspondence-research service is advertised; an 1820 map is far past any protection period.",
+        "Ask the Državni arhiv u Pazinu whether it holds a duplicate set for the Croatian Istrian communes — it answered this family twice in 2021 for about a hundred kuna.",
+        "Or simply subscribe to Arcanum for a month. The tiles appear to be there; it would put the sheet on screen tonight rather than in eight weeks."
+      ]
+    },
+    "urbaria": {
+      "heading": "The urbaria of the County of Pazin — located, not yet read",
+      "text": "Both published urbaria were tracked down on Hrčak in September 2026 and are free to anyone. They are the oldest documents in which a Defranceschi at Gallignana could possibly appear — the parish registers do not begin until long after.",
+      "rows": [
+        [
+          "Danilo Klen, «Urbar Pazinske grofovije (1498)»",
+          "Vjesnik historijskih arhiva u Rijeci i Pazinu, vol. 14 (1970), pp. 51–160",
+          "hrcak.srce.hr/clanak/187264"
+        ],
+        [
+          "Vjekoslav Bratulić, «Urbari pazinskog feuda (XVI stoljeća)»",
+          "the same Vjesnik, vol. 8–9 (1963–64), pp. 139–204",
+          "hrcak.srce.hr/clanak/187152"
+        ],
+        [
+          "Bratulić, the continuation",
+          "vol. 10 (1964–65), pp. 245–290",
+          "hrcak.srce.hr/clanak/187183"
+        ]
+      ],
+      "why": "An urbarium is a rent-roll: it lists, holding by holding, who owed what to the lord. The 1498 roll would name the households of Gallignana two hundred and eighty-nine years before the earliest ancestor this archive can date, and the sixteenth-century ones would carry that forward. If the surname is in the County of Pazin before 1600 — and the sweep has already found it at Labin in 1615 and Svetvinčenat in 1674 — this is where it would stand.",
+      "note": "Not yet read. Hrčak put up a bot check after this project had already taken four papers from it in one evening, and it was not circumvented. The article numbers above are exact and the downloads are free; it is a job for a browser and a quiet morning."
+    }
+  },
+  "village_1895": {
+    "heading": "What Gračišće was like five years after they left",
+    "lead": "Josip and Ana took the household down to the Kvarner coast by 1890. The Istrian papers of the 1890s, read in September 2026, show what they left behind — a village of five hundred people tearing itself along a line that ran through the church door.",
+    "rows": [
+      {
+        "y": "January 1895",
+        "t": "A riot on the square",
+        "w": "«Il giovine Pensiero» of 19 January: a crowd of peasants invited to supper by «il nostro furioso parroco croato Gabrielić, anticamente Gabrielli» — our furious Croatian parish priest Gabrielić, formerly Gabrielli — ran through the place shouting «Crepa s'ciavi! Abbasso!» The Italian-minded locals got up a counter-demonstration at once, shouting «Viva Gallignana! Viva l'Istria!» It came to blows. The Croats fled; the roused Gallignanesi broke the windows of the communal representative Don Gabrielić; and, the paper adds, a few blows were struck with an axe.",
+        "key": true
+      },
+      {
+        "y": "February 1893",
+        "t": "A chaplain slapped in the face",
+        "w": "The same paper, satirically, on a priest it calls Don Lustro, who had preached against the Italians — and who showed his flock the mark of «un potente ceffone» that «un contadino benpensante di Gallignana», a right-thinking peasant of Gallignana, had lately left on his face. He was moved on to Gologorica, near Cerovlje, where he tried to play the little tyrant and found the ground unsuitable."
+      },
+      {
+        "y": "July 1897",
+        "t": "Pertinente a Gallignana",
+        "w": "A list of defendants at a tumult trial at Pola includes «Giovanni Ivancich di Giovanni, da Pola, pertinente a Gallignana, d'anni 17, cattolico, celibe, carpentiere». Born in Pola, belonging to Gallignana. That is the zavičaj again — the same inherited commune of settlement that the Klenovica register used in 1890 to tie this family to Gračišće, here doing its ordinary work in a courtroom for a seventeen-year-old carpenter.",
+        "key": true
+      },
+      {
+        "y": "March 1901",
+        "t": "And on a jury list",
+        "w": "«Ivić Antonio fu Giuseppe, Gallignana-Pisino», empanelled at Pola. The village supplied jurors like anywhere else."
+      }
+    ],
+    "close": "None of this is about this family. All of it is about the place they came from, in the years just after they left it — and it is the answer to a question the registers cannot address, which is what it was actually like to be from Gračišće in the 1890s.",
+    "source": "«Il giovine Pensiero» and «Il Popolo Istriano», Pola, 1893–1901, from the Austrian National Library's ANNO. Read from the ONB's IIIF page images; the OCR here is this archive's own and rough."
+  },
+  "town": {
+    "heading": "How big Gallignana was, and how well it held",
+    "lead": "Egidio Ivetic's «La popolazione dell'Istria nell'età moderna» — volume 15 of the Collana degli Atti of Rovigno, 1997, four hundred and fifty pages, free on the Internet Archive — counts the hearths of Istria from the sixteenth century on. This archive has been calling Gallignana a hill parish that happened to be one of the county's six towns. It was rather more than that.",
+    "rows": [
+      {
+        "y": "1508",
+        "t": "As big as Pisino itself",
+        "w": "The first complete Venetian count of hearths, taken the year after the occupation. The Pisinese proper had 838 hearths across the castles of Pisino, Gimino, Gallignana, Lindaro, Bogliuno, Vermo, Pedena and Antignana and some seventeen tiny villages — three to four thousand people in all. «Pisino e Gallignana rappresentavano le entità maggiori con 150 fuochi ciascuna», Pisino and Gallignana were the largest with a hundred and fifty hearths each, six to seven hundred people: the size of a middling Venetian castle-town.",
+        "key": true
+      },
+      {
+        "y": "1510",
+        "t": "And it threw the Venetians back",
+        "w": "The Capodistrian commander Domenico Tarsia took Lindaro in April 1510, «mentre a Gallignana, la città più grossa del dominio, veniva ricacciato» — but at Gallignana, the biggest town of the dominion, he was driven off.",
+        "key": true
+      },
+      {
+        "y": "1527–31",
+        "t": "Then war, plague and famine",
+        "w": "By the hearth list of 1531 Pisino had fallen from 150 hearths to 86, a drop of nearly half. Ivetic notes that the figures for Gallignana and Gimino are missing for that year but will probably have followed a similar course. The villages nearest the frontier were «letteralmente spazzati via» — literally swept away."
+      },
+      {
+        "y": "1571",
+        "t": "And then it filled up again",
+        "w": "A new urbarium was drawn for the county, and the numbers are extraordinary. Pisino 86 to 229 families; Gimino 80 to 222; Lindaro 57 to 132; Pedena, the bishop's seat, 60 to nearly 200; and Gallignana from 150 to 258. «Non c'è località che non risulti ampliata» — there is not a place that is not enlarged. That is the colonisation: emptied land refilled with people brought in, Morlachs from the Venetian side and Carnians from the north. The family arrived on the tail of it.",
+        "key": true
+      },
+      {
+        "y": "1615–17",
+        "t": "It held again, in the Uskok War",
+        "w": "The county was overrun. Antignana fell, Vermo fell, and Gimino fell in January 1617 to a long siege and a fifth column. But «inespugnabili rimasero i principali e più popolosi castelli di Pisino, Gallignana e Lindaro» — the chief and most populous castles, Pisino, Gallignana and Lindaro, remained untaken. General Baldassare Maradas was sent into the county and «scongiurò l'occupazione di Gallignana»."
+      },
+      {
+        "y": "1440 onward",
+        "t": "And it shopped in Venetian Istria",
+        "w": "Ivetic on the free fair of Pola, instituted in 1440 in honour of the Madonna della Misericordia: buyers came from the Venetian boroughs and «dalla parte asburgica, dai castelli di Gimino, Gallignana, Pedena e Pisino». The county, cut off from the rest of the Austrian lands by the Karst uplands and Monte Maggiore, «era costretta ad orientarsi verso i prodotti veneti», and that dependence lasted to the middle of the seventeenth century."
+      }
+    ],
+    "close": "Two things this changes. First, the scale: at the moment the family's line begins there, Gallignana was one of the two largest places in the Habsburg county, not a hamlet with a good church. Second, the mechanism: the collapse of 1531 and the trebling by 1571 are the demographic shape of the repopulation that brought Carnian weavers south, and every argument this archive makes about Carnia sits inside that curve.",
+    "source": "Egidio Ivetic, «La popolazione dell'Istria nell'età moderna. Lineamenti evolutivi», Collana degli Atti del Centro di ricerche storiche di Rovigno n. 15 (1997), pp. 1–450 — read from the Internet Archive copy, September 2026. The 1508 and 1531 hearth lists and the 1571 urbarium are his sources, not this archive's; none has been seen here."
   }
- },
- "village_1895": {
-  "heading": "What Gračišće was like five years after they left",
-  "lead": "Josip and Ana took the household down to the Kvarner coast by 1890. The Istrian papers of the 1890s, read in September 2026, show what they left behind — a village of five hundred people tearing itself along a line that ran through the church door.",
-  "rows": [
-   {
-    "y": "January 1895",
-    "t": "A riot on the square",
-    "w": "«Il giovine Pensiero» of 19 January: a crowd of peasants invited to supper by «il nostro furioso parroco croato Gabrielić, anticamente Gabrielli» — our furious Croatian parish priest Gabrielić, formerly Gabrielli — ran through the place shouting «Crepa s'ciavi! Abbasso!» The Italian-minded locals got up a counter-demonstration at once, shouting «Viva Gallignana! Viva l'Istria!» It came to blows. The Croats fled; the roused Gallignanesi broke the windows of the communal representative Don Gabrielić; and, the paper adds, a few blows were struck with an axe.",
-    "key": true
-   },
-   {
-    "y": "February 1893",
-    "t": "A chaplain slapped in the face",
-    "w": "The same paper, satirically, on a priest it calls Don Lustro, who had preached against the Italians — and who showed his flock the mark of «un potente ceffone» that «un contadino benpensante di Gallignana», a right-thinking peasant of Gallignana, had lately left on his face. He was moved on to Gologorica, near Cerovlje, where he tried to play the little tyrant and found the ground unsuitable."
-   },
-   {
-    "y": "July 1897",
-    "t": "Pertinente a Gallignana",
-    "w": "A list of defendants at a tumult trial at Pola includes «Giovanni Ivancich di Giovanni, da Pola, pertinente a Gallignana, d'anni 17, cattolico, celibe, carpentiere». Born in Pola, belonging to Gallignana. That is the zavičaj again — the same inherited commune of settlement that the Klenovica register used in 1890 to tie this family to Gračišće, here doing its ordinary work in a courtroom for a seventeen-year-old carpenter.",
-    "key": true
-   },
-   {
-    "y": "March 1901",
-    "t": "And on a jury list",
-    "w": "«Ivić Antonio fu Giuseppe, Gallignana-Pisino», empanelled at Pola. The village supplied jurors like anywhere else."
-   }
-  ],
-  "close": "None of this is about this family. All of it is about the place they came from, in the years just after they left it — and it is the answer to a question the registers cannot address, which is what it was actually like to be from Gračišće in the 1890s.",
-  "source": "«Il giovine Pensiero» and «Il Popolo Istriano», Pola, 1893–1901, from the Austrian National Library's ANNO. Read from the ONB's IIIF page images; the OCR here is this archive's own and rough."
- }
 }
