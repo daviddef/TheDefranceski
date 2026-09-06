@@ -269,6 +269,27 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:14px">{s.dossier.source_dossier}</p>
 </section>
 
+<section class="blk">
+  <h2>{s.reichsrat.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.reichsrat.lead}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table><tbody>{s.reichsrat.terms.map(([w, x]) => (
+      <tr><td style="width:130px"><strong>{w}</strong></td><td>{x}</td></tr>
+    ))}</tbody></table>
+  </div>
+  <p class="prose" style="margin-top:16px">{s.reichsrat.count}</p>
+  <p class="prose" style="margin-top:14px">{s.reichsrat.candidacy}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:24px">
+    <div class="lab">{s.reichsrat.annul.where}</div>
+    <h3>{s.reichsrat.annul.heading}</h3>
+    <p style="margin-top:10px">{s.reichsrat.annul.text}</p>
+    <p style="margin-top:12px"><strong>{s.reichsrat.annul.why}</strong></p>
+  </div>
+  <p class="prose note" style="margin-top:20px">{s.reichsrat.lega}</p>
+  <p class="cap" style="margin-top:14px">{s.reichsrat.source_reichsrat}</p>
+</section>
+
   <Lightbox />
-  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "archiveorg"]} />
+  <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "simon2024", "archiveorg"]} />
 </Base>

@@ -185,6 +185,25 @@ import k from "../data/kobler.json";
 </section>
 
 <section class="blk">
+  <h2>{k.politics.heading}</h2>
+  <p class="dek" style="margin-top:10px">{k.politics.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {k.politics.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px">{k.politics.balance}</p>
+  <div class="one" style="border-left-color:var(--terra);margin-top:20px">
+    <div class="lab">The seventy-six pages still unread</div>
+    <p style="margin-top:8px">{k.politics.bertosa}</p>
+  </div>
+  <p class="cap" style="margin-top:14px">{k.politics.source_politics}</p>
+</section>
+
+<section class="blk">
   <h2>{k.obituary.heading}</h2>
   <p class="dek" style="margin-top:8px">{k.obituary.lead}</p>
   <div class="qz" style="margin-top:18px">
@@ -229,5 +248,5 @@ import k from "../data/kobler.json";
   <div class="note" style="margin-top:26px">A caution that Carlo himself would want kept. This is testimony, not a register: a man in his sixties reporting what his family believed, some of it at second hand from a cousin's papers. The Bergamo origin, the castles in Carnia and the claim to the patriarchal nobility «dei Germani» are family tradition. The Carnian origin, the 1711 house, the two sons and the Fiume connection are things he was in a position to know. <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> where he is repeating tradition; <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> as his own testimony throughout.</div>
   <p class="cap">{k.source}</p>
 </section>
-  <Sources ids={["kobler", "jelincic", "anno", "hrcak", "carlo1879", "attirovigno", "archiveorg"]} />
+  <Sources ids={["kobler", "jelincic", "anno", "hrcak", "carlo1879", "attirovigno", "simon2024", "archiveorg"]} />
 </Base>
