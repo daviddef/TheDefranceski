@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/istriasweep.json";
+const max = Math.max(...d.clusters.map(c => c.n));
+---
+<Base
+  title="Every Town in Istria"
+  eyebrow="Sixty parishes, one surname"
+  dek="A place-by-place sweep of the indexed records from Muggia to Senj. Twenty-one towns carry the name, thirty-nine do not — and the blanks are the most important part of the table.">
+
+  <section class="prose">
+    <p>{d.lead}</p>
+    <p class="cap">{d.method}</p>
+  </section>
+
+  <h2 style="font-size:30px;margin-top:46px">Where the name is</h2>
+  <div style="margin-top:20px">
+    {d.clusters.map(c => (
+      <div class="linerow" style={"padding:12px 0;border-bottom:1px solid var(--rule)" + (c.key ? ";border-left:2px solid var(--terra);padding-left:14px" : "")}>
+        <div>
+          <strong style="font-size:17px">{c.place}</strong>
+          <span class="mono" style="font-size:12px;color:var(--ink-3);margin-left:10px">{c.span}</span>
+          <div style="margin-top:6px;height:7px;background:var(--rule);border-radius:3px;overflow:hidden;max-width:230px">
+            <div style={`height:7px;width:${Math.max(4, Math.round(c.n / max * 100))}%;background:var(--accent)`}></div>
+          </div>
+          <span class="mono" style="font-size:11px;color:var(--ink-3)">{c.n} indexed entries</span>
+        </div>
+        <div>
+          <p style="margin:0"><em>{c.who}</em></p>
+          {c.note && <p class="cap" style="margin-top:8px">{c.note}</p>}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:44px">
+    <div class="lab">Read this before you read the table</div>
+    <h3>{d.caveat.heading}</h3>
+    <p>{d.caveat.text}</p>
+    <p style="margin-top:12px">{d.caveat.then}</p>
+  </div>
+
+  <h2 style="font-size:26px;margin-top:44px">The thirty-nine blanks</h2>
+  <p class="dek" style="margin-top:8px">Searched, and nothing indexed. Not the same as nothing there.</p>
+  <p class="mono" style="margin-top:14px;font-size:13px;line-height:2;color:var(--ink-2)">{d.blank.join(" · ")}</p>
+
+  <h2 style="font-size:30px;margin-top:50px">What the shape of it says</h2>
+  <div class="grid g2" style="margin-top:20px">
+    {d.reading.map(r => (
+      <div class="one">
+        <h3 style="font-size:19px">{r.h}</h3>
+        <p>{r.t}</p>
+      </div>
+    ))}
+  </div>
+
+  <section class="prose" style="margin-top:44px">
+    <h3>What to ask for next</h3>
+    <ul>{d.next.map(n => <li>{n}</li>)}</ul>
+    <p class="cap" style="margin-top:16px">The line this archive actually follows is invisible to every search above. See <a href={u("/direct-line/")}>The Spine</a> for how it was found instead, and <a href={u("/parish-books/")}>Parish Books</a> for what is and is not filmed.</p>
+  </section>
+
+  <Sources ids={["familysearch", "dapa", "carlo1879"]} />
+</Base>
