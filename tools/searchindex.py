@@ -81,6 +81,14 @@ if ck:
     for r in ck["rows"]:
         add("Person", r["who"], "Crikvenica house 119", "/crikvenica-house/", r["what"][:180])
 
+sj = L("senjline.json")
+for g in sj["spine"]:
+    add("Senj line", g["who"], f"Generation {g['n']} · {g['where']}", "/senj-line/", g["what"][:180])
+for grp in sj["karlobag"]["gens"]:
+    for r in grp["rows"]:
+        add("Karlobag ancestry", r["who"], f"{r['b'] or '?'} – {r['d'] or '?'}", "/senj-line/",
+            "From the ancestor chart of Matia Papic, born Pilipic, of Karlobag")
+
 for p in L("parishbooks.json") if os.path.exists(os.path.join(D, "parishbooks.json")) else []:
     if isinstance(p, dict) and p.get("parish"):
         add("Parish book", p["parish"], p.get("span") or p.get("kind") or "", "/parish-books/")

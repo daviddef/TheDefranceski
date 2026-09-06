@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/senjline.json";
+---
+<Base
+  title="The Senj Line"
+  eyebrow="Papić · Prpić · Pilipić · Blažević"
+  dek="Ivan Defranceski married Hedviga Blažević of Senj. Behind her stand Senj carriers, tobacco-factory workers, and a Karlobag ancestry that reaches further back than the Defranceschi spine does.">
+
+  <section class="prose">
+    <p>{d.lead}</p>
+  </section>
+
+  <div class="spine" style="margin-top:34px">
+    {d.spine.map(g => (
+      <article class={g.key ? "gen documented" : "gen"}>
+        <div class="rail"><span class="dot"></span></div>
+        <div class="body">
+          <div class="lab">Generation {g.n} · {g.where}</div>
+          <h3 style="font-size:23px">{g.who}</h3>
+          <p style="margin-top:8px">{g.what}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.milka.heading}</h2>
+  <div class="grid g2" style="margin-top:20px">
+    {d.milka.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.y}</div>
+        <h3 style="font-size:20px">{r.t}</h3>
+        <p>{r.w}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:44px">
+    <div class="lab">The word in the trade column</div>
+    <h3>{d.trade.heading}</h3>
+    <p>{d.trade.text}</p>
+    <p style="margin-top:12px">{d.trade.then}</p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">{d.karlobag.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.karlobag.lead}</p>
+
+  {d.karlobag.gens.map(g => (
+    <div style="margin-top:24px">
+      <div class="lab">{g.g}</div>
+      <div class="scroll" style="margin-top:8px">
+        <table>
+          <thead><tr><th>Who</th><th class="m">Born</th><th class="m">Died</th></tr></thead>
+          <tbody>{g.rows.map(r => (
+            <tr><td>{r.who}</td><td class="m">{r.b || "—"}</td><td class="m">{r.d || "—"}</td></tr>
+          ))}</tbody>
+        </table>
+      </div>
+    </div>
+  ))}
+
+  <p class="prose" style="margin-top:22px">{d.karlobag.read}</p>
+  <p class="prose cap" style="margin-top:12px">{d.karlobag.caveat}</p>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:44px">
+    <div class="lab">Correction</div>
+    <h3>{d.correction.heading}</h3>
+    <p>{d.correction.text}</p>
+    <p class="cap" style="margin-top:12px">{d.correction.note} <a href={u("/imotski/")}>The Imotski page →</a></p>
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>What to ask for next</h3>
+    <ul>{d.next.map(n => <li>{n}</li>)}</ul>
+    <h3>Why this is on a Defranceschi site</h3>
+    <p>Because a family is not a surname. The line this archive was built to follow comes down through Crikvenica and Istria to <a href={u("/crikvenica-house/")}>Ivan</a>; the line that meets it at Senj is the other half of the same people, and it happens to be the older and better-recorded half. Half of everyone descended from that marriage is standing on this page.</p>
+  </section>
+
+  <Sources ids={["maticne", "myheritage", "familysearch"]} />
+</Base>
