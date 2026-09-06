@@ -123,6 +123,22 @@ const g = c.nextGen;
   <p class="cap" style="margin-top:14px">{c.grave.source}</p>
 </section>
 
+<section class="blk">
+  <h2>{c.kalanj.heading}</h2>
+  <p class="dek" style="margin-top:10px">{c.kalanj.lead}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th style="width:210px">Monument</th><th>Names and dates</th><th style="width:270px">Note</th></tr></thead>
+      <tbody>{c.kalanj.stones.map(([m, n, x]) => (
+        <tr><td><strong>{m}</strong></td><td class="m">{n}</td><td>{x}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:20px">{c.kalanj.why}</p>
+  <p class="prose" style="margin-top:14px">{c.kalanj.next}</p>
+  <p class="cap" style="margin-top:14px">{c.kalanj.source_kalanj}</p>
+</section>
+
   <section class="prose" style="margin-top:46px">
     <h3>Where the photographs came from</h3>
     <p>All of them were inside a MacFamilyTree package in the family's own files — 247 images, catalogued against 281 people in a database nobody had opened for this project. The captions are the family's own. Two of them are gravestones, one at Horsham in the Victorian Wimmera and one on the Kvarner coast.</p>

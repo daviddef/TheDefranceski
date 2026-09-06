@@ -276,6 +276,75 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 
 <section class="blk">
+  <h2>{g.house.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.house.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {g.house.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:26px">
+    <div class="lab">At the top of the façade</div>
+    <h3>{g.house.arms.heading}</h3>
+    <p style="margin-top:10px">{g.house.arms.text}</p>
+    <p style="margin-top:12px">{g.house.arms.carlo}</p>
+    <p style="margin-top:12px"><strong>{g.house.arms.verdict}</strong></p>
+  </div>
+
+  <p class="prose" style="margin-top:22px">{g.house.plaque}</p>
+
+  <h3 style="font-size:22px;margin-top:36px">What the photographs close</h3>
+  <div class="scroll" style="margin-top:14px">
+    <table><tbody>{g.house.closes.map(([w, x]) => (
+      <tr><td style="width:190px"><strong>{w}</strong></td><td>{x}</td></tr>
+    ))}</tbody></table>
+  </div>
+  <p class="prose note" style="margin-top:20px">{g.house.todo}</p>
+  <p class="cap" style="margin-top:14px">{g.house.source_house}</p>
+</section>
+
+<section class="blk">
+  <h2>{g.carlograve.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.carlograve.lead}</p>
+  <p class="prose" style="margin-top:16px">{g.carlograve.what}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">{g.carlograve.centre.t}</div>
+    <div class="qz" style="margin-top:12px">
+      <p class="qit">{g.carlograve.centre.q}</p>
+      <p class="qen">{g.carlograve.centre.en}</p>
+    </div>
+    <p style="margin-top:12px">{g.carlograve.centre.why}</p>
+  </div>
+
+  <h3 style="font-size:22px;margin-top:36px">The left-hand tablet</h3>
+  <div class="scroll" style="margin-top:12px">
+    <table><tbody>{g.carlograve.left.map(([n, dt, x]) => (
+      <tr><td style="width:250px"><strong>{n}</strong><br /><span class="m">{dt}</span></td><td>{x}</td></tr>
+    ))}</tbody></table>
+  </div>
+
+  <h3 style="font-size:22px;margin-top:32px">The right-hand tablet</h3>
+  <div class="scroll" style="margin-top:12px">
+    <table><tbody>{g.carlograve.right.map(([n, dt, x]) => (
+      <tr><td style="width:250px"><strong>{n}</strong><br /><span class="m">{dt}</span></td><td>{x}</td></tr>
+    ))}</tbody></table>
+  </div>
+
+  <p class="prose" style="margin-top:20px">{g.carlograve.armella}</p>
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">And the arms, a third time</div>
+    <p style="margin-top:8px">{g.carlograve.arms}</p>
+  </div>
+  <p class="prose note" style="margin-top:20px">{g.carlograve.todo}</p>
+  <p class="cap" style="margin-top:14px">{g.carlograve.source_grave}</p>
+</section>
+
+<section class="blk">
   <h2>{g.bishop.heading}</h2>
   <p class="dek" style="margin-top:10px">{g.bishop.lead}</p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
@@ -290,5 +359,5 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.bishop.source}</p>
 </section>
 
-  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "archiveorg", "hrcak", "familysearch"]} />
+  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "gologorica2026", "archiveorg", "hrcak", "familysearch"]} />
 </Base>

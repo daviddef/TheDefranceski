@@ -291,6 +291,49 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:14px">{s.reichsrat.source_reichsrat}</p>
 </section>
 
+<section class="blk">
+  <h2>{s.photographed.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.photographed.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {s.photographed.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{s.photographed.why}</p>
+  <p class="prose" style="margin-top:16px">{s.photographed.next}</p>
+  <p class="cap" style="margin-top:14px">{s.photographed.source_photo}</p>
+</section>
+
+<section class="blk">
+  <h2>{s.umagtomb.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.umagtomb.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {s.umagtomb.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:22px;margin-top:40px">Five names on the tablet</h3>
+  <div class="scroll" style="margin-top:14px">
+    <table>
+      <thead><tr><th style="width:250px">Name</th><th class="m" style="width:210px">As cut</th><th>What we know of them</th></tr></thead>
+      <tbody>{s.umagtomb.burials.map(([n, dt, x]) => (
+        <tr><td><strong>{n}</strong></td><td class="m">{dt}</td><td>{x}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose" style="margin-top:18px">{s.umagtomb.tablet}</p>
+  <p class="prose" style="margin-top:14px">{s.umagtomb.ettore}</p>
+  <p class="prose note" style="margin-top:20px">{s.umagtomb.why}</p>
+  <p class="cap" style="margin-top:14px">{s.umagtomb.source_tomb}</p>
+</section>
+
   <Lightbox />
   <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "simon2024", "archiveorg"]} />
 </Base>
