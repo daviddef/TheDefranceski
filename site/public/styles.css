@@ -433,7 +433,49 @@ nav.grouped a{font-family:var(--sans);font-size:13px;color:var(--ink-2);text-dec
   padding:2px 0;border-bottom:1.5px solid transparent}
 nav.grouped a:hover{color:var(--accent)}
 nav.grouped a.on{color:var(--ink);border-bottom-color:var(--terra)}
-@media (max-width:760px){nav.grouped{gap:8px 16px}nav.grouped .gl{display:none}}
+
+/* ---- navigation: always open on desktop, a real menu on a phone ---- */
+.navbox{flex:1 1 auto;min-width:0}
+.navbox > summary{display:none}
+.navbox > nav{display:flex}
+/* no-JS safety: if the script never runs, the nav is simply open. */
+@media (max-width:900px){
+  .sitein{gap:0;padding-top:11px;padding-bottom:11px;align-items:center;
+    justify-content:space-between;flex-wrap:nowrap}
+  .brand{font-size:16.5px;line-height:1.2}
+  .navbox{flex:0 0 auto}
+  .navbox > summary{display:inline-flex;align-items:center;gap:9px;list-style:none;cursor:pointer;
+    font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink);
+    border:1px solid var(--rule-strong);border-radius:3px;padding:7px 13px;background:var(--ground);
+    -webkit-tap-highlight-color:transparent}
+  .navbox > summary::-webkit-details-marker{display:none}
+  .navbox > summary .bars{width:15px;height:11px;position:relative;display:inline-block}
+  .navbox > summary .bars::before,.navbox > summary .bars::after{content:"";position:absolute;
+    left:0;right:0;height:1.5px;background:var(--ink)}
+  .navbox > summary .bars::before{top:0;box-shadow:0 4.75px 0 var(--ink)}
+  .navbox > summary .bars::after{bottom:0}
+  .navbox[open] > summary{border-color:var(--accent);color:var(--accent)}
+  .navbox[open] > summary .bars::before,.navbox[open] > summary .bars::after{background:var(--accent)}
+  .navbox[open] > summary .bars::before{box-shadow:0 4.75px 0 var(--accent)}
+  .navbox > nav{display:none}
+  .navbox[open] > nav{display:block;position:absolute;left:0;right:0;z-index:40;
+    background:var(--panel);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule-strong);
+    padding:6px 20px 20px;max-height:72vh;overflow-y:auto;
+    box-shadow:0 18px 32px rgba(0,0,0,.16)}
+  header.site{position:relative}
+  nav.grouped{display:block}
+  nav.grouped .grp{display:flex;flex-wrap:wrap;gap:2px 20px;align-items:baseline;
+    padding:12px 0 8px;border-bottom:1px solid var(--rule)}
+  nav.grouped .grp:last-child{border-bottom:0}
+  nav.grouped .gl{display:block;flex:0 0 100%;margin-bottom:5px;font-size:9.5px;color:var(--ink-3)}
+  nav.grouped a{display:inline-block;font-size:15.5px;line-height:1.5;padding:5px 0;border-bottom:0}
+  nav.grouped a.on{color:var(--terra);font-weight:600}
+}
+@media (max-width:520px){
+  .wrap{padding:0 18px}
+  body{font-size:17.5px}
+  .opener{padding:34px 0 28px}
+}
 
 /* ---- sources ---- */
 .srcblock{margin-top:44px;padding-top:22px;border-top:1px solid var(--rule-strong)}
@@ -580,3 +622,28 @@ details.tb[open] > summary .tnode::after{content:" ▾"}
 .rb-ev.dn{top:180px;padding-left:15px}
 .rb-ev.dn .d{top:-19px;background:var(--accent)}
 .rb-ev.dn b{color:var(--ink-2);font-weight:500}
+
+/* ---- mobile: nothing may push the page sideways ---- */
+.srcrow .refs code{max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+.srcrow .meta span{overflow-wrap:anywhere;min-width:0}
+.srcrow h3,.srcrow h3 a{overflow-wrap:anywhere}
+.srcrow .meta{flex-wrap:wrap}
+@media (max-width:520px){
+  .srcrow h3{font-size:19px}
+  .srcrow .refs code{font-size:10.5px}
+  .filters{gap:8px 10px}
+  .filters button{font-size:11.5px}
+  .stat .n{font-size:32px}
+  .door .dn,.cardlink .nm{font-size:20px}
+  .find .fh{font-size:17.5px}
+  section.blk{padding:30px 0}
+  .pagehead{padding:34px 0 22px;margin-bottom:26px}
+  .chap .cn{padding:22px 0 24px}
+  .chap .cb{padding:22px 0 24px 14px}
+  .chap .cn .yr{font-size:20px}
+  .atlas-key{font-size:11.5px;gap:6px 14px}
+  #atlas{height:min(62vh,460px)}
+  .treewrap{padding:12px}
+  .tkids{margin-left:8px;padding-left:12px}
+  .tnode{min-width:0;padding:7px 10px}
+}

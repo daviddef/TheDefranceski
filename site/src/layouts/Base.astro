@@ -35,12 +35,15 @@ const here = Astro.url.pathname;
 <header class="site">
   <div class="wrap sitein">
     <a class="brand" href={u("/")}>The Defranceschi Archive</a>
-    <nav class="grouped">{nav.map(([label, links]) => (
-      <span class="grp">
-        <span class="gl">{label}</span>
-        {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
-      </span>
-    ))}</nav>
+    <details class="navbox" open>
+      <summary><span class="bars" aria-hidden="true"></span>Menu</summary>
+      <nav class="grouped">{nav.map(([label, links]) => (
+        <span class="grp">
+          <span class="gl">{label}</span>
+          {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
+        </span>
+      ))}</nav>
+    </details>
   </div>
 </header>
 
@@ -74,6 +77,21 @@ const here = Astro.url.pathname;
     e.preventDefault();
     location.href = searchUrl;
   });
+</script>
+<script is:inline>
+  /* The nav ships open, so it works with no JavaScript at all. On a narrow
+     screen we close it and let the Menu button drive it. */
+  (function () {
+    var d = document.querySelector(".navbox");
+    if (!d) return;
+    var mq = window.matchMedia("(max-width: 900px)");
+    var sync = function (e) { if (e.matches) { d.open = false; } else { d.open = true; } };
+    sync(mq);
+    (mq.addEventListener ? mq.addEventListener("change", sync) : mq.addListener(sync));
+    d.addEventListener("click", function (ev) {
+      if (mq.matches && ev.target.closest("nav a")) d.open = false;
+    });
+  })();
 </script>
 </body>
 </html>
