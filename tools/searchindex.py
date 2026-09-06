@@ -68,6 +68,19 @@ for r in li["pedena"]["rows"] + li["wars"]["rows"]:
     add("Carlo's book", r.get("lab") or r.get("t"), r.get("y", "L'Istria, 1879"), "/carlos-book/",
         (r.get("text") or r.get("w"))[:180])
 
+cg = L("carnia.json").get("ginut")
+if cg:
+    for g in cg["chain"]:
+        add("Mione household", g["who"], f"with {g['with']} · Mione, Carnia", "/carnia/", g["what"][:180])
+    for r in cg["children"]["rows"]:
+        add("Mione household", r["who"] + " De Franceschi", f"{r['born']} – {r['died']}", "/carnia/",
+            "Child of Checo dal Ginut and Maria Giuseppina Fedele, Mione")
+
+ck = L("crikvenica.json").get("kovacina")
+if ck:
+    for r in ck["rows"]:
+        add("Person", r["who"], "Crikvenica house 119", "/crikvenica-house/", r["what"][:180])
+
 for p in L("parishbooks.json") if os.path.exists(os.path.join(D, "parishbooks.json")) else []:
     if isinstance(p, dict) and p.get("parish"):
         add("Parish book", p["parish"], p.get("span") or p.get("kind") or "", "/parish-books/")
