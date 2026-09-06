@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { u } from "../lib/url.js";
+import c from "../data/crikvenica.json";
+const g = c.nextGen;
+---
+<Base
+  title="The House at Crikvenica"
+  eyebrow="Josip and Ana, and everyone after"
+  dek="The generation that came down off the Istrian hills to the Kvarner coast, the four children the registers give them, and the four brothers of the next generation — three of whom left, one of whom came home. With the family's own photographs.">
+
+  <section class="prose">
+    <p>A stonecutter's son from Gračišće married a girl from a hamlet in the Vinodol and settled on the coast below it. That is the hinge of this whole archive, and until this week it was a sentence with one document behind it. It now has six, and eleven photographs.</p>
+  </section>
+
+  <h2 style="font-size:30px;margin-top:46px">Josip and Ana</h2>
+  <div class="grid g2" style="margin-top:20px;align-items:start">
+    <div class="prose">
+      <p><strong>{c.head.name}</strong>, born {c.head.born}, son of Antonius the <em>lapicida</em> of house 19. <strong>{c.head.wife.name}</strong>, born {c.head.wife.born}, daughter of Josip Kalanj and Rosalia née Perković.</p>
+      <p class="note">{c.head.wife.note}</p>
+      <p>Four separate register entries — the baptisms of 1890, 1892, 1894 and 1896 and the burial of 1905 — name her the same way. That matters, because the family's own genealogy file records Josip's wife as an <strong>Ana Grubišić</strong>, born 19 September 1863 and died 28 May 1936, and holds a photograph of her gravestone. The registers and the stone cannot both be describing the same woman: their birth dates are nine months apart and the maiden names differ.</p>
+      <p><span class="chip doc">Documented</span> The mother of these four children was Ana Kalanj. What the Ana of the gravestone was to this family is an open question, and a tractable one — the Crikvenica death register for 28 May 1936 would name her, and the marriage register would say whether Josip married once or twice.</p>
+    </div>
+    <div><Plates ids={c.head.plates} cols={2} /></div>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:48px">Their four children</h2>
+  <p class="dek" style="margin-top:8px">All four recovered from the indexed Croatian registers this week, by searching the parents rather than the place.</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Child</th><th class="m">Born</th><th class="m">Died</th><th>What the entry gives</th></tr></thead>
+      <tbody>{c.children.map(k => (
+        <tr style={k.line ? "background:var(--accent-wash)" : undefined}>
+          <td>{k.name}{k.line && <span class="chip doc" style="margin-left:8px;font-size:9.5px;padding:2px 7px">the line</span>}</td>
+          <td class="m">{k.born}</td><td class="m">{k.died || "—"}</td><td>{k.story}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div style="margin-top:22px"><Plates ids={["anton-1890"]} cols={1} /></div>
+
+  <h2 style="font-size:30px;margin-top:48px">Anton Rudolf and Ursula</h2>
+  <div class="grid g2" style="margin-top:20px;align-items:start">
+    <div class="prose">
+      <p><strong>{g.father.name}</strong>, born {g.father.born}, married <strong>{g.mother.name}</strong>. Her photograph shows a young woman in the drop-waisted dress of the early 1920s, the print worn through to the emulsion at every corner. A second, in colour, shows her forty years later among the stacked chairs of a seafront café with a small child against her knee.</p>
+      <p>Between them they produced the men on the Pfullingen list.</p>
+      <p class="note" style="margin-top:14px">{g.others}</p>
+    </div>
+    <div><Plates ids={["ursula-kovacina","ursula-old"]} cols={2} /></div>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:48px">The four brothers</h2>
+  <div class="spine" style="margin-top:18px">
+    {g.sons.map((s) => (
+      <article class={`gen ${s.line ? "documented" : "family"}`}>
+        <div class="rail"><span class="dot"></span></div>
+        <div class="body">
+          <h3 style="font-size:24px">{s.name}</h3>
+          <div class="facts">
+            <span><b>Born</b>{s.born}</span>
+            {s.died && <span><b>Died</b>{s.died}</span>}
+          </div>
+          <p class="cap" style="max-width:62ch">{s.story}</p>
+          {s.plates.length > 0 && <div style="margin-top:14px;max-width:660px"><Plates ids={s.plates} cols={s.plates.length} /></div>}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <h2 style="font-size:30px;margin-top:48px">And the two who lie in Australia</h2>
+  <div class="grid g2" style="margin-top:20px;align-items:start">
+    <div class="prose">
+      {c.australia.map(a => (
+        <>
+          <h3>{a.name}</h3>
+          <p><span class="mono">{a.born}{a.died ? ` — ${a.died}` : ""}</span></p>
+          <p>{a.story}</p>
+        </>
+      ))}
+      <p style="margin-top:10px"><a href={u("/graves/")}>The grave gazetteer →</a> · <a href={u("/pfullingen/")}>The six at Pfullingen →</a></p>
+    </div>
+    <div><Plates ids={["ruza-portrait","anton-child","zdravko-plaque"]} cols={2} /></div>
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>Where the photographs came from</h3>
+    <p>All of them were inside a MacFamilyTree package in the family's own files — 247 images, catalogued against 281 people in a database nobody had opened for this project. The captions are the family's own. Two of them are gravestones, one at Horsham in the Victorian Wimmera and one on the Kvarner coast.</p>
+    <h3>What is not here</h3>
+    <p>Everyone still living, and everyone whose dates are unknown and who could still be living. That takes out the whole of the generation after Ivan and Zdravko, and it takes out Anka, who is named in the family's file with no dates at all.</p>
+  </section>
+
+  <Lightbox />
+</Base>

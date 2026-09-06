@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import g from "../data/graves.json";
 const rows = g.rows, S = g.summary;
 const max = Math.max(...S.countries.map(([, n]) => n));
@@ -34,8 +36,21 @@ const millbrook = rows.filter(r => /Nine Partners/.test(r.cem));
     <div class="lab">The only one in Croatia</div>
     <h3>{croatia.name}, {croatia.span}</h3>
     <p><strong>{croatia.cem}</strong> — the Imperial and Royal Naval Cemetery at Pula, laid out in 1862 for the Austro-Hungarian fleet and its dead, and still standing. He was fifty-one when he died on 11 February 1946, nine months after the war ended and a year before the treaty that took Istria out of Italy. His name is in the burial register this archive already held, and it is the one entry where the paper and the stone agree.</p>
-    <p>One grave. Against forty-nine in the United States, twenty-two in Italy and fifteen in Australia.</p>
+    <p>One grave — <em>in the indexes</em>. Against forty-nine in the United States, twenty-two in Italy and fifteen in Australia.</p>
     <p class="cap" style="margin-top:14px">The reason is partly the indexes: Croatian cemeteries are barely covered by the volunteer memorial sites, and this figure is not a census of the ground. But it is also real. The Istrian Italians left after 1945, and in Istria and on the Kvarner a grave whose lease is not renewed is cleared and re-let on a cycle. Where nobody was left to renew, there is nothing to photograph.</p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">Except that the family holds photographs of two more</h2>
+  <p class="dek" style="margin-top:8px">Which is the whole argument against reading a memorial index as a map of the ground.</p>
+  <div class="grid g2" style="margin-top:22px;align-items:start">
+    <div class="prose">
+      <p>Inside a genealogy file in the family's own papers are 247 photographs. Two of them are graves, and neither is in any index.</p>
+      <p>The first is on the Kvarner coast: a standing stone with a cross and two oval porcelain medallions — a woman, and a man in a fedora. The cutting reads <strong>“Ovdje počiva u miru Božjem — ANA DE. FRANCESCHI — ✱ 19.IX.1863 ✝ 28.V.1936”</strong>. Here rests in God's peace. Below the dates the word <em>suprug</em>, husband, begins a second inscription that the photograph cuts off before the name.</p>
+      <p>The second is a bronze plaque in a lawn cemetery four hundred kilometres inland from Melbourne, and it settles a date this archive had from two sources that disagreed: <strong>“ZDRAVKO FRANK DEFRANCESKI, died 22nd December 1979 aged 58, beloved husband of Rosa, loved father of Anton and Vivian, loved grandfather of Dean, Lisa, Antonia and Carla.”</strong> The cemetery record was right and the family's own file, which gives 1999, is wrong. The four grandchildren named on it match the family structure exactly: two are Anton's, two are his sister's.</p>
+      <p>And there is a third, of Ivan Defrančeski, 1925–1995 — polished granite, a plain incised cross, the name cut in Croatian orthography, flowers on the neighbouring slabs.</p>
+      <p><a href={u("/crikvenica-house/")}>The house at Crikvenica →</a></p>
+    </div>
+    <div><Plates group="graves" cols={1} /></div>
   </div>
 
   <h2 style="font-size:30px;margin-top:52px">Horsham, Victoria</h2>
@@ -101,4 +116,5 @@ const millbrook = rows.filter(r => /Nine Partners/.test(r.cem));
     <p>It is not a survey of the ground. It is a survey of what volunteers have photographed and typed up, which is heavily weighted to the English-speaking world and to Italy. Croatia, Slovenia and the Istrian villages are almost entirely absent. Read the count of one Croatian grave as a fact about the record, and only then as a fact about the family.</p>
     <p>Source: Find a Grave memorial index, searched under Defranceschi, De Franceschi, DeFranceschi, Defranceski and De Franceski. Each name links to its own memorial.</p>
   </section>
+  <Lightbox />
 </Base>

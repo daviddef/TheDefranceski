@@ -134,13 +134,31 @@
     "name": "Anna Kalanj",
     "born": "3 January 1864, at Rijenovica in the Vinodol"
    },
-   "children": [],
+   "children": [
+    {
+     "name": "Anton Rudolf",
+     "born": "20 January 1890",
+     "line": true
+    },
+    {
+     "name": "Marija Stjepanka",
+     "born": "8 Dec 1892 – 29 Sep 1905"
+    },
+    {
+     "name": "Ivan",
+     "born": "November 1894"
+    },
+    {
+     "name": "Zorica",
+     "born": "14 December 1896"
+    }
+   ],
    "plates": [
     "gracisce-1863",
     "ana-kalanj",
     "anton-1890"
    ],
-   "flag": "The marriage itself has still not been found — only its consequences. The 1890 baptism names Josip and Ana as husband and wife, which settles that they married; the page and year of the wedding would say when the family reached the coast, and is the next thing to ask Rijeka or Pazin for."
+   "flag": "The marriage itself has still not been found. And the family's own genealogy file gives Josip a wife Ana Grubišić, 1863–1936, whose gravestone it photographs — a different birth date and a different maiden name from the Ana Kalanj the registers name in all four children's entries. The registers govern here; the stone is an open question worth a letter."
   },
   {
    "n": 5,
@@ -165,7 +183,35 @@
    ],
    "plates": [
     "anton-1890",
-    "cert-anton-1890"
+    "cert-anton-1890",
+    "ursula-kovacina"
+   ],
+   "spouse": {
+    "name": "Ursula, born Kovačina",
+    "born": "about 1890"
+   },
+   "children": [
+    {
+     "name": "Pepe",
+     "born": "—"
+    },
+    {
+     "name": "Petar",
+     "born": "15 June 1913"
+    },
+    {
+     "name": "Zdravko",
+     "born": "1 April 1921"
+    },
+    {
+     "name": "Ivan",
+     "born": "24 or 25 June 1925",
+     "line": true
+    },
+    {
+     "name": "Anka",
+     "born": "dates unknown"
+    }
    ]
   },
   {
@@ -176,13 +222,22 @@
    "died": 1995,
    "place": "Crikvenica → Pfullingen → Senj",
    "confidence": "documented",
-   "evidence": "On the Pfullingen list as Iwan, born 24 June 1925 at Crikvenica. His own German sickness-fund card gives 25 June and puts him at Brunnenstraße 7, Pfullingen, entering work on 21 October 1941 as an unskilled hand. He was sixteen.",
+   "evidence": "On the Pfullingen list as Iwan, born 24 June 1925 at Crikvenica. His own German sickness-fund card gives 25 June and puts him at Brunnenstraße 7, Pfullingen, entering work on 21 October 1941 as an unskilled hand. He was sixteen. He went home, married Hedviga Blažević, and is buried on his own coast under polished granite cut with a plain cross and the name in Croatian orthography: IVAN DEFRANČESKI, 1925–1995.",
    "plate": "kk-ivan",
    "sources": [
     {
      "label": "Arolsen Archives, ITS",
      "note": "Pfullingen list; Allgemeine Ortskrankenkasse membership card"
     }
+   ],
+   "diedExact": "30 October 1995",
+   "spouse": {
+    "name": "Hedviga, born Blažević",
+    "born": "dates withheld"
+   },
+   "plates": [
+    "kk-ivan",
+    "ivan-grave"
    ]
   },
   {

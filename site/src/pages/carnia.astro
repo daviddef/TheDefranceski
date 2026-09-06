@@ -1,0 +1,62 @@
+---
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import c from "../data/carnia.json";
+---
+<Base
+  title="Back to Carnia"
+  eyebrow="Mione · Paluzza · Ovaro"
+  dek="Every account this family gives of itself begins in Carnia, and until now not one De Franceschi could be documented there. Here are twelve, across three villages — and the name is still at Mione in 1939.">
+
+  <section class="prose">
+    <p>This is the archive's oldest open question. Carlo De Franceschi said the family came out of Carnia and settled in Istria <em>intorno al 1700</em>. A headmen's list of 1679 names a Zuane De Franceschi of Mione working in the imperial part of Istria with his son. Carlo added that in his own day, the 1870s, De Franceschi were still living at Mione and Muina.</p>
+    <p>All of that is testimony. None of it was record. The Ovaro parish registers before 1806 are in no portal, and every sweep this archive ran through the Italian indexes came back with Tuscans, Venetians and Trentini and no Carnians at all.</p>
+    <p>Searching by <em>place</em> instead of by name changed that.</p>
+  </section>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:34px">
+    <div class="lab">Mione di Ovaro</div>
+    <h3>The name is still in the village in 1939</h3>
+    <p>{c.mione.found}</p>
+    <p>{c.mione.why}</p>
+    <p class="cap" style="margin-top:12px">A bishop is a public figure and his dates are published; this archive names him for that reason and stops there. No claim of descent is made — what the record shows is that the surname persisted in the village the family's own tradition points to, for two hundred and sixty years after the only document that puts it there.</p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
+  <p class="dek" style="margin-top:8px">Twenty-five kilometres east of Mione, over the shoulder of the mountain. A De Franceschi family documented from the eighteenth century into the nineteenth.</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Who</th><th class="m">Born</th><th>Married</th><th>What the entries give</th></tr></thead>
+      <tbody>{c.paluzza.map(r => (
+        <tr><td>{r.who}</td><td class="m">{r.born || "—"}</td><td>{r.with || "—"}</td><td>{r.what}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:24px">
+    <p>Two things in that table are worth stopping on.</p>
+    <p>The first is <strong>Zuanne</strong>. It is the Venetian form of Giovanni, it stands at the head of the Paluzza family, and it is the given name of the man the 1679 list puts at Mione. That is not evidence of anything — Zuanne was among the commonest names in the region — but it is the name the archive keeps meeting.</p>
+    <p>The second is <strong>Pietro, born at Paluzza in 1851</strong>. His death certificate has been in this family's own folder all along, unidentified: a <em>muratore</em>, a mason, dead at forty-four in the civic hospital at San Daniele del Friuli on 30 March 1895. He now has parents — Daniele De Franceschi and Maria Pittino — a wife, Maria Lazzaro, and a birthplace in Carnia. See <a href={u("/burials/")}>the register of the dead</a>, where he lies four years and one bed away from Edoardo of Zara.</p>
+    <p>And the trade recurs. Antonius of Gračišće is a <em>lapicida</em> in 1863; Pietro of Paluzza is a <em>muratore</em> in 1895. Stone, in both countries.</p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:50px">Ovaro, and the compound name</h2>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Who</th><th class="m">Born</th><th>Married</th><th>What the entries give</th></tr></thead>
+      <tbody>{c.ovaro.map(r => (
+        <tr><td>{r.who}</td><td class="m">{r.born || "—"}</td><td>{r.with || "—"}</td><td>{r.what}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose" style="margin-top:20px">Mione is a <em>frazione</em> of Ovaro, and Ovaro is the parish. These are the first entries this archive has been able to put in that parish under this surname — and one of them carries the house-name that the bishop born there in 1939 also carries.</p>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>What this changes, and what it does not</h3>
+    <p>It does not connect anybody to anybody. There is still no page joining a Carnian De Franceschi to the Istrian family, and the 1679 list remains the only document that shows the movement at all.</p>
+    <p>What it changes is that Carnia stops being an assertion. There were De Franceschi at Paluzza in the eighteenth century and at Ovaro in the nineteenth, they married Delli Zotti and Silverio and Pittino and Gortani and Lazzara — Carnian names, all of them — and they worked stone. The family that Carlo said was still at Mione and Muina in the 1870s was still there in 1939.</p>
+    <h3>What to ask for next</h3>
+    <p>The <strong>Ovaro parish registers before 1806</strong>, which are in no portal and must be requested from the parish, and the <strong>Archivio Storico Diocesano at Udine</strong>, which may hold duplicates. Ask for baptisms and marriages at Mione and Muina between 1650 and 1720, looking for a Zuane with a son of working age in 1679. Separately, the <strong>Micoli Toscano family archive at Mione</strong> holds Gorto contracts, including ones naming the Erman who travelled with Zuane. See the <a href={u("/research-log/")}>research log</a>.</p>
+    <h3>The road these people were on</h3>
+    <p>From the sixteenth century the villages of the parishes of Ovaro and Luincis sent weavers and pedlars — the <em>cramars</em> — down what was called the road of the Furlans, into Istria. It began as seasonal work: out in the autumn, home in late spring. The 1679 entry catches exactly that, a father and a son wintering in the County of Pazin. Some of them stopped coming home.</p>
+  </section>
+</Base>
