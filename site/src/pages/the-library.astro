@@ -65,6 +65,42 @@ import d from "../data/library.json";
     ))}
   </div>
 
+  <h2 style="font-size:30px;margin-top:52px">{d.inventory.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.inventory.lead}</p>
+
+  <div style="margin-top:22px">
+    {d.inventory.boxes.map(b => (
+      <div class="linerow" style={"padding:16px 0;border-bottom:1px solid var(--rule)" + (b.key ? ";border-left:2px solid var(--terra);padding-left:16px" : "")}>
+        <div>
+          <div class="lab">Box {b.n}</div>
+          <h3 style="font-size:19px;margin-top:6px">{b.t}</h3>
+        </div>
+        <div><p style="margin:0">{b.w}</p></div>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:24px;margin-top:38px">And nine folders</h3>
+  <div style="margin-top:14px">
+    {d.inventory.folders.map(f => (
+      <div class="linerow" style={"padding:13px 0;border-bottom:1px solid var(--rule)" + (f.key ? ";border-left:2px solid var(--accent);padding-left:16px" : "")}>
+        <div><div class="lab">Folder {f.n}</div></div>
+        <div><p style="margin:0">{f.w}</p></div>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{d.inventory.span}</p>
+
+  <h2 style="font-size:28px;margin-top:48px">{d.inventory.threads.heading}</h2>
+  <div class="grid g3" style="margin-top:20px">
+    {d.inventory.threads.rows.map(r => (
+      <div class="one" style="border-left-color:var(--terra)">
+        <h3 style="font-size:18px">{r.t}</h3>
+        <p>{r.w}</p>
+      </div>
+    ))}
+  </div>
+
   <div class="one" style="margin-top:34px">
     <div class="lab">Tomaso Luciani's seventeen bookplates</div>
     <h3>{d.house.heading}</h3>
@@ -87,5 +123,5 @@ import d from "../data/library.json";
 
   <p class="cap" style="margin-top:26px">{d.source}</p>
 
-  <Sources ids={["libellarium", "kobler", "carlo1879", "dapa"]} />
+  <Sources ids={["arhivskivjesnik", "libellarium", "kobler", "carlo1879", "dapa"]} />
 </Base>
