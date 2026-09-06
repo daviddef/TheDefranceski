@@ -1,0 +1,77 @@
+---
+import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { u } from "../lib/url.js";
+import e from "../data/eleven.json";
+const kids = e.children;
+const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" && w !== "Gallignana");
+---
+<Base
+  title="The Eleven"
+  eyebrow="Gallignana → five countries"
+  dek="In 2012 the American branch held its first reunion and printed a family tree. It begins with a man born at Gallignana on 6 August 1856 — and that is a date this archive already had, from a page of the parish book of souls.">
+
+  <section class="prose">
+    <p>The chart is headed <em>The Generations of DeFranceschi (2012) — started by: Antonio DeFranceschi 8/6/1856 – 10/23/1924 + Maria Valhart 4/6/1867 – 1945</em>. It was assembled from a bundle of handwritten notes that Anton Rumac, married into the family for fifty years, handed over with a request to finish it before his ninetieth birthday.</p>
+    <p>Two months later they had it: eleven children, and five countries.</p>
+  </section>
+
+  <div class="one" style="border-left-color:var(--accent)">
+    <div class="lab">Why this page is here</div>
+    <h3>Antonio, born 6 August 1856</h3>
+    <p>The <em>Status Animarum</em> of the parish of Gallignana, house 19, lists the household of <strong>Antonius Defranceschi q. Joannis</strong>, stonecutter, and his wife <strong>Maria née Fernasar</strong>. Their children, in order: <strong>Antonius, born 6 August 1856</strong>. Josephus, born 22 March 1863. Leopolda, 1865. Catharina, 1869. Modestus, 1875.</p>
+    <p>Josephus is the man on the certified 1863 baptism, who went down to the Kvarner coast and whose line runs to Brisbane. <strong>Antonius is his elder brother by six and a half years</strong> — and he is the head of the chart the American cousins printed in 2012, to the day.</p>
+    <p>So the reunion family and the family that keeps this archive are the descendants of two brothers who grew up in the same house at Gračišće. One brother stayed and his children went to America, Argentina, Italy, Slovenia and Croatia. The other married a girl from the Vinodol and moved down to the sea.</p>
+    <p><a href={u("/direct-line/#gen-3")}>The household they were both born into →</a></p>
+  </div>
+
+  <h2 style="font-size:30px;margin-top:52px">The eleven children</h2>
+  <p class="dek" style="margin-top:8px">Eight boys and three girls, born between 1887 and 1909 in a two-bedroom house with a room below it, a small vineyard, a pump in the kitchen, an ice box, and no bathroom.</p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Child</th><th class="m">Born</th><th>Went to</th><th>What became of them</th></tr></thead>
+      <tbody>{kids.map(k => (
+        <tr>
+          <td>{k.n}</td>
+          <td class="m">{k.born}{k.died ? ` – ${k.died}` : ""}</td>
+          <td>{k.where}</td>
+          <td>{k.story}{k.check && <><br /><span class="mono" style="color:var(--accent);font-size:11.5px">Corroborated: {k.check}</span></>}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <section class="prose" style="margin-top:40px">
+    <h3>Six of the eleven check out against independent records</h3>
+    <p>The chart was made from memory, notes and a cassette tape. It has no citations and its compiler said plainly that there would be errors. But Antonio's birth matches the parish book to the day; Anthony 1887, Joseph 1892 and Albina 1900 all appear in American arrival and naturalisation records with Gallignana as their birthplace and the right dates; Bruno's grave at Millbrook carries his 1907 birth and his wife's name; and Basilio's two sons turn up in the American death records with Gallignana and Maria Rovina attached. That is a family history written down by people who were there, and it holds.</p>
+    <h3>Where they went</h3>
+    <p>{dests.join(" · ")}. The footnote to the 2012 chart lists the destinations of the original eleven as Argentina — Buenos Aires, Croatia, Italy, Slovenia and the USA. Daniele's departure is dated <strong>1947</strong>, the year of the treaty that moved the border, and puts him among the roughly 350,000 who left Istria, Rijeka and Dalmatia in the exodus. See <a href={u("/emigration/")}>Leaving</a>.</p>
+  </section>
+
+  <h2 style="font-size:30px;margin-top:52px">And the arms are on the house</h2>
+  <div class="grid g2" style="margin-top:22px;align-items:start">
+    <div class="prose">
+      <p>The 2012 album's opening essay describes the house at Moncalvo — Gologorica — that the family says Gian Battista built in 1711:</p>
+      <p class="note" style="margin-top:14px">{e.arms}</p>
+      <p>Read that against the blazon. The <em>Blasonario Giuliano</em> gives, for the Defranceschi of Fiume: <em>per fess — argent, a cross issuing from the division pierced by two arrows, all gules; vert, a pomegranate proper</em>. And Carlo De Franceschi, writing privately about his own family around 1873: <em>a cross crossed by two arrows; in the lower part a pomegranate</em>.</p>
+      <p>An American cousin standing in an Istrian village square, squinting at a worn stone, described a silver field with a red cross crossed by two arrows and a green field with a fruit on it — and called the fruit a turnip, which is exactly what a weathered pomegranate looks like.</p>
+      <p><strong>Three witnesses. A private letter of 1873, a published armorial, and the stone itself.</strong> None of them is quoting the others.</p>
+      <p><a href={u("/arms/")}>The arms, drawn to the blazon →</a></p>
+    </div>
+    <div>
+      <div style="margin-top:0"><Plates ids={["status-animarum-ant","moncalvo"]} cols={1} /></div>
+    </div>
+  </div>
+
+  <section class="prose" style="margin-top:46px">
+    <h3>What this does not prove</h3>
+    <p>The album traces the family from sixteenth-century Florence through Carnia and Aquileia to Gian Battista's house at Moncalvo in 1711, and then <em>fast forwards</em> — its own word — to Antonio in 1856. That leap is the same one this archive lists as open on its <a href={u("/research-log/")}>research log</a>: nothing yet joins the Gologorica house, whose people the register calls <em>Dominus</em>, to the Gallignana line of farmers and stonecutters two villages away. Both families believe the join exists. Neither has the page.</p>
+    <p>What is now proved is the part below 1856, and it is a great deal: an American reunion, an Argentine branch, a Tuscan branch, and the keeper of this archive in Brisbane are all descended from one household in one Istrian village, and the two lines part with two brothers.</p>
+    <h3>To the cousins</h3>
+    <p>If you are reading this because you were at Crystal Springs in 2012, or because someone sent you the tape: the parish book entry for your great-grandfather's household is on <a href={u("/direct-line/")}>The Spine</a>, and it gives his father, his mother's maiden name, his father's trade and his four brothers and sisters. It cost 124 kuna and a letter to the Pazin archive.</p>
+    <p class="cap">Source: {e.source}</p>
+  </section>
+
+  <Lightbox />
+</Base>
