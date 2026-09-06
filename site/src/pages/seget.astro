@@ -121,5 +121,51 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:18px">Source: {v.source}</p>
 </section>
 
+<section class="blk">
+  <h2>{s.voce.heading}</h2>
+  <p class="dek" style="margin-top:10px">{s.voce.lead}</p>
+
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th><th>As the article gives it</th></tr></thead>
+      <tbody>{s.voce.origins.map(o => (
+        <tr>
+          <td class="m">{o.y}</td>
+          <td>{o.key ? <strong>{o.t}</strong> : o.t}{o.lore && <><br /><span class="chip lore" style="padding:2px 7px;font-size:10px">Family lore</span></>}</td>
+          <td>{o.w}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:32px">
+    <div class="lab">The arms over the door</div>
+    <h3>{s.voce.house.heading}</h3>
+    <p>{s.voce.house.text}</p>
+    <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:18px;margin-top:16px">“{s.voce.house.blazon}”</p>
+    <p style="margin-top:10px">{s.voce.house.blazonEn}</p>
+    <p class="cap" style="margin-top:12px">{s.voce.house.rest}</p>
+  </div>
+
+  <div class="one" style="margin-top:20px">
+    <div class="lab">Santa Costanza</div>
+    <h3>{s.voce.chapel.heading}</h3>
+    <p>{s.voce.chapel.text}</p>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:38px">{s.voce.public.heading}</h3>
+  <p class="dek" style="margin-top:8px">{s.voce.public.branches}</p>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Who</th><th class="m">When</th><th>What</th></tr></thead>
+      <tbody>{s.voce.public.rows.map(([who, when, what]) => (
+        <tr><td>{who}</td><td class="m">{when || "—"}</td><td>{what}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose" style="margin-top:18px">{s.voce.public.guests}</p>
+  <p class="cap" style="margin-top:16px">{s.voce.caveat}</p>
+</section>
+
   <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos"]} />
 </Base>
