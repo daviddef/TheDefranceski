@@ -60,5 +60,60 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div class="note" style="margin-top:24px">Worth correcting a claim made earlier in this archive. The State Archives in Pazin does say publicly that its staff will not undertake extensive genealogical research — but this record shows what they <em>will</em> do: given a name, a place and a period, they searched the register, certified the copy and posted it to Australia, for a hundred and seventeen kuna. The refusal is of open-ended research, not of a specific request.</div>
   <p class="cap">{j.source}</p>
 </section>
-  <Sources ids={["dapa", "kobler", "familysearch"]} />
+<section class="blk">
+  <h2>{g.chronicle.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.chronicle.lead}</p>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:26px">
+    <div class="lab">The line through the village</div>
+    <h3>{g.chronicle.split.heading}</h3>
+    <p>{g.chronicle.split.text}</p>
+    <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:17px;margin-top:14px">“{g.chronicle.split.quote}”</p>
+    <p style="margin-top:10px">{g.chronicle.split.en}</p>
+  </div>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:18px">
+    <div class="lab">Origins</div>
+    <h3>{g.chronicle.carnia.heading}</h3>
+    <p>{g.chronicle.carnia.text}</p>
+    <p style="margin-top:12px"><strong>{g.chronicle.carnia.why}</strong></p>
+  </div>
+
+  <h3 style="font-size:24px;margin-top:40px">{g.chronicle.priest.heading}</h3>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th class="m">When</th><th>What</th><th>As the chronicle has it</th></tr></thead>
+      <tbody>{g.chronicle.priest.rows.map(r => (
+        <tr><td class="m">{r.y}</td><td>{r.key ? <strong>{r.t}</strong> : r.t}</td><td>{r.w}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:32px">
+    <div class="lab">The trade, and the name</div>
+    <h3>{g.chronicle.weaver.heading}</h3>
+    <p>{g.chronicle.weaver.text}</p>
+    <p style="margin-top:12px"><strong>{g.chronicle.weaver.why}</strong></p>
+    <p class="cap" style="margin-top:12px">{g.chronicle.weaver.caution}</p>
+  </div>
+
+  <div class="one" style="margin-top:18px">
+    <div class="lab">The end of the Austrian village</div>
+    <h3>{g.chronicle.occupation.heading}</h3>
+    <p>{g.chronicle.occupation.text}</p>
+    <p style="margin-top:12px">{g.chronicle.occupation.then}</p>
+    <p class="prose note" style="margin-top:14px">{g.chronicle.occupation.close}</p>
+  </div>
+
+  <h3 style="font-size:22px;margin-top:38px">{g.chronicle.life.heading}</h3>
+  <div class="scroll" style="margin-top:14px">
+    <table><tbody>{g.chronicle.life.rows.map(([k, v]) => (
+      <tr><td style="width:260px">{k}</td><td>{v}</td></tr>
+    ))}</tbody></table>
+  </div>
+  <p class="cap" style="margin-top:14px">{g.chronicle.life.note}</p>
+  <p class="cap" style="margin-top:14px">{g.chronicle.source}</p>
+</section>
+
+  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "hrcak", "familysearch"]} />
 </Base>
