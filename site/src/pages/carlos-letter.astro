@@ -47,6 +47,66 @@ import k from "../data/kobler.json";
   <div class="prose" style="margin-top:24px">
     <p>Note what he does with <strong>Valentino</strong>. He does not claim him. He says the port captain Francesco descends from Valentino rather than from Giambattista, that Valentino came to Fiume <em>directly from Carnia</em>, and that Francesco confirmed to him that his ancestors came from there. Then he adds, carefully: the Valentino branch <em>“potrebbe essere stato congiunto del mio trisavolo nato in Carnia”</em> — might have been connected to my great-great-grandfather, born in Carnia.</p>
     <p>That is exactly the question this archive framed a hundred and fifty years later, and Carlo left it exactly where the evidence leaves it: open, and probable.</p>
+    <p class="cap"><strong>But read the next section before using this.</strong> Everything above is from the letter of 10 November 1876. Ten weeks later Carlo wrote again and withdrew the Valentino reading.</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>{k.correction.heading}</h2>
+  <p class="dek">{k.correction.lead}</p>
+  <div class="qz" style="margin-top:20px">
+    <p class="qit">“{k.correction.quote}”</p>
+    <p class="qen">{k.correction.en}</p>
+    <p class="qwhy">{k.correction.why}</p>
+  </div>
+  <p class="cap" style="margin-top:20px">{k.correction.trees.note}</p>
+  <div class="grid g2" style="margin-top:12px">
+    <div class="one"><div class="lab">The Fiume line</div>
+      {k.correction.trees.left.map((n,i) => <p style={"margin-left:" + (i*14) + "px"}>{n}</p>)}</div>
+    <div class="one" style="border-left-color:var(--terra)"><div class="lab">Carlo's own line</div>
+      {k.correction.trees.right.map((n,i) => <p style={"margin-left:" + (i*14) + "px"}>{n}</p>)}</div>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>{k.gologorica.heading}</h2>
+  <p class="dek">{k.gologorica.lead}</p>
+  <div class="qz" style="margin-top:20px">
+    <p class="qit">“{k.gologorica.quote}”</p>
+    <p class="qen">{k.gologorica.en}</p>
+    <p class="qwhy">{k.gologorica.why}</p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>{k.bells.heading}</h2>
+  <p class="dek">{k.bells.lead}</p>
+  <div class="grid g2" style="margin-top:20px">
+    {k.bells.rows.map(r => (
+      <div class="one" style="border-left-color:var(--accent)">
+        <div class="lab">{r.what}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:20px">{k.bells.close}</p>
+</section>
+
+<section class="blk">
+  <h2>{k.bribir.heading}</h2>
+  <p class="dek">{k.bribir.lead}</p>
+  <div class="prose" style="margin-top:16px">
+    <p>{k.bribir.text}</p>
+    <p>{k.bribir.coda}</p>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="one">
+    <div class="lab">Aside</div>
+    <h3>{k.razvod.heading}</h3>
+    <p>{k.razvod.text}</p>
+    <p class="cap" style="margin-top:12px">{k.razvod.why}</p>
   </div>
 </section>
 
