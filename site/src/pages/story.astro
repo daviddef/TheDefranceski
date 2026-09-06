@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import s from "../data/story.json";
 ---
@@ -23,6 +25,9 @@ import s from "../data/story.json";
           <blockquote class="cq">{c.quote}</blockquote>
           <p class="cap" style="margin-top:8px">{c.qsrc}</p>
           <p class="cw" style="margin-top:14px"><strong>{c.hard}</strong></p>
+          {c.plates.length > 0 && (
+            <div style="margin-top:20px;max-width:640px"><Plates ids={c.plates} cols={c.plates.length > 2 ? 3 : 2} /></div>
+          )}
           <div class="cl">{c.links.map(([t, h]) => <a href={u(h)}>{t} →</a>)}</div>
         </div>
       </article>
@@ -35,5 +40,6 @@ import s from "../data/story.json";
     <div class="cl" style="margin-top:18px">{s.after.links.map(([t, h]) => <a href={u(h)}>{t} →</a>)}</div>
   </section>
 
+  <Lightbox />
   <Sources ids={["dapa", "maticne", "kobler", "arolsen", "familysearch"]} />
 </Base>

@@ -4,9 +4,17 @@ import Sources from "../components/Sources.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
 import sov from "../data/sovereignty.json";
 import pressures from "../data/pressures.json";
+import Ribbon from "../components/Ribbon.astro";
 ---
 <Base title="Timeline" eyebrow="Lives against history"
       dek="Sovereignty, pressure and family event on one scale. The point is not when people were born — it is what was happening to them when they were.">
+
+<section class="blk">
+  <h2>The family, and the world it was in</h2>
+  <p class="dek">Scroll sideways. Above the line, this family. Below it, what was happening around them. The point of putting them on one scale is that 1949 is the year one brother sailed for Australia and the other bought a second car.</p>
+  <div style="margin-top:24px"><Ribbon /></div>
+  <p class="cap">Drag or scroll the band horizontally. 1340 to 2030.</p>
+</section>
 
 <section class="blk">
   <SovereigntyTimeline events={true} />

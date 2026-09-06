@@ -1,0 +1,49 @@
+---
+/* A horizontal scrolling band: the family above the line, the world below it. */
+import fam from "../data/ribbon.json";
+/* Piecewise scale: the four centuries before 1600 are thin, the four
+   after are where everything happens, so give them the room. */
+const W = 3200;
+const BREAK = 1600, FRAC = 0.14;       // share of the width given to pre-1600
+const x = (y) => {
+  const inner = W - 200;
+  const p = y <= BREAK
+    ? ((y - 1340) / (BREAK - 1340)) * FRAC
+    : FRAC + ((y - BREAK) / (2030 - BREAK)) * (1 - FRAC);
+  return Math.round(p * inner) + 100;
+};
+const ticks = [1350, 1450, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000];
+/* Stagger vertically so labels never collide. */
+const lay = (arr, dir) => {
+  const rows = [0, 0, 0, 0];
+  return arr.map(e => {
+    const px = x(e.y);
+    let r = 0;
+    for (let i = 0; i < rows.length; i++) { if (px - rows[i] > 200) { r = i; break; } r = i; }
+    rows[r] = px;
+    return { ...e, px, row: r, dir };
+  });
+};
+const up = lay(fam.family, "up");
+const dn = lay(fam.world, "dn");
+---
+<div class="ribbon">
+  <div class="ribbon-in" style={`width:${W}px`}>
+    <div class="rb-axis"></div>
+    {ticks.map(t => (
+      <div class="rb-tick" style={`left:${x(t)}px`}><span>{t}</span></div>
+    ))}
+    {up.map(e => (
+      <div class="rb-ev up" style={`left:${e.px}px;bottom:${180 + e.row * 46}px`}>
+        <span class="d" style={`bottom:${-24 - e.row * 46}px`}></span>
+        <b>{e.y} · {e.t}</b><span>{e.w}</span>
+      </div>
+    ))}
+    {dn.map(e => (
+      <div class="rb-ev dn" style={`left:${e.px}px;top:${180 + e.row * 44}px`}>
+        <span class="d" style={`top:${-19 - e.row * 44}px`}></span>
+        <b>{e.y} · {e.t}</b><span>{e.w}</span>
+      </div>
+    ))}
+  </div>
+</div>
