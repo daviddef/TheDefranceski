@@ -257,6 +257,10 @@ PLATES = [
   "gracisce", "Giacoma de Franceschi marries, 7 August 1806",
   "The earliest De Franceschi act found in Carnia. At Mione, in the «Distretto della Carnia, Cantone di Gorto», Giacoma de Franceschi — seventeen years, two months and twelve days old, «figlia del fu Osualdo de Franceschi, e di Catterina nata Fabris» — marries Ignazio di Prato, a merchant of Chialina. Her birth act of 25 May 1789 is read into the record. She signs herself «Giacoma de Franceschi q.m Osualdo». All four witnesses are tailors; the registrar is Giovanni Micoli-Toscano and the secretary Battà Micoli-Toscano.",
   "Archivio di Stato di Udine, Stato civile napoleonico, Mione, Matrimoni 1806"),
+ ("mione-morti-index", "Antenati - Mione/Mione-Morti-indice-1806-1810.jpg", 0,
+  "gracisce", "The Mione death index, 1806–1810",
+  "Eight Defranceschi entries: Maria 1807, Lucia and Francesco Antonio 1808, Leonarda 1808, Anna Cecilia in January 1810 eleven days after her birth, Sebastiano «chierico» in July 1810, Maddalena in August and Mariana in September. Corva and Erman entries stand among them.",
+  "Archivio di Stato di Udine, Stato civile napoleonico, Mione, sig. 12966"),
  # ---- other holdings -----------------------------------------------------
  ("omis-chart", "Research & Historical Documents/franceschi omis - family tree.jpg", 0,
   "documents", "The Omiš descent chart",

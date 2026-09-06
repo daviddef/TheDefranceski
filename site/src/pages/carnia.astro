@@ -101,6 +101,19 @@ import c from "../data/carnia.json";
     <p>{c.households1806.micoli}</p>
   </div>
 
+  <h2 style="font-size:30px;margin-top:50px">{c.deaths.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.deaths.intro}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Name</th><th>Where</th><th class="m">Died</th><th class="m">Act</th><th>Note</th></tr></thead>
+      <tbody>{c.deaths.rows.map(r => (
+        <tr><td>{r.name}</td><td>{r.where}</td><td class="m">{r.when}</td><td class="m">{r.act}</td><td>{r.note || "—"}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div style="margin-top:22px"><Plates ids={["mione-morti-index"]} cols={1} /></div>
+  <p class="prose" style="margin-top:22px">{c.deaths.read}</p>
+
   <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
   <p class="dek" style="margin-top:8px">Twenty-five kilometres east of Mione, over the shoulder of the mountain. A De Franceschi family documented from the eighteenth century into the nineteenth.</p>
   <div class="scroll" style="margin-top:18px">
