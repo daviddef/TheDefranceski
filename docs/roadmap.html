@@ -1,0 +1,311 @@
+<title>Defranceschi Archive Roadmap</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4f2ed; --panel:#fffefb; --sunk:#eae7df;
+  --ink:#22262a; --ink-2:#4f565d; --ink-3:#828b93;
+  --rule:#ddd8ce; --rule-2:#c8c2b5;
+  --verd:#2f6f63; --verd-soft:#e3efeb;
+  --ochre:#a8703a; --ochre-soft:#f3e7da;
+  --claret:#8a3a3f;
+  --disp:'Fraunces',Georgia,serif;
+  --sans:'Public Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#16191c; --panel:#1e2226; --sunk:#131619;
+  --ink:#e8e6e1; --ink-2:#b0b6bb; --ink-3:#7e868d;
+  --rule:#2e343a; --rule-2:#3d454c;
+  --verd:#6fbdaa; --verd-soft:#1b2f2b;
+  --ochre:#d69a63; --ochre-soft:#2c231a;
+  --claret:#d4767c;
+}}
+:root[data-theme="dark"]{
+  --ground:#16191c; --panel:#1e2226; --sunk:#131619;
+  --ink:#e8e6e1; --ink-2:#b0b6bb; --ink-3:#7e868d;
+  --rule:#2e343a; --rule-2:#3d454c;
+  --verd:#6fbdaa; --verd-soft:#1b2f2b;
+  --ochre:#d69a63; --ochre-soft:#2c231a;
+  --claret:#d4767c;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.62;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:48px 26px 100px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5.2vw,52px);line-height:1.05;letter-spacing:-.02em}
+h2{font-size:27px;line-height:1.15;margin-top:8px}
+h3{font-size:19px;line-height:1.25}
+p{margin:.6em 0}
+a{color:var(--verd)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ochre);margin-bottom:14px}
+.dek{font-size:18px;color:var(--ink-2);max-width:66ch;margin-top:16px}
+.rule{height:1px;background:var(--rule);margin:44px 0}
+.sec{margin-top:56px}
+.sec > .lab{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.cap{font-size:13.5px;color:var(--ink-3);max-width:70ch}
+.grid{display:grid;gap:14px}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:16px 16px 18px}
+.stat b{display:block;font-family:var(--disp);font-size:31px;font-weight:700;line-height:1;color:var(--verd);font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:8px;line-height:1.4}
+.item{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule-2);border-radius:4px;padding:16px 18px;margin-top:12px}
+.item.p1{border-left-color:var(--claret)}
+.item.p2{border-left-color:var(--ochre)}
+.item.p3{border-left-color:var(--verd)}
+.item h3{margin-bottom:4px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:10px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--sunk);color:var(--ink-2);border:1px solid var(--rule)}
+.tag.hot{background:var(--ochre-soft);color:var(--ochre);border-color:transparent}
+.tag.go{background:var(--verd-soft);color:var(--verd);border-color:transparent}
+.callout{background:var(--verd-soft);border:1px solid transparent;border-left:3px solid var(--verd);border-radius:4px;padding:18px 20px;margin-top:20px}
+.callout.warn{background:var(--ochre-soft);border-left-color:var(--ochre)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--rule-2);padding:8px 12px 8px 0;font-weight:500}
+td{border-bottom:1px solid var(--rule);padding:9px 12px 9px 0;vertical-align:top}
+td.m{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+ul{padding-left:18px;margin:.5em 0}
+li{margin:.3em 0}
+.ladder{counter-reset:step}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.step-n{font-family:var(--disp);font-size:24px;font-weight:700;color:var(--rule-2);line-height:1;font-variant-numeric:tabular-nums}
+.done{text-decoration:line-through;color:var(--ink-3)}
+</style>
+
+<div class="wrap">
+
+<div class="eyebrow">Working document · September 2026</div>
+<h1>What is left to do</h1>
+<p class="dek">A roadmap for the Defranceschi archive: what the research still owes, which sources have not been opened, and what the site itself needs to become before it is worth handing to anyone else.</p>
+
+<div class="grid g4" style="margin-top:34px">
+  <div class="stat"><b>67</b><span>pages published</span></div>
+  <div class="stat"><b>594</b><span>indexed search entries</span></div>
+  <div class="stat"><b>29</b><span>sources with citations</span></div>
+  <div class="stat"><b>77</b><span>document plates</span></div>
+</div>
+
+<div class="rule"></div>
+
+<!-- ============ 1. FAMILYSEARCH ============ -->
+<section class="sec">
+  <div class="lab">Question one</div>
+  <h2>Am I finished with FamilySearch? No.</h2>
+  <p class="dek" style="font-size:16.5px">Three separate things have been done there, and three have not.</p>
+
+  <div class="grid g2" style="margin-top:22px">
+    <div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--verd)">Done</p>
+      <ul>
+        <li>Surname searches across the indexed record set, in every spelling variant.</li>
+        <li>A sixty-parish sweep <em>by place</em> across Istria and the Kvarner — the new "Every Town" page.</li>
+        <li>Waypoint lookups for register holdings, parish by parish.</li>
+      </ul>
+    </div>
+    <div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--claret)">Not done</p>
+      <ul>
+        <li><b>The browse-only films.</b> The big one. Gračišće, Gologorica, Crikvenica and Klenovica are all on FamilySearch as unindexed images. No search will ever find them. They must be read page by page.</li>
+        <li><b>The Family Tree side.</b> Only the historical records have been worked. The collaborative tree, its sources, and its attached memories are untouched.</li>
+        <li><b>Italy, Austria and the Americas by place.</b> The sweep covered Istria. Friuli, Trieste's hinterland, Brazil and Argentina have only been searched by name.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <h3>The single most valuable unopened thing in the project</h3>
+    <p>The family already holds <strong>1,467 page images</strong> of the Pazin registers for Gologorica (folders ZM34K-214 and ZM34K-215) and <strong>265 images</strong> of Senj births 1878–1894. Nobody has read them straight through. Everything the archive knows about Gologorica came from two certified extracts and a Status Animarum print — the rest of those 1,467 pages has never been looked at. A systematic read is the highest-yield work available and needs no archive, no fee and no permission.</p>
+  </div>
+</section>
+
+<!-- ============ 2. RESEARCH LADDER ============ -->
+<section class="sec">
+  <div class="lab">Question two</div>
+  <h2>The research ladder</h2>
+  <p class="dek" style="font-size:16.5px">Ordered by yield per hour, not by interest. The top three would each change a page.</p>
+
+  <div style="margin-top:24px">
+    <div class="item p1">
+      <span class="tag hot">Send this week</span>
+      <h3>Arolsen tracing case 349.822</h3>
+      <p>Eight documents, 1954–1984, withheld online. Somebody was asking the ITS about Petar for thirty years and we do not know who. <strong>The letter is written and sitting in <code>requests/arolsen-td-349822.md</code>.</strong> It needs your postal address and a send.</p>
+      <div class="meta"><span>effort: 20 min</span><span>cost: free</span><span>wait: 4–12 weeks</span></div>
+    </div>
+
+    <div class="item p1">
+      <span class="tag hot">Write this week</span>
+      <h3>The Geneanet member who signs himself "carnia"</h3>
+      <p>He has published the only rounded De Franceschi household at Mione — five generations of the <em>dal Ginut</em> house with trades, house-names and Friulian notes — and he has clearly worked the Ovaro registers directly. Ask him two questions: does GioBatta's line go back past Paolo, and did any De Franceschi of Mione leave for Istria? He is the best-placed human being we have identified.</p>
+      <div class="meta"><span>effort: 30 min</span><span>needs: Geneanet account</span></div>
+    </div>
+
+    <div class="item p1">
+      <span class="tag hot">New — from the sweep</span>
+      <h3>Svetvinčenat, 1650–1720</h3>
+      <p>Eleven indexed entries between 1674 and 1710 — Mattio, Domenico Gasparo, <strong>Zuana</strong>, Marina, Maria Maddalena De Franceschi. Older than the Mione headmen's list of 1679, older than the c.1700 arrival Carlo claims, and <em>nobody in this project had ever looked at Svetvinčenat</em>. If those people have parents in the parish book, the tidy story of one Carnian arrival breaks open.</p>
+      <div class="meta"><span>effort: a day</span><span>where: DAPA Pazin, or FamilySearch films</span></div>
+    </div>
+
+    <div class="item p2">
+      <h3>Labin (Albona), 1600–1650</h3>
+      <p>Aloÿsius Defranceschi, 1615. The earliest indexed occurrence of the surname anywhere in Istria — sixty-four years before Mione.</p>
+      <div class="meta"><span>effort: half a day</span></div>
+    </div>
+
+    <div class="item p2">
+      <h3>The 1711 house at Gologorica</h3>
+      <p>Carlo says in the Kobler letters: <em>"Il mio trisavolo fabbricò la nostra casa nel 1711 come da relativa iscrizione."</em> A dated inscription on a standing building. Nobody has established whether the house survives. The Pazin conservation office (Konzervatorski odjel u Puli / Pazin) would know, and Gologorica is small enough to walk in an afternoon.</p>
+      <div class="meta"><span>effort: an email, or a trip</span><span>payoff: a photograph of the family's own datestone</span></div>
+    </div>
+
+    <div class="item p2">
+      <h3>The bells of Gologorica</h3>
+      <p>Also from the letters: a bell of <strong>1364</strong> reading <em>Magister Nicholaus me fecit</em>, and one of 1573 with four Glagolitic letters Carlo could not read. Are they still in the tower? The Croatian Conservation Institute has a campanological survey; the diocese of Poreč-Pula holds parish inventories.</p>
+      <div class="meta"><span>effort: two emails</span></div>
+    </div>
+
+    <div class="item p2">
+      <h3>Ovaro parish registers before 1806, and the Agrons castle documents</h3>
+      <p>The pre-Napoleonic Ovaro books are in no portal and must be requested from the parish; the Archivio Storico Diocesano at Udine may hold duplicates. Separately, the family's own map records that the De Franceschi held the <strong>castle of Agrons</strong> on the Degano in the Gorto valley, with <strong>documents of 1467 and 1471</strong>. Those documents have never been chased. The Micoli Toscano family archive at Mione holds Gorto contracts, including ones naming the Erman who travelled to Istria with Zuane in 1679.</p>
+      <div class="meta"><span>effort: weeks of correspondence</span><span>payoff: the deepest possible</span></div>
+    </div>
+
+    <div class="item p3">
+      <h3>Senj death register, 1907–1920</h3>
+      <p>Milka Papić married Zvonimir Vukelić in 1907 and was a widow by December 1920. What killed him is not in the file, and the war and the 1918 influenza both sit in the gap.</p>
+      <div class="meta"><span>effort: half a day</span></div>
+    </div>
+
+    <div class="item p3">
+      <h3>Crikvenica marriages, 1900s–1910s</h3>
+      <p>For Anton Rudolf Defranceski and Ursula Kovačina. It would prove the link to the Kovačina household at house 119, which the archive currently states as inference.</p>
+    </div>
+
+    <div class="item p3">
+      <h3>Karlobag registers, to put citations under the ancestor chart</h3>
+      <p>The Karlobag line reaches people born around 1690 and is the deepest thing in the archive — but it rests on an uncited MyHeritage chart. The family already holds scans of Karlobag births 1691–1770 and 1804–1861 and the Stanje duša. This is verification work, not discovery, and it is entirely doable at the desk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. SOURCES NOT YET OPENED ============ -->
+<section class="sec">
+  <div class="lab">Question three</div>
+  <h2>Sources not yet opened</h2>
+  <p class="dek" style="font-size:16.5px">Everything known to exist that this project has not yet read.</p>
+
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Source</th><th>What it is</th><th class="m">Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>ZM34K-214 / 215</b></td><td>1,467 Pazin register images for Gologorica, already on your disk</td><td class="m">unread</td></tr>
+        <tr><td><b>Senj births 1878–94</b></td><td>265 images on your disk; the "My Family" subfolder is empty</td><td class="m">unread</td></tr>
+        <tr><td><b>Peter Defranceski/peter</b></td><td>92 images in your files — contact sheet built, not yet examined</td><td class="m">unread</td></tr>
+        <tr><td><b>CRS Rovigno, pp. 357–454</b></td><td>Centro di Ricerche Storiche volume in your files</td><td class="m">unread</td></tr>
+        <tr><td><b>"Garry shared history group"</b></td><td>11 MB PDF in your files, provenance unknown</td><td class="m">unread</td></tr>
+        <tr><td><b>Defranceski History.doc</b></td><td>the family's own written history</td><td class="m">unread</td></tr>
+        <tr><td><b>Loretta De Franceschi, <i>Libri</i></b></td><td>preface, in your files — a living scholar of the name</td><td class="m">unread</td></tr>
+        <tr><td><b>ResearchGate</b></td><td>opened for you on places, migration, circumstances</td><td class="m">not searched</td></tr>
+        <tr><td><b>Scribd</b></td><td>you logged me in; never used</td><td class="m">not searched</td></tr>
+        <tr><td><b>Trove (Australia)</b></td><td>needs your free API key — newspapers for Zdravko, Ruža and Anton at Horsham and Ipswich</td><td class="m">blocked</td></tr>
+        <tr><td><b>CEMLA (Argentina)</b></td><td>immigrant arrivals; behind a CAPTCHA I will not solve</td><td class="m">blocked</td></tr>
+        <tr><td><b>Antenati (Italy)</b></td><td>Mione marriages + <i>allegati</i>, 1806–15 — reaches back to the 1750s</td><td class="m">part-read</td></tr>
+        <tr><td><b>Istrapedia / istra.lzmk.hr</b></td><td>Croatian Istrian lexicon — Carlo, Camillo and the 1900–1972 Carlo</td><td class="m">not read</td></tr>
+        <tr><td><b>smrikve.com</b></td><td>cited on your map for the Rome→Candia→Seget story</td><td class="m">not read</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h3>Deeper still — archives nobody has written to</h3>
+    <ul>
+      <li><b>Archivio di Stato di Trieste</b> — Austrian Littoral administration, notarial acts, the <i>Luogotenenza</i> files that would carry the nobility question Carlo raises.</li>
+      <li><b>Archivio Storico Diocesano, Udine</b> — duplicate Ovaro registers before 1806.</li>
+      <li><b>Državni arhiv u Rijeci</b> — Rijeka is the heaviest cluster in the sweep (66 entries from 1742) and has never been worked directly.</li>
+      <li><b>Biblioteca Civica "Attilio Hortis", Trieste</b> — Carlo's and Camillo's papers and the Istrian periodicals.</li>
+      <li><b>Centro di Ricerche Storiche, Rovigno</b> — the standing scholarly body for Istrian history; they answer letters.</li>
+      <li><b>Archivio di Stato di Venezia</b> — for the Seget purchase, the Valier sale of 1623, and the Candia refugee lists after 1669.</li>
+      <li><b>Museo Etnografico, Ovaro / Micoli Toscano archive, Mione</b> — the Gorto contracts.</li>
+      <li><b>Horsham and Ipswich local newspapers</b> — obituaries for Zdravko 1979, Ruža 1996, Anton 1999.</li>
+      <li><b>NAA (National Archives of Australia)</b> — the 1949 assisted-migration file for Zdravko, Ruža and Anton. They sailed 8 March 1949; that file exists and is releasable.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 4. THE SITE ============ -->
+<section class="sec">
+  <div class="lab">Question four</div>
+  <h2>What the site itself needs</h2>
+  <p class="dek" style="font-size:16.5px">Sixty-seven pages is a lot of archive and not much story. It reads like a set of findings rather than a thing you can be walked through. This is the work.</p>
+
+  <div class="ladder" style="margin-top:26px">
+    <div class="step"><div class="step-n">01</div><div>
+      <h3>Make the numbers go somewhere</h3>
+      <p>Every metric tile on the home page is currently a dead end — <em>1679</em>, <em>zavičaj</em>, <em>99 burials</em>, <em>628 people worldwide</em>. Each should be a link to the page that earns it, with a hover state that says where it goes. This is an afternoon's work and it is the single change you asked for most directly.</p>
+    </div></div>
+
+    <div class="step"><div class="step-n">02</div><div>
+      <h3>One spine, told once, properly</h3>
+      <p>The story is currently spread over Direct Line, Gologorica, Carnia, Crikvenica, Pfullingen, Senj and Imotski, and a first-time reader has no idea where to start. Build a single narrative walk — <em>eight screens, 1679 to Brisbane</em> — that carries the reader from the Mione list to your own birth in Johannesburg, with every claim linking down into the detail page that proves it. Everything else becomes reference behind it.</p>
+    </div></div>
+
+    <div class="step"><div class="step-n">03</div><div>
+      <h3>A real map, on the site, not in Google</h3>
+      <p>Your My Maps has 1,355 markers across ten layers and none of it is on the site. An interactive map — Carnia, Istria, the Kvarner, Germany, Australia, South Africa — with the documented line drawn as one path and the other families as separate colours, would do more for a visitor in ten seconds than any page currently does.</p>
+    </div></div>
+
+    <div class="step"><div class="step-n">04</div><div>
+      <h3>A living family tree, not tables</h3>
+      <p>An expandable, pannable descent chart from Giambattista del fu Leonardo down, with confidence colouring (documented / inferred / lore) baked into the node, click-through to the person, and living people simply absent. The data already exists in <code>directline.json</code> and <code>people.json</code>.</p>
+    </div></div>
+
+    <div class="step"><div class="step-n">05</div><div>
+      <h3>Put the documents next to the claims</h3>
+      <p>77 plates exist but most sit in a gallery. Every assertion that rests on an image should show a thumbnail of that image inline, clickable to the full plate with its transcription beside it. The Lightbox already does this; it just is not wired everywhere.</p>
+    </div></div>
+
+    <div class="step"><div class="step-n">06</div><div>
+      <h3>A timeline that is actually a timeline</h3>
+      <p>Currently a table. It should be a horizontal, zoomable band from 1364 to 2026, with the family's events above the line and the world's below — Venice, the plagues, 1797, 1918, 1943, 1949, 1991 — so that a reader can see that Petar's decision to stay in Germany happens in the same year his brother sails for Australia.</p>
+    </div></div>
+
+    <div class="step"><div class="step-n">07</div><div>
+      <h3>Cut and merge</h3>
+      <p>Sixty-seven pages is too many. <em>Namesakes</em>, <em>Your Name</em>, <em>The Name</em> and <em>Diaspora</em> overlap heavily; <em>Explorer</em>, <em>Search</em> and <em>Households</em> are three doors into the same data. Target: around forty pages, with the reference material consolidated behind three or four strong hubs.</p>
+    </div></div>
+
+    <div class="step" style="border-bottom:none"><div class="step-n">08</div><div>
+      <h3>Say who it is for, on the first screen</h3>
+      <p>Right now the home page opens on findings. It should open on a person — you, in Brisbane, born in Johannesburg, descended from a stonemason on an Istrian hill — and then offer three doors: <em>read the story</em>, <em>look up a person</em>, <em>see the documents</em>. Everything else follows from that.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ 5. OPEN QUESTIONS ============ -->
+<section class="sec">
+  <div class="lab">Standing</div>
+  <h2>Open questions the archive has not closed</h2>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="item" style="border-left-color:var(--rule-2);margin-top:0">
+      <h3>Does the Istrian line actually come from Carnia?</h3>
+      <p class="cap">Carlo says so privately and never in print. The 1679 list puts a Zuane De Franceschi of Mione in the County of Pazin. No document joins the two. Labin 1615 and Svetvinčenat 1674 now sit awkwardly against the c.1700 arrival date.</p>
+    </div>
+    <div class="item" style="border-left-color:var(--rule-2);margin-top:0">
+      <h3>Which coast does Poldo belong to?</h3>
+      <p class="cap">Born 1901 at Crikvenica, died 1971, photographed with an accordion — but the family tree files him among the nine Imotski children. The one individual genuinely sitting across the seam.</p>
+    </div>
+    <div class="item" style="border-left-color:var(--rule-2);margin-top:0">
+      <h3>Who was Felix?</h3>
+      <p class="cap">Born 14 January 1908 at Crikvenica, standing on the Pfullingen list beside the brothers, in no register and no family file. A late child of Josip, or an early one of Anton Rudolf.</p>
+    </div>
+    <div class="item" style="border-left-color:var(--rule-2);margin-top:0">
+      <h3>Latin cross or Greek cross?</h3>
+      <p class="cap">Carlo's own letter of 1876 says <em>croce greca</em>. The published Blasonario blazon, credited to "C. de F." — Carlo himself — says <em>croce latina</em>. The site currently draws the Latin. One of the two is a transcription error and it is probably not the private letter.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+<p class="cap">Compiled from the archive's own research log, the Kobler letters of 1928, the September 2026 Arolsen and Istria sweeps, and the 1,355 markers on the family's Google map. Living people are excluded throughout by standing rule.</p>
+
+</div>
