@@ -65,6 +65,25 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
     </div>
   </div>
 
+<section class="blk">
+  <h2>{e.album.heading}</h2>
+  <p class="dek" style="margin-top:10px">{e.album.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {e.album.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--terra);margin-top:22px">
+    <div class="lab">Three things in family hands</div>
+    <p style="margin-top:8px">{e.album.provenance}</p>
+  </div>
+  <p class="prose" style="margin-top:22px">{e.album.cousins}</p>
+  <p class="prose note" style="margin-top:16px">{e.album.note_date}</p>
+</section>
+
   <section class="prose" style="margin-top:46px">
     <h3>What this does not prove</h3>
     <p>The album traces the family from sixteenth-century Florence through Carnia and Aquileia to Gian Battista's house at Moncalvo in 1711, and then <em>fast forwards</em> — its own word — to Antonio in 1856. That leap is the same one this archive lists as open on its <a href={u("/research-log/")}>research log</a>: nothing yet joins the Gologorica house, whose people the register calls <em>Dominus</em>, to the Gallignana line of farmers and stonecutters two villages away. Both families believe the join exists. Neither has the page.</p>
@@ -75,5 +94,5 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
   </section>
 
   <Lightbox />
-  <Sources ids={["album2012", "dapa", "familysearch", "findagrave"]} />
+  <Sources ids={["album2012", "dapa", "familysearch", "findagrave", "attirovigno"]} />
 </Base>
