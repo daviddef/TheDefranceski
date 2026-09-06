@@ -455,9 +455,9 @@
       "«Il giovine Pensiero», 18 January 1893 — his birth, and Don Ramiro's letter from Pisino",
       "«Il giovine Pensiero», 25 January 1893 — the humble cemetery of Moncalvo",
       "«Il Popolo Istriano», January 1895 — the riot at Gallignana",
-      "«Naša Sloga», 13 April 1900 — a De Franceschi mayor of Umag, not ours"
+      "«Naša Sloga», 13 April 1900 and 25 March 1909 — the Croatian paper on Gologorica"
     ],
-    "note": "The search interface is an Angular application, but it is backed by a plain JSON endpoint, and page images come from the library's own IIIF service without a bot check — so issues can be read at full resolution. The legacy page viewer sits behind a Cloudflare challenge and was left alone. Reading is by OCR run on the page images. The engine available here has no Italian model, so it is being run in English on Italian type: it locates a passage reliably and transcribes it imperfectly. Quotations taken from ANNO on this site are marked as OCR readings, and any word the scan broke is bracketed rather than guessed. Still to do: «\"de Franceschi\" Pisino», 113 issues, and the «Naša Sloga» run, whose images did not all load."
+    "note": "The search interface is an Angular application, but it is backed by a plain JSON endpoint, and page images come from the library's own IIIF service without a bot check — so issues can be read at full resolution. The legacy page viewer sits behind a Cloudflare challenge and was left alone. Reading is by OCR run on the page images. The engine available here has no Italian model, so it is being run in English on Italian type: it locates a passage reliably and transcribes it imperfectly. Quotations taken from ANNO on this site are marked as OCR readings, and any word the scan broke is bracketed rather than guessed. Still to do: «\"de Franceschi\" Pisino», 113 issues. The «Naša Sloga» issues that matter have now been read: where the presentation manifest returns 404 the IIIF image endpoint still serves the pages, which is how 25 March 1909 was recovered."
   },
   {
     "id": "fvgarchives",

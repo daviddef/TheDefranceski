@@ -115,5 +115,34 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.chronicle.source}</p>
 </section>
 
-  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "hrcak", "familysearch"]} />
+<section class="blk">
+  <h2>{g.argument.heading}</h2>
+  <p class="dek" style="margin-top:10px">{g.argument.lead}</p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:26px">
+    <div class="lab">{g.argument.carlo.where}</div>
+    <h3>{g.argument.carlo.heading}</h3>
+    <div class="qz" style="margin-top:12px">
+      <p class="qit">“{g.argument.carlo.quote}”</p>
+      <p class="qen">{g.argument.carlo.en}</p>
+    </div>
+    <p style="margin-top:12px">{g.argument.carlo.why}</p>
+  </div>
+
+  <div class="one" style="border-left-color:var(--terra);margin-top:18px">
+    <div class="lab">{g.argument.sloga.where}</div>
+    <h3>{g.argument.sloga.heading}</h3>
+    <div class="qz" style="margin-top:12px">
+      <p class="qit">“{g.argument.sloga.quote}”</p>
+      <p class="qen">{g.argument.sloga.en}</p>
+    </div>
+    <p style="margin-top:12px">{g.argument.sloga.why}</p>
+    <p style="margin-top:12px">{g.argument.sloga.then}</p>
+  </div>
+
+  <p class="prose note" style="margin-top:24px">{g.argument.why}</p>
+  <p class="cap" style="margin-top:14px">{g.argument.sourcing}</p>
+</section>
+
+  <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "hrcak", "familysearch"]} />
 </Base>

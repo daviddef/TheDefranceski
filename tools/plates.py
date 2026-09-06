@@ -388,6 +388,24 @@ PLATES = [
   "The motions and their signatories. G. B. de Franceschi signs the interpellation on the missing vice-president and Dr Bubba's motion against the bilingual signs in the Istrian district courts. Later he acts as teller in the election of a substitute assessor, and speaks again for the majority asking the Captain to talk the resigning assessors into staying.",
   "Osterreichische Nationalbibliothek, ANNO — igp18950116"),
 
+ # ---- ANNO: the funeral week of January 1893, and the Croatian answer ----
+ ("edp-1893-p2", "ANNO 2026/eco-di-pola-1893-01-14-p2.jpg", 0,
+  "documents", "L'Eco di Pola, 14 January 1893, page two",
+  "Carlo De Franceschi's career obituary, six days after his death at Gologorica. It gives the reason he lost his post — «venne cassato dal ruolo degli impiegati e messo in quiescenza per sospetti politici», struck off the roll of officials and pensioned off on suspicion of political sympathies, in 1854 — and lists what he left unpublished: a volume of memoirs and an unfinished study on the nationality of Istria. The memoirs waited thirty-three years for his son Camillo to print them.",
+  "Osterreichische Nationalbibliothek, ANNO — edp18930114"),
+ ("igp-1893-p1", "ANNO 2026/giovine-pensiero-1893-01-18-p1.jpg", 0,
+  "documents", "Il giovine Pensiero, 18 January 1893, front page",
+  "Two things on one page. Top left, the life: «nacque a Moncalvo (Gollogorizza) il 17 Ottobre 1810 da famiglia abbastanza agiata» — a birth date ten days after his death that disagrees with the 16 October 1809 the reference books give, and the only contemporary word this archive holds on the standing of the household. Right-hand columns, the letter from Pisino signed Don Ramiro: «Sor Carlo» on a Saturday in the fountain square, surrounded by the poor of the commune, handing out alms and staying to talk.",
+  "Osterreichische Nationalbibliothek, ANNO — igp18930118"),
+ ("nsp-1909-p1", "ANNO 2026/nasa-sloga-1909-03-25-p1.jpg", 0,
+  "documents", "Nasa Sloga, 25 March 1909, front page",
+  "The Croatian paper of Istria answering the Italian side with the Italian side's own book. Middle of the page: «mjesta Gologorica, Cernogradus i Bellegradus spominju se u listini od 1102 (v. De Franceschi str. 351.)» — the places Gologorica, Cernogradus and Bellegradus are named in a charter of 1102, see De Franceschi page 351. Carlo had cited those same three names to argue the Slavs arrived late. Nasa Sloga cites them to argue the Croats were there first. The family's village is the first exhibit in both cases.",
+  "Osterreichische Nationalbibliothek, ANNO — nsp19090325"),
+ ("nsp-1900-p2", "ANNO 2026/nasa-sloga-1900-04-13-p2.jpg", 0,
+  "documents", "Nasa Sloga, 13 April 1900, page two",
+  "A false lead, kept because a negative result is a result. Among the local notices: «Nacelnikom u Umagu bijase izabran dne 9. t. mj. g. Fr. de Franceschi, bivsi nacelnik one obcine» — a Fr. de Franceschi elected mayor of Umag on 9 April 1900, having held the office before. Umag is at the far western tip of Istria, ninety kilometres from Gologorica, and nothing yet connects him to this family.",
+  "Osterreichische Nationalbibliothek, ANNO — nsp19000413"),
+
 ]
 
 def run(cmd):
