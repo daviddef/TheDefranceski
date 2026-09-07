@@ -124,6 +124,16 @@ add("Person", "Giovanni Battista Defranceschi", "suppanus (headman) of Gologoric
 add("Person", "Joannes Petrus Defranceschi", "Dominus, godfather at Gallignana 5 May 1744", "/direct-line/", "Patrini fuerunt D.nus Joannes Petrus Defranceschi et Mattia uxor supradicti Joannis Grach.")
 
 for _n, _d, _b in (
+    ("Francesca de Franceschi", "d. 1 January 1924, aged 77 \u2014 Umag", "Named on the loose five-name tablet in the cemetery at Umag, in the De Franceschi di Seghetto plot."),
+    ("Giorgio de Franceschi", "ragioniere; d. 4 February 1940, aged 26 \u2014 Umag", "Named on the loose five-name tablet in the cemetery at Umag."),
+    ("Italo de Franceschi", "ingegnere; d. 3 December 1944, aged 68 \u2014 Umag", "Named on the loose five-name tablet in the cemetery at Umag."),
+    ("Feramondo de Franceschi", "d. 12 December 1945, aged 74 \u2014 Umag; the stone spells it with one R", "Named on the loose five-name tablet at Umag. The family's origin legend in La Voce del Popolo has a Ferramondo who fought Odoacer; this man's own stone reads FERAMONDO."),
+    ("Anna Fragiacomo, ved. de Franceschi", "d. 27 August 1960, aged 70 \u2014 Umag", "Named on the loose five-name tablet at Umag as FRAGIACOMO ANNA VED. DE FRANCESCHI."),
+    ("Ettore de Franceschi", "family plot at Umag, walled and empty but for a name plate", "An enclosure west of the canopy tomb with no monument and a wall pocked with the sockets of removed plaques. The iron plate reads FAMIGLIA ETTORE DE FRANCESCHI."),
+):
+    add("Person", _n, _d, "/seget/", _b)
+
+for _n, _d, _b in (
     ("Maria Defranceschi, nee Valhart", "b. 6 April 1867, d. 3 October 1945 \u2014 buried at Gracisce", "Named on the obelisk in the family plot at Gracisce as MARIA DEFRANCESCHI 6.IV.1867 - 3.X.1945. The American chart of 2012 gives her birth as 4/6/1867 and only the year of death."),
     ("Antonio DeFranceschi", "185[5 or 6] - 19[2]4 \u2014 buried at Gracisce; head of the eleven children", "Obelisk in the family plot at Gracisce, worn. The American chart of 2012 gives 6 August 1856 - 23 October 1924."),
 ):
