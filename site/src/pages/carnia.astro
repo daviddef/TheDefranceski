@@ -313,6 +313,47 @@ import c from "../data/carnia.json";
   <p class="prose" style="margin-top:16px">{c.gorto_war.todo}</p>
 </section>
 
+<section class="blk">
+  <h2>{c.brhan2004.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.brhan2004.lead}</p>
+  <div class="one" style="border-left-color:var(--accent);margin-top:20px">
+    <div class="lab">{c.brhan2004.key.lab}</div>
+    <p style="margin-top:8px">{c.brhan2004.key.text}</p>
+  </div>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
+    {c.brhan2004.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{c.brhan2004.source_brhan}</p>
+</section>
+
+<section class="blk">
+  <h2>{c.agrons.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.agrons.lead}</p>
+  <div class="one" style="border-left-color:var(--accent);margin-top:20px">
+    <div class="lab">{c.agrons.carlo.lab}</div>
+    <p class="qit" style="margin-top:10px">“{c.agrons.carlo.q}”</p>
+    <p class="qen" style="margin-top:8px">{c.agrons.carlo.en}</p>
+    <p style="margin-top:12px"><strong>{c.agrons.carlo.why}</strong></p>
+  </div>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
+    {c.agrons.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{c.agrons.careful}</p>
+  <p class="cap" style="margin-top:14px">{c.agrons.source_agrons}</p>
+</section>
+
+
+
   <Sources ids={["familysearch", "geneanet", "jelincic", "carlo1879", "kobler", "soravito", "sandaniele", "ferigo", "ovaro1995", "brhan", "attirovigno", "gorto2026", "archiveorg"]} />
   <Lightbox />
 </Base>

@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import { u } from "../../lib/url.js";
+import d from "../../data/dossiers.json";
+const people = Object.values(d.people).sort((a, b) => a.name.localeCompare(b.name));
+const letters = [...new Set(people.map(p => p.name[0].toUpperCase()))].sort();
+const total = people.reduce((s, p) => s + p.n, 0);
+---
+<Base title="Every Person" eyebrow={`${people.length} named people · ${total} mentions`}
+      dek="One page per person, joining every mention of them anywhere on this site. Click a name to see everything the archive holds under it.">
+<section class="blk">
+  <p class="prose note">{d.note}</p>
+</section>
+{letters.map(L => (
+  <section class="blk">
+    <h2>{L}</h2>
+    <div class="grid g3" style="margin-top:16px">
+      {people.filter(p => p.name[0].toUpperCase() === L).map(p => (
+        <div class="one">
+          <a href={u(`/who/${p.slug}/`)}><strong>{p.name}</strong></a>
+          <div class="cap" style="margin-top:4px">{p.n} mention{p.n === 1 ? "" : "s"} · {p.pages.length} page{p.pages.length === 1 ? "" : "s"}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+))}
+</Base>

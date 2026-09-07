@@ -368,5 +368,30 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.bishop.source}</p>
 </section>
 
+<section class="blk">
+  <h2>{g.first1661.heading}</h2>
+  <p class="dek" style="margin-top:8px">{g.first1661.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">{g.first1661.quote}</p>
+    <p class="qen">{g.first1661.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {g.first1661.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+    <div class="one" style="border-left-color:var(--accent)">
+      <div class="lab">{g.first1661.warning.lab}</div>
+      <p style="margin-top:8px">{g.first1661.warning.text}</p>
+    </div>
+  </div>
+  <p class="prose" style="margin-top:22px">{g.first1661.biotz}</p>
+  <p class="prose note" style="margin-top:16px">{g.first1661.hauptmann}</p>
+  <p class="cap" style="margin-top:14px">{g.first1661.source_1661}</p>
+</section>
+
+
   <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "gologorica2026", "archiveorg", "hrcak", "familysearch"]} />
 </Base>

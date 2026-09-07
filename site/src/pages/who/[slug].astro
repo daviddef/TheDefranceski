@@ -1,0 +1,42 @@
+---
+import Base from "../../layouts/Base.astro";
+import { u } from "../../lib/url.js";
+import d from "../../data/dossiers.json";
+export function getStaticPaths() {
+  return Object.values(d.people).map(p => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const byPage = {};
+for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
+const groups = Object.entries(byPage);
+---
+<Base title={p.name} eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
+      dek={`Everything this archive holds under this name, gathered from every page of the site.`}>
+
+<section class="blk">
+  <div class="note">
+    Identity here is by <strong>name</strong>, not by resolved individual. Where two people of one name appear
+    in this archive they share this page, and it is for the reader to keep them apart — the surrounding text
+    usually makes it obvious. Nothing here is new evidence; it is the same evidence, brought together.
+  </div>
+  {p.pages.length > 0 && (
+    <p class="prose" style="margin-top:20px">
+      Appears on: {p.pages.map((x, i) => (<>{i > 0 ? " · " : ""}<a href={u(x.h)}>{x.t}</a></>))}
+    </p>
+  )}
+</section>
+
+{groups.map(([title, g]) => (
+  <section class="blk">
+    <h2>{g.page ? <a href={u(g.page)}>{title}</a> : title}</h2>
+    <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px">
+      {g.hits.map(h => (<div class="one"><p style="font-size:14px;line-height:1.65">…{h.text}…</p></div>))}
+    </div>
+  </section>
+))}
+
+<section class="blk">
+  <p class="prose note">{d.note}</p>
+  <p class="cap" style="margin-top:14px"><a href={u("/who/")}>All {Object.keys(d.people).length} people →</a> · <a href={u("/search/")}>Search the whole archive →</a></p>
+</section>
+</Base>
