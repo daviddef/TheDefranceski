@@ -473,6 +473,21 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     <p class="cap" style="margin-top:14px">{g.house.fabricated.source_fab}</p>
   </div>
 </section>
+<Rule name="pomegranate" label="From the family tree" />
+<section class="blk">
+  <h2>{g.fromtree.heading}</h2>
+  <p class="dek" style="margin-top:8px">{g.fromtree.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {g.fromtree.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{g.fromtree.source_ft}</p>
+</section>
+
 
 
 
