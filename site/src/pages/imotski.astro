@@ -128,5 +128,21 @@ import d from "../data/imotski.json";
 
 
 
+<Rule name="pomegranate" label="Donji Proložac" />
+
+<section class="blk">
+  <h2>{d.prolozac.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.prolozac.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.prolozac.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{d.prolozac.source_pro}</p>
+</section>
+
   <Sources ids={["myheritage", "findagrave", "dapa"]} />
 </Base>
