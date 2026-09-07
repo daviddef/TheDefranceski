@@ -348,9 +348,26 @@ import c from "../data/carnia.json";
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{c.agrons.careful}</p>
+  <p class="prose note" style="margin-top:22px">{c.agrons.join}</p>
+  <p class="prose" style="margin-top:16px">{c.agrons.careful}</p>
   <p class="cap" style="margin-top:14px">{c.agrons.source_agrons}</p>
 </section>
+
+<section class="blk">
+  <h2>{c.encyclopedia.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.encyclopedia.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.encyclopedia.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{c.encyclopedia.uspomene}</p>
+  <p class="cap" style="margin-top:14px">{c.encyclopedia.source_enc}</p>
+</section>
+
 
 
 
