@@ -120,8 +120,21 @@ for it in kb["funeral"]["items"]:
         f"{it.get('text','')} {it.get('quote','')} {it.get('en','')} {it.get('why','')}"[:400])
 
 add("Person", "Giovanni Antonio de Benzoni", "Fiume 1687 – Fiume 1745 · vicar general of the bishop of Pedena, bishop of Senj and Modrus 1730", "/carlos-letter/", kb["benzoni"]["en"])
-add("Person", "Giovanni Battista Defranceschi", "suppanus (headman) of Gologorica, godparent at Gallignana 26 June 1743", "/direct-line/", "Patrini fuerunt R.di D.ni Joannes Grach, et Joanna uxor Suppani Jo: Baptistae Defranceschi a Golagoriza.")
+add("Person", "Giovanni Battista Defranceschi", "suppanus (headman) of Gologorica 1733-1743; his wife Joanna godmother at Gallignana twice", "/direct-line/", "8 Jan 1733: Ioana Uxor Sup.ni Ioanis Bap.tae Defranceschi. 26 June 1743: Joanna uxor Suppani Jo: Baptistae Defranceschi a Golagoriza.")
 add("Person", "Joannes Petrus Defranceschi", "Dominus, godfather at Gallignana 5 May 1744", "/direct-line/", "Patrini fuerunt D.nus Joannes Petrus Defranceschi et Mattia uxor supradicti Joannis Grach.")
+
+for _n, _d, _b in (
+    ("Francesco de Franceschi", "Bishop of Pola about 1424", "In Kobler's series of the bishops of Pola, from acts of Fiume, and independently in Cavalli 1845, between Tommaso Tommasini and Domenico de Luschis (1426-1451). No primary act seen."),
+    ("Philippus de Franceschi", "priest; celebrated a baptism at Gallignana 19 March 1734", "Presbiter Philippus de Franceschi Baptisavit Josephum Antonium filium legitimum Ignatij Marinich et Uxoris Luciae. Folio 138 of the Gallignana baptism book."),
+    ("Giuseppa Defranceschi", "daughter of Valentino Defranceschi of Carnia; wife of Carlo Rossi, British vice-consul at Fiume", "Held the house in the Contrada dei Cappuccini after her father; it passed in 1794 to Elena widow Faribault. Named by Kobler in his topography, not in his family article."),
+    ("Margherita de Franceschi", "married Ascanio Giacomini of Fiume, 1697", "Their son Antonio was made a municipal councillor of Fiume in 1733."),
+    ("Antonio De Franceschi", "secretary of the city of Fiume, 1682", "From Kobler's series of secretaries drawn from the public books."),
+    ("Giovanni de Franceschi", "vice-chancellor of the city of Fiume, 1682", "From Kobler's series of vice-chancellors drawn from the public books."),
+    ("Girolamo Franceschi", "councillor of Fiume, 1651-1700 roll", "Listed with Giulio and Giovanni Antonio Franceschi; not in Kobler's family article."),
+    ("Giulio Franceschi", "councillor of Fiume, 1651-1700 roll", "Listed with Girolamo and Giovanni Antonio Franceschi; not in Kobler's family article."),
+    ("Francesco Defranceschi", "patrician councillor of Fiume in 1848; royal harbourmaster; d. 22 December 1885", "Son of Valentino di Giuseppe Defranceschi and Orsola de Benzoni. On the same 1848 roll as Giovanni Kobler."),
+):
+    add("Person", _n, _d, "/carlos-letter/", _b)
 
 for _n, _d, _b in (
     ("Felice de Benzoni", "d. Fiume 24 July 1716 \u2014 imperial inspector of the maritime crown estates; killed on the public square by a bursting saluting mortar", "Married Orsola di Nicolo Marotti. Father of Bishop Giovanni Antonio de Benzoni. Buried in the chapel of the Immaculate Conception at Fiume."),
