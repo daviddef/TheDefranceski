@@ -428,6 +428,21 @@ import c from "../data/carnia.json";
   <p class="cap" style="margin-top:14px">{c.twobranches.source_two}</p>
 </section>
 
+<section class="blk">
+  <h2>{c.brhan3.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.brhan3.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.brhan3.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.brhan3.source_b3}</p>
+</section>
+
+
 
 
 
