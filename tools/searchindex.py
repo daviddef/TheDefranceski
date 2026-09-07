@@ -124,6 +124,12 @@ add("Person", "Giovanni Battista Defranceschi", "suppanus (headman) of Gologoric
 add("Person", "Joannes Petrus Defranceschi", "Dominus, godfather at Gallignana 5 May 1744", "/direct-line/", "Patrini fuerunt D.nus Joannes Petrus Defranceschi et Mattia uxor supradicti Joannis Grach.")
 
 for _n, _d, _b in (
+    ("Maria Defranceschi, nee Valhart", "b. 6 April 1867, d. 3 October 1945 \u2014 buried at Gracisce", "Named on the obelisk in the family plot at Gracisce as MARIA DEFRANCESCHI 6.IV.1867 - 3.X.1945. The American chart of 2012 gives her birth as 4/6/1867 and only the year of death."),
+    ("Antonio DeFranceschi", "185[5 or 6] - 19[2]4 \u2014 buried at Gracisce; head of the eleven children", "Obelisk in the family plot at Gracisce, worn. The American chart of 2012 gives 6 August 1856 - 23 October 1924."),
+):
+    add("Person", _n, _d, "/the-eleven/", _b)
+
+for _n, _d, _b in (
     ("Francesco de Franceschi", "Bishop of Pola about 1424", "In Kobler's series of the bishops of Pola, from acts of Fiume, and independently in Cavalli 1845, between Tommaso Tommasini and Domenico de Luschis (1426-1451). No primary act seen."),
     ("Philippus de Franceschi", "priest; celebrated a baptism at Gallignana 19 March 1734", "Presbiter Philippus de Franceschi Baptisavit Josephum Antonium filium legitimum Ignatij Marinich et Uxoris Luciae. Folio 138 of the Gallignana baptism book."),
     ("Giuseppa Defranceschi", "daughter of Valentino Defranceschi of Carnia; wife of Carlo Rossi, British vice-consul at Fiume", "Held the house in the Contrada dei Cappuccini after her father; it passed in 1794 to Elena widow Faribault. Named by Kobler in his topography, not in his family article."),
