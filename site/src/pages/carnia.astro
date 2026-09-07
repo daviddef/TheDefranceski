@@ -394,6 +394,41 @@ import c from "../data/carnia.json";
   <p class="cap" style="margin-top:14px">{c.gismani.source_gismani}</p>
 </section>
 
+<section class="blk">
+  <h2>{c.svetvincenat.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.svetvincenat.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.svetvincenat.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+        {r.link && <p style="margin-top:8px"><a href={u(r.link)}>{r.linktext} &rarr;</a></p>}
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{c.svetvincenat.next}</p>
+  <p class="cap" style="margin-top:14px">{c.svetvincenat.source_sv}</p>
+</section>
+
+<section class="blk">
+  <h2>{c.twobranches.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.twobranches.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">{c.twobranches.quote}</p>
+    <p class="qen">{c.twobranches.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.twobranches.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.twobranches.source_two}</p>
+</section>
+
+
 
 
 
