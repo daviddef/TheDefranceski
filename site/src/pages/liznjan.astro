@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/liznjan.json";
+const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+---
+<Base title="Ližnjan" eyebrow="Third of eighteen towns, and no page until now" dek={d.note}>
+
+<section class="blk">
+  <h2>{d.grga.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.grga.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={md(r.text)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{d.grga.source_g}</p>
+</section>
+<Rule name="tablet" label="And what cannot be shown" />
+
+<section class="blk">
+  <h2>{d.monheim.heading}</h2>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.monheim.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--ochre)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={md(r.text)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{d.why}</p>
+  <p class="cap" style="margin-top:14px">
+    The pin came off <a href={u("/old-site/")}>defranceski.com</a>, archived before it is switched off.
+    Ante Defrančeski, the teacher, was born in this village on 1 February 1894 —
+    <a href={u("/people/ante-defranceski/")}>his life is here</a>.
+  </p>
+</section>
+
+<Sources ids={["familysearch", "dapa", "dfcom"]} />
+</Base>
