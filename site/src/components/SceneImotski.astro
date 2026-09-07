@@ -1,209 +1,35 @@
 ---
-/* Imotski, 25 July 1717 — drawn as a topographical plate of its own century.
-   Line and hatching only, one ink, on a paper ground: the manner in which a
-   Venetian engineer's view of a taken place would actually have been printed.
+/* Imotski, the evening of 25 July 1717.
 
-   Everything depicted is named in the documents and nothing else is:
-     · the rock of Topana and the fortress on it
-     · the outer wall Zuane Franceschi was first through, and the standard
-       of St Mark he set on it
-     · the chasm below — "Crven je to kamen, a nema na njemu ni mladice ni
-       grma", it is red stone with neither shoot nor shrub on it, from his own
-       letter printed in La Dalmazia in 1846
-     · the varoš already taken, below the rock
-     · Emo's artillery still on the Zadvarje road, which reached the field
-       only that evening
+   A constructed illustration made for this archive by an image model working
+   from a written brief kept at notes/image-prompts.md. It is illustration and
+   the caption says so. Nothing in it is a source.
 
-   No portrait of the man exists and no contemporary view of the siege has been
-   found. This is illustration, and the caption says so. */
-
-const INK = "#2B2622";
-
-// deterministic jitter so the hatching looks cut, not printed
-let seed = 20250725;
-const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
-
-// sky: horizontal ruling, closing up toward the horizon
-const sky = [];
-for (let y = 26; y < 150; y += 3.1) {
-  const t = (y - 26) / 124;                       // 0 at top, 1 at horizon
-  const op = 0.05 + t * 0.20;
-  const x0 = 22 + rnd() * 26, x1 = 858 - rnd() * 26;
-  sky.push({ y, x0, x1, op });
-}
-
-// rock of Topana: contour hatching following the mass
-const rockHatch = [];
-for (let i = 0; i < 62; i++) {
-  const t = i / 61;
-  const y = 150 + t * 118;
-  const x0 = 556 + t * 26 + rnd() * 8;
-  const x1 = 812 - t * 34 - rnd() * 10;
-  rockHatch.push({ y, x0, x1, op: 0.16 + t * 0.42, w: 0.55 + rnd() * 0.5 });
-}
-
-// chasm wall: near-vertical strokes, deepening
-const chasm = [];
-for (let i = 0; i < 74; i++) {
-  const a = Math.PI * (0.06 + (i / 73) * 0.88);
-  const cx = 300, rx = 214, ry = 40;
-  const x = cx - Math.cos(a) * rx;
-  const yTop = 236 + Math.sin(a) * ry * 0.42;
-  const depth = 96 + Math.sin(a) * 60;
-  chasm.push({ x, y0: yTop, y1: yTop + depth, op: 0.18 + Math.sin(a) * 0.5, w: 0.5 + rnd() * 0.55 });
-}
-
-// far ridge of Biokovo
-const ridge = "M22,150 L86,128 L124,140 L182,116 L228,134 L286,112 L344,132 L404,118 L452,138 L512,120 L570,140 L636,122 L700,142 L764,126 L822,144 L858,132";
-
-// roofs of the varoš
-const town = [];
-for (let i = 0; i < 26; i++) {
-  const x = 60 + i * 24 + rnd() * 9;
-  if (x > 200 && x < 470) continue;              // keep the chasm clear
-  const w = 13 + rnd() * 9, h = 7 + rnd() * 5;
-  town.push({ x, y: 300 + rnd() * 26, w, h });
-}
-
-// If a generated image has been dropped in, use it instead of the drawn plate.
+   Original file archived in the project's source library as
+   "2026-09 zuane-imotski-1717 (Gemini, from the archive's brief) ORIGINAL.jpg". */
 import { u } from "../lib/url.js";
-const real = "/art/zuane-imotski-1717.webp";
-let hasReal = false;
-try {
-  const fs = await import("node:fs");
-  hasReal = fs.existsSync(new URL("../../public" + real, import.meta.url));
-} catch (e) { hasReal = false; }
 ---
-{hasReal ? (
 <figure class="plate">
-  <img src={u(real)} alt="A constructed illustration of Imotski on 25 July 1717: the fortress of Topana on its rock, the standard of Saint Mark on the outer wall, the town below already taken." loading="lazy" decoding="async" />
+  <img src={u("/art/zuane-imotski-1717.webp")}
+       alt="A constructed engraving-style illustration of Imotski in 1717: a fortress with a square keep, crenellated wall and round tower standing on a bare limestone crag with a banner flying; below it a deep karst sinkhole with sheer hatched walls and a small dark lake at the bottom; a stone town with a campanile to the right; and a column of horse-drawn artillery far off on the plain to the left."
+       width="1800" height="982" loading="lazy" decoding="async" />
   <figcaption class="cap" style="margin-top:12px">
-    A constructed illustration, made for this archive with an image model from a written brief, and it is illustration, not
-    evidence. No portrait of Zuane Ivan Franceschi is known and no contemporary view of the siege has been found. Only what
-    the documents state is in it: the rock of Topana and its fortress, the outer wall he was first through and the standard
-    of St Mark he set on it, the chasm below that he described himself as red stone with neither shoot nor shrub, the town
-    already taken, and General Emo’s artillery still on the Zadvarje road, which reached the field only that evening.
+    <strong>Imotski, the evening of 25 July 1717.</strong> A constructed illustration, made for this archive by an image
+    model working from a written brief, and it is illustration — not a document, not a source, and not evidence of
+    anything. No portrait of Zuane Ivan Franceschi is known and no contemporary view of the siege has been found. What is
+    in it is what the papers state: the fortress on its crag with the banner on the wall; the karst chasm below, which he
+    described himself as red stone with neither shoot nor shrub to comfort those fearful cliffs; the town already taken,
+    below and to the right; and General Emo’s artillery still out on the plain — which is the whole point of the picture,
+    because it reached the field only that evening and found the work done.
+    <br /><br />
+    Two things in it are the model’s and not the record’s, named here so that nobody mistakes them for findings. At
+    Imotski the fortress stands directly on the rim of the sinkhole; here the crag and the chasm are drawn as neighbouring
+    features. And the fortress is rendered in a generic Venetian manner — square keep, round tower — rather than as
+    Topana, which was an Ottoman work. The brief, its negative constraints and the checks against them are kept with this
+    project’s papers, and the unaltered original file is in its source library.
   </figcaption>
 </figure>
-) : (
-<figure class="plate">
-  <svg viewBox="0 0 880 420" width="100%" role="img"
-       aria-label="An engraved-style plate of Imotski on 25 July 1717: the fortress of Topana on its rock, the standard of Saint Mark on the outer wall, the chasm below, the town already taken, and artillery still on the road">
-    <defs>
-      <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#F1EADB"/><stop offset=".55" stop-color="#EAE1CE"/><stop offset="1" stop-color="#E1D6C0"/>
-      </linearGradient>
-      <clipPath id="pl"><rect x="22" y="26" width="836" height="330"/></clipPath>
-    </defs>
-
-    <rect x="0" y="0" width="880" height="420" fill="url(#paper)"/>
-
-    <g clip-path="url(#pl)" stroke={INK} fill="none" stroke-linecap="round">
-      {sky.map(l => <line x1={l.x0} y1={l.y} x2={l.x1} y2={l.y} stroke-width="0.6" opacity={l.op}/>)}
-
-      <path d={ridge} stroke-width="0.9" opacity=".5"/>
-      <path d={ridge + " L858,168 L22,168 Z"} fill={INK} opacity=".06" stroke="none"/>
-
-      <line x1="22" y1="168" x2="858" y2="168" stroke-width="0.8" opacity=".35"/>
-
-      {/* the plain, lightly ruled */}
-      {Array.from({length: 22}, (_, i) => (
-        <line x1="22" y1={172 + i * 8} x2="858" y2={172 + i * 8} stroke-width="0.45" opacity={0.05 + i * 0.006}/>
-      ))}
-
-      {/* the rock of Topana */}
-      <g clip-path="url(#pl)">
-        <path d="M556,268 L560,178 L584,150 L640,132 L724,128 L788,146 L818,180 L822,268 Z"
-              fill="#EDE4D2" stroke={INK} stroke-width="1.5"/>
-        {rockHatch.map(h => <line x1={h.x0} y1={h.y} x2={h.x1} y2={h.y} stroke-width={h.w} opacity={h.op}/>)}
-        {/* fissures */}
-        <path d="M596,268 C606,232 604,204 592,176" stroke-width="0.9" opacity=".45"/>
-        <path d="M676,268 C684,228 680,196 668,164" stroke-width="0.9" opacity=".4"/>
-        <path d="M762,268 C770,232 766,200 754,172" stroke-width="0.9" opacity=".4"/>
-      </g>
-
-      {/* the fortress: outer wall, keep, round tower */}
-      <g stroke-width="1.35" fill="#F1EADB">
-        <path d="M584,150 L584,124 L800,120 L800,148"/>
-        <g fill="#F1EADB" stroke-width="1.1">
-          {Array.from({length: 15}, (_, i) => <rect x={588 + i * 14.3} y="112" width="8" height="9"/>)}
-        </g>
-        <rect x="652" y="70" width="62" height="52"/>
-        <g stroke-width="1.1">{Array.from({length: 4}, (_, i) => <rect x={654 + i * 15} y="61" width="9" height="10"/>)}</g>
-        <path d="M676,122 L676,98 A7,7 0 0 1 690,98 L690,122 Z" fill={INK} opacity=".8" stroke="none"/>
-        <path d="M756,122 L756,88 A13,13 0 0 1 782,88 L782,122 Z"/>
-        <g stroke-width="1.1">{Array.from({length: 2}, (_, i) => <rect x={757 + i * 13} y="79" width="9" height="10"/>)}</g>
-      </g>
-      {/* shading on the keep */}
-      {Array.from({length: 18}, (_, i) => (
-        <line x1={700 + i * 0.8} y1={74 + i * 2.7} x2={714} y2={74 + i * 2.7} stroke-width="0.55" opacity=".3"/>
-      ))}
-
-      {/* the standard of St Mark on the outer wall */}
-      <g stroke-width="1.5">
-        <line x1="614" y1="120" x2="614" y2="42"/>
-        <path d="M614,44 L690,58 L614,76 Z" fill="#F1EADB"/>
-        {Array.from({length: 7}, (_, i) => (
-          <line x1="616" y1={48 + i * 4} x2={686 - i * 8.4} y2={53 + i * 3.2} stroke-width="0.55" opacity=".55"/>
-        ))}
-      </g>
-
-      {/* the chasm */}
-      <g>
-        <ellipse cx="300" cy="236" rx="214" ry="40" fill="#EDE4D2" stroke={INK} stroke-width="1.4"/>
-        {chasm.map(c => <line x1={c.x} y1={c.y0} x2={c.x} y2={c.y1} stroke-width={c.w} opacity={c.op}/>)}
-        <ellipse cx="300" cy="330" rx="86" ry="19" fill={INK} opacity=".55" stroke="none"/>
-        <ellipse cx="300" cy="330" rx="86" ry="19" stroke-width="1" opacity=".6"/>
-        {Array.from({length: 7}, (_, i) => (
-          <line x1={228 + i * 24} y1={326 + (i % 2) * 5} x2={252 + i * 24} y2={326 + (i % 2) * 5} stroke-width="0.7" opacity=".35"/>
-        ))}
-      </g>
-
-      {/* the varoš below, in outline */}
-      <g stroke-width="0.95" opacity=".7">
-        {town.map(t => (<>
-          <rect x={t.x} y={t.y} width={t.w} height={t.h}/>
-          <path d={`M${t.x - 2},${t.y} L${t.x + t.w / 2},${t.y - 6} L${t.x + t.w + 2},${t.y} Z`}/>
-        </>))}
-        <rect x="96" y="286" width="9" height="42"/><path d="M93,286 L100.5,274 L108,286 Z"/>
-      </g>
-
-      {/* the artillery still on the road */}
-      <g stroke-width="1" opacity=".75">
-        <path d="M22,300 C70,292 118,296 158,306" stroke-dasharray="6 5"/>
-        <g>
-          <rect x="40" y="292" width="15" height="4"/><circle cx="42" cy="299" r="3.4"/><circle cx="53" cy="299" r="3.4"/>
-          <line x1="40" y1="292" x2="30" y2="288"/>
-          <rect x="70" y="295" width="14" height="4"/><circle cx="72" cy="302" r="3.2"/><circle cx="82" cy="302" r="3.2"/>
-          <line x1="70" y1="295" x2="61" y2="291"/>
-        </g>
-      </g>
-    </g>
-
-    {/* plate mark */}
-    <rect x="22" y="26" width="836" height="330" fill="none" stroke={INK} stroke-width="1.2" opacity=".75"/>
-    <rect x="16" y="20" width="848" height="342" fill="none" stroke={INK} stroke-width="0.5" opacity=".3"/>
-
-    <g fill={INK} font-family="var(--serif)">
-      <text x="440" y="384" text-anchor="middle" font-size="15" font-style="italic" opacity=".85">
-        Veduta d’Imoschi, il dì XXV luglio MDCCXVII
-      </text>
-      <text x="440" y="403" text-anchor="middle" font-size="11" letter-spacing="1.6" opacity=".6">
-        IL VAROSCH PRESO · LO STENDARDO SUL MURO · L’ARTIGLIERIA ANCOR PER VIA
-      </text>
-    </g>
-  </svg>
-  <figcaption class="cap" style="margin-top:12px">
-    Drawn for this archive in the manner of an eighteenth-century topographical plate, and it is illustration, not evidence.
-    No portrait of Zuane Ivan Franceschi is known and no contemporary view of the siege has been found. Only what the
-    documents state is in it: the rock of Topana and its fortress, the outer wall he was first through and the standard of
-    St Mark he set on it, the chasm below that he described himself as red stone with neither shoot nor shrub, the town
-    already taken, and General Emo’s artillery still on the Zadvarje road, which reached the field only that evening.
-  </figcaption>
-</figure>
-)}
 <style>
   .plate { margin: 0; }
-  .plate img { display: block; max-width: 820px; width: 100%; height: auto; border-radius: 2px; }
-  .plate svg { display: block; max-width: 820px; border-radius: 2px; }
+  .plate img { display: block; width: 100%; max-width: 860px; height: auto; border-radius: 2px; }
 </style>
