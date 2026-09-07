@@ -235,3 +235,65 @@ plus a `-t.webp` thumbnail of each at about 640px wide. The site will use the
 file where one exists and fall back to the drawn plate where none does, and
 every one of them will be captioned as a constructed illustration with the
 model named — the same rule the archive applies to everything else.
+
+---
+
+## 9. The banner — one image for the whole family
+
+The archive has eight geographies and they are not a montage; they are a
+sequence. Mountains empty into a province, the province empties into a coast,
+the coast empties into four continents. The banner should be that sentence.
+
+**Aspect: very wide — 3:1, or 4:1 if the model will hold detail across it.**
+It sits at the top of the home page, so it must read at a glance and survive
+being cropped shorter on a phone. Nothing important in the outer eighth at
+either end.
+
+**Prompt:**
+
+> A single wide panoramic landscape painting in muted oils, read left to right
+> as one continuous receding country under one dawn sky. No borders between the
+> parts, no panels, no montage — it is one place seen from a great height and a
+> long way off.
+>
+> At the far left, steep green alpine valleys with terraced slopes, dark
+> conifer, and a small stone campanile far down in the shadow of the mountains.
+> The land falls away toward the centre and turns to bare white limestone karst:
+> a dry stony plateau with dry-stone walls, a small hill village of pale stone
+> houses under tiled roofs with a plain bell tower, and a low walled house with
+> an arcaded loggia standing apart from it.
+>
+> The karst runs on to the right and drops to a rocky Adriatic coast: a small
+> walled town on the shore with a harbour and a stone mole, red-tiled roofs, and
+> a few fishing boats. Beyond the town the sea opens out and fills the right
+> third of the picture — grey-blue, calm, enormous — with one small sailing ship
+> standing out from the coast, very small, going away. The horizon at the far
+> right is empty water and pale sky.
+>
+> Cold clear light coming from the left, early morning, long soft shadows, thin
+> high cloud. Muted palette only: bone, stone grey, olive, umber, slate blue.
+> Nothing bright, nothing tropical, no golden hour, no drama. No people, no
+> animals, no vehicles, no modern buildings. Restrained and documentary, in the
+> manner of a nineteenth-century topographical landscape painter, not a poster.
+
+**Negative:** montage, split panels, collage, borders between sections, any
+lettering or caption or title or signature or watermark, maps, compass roses,
+family crests, coats of arms, banners, flags, people, portraits, modern
+buildings, cars, roads, power lines, saturated colour, sunset, golden hour,
+tropical sea, palm trees, fantasy architecture, castles on crags.
+
+**What must be right:**
+- **One continuous landscape**, not three scenes side by side. The whole point
+  is that it is a single journey and the eye should travel it.
+- The three grounds in order: **alpine green → white karst → grey sea**. That
+  is Carnia, Istria, and the Kvarner, and it is also the order the family
+  actually moved in.
+- **The sea takes the right third and the ship is tiny.** The emigration is the
+  end of the story and it is not triumphant; it is a small boat leaving.
+- **Nothing legible.** No text anywhere. Following the rule that produced the
+  fabricated 1711 tablet, this archive no longer lets a model render words.
+
+**A second option, if the panorama does not land:** the same brief but at dusk
+and from lower down, so the mountains are only a blue line at the far left and
+the sea already holds most of the frame. That reads as looking back rather than
+setting out, which is the other true thing about this family.
