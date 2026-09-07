@@ -1,0 +1,80 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/oldsite.json";
+---
+<Base title="defranceski.com"
+      eyebrow="Before the old site is switched off"
+      dek={d.note}>
+
+<section class="blk">
+  <h2>{d.captured.heading}</h2>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.captured.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--accent);margin-top:20px">
+    <div class="lab">{d.maps.heading}</div>
+    <p style="margin-top:8px">{d.maps.text}</p>
+    <ul class="prose" style="display:block;margin-top:10px">
+      {d.maps.links.map(([t, href]) => <li style="margin:.4em 0"><a href={href} rel="noopener">{t}</a></li>)}
+    </ul>
+  </div>
+</section>
+<Rule name="arrows" label="Page by page" />
+
+<section class="blk">
+  <h2>{d.covered.heading}</h2>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>On the old site</th><th>What it said</th><th>Where it is now</th></tr></thead>
+      <tbody>{d.covered.rows.map(([a,b,c]) => <tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td></tr>)}</tbody>
+    </table>
+  </div>
+</section>
+<Rule name="pomegranate" label="And four things we did not have" />
+
+<section class="blk">
+  <h2>{d.newfound.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.newfound.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.newfound.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+</section>
+<Rule name="loom" label="The link list" />
+
+<section class="blk">
+  <h2>{d.resources.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.resources.lead}</p>
+  {d.resources.groups.map(([g, items]) => (
+    <div style="margin-top:24px">
+      <div class="lab">{g}</div>
+      <ul class="prose" style="display:block;margin-top:8px">
+        {items.map(([t, href, why]) => (
+          <li style="margin:.5em 0"><a href={href} rel="noopener">{t}</a>{why ? <> — {why}</> : null}</li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</section>
+
+<section class="blk">
+  <div class="one" style="border-left-color:var(--accent)">
+    <div class="lab">The verdict</div>
+    <p style="margin-top:8px"><strong>{d.verdict}</strong></p>
+  </div>
+</section>
+
+<Sources ids={["dfcom", "familysearch", "dapa", "blasonario", "istrianet"]} />
+</Base>
