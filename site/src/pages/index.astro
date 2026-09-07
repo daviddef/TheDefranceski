@@ -5,39 +5,33 @@ import Base from "../layouts/Base.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const BANNER = "/art/banner.webp";
+const hasBanner = fs.existsSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "public", BANNER));
 
 /* Every number links to the page that earns it. */
 const stats = [
   ["1679", "a De Franceschi of Mione, weaving in the County of Pazin", "/carnia/"],
-  ["1615", "the earliest the name is indexed anywhere in Istria — at Labin", "/istria-sweep/"],
-  ["1711", "the year cut on the house Carlo's great-great-grandfather built", "/carlos-letter/"],
+  ["1711", "the year cut on the house Carlo's great-great-grandfather built", "/gologorica-line/"],
   ["1787", "the farmer of house 5, Gallignana — the line's earliest dated ancestor", "/direct-line/"],
-  ["zavičaj", "the word in the 1890 register that ties the coast to Istria", "/direct-line/"],
-  ["1364", "the date on a bell in the family's own parish tower", "/carlos-letter/"],
-  ["25", "Defranceschi families in Istria on 1 October 1945", "/name/"],
+  ["18,840", "records read to build the census of where the name actually was", "/istria-sweep/"],
+  ["25", "Defranceschi families left in Istria on 1 October 1945", "/name/"],
   ["~10", "left in Croatia today", "/diaspora/"],
-  ["66", "indexed entries at Rijeka — the heaviest cluster in Istria", "/istria-sweep/"],
-  ["99", "burials recovered from the registers of the dead", "/burials/"],
-  ["96", "graves found worldwide — exactly one of them in Croatia", "/graves/"],
-  ["11", "children of Josip's brother, scattered across five countries", "/the-eleven/"],
-  ["28", "colonist households on the Seget estate, named in 1764", "/carlos-book/"],
-  ["148.901", "and 148.902 — two brothers' refugee numbers, one apart", "/pfullingen/"],
-  ["77", "plates of the family's own paper, published here", "/gallery/"],
-  ["594", "entries in one searchable index", "/search/"],
 ];
 
 const finds = [
-  ["Sept 2026", "The day they sailed", "Anton's index card reads «Emigré Australie le 8.3.49», and is stamped CM/1 destroyed. That is the morning Zdravko, Ruža and the child left Germany for good.", "/pfullingen/"],
-  ["Sept 2026", "A governor we do not have", "The family's online tree descends this house from a Venetian governor of Imotski. It is a mis-splice, and the tree records its own doubt in the names.", "/imotski/"],
-  ["Sept 2026", "What they did at Gologorica", "Not landowners, not peasants. They farmed the bishop of Pedena's rent — wine, wheat, oats, lambs, hens and eggs — on a lease renewed at every episcopal succession.", "/carlos-letter/"],
-  ["Sept 2026", "Svetvinčenat, 1674", "A sweep of sixty Istrian parishes found a De Franceschi household nobody here had looked for — older than the Mione list, older than the arrival Carlo claims.", "/istria-sweep/"],
-  ["Sept 2026", "Ivan, aged two", "The file marked as a birth is a death. He was buried on 28 March 1896, and his sister Zorica was conceived the month he died.", "/crikvenica-house/"],
-  ["Sept 2026", "The other half", "Behind the Senj marriage stands a line of packhorse carriers and tobacco-factory workers, and a Karlobag ancestry reaching people born about 1690.", "/senj-line/"],
+  ["Sept 2026", "Svetvinčenat, from 1666", "A rebuilt sweep of 18,840 records found a third Carnian household of the name, in Venetian Istria — two children to the font in one autumn, sixty-eight years before the household book anyone had looked at.", "/istria-sweep/"],
+  ["Sept 2026", "What they actually were at Gologorica", "Not tenants. They held the lease on the bishop of Pedena's «affitto fermo» and collected it, renewed by every bishop, until the see was suppressed in 1788.", "/carlos-letter/"],
+  ["Sept 2026", "The day they sailed", "Anton's index card reads «Emigré Australie le 8.3.49», stamped CM/1 destroyed. That is the morning Zdravko, Ruža and the child left Germany for good.", "/pfullingen/"],
 ];
 ---
 <Base title="The Defranceschi Archive" eyebrow="Istria · Kvarner · Carnia · and the diaspora"
       dek="A family written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing."
       bare={true}>
+
+{hasBanner && <figure class="banner"><img src={u(BANNER)} alt="A panoramic landscape read left to right: alpine valleys, then bare white karst with a hill village, then a walled coastal town and the open Adriatic with one small ship standing out to sea." loading="eager" decoding="async" /></figure>}
 
 <section class="opener">
   <div class="kicker">A family history, kept honestly</div>
@@ -110,25 +104,16 @@ const finds = [
 <section class="blk">
   <h2>There is no single Defranceschi family</h2>
   <div class="prose" style="margin-top:14px">
-    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's.</p>
+    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's. Seven lines are followed here and only one of them is proven.</p>
     <p>That is this archive's organising idea rather than its disappointment. The work is to establish which lines are actually connected, to say plainly where the evidence stops, and to keep the good stories without letting them pretend to be facts.</p>
-  </div>
-  <div class="grid g2" style="margin-top:24px">
-    {lines.map(l => (
-      <a class="cardlink" href={u("/lines/")}>
-        <div class="nm">{l.name}</div>
-        <div style="margin-top:9px"><Chip c={l.status} /></div>
-        <div class="alt" style="margin-top:10px">{l.route}</div>
-        <div class="txt">{l.note}</div>
-      </a>
-    ))}
+    <p><a href={u("/lines/")}>The seven lines, and what each one rests on →</a></p>
   </div>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>Three places, three histories</h2>
-  <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Every date in this archive has to be read against this chart.</p>
+  <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Family events run in red above the lanes and the wars, plagues, treaties and regime changes they were lived through run in ochre below. Hover any marker.</p>
   <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
   <p class="cap"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
 </section>

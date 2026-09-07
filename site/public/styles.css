@@ -701,3 +701,12 @@ a.wholink:hover{
   border-bottom-color:var(--accent,#9a3b26);
   background:color-mix(in srgb,var(--accent,#9a3b26) 8%,transparent);
 }
+
+/* Home-page banner — used only when an image has been placed at /art/banner.webp */
+.banner { margin: 0 0 30px; }
+.banner img {
+  display: block; width: 100%; height: auto;
+  max-height: 300px; object-fit: cover; object-position: center;
+  border-radius: 2px;
+}
+@media (max-width: 700px) { .banner img { max-height: 190px; } }

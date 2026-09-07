@@ -1,35 +1,101 @@
 ---
+/* A schematic map. The coastline is drawn by hand and generalised — it is not
+   survey-accurate — but it is here because without a sea and a peninsula the
+   routes are only dots on a page, and half of what happened to this family
+   happened because of where the water is. */
+
+/* The northern Adriatic, drawn as one continuous shore:
+   west along the Friulian lagoon to the gulf at Trieste, then south down the
+   west coast of Istria to Pula, round the tip, north up the east coast to
+   Rijeka, then south-east along the Kvarner littoral past Crikvenica to Senj. */
+const COAST =
+ "M20,236 C70,228 130,220 196,210 C258,201 312,190 352,172 " +
+ "C346,196 336,214 328,236 C320,258 316,282 320,300 " +
+ "C326,318 334,330 346,340 C362,344 376,336 386,322 " +
+ "C396,296 402,268 412,244 C424,224 438,212 456,204 " +
+ "C474,220 486,232 502,246 C520,264 540,286 560,312 C578,334 596,354 614,372";
+const SEA  = COAST + " L660,440 L20,440 Z";
+const LAND = COAST + " L660,0 L20,0 Z";
+
+/* Cres, long and thin; Krk, rounded. Both in the Kvarner. */
+const CRES = "M416,278 C428,294 432,326 426,356 C421,376 411,380 407,368 C400,342 404,300 416,278 Z";
+const KRK  = "M458,272 C486,266 508,282 506,304 C503,326 478,336 462,324 C447,312 444,282 458,272 Z";
+
+/* The Habsburg County of Pazin, an enclave inside Venetian Istria — schematic.
+   It is why two households of one surname forty kilometres apart lived under
+   different sovereigns for four hundred years. */
+const COUNTY = "M344,206 C372,198 400,208 410,228 C420,250 410,274 390,282 C366,290 346,278 340,258 C334,238 332,214 344,206 Z";
+
 const pts=[
- {n:"Mione · Ovaro",x:174,y:57,big:true,sub:"1600s–1700s weavers south"},
- {n:"Trieste",x:341,y:190,port:true},
- {n:"Venice",x:80,y:224},
- {n:"Gologorica · Gračišće",x:388,y:248,big:true},
- {n:"Pazin",x:372,y:262,a:"end"},
- {n:"Poreč",x:310,y:258,a:"end"},
- {n:"Pula",x:355,y:316},
- {n:"Vodnjan",x:349,y:302,a:"end"},
- {n:"Rijeka",x:462,y:242,port:true,sub:"citizen 1739 & c.1740"},
- {n:"Crikvenica",x:507,y:268,big:true,sub:"the Gologorica branch"},
- {n:"Senj",x:546,y:297,big:true},
+ {n:"Mione · Ovaro",     x:196,y:52,  big:true, sub:"1600s–1700s, weavers south", dx:12, dy:-2},
+ {n:"Venice",            x:72, y:232, a:"end", dx:-11},
+ {n:"Trieste",           x:352,y:170, port:true, dx:13, dy:-6},
+ {n:"Poreč",             x:322,y:232, a:"end", dx:-11},
+ {n:"Pazin",             x:362,y:264, a:"end", dx:-11, dy:10},
+ {n:"Gologorica",        x:388,y:242, big:true, sub:"Gračišće", dx:12, dy:-3},
+ {n:"Vodnjan",           x:330,y:306, a:"end", dx:-11},
+ {n:"Pula",              x:344,y:334, a:"end", dx:-11, dy:12},
+ {n:"Rijeka",            x:456,y:204, port:true, dx:13, dy:-7},
+ {n:"Crikvenica",        x:502,y:246, big:true, sub:"Gologorica branch", dx:12, dy:10},
+ {n:"Senj",              x:558,y:310, big:true, dx:13, dy:12},
 ];
-const arcs=["M174,57 Q321,122 388,248","M174,57 Q350,110 462,242","M372,262 Q417,228 462,242",
- "M388,248 Q349,280 310,258","M388,248 Q448,292 507,268","M546,297 Q527,288 507,268"];
+const arcs=[
+ "M196,52 Q330,120 388,242",
+ "M196,52 Q356,104 456,204",
+ "M362,264 Q412,226 456,204",
+ "M388,242 Q352,254 322,232",
+ "M388,242 Q450,266 502,246",
+ "M558,310 Q532,282 502,246",
+];
 ---
 <div class="scroll">
-<svg viewBox="0 0 640 410" width="640" style="min-width:600px;display:block" role="img"
-     aria-label="Schematic map of migration routes between Carnia, Istria and the Kvarner coast">
+<svg viewBox="0 0 700 452" width="700" style="min-width:640px;display:block" role="img"
+     aria-label="Schematic map of the northern Adriatic showing the Istrian peninsula, the Kvarner gulf with Cres and Krk, the enclave frontier of the Habsburg County of Pazin, and the migration routes from Carnia south into Istria and east to the Kvarner coast">
+
+  <rect x="20" y="0" width="640" height="440" style="fill:var(--panel)"/>
+  <path d={LAND} style="fill:var(--panel-2);opacity:.7"/>
+  <path d={SEA}  style="fill:var(--accent-wash)"/>
+  <path d={CRES} style="fill:var(--panel-2);opacity:.7;stroke:var(--rule-strong)" stroke-width="0.8"/>
+  <path d={KRK}  style="fill:var(--panel-2);opacity:.7;stroke:var(--rule-strong)" stroke-width="0.8"/>
+  <path d={COAST} fill="none" style="stroke:var(--rule-strong)" stroke-width="1.3"/>
+
+  <path d={COUNTY} fill="none" style="stroke:var(--ink-3);opacity:.75" stroke-width="1.1" stroke-dasharray="4 3"/>
+  <text x="374" y="196" font-size="8.5" text-anchor="middle"
+        style="fill:var(--ink-3);font-family:var(--mono)">County of Pazin</text>
+
+  <text x="182" y="352" font-size="11" text-anchor="middle"
+        style="fill:var(--accent);opacity:.65;font-family:var(--serif);font-style:italic">Adriatic</text>
+  <text x="580" y="204" font-size="11" text-anchor="middle"
+        style="fill:var(--accent);opacity:.65;font-family:var(--serif);font-style:italic">Kvarner</text>
+  <text x="150" y="34" font-size="11" text-anchor="middle"
+        style="fill:var(--ink-3);opacity:.8;font-family:var(--serif);font-style:italic">Carnia</text>
+  <text x="424" y="368" font-size="8.5" text-anchor="middle"
+        style="fill:var(--ink-3);opacity:.75;font-family:var(--mono)">Cres</text>
+  <text x="478" y="352" font-size="8.5" text-anchor="middle"
+        style="fill:var(--ink-3);opacity:.75;font-family:var(--mono)">Krk</text>
+
   {arcs.map(d=><path d={d} fill="none" style="stroke:var(--accent);opacity:.72" stroke-width="1.4"/>)}
-  {pts.map(p=><>
-    <circle cx={p.x} cy={p.y} r={p.big?4.5:3} style={`fill:var(${p.port?"--terra":"--ink"})`}/>
-    {p.port && <circle cx={p.x} cy={p.y} r="9" fill="none" style="stroke:var(--terra);opacity:.85" stroke-width="1.2"/>}
-    <text x={p.a==="end"?p.x-10:p.x+11} y={p.y+4} text-anchor={p.a||"start"} font-size="11.5"
-          style="fill:var(--ink);font-family:var(--sans)">{p.n}</text>
-    {p.sub && <text x={p.a==="end"?p.x-10:p.x+11} y={p.y+17} text-anchor={p.a||"start"} font-size="9.5"
-          style="fill:var(--ink-3);font-family:var(--mono)">{p.sub}</text>}
-  </>)}
-  <line x1="40" y1="372" x2="600" y2="372" style="stroke:var(--rule)" stroke-width="1"/>
-  <text x="40" y="391" font-size="11" style="fill:var(--ink-2);font-family:var(--sans)">
+
+  {pts.map(p=>{
+    const tx = p.x + (p.dx ?? 11);
+    const ty = p.y + (p.dy ?? 4);
+    const halo = "paint-order:stroke;stroke:var(--panel);stroke-width:3.6px;stroke-linejoin:round";
+    return <>
+      <circle cx={p.x} cy={p.y} r={p.big?4.5:3} style={`fill:var(${p.port?"--terra":"--ink"})`}/>
+      {p.port && <circle cx={p.x} cy={p.y} r="9" fill="none" style="stroke:var(--terra);opacity:.85" stroke-width="1.2"/>}
+      <text x={tx} y={ty} text-anchor={p.a||"start"} font-size="11.5"
+            style={`fill:var(--ink);font-family:var(--sans);${halo}`}>{p.n}</text>
+      {p.sub && <text x={tx} y={ty+13} text-anchor={p.a||"start"} font-size="9.5"
+            style={`fill:var(--ink-3);font-family:var(--mono);${halo}`}>{p.sub}</text>}
+    </>;
+  })}
+
+  <line x1="20" y1="410" x2="660" y2="410" style="stroke:var(--rule)" stroke-width="1"/>
+  <text x="20" y="428" font-size="11" style="fill:var(--ink-2);font-family:var(--sans)">
     ◎ Departure ports — onward to New York, Sydney, Cape Town, Buenos Aires
+  </text>
+  <text x="20" y="445" font-size="9.5" style="fill:var(--ink-3);font-family:var(--mono)">
+    Schematic. The coastline is generalised and the county frontier indicative, not surveyed.
   </text>
 </svg>
 </div>
