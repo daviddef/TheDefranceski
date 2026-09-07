@@ -4,8 +4,11 @@ Eight scenes the archive can defend from documents. Each has a **prompt**, a
 **negative** line, and a **what must be right** note so a wrong detail can be
 caught. House rules for all of them:
 
-- Aspect **3:2 landscape** unless stated. No text, no lettering, no captions,
-  no watermarks, no signatures — the site adds its own.
+- Aspect **3:2 landscape** unless stated. **No text, no lettering, no captions,
+  no title strips, no watermarks, no signatures anywhere in the frame** — the
+  site adds its own. Put this in the negative prompt every time; two of the
+  first three came back with a caption burned into the picture, and one of them
+  invented an inscription on a real carved stone.
 - No modern objects, no anachronistic clothing, no invented heraldry.
 - **No faces of named individuals.** No portrait of any of these people
   survives, so figures are distant, turned away, or in silhouette. A face
@@ -55,7 +58,15 @@ artillery is far off and small — the whole point is that it arrived too late.
 > ten houses and a bell tower behind. Restrained, documentary, unromantic.
 
 **Negative:** grandeur, palace scale, Tuscan cypresses, warm Mediterranean
-sunshine, flowers in window boxes, legible text on the lintel.
+sunshine, flowers in window boxes, **any lettering anywhere in the image**,
+inscribed text, carved words, letters on the tablet, a caption or title strip,
+a signature, figures in relief panels.
+
+**Say this explicitly in the prompt:** *the carved stone tablet above the door
+is blank and weathered — worn smooth, no letters, no inscription, no text of any
+kind.* The first attempt wrote invented pseudo-Latin across it, and this is the
+one stone in the archive whose real text is settled; a picture of it carrying
+made-up words is the thing most likely to be mistaken for the real inscription.
 
 **What must be right:** it is a *palazzetto* — the biggest house in a poor
 village, not a mansion. Arcaded portico and a carved arms panel on the façade;
