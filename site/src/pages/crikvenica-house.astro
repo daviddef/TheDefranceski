@@ -181,5 +181,20 @@ const g = c.nextGen;
   <p class="cap" style="margin-top:14px">{c.bakar_answer.source_bakar}</p>
 </section>
 
+<section class="blk">
+  <h2>{c.reg1943.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.reg1943.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.reg1943.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.reg1943.source_1943}</p>
+</section>
+
+
   <Sources ids={["mftpkg", "maticne", "familysearch", "arolsen", "dapa", "myheritage"]} />
 </Base>
