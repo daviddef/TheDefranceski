@@ -4,6 +4,7 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import kv from "../data/kvarner-books.json";
 import pb from "../data/parishbooks.json";
+import hda from "../data/hda1448.json";
 const RING = ["Pazin","Stari Pazin","Tinjan","Kringa","Krbune","Boljun","Lupoglav (Pazin)","Petar u Šumi","Polje Čepić","Kršan"];
 const ring = pb.list.filter(p => RING.includes(p.parish));
 const rest = pb.list.filter(p => !RING.includes(p.parish));
@@ -64,6 +65,57 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
   </div>
   <div class="note" style="margin-top:24px">{kv.gap}</div>
   <p class="cap" style="margin-top:16px">{kv.note}</p>
+</section>
+
+<Rule name="tablet" label="HR-HDA-1448" />
+
+<section class="blk">
+  <h2>{hda.heading}</h2>
+  <p class="dek" style="margin-top:10px" set:html={hda.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {hda.what.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+
+  <p class="cap" style="margin-top:22px"><b>Kinds of register:</b> {hda.key}</p>
+
+  {hda.tables.map(t => (
+    <div style="margin-top:34px">
+      <h3 style="font-size:21px">{t.title}</h3>
+      <p class="prose note" style="margin-top:10px" set:html={t.note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      <div class="scroll" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Kind</th><th>Period</th><th>Held by</th><th>Roll</th><th>Mark</th><th>Digitised</th></tr></thead>
+          <tbody>{t.rows.map(r => (
+            <tr>
+              <td style="font-weight:600">{r[0]}</td>
+              <td style="font-variant-numeric:tabular-nums">{r[1]}</td>
+              <td>{r[2]}</td>
+              <td style="font-family:var(--mono,monospace);font-size:12.5px">{r[3]}</td>
+              <td style="font-family:var(--mono,monospace);font-size:12.5px">{r[4]}</td>
+              <td style={r[5]==="yes" ? "color:var(--accent);font-weight:600" : "color:var(--ink-3)"}>{r[5]==="yes" ? "yes" : "no"}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+      </div>
+    </div>
+  ))}
+
+  <h3 style="font-size:21px;margin-top:38px">What to order, in order</h3>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
+    {hda.asks.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:18px">{hda.source_hda}</p>
 </section>
 
   <Sources ids={["familysearch", "steiner", "dapa"]} />
