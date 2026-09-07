@@ -1,0 +1,152 @@
+---
+/* Salamon Palace, Gračišće — a drawn elevation, not a photograph.
+   Everything in it is taken from two published descriptions:
+
+   Istra.hr, "Istrian building heritage of the Venetian era": "Located next to
+   the main gate, this harmonious two-storey building was constructed from the
+   carefully chiselled local stone. Architectural elements of the Gothic and
+   Renaissance styles, popular in Venice in the late 15th century, exchange on
+   the two storeys along the facade. The first floor with the double lancet
+   window and the balcony represents the Floral Gothic, while more simple
+   windows with semi-circular arches and a row of classical decorations are on
+   the second."
+
+   Irma Huić, Prostor 23 (2015): masonry of the fifteenth century; the Istrian
+   Encyclopedia dates the building to 1570.
+
+   Nothing is drawn that neither source names. The stone courses, the tile
+   roof and the proportions are a draughtsman's reading, and are not evidence. */
+const { caption = true } = Astro.props;
+const S1 = "#C9C2B2", S2 = "#B9B1A0", S3 = "#A79E8C", MORT = "#8E8574";
+const TILE = "#9A6B18", SKY = "none", GLASS = "#2C3A42";
+const courses = [];
+for (let y = 44; y < 258; y += 11) courses.push(y);
+---
+<figure class="palfig">
+  <svg viewBox="0 0 460 300" width="100%" role="img"
+       aria-label="Drawn elevation of the Salamon Palace at Gračišće: a two-storey stone façade beside the town gate, with a Gothic double-lancet window and balcony on the first floor and round-arched windows under a classical cornice on the second">
+    <defs>
+      <linearGradient id="stoneg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color={S1}/><stop offset="1" stop-color={S3}/>
+      </linearGradient>
+      <clipPath id="facadeclip"><rect x="96" y="40" width="286" height="222"/></clipPath>
+    </defs>
+
+    <!-- the town gate to the left: "located next to the main gate" -->
+    <g>
+      <rect x="24" y="96" width="70" height="166" fill={S2}/>
+      <path d="M34,262 V150 A25,25 0 0 1 84,150 V262 Z" fill="var(--ground)"/>
+      <path d="M34,262 V150 A25,25 0 0 1 84,150 V262" fill="none" stroke={MORT} stroke-width="2.6"/>
+      <rect x="18" y="86" width="82" height="12" fill={S3}/>
+      <rect x="22" y="78" width="74" height="9" fill={S2}/>
+    </g>
+
+    <!-- roof -->
+    <path d="M88,44 H390 L382,26 H96 Z" fill={TILE} opacity=".85"/>
+    <rect x="92" y="40" width="294" height="7" fill={S3}/>
+
+    <!-- facade block -->
+    <rect x="96" y="44" width="286" height="218" fill="url(#stoneg)"/>
+    <g clip-path="url(#facadeclip)" stroke={MORT} stroke-width=".7" opacity=".5">
+      {courses.map(y => <line x1="96" y1={y} x2="382" y2={y}/>)}
+    </g>
+
+    <!-- second floor: simple round-arched windows and a row of classical decoration -->
+    <g>
+      <g fill={GLASS}>
+        <path d="M132,116 V86 A13,13 0 0 1 158,86 V116 Z"/>
+        <path d="M226,116 V86 A13,13 0 0 1 252,86 V116 Z"/>
+        <path d="M320,116 V86 A13,13 0 0 1 346,86 V116 Z"/>
+      </g>
+      <g fill="none" stroke={S1} stroke-width="3.4">
+        <path d="M132,116 V86 A13,13 0 0 1 158,86 V116 Z"/>
+        <path d="M226,116 V86 A13,13 0 0 1 252,86 V116 Z"/>
+        <path d="M320,116 V86 A13,13 0 0 1 346,86 V116 Z"/>
+      </g>
+      <!-- the row of classical decorations -->
+      <rect x="100" y="128" width="278" height="6" fill={S1}/>
+      <g fill={S3}>
+        {Array.from({length: 23}, (_, i) => <rect x={104 + i * 12} y="134" width="6" height="6"/>)}
+      </g>
+      <rect x="100" y="140" width="278" height="4" fill={S1}/>
+    </g>
+
+    <!-- first floor: the Floral Gothic double lancet window, and the balcony -->
+    <g>
+      <!-- balcony slab on corbels -->
+      <g fill={S3}>
+        <path d="M196,232 l10,-12 h8 v12 Z"/><path d="M282,232 l-10,-12 h-8 v12 Z"/>
+      </g>
+      <rect x="188" y="216" width="102" height="7" fill={S1}/>
+      <!-- balustrade -->
+      <g fill={S2}>
+        {Array.from({length: 9}, (_, i) => <rect x={195 + i * 11} y="192" width="5" height="24" rx="2.4"/>)}
+      </g>
+      <rect x="188" y="186" width="102" height="6" fill={S1}/>
+
+      <!-- the bifora itself -->
+      <g>
+        <path d="M200,190 V178 A17,17 0 0 1 234,178 V190 Z" fill={GLASS}/>
+        <path d="M244,190 V178 A17,17 0 0 1 278,178 V190 Z" fill={GLASS}/>
+        <rect x="200" y="188" width="78" height="2" fill={GLASS}/>
+        <path d="M200,190 V162 A17,17 0 0 1 234,162 V190" fill="none" stroke={S1} stroke-width="4"/>
+        <path d="M244,190 V162 A17,17 0 0 1 278,162 V190" fill="none" stroke={S1} stroke-width="4"/>
+        <rect x="200" y="162" width="78" height="28" fill={GLASS} opacity=".0"/>
+        <!-- central colonette with capital -->
+        <rect x="235" y="150" width="8" height="42" fill={S1}/>
+        <rect x="231" y="146" width="16" height="6" rx="1.6" fill={S2}/>
+        <!-- floral quatrefoil over the pair -->
+        <g transform="translate(239,138)" fill="none" stroke={S1} stroke-width="3">
+          <circle cx="0" cy="0" r="9"/>
+          <path d="M0,-9 a4.6,4.6 0 0 1 0,9 a4.6,4.6 0 0 1 0,-9 Z" transform="rotate(0)"/>
+        </g>
+        <!-- outer moulding -->
+        <path d="M192,192 V158 A47,26 0 0 1 286,158 V192" fill="none" stroke={S2} stroke-width="3.2"/>
+      </g>
+
+      <!-- flanking single lancets -->
+      <g>
+        <path d="M124,206 V178 A11,11 0 0 1 146,178 V206 Z" fill={GLASS}/>
+        <path d="M124,206 V178 A11,11 0 0 1 146,178 V206 Z" fill="none" stroke={S1} stroke-width="3.2"/>
+        <path d="M332,206 V178 A11,11 0 0 1 354,178 V206 Z" fill={GLASS}/>
+        <path d="M332,206 V178 A11,11 0 0 1 354,178 V206 Z" fill="none" stroke={S1} stroke-width="3.2"/>
+      </g>
+    </g>
+
+    <!-- ground floor: the doorway that was open on the day of the wine fair -->
+    <g>
+      <path d="M212,262 V254 A27,27 0 0 1 266,254 V262 Z" fill="var(--ground)"/>
+      <path d="M212,262 V244 A27,27 0 0 1 266,244 V262" fill="none" stroke={S1} stroke-width="4"/>
+      <g fill={GLASS} opacity=".9">
+        <rect x="126" y="240" width="34" height="22" rx="2"/>
+        <rect x="318" y="240" width="34" height="22" rx="2"/>
+      </g>
+      <g fill="none" stroke={S1} stroke-width="3">
+        <rect x="126" y="240" width="34" height="22" rx="2"/>
+        <rect x="318" y="240" width="34" height="22" rx="2"/>
+      </g>
+    </g>
+
+    <!-- quoins -->
+    <g fill={S1} opacity=".85">
+      {Array.from({length: 10}, (_, i) => <rect x="96" y={48 + i * 22} width={i % 2 ? 10 : 15} height="14"/>)}
+      {Array.from({length: 10}, (_, i) => <rect x={i % 2 ? 372 : 367} y={48 + i * 22} width={i % 2 ? 10 : 15} height="14"/>)}
+    </g>
+
+    <line x1="0" y1="262" x2="460" y2="262" stroke="var(--rule-strong)" stroke-width="2"/>
+    <g style="fill:var(--ink-3)" font-size="9.5" font-family="var(--sans)">
+      <text x="24" y="278">the town gate</text>
+      <text x="188" y="278">the bifora and its balcony — Floral Gothic, the first floor</text>
+    </g>
+  </svg>
+  {caption && <figcaption class="cap" style="margin-top:10px">
+    A drawn elevation, not a photograph, and not a survey. Every named element — the position beside the main gate,
+    the two storeys of chiselled local stone, the double lancet window and balcony of the first floor, the
+    semi-circular arches and the row of classical decorations on the second — is taken from the published
+    descriptions. The coursing, the tiles and the proportions are a draughtsman's reading and are not evidence.
+  </figcaption>}
+</figure>
+<style>
+  .palfig { margin: 0; }
+  .palfig svg { display: block; max-width: 620px; }
+</style>

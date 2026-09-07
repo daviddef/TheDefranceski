@@ -335,6 +335,21 @@ import k from "../data/kobler.json";
   <p class="cap" style="margin-top:14px">{k.restofbook.source_rest}</p>
 </section>
 
+<section class="blk">
+  <h2>{k.affittofermo.heading}</h2>
+  <p class="dek" style="margin-top:8px">{k.affittofermo.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {k.affittofermo.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{k.affittofermo.source_af}</p>
+</section>
+
+
 
 
   <Sources ids={["kobler", "grah", "cavalli", "fiumemondo", "jelincic", "anno", "hrcak", "carlo1879", "attirovigno", "simon2024", "archiveorg"]} />

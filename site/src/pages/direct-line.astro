@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
+import SalamonPalace from "../components/SalamonPalace.astro";
 import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
 const gens = dl.generations;
@@ -94,6 +95,25 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
     ))}
   </div>
   <p class="prose note" style="margin-top:20px">{dl.gracisce_town.caution}</p>
+
+  <h3 style="font-size:22px;margin-top:34px">{dl.gracisce_town.salamon.heading}</h3>
+  <p class="dek" style="margin-top:8px">{dl.gracisce_town.salamon.lead}</p>
+  <div style="margin-top:18px"><SalamonPalace /></div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {dl.gracisce_town.salamon.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">Where to see it for yourself:</p>
+  <ul class="prose" style="display:block;margin-top:4px">
+    {dl.gracisce_town.salamon.links.map(([t, href, why]) => (
+      <li style="margin:.5em 0"><a href={href} rel="noopener">{t}</a> — {why}</li>
+    ))}
+  </ul>
+
   <h3 style="font-size:22px;margin-top:32px">What to look at next</h3>
   <ul class="prose" style="display:block;margin-top:10px">
     {dl.gracisce_town.next.map(x => <li style="margin:.45em 0">{x}</li>)}
@@ -120,6 +140,16 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
     </div>
     <p style="margin-top:14px"><strong>{dl.gracisce_town.urbaria.why}</strong></p>
     <p class="cap" style="margin-top:12px">{dl.gracisce_town.urbaria.note}</p>
+    <h3 style="margin-top:26px">{dl.gracisce_town.urbaria.found.heading}</h3>
+    <div style="margin-top:14px;display:flex;flex-direction:column;gap:16px">
+      {dl.gracisce_town.urbaria.found.rows.map(r => (
+        <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+          <div class="lab">{r.lab}</div>
+          <p style="margin-top:8px">{r.text}</p>
+        </div>
+      ))}
+    </div>
+    <p class="cap" style="margin-top:14px">{dl.gracisce_town.urbaria.found.source_u}</p>
   </div>
   <p class="cap" style="margin-top:14px">{dl.gracisce_town.source}</p>
 </section>
