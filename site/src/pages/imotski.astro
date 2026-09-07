@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/imotski.json";
@@ -88,6 +89,41 @@ import d from "../data/imotski.json";
     <h3>What to ask for next</h3>
     <p>The Crikvenica death register for <strong>1980</strong> would confirm Pepe, and the same book for <strong>1971</strong> would settle whether Poldo belongs to Crikvenica or to Perinuša — the one individual whose side of the seam is genuinely open. For the Imotski family, the parish of Proložac holds the burials, and the Vrljika mills at Perinuša are still standing.</p>
   </section>
+
+<Rule name="helm" label="The Imotski house, in its own right" />
+<section class="blk">
+  <h2>{d.story.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.story.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.story.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{d.story.source_im}</p>
+</section>
+<Rule name="pomegranate" label="Jagul" />
+<section class="blk">
+  <h2>{d.jagul.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.jagul.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.jagul.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <div class="one" style="border-left-color:var(--ochre);margin-top:20px">
+    <div class="lab">Unresolved</div>
+    <h3 style="font-size:18px">{d.anadates.heading}</h3>
+    <p style="margin-top:8px">{d.anadates.text}</p>
+  </div>
+  <p class="cap" style="margin-top:14px">{d.jagul.source_j}</p>
+</section>
+
 
   <Sources ids={["myheritage", "findagrave", "dapa"]} />
 </Base>

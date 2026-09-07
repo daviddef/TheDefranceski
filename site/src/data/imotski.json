@@ -2,38 +2,149 @@
   "note": "A second, entirely separate Franceschi family — Venetian nobility settled at Imotski in inland Dalmatia — which a widely-copied online tree has been joined to the Crikvenica Defranceski by mistake. Reconstructed from the family's own MyHeritage GEDCOM of July 2018 and the local history site stariimotski.com.",
   "why": "This page exists because of an error, and the error is instructive. The family's MyHeritage tree — 8,286 individuals, 254 of them carrying this surname — descends the Crikvenica household from Zuane de Franceschi, a Venetian commander who was made governor of Imotski after the town was taken from the Ottomans in 1717. It is a magnificent pedigree and it is not ours. Setting out what the Imotski family actually is, and where the join was made, is worth more than quietly deleting it: the same tree has been copied outward through Geni and MyHeritage's Smart Matching since 2017, and anyone else who finds it will hit the same seam.",
   "chain": [
-    { "n": 1, "who": "Francesco Franceschi", "dates": "1520–1598", "what": "The tree's earliest Dalmatian generation, at Zadar." },
-    { "n": 2, "who": "Gasparo Franceschi", "dates": "1562–1609", "what": "Married Grofica Zaron." },
-    { "n": 3, "who": "Pietro-Antonio, called Perin", "dates": "c. 1588 – c. 1661", "what": "Married Maria Dešković. The by-name Perin is the one that sticks: the mills on the Vrljika that the family later held are still called Perinuša after their managers." },
-    { "n": 4, "who": "Francesco Franceschi", "dates": "1608–1660", "what": "Married Lukrezia di Venezia de Franceschi." },
-    { "n": 5, "who": "Girolamo de Franceschi", "dates": "1632–1695", "what": "Married Elena Coltroni." },
-    { "n": 6, "who": "Zuane de Franceschi", "dates": "1673–1741", "what": "The head of the Dalmatian house. Venetian commander at the taking of Imotski from the Ottomans in 1717, then governor of the town. The Republic rewarded him with large estates on the Vrljika, houses, a mill, and the tower of the arcibeg Čaušević at Perinuša.", "key": true },
-    { "n": 7, "who": "Petar Franceschi", "dates": "b. 1703", "what": "" },
-    { "n": 8, "who": "Antonio (Ante) Franceschi", "dates": "1723–1791", "what": "Born at Omiš, died in the Proložac district. Married Francesca." },
-    { "n": 9, "who": "Pietro Antonio (Petar) Franceschi", "dates": "1757–1803", "what": "Born at Omiš. Married Contessa Maria Cambi." },
-    { "n": 10, "who": "Antonio (Ante) de Franceschi", "dates": "1801 – about 1877", "what": "Born at Omiš, died at Proložac. Married Katarina Dorić." },
-    { "n": 11, "who": "Josip, called Bepo, pl. Franceschi", "dates": "1844–1904", "what": "Landowner at Perinuša. Married in 1892 Ana pl. Grubišić of Omiš, born 19 September 1863, died 28 May 1936. Nine children. He rebuilt the house and the mills at Perinuša shortly before he died; a great lover of horses, he is said to have kept them overnight on the house terrace, up a laid ramp, out of the river damp.", "key": true }
+    {
+      "n": 1,
+      "who": "Francesco Franceschi",
+      "dates": "1520–1598",
+      "what": "The tree's earliest Dalmatian generation, at Zadar."
+    },
+    {
+      "n": 2,
+      "who": "Gasparo Franceschi",
+      "dates": "1562–1609",
+      "what": "Married Grofica Zaron."
+    },
+    {
+      "n": 3,
+      "who": "Pietro-Antonio, called Perin",
+      "dates": "c. 1588 – c. 1661",
+      "what": "Married Maria Dešković. The by-name Perin has been read here as his, and that was wrong: Perinuša is named after the Perinović of Zadar, whom the Franceschi brought in as estate managers at the beginning of the eighteenth century. See below."
+    },
+    {
+      "n": 4,
+      "who": "Francesco Franceschi",
+      "dates": "1608–1660",
+      "what": "Married Lukrezia di Venezia de Franceschi."
+    },
+    {
+      "n": 5,
+      "who": "Girolamo de Franceschi",
+      "dates": "1632–1695",
+      "what": "Married Elena Coltroni."
+    },
+    {
+      "n": 6,
+      "who": "Zuane de Franceschi",
+      "dates": "1673–1741",
+      "what": "The head of the Dalmatian house. Venetian commander at the taking of Imotski from the Ottomans in 1717, then governor of the town. The Republic rewarded him with large estates on the Vrljika, houses, a mill, and the tower of the arcibeg Čaušević at Perinuša.",
+      "key": true
+    },
+    {
+      "n": 7,
+      "who": "Petar Franceschi",
+      "dates": "b. 1703",
+      "what": ""
+    },
+    {
+      "n": 8,
+      "who": "Antonio (Ante) Franceschi",
+      "dates": "1723–1791",
+      "what": "Born at Omiš, died in the Proložac district. Married Francesca."
+    },
+    {
+      "n": 9,
+      "who": "Pietro Antonio (Petar) Franceschi",
+      "dates": "1757–1803",
+      "what": "Born at Omiš. Married Contessa Maria Cambi."
+    },
+    {
+      "n": 10,
+      "who": "Antonio (Ante) de Franceschi",
+      "dates": "1801 – about 1877",
+      "what": "Born at Omiš, died at Proložac. Married Katarina Dorić."
+    },
+    {
+      "n": 11,
+      "who": "Josip, called Bepo, pl. Franceschi",
+      "dates": "1844–1904",
+      "what": "Landowner at Perinuša. Married in 1892 Ana pl. Grubišić of Omiš, born 19 September 1863, died 28 May 1936. Nine children. He rebuilt the house and the mills at Perinuša shortly before he died; a great lover of horses, he is said to have kept them overnight on the house terrace, up a laid ramp, out of the river damp.",
+      "key": true
+    }
   ],
   "children": [
-    { "who": "Anton, called Toni", "dates": "1893–1941", "what": "Photographed in 1932 in one of the first motor cars in Imotski, waiting outside the elementary school at Poljica for his wife — Marija Dijaković of Dubrovnik, 1907–1953, a schoolteacher. Family tradition says he drove fast enough to reach Split in under three hours." },
-    { "who": "Ivan, called Zane", "dates": "1895–1952", "what": "Born at Perinuša; the first trained seafarer from Imotski and its hinterland, and a ship's captain. In the summer of 1946, commanding the small steamer Hercegovina in the southern Adriatic, he came on a rowing boat that looked empty and was not: inside were a dead woman and a barely living man, Slovenes who had bought or stolen the boat at Dubrovnik and set out to row to Italy. Their baby had died first, then the wife. He fed the man, and telegraphed the parents to meet the ship at Rijeka. For years afterwards they came from Slovenia to thank him whenever the ship was in port, which annoyed him — he held that saving a man was a captain's plain duty — and he eventually asked the company to stop telling them which ship he was on.", "key": true },
-    { "who": "Vesela", "dates": "1895–1926", "what": "" },
-    { "who": "Marija, married Radovinović", "dates": "1899–1968", "what": "Born at Perinuša. Educated at the lyceum of St Dimitrije in Zadar, the first private girls' high school for noble families, where the teaching was in Italian. A gifted painter all her life, in many techniques, and an embroiderer and designer. Buried at Gospa od Anđela, Imotski. Her photograph was taken at the Zita studio in Split in 1918." },
-    { "who": "Mila", "dates": "1900 – September 1926", "what": "Also at the Zadar lyceum. In the winter of 1925, coming home to Perinuša, the Vrljika was up and could only be crossed by cart; she would not wait for the driver and went barefoot through the cold water. The pneumonia that followed did not clear, and her mother sent her to the lung clinic at Davos in Switzerland — her brother Toni drove her. She died in September 1926, aged twenty-six. Four white horses drew her to the cemetery at Proložac.", "key": true },
-    { "who": "Frane de Franceschi", "dates": "1901–1984", "what": "" },
-    { "who": "Poldo de Franceschi", "dates": "1901–1971", "what": "Entered in the tree at Crikvenica, and photographed playing the accordion. One of the two individuals the tree places on both sides of the seam." },
-    { "who": "Sretko de Franceschi", "dates": "", "what": "" },
-    { "who": "Dragica de Franceschi", "dates": "", "what": "" }
+    {
+      "who": "Anton, called Toni",
+      "dates": "1893–1941",
+      "what": "Photographed in 1932 in one of the first motor cars in Imotski, waiting outside the elementary school at Poljica for his wife — Marija Dijaković of Dubrovnik, 1907–1953, a schoolteacher. Family tradition says he drove fast enough to reach Split in under three hours."
+    },
+    {
+      "who": "Ivan, called Zane",
+      "dates": "1895–1952",
+      "what": "Born at Perinuša; the first trained seafarer from Imotski and its hinterland, and a ship's captain. In the summer of 1946, commanding the small steamer Hercegovina in the southern Adriatic, he came on a rowing boat that looked empty and was not: inside were a dead woman and a barely living man, Slovenes who had bought or stolen the boat at Dubrovnik and set out to row to Italy. Their baby had died first, then the wife. He fed the man, and telegraphed the parents to meet the ship at Rijeka. For years afterwards they came from Slovenia to thank him whenever the ship was in port, which annoyed him — he held that saving a man was a captain's plain duty — and he eventually asked the company to stop telling them which ship he was on.",
+      "key": true
+    },
+    {
+      "who": "Vesela",
+      "dates": "1895–1926",
+      "what": ""
+    },
+    {
+      "who": "Marija, married Radovinović",
+      "dates": "1899–1968",
+      "what": "Born at Perinuša. Educated at the lyceum of St Dimitrije in Zadar, the first private girls' high school for noble families, where the teaching was in Italian. A gifted painter all her life, in many techniques, and an embroiderer and designer. Buried at Gospa od Anđela, Imotski. Her photograph was taken at the Zita studio in Split in 1918."
+    },
+    {
+      "who": "Mila",
+      "dates": "1900 – September 1926",
+      "what": "Also at the Zadar lyceum. In the winter of 1925, coming home to Perinuša, the Vrljika was up and could only be crossed by cart; she would not wait for the driver and went barefoot through the cold water. The pneumonia that followed did not clear, and her mother sent her to the lung clinic at Davos in Switzerland — her brother Toni drove her. She died in September 1926, aged twenty-six. Four white horses drew her to the cemetery at Proložac.",
+      "key": true
+    },
+    {
+      "who": "Frane de Franceschi",
+      "dates": "1901–1984",
+      "what": ""
+    },
+    {
+      "who": "Poldo de Franceschi",
+      "dates": "1901–1971",
+      "what": "Entered in the tree at Crikvenica, and photographed playing the accordion. One of the two individuals the tree places on both sides of the seam."
+    },
+    {
+      "who": "Sretko de Franceschi",
+      "dates": "",
+      "what": ""
+    },
+    {
+      "who": "Dragica de Franceschi",
+      "dates": "",
+      "what": ""
+    }
   ],
   "seam": {
     "heading": "Where the two families were joined, and how to see it",
     "lead": "The tree makes Anton Toni de Franceschi of Imotski, 1893–1941, the husband of Ursula Kovačina and the father of the Crikvenica children — Pepe, Zdravko, Ivan, Anka and Pero. He was neither.",
     "points": [
-      { "lab": "The tree records its own doubt in the names", "text": "Three of the four people at the seam are entered with question marks inside the name field: «Ursula Kovačina?», «Ana Nana Grubišić?», «Ana Kalaj-Kucarica ? (Kalanj??)». The compiler could not decide and wrote the uncertainty down. That is honest work, and it is the thread to pull." },
-      { "lab": "One woman is in the tree twice", "text": "Josip Bepo is given two wives. Ana Nana Grubišić, born 19 September 1863, died 28 May 1936. And Ana Kalaj-Kucarica ? (Kalanj??), born 1863, died 1936 at Crikvenica. Same birth year, same death year, no children on the second. They are one entry split in two — the Crikvenica Ana Kalanj and the Omiš Ana Grubišić, held apart by a question mark because the compiler suspected they were not the same and joined the families anyway." },
-      { "lab": "The dates make the marriage impossible", "text": "The Imotski account says Josip Bepo married Ana pl. Grubišić of Omiš in 1892. Our Ana Kalanj had already borne Anton Rudolf at Klenovica in January 1890 and Marija Stjepanka in December 1892. She cannot be a bride of 1892 at Omiš." },
-      { "lab": "The two Antons are two men", "text": "The Imotski Anton Toni was born in 1893 at Imotski and married Marija Dijaković of Dubrovnik, a schoolteacher, with whom he is photographed at Poljica in 1932. Our Anton Rudolf was born on 20 January 1890 at Klenovica house 22, baptised on 9 February, and married Ursula Kovačina. Three years and four hundred kilometres apart." },
-      { "lab": "The registers point the other way entirely", "text": "The Klenovica baptism of 1890 names the parents' place of origin as «Gallignana u Istriji» — Gračišće in Istria. The 1863 Gračišće baptism gives Josip's father Antonius as a lapicida, a stonecutter, and the 1906 death entry gives Josip himself as a «vešti klesar sada tvorničar». This is a family of stonemasons coming down off an Istrian hill, not Venetian landowners on the Vrljika.", "key": true }
+      {
+        "lab": "The tree records its own doubt in the names",
+        "text": "Three of the four people at the seam are entered with question marks inside the name field: «Ursula Kovačina?», «Ana Nana Grubišić?», «Ana Kalaj-Kucarica ? (Kalanj??)». The compiler could not decide and wrote the uncertainty down. That is honest work, and it is the thread to pull."
+      },
+      {
+        "lab": "One woman is in the tree twice",
+        "text": "Josip Bepo is given two wives. Ana Nana Grubišić, born 19 September 1863, died 28 May 1936. And Ana Kalaj-Kucarica ? (Kalanj??), born 1863, died 1936 at Crikvenica. Same birth year, same death year, no children on the second. They are one entry split in two — the Crikvenica Ana Kalanj and the Omiš Ana Grubišić, held apart by a question mark because the compiler suspected they were not the same and joined the families anyway."
+      },
+      {
+        "lab": "The dates make the marriage impossible",
+        "text": "The Imotski account says Josip Bepo married Ana pl. Grubišić of Omiš in 1892. Our Ana Kalanj had already borne Anton Rudolf at Klenovica in January 1890 and Marija Stjepanka in December 1892. She cannot be a bride of 1892 at Omiš."
+      },
+      {
+        "lab": "The two Antons are two men",
+        "text": "The Imotski Anton Toni was born in 1893 at Imotski and married Marija Dijaković of Dubrovnik, a schoolteacher, with whom he is photographed at Poljica in 1932. Our Anton Rudolf was born on 20 January 1890 at Klenovica house 22, baptised on 9 February, and married Ursula Kovačina. Three years and four hundred kilometres apart."
+      },
+      {
+        "lab": "The registers point the other way entirely",
+        "text": "The Klenovica baptism of 1890 names the parents' place of origin as «Gallignana u Istriji» — Gračišće in Istria. The 1863 Gračišće baptism gives Josip's father Antonius as a lapicida, a stonecutter, and the 1906 death entry gives Josip himself as a «vešti klesar sada tvorničar». This is a family of stonemasons coming down off an Istrian hill, not Venetian landowners on the Vrljika.",
+        "key": true
+      }
     ],
     "close": "What the tree got right is that both families exist and both are well recorded. What it got wrong is the join — made, as these joins usually are, on a shared given name and a shared surname in a country where both are common. The Imotski Franceschi keep their governor. This archive keeps its stonemasons."
   },
@@ -41,16 +152,69 @@
     "heading": "What the tree gave that nothing else had",
     "lead": "Below the seam the same file is the best source this archive has for the Crikvenica generation — dates carried in the family's own knowledge, off gravestones and the backs of photographs, for people the registers here do not reach.",
     "rows": [
-      { "who": "Josip, called Pepe, Defranceski", "born": "1911, Crikvenica", "died": "1980, Crikvenica", "what": "Photographed on the pier at Crikvenica." },
-      { "who": "Božica Blašković", "born": "1911, Crikvenica", "died": "1994, Crikvenica", "what": "Pepe's wife." },
-      { "who": "Toni Defranceski", "born": "1937, Crikvenica", "died": "1984", "what": "Their son." },
-      { "who": "Poldo, or Pauldo, de Franceschi", "born": "1901, Crikvenica", "died": "1971", "what": "An accordion player. Placed by the tree among Josip Bepo's Imotski children, but born and working at Crikvenica — the second individual sitting across the seam." },
-      { "who": "Ivan Defranceski", "born": "25 June 1925, Crikvenica", "died": "30 October 1995, Senj", "what": "Worked at Senj. Buried there — the family holds the gravestone photograph." },
-      { "who": "Hedviga Blažević", "born": "8 March 1926, Senj", "died": "30 October 2001, Johannesburg", "what": "Ivan's wife, of the Blažević of Senj and Krmpote. She died in South Africa, six years to the day after her husband died in Senj.", "key": true },
-      { "who": "Zdravko, called Frank, Defranceski", "born": "1921, Crikvenica", "died": "22 December 1979, Horsham, Victoria", "what": "The tree says 1999; two cemetery memorials at Horsham say December 1979. See below." },
-      { "who": "Ruža Hreljac", "born": "13 February 1922, Fužine", "died": "30 January 1996, Horsham, Victoria", "what": "Zdravko's wife. Her Horsham memorial gives 1 February — the interment. Fužine confirms the Belnica origin the archive had from the displaced-persons papers.", "key": true },
-      { "who": "Anton Defranceski", "born": "22 August 1944, Reutlingen", "died": "28 June 1999, Ipswich, Queensland", "what": "Born in Germany to Zdravko and Ruža while they were there, and the exact date the Arolsen child-tracing papers were opened on. This is the single most valuable line in the file.", "key": true },
-      { "who": "Ursula Kovačina", "born": "", "died": "", "what": "Anton Rudolf's wife and the mother of all of them. The tree gives her no dates, and neither does anything else this archive has found." }
+      {
+        "who": "Josip, called Pepe, Defranceski",
+        "born": "1911, Crikvenica",
+        "died": "1980, Crikvenica",
+        "what": "Photographed on the pier at Crikvenica."
+      },
+      {
+        "who": "Božica Blašković",
+        "born": "1911, Crikvenica",
+        "died": "1994, Crikvenica",
+        "what": "Pepe's wife."
+      },
+      {
+        "who": "Toni Defranceski",
+        "born": "1937, Crikvenica",
+        "died": "1984",
+        "what": "Their son."
+      },
+      {
+        "who": "Poldo, or Pauldo, de Franceschi",
+        "born": "1901, Crikvenica",
+        "died": "1971",
+        "what": "An accordion player. Placed by the tree among Josip Bepo's Imotski children, but born and working at Crikvenica — the second individual sitting across the seam."
+      },
+      {
+        "who": "Ivan Defranceski",
+        "born": "25 June 1925, Crikvenica",
+        "died": "30 October 1995, Senj",
+        "what": "Worked at Senj. Buried there — the family holds the gravestone photograph."
+      },
+      {
+        "who": "Hedviga Blažević",
+        "born": "8 March 1926, Senj",
+        "died": "30 October 2001, Johannesburg",
+        "what": "Ivan's wife, of the Blažević of Senj and Krmpote. She died in South Africa, six years to the day after her husband died in Senj.",
+        "key": true
+      },
+      {
+        "who": "Zdravko, called Frank, Defranceski",
+        "born": "1921, Crikvenica",
+        "died": "22 December 1979, Horsham, Victoria",
+        "what": "The tree says 1999; two cemetery memorials at Horsham say December 1979. See below."
+      },
+      {
+        "who": "Ruža Hreljac",
+        "born": "13 February 1922, Fužine",
+        "died": "30 January 1996, Horsham, Victoria",
+        "what": "Zdravko's wife. Her Horsham memorial gives 1 February — the interment. Fužine confirms the Belnica origin the archive had from the displaced-persons papers.",
+        "key": true
+      },
+      {
+        "who": "Anton Defranceski",
+        "born": "22 August 1944, Reutlingen",
+        "died": "28 June 1999, Ipswich, Queensland",
+        "what": "Born in Germany to Zdravko and Ruža while they were there, and the exact date the Arolsen child-tracing papers were opened on. This is the single most valuable line in the file.",
+        "key": true
+      },
+      {
+        "who": "Ursula Kovačina",
+        "born": "",
+        "died": "",
+        "what": "Anton Rudolf's wife and the mother of all of them. The tree gives her no dates, and neither does anything else this archive has found."
+      }
     ]
   },
   "zdravko": {
@@ -59,8 +223,100 @@
     "how": "The 1999 has a source, and the same file supplies it: his son Anton died on 28 June 1999 at Ipswich. A father's death year taken from the son's is one of the commonest slips in a compiled tree, and it is what happened here. Zdravko died in 1979, twenty years before the date the family has been carrying — and sixteen years before his wife Ruža, who outlived him and is buried in a different section of the same cemetery."
   },
   "sourcing": [
-    { "what": "MyHeritage GEDCOM export, «2018-07 Defranceski.ged»", "detail": "8,286 individuals, 254 carrying the surname. Held by the family. Its Crikvenica and Blažević entries are first-hand; its Dalmatian and Venetian upper reaches are compiled from Geni Smart Matching in 2017 and carry no register citations." },
-    { "what": "stariimotski.com", "detail": "A local history site for Imotski, cited in the tree's own notes as the origin of the Perinuša narratives — the mills, Mila's death, Captain Zane and the rowing boat. Credited there to the family archive of Captain Vjeko Franceschi." },
-    { "what": "Find a Grave, Horsham Cemetery, Victoria", "detail": "Memorials 241031613, 211577995 and 211578037." }
-  ]
+    {
+      "what": "MyHeritage GEDCOM export, «2018-07 Defranceski.ged»",
+      "detail": "8,286 individuals, 254 carrying the surname. Held by the family. Its Crikvenica and Blažević entries are first-hand; its Dalmatian and Venetian upper reaches are compiled from Geni Smart Matching in 2017 and carry no register citations."
+    },
+    {
+      "what": "stariimotski.com",
+      "detail": "A local history site for Imotski, cited in the tree's own notes as the origin of the Perinuša narratives — the mills, Mila's death, Captain Zane and the rowing boat. Credited there to the family archive of Captain Vjeko Franceschi."
+    },
+    {
+      "what": "Find a Grave, Horsham Cemetery, Victoria",
+      "detail": "Memorials 241031613, 211577995 and 211578037."
+    }
+  ],
+  "story": {
+    "heading": "Imotski, 1715–1717: the man who took the town, and lost everything doing it",
+    "lead": "This page has existed to correct a mistake — a widely-copied tree that grafts the Crikvenica household onto the Venetian nobles of Imotski. It has never told the Imotski family's own story. It is worth telling, because a local historian has now set it out from the archives at Zadar and Omiš against three centuries of it being deliberately left out.",
+    "rows": [
+      {
+        "lab": "January 1715 — a refugee camp on his own land",
+        "text": "On 11 January 1715 Zuane Ivan Franceschi took onto his estate at Dobrče, today Pisak on the coast below Omiš, the whole flight of the Imotski Franciscans: fifteen friars out of the monastery at Proložac, and with them about two hundred families — some six hundred people — and their livestock. They stayed two and a half years, until July 1717. He went to the Provveditore Generale of Dalmatia, Alvise Mocenigo III, and got them permission to build a monastery at Skalice in Omiš, where until then there had only been a chapel. That monastery carried the by-name «imotski» until the Imoćani went home.",
+        "key": true
+      },
+      {
+        "lab": "July 1717 — he raised the company and paid for it himself",
+        "text": "Three brothers — Zuane Ivan, Frane and Matija — recruited a company of 250 men and carried the cost out of their own pockets. Pay ran two months late and was halved: ten soldi a day for a foot-soldier and a piece of ship's biscuit. Zuane alone went with them as commander. He took the town of Imotski before the main Venetian army arrived, and when the fortress was stormed he was the first man through the outer wall, where he raised the flag of St Mark.",
+        "key": true
+      },
+      {
+        "lab": "And the general put it in writing to the Doge",
+        "text": "General Emo, reporting to Venice on 1 August 1717: «…ostavio sam taj predjel i… nađoh se u Imotskom… našao sam zauzet Varoš zaslugom Zuane Franceschija» — I found the town already taken, by the merit of Zuane Franceschi. It is in the Venetian dispatch, not in family tradition.",
+        "key": true
+      },
+      {
+        "lab": "What he was paid, and what it cost him",
+        "text": "The reward was the begluk of the arci-beg Čaušević on the Vrljika — a house, a Turkish defensive tower, and eight mills. It was wrecked: the population had fled, the mills barely turned, and grain could not come down from the Bosnian hinterland across a new and skirmishing frontier. Zuane Ivan Franceschi went bankrupt on the campaign. He had no choice but to take a Venetian war galley, and off the Albanian coast near Durrës the Turkish galleys caught the fleet and destroyed it. He got away on the flagship with the war chest aboard — which is the only reason Venice did not imprison him for life for the loss of the ships. They interned him instead on his own estate at Pisak, forbidden to leave it. He never saw Omiš again and never returned to Perinuša. He died at Pisak in 1741 and lies in the little church of St Mark of 1564.",
+        "key": true
+      },
+      {
+        "lab": "The name Perinuša is not theirs",
+        "text": "This archive has had this wrong and now corrects it. Perinuša is not from a Franceschi called Perin. It is from the **Perinović** — Perin — a Zadar family the Franceschi brought in at the start of the eighteenth century as estate managers and overseers, and who followed them to their other properties. The by-name attached itself to the place and then to the owners, so that Andrija Kačić Miošić, writing his «Razgovor ugodni naroda slovinskoga» — the Pismarica, first printed 1756 — sings of the taking of Imotski and calls the commander «Perinović Ive». A Venetian officer entered Croatian epic verse under his steward's name.",
+        "key": true
+      },
+      {
+        "lab": "Which was later used against them",
+        "text": "After the Second World War it was put about that the Franceschi were simply Italianised Perinovići — a claim that served to question a landowning family's loyalty to Yugoslavia. The genealogy runs unbroken from the fourteenth century and the two families are distinct. The other standing slander is that an ancestor rode round the estate in a day and took whatever he could enclose; in fact the land was a begluk that had belonged to Ottoman lords for two centuries, and it was assigned, not seized."
+      },
+      {
+        "lab": "The mills",
+        "text": "Zuane's son Antonio, by his third wife, of the Cambi of Split, took over the estate and got Venetian permission to build six more mills. A Venetian cadastral sheet of 1777 draws the Ponte di pietra and the «Molinari di Franceschi» with eleven grindstones; fourteen were built in the end. Horses went up a laid stone stair to the first floor to be kept out of the river damp — a habit the family kept from the arci-beg before them. The mills ran until the end of the twentieth century. The earthquake of 29 December 1942, whose epicentre seems to have been at Perinuša itself, brought down the extension and the stone-slab roofs."
+      },
+      {
+        "lab": "Josip, called Bepo — the one this archive has a photograph of",
+        "text": "Josip pl. Franceschi, 1844–1904, landowner at Perinuša, married Ana pl. Grubišić of Omiš in 1892 and had nine children. He rebuilt the house and the mills shortly before he died. His name is cut in stone on the churchyard gate of St Michael at Proložac, built 1897–1901, beside those of Alfonso Bitanga and the Dalmatian governor Alfons Pavich — three men who paid for it. And his son Frane, «Frane Franceschi pok. Bepa», municipal engineer, designed and supervised the two bridges over the Vrljika begun in 1938.",
+        "key": true
+      },
+      {
+        "lab": "And the family is still there",
+        "text": "Of the seventy Venetians living at Imotski after 1717, only the de Franceschi settled permanently. The «de» was struck off by decree of the Napoleonic administration. The Ministry of Culture has begun restoring the old house; the mills and the bridge await money. Tin Ujević was a frequent and welcome guest at Perinuša, and wrote «Visoki jablanovi» there."
+      }
+    ],
+    "source_im": "Vesna Kljajić-Grbavac (attrib.), «Obitelj de Franceschi u Imotskom od 1717. do danas», Poskok.info — built on Ante Ujević's «Imotska krajina», fra Karlo Jurišić's doctoral thesis (1972), fra Andrija Nikić's work on the Zadar state archive, and the Zadar, Omiš and Franciscan holdings. Read September 2026."
+  },
+  "jagul": {
+    "heading": "Jagul — the house across town that holds their books",
+    "lead": "David sent a photograph posted by the Jagul wine cellar at Imotski. Jagul is not a brand name; it is a family nickname, and the family it belongs to married into this one.",
+    "rows": [
+      {
+        "lab": "Who Jagul was",
+        "text": "Dr Augustin Bitanga, 1841–1912, took his medical degree at Padua in 1868 and was appointed municipal physician of Imotski in 1870. He drove out several times a week by carriage over bad roads to the villages of the Krajina, and the people shortened «gospodar Jago» to **Jagul**. The name stuck to the family, to their house, and to several places in the district. From 1919 the family took back its older surname: **Radovinović**.",
+        "key": true
+      },
+      {
+        "lab": "Which is how it touches this family",
+        "text": "Josip Bepo's daughter **Marija Franceschi, 1899–1968**, born at Perinuša and educated at the lyceum of St Dimitrije in Zadar, is entered on this page as «Marija, married Radovinović». Radovinović is the Jagul family's own name from 1919. The wine cellar posting photographs of Ana pl. Franceschi is run by Anamaria Marušić Tonković, great-granddaughter of Dr Augustin Bitanga. The two houses of Imotski are joined by a marriage, and the archive that holds the photographs is a family archive on the other side of it.",
+        "key": true
+      },
+      {
+        "lab": "And the books are there",
+        "text": "The library at Jagulovi dvori was assembled over more than two hundred years «uglavnom izravnim naručivanjem te nasljeđivanjem od rodbinski povezanih obitelji Lusnik, **Franceschi**, Carminatti, Nonveiller, Mladinov» — largely by direct order and by inheritance from the related families, Franceschi among them. Medicine, law, politics, agronomy, history; dictionaries, letters, documents, diplomas — many signed by the member of the family who owned them. If any Imotski Franceschi library survives anywhere, it is on those shelves.",
+        "key": true
+      },
+      {
+        "lab": "The house, and the sabre in the ice room",
+        "text": "Augustin built Jagulovi dvori between 1891 and 1893, with his surgery in it. Behind it are farm buildings and a wine cellar, and in the cellar a small ice room with an oak door where blocks of ice were stored, brought down from Biokovo by mule. In 2012 the family found in that room the sabre the outlaw Andrijica Šimić gave the Bitanga in 1902 — hidden in 1945 when the militia came round collecting weapons, and then forgotten. Šimić had once robbed Augustin's brother Frane of the commune's tax money and given it back when Frane begged, saying he would lose his post and his sixteen children would suffer; the family held itself in his debt for thirty-one years while he sat in the prison at Koper, and when the imperial pardon let him out in 1902 they had him to lunch."
+      },
+      {
+        "lab": "And a wedding photograph with a man standing in the doorway",
+        "text": "Augustin forbade his daughter Zorka to see Antun Toni Colombani, of the neighbouring house — a Piran family settled at Imotski since 1690 — because the Colombani had quarrelled with him over the new house blocking their view of the Imotsko polje and Biokovo, and because Toni had a reputation. Zorka married the sea-captain Niko Cerezin of Viganj in the church of St Francis in 1911. The wedding photographer caught, standing to the left of the door in a white suit with his hand in his pocket, Antun Toni Colombani, who had slipped in during the service. She kept his photograph, and a lock of his hair, all her life. He kept another picture from her wedding until he died."
+      }
+    ],
+    "source_j": "Zaboravljena Dalmacija, «Jagulovi dvori u Imotskom», built on the archive of the Bitanga–Radovinović family and Anamaria Marušić Tonković's research; and the Jagul Wine Cellar page. Read September 2026. The Facebook post David sent is behind a login and was not circumvented; its own caption reads «Omišanka Ana pl. Franceschi (1876 – 14.07.1945), supruga Josipa (Bepa), snimljena 1892. godine»."
+  },
+  "anadates": {
+    "heading": "And two sets of dates for Ana",
+    "text": "The family tree this archive works from gives Josip Bepo's wife as Ana pl. Grubišić of Omiš, born 19 September 1863, died 28 May 1936. The Jagul caption gives her as «Ana pl. Franceschi (1876 – 14.07.1945)», photographed in 1892. Those cannot both be right, and the difference is thirteen years at birth and nine at death. If the marriage was in 1892 and she was born in 1876 she was sixteen at it; if 1863, she was twenty-nine. This archive has no register entry for either, and will not choose between them until it does. What would settle it: the Omiš baptismal register for 1863 and for 1876 under Grubišić, and the Imotski or Proložac death register for 1936 and for 1945."
+  }
 }
