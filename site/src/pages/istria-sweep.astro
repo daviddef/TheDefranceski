@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/istriasweep.json";
@@ -61,6 +62,28 @@ const max = Math.max(...d.clusters.map(c => c.n));
     <ul>{d.next.map(n => <li>{n}</li>)}</ul>
     <p class="cap" style="margin-top:16px">The line this archive actually follows is invisible to every search above. See <a href={u("/direct-line/")}>The Spine</a> for how it was found instead, and <a href={u("/parish-books/")}>Parish Books</a> for what is and is not filmed.</p>
   </section>
+
+<Rule name="loom" label="Rebuilt and re-run" />
+<section class="blk">
+  <h2>{d.resweep.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.resweep.lead}</p>
+  <div class="scroll" style="margin-top:20px">
+    <table><thead><tr><th>Town</th><th>People</th><th>Range</th><th></th></tr></thead>
+    <tbody>{d.resweep.table.map(([t,n,r,w]) => (
+      <tr><td>{t}</td><td class="m">{n}</td><td class="m">{r}</td><td>{w}</td></tr>
+    ))}</tbody></table>
+  </div>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.resweep.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px"><strong>Method.</strong> {d.resweep.method2}</p>
+</section>
+
 
   <Sources ids={["familysearch", "dapa", "carlo1879"]} />
 </Base>
