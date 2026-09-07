@@ -1,426 +1,464 @@
 {
- "people": [
-  {
-   "name": "Anton Defranceski",
-   "born": "20 January 1890",
-   "birthplace": "Crikvenica",
-   "role": "The eldest of the six. Certified by the mayor of Pfullingen in 1950 as having worked for Hermann Sauer at Reutlingen-Süd.",
-   "trade": "—",
-   "status": "published"
+  "people": [
+    {
+      "name": "Anton Defranceski",
+      "born": "20 January 1890",
+      "birthplace": "Crikvenica",
+      "role": "The eldest of the six. Certified by the mayor of Pfullingen in 1950 as having worked for Hermann Sauer at Reutlingen-Süd.",
+      "trade": "—",
+      "status": "published"
+    },
+    {
+      "name": "Felix Defranceski",
+      "born": "14 January 1908",
+      "birthplace": "Crikvenica",
+      "role": "Single, at Pfullingerlandstraße, Reutlingen. Motor mechanic for Hermann Sauer from July 1941, then a driver for Wilhelm Heim, then back to Sauer. The Reutlingen town list puts him in the town from 15 August 1941 to 8 October 1942.",
+      "trade": "Automechaniker",
+      "status": "published"
+    },
+    {
+      "name": "Petar Defranceski",
+      "born": "15 June 1913",
+      "birthplace": "Crikvenica",
+      "role": "Ship's engineer with Jugoslav Lloyd at Split; left for Germany in April 1939 and stayed. Married Luise Salzer at Neuhausen in February 1942. Applied in November 1947 to be resettled in California — and then did not go: by July 1949 he had a house and two cars, and in April 1951 confirmed the family would remain in Germany.",
+      "trade": "Auto-mécanicien",
+      "status": "published"
+    },
+    {
+      "name": "Zdravko Defranceski",
+      "born": "1 or 2 April 1921",
+      "birthplace": "Crikvenica",
+      "role": "Taken by the Partisans in 1943, held three or four months, then straight to Germany. Motor mechanic at Reutlingen. Married Ruža of Fužine. Resettled February 1949 — to Australia. Died at Horsham, Victoria, 22 December 1979, aged fifty-eight, buried there as Frank.",
+      "trade": "Auto-mécanicien",
+      "status": "published"
+    },
+    {
+      "name": "Ivan Defranceski",
+      "born": "24 or 25 June 1925",
+      "birthplace": "Crikvenica",
+      "role": "Entered work on 21 October 1941 at sixteen, as an unskilled hand at Licht und Kraft, Reutlingen. Returned to Croatia; the line continues through him.",
+      "trade": "Hilfsarbeiter",
+      "status": "published"
+    },
+    {
+      "name": "Ruža Defranceski",
+      "born": "1922",
+      "birthplace": "Fužine",
+      "role": "Zdravko's wife, from the mountain village above the coast. No profession recorded. She outlived him by sixteen years and lies in the same Wimmera ground, South 2-D-23, having died on 1 February 1996.",
+      "trade": "—",
+      "status": "published"
+    },
+    {
+      "name": "Luise Defranceski née Salzer",
+      "born": "5 October 1919",
+      "birthplace": "Neuhausen, Württemberg",
+      "role": "Petar's wife, and the only German-born adult in the group. Married Petar in February 1942.",
+      "trade": "—",
+      "status": "published"
+    },
+    {
+      "name": "Anton Defranceski",
+      "born": "21 August 1944 (1943 on his headstone)",
+      "birthplace": "Reutlingen",
+      "role": "The child entered on the French camp card with the single word enfant written across the fingerprint boxes, and photographed in his mother's arms. He died on 28 June 1999 and is buried at Warrill Park, Willowbank, in the City of Ipswich, Queensland. Named here only because he is no longer living.",
+      "trade": "—",
+      "status": "published"
+    },
+    {
+      "name": "Two daughters of Petar",
+      "born": "1940 and 1945",
+      "birthplace": "Urach and Metzingen",
+      "role": "Born in Württemberg during the war and entered on the camp cards as enfant. Omitted by name: they may be living.",
+      "trade": "—",
+      "status": "withheld"
+    }
+  ],
+  "chronology": [
+    {
+      "y": "1949–50",
+      "t": "Zdravko, Ruža and Anton reach Australia, not America",
+      "w": "The resettlement roll assigned their numbers; the graves say where they went"
+    },
+    {
+      "y": "1890",
+      "t": "Anton born at Crikvenica",
+      "w": "Kvarner, Austria-Hungary"
+    },
+    {
+      "y": "1908",
+      "t": "Felix born at Crikvenica",
+      "w": "Kvarner, Austria-Hungary"
+    },
+    {
+      "y": "1913",
+      "t": "Petar born at Crikvenica",
+      "w": "Nationality at birth, as he wrote it in 1947: Österreich-Ungarn"
+    },
+    {
+      "y": "1921",
+      "t": "Zdravko born at Crikvenica",
+      "w": "Kingdom of Serbs, Croats and Slovenes"
+    },
+    {
+      "y": "1925",
+      "t": "Ivan born at Crikvenica",
+      "w": "Kingdom of Serbs, Croats and Slovenes"
+    },
+    {
+      "y": "1935",
+      "t": "Petar passes his ship's-engineer examination at Split",
+      "w": ""
+    },
+    {
+      "y": "1937",
+      "t": "Petar living at Split, engineer with Jugoslav Lloyd",
+      "w": ""
+    },
+    {
+      "y": "Oct 1938",
+      "t": "Ivan Dracic of Crikvenica is already living at Reutlingen",
+      "w": "The colony predates the war"
+    },
+    {
+      "y": "Apr 1939",
+      "t": "Petar leaves Yugoslavia for Germany — voluntarily, to improve himself",
+      "w": "Five months before the war"
+    },
+    {
+      "y": "Oct 1941",
+      "t": "Ivan, aged sixteen, enters work at Reutlingen",
+      "w": "Yugoslavia had been partitioned in April"
+    },
+    {
+      "y": "Jul 1941",
+      "t": "Felix begins with Hermann Sauer at Pfullingen",
+      "w": ""
+    },
+    {
+      "y": "Feb 1942",
+      "t": "Petar marries Luise Salzer",
+      "w": ""
+    },
+    {
+      "y": "Apr 1942",
+      "t": "Petar begins with Hermann Sauer on vehicle repairs",
+      "w": ""
+    },
+    {
+      "y": "1943",
+      "t": "Zdravko taken by the Partisans; three or four months held; then to Germany",
+      "w": "Pencilled on the back of his sickness-fund card"
+    },
+    {
+      "y": "2 Mar 1945",
+      "t": "Petar's and Zdravko's employment cards stop",
+      "w": "French forces reached Reutlingen in April"
+    },
+    {
+      "y": "10 Mar 1947",
+      "t": "Pfullingen draws up its list of foreigners registered 1939–45",
+      "w": "Six Defranceskis on it"
+    },
+    {
+      "y": "7 Nov 1947",
+      "t": "Petar signs the CM/1 application for resettlement in California",
+      "w": "Identity number 148.902"
+    },
+    {
+      "y": "21 Dec 1947",
+      "t": "Petar's household counted at Reutlingen",
+      "w": ""
+    },
+    {
+      "y": "22 Feb 1949",
+      "t": "Zdravko, Ruža and their son on a resettlement roll",
+      "w": "IRO numbers 135801, 6/2416"
+    },
+    {
+      "y": "22 Jul 1949",
+      "t": "Petar tells the resettlement officer he wants to stay in Germany",
+      "w": "«a une maison, 2 autos etc.»"
+    },
+    {
+      "y": "28 Feb 1950",
+      "t": "Pfullingen certifies Anton's wartime employment",
+      "w": "Signed by the mayor"
+    },
+    {
+      "y": "28 Apr 1951",
+      "t": "Confirms the family will remain",
+      "w": "Liste Zone Sud"
+    },
+    {
+      "y": "25 May 1951",
+      "t": "Entered on the list of displaced persons living privately",
+      "w": "Still at Kelternstraße 30, Neuhausen"
+    },
+    {
+      "y": "22 Dec 1979",
+      "t": "Zdravko dies at Horsham, Victoria, aged 58",
+      "w": "Buried in the Wimmera as Frank"
+    },
+    {
+      "y": "1 Feb 1996",
+      "t": "Ruža dies; buried at Horsham, South 2-D-23",
+      "w": ""
+    },
+    {
+      "y": "28 Jun 1999",
+      "t": "Anton dies; buried at Willowbank, City of Ipswich, Queensland",
+      "w": "An hour from Brisbane"
+    },
+    {
+      "y": "27 Nov 1946",
+      "t": "Luise's DP identity card is issued at Reutlingen, then struck",
+      "w": "«pas Personne Déplacée — Allemande de naissance, mariée à un Yougoslave»"
+    },
+    {
+      "y": "21 Dec 1947",
+      "t": "Petar's household registered at Reutlingen",
+      "w": "From Friedrichstraße 4, Neuhausen"
+    },
+    {
+      "y": "8 Mar 1949",
+      "t": "Zdravko, Ruža and Anton emigrate to Australia",
+      "w": "«Emigré Australie le 8.3.49» — IRO 148.901"
+    },
+    {
+      "y": "30 Jul 1949",
+      "t": "«Proposons à Mr. Boesch de le mettre Bj»",
+      "w": "Eight days after Petar said he was staying"
+    },
+    {
+      "y": "25 May 1951",
+      "t": "Petar's family on the PDR list of people living privately",
+      "w": "Kelterstraße 30, Neuhausen"
+    },
+    {
+      "y": "1954–1984",
+      "t": "Tracing case 349.822 stands open on Petar for thirty years",
+      "w": "Eight documents, withheld online"
+    },
+    {
+      "y": "15 Dec 1948",
+      "t": "Eligibility verified",
+      "w": "«L'éligibilité de l'intéressé a été vérifiée le 15.12.48»"
+    },
+    {
+      "y": "27 May 1949",
+      "t": "«Le Chef de famille et les deux enfants sont classés B, l'épouse BJ»",
+      "w": "The IRO director for the French zone, on the case of Defranceski 148.902"
+    },
+    {
+      "y": "—",
+      "t": "Petar is screened for Brazil",
+      "w": "«Passé au screening — Brésil. Rien à signaler.»"
+    }
+  ],
+  "residence": {
+    "heading": "How long each of them was actually there",
+    "intro": "The family holds a copy of the Pfullingen list in which the arrival and departure columns are barely legible. The Arolsen original is clear, and it turns six names into six stays of very different length.",
+    "rows": [
+      {
+        "who": "Felix",
+        "born": "14.1.08, Crikvenica",
+        "from": "5 July 1941",
+        "to": "4 August 1941, and a second stay ending 3 March 1945"
+      },
+      {
+        "who": "Ivan",
+        "born": "24.6.25, Crikvenica",
+        "from": "20 October 1941",
+        "to": "5 September 1942"
+      },
+      {
+        "who": "Anton",
+        "born": "20.1.90, Crikvenica",
+        "from": "1 March 1942",
+        "to": "13 June 1942"
+      },
+      {
+        "who": "Zdravko",
+        "born": "1.4.21, Crikvenica",
+        "from": "17 June 1944",
+        "to": "3 March 1945"
+      },
+      {
+        "who": "Ruža",
+        "born": "13.2.22, Fužine",
+        "from": "29 July 1944",
+        "to": "3 March 1945"
+      },
+      {
+        "who": "Anton the younger",
+        "born": "21.8.44, Reutlingen",
+        "from": "—",
+        "to": "—"
+      }
+    ],
+    "read": "Two things fall out of those columns. First, Anton — the head of the family, born 1890, and this archive's own great-great-grandfather — was at Pfullingen for only three and a half months, from 1 March to 13 June 1942, and then went home. If the family is right that he died in 1943, he died back on the Kvarner, not in Germany.\n\nSecond, look at the date 3 March 1945. Felix leaves on it. Zdravko leaves on it. Ruža leaves on it. Petar's sickness-fund card stops on 2 March 1945. Four members of one family stopped being registered at Pfullingen within twenty-four hours of each other, seven weeks before the French army reached Reutlingen. Whatever that was — evacuation, flight, a works closing — they did it together."
   },
-  {
-   "name": "Felix Defranceski",
-   "born": "14 January 1908",
-   "birthplace": "Crikvenica",
-   "role": "Single, at Pfullingerlandstraße, Reutlingen. Motor mechanic for Hermann Sauer from July 1941, then a driver for Wilhelm Heim, then back to Sauer. The Reutlingen town list puts him in the town from 15 August 1941 to 8 October 1942.",
-   "trade": "Automechaniker",
-   "status": "published"
+  "neuhausen": {
+    "heading": "And a third list, which puts them all in one village",
+    "intro": "Neuhausen an der Erms drew up its own return on 25 March 1947, under General Koenig's Order No. 1792: every foreigner present in the commune, permanently or temporarily, between 2 September 1939 and 25 April 1945. The first seven names on it are one family.",
+    "rows": [
+      {
+        "n": "1",
+        "who": "Defranceski, Peter",
+        "born": "15.6.13, Crikvenica",
+        "present": "22 March 1941 – today",
+        "note": "Four years earlier than any date the family had for him."
+      },
+      {
+        "n": "2",
+        "who": "— geb. Salzer, Luise",
+        "born": "5.10.19, Neuhausen",
+        "present": "since birth – today",
+        "note": "She was born in the village. Petar married into it."
+      },
+      {
+        "n": "3",
+        "who": "— Ursula",
+        "born": "29.10.40, Urach",
+        "present": "since birth – today",
+        "note": ""
+      },
+      {
+        "n": "4",
+        "who": "— Renate",
+        "born": "25.7.45, Metzingen",
+        "present": "since birth – today",
+        "note": ""
+      },
+      {
+        "n": "5",
+        "who": "— Zdravko",
+        "born": "1.4.21, Crikvenica",
+        "present": "19 March 1945 – today",
+        "note": ""
+      },
+      {
+        "n": "6",
+        "who": "— geb. Hreljec, Rose",
+        "born": "22.2.22, Fužine / Belnica",
+        "present": "19 March 1945 – today",
+        "note": "Her maiden name, and a second place — Belnica."
+      },
+      {
+        "n": "7",
+        "who": "— Anton",
+        "born": "21.8.44, Reutlingen",
+        "present": "19 March 1945 – today",
+        "note": ""
+      }
+    ],
+    "read": "Put the three lists side by side and the movement resolves. Petar had been at Neuhausen since 22 March 1941, married to a woman born in the village. Zdravko, Ruža and their baby son were registered at Pfullingen until 3 March 1945 — and appear at Neuhausen on 19 March 1945, sixteen days later. Felix leaves Pfullingen on the same 3 March; Petar's sickness-fund card stops on 2 March. Whatever happened at Pfullingen in the first days of March 1945, the answer for three of them was to go to Petar.\n\nIt also gives Ruža her maiden name — HRELJEC — and a second birthplace alongside Fužine: Belnica. Her birth date appears in these papers as 13 February, 2 May and 22 February 1922, which is three clerks and one woman."
   },
-  {
-   "name": "Petar Defranceski",
-   "born": "15 June 1913",
-   "birthplace": "Crikvenica",
-   "role": "Ship's engineer with Jugoslav Lloyd at Split; left for Germany in April 1939 and stayed. Married Luise Salzer at Neuhausen in February 1942. Applied in November 1947 to be resettled in California — and then did not go: by July 1949 he had a house and two cars, and in April 1951 confirmed the family would remain in Germany.",
-   "trade": "Auto-mécanicien",
-   "status": "published"
+  "frenchzone": {
+    "heading": "The French zone files: two brothers, two numbers, two answers",
+    "lead": "Nineteen cards from the French occupation authorities and the IRO, in the displaced-persons folder DP0758 at Bad Arolsen, carry this family through the six years after the war. They were read in full in September 2026 and they settle several things the archive had only half of — including the day Zdravko, Ruža and Anton left for Australia.",
+    "numbers": "The two households were registered at Reutlingen together and hold consecutive IRO identity numbers: 148.901 for Zdravko's family of three, 148.902 for Petar's family of four. Both are entered in category CB. The brothers went into the same office on the same day and came out with numbers one apart, and then chose opposite hemispheres.",
+    "rows": [
+      {
+        "lab": "Anton Defranceski, 22.8.44 — index card, Reutlingen 148.901",
+        "text": "«Emigré Australie le 8.3.49», with a second date of 17.3.49 alongside. The card stands for the household of three — Zdravko, Ruža and the child — and it is the first document to give the day they left. Across the foot is a red stamp: CM/1 destroyed. That is why no IRO care-and-maintenance file survives for them, and why Petar has one and his brother does not.",
+        "key": true
+      },
+      {
+        "lab": "Petar Defranceski — fiche individuelle, stamped 16 October 1951, IRO, no. 30609",
+        "text": "Nationality Yugoslav; born 15.06.13, and the place written in by hand: Crikvenica. Profession «Auto-Mechaniker». Address Kelterstraße 30, Neuhausen. Married. His five fingerprints are pressed across the card in red ink. The ship's engineer who sat his examination at Split in 1935 finished as a motor mechanic in a Württemberg village — the same trade his younger brother Zdravko had at Reutlingen.",
+        "key": true
+      },
+      {
+        "lab": "Peter and Luise — counselling card, category CB, 28.4.51",
+        "text": "The card the archive had only in part. IRO 148.902; address Kelterstraße 30, Neuhausen, Kreis Reutlingen, as at 1 April 1951; and under «autres membres de la famille», the wife and two children, born 1940 and 1945. Three entries under Exposé: «22.7.49 — Veut rester en Allemagne, a une maison, 2 autos etc…»; «28.4.51 — Confirme qu'ils désirent rester en Allemagne (Liste Zone Sud)»; «25.5.51 — Figurent sur liste PDR gens vivant en privé (arrêtée au 1.4.51)». He said it once, then confirmed it, and then the office wrote him down as living privately."
+      },
+      {
+        "lab": "The reverse of the same card — 30 July 1949",
+        "text": "One line: «Proposons à Mr. Boesch de le mettre «Bj».» Eight days after Petar told the counsellor he had a house and two cars and was staying, the office proposed to reclassify him. The index cards then record the change going through — «Tit 1165, 11.8.49, BJ» and «03.Tr.16, «BJ», 23.8.49». What Bj means is answered below, by a letter the family kept and Bad Arolsen does not hold.",
+        "key": true
+      },
+      {
+        "lab": "Luise, born Salzer — carte d'identité de personnes déplacées, 27 November 1946, no. 30040",
+        "text": "Issued by the Commandement en chef français en Allemagne, and carrying a photograph of her with her two small daughters — the first picture of Petar's family this archive has seen. Nationality: Yugoslave. Address: Neuhausen, Kelternstraße 30. Born 5 October 1919 at Neuhausen, in the Reutlingen district — she is a local woman, born four streets from where the card was issued. Height 168, oval face, blue eyes, chestnut hair. And then, written diagonally across the whole top of the card in another hand: «pas Personne Déplacée — Allemande de naissance, mariée à un Yougoslave», with ALLEMANDE in green across the header.",
+        "key": true
+      },
+      {
+        "lab": "Luise — index card, Reutlingen 148.902",
+        "text": "«DEFRANCESKI, Luise 5.10.19 apatr.» Apatride. Stateless. She was German by birth, and in marrying a Yugoslav in February 1942 she took his nationality and lost her own; by 1949 she was neither. The one word in the abbreviation column is the whole of it."
+      },
+      {
+        "lab": "The children",
+        "text": "Two daughters are named on the family's cards, born in 1940 and in 1945, each with her own fiche individuelle and the word «enfant» in red crayon across the five empty fingerprint boxes — the same red hand, on the same printed form, as on Anton's card. The younger one's card is annotated «Neuhausen, Friedrichstr. 4 / recensé à Reutlingen 21.12.47 / 1.3.49 à Reutlingen / Devenu Bj. le 10.8.49», and on its reverse: «Siehe auch DEFRANCESKI, PETAR 15.6.1913». Both were born within the last hundred years and no death is recorded for either, so this archive does not name them.",
+        "key": true
+      },
+      {
+        "lab": "Tracing and documentation case no. 349.822",
+        "text": "Opened for DEFRANCESKI, PETER born 15.06.1913, reference 06030302.0.349.822. Eight documents, and the dates on the folder run from 1954 to 1984. Somebody was asking the International Tracing Service about Petar for thirty years. The contents are withheld online for data protection; they must be requested from Bad Arolsen directly, and they are the single most promising unread thing this archive knows of."
+      },
+      {
+        "lab": "The CM/1 application, 7 November 1947 — and the form that changed his status",
+        "text": "The care-and-maintenance application, signed «Peter Defranceski», carries small passport photographs of him and of Luise, pasted side by side and numbered A1048 and A1049. It gives the marriage precisely — «14.2.1942 Neuhausen (Reutlingen)» — and the children's birthplaces, Bad Urach and Metzingen. Asked why he left his country, he answered that he quit Yugoslavia in 1939 voluntarily «pour se perfectionner», went back, and returned to Germany so as not to be called up. Asked whether he wished to be repatriated he said yes — «dans 2 ans», in two years, when he had finished. Asked whether he wanted to stay in Germany: «oui, provisoirement». Asked where he wished to be resettled: USA, Californien. Under nationality the clerk wrote Jugoslavien, and at birth Österreich-Ungarn; against Crikvenica he first put Dalmatien and then corrected it to Kroatien. Two years later the same file holds the form that undid it — an IRO «Changements de statut», appendix V, Cercle de Reutlingen, dated 11.8.49 and numbered Tit/CM 1165, the very reference the index card cites. Every box for an actual change is empty. The only thing that changed was the category.",
+        "key": true
+      },
+      {
+        "lab": "And what «Bj» actually was — 27 May 1949",
+        "text": "A letter on pink paper in the family's own copy of the file, from A. Poignant, Director of the IRO for the French zone of occupation, to the Chef de Service du Wurtemberg at Ebingen. Subject: «Cas de DEFRANCESKI (148.902)». It says the eligibility of the person concerned was verified on 15 December 1948, and then this: «Le Chef de famille et les deux enfants sont classés B, l'épouse BJ.» — The head of the family and the two children are classified B, the wife BJ. So BJ was not, in the first place, a reclassification off IRO care. It was Luise's own category, given her because she was German-born — the same fact her index card records with the single word apatride. B was the category for the Yugoslavs. What happened on 30 July, and went through the books in August, is that Petar was moved out of his children's category and into his wife's.",
+        "key": true
+      },
+      {
+        "lab": "And a country nobody knew about",
+        "text": "A small green slip in the same file, signed by Dr S. Birietaité, Chef de Service de Santé: «M. Defranceski est passé au screening — Brésil», and underneath, in blue, «Rien à signaler». He was screened for Brazil, and the doctor found nothing to report. The archive knew he had applied for the United States in November 1947 and named California. It did not know he had also been put forward for Brazil — the country where, two generations earlier, more of this surname had settled than anywhere else on earth. He passed the medical for it and did not go.",
+        "key": true
+      },
+      {
+        "lab": "Zdravko's household, which Arolsen does not hold",
+        "text": "Arolsen's index card for this family is stamped CM/1 destroyed, and their online folder has almost nothing for it. The family kept its own copies, and they are here: Zdravko's fiche individuelle, card 30560, with his photograph and five red fingerprints, «Auto-mecanicien», at Neuhausen, Friedrichstraße 4; Ruža's, card 30561, with a photograph of her holding the baby; Anton's, card 52852, «enfant» in red across the empty fingerprint boxes. Their identity cards were issued on 27 November 1946, the same day as Luise's, and each is annotated later in red pencil: 8/3/1949 Australie. Even the clothing issues are entered — 3 June 1948, shoes; 14 September 1948, a coat, a shirt, trousers and a pair of men's gloves.",
+        "key": true
+      },
+      {
+        "lab": "Two addresses on one street",
+        "text": "Both brothers' families were at Neuhausen on Friedrichstraße — Zdravko's at number 4, and Petar's there too before they moved to Kelterstraße 30. The town certificates of 28 February 1950 put the men in their trades: Zdravko («Strawko», born 1.4.21 at Zvekvenica) with Hermann Sauer at Reutlingen-Süd; Ruža («Rose geb. Hreljac», born 13.2.22 at Fusine/Delnice) with Licht und Kraft at Reutlingen; Ivan, born 24 or 25 June 1925 at Crikvenica, with Licht und Kraft too; Felix, born 14.1.1908, with Hermann Sauer from 15 August 1941 to 8 October 1942."
+      }
+    ],
+    "close": "Read together, the nineteen cards give the shape of the decision. In December 1945 and December 1948 the two households are registered at Reutlingen. In November 1947 Petar applies for California. In March 1949 his brother sails for Australia. In July 1949 Petar tells the counsellor he has a house and two cars. Within a month the French have moved him off their books, and in 1951 he confirms it in writing. One brother took the ship and one bought a second car. And the last of it: the family's own copy of the file settles Ruža's birth date at 13 February 1922 — the Reutlingen card, her identity card and her town certificate all agree, against the single Arolsen index entry that reads 2 May."
   },
-  {
-   "name": "Zdravko Defranceski",
-   "born": "1 or 2 April 1921",
-   "birthplace": "Crikvenica",
-   "role": "Taken by the Partisans in 1943, held three or four months, then straight to Germany. Motor mechanic at Reutlingen. Married Ruža of Fužine. Resettled February 1949 — to Australia. Died at Horsham, Victoria, 22 December 1979, aged fifty-eight, buried there as Frank.",
-   "trade": "Auto-mécanicien",
-   "status": "published"
-  },
-  {
-   "name": "Ivan Defranceski",
-   "born": "24 or 25 June 1925",
-   "birthplace": "Crikvenica",
-   "role": "Entered work on 21 October 1941 at sixteen, as an unskilled hand at Licht und Kraft, Reutlingen. Returned to Croatia; the line continues through him.",
-   "trade": "Hilfsarbeiter",
-   "status": "published"
-  },
-  {
-   "name": "Ruža Defranceski",
-   "born": "1922",
-   "birthplace": "Fužine",
-   "role": "Zdravko's wife, from the mountain village above the coast. No profession recorded. She outlived him by sixteen years and lies in the same Wimmera ground, South 2-D-23, having died on 1 February 1996.",
-   "trade": "—",
-   "status": "published"
-  },
-  {
-   "name": "Luise Defranceski née Salzer",
-   "born": "5 October 1919",
-   "birthplace": "Neuhausen, Württemberg",
-   "role": "Petar's wife, and the only German-born adult in the group. Married Petar in February 1942.",
-   "trade": "—",
-   "status": "published"
-  },
-  {
-   "name": "Anton Defranceski",
-   "born": "21 August 1944 (1943 on his headstone)",
-   "birthplace": "Reutlingen",
-   "role": "The child entered on the French camp card with the single word enfant written across the fingerprint boxes, and photographed in his mother's arms. He died on 28 June 1999 and is buried at Warrill Park, Willowbank, in the City of Ipswich, Queensland. Named here only because he is no longer living.",
-   "trade": "—",
-   "status": "published"
-  },
-  {
-   "name": "Two daughters of Petar",
-   "born": "1940 and 1945",
-   "birthplace": "Urach and Metzingen",
-   "role": "Born in Württemberg during the war and entered on the camp cards as enfant. Omitted by name: they may be living.",
-   "trade": "—",
-   "status": "withheld"
+  "ship": {
+    "heading": "The ship",
+    "lead": "This archive has known since the Arolsen file was read that Zdravko, Ruža and Anton left for Australia in the spring of 1949. It has never known what they sailed on. It does now, and the answer came from a volunteer transcription project that has been online for twenty years.",
+    "found": {
+      "t": "USAT General Stewart",
+      "rows": [
+        [
+          "Departure port",
+          "Naples, Italy"
+        ],
+        [
+          "Departure date",
+          "17 March 1949"
+        ],
+        [
+          "Arrival port",
+          "Melbourne, Australia"
+        ],
+        [
+          "Arrival date",
+          "13 April 1949"
+        ],
+        [
+          "Operated for",
+          "International Refugee Organisation — Group Resettlement to Australia"
+        ],
+        [
+          "Passengers 0180, 0181, 0182",
+          "DEFRANCESKI Anton · DEFRANCESKI Ruza · DEFRANCESKI Zdravko"
+        ]
+      ],
+      "why": "Three consecutive numbers on one manifest. Anton first because the list is alphabetical by forename inside the surname, and he was nine years old."
+    },
+    "context": "The USAT General Stewart was a United States Army transport, and the list she carried out of Naples that March is a page of post-war Europe: Ābele, Abeltiņš, Ābols from Latvia; Andrusevičius, Bagdonavičius, Balčiūnas from Lithuania; Andrijczak and Babiarz from Poland; Batrachenko and Beznosenko from Ukraine; a Balogh and a Birli from Hungary. Nine hundred-odd displaced persons of a dozen nationalities, and at 180 to 182 in the alphabet, three Croats out of a house at Klenovica by way of a camp in the French zone.",
+    "dates": "One thing to reconcile rather than paper over. The family's own account, and this archive's pages, give the sailing as 8 March 1949. The manifest gives departure from Naples on 17 March. Both can be true — 8 March would be the day they left the camp or the transit centre and were entrained for Italy, and 17 March the day the ship cast off. The IRO moved people to the port in staged convoys and the gap is the usual size. But the date on this site should now read: left the camp in early March, sailed from Naples on 17 March, landed at Melbourne on 13 April 1949.",
+    "more": "Two other men of the name are on the same project's manifests, on the same programme, and neither is connected to this family. «DE FRANCESCHI Giuseppe, Italian, 3174931» reached Fremantle on the SS Ugolino Vivaldi on 23 February 1950, also an IRO group resettlement to Australia. And «FRANCESCHI Fernando, Italian, 3177692» came in on the SS Castel Bianco on 29 March 1952. Those five- and seven-figure numbers are IRO case references, and the transcribers note what the original manifests hold beside them: date of birth, country and place of birth, IRO status, religion, marital status, passport number, and the date and place the passport was issued, and occupation. The originals are in the National Archives of Australia. That is the next request, and it would give this family the same nine fields for its own three.",
+    "source_ship": "Immigrant Ships Transcribers Guild, immigrantships.net — USAT General Stewart, Naples to Melbourne, arrived 13 April 1949, transcribed volume 6; SS Ugolino Vivaldi, Fremantle, 23 February 1950, volume 5; SS Castel Bianco, 29 March 1952, volume 4. Found September 2026 through the site's own search, on a link supplied by the family."
   }
- ],
- "chronology": [
-  {
-   "y": "1949–50",
-   "t": "Zdravko, Ruža and Anton reach Australia, not America",
-   "w": "The resettlement roll assigned their numbers; the graves say where they went"
-  },
-  {
-   "y": "1890",
-   "t": "Anton born at Crikvenica",
-   "w": "Kvarner, Austria-Hungary"
-  },
-  {
-   "y": "1908",
-   "t": "Felix born at Crikvenica",
-   "w": "Kvarner, Austria-Hungary"
-  },
-  {
-   "y": "1913",
-   "t": "Petar born at Crikvenica",
-   "w": "Nationality at birth, as he wrote it in 1947: Österreich-Ungarn"
-  },
-  {
-   "y": "1921",
-   "t": "Zdravko born at Crikvenica",
-   "w": "Kingdom of Serbs, Croats and Slovenes"
-  },
-  {
-   "y": "1925",
-   "t": "Ivan born at Crikvenica",
-   "w": "Kingdom of Serbs, Croats and Slovenes"
-  },
-  {
-   "y": "1935",
-   "t": "Petar passes his ship's-engineer examination at Split",
-   "w": ""
-  },
-  {
-   "y": "1937",
-   "t": "Petar living at Split, engineer with Jugoslav Lloyd",
-   "w": ""
-  },
-  {
-   "y": "Oct 1938",
-   "t": "Ivan Dracic of Crikvenica is already living at Reutlingen",
-   "w": "The colony predates the war"
-  },
-  {
-   "y": "Apr 1939",
-   "t": "Petar leaves Yugoslavia for Germany — voluntarily, to improve himself",
-   "w": "Five months before the war"
-  },
-  {
-   "y": "Oct 1941",
-   "t": "Ivan, aged sixteen, enters work at Reutlingen",
-   "w": "Yugoslavia had been partitioned in April"
-  },
-  {
-   "y": "Jul 1941",
-   "t": "Felix begins with Hermann Sauer at Pfullingen",
-   "w": ""
-  },
-  {
-   "y": "Feb 1942",
-   "t": "Petar marries Luise Salzer",
-   "w": ""
-  },
-  {
-   "y": "Apr 1942",
-   "t": "Petar begins with Hermann Sauer on vehicle repairs",
-   "w": ""
-  },
-  {
-   "y": "1943",
-   "t": "Zdravko taken by the Partisans; three or four months held; then to Germany",
-   "w": "Pencilled on the back of his sickness-fund card"
-  },
-  {
-   "y": "2 Mar 1945",
-   "t": "Petar's and Zdravko's employment cards stop",
-   "w": "French forces reached Reutlingen in April"
-  },
-  {
-   "y": "10 Mar 1947",
-   "t": "Pfullingen draws up its list of foreigners registered 1939–45",
-   "w": "Six Defranceskis on it"
-  },
-  {
-   "y": "7 Nov 1947",
-   "t": "Petar signs the CM/1 application for resettlement in California",
-   "w": "Identity number 148.902"
-  },
-  {
-   "y": "21 Dec 1947",
-   "t": "Petar's household counted at Reutlingen",
-   "w": ""
-  },
-  {
-   "y": "22 Feb 1949",
-   "t": "Zdravko, Ruža and their son on a resettlement roll",
-   "w": "IRO numbers 135801, 6/2416"
-  },
-  {
-   "y": "22 Jul 1949",
-   "t": "Petar tells the resettlement officer he wants to stay in Germany",
-   "w": "«a une maison, 2 autos etc.»"
-  },
-  {
-   "y": "28 Feb 1950",
-   "t": "Pfullingen certifies Anton's wartime employment",
-   "w": "Signed by the mayor"
-  },
-  {
-   "y": "28 Apr 1951",
-   "t": "Confirms the family will remain",
-   "w": "Liste Zone Sud"
-  },
-  {
-   "y": "25 May 1951",
-   "t": "Entered on the list of displaced persons living privately",
-   "w": "Still at Kelternstraße 30, Neuhausen"
-  },
-  {
-   "y": "22 Dec 1979",
-   "t": "Zdravko dies at Horsham, Victoria, aged 58",
-   "w": "Buried in the Wimmera as Frank"
-  },
-  {
-   "y": "1 Feb 1996",
-   "t": "Ruža dies; buried at Horsham, South 2-D-23",
-   "w": ""
-  },
-  {
-   "y": "28 Jun 1999",
-   "t": "Anton dies; buried at Willowbank, City of Ipswich, Queensland",
-   "w": "An hour from Brisbane"
-  },
-  {
-   "y": "27 Nov 1946",
-   "t": "Luise's DP identity card is issued at Reutlingen, then struck",
-   "w": "«pas Personne Déplacée — Allemande de naissance, mariée à un Yougoslave»"
-  },
-  {
-   "y": "21 Dec 1947",
-   "t": "Petar's household registered at Reutlingen",
-   "w": "From Friedrichstraße 4, Neuhausen"
-  },
-  {
-   "y": "8 Mar 1949",
-   "t": "Zdravko, Ruža and Anton emigrate to Australia",
-   "w": "«Emigré Australie le 8.3.49» — IRO 148.901"
-  },
-  {
-   "y": "30 Jul 1949",
-   "t": "«Proposons à Mr. Boesch de le mettre Bj»",
-   "w": "Eight days after Petar said he was staying"
-  },
-  {
-   "y": "25 May 1951",
-   "t": "Petar's family on the PDR list of people living privately",
-   "w": "Kelterstraße 30, Neuhausen"
-  },
-  {
-   "y": "1954–1984",
-   "t": "Tracing case 349.822 stands open on Petar for thirty years",
-   "w": "Eight documents, withheld online"
-  },
-  {
-   "y": "15 Dec 1948",
-   "t": "Eligibility verified",
-   "w": "«L'éligibilité de l'intéressé a été vérifiée le 15.12.48»"
-  },
-  {
-   "y": "27 May 1949",
-   "t": "«Le Chef de famille et les deux enfants sont classés B, l'épouse BJ»",
-   "w": "The IRO director for the French zone, on the case of Defranceski 148.902"
-  },
-  {
-   "y": "—",
-   "t": "Petar is screened for Brazil",
-   "w": "«Passé au screening — Brésil. Rien à signaler.»"
-  }
- ],
- "residence": {
-  "heading": "How long each of them was actually there",
-  "intro": "The family holds a copy of the Pfullingen list in which the arrival and departure columns are barely legible. The Arolsen original is clear, and it turns six names into six stays of very different length.",
-  "rows": [
-   {
-    "who": "Felix",
-    "born": "14.1.08, Crikvenica",
-    "from": "5 July 1941",
-    "to": "4 August 1941, and a second stay ending 3 March 1945"
-   },
-   {
-    "who": "Ivan",
-    "born": "24.6.25, Crikvenica",
-    "from": "20 October 1941",
-    "to": "5 September 1942"
-   },
-   {
-    "who": "Anton",
-    "born": "20.1.90, Crikvenica",
-    "from": "1 March 1942",
-    "to": "13 June 1942"
-   },
-   {
-    "who": "Zdravko",
-    "born": "1.4.21, Crikvenica",
-    "from": "17 June 1944",
-    "to": "3 March 1945"
-   },
-   {
-    "who": "Ruža",
-    "born": "13.2.22, Fužine",
-    "from": "29 July 1944",
-    "to": "3 March 1945"
-   },
-   {
-    "who": "Anton the younger",
-    "born": "21.8.44, Reutlingen",
-    "from": "—",
-    "to": "—"
-   }
-  ],
-  "read": "Two things fall out of those columns. First, Anton — the head of the family, born 1890, and this archive's own great-great-grandfather — was at Pfullingen for only three and a half months, from 1 March to 13 June 1942, and then went home. If the family is right that he died in 1943, he died back on the Kvarner, not in Germany.\n\nSecond, look at the date 3 March 1945. Felix leaves on it. Zdravko leaves on it. Ruža leaves on it. Petar's sickness-fund card stops on 2 March 1945. Four members of one family stopped being registered at Pfullingen within twenty-four hours of each other, seven weeks before the French army reached Reutlingen. Whatever that was — evacuation, flight, a works closing — they did it together."
- },
- "neuhausen": {
-  "heading": "And a third list, which puts them all in one village",
-  "intro": "Neuhausen an der Erms drew up its own return on 25 March 1947, under General Koenig's Order No. 1792: every foreigner present in the commune, permanently or temporarily, between 2 September 1939 and 25 April 1945. The first seven names on it are one family.",
-  "rows": [
-   {
-    "n": "1",
-    "who": "Defranceski, Peter",
-    "born": "15.6.13, Crikvenica",
-    "present": "22 March 1941 – today",
-    "note": "Four years earlier than any date the family had for him."
-   },
-   {
-    "n": "2",
-    "who": "— geb. Salzer, Luise",
-    "born": "5.10.19, Neuhausen",
-    "present": "since birth – today",
-    "note": "She was born in the village. Petar married into it."
-   },
-   {
-    "n": "3",
-    "who": "— Ursula",
-    "born": "29.10.40, Urach",
-    "present": "since birth – today",
-    "note": ""
-   },
-   {
-    "n": "4",
-    "who": "— Renate",
-    "born": "25.7.45, Metzingen",
-    "present": "since birth – today",
-    "note": ""
-   },
-   {
-    "n": "5",
-    "who": "— Zdravko",
-    "born": "1.4.21, Crikvenica",
-    "present": "19 March 1945 – today",
-    "note": ""
-   },
-   {
-    "n": "6",
-    "who": "— geb. Hreljec, Rose",
-    "born": "22.2.22, Fužine / Belnica",
-    "present": "19 March 1945 – today",
-    "note": "Her maiden name, and a second place — Belnica."
-   },
-   {
-    "n": "7",
-    "who": "— Anton",
-    "born": "21.8.44, Reutlingen",
-    "present": "19 March 1945 – today",
-    "note": ""
-   }
-  ],
-  "read": "Put the three lists side by side and the movement resolves. Petar had been at Neuhausen since 22 March 1941, married to a woman born in the village. Zdravko, Ruža and their baby son were registered at Pfullingen until 3 March 1945 — and appear at Neuhausen on 19 March 1945, sixteen days later. Felix leaves Pfullingen on the same 3 March; Petar's sickness-fund card stops on 2 March. Whatever happened at Pfullingen in the first days of March 1945, the answer for three of them was to go to Petar.\n\nIt also gives Ruža her maiden name — HRELJEC — and a second birthplace alongside Fužine: Belnica. Her birth date appears in these papers as 13 February, 2 May and 22 February 1922, which is three clerks and one woman."
- },
- "frenchzone": {
-  "heading": "The French zone files: two brothers, two numbers, two answers",
-  "lead": "Nineteen cards from the French occupation authorities and the IRO, in the displaced-persons folder DP0758 at Bad Arolsen, carry this family through the six years after the war. They were read in full in September 2026 and they settle several things the archive had only half of — including the day Zdravko, Ruža and Anton left for Australia.",
-  "numbers": "The two households were registered at Reutlingen together and hold consecutive IRO identity numbers: 148.901 for Zdravko's family of three, 148.902 for Petar's family of four. Both are entered in category CB. The brothers went into the same office on the same day and came out with numbers one apart, and then chose opposite hemispheres.",
-  "rows": [
-   {
-    "lab": "Anton Defranceski, 22.8.44 — index card, Reutlingen 148.901",
-    "text": "«Emigré Australie le 8.3.49», with a second date of 17.3.49 alongside. The card stands for the household of three — Zdravko, Ruža and the child — and it is the first document to give the day they left. Across the foot is a red stamp: CM/1 destroyed. That is why no IRO care-and-maintenance file survives for them, and why Petar has one and his brother does not.",
-    "key": true
-   },
-   {
-    "lab": "Petar Defranceski — fiche individuelle, stamped 16 October 1951, IRO, no. 30609",
-    "text": "Nationality Yugoslav; born 15.06.13, and the place written in by hand: Crikvenica. Profession «Auto-Mechaniker». Address Kelterstraße 30, Neuhausen. Married. His five fingerprints are pressed across the card in red ink. The ship's engineer who sat his examination at Split in 1935 finished as a motor mechanic in a Württemberg village — the same trade his younger brother Zdravko had at Reutlingen.",
-    "key": true
-   },
-   {
-    "lab": "Peter and Luise — counselling card, category CB, 28.4.51",
-    "text": "The card the archive had only in part. IRO 148.902; address Kelterstraße 30, Neuhausen, Kreis Reutlingen, as at 1 April 1951; and under «autres membres de la famille», the wife and two children, born 1940 and 1945. Three entries under Exposé: «22.7.49 — Veut rester en Allemagne, a une maison, 2 autos etc…»; «28.4.51 — Confirme qu'ils désirent rester en Allemagne (Liste Zone Sud)»; «25.5.51 — Figurent sur liste PDR gens vivant en privé (arrêtée au 1.4.51)». He said it once, then confirmed it, and then the office wrote him down as living privately."
-   },
-   {
-    "lab": "The reverse of the same card — 30 July 1949",
-    "text": "One line: «Proposons à Mr. Boesch de le mettre «Bj».» Eight days after Petar told the counsellor he had a house and two cars and was staying, the office proposed to reclassify him. The index cards then record the change going through — «Tit 1165, 11.8.49, BJ» and «03.Tr.16, «BJ», 23.8.49». What Bj means is answered below, by a letter the family kept and Bad Arolsen does not hold.",
-    "key": true
-   },
-   {
-    "lab": "Luise, born Salzer — carte d'identité de personnes déplacées, 27 November 1946, no. 30040",
-    "text": "Issued by the Commandement en chef français en Allemagne, and carrying a photograph of her with her two small daughters — the first picture of Petar's family this archive has seen. Nationality: Yugoslave. Address: Neuhausen, Kelternstraße 30. Born 5 October 1919 at Neuhausen, in the Reutlingen district — she is a local woman, born four streets from where the card was issued. Height 168, oval face, blue eyes, chestnut hair. And then, written diagonally across the whole top of the card in another hand: «pas Personne Déplacée — Allemande de naissance, mariée à un Yougoslave», with ALLEMANDE in green across the header.",
-    "key": true
-   },
-   {
-    "lab": "Luise — index card, Reutlingen 148.902",
-    "text": "«DEFRANCESKI, Luise 5.10.19 apatr.» Apatride. Stateless. She was German by birth, and in marrying a Yugoslav in February 1942 she took his nationality and lost her own; by 1949 she was neither. The one word in the abbreviation column is the whole of it."
-   },
-   {
-    "lab": "The children",
-    "text": "Two daughters are named on the family's cards, born in 1940 and in 1945, each with her own fiche individuelle and the word «enfant» in red crayon across the five empty fingerprint boxes — the same red hand, on the same printed form, as on Anton's card. The younger one's card is annotated «Neuhausen, Friedrichstr. 4 / recensé à Reutlingen 21.12.47 / 1.3.49 à Reutlingen / Devenu Bj. le 10.8.49», and on its reverse: «Siehe auch DEFRANCESKI, PETAR 15.6.1913». Both were born within the last hundred years and no death is recorded for either, so this archive does not name them.",
-    "key": true
-   },
-   {
-    "lab": "Tracing and documentation case no. 349.822",
-    "text": "Opened for DEFRANCESKI, PETER born 15.06.1913, reference 06030302.0.349.822. Eight documents, and the dates on the folder run from 1954 to 1984. Somebody was asking the International Tracing Service about Petar for thirty years. The contents are withheld online for data protection; they must be requested from Bad Arolsen directly, and they are the single most promising unread thing this archive knows of."
-   },
-   {
-    "lab": "The CM/1 application, 7 November 1947 — and the form that changed his status",
-    "text": "The care-and-maintenance application, signed «Peter Defranceski», carries small passport photographs of him and of Luise, pasted side by side and numbered A1048 and A1049. It gives the marriage precisely — «14.2.1942 Neuhausen (Reutlingen)» — and the children's birthplaces, Bad Urach and Metzingen. Asked why he left his country, he answered that he quit Yugoslavia in 1939 voluntarily «pour se perfectionner», went back, and returned to Germany so as not to be called up. Asked whether he wished to be repatriated he said yes — «dans 2 ans», in two years, when he had finished. Asked whether he wanted to stay in Germany: «oui, provisoirement». Asked where he wished to be resettled: USA, Californien. Under nationality the clerk wrote Jugoslavien, and at birth Österreich-Ungarn; against Crikvenica he first put Dalmatien and then corrected it to Kroatien. Two years later the same file holds the form that undid it — an IRO «Changements de statut», appendix V, Cercle de Reutlingen, dated 11.8.49 and numbered Tit/CM 1165, the very reference the index card cites. Every box for an actual change is empty. The only thing that changed was the category.",
-    "key": true
-   },
-   {
-    "lab": "And what «Bj» actually was — 27 May 1949",
-    "text": "A letter on pink paper in the family's own copy of the file, from A. Poignant, Director of the IRO for the French zone of occupation, to the Chef de Service du Wurtemberg at Ebingen. Subject: «Cas de DEFRANCESKI (148.902)». It says the eligibility of the person concerned was verified on 15 December 1948, and then this: «Le Chef de famille et les deux enfants sont classés B, l'épouse BJ.» — The head of the family and the two children are classified B, the wife BJ. So BJ was not, in the first place, a reclassification off IRO care. It was Luise's own category, given her because she was German-born — the same fact her index card records with the single word apatride. B was the category for the Yugoslavs. What happened on 30 July, and went through the books in August, is that Petar was moved out of his children's category and into his wife's.",
-    "key": true
-   },
-   {
-    "lab": "And a country nobody knew about",
-    "text": "A small green slip in the same file, signed by Dr S. Birietaité, Chef de Service de Santé: «M. Defranceski est passé au screening — Brésil», and underneath, in blue, «Rien à signaler». He was screened for Brazil, and the doctor found nothing to report. The archive knew he had applied for the United States in November 1947 and named California. It did not know he had also been put forward for Brazil — the country where, two generations earlier, more of this surname had settled than anywhere else on earth. He passed the medical for it and did not go.",
-    "key": true
-   },
-   {
-    "lab": "Zdravko's household, which Arolsen does not hold",
-    "text": "Arolsen's index card for this family is stamped CM/1 destroyed, and their online folder has almost nothing for it. The family kept its own copies, and they are here: Zdravko's fiche individuelle, card 30560, with his photograph and five red fingerprints, «Auto-mecanicien», at Neuhausen, Friedrichstraße 4; Ruža's, card 30561, with a photograph of her holding the baby; Anton's, card 52852, «enfant» in red across the empty fingerprint boxes. Their identity cards were issued on 27 November 1946, the same day as Luise's, and each is annotated later in red pencil: 8/3/1949 Australie. Even the clothing issues are entered — 3 June 1948, shoes; 14 September 1948, a coat, a shirt, trousers and a pair of men's gloves.",
-    "key": true
-   },
-   {
-    "lab": "Two addresses on one street",
-    "text": "Both brothers' families were at Neuhausen on Friedrichstraße — Zdravko's at number 4, and Petar's there too before they moved to Kelterstraße 30. The town certificates of 28 February 1950 put the men in their trades: Zdravko («Strawko», born 1.4.21 at Zvekvenica) with Hermann Sauer at Reutlingen-Süd; Ruža («Rose geb. Hreljac», born 13.2.22 at Fusine/Delnice) with Licht und Kraft at Reutlingen; Ivan, born 24 or 25 June 1925 at Crikvenica, with Licht und Kraft too; Felix, born 14.1.1908, with Hermann Sauer from 15 August 1941 to 8 October 1942."
-   }
-  ],
-  "close": "Read together, the nineteen cards give the shape of the decision. In December 1945 and December 1948 the two households are registered at Reutlingen. In November 1947 Petar applies for California. In March 1949 his brother sails for Australia. In July 1949 Petar tells the counsellor he has a house and two cars. Within a month the French have moved him off their books, and in 1951 he confirms it in writing. One brother took the ship and one bought a second car. And the last of it: the family's own copy of the file settles Ruža's birth date at 13 February 1922 — the Reutlingen card, her identity card and her town certificate all agree, against the single Arolsen index entry that reads 2 May."
- }
 }

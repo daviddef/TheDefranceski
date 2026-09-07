@@ -124,6 +124,24 @@ import d from "../data/pfullingen.json";
     <p>All the documents on this page come from the <strong>Arolsen Archives</strong>, the former International Tracing Service at Bad Arolsen, holder of the Nazi-era and displaced-persons records of some seventeen and a half million people. The file for this family is numbered <span class="mono">ITS D-1.505</span>. The copies were obtained by the family and are reproduced here from their own scans.</p>
   </section>
 
+<section class="blk">
+  <h2>{d.ship.heading}</h2>
+  <p class="dek" style="margin-top:10px">{d.ship.lead}</p>
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">{d.ship.found.t}</div>
+    <div class="scroll" style="margin-top:12px">
+      <table><tbody>{d.ship.found.rows.map(([w, x]) => (
+        <tr><td style="width:220px">{w}</td><td><strong>{x}</strong></td></tr>
+      ))}</tbody></table>
+    </div>
+    <p style="margin-top:12px">{d.ship.found.why}</p>
+  </div>
+  <p class="prose" style="margin-top:20px">{d.ship.context}</p>
+  <p class="prose note" style="margin-top:16px">{d.ship.dates}</p>
+  <p class="prose" style="margin-top:16px">{d.ship.more}</p>
+  <p class="cap" style="margin-top:14px">{d.ship.source_ship}</p>
+</section>
+
   <Lightbox />
-  <Sources ids={["arolsen", "peterfile", "findagrave", "mftpkg"]} />
+  <Sources ids={["arolsen", "peterfile", "findagrave", "mftpkg", "istg"]} />
 </Base>
