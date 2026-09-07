@@ -546,6 +546,32 @@ PLATES = [
   "field2026", "A pine cone, and a wreath",
   "The crown of the tomb: a carved pine cone finial above a lunette holding a stone wreath with a rosette at its centre. The pine cone is an old emblem of regeneration and it is common on Adriatic funerary work.",
   "Photographed by the family at Umag, 2026"),
+
+ # ---- the field visit of 2026: Klenovica, Crikvenica, Novi, Senj ---------
+ ("field-klen-defranceski", "Field 2026/5 Crikvenica Klenovica Novi Senj/998BC355-0F0B-4D77-801A-4CA0C343FFDB.JPG", 0,
+  "field2026", "«OBITELJ DEFRANCESKI»",
+  "A dark polished stone headed OBITELJ DEFRANCESKI — the Defranceski family — with three oval portrait medallions set into it: two men and a woman, photographed in their middle age. The Croatian spelling, on the coast the household came down to.",
+  "Photographed by the family on the Kvarner coast, 2026"),
+ ("field-klen-marija-kalanj", "Field 2026/5 Crikvenica Klenovica Novi Senj/17624DC5-F5F5-47CC-ADE1-1ACCCA36A96B.JPG", 0,
+  "field2026", "Marija Kalanj, 1889–1970",
+  "A plain grey slab with a portrait medallion and a cross: «MARIJA KALANJ 1889–1970». Anton Rudolf's mother was **Ana Kalanj, born at Klenovica house 22 on 3 January 1864** — and this ground is full of her name.",
+  "Photographed by the family on the Kvarner coast, 2026"),
+ ("field-klen-kalanj3", "Field 2026/5 Crikvenica Klenovica Novi Senj/E0D2817F-8AB5-47C1-93ED-93C8005045CA.JPG", 0,
+  "field2026", "«OBITELJ KALANJ» — Josip, Franjo, Zora",
+  "Three medallions on one stone: «JOSIP 1930–1985», «FRANJO 1902–1991», «ZORA 1923–1996». Zora is also the name of the Defranceschi girl born at Crikvenica in December 1896 who turns up nursing the wounded there in March 1915.",
+  "Photographed by the family on the Kvarner coast, 2026"),
+ ("field-klen-kalanj4", "Field 2026/5 Crikvenica Klenovica Novi Senj/ED76814B-FADD-4DDB-B642-7ED0A3BA4BFA.JPG", 0,
+  "field2026", "«OBITELJ KALANJ» — Rozalija, Anton, Marija, Milan",
+  "A pale slab with four names cut in a column and a candle burning at the head of it.",
+  "Photographed by the family on the Kvarner coast, 2026"),
+ ("field-klen-vinko", "Field 2026/5 Crikvenica Klenovica Novi Senj/EAF81CE4-E3AE-412C-B81E-855CCF3EEDB9.JPG", 0,
+  "field2026", "Kalanj Vinko and Kalanj Paulina",
+  "Letters cut deep into a dark rough-faced stone, read at an angle: «KALANJ VINKO 1901–19…» and «KALANJ PAULINA 1904–1964», with a spray of flowers laid against it.",
+  "Photographed by the family on the Kvarner coast, 2026"),
+ ("field-klen-memorial", "Field 2026/5 Crikvenica Klenovica Novi Senj/783FABEB-525F-4836-9F26-BC9BD3180EC3.JPG", 0,
+  "field2026", "The star, in the cemetery",
+  "A five-pointed star laid in white stone on a bed of rubble among the graves, photographed at dusk. The partisan memorial in a coastal cemetery — the other side of the winter this archive cannot yet document, when Anton Rudolf was taken.",
+  "Photographed by the family on the Kvarner coast, 2026"),
 ]
 
 def run(cmd):

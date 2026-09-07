@@ -213,6 +213,23 @@ const g = c.nextGen;
   <p class="cap" style="margin-top:14px">{c.reg1943.source_1943}</p>
 </section>
 <section class="blk"><SceneCrikvenica /></section>
+<Rule name="pomegranate" label="Klenovica, photographed" />
+<section class="blk">
+  <h2>{c.fieldplates.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.fieldplates.lead}</p>
+  <div style="margin-top:22px"><Plates ids={c.fieldplates.ids} /></div>
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {c.fieldplates.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.fieldplates.source_fp}</p>
+</section>
+<Lightbox />
+
 
 
 
