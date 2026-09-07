@@ -45,34 +45,58 @@ artillery is far off and small — the whole point is that it arrived too late.
 
 ---
 
-## 2. The house at Gologorica, 1711
+## 2. The house at Gologorica, 1711 — REGENERATION, v2
 
-> A quiet architectural study in muted oil, in the manner of a nineteenth-century
-> topographical watercolour. A modest two-storey stone house on a bare Istrian
-> hill village lane, built of rough limestone blocks with dressed quoins, a
-> shallow tiled roof, small deep-set windows with stone surrounds, and a low
-> arcaded portico of three round arches along the ground floor. Above the door
-> a rectangular carved stone lintel bearing an incised inscription and, beside
-> it, a small worn coat of arms. A stone bench by the door. Dry-stone walls, a
-> fig tree, hens. Overcast northern-Adriatic light, no shadows, a village of
-> ten houses and a bell tower behind. Restrained, documentary, unromantic.
+First attempt was withheld: the model wrote a fabricated inscription across the
+1711 tablet, which is the one stone in this archive whose text is settled letter
+by letter. Everything else in it was good. This version fixes the tablet, the
+scale and the position of the loggia, and keeps what was right.
 
-**Negative:** grandeur, palace scale, Tuscan cypresses, warm Mediterranean
-sunshine, flowers in window boxes, **any lettering anywhere in the image**,
-inscribed text, carved words, letters on the tablet, a caption or title strip,
-a signature, figures in relief panels.
+**Prompt:**
 
-**Say this explicitly in the prompt:** *the carved stone tablet above the door
-is blank and weathered — worn smooth, no letters, no inscription, no text of any
-kind.* The first attempt wrote invented pseudo-Latin across it, and this is the
-one stone in the archive whose real text is settled; a picture of it carrying
-made-up words is the thing most likely to be mistaken for the real inscription.
+> A quiet, restrained oil painting in the manner of a nineteenth-century
+> topographical record, unromantic and documentary. A modest village house in a
+> poor stone hill village of inland Istria: a long, low, whitewashed stone block
+> of two storeys rising to three at one end, under a shallow roof of curved
+> terracotta tiles carried on projecting wooden roof brackets, with one tall
+> chimney of dressed stone. Windows are small, deep-set, irregularly spaced,
+> with plain stone surrounds and brown wooden shutters — the façade is NOT
+> symmetrical and NOT grand.
+>
+> At the near end of the house, an arcaded loggia of exactly two round stone
+> arches on plain stone columns, with a low stone balustrade, reached by a
+> flight of open stone steps rising from the lane.
+>
+> On the wall beside the loggia, three carved stone features set into the
+> masonry: a small worn shield-shaped coat of arms; below it a stone aedicule
+> with scrolled volutes and a moulded cornice framing a pale marble relief of a
+> haloed woman with her arms flung wide and drapery falling around her; and
+> below that a plain rectangular framed stone tablet which is completely blank
+> — worn smooth by weather, empty, no letters, no inscription, no carved words
+> of any kind on it.
+>
+> A dry-stone wall along the lane, a bare fig tree, a few hens on the stony
+> ground, one stone bench by the door. Behind and above, a small hill village of
+> ten or twelve stone houses with tiled roofs and a plain stone campanile, and
+> beyond it bare rolling limestone country under flat grey overcast winter
+> light. No shadows, no sunshine, no colour beyond stone, tile and dead grass.
 
-**What must be right:** it is a *palazzetto* — the biggest house in a poor
-village, not a mansion. Arcaded portico and a carved arms panel on the façade;
-those two things are what the architectural historian records.
+**Negative:** *any lettering anywhere in the image, inscribed text, carved words,
+letters on the tablet, a caption, a title strip, a signature, a date burned into
+the picture;* palace scale, symmetry, five bays, monumental staircase,
+balustraded grand stair, cypresses, warm Mediterranean sunshine, flowers,
+tourists, cars, modern fittings, people.
 
----
+**What must be right:**
+- **The tablet is blank.** This is the whole reason for the regeneration.
+- **No lettering anywhere in the frame**, including the corners.
+- It is a *palazzetto* — the biggest house in a poor village, not a mansion.
+  Long and low and slightly irregular, not a symmetrical palace front.
+- **Two** arches in the loggia, at the **end** of the house, not four in the
+  centre; steps rising to it from the lane.
+- Roof on projecting wooden brackets; one tall dressed-stone chimney.
+- Keep the aedicule with volutes and the haloed figure — that is really there.
+- Winter, overcast, no shadows.
 
 ## 3. The road of the Furlans, 1679
 
