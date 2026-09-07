@@ -3,6 +3,7 @@ import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
 import Chip from "../../components/Chip.astro";
+import SceneImotski from "../../components/SceneImotski.astro";
 import people from "../../data/people.json";
 import places from "../../data/places.json";
 import sov from "../../data/sovereignty.json";
@@ -23,6 +24,8 @@ const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died|
   </div>
 </section>
 <Rule name="arrows" />
+
+{p.scene === "imotski1717" && <section class="blk"><SceneImotski /></section>}
 
 <section class="blk">
   <h2>The life</h2>

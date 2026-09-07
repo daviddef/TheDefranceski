@@ -1,0 +1,117 @@
+---
+/* Imotski, July 1717 — a constructed scene, not a picture of anything.
+
+   Drawn from what the documents describe and nothing else: the fortress of
+   Topana on its cliff above the Blue Lake, the outer wall Zuane Franceschi was
+   first through, the standard of St Mark he raised on it, the varoš below
+   already taken, and Emo's artillery still on the road from Zadvarje.
+
+   Carlo's own words for the landscape, from the letter printed in La Dalmazia
+   in 1846: "Crven je to kamen, a nema na njemu ni mladice ni grma" — it is red
+   stone, and there is neither shoot nor shrub on it.
+
+   No portrait of this man is known to exist. This is a place, at an hour,
+   with a flag on it. It is illustration and it is labelled as such. */
+const ROCK1 = "#B9A390", ROCK2 = "#9C8574", ROCK3 = "#7C6A5C";
+const WATER = "#2E5B6B", SKY1 = "#E8DFCE", SKY2 = "#D9C7AE";
+const STONE = "#CFC4B2", DARK = "#4A3F38", FLAG = "#A62A25";
+---
+<figure class="scenefig">
+  <svg viewBox="0 0 640 330" width="100%" role="img"
+       aria-label="A constructed illustration of Imotski in July 1717: the fortress of Topana on the cliff above the Blue Lake, with the standard of Saint Mark raised on the outer wall">
+    <defs>
+      <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color={SKY1}/><stop offset="1" stop-color={SKY2}/>
+      </linearGradient>
+      <linearGradient id="chasm" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color={ROCK2}/><stop offset=".55" stop-color={ROCK3}/><stop offset="1" stop-color="#3B322C"/>
+      </linearGradient>
+      <clipPath id="frame"><rect x="0" y="0" width="640" height="300" rx="2"/></clipPath>
+    </defs>
+
+    <g clip-path="url(#frame)">
+      <rect x="0" y="0" width="640" height="300" fill="url(#skyg)"/>
+
+      <!-- Biokovo, far off -->
+      <path d="M0,150 L70,116 L120,140 L180,104 L250,142 L320,118 L400,148 L470,120 L540,146 L640,112 L640,170 L0,170 Z"
+            fill={ROCK2} opacity=".35"/>
+
+      <!-- the polje, and the varoš below the rock -->
+      <rect x="0" y="168" width="640" height="132" fill={ROCK1} opacity=".55"/>
+      <g fill={STONE} opacity=".85">
+        <rect x="36" y="242" width="26" height="20"/><path d="M33,242 L49,231 L65,242 Z"/>
+        <rect x="70" y="248" width="22" height="14"/><path d="M67,248 L81,239 L95,248 Z"/>
+        <rect x="100" y="244" width="30" height="18"/><path d="M97,244 L115,233 L133,244 Z"/>
+        <rect x="140" y="250" width="20" height="12"/><path d="M137,250 L150,242 L163,250 Z"/>
+        <rect x="500" y="246" width="26" height="16"/><path d="M497,246 L513,236 L529,246 Z"/>
+        <rect x="536" y="251" width="20" height="11"/><path d="M533,251 L546,243 L559,251 Z"/>
+      </g>
+      <!-- the campanile of the varoš -->
+      <g fill={STONE}><rect x="176" y="218" width="11" height="44"/><path d="M173,218 L181.5,204 L190,218 Z"/></g>
+
+      <!-- the chasm: "a great circle cut in the living rock" -->
+      <path d="M232,300 C232,214 300,182 372,182 C444,182 512,214 512,300 Z" fill="url(#chasm)"/>
+      <ellipse cx="372" cy="186" rx="140" ry="26" fill={ROCK2}/>
+      <ellipse cx="372" cy="192" rx="126" ry="21" fill="url(#chasm)"/>
+      <ellipse cx="372" cy="266" rx="64" ry="16" fill={WATER}/>
+      <ellipse cx="372" cy="266" rx="64" ry="16" fill="none" stroke="#1D3E4B" stroke-width="1.4" opacity=".7"/>
+      <g stroke={ROCK3} stroke-width="1" opacity=".55" fill="none">
+        <path d="M262,214 C300,236 312,252 316,268"/>
+        <path d="M300,200 C324,226 330,244 332,262"/>
+        <path d="M446,204 C424,230 418,246 416,264"/>
+        <path d="M482,216 C446,238 434,254 430,268"/>
+      </g>
+
+      <!-- the rock of Topana, on the lip -->
+      <path d="M366,186 L366,120 L392,104 L470,96 L520,110 L536,138 L536,196 C500,178 430,176 366,186 Z" fill={ROCK1}/>
+      <path d="M470,96 L520,110 L536,138 L536,196 C516,186 496,180 476,177 Z" fill={ROCK2}/>
+
+      <!-- the fortress: outer wall, then the keep -->
+      <g fill={STONE} stroke={DARK} stroke-width="1.1">
+        <!-- outer wall, the one he came through -->
+        <path d="M382,150 H520 V126 H382 Z"/>
+        <g fill={STONE}>
+          {[386,400,414,428,442,456,470,484,498,512].map(x => <rect x={x} y="118" width="8" height="9"/>)}
+        </g>
+        <!-- the keep -->
+        <rect x="424" y="78" width="52" height="50"/>
+        <g>{[426,438,450,462].map(x => <rect x={x} y="70" width="9" height="10"/>)}</g>
+        <rect x="443" y="102" width="12" height="26" fill={DARK}/>
+        <!-- a round tower -->
+        <path d="M492,128 V96 A11,11 0 0 1 514,96 V128 Z"/>
+        <g>{[492,503].map(x => <rect x={x} y="88" width="8" height="9"/>)}</g>
+      </g>
+
+      <!-- the standard of St Mark on the outer wall -->
+      <g>
+        <line x1="500" y1="118" x2="500" y2="56" stroke={DARK} stroke-width="2.4"/>
+        <path d="M500,58 L556,68 L500,84 Z" fill={FLAG}/>
+        <path d="M500,58 L556,68 L500,84 Z" fill="none" stroke={DARK} stroke-width=".9"/>
+      </g>
+
+      <!-- the artillery still on the road, small, to the left -->
+      <g opacity=".8">
+        <path d="M0,236 C60,228 120,232 176,240" fill="none" stroke={ROCK3} stroke-width="2.4" stroke-dasharray="7 5"/>
+        <g fill={DARK}>
+          <rect x="20" y="228" width="14" height="4" rx="1.4"/><circle cx="22" cy="234" r="3"/><circle cx="32" cy="234" r="3"/>
+          <rect x="46" y="230" width="13" height="4" rx="1.4"/><circle cx="48" cy="236" r="2.8"/><circle cx="57" cy="236" r="2.8"/>
+        </g>
+      </g>
+    </g>
+
+    <rect x="0" y="0" width="640" height="300" rx="2" fill="none" stroke="var(--rule-strong)" stroke-width="1.4"/>
+    <g style="fill:var(--ink-3)" font-size="10" font-family="var(--sans)">
+      <text x="0" y="316">Imotski, the evening of 25 July 1717 — the varoš taken, the standard on the outer wall, Emo's guns still on the road from Zadvarje.</text>
+    </g>
+  </svg>
+  <figcaption class="cap" style="margin-top:10px">
+    A constructed illustration, not a picture of anything. No portrait of Zuane Ivan Franceschi is known to exist and no
+    contemporary view of the siege has been found. What is drawn here is only what the documents describe: the fortress of
+    Topana on the rock above the lake, the outer wall he was first through, the flag of St Mark he raised on it, the town
+    below already taken, and General Emo's artillery still coming up the road. It is illustration. It is not evidence.
+  </figcaption>
+</figure>
+<style>
+  .scenefig { margin: 0; }
+  .scenefig svg { display: block; max-width: 760px; }
+</style>

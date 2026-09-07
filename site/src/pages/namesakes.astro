@@ -54,6 +54,7 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
             <div class="who"><span>{n.dates}</span><span>{n.where}</span></div>
             <p>{n.text}</p>
             {n.note && <div class="src">{n.note}</div>}
+            {n.person && <p class="more"><a href={u(`/people/${n.person}/`)}>Read the full life &rarr;</a></p>}
           </div>
         </article>
       );
@@ -68,6 +69,11 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
     <h3>Who is actually kin</h3>
     <p>Carlo and Camillo are this family's own, by the letter Carlo wrote to Kobler. The Omiš men — Zuane and Giovanni — belong to the Zadar-Omiš descent, which the family's own twenty-generation chart connects to Niccolò. Everyone else on this page is here as a namesake, and is labelled as one. See <a href={u("/name/")}>The Name</a> for how the spellings actually behave, and <a href={u("/lines/")}>The Lines</a> for which descents this archive can defend.</p>
   </section>
+
+  <style>
+    .fig .more { margin-top: 12px; font-family: var(--sans); font-size: 13px; }
+    .fig .more a { font-weight: 600; }
+  </style>
 
   <Lightbox />
   <Sources ids={["howard", "banic", "dbi", "blasonario", "commons", "dfcom"]} />
