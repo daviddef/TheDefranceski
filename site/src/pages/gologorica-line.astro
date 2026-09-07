@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import SceneGologorica from "../components/SceneGologorica.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Pedigree from "../components/Pedigree.astro";
@@ -454,6 +455,8 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   </div>
   <p class="cap" style="margin-top:14px">{g.before1661.source_k}</p>
 </section>
+<section class="blk"><SceneGologorica /></section>
+
 
 
 
