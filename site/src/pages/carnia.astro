@@ -368,6 +368,33 @@ import c from "../data/carnia.json";
   <p class="cap" style="margin-top:14px">{c.encyclopedia.source_enc}</p>
 </section>
 
+<section class="blk">
+  <h2>{c.gismani.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.gismani.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.gismani.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <h3 style="margin-top:30px">{c.gismani.printed.heading}</h3>
+  <p class="dek" style="margin-top:8px">{c.gismani.printed.lead}</p>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
+    {c.gismani.printed.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px">{c.gismani.where}</p>
+  <p class="prose" style="margin-top:16px">{c.gismani.negatives}</p>
+  <p class="cap" style="margin-top:14px">{c.gismani.source_gismani}</p>
+</section>
+
+
 
 
 

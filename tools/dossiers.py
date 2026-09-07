@@ -48,15 +48,33 @@ def crawl(o):
     elif isinstance(o, list):
         for v in o: crawl(v)
 
-for fn in ("tree.json", "eleven.json", "people.json", "households.json", "explorer.json"):
+for fn in ("tree.json", "eleven.json", "people.json", "households.json", "explorer.json",
+           "pfullingen.json", "seget.json", "namesakes.json", "crikvenica.json",
+           "gologorica.json", "senjline.json", "imotski.json", "omis-line.json"):
     p = os.path.join(D, fn)
     if os.path.exists(p): crawl(json.load(open(p, encoding="utf-8")))
+
+# anything shaped like a person record: has a name and a birth/date field
+def crawl2(o):
+    if isinstance(o, dict):
+        if isinstance(o.get("name"), str) and any(k in o for k in ("born", "dates", "birth", "died", "b", "d")):
+            add_name(o["name"])
+        for v in o.values(): crawl2(v)
+    elif isinstance(o, list):
+        for v in o: crawl2(v)
+for p in glob.glob(os.path.join(D, "*.json")):
+    if os.path.basename(p) in ("searchindex.json", "dossiers.json"): continue
+    try: crawl2(json.load(open(p, encoding="utf-8")))
+    except Exception: pass
 for row in json.load(open(os.path.join(D, "searchindex.json"), encoding="utf-8")):
     if row.get("k") in ("Person", "Namesake", "Household", "Maternal line", "Direct line", "Seget colonist 1764"):
         add_name(row.get("t", ""))
 
 # only keep names that look like people
 KEEP = re.compile(r"^[A-ZÀ-Ž][\wÀ-ž'’.«»-]*(\s+[\wÀ-ž'’.«»(),-]+){1,5}$")
+# drop phrases, not names: anything with a lowercase connective in it
+STOP = re.compile(r"\b(born|died|baptis|buried|at|in|of|the|and|from|to|his|her|aged|house|line|and|nee|née)\b", re.I)
+names = {n: v for n, v in names.items() if not STOP.search(n)}
 names = {n: v for n, v in names.items() if KEEP.match(n)}
 
 # ---- 3. find every mention
