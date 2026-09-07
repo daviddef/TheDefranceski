@@ -111,5 +111,21 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
   </section>
 
   <Lightbox />
+
+<section class="blk">
+  <h2>{e.before.heading}</h2>
+  <p class="dek" style="margin-top:8px">{e.before.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {e.before.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  {e.before.method && <p class="prose note" style="margin-top:22px">{e.before.method}</p>}
+  <p class="cap" style="margin-top:14px">{e.before.source_before || e.before.source_lives}</p>
+</section>
+
   <Sources ids={["album2012", "dapa", "familysearch", "findagrave", "attirovigno", "gologorica2026"]} />
 </Base>

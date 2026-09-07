@@ -407,6 +407,22 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.press.source_press}</p>
 </section>
 
+<section class="blk">
+  <h2>{g.lives.heading}</h2>
+  <p class="dek" style="margin-top:8px">{g.lives.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {g.lives.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  {g.lives.method && <p class="prose note" style="margin-top:22px">{g.lives.method}</p>}
+  <p class="cap" style="margin-top:14px">{g.lives.source_before || g.lives.source_lives}</p>
+</section>
+
+
 
 
   <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "gologorica2026", "archiveorg", "hrcak", "familysearch"]} />
