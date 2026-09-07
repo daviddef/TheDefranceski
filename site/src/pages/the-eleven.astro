@@ -102,6 +102,24 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
   <p class="prose note" style="margin-top:16px">{e.gracisce.why}</p>
   <p class="cap" style="margin-top:14px">{e.gracisce.source_gracisce}</p>
 </section>
+<Rule name="tablet" label="House 24, in the priest's own hand" />
+
+<section class="blk">
+  <h2>{e.register.heading}</h2>
+  <p class="dek" style="margin-top:10px">{e.register.lead}</p>
+  <div style="margin-top:22px"><Plates ids={["pazin-h24-eleven","pazin-h24-daniel"]} /></div>
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {e.register.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  {e.register.further && <p class="prose" style="margin-top:22px">{e.register.further}</p>}
+  {e.register.scale && <p class="prose note" style="margin-top:16px">{e.register.scale}</p>}
+  <p class="cap" style="margin-top:14px">{e.register.source_reg}</p>
+</section>
 
   <section class="prose" style="margin-top:46px">
     <h3>What this does not prove</h3>

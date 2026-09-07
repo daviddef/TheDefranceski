@@ -197,6 +197,20 @@ const g = c.nextGen;
   <p class="prose note" style="margin-top:16px">{c.bakar_answer.lesson}</p>
   <p class="cap" style="margin-top:14px">{c.bakar_answer.source_bakar}</p>
 </section>
+<section class="blk">
+  <h2 style="font-size:30px;margin-top:8px">{c.bakar_answer.thepage.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.bakar_answer.thepage.lead}</p>
+  <div style="margin-top:22px"><Plates ids={c.bakar_answer.thepage.ids} /></div>
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {c.bakar_answer.thepage.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.bakar_answer.thepage.source_page}</p>
+</section>
 <Rule name="arcade" />
 
 <section class="blk">
