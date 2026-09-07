@@ -220,5 +220,26 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <p class="cap" style="margin-top:14px">{dl.gologoricamen.source_men}</p>
 </section>
 
-  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak", "ivetic", "attirovigno", "archiveorg"]} />
+<section class="blk">
+  <h2>{dl.suppanus.heading}</h2>
+  <p class="dek" style="margin-top:8px">{dl.suppanus.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">{dl.suppanus.quote}</p>
+    <p class="qen">{dl.suppanus.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {dl.suppanus.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{dl.suppanus.tension}</p>
+  <p class="prose" style="margin-top:16px">{dl.suppanus.careful}</p>
+  <p class="cap" style="margin-top:14px">{dl.suppanus.source_sup}</p>
+</section>
+
+
+  <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak", "ivetic", "attirovigno", "archiveorg", "arhivskivjesnik"]} />
 </Base>

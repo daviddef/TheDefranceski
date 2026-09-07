@@ -40,3 +40,13 @@
 5. **Bakar (Buccari)** — David: "there were a lot of Defranceschis there."
    ANNO already gives 9 issues on «Defranceschi» + Buccari. Kobler's Fiume
    material is next door. Nothing on the site yet.
+
+## Queued 7 September 2026 (second batch)
+- **Corsica** — a line of Defranceschi said to be in Corsica; lead names Mandolacce, a hamlet of Tomino in Cap Corse, and Jean Defranceschi the historian of revolutionary Corsica. Agent researching. Caution: "de Franceschi" is a patronymic that arose independently in many places; no connection to Istria or Carnia may be assumed.
+- **istrianet.org** — the Kobler page and its PDF letter links; the Matijašić page on Nesactium, Mutila and Faveria; a full surname and place sweep of the site.
+- **isidore.co/misc/Res pro Deo/Journals/** — open directory of scanned journals; scout the tree and search the plausible ones.
+- **2023_Volume21_Number2.pdf** in ~/Downloads — identify and assess.
+- **Gorto cemetery** — 30+ named De Franceschi and allied graves at Santa Maria di Gorto photographed; plate and publish.
+- **Return-visit list for Gologorica** — the builder's tablet on the house (never yet photographed close), the modern Carlo memorial tablet, the cartouche legend in raking light, Silvia's birth year, the Glagolitic shrine niche.
+- **Return-visit list for Gorto** — the Pustetto/De Franceschi stone (death years cut off), the Albina plaque (surname off-frame), DE FR[ANCESCHI] MARIA (no dates in frame), the Gardel stone, and close-ups of the Crosilla and Timeus family monuments.
+- **The 1610 problem** — the Rijeka fond of the Gologorica family is catalogued from 1610, but the published account says the family came from Friuli in the mid-17th century. Resolve from the fond's own inventory.
