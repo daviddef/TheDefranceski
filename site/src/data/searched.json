@@ -1,537 +1,544 @@
 {
-  "note": "Everything this project has looked at, whether or not it found anything. A search that returns nothing is a result, and an archive that records only its successes will send the next person down the same dead ends. «Blocked» means a bot check or a login wall that this project has deliberately not tried to get round. «Pending» means known, wanted, and not yet obtained.",
-  "cols": [
-    "Source",
-    "What was searched",
-    "When",
-    "Outcome",
-    "What it gave, or did not"
-  ],
-  "rows": [
-    {
-      "src": "Stare hrvatske novine (dnc.nsk.hr)",
-      "what": "Every spelling of the surname and six place-names, across the whole portal; the two Bakar papers searched separately with control tests",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "68 hits for «franceschi», 46 for «defranceschi», 4 for «defranceski», 3 for «defrančeski», 70 for «Gologorica». Zora Defranceschi nursing at Crikvenica in March 1915; Antun and Viktor Defranceschi in the Gologorica riot trial of 1894; the «stancija Defranceschi (Zamporovica)»; Carlo's son in the dock at Pazin in 1890; a captain Defranceschi of the bark Aquilone across eighteen issues 1873–78; and the Croatian spelling in print in 1879, 1919 and 1920. The index does NOT do substring matching, so every spelling must be run separately."
-    },
-    {
-      "src": "«Galeb» and «Kvarner», the two Bakar newspapers",
-      "what": "The surname in all five spellings, with control searches to prove the OCR layer works",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "Zero, in every spelling, across both complete runs — and the controls pass («Galeb» returns 107 for «Bakar»; «Kvarner» 102 for «narod»). A genuine absence, not a scanning failure. The one apparent hit is Istrian election news reported from Bakar. It does not disprove a Bakar family, but the local press never once had cause to print the name, which for a numerous local family would be odd. The parish registers remain the real test."
-    },
-    {
-      "src": "FamilySearch — Croatian church books, Bakar country and Crikvenica",
-      "what": "Every spelling of the surname across Bakar, Hreljin, Praputnik, Kraljevica, Kostrena and Škrljevo; and an Anton Defranceski dying 1941–46 anywhere in Croatia",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "CORRECTED. The first run of this search was under-powered — it scanned only the first couple of hundred records per spelling and matched places against a short extracted string — and returned one Bakar entry. Run properly, with deep paging and whole-record matching, the Bakar country gives EIGHT, and they form one household across three generations: Franciscus Defranceschi; his son Joannes Baptista, who married Catharina Akacich; their children Maria Dorothea baptised 1773 and Antonia 1776; a Nodburga married there 1794; deaths in 1775, 1785, 1818 and 1819, the last of a Catharina born 1734 and dead at eighty-five. The family's own memory of Bakar was right."
-    },
-    {
-      "src": "Stadtarchiv Reutlingen — photograph database",
-      "what": "The employers named in the family's own German papers: Hermann Sauer and Wilhelm Heim",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Hermann Sauer identified as a motor-vehicle firm at the Südbahnhof / Eninger Landstraße 79, holding the MAN agency, with a filling station in the Marktstraße; the Sauer brothers' Autohaus photographed in the Tübinger Straße in 1935. And Wilhelm Heim identified as the Esslingen firm that took the Schickhardt works at Betzingen in 1938 and built V1 wings there with about five hundred forced labourers. The archive holds some thirty-nine units of 1944–45 portraits of that firm's workforce."
-    },
-    {
-      "src": "OpenStarts, Università di Trieste",
-      "what": "Full-text search for the surname and for «Memorie autobiografiche»",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Carlo's «Memorie autobiografiche» (1926, 309 pp.), Salata's «Un precursore» (1929), and the 1928 bronze-bust volume with his letters to Kandler. Three works this project had recorded as unheld, all open access. Should have been searched months earlier."
-    },
-    {
-      "src": "Hrčak (hrcak.srce.hr)",
-      "what": "Portal search for «franceschi», all pages",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Fourteen distinct articles. Already held: Jelinčić's three-part Kobler correspondence, the 2024 Arhivski vjesnik inventory, Marin on the Zagreb library. New: Kero & Bobanović on the Zadar notary Tommaso de Franceschi; two reviews of the 2023 Croatian translation of Camillo's «Storia documentata della Contea di Pisino»; and a 2022 article on the Zagreb collection."
-    },
-    {
-      "src": "SIASP, Trieste (siasp-aps.org)",
-      "what": "The society's published guide and archive inventories",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "«Archivio Camillo De Franceschi e famiglia», 26 boxes, 19th–20th century. The 2017 guide and the full 39-page inventory, both downloaded. A second complete family archive, distinct from Zagreb's."
-    },
-    {
-      "src": "Internet Archive — full-text search",
-      "what": "Repeated sweeps on every spelling of the surname and on the place-names",
-      "when": "Aug–Sept 2026",
-      "outcome": "yield",
-      "got": "Kobler's «Memorie» entire; Cavalli 1845 on the bishops of Pola; the Atti of Rovigno; the Wagna camp intake lists; «Il Piccolo» of Trieste for 1926; the Zagreb almanacs; the Almanacco Fiumano. The single most productive source this project has."
-    },
-    {
-      "src": "ANNO — Austrian Newspapers Online",
-      "what": "Surname search across the digitised Austrian press",
-      "when": "Aug–Sept 2026",
-      "outcome": "yield",
-      "got": "The press notices of Carlo's death in January 1893, and other notices. Images retrievable from the IIIF endpoint even where the presentation manifest fails."
-    },
-    {
-      "src": "FamilySearch",
-      "what": "Record search by surname and by place, and the parish register films",
-      "when": "Aug–Sept 2026",
-      "outcome": "yield",
-      "got": "The bulk of this archive's individual records. Deep paging caps at about offset 1,100, which limits large sweeps."
-    },
-    {
-      "src": "Državni arhiv u Pazinu — microfilm ZM34K-215",
-      "what": "The Gallignana baptism book 1667–1745, read image by image",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Five occurrences of the surname in seventy-eight years, and a systematic negative for the rest. The most labour-intensive single piece of work here and the one that answered the central question."
-    },
-    {
-      "src": "Trove (Australia)",
-      "what": "Surname search across the digitised Australian press",
-      "when": "2026",
-      "outcome": "yield",
-      "got": "Australian notices for the family's later generations."
-    },
-    {
-      "src": "Arolsen Archives",
-      "what": "Displaced-persons and camp records",
-      "when": "2026",
-      "outcome": "yield",
-      "got": "The 1949 sailing and the word «apatride»."
-    },
-    {
-      "src": "Immigrant Ships Transcribers Guild",
-      "what": "Post-war IRO sailings to Australia",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "The USAT General Stewart, Naples to Melbourne, April 1949, passengers 0180–0182."
-    },
-    {
-      "src": "istrianet.org",
-      "what": "The Kobler and Carlo De Franceschi pages, and the bibliography of his works",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "The complete bibliography of Carlo's published writings, which is what led to the «Memorie autobiografiche». Also a clean transcription of chapters of «L'Istria» (1879). The site's firewall refuses plain command-line requests and needs an ordinary browser."
-    },
-    {
-      "src": "fiumemondo.com",
-      "what": "«Brief history of Rijeka»",
-      "when": "Sept 2026",
-      "outcome": "partial",
-      "got": "One sentence naming the Benzoni and the De Franceschi among Fiume's immigrant merchants. Checked against Kobler and found to be a compression: right on the Cremonese Benzoni, loose on the Bono, and it reverses the direction of travel for the De Franceschi. Cited as a lead, not as authority."
-    },
-    {
-      "src": "isidore.co «Res pro Deo» journal collection",
-      "what": "The complete text layer of the Catholic Historical Review, Nova et Vetera and The Thomist — 496 issues, 236 MB",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "Zero occurrences of any spelling of the surname connected to this family, and zero for all twenty place-names. Every «De Franceschi» in five gigabytes of theology is a French historian of Jansenism, a Sienese printer, or a Venetian chancery secretary. The one thing worth keeping was a pointer to Orbanić's 1788 Pićan visitation."
-    },
-    {
-      "src": "«Nova et Vetera» 21:2 (2023)",
-      "what": "Read cover to cover",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "One footnote citing Sylvio Hermann De Franceschi, a living French historian. Nothing else."
-    },
-    {
-      "src": "Zelda Alice Franceschi, curriculum vitae",
-      "what": "Read in full",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "A Bologna anthropologist of the Argentine Gran Chaco. The surname is the author's own and there is no connection to this family."
-    },
-    {
-      "src": "Benedetti, «From Venice to Cairo» (2022)",
-      "what": "Read in full",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "Concerns Andrea de' Franceschi, Venetian grand chancellor, of Cividale di Belluno — a different family. Useful only as a caution about how many unrelated houses carry this name."
-    },
-    {
-      "src": "Bruni, «Peace at the Lily» (2018)",
-      "what": "Read in full",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "Concerns Francesco De Franceschi, printer, «born in Siena around 1530». A third unrelated family."
-    },
-    {
-      "src": "Kurelić, «Eagle and Lion» (CEU thesis, 2013)",
-      "what": "Read in full",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "Excellent background on the sixteenth-century Pazin frontier and a useful Istrian place-name gazetteer, but every «De Franceschi» in it is a citation of Carlo or Camillo as authors. Six Gologorica marriages in the Boljun register 1585–1608, none of this surname — consistent with a later arrival."
-    },
-    {
-      "src": "Corsican records — RHFC register index, 226 communes",
-      "what": "Every commune, births, marriages and deaths, letter D",
-      "when": "Sept 2026",
-      "outcome": "partial",
-      "got": "Four Defranceschi baptisms at Tomino in Cap Corse 1843–56, and a second cluster at Levie and Sartène in the far south. 132 Defranceschi births in the whole of France 1891–1990. Nothing whatever connects them to this family, and the honest position is that these are unrelated houses sharing a patronymic."
-    },
-    {
-      "src": "Geneanet",
-      "what": "Surname and place searches",
-      "when": "2026",
-      "outcome": "blocked",
-      "got": "HTTP 403 on every URL, including the public surname pages. Not circumvented."
-    },
-    {
-      "src": "Antenati (Italian state archives)",
-      "what": "Civil registration for Carnia and the Veneto",
-      "when": "2026",
-      "outcome": "blocked",
-      "got": "Bot check. Not circumvented. This is the route to the Ovaro civil registers and it remains closed to automated access."
-    },
-    {
-      "src": "ResearchGate",
-      "what": "Article retrieval",
-      "when": "2026",
-      "outcome": "blocked",
-      "got": "Refused. The wanted article was found open access elsewhere."
-    },
-    {
-      "src": "CEMLA (Argentine immigration)",
-      "what": "Passenger records",
-      "when": "2026",
-      "outcome": "blocked",
-      "got": "Bot check. Not circumvented."
-    },
-    {
-      "src": "WikiTree",
-      "what": "Profile search",
-      "when": "2026",
-      "outcome": "blocked",
-      "got": "Bot check. Not circumvented."
-    },
-    {
-      "src": "Cairn.info, Filae, Geopatronyme",
-      "what": "French scholarship and surname distribution",
-      "when": "Sept 2026",
-      "outcome": "blocked",
-      "got": "HTTP 403 to direct requests; figures obtained by other means where possible."
-    },
-    {
-      "src": "Mémoire des Hommes, Grand Mémorial, Base Léonore",
-      "what": "French service and honours records",
-      "when": "Sept 2026",
-      "outcome": "blocked",
-      "got": "JavaScript applications with no reachable interface. Not searched."
-    },
-    {
-      "src": "Orbanić (ed.), «Visita Spirituale del 1788 in Istria»",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "De Buset's parish-by-parish visitation of the Pićan diocese, 31 March – 31 August 1788, 178 sheets, published Vatican City 2016. Covers Gologorica and Gallignana. The manuscripts are in the Diocesan Archives of TRIESTE, not Pazin."
-    },
-    {
-      "src": "«Stemmi della nobiltà di Buccari», Bakarski zbornik 2 (1996)",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "Fifty-seven pages on the arms of Bakar's patrician houses."
-    },
-    {
-      "src": "Bertoša, «Pisma Carla De Franceschija Šimi Ljubiću», VHARP 13 (1968)",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "Carlo's letters to Šime Ljubić, printed. The archive knew of five in the Zadar state archive and did not know they were in print."
-    },
-    {
-      "src": "Jelinčić, Jadranski zbornik XI (1979–81), pp. 293–307",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "A summary of the whole published Kobler correspondence."
-    },
-    {
-      "src": "Gentileo, «Bibliografia degli scritti di Camillo De Franceschi», AMSI 55 (1954)",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "Camillo's full published bibliography."
-    },
-    {
-      "src": "Camillo de Franceschi, «Povijest Pazinske knežije na temelju isprava» (Pazin 2023)",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "The 2023 Croatian translation of «Storia documentata della Contea di Pisino», 574 pp., translated by Klara Buršić Matijašić and Robert Matijašić. In print and purchasable."
-    },
-    {
-      "src": "Archivio di Stato di Udine, Notarile antico B. 2979",
-      "what": "Not yet requested",
-      "when": "—",
-      "outcome": "pending",
-      "got": "Franceschi Gio. Batta, notary at Mione, protocols 1737–1783. Needs a letter, not a search box."
-    },
-    {
-      "src": "Državni arhiv u Rijeci, HR-DARI-382 kut. 1",
-      "what": "Not yet requested",
-      "when": "—",
-      "outcome": "pending",
-      "got": "The 1896 «Albero genealogico della Famiglia de Franceschi», said to reach back into the fifteenth century."
-    },
-    {
-      "src": "Bakar parish registers",
-      "what": "Not yet touched",
-      "when": "—",
-      "outcome": "pending",
-      "got": "A series this project has never opened, and the family's own recollection points at it."
-    },
-    {
-      "src": "Vergé-Franceschi, «Le cap Corse: généalogies et destins» (2006)",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "The reference work for Cap Corse families; would settle whether the Tomino Defranceschi are in it."
-    },
-    {
-      "src": "Stare hrvatske novine (dnc.nsk.hr)",
-      "what": "Surname and place searches across the digitised Croatian press, including the Bakar papers Galeb and Kvarner",
-      "when": "Sept 2026",
-      "outcome": "pending",
-      "got": "In progress. An ASP.NET search that will not answer a plain command-line request and has to be driven like a person. It carries two Bakar newspapers, which is the sharpest reason to work it."
-    },
-    {
-      "src": "Camillo de Franceschi, «Povijest Pazinske knežije» — reviews",
-      "what": "Read",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "The two Croatian reviews of the 2023 translation both state that the family «se iz talijanske pokrajine Karnije doselila u Gologoricu u 16. stoljeću» — moved from the Italian province of Carnia to Gologorica in the sixteenth century. The first published source this archive has seen that names Carnia rather than Friuli, and it gives a fourth date for the migration."
-    },
-    {
-      "src": "Kero & Bobanović on the Zadar notary Tommaso de Franceschi (2023)",
-      "what": "Retrieved",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "A notary of the surname at Zadar whose ninth fascicle holds an unusually large number of unpublished Glagolitic documents from Biograd. Not yet shown to connect to this family; recorded because a notary of the name in Dalmatia is worth knowing about."
-    },
-    {
-      "src": "Istarska enciklopedija (Bertoša), «De Franceschi»",
-      "what": "Read in full, both language columns",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "The Agrons castle, the investitures of 1467 and 1471, the 1502 «gismanus de Carnia», the de Franciscus at Mione in the 16th century, the 1661 first mention as «mistro Zuanne», the 1686 death of the «vecchio stipite», the 1712 imprisonment of the parish priest, and the eighteenth-century professions. The single richest page found this year."
-    },
-    {
-      "src": "istrianet.org, whole-site sweep",
-      "what": "9,000 pages crawled for the surname and for eight place-names",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "319 pages carry the name; 250-odd are bare citations of Carlo or Camillo as authors. The rest include the encyclopedia entry, Brhan's Carnic-emigration study with the Mione emigrant register, the 1945 census by place, the Umag cemetery survey, a Francesco de Franceschi bishop of Pola 1422–26, and Dionigi Defranceschi of Gallignana in the Dachau index."
-    },
-    {
-      "src": "Ferigo, «Le cifre, le anime» — full text",
-      "what": "Re-read for Agrons",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Confirms what this archive already published from it, and supplies the join it had missed: the 1679 weavers' return lists «Agrons e Cella» and «Mione» as neighbouring entries, and the family held the castle at the one and lived in the other."
-    },
-    {
-      "src": "Camillo De Franceschi, «Storia documentata della Contea di Pisino», AMSI 1963 vols 10–12",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "The authority the Istarska enciklopedija cites for the Agrons charters. 516 pages. Republished in Croatian translation at Pazin in 2023. The highest-value unheld book after the Memorie."
-    },
-    {
-      "src": "Carlo De Franceschi, «Uspomene», Pula–Rijeka 1989",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "A Croatian translation of the Memorie autobiografiche, made by Istrian scholars; will carry an apparatus the 1926 edition does not."
-    },
-    {
-      "src": "Bertoša, «Etos i etnos zavičaja», Pula–Rijeka 1985",
-      "what": "Not yet obtained",
-      "when": "—",
-      "outcome": "pending",
-      "got": "Contains «Gologorički De Franceschi: između etosa i etnosa», the footnoted scholarly version of the encyclopedia entry."
-    },
-    {
-      "src": "Matični ured Crikvenica — death register 1943",
-      "what": "Not yet requested",
-      "when": "—",
-      "outcome": "pending",
-      "got": "Closed under the hundred-year rule and not public until the 2040s, but open to a direct descendant on request. A prijepis (full transcript) must be asked for by name; the ordinary izvadak gives only date and place. Letter drafted. The parish death book and the 1964 census of war victims at the Croatian State Archives are two further routes to the same fact."
-    },
-    {
-      "src": "Centro di ricerche storiche, Rovigno (crsrv.org) — site search",
-      "what": "«franceschi», «de franceschi», «defranceschi», «gologorica», «gallignana», «sanvincenti», «carnia», «pisino» against the site's own search, then all 345 publication pages crawled and grepped",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "The site index reaches only volume tables of contents. Every «franceschi» match is «catasto franceschino» — the Franciscan cadastre, not the surname. Nothing at title level. One title worth noting for the other family: Niki Fakin, «Il catasto franceschino di Umago», Atti XXIX."
-    },
-    {
-      "src": "Centro di ricerche storiche, Rovigno — the full open-access corpus",
-      "what": "All 1,303 article PDFs of the «Atti», «Quaderni», «Collana degli Atti», «Monografie» and «Documenti», downloaded for full-text search on every spelling of the surname and on Gologorica, Gallignana, Agrons, Mione, Moncalvo, Seghetto and Sanvincenti",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Done. All 1,303 article PDFs downloaded, converted to text and searched on every spelling of the surname and on eleven place-names. 341 articles carry a mention; most are citations of Carlo or Camillo as authorities, which is itself a finding about how the family stands in the field. The substantive harvest: three Dean Brhan papers this archive had never seen, including his own footnote on the family — «presente in Istria dal 1650 circa, originaria di Mione» — and his judgement that their Carnian roots were «piuttosto deboli»; De Franceschi named among the Carnian households of Gallignana in the 1820 cadastre; De Franceschi tombs in the parish church of Svetvinčenat; Piero Defranceschi, garzone, aged nineteen, in Giobatta Lupieri's house; Sebastiano de Franceschi with a brother-in-law at Dignano; and Maria De Franceschi, married to the Mione weaver Giobatta Zanier. Also confirmed, independently: Bertoša's toponymic correction on Moncalvo, Matejčić on the palazzetto, and the 1679 headmen's list — all three of which this archive already had, which is a check on its own work."
-    },
-    {
-      "src": "Regional heritage catalogue of Friuli Venezia Giulia (patrimonioculturale.regione.fvg.it)",
-      "what": "«De Franceschi Giulio» — the drawings of Carlo's son in the Civico Museo Sartorio, Trieste",
-      "when": "Sept 2026",
-      "outcome": "blocked",
-      "got": "The portal refuses connections from this project's network at the transport level (no DNS from one route, connection refused from another). Not a bot check and nothing was circumvented. The holdings are known from public catalogue summaries: thirty-one initials for Caprin's «Il Trecento a Trieste» (1897), illustrations for «L'Istria nobilissima», and a headpiece drawn for Camillo's Arcadia essay of 1929–30. The individual sheet records remain unread."
-    },
-    {
-      "src": "«Atti e memorie della Società istriana», n.s. 2 (1952) — Camillo on the Cretan refugees",
-      "what": "Camillo De Franceschi, «Il Consiglio nobile di Parenzo e i profughi di Creta», AMSI n.s. 2 (1952). Found cited in Milena Joksimović, Tabula 17 (2020)",
-      "when": "Sept 2026",
-      "outcome": "pending",
-      "got": "Not digitised. Archive.org holds AMSI only to 1933. This is the paper most likely to settle whether the Umag–Seget family really came out of Crete after 1669 — written by a man of the Gologorica family who was a professional archivist. First item on the acquisition list."
-    },
-    {
-      "src": "Hrčak (hrcak.srce.hr) — the háček spellings",
-      "what": "«Defrančeski» and «Defrančeschi» run separately against the Croatian open-access journal portal",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "No article-level hits under either form. The háček spelling survives in the newspapers and in living use, not in the scholarship, which uses the Italian orthography throughout."
-    },
-    {
-      "src": "Kurelić, «Eagle and Lion» (CEU doctoral dissertation)",
-      "what": "Full text of 221 pages searched on every spelling of the surname and on Gologorica, Gračišće, Moncalvo, Agrons, Mione and Carnia",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Sent by David and, to this archive's discredit, filed under a placeholder name for a day. Six named Gologorica marriages from the Glagolitic Boljun register, 1585–1608 — Kovač, Kaligarić, Matijašić, Gašparić, Ilijašić, Sergović, Ančić, Križmanić, Gortan, Cinić — and no De Franceschi in the whole thesis. A controlled negative for the arrival date. Also the Gologorica–Tremaun boundary dispute of 19 February 1472 (HHStA Vienna; Kos, «Pet razvodov», 189–202), the earliest document naming the village that this archive has; and Svetvinčenat parish registers surviving from 1569 (baptisms) and 1581 (marriages)."
-    },
-    {
-      "src": "FamilySearch record indexes — the town sweep, rebuilt",
-      "what": "Six spellings of the surname across five country filters, thirty jobs, each paged to the index ceiling; every record matched whole against thirty-six place patterns",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "18,840 records read, 664 distinct people with a place, eighteen towns. Rijeka 206 (1620–1910), Svetvinčenat 142 (1666–1902), Ližnjan 81, Vodnjan 78, Split 40 (from 1581), Poreč 35, Rovinj 22, Labin 17, Vižinada 12, Pazin 8, Zagreb 6, Opatija 6, Trieste 3, Barban 2, Senj 2, Carnia 2, Gologorica 1, Čepić 1. Rebuilt from nothing after David caught the earlier method failing at Bakar: the old sweep matched a truncated summary field, not the whole record, and stopped after a couple of hundred results a spelling."
-    },
-    {
-      "src": "Hrvatski biografski leksikon — «Defrančeski, Ante»",
-      "what": "The national biographical dictionary entry, chased after David pointed at it",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Born Ližnjan near Pula 1 Feb 1894, died Skrad 27 Sept 1949. Kastav teachers' college 1912; volunteer on the Salonika front; Kotoriba and Čakovec 1920–24; Higher Pedagogical School Zagreb 1928; professor at the Zagreb teachers' training school; Ministry of Education Belgrade 1932–33; Metković 1941 and retired ill the same year; back to Zagreb 1946–47. Nine books, 1925–1940. Entry by Branko Pleše (1993), with sixteen items of secondary literature not yet worked through. He had stood on this site as a namesake with the note that nothing linked him beyond surname and country — Ližnjan is third of eighteen towns in the rebuilt sweep, with 81 people of the name in its registers."
-    },
-    {
-      "src": "«Libri žminjski, libar drugi» (Žminj 2008)",
-      "what": "Full text searched on every spelling and on Gologorica, Gračišće, Carnia, Agrons and Mione",
-      "when": "Sept 2026",
-      "outcome": "partial",
-      "got": "Sent by David. Every De Franceschi mention is a citation of Camillo's «Storia documentata della Contea di Pisino» as an authority — including, importantly, a Croatian edition cited as «De Franceschi 2003, Pazinska knežija» with page references, which is an acquisition target this archive did not have. The real find is elsewhere: Paolo Roseano's unpublished research on the Carnian families of Žminj, quoted there — recorded in Istria from the mid-seventeenth century, originally weavers and tailors, and «sve do 18. stoljeća mnogi od njih redovito boravili dijelom godine i u starom kraju, tj. Argonisu blizu Ovara u Karniji», many of them still spending part of each year back at Agrons near Ovaro; and marrying only girls from there, who stayed at home in Carnia while the men wintered in Istria."
-    },
-    {
-      "src": "Constructed illustrations (image model, from this archive's briefs)",
-      "what": "Eight scenes the archive can defend from documents, each written as a prompt with negative constraints and a list of details that must be right; the first — Imotski 1717 — generated and installed",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Standing rules, so nothing here can ever be mistaken for a source: no invented face is ever captioned with a real person's name; no invented lettering on a real inscribed stone and no invented heraldry for a family whose arms are documented; every image captioned as a constructed illustration with its departures from the record named; no fabricated documentary apparatus — no title block, scale bar, dimension, survey date; the unaltered original archived in the source library beside its brief, marked with whatever was removed. Briefs at notes/image-prompts.md. ALL EIGHT NOW DONE, seven published: the house at Gologorica, with the 1711 tablet deliberately blank; Imotski 1717; the road of the Furlans 1679; the Salamon palace; the mills at Perinuša; Crikvenica in the winter of 1943; Pfullingen 1944. Plus a lapidarius of Gračišće, published as the trade and explicitly NOT as a portrait of Antonio, because the model gave it a detailed invented face. TWO WITHHELD: the first Gologorica house, which carried a fabricated pseudo-Latin inscription across the 1711 tablet; and a close detail of the arms and the Madonna relief, because the coat of arms in it does not match the blazon Carlo gave Kobler and the carving the family photographed — a cross crossed by two arrows over a pomegranate. Both kept in the library marked WITHHELD. Four failure modes, each seen more than once: a caption burned into the picture; a watermark; an invented inscription or coat of arms on a real carved stone; and an image returned dressed as a measured conservation survey of a real protected building, with title block, scale bar, dimensions and date. Every one of them was caught before publication."
-    },
-    {
-      "src": "defranceski.com — the family's own Google Site",
-      "what": "All eleven pages captured as HTML; both Google MyMaps exported as KML; every external link on the site diffed against this archive's own; the linear family chart checked date by date against the Direct Line",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Done ahead of decommissioning. The chart's dates all match what is published here, most of them now with a register page behind them instead of a chart. Twenty-six web hosts the old site used were absent from this archive and are now recorded. Four things were genuinely new: the byname «Franceschi dalle Rose»; a German branch route Ližnjan → Monheim with a «Grga» who died at Zagreb and a Petar at Metzingen, four kilometres from Pfullingen; a layer of forty-four Veneto emigration hotspots ending at São Paulo, which is a candidate departure region for the Brazilian cluster this archive has never had one for; and two Dalmatian names, Tomasso and a Francesca de Franceschi of the 1500s. The whole capture is in the source library under «oldsite»."
-    },
-    {
-      "src": "Ližnjan — the parish record indexes, targeted",
-      "what": "Four spellings across three country filters, every record matched whole for Ližnjan; then every entry naming a Gregorius, Gregorio, Gregorii or Grga pulled out in full",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "127 entries of the surname at Ližnjan, 1788 onward. Grga is real: Gregorius Defranceski, aged 22 at his marriage on 10 June 1874, so born 1851, son of Gregorio Defranceschi and Agata Skifić, husband of Maria Vojnić, father of Anastasia (1875 and 1876), Maria (1878), Justina (1879), Maria (1882) and Josephus (1887). His daughter Justina married Josephus Fedel on 22 Nov 1898 and a Stana married Jacobus Vojnić on 7 Aug 1899 — Fedel and Vojnić being two of the surnames standing beside «Defrančeski Ante» in the Ližnjan subscription list of 1920. Behind Gregorio stands a Mattio De Franceschi and a Madalena Peucovich. Index entries only; the books are at Pazin and unread."
-    },
-    {
-      "src": "Monheim (Bavaria) and Zagreb — the rest of the map pin",
-      "what": "German record indexes, Croatian digitised newspapers, and burial indexes searched for a Defranceschi at Monheim and for a death of Grga at Zagreb",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "Nothing for either. The Monheim pin is Monheim in the Donau-Ries, not Monheim am Rhein — about a hundred kilometres from Metzingen, and Metzingen is four from Pfullingen. Both the Monheim line and «Grga dies in Zagreb» carry no note, no date and no document on the map they came from, and neither could be confirmed here. The nearest thing is a Zagreb grave for Marija Defrančeski, 1884–1971, two years off Grga's daughter Maria of 1882 — suggestive, not proof, and left as such."
-    },
-    {
-      "src": "MyHeritage — David's live family tree",
-      "what": "Read directly from his logged-in session: 459 individuals carrying the surname, harvested through the site's own lookup and person-panel endpoints, with their dates, places, relationships and source citations",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "The 2018 GEDCOM this project had been using holds 8,286 people; the live tree holds 15,643, and David's own verdict on the old file is «really old and really wrong». It is now retired. 211 of the 459 carry citations, 262 distinct FamilySearch arks between them. The direct line agrees wherever both hold a fact, and the tree supplies what this archive lacked: exact death dates for Antonius (4 Aug 1894) and for Giovanni Battista (14 Sep 1846), Gologorica rather than Gračišće as the 1787 birthplace, and an ark for the 1750 Giovanni that no page had ever been put in front of. Notes at notes/myheritage-reconciliation.md and notes/myheritage-key-rows.md."
-    },
-    {
-      "src": "MyHeritage — what the tree holds and this archive did not",
-      "what": "Compared row by row against the published site",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Antonius Franciscus Defranceschi, born Gologorica 31 January 1909, died at DACHAU 7 August 1945. Giuseppe de Franceschi, born Gračišće 12 March 1892, died New York City 26 April 1940, with six citations. Bruno Defranceschi, born Gologorica 20 November 1942, died 15 January 2023. Anna Maria Francisca, born Gologorica 1860, died Trieste 1941. A «SORAVITO De Franceschi» lineage at Mione running from a Francesco of 1450 to Francesco Andrea, died 1971 — one of them, Antonio Bartolomeo, going Mione to Nantes. Mione is the largest single place in the whole tree at 29 people, which this archive has treated as an origin and not as a living branch. And Marijana de Franceschi (Bitanga-Radovinović), confirming the Jagul marriage from the Imotski page."
-    },
-    {
-      "src": "Nati in Trentino (1815–1923)",
-      "what": "The Trentino provincial birth register, for Defranceschi at Castelnuovo, Telve and Strigno in the Valsugana",
-      "when": "Sept 2026",
-      "outcome": "blocked",
-      "got": "The database exists and covers exactly the parishes wanted, but the register search is behind «Ricerca ad uso dell'operatore» — an operator login. The public site search returns «Nessun risultato». Not circumvented. A written request to the Servizio coesione territoriale at Trento is the route."
-    },
-    {
-      "src": "CISEI — Centro Internazionale Studi Emigrazione Italiana",
-      "what": "The emigration database the literature still cites for Argentina, Brazil, USA, Canada and Australia",
-      "when": "Sept 2026",
-      "outcome": "blocked",
-      "got": "cisei.it is now a parked domain serving an ad redirect. The database is gone from the open web; the literature citing it is stale."
-    },
-    {
-      "src": "Museu da Imigração / Hospedaria de Imigrantes, São Paulo",
-      "what": "The route to the São Paulo arrival registers, 1882–1925",
-      "when": "Sept 2026",
-      "outcome": "pending",
-      "got": "The museum's own digital collection is real — over 250,000 images, enrolment books, ship lists, call letters — but the searchable interface was not reachable from the paths tried. The practical route is FamilySearch's «Brasil, São Paulo, Registros da Hospedaria de Imigrantes», which indexes the same registers and can be searched from a logged-in session. That is where a De Franceschi off a ship at Santos is entered by name with his home parish beside him."
-    },
-    {
-      "src": "David's Google MyMaps — the emigration layers",
-      "what": "«High Level of Emigration from Here» (44 pins) and «Italian Lines» (90 pins), read from the archived KML",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "A departure region for the Brazilian cluster, which this archive has never had. Scorzè, Moniego (Noale), Cornedo Vicentino, Castelgomberto and Pederobba in the Veneto — with «DE FRANCESCHI Luigi, spouse BAROLO Caterina Luigia, from Moniego, Noale, Venezia to São Paulo» and «Giuseppe Romano De Franceschi, born Scorzè 22 May 1835, died Moniego». And a second region entirely: the Castelnuovo pin is Castelnuovo in the Valsugana, Trentino — four kilometres from Telve, where David's tree holds eighteen people of this surname. The São Paulo destinations are all coffee-belt, which is a different and later migration from the Rio Grande do Sul colonies of 1875. Brazil is two stories, not one. Also on those layers: Castelnovo del Friuli to Trostberg in Bavaria (Peter DeFranceschi b. 19 Feb 1841); Mione to Biella; Bishop Lucio Soravito de Franceschi of Adria-Rovigo; and a France cluster around Metz, Nancy, Fréjus and Propriano."
-    },
-    {
-      "src": "Gradska groblja Zagreb — the city burial register",
-      "what": "Every spelling searched through the cemeteries' own OData service: Mirogoj, Miroševac, Markovo polje and twenty-five other grounds, 1750 to now",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Thirteen burials of the name, and the register carries parents' names on some of them. Milan Defrančeski (d. 2001, aged 78) and Dragutin (d. 2004, aged 79) are entered as children of «GRGO I MARIJA» and «MARIJA I GRGA» — two brothers naming the same father, which is the Grga of David's old map pin, now with two graves that can be visited. It also contradicts the MyHeritage tree, which gives Grgo as born 1931: a man whose sons were born about 1923 and 1925 was not. Marija Defrančeski, d. 3 June 1971 aged 87, Mirogoj 147A/II/58, with Zdenka, dead 16 March 1945 aged two and not buried until Christmas Eve 1971 — the child moved in beside her. Antun (d. 5 June 1943, aged 67) and Justina (d. 1963, aged 78) share Mirogoj 136/II/43. And an Uršula Defrančeski, born about 1892, at Miroševac. Endpoint: axiomgis.com/Zagreb/Trazilica.svc/PvWebUkopani."
-    },
-    {
-      "src": "Andrea de' Franceschi and Titian",
-      "what": "The Grand Chancellor's portraits — Detroit, Hampton Court, Washington — and the 2016 Artibus et Historiae paper",
-      "when": "Sept 2026",
-      "outcome": "partial",
-      "got": "Closed as far as it can be from here, after a year on the roadmap. Grand Chancellor of Venice 1529 to his death in 1551; Titian's friend; painted into the «Presentation of the Virgin» in the Accademia; owned two portraits of himself by Titian, the head in both taken from Titian's own picture now in Detroit. The Hampton Court double portrait was cleaned in 1958 and gave up a third figure painted out earlier. The National Gallery of Art in Washington holds a further portrait it declines to call Titian. Not kin, and never claimed as such. Still unread: Charles Hope's «Titian's portraits of Grand Chancellor Andrea de' Franceschi», Artibus et Historiae 74 (2016), 139–151 — the academia.edu copy sits behind Cloudflare. The National Gallery of Art site requires JavaScript and the National Trust site served a CAPTCHA; neither was circumvented, and the facts above come from those institutions' own catalogue text as quoted elsewhere."
-    },
-    {
-      "src": "Francesco de' Franceschi, the painter",
-      "what": "The fifteenth-century Venetian painter carried on the roadmap as unfinished",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Active 1443–1468, birth and death unknown. Religious work on church commission; the style follows Michele Giambono and he may have worked with Antonio Vivarini. An altarpiece of 1447 in the Museo Civico at Padua; a St Mary Magdalen and a St Catherine of Alexandria in the Ashmolean at Oxford; a St Michael the Archangel and a St Mamas series. Not kin — two and a half centuries before this family reaches Istria. Roadmap item closed."
-    },
-    {
-      "src": "«Franceschi dalle Rose»",
-      "what": "The byname on David's old map, pinned Ravenna → Venice 1040 → Giudecca",
-      "when": "Sept 2026",
-      "outcome": "nothing",
-      "got": "No such family in the literature. The byname «dalle Rose» belongs to the Donà — the Donà dalle Rose, a Venetian noble house with origins in Romagna and Altinum, two Doges, and a surviving main branch whose archive is at the Museo Correr. The pin's Ravenna-to-Venice sequence is the Donà origin story. Recorded as a probable conflation so that it is not repeated."
-    },
-    {
-      "src": "Geni — the Obitelj Franceschi noble-family project",
-      "what": "The Croatian nobiliary project David's old site linked",
-      "when": "Sept 2026",
-      "outcome": "blocked",
-      "got": "Behind Incapsula bot protection; not circumvented."
-    },
-    {
-      "src": "The family's own field photographs, 2026",
-      "what": "491 images from six visits — Carnia (Ovaro, Mione, Muina, Agrons), Gologorica house and graves, Gračišće, Seget and Umag, Crikvenica–Klenovica–Novi–Senj, and the Pazin reading room — read as contact sheets so that the frames worth publishing can be chosen",
-      "when": "Sept 2026",
-      "outcome": "yield",
-      "got": "Read as contact sheets and plated. **31 published so far.** Gologorica (11): the builder's tablet, the memorial to Carlo, the arms cartouche with the Madonna aedicule beneath it, the blazon in the tomb pediment and the same arms weathered nearly smooth on an older stone, the tomb, the house from the lane, the arcaded end with the number 22, a wall niche, a carved ring, the chapel. Carnia (10): SORAVITO DE FRANCESCHI cut in stone at Ovaro with Anna Crosilla his widow; De Franceschi Ugo 1930–2020; Antonio 1877–1962 with Marta Anzola dead at twenty-five; Gio. Batta 1880–1963; Francesco 1887–1945; an 1850s stone; the war memorial carrying Vittorio and Isidoro De Franceschi; the campanile of Santa Maria di Gorto over the graves — the pieve whose parishes drew up the 1679 return. Gračišće (3): «F DE FRANCESCHI» with Marfan Virginija and Nazarijo; the Salamon grave, which turns Francisca Salamon from a surname into a family still in that ground; and a Marfan stone. Umag and Seget (7): the tomb's blue-and-gilt ironwork lunette with a lion rampant beneath a star under a coronet — the other family's arms, against Gologorica's cross, arrows and pomegranate; «FAMIGLIA DE FRANCESCHI — SEGHETTO»; «FAMIGLIA ETTORE DE FRANCESCHI»; a stone of 1848; the house at Seget; the tomb whole; the pine-cone finial. Living people appear in many frames and are excluded throughout. Klenovica and the coast (6): «OBITELJ DEFRANCESKI» with three portrait medallions — the household under the name it took on the coast — and then the Kalanj, who are everywhere in that ground: Marija 1889–1970, Josip, Franjo and Zora on one stone, Rozalija Anton Marija and Milan on another, Vinko and Paulina, Tomislav, Marijan, and the Kalanj-Perković. Anton Rudolf's mother was Ana Kalanj of Klenovica house 22, and it is her family and not his that stayed. Also a partisan star laid in white stone among the graves. **37 field plates published across five places.** Still unplated: the Pazin reading-room set of 117, which is register images rather than ground and belongs with the parish-book work."
-    }
-  ]
+ "note": "Everything this project has looked at, whether or not it found anything. A search that returns nothing is a result, and an archive that records only its successes will send the next person down the same dead ends. «Blocked» means a bot check or a login wall that this project has deliberately not tried to get round. «Pending» means known, wanted, and not yet obtained.",
+ "cols": [
+  "Source",
+  "What was searched",
+  "When",
+  "Outcome",
+  "What it gave, or did not"
+ ],
+ "rows": [
+  {
+   "src": "Stare hrvatske novine (dnc.nsk.hr)",
+   "what": "Every spelling of the surname and six place-names, across the whole portal; the two Bakar papers searched separately with control tests",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "68 hits for «franceschi», 46 for «defranceschi», 4 for «defranceski», 3 for «defrančeski», 70 for «Gologorica». Zora Defranceschi nursing at Crikvenica in March 1915; Antun and Viktor Defranceschi in the Gologorica riot trial of 1894; the «stancija Defranceschi (Zamporovica)»; Carlo's son in the dock at Pazin in 1890; a captain Defranceschi of the bark Aquilone across eighteen issues 1873–78; and the Croatian spelling in print in 1879, 1919 and 1920. The index does NOT do substring matching, so every spelling must be run separately."
+  },
+  {
+   "src": "«Galeb» and «Kvarner», the two Bakar newspapers",
+   "what": "The surname in all five spellings, with control searches to prove the OCR layer works",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "Zero, in every spelling, across both complete runs — and the controls pass («Galeb» returns 107 for «Bakar»; «Kvarner» 102 for «narod»). A genuine absence, not a scanning failure. The one apparent hit is Istrian election news reported from Bakar. It does not disprove a Bakar family, but the local press never once had cause to print the name, which for a numerous local family would be odd. The parish registers remain the real test."
+  },
+  {
+   "src": "FamilySearch — Croatian church books, Bakar country and Crikvenica",
+   "what": "Every spelling of the surname across Bakar, Hreljin, Praputnik, Kraljevica, Kostrena and Škrljevo; and an Anton Defranceski dying 1941–46 anywhere in Croatia",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "CORRECTED. The first run of this search was under-powered — it scanned only the first couple of hundred records per spelling and matched places against a short extracted string — and returned one Bakar entry. Run properly, with deep paging and whole-record matching, the Bakar country gives EIGHT, and they form one household across three generations: Franciscus Defranceschi; his son Joannes Baptista, who married Catharina Akacich; their children Maria Dorothea baptised 1773 and Antonia 1776; a Nodburga married there 1794; deaths in 1775, 1785, 1818 and 1819, the last of a Catharina born 1734 and dead at eighty-five. The family's own memory of Bakar was right."
+  },
+  {
+   "src": "Stadtarchiv Reutlingen — photograph database",
+   "what": "The employers named in the family's own German papers: Hermann Sauer and Wilhelm Heim",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Hermann Sauer identified as a motor-vehicle firm at the Südbahnhof / Eninger Landstraße 79, holding the MAN agency, with a filling station in the Marktstraße; the Sauer brothers' Autohaus photographed in the Tübinger Straße in 1935. And Wilhelm Heim identified as the Esslingen firm that took the Schickhardt works at Betzingen in 1938 and built V1 wings there with about five hundred forced labourers. The archive holds some thirty-nine units of 1944–45 portraits of that firm's workforce."
+  },
+  {
+   "src": "OpenStarts, Università di Trieste",
+   "what": "Full-text search for the surname and for «Memorie autobiografiche»",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Carlo's «Memorie autobiografiche» (1926, 309 pp.), Salata's «Un precursore» (1929), and the 1928 bronze-bust volume with his letters to Kandler. Three works this project had recorded as unheld, all open access. Should have been searched months earlier."
+  },
+  {
+   "src": "Hrčak (hrcak.srce.hr)",
+   "what": "Portal search for «franceschi», all pages",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Fourteen distinct articles. Already held: Jelinčić's three-part Kobler correspondence, the 2024 Arhivski vjesnik inventory, Marin on the Zagreb library. New: Kero & Bobanović on the Zadar notary Tommaso de Franceschi; two reviews of the 2023 Croatian translation of Camillo's «Storia documentata della Contea di Pisino»; and a 2022 article on the Zagreb collection."
+  },
+  {
+   "src": "SIASP, Trieste (siasp-aps.org)",
+   "what": "The society's published guide and archive inventories",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "«Archivio Camillo De Franceschi e famiglia», 26 boxes, 19th–20th century. The 2017 guide and the full 39-page inventory, both downloaded. A second complete family archive, distinct from Zagreb's."
+  },
+  {
+   "src": "Internet Archive — full-text search",
+   "what": "Repeated sweeps on every spelling of the surname and on the place-names",
+   "when": "Aug–Sept 2026",
+   "outcome": "yield",
+   "got": "Kobler's «Memorie» entire; Cavalli 1845 on the bishops of Pola; the Atti of Rovigno; the Wagna camp intake lists; «Il Piccolo» of Trieste for 1926; the Zagreb almanacs; the Almanacco Fiumano. The single most productive source this project has."
+  },
+  {
+   "src": "ANNO — Austrian Newspapers Online",
+   "what": "Surname search across the digitised Austrian press",
+   "when": "Aug–Sept 2026",
+   "outcome": "yield",
+   "got": "The press notices of Carlo's death in January 1893, and other notices. Images retrievable from the IIIF endpoint even where the presentation manifest fails."
+  },
+  {
+   "src": "FamilySearch",
+   "what": "Record search by surname and by place, and the parish register films",
+   "when": "Aug–Sept 2026",
+   "outcome": "yield",
+   "got": "The bulk of this archive's individual records. Deep paging caps at about offset 1,100, which limits large sweeps."
+  },
+  {
+   "src": "Državni arhiv u Pazinu — microfilm ZM34K-215",
+   "what": "The Gallignana baptism book 1667–1745, read image by image",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Five occurrences of the surname in seventy-eight years, and a systematic negative for the rest. The most labour-intensive single piece of work here and the one that answered the central question."
+  },
+  {
+   "src": "Trove (Australia)",
+   "what": "Surname search across the digitised Australian press",
+   "when": "2026",
+   "outcome": "yield",
+   "got": "Australian notices for the family's later generations."
+  },
+  {
+   "src": "Arolsen Archives",
+   "what": "Displaced-persons and camp records",
+   "when": "2026",
+   "outcome": "yield",
+   "got": "The 1949 sailing and the word «apatride»."
+  },
+  {
+   "src": "Immigrant Ships Transcribers Guild",
+   "what": "Post-war IRO sailings to Australia",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "The USAT General Stewart, Naples to Melbourne, April 1949, passengers 0180–0182."
+  },
+  {
+   "src": "istrianet.org",
+   "what": "The Kobler and Carlo De Franceschi pages, and the bibliography of his works",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "The complete bibliography of Carlo's published writings, which is what led to the «Memorie autobiografiche». Also a clean transcription of chapters of «L'Istria» (1879). The site's firewall refuses plain command-line requests and needs an ordinary browser."
+  },
+  {
+   "src": "fiumemondo.com",
+   "what": "«Brief history of Rijeka»",
+   "when": "Sept 2026",
+   "outcome": "partial",
+   "got": "One sentence naming the Benzoni and the De Franceschi among Fiume's immigrant merchants. Checked against Kobler and found to be a compression: right on the Cremonese Benzoni, loose on the Bono, and it reverses the direction of travel for the De Franceschi. Cited as a lead, not as authority."
+  },
+  {
+   "src": "isidore.co «Res pro Deo» journal collection",
+   "what": "The complete text layer of the Catholic Historical Review, Nova et Vetera and The Thomist — 496 issues, 236 MB",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "Zero occurrences of any spelling of the surname connected to this family, and zero for all twenty place-names. Every «De Franceschi» in five gigabytes of theology is a French historian of Jansenism, a Sienese printer, or a Venetian chancery secretary. The one thing worth keeping was a pointer to Orbanić's 1788 Pićan visitation."
+  },
+  {
+   "src": "«Nova et Vetera» 21:2 (2023)",
+   "what": "Read cover to cover",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "One footnote citing Sylvio Hermann De Franceschi, a living French historian. Nothing else."
+  },
+  {
+   "src": "Zelda Alice Franceschi, curriculum vitae",
+   "what": "Read in full",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "A Bologna anthropologist of the Argentine Gran Chaco. The surname is the author's own and there is no connection to this family."
+  },
+  {
+   "src": "Benedetti, «From Venice to Cairo» (2022)",
+   "what": "Read in full",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "Concerns Andrea de' Franceschi, Venetian grand chancellor, of Cividale di Belluno — a different family. Useful only as a caution about how many unrelated houses carry this name."
+  },
+  {
+   "src": "Bruni, «Peace at the Lily» (2018)",
+   "what": "Read in full",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "Concerns Francesco De Franceschi, printer, «born in Siena around 1530». A third unrelated family."
+  },
+  {
+   "src": "Kurelić, «Eagle and Lion» (CEU thesis, 2013)",
+   "what": "Read in full",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "Excellent background on the sixteenth-century Pazin frontier and a useful Istrian place-name gazetteer, but every «De Franceschi» in it is a citation of Carlo or Camillo as authors. Six Gologorica marriages in the Boljun register 1585–1608, none of this surname — consistent with a later arrival."
+  },
+  {
+   "src": "Corsican records — RHFC register index, 226 communes",
+   "what": "Every commune, births, marriages and deaths, letter D",
+   "when": "Sept 2026",
+   "outcome": "partial",
+   "got": "Four Defranceschi baptisms at Tomino in Cap Corse 1843–56, and a second cluster at Levie and Sartène in the far south. 132 Defranceschi births in the whole of France 1891–1990. Nothing whatever connects them to this family, and the honest position is that these are unrelated houses sharing a patronymic."
+  },
+  {
+   "src": "Geneanet",
+   "what": "Surname and place searches",
+   "when": "2026",
+   "outcome": "blocked",
+   "got": "HTTP 403 on every URL, including the public surname pages. Not circumvented."
+  },
+  {
+   "src": "Antenati (Italian state archives)",
+   "what": "Civil registration for Carnia and the Veneto",
+   "when": "2026",
+   "outcome": "blocked",
+   "got": "Bot check. Not circumvented. This is the route to the Ovaro civil registers and it remains closed to automated access."
+  },
+  {
+   "src": "ResearchGate",
+   "what": "Article retrieval",
+   "when": "2026",
+   "outcome": "blocked",
+   "got": "Refused. The wanted article was found open access elsewhere."
+  },
+  {
+   "src": "CEMLA (Argentine immigration)",
+   "what": "Passenger records",
+   "when": "2026",
+   "outcome": "blocked",
+   "got": "Bot check. Not circumvented."
+  },
+  {
+   "src": "WikiTree",
+   "what": "Profile search",
+   "when": "2026",
+   "outcome": "blocked",
+   "got": "Bot check. Not circumvented."
+  },
+  {
+   "src": "Cairn.info, Filae, Geopatronyme",
+   "what": "French scholarship and surname distribution",
+   "when": "Sept 2026",
+   "outcome": "blocked",
+   "got": "HTTP 403 to direct requests; figures obtained by other means where possible."
+  },
+  {
+   "src": "Mémoire des Hommes, Grand Mémorial, Base Léonore",
+   "what": "French service and honours records",
+   "when": "Sept 2026",
+   "outcome": "blocked",
+   "got": "JavaScript applications with no reachable interface. Not searched."
+  },
+  {
+   "src": "Orbanić (ed.), «Visita Spirituale del 1788 in Istria»",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "De Buset's parish-by-parish visitation of the Pićan diocese, 31 March – 31 August 1788, 178 sheets, published Vatican City 2016. Covers Gologorica and Gallignana. The manuscripts are in the Diocesan Archives of TRIESTE, not Pazin."
+  },
+  {
+   "src": "«Stemmi della nobiltà di Buccari», Bakarski zbornik 2 (1996)",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "Fifty-seven pages on the arms of Bakar's patrician houses."
+  },
+  {
+   "src": "Bertoša, «Pisma Carla De Franceschija Šimi Ljubiću», VHARP 13 (1968)",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "Carlo's letters to Šime Ljubić, printed. The archive knew of five in the Zadar state archive and did not know they were in print."
+  },
+  {
+   "src": "Jelinčić, Jadranski zbornik XI (1979–81), pp. 293–307",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "A summary of the whole published Kobler correspondence."
+  },
+  {
+   "src": "Gentileo, «Bibliografia degli scritti di Camillo De Franceschi», AMSI 55 (1954)",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "Camillo's full published bibliography."
+  },
+  {
+   "src": "Camillo de Franceschi, «Povijest Pazinske knežije na temelju isprava» (Pazin 2023)",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "The 2023 Croatian translation of «Storia documentata della Contea di Pisino», 574 pp., translated by Klara Buršić Matijašić and Robert Matijašić. In print and purchasable."
+  },
+  {
+   "src": "Archivio di Stato di Udine, Notarile antico B. 2979",
+   "what": "Not yet requested",
+   "when": "—",
+   "outcome": "pending",
+   "got": "Franceschi Gio. Batta, notary at Mione, protocols 1737–1783. Needs a letter, not a search box."
+  },
+  {
+   "src": "Državni arhiv u Rijeci, HR-DARI-382 kut. 1",
+   "what": "Not yet requested",
+   "when": "—",
+   "outcome": "pending",
+   "got": "The 1896 «Albero genealogico della Famiglia de Franceschi», said to reach back into the fifteenth century."
+  },
+  {
+   "src": "Bakar parish registers",
+   "what": "Not yet touched",
+   "when": "—",
+   "outcome": "pending",
+   "got": "A series this project has never opened, and the family's own recollection points at it."
+  },
+  {
+   "src": "Vergé-Franceschi, «Le cap Corse: généalogies et destins» (2006)",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "The reference work for Cap Corse families; would settle whether the Tomino Defranceschi are in it."
+  },
+  {
+   "src": "Stare hrvatske novine (dnc.nsk.hr)",
+   "what": "Surname and place searches across the digitised Croatian press, including the Bakar papers Galeb and Kvarner",
+   "when": "Sept 2026",
+   "outcome": "pending",
+   "got": "In progress. An ASP.NET search that will not answer a plain command-line request and has to be driven like a person. It carries two Bakar newspapers, which is the sharpest reason to work it."
+  },
+  {
+   "src": "Camillo de Franceschi, «Povijest Pazinske knežije» — reviews",
+   "what": "Read",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "The two Croatian reviews of the 2023 translation both state that the family «se iz talijanske pokrajine Karnije doselila u Gologoricu u 16. stoljeću» — moved from the Italian province of Carnia to Gologorica in the sixteenth century. The first published source this archive has seen that names Carnia rather than Friuli, and it gives a fourth date for the migration."
+  },
+  {
+   "src": "Kero & Bobanović on the Zadar notary Tommaso de Franceschi (2023)",
+   "what": "Retrieved",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "A notary of the surname at Zadar whose ninth fascicle holds an unusually large number of unpublished Glagolitic documents from Biograd. Not yet shown to connect to this family; recorded because a notary of the name in Dalmatia is worth knowing about."
+  },
+  {
+   "src": "Istarska enciklopedija (Bertoša), «De Franceschi»",
+   "what": "Read in full, both language columns",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "The Agrons castle, the investitures of 1467 and 1471, the 1502 «gismanus de Carnia», the de Franciscus at Mione in the 16th century, the 1661 first mention as «mistro Zuanne», the 1686 death of the «vecchio stipite», the 1712 imprisonment of the parish priest, and the eighteenth-century professions. The single richest page found this year."
+  },
+  {
+   "src": "istrianet.org, whole-site sweep",
+   "what": "9,000 pages crawled for the surname and for eight place-names",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "319 pages carry the name; 250-odd are bare citations of Carlo or Camillo as authors. The rest include the encyclopedia entry, Brhan's Carnic-emigration study with the Mione emigrant register, the 1945 census by place, the Umag cemetery survey, a Francesco de Franceschi bishop of Pola 1422–26, and Dionigi Defranceschi of Gallignana in the Dachau index."
+  },
+  {
+   "src": "Ferigo, «Le cifre, le anime» — full text",
+   "what": "Re-read for Agrons",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Confirms what this archive already published from it, and supplies the join it had missed: the 1679 weavers' return lists «Agrons e Cella» and «Mione» as neighbouring entries, and the family held the castle at the one and lived in the other."
+  },
+  {
+   "src": "Camillo De Franceschi, «Storia documentata della Contea di Pisino», AMSI 1963 vols 10–12",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "The authority the Istarska enciklopedija cites for the Agrons charters. 516 pages. Republished in Croatian translation at Pazin in 2023. The highest-value unheld book after the Memorie."
+  },
+  {
+   "src": "Carlo De Franceschi, «Uspomene», Pula–Rijeka 1989",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "A Croatian translation of the Memorie autobiografiche, made by Istrian scholars; will carry an apparatus the 1926 edition does not."
+  },
+  {
+   "src": "Bertoša, «Etos i etnos zavičaja», Pula–Rijeka 1985",
+   "what": "Not yet obtained",
+   "when": "—",
+   "outcome": "pending",
+   "got": "Contains «Gologorički De Franceschi: između etosa i etnosa», the footnoted scholarly version of the encyclopedia entry."
+  },
+  {
+   "src": "Matični ured Crikvenica — death register 1943",
+   "what": "Not yet requested",
+   "when": "—",
+   "outcome": "pending",
+   "got": "Closed under the hundred-year rule and not public until the 2040s, but open to a direct descendant on request. A prijepis (full transcript) must be asked for by name; the ordinary izvadak gives only date and place. Letter drafted. The parish death book and the 1964 census of war victims at the Croatian State Archives are two further routes to the same fact."
+  },
+  {
+   "src": "Centro di ricerche storiche, Rovigno (crsrv.org) — site search",
+   "what": "«franceschi», «de franceschi», «defranceschi», «gologorica», «gallignana», «sanvincenti», «carnia», «pisino» against the site's own search, then all 345 publication pages crawled and grepped",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "The site index reaches only volume tables of contents. Every «franceschi» match is «catasto franceschino» — the Franciscan cadastre, not the surname. Nothing at title level. One title worth noting for the other family: Niki Fakin, «Il catasto franceschino di Umago», Atti XXIX."
+  },
+  {
+   "src": "Centro di ricerche storiche, Rovigno — the full open-access corpus",
+   "what": "All 1,303 article PDFs of the «Atti», «Quaderni», «Collana degli Atti», «Monografie» and «Documenti», downloaded for full-text search on every spelling of the surname and on Gologorica, Gallignana, Agrons, Mione, Moncalvo, Seghetto and Sanvincenti",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Done. All 1,303 article PDFs downloaded, converted to text and searched on every spelling of the surname and on eleven place-names. 341 articles carry a mention; most are citations of Carlo or Camillo as authorities, which is itself a finding about how the family stands in the field. The substantive harvest: three Dean Brhan papers this archive had never seen, including his own footnote on the family — «presente in Istria dal 1650 circa, originaria di Mione» — and his judgement that their Carnian roots were «piuttosto deboli»; De Franceschi named among the Carnian households of Gallignana in the 1820 cadastre; De Franceschi tombs in the parish church of Svetvinčenat; Piero Defranceschi, garzone, aged nineteen, in Giobatta Lupieri's house; Sebastiano de Franceschi with a brother-in-law at Dignano; and Maria De Franceschi, married to the Mione weaver Giobatta Zanier. Also confirmed, independently: Bertoša's toponymic correction on Moncalvo, Matejčić on the palazzetto, and the 1679 headmen's list — all three of which this archive already had, which is a check on its own work."
+  },
+  {
+   "src": "Regional heritage catalogue of Friuli Venezia Giulia (patrimonioculturale.regione.fvg.it)",
+   "what": "«De Franceschi Giulio» — the drawings of Carlo's son in the Civico Museo Sartorio, Trieste",
+   "when": "Sept 2026",
+   "outcome": "blocked",
+   "got": "The portal refuses connections from this project's network at the transport level (no DNS from one route, connection refused from another). Not a bot check and nothing was circumvented. The holdings are known from public catalogue summaries: thirty-one initials for Caprin's «Il Trecento a Trieste» (1897), illustrations for «L'Istria nobilissima», and a headpiece drawn for Camillo's Arcadia essay of 1929–30. The individual sheet records remain unread."
+  },
+  {
+   "src": "«Atti e memorie della Società istriana», n.s. 2 (1952) — Camillo on the Cretan refugees",
+   "what": "Camillo De Franceschi, «Il Consiglio nobile di Parenzo e i profughi di Creta», AMSI n.s. 2 (1952). Found cited in Milena Joksimović, Tabula 17 (2020)",
+   "when": "Sept 2026",
+   "outcome": "pending",
+   "got": "Not digitised. Archive.org holds AMSI only to 1933. This is the paper most likely to settle whether the Umag–Seget family really came out of Crete after 1669 — written by a man of the Gologorica family who was a professional archivist. First item on the acquisition list."
+  },
+  {
+   "src": "Hrčak (hrcak.srce.hr) — the háček spellings",
+   "what": "«Defrančeski» and «Defrančeschi» run separately against the Croatian open-access journal portal",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "No article-level hits under either form. The háček spelling survives in the newspapers and in living use, not in the scholarship, which uses the Italian orthography throughout."
+  },
+  {
+   "src": "Kurelić, «Eagle and Lion» (CEU doctoral dissertation)",
+   "what": "Full text of 221 pages searched on every spelling of the surname and on Gologorica, Gračišće, Moncalvo, Agrons, Mione and Carnia",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Sent by David and, to this archive's discredit, filed under a placeholder name for a day. Six named Gologorica marriages from the Glagolitic Boljun register, 1585–1608 — Kovač, Kaligarić, Matijašić, Gašparić, Ilijašić, Sergović, Ančić, Križmanić, Gortan, Cinić — and no De Franceschi in the whole thesis. A controlled negative for the arrival date. Also the Gologorica–Tremaun boundary dispute of 19 February 1472 (HHStA Vienna; Kos, «Pet razvodov», 189–202), the earliest document naming the village that this archive has; and Svetvinčenat parish registers surviving from 1569 (baptisms) and 1581 (marriages)."
+  },
+  {
+   "src": "FamilySearch record indexes — the town sweep, rebuilt",
+   "what": "Six spellings of the surname across five country filters, thirty jobs, each paged to the index ceiling; every record matched whole against thirty-six place patterns",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "18,840 records read, 664 distinct people with a place, eighteen towns. Rijeka 206 (1620–1910), Svetvinčenat 142 (1666–1902), Ližnjan 81, Vodnjan 78, Split 40 (from 1581), Poreč 35, Rovinj 22, Labin 17, Vižinada 12, Pazin 8, Zagreb 6, Opatija 6, Trieste 3, Barban 2, Senj 2, Carnia 2, Gologorica 1, Čepić 1. Rebuilt from nothing after David caught the earlier method failing at Bakar: the old sweep matched a truncated summary field, not the whole record, and stopped after a couple of hundred results a spelling."
+  },
+  {
+   "src": "Hrvatski biografski leksikon — «Defrančeski, Ante»",
+   "what": "The national biographical dictionary entry, chased after David pointed at it",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Born Ližnjan near Pula 1 Feb 1894, died Skrad 27 Sept 1949. Kastav teachers' college 1912; volunteer on the Salonika front; Kotoriba and Čakovec 1920–24; Higher Pedagogical School Zagreb 1928; professor at the Zagreb teachers' training school; Ministry of Education Belgrade 1932–33; Metković 1941 and retired ill the same year; back to Zagreb 1946–47. Nine books, 1925–1940. Entry by Branko Pleše (1993), with sixteen items of secondary literature not yet worked through. He had stood on this site as a namesake with the note that nothing linked him beyond surname and country — Ližnjan is third of eighteen towns in the rebuilt sweep, with 81 people of the name in its registers."
+  },
+  {
+   "src": "«Libri žminjski, libar drugi» (Žminj 2008)",
+   "what": "Full text searched on every spelling and on Gologorica, Gračišće, Carnia, Agrons and Mione",
+   "when": "Sept 2026",
+   "outcome": "partial",
+   "got": "Sent by David. Every De Franceschi mention is a citation of Camillo's «Storia documentata della Contea di Pisino» as an authority — including, importantly, a Croatian edition cited as «De Franceschi 2003, Pazinska knežija» with page references, which is an acquisition target this archive did not have. The real find is elsewhere: Paolo Roseano's unpublished research on the Carnian families of Žminj, quoted there — recorded in Istria from the mid-seventeenth century, originally weavers and tailors, and «sve do 18. stoljeća mnogi od njih redovito boravili dijelom godine i u starom kraju, tj. Argonisu blizu Ovara u Karniji», many of them still spending part of each year back at Agrons near Ovaro; and marrying only girls from there, who stayed at home in Carnia while the men wintered in Istria."
+  },
+  {
+   "src": "Constructed illustrations (image model, from this archive's briefs)",
+   "what": "Eight scenes the archive can defend from documents, each written as a prompt with negative constraints and a list of details that must be right; the first — Imotski 1717 — generated and installed",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Standing rules, so nothing here can ever be mistaken for a source: no invented face is ever captioned with a real person's name; no invented lettering on a real inscribed stone and no invented heraldry for a family whose arms are documented; every image captioned as a constructed illustration with its departures from the record named; no fabricated documentary apparatus — no title block, scale bar, dimension, survey date; the unaltered original archived in the source library beside its brief, marked with whatever was removed. Briefs at notes/image-prompts.md. ALL EIGHT NOW DONE, seven published: the house at Gologorica, with the 1711 tablet deliberately blank; Imotski 1717; the road of the Furlans 1679; the Salamon palace; the mills at Perinuša; Crikvenica in the winter of 1943; Pfullingen 1944. Plus a lapidarius of Gračišće, published as the trade and explicitly NOT as a portrait of Antonio, because the model gave it a detailed invented face. TWO WITHHELD: the first Gologorica house, which carried a fabricated pseudo-Latin inscription across the 1711 tablet; and a close detail of the arms and the Madonna relief, because the coat of arms in it does not match the blazon Carlo gave Kobler and the carving the family photographed — a cross crossed by two arrows over a pomegranate. Both kept in the library marked WITHHELD. Four failure modes, each seen more than once: a caption burned into the picture; a watermark; an invented inscription or coat of arms on a real carved stone; and an image returned dressed as a measured conservation survey of a real protected building, with title block, scale bar, dimensions and date. Every one of them was caught before publication."
+  },
+  {
+   "src": "defranceski.com — the family's own Google Site",
+   "what": "All eleven pages captured as HTML; both Google MyMaps exported as KML; every external link on the site diffed against this archive's own; the linear family chart checked date by date against the Direct Line",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Done ahead of decommissioning. The chart's dates all match what is published here, most of them now with a register page behind them instead of a chart. Twenty-six web hosts the old site used were absent from this archive and are now recorded. Four things were genuinely new: the byname «Franceschi dalle Rose»; a German branch route Ližnjan → Monheim with a «Grga» who died at Zagreb and a Petar at Metzingen, four kilometres from Pfullingen; a layer of forty-four Veneto emigration hotspots ending at São Paulo, which is a candidate departure region for the Brazilian cluster this archive has never had one for; and two Dalmatian names, Tomasso and a Francesca de Franceschi of the 1500s. The whole capture is in the source library under «oldsite»."
+  },
+  {
+   "src": "Ližnjan — the parish record indexes, targeted",
+   "what": "Four spellings across three country filters, every record matched whole for Ližnjan; then every entry naming a Gregorius, Gregorio, Gregorii or Grga pulled out in full",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "127 entries of the surname at Ližnjan, 1788 onward. Grga is real: Gregorius Defranceski, aged 22 at his marriage on 10 June 1874, so born 1851, son of Gregorio Defranceschi and Agata Skifić, husband of Maria Vojnić, father of Anastasia (1875 and 1876), Maria (1878), Justina (1879), Maria (1882) and Josephus (1887). His daughter Justina married Josephus Fedel on 22 Nov 1898 and a Stana married Jacobus Vojnić on 7 Aug 1899 — Fedel and Vojnić being two of the surnames standing beside «Defrančeski Ante» in the Ližnjan subscription list of 1920. Behind Gregorio stands a Mattio De Franceschi and a Madalena Peucovich. Index entries only; the books are at Pazin and unread."
+  },
+  {
+   "src": "Monheim (Bavaria) and Zagreb — the rest of the map pin",
+   "what": "German record indexes, Croatian digitised newspapers, and burial indexes searched for a Defranceschi at Monheim and for a death of Grga at Zagreb",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "Nothing for either. The Monheim pin is Monheim in the Donau-Ries, not Monheim am Rhein — about a hundred kilometres from Metzingen, and Metzingen is four from Pfullingen. Both the Monheim line and «Grga dies in Zagreb» carry no note, no date and no document on the map they came from, and neither could be confirmed here. The nearest thing is a Zagreb grave for Marija Defrančeski, 1884–1971, two years off Grga's daughter Maria of 1882 — suggestive, not proof, and left as such."
+  },
+  {
+   "src": "MyHeritage — David's live family tree",
+   "what": "Read directly from his logged-in session: 459 individuals carrying the surname, harvested through the site's own lookup and person-panel endpoints, with their dates, places, relationships and source citations",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "The 2018 GEDCOM this project had been using holds 8,286 people; the live tree holds 15,643, and David's own verdict on the old file is «really old and really wrong». It is now retired. 211 of the 459 carry citations, 262 distinct FamilySearch arks between them. The direct line agrees wherever both hold a fact, and the tree supplies what this archive lacked: exact death dates for Antonius (4 Aug 1894) and for Giovanni Battista (14 Sep 1846), Gologorica rather than Gračišće as the 1787 birthplace, and an ark for the 1750 Giovanni that no page had ever been put in front of. Notes at notes/myheritage-reconciliation.md and notes/myheritage-key-rows.md."
+  },
+  {
+   "src": "MyHeritage — what the tree holds and this archive did not",
+   "what": "Compared row by row against the published site",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Antonius Franciscus Defranceschi, born Gologorica 31 January 1909, died at DACHAU 7 August 1945. Giuseppe de Franceschi, born Gračišće 12 March 1892, died New York City 26 April 1940, with six citations. Bruno Defranceschi, born Gologorica 20 November 1942, died 15 January 2023. Anna Maria Francisca, born Gologorica 1860, died Trieste 1941. A «SORAVITO De Franceschi» lineage at Mione running from a Francesco of 1450 to Francesco Andrea, died 1971 — one of them, Antonio Bartolomeo, going Mione to Nantes. Mione is the largest single place in the whole tree at 29 people, which this archive has treated as an origin and not as a living branch. And Marijana de Franceschi (Bitanga-Radovinović), confirming the Jagul marriage from the Imotski page."
+  },
+  {
+   "src": "Nati in Trentino (1815–1923)",
+   "what": "The Trentino provincial birth register, for Defranceschi at Castelnuovo, Telve and Strigno in the Valsugana",
+   "when": "Sept 2026",
+   "outcome": "blocked",
+   "got": "The database exists and covers exactly the parishes wanted, but the register search is behind «Ricerca ad uso dell'operatore» — an operator login. The public site search returns «Nessun risultato». Not circumvented. A written request to the Servizio coesione territoriale at Trento is the route."
+  },
+  {
+   "src": "CISEI — Centro Internazionale Studi Emigrazione Italiana",
+   "what": "The emigration database the literature still cites for Argentina, Brazil, USA, Canada and Australia",
+   "when": "Sept 2026",
+   "outcome": "blocked",
+   "got": "cisei.it is now a parked domain serving an ad redirect. The database is gone from the open web; the literature citing it is stale."
+  },
+  {
+   "src": "Museu da Imigração / Hospedaria de Imigrantes, São Paulo",
+   "what": "The route to the São Paulo arrival registers, 1882–1925",
+   "when": "Sept 2026",
+   "outcome": "pending",
+   "got": "The museum's own digital collection is real — over 250,000 images, enrolment books, ship lists, call letters — but the searchable interface was not reachable from the paths tried. The practical route is FamilySearch's «Brasil, São Paulo, Registros da Hospedaria de Imigrantes», which indexes the same registers and can be searched from a logged-in session. That is where a De Franceschi off a ship at Santos is entered by name with his home parish beside him."
+  },
+  {
+   "src": "David's Google MyMaps — the emigration layers",
+   "what": "«High Level of Emigration from Here» (44 pins) and «Italian Lines» (90 pins), read from the archived KML",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "A departure region for the Brazilian cluster, which this archive has never had. Scorzè, Moniego (Noale), Cornedo Vicentino, Castelgomberto and Pederobba in the Veneto — with «DE FRANCESCHI Luigi, spouse BAROLO Caterina Luigia, from Moniego, Noale, Venezia to São Paulo» and «Giuseppe Romano De Franceschi, born Scorzè 22 May 1835, died Moniego». And a second region entirely: the Castelnuovo pin is Castelnuovo in the Valsugana, Trentino — four kilometres from Telve, where David's tree holds eighteen people of this surname. The São Paulo destinations are all coffee-belt, which is a different and later migration from the Rio Grande do Sul colonies of 1875. Brazil is two stories, not one. Also on those layers: Castelnovo del Friuli to Trostberg in Bavaria (Peter DeFranceschi b. 19 Feb 1841); Mione to Biella; Bishop Lucio Soravito de Franceschi of Adria-Rovigo; and a France cluster around Metz, Nancy, Fréjus and Propriano."
+  },
+  {
+   "src": "Gradska groblja Zagreb — the city burial register",
+   "what": "Every spelling searched through the cemeteries' own OData service: Mirogoj, Miroševac, Markovo polje and twenty-five other grounds, 1750 to now",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Thirteen burials of the name, and the register carries parents' names on some of them. Milan Defrančeski (d. 2001, aged 78) and Dragutin (d. 2004, aged 79) are entered as children of «GRGO I MARIJA» and «MARIJA I GRGA» — two brothers naming the same father, which is the Grga of David's old map pin, now with two graves that can be visited. It also contradicts the MyHeritage tree, which gives Grgo as born 1931: a man whose sons were born about 1923 and 1925 was not. Marija Defrančeski, d. 3 June 1971 aged 87, Mirogoj 147A/II/58, with Zdenka, dead 16 March 1945 aged two and not buried until Christmas Eve 1971 — the child moved in beside her. Antun (d. 5 June 1943, aged 67) and Justina (d. 1963, aged 78) share Mirogoj 136/II/43. And an Uršula Defrančeski, born about 1892, at Miroševac. Endpoint: axiomgis.com/Zagreb/Trazilica.svc/PvWebUkopani."
+  },
+  {
+   "src": "Andrea de' Franceschi and Titian",
+   "what": "The Grand Chancellor's portraits — Detroit, Hampton Court, Washington — and the 2016 Artibus et Historiae paper",
+   "when": "Sept 2026",
+   "outcome": "partial",
+   "got": "Closed as far as it can be from here, after a year on the roadmap. Grand Chancellor of Venice 1529 to his death in 1551; Titian's friend; painted into the «Presentation of the Virgin» in the Accademia; owned two portraits of himself by Titian, the head in both taken from Titian's own picture now in Detroit. The Hampton Court double portrait was cleaned in 1958 and gave up a third figure painted out earlier. The National Gallery of Art in Washington holds a further portrait it declines to call Titian. Not kin, and never claimed as such. Still unread: Charles Hope's «Titian's portraits of Grand Chancellor Andrea de' Franceschi», Artibus et Historiae 74 (2016), 139–151 — the academia.edu copy sits behind Cloudflare. The National Gallery of Art site requires JavaScript and the National Trust site served a CAPTCHA; neither was circumvented, and the facts above come from those institutions' own catalogue text as quoted elsewhere."
+  },
+  {
+   "src": "Francesco de' Franceschi, the painter",
+   "what": "The fifteenth-century Venetian painter carried on the roadmap as unfinished",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Active 1443–1468, birth and death unknown. Religious work on church commission; the style follows Michele Giambono and he may have worked with Antonio Vivarini. An altarpiece of 1447 in the Museo Civico at Padua; a St Mary Magdalen and a St Catherine of Alexandria in the Ashmolean at Oxford; a St Michael the Archangel and a St Mamas series. Not kin — two and a half centuries before this family reaches Istria. Roadmap item closed."
+  },
+  {
+   "src": "«Franceschi dalle Rose»",
+   "what": "The byname on David's old map, pinned Ravenna → Venice 1040 → Giudecca",
+   "when": "Sept 2026",
+   "outcome": "nothing",
+   "got": "No such family in the literature. The byname «dalle Rose» belongs to the Donà — the Donà dalle Rose, a Venetian noble house with origins in Romagna and Altinum, two Doges, and a surviving main branch whose archive is at the Museo Correr. The pin's Ravenna-to-Venice sequence is the Donà origin story. Recorded as a probable conflation so that it is not repeated."
+  },
+  {
+   "src": "Geni — the Obitelj Franceschi noble-family project",
+   "what": "The Croatian nobiliary project David's old site linked",
+   "when": "Sept 2026",
+   "outcome": "blocked",
+   "got": "Behind Incapsula bot protection; not circumvented."
+  },
+  {
+   "src": "The family's own field photographs, 2026",
+   "what": "491 images from six visits — Carnia (Ovaro, Mione, Muina, Agrons), Gologorica house and graves, Gračišće, Seget and Umag, Crikvenica–Klenovica–Novi–Senj, and the Pazin reading room — read as contact sheets so that the frames worth publishing can be chosen",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Read as contact sheets and plated. **31 published so far.** Gologorica (11): the builder's tablet, the memorial to Carlo, the arms cartouche with the Madonna aedicule beneath it, the blazon in the tomb pediment and the same arms weathered nearly smooth on an older stone, the tomb, the house from the lane, the arcaded end with the number 22, a wall niche, a carved ring, the chapel. Carnia (10): SORAVITO DE FRANCESCHI cut in stone at Ovaro with Anna Crosilla his widow; De Franceschi Ugo 1930–2020; Antonio 1877–1962 with Marta Anzola dead at twenty-five; Gio. Batta 1880–1963; Francesco 1887–1945; an 1850s stone; the war memorial carrying Vittorio and Isidoro De Franceschi; the campanile of Santa Maria di Gorto over the graves — the pieve whose parishes drew up the 1679 return. Gračišće (3): «F DE FRANCESCHI» with Marfan Virginija and Nazarijo; the Salamon grave, which turns Francisca Salamon from a surname into a family still in that ground; and a Marfan stone. Umag and Seget (7): the tomb's blue-and-gilt ironwork lunette with a lion rampant beneath a star under a coronet — the other family's arms, against Gologorica's cross, arrows and pomegranate; «FAMIGLIA DE FRANCESCHI — SEGHETTO»; «FAMIGLIA ETTORE DE FRANCESCHI»; a stone of 1848; the house at Seget; the tomb whole; the pine-cone finial. Living people appear in many frames and are excluded throughout. Klenovica and the coast (6): «OBITELJ DEFRANCESKI» with three portrait medallions — the household under the name it took on the coast — and then the Kalanj, who are everywhere in that ground: Marija 1889–1970, Josip, Franjo and Zora on one stone, Rozalija Anton Marija and Milan on another, Vinko and Paulina, Tomislav, Marijan, and the Kalanj-Perković. Anton Rudolf's mother was Ana Kalanj of Klenovica house 22, and it is her family and not his that stayed. Also a partisan star laid in white stone among the graves. **39 field plates published across six places.** The Pazin reading-room set of 117 is register images rather than ground; two of them are now published on The Eleven — the Gračišće Status Animarum for house 24, which carries the midwife Maria Fernazar's household, the eleven children in one column, and Daniel's household beneath. That page also settled Josip's birth at 22 March 1863 and joined Basilio of New York to this line."
+  },
+  {
+   "src": "Documents and photographs supplied by the family, 8 September 2026",
+   "what": "Five items sent in one morning: the Zdravko plaque at Horsham, Ivan's grave at Senj, the whole opening of Anton Rudolf's 1890 baptism, a marriage register opening of 1772, and the 1951 Senj birth certificate — checked one by one against what this archive already held",
+   "when": "Sept 2026",
+   "outcome": "yield",
+   "got": "Three of the five were already here and all three were held in a worse copy. The Horsham plaque was a 1000-pixel thumbnail out of the family tree package and is now the 3648-pixel camera original, with the founder's mark legible. Ivan's grave was **400 pixels wide** and the dates could not be read at all; at 2368 they read **1925–1995**. Anton Rudolf's 1890 baptism was a cropped strip of entry 9, and the whole page adds three things the strip cut off — a pencil note «vjenčao se na Crikvenici», a remarks column explaining that the parents were staying with the wife's people at Klenovica, and the printer's line «Tisak H. Luster u Senju». The 1951 certificate was new, and carries the word STATELESS against the father in his own country. The 1772 marriage was new **as an image**: this archive had the FamilySearch index row for it and had written that an index is only an index. It is now the page."
+  }
+ ]
 }
