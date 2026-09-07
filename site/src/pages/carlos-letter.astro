@@ -204,6 +204,25 @@ import k from "../data/kobler.json";
 </section>
 
 <section class="blk">
+  <h2>{k.bakar.heading}</h2>
+  <p class="dek" style="margin-top:10px">{k.bakar.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {k.bakar.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{k.bakar.honest}</p>
+  <div class="one" style="border-left-color:var(--terra);margin-top:20px">
+    <div class="lab">And two names for the Vodnjan question</div>
+    <p style="margin-top:8px">{k.bakar.wagna}</p>
+  </div>
+  <p class="cap" style="margin-top:14px">{k.bakar.source_bakar}</p>
+</section>
+
+<section class="blk">
   <h2>{k.obituary.heading}</h2>
   <p class="dek" style="margin-top:8px">{k.obituary.lead}</p>
   <div class="qz" style="margin-top:18px">
