@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import SceneCrikvenica from "../components/SceneCrikvenica.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
@@ -211,6 +212,8 @@ const g = c.nextGen;
   </div>
   <p class="cap" style="margin-top:14px">{c.reg1943.source_1943}</p>
 </section>
+<section class="blk"><SceneCrikvenica /></section>
+
 
 
   <Sources ids={["mftpkg", "maticne", "familysearch", "arolsen", "dapa", "myheritage"]} />

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import ScenePfullingen from "../components/ScenePfullingen.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
@@ -172,6 +173,8 @@ import d from "../data/pfullingen.json";
   <p class="prose note" style="margin-top:16px">{d.employers.next}</p>
   <p class="cap" style="margin-top:14px">{d.employers.source_emp}</p>
 </section>
+<section class="blk"><ScenePfullingen /></section>
+
 
   <Sources ids={["arolsen", "peterfile", "findagrave", "mftpkg", "istg"]} />
 </Base>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import ScenePerinusa from "../components/ScenePerinusa.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
@@ -123,6 +124,8 @@ import d from "../data/imotski.json";
   </div>
   <p class="cap" style="margin-top:14px">{d.jagul.source_j}</p>
 </section>
+<section class="blk"><ScenePerinusa /></section>
+
 
 
   <Sources ids={["myheritage", "findagrave", "dapa"]} />
