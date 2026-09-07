@@ -119,6 +119,10 @@ for it in kb["funeral"]["items"]:
     add("Press notice", it["kicker"], it["cite"], "/carlos-letter/",
         f"{it.get('text','')} {it.get('quote','')} {it.get('en','')} {it.get('why','')}"[:400])
 
+add("Person", "Giovanni Antonio de Benzoni", "Fiume 1687 – Fiume 1745 · vicar general of the bishop of Pedena, bishop of Senj and Modrus 1730", "/carlos-letter/", kb["benzoni"]["en"])
+add("Person", "Giovanni Battista Defranceschi", "suppanus (headman) of Gologorica, godparent at Gallignana 26 June 1743", "/direct-line/", "Patrini fuerunt R.di D.ni Joannes Grach, et Joanna uxor Suppani Jo: Baptistae Defranceschi a Golagoriza.")
+add("Person", "Joannes Petrus Defranceschi", "Dominus, godfather at Gallignana 5 May 1744", "/direct-line/", "Patrini fuerunt D.nus Joannes Petrus Defranceschi et Mattia uxor supradicti Joannis Grach.")
+
 sjb = L("senjline.json")["behind"]
 for key, lab in (("blazevic", "Blažević line"), ("zubrinic", "Žubrinić line")):
     for who, what in sjb[key]["rows"]:

@@ -199,5 +199,22 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 </section>
 
 
+
+<section class="blk">
+  <h2>{dl.gologoricamen.heading}</h2>
+  <p class="dek" style="margin-top:8px">{dl.gologoricamen.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {dl.gologoricamen.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{dl.gologoricamen.weight}</p>
+  <p class="prose" style="margin-top:16px">{dl.gologoricamen.shape}</p>
+  <p class="cap" style="margin-top:14px">{dl.gologoricamen.source_men}</p>
+</section>
+
   <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak", "ivetic", "attirovigno", "archiveorg"]} />
 </Base>
