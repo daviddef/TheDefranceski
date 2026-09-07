@@ -68,5 +68,39 @@
       }
     ]
   },
-  "why": "Three things follow. The first is that a map pin with no source is worth chasing: Grga existed, and a whole household came back with him. The second is that this archive got the identification wrong — it found a Gregorius at Ližnjan and assumed he was the one, when the man on the pin was born eighty years later. That correction came from the family's own tree, not from the archive's cleverness, and it is left standing here rather than quietly rewritten. The third is unchanged: Monheim still carries no source of any kind, and stays unverified on this page in the same size type as everything else."
+  "why": "Three things follow. The first is that a map pin with no source is worth chasing: Grga existed, and a whole household came back with him. The second is that this archive got the identification wrong — it found a Gregorius at Ližnjan and assumed he was the one, when the man on the pin was born eighty years later. That correction came from the family's own tree, not from the archive's cleverness, and it is left standing here rather than quietly rewritten. The third is unchanged: Monheim still carries no source of any kind, and stays unverified on this page in the same size type as everything else.",
+  "zagreb": {
+    "heading": "Zagreb: thirteen graves, and the parents cut into two of them",
+    "lead": "The city cemeteries of Zagreb publish a burial register — Mirogoj, Miroševac, Markovo polje and the rest — and it carries, for some burials, the names of the dead person's parents. Searched under every spelling in September 2026. It answers the map pin.",
+    "rows": [
+      {
+        "lab": "Milan and Dragutin, sons of Grgo and Marija",
+        "text": "**Milan Defrančeski**, died 24 May 2001, aged 78 — so born about 1923 — Mirogoj RKT 96A/II/61, parents entered as **«GRGO I MARIJA»**. And **Dragutin Defrančeski**, died 17 May 2004, aged 79 — born about 1925 — Mirogoj RKT 136/II/26, parents **«MARIJA I GRGA»**. Two brothers, in two graves, both naming the same father and mother. **This is the Grga of the pin, and he is now the father of two men whose graves can be visited.**",
+        "key": true
+      },
+      {
+        "lab": "And it puts a date on him that the tree does not",
+        "text": "David's MyHeritage tree gives «Gregorius ‘Grgo’ Defranceski, born 1931 at Ližnjan, died at Zagreb». But a man whose sons were born in 1923 and 1925 was not born in 1931. Either the tree's year is wrong, or its Grgo is a third man of the name — a grandson, perhaps, named for him. Grga the father of Milan and Dragutin was born somewhere around 1890 to 1900. The archive is not going to pick a year; it is going to say that two independent records disagree and that the cemetery's is the one with a document behind it.",
+        "key": true
+      },
+      {
+        "lab": "Marija, 1884–1971 — and the child in her grave",
+        "text": "**Marija Defrančeski**, died 3 June 1971, aged 87, so born about 1884: Mirogoj RKT 147A/II/58. In the same grave, **Zdenka Defrančeski, died 16 March 1945, aged two**, and not buried until 24 December 1971 — which means the child's remains were moved into her grave after Marija died. A little girl who died in March 1945, in the last weeks of the war, and waited twenty-six years to be laid with her.",
+        "key": true
+      },
+      {
+        "lab": "Antun and Justina, in one grave",
+        "text": "**Antun Defrančeski**, died 5 June 1943 aged 67 — born about 1876 — and **Justina Defrančeski**, died 26 November 1963 aged 78 — born about 1885. Both Mirogoj RKT 136/II/43, and both buried on the same day, 28 November 1963: he was moved to lie with her when she died, twenty years after his own death. Justina is the name of Grga's daughter, baptised at Ližnjan on 4 October 1879 — nine years off, and this archive is not going to make them the same woman on a name."
+      },
+      {
+        "lab": "An Uršula, at Miroševac",
+        "text": "**Uršula Defrančeski**, died 7 July 1963, aged 71, so born about 1892 — Miroševac RKT 240/I/45, sharing the grave with two men both called Josip, one dead 21 February 1976 aged 88 and the other 3 December 1979. Uršula is the name David's own great-grandmother carried. This is a different woman in a different city, and it is worth writing down that the name is in both branches."
+      },
+      {
+        "lab": "And the rest of them",
+        "text": "**Blanka Defranceski**, born 16 December 1928, died 17 April 2019 aged 90, Markovo polje RKT 34/I/1610, parents **«ANĐELA I JOSIP»**. **Štefica Defrančeski**, born 7 December 1927, died 15 October 2016, parents «PAVAO I CECILIJA», buried in Milan's grave — so his wife. **Ana Defrančeski**, buried at Miroševac 3 May 1990, and a **Josip Defrancevski**, dead 29 April 1955 aged 48. Thirteen burials of the name in the city, spread over four cemeteries and eighty years."
+      }
+    ],
+    "source_z": "Gradska groblja Zagreb, «Tražilica pokojnika» — the city cemeteries' burial register, queried through its own OData service in September 2026 under Defrance*, Francesk* and Franceschi. Grave references are as the register gives them: cemetery, section, field, class, number. Parents' names appear only where the register carries them."
+  }
 }
