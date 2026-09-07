@@ -4,6 +4,8 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/senjline.json";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 ---
 <Base
   title="The Senj Line"
@@ -124,17 +126,27 @@ import d from "../data/senjline.json";
 
 <section class="blk">
   <h2>{d.senjgraves.heading}</h2>
-  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+  <div style="margin-top:22px"><Plates ids={d.senjgraves.ids} /></div>
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
     {d.senjgraves.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:20px">{d.senjgraves.milka}</p>
+  <p class="prose note" style="margin-top:20px" set:html={d.senjgraves.milka.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.senjgraves.corrections.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
   <p class="cap" style="margin-top:14px">{d.senjgraves.source_senjgraves}</p>
 </section>
+<Lightbox />
 
   <Sources ids={["maticne", "myheritage", "familysearch", "mftpkg", "gologorica2026"]} />
 </Base>
