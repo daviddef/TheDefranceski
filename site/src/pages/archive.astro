@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import registers from "../data/registers.json";
 import fs from "../data/familysearch.json";
@@ -23,6 +24,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   </div>
   <div class="note" style="margin-top:28px">Custody codes: <b>ŽU</b> parish office, still in the village · <b>BA Poreč</b> diocesan archive of Poreč-Pula · <b>DAPA</b> State Archives in Pazin · <b>MU</b> civil registry office. The State Archives states publicly that its staff do not undertake genealogical research, will not act on a request lacking a name, an approximate period and a place, and will not review large quantities of material. Research is done by the user in the reading room, by appointment.</div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>Search the holdings</h2>
@@ -64,6 +66,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   apply();
 })();
 </script>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>What FamilySearch holds — the microfilm</h2>
@@ -79,6 +82,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   <p class="cap">{fs.source}</p>
   <div class="note" style="margin-top:24px">Two results matter most here. <b>Omiš opens in 1588</b> — two years before Gaspar de Franceschi is said to have owned a warship there — so the Dalmatian family's earliest claim is testable. And <b>Ovaro has no parish books on film at all</b>, only the Napoleonic civil registration, which confirms that the Carnian church registers before 1806 exist nowhere online and must be asked for at the parish.</div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>The indexed records</h2>
@@ -105,6 +109,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   </div>
   <p class="cap">Country figures are raw index hits and are fuzzy — they include Franceschi, Franceschini and De Francesco. They show where to look, not how many people are ours. The search interface stops returning new results past about 1,100 per query, so exhaustive worldwide harvesting needs the query split by spelling and place; that work is not finished.</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>The named dead</h2>
@@ -146,6 +151,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   sel.addEventListener('change',apply); cent.addEventListener('change',apply); apply();
 })();
 </script>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>Austria, Tyrol and the other family</h2>
@@ -158,6 +164,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
     <p>A third group sits at <strong>Klagenfurt in Carinthia</strong>, spelling it <em>Franceschinis</em> — Vittorio Franceschinis and Margaretha Bierlotter, five children between 1900 and 1909. The <em>-is</em> ending is Friulian, and Carinthia borders Friuli. These are almost certainly Carnian emigrants who went north instead of south, the other half of the road that took a De Franceschi of Mione into the County of Pazin in 1679.</p>
   </div>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>Two men at Gusen</h2>
@@ -175,6 +182,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   </div>
   <div class="note" style="margin-top:22px">Recorded as <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> dates and places; the identification of that Gusen with the concentration camp is <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> from the place and the dates, and the underlying record set has not yet been traced to its collection.</div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>The systematic sweep</h2>
@@ -208,6 +216,7 @@ const dig=registers.filter(r=>r.digitised==="yes").length;
   </div>
   <p class="cap">{sweep.source} Eight false matches were dropped where a Croatian or Friulian place name resolved to a Tuscan one — “Prato Carnico” pulling a register of Prato near Florence, for instance.</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>The images, which are a different thing entirely</h2>

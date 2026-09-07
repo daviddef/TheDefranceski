@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Household from "../components/Household.astro";
 import hs from "../data/households.json";
@@ -28,6 +29,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
   </div>
   <div class="note" style="margin-top:28px">How this is built, and where it can be wrong. Each indexed record names its parents. Grouping records by a normalised parent pair recovers the sibling set — but the index writes the same man as <em>Valentino</em>, <em>Valentini</em> and <em>Valentinus</em>, and the same woman as <em>Ursula</em>, <em>Ursulæ</em> and <em>Orsola</em>, so a normaliser collapses Latin case endings and known spelling variants before grouping. Two different men of the same name in the same parish will merge wrongly. Every household here is <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> and needs the register page to confirm it.</div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>The large households</h2>
@@ -36,6 +38,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
     {big.map(h => <Household h={h} />)}
   </div>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>The daughters' households</h2>
@@ -45,6 +48,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
   </div>
   <div class="note" style="margin-top:26px">These come from sweeping 33 in-law surnames through the index and keeping only records that name our family — 209 of them. <strong>Francesca Defranceschi and Giovanni Bergamo</strong> had seven children between 1831 and 1846. <strong>Jacoba Defranceschi married a Johannes Baptista Crosilla</strong> — the Crosilla being one of the leading houses of Mione — and their children are recorded in 1831 and 1833; she was buried as his wife in 1882. Two more daughters married a Moscarda and a Tamborin at Fažana within a year of each other.</div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>Smaller groups</h2>
@@ -53,6 +57,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
     {rest.map(h => <Household h={h} />)}
   </div>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>Where they sit</h2>
@@ -62,6 +67,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
       <tr><td>{p}</td><td class="m">{n}</td></tr>))}</tbody></table>
   </div>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>Linked into lineages</h2>
@@ -78,6 +84,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
 </section>
 
 {lin.ambiguous.length > 0 && (
+<Rule name="loom" />
 <section class="blk">
   <h2>Too ambiguous to draw</h2>
   <p class="dek">Where two or more men of the same name could equally be the father. Published because the next person to read the register pages will resolve them in an afternoon.</p>

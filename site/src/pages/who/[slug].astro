@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
 import d from "../../data/dossiers.json";
 export function getStaticPaths() {
@@ -27,6 +28,7 @@ const groups = Object.entries(byPage);
 </section>
 
 {groups.map(([title, g]) => (
+<Rule name="arrows" />
   <section class="blk">
     <h2>{g.page ? <a href={u(g.page)}>{title}</a> : title}</h2>
     <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px">
@@ -34,6 +36,7 @@ const groups = Object.entries(byPage);
     </div>
   </section>
 ))}
+<Rule name="pomegranate" />
 
 <section class="blk">
   <p class="prose note">{d.note}</p>

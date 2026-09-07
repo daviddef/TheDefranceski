@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import kv from "../data/kvarner-books.json";
 import pb from "../data/parishbooks.json";
@@ -29,6 +30,7 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
     <p>And the marriage books matter more than the baptisms here. The Gologorica registers show that <em>no Defranceschi married in their own parish between 1771 and 1789</em> — the men married in their brides' parishes. Those marriages are in this ring.</p>
   </div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>The rest of Istria</h2>
@@ -43,6 +45,7 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
   </div>
   <p class="cap">{pb.source}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>The Kvarner coast and the Vinodol</h2>

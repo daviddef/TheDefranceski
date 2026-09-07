@@ -1,5 +1,6 @@
 ---
 import { u } from "../lib/url.js";
+import Rule from "../components/Rule.astro";
 import Base from "../layouts/Base.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
 import Chip from "../components/Chip.astro";
@@ -88,6 +89,7 @@ const finds = [
     ))}
   </div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>Recently found</h2>
@@ -103,6 +105,7 @@ const finds = [
   </div>
   <p class="cap"><a href={u("/research-log/")}>The research log →</a></p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>There is no single Defranceschi family</h2>
@@ -121,6 +124,7 @@ const finds = [
     ))}
   </div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>Three places, three histories</h2>

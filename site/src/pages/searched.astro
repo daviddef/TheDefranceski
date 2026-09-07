@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/searched.json";
@@ -22,6 +23,7 @@ const groups = order.map(k => [k, d.rows.filter(r => r.outcome === k)]);
 </section>
 
 {groups.map(([k, rows]) => rows.length > 0 && (
+<Rule name="arrows" />
   <section class="blk">
     <h2>{label[k]}</h2>
     <div class="scroll" style="margin-top:20px">
@@ -39,6 +41,7 @@ const groups = order.map(k => [k, d.rows.filter(r => r.outcome === k)]);
     </div>
   </section>
 ))}
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>How to read this</h2>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import mig from "../data/migration.json";
 const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
@@ -25,6 +26,7 @@ const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
     </table>
   </div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>Where the records are</h2>
@@ -45,11 +47,13 @@ const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
     <p>And nothing yet comes from a <strong>Trieste departure list</strong>. Trieste was the Austro-Hungarian emigration port, and the Austro-Americana line sailed from it to New York, but its outward manifests are not in the collections searched here. That is the single most valuable gap left on the leaving side.</p>
   </div>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>What is not published here</h2>
   <div class="note">{mig.rule} Of {mig.total} records found, {mig.published} meet that test. The rest are Social Security, residence and public-records entries for people who may be alive, and they are excluded from the build rather than hidden in it.</div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{mig.conterosso.heading}</h2>

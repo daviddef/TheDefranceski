@@ -1,0 +1,19 @@
+---
+import Motif from "./Motif.astro";
+const { name = "arrows", label } = Astro.props;
+---
+<div class="mrule" role="presentation">
+  <span class="ln"></span>
+  <span class="mk"><Motif name={name} size={26} /></span>
+  {label && <span class="lb">{label}</span>}
+  <span class="ln"></span>
+</div>
+<style>
+  .mrule { display:flex; align-items:center; gap:14px; margin:38px 0 6px; }
+  .mrule .ln { flex:1; height:1px; background:var(--rule); }
+  .mrule .mk { opacity:.75; flex:0 0 auto; }
+  .mrule .lb {
+    font-family:var(--sans); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-3); flex:0 0 auto;
+  }
+</style>

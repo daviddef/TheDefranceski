@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
 import d from "../../data/dossiers.json";
 const people = Object.values(d.people).sort((a, b) => a.name.localeCompare(b.name));
@@ -12,6 +13,7 @@ const total = people.reduce((s, p) => s + p.n, 0);
   <p class="prose note">{d.note}</p>
 </section>
 {letters.map(L => (
+<Rule name="arrows" />
   <section class="blk">
     <h2>{L}</h2>
     <div class="grid g3" style="margin-top:16px">

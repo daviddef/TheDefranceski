@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Pedigree from "../components/Pedigree.astro";
 import g from "../data/gologorica.json";
@@ -17,6 +18,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     <p>Above them stands <strong>Dominus Josephus Defranceschi</strong> and his wife <strong>Helena</strong>, who appear through the 1760s and 1770s as godparents — the title <em>Dominus</em> marking the family's standing. And the parish priest of the 1780s was himself one of them: he signs <em>“Ego Joannes Mathias Franceschi Parochus.”</em></p>
   </div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>The pedigree</h2>
@@ -25,6 +27,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     <div style="margin-top:34px"><Pedigree famId={r} /></div>
   ))}
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>Carlo, in his own register</h2>
@@ -35,6 +38,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     <p>One of the ten was born abroad. <strong>Aloysius</strong>, 4 May 1832, is recorded <em>natus Polonia</em> — born in Poland. Four of the children were not baptised at Gologorica at all, which fits a household that moved.</p>
   </div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>What the registers could not give</h2>
@@ -46,6 +50,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   </div>
   <div class="note" style="margin-top:24px">A reading trap worth carrying forward: in this cursive <em>defuncti</em> — “of the late” — looks very like <em>Defran-</em>. A separate family called <strong>Deprato</strong> also appears constantly as godparents. Neither is this family.</div>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>And a stonemason at Gračišće</h2>
@@ -60,6 +65,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div class="note" style="margin-top:24px">Worth correcting a claim made earlier in this archive. The State Archives in Pazin does say publicly that its staff will not undertake extensive genealogical research — but this record shows what they <em>will</em> do: given a name, a place and a period, they searched the register, certified the copy and posted it to Australia, for a hundred and seventeen kuna. The refusal is of open-ended research, not of a specific request.</div>
   <p class="cap">{j.source}</p>
 </section>
+<Rule name="arcade" />
 <section class="blk">
   <h2>{g.chronicle.heading}</h2>
   <p class="dek" style="margin-top:10px">{g.chronicle.lead}</p>
@@ -114,6 +120,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:14px">{g.chronicle.life.note}</p>
   <p class="cap" style="margin-top:14px">{g.chronicle.source}</p>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>{g.argument.heading}</h2>
@@ -161,6 +168,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:24px">{g.argument.why}</p>
   <p class="cap" style="margin-top:14px">{g.argument.sourcing}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{g.dialect.heading}</h2>
@@ -176,6 +184,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:22px">{g.dialect.why}</p>
   <p class="cap" style="margin-top:14px">{g.dialect.source}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{g.bandnight.heading}</h2>
@@ -195,6 +204,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:22px">{g.bandnight.caution}</p>
   <p class="cap" style="margin-top:14px">{g.bandnight.source}</p>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{g.bembo.heading}</h2>
@@ -218,6 +228,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:20px">{g.bembo.caution}</p>
   <p class="cap" style="margin-top:14px">{g.bembo.source}</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>{g.palazzetto.heading}</h2>
@@ -251,6 +262,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   </div>
   <p class="cap" style="margin-top:18px">{g.palazzetto.source_palazzo}</p>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>{g.casa31.heading}</h2>
@@ -274,6 +286,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   </div>
   <p class="cap" style="margin-top:16px">{g.casa31.source_casa31}</p>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>{g.house.heading}</h2>
@@ -315,6 +328,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:20px">{g.house.todo}</p>
   <p class="cap" style="margin-top:14px">{g.house.source_house}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{g.carlograve.heading}</h2>
@@ -352,6 +366,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:20px">{g.carlograve.todo}</p>
   <p class="cap" style="margin-top:14px">{g.carlograve.source_grave}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{g.bishop.heading}</h2>
@@ -367,6 +382,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:24px">{g.bishop.why}</p>
   <p class="cap" style="margin-top:14px">{g.bishop.source}</p>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{g.first1661.heading}</h2>
@@ -391,6 +407,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose note" style="margin-top:16px">{g.first1661.hauptmann}</p>
   <p class="cap" style="margin-top:14px">{g.first1661.source_1661}</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>{g.press.heading}</h2>
@@ -406,6 +423,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   {g.press.what && <p class="prose note" style="margin-top:22px">{g.press.what}</p>}
   <p class="cap" style="margin-top:14px">{g.press.source_press}</p>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>{g.lives.heading}</h2>
@@ -421,6 +439,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   {g.lives.method && <p class="prose note" style="margin-top:22px">{g.lives.method}</p>}
   <p class="cap" style="margin-top:14px">{g.lives.source_before || g.lives.source_lives}</p>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>{g.before1661.heading}</h2>

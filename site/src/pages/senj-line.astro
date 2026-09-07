@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/senjline.json";
@@ -119,6 +120,7 @@ import d from "../data/senjline.json";
   </div>
   <p class="cap" style="margin-top:16px">{d.behind.source_behind}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{d.senjgraves.heading}</h2>

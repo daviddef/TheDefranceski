@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import NameDrift from "../components/NameDrift.astro";
 import Distribution from "../components/Distribution.astro";
@@ -13,6 +14,7 @@ import gn from "../data/givennames.json";
 <section class="blk">
   <NameDrift />
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>Why each form exists</h2>
@@ -26,6 +28,7 @@ import gn from "../data/givennames.json";
   </div>
   <div class="note" style="margin-top:26px">Two political events force name changes rather than merely allowing them. Between 1918 and 1943 Italian authorities in Istria Italianised Slavic surnames wholesale — by translating the meaning where there was one, otherwise by clipping and re-suffixing. After 1945 the pressure ran the other way, and some families who changed back in 1956 kept the Italianised spelling anyway. A Defranceschi in Istria may therefore appear under a name that is not etymologically this name at all — and a family of entirely different origin may appear under yours.</div>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>What the spelling does and does not show</h2>
@@ -36,6 +39,7 @@ import gn from "../data/givennames.json";
     <p>And it is no longer an inference. Carlo De Franceschi, writing to Kobler about 1873, says the Austrian authorities took the Italian <em>de</em> for a claim of nobility — not knowing it expresses the house — and so wrote <em>Defranceschi</em> in their decrees; some of the family adopted the fused form rather than risk the fine for arrogating a title they could not prove, while others held to <em>De Franceschi</em> and a few went to plain <em>Franceschi</em>. <a href="/carlos-letter/">The letter is here</a>.</p><p>The fusion is therefore an Austrian administrative habit — it is the same habit behind the modern concentration of the fused spelling in Trentino, Austrian until 1918 and today home to 74 per cent of Italy's Defranceschi. But after 1815 the whole peninsula was Austrian, so the habit had a hundred years to reach the Venetian side too. And in all of Istria in 1945 there was not one household spelling it plainly <em>Franceschi</em>.</p>
   </div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>Where the name is now</h2>
@@ -51,6 +55,7 @@ import gn from "../data/givennames.json";
   <div style="margin-top:22px"><Distribution spelling="Franceschi" /></div>
   <p class="cap">Franceschi without the prefix is a different order of magnitude and a different history — heavily Corsican and Caribbean-Latin American. Shared spelling is not shared descent. Source: Forebears.</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>Three Croatian clusters, three fates</h2>
@@ -69,6 +74,7 @@ import gn from "../data/givennames.json";
     <p>And the Dalmatian spelling has a cause no other form on this page shares. Their <em>de</em> was not dropped by a clerk or worn away by emigration. It was <strong>abolished by decree of the Napoleonic administration</strong>, which stripped nobiliary particles — so the descendants of a count who stormed Imotski in 1717 are plain Franceschi today.</p>
   </div>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>Every spelling, counted</h2>
@@ -83,6 +89,7 @@ import gn from "../data/givennames.json";
   </div>
   <p class="cap">Source: {names.spellings_world.source}. {names.spellings_world.note} Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>And the given names move too</h2>
@@ -100,6 +107,7 @@ import gn from "../data/givennames.json";
     <p>Adding the Slavic and English forms alone merged three separate Rijeka households of the 1620s into one — <strong>Gioannis Antonÿ De Franceschi and Lutia</strong>, six children between 1626 and 1632 — which had been split three ways purely because the index wrote his name differently on different pages.</p>
   </div>
 </section>
+<Rule name="arrows" />
 <section class="blk">
   <h2>{names.zagreb.heading}</h2>
   <p class="dek" style="margin-top:10px">{names.zagreb.lead}</p>
@@ -111,6 +119,7 @@ import gn from "../data/givennames.json";
   <p class="prose note" style="margin-top:16px">{names.zagreb.more}</p>
   <p class="cap" style="margin-top:14px">{names.zagreb.source}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{names.sarenjaci.heading}</h2>
@@ -132,6 +141,7 @@ import gn from "../data/givennames.json";
   <p class="prose note" style="margin-top:22px">{names.sarenjaci.caution}</p>
   <p class="cap" style="margin-top:14px">{names.sarenjaci.source}</p>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{names.inuse.heading}</h2>

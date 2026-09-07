@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/listria.json";
@@ -102,6 +103,7 @@ import d from "../data/listria.json";
   <p class="prose note" style="margin-top:22px">{d.otherbook.want}</p>
   <p class="cap" style="margin-top:14px">{d.otherbook.source_other}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{d.otherbook.found.heading}</h2>

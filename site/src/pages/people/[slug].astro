@@ -1,5 +1,6 @@
 ---
 import { u } from "../../lib/url.js";
+import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
 import Chip from "../../components/Chip.astro";
 import people from "../../data/people.json";
@@ -21,6 +22,7 @@ const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died|
     </>))}
   </div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>The life</h2>

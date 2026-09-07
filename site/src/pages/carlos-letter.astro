@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import k from "../data/kobler.json";
 ---
@@ -13,6 +14,7 @@ import k from "../data/kobler.json";
     <p>Carlo is writing from Parenzo. He is in his sixties, he has just published <em>L'Istria: note storiche</em>, and Kobler — the historian of Fiume — has sent him notes on the Defranceschi families of that city. Carlo replies as a man identifying his own relatives.</p>
   </div>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>What he says</h2>
@@ -26,6 +28,7 @@ import k from "../data/kobler.json";
     ))}
   </div>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>The pedigree he gives</h2>
@@ -38,6 +41,7 @@ import k from "../data/kobler.json";
     <p>The younger son is the one who matters. Intended for the priesthood and sent to study at Fiume, he <em>felt a vocation for the sword instead</em>, volunteered into the army of Maria Theresa, and was made <strong>castellan of Bribir</strong> for his service, marrying a woman of the <strong>D'Agnese</strong> family. He is the Giovanni Battista Defranceschi whom Kobler had found arriving at Fiume around 1740 — the man every account of this family, including its own, has filed as a separate and unrelated line.</p>
   </div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>And the cousins he can place</h2>
@@ -50,6 +54,7 @@ import k from "../data/kobler.json";
     <p class="cap"><strong>But read the next section before using this.</strong> Everything above is from the letter of 10 November 1876. Ten weeks later Carlo wrote again and withdrew the Valentino reading.</p>
   </div>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>{k.correction.heading}</h2>
@@ -67,6 +72,7 @@ import k from "../data/kobler.json";
       {k.correction.trees.right.map((n,i) => <p style={"margin-left:" + (i*14) + "px"}>{n}</p>)}</div>
   </div>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>{k.gologorica.heading}</h2>
@@ -77,6 +83,7 @@ import k from "../data/kobler.json";
     <p class="qwhy">{k.gologorica.why}</p>
   </div>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>{k.bells.heading}</h2>
@@ -91,6 +98,7 @@ import k from "../data/kobler.json";
   </div>
   <p class="prose note" style="margin-top:20px">{k.bells.close}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{k.bribir.heading}</h2>
@@ -100,6 +108,7 @@ import k from "../data/kobler.json";
     <p>{k.bribir.coda}</p>
   </div>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <div class="one">
@@ -109,6 +118,7 @@ import k from "../data/kobler.json";
     <p class="cap" style="margin-top:12px">{k.razvod.why}</p>
   </div>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{k.otherhalf.heading}</h2>
@@ -131,6 +141,7 @@ import k from "../data/kobler.json";
   </div>
   <p class="cap" style="margin-top:18px">{k.otherhalf.source}</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>{k.chapel.heading}</h2>
@@ -154,6 +165,7 @@ import k from "../data/kobler.json";
   </div>
   <p class="cap" style="margin-top:16px">{k.chapel.source}</p>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>{k.threestocks.heading}</h2>
@@ -183,6 +195,7 @@ import k from "../data/kobler.json";
   <p class="prose note" style="margin-top:22px">{k.threestocks.discrepancies}</p>
   <p class="cap" style="margin-top:14px">{k.threestocks.source_stocks}</p>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>{k.politics.heading}</h2>
@@ -202,6 +215,7 @@ import k from "../data/kobler.json";
   </div>
   <p class="cap" style="margin-top:14px">{k.politics.source_politics}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{k.bakar.heading}</h2>
@@ -221,6 +235,7 @@ import k from "../data/kobler.json";
   </div>
   <p class="cap" style="margin-top:14px">{k.bakar.source_bakar}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{k.obituary.heading}</h2>
@@ -231,6 +246,7 @@ import k from "../data/kobler.json";
   </div>
   <p class="prose" style="margin-top:16px">{k.obituary.grave}</p>
 </section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{k.funeral.heading}</h2>
@@ -255,6 +271,7 @@ import k from "../data/kobler.json";
   <p class="prose note" style="margin-top:24px">{k.funeral.croatian}</p>
   <p class="prose" style="margin-top:16px">{k.funeral.close}</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>What this closes</h2>
@@ -267,6 +284,7 @@ import k from "../data/kobler.json";
   <div class="note" style="margin-top:26px">A caution that Carlo himself would want kept. This is testimony, not a register: a man in his sixties reporting what his family believed, some of it at second hand from a cousin's papers. The Bergamo origin, the castles in Carnia and the claim to the patriarchal nobility «dei Germani» are family tradition. The Carnian origin, the 1711 house, the two sons and the Fiume connection are things he was in a position to know. <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> where he is repeating tradition; <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> as his own testimony throughout.</div>
   <p class="cap">{k.source}</p>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>{k.benzoni.heading}</h2>
@@ -286,6 +304,7 @@ import k from "../data/kobler.json";
   <p class="prose note" style="margin-top:22px">{k.benzoni.us}</p>
   <p class="cap" style="margin-top:14px">{k.benzoni.source_benzoni}</p>
 </section>
+<Rule name="loom" />
 
 <section class="blk">
   <h2>{k.benzonihouse.heading}</h2>
@@ -314,6 +333,7 @@ import k from "../data/kobler.json";
   <p class="prose note" style="margin-top:16px">{k.benzonihouse.close}</p>
   <p class="cap" style="margin-top:14px">{k.benzonihouse.source_house}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{k.restofbook.heading}</h2>
@@ -334,6 +354,7 @@ import k from "../data/kobler.json";
   <p class="prose note" style="margin-top:16px">{k.restofbook.why}</p>
   <p class="cap" style="margin-top:14px">{k.restofbook.source_rest}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{k.affittofermo.heading}</h2>

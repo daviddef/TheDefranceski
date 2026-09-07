@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
@@ -107,6 +108,7 @@ const g = c.nextGen;
   <p class="prose" style="margin-top:14px">{c.builtit.why}</p>
   <p class="cap" style="margin-top:14px">{c.builtit.source}</p>
 </section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>{c.grave.heading}</h2>
@@ -122,6 +124,7 @@ const g = c.nextGen;
   <p class="prose note" style="margin-top:20px">{c.grave.why}</p>
   <p class="cap" style="margin-top:14px">{c.grave.source}</p>
 </section>
+<Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{c.kalanj.heading}</h2>
@@ -147,6 +150,7 @@ const g = c.nextGen;
   </section>
 
   <Lightbox />
+<Rule name="helm" />
 
 <section class="blk">
   <h2>{c.zora.heading}</h2>
@@ -166,6 +170,7 @@ const g = c.nextGen;
   <p class="prose note" style="margin-top:22px">{c.zora.next}</p>
   <p class="cap" style="margin-top:14px">{c.zora.source_zora}</p>
 </section>
+<Rule name="tablet" />
 
 <section class="blk">
   <h2>{c.bakar_answer.heading}</h2>
@@ -191,6 +196,7 @@ const g = c.nextGen;
   <p class="prose note" style="margin-top:16px">{c.bakar_answer.lesson}</p>
   <p class="cap" style="margin-top:14px">{c.bakar_answer.source_bakar}</p>
 </section>
+<Rule name="arcade" />
 
 <section class="blk">
   <h2>{c.reg1943.heading}</h2>
