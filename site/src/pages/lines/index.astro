@@ -5,8 +5,11 @@ import Sources from "../../components/Sources.astro";
 import Chip from "../../components/Chip.astro";
 import JourneyMap from "../../components/JourneyMap.astro";
 import lines from "../../data/lines.json";
+import arr from "../../data/arrivals.json";
+import Plates from "../../components/Plates.astro";
+import Lightbox from "../../components/Lightbox.astro";
 ---
-<Base title="The Lines" eyebrow="Seven, and only one of them proven"
+<Base title="The Lines" eyebrow="Eight branches, three of them documented"
       dek="Branches are treated as first-class subjects here, not as nodes on a chart. Each one states its own evidence and its own doubt.">
 <section class="blk">
   <div class="stack">
@@ -24,6 +27,38 @@ import lines from "../../data/lines.json";
     ))}
   </div>
 </section>
+<Rule name="helm" label="Three arrivals" />
+
+<section class="blk">
+  <h2>{arr.heading}</h2>
+  <p class="dek" style="margin-top:10px">{arr.lead}</p>
+
+  <div class="arrgrid">
+    {arr.cards.map(c => (
+      <div class="arrcard">
+        <div class="arrwhen">{c.when}</div>
+        <h3>{c.who}</h3>
+        <div class="arrline">{c.line}</div>
+        <div class="arrmeta"><span><b>Reason</b> {c.why}</span><span><b>Arms</b> {c.arms}</span></div>
+        <p set:html={c.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+
+  <div style="margin-top:30px"><Plates ids={["field-seget-arms","field-golo-shield"]} /></div>
+
+  <div style="margin-top:28px;display:flex;flex-direction:column;gap:16px">
+    {arr.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{arr.source_arr}</p>
+</section>
+<Lightbox />
+
 <Rule name="arrows" />
 <section class="blk">
   <h2>How they move</h2>
@@ -31,4 +66,14 @@ import lines from "../../data/lines.json";
   <div style="margin-top:24px"><JourneyMap /></div>
 </section>
   <Sources ids={["kobler", "dfcom", "familysearch"]} />
+<style>
+  .arrgrid{margin-top:26px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .arrcard{border:1px solid var(--rule);border-top:3px solid var(--accent);padding:20px 20px 22px;background:var(--panel);display:flex;flex-direction:column}
+  .arrwhen{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .arrcard h3{font-size:23px;margin:6px 0 0}
+  .arrline{font-family:var(--sans);font-size:13px;color:var(--ink-2);margin-top:6px}
+  .arrmeta{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 4px;font-family:var(--sans);font-size:12px;color:var(--ink-3)}
+  .arrmeta b{color:var(--ink-2);font-weight:600}
+  .arrcard p{font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--ink-2);margin-top:10px}
+</style>
 </Base>
