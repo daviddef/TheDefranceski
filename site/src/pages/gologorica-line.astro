@@ -457,6 +457,23 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 <section class="blk"><SceneGologorica /></section>
 
+<section class="blk">
+  <div class="one" style="border-left-color:var(--terra)">
+    <div class="lab">A warning</div>
+    <h2 style="font-size:22px;margin-top:6px">{g.house.fabricated.heading}</h2>
+    <p class="dek" style="margin-top:8px">{g.house.fabricated.lead}</p>
+    <div style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
+      {g.house.fabricated.rows.map(r => (
+        <div>
+          <div class="lab">{r.lab}</div>
+          <p style="margin-top:6px">{r.text}</p>
+        </div>
+      ))}
+    </div>
+    <p class="cap" style="margin-top:14px">{g.house.fabricated.source_fab}</p>
+  </div>
+</section>
+
 
 
 
