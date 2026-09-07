@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import SceneGologorica from "../components/SceneGologorica.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -487,6 +489,15 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   </div>
   <p class="cap" style="margin-top:14px">{g.fromtree.source_ft}</p>
 </section>
+<Rule name="tablet" label="Photographed on the ground" />
+<section class="blk">
+  <h2>{g.fieldplates.heading}</h2>
+  <p class="dek" style="margin-top:8px">{g.fieldplates.lead}</p>
+  <div style="margin-top:22px"><Plates ids={g.fieldplates.ids} /></div>
+  <p class="cap" style="margin-top:14px">{g.fieldplates.note}</p>
+</section>
+<Lightbox />
+
 
 
 
