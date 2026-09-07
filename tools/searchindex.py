@@ -123,6 +123,13 @@ add("Person", "Giovanni Antonio de Benzoni", "Fiume 1687 – Fiume 1745 · vicar
 add("Person", "Giovanni Battista Defranceschi", "suppanus (headman) of Gologorica, godparent at Gallignana 26 June 1743", "/direct-line/", "Patrini fuerunt R.di D.ni Joannes Grach, et Joanna uxor Suppani Jo: Baptistae Defranceschi a Golagoriza.")
 add("Person", "Joannes Petrus Defranceschi", "Dominus, godfather at Gallignana 5 May 1744", "/direct-line/", "Patrini fuerunt D.nus Joannes Petrus Defranceschi et Mattia uxor supradicti Joannis Grach.")
 
+for _n, _d, _b in (
+    ("Felice de Benzoni", "d. Fiume 24 July 1716 \u2014 imperial inspector of the maritime crown estates; killed on the public square by a bursting saluting mortar", "Married Orsola di Nicolo Marotti. Father of Bishop Giovanni Antonio de Benzoni. Buried in the chapel of the Immaculate Conception at Fiume."),
+    ("Stefano Giovanni de Benzoni", "b. 1690 \u2014 municipal councillor of Fiume 1724, lieutenant in the County of Pazin, imperial councillor; d. 1749", "Brother of Bishop Giovanni Antonio. Held office over the county containing Gologorica and Gallignana. Tomb in St Vitus, Fiume, 1749."),
+    ("Orsola de Benzoni", "m. Valentino Defranceschi at Fiume 1793; d. 1807", "Eight children. Her husband built the family tomb in the cemetery where she lay. Her place in Kobler's Benzoni pedigree is unresolved."),
+):
+    add("Person", _n, _d, "/carlos-letter/", _b)
+
 sjb = L("senjline.json")["behind"]
 for key, lab in (("blazevic", "Blažević line"), ("zubrinic", "Žubrinić line")):
     for who, what in sjb[key]["rows"]:
