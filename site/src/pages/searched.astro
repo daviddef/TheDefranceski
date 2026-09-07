@@ -1,0 +1,54 @@
+---
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import d from "../data/searched.json";
+const n = k => d.rows.filter(r => r.outcome === k).length;
+const label = { yield: "Yielded", nothing: "Nothing", blocked: "Blocked", partial: "Partly", pending: "Not yet" };
+const order = ["yield", "partial", "nothing", "blocked", "pending"];
+const groups = order.map(k => [k, d.rows.filter(r => r.outcome === k)]);
+---
+<Base title="The Search Register" eyebrow={`${d.rows.length} sources examined`}
+      dek="Everything looked at, whether or not it found anything — because a search that returns nothing is a result, and the next person should not have to repeat it.">
+
+<section class="blk">
+  <div class="grid g4" style="margin-top:4px">
+    <div class="stat"><div class="n">{n("yield")}</div><div class="l">Yielded</div></div>
+    <div class="stat"><div class="n">{n("nothing")}</div><div class="l">Returned nothing</div></div>
+    <div class="stat"><div class="n">{n("blocked")}</div><div class="l">Blocked, not circumvented</div></div>
+    <div class="stat"><div class="n">{n("pending")}</div><div class="l">Known and not yet got</div></div>
+  </div>
+  <p class="prose note" style="margin-top:24px">{d.note}</p>
+</section>
+
+{groups.map(([k, rows]) => rows.length > 0 && (
+  <section class="blk">
+    <h2>{label[k]}</h2>
+    <div class="scroll" style="margin-top:20px">
+      <table>
+        <thead><tr><th style="width:24%">Source</th><th style="width:20%">What was searched</th><th class="m">When</th><th>What it gave, or did not</th></tr></thead>
+        <tbody>{rows.map(r => (
+          <tr>
+            <td><strong>{r.src}</strong></td>
+            <td>{r.what}</td>
+            <td class="m">{r.when}</td>
+            <td>{r.got}</td>
+          </tr>
+        ))}</tbody>
+      </table>
+    </div>
+  </section>
+))}
+
+<section class="blk">
+  <h2>How to read this</h2>
+  <div class="prose" style="margin-top:16px">
+    <p>Three of the five headings are the useful ones. <strong>Nothing</strong> is the heading that saves work: five gigabytes of theology journals searched end to end for twenty place-names and every spelling of the surname, and not one hit — that is worth recording so it is never done again. Three of the entries under it are entirely different families who happen to share the name, and naming them is the only defence against quietly absorbing them.</p>
+    <p><strong>Blocked</strong> means a bot check, a login wall or a paywall that this project has chosen not to get round. Those are recorded rather than worked around, and where a blocked route matters — Antenati for the Carnian civil registers is the sharpest case — it is named as a gap rather than filled with a guess.</p>
+    <p><strong>Not yet</strong> is a shopping list. Most of it is printed and purchasable or is one letter away. Anyone who wants to move this archive forward should start there rather than at the beginning.</p>
+    <p>Sources that did yield are described properly in <a href={u("/sources/")}>the bibliography</a>, with what each gave and where it is weak. Open questions are in <a href={u("/research-log/")}>the research log</a>.</p>
+  </div>
+</section>
+
+  <Sources ids={["openstarts", "hrcak", "archiveorg", "siasp", "dapa"]} />
+</Base>

@@ -52,6 +52,7 @@ const kinds = [...order.filter(k => present.includes(k)),
             <p>{s.what}</p>
             {s.cites.length > 0 && <div class="refs">{s.cites.map(c => <code>{c}</code>)}</div>}
             {s.note && <p class="cav">{s.note}</p>}
+            {s.held && <p class="cap" style="margin-top:8px"><strong>Held.</strong> A copy is in this project's source library: <span class="mono">{s.held}</span></p>}
           </article>
         ))}
       </div>
