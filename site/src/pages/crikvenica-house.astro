@@ -147,5 +147,39 @@ const g = c.nextGen;
   </section>
 
   <Lightbox />
+
+<section class="blk">
+  <h2>{c.zora.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.zora.lead}</p>
+  <div class="qz" style="margin-top:18px">
+    <p class="qit">“{c.zora.quote}”</p>
+    <p class="qen">{c.zora.en}</p>
+  </div>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.zora.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px">{c.zora.next}</p>
+  <p class="cap" style="margin-top:14px">{c.zora.source_zora}</p>
+</section>
+
+<section class="blk">
+  <h2>{c.bakar_answer.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.bakar_answer.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {c.bakar_answer.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.bakar_answer.source_bakar}</p>
+</section>
+
   <Sources ids={["mftpkg", "maticne", "familysearch", "arolsen", "dapa", "myheritage"]} />
 </Base>
