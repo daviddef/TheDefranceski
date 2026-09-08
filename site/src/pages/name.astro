@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import OneName from "../components/OneName.astro";
+import on from "../data/onename.json";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import NameDrift from "../components/NameDrift.astro";
@@ -160,4 +162,16 @@ import gn from "../data/givennames.json";
 
 
   <Sources ids={["blasonario", "familysearch", "dfcom", "simon2024", "archiveorg"]} />
+<Rule name="arrows" label="One name, coming down" />
+
+<section class="blk" id="onename">
+  <h2>{on.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={on.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <OneName />
+  <div class="one" style="margin-top:22px;border-left-color:var(--accent)">
+    <p set:html={on.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  </div>
+  <p class="cap" style="margin-top:14px">{on.source_on}</p>
+</section>
+
 </Base>

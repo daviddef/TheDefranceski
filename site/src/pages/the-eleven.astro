@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
+import FamilyCard from "../components/FamilyCard.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import e from "../data/eleven.json";
@@ -116,6 +117,10 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
       </div>
     ))}
   </div>
+  <FamilyCard eyebrow={e.household.eyebrow} head={e.household.head} headMeta={e.household.headMeta}
+              facts={e.household.facts} spouse={e.household.spouse}
+              children={e.household.children} note={e.household.note} tone="accent" />
+
   {e.register.further && <p class="prose" style="margin-top:22px">{e.register.further}</p>}
   {e.register.scale && <p class="prose note" style="margin-top:16px">{e.register.scale}</p>}
   <p class="cap" style="margin-top:14px">{e.register.source_reg}</p>

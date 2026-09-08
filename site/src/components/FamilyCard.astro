@@ -1,0 +1,84 @@
+---
+/* One household, drawn: a head, a spouse, and the children under a connector.
+   Used wherever this archive shows a family rather than describes one. */
+const {
+  eyebrow = "", head = "", headMeta = "", facts = [],
+  spouseLabel = "Wife", spouse = null,
+  childrenLabel = "Children in the house", children = [],
+  note = "", tone = "",
+} = Astro.props;
+---
+<figure class={"fcard" + (tone ? " t-" + tone : "")}>
+  {eyebrow && <div class="fc-eyebrow">{eyebrow}</div>}
+  {head && <h3 class="fc-head">{head}</h3>}
+  {headMeta && <div class="fc-meta">{headMeta}</div>}
+
+  {facts.length > 0 && (
+    <div class="fc-facts">
+      {facts.map(([k, v]) => v && <span><b>{k}</b>{v}</span>)}
+    </div>
+  )}
+
+  {spouse && (
+    <div class="fc-block">
+      <div class="fc-lab">{spouseLabel}</div>
+      <div class="fc-row fc-one">
+        <div class="fc-box"><span class="fc-n">{spouse.name}</span>{spouse.meta && <i>{spouse.meta}</i>}</div>
+      </div>
+    </div>
+  )}
+
+  {children.length > 0 && (
+    <div class="fc-block">
+      <div class="fc-lab">{childrenLabel}</div>
+      <div class="fc-row">
+        {children.map(c => (
+          <div class={"fc-box" + (c.line ? " is-line" : "") + (c.short ? " is-short" : "")}
+               title={c.note || undefined}>
+            <span class="fc-n">{c.name}</span>{c.meta && <i>{c.meta}</i>}
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {note && <figcaption>{note}</figcaption>}
+</figure>
+
+<style>
+  .fcard{margin:18px 0 0;background:var(--panel);border:1px solid var(--rule);
+    border-radius:10px;padding:18px 18px 14px}
+  .fcard.t-accent{border-left:3px solid var(--accent)}
+  .fcard.t-ochre{border-left:3px solid var(--ochre)}
+  .fcard.t-terra{border-left:3px solid var(--terra)}
+  .fc-eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3)}
+  .fc-head{font-family:var(--serif);font-size:24px;line-height:1.15;margin:6px 0 0;color:var(--ink)}
+  .fc-meta{font-family:var(--sans);font-size:13px;color:var(--ink-2);margin-top:5px}
+  .fc-facts{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:12px;
+    font-family:var(--sans);font-size:12.5px;color:var(--ink-2)}
+  .fc-facts b{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-right:7px}
+  .fc-block{margin-top:16px;border:1px solid var(--rule);border-radius:8px;padding:12px 14px 16px;
+    background:var(--panel-2)}
+  .fc-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3)}
+  .fc-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+    margin-top:20px;border-top:1px solid var(--rule);padding-top:20px;position:relative}
+  .fc-row.fc-one{justify-content:center}
+  .fc-box{position:relative;border:1px solid var(--rule);border-radius:6px;
+    padding:7px 12px;background:var(--panel);font-family:var(--sans);font-size:13px;color:var(--ink-2)}
+  .fc-box::before{content:"";position:absolute;top:-21px;left:50%;width:1.5px;height:20px;
+    background:var(--rule-strong)}
+  .fc-n{color:var(--ink)}
+  .fc-box i{font-style:normal;color:var(--ink-3);font-size:11.5px;margin-left:8px;
+    font-variant-numeric:tabular-nums}
+  .fc-box.is-line{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .fc-box.is-line .fc-n{color:var(--accent);font-weight:600}
+  .fc-box.is-line i{color:var(--accent)}
+  .fc-box.is-short{border-style:dashed;border-color:var(--terra)}
+  .fc-box.is-short i{color:var(--terra)}
+  .fcard figcaption{margin-top:14px;font-family:var(--sans);font-size:12.5px;
+    line-height:1.6;color:var(--ink-3)}
+  @media (max-width:560px){.fc-row{justify-content:flex-start}}
+</style>

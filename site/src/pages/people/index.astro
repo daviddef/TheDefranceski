@@ -5,11 +5,72 @@ import Base from "../../layouts/Base.astro";
 import Chip from "../../components/Chip.astro";
 import people from "../../data/people.json";
 import notables from "../../data/notables.json";
+import roster from "../../data/roster.json";
+const S = roster.stats;
+const LINEN = { carnia: "Carnia", venice: "Venice", crete: "Crete", south: "S. Istria",
+                unplaced: "Not placed", abroad: "Abroad", unknown: "No place", other: "Other" };
+const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "abroad", "unknown", "other"];
 ---
-<Base title="People" eyebrow="Five in the archive, ten more who share the name"
-      dek="The record first, cold and cited. Then the life. Then what was happening around them.">
+<Base title="Everyone" eyebrow={`${S.total} people of the name, from every record set in this archive`}
+      dek="The whole roster, in one list. Search it, filter it by family, and follow any name to wherever it is written up.">
+
 <section class="blk">
-  <h2>In this family</h2>
+  <p class="dek" set:html={roster.note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <div class="note" style="margin-top:16px" set:html={roster.warn.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></div>
+
+  <div class="rcount">
+    {ORDER.filter(k => S.lines[k]).map(k => (
+      <div class={"rc rc-" + k}><b>{S.lines[k]}</b><span>{LINEN[k]}</span></div>
+    ))}
+  </div>
+
+  <div class="rtools">
+    <input id="rq" type="search" placeholder="Search a name, a place, a year…" autocomplete="off" />
+    <div class="rfilters">
+      <button class="rf on" data-l="all">All</button>
+      {ORDER.filter(k => S.lines[k]).map(k => <button class="rf" data-l={k}>{LINEN[k]}</button>)}
+      <button class="rf" data-l="star">★ Notable</button>
+    </div>
+    <div id="rn" class="rn"></div>
+  </div>
+
+  <div class="tablewrap" style="margin-top:14px">
+    <table class="roster" id="rtab">
+      <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th>Place</th><th>Family</th><th>Where it is written up</th></tr></thead>
+      <tbody>
+        {roster.rows.map(r => (
+          <tr data-l={r.line} data-star={r.notable ? "1" : "0"}
+              data-k={(r.name + " " + r.place + " " + (r.b||"") + " " + (r.d||"") + " " + (r.note||"")).toLowerCase()}>
+            <td class="rname">
+              {r.notable && <span class="star" title="Notable — has a life written up">★</span>}
+              {r.who ? <a href={u(r.who)}>{r.name}</a> : r.name}
+            </td>
+            <td class="m">{r.b || "—"}</td>
+            <td class="m">{r.d || "—"}</td>
+            <td class="rplace">{r.place || "—"}</td>
+            <td><span class={"lchip l-" + r.line}>{LINEN[r.line]}</span></td>
+            <td class="rsrc"><a href={u(r.href)}>{roster.srclabel[r.src]}</a>{r.note && <span class="rnote"> · {r.note}</span>}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px">Built by <code>tools/roster.py</code> from ten record sets, September 2026. A name may appear once here and be several people, or appear twice and be one; where the archive knows, it has merged them, and where it does not, it has left them apart rather than guess.</p>
+</section>
+
+<Rule name="arrows" label="What the colours mean" />
+<section class="blk">
+  <div class="regkey">
+    {roster.legend.filter(([k]) => S.lines[k]).map(([k, v]) => (
+      <div class="regkey-row"><span class={"lchip l-" + k}>{LINEN[k]}</span><span class="regkey-v">{v}</span></div>
+    ))}
+  </div>
+</section>
+
+<Rule name="pomegranate" label="Written up in full" />
+<section class="blk">
+  <h2>The lives</h2>
+  <p class="dek" style="margin-top:8px">Nine people this archive has followed all the way through — the record first, cold and cited, then the life, then what was happening around them.</p>
   <div class="grid g2" style="margin-top:22px">
     {people.map(p=>(
       <a class="cardlink" href={u(`/people/${p.slug}/`)}>
@@ -21,6 +82,7 @@ import notables from "../../data/notables.json";
     ))}
   </div>
 </section>
+
 <Rule name="arrows" />
 <section class="blk">
   <h2>Others who carried the name</h2>
@@ -35,4 +97,79 @@ import notables from "../../data/notables.json";
     </table>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var q = document.getElementById("rq"), tab = document.getElementById("rtab"),
+        out = document.getElementById("rn");
+    if (!q || !tab) return;
+    var rows = Array.prototype.slice.call(tab.tBodies[0].rows), mode = "all";
+    function apply() {
+      var t = q.value.trim().toLowerCase(), n = 0;
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var okL = mode === "all" || (mode === "star" ? r.getAttribute("data-star") === "1"
+                                                     : r.getAttribute("data-l") === mode);
+        var okQ = !t || r.getAttribute("data-k").indexOf(t) !== -1;
+        var show = okL && okQ;
+        r.hidden = !show;
+        if (show) n++;
+      }
+      out.textContent = n + (n === 1 ? " person" : " people") + " shown";
+    }
+    q.addEventListener("input", apply);
+    document.querySelectorAll(".rf").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll(".rf").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); mode = b.getAttribute("data-l"); apply();
+      });
+    });
+    apply();
+  })();
+</script>
+
+<style>
+  .rcount{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .rc{flex:1 1 110px;padding:12px 14px;border-radius:10px;background:var(--panel-2);
+    border-left:3px solid var(--ink-3)}
+  .rc b{display:block;font-size:24px;font-family:var(--serif);line-height:1}
+  .rc span{display:block;margin-top:3px;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+  .rc-carnia{border-left-color:var(--accent)}
+  .rc-venice{border-left-color:var(--ochre)}
+  .rc-crete{border-left-color:var(--terra)}
+  .rc-south{border-left-color:var(--r-napo)}
+  .rtools{margin-top:24px}
+  .rtools input{width:100%;padding:12px 14px;font-family:var(--sans);font-size:15px;
+    border:1px solid var(--rule);border-radius:10px;background:var(--panel);color:var(--ink)}
+  .rfilters{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .rf{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    padding:6px 11px;border-radius:20px;border:1px solid var(--rule);background:transparent;
+    color:var(--ink-3);cursor:pointer}
+  .rf:hover{color:var(--ink)}
+  .rf.on{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+  .rn{margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-3)}
+  table.roster{width:100%;border-collapse:collapse;font-size:14px}
+  table.roster th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);padding:0 12px 7px 0;border-bottom:1px solid var(--rule)}
+  table.roster td{padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  table.roster td.m{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rname{font-weight:600;min-width:190px}
+  .rplace{color:var(--ink-2);font-size:13px;max-width:24ch}
+  .rsrc{font-size:12.5px;color:var(--ink-3)}
+  .rnote{color:var(--ink-3)}
+  .star{color:var(--ochre);margin-right:5px}
+  .lchip{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 7px;border-radius:4px;white-space:nowrap;background:var(--panel-2);color:var(--ink-3)}
+  .l-carnia{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+  .l-venice{background:color-mix(in srgb,var(--ochre) 20%,transparent);color:var(--ochre)}
+  .l-crete{background:color-mix(in srgb,var(--terra) 18%,transparent);color:var(--terra)}
+  .l-south{background:color-mix(in srgb,var(--r-napo) 18%,transparent);color:var(--r-napo)}
+  .regkey{margin-top:6px;display:grid;gap:8px;padding:14px 16px;background:var(--panel-2);border-radius:10px}
+  .regkey-row{display:flex;gap:12px;align-items:baseline;font-size:13.5px}
+  .regkey-v{color:var(--ink-2)}
+  .tablewrap{overflow-x:auto}
+</style>
 </Base>

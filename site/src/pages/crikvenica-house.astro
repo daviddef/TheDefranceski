@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import FamilyCard from "../components/FamilyCard.astro";
 import SceneCrikvenica from "../components/SceneCrikvenica.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -17,6 +18,13 @@ const g = c.nextGen;
   <section class="prose">
     <p>A stonecutter's son from Gračišće married a girl from a hamlet in the Vinodol and settled on the coast below it. That is the hinge of this whole archive, and until this week it was a sentence with one document behind it. It now has six, and eleven photographs.</p>
   </section>
+
+<section class="blk">
+  <FamilyCard eyebrow={c.card.eyebrow} head={c.card.head} headMeta={c.card.headMeta}
+              facts={c.card.facts} spouse={c.card.spouse} children={c.card.children}
+              note={c.card.note} tone="accent" />
+</section>
+
 
   <h2 style="font-size:30px;margin-top:46px">Josip and Ana</h2>
   <div class="grid g2" style="margin-top:20px;align-items:start">
@@ -173,6 +181,12 @@ const g = c.nextGen;
 </section>
 <Rule name="tablet" />
 
+<section class="blk">
+  <FamilyCard eyebrow={c.bakar_answer.card.eyebrow} head={c.bakar_answer.card.head}
+              headMeta={c.bakar_answer.card.headMeta} facts={c.bakar_answer.card.facts}
+              spouse={c.bakar_answer.card.spouse} children={c.bakar_answer.card.children}
+              note={c.bakar_answer.card.note} tone="terra" />
+</section>
 <section class="blk">
   <h2>{c.bakar_answer.heading}</h2>
   <p class="dek" style="margin-top:8px">{c.bakar_answer.lead}</p>
