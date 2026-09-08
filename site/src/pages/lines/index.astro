@@ -101,6 +101,22 @@ import Lightbox from "../../components/Lightbox.astro";
   <div style="margin-top:24px"><BranchRivers /></div>
 </section>
 
+<Rule name="tablet" label="A parish named" />
+
+<section class="blk" id="svetjoin">
+  <h2>{fam.svetjoin.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={fam.svetjoin.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {fam.svetjoin.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{fam.svetjoin.source_svet}</p>
+</section>
+
 <Rule name="arrows" label="The whole inventory" />
 
 <section class="blk" id="regions">
