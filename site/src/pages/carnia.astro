@@ -469,6 +469,24 @@ import c from "../data/carnia.json";
   </div>
   <p class="cap" style="margin-top:14px">{c.fieldplates.source_fp}</p>
 </section>
+
+<Rule name="tablet" label="The stones themselves" />
+
+<section class="blk">
+  <h2>{c.gortostones.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.gortostones.lead}</p>
+  <div style="margin-top:24px"><Plates ids={c.gortostones.ids} /></div>
+  <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+    {c.gortostones.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{c.gortostones.source_gorto}</p>
+</section>
+
 <Lightbox />
 
 
