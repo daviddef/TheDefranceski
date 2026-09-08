@@ -33,6 +33,9 @@ def yr(v):
 
 # line assignment from place text
 LINES = [
+ ("trentino",["telve","strigno","primiero","laives","leifers","bozen","bolzano","tirol","tyrol","cles",
+              "rovereto","trento","ravina","sacco","predazzo","fiemme","fassa","cavalese"]),
+ ("corsica", ["tomino","mandolacce","cap corse","ersa","haute-corse","corse","bastia"]),
  ("carnia",  ["mione","ovaro","muina","agrons","carnia","gorto","luincis","paluzza","givigliana",
               "gologor","moncalvo","gracis","gallignana","gracisce","crikvenica","klenovica","senj",
               "bribir","novi vinodol","pfullingen","reutlingen","metzingen","neuhausen","bad urach",
@@ -68,17 +71,18 @@ def line_of(place):
     return "other"
 
 rows = []
-def add(name, born, died, place, src, href, note="", notable=False):
+def add(name, born, died, place, src, href, note="", notable=False, ark="", mh=""):
     name = str(name or "")
     if not name.strip(): return
     rows.append({"name": " ".join(name.split()), "b": yr(born), "d": yr(died),
                  "place": str(place or "").strip(), "src": src, "href": href,
-                 "note": str(note or ""), "notable": notable})
+                 "note": str(note or ""), "notable": notable,
+                 "ark": ark or "", "mh": mh or ""})
 
 # 1. FamilySearch record hits
 for r in load("fsrecords.json"):
     add(r["name"], r.get("birth") or r.get("christening"), r.get("death") or r.get("burial"),
-        r.get("place"), "record", "/archive/")
+        r.get("place"), "record", "/archive/", ark=("1:1:" + r["id"]) if r.get("id") else "")
 
 # 2. Parish burials
 for r in load("burials.json")["rows"]:
@@ -140,6 +144,16 @@ for f, key, href, place in [("directline.json","generations","/direct-line/","")
             r.get("place") or r.get("where") or place, "line", href,
             note=r.get("role") or r.get("what") or "")
 
+# 11. David's MyHeritage tree (tree 4 only), harvested 8 September 2026
+MHTSV = os.path.join(ROOT, "data", "myheritage-surname-2026-09.tsv")
+if os.path.exists(MHTSV):
+    with open(MHTSV, encoding="utf-8") as f:
+        for line in f:
+            c = line.rstrip("\n").split("\t")
+            if len(c) < 6: continue
+            mid, nm, b, d, pl, ark = c[0], c[1], c[2], c[3], c[4], c[5]
+            add(nm, b, d, pl, "myheritage", "/people/", ark=ark, mh=mid)
+
 # ---- filter to the surname, drop the living, dedupe -------------------------
 kept, living, notsur = [], 0, 0
 for r in rows:
@@ -153,9 +167,12 @@ best = {}
 for r in kept:
     k = (norm(r["name"]), r["b"] or r["d"] or "")
     cur = best.get(k)
-    rank = {"life":0,"line":1,"namesake":2,"eleven":3,"golo":4,"chart":5,"grave":6,"burial":7,"household":8,"record":9}
+    rank = {"life":0,"line":1,"namesake":2,"eleven":3,"golo":4,"chart":5,"grave":6,"burial":7,"myheritage":8,"household":9,"record":10}
     if cur is None or rank[r["src"]] < rank[cur["src"]]:
-        if cur: r["also"] = sorted(set((cur.get("also") or []) + [cur["src"]]))
+        if cur:
+            r["also"] = sorted(set((cur.get("also") or []) + [cur["src"]]))
+            if not r.get("ark") and cur.get("ark"): r["ark"] = cur["ark"]
+            if not r.get("mh") and cur.get("mh"): r["mh"] = cur["mh"]
         best[k] = r
     else:
         cur["also"] = sorted(set((cur.get("also") or []) + [r["src"]]))
@@ -163,6 +180,8 @@ for r in kept:
         if cur["d"] is None and r["d"]: cur["d"] = r["d"]
         if cur["b"] is None and r["b"]: cur["b"] = r["b"]
         if r["notable"]: cur["notable"] = True
+        if not cur.get("ark") and r.get("ark"): cur["ark"] = r["ark"]
+        if not cur.get("mh") and r.get("mh"): cur["mh"] = r["mh"]
 
 # dossier links
 dos = load("dossiers.json")["people"]
@@ -176,9 +195,71 @@ for r in best.values():
 out.sort(key=lambda r: (r["b"] or r["d"] or 9999, norm(r["name"])))
 counts = collections.Counter(r["line"] for r in out)
 src    = collections.Counter(r["src"] for r in out)
-man = {"note": "", "rows": out,
+META = {
+ "note": "Every person of this surname the archive can name, gathered from every record set it holds and from David's own MyHeritage tree — parish burials, headstones, reconstructed households, FamilySearch record hits, the Gologorica pedigree, the Eleven of Gračišće, the Omiš chart, the direct line, the namesakes, and 555 individuals harvested from the live tree on 8 September 2026. **Identity here is by record, not by resolved individual**: two entries may be one person, and where the archive knows they are it has merged them. Nothing here is new evidence — it is all of the evidence, in one list, for the first time.",
+ "legend": [
+  [
+   "carnia",
+   "Out of Carnia — our own line, from Mione and Agrons to Gologorica, Gračišće, Crikvenica, Senj and the diaspora"
+  ],
+  [
+   "venice",
+   "Out of Venice — Zadar, Omiš, Imotski, Perinuša, Split"
+  ],
+  [
+   "crete",
+   "Out of Crete — Candia, Zante, Šibenik, Seget, Umag"
+  ],
+  [
+   "south",
+   "Southern Istria — Pula, Fažana, Premantura, Medulin, Barban, Ližnjan"
+  ],
+  [
+   "unplaced",
+   "A documented Istrian or Kvarner household this archive will not attach to any line — Rijeka, Bakar, Svetvinčenat, Vodnjan, Kaštelir, Poreč, Labin and the rest"
+  ],
+  [
+   "trentino",
+   "Trentino and South Tyrol — Telve, Strigno, Fiera di Primiero, Laives, Cles. A large and quite separate stock of the name, in the tree because the surname is the same"
+  ],
+  [
+   "corsica",
+   "Cap Corse — Tomino and Mandolacce. Its own lane on the Lines page, and never in Istria"
+  ],
+  [
+   "abroad",
+   "Abroad, and the line not established — the United States, Australia, Brazil, Argentina, Switzerland, Canada, France"
+  ],
+  [
+   "unknown",
+   "The record names no place, or names only «Croatia» or «Austria»"
+  ],
+  [
+   "other",
+   "A place that fits none of the above"
+  ]
+ ],
+ "srclabel": {
+  "life": "Biography",
+  "line": "Direct line",
+  "namesake": "Namesake",
+  "eleven": "The Eleven",
+  "golo": "Gologorica pedigree",
+  "chart": "Omiš chart",
+  "grave": "Headstone",
+  "burial": "Parish burial",
+  "myheritage": "Family tree",
+  "household": "Household",
+  "record": "Record index"
+ },
+ "links": "**572 of them have a record behind them** — a FamilySearch document you can open — and **513 are in the family tree**. Where a row has both, both links are given. A record link opens the indexed document; a tree link opens the person in David's MyHeritage tree, which is private, so it will only work for people he has given access to.",
+ "warn": "**Living people are omitted, not hidden.** Anyone with no recorded death and a birth after 1925 is dropped from this list, and the count of drops is printed below."
+}
+man = dict(META, **{"rows": out,
        "stats": {"total": len(out), "living_omitted": living,
-                 "lines": dict(counts), "sources": dict(src)}}
+                 "with_record": sum(1 for r in out if r.get("ark")),
+                 "with_tree": sum(1 for r in out if r.get("mh")),
+                 "lines": dict(counts), "sources": dict(src)}})
 with open(os.path.join(D, "roster.json"), "w", encoding="utf-8") as f:
     json.dump(man, f, ensure_ascii=False, indent=1)
 print("roster:", len(out), "people;", living, "living omitted;", notsur, "not of the surname")
