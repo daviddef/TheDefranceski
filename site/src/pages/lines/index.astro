@@ -12,7 +12,7 @@ import arr from "../../data/arrivals.json";
 import Plates from "../../components/Plates.astro";
 import Lightbox from "../../components/Lightbox.astro";
 ---
-<Base title="The Lines" eyebrow="Four families · five unplaced clusters · one very common name"
+<Base title="The Lines" eyebrow="Five families · five unplaced clusters · one very common name"
       dek="Separating three things this site had been adding together: a family is an origin, a station is a stop on one family's road, and a namesake is somebody who happens to share the commonest patronymic in Italy.">
 <section class="blk">
   <h2>{fam.heading}</h2>
@@ -26,14 +26,14 @@ import Lightbox from "../../components/Lightbox.astro";
     ))}
   </div>
 
-  <h3 style="font-size:23px;margin-top:40px">The four families</h3>
+  <h3 style="font-size:23px;margin-top:40px">The five families</h3>
   <div class="famgrid">
     {fam.families.map(f => (
-      <a class="famcard" href={u(f.href)} style={`--c:${f.colour}`}>
-        <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}</div>
+      <a class={f.not_ours ? "famcard away" : "famcard"} href={u(f.href)} style={`--c:${f.colour}`}>
+        <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}{f.not_ours && <span style="color:var(--terra)"> · not this family</span>}</div>
         <h4>{f.name}</h4>
         <div class="fc-meta"><span><b>From</b> {f.from}</span><span><b>Here from</b> {f.when}</span></div>
-        <p class="fc-rest">{f.rests}</p>
+        <p class="fc-rest" set:html={f.rests.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
         <p class="fc-who">{f.who}</p>
       </a>
     ))}
@@ -154,6 +154,7 @@ import Lightbox from "../../components/Lightbox.astro";
   .famcard{display:block;text-decoration:none;border:1px solid var(--rule);border-top:4px solid var(--c);
     border-radius:12px;padding:18px 18px 20px;background:var(--panel)}
   .famcard:hover{border-color:var(--c);box-shadow:0 10px 28px rgba(10,20,26,.09)}
+  .famcard.away{border-style:dashed;background:transparent}
   .fc-conf{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
   .famcard h4{font-size:20px;margin:7px 0 0;color:var(--ink)}
   .fc-meta{display:flex;flex-direction:column;gap:3px;margin:12px 0 0;font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}

@@ -50,14 +50,26 @@ const LANES = [
     ],
     ends: ["Zagreb", "Monheim", "United States"],
   },
+  {
+    key: "corsica", colour: "var(--r-italy)", label: "Out of Corsica — never in Istria",
+    conf: "documented · not this family", href: "/namesakes/", read: "The namesakes →",
+    parallel: true,
+    nodes: [
+      ["Ersa", "1694", "Pietro Franceschi, 29 June 1694 – 12 February 1771, the first generation on Cap Corse"],
+      ["Gasparo", "1721", "Gasparo Franceschi, 1721–1799, the second generation"],
+      ["Francesco M.", "1750", "Francesco Maria Franceschi, 1750–1828"],
+      ["Simone", "1826", "Simone Franceschi, born and dead at Ersa, 1826–1907; married Caroline Mattei"],
+    ],
+    ends: ["Puerto Rico", "St Thomas", "Trinidad", "Venezuela"],
+  },
 ];
 
 const W = 1040;
-const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:548,h:112} ];
+const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:548,h:112}, {y0:614,sp:696,h:150} ];
 const X0 = 150, X1 = 700, XE = 902;
 ---
 <figure class="rivers">
-  <svg viewBox="0 0 1040 620" role="img" aria-labelledby="riversttl">
+  <svg viewBox="0 0 1040 786" role="img" aria-labelledby="riversttl">
     <title id="riversttl">Four families of one surname, and the road each of them took</title>
     {LANES.map((lane, li) => {
       const b = BANDS[li];
@@ -69,13 +81,16 @@ const X0 = 150, X1 = 700, XE = 902;
       return (
         <g>
           <rect x="0" y={b.y0} width={W} height={b.h} rx="10"
-                fill={lane.colour} opacity="0.055" />
+                fill={lane.colour} opacity={lane.parallel ? 0.04 : 0.055}
+                stroke={lane.parallel ? lane.colour : "none"}
+                stroke-dasharray={lane.parallel ? "5 5" : ""} stroke-opacity="0.4" />
           <text x="12" y={b.y0 + 21} class="lane-label" fill={lane.colour}>{lane.label}</text>
           <text x="12" y={b.y0 + 37} class="lane-conf">{lane.conf}</text>
           <a href={u(lane.href)} class="lane-link"><text x={W - 14} y={b.y0 + 21} class="lane-read" fill={lane.colour}>{lane.read}</text></a>
 
           <line x1={X0} y1={b.sp} x2={Math.max(lineEnd, X1)} y2={b.sp} stroke={lane.colour}
-                stroke-width="5" stroke-linecap="round" opacity="0.34" />
+                stroke-width="5" stroke-linecap="round" opacity="0.34"
+                stroke-dasharray={lane.parallel ? "12 7" : ""} />
 
           {ends.map((e, ei) => {
             const y = ends.length === 1 ? b.sp
@@ -110,7 +125,7 @@ const X0 = 150, X1 = 700, XE = 902;
   <div class="riverread" id="riverread" aria-live="polite">
     <b>Click or tab any dot</b> — it will tell you what the document behind it says.
   </div>
-  <figcaption>The teal river is the one this archive descends from, and the only one of the four that arrived on foot, looking for work.</figcaption>
+  <figcaption>The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the bottom is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are.</figcaption>
 </figure>
 
 <script is:inline>

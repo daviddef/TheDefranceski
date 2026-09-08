@@ -1,6 +1,6 @@
 {
- "heading": "Four families, some unplaced households, and a lot of namesakes",
- "lead": "This site has been counting badly. It said «seven lines», then «eight», and listed Senj beside Carnia as though they were the same kind of thing — when Senj is a place our own family reached and Carnia is where it started. Three different things were being added together. They are separated here, and the count only applies to the first of them.",
+ "heading": "Five families, some unplaced households, and a lot of namesakes",
+ "lead": "This site has been counting badly. It said «seven lines», then «eight», and listed Senj beside Carnia as though they were the same kind of thing — when Senj is a place our own family reached and Carnia is where it started. Three different things were being added together. They are separated here, and the count only applies to the first of them — which now runs to five, because Corsica has earned a lane of its own.",
  "why": [
   {
    "lab": "A family is an origin",
@@ -9,6 +9,11 @@
   {
    "lab": "A station is not a family",
    "text": "Gologorica, Gračišće, Crikvenica, Senj, Pfullingen are **stops on one road** — our road — not separate lines. So are Perinuša and Opačac on the Venetian road, and Umag, Brtonigla and Koper on the Cretan one. They have pages because there is a lot to say about each; they are not additions to the count.",
+   "key": true
+  },
+  {
+   "lab": "And a line can run beside ours without being ours",
+   "text": "**Corsica is the clearest case, and it is now drawn as a line rather than buried in a footnote.** It has everything the other four have — a place, a first generation with dates, six documented generations, a route out and a diaspora — and it has no connection to Istria whatever. That is exactly why it is worth drawing. A reader who finds a Franceschi in Puerto Rico or Caracas should be able to see, on the same picture, that there is a fully documented family of the name that goes there and is not this one.",
    "key": true
   },
   {
@@ -61,6 +66,18 @@
    "rests": "Thirty-one people in the family's own tree, in the Pula and Fažana registers from **1667** and at Ližnjan into the twentieth century. **This is now known to be the tail of a larger southern-Istrian household rather than an origin of its own**, and the question is which of the other three it belongs to. The one clue that pointed at Friuli was tested in September 2026 and proved to be a mis-attached record from a Zoppola family of the same name.",
    "who": "Grgo of Ližnjan, an Antonio in the naval cemetery at Pula, and two who died in France.",
    "href": "/liznjan/"
+  },
+  {
+   "slug": "corsica",
+   "name": "Out of Corsica, to the Caribbean",
+   "conf": "doc",
+   "colour": "var(--r-italy)",
+   "from": "Ersa, in Cap Corse",
+   "when": "first generation 1694",
+   "not_ours": true,
+   "rests": "A family history written from inside it: **«LOS FRANCESCHI, la pequeña historia de una familia»**, Napoleón Franceschi González, Caracas 2002. **Pietro Franceschi, 29 June 1694 – 12 February 1771**, then Gasparo (1721–99), Francesco Maria (1750–1828), Pietro (1789–1871) and **Simone, born and dead at Ersa, 1826–1907**, whose son François Marie died at Miranda in Venezuela in 1918. Ninety pages, and **not one line of it touches Istria.**",
+   "who": "A dry, poor cape that never held two thousand people, so they went to sea or they left.",
+   "href": "/namesakes/"
   }
  ],
  "clusters_head": "Households of the name that must belong to one of the four, and cannot yet be assigned",
@@ -174,17 +191,23 @@
   },
   {
    "place": "Corsica",
-   "fam": "none",
+   "fam": "Corsica",
    "conf": "doc",
-   "what": "**A Florentine family, not an Istrian one.** Taddeo Franceschi crossed to Corsica early in the fourteenth century and his descendants served Genoa until 1768. It produced a Napoleonic brigadier general, made a baron of the Empire in 1810, and a modern historian of the Revolution. The family's own map carries a Corsica marker; it should carry a label saying *namesake*."
+   "what": "**Now a line of its own on this page.** A Florentine-descended family settled at **Ersa in Cap Corse**, documented from **1694** in Napoleón Franceschi's own history of it, out through Puerto Rico, Saint Thomas, Trinidad and Haiti to Venezuela. It produced a Napoleonic brigadier general, made a baron of the Empire in 1810, and a modern historian of the Revolution. It has nothing to do with Istria, and that is the point of drawing it."
   },
   {
    "place": "France — Charleville, Cannes",
    "fam": "Southern Istria",
    "conf": "doc",
    "what": "Two born at Barban in 1924 and 1931, dead at Charleville in the Moselle in 2002 and at Cannes in 2016. The Istrian exodus took a road this archive had not recorded."
+  },
+  {
+   "place": "Venezuela · Puerto Rico · Trinidad · St Thomas",
+   "fam": "Corsica",
+   "conf": "doc",
+   "what": "The Corsican family's own road, out of Ersa through the French and Spanish Caribbean. There is a *Centro de Arte Alejandro Franceschi* at Yauco in Puerto Rico and a village there called **Córcega**. Not this family — and fully documented, which is what makes it useful."
   }
  ],
- "close": "So the honest sentence is this. **Four families, of which three have an origin in documents and one has only a place.** Five clusters of real households that belong to one of the four and cannot yet be told which. And a diaspora in which five destinations are demonstrably ours, three belong to the other families, and four are people who simply share the commonest patronymic in Italy.",
+ "close": "So the honest sentence is this. **Five families with an origin in documents, of which four are documented and one — Ližnjan, now folded into southern Istria — has only a place.** **Three of the five are ours or arrived beside ours; one, Corsica, never came near Istria at all and is drawn to show what a parallel line looks like.** Five clusters of real households belong to one of them and cannot yet be told which. And a diaspora in which five destinations are demonstrably ours, four belong to the other families, and the rest are people who share the commonest patronymic in Italy.",
  "source_fam": "Assembled September 2026 from this archive's own pages, and restructured after David Defranceski pointed out that it had been adding three different kinds of thing together and calling the total «lines»."
 }
