@@ -51,5 +51,21 @@ import o from "../data/omis.json";
   <div class="note" style="margin-top:26px">{o.omittedNote}</div>
   <p class="cap">{o.source}</p>
 </section>
-  <Sources ids={["plemstvo", "omisphotos", "familysearch"]} />
+<Rule name="arrows" label="Almissa, 1840" />
+
+<section class="blk">
+  <h2>{o.gazzetta1840.heading}</h2>
+  <p class="dek" style="margin-top:8px">{o.gazzetta1840.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {o.gazzetta1840.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{o.gazzetta1840.source_gdz}</p>
+</section>
+
+  <Sources ids={["plemstvo", "omisphotos", "familysearch", "gazzetta-zara-1840"]} />
 </Base>
