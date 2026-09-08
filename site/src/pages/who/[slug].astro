@@ -3,6 +3,9 @@ import Base from "../../layouts/Base.astro";
 import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
 import d from "../../data/dossiers.json";
+import artsrc from "../../data/art-src.json";
+import port from "../../data/portraits.json";
+import Lightbox from "../../components/Lightbox.astro";
 export function getStaticPaths() {
   return Object.values(d.people).map(p => ({ params: { slug: p.slug }, props: { p } }));
 }
@@ -10,9 +13,32 @@ const { p } = Astro.props;
 const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
 const groups = Object.entries(byPage);
+const art = Object.fromEntries(artsrc.map(a => [a.id, a]));
+const pt = port.map[p.slug];
+const pics = pt ? pt.ids.map(i => art[i]).filter(Boolean) : [];
+const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:/, ""),
+  caption: [a.artist, a.date && a.date.slice(0,10), a.licence].filter(Boolean).join(" · "),
+  holder: a.licence, w: a.w, h: a.h, src: u(a.src), thumb: u(a.thumb) }));
 ---
 <Base title={p.name} eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
       dek={`Everything this archive holds under this name, gathered from every page of the site.`}>
+
+{pics.length > 0 && (
+<section class="blk">
+  <div class="pgal" data-plates={JSON.stringify(pdata)}>
+    {pdata.map((a, i) => (
+      <button class="plate" type="button" data-i={i}>
+        <img class="shot" src={a.thumb} alt={a.title} width={a.w} height={a.h} loading="lazy" decoding="async" />
+      </button>
+    ))}
+  </div>
+  <p class="pcap">
+    <span class="lab">Whose face this is</span>
+    {pt.whose}{pt.note && <> <strong>{pt.note}</strong></>}
+    {" "}Licences and holders on <a href={u("/namesakes/")}>Namesakes</a>.
+  </p>
+</section>
+)}
 
 <section class="blk">
   <div class="note">
@@ -42,4 +68,15 @@ const groups = Object.entries(byPage);
   <p class="prose note">{d.note}</p>
   <p class="cap" style="margin-top:14px"><a href={u("/who/")}>All {Object.keys(d.people).length} people →</a> · <a href={u("/search/")}>Search the whole archive →</a></p>
 </section>
+<Lightbox />
 </Base>
+
+<style>
+  .pgal{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .pgal .plate{padding:0;border:1px solid var(--rule);background:var(--panel);
+    border-radius:3px;cursor:zoom-in;line-height:0;overflow:hidden}
+  .pgal .plate img{height:230px;width:auto;display:block}
+  .pcap{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2);
+    margin-top:14px;max-width:74ch;border-left:2px solid var(--ochre);padding-left:12px}
+  .pcap .lab{display:block;color:var(--ochre);margin-bottom:3px}
+</style>

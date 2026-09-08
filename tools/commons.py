@@ -20,6 +20,11 @@ WANT = [
  ("delonne-capture",  "File:Capture du général Franceschi-Delonne le 28 juin 1809.jpg"),
  ("defrance-portrait","File:DeFrance.jpg"),
  ("andrea-nga",       "File:After Titian, Andrea de' Franceschi, late 16th or early 17th century, NGA 42.jpg"),
+ ("francesco-magdalen","File:Francesco de' Franceschi (active 1443-1468) - St Mary Magdalen - WA1850.10 - Ashmolean Museum.jpg"),
+ ("francesco-catherine","File:Francesco de' Franceschi (active 1443-1468) - St Catherine of Alexandria - WA1850.11 - Ashmolean Museum.jpg"),
+ ("francesco-mamante", "File:(Venice) Martirio di Mamante - Francesco dei Franceschi - Museo Correr.jpg"),
+ ("francesco-mamas-yale","File:Francesco dei Franceschi - Saint Mamas before Aurelian - 1946.73 - Yale University Art Gallery.jpg"),
+ ("alberti-1565",      "File:Leon battista alberti, l'architettura, per francesco de' franceschi, venezia 1565 (mo, bibl. estense).jpg"),
 ]
 
 def api(titles):

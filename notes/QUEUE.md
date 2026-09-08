@@ -70,7 +70,7 @@
 - **NEW, and big: the family library at NSK Zagreb.** 2,396 items, catalogued 2009–2021, signature PDF 0.001–1.273+. Next steps: (a) ask NSK for the shelf list / catalogue export of the PDF signature range; (b) Hauptmann's report of 12 Aug 1945, published in Leideck 2015 — get it; (c) Sveučilišna knjižnica Pula: Carlo De Franceschi's CORRESPONDENCE, in the Collection of Old Books and Manuscripts; (d) DAPA's own De Franceschi family fond — never yet identified here.
 
 ## Queued 9 September 2026 — David
-- **PORTRAITS FOR THE PEOPLE PAGES.** defranceski.com's «The People» carries pictures;
+- **PORTRAITS FOR THE PEOPLE PAGES.** *(part done, 9 Sept: five new plates — the two Ashmolean panels and the Correr Martyrdom for Francesco the painter, a Yale Mamas scene, and the 1565 Alberti imprint for Francesco the printer; portraits now render on /who/ pages via portraits.json. STILL OPEN: Camillo — nothing on Commons; Giulio's drawings; Carlo's later photographs; the Colombo «Historie» 1571 title page, which is only inside an Internet Archive PDF.)* defranceski.com's «The People» carries pictures;
   ours (e.g. /who/domenico-de-franceschi/) has none. Find or reference images for the
   namesakes and the biographies:
   · Andrea dei Franceschi — Titian portraits (Detroit Institute of Arts; Hampton Court
@@ -88,6 +88,7 @@
   Rules: public-domain or clearly licensed only; caption must say holder and licence;
   no living people. Wire into who/[slug].astro and people/[slug].astro, not just gallery.
 
+- ~~**WALK ALONG THE LINE — Carnia**~~ — DONE 9 Sept 2026, /walk/carnia/: five days, a schematic valley map, four doors with the Italian to say, three open questions, twenty missing frames. **The other four lines are stubbed at /walk/ and await David's verdict on Carnia.**
 - **WALK ALONG THE LINE — an itinerary per family.** David: "an itinerary for rich
   Defranceschi exploration within a line, showing the drive / walk / path to travel,
   where you should go to see the houses, the graves, the icons, the marks of the family."
