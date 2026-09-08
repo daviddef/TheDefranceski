@@ -15,7 +15,14 @@ const LANES = [
       ["Gračišće", "1787", "Joannes Baptista, farmer of house 5 — the line's earliest dated ancestor"],
       ["Crikvenica", "1892", "The stonecutter's son comes down to the coast between 1892 and 1894"],
     ],
-    ends: ["Senj", "Germany", "Australia", "South Africa", "United States", "Argentina?"],
+    ends: [
+      ["Senj", "/senj-line/", "Antonio's brother's line, up the coast. Nine graves in the town cemetery and a shipping family — the same Carnian stock as Crikvenica, one headland further north."],
+      ["Germany", "/pfullingen/", "Ivan, born Crikvenica 1925, taken to work in the Reich and issued papers at Pfullingen in Württemberg. The line's hinge: everything after 1945 leaves from here."],
+      ["Australia", "/diaspora/", "The post-war emigration out of Yugoslavia, and the one destination where the surname is still spelt three different ways inside one family."],
+      ["South Africa", "/diaspora/", "Johannesburg. Thirteen of the seventeen people on earth who spell it «Defranceski» are here — an English clerk's spelling that became the family's own."],
+      ["United States", "/diaspora/", "Two separate arrivals: the Eleven of Gračišće sending Basilio to Jackson Heights, and the older Istrian emigration to the mines."],
+      ["Argentina?", "/diaspora/", "Rotilio, eighth of the Eleven, is said to have gone to Buenos Aires with two daughters. The only authority is a reunion album of 2012. Dotted until a document says otherwise."],
+    ],
   },
   {
     key: "venice", colour: "var(--ochre)", label: "Out of Venice, as soldiers", href: "/imotski/", read: "The Imotski page →",
@@ -27,7 +34,10 @@ const LANES = [
       ["Imotski", "1717", "Zuane takes the town and is paid in ruined land on the Vrljika"],
       ["Perinuša", "1722", "The mills: six wheels, then eleven, then fourteen"],
     ],
-    ends: ["Opačac", "Split"],
+    ends: [
+      ["Opačac", "/imotski/", "The spring at the head of the Vrljika, and the mills the Republic paid Zuane with in 1717. Franceschi property into living memory."],
+      ["Split", "/omis-line/", "Where the Dalmatian family is today, the particle stripped off by Napoleonic decree — which is why the descendants of a count are called Franceschi."],
+    ],
   },
   {
     key: "crete", colour: "var(--terra)", label: "Out of Crete, as refugees", href: "/seget/", read: "The Seget page →",
@@ -39,7 +49,11 @@ const LANES = [
       ["Šibenik", "1674", "and from Zante to Sebenico, drawing a Venetian war pension"],
       ["Seget", "1720", "Marc'Antonio buys the estate; 1724 on the portal, 1732 on the cistern"],
     ],
-    ends: ["Umag", "Brtonigla", "Koper"],
+    ends: [
+      ["Umag", "/seget/", "The town the Seget estate belongs to, the parish church with the arms on a canvas of 1650, and the family tomb with its ironwork dated 1890."],
+      ["Brtonigla", "/seget/", "Verteneglio. The second of the western-Istrian holdings, and part of the same estate world as Seget."],
+      ["Koper", "/seget/", "Capodistria — where a Venetian war pension out of Crete was ordered to be drawn in 1730, «probably because the family was already living at Seghetto»."],
+    ],
   },
   {
     key: "liznjan", colour: "var(--r-napo)", label: "Out of southern Istria — origin unknown", href: "/liznjan/", read: "The Ližnjan page →",
@@ -51,7 +65,12 @@ const LANES = [
       ["Barban", "1924", "Two born here who died in France"],
       ["Ližnjan", "1931", "Gregorius «Grgo», born at Ližnjan and dead at Zagreb — the last address, not the origin"],
     ],
-    ends: ["Zagreb", "Monheim?", "United States", "France"],
+    ends: [
+      ["Zagreb", "/liznjan/", "Grga died here, and thirteen graves of the name are in the city's cemeteries — the largest single concentration in Croatia."],
+      ["Monheim?", "/liznjan/", "A line drawn on a map years ago from Ližnjan to Monheim in Bavaria, with no note, no date and no name. Searched for and not found. Dotted, and staying dotted."],
+      ["United States", "/diaspora/", "Southern-Istrian emigration, separate from the Gračišće one and never yet joined to it."],
+      ["France", "/liznjan/", "Two born at Barban in 1924 who died in France — the clearest documented exit from this cluster."],
+    ],
   },
   {
     key: "corsica", colour: "var(--r-italy)", label: "Out of Corsica — never in Istria",
@@ -63,21 +82,34 @@ const LANES = [
       ["Francesco M.", "1750", "Francesco Maria Franceschi, 1750–1828"],
       ["Simone", "1826", "Simone Franceschi, born and dead at Ersa, 1826–1907; married Caroline Mattei"],
     ],
-    ends: ["Puerto Rico", "St Thomas", "Trinidad", "Venezuela"],
+    ends: [
+      ["Puerto Rico", "/namesakes/", "Where Napoleón Franceschi's own history takes the Cap Corse family. Not ours, and the page says so."],
+      ["St Thomas", "/namesakes/", "The Danish West Indies leg of the Corsican trading diaspora."],
+      ["Trinidad", "/namesakes/", "The same movement again — Cap Corse to the Caribbean, by sea and by trade."],
+      ["Venezuela", "/namesakes/", "Where the Corsican line ends up, and where its own historian wrote it down. No contact with Istria at any point."],
+    ],
   },
 ];
 
 const W = 1040;
-const LOOSE = [
-  ["Brazil", "the largest cluster of the surname anywhere — Rio Grande do Sul, Santa Catarina, São Paulo — and Veneto and Trentino, not Istrian: the in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco"],
-  ["Ticino", "Italian-speaking Switzerland, over the border from Lombardy"],
-  ["Michigan", "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan"],
+/* Households of the name that are real, documented and NOT yet on any lane —
+   drawn so that the diagram does not quietly imply everything has been placed. */
+const UNPLACED = [
+  ["Fiume", "/carlos-letter/", "Kobler found three separate stocks in the Rijeka civic registers and refused to join them to one another. One of them — Valentino, «venuto dalla Carnia», a citizen in 1739 — is almost certainly the Carnian family. The other two are not placed."],
+  ["Svetvinčenat", "/istria-sweep/", "142 records from 1666, the second-largest concentration in the sweep. Kandler's list of the Carnian families settled at Sanvincenti names Defranceschi among Lupieri, Fiorencis, Fabris and Crosilla — so the origin is Carnian, but whether it is our Carnian household or another one out of the same valleys is not shown."],
+  ["Bakar", "/crikvenica-house/", "Twelve people, one household across three generations, from before 1772 to a death in 1819 — Dominus Giovanni Battista son of Dominus Francesco, styled Dominus, a citizen-class family. Nothing on the page ties them to Gologorica, to Gračišće, or to Kobler's Fiume stocks, and this archive will not join a fourth household to them on the strength of two common Christian names."],
+  ["Vodnjan", "/istria-sweep/", "78 records. Carlo's own book names Franceschi among the nobles of Pola «venuti da Capodistria» before the plague of 1631 — which would make them the extinct Koper family and none of the four."],
 ];
-const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:548,h:112}, {y0:614,sp:696,h:150} ];
+const LOOSE = [
+  ["Brazil", "/diaspora/", "The largest cluster of the surname anywhere — Rio Grande do Sul, Santa Catarina, São Paulo. Veneto and Trentino, not Istrian: the in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco."],
+  ["Ticino", "/diaspora/", "Italian-speaking Switzerland, over the border from Lombardy. A different stock of the same ordinary patronymic."],
+  ["Michigan", "/diaspora/", "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan, with a wife born in Switzerland. Nothing joins him to Istria."],
+];
+const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:566,h:128}, {y0:630,sp:712,h:150} ];
 const X0 = 150, X1 = 700, XE = 902;
 ---
 <figure class="rivers">
-  <svg viewBox="0 0 1040 878" role="img" aria-labelledby="riversttl">
+  <svg viewBox="0 0 1040 930" role="img" aria-labelledby="riversttl">
     <title id="riversttl">Four families of one surname, and the road each of them took</title>
     {LANES.map((lane, li) => {
       const b = BANDS[li];
@@ -100,17 +132,23 @@ const X0 = 150, X1 = 700, XE = 902;
                 stroke-width="5" stroke-linecap="round" opacity="0.34"
                 stroke-dasharray={lane.parallel ? "12 7" : ""} />
 
-          {ends.map((e, ei) => {
+          {ends.map(([e, ehref, ewhy], ei) => {
             const y = ends.length === 1 ? b.sp
               : b.sp - spread + (ei * (spread * 2) / (ends.length - 1));
+            const soft = e.endsWith("?");
             return (
-              <g>
+              <g class="node end" tabindex="0" role="button"
+                 data-place={e.replace("?","")} data-year={soft ? "unverified" : ""}
+                 data-why={ewhy} data-lane={lane.label}
+                 data-href={u(ehref)} data-read={`Read the ${e.replace("?","")} story`}>
+                <title>{e.replace("?","")} — {ewhy}</title>
                 <path d={`M ${Math.max(lineEnd, X1)} ${b.sp} C ${X1 + 90} ${b.sp}, ${XE - 90} ${y}, ${XE} ${y}`}
                       fill="none" stroke={lane.colour} stroke-width="1.6" opacity="0.5"
-                      stroke-dasharray={e.endsWith("?") ? "3 4" : ""} />
+                      stroke-dasharray={soft ? "3 4" : ""} />
+                <circle cx={XE} cy={y} r="6.5" fill="transparent" />
                 <circle cx={XE} cy={y} r="3.4" fill={lane.colour}
-                        fill-opacity={e.endsWith("?") ? 0.35 : 1} />
-                <text x={XE + 9} y={y + 4} class={e.endsWith("?") ? "endlab soft" : "endlab"}>{e.replace("?","")}</text>
+                        fill-opacity={soft ? 0.35 : 1} />
+                <text x={XE + 9} y={y + 4} class={soft ? "endlab soft" : "endlab"}>{e.replace("?","")}</text>
               </g>
             );
           })}
@@ -119,7 +157,8 @@ const X0 = 150, X1 = 700, XE = 902;
             const x = X0 + i * step;
             return (
               <g class="node" tabindex="0" role="button"
-                 data-place={place} data-year={year} data-why={why} data-lane={lane.label}>
+                 data-place={place} data-year={year} data-why={why} data-lane={lane.label}
+                 data-href={u(lane.href)} data-read={lane.read.replace(" →","")}>
                 <title>{place}{year !== "—" ? ` · ${year}` : ""} — {why}</title>
                 <circle cx={x} cy={b.sp} r="8.5" fill="var(--panel)" stroke={lane.colour} stroke-width="2.6" />
                 <circle cx={x} cy={b.sp} r="3" fill={lane.colour} />
@@ -133,22 +172,36 @@ const X0 = 150, X1 = 700, XE = 902;
     })}
     <g>
       <line x1="12" y1="806" x2={W - 12} y2="806" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="2 4" />
-      <text x="12" y="828" class="loose-head">Attached to no line here</text>
-      {LOOSE.map((l, i) => (
+      <text x="12" y="826" class="loose-head">Real households of the name — not yet placed on any of these lines</text>
+      {UNPLACED.map((l, i) => (
         <g class="node" tabindex="0" role="button"
-           data-place={l[0]} data-year="—" data-why={l[1]} data-lane="Attached to no line here">
-          <title>{l[0]} — {l[1]}</title>
-          <circle cx={150 + i * 150} cy={848} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
-          <text x={162 + i * 150} y={852} class="loose">{l[0]}</text>
+           data-place={l[0]} data-year="unplaced" data-why={l[2]}
+           data-lane="Not yet placed on a line" data-href={u(l[1])} data-read={`Where ${l[0]} is written up`}>
+          <title>{l[0]} — {l[2]}</title>
+          <circle cx={150 + i * 200} cy={846} r="7" fill="transparent" />
+          <circle cx={150 + i * 200} cy={846} r="4.5" fill="none" stroke="var(--ink-2)" stroke-width="1.8" />
+          <text x={162 + i * 200} y={850} class="loose">{l[0]}</text>
         </g>
       ))}
-      <text x={620} y={852} class="loose-note">— people who share the commonest patronymic in Italy</text>
+
+      <text x="12" y="886" class="loose-head">Attached to no line here — a different stock of a very common name</text>
+      {LOOSE.map((l, i) => (
+        <g class="node" tabindex="0" role="button"
+           data-place={l[0]} data-year="—" data-why={l[2]}
+           data-lane="Attached to no line here" data-href={u(l[1])} data-read={`Where ${l[0]} is written up`}>
+          <title>{l[0]} — {l[2]}</title>
+          <circle cx={150 + i * 200} cy={906} r="7" fill="transparent" />
+          <circle cx={150 + i * 200} cy={906} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
+          <text x={162 + i * 200} y={910} class="loose">{l[0]}</text>
+        </g>
+      ))}
+      <text x={760} y={910} class="loose-note">— the commonest patronymic in Italy</text>
     </g>
   </svg>
   <div class="riverread" id="riverread" aria-live="polite">
-    <b>Click or tab any dot</b> — it will tell you what the document behind it says.
+    <b>Click or tab any dot</b> — the stops tell you what the document behind them says, and the destinations on the right tell their own story and link to it. Click a second time to go there.
   </div>
-  <figcaption>The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the bottom is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are. <strong>A dotted end-point means the attachment is family lore, not a document</strong> — Argentina hangs off Carnia only on the word of a reunion album, and Monheim is a pin on a map. And the three at the foot, in broken circles, hang off nothing at all.</figcaption>
+  <figcaption>The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the bottom is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are. <strong>A dotted end-point means the attachment is family lore, not a document</strong> — Argentina hangs off Carnia only on the word of a reunion album, and Monheim is a pin on a map. Below the rule are the households this archive will not pretend to have placed: <strong>Fiume, Svetvinčenat, Bakar and Vodnjan are real, documented families of the name that belong to nobody yet</strong>, and Brazil, Ticino and Michigan are somebody else's entirely. The table under this diagram gives every one of them a verdict.</figcaption>
 </figure>
 
 <script is:inline>
@@ -159,17 +212,24 @@ const X0 = 150, X1 = 700, XE = 902;
     function show(g) {
       var place = g.getAttribute("data-place"), year = g.getAttribute("data-year"),
           why = g.getAttribute("data-why"), lane = g.getAttribute("data-lane");
+      var href = g.getAttribute("data-href"), read = g.getAttribute("data-read");
       host.innerHTML = '<span class="rr-lane"></span><b class="rr-place"></b>'
-        + '<span class="rr-year"></span><span class="rr-why"></span>';
+        + '<span class="rr-year"></span><span class="rr-why"></span>'
+        + (href ? '<a class="rr-go" href="' + href + '"></a>' : '');
       host.querySelector(".rr-lane").textContent = lane;
       host.querySelector(".rr-place").textContent = place;
       host.querySelector(".rr-year").textContent = year && year !== "\u2014" ? year : "";
       host.querySelector(".rr-why").textContent = why;
+      if (href) host.querySelector(".rr-go").textContent = (read || "Read on") + " \u2192";
       document.querySelectorAll(".rivers .node").forEach(function (n) { n.classList.remove("sel"); });
       g.classList.add("sel");
     }
     document.querySelectorAll(".rivers .node").forEach(function (g) {
-      g.addEventListener("click", function () { show(g); });
+      g.addEventListener("click", function () {
+        var was = g.classList.contains("sel"), href = g.getAttribute("data-href");
+        show(g);
+        if (was && href) window.location.href = href;
+      });
       g.addEventListener("mouseenter", function () { show(g); });
       g.addEventListener("focus", function () { show(g); });
       g.addEventListener("keydown", function (e) {
@@ -212,6 +272,13 @@ const X0 = 150, X1 = 700, XE = 902;
   .riverread .rr-place{color:var(--ink);font-size:16px}
   .riverread .rr-year{font-family:var(--mono);font-size:12px;color:var(--accent);margin-left:9px}
   .riverread .rr-why{display:block;margin-top:5px}
+  .riverread .rr-go{display:inline-block;margin-top:8px;font-weight:600;
+    font-size:13px;color:var(--accent);text-decoration:none}
+  .riverread .rr-go:hover{text-decoration:underline}
+  .rivers .node.end{cursor:pointer}
+  .rivers .node.end:hover .endlab,
+  .rivers .node.end:focus .endlab{fill:var(--ink);text-decoration:underline}
+  .rivers .node.end.sel .endlab{fill:var(--ink);font-weight:600}
   .rivers figcaption{font-family:var(--sans);font-size:13px;color:var(--ink-2);
     margin-top:14px;max-width:78ch;line-height:1.6}
   @media (max-width:700px){

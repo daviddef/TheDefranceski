@@ -9,6 +9,7 @@ import lines from "../../data/lines.json";
 import fam from "../../data/families.json";
 import BranchRivers from "../../components/BranchRivers.astro";
 import arr from "../../data/arrivals.json";
+import reg from "../../data/regions.json";
 import Plates from "../../components/Plates.astro";
 import Lightbox from "../../components/Lightbox.astro";
 ---
@@ -93,11 +94,50 @@ import Lightbox from "../../components/Lightbox.astro";
     ))}
   </div>
 </section>
-<Rule name="arrows" label="Four rivers" />
+<Rule name="arrows" label="Five rivers" />
 <section class="blk">
-  <h2>The four roads, drawn</h2>
-  <p class="dek" style="margin-top:8px">One surname, four families, and four entirely different reasons for being on this coast.</p>
+  <h2>The five roads, drawn</h2>
+  <p class="dek" style="margin-top:8px">One surname, five families, and five entirely different reasons for being where they are. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
   <div style="margin-top:24px"><BranchRivers /></div>
+</section>
+
+<Rule name="arrows" label="The whole inventory" />
+
+<section class="blk" id="regions">
+  <h2>{reg.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={reg.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+
+  <div class="regkey">
+    {reg.key.map(([k, v]) => (
+      <div class="regkey-row"><span class="regkey-k">{k}</span><span class="regkey-v">{v}</span></div>
+    ))}
+  </div>
+
+  {reg.groups.map(g => (
+    <div style="margin-top:30px">
+      <h3 style="margin:0 0 10px">{g.name}</h3>
+      <div class="tablewrap">
+        <table class="reg">
+          <thead><tr><th>Place</th><th>Line</th><th>Verdict</th><th>Why</th></tr></thead>
+          <tbody>
+            {g.rows.map(([place, line, conf, why]) => (
+              <tr class={conf === "unplaced" ? "is-open" : ""}>
+                <td><strong>{place}</strong></td>
+                <td class="regline">{line}</td>
+                <td><span class={"vd vd-" + conf}>{conf === "doc" ? "on a line" : conf === "inf" ? "on a line · inferred" : conf === "lore" ? "lore only" : conf === "unplaced" ? "not placed" : conf === "none" ? "a different family" : conf === "allied" ? "allied, not ours" : "a place, not a family"}</span></td>
+                <td set:html={why.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  ))}
+
+  <div class="one" style="margin-top:28px;border-left-color:var(--accent)">
+    <p set:html={reg.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  </div>
+  <p class="cap" style="margin-top:16px">{reg.source_reg}</p>
 </section>
 
 <Rule name="helm" label="Three arrivals" />
@@ -163,3 +203,30 @@ import Lightbox from "../../components/Lightbox.astro";
   .fc-who{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink);margin-top:10px}
 </style>
 </Base>
+
+<style>
+  .regkey{margin-top:20px;display:grid;gap:6px;padding:14px 16px;
+    background:var(--panel-2);border-radius:10px}
+  .regkey-row{display:flex;gap:12px;align-items:baseline;font-size:13.5px}
+  .regkey-k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3);min-width:150px;flex:none}
+  .regkey-v{color:var(--ink-2)}
+  .tablewrap{overflow-x:auto}
+  table.reg{width:100%;border-collapse:collapse;font-size:14px}
+  table.reg th{text-align:left;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+    padding:0 12px 7px 0;border-bottom:1px solid var(--rule)}
+  table.reg td{padding:11px 12px 11px 0;border-bottom:1px solid var(--rule);
+    vertical-align:top;line-height:1.55}
+  table.reg td:first-child{min-width:150px}
+  table.reg tr.is-open td{background:color-mix(in srgb, var(--ochre) 7%, transparent)}
+  .regline{font-size:13px;color:var(--ink-2);white-space:nowrap}
+  .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+    text-transform:uppercase;white-space:nowrap;padding:3px 7px;border-radius:4px;
+    background:var(--panel-2);color:var(--ink-3)}
+  .vd-doc{background:color-mix(in srgb, var(--accent) 14%, transparent);color:var(--accent)}
+  .vd-inf{background:color-mix(in srgb, var(--accent) 9%, transparent);color:var(--ink-2)}
+  .vd-lore{background:color-mix(in srgb, var(--ochre) 18%, transparent);color:var(--ochre)}
+  .vd-unplaced{background:color-mix(in srgb, var(--terra) 16%, transparent);color:var(--terra)}
+  .vd-none,.vd-allied,.vd-context{background:var(--panel-2);color:var(--ink-3)}
+</style>
