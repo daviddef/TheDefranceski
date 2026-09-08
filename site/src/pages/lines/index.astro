@@ -5,6 +5,7 @@ import Sources from "../../components/Sources.astro";
 import Chip from "../../components/Chip.astro";
 import JourneyMap from "../../components/JourneyMap.astro";
 import lines from "../../data/lines.json";
+import BranchRivers from "../../components/BranchRivers.astro";
 import arr from "../../data/arrivals.json";
 import Plates from "../../components/Plates.astro";
 import Lightbox from "../../components/Lightbox.astro";
@@ -27,6 +28,13 @@ import Lightbox from "../../components/Lightbox.astro";
     ))}
   </div>
 </section>
+<Rule name="arrows" label="Four rivers" />
+<section class="blk">
+  <h2>The four roads, drawn</h2>
+  <p class="dek" style="margin-top:8px">One surname, four families, and four entirely different reasons for being on this coast.</p>
+  <div style="margin-top:24px"><BranchRivers /></div>
+</section>
+
 <Rule name="helm" label="Three arrivals" />
 
 <section class="blk">

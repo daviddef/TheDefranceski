@@ -4,16 +4,16 @@ const { title, dek, eyebrow, bare } = Astro.props;
 const SITE = "The Defranceschi Archive";
 const nav = [
   ["Start", [["/", "Home"], ["/story/", "The Story"], ["/tree/", "The Tree"], ["/atlas/", "The Atlas"], ["/search/", "Search"]]],
-  ["The line", [["/direct-line/", "The Spine"], ["/carnia/", "Carnia"], ["/gologorica-line/", "Gologorica"],
+  ["The Line", [["/direct-line/", "The Spine"], ["/carnia/", "Carnia"], ["/gologorica-line/", "Gologorica"],
                 ["/crikvenica-house/", "Crikvenica"], ["/pfullingen/", "Pfullingen"], ["/senj-line/", "Senj"]]],
-  ["Other families", [["/lines/", "All lines"], ["/the-eleven/", "The Eleven"], ["/seget/", "Seget"],
+  ["Families", [["/lines/", "All lines"], ["/the-eleven/", "The Eleven"], ["/seget/", "Seget"],
                       ["/omis-line/", "Omiš"], ["/imotski/", "Imotski"], ["/istria-sweep/", "Every Town"],
                       ["/diaspora/", "Diaspora"], ["/namesakes/", "Namesakes"]]],
-  ["People & places", [["/people/", "People"], ["/households/", "Households"], ["/explorer/", "Explorer"],
+  ["People", [["/people/", "People"], ["/households/", "Households"], ["/explorer/", "Explorer"],
                        ["/marriages/", "Marriages"], ["/places/", "Places"], ["/journeys/", "Journeys"],
                        ["/emigration/", "Leaving"], ["/timeline/", "Timeline"]]],
   ["The dead", [["/burials/", "Burials"], ["/graves/", "Graves"]]],
-  ["Names & signs", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"]]],
+  ["Names", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"]]],
   ["Sources", [["/gallery/", "Gallery"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"], ["/the-library/", "The Library"],
                ["/carlos-letter/", "Carlo's Letter"], ["/carlos-book/", "Carlo's Book"],
                ["/sources/", "Sources"], ["/who/", "People"], ["/searched/", "Searched"], ["/research-log/", "Research Log"], ["/liznjan/", "Ližnjan"], ["/old-site/", "defranceski.com"], ["/about/", "About"]]],
@@ -31,19 +31,31 @@ const here = Astro.url.pathname;
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href={u("/styles.css")} />
 </head>
-<body>
+<body class={bare ? "is-home" : ""}>
 <header class="site">
   <div class="wrap sitein">
-    <a class="brand" href={u("/")}>The Defranceschi Archive</a>
-    <details class="navbox" open>
-      <summary><span class="bars" aria-hidden="true"></span>Menu</summary>
-      <nav class="grouped">{nav.map(([label, links]) => (
-        <span class="grp">
-          <span class="gl">{label}</span>
-          {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
-        </span>
-      ))}</nav>
-    </details>
+    <a class="brand" href={u("/")}>The Defranceschi <em>Archive</em></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="drawer">
+      <span class="bars" aria-hidden="true"></span>Menu
+    </button>
+    <nav class="topnav" aria-label="Main">
+      {nav.map(([label, links]) => (
+        <details class="menu">
+          <summary>{label}</summary>
+          <div class="panel">
+            {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
+          </div>
+        </details>
+      ))}
+      <a class="findbtn" href={u("/search/")} aria-label="Search">Search</a>
+    </nav>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="wrap">{nav.map(([label, links]) => (
+      <div class="dgrp"><span class="gl">{label}</span>
+        {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
+      </div>
+    ))}</div>
   </div>
 </header>
 
@@ -80,17 +92,31 @@ const here = Astro.url.pathname;
   });
 </script>
 <script is:inline>
-  /* The nav ships open, so it works with no JavaScript at all. On a narrow
-     screen we close it and let the Menu button drive it. */
   (function () {
-    var d = document.querySelector(".navbox");
-    if (!d) return;
-    var mq = window.matchMedia("(max-width: 900px)");
-    var sync = function (e) { if (e.matches) { d.open = false; } else { d.open = true; } };
-    sync(mq);
-    (mq.addEventListener ? mq.addEventListener("change", sync) : mq.addListener(sync));
-    d.addEventListener("click", function (ev) {
-      if (mq.matches && ev.target.closest("nav a")) d.open = false;
+    var bar = document.querySelector(".topnav");
+    var burger = document.querySelector(".burger");
+    var drawer = document.getElementById("drawer");
+    if (burger && drawer) {
+      burger.addEventListener("click", function () {
+        var open = drawer.hasAttribute("hidden");
+        if (open) { drawer.removeAttribute("hidden"); } else { drawer.setAttribute("hidden", ""); }
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+    if (!bar) return;
+    var menus = [].slice.call(bar.querySelectorAll("details.menu"));
+    menus.forEach(function (d) {
+      d.addEventListener("toggle", function () {
+        if (!d.open) return;
+        menus.forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
+    document.addEventListener("click", function (e) {
+      if (e.target.closest(".topnav")) return;
+      menus.forEach(function (d) { d.open = false; });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") menus.forEach(function (d) { d.open = false; });
     });
   })();
 </script>
@@ -133,9 +159,7 @@ const here = Astro.url.pathname;
     host.appendChild(det);
     host.hidden = false;
     var mq = window.matchMedia("(min-width: 901px)");
-    var sync = function (e) { det.open = e.matches; };
-    sync(mq);
-    (mq.addEventListener ? mq.addEventListener("change", sync) : mq.addListener(sync));
+    det.open = false;
     det.addEventListener("click", function (ev) {
       if (!mq.matches && ev.target.closest("nav a")) det.open = false;
     });

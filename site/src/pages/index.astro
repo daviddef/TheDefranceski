@@ -3,6 +3,7 @@ import { u } from "../lib/url.js";
 import Rule from "../components/Rule.astro";
 import Base from "../layouts/Base.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
+import BranchRivers from "../components/BranchRivers.astro";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
 import fs from "node:fs";
@@ -31,11 +32,18 @@ const finds = [
       dek="A family written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing."
       bare={true}>
 
-{hasBanner && <figure class="banner"><img src={u(BANNER)} alt="A panoramic landscape read left to right: alpine valleys, then bare white karst with a hill village, then a walled coastal town and the open Adriatic with one small ship standing out to sea." loading="eager" decoding="async" /></figure>}
+<section class="hero">
+  <img src={u(hasBanner ? BANNER : "/art/gologorica-house-1711.webp")}
+       alt="The house at Gologorica, built in 1711, with the builder's tablet over its door."
+       loading="eager" decoding="async" />
+  <div class="cap">
+    <div class="kick">A family history, kept honestly</div>
+    <h1>Six generations back, a stonemason on an Istrian hill.</h1>
+    <p class="sub">Istria · Kvarner · Carnia · and the diaspora — a family written down under eight sovereigns, in four languages, and spelled at least nine ways.</p>
+  </div>
+</section>
 
 <section class="opener">
-  <div class="kicker">A family history, kept honestly</div>
-  <h1>Six generations back, a stonemason on an Istrian hill.</h1>
   <p class="lede">
     This archive was built by <b>David Defranceski</b>, born in Johannesburg, living in Brisbane —
     and it runs backwards from him: to <b>Senj</b>, where his grandfather Ivan is buried; to
@@ -69,6 +77,24 @@ const finds = [
     </a>
   </div>
 </section>
+
+<section class="feat" style="margin-top:38px">
+  <div class="kicker" style="color:var(--accent)">Four families, one surname</div>
+  <h2 style="margin-top:6px">Where each of them came from, and where each of them went</h2>
+  <p class="dek" style="margin-top:10px">They are not one family and they never were. Three of the four can be followed in documents, and they arrive from three different directions for three different reasons — one for work, one as soldiers paid off in ruined land, one as refugees off a wrecked fleet. The fourth is still family lore.</p>
+  <div style="margin-top:24px"><BranchRivers /></div>
+  <p class="cap" style="margin-top:14px"><a href={u("/lines/")}>All eight lines, and what each one rests on →</a></p>
+</section>
+<Rule name="arrows" />
+
+<section class="feat">
+  <div class="kicker" style="color:var(--terra)">Eight hundred years, four countries, one family</div>
+  <h2 style="margin-top:6px">What they were living under, and what they were up against</h2>
+  <p class="dek" style="margin-top:10px">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for three hundred and seventy-seven years. <strong>Red above the lanes is this family. Ochre below is the wars, plagues, treaties and regime changes they were lived through.</strong> Hover or tab any marker and it tells you what it is.</p>
+  <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
+  <p class="cap" style="margin-top:16px"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
+</section>
+<Rule name="helm" />
 
 <section class="blk">
   <h2>The archive in numbers</h2>
@@ -104,17 +130,11 @@ const finds = [
 <section class="blk">
   <h2>There is no single Defranceschi family</h2>
   <div class="prose" style="margin-top:14px">
-    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's. Seven lines are followed here and only one of them is proven.</p>
+    <p><em>De Franceschi</em> means only ‘of the Franceschi’ — the family of a man called Francesco. The name was therefore invented independently, many times over, wherever an Italian-speaking clerk needed to tell one Francesco's sons from another's. Eight lines are followed here and three of them are documented.</p>
     <p>That is this archive's organising idea rather than its disappointment. The work is to establish which lines are actually connected, to say plainly where the evidence stops, and to keep the good stories without letting them pretend to be facts.</p>
-    <p><a href={u("/lines/")}>The seven lines, and what each one rests on →</a></p>
+    <p><a href={u("/lines/")}>The eight lines, and what each one rests on →</a></p>
   </div>
 </section>
 <Rule name="helm" />
 
-<section class="blk">
-  <h2>Three places, three histories</h2>
-  <p class="dek">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for 377 years. Family events run in red above the lanes and the wars, plagues, treaties and regime changes they were lived through run in ochre below. Hover any marker.</p>
-  <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
-  <p class="cap"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
-</section>
 </Base>

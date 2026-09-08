@@ -1,0 +1,131 @@
+---
+/* Four surnames' worth of movement, drawn as four rivers.
+   Each lane is one of the families this archive follows; the dots are
+   places it can put a document in, and the fan at the right is where
+   that family ended up. */
+const LANES = [
+  {
+    key: "carnia", colour: "var(--accent)", label: "Out of Carnia, for work",
+    conf: "documented",
+    nodes: [
+      ["Mione", "1679", "A De Franceschi of Mione on the headmen's list, working in the County of Pazin"],
+      ["Moncalvo", "1661", "The surname enters the Moncalvo di Pisino baptism book"],
+      ["Gologorica", "1711", "ANNO · DOMNI · 1711 cut over the door of the house"],
+      ["Gračišće", "1787", "Joannes Baptista, farmer of house 5 — the line's earliest dated ancestor"],
+      ["Crikvenica", "1892", "The stonecutter's son comes down to the coast between 1892 and 1894"],
+    ],
+    ends: ["Senj", "Germany", "Australia", "South Africa", "United States"],
+  },
+  {
+    key: "venice", colour: "var(--ochre)", label: "Out of Venice, as soldiers",
+    conf: "documented",
+    nodes: [
+      ["Venice", "—", "Cittadini originari of the Republic"],
+      ["Zadar", "1359", "Louis I grants «nobiles regni Croacie»; the family is at Zadar from the 14th century"],
+      ["Omiš", "1584", "Francesco the Venetian lays the foundations of his house on 18 June 1584"],
+      ["Imotski", "1717", "Zuane takes the town and is paid in ruined land on the Vrljika"],
+      ["Perinuša", "1722", "The mills: six wheels, then eleven, then fourteen"],
+    ],
+    ends: ["Opačac", "Split"],
+  },
+  {
+    key: "crete", colour: "var(--terra)", label: "Out of Crete, as refugees",
+    conf: "documented",
+    nodes: [
+      ["Candia", "1500", "Nicolò castellan of Castel Milopotamo; the family noble in Crete"],
+      ["Wrecked", "1669", "Candia falls; Morosini's galleys take them off and the fleet is wrecked in a storm"],
+      ["Zante", "1670s", "Zorzi de Franceschi goes from Candia to Zante"],
+      ["Šibenik", "1674", "and from Zante to Sebenico, drawing a Venetian war pension"],
+      ["Seget", "1720", "Marc'Antonio buys the estate; 1724 on the portal, 1732 on the cistern"],
+    ],
+    ends: ["Umag", "Brtonigla", "Koper"],
+  },
+  {
+    key: "liznjan", colour: "var(--r-napo)", label: "Out of Ližnjan — still lore",
+    conf: "family lore",
+    nodes: [
+      ["Ližnjan", "1851", "Third of eighteen towns in the record sweep, and eighty-one entries of the name"],
+      ["Grga", "1931", "Gregorius «Grgo», born at Ližnjan, dead at Zagreb"],
+    ],
+    ends: ["Zagreb", "Monheim", "United States"],
+  },
+];
+
+const W = 1040;
+const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:548,h:112} ];
+const X0 = 96, X1 = 700, XE = 902;
+---
+<figure class="rivers">
+  <svg viewBox="0 0 1040 620" role="img" aria-labelledby="riversttl">
+    <title id="riversttl">Four families of one surname, and the road each of them took</title>
+    {LANES.map((lane, li) => {
+      const b = BANDS[li];
+      const n = lane.nodes.length;
+      const step = (X1 - X0) / (n - 1);
+      const ends = lane.ends;
+      const spread = Math.min(b.h / 2 - 18, 16 + ends.length * 13);
+      return (
+        <g>
+          <rect x="0" y={b.y0} width={W} height={b.h} rx="10"
+                fill={lane.colour} opacity="0.055" />
+          <text x="14" y={b.y0 + 20} class="lane-label" fill={lane.colour}>{lane.label}</text>
+          <text x="14" y={b.y0 + 36} class="lane-conf">{lane.conf}</text>
+
+          <line x1={X0} y1={b.sp} x2={X1} y2={b.sp} stroke={lane.colour}
+                stroke-width="5" stroke-linecap="round" opacity="0.34" />
+
+          {ends.map((e, ei) => {
+            const y = ends.length === 1 ? b.sp
+              : b.sp - spread + (ei * (spread * 2) / (ends.length - 1));
+            return (
+              <g>
+                <path d={`M ${X1} ${b.sp} C ${X1 + 90} ${b.sp}, ${XE - 90} ${y}, ${XE} ${y}`}
+                      fill="none" stroke={lane.colour} stroke-width="1.6" opacity="0.5" />
+                <circle cx={XE} cy={y} r="3.4" fill={lane.colour} />
+                <text x={XE + 9} y={y + 4} class="endlab">{e}</text>
+              </g>
+            );
+          })}
+
+          {lane.nodes.map(([place, year, why], i) => {
+            const x = X0 + i * step;
+            return (
+              <g class="node" tabindex="0">
+                <title>{place}{year !== "—" ? ` · ${year}` : ""} — {why}</title>
+                <circle cx={x} cy={b.sp} r="8.5" fill="var(--panel)" stroke={lane.colour} stroke-width="2.6" />
+                <circle cx={x} cy={b.sp} r="3" fill={lane.colour} />
+                <text x={x} y={b.sp - 19} class="place">{place}</text>
+                <text x={x} y={b.sp + 27} class="year" fill={lane.colour}>{year}</text>
+              </g>
+            );
+          })}
+        </g>
+      );
+    })}
+  </svg>
+  <figcaption>Hover or tab any dot for the document behind it. The teal river is the one this archive descends from; it is also the only one of the four that arrived on foot, looking for work.</figcaption>
+</figure>
+
+<style>
+  .rivers{margin:0}
+  .rivers svg{width:100%;height:auto;display:block;overflow:visible}
+  .lane-label{font-family:var(--sans);font-size:13px;font-weight:600}
+  .lane-conf{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;fill:var(--ink-3)}
+  .place{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:var(--ink);
+    text-anchor:middle;paint-order:stroke;stroke:var(--panel);stroke-width:3.4px}
+  .year{font-family:var(--mono);font-size:10.5px;text-anchor:middle;
+    paint-order:stroke;stroke:var(--panel);stroke-width:3px}
+  .endlab{font-family:var(--sans);font-size:11.5px;fill:var(--ink-2)}
+  .rivers .node{cursor:help}
+  .rivers .node:hover circle:first-of-type,
+  .rivers .node:focus circle:first-of-type{r:11}
+  .rivers .node:focus{outline:none}
+  .rivers .node:focus .place{fill:var(--accent)}
+  .rivers figcaption{font-family:var(--sans);font-size:13px;color:var(--ink-2);
+    margin-top:16px;max-width:78ch;line-height:1.6}
+  @media (max-width:700px){
+    .rivers svg{min-width:660px}
+    .rivers{overflow-x:auto}
+  }
+</style>
