@@ -521,5 +521,21 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:16px">{g.kasteli2012.source_kasteli}</p>
 </section>
 
+<Rule name="tablet" label="The parish archive" />
+
+<section class="blk">
+  <h2>{g.orbanic2024.heading}</h2>
+  <p class="dek" style="margin-top:8px">{g.orbanic2024.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {g.orbanic2024.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{g.orbanic2024.source_orb}</p>
+</section>
+
   <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "gologorica2026", "archiveorg", "hrcak", "familysearch"]} />
 </Base>

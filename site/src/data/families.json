@@ -2,57 +2,188 @@
  "heading": "Four families, some unplaced households, and a lot of namesakes",
  "lead": "This site has been counting badly. It said «seven lines», then «eight», and listed Senj beside Carnia as though they were the same kind of thing — when Senj is a place our own family reached and Carnia is where it started. Three different things were being added together. They are separated here, and the count only applies to the first of them.",
  "why": [
-  {"lab":"A family is an origin","text":"Four households of the surname can be traced to a place they came *from*, and they came from three different directions for three different reasons. Three are documented; the fourth is family lore. **These are the only things this archive calls families**, and nothing joins any two of them."},
-  {"lab":"A station is not a family","text":"Gologorica, Gračišće, Crikvenica, Senj, Pfullingen are **stops on one road** — our road — not separate lines. So are Perinuša and Opačac on the Venetian road, and Umag, Brtonigla and Koper on the Cretan one. They have pages because there is a lot to say about each; they are not additions to the count.","key":true},
-  {"lab":"And a namesake is not a relative","text":"*De Franceschi* means only «of the Franceschi» — the household of a man called Francesco. It was invented independently wherever an Italian-speaking clerk had two Francescos to tell apart. So a De Franceschi in Corsica or Bologna or Rio Grande do Sul is not evidence of anything at all until a document joins them, and this archive will not pretend otherwise.","key":true}
+  {
+   "lab": "A family is an origin",
+   "text": "Four households of the surname can be traced to a place they came *from*, and they came from three different directions for three different reasons. Three are documented; the fourth is family lore. **These are the only things this archive calls families**, and nothing joins any two of them."
+  },
+  {
+   "lab": "A station is not a family",
+   "text": "Gologorica, Gračišće, Crikvenica, Senj, Pfullingen are **stops on one road** — our road — not separate lines. So are Perinuša and Opačac on the Venetian road, and Umag, Brtonigla and Koper on the Cretan one. They have pages because there is a lot to say about each; they are not additions to the count.",
+   "key": true
+  },
+  {
+   "lab": "And a namesake is not a relative",
+   "text": "*De Franceschi* means only «of the Franceschi» — the household of a man called Francesco. It was invented independently wherever an Italian-speaking clerk had two Francescos to tell apart. So a De Franceschi in Corsica or Bologna or Rio Grande do Sul is not evidence of anything at all until a document joins them, and this archive will not pretend otherwise.",
+   "key": true
+  }
  ],
  "families": [
-  {"slug":"carnia","name":"Out of Carnia, for work","conf":"doc","colour":"var(--accent)",
-   "from":"The Val di Gorto above Ovaro, in Friuli","when":"before 1661",
-   "rests":"A De Franceschi of Mione on the 1679 headmen's list, working in the County of Pazin; the surname in the Moncalvo di Pisino baptism book from 1661; ANNO · DOMNI · 1711 cut over the house at Gologorica; and an unbroken register descent at Gračišće from 1787.",
-   "who":"This archive's own family, and Carlo and Camillo De Franceschi's.",
-   "href":"/story/"},
-  {"slug":"venice","name":"Out of Venice, as soldiers","conf":"doc","colour":"var(--ochre)",
-   "from":"Venice, by way of Zadar and Omiš","when":"Zadar from 1359, Omiš from 1584",
-   "rests":"Louis I's privilege of 1359; the foundation plaque of Francesco the Venetian at Omiš dated 18 June 1584; Provveditore Mocenigo's donation charter of 1717; the Imotski death register of 1845, where a Franceschi born at Omiš dies at Imotski.",
-   "who":"Zuane, who took Imotski in 1717, and the mills at Perinuša.",
-   "href":"/imotski/"},
-  {"slug":"crete","name":"Out of Crete, as refugees","conf":"doc","colour":"var(--terra)",
-   "from":"Candia, by way of Zante and Šibenik","when":"1669",
-   "rests":"The Venetian war pension of 1674, still being drawn at Capodistria in 1730; Chrysoula Marulli, a Cretan wife married in 1727; and the estate at Seget bought in 1720 with 1724 on its portal and 1732 on its cistern. The flight itself is tradition, well supported.",
-   "who":"The Seget and Umag house, nobles of Capodistria from 1802.",
-   "href":"/seget/"},
-  {"slug":"liznjan","name":"Out of Ližnjan","conf":"lore","colour":"var(--r-napo)",
-   "from":"Unknown — the origin is exactly what is missing","when":"in the registers from 1822",
-   "rests":"Eighty-one register entries at Ližnjan between 1822 and 1890, and Grga, born there and dead at Zagreb. Where the household came from before Ližnjan is not known, and until it is this is not a fourth origin but a fourth question.",
-   "who":"Grga and his sons, and the Zagreb graves.",
-   "href":"/liznjan/"}
+  {
+   "slug": "carnia",
+   "name": "Out of Carnia, for work",
+   "conf": "doc",
+   "colour": "var(--accent)",
+   "from": "The Val di Gorto above Ovaro, in Friuli",
+   "when": "before 1661",
+   "rests": "A De Franceschi of Mione on the 1679 headmen's list, working in the County of Pazin; the surname in the Moncalvo di Pisino baptism book from 1661; ANNO · DOMNI · 1711 cut over the house at Gologorica; and an unbroken register descent at Gračišće from 1787.",
+   "who": "This archive's own family, and Carlo and Camillo De Franceschi's.",
+   "href": "/story/"
+  },
+  {
+   "slug": "venice",
+   "name": "Out of Venice, as soldiers",
+   "conf": "doc",
+   "colour": "var(--ochre)",
+   "from": "Venice, by way of Zadar and Omiš",
+   "when": "Zadar from 1359, Omiš from 1584",
+   "rests": "Louis I's privilege of 1359; the foundation plaque of Francesco the Venetian at Omiš dated 18 June 1584; Provveditore Mocenigo's donation charter of 1717; the Imotski death register of 1845, where a Franceschi born at Omiš dies at Imotski.",
+   "who": "Zuane, who took Imotski in 1717, and the mills at Perinuša.",
+   "href": "/imotski/"
+  },
+  {
+   "slug": "crete",
+   "name": "Out of Crete, as refugees",
+   "conf": "doc",
+   "colour": "var(--terra)",
+   "from": "Candia, by way of Zante and Šibenik",
+   "when": "1669",
+   "rests": "The Venetian war pension of 1674, still being drawn at Capodistria in 1730; Chrysoula Marulli, a Cretan wife married in 1727; and the estate at Seget bought in 1720 with 1724 on its portal and 1732 on its cistern. The flight itself is tradition, well supported.",
+   "who": "The Seget and Umag house, nobles of Capodistria from 1802.",
+   "href": "/seget/"
+  },
+  {
+   "slug": "liznjan",
+   "name": "Southern Istria — Pula, Fažana, Ližnjan",
+   "conf": "lore",
+   "colour": "var(--r-napo)",
+   "from": "Unknown — but a Friulian trace at Zoppola",
+   "when": "in the Pula registers from 1667",
+   "rests": "Thirty-one people in the family's own tree, in the Pula and Fažana registers from **1667** and at Ližnjan into the twentieth century. **This is now known to be the tail of a larger southern-Istrian household rather than an origin of its own**, and the question is which of the other three it belongs to — a Friulian entry at Zoppola in 1779 is the one clue, and it points at Carnia.",
+   "who": "Grgo of Ližnjan, an Antonio in the naval cemetery at Pula, and two who died in France.",
+   "href": "/liznjan/"
+  }
  ],
  "clusters_head": "Households of the name that must belong to one of the four, and cannot yet be assigned",
  "clusters_lead": "These were being counted as lines. They are not origins; they are real households in real registers whose parent family this archive cannot yet name. Each one is a question with an address.",
  "clusters": [
-  {"where":"Fiume — Rijeka","n":"three stocks","what":"Kobler, working the civic registers, found three and declined to join them to each other. **Valentino, «venuto dalla Carnia», a citizen in 1739** — almost certainly the Carnian family. **Giovanni Battista, «venuto da Pisino», a citizen in 1746** — almost certainly the same, since «da Pisino» in a Fiume register means the county, and that is where Gologorica is. And an earlier Fiume stock that is nobody's yet.","lean":"carnia"},
-  {"where":"Svetvinčenat","n":"142 records from 1666","what":"Kandler's list of the Carnian families settled at Sanvincenti names Defranceschi among Lupieri, Fiorencis, Fabris, Crosilla and the rest. So the origin is Carnian; whether it is *our* Carnian household or another out of the same valley is not settled.","lean":"carnia"},
-  {"where":"Bakar","n":"twelve people","what":"A citizen-class household from before 1772 — Dominus Giovanni Battista, son of Dominus Francesco, marrying Catharina Akačić by dispensation. Styled *Dominus*, which separates them from the peasants on the same page. Which of the four they belong to is open.","lean":""},
-  {"where":"Pula, Ližnjan, Fažana, Medulin","n":"a large cluster","what":"Held in the family's own MyHeritage tree as one node with nineteen children under it, and barely touched here. Southern Istria, Venetian territory — so on the face of it either the Cretan family coming down the coast from Umag, or Carnians who went to Venetian Istria rather than the Habsburg county. **This is the biggest unresearched thing on the site.**","lean":""},
-  {"where":"Vodnjan — Dignano","n":"78 records","what":"A third and much larger southern presence, and Carlo's own book names Franceschi among the nobles of Pola «venuti da Capodistria» before the plague of 1631 — which would make them the extinct Koper family, not any of the four.","lean":""}
+  {
+   "where": "Fiume — Rijeka",
+   "n": "three stocks",
+   "what": "Kobler, working the civic registers, found three and declined to join them to each other. **Valentino, «venuto dalla Carnia», a citizen in 1739** — almost certainly the Carnian family. **Giovanni Battista, «venuto da Pisino», a citizen in 1746** — almost certainly the same, since «da Pisino» in a Fiume register means the county, and that is where Gologorica is. And an earlier Fiume stock that is nobody's yet.",
+   "lean": "carnia"
+  },
+  {
+   "where": "Svetvinčenat",
+   "n": "142 records from 1666",
+   "what": "Kandler's list of the Carnian families settled at Sanvincenti names Defranceschi among Lupieri, Fiorencis, Fabris, Crosilla and the rest. So the origin is Carnian; whether it is *our* Carnian household or another out of the same valley is not settled.",
+   "lean": "carnia"
+  },
+  {
+   "where": "Bakar",
+   "n": "twelve people",
+   "what": "A citizen-class household from before 1772 — Dominus Giovanni Battista, son of Dominus Francesco, marrying Catharina Akačić by dispensation. Styled *Dominus*, which separates them from the peasants on the same page. Which of the four they belong to is open.",
+   "lean": ""
+  },
+  {
+   "where": "Pula, Ližnjan, Fažana, Medulin",
+   "n": "31 people, 1667–2016",
+   "what": "**Read, September 2026.** Not a scatter but one family: in the Pula registers from **1667**, then Pula, Fažana, Premantura, Medulin and Barban for three centuries, with Ližnjan as its last address rather than its origin — which means **Ližnjan is not a separate family and should not be counted as one**. Two outliers complicate it: a death at Rovinj in 1728, a baptism at Šterna in 1778. And one clue points north: a Giambattista with children registered at **Zoppola in Udine** in 1779 and 1811, which would make this cluster Friulian, and therefore Carnian in direction rather than Cretan.",
+   "lean": "carnia?"
+  },
+  {
+   "where": "Vodnjan — Dignano",
+   "n": "78 records",
+   "what": "A third and much larger southern presence, and Carlo's own book names Franceschi among the nobles of Pola «venuti da Capodistria» before the plague of 1631 — which would make them the extinct Koper family, not any of the four.",
+   "lean": ""
+  }
  ],
  "dest_head": "Where the name went — and whose name it was",
  "dest_lead": "Every destination on the family's old map, with the one thing the map did not say: which family it belongs to, and how well that is known. Half of them are not this family at all, and saying so is the point.",
  "dests": [
-  {"place":"Germany — Pfullingen, Reutlingen","fam":"Carnia","conf":"doc","what":"Zdravko, Petar, Ivan and Felix in the labour camps and then the displaced-persons files, 1941–51. Named individuals, dated documents."},
-  {"place":"Australia — Horsham, Ipswich","fam":"Carnia","conf":"doc","what":"«Emigré Australie le 8.3.49» on Anton's index card. Zdravko's bronze at Horsham."},
-  {"place":"South Africa · Zimbabwe","fam":"Carnia","conf":"doc","what":"Hedviga Blažević died at Johannesburg in 2001; the keeper of this archive was born there."},
-  {"place":"Senj","fam":"Carnia","conf":"doc","what":"Not a line — a station. Ivan went home to Senj and is buried there, 1925–1995."},
-  {"place":"New York","fam":"Carnia","conf":"doc","what":"Basilio of Gračišće, born 29 September 1909, and his son Dario born at Gallignana in 1937; Giuseppe born at Gračišće 1892, dead in New York 1940; Albina off the Conte Rosso in 1922."},
-  {"place":"Split","fam":"Venice","conf":"doc","what":"Acta Croatica counts about sixty people of the name in Croatia today, mostly born at Split or Imotski. That is the Dalmatian family, still there."},
-  {"place":"Umag · Brtonigla · Koper","fam":"Crete","conf":"doc","what":"Seget's own country. Koper is a title rather than a home: nobles of Capodistria from 1802, while living at Seget."},
-  {"place":"Zagreb · Monheim","fam":"Ližnjan","conf":"inf","what":"Grga died at Zagreb and thirteen graves of the name are in the city's cemeteries. Monheim is a pin on a map with no source behind it."},
-  {"place":"Buenos Aires","fam":"Carnia","conf":"lore","what":"Rotilio, eighth of the Eleven of Gračišće, is said to have gone to Buenos Aires with two daughters. Nothing in the open indexes matches him, and CEMLA's arrival records are behind a bot check. A separate Buenos Aires Defranceski of the 1940s and 50s, a Yugoslav press official, has no established connection to anybody."},
-  {"place":"Brazil — Rio Grande do Sul, Santa Catarina, São Paulo","fam":"none","conf":"doc","what":"The largest cluster of the surname anywhere, and **not this family**. The in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco — every one of them Veneto. This is the Italian colonisation from 1875 out of the Veneto, Friuli and the Valsugana, with a separate São Paulo coffee-belt migration beside it."},
-  {"place":"Michigan","fam":"none","conf":"inf","what":"Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan, with a wife born in Switzerland. Nothing joins him to Istria."},
-  {"place":"Ticino, Switzerland","fam":"none","conf":"doc","what":"Italian-speaking Switzerland, over the border from Lombardy. A different stock of the same ordinary patronymic."},
-  {"place":"Corsica","fam":"none","conf":"doc","what":"**A Florentine family, not an Istrian one.** Taddeo Franceschi crossed to Corsica early in the fourteenth century and his descendants served Genoa until 1768. It produced a Napoleonic brigadier general, made a baron of the Empire in 1810, and a modern historian of the Revolution. The family's own map carries a Corsica marker; it should carry a label saying *namesake*."}
+  {
+   "place": "Germany — Pfullingen, Reutlingen",
+   "fam": "Carnia",
+   "conf": "doc",
+   "what": "Zdravko, Petar, Ivan and Felix in the labour camps and then the displaced-persons files, 1941–51. Named individuals, dated documents."
+  },
+  {
+   "place": "Australia — Horsham, Ipswich",
+   "fam": "Carnia",
+   "conf": "doc",
+   "what": "«Emigré Australie le 8.3.49» on Anton's index card. Zdravko's bronze at Horsham."
+  },
+  {
+   "place": "South Africa · Zimbabwe",
+   "fam": "Carnia",
+   "conf": "doc",
+   "what": "Hedviga Blažević died at Johannesburg in 2001; the keeper of this archive was born there."
+  },
+  {
+   "place": "Senj",
+   "fam": "Carnia",
+   "conf": "doc",
+   "what": "Not a line — a station. Ivan went home to Senj and is buried there, 1925–1995."
+  },
+  {
+   "place": "New York",
+   "fam": "Carnia",
+   "conf": "doc",
+   "what": "Basilio of Gračišće, born 29 September 1909, and his son Dario born at Gallignana in 1937; Giuseppe born at Gračišće 1892, dead in New York 1940; Albina off the Conte Rosso in 1922."
+  },
+  {
+   "place": "Split",
+   "fam": "Venice",
+   "conf": "doc",
+   "what": "Acta Croatica counts about sixty people of the name in Croatia today, mostly born at Split or Imotski. That is the Dalmatian family, still there."
+  },
+  {
+   "place": "Umag · Brtonigla · Koper",
+   "fam": "Crete",
+   "conf": "doc",
+   "what": "Seget's own country. Koper is a title rather than a home: nobles of Capodistria from 1802, while living at Seget."
+  },
+  {
+   "place": "Zagreb · Monheim",
+   "fam": "Ližnjan",
+   "conf": "inf",
+   "what": "Grga died at Zagreb and thirteen graves of the name are in the city's cemeteries. Monheim is a pin on a map with no source behind it."
+  },
+  {
+   "place": "Buenos Aires",
+   "fam": "Carnia",
+   "conf": "lore",
+   "what": "Rotilio, eighth of the Eleven of Gračišće, is said to have gone to Buenos Aires with two daughters. Nothing in the open indexes matches him, and CEMLA's arrival records are behind a bot check. A separate Buenos Aires Defranceski of the 1940s and 50s, a Yugoslav press official, has no established connection to anybody."
+  },
+  {
+   "place": "Brazil — Rio Grande do Sul, Santa Catarina, São Paulo",
+   "fam": "none",
+   "conf": "doc",
+   "what": "The largest cluster of the surname anywhere, and **not this family**. The in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco — every one of them Veneto. This is the Italian colonisation from 1875 out of the Veneto, Friuli and the Valsugana, with a separate São Paulo coffee-belt migration beside it."
+  },
+  {
+   "place": "Michigan",
+   "fam": "none",
+   "conf": "inf",
+   "what": "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan, with a wife born in Switzerland. Nothing joins him to Istria."
+  },
+  {
+   "place": "Ticino, Switzerland",
+   "fam": "none",
+   "conf": "doc",
+   "what": "Italian-speaking Switzerland, over the border from Lombardy. A different stock of the same ordinary patronymic."
+  },
+  {
+   "place": "Corsica",
+   "fam": "none",
+   "conf": "doc",
+   "what": "**A Florentine family, not an Istrian one.** Taddeo Franceschi crossed to Corsica early in the fourteenth century and his descendants served Genoa until 1768. It produced a Napoleonic brigadier general, made a baron of the Empire in 1810, and a modern historian of the Revolution. The family's own map carries a Corsica marker; it should carry a label saying *namesake*."
+  },
+  {
+   "place": "France — Charleville, Cannes",
+   "fam": "Southern Istria",
+   "conf": "doc",
+   "what": "Two born at Barban in 1924 and 1931, dead at Charleville in the Moselle in 2002 and at Cannes in 2016. The Istrian exodus took a road this archive had not recorded."
+  }
  ],
  "close": "So the honest sentence is this. **Four families, of which three have an origin in documents and one has only a place.** Five clusters of real households that belong to one of the four and cannot yet be told which. And a diaspora in which five destinations are demonstrably ours, three belong to the other families, and four are people who simply share the commonest patronymic in Italy.",
  "source_fam": "Assembled September 2026 from this archive's own pages, and restructured after David Defranceski pointed out that it had been adding three different kinds of thing together and calling the total «lines»."
