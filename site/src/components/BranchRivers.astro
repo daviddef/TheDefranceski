@@ -1,11 +1,12 @@
 ---
+import { u } from "../lib/url.js";
 /* Four surnames' worth of movement, drawn as four rivers.
    Each lane is one of the families this archive follows; the dots are
    places it can put a document in, and the fan at the right is where
    that family ended up. */
 const LANES = [
   {
-    key: "carnia", colour: "var(--accent)", label: "Out of Carnia, for work",
+    key: "carnia", colour: "var(--accent)", label: "Out of Carnia, for work", href: "/story/", read: "Nine chapters →",
     conf: "documented",
     nodes: [
       ["Mione", "1679", "A De Franceschi of Mione on the headmen's list, working in the County of Pazin"],
@@ -17,7 +18,7 @@ const LANES = [
     ends: ["Senj", "Germany", "Australia", "South Africa", "United States"],
   },
   {
-    key: "venice", colour: "var(--ochre)", label: "Out of Venice, as soldiers",
+    key: "venice", colour: "var(--ochre)", label: "Out of Venice, as soldiers", href: "/imotski/", read: "The Imotski page →",
     conf: "documented",
     nodes: [
       ["Venice", "—", "Cittadini originari of the Republic"],
@@ -29,7 +30,7 @@ const LANES = [
     ends: ["Opačac", "Split"],
   },
   {
-    key: "crete", colour: "var(--terra)", label: "Out of Crete, as refugees",
+    key: "crete", colour: "var(--terra)", label: "Out of Crete, as refugees", href: "/seget/", read: "The Seget page →",
     conf: "documented",
     nodes: [
       ["Candia", "1500", "Nicolò castellan of Castel Milopotamo; the family noble in Crete"],
@@ -41,7 +42,7 @@ const LANES = [
     ends: ["Umag", "Brtonigla", "Koper"],
   },
   {
-    key: "liznjan", colour: "var(--r-napo)", label: "Out of Ližnjan — still lore",
+    key: "liznjan", colour: "var(--r-napo)", label: "Out of Ližnjan — still lore", href: "/liznjan/", read: "The Ližnjan page →",
     conf: "family lore",
     nodes: [
       ["Ližnjan", "1851", "Third of eighteen towns in the record sweep, and eighty-one entries of the name"],
@@ -53,7 +54,7 @@ const LANES = [
 
 const W = 1040;
 const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:548,h:112} ];
-const X0 = 96, X1 = 700, XE = 902;
+const X0 = 150, X1 = 700, XE = 902;
 ---
 <figure class="rivers">
   <svg viewBox="0 0 1040 620" role="img" aria-labelledby="riversttl">
@@ -61,17 +62,19 @@ const X0 = 96, X1 = 700, XE = 902;
     {LANES.map((lane, li) => {
       const b = BANDS[li];
       const n = lane.nodes.length;
-      const step = (X1 - X0) / (n - 1);
+      const step = n > 2 ? (X1 - X0) / (n - 1) : (X1 - X0) / 2;
+      const lineEnd = X0 + step * (n - 1);
       const ends = lane.ends;
       const spread = Math.min(b.h / 2 - 18, 16 + ends.length * 13);
       return (
         <g>
           <rect x="0" y={b.y0} width={W} height={b.h} rx="10"
                 fill={lane.colour} opacity="0.055" />
-          <text x="14" y={b.y0 + 20} class="lane-label" fill={lane.colour}>{lane.label}</text>
-          <text x="14" y={b.y0 + 36} class="lane-conf">{lane.conf}</text>
+          <text x="12" y={b.y0 + 21} class="lane-label" fill={lane.colour}>{lane.label}</text>
+          <text x="12" y={b.y0 + 37} class="lane-conf">{lane.conf}</text>
+          <a href={u(lane.href)} class="lane-link"><text x={W - 14} y={b.y0 + 21} class="lane-read" fill={lane.colour}>{lane.read}</text></a>
 
-          <line x1={X0} y1={b.sp} x2={X1} y2={b.sp} stroke={lane.colour}
+          <line x1={X0} y1={b.sp} x2={Math.max(lineEnd, X1)} y2={b.sp} stroke={lane.colour}
                 stroke-width="5" stroke-linecap="round" opacity="0.34" />
 
           {ends.map((e, ei) => {
@@ -90,7 +93,8 @@ const X0 = 96, X1 = 700, XE = 902;
           {lane.nodes.map(([place, year, why], i) => {
             const x = X0 + i * step;
             return (
-              <g class="node" tabindex="0">
+              <g class="node" tabindex="0" role="button"
+                 data-place={place} data-year={year} data-why={why} data-lane={lane.label}>
                 <title>{place}{year !== "—" ? ` · ${year}` : ""} — {why}</title>
                 <circle cx={x} cy={b.sp} r="8.5" fill="var(--panel)" stroke={lane.colour} stroke-width="2.6" />
                 <circle cx={x} cy={b.sp} r="3" fill={lane.colour} />
@@ -103,8 +107,39 @@ const X0 = 96, X1 = 700, XE = 902;
       );
     })}
   </svg>
-  <figcaption>Hover or tab any dot for the document behind it. The teal river is the one this archive descends from; it is also the only one of the four that arrived on foot, looking for work.</figcaption>
+  <div class="riverread" id="riverread" aria-live="polite">
+    <b>Click or tab any dot</b> — it will tell you what the document behind it says.
+  </div>
+  <figcaption>The teal river is the one this archive descends from, and the only one of the four that arrived on foot, looking for work.</figcaption>
 </figure>
+
+<script is:inline>
+  (function () {
+    var host = document.getElementById("riverread");
+    if (!host) return;
+    var rest = host.innerHTML;
+    function show(g) {
+      var place = g.getAttribute("data-place"), year = g.getAttribute("data-year"),
+          why = g.getAttribute("data-why"), lane = g.getAttribute("data-lane");
+      host.innerHTML = '<span class="rr-lane"></span><b class="rr-place"></b>'
+        + '<span class="rr-year"></span><span class="rr-why"></span>';
+      host.querySelector(".rr-lane").textContent = lane;
+      host.querySelector(".rr-place").textContent = place;
+      host.querySelector(".rr-year").textContent = year && year !== "\u2014" ? year : "";
+      host.querySelector(".rr-why").textContent = why;
+      document.querySelectorAll(".rivers .node").forEach(function (n) { n.classList.remove("sel"); });
+      g.classList.add("sel");
+    }
+    document.querySelectorAll(".rivers .node").forEach(function (g) {
+      g.addEventListener("click", function () { show(g); });
+      g.addEventListener("mouseenter", function () { show(g); });
+      g.addEventListener("focus", function () { show(g); });
+      g.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(g); }
+      });
+    });
+  })();
+</script>
 
 <style>
   .rivers{margin:0}
@@ -112,6 +147,9 @@ const X0 = 96, X1 = 700, XE = 902;
   .lane-label{font-family:var(--sans);font-size:13px;font-weight:600}
   .lane-conf{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
     text-transform:uppercase;fill:var(--ink-3)}
+  .lane-read{font-family:var(--sans);font-size:12px;font-weight:600;text-anchor:end}
+  .lane-link{text-decoration:none}
+  .lane-link:hover .lane-read{text-decoration:underline}
   .place{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:var(--ink);
     text-anchor:middle;paint-order:stroke;stroke:var(--panel);stroke-width:3.4px}
   .year{font-family:var(--mono);font-size:10.5px;text-anchor:middle;
@@ -122,8 +160,17 @@ const X0 = 96, X1 = 700, XE = 902;
   .rivers .node:focus circle:first-of-type{r:11}
   .rivers .node:focus{outline:none}
   .rivers .node:focus .place{fill:var(--accent)}
+  .rivers .node.sel circle:first-of-type{r:11;stroke-width:3.4}
+  .riverread{margin-top:18px;padding:14px 18px;border-left:3px solid var(--accent);
+    background:var(--panel-2);border-radius:0 10px 10px 0;font-family:var(--sans);
+    font-size:14px;line-height:1.55;color:var(--ink-2);min-height:52px}
+  .riverread .rr-lane{display:block;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+  .riverread .rr-place{color:var(--ink);font-size:16px}
+  .riverread .rr-year{font-family:var(--mono);font-size:12px;color:var(--accent);margin-left:9px}
+  .riverread .rr-why{display:block;margin-top:5px}
   .rivers figcaption{font-family:var(--sans);font-size:13px;color:var(--ink-2);
-    margin-top:16px;max-width:78ch;line-height:1.6}
+    margin-top:14px;max-width:78ch;line-height:1.6}
   @media (max-width:700px){
     .rivers svg{min-width:660px}
     .rivers{overflow-x:auto}

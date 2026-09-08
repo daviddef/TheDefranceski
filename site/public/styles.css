@@ -10,7 +10,7 @@
   --serif:"EB Garamond",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --maxw:1180px;
+  --maxw:1080px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --ground:#101820; --panel:#17212A; --panel-2:#1E2A34;
@@ -47,9 +47,9 @@ img{max-width:100%}
   text-transform:uppercase;color:var(--ink-3)}
 .mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
 .sans{font-family:var(--sans)}
-.dek{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:58ch}
-.cap{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-3);margin-top:12px;max-width:74ch}
-.prose{max-width:68ch;display:flex;flex-direction:column;gap:16px}
+.dek{font-family:var(--sans);font-size:15px;line-height:1.62;color:var(--ink-2);max-width:76ch}
+.cap{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-3);margin-top:12px;max-width:92ch}
+.prose{max-width:80ch;display:flex;flex-direction:column;gap:16px}
 .prose h3{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-3);margin-top:14px}
 .scroll{overflow-x:auto;padding-bottom:6px}
@@ -72,7 +72,7 @@ td.m,th.m{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nu
 .chip.inf{border-color:var(--ochre);color:var(--ochre)}
 .chip.lore{border-color:var(--rule-strong);color:var(--ink-3);border-style:dashed}
 .note{border-left:2px solid var(--ochre);padding:2px 0 2px 18px;font-family:var(--sans);
-  font-size:14px;line-height:1.6;color:var(--ink-2);max-width:64ch}
+  font-size:14.5px;line-height:1.62;color:var(--ink-2);max-width:82ch}
 
 /* ---- chrome ---- */
 header.site{border-bottom:1px solid var(--rule-strong);background:var(--panel);
@@ -88,9 +88,9 @@ header.site nav a.on{color:var(--ink);border-bottom-color:var(--terra)}
 main{padding:0 0 90px}
 .pagehead{padding:56px 0 34px;border-bottom:1px solid var(--rule);margin-bottom:38px}
 .pagehead h1{font-size:clamp(36px,5.6vw,62px);line-height:1.04;margin-top:14px}
-.lead{margin-top:20px;font-size:17px;max-width:60ch}
+.lead{margin-top:20px;font-size:17.5px;max-width:72ch}
 footer.site{border-top:1px solid var(--rule-strong);padding:34px 0 60px;background:var(--panel)}
-.foot{font-family:var(--sans);font-size:12.5px;line-height:1.65;color:var(--ink-2);max-width:76ch}
+.foot{font-family:var(--sans);font-size:12.5px;line-height:1.65;color:var(--ink-2);max-width:92ch}
 .foot.dim{color:var(--ink-3);margin-top:10px}
 section.blk{padding:44px 0;border-bottom:1px solid var(--rule)}
 section.blk:last-child{border-bottom:0}
@@ -147,8 +147,8 @@ section.blk > .dek{margin-top:10px}
   padding-bottom:28px;border-bottom:1px solid var(--rule)}
 .qrow:last-child{border-bottom:0;padding-bottom:0}
 .qq{font-size:21px;line-height:1.2;margin-bottom:12px}
-.qw{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);max-width:64ch}
-.qn{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink-3);margin-top:12px;max-width:64ch}
+.qw{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:78ch}
+.qn{font-family:var(--sans);font-size:13.5px;line-height:1.58;color:var(--ink-3);margin-top:12px;max-width:78ch}
 .qn b{color:var(--terra);font-weight:600}
 .ab{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink-2);margin-top:12px}
 @media (max-width:760px){.qrow{grid-template-columns:1fr}}
@@ -214,7 +214,7 @@ section.blk > .dek{margin-top:10px}
 .qz{border-left:2px solid var(--terra);padding-left:22px}
 .qz .qit{font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5;color:var(--ink);max-width:60ch}
 .qz .qen{font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--ink-2);margin-top:10px;max-width:62ch}
-.qz .qwhy{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-3);margin-top:12px;max-width:66ch;
+.qz .qwhy{font-family:var(--sans);font-size:13.5px;line-height:1.6;color:var(--ink-3);margin-top:12px;max-width:80ch;
   padding-top:10px;border-top:1px solid var(--rule)}
 
 /* ---- plates: the family's own paper ---- */
