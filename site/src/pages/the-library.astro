@@ -157,6 +157,23 @@ import d from "../data/library.json";
 
 
 
+<Rule name="pomegranate" label="What to buy" />
+
+<section class="blk">
+  <h2>{d.acquire.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.acquire.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.acquire.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}{r.p && <span style="float:right;font-family:var(--mono);color:var(--accent)">{r.p}</span>}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px" set:html={d.acquire.total.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="cap" style="margin-top:14px">{d.acquire.source_acq}</p>
+</section>
+
 <Rule name="loom" label="Trieste, 1869" />
 
 <section class="blk">
