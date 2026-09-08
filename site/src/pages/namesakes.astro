@@ -65,14 +65,29 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
 
   <section class="prose" style="margin-top:46px">
     <h3>Picture credits</h3>
-    <p>Four paintings and prints on this page are public-domain works reproduced from Wikimedia Commons:{" "}
-      {artsrc.map((a, i) => <>{i > 0 && "; "}<a href={a.page} rel="noopener">{a.file.replace(/^File:/, "")}</a></>)}.
-      The photograph of Carlo De Franceschi is reproduced from the family's own copy.</p>
+    <p>The paintings, prints and photographs on this page are reproduced from Wikimedia Commons. Each is listed
+      below with the licence it carries and the hand that made it; nothing is used here that is not public domain
+      or openly licensed, and where a licence asks for attribution the photographer is named.</p>
+    <ul class="credits">
+      {artsrc.map(a => (
+        <li>
+          <a href={a.page} rel="noopener">{a.file.replace(/^File:/, "")}</a>
+          {a.licence && <span class="lic">{a.licence}</span>}
+          {a.artist && <span class="by">{a.artist}</span>}
+          {a.date && <span class="by">{a.date}</span>}
+        </li>
+      ))}
+    </ul>
     <h3>Who is actually kin</h3>
     <p>Carlo and Camillo are this family's own, by the letter Carlo wrote to Kobler. The Omiš men — Zuane and Giovanni — belong to the Zadar-Omiš descent, which the family's own twenty-generation chart connects to Niccolò. Everyone else on this page is here as a namesake, and is labelled as one. See <a href={u("/name/")}>The Name</a> for how the spellings actually behave, and <a href={u("/lines/")}>The Lines</a> for which descents this archive can defend.</p>
   </section>
 
   <style>
+  .credits{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:7px}
+  .credits li{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .credits .lic,.credits .by{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-3);margin-left:10px}
+
     .fig .more { margin-top: 12px; font-family: var(--sans); font-size: 13px; }
     .fig .more a { font-weight: 600; }
   </style>
