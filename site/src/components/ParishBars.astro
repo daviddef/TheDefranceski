@@ -1,0 +1,68 @@
+---
+import d from "../data/parishmap.json";
+const rows = d.rows;
+const max = Math.max(...rows.map(r => r.n));
+const Y0 = 1600, Y1 = 1920, SPAN = Y1 - Y0;
+const GN = { venice:"Venice line", south:"Southern Istria", unplaced:"Not placed",
+             carnia:"Carnia line", new:"New to this archive" };
+---
+<figure class="pmap">
+  <div class="pm-key">
+    {Object.entries(GN).map(([k, v]) => (
+      <span class={"pk pk-" + k}><i></i>{v}</span>
+    ))}
+    <span class="pk-note">Bar length = indexed records · the rule beneath = the years the register actually covers, {Y0}–{Y1}</span>
+  </div>
+  <ol class="pm-list">
+    {rows.map(r => {
+      const a = r.a ? Math.max(Y0, +r.a) : null;
+      const b = r.b ? Math.min(Y1, +r.b) : null;
+      const left = a ? ((a - Y0) / SPAN) * 100 : 0;
+      const wide = a && b ? Math.max(0.7, ((b - a) / SPAN) * 100) : 0;
+      return (
+        <li class={"pm-row g-" + r.g}>
+          <span class="pm-name">{r.p}</span>
+          <span class="pm-bar"><i style={`width:${Math.max(2, (r.n / max) * 100)}%`}></i></span>
+          <span class="pm-n">{r.n}</span>
+          <span class="pm-span">
+            {a && <i style={`left:${left}%;width:${wide}%`}></i>}
+            {a && <em style={`left:${left}%`}>{a}{b && b !== a ? "–" + b : ""}</em>}
+          </span>
+        </li>
+      );
+    })}
+  </ol>
+</figure>
+
+<style>
+  .pmap{margin:24px 0 0}
+  .pm-key{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-bottom:16px}
+  .pk{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-3);display:inline-flex;align-items:center;gap:6px}
+  .pk i{width:11px;height:11px;border-radius:2px;background:var(--ink-3);display:inline-block}
+  .pk-venice i{background:var(--ochre)} .pk-south i{background:var(--r-napo)}
+  .pk-carnia i{background:var(--accent)} .pk-unplaced i{background:var(--terra)}
+  .pk-new i{background:var(--ink-2)}
+  .pk-note{font-family:var(--sans);font-size:11.5px;font-style:italic;color:var(--ink-3);flex:1 1 260px}
+  .pm-list{list-style:none;margin:0;padding:0}
+  .pm-row{display:grid;grid-template-columns:150px 1fr 34px 1.25fr;gap:10px;align-items:center;
+    padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 55%,transparent)}
+  .pm-name{font-family:var(--sans);font-size:12.5px;color:var(--ink);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pm-bar{position:relative;height:9px;background:color-mix(in srgb,var(--rule) 60%,transparent);
+    border-radius:2px;overflow:hidden}
+  .pm-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--ink-3);border-radius:2px}
+  .g-venice .pm-bar i{background:var(--ochre)} .g-south .pm-bar i{background:var(--r-napo)}
+  .g-carnia .pm-bar i{background:var(--accent)} .g-unplaced .pm-bar i{background:var(--terra)}
+  .g-new .pm-bar i{background:var(--ink-2)}
+  .pm-n{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-align:right;
+    font-variant-numeric:tabular-nums}
+  .pm-span{position:relative;height:14px}
+  .pm-span i{position:absolute;top:6px;height:2px;background:color-mix(in srgb,var(--ink-3) 55%,transparent)}
+  .pm-span em{position:absolute;top:0;font-family:var(--mono);font-size:9px;font-style:normal;
+    color:var(--ink-3);white-space:nowrap;transform:translateX(-2px)}
+  @media (max-width:700px){
+    .pm-row{grid-template-columns:112px 1fr 30px}
+    .pm-span{display:none}
+  }
+</style>
