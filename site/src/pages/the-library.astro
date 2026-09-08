@@ -1,4 +1,5 @@
 ---
+import tri from "../data/triage.json";
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -155,6 +156,37 @@ import d from "../data/library.json";
 </section>
 
 
+
+<Rule name="tablet" label="Twenty-three at once" />
+
+<section class="blk">
+  <h2>{tri.heading}</h2>
+  <p class="dek" style="margin-top:8px">{tri.lead}</p>
+
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {tri.top.map(r => (
+      <div class="one" style="border-left-color:var(--accent)">
+        <div class="lab">{r.t}</div>
+        <div class="cap" style="margin-top:2px">{r.w} · {r.n}</div>
+        <p style="margin-top:9px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:20px;margin-top:34px">Worth a line each</h3>
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:12px">
+    {tri.lines.map(r => (
+      <div class="one">
+        <div class="lab">{r.t} · {r.n}</div>
+        <p style="margin-top:7px">{r.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="prose note" style="margin-top:26px">{tri.none}</p>
+  <p class="prose note" style="margin-top:16px" set:html={tri.ocr.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="cap" style="margin-top:16px">{tri.source_tri}</p>
+</section>
 
   <Sources ids={["arhivskivjesnik", "siasp", "libellarium", "kobler", "carlo1879", "dapa"]} />
 </Base>
