@@ -4,14 +4,79 @@ import Rule from "../../components/Rule.astro";
 import Sources from "../../components/Sources.astro";
 import Chip from "../../components/Chip.astro";
 import JourneyMap from "../../components/JourneyMap.astro";
+import { u } from "../../lib/url.js";
 import lines from "../../data/lines.json";
+import fam from "../../data/families.json";
 import BranchRivers from "../../components/BranchRivers.astro";
 import arr from "../../data/arrivals.json";
 import Plates from "../../components/Plates.astro";
 import Lightbox from "../../components/Lightbox.astro";
 ---
-<Base title="The Lines" eyebrow="Eight branches, three of them documented"
-      dek="Branches are treated as first-class subjects here, not as nodes on a chart. Each one states its own evidence and its own doubt.">
+<Base title="The Lines" eyebrow="Four families · five unplaced clusters · one very common name"
+      dek="Separating three things this site had been adding together: a family is an origin, a station is a stop on one family's road, and a namesake is somebody who happens to share the commonest patronymic in Italy.">
+<section class="blk">
+  <h2>{fam.heading}</h2>
+  <p class="dek" style="margin-top:10px">{fam.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {fam.why.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:23px;margin-top:40px">The four families</h3>
+  <div class="famgrid">
+    {fam.families.map(f => (
+      <a class="famcard" href={u(f.href)} style={`--c:${f.colour}`}>
+        <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}</div>
+        <h4>{f.name}</h4>
+        <div class="fc-meta"><span><b>From</b> {f.from}</span><span><b>Here from</b> {f.when}</span></div>
+        <p class="fc-rest">{f.rests}</p>
+        <p class="fc-who">{f.who}</p>
+      </a>
+    ))}
+  </div>
+
+  <h3 style="font-size:23px;margin-top:44px">{fam.clusters_head}</h3>
+  <p class="dek" style="margin-top:8px">{fam.clusters_lead}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Where</th><th>How much</th><th>What it is, and which family it probably belongs to</th></tr></thead>
+      <tbody>{fam.clusters.map(c => (
+        <tr>
+          <td style="font-weight:600;white-space:nowrap">{c.where}</td>
+          <td style="white-space:nowrap;color:var(--ink-3)">{c.n}</td>
+          <td set:html={c.what.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size:23px;margin-top:44px">{fam.dest_head}</h3>
+  <p class="dek" style="margin-top:8px">{fam.dest_lead}</p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Destination</th><th>Whose</th><th>How well</th><th>What is behind it</th></tr></thead>
+      <tbody>{fam.dests.map(d => (
+        <tr>
+          <td style="font-weight:600">{d.place}</td>
+          <td style="white-space:nowrap">{d.fam === "none"
+            ? <span style="color:var(--ink-3)">not this family</span>
+            : <span style="color:var(--accent);font-weight:600">{d.fam}</span>}</td>
+          <td><Chip c={d.conf === "doc" ? "documented" : d.conf === "inf" ? "inferred" : "lore"} /></td>
+          <td set:html={d.what.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <p class="prose note" style="margin-top:26px" set:html={fam.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="cap" style="margin-top:14px">{fam.source_fam}</p>
+</section>
+<Rule name="pomegranate" label="The pages themselves" />
+
 <section class="blk">
   <div class="stack">
     {lines.map(l=>(
@@ -83,5 +148,17 @@ import Lightbox from "../../components/Lightbox.astro";
   .arrmeta{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 4px;font-family:var(--sans);font-size:12px;color:var(--ink-3)}
   .arrmeta b{color:var(--ink-2);font-weight:600}
   .arrcard p{font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--ink-2);margin-top:10px}
+</style>
+<style>
+  .famgrid{margin-top:22px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+  .famcard{display:block;text-decoration:none;border:1px solid var(--rule);border-top:4px solid var(--c);
+    border-radius:12px;padding:18px 18px 20px;background:var(--panel)}
+  .famcard:hover{border-color:var(--c);box-shadow:0 10px 28px rgba(10,20,26,.09)}
+  .fc-conf{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .famcard h4{font-size:20px;margin:7px 0 0;color:var(--ink)}
+  .fc-meta{display:flex;flex-direction:column;gap:3px;margin:12px 0 0;font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+  .fc-meta b{color:var(--ink-2);font-weight:600}
+  .fc-rest{font-family:var(--sans);font-size:13.5px;line-height:1.6;color:var(--ink-2);margin-top:12px}
+  .fc-who{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink);margin-top:10px}
 </style>
 </Base>
