@@ -373,5 +373,21 @@ import k from "../data/kobler.json";
 
 
 
+<Rule name="tablet" label="Paris, 1919" />
+
+<section class="blk">
+  <h2>{k.sisic1919.heading}</h2>
+  <p class="dek" style="margin-top:8px">{k.sisic1919.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {k.sisic1919.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{k.sisic1919.source_sisic}</p>
+</section>
+
   <Sources ids={["kobler", "grah", "cavalli", "fiumemondo", "jelincic", "anno", "hrcak", "carlo1879", "attirovigno", "simon2024", "archiveorg"]} />
 </Base>
