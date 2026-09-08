@@ -68,3 +68,22 @@
 - ~~hrcak / Dabar repositories~~ — BOTH now behind bot checks. Do not retry; look for papers on CORE, author pages, or the publisher's own site.
 - ~~Doblanović on Svetvinčenat~~ — read via CORE. Published.
 - **NEW, and big: the family library at NSK Zagreb.** 2,396 items, catalogued 2009–2021, signature PDF 0.001–1.273+. Next steps: (a) ask NSK for the shelf list / catalogue export of the PDF signature range; (b) Hauptmann's report of 12 Aug 1945, published in Leideck 2015 — get it; (c) Sveučilišna knjižnica Pula: Carlo De Franceschi's CORRESPONDENCE, in the Collection of Old Books and Manuscripts; (d) DAPA's own De Franceschi family fond — never yet identified here.
+
+## Queued 9 September 2026 — David
+- **PORTRAITS FOR THE PEOPLE PAGES.** defranceski.com's «The People» carries pictures;
+  ours (e.g. /who/domenico-de-franceschi/) has none. Find or reference images for the
+  namesakes and the biographies:
+  · Andrea dei Franceschi — Titian portraits (Detroit Institute of Arts; Hampton Court
+    Royal Collection; NGA Washington). Some already in art-src.json — check coverage.
+  · Piero della Francesca — Vasari woodcut + the Urbino diptych (already plated).
+  · Domenico de' Franceschi — Venetian printer: his printer's device / title pages
+    (Commons, Internet Archive, ICCU/EDIT16 have digitised imprints).
+  · Francesco de' Franceschi painter — Museo Civico Padua altarpiece; Ashmolean panels.
+  · Francesco Franceschi printer — Colombo «Historie» 1571 title page.
+  · Mariano de Franceschi — «Camel Caravan at Rest» (already plated).
+  · Carlo and Camillo De Franceschi — photographs/portraits; Camillo's visiting card is
+    described in the NSK paper. Istrapedia and the Rovigno «Atti» carry portraits.
+  · Giulio De Franceschi (Rijeka 1856 – Gologorica 1942), painter and engraver — his own
+    work; «giuliodrawings» already referenced in library.json.
+  Rules: public-domain or clearly licensed only; caption must say holder and licence;
+  no living people. Wire into who/[slug].astro and people/[slug].astro, not just gallery.
