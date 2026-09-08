@@ -117,6 +117,22 @@ import Lightbox from "../../components/Lightbox.astro";
   <p class="cap" style="margin-top:16px">{fam.svetjoin.source_svet}</p>
 </section>
 
+<Rule name="pomegranate" label="Read, not searched" />
+
+<section class="blk" id="svetread">
+  <h2>{fam.svetread.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={fam.svetread.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {fam.svetread.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{fam.svetread.source_read}</p>
+</section>
+
 <Rule name="arrows" label="The whole inventory" />
 
 <section class="blk" id="regions">
