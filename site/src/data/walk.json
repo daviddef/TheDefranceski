@@ -1,0 +1,122 @@
+{
+ "note": "Itineraries for walking a line on the ground. Carnia first. Everything on these pages is drawn from what this archive has already established; where a stop rests on something unverified it says so.",
+ "lines": [
+  {"id":"carnia","name":"The Carnia line","href":"/walk/carnia/","status":"written","dek":"Val Degano, Friuli — three days on foot and one in an archive. The valley the weavers came out of."},
+  {"id":"gologorica","name":"The Gologorica line","href":"","status":"next","dek":"Central Istria: Gologorica, Gračišće, Pićan, Pazin. The house of 1711 and the eleven."},
+  {"id":"kvarner","name":"The Kvarner line","href":"","status":"queued","dek":"Klenovica, Crikvenica, Senj, Bribir. The coast the family moved down to."},
+  {"id":"venice","name":"The Venice and Dalmatia line","href":"","status":"queued","dek":"Venice, Zadar, Omiš, Imotski."},
+  {"id":"german","name":"The German leg","href":"","status":"queued","dek":"Pfullingen, Reutlingen, Metzingen, Neuhausen, Bad Urach, 1941–45."}
+ ],
+ "carnia": {
+  "title": "Walk the Carnia line",
+  "eyebrow": "Val Degano, Friuli · three days",
+  "dek": "In 1679 the headmen of the Canale di Gorto listed the weavers who had gone to work in the County of Pazin. From Mione: «Zuane De Franceschi con un suo fiolo». This is the road he walked, in reverse — and it is about forty kilometres of it, in one valley, all of it still standing.",
+  "intro": [
+   "This is not a list of dots. It is an order to do things in, because the order matters. The graveyard at the Pieve explains the villages; the villages do not explain the graveyard. Go to the church first.",
+   "Everything here is within twenty minutes' drive of Ovaro except the archive day, which is in Udine, and the optional fifth day over the mountain to Paluzza. The valley road is the SR355 and it is open all year. The Zoncolan pass road is not.",
+   "The valley speaks Friulian first and Italian second. Nobody will mind you speaking Italian; a great many people over sixty will answer you in Friulian anyway, and the word for the family in that mouth is *Di Francesc*. The house-names matter more than the surnames — ask for a family by its **soranòn** and you will be understood."
+  ],
+  "base": {
+   "where": "Ovaro, or Villa Santina if you want a wider choice of beds",
+   "why": "Ovaro is the centre of the Canale di Gorto and every stop on days two and three is within four kilometres of its square. Villa Santina, ten minutes down the valley, sits where the Degano meets the Tagliamento and has more places to stay and eat.",
+   "getting": "Fly to Trieste or Venice, or take the train to Udine. Udine to Tolmezzo is about fifty-five kilometres on the A23 — the Carnia exit — and takes fifty minutes. Tolmezzo to Ovaro is another twenty minutes: SS52 west to Villa Santina, then the SR355 north up the Val Degano. There is a bus, but a car is the difference between seeing four villages and seeing one.",
+   "when": "Late May to early October. The graveyard is open all year but the light on cut stone is best in the low sun of morning and late afternoon, and the mountain roads and some of the smaller churches shut in winter. Avoid the second week of July if the Zoncolan is on the Giro."
+  },
+  "days": [
+   {
+    "n": 1,
+    "title": "Arrive, and learn what a cramar was before you meet one",
+    "sub": "Tolmezzo → Villa Santina → Ovaro · about 30 km · half a day",
+    "lead": "Do not drive straight up the valley. The single fact that makes the whole Carnia line intelligible — that these were not peasants who emigrated but a licensed trade that travelled — is best learned in one afternoon in Tolmezzo.",
+    "stops": [
+     {"n":"1a","place":"Museo Carnico delle Arti Popolari «Michele Gortani», Tolmezzo","access":"open","what":"The museum of Carnian material culture, in the Palazzo Campeis. What you are there for is the **cramar** — the pedlar-weaver of these valleys who went north and east with a *crame*, a wooden chest strapped to his back, selling linen and thread and coming home in the spring. Carlo De Franceschi's own book says this trade is what took the men of the Ovaro parishes out of the valley.","ask":"Ask whether they hold anything on the *tessitori* of the Canale di Gorto specifically, and on the seventeenth-century *merighi* returns.","link":"/carnia/#weavers"},
+     {"n":"1b","place":"Villa Santina — the mouth of the valley","access":"open","what":"Ten minutes on. Where the Degano comes out of the mountains into the Tagliamento. It is worth five minutes standing on the bridge, because this is the gate: every man who left the Canale di Gorto for Istria came through here, and so did every one who came back.","ask":"","link":""},
+     {"n":"1c","place":"Ovaro","access":"open","what":"Up the SR355. Ovaro is the *comune* — thirteen villages under one town hall, and four of them are on your list. Get the lie of it before dark: the town is on the valley floor, the Pieve is on the terrace above to the north, and Agrons and Mione are on the slopes either side.","ask":"At the **Municipio di Ovaro**, ask the *ufficio anagrafe* whether the **stato civile** registers from 1871 can be searched for De Franceschi, and whether anyone in the office knows which houses in Mione and Muina carry the name today. This is the single most productive door in the valley and almost nobody knocks on it.","link":"/carnia/#households1806"}
+    ]
+   },
+   {
+    "n": 2,
+    "title": "The Pieve, and the graveyard that answered the question",
+    "sub": "Ovaro → Luincis · 1.5 km · a full day, and take a tripod",
+    "lead": "There are more De Franceschi in this one churchyard than this archive has found in the whole of Istria. Give it the entire day. It is the reason the rest of the itinerary exists.",
+    "stops": [
+     {"n":"2a","place":"Pieve di Santa Maria di Gorto, Luincis","access":"open","what":"The mother church of the whole Canale di Gorto, on the terrace above Ovaro — one of the eleven ancient *pievi* of Carnia, probably eighth-century, says the provincial panel at the door. It burned and was rebuilt in 1431 by «maestro Stefano quondam Simone di Mena»; the present building is eighteenth-century over that. Mione, Muina, Agrons, Cella, Ovasta and Luint were all subject to it. **Every baptism, marriage and burial of this family before the nineteenth century happened here or was registered here.**","ask":"","link":"/carnia/#gorto"},
+     {"n":"2b","place":"Inside: the campanile, the frescoes, the organ","access":"open","what":"The leaning fourteenth-century bell tower. The Romanesque **Wise and Foolish Virgins** frescoes. And the **organ of 1778 by de Corte of Ovasta** — built two kilometres up the road by a family from the next village, and the loudest surviving object anyone in this family would have heard.","ask":"Ask the parish whether the organ case carries the builder's inscription and whether it can be photographed. This archive has no image of it.","link":""},
+     {"n":"2c","place":"The churchyard — thirty stones","access":"open","what":"Work it as a grid, not as a hunt. Thirty-odd stones carry the name or marry into it. What the family photographed in 2026 gave this archive **Soravito De Franceschi** cut in stone — proof that the Carnian house-name in David's tree is a real thing on real granite — and a list of in-laws that reads like the Istrian surname list: Crosilla, Pustetto, Rovis, Giorgis, Fiorencis, Corva, Misdariis, Dell'Oste, Mirai, Adami, Cecconi.","ask":"","link":"/carnia/#gortostones"},
+     {"n":"2d","place":"The 1954 war memorial in the yard","access":"open","what":"«GUERRA 1940–1945». Among the missing, **DE FRANCESCHI ISIDORO**; among the civilians killed on 1–2 November 1944, **DE FRANCESCHI EGIDIO**. Photograph the whole panel, both columns, straight on — this archive has it, but not in a frame that reads end to end.","ask":"","link":"/carnia/#gorto_war"}
+    ],
+    "shots": [
+     "The **Pustetto / De Franceschi** stone — the existing frame cuts off the death years.",
+     "The **Albina** plaque — the surname is off the left edge.",
+     "**DE FR[ANCESCHI] MARIA** — no dates in the frame at all.",
+     "The **Gardel** stone, never photographed.",
+     "Close-ups of the **Crosilla** and **Timeus** family monuments — both are in-law families and both are only in the background of existing shots.",
+     "The organ case and any builder's inscription.",
+     "The 1431 rebuilding inscription, if it survives on the fabric.",
+     "The provincial panel at the door, straight on and legible."
+    ]
+   },
+   {
+    "n": 3,
+    "title": "The four villages, on foot",
+    "sub": "Mione · Muina · Agrons · Cella and Ovasta · under 10 km all told · a full day",
+    "lead": "These are the four names the documents give: Mione and Muina from Carlo's own letter and from the Napoleonic registers, Agrons from the 1679 weavers' list and from Brhan, Cella alongside it. Walk between them if the weather allows — the paths are older than the road, and the distances are twenty minutes each.",
+    "stops": [
+     {"n":"3a","place":"Mione di Ovaro","access":"open","what":"**The village of the 1679 list.** «Zuane De Franceschi con un suo fiolo, Zuane d'Erman: questi tre nell'Istria, luogo imperiale.» Also the village of the **dal Ginut** household — five generations of De Franceschi with their trades and their house-name — and the birthplace, on 8 December 1939, of **Monsignor Lucio Soravito de Franceschi**, later Bishop of Adria-Rovigo. The Chiesa di Sant'Antonio and the provincial sign at its door.","ask":"Ask in the village for the house **«dal Ginut»**. A house-name outlives the family in it, and somebody will know which building it is. Nobody in this project has ever identified it on the ground.","link":"/carnia/#ginut"},
+     {"n":"3b","place":"The war memorial at Mione, by the cemetery road","access":"open","what":"Set 19 September 1954. Two columns: the soldiers, with **DE FRANCESCHI ISIDORO** first among the *dispersi*, and the civilians killed on 1 and 2 November 1944, with **DE FRANCESCHI EGIDIO**.","ask":"","link":"/carnia/#gorto_war"},
+     {"n":"3c","place":"Muina","access":"open","what":"The other village Carlo names — «ve n'ha tuttodì a Mione e Muina della Carnia», there are still some today at Mione and Muina. The Napoleonic marriage acts put a household here four generations deep: **Leonardo**, dead before 1808; his son **Antonio** and **Maria née Corva**, farmers; their son **Osvaldo**, born at Muina 14 March 1788, married at twenty in January 1808. The memorial of 22 August 1920 carries **DE FRANCESCHI VITTORIO** and **DE FRANCESCHI ISIDORO** among sixteen dead of the first war.","ask":"","link":"/carnia/#muina"},
+     {"n":"3d","place":"Agrons","access":"open","what":"**The one stop on this itinerary nobody in this family has ever made.** Agrons is the village Brhan and Bertoša name as the family's own, with *gismanial* feudal rights attached, and the 1679 list pairs it with Cella: «Mathio Ruvis con doi fioli… questi tre nell'Istria, luogo imperiale» — the **Rovis**, who are the Carnian family of Gimino in Istria, out of Agrons. Photograph everything: the village, its church, the house-name plates, any stone with the surname.","ask":"Ask whether there is a village *cappella* with its own burials, and who holds the key.","link":"/carnia/#agrons","key":true},
+     {"n":"3e","place":"Cella, Ovasta and Luint","access":"open","what":"The rest of the parish, twenty minutes' walk apart. Cella is named beside Agrons in 1679; Ovasta gave the Pieve its organ-builders; Luint sent «Anzolo del Fabro, mogliato nell'Istria» in the same return — married into Istria, in the imperial place.","ask":"","link":"/carnia/#weavers"}
+    ],
+    "shots": [
+     "**Agrons entire** — this archive holds not one frame of it.",
+     "The house **dal Ginut** at Mione, if anybody can point to it.",
+     "House-name plates (*soranòns*) wherever they are painted or carved — they are how a Carnian village actually identifies a family, and they are disappearing.",
+     "The Mione memorial straight on, both columns legible.",
+     "Any surviving loom, *crame* or weaver's tool in a village collection."
+    ]
+   },
+   {
+    "n": 4,
+    "title": "The archive day",
+    "sub": "Udine · 55 km back down · a full day, booked in advance",
+    "lead": "Three institutions, all in Udine, and all of them hold something this project has only ever seen through a digitised index. Write ahead: none of them will produce a fond on the day you walk in.",
+    "stops": [
+     {"n":"4a","place":"Archivio di Stato di Udine","access":"book","what":"The **stato civile napoleonico** — the registers of 1806–15 that gave this archive the five households at Mione and Muina, the marriage *allegati*, and the deepest name it holds: «Giacoma figlia legitima e naturale di Osualdo quondam **Gio: Batta de' Franceschi di Mione**», certified by the parish priest of Gorto in 1806 for a girl born in 1789. Also the **notarial fonds** of the Canale di Gorto, which are not digitised and which nobody has searched for this surname.","ask":"Ask specifically for the notaries of Ovaro and Tolmezzo, seventeenth and eighteenth century, and for any *rotoli* of the *merighi* of the Canale di Gorto.","link":"/carnia/#deepest"},
+     {"n":"4b","place":"Archivio Diocesano / Curia Arcivescovile, Udine","access":"book","what":"Where the parish registers of the Pieve di Santa Maria di Gorto and the bishops' **visitation records** are kept or microfilmed. The pre-1806 baptisms — the ones that would carry Zuane of 1679 himself — are here or at the parish, not on any website this archive can reach.","ask":"Ask for the baptismal registers of the Pieve di Gorto for the seventeenth century, and for the visitation acts covering Ovaro.","link":""},
+     {"n":"4c","place":"Biblioteca / bookshop errand","access":"open","what":"Giorgio Ferigo, **«Le cifre, le anime»** (Forum, Udine) — the book that quotes the 1679 headmen's return in full and proves the list is a list of weavers. This archive has the passage; it does not own the book.","ask":"","link":"/carnia/#weavers"}
+    ],
+    "shots": []
+   },
+   {
+    "n": 5,
+    "title": "Optional — over the mountain to Paluzza",
+    "sub": "Ovaro → Sutrio → Paluzza · about 40 km via Tolmezzo, or 30 km of hairpins over the Zoncolan · half a day",
+    "lead": "A second Carnian cluster of the surname, in the next valley east — the Val Bût. Whether it joins the Val Degano family is not established, and this page will not pretend it is.",
+    "stops": [
+     {"n":"5a","place":"Paluzza, Val Bût","access":"open","what":"The registers give **Zuanne De Franceschi** and Maria Delli Zotti — Zuanne being the same Venetian form of Giovanni as the man of 1679 — then his son **Daniele**, born 1782; **Francesco** and Domenica Englaro, with sons born at Naunina in Paluzza in 1807 and 1810; and **Pietro**, born 1851, dead at forty-four in the civic hospital at San Daniele del Friuli in 1895, entered as a mason.","ask":"Ask the parish whether any De Franceschi remain, and look for the name in the cemetery.","link":"/carnia/#paluzza"},
+     {"n":"5b","place":"The Zoncolan road","access":"seasonal","what":"The SP from Ovaro over Monte Zoncolan to Sutrio is one of the hardest climbs in cycling and is shut by snow for much of the year. If it is open it is the direct way, and it shows you exactly how separate these two valleys were. If it is not, go down to Tolmezzo and up the SS52bis — forty minutes.","ask":"","link":""}
+    ],
+    "shots": ["Any De Franceschi stone in the Paluzza cemetery — this archive has none.","Naunina, the hamlet of Paluzza where the 1807 and 1810 births are registered."]
+   }
+  ],
+  "doors": [
+   {"who":"The parish of Santa Maria di Gorto","how":"Through the parish office at Ovaro. Do not turn up expecting registers on the day.","say":"Sto ricostruendo la storia della famiglia De Franceschi, originaria di Mione e Muina. Cerco i registri parrocchiali del Sei e Settecento — sono qui, o presso l'Archivio Diocesano di Udine?","gets":"Whether the seventeenth-century books are at the church or at Udine. That single answer decides your archive day."},
+   {"who":"The Comune di Ovaro, ufficio anagrafe","how":"Walk in during office hours; write ahead if you want a search done.","say":"Cerco i De Franceschi di Mione, Muina e Agrons. Sono ancora presenti nel comune? E si può consultare lo stato civile dal 1871?","gets":"Living households of the name — which is how you find the house *dal Ginut* — and civil records from unification onward."},
+   {"who":"Anyone over sixty, in any of the four villages","how":"In the bar, at the church door, on the bench.","say":"Conosce la casa che chiamano «dal Ginut»? E ci sono ancora Di Francesc in paese?","gets":"House-names. They are not written down anywhere and they are the only handle a Carnian village gives you on a family."},
+   {"who":"Archivio di Stato di Udine","how":"Book. Bring identification. Request fonds by name in advance.","say":"—","gets":"Notarial records of the Canale di Gorto: the one body of paper that could put this family in the valley before 1679."}
+  ],
+  "open": [
+   {"q":"Is Agrons the place, or is it Mione?","a":"The 1679 list puts **Rovis** at Agrons and Cella, and **De Franceschi** at Mione. Brhan and Bertoša attach the family to Agrons and its gismanial rights. Both cannot be the primary seat and this archive has not resolved it. Standing in both villages, and looking at what each churchyard and each set of house-names says, is the point of day three."},
+   {"q":"How far back do the Gorto registers go?","a":"Unknown to this project. Carnian pievi commonly begin in the later sixteenth century. If Gorto's baptisms reach back to the 1600s, Zuane of 1679 is findable — with a father."},
+   {"q":"Is the Paluzza group the same family?","a":"No evidence either way. Same surname, same region, different valley. Treated here as a separate stop, not a continuation."}
+  ],
+  "rules": [
+   "**Photograph the whole stone before the detail.** Half the gaps in this archive are because a name was framed and the dates were not.",
+   "**Ask before photographing inside a church**, always, and never during a service.",
+   "**Do not photograph recent graves with living relatives named on them.** This site omits living people, and that begins in the churchyard.",
+   "**Write down the house-names.** Nobody else is going to.",
+   "**Note what you did not find.** An empty cemetery is a finding, and this archive publishes those too."
+  ]
+ }
+}

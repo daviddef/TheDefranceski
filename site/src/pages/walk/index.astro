@@ -1,0 +1,36 @@
+---
+import Base from "../../layouts/Base.astro";
+import { u } from "../../lib/url.js";
+import w from "../../data/walk.json";
+const S = { written:"Written", next:"Being written next", queued:"Queued" };
+---
+<Base
+  title="Walk the line"
+  eyebrow="Itineraries"
+  dek="Five lines, five journeys. Not a map of dots — an order to do things in, with the drive between them, what is publicly visible, what needs a key, and what this archive still has no photograph of.">
+
+  <section class="prose">
+    <p>Every other page here was written at a distance: a register read through a screen, a surname in an index, a book quoted in a footnote. These pages are for going. They assume a car, a week, and a willingness to knock on a door in a language you half speak.</p>
+    <p>Each one ends with the same two lists — <strong>what to ask for</strong>, and <strong>what to photograph that we do not have</strong>. The second list is the honest one. It is where this archive is thin.</p>
+  </section>
+
+  <ul class="wl">{w.lines.map(l => (
+    <li class={"wl-i s-" + l.status}>
+      <div class="lab">{S[l.status]}</div>
+      <h3>{l.href ? <a href={u(l.href)}>{l.name}</a> : l.name}</h3>
+      <p class="dek">{l.dek}</p>
+      {l.href && <p class="mono"><a href={u(l.href)}>Open the itinerary →</a></p>}
+    </li>
+  ))}</ul>
+</Base>
+
+<style>
+  .wl{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:12px}
+  .wl-i{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule-strong);
+    border-radius:3px;padding:18px 22px}
+  .wl-i.s-written{border-left-color:var(--accent)}
+  .wl-i.s-next{border-left-color:var(--ochre)}
+  .wl-i h3{font-size:23px;margin:6px 0 6px}
+  .wl-i .dek{max-width:70ch}
+  .wl-i .mono{margin-top:10px}
+</style>

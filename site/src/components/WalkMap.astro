@@ -1,0 +1,100 @@
+---
+// Schematic map of the Val Degano and the Val Bût. Relative positions are true;
+// the scale is not. Day colours match the itinerary below.
+const D = [
+  { x: 806, y: 566, n: "Tolmezzo", d: 1, r: "left" },
+  { x: 700, y: 512, n: "Villa Santina", d: 1, r: "left" },
+  { x: 628, y: 428, n: "Muina", d: 3 },
+  { x: 556, y: 412, n: "Chialina", d: 0, sm: true },
+  { x: 486, y: 396, n: "Mione", d: 3, r: "left" },
+  { x: 612, y: 372, n: "Ovaro", d: 1, big: true },
+  { x: 500, y: 330, n: "Agrons", d: 3, r: "left", key: true },
+  { x: 552, y: 314, n: "Cella", d: 3, sm: true },
+  { x: 604, y: 288, n: "Luincis — the Pieve", d: 2, big: true },
+  { x: 536, y: 258, n: "Ovasta", d: 3, sm: true },
+  { x: 598, y: 232, n: "Luint", d: 3, sm: true },
+  { x: 528, y: 196, n: "Comeglians", d: 0, sm: true },
+  { x: 452, y: 140, n: "Rigolato", d: 0, sm: true },
+  { x: 884, y: 470, n: "Sutrio", d: 5, sm: true },
+  { x: 916, y: 388, n: "Paluzza", d: 5 },
+];
+const C = { 0: "var(--ink-3)", 1: "var(--ochre)", 2: "var(--accent)", 3: "var(--terra)", 5: "var(--r-napo)" };
+---
+<figure class="wm">
+  <svg viewBox="0 0 1000 660" role="img" aria-label="Schematic map of the Val Degano in Carnia, showing Ovaro, the Pieve di Santa Maria di Gorto at Luincis, and the villages of Mione, Muina, Agrons, Cella, Ovasta and Luint, with Tolmezzo and Paluzza to the east.">
+    <defs>
+      <linearGradient id="wmsky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="var(--panel-2)" stop-opacity=".55"/>
+        <stop offset="1" stop-color="var(--panel)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1000" height="660" fill="url(#wmsky)"/>
+
+    <!-- ridges -->
+    <path d="M40 250 L150 170 L250 236 L340 150 L430 220 L520 96 L640 190 L740 110 L850 200 L960 130"
+          fill="none" stroke="var(--rule-strong)" stroke-width="1.1" opacity=".55"/>
+    <path d="M40 320 L140 262 L240 316 L330 250 L440 312 L560 214 L680 290 L790 216 L900 296 L960 254"
+          fill="none" stroke="var(--rule)" stroke-width="1" opacity=".7"/>
+    <text x="520" y="72" class="wm-ridge">CARNIC ALPS</text>
+    <text x="770" y="290" class="wm-ridge sm">M. Zoncolan</text>
+
+    <!-- rivers -->
+    <path d="M430 120 Q500 210 560 280 Q600 340 640 420 Q672 480 700 512 Q748 540 806 566 Q880 592 970 606"
+          fill="none" stroke="var(--accent-2)" stroke-width="3.4" opacity=".34" stroke-linecap="round"/>
+    <path d="M916 300 Q900 380 872 452 Q846 520 806 566"
+          fill="none" stroke="var(--accent-2)" stroke-width="2.6" opacity=".28" stroke-linecap="round"/>
+    <text x="648" y="346" class="wm-riv">Degano</text>
+    <text x="906" y="452" class="wm-riv">Bût</text>
+    <text x="880" y="606" class="wm-riv">Tagliamento</text>
+
+    <!-- roads -->
+    <path d="M452 140 L528 196 L604 288 L612 372 L700 512 L806 566" fill="none"
+          stroke="var(--ink-2)" stroke-width="2.2" opacity=".5"/>
+    <path d="M806 566 L916 388" fill="none" stroke="var(--ink-2)" stroke-width="2.2" opacity=".5"/>
+    <path d="M612 372 L700 400 L800 424 L884 470" fill="none" stroke="var(--ink-3)"
+          stroke-width="1.8" stroke-dasharray="7 6" opacity=".7"/>
+    <text x="666" y="472" class="wm-rd">SR 355</text>
+    <text x="884" y="500" class="wm-rd">SS 52bis</text>
+    <text x="712" y="392" class="wm-rd dash">Zoncolan — seasonal</text>
+    <text x="860" y="616" class="wm-rd">A23 · Udine 55 km ↘</text>
+
+    <!-- day-3 walking loop -->
+    <path d="M486 396 Q540 400 612 372 Q580 340 500 330 Q520 300 552 314 Q560 286 604 288"
+          fill="none" stroke="var(--terra)" stroke-width="1.6" stroke-dasharray="3 5" opacity=".8"/>
+
+    {D.map(p => (
+      <g class={"wm-p" + (p.key ? " key" : "")}>
+        <circle cx={p.x} cy={p.y} r={p.big ? 8 : p.sm ? 4 : 5.5} fill={C[p.d]}
+                stroke="var(--ground)" stroke-width="1.6"/>
+        {p.key && <circle cx={p.x} cy={p.y} r="13" fill="none" stroke={C[p.d]} stroke-width="1.2" opacity=".8"/>}
+        <text x={p.r === "left" ? p.x - (p.big ? 13 : 10) : p.x + (p.big ? 13 : 10)} y={p.y + 4}
+              text-anchor={p.r === "left" ? "end" : "start"}
+              class={"wm-n" + (p.big ? " big" : "") + (p.sm ? " sm" : "")}>{p.n}</text>
+      </g>
+    ))}
+  </svg>
+  <figcaption class="cap">
+    Schematic — relative positions are right, the scale is not. <b style="color:var(--ochre)">Day one</b>, arriving ·
+    <b style="color:var(--accent)">day two</b>, the Pieve and its graveyard ·
+    <b style="color:var(--terra)">day three</b>, the four villages on foot (dotted loop) ·
+    <b style="color:var(--r-napo)">day five</b>, over the mountain to Paluzza.
+    The ringed dot is <b>Agrons</b> — the one stop on this itinerary nobody in this family has yet made.
+  </figcaption>
+</figure>
+
+<style>
+  .wm{margin:26px 0 0}
+  .wm svg{width:100%;height:auto;display:block;background:var(--panel);
+    border:1px solid var(--rule);border-radius:3px}
+  .wm-n{font-family:var(--sans);font-size:13px;fill:var(--ink)}
+  .wm-n.big{font-size:15.5px;font-weight:600}
+  .wm-n.sm{font-size:11.5px;fill:var(--ink-2)}
+  .wm-ridge{font-family:var(--sans);font-size:13px;letter-spacing:.34em;word-spacing:.9em;
+    fill:var(--ink-3);text-anchor:middle;opacity:.8}
+  .wm-ridge.sm{font-size:11px;letter-spacing:.1em;opacity:.7}
+  .wm-riv{font-family:var(--serif);font-style:italic;font-size:13px;fill:var(--accent-2);
+    text-anchor:middle;opacity:.9}
+  .wm-rd{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3);text-anchor:middle}
+  .wm-rd.dash{fill:var(--ink-3);font-size:9.5px}
+  .wm-p.key circle:first-child{filter:none}
+</style>
