@@ -15,7 +15,7 @@ const LANES = [
       ["Gračišće", "1787", "Joannes Baptista, farmer of house 5 — the line's earliest dated ancestor"],
       ["Crikvenica", "1892", "The stonecutter's son comes down to the coast between 1892 and 1894"],
     ],
-    ends: ["Senj", "Germany", "Australia", "South Africa", "United States"],
+    ends: ["Senj", "Germany", "Australia", "South Africa", "United States", "Argentina?"],
   },
   {
     key: "venice", colour: "var(--ochre)", label: "Out of Venice, as soldiers", href: "/imotski/", read: "The Imotski page →",
@@ -42,13 +42,16 @@ const LANES = [
     ends: ["Umag", "Brtonigla", "Koper"],
   },
   {
-    key: "liznjan", colour: "var(--r-napo)", label: "Out of Ližnjan — still lore", href: "/liznjan/", read: "The Ližnjan page →",
-    conf: "family lore",
+    key: "liznjan", colour: "var(--r-napo)", label: "Out of southern Istria — origin unknown", href: "/liznjan/", read: "The Ližnjan page →",
+    conf: "documented from 1667 · origin not found",
     nodes: [
-      ["Ližnjan", "1851", "Third of eighteen towns in the record sweep, and eighty-one entries of the name"],
-      ["Grga", "1931", "Gregorius «Grgo», born at Ližnjan, dead at Zagreb"],
+      ["Pula", "1667", "Anto De Franceschi, with children entered in October 1667 and November 1669 — the earliest of the cluster"],
+      ["Fažana", "1810s", "Baptisms and deaths at Fasana through the 1810s, 1840s and after"],
+      ["Premantura", "1809", "A Maria Defranceski at Premantura, and again in 1859"],
+      ["Barban", "1924", "Two born here who died in France"],
+      ["Ližnjan", "1931", "Gregorius «Grgo», born at Ližnjan and dead at Zagreb — the last address, not the origin"],
     ],
-    ends: ["Zagreb", "Monheim", "United States"],
+    ends: ["Zagreb", "Monheim?", "United States", "France"],
   },
   {
     key: "corsica", colour: "var(--r-italy)", label: "Out of Corsica — never in Istria",
@@ -65,11 +68,16 @@ const LANES = [
 ];
 
 const W = 1040;
+const LOOSE = [
+  ["Brazil", "the largest cluster of the surname anywhere — Rio Grande do Sul, Santa Catarina, São Paulo — and Veneto and Trentino, not Istrian: the in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco"],
+  ["Ticino", "Italian-speaking Switzerland, over the border from Lombardy"],
+  ["Michigan", "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan"],
+];
 const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:548,h:112}, {y0:614,sp:696,h:150} ];
 const X0 = 150, X1 = 700, XE = 902;
 ---
 <figure class="rivers">
-  <svg viewBox="0 0 1040 786" role="img" aria-labelledby="riversttl">
+  <svg viewBox="0 0 1040 878" role="img" aria-labelledby="riversttl">
     <title id="riversttl">Four families of one surname, and the road each of them took</title>
     {LANES.map((lane, li) => {
       const b = BANDS[li];
@@ -86,7 +94,7 @@ const X0 = 150, X1 = 700, XE = 902;
                 stroke-dasharray={lane.parallel ? "5 5" : ""} stroke-opacity="0.4" />
           <text x="12" y={b.y0 + 21} class="lane-label" fill={lane.colour}>{lane.label}</text>
           <text x="12" y={b.y0 + 37} class="lane-conf">{lane.conf}</text>
-          <a href={u(lane.href)} class="lane-link"><text x={W - 14} y={b.y0 + 21} class="lane-read" fill={lane.colour}>{lane.read}</text></a>
+          <a href={u(lane.href)} class="lane-link"><text x="12" y={b.y0 + b.h - 9} class="lane-read" fill={lane.colour}>{lane.read}</text></a>
 
           <line x1={X0} y1={b.sp} x2={Math.max(lineEnd, X1)} y2={b.sp} stroke={lane.colour}
                 stroke-width="5" stroke-linecap="round" opacity="0.34"
@@ -97,10 +105,12 @@ const X0 = 150, X1 = 700, XE = 902;
               : b.sp - spread + (ei * (spread * 2) / (ends.length - 1));
             return (
               <g>
-                <path d={`M ${X1} ${b.sp} C ${X1 + 90} ${b.sp}, ${XE - 90} ${y}, ${XE} ${y}`}
-                      fill="none" stroke={lane.colour} stroke-width="1.6" opacity="0.5" />
-                <circle cx={XE} cy={y} r="3.4" fill={lane.colour} />
-                <text x={XE + 9} y={y + 4} class="endlab">{e}</text>
+                <path d={`M ${Math.max(lineEnd, X1)} ${b.sp} C ${X1 + 90} ${b.sp}, ${XE - 90} ${y}, ${XE} ${y}`}
+                      fill="none" stroke={lane.colour} stroke-width="1.6" opacity="0.5"
+                      stroke-dasharray={e.endsWith("?") ? "3 4" : ""} />
+                <circle cx={XE} cy={y} r="3.4" fill={lane.colour}
+                        fill-opacity={e.endsWith("?") ? 0.35 : 1} />
+                <text x={XE + 9} y={y + 4} class={e.endsWith("?") ? "endlab soft" : "endlab"}>{e.replace("?","")}</text>
               </g>
             );
           })}
@@ -121,11 +131,24 @@ const X0 = 150, X1 = 700, XE = 902;
         </g>
       );
     })}
+    <g>
+      <line x1="12" y1="806" x2={W - 12} y2="806" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="12" y="828" class="loose-head">Attached to no line here</text>
+      {LOOSE.map((l, i) => (
+        <g class="node" tabindex="0" role="button"
+           data-place={l[0]} data-year="—" data-why={l[1]} data-lane="Attached to no line here">
+          <title>{l[0]} — {l[1]}</title>
+          <circle cx={150 + i * 150} cy={848} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
+          <text x={162 + i * 150} y={852} class="loose">{l[0]}</text>
+        </g>
+      ))}
+      <text x={620} y={852} class="loose-note">— people who share the commonest patronymic in Italy</text>
+    </g>
   </svg>
   <div class="riverread" id="riverread" aria-live="polite">
     <b>Click or tab any dot</b> — it will tell you what the document behind it says.
   </div>
-  <figcaption>The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the bottom is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are.</figcaption>
+  <figcaption>The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the bottom is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are. <strong>A dotted end-point means the attachment is family lore, not a document</strong> — Argentina hangs off Carnia only on the word of a reunion album, and Monheim is a pin on a map. And the three at the foot, in broken circles, hang off nothing at all.</figcaption>
 </figure>
 
 <script is:inline>
@@ -162,7 +185,7 @@ const X0 = 150, X1 = 700, XE = 902;
   .lane-label{font-family:var(--sans);font-size:13px;font-weight:600}
   .lane-conf{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
     text-transform:uppercase;fill:var(--ink-3)}
-  .lane-read{font-family:var(--sans);font-size:12px;font-weight:600;text-anchor:end}
+  .lane-read{font-family:var(--sans);font-size:11.5px;font-weight:600;text-anchor:start}
   .lane-link{text-decoration:none}
   .lane-link:hover .lane-read{text-decoration:underline}
   .place{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:var(--ink);
@@ -170,6 +193,11 @@ const X0 = 150, X1 = 700, XE = 902;
   .year{font-family:var(--mono);font-size:10.5px;text-anchor:middle;
     paint-order:stroke;stroke:var(--panel);stroke-width:3px}
   .endlab{font-family:var(--sans);font-size:11.5px;fill:var(--ink-2)}
+  .endlab.soft{fill:var(--ink-3);font-style:italic}
+  .loose-head{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;fill:var(--ink-3)}
+  .loose{font-family:var(--sans);font-size:12.5px;fill:var(--ink-2)}
+  .loose-note{font-family:var(--sans);font-size:11.5px;font-style:italic;fill:var(--ink-3)}
   .rivers .node{cursor:help}
   .rivers .node:hover circle:first-of-type,
   .rivers .node:focus circle:first-of-type{r:11}
