@@ -128,6 +128,22 @@ import d from "../data/imotski.json";
 
 
 
+<Rule name="arrows" label="Back to the sources" />
+
+<section class="blk">
+  <h2>{d.deeper.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.deeper.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.deeper.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{d.deeper.source_deep}</p>
+</section>
+
 <Rule name="tablet" label="The registers" />
 
 <section class="blk">
