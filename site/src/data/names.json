@@ -1,480 +1,494 @@
 {
-  "variants": [
-    {
-      "form": "de' Franceschi",
-      "era": "15c–16c",
-      "where": "Venice, Tuscany",
-      "lang": "it",
-      "why": "The original: a genitive plural, ‘of the Franceschi’ — the household of a Francesco. The apostrophe is the elided dei."
-    },
-    {
-      "form": "de Franceschis",
-      "era": "16c–19c",
-      "where": "Parish registers",
-      "lang": "la",
-      "why": "Not a variant at all: the Latin ablative the priest wrote. Franciscus de Franceschis. Mistaking case endings for spellings is the classic beginner's error."
-    },
-    {
-      "form": "De Franceschi",
-      "era": "17c–19c",
-      "where": "Western Istria — Seghetto and Svetvinčenat in 1945",
-      "lang": "it",
-      "why": "The settled Italian civil form, and what Carlo and Camillo put on their books. In the 1945 census the two households still writing it with a space are both in formerly Venetian territory — the spaced form survives only where Venice ruled, though the fused form is found there as well."
-    },
-    {
-      "form": "Defranceschi",
-      "era": "18c–",
-      "where": "Habsburg lands, Pazin county, Fiume — and Venetian Istria too",
-      "lang": "it/de",
-      "why": "Prefix fused into one word: an Austrian administrative habit, and the dominant form by 1945 on both sides of the old border. It is also the form that prevails in Trentino, Austrian until 1918. Note that after 1815 the whole peninsula was Austrian, so the habit had a century to spread everywhere."
-    },
-    {
-      "form": "Franceschi",
-      "era": "any",
-      "where": "Split and Imotski · Italy · Corsica · the Americas",
-      "lang": "it",
-      "why": "Usually the prefix simply dropped — but in Dalmatia it was taken. The nobiliary *de* was removed from the Omiš–Imotski family by decree of the Napoleonic administration, which is why the descendants of a count are called Franceschi today. Not drift, and not a clerk: law."
-    },
-    {
-      "form": "Franzeschi",
-      "era": "18c–19c",
-      "where": "German-language clerks",
-      "lang": "de",
-      "why": "German orthography reaching for the Italian c sound."
-    },
-    {
-      "form": "Franceschich",
-      "era": "19c–1918",
-      "where": "Austrian Littoral",
-      "lang": "de/hr",
-      "why": "Slavic patronymic -ić written the Austrian way, -ich. Watch for this in reverse: an -ich name Italianised back to -i after 1920."
-    },
-    {
-      "form": "Defranceski",
-      "era": "20c–",
-      "where": "South Africa, Australia, Argentina",
-      "lang": "en",
-      "why": "Italian schi is pronounced ‘ski’. An English-speaking clerk wrote what he heard. Thirteen of the seventeen people who carry this spelling worldwide are in South Africa."
-    },
-    {
-      "form": "de Franceski",
-      "era": "20c–",
-      "where": "Diaspora",
-      "lang": "en",
-      "why": "The prefix restored onto a phonetic stem — a deliberate reclaiming rather than a clerk's error."
-    }
-  ],
-  "distribution": {
-    "source": "Forebears, surname incidence",
-    "sets": [
-      {
-        "spelling": "Defranceschi",
-        "total": 628,
-        "rows": [
-          [
-            "Italy",
-            221
-          ],
-          [
-            "United States",
-            113
-          ],
-          [
-            "France",
-            93
-          ],
-          [
-            "Croatia",
-            50
-          ],
-          [
-            "Austria",
-            43
-          ],
-          [
-            "Argentina",
-            37
-          ],
-          [
-            "Australia",
-            27
-          ],
-          [
-            "Canada",
-            17
-          ],
-          [
-            "Belgium",
-            13
-          ],
-          [
-            "Brazil",
-            10
-          ],
-          [
-            "Cyprus",
-            1
-          ],
-          [
-            "Lebanon",
-            1
-          ],
-          [
-            "Switzerland",
-            1
-          ],
-          [
-            "Thailand",
-            1
-          ]
-        ],
-        "italy": [
-          [
-            "Trentino-Alto Adige",
-            74
-          ],
-          [
-            "Emilia-Romagna",
-            8
-          ],
-          [
-            "Friuli-Venezia Giulia",
-            7
-          ]
-        ]
-      },
-      {
-        "spelling": "Defranceski",
-        "total": 17,
-        "rows": [
-          [
-            "South Africa",
-            13
-          ],
-          [
-            "Argentina",
-            1
-          ],
-          [
-            "Australia",
-            1
-          ],
-          [
-            "Serbia",
-            1
-          ],
-          [
-            "Slovenia",
-            1
-          ]
-        ],
-        "italy": []
-      },
-      {
-        "spelling": "Franceschi",
-        "total": 18000,
-        "approx": true,
-        "rows": [
-          [
-            "Italy",
-            8358
-          ],
-          [
-            "France",
-            2738
-          ],
-          [
-            "Brazil",
-            2154
-          ],
-          [
-            "United States",
-            1684
-          ],
-          [
-            "Venezuela",
-            1026
-          ],
-          [
-            "Argentina",
-            612
-          ],
-          [
-            "Panama",
-            550
-          ],
-          [
-            "Puerto Rico",
-            266
-          ],
-          [
-            "Croatia",
-            189
-          ],
-          [
-            "Colombia",
-            104
-          ],
-          [
-            "Australia",
-            93
-          ],
-          [
-            "Costa Rica",
-            87
-          ],
-          [
-            "Switzerland",
-            79
-          ],
-          [
-            "Belgium",
-            76
-          ],
-          [
-            "Canada",
-            65
-          ],
-          [
-            "Spain",
-            44
-          ]
-        ],
-        "italy": []
-      }
-    ]
+ "variants": [
+  {
+   "form": "de' Franceschi",
+   "era": "15c–16c",
+   "where": "Venice, Tuscany",
+   "lang": "it",
+   "why": "The original: a genitive plural, ‘of the Franceschi’ — the household of a Francesco. The apostrophe is the elided dei."
   },
-  "census1945": {
-    "source": "Cadastre National de l'Istrie d'après le Recensement du 1er Octobre 1945, Institut Adriatique, Sušak 1946",
-    "note": "Counts are families, not individuals. Compiled unofficially to support Yugoslavia's case at the Paris Peace Conference; the compilers omitted Muggia, Kastav, Rijeka and the hamlets toward Trieste, and Slavicised some names and toponyms.",
-    "rows": [
-      [
-        "Defranceschi",
-        "Vodnjan",
-        "Vodnjan (Dignano)",
-        "Pula (Pola)",
-        12
-      ],
-      [
-        "Defranceschi",
-        "Barban",
-        "Barban (Barbana)",
-        "Pula (Pola)",
-        2
-      ],
-      [
-        "Defranceschi",
-        "Gologorica",
-        "Gologorica (Gollogorizza)",
-        "Pazin (Pisino)",
-        2
-      ],
-      [
-        "Defranceschi",
-        "Gračišće",
-        "Gračišće (Gallignana)",
-        "Pazin (Pisino)",
-        1
-      ],
-      [
-        "Defranceschi",
-        "Pazin",
-        "Pazin (Pisino)",
-        "Pazin (Pisino)",
-        1
-      ],
-      [
-        "Defranceschi",
-        "Pićan",
-        "Pićan (Pedena)",
-        "Pazin (Pisino)",
-        1
-      ],
-      [
-        "Defranceschi",
-        "Motovun",
-        "Motovun (Montona)",
-        "Poreč (Parenzo)",
-        1
-      ],
-      [
-        "Defranceschi",
-        "Vižinada",
-        "Vižinada (Visinada)",
-        "Poreč (Parenzo)",
-        1
-      ],
-      [
-        "Defranceschi",
-        "Čepić",
-        "Čepić (Ceppici di Pòrtole)",
-        "Poreč (Parenzo)",
-        1
-      ],
-      [
-        "Defranceschi",
-        "Opatija",
-        "Opatija (Abbazia)",
-        "Volosko-Opatija",
-        1
-      ],
-      [
-        "De Franceschi",
-        "Seghetto",
-        "Umag (Umago)",
-        "Poreč (Parenzo)",
-        1
-      ],
-      [
-        "De Franceschi",
-        "Svetvinčenat",
-        "Svetvinčenat (Sanvincenti)",
-        "Pula (Pola)",
-        1
-      ]
-    ],
-    "finding": "Of twelve settlements, ten use the fused Defranceschi and two the spaced De Franceschi. The fused form appears on both sides of the pre-1797 border — seventeen of the nineteen families in formerly Venetian territory use it. What is one-directional is the spaced form: it occurs only in former Venetian territory, never in the Habsburg interior. Not a border you can draw, but a survival you can point at."
+  {
+   "form": "de Franceschis",
+   "era": "16c–19c",
+   "where": "Parish registers",
+   "lang": "la",
+   "why": "Not a variant at all: the Latin ablative the priest wrote. Franciscus de Franceschis. Mistaking case endings for spellings is the classic beginner's error."
   },
-  "croatia_clusters": {
-    "source": "Acta Croatica",
-    "rows": [
-      [
-        "Defranceschi",
-        "Pazin area, Istria",
-        "Pula, Zagreb, Rijeka, Barban",
-        10,
-        50,
-        "collapsing"
-      ],
-      [
-        "Franceschi",
-        "Split and Imotski, Dalmatia",
-        "Split 25, Zagreb 15, Sisak, Dubrovnik, Imotski",
-        60,
-        50,
-        "growing"
-      ],
-      [
-        "Franceski",
-        "Rijeka",
-        "Rijeka, Donja Banda on Pelješac",
-        3,
-        30,
-        "nearly gone"
-      ]
-    ]
+  {
+   "form": "De Franceschi",
+   "era": "17c–19c",
+   "where": "Western Istria — Seghetto and Svetvinčenat in 1945",
+   "lang": "it",
+   "why": "The settled Italian civil form, and what Carlo and Camillo put on their books. In the 1945 census the two households still writing it with a space are both in formerly Venetian territory — the spaced form survives only where Venice ruled, though the fused form is found there as well."
   },
-  "spellings_world": {
-    "source": "Forebears",
-    "note": "No entry exists for the spaced forms De Franceschi or de Franceski.",
-    "rows": [
-      [
-        "Franceschi",
-        18000,
-        "46+ countries; heavily Corsican and Latin-American"
-      ],
-      [
-        "Defranceschi",
-        628,
-        "14 countries; 74% of Italy's in Trentino"
-      ],
-      [
-        "Defrancesca",
-        169,
-        ""
-      ],
-      [
-        "Defranceski",
-        17,
-        "13 in South Africa"
-      ],
-      [
-        "Difranceschi",
-        16,
-        "Brazil"
-      ],
-      [
-        "Defrancheschi",
-        5,
-        "Brazil, USA"
-      ],
-      [
-        "Defranchesqui",
-        4,
-        ""
-      ],
-      [
-        "Defrancesqui",
-        3,
-        ""
-      ],
-      [
-        "Defranchesky",
-        3,
-        ""
-      ],
-      [
-        "Defrancheski",
-        2,
-        ""
-      ],
-      [
-        "Defranceska",
-        2,
-        ""
-      ],
-      [
-        "Defrancechi",
-        1,
-        ""
-      ],
-      [
-        "Defranschesqui",
-        1,
-        ""
-      ]
-    ]
+  {
+   "form": "Defranceschi",
+   "era": "18c–",
+   "where": "Habsburg lands, Pazin county, Fiume — and Venetian Istria too",
+   "lang": "it/de",
+   "why": "Prefix fused into one word: an Austrian administrative habit, and the dominant form by 1945 on both sides of the old border. It is also the form that prevails in Trentino, Austrian until 1918. Note that after 1815 the whole peninsula was Austrian, so the habit had a century to spread everywhere."
   },
-  "zagreb": {
-    "heading": "A Zagreb school printed both spellings in the same line, in 1932",
-    "lead": "This archive has argued at length that the Croatian form of the name was not drift and not a clerk's ear, but a conversion — Austrian officials mistaking the Italian «de» for a claim of nobility, and families fusing the name rather than risk a fine. The argument has been made from the shape of the registers. Here is a document that simply prints the two forms as one name.",
-    "quote": "IIc razred. Razredni starješina Tiljak Zorka. Svršile su razred: 1. Blanda Marija · 2. Bužleta Ana · 3. Crnković Smiljana · 4. Defrančeski (Defranceschi) Milka · 5. Dugan Branka",
-    "en": "Class II c. Form mistress Zorka Tiljak. The following completed the year: … 4. Defrančeski (Defranceschi) Milka …",
-    "why": "The annual report of the State Second Girls' Grammar School in Zagreb for 1931–32, printing its pass list. One pupil's surname is given in the Croatian form with the Italian original in brackets after it — the school's own way of saying that these are the same name and the same family. That is the whole thesis of this archive's name page, set in type by a registrar in Zagreb who was not making an argument, only being accurate.",
-    "more": "She is not alone. The reports of the Zagreb state gymnasia between 1931 and 1940, digitised and searchable, carry a small cohort of the name in the schools of one city: Milka Defrančeski, who appears again in the First Girls' Grammar School list for 1932–33; Ljubica Defrančeski in the Third Girls' school for 1939–40; and, in the First Boys' Realgymnasium, Drago (also written Dragutin) Defrančeski and Milan Defrančeski, both across several years. Two of the girls and both boys are in Croatian orthography with the háček. Nothing here connects them to this family, and Zagreb is a long way from Gračišće. What they show is that by the 1930s the fused Croatian spelling was ordinary enough to fill a school register.",
-    "source": "Annual reports («Izvještaj za školsku godinu») of the State Second Girls' Realgymnasium, the State First Girls' Realgymnasium, the Third Girls' Realgymnasium and the State First Boys' Realgymnasium in Zagreb, 1931–1940, digitised and free on the Internet Archive; searched September 2026. Milka's entry is in the 1931–32 report of the Second Girls' school."
+  {
+   "form": "Franceschi",
+   "era": "any",
+   "where": "Split and Imotski · Italy · Corsica · the Americas",
+   "lang": "it",
+   "why": "Usually the prefix simply dropped — but in Dalmatia it was taken. The nobiliary *de* was removed from the Omiš–Imotski family by decree of the Napoleonic administration, which is why the descendants of a count are called Franceschi today. Not drift, and not a clerk: law."
   },
-  "sarenjaci": {
-    "heading": "There was a word for people whose name was written both ways",
-    "lead": "On 1 March 1872 «Naša Sloga», the Croatian paper of Istria, printed a folk tale called «Šarenjaci» — the motley, the piebald. Daniela Simon's monograph on Istrian hybridity retells it, because it is where a word entered Croatian national politics that this archive's whole subject falls under.",
-    "tale": "A Croatian slave named Poštenjak — Honest-man — is pressed by a Turkish vizier to turn Muslim. He escapes it by telling the vizier a dream. In the dream, group after group of people file past, each dressed in a single colour and carrying a flag of that colour: gold for the Turks, white for the Christians, other colours for other faiths. Last of all comes a group in patched rags of every colour — «puno krpah svake barve» — with a flag of the same motley, poor and degraded. And the Prophet explains to him who they are: the people who in the course of their lives went over from one religion to another or from one people to another, and gave up their faith, or their people and their language.",
-    "then": "With that story the paper gave the Croatian national movement a name for the culturally mixed. «Mit der Bezeichnung Šarenjaci führte die ‹Naša Sloga› für die farbig gekleideten, verwahrlosten religiösen oder nationalen Konvertit*innen einen neuen Begriff in die politische Sprache der kroatischen Nationalkämpfer*innen ein. Er befeuerte eine aggressive Mobilisierung gegen die Betroffenen.» In the issues that followed, anyone held to be culturally mixed could be identified as a Šarenjak and called — Simon lists them — dull heads, empty hearts, snakes, a stench. The craftsmen and traders were only the spearhead. The men producing the paper were priests, which is why the story is a conversion story.",
-    "us": "Read that against this family. Friulian-Carnian in origin, weavers and then landholders, Italian in politics, living for three hundred years in a village whose speech a Polish dialectologist recorded as Croatian, and carrying a surname that the registers write «De Franceschi», «Defranceschi» and «Defrančeski» in the same generation. Miroslav Bertoša's seventy-six pages on them are titled «between ethos and ethnos». Šarenjaci is the word the other side had for exactly that position, and it was an insult. This archive has spent a lot of effort establishing that the fusion of the name was a bureaucratic accident rather than a choice. Both can be true at once: the spelling was forced on them, and the condition it left them in had a name that people shouted.",
-    "caution": "And the corrective, from the same book, which every family archive should have pinned above the desk. The Austrian census asked for «Umgangssprache», the language of daily use, and the revision sheets survive. «Die Bögen zur Revision zeigen, wie irreführend es war, von den jeweiligen Familiennamen auf die Umgangssprache oder gar Nationalität zu schließen» — the revision sheets show how misleading it was to infer from a surname the language of daily use, let alone nationality. At Kaldir, families with apparently Slavic names returned Italian; «selbst bei Familien mit demselben Nachnamen waren die angegebenen Sprachen unterschiedlich» — even families with the same surname gave different languages. The historian Vanni D'Alessio, who compared Istrian surnames against the registers, found that without the marriage, baptism and status animarum books the names were «als Quellen unbrauchbar», useless as sources — and that only the cross-check revealed the mixed marriages and local networks underneath. That is an argument for building a family from registers, which is what this archive does, and against reading anything at all off the spelling of a name, which is what most people do with theirs.",
-    "source": "Daniela Simon, «Die bedrohte Ordnung der Vielfalt. Kulturelle Hybridität in Istrien, 1870–1914», transcript Verlag, Bielefeld 2024, open access — the Šarenjaci tale at «Naša Sloga» 1 March 1872, the Kaldir revision sheets and Vanni D'Alessio's method as she reports them. Read in full text, September 2026.",
-    "quote": "Šarenjakom, koji nose u ustih medene rieči slobode, napredaka i prosvjete … a jesu tvoji najveći neprijatelji i zatiratelji najljući tvoje narodnosti.",
-    "quote_en": "Of the Šarenjaci, who carry in their mouths the honeyed words of freedom, progress and enlightenment — and are your greatest enemies and the bitterest destroyers of your nationality.",
-    "quote_src": "A letter from central Istria, «Naša Sloga», 1 September 1873. Before the Diet elections of the 1870s the paper warned its readers against electing Šarenjaci among the electors; a letter from Žminj told them to stop oppressing the national Slavs; and the threats to «traitors to the people» multiplied."
+  {
+   "form": "Franzeschi",
+   "era": "18c–19c",
+   "where": "German-language clerks",
+   "lang": "de",
+   "why": "German orthography reaching for the Italian c sound."
   },
-  "inuse": {
-    "heading": "Defrančeski, in living use, in print",
-    "lead": "This site is called The Defranceski, and it has argued that the Croatian spelling with the háček is a real thing and not a corruption. Here it is in print, three times, in the mouths of ordinary men.",
-    "rows": [
-      {
-        "lab": "Pula arsenal, 19 December 1919",
-        "text": "A collection taken among the workers of the arsenal at Pula and printed in «Pučki prijatelj»: «po 1 Liru: Baćac Antun, Benčić Josip, Defrančeski Antun, Ladavac Franjo, Funčić Mate, Leverić Josip, Lorencin Jakov pok. Ivana.» One lira each. Antun Defrančeski, arsenal worker, written the Croatian way among Croatian neighbours, in the first year of Italian rule.",
-        "key": true
-      },
-      {
-        "lab": "Ližnjan by Pula, 27 February 1920",
-        "text": "«Sabrano u Ližnjanu kod Pule… po 2 L: Fedel Jože, Fedel Ante Antunov, Defrančeski Ante, Vojnić Mate, Grakalić Martin…» Ante Defrančeski of Ližnjan, two lire."
-      },
-      {
-        "lab": "And earlier, in the political press",
-        "text": "«Naša sloga», 1 October 1879: «svećenika lažanski i galežanski glasovala su za slobodnjaka Defrančeski-ja» — the priests of Lažani and Galežana voted for the liberal Defrančeski. That is Carlo, in the election a Bakar paper reported the same summer, with his own name declined into Croatian grammar by the people opposing him."
-      }
-    ],
-    "what": "So the fourth spelling is not a twentieth-century accident of emigration papers. Croatian speakers were writing this surname their own way, in print, by 1879, and were still doing it in 1919 and 1920 — before anyone in this family reached Germany or Australia. Carlo explained in 1876 why the name split into De Franceschi, Defranceschi and Franceschi: Austrian clerks read the «de» as a claim of nobility. This is the fourth branch of the same split, made not by clerks but by neighbours.",
-    "source_inuse": "«Pučki prijatelj» (Krk) and «Naša sloga», from dnc.nsk.hr, searched September 2026. Note that the portal's index does not do substring matching: «defranceschi» returns forty-four pages that «franceschi» does not, so each spelling has to be searched separately."
+  {
+   "form": "Franceschich",
+   "era": "19c–1918",
+   "where": "Austrian Littoral",
+   "lang": "de/hr",
+   "why": "Slavic patronymic -ić written the Austrian way, -ich. Watch for this in reverse: an -ich name Italianised back to -i after 1920."
+  },
+  {
+   "form": "Defranceski",
+   "era": "20c–",
+   "where": "South Africa, Australia, Argentina",
+   "lang": "en",
+   "why": "Italian schi is pronounced ‘ski’. An English-speaking clerk wrote what he heard. Thirteen of the seventeen people who carry this spelling worldwide are in South Africa."
+  },
+  {
+   "form": "de Franceski",
+   "era": "20c–",
+   "where": "Diaspora",
+   "lang": "en",
+   "why": "The prefix restored onto a phonetic stem — a deliberate reclaiming rather than a clerk's error."
+  },
+  {
+   "form": "Dei Francesci",
+   "era": "—",
+   "where": "defranceski.com, «Variations of the Name»",
+   "lang": "it",
+   "why": "Listed on the old family site among the spellings. **This archive has not found it once** — not in a register, not in a census, not in a directory, in any of the eighteen towns swept. It looks like a mis-transcription of *dei Franceschi* with the -h dropped, which is a scribe's slip rather than a form the family used. Kept here because it was published for years and someone will come looking for it."
+  },
+  {
+   "form": "Franceschini",
+   "era": "17c–",
+   "where": "Trentino, Friuli, Tuscany — and four people in this archive",
+   "lang": "it",
+   "why": "**A different surname, not a variant of this one.** It is Franceschi with the Italian diminutive -ino: *the little Franceschi household*, formed independently wherever the given name Francesco was common. Four people in this archive carry it, all of them by marriage or as a mother's name, never as the line's own. The old family site listed it among the spellings; it should not have been, and the distinction matters because merging the two would double the surname's apparent size across northern Italy."
   }
+ ],
+ "distribution": {
+  "source": "Forebears, surname incidence",
+  "sets": [
+   {
+    "spelling": "Defranceschi",
+    "total": 628,
+    "rows": [
+     [
+      "Italy",
+      221
+     ],
+     [
+      "United States",
+      113
+     ],
+     [
+      "France",
+      93
+     ],
+     [
+      "Croatia",
+      50
+     ],
+     [
+      "Austria",
+      43
+     ],
+     [
+      "Argentina",
+      37
+     ],
+     [
+      "Australia",
+      27
+     ],
+     [
+      "Canada",
+      17
+     ],
+     [
+      "Belgium",
+      13
+     ],
+     [
+      "Brazil",
+      10
+     ],
+     [
+      "Cyprus",
+      1
+     ],
+     [
+      "Lebanon",
+      1
+     ],
+     [
+      "Switzerland",
+      1
+     ],
+     [
+      "Thailand",
+      1
+     ]
+    ],
+    "italy": [
+     [
+      "Trentino-Alto Adige",
+      74
+     ],
+     [
+      "Emilia-Romagna",
+      8
+     ],
+     [
+      "Friuli-Venezia Giulia",
+      7
+     ]
+    ]
+   },
+   {
+    "spelling": "Defranceski",
+    "total": 17,
+    "rows": [
+     [
+      "South Africa",
+      13
+     ],
+     [
+      "Argentina",
+      1
+     ],
+     [
+      "Australia",
+      1
+     ],
+     [
+      "Serbia",
+      1
+     ],
+     [
+      "Slovenia",
+      1
+     ]
+    ],
+    "italy": []
+   },
+   {
+    "spelling": "Franceschi",
+    "total": 18000,
+    "approx": true,
+    "rows": [
+     [
+      "Italy",
+      8358
+     ],
+     [
+      "France",
+      2738
+     ],
+     [
+      "Brazil",
+      2154
+     ],
+     [
+      "United States",
+      1684
+     ],
+     [
+      "Venezuela",
+      1026
+     ],
+     [
+      "Argentina",
+      612
+     ],
+     [
+      "Panama",
+      550
+     ],
+     [
+      "Puerto Rico",
+      266
+     ],
+     [
+      "Croatia",
+      189
+     ],
+     [
+      "Colombia",
+      104
+     ],
+     [
+      "Australia",
+      93
+     ],
+     [
+      "Costa Rica",
+      87
+     ],
+     [
+      "Switzerland",
+      79
+     ],
+     [
+      "Belgium",
+      76
+     ],
+     [
+      "Canada",
+      65
+     ],
+     [
+      "Spain",
+      44
+     ]
+    ],
+    "italy": []
+   }
+  ]
+ },
+ "census1945": {
+  "source": "Cadastre National de l'Istrie d'après le Recensement du 1er Octobre 1945, Institut Adriatique, Sušak 1946",
+  "note": "Counts are families, not individuals. Compiled unofficially to support Yugoslavia's case at the Paris Peace Conference; the compilers omitted Muggia, Kastav, Rijeka and the hamlets toward Trieste, and Slavicised some names and toponyms.",
+  "rows": [
+   [
+    "Defranceschi",
+    "Vodnjan",
+    "Vodnjan (Dignano)",
+    "Pula (Pola)",
+    12
+   ],
+   [
+    "Defranceschi",
+    "Barban",
+    "Barban (Barbana)",
+    "Pula (Pola)",
+    2
+   ],
+   [
+    "Defranceschi",
+    "Gologorica",
+    "Gologorica (Gollogorizza)",
+    "Pazin (Pisino)",
+    2
+   ],
+   [
+    "Defranceschi",
+    "Gračišće",
+    "Gračišće (Gallignana)",
+    "Pazin (Pisino)",
+    1
+   ],
+   [
+    "Defranceschi",
+    "Pazin",
+    "Pazin (Pisino)",
+    "Pazin (Pisino)",
+    1
+   ],
+   [
+    "Defranceschi",
+    "Pićan",
+    "Pićan (Pedena)",
+    "Pazin (Pisino)",
+    1
+   ],
+   [
+    "Defranceschi",
+    "Motovun",
+    "Motovun (Montona)",
+    "Poreč (Parenzo)",
+    1
+   ],
+   [
+    "Defranceschi",
+    "Vižinada",
+    "Vižinada (Visinada)",
+    "Poreč (Parenzo)",
+    1
+   ],
+   [
+    "Defranceschi",
+    "Čepić",
+    "Čepić (Ceppici di Pòrtole)",
+    "Poreč (Parenzo)",
+    1
+   ],
+   [
+    "Defranceschi",
+    "Opatija",
+    "Opatija (Abbazia)",
+    "Volosko-Opatija",
+    1
+   ],
+   [
+    "De Franceschi",
+    "Seghetto",
+    "Umag (Umago)",
+    "Poreč (Parenzo)",
+    1
+   ],
+   [
+    "De Franceschi",
+    "Svetvinčenat",
+    "Svetvinčenat (Sanvincenti)",
+    "Pula (Pola)",
+    1
+   ]
+  ],
+  "finding": "Of twelve settlements, ten use the fused Defranceschi and two the spaced De Franceschi. The fused form appears on both sides of the pre-1797 border — seventeen of the nineteen families in formerly Venetian territory use it. What is one-directional is the spaced form: it occurs only in former Venetian territory, never in the Habsburg interior. Not a border you can draw, but a survival you can point at."
+ },
+ "croatia_clusters": {
+  "source": "Acta Croatica",
+  "rows": [
+   [
+    "Defranceschi",
+    "Pazin area, Istria",
+    "Pula, Zagreb, Rijeka, Barban",
+    10,
+    50,
+    "collapsing"
+   ],
+   [
+    "Franceschi",
+    "Split and Imotski, Dalmatia",
+    "Split 25, Zagreb 15, Sisak, Dubrovnik, Imotski",
+    60,
+    50,
+    "growing"
+   ],
+   [
+    "Franceski",
+    "Rijeka",
+    "Rijeka, Donja Banda on Pelješac",
+    3,
+    30,
+    "nearly gone"
+   ]
+  ]
+ },
+ "spellings_world": {
+  "source": "Forebears",
+  "note": "No entry exists for the spaced forms De Franceschi or de Franceski.",
+  "rows": [
+   [
+    "Franceschi",
+    18000,
+    "46+ countries; heavily Corsican and Latin-American"
+   ],
+   [
+    "Defranceschi",
+    628,
+    "14 countries; 74% of Italy's in Trentino"
+   ],
+   [
+    "Defrancesca",
+    169,
+    ""
+   ],
+   [
+    "Defranceski",
+    17,
+    "13 in South Africa"
+   ],
+   [
+    "Difranceschi",
+    16,
+    "Brazil"
+   ],
+   [
+    "Defrancheschi",
+    5,
+    "Brazil, USA"
+   ],
+   [
+    "Defranchesqui",
+    4,
+    ""
+   ],
+   [
+    "Defrancesqui",
+    3,
+    ""
+   ],
+   [
+    "Defranchesky",
+    3,
+    ""
+   ],
+   [
+    "Defrancheski",
+    2,
+    ""
+   ],
+   [
+    "Defranceska",
+    2,
+    ""
+   ],
+   [
+    "Defrancechi",
+    1,
+    ""
+   ],
+   [
+    "Defranschesqui",
+    1,
+    ""
+   ]
+  ]
+ },
+ "zagreb": {
+  "heading": "A Zagreb school printed both spellings in the same line, in 1932",
+  "lead": "This archive has argued at length that the Croatian form of the name was not drift and not a clerk's ear, but a conversion — Austrian officials mistaking the Italian «de» for a claim of nobility, and families fusing the name rather than risk a fine. The argument has been made from the shape of the registers. Here is a document that simply prints the two forms as one name.",
+  "quote": "IIc razred. Razredni starješina Tiljak Zorka. Svršile su razred: 1. Blanda Marija · 2. Bužleta Ana · 3. Crnković Smiljana · 4. Defrančeski (Defranceschi) Milka · 5. Dugan Branka",
+  "en": "Class II c. Form mistress Zorka Tiljak. The following completed the year: … 4. Defrančeski (Defranceschi) Milka …",
+  "why": "The annual report of the State Second Girls' Grammar School in Zagreb for 1931–32, printing its pass list. One pupil's surname is given in the Croatian form with the Italian original in brackets after it — the school's own way of saying that these are the same name and the same family. That is the whole thesis of this archive's name page, set in type by a registrar in Zagreb who was not making an argument, only being accurate.",
+  "more": "She is not alone. The reports of the Zagreb state gymnasia between 1931 and 1940, digitised and searchable, carry a small cohort of the name in the schools of one city: Milka Defrančeski, who appears again in the First Girls' Grammar School list for 1932–33; Ljubica Defrančeski in the Third Girls' school for 1939–40; and, in the First Boys' Realgymnasium, Drago (also written Dragutin) Defrančeski and Milan Defrančeski, both across several years. Two of the girls and both boys are in Croatian orthography with the háček. Nothing here connects them to this family, and Zagreb is a long way from Gračišće. What they show is that by the 1930s the fused Croatian spelling was ordinary enough to fill a school register.",
+  "source": "Annual reports («Izvještaj za školsku godinu») of the State Second Girls' Realgymnasium, the State First Girls' Realgymnasium, the Third Girls' Realgymnasium and the State First Boys' Realgymnasium in Zagreb, 1931–1940, digitised and free on the Internet Archive; searched September 2026. Milka's entry is in the 1931–32 report of the Second Girls' school."
+ },
+ "sarenjaci": {
+  "heading": "There was a word for people whose name was written both ways",
+  "lead": "On 1 March 1872 «Naša Sloga», the Croatian paper of Istria, printed a folk tale called «Šarenjaci» — the motley, the piebald. Daniela Simon's monograph on Istrian hybridity retells it, because it is where a word entered Croatian national politics that this archive's whole subject falls under.",
+  "tale": "A Croatian slave named Poštenjak — Honest-man — is pressed by a Turkish vizier to turn Muslim. He escapes it by telling the vizier a dream. In the dream, group after group of people file past, each dressed in a single colour and carrying a flag of that colour: gold for the Turks, white for the Christians, other colours for other faiths. Last of all comes a group in patched rags of every colour — «puno krpah svake barve» — with a flag of the same motley, poor and degraded. And the Prophet explains to him who they are: the people who in the course of their lives went over from one religion to another or from one people to another, and gave up their faith, or their people and their language.",
+  "then": "With that story the paper gave the Croatian national movement a name for the culturally mixed. «Mit der Bezeichnung Šarenjaci führte die ‹Naša Sloga› für die farbig gekleideten, verwahrlosten religiösen oder nationalen Konvertit*innen einen neuen Begriff in die politische Sprache der kroatischen Nationalkämpfer*innen ein. Er befeuerte eine aggressive Mobilisierung gegen die Betroffenen.» In the issues that followed, anyone held to be culturally mixed could be identified as a Šarenjak and called — Simon lists them — dull heads, empty hearts, snakes, a stench. The craftsmen and traders were only the spearhead. The men producing the paper were priests, which is why the story is a conversion story.",
+  "us": "Read that against this family. Friulian-Carnian in origin, weavers and then landholders, Italian in politics, living for three hundred years in a village whose speech a Polish dialectologist recorded as Croatian, and carrying a surname that the registers write «De Franceschi», «Defranceschi» and «Defrančeski» in the same generation. Miroslav Bertoša's seventy-six pages on them are titled «between ethos and ethnos». Šarenjaci is the word the other side had for exactly that position, and it was an insult. This archive has spent a lot of effort establishing that the fusion of the name was a bureaucratic accident rather than a choice. Both can be true at once: the spelling was forced on them, and the condition it left them in had a name that people shouted.",
+  "caution": "And the corrective, from the same book, which every family archive should have pinned above the desk. The Austrian census asked for «Umgangssprache», the language of daily use, and the revision sheets survive. «Die Bögen zur Revision zeigen, wie irreführend es war, von den jeweiligen Familiennamen auf die Umgangssprache oder gar Nationalität zu schließen» — the revision sheets show how misleading it was to infer from a surname the language of daily use, let alone nationality. At Kaldir, families with apparently Slavic names returned Italian; «selbst bei Familien mit demselben Nachnamen waren die angegebenen Sprachen unterschiedlich» — even families with the same surname gave different languages. The historian Vanni D'Alessio, who compared Istrian surnames against the registers, found that without the marriage, baptism and status animarum books the names were «als Quellen unbrauchbar», useless as sources — and that only the cross-check revealed the mixed marriages and local networks underneath. That is an argument for building a family from registers, which is what this archive does, and against reading anything at all off the spelling of a name, which is what most people do with theirs.",
+  "source": "Daniela Simon, «Die bedrohte Ordnung der Vielfalt. Kulturelle Hybridität in Istrien, 1870–1914», transcript Verlag, Bielefeld 2024, open access — the Šarenjaci tale at «Naša Sloga» 1 March 1872, the Kaldir revision sheets and Vanni D'Alessio's method as she reports them. Read in full text, September 2026.",
+  "quote": "Šarenjakom, koji nose u ustih medene rieči slobode, napredaka i prosvjete … a jesu tvoji najveći neprijatelji i zatiratelji najljući tvoje narodnosti.",
+  "quote_en": "Of the Šarenjaci, who carry in their mouths the honeyed words of freedom, progress and enlightenment — and are your greatest enemies and the bitterest destroyers of your nationality.",
+  "quote_src": "A letter from central Istria, «Naša Sloga», 1 September 1873. Before the Diet elections of the 1870s the paper warned its readers against electing Šarenjaci among the electors; a letter from Žminj told them to stop oppressing the national Slavs; and the threats to «traitors to the people» multiplied."
+ },
+ "inuse": {
+  "heading": "Defrančeski, in living use, in print",
+  "lead": "This site is called The Defranceski, and it has argued that the Croatian spelling with the háček is a real thing and not a corruption. Here it is in print, three times, in the mouths of ordinary men.",
+  "rows": [
+   {
+    "lab": "Pula arsenal, 19 December 1919",
+    "text": "A collection taken among the workers of the arsenal at Pula and printed in «Pučki prijatelj»: «po 1 Liru: Baćac Antun, Benčić Josip, Defrančeski Antun, Ladavac Franjo, Funčić Mate, Leverić Josip, Lorencin Jakov pok. Ivana.» One lira each. Antun Defrančeski, arsenal worker, written the Croatian way among Croatian neighbours, in the first year of Italian rule.",
+    "key": true
+   },
+   {
+    "lab": "Ližnjan by Pula, 27 February 1920",
+    "text": "«Sabrano u Ližnjanu kod Pule… po 2 L: Fedel Jože, Fedel Ante Antunov, Defrančeski Ante, Vojnić Mate, Grakalić Martin…» Ante Defrančeski of Ližnjan, two lire."
+   },
+   {
+    "lab": "And earlier, in the political press",
+    "text": "«Naša sloga», 1 October 1879: «svećenika lažanski i galežanski glasovala su za slobodnjaka Defrančeski-ja» — the priests of Lažani and Galežana voted for the liberal Defrančeski. That is Carlo, in the election a Bakar paper reported the same summer, with his own name declined into Croatian grammar by the people opposing him."
+   }
+  ],
+  "what": "So the fourth spelling is not a twentieth-century accident of emigration papers. Croatian speakers were writing this surname their own way, in print, by 1879, and were still doing it in 1919 and 1920 — before anyone in this family reached Germany or Australia. Carlo explained in 1876 why the name split into De Franceschi, Defranceschi and Franceschi: Austrian clerks read the «de» as a claim of nobility. This is the fourth branch of the same split, made not by clerks but by neighbours.",
+  "source_inuse": "«Pučki prijatelj» (Krk) and «Naša sloga», from dnc.nsk.hr, searched September 2026. Note that the portal's index does not do substring matching: «defranceschi» returns forty-four pages that «franceschi» does not, so each spelling has to be searched separately."
+ }
 }

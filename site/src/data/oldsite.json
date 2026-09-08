@@ -1,267 +1,303 @@
 {
-  "note": "Before defranceski.com is switched off, everything on it was captured, compared against this archive page by page, and either matched to where it already lives here or written down as something new. This is that reckoning. It is published rather than kept in a notebook so that anyone who remembers the old site can see what became of each part of it.",
-  "captured": {
-    "heading": "What was taken off it, and where those files are",
-    "rows": [
-      {
-        "lab": "The whole site, as HTML",
-        "text": "All eleven pages fetched and stored: home, about, about/publications, about/resources, family-trees, the-people, the-places, the-places/the-map, the-story, the-story/the-coat-of-arms, the-story/the-name. In this project's source library under «oldsite/html-capture-2026-09». It is a Google Site, so it will not be recoverable once the account is closed."
-      },
-      {
-        "lab": "Both Google MyMaps, exported as KML",
-        "text": "«Defranceski Family» — the primary map, 1,345 placemarks in ten layers — and «Old Defranceski Family», 93 placemarks. Exported as KML while they were still live and archived. This was the single most urgent thing on the site: the maps are David's own research, not published anywhere else, and a MyMap dies with the Google account that holds it.",
-        "key": true
-      },
-      {
-        "lab": "What is in the primary map",
-        "text": "«Family Search Books Available», 1,022 pins — every Croatian place with a FamilySearch book, which is a research instrument in its own right. «My Known Defranceski Family», 37. «Istra Lines of Defranceschi», 42. «Bepo and Nana De Franceschi», 21 — the Omiš–Imotski narrative. «Italian Lines», 90. «High Level of Emigration from Here», 44. «German Defranceski's», 14. «Early Line in Rijeka», 4. «Random Markers», 6. And an untitled layer of 75."
-      }
+ "note": "Before defranceski.com is switched off, everything on it was captured, compared against this archive page by page, and either matched to where it already lives here or written down as something new. This is that reckoning. It is published rather than kept in a notebook so that anyone who remembers the old site can see what became of each part of it.",
+ "captured": {
+  "heading": "What was taken off it, and where those files are",
+  "rows": [
+   {
+    "lab": "The whole site, as HTML",
+    "text": "All eleven pages fetched and stored: home, about, about/publications, about/resources, family-trees, the-people, the-places, the-places/the-map, the-story, the-story/the-coat-of-arms, the-story/the-name. In this project's source library under «oldsite/html-capture-2026-09». It is a Google Site, so it will not be recoverable once the account is closed."
+   },
+   {
+    "lab": "Both Google MyMaps, exported as KML",
+    "text": "«Defranceski Family» — the primary map, 1,345 placemarks in ten layers — and «Old Defranceski Family», 93 placemarks. Exported as KML while they were still live and archived. This was the single most urgent thing on the site: the maps are David's own research, not published anywhere else, and a MyMap dies with the Google account that holds it.",
+    "key": true
+   },
+   {
+    "lab": "What is in the primary map",
+    "text": "«Family Search Books Available», 1,022 pins — every Croatian place with a FamilySearch book, which is a research instrument in its own right. «My Known Defranceski Family», 37. «Istra Lines of Defranceschi», 42. «Bepo and Nana De Franceschi», 21 — the Omiš–Imotski narrative. «Italian Lines», 90. «High Level of Emigration from Here», 44. «German Defranceski's», 14. «Early Line in Rijeka», 4. «Random Markers», 6. And an untitled layer of 75."
+   }
+  ]
+ },
+ "covered": {
+  "heading": "Page by page: what the old site said, and where it is now",
+  "rows": [
+   [
+    "Home — the purpose, and the six hotspots",
+    "Seget, Gologorica, Ližnjan, Omiš, Mione, Corsica, and onward to Koper, Crete, Johannesburg, Germany, the United States and Australia.",
+    "Every one of those is a page or a section here. Ližnjan is now third of eighteen towns in the record sweep and has its own man in Ante Defrančeski; Corsica is on the roadmap; Crete is the Seget tradition, argued against on the Carnia page."
+   ],
+   [
+    "Family Trees — the linear chart",
+    "Giovanni 1750–1829 · Giovanni 1787–1846 · Antonio 1825–1894 · Josip 1863–1951 · Antonio 1890–1943 · Ivan 1925–1995 · Ivan · David.",
+    "Carried across exactly, and every one of those dates is now on the Direct Line page — most of them with the register page behind them rather than the chart. Nothing was lost and a good deal was added."
+   ],
+   [
+    "The People",
+    "Carlo, Camillo, Andrea and Titian, Girolamo, Alessandro OP, Francesco the painter, Francesco the printer, Domenico, Mariano, Carlo Francesco the composer, the two Napoleonic Defrance / Franceschi-Delonne.",
+    "All on the Namesakes page, most now with fuller lives and every one labelled as kin or not kin. Two remain owed: Andrea and Titian, and Francesco the painter — both still open, both listed on the roadmap."
+   ],
+   [
+    "The Places, and The Map",
+    "Google MyMaps embeds.",
+    "The Atlas replaces the embed; the KML is archived so the underlying pins survive independently of Google."
+   ],
+   [
+    "The Story · The Name",
+    "The spellings: Franceschi, De Franceschi, Franceschini, Defrančeski, Defranceschi, Dei Francesci, de Franceschi.",
+    "The Name page carries all of these and more, with counts. «Defrančeski» is now evidenced three times in print and in five Zagreb graves; «Franceschini» and «Dei Francesci» are noted as variants this archive has not found in its own records."
+   ],
+   [
+    "The Story · The Coat of Arms",
+    "houseofnames, heraldrysinstitute, coadb, plemstvo.hr, and the Blasonario Giuliano PDFs.",
+    "The Arms page rests on the Blasonario Giuliano entry and on Carlo's own blazon in his letter to Kobler — and now on photographs of the carving itself. The commercial crest sites are recorded below as consulted, and not relied on."
+   ],
+   [
+    "About · Publications",
+    "The works of Carlo and Camillo, with links.",
+    "Sources page and the person pages, with the acquisition list in the Search Register."
+   ],
+   [
+    "About · Resources",
+    "A link list for researchers.",
+    "Carried over in full, below."
+   ],
+   [
+    "About",
+    "A Google Sites template that was never filled in — «Tell your viewers about how the club got started».",
+    "Nothing to migrate."
+   ]
+  ]
+ },
+ "newfound": {
+  "heading": "And four things on the old site that this archive did not have",
+  "lead": "The comparison was supposed to be a formality. It was not.",
+  "rows": [
+   {
+    "lab": "«Franceschi dalle Rose» — chased, and it is almost certainly a confusion",
+    "text": "The pin read «Franceschi dalle Rose Move 1040 to Venice», with Ravenna and the Giudecca beside it. Searched: the form does not exist in the literature. What does exist, and matches the pin exactly, is the **Donà dalle Rose** — a Venetian noble house whose own origin story runs from Romagna and Altinum, which is to say Ravenna, whose «dalle Rose» is the main surviving branch, and which gave Venice two Doges. «Dalle Rose» is their byname, not this family's. The likeliest reading is that a nobiliary source was misfiled at some point and the two ran together. It is recorded here so that it does not get repeated: this archive can find no Franceschi dalle Rose anywhere.",
+    "key": true
+   },
+   {
+    "lab": "A German branch route this archive had no idea about",
+    "text": "The «German Defranceski's» layer runs Ližnjan → Monheim, with «Grga dies in Zagreb», and separately «Petar Moves to Metzingen». Metzingen is four kilometres from Pfullingen, which is where the family's own wartime papers are from. Ližnjan is the third-largest cluster in the record sweep. Neither Grga nor the Monheim line appears anywhere in this archive.",
+    "key": true
+   },
+   {
+    "lab": "The Veneto emigration hotspots, and São Paulo",
+    "text": "A layer of forty-four pins — Castelnuovo, Pederobba, Cornedo Vicentino, Castelgomberto, Scorzè, Moniego — all in the Veneto, all marked as places of heavy emigration, ending at «State of São Paulo». This archive's Diaspora page has the Brazilian cluster as the largest of all and has never had a departure region for it. Here is a candidate one.",
+    "key": true
+   },
+   {
+    "lab": "The Dalmatian narrative, laid out as a route",
+    "text": "Ravenna → Venice 1040 → Giudecca → Niccolò to Zadar in the 1300s → Tomasso to Omiš → Francesca de Franceschi from Venice to Omiš in the 1500s → Zuane to Imotski → Antonio to Proložac → Antonia to Trsat → Pisak and Vruja. Most of it this archive now holds independently and in more detail. Two names in it are new: Tomasso, and Francesca de Franceschi of the 1500s."
+   }
+  ]
+ },
+ "resources": {
+  "heading": "The resource links from the old site, carried over",
+  "lead": "Kept because a link list a family actually used is worth preserving, and because saying which of these this archive relies on — and which it does not — is part of the point.",
+  "groups": [
+   [
+    "Archives and registers",
+    [
+     [
+      "Državni arhiv u Pazinu — parish registers A to K",
+      "https://www.dapa.hr/maticne-knjige-mjesta-od-a-do-k/",
+      "The state archive this family has actually bought certified copies from, twice."
+     ],
+     [
+      "Portale Antenati — Italian state archives",
+      "https://antenati.cultura.gov.it/find-the-archives-2/?lang=en",
+      "Blocked to this project's network; recorded as not circumvented."
+     ],
+     [
+      "FamilySearch — Udine genealogy wiki",
+      "https://www.familysearch.org/en/wiki/Udine,_Friuli-Venezia_Giulia,_Italy_Genealogy",
+      ""
+     ],
+     [
+      "FamilySearch — Latin genealogical word list",
+      "https://www.familysearch.org/en/wiki/Latin_Genealogical_Word_List",
+      "Genuinely useful for reading these registers."
+     ],
+     [
+      "Archives nationales — BB/29, First Empire letters patent",
+      "http://chan.archivesnationales.culture.gouv.fr/",
+      "Where the Napoleonic titles of Defrance and Franceschi-Delonne are registered."
+     ]
     ]
-  },
-  "covered": {
-    "heading": "Page by page: what the old site said, and where it is now",
-    "rows": [
-      [
-        "Home — the purpose, and the six hotspots",
-        "Seget, Gologorica, Ližnjan, Omiš, Mione, Corsica, and onward to Koper, Crete, Johannesburg, Germany, the United States and Australia.",
-        "Every one of those is a page or a section here. Ližnjan is now third of eighteen towns in the record sweep and has its own man in Ante Defrančeski; Corsica is on the roadmap; Crete is the Seget tradition, argued against on the Carnia page."
-      ],
-      [
-        "Family Trees — the linear chart",
-        "Giovanni 1750–1829 · Giovanni 1787–1846 · Antonio 1825–1894 · Josip 1863–1951 · Antonio 1890–1943 · Ivan 1925–1995 · Ivan · David.",
-        "Carried across exactly, and every one of those dates is now on the Direct Line page — most of them with the register page behind them rather than the chart. Nothing was lost and a good deal was added."
-      ],
-      [
-        "The People",
-        "Carlo, Camillo, Andrea and Titian, Girolamo, Alessandro OP, Francesco the painter, Francesco the printer, Domenico, Mariano, Carlo Francesco the composer, the two Napoleonic Defrance / Franceschi-Delonne.",
-        "All on the Namesakes page, most now with fuller lives and every one labelled as kin or not kin. Two remain owed: Andrea and Titian, and Francesco the painter — both still open, both listed on the roadmap."
-      ],
-      [
-        "The Places, and The Map",
-        "Google MyMaps embeds.",
-        "The Atlas replaces the embed; the KML is archived so the underlying pins survive independently of Google."
-      ],
-      [
-        "The Story · The Name",
-        "The spellings: Franceschi, De Franceschi, Franceschini, Defrančeski, Defranceschi, Dei Francesci, de Franceschi.",
-        "The Name page carries all of these and more, with counts. «Defrančeski» is now evidenced three times in print and in five Zagreb graves; «Franceschini» and «Dei Francesci» are noted as variants this archive has not found in its own records."
-      ],
-      [
-        "The Story · The Coat of Arms",
-        "houseofnames, heraldrysinstitute, coadb, plemstvo.hr, and the Blasonario Giuliano PDFs.",
-        "The Arms page rests on the Blasonario Giuliano entry and on Carlo's own blazon in his letter to Kobler — and now on photographs of the carving itself. The commercial crest sites are recorded below as consulted, and not relied on."
-      ],
-      [
-        "About · Publications",
-        "The works of Carlo and Camillo, with links.",
-        "Sources page and the person pages, with the acquisition list in the Search Register."
-      ],
-      [
-        "About · Resources",
-        "A link list for researchers.",
-        "Carried over in full, below."
-      ],
-      [
-        "About",
-        "A Google Sites template that was never filled in — «Tell your viewers about how the club got started».",
-        "Nothing to migrate."
-      ]
+   ],
+   [
+    "Regional and community",
+    [
+     [
+      "Istra County",
+      "https://www.istra-istria.hr/hr/",
+      ""
+     ],
+     [
+      "Istrianet — Camillo De Franceschi",
+      "https://www.istrianet.org/istria/illustri/de_franceschi/camillo/",
+      "The two portrait photographs of Camillo are here."
+     ],
+     [
+      "Istria–Fiume–Dalmatia, Italian biographies",
+      "http://istria-fiume-dalmatia.blogspot.com/p/italian-biographies-istria.html",
+      ""
+     ],
+     [
+      "Smrikve — Seget",
+      "https://www.smrikve.com/istria/books/smrikve/places/west-istria/seget/",
+      "On the other family's house."
+     ],
+     [
+      "Croatian Roots",
+      "https://croatianroots.com/services/",
+      "Commercial research service."
+     ],
+     [
+      "FEEFHS — Croatia",
+      "https://feefhs.org/resource/croatia",
+      ""
+     ],
+     [
+      "DVHH — Danube Swabian Heritage",
+      "https://dvhh.org/",
+      ""
+     ]
     ]
-  },
-  "newfound": {
-    "heading": "And four things on the old site that this archive did not have",
-    "lead": "The comparison was supposed to be a formality. It was not.",
-    "rows": [
-      {
-        "lab": "«Franceschi dalle Rose» — chased, and it is almost certainly a confusion",
-        "text": "The pin read «Franceschi dalle Rose Move 1040 to Venice», with Ravenna and the Giudecca beside it. Searched: the form does not exist in the literature. What does exist, and matches the pin exactly, is the **Donà dalle Rose** — a Venetian noble house whose own origin story runs from Romagna and Altinum, which is to say Ravenna, whose «dalle Rose» is the main surviving branch, and which gave Venice two Doges. «Dalle Rose» is their byname, not this family's. The likeliest reading is that a nobiliary source was misfiled at some point and the two ran together. It is recorded here so that it does not get repeated: this archive can find no Franceschi dalle Rose anywhere.",
-        "key": true
-      },
-      {
-        "lab": "A German branch route this archive had no idea about",
-        "text": "The «German Defranceski's» layer runs Ližnjan → Monheim, with «Grga dies in Zagreb», and separately «Petar Moves to Metzingen». Metzingen is four kilometres from Pfullingen, which is where the family's own wartime papers are from. Ližnjan is the third-largest cluster in the record sweep. Neither Grga nor the Monheim line appears anywhere in this archive.",
-        "key": true
-      },
-      {
-        "lab": "The Veneto emigration hotspots, and São Paulo",
-        "text": "A layer of forty-four pins — Castelnuovo, Pederobba, Cornedo Vicentino, Castelgomberto, Scorzè, Moniego — all in the Veneto, all marked as places of heavy emigration, ending at «State of São Paulo». This archive's Diaspora page has the Brazilian cluster as the largest of all and has never had a departure region for it. Here is a candidate one.",
-        "key": true
-      },
-      {
-        "lab": "The Dalmatian narrative, laid out as a route",
-        "text": "Ravenna → Venice 1040 → Giudecca → Niccolò to Zadar in the 1300s → Tomasso to Omiš → Francesca de Franceschi from Venice to Omiš in the 1500s → Zuane to Imotski → Antonio to Proložac → Antonia to Trsat → Pisak and Vruja. Most of it this archive now holds independently and in more detail. Two names in it are new: Tomasso, and Francesca de Franceschi of the 1500s."
-      }
+   ],
+   [
+    "Reference and biography",
+    [
+     [
+      "Treccani DBI — Carlo De Franceschi",
+      "https://www.treccani.it/enciclopedia/carlo-de-franceschi_(Dizionario-Biografico)/",
+      ""
+     ],
+     [
+      "Treccani DBI — Girolamo de Franceschi",
+      "https://www.treccani.it/enciclopedia/girolamo-de-franceschi_(Dizionario-Biografico)/",
+      ""
+     ],
+     [
+      "Istarska enciklopedija",
+      "http://istra.lzmk.hr/clanak.aspx?id=672",
+      ""
+     ],
+     [
+      "Hrvatska Wikipedia — Carlo De Franceschi",
+      "https://hr.wikipedia.org/wiki/Carlo_De_Franceschi",
+      ""
+     ],
+     [
+      "Geni — Obitelj Franceschi noble family project",
+      "https://www.geni.com/projects/Obitelj-Franceschi-de-Franceschi-Noble-family/46506",
+      ""
+     ],
+     [
+      "Catholic-Hierarchy — a Franceschi bishop",
+      "https://www.catholic-hierarchy.org/bishop/bfrancesa.html",
+      "Bishop of Forlì, d. 1601."
+     ],
+     [
+      "Poskok — the De Franceschi at Imotski, 1717 to today",
+      "https://poskok.info/obitelj-de-franceschi-u-imotskom-od-1717-do-danas/",
+      "Now the backbone of this archive's Imotski page."
+     ],
+     [
+      "Academia.edu — Titian's portraits of Andrea de Franceschi",
+      "https://www.academia.edu/30396204/",
+      "Behind a Cloudflare wall from here; not circumvented, and still owed."
+     ]
     ]
-  },
-  "resources": {
-    "heading": "The resource links from the old site, carried over",
-    "lead": "Kept because a link list a family actually used is worth preserving, and because saying which of these this archive relies on — and which it does not — is part of the point.",
-    "groups": [
-      [
-        "Archives and registers",
-        [
-          [
-            "Državni arhiv u Pazinu — parish registers A to K",
-            "https://www.dapa.hr/maticne-knjige-mjesta-od-a-do-k/",
-            "The state archive this family has actually bought certified copies from, twice."
-          ],
-          [
-            "Portale Antenati — Italian state archives",
-            "https://antenati.cultura.gov.it/find-the-archives-2/?lang=en",
-            "Blocked to this project's network; recorded as not circumvented."
-          ],
-          [
-            "FamilySearch — Udine genealogy wiki",
-            "https://www.familysearch.org/en/wiki/Udine,_Friuli-Venezia_Giulia,_Italy_Genealogy",
-            ""
-          ],
-          [
-            "FamilySearch — Latin genealogical word list",
-            "https://www.familysearch.org/en/wiki/Latin_Genealogical_Word_List",
-            "Genuinely useful for reading these registers."
-          ],
-          [
-            "Archives nationales — BB/29, First Empire letters patent",
-            "http://chan.archivesnationales.culture.gouv.fr/",
-            "Where the Napoleonic titles of Defrance and Franceschi-Delonne are registered."
-          ]
-        ]
-      ],
-      [
-        "Regional and community",
-        [
-          [
-            "Istra County",
-            "https://www.istra-istria.hr/hr/",
-            ""
-          ],
-          [
-            "Istrianet — Camillo De Franceschi",
-            "https://www.istrianet.org/istria/illustri/de_franceschi/camillo/",
-            "The two portrait photographs of Camillo are here."
-          ],
-          [
-            "Istria–Fiume–Dalmatia, Italian biographies",
-            "http://istria-fiume-dalmatia.blogspot.com/p/italian-biographies-istria.html",
-            ""
-          ],
-          [
-            "Smrikve — Seget",
-            "https://www.smrikve.com/istria/books/smrikve/places/west-istria/seget/",
-            "On the other family's house."
-          ],
-          [
-            "Croatian Roots",
-            "https://croatianroots.com/services/",
-            "Commercial research service."
-          ],
-          [
-            "FEEFHS — Croatia",
-            "https://feefhs.org/resource/croatia",
-            ""
-          ],
-          [
-            "DVHH — Danube Swabian Heritage",
-            "https://dvhh.org/",
-            ""
-          ]
-        ]
-      ],
-      [
-        "Reference and biography",
-        [
-          [
-            "Treccani DBI — Carlo De Franceschi",
-            "https://www.treccani.it/enciclopedia/carlo-de-franceschi_(Dizionario-Biografico)/",
-            ""
-          ],
-          [
-            "Treccani DBI — Girolamo de Franceschi",
-            "https://www.treccani.it/enciclopedia/girolamo-de-franceschi_(Dizionario-Biografico)/",
-            ""
-          ],
-          [
-            "Istarska enciklopedija",
-            "http://istra.lzmk.hr/clanak.aspx?id=672",
-            ""
-          ],
-          [
-            "Hrvatska Wikipedia — Carlo De Franceschi",
-            "https://hr.wikipedia.org/wiki/Carlo_De_Franceschi",
-            ""
-          ],
-          [
-            "Geni — Obitelj Franceschi noble family project",
-            "https://www.geni.com/projects/Obitelj-Franceschi-de-Franceschi-Noble-family/46506",
-            ""
-          ],
-          [
-            "Catholic-Hierarchy — a Franceschi bishop",
-            "https://www.catholic-hierarchy.org/bishop/bfrancesa.html",
-            "Bishop of Forlì, d. 1601."
-          ],
-          [
-            "Poskok — the De Franceschi at Imotski, 1717 to today",
-            "https://poskok.info/obitelj-de-franceschi-u-imotskom-od-1717-do-danas/",
-            "Now the backbone of this archive's Imotski page."
-          ],
-          [
-            "Academia.edu — Titian's portraits of Andrea de Franceschi",
-            "https://www.academia.edu/30396204/",
-            "Behind a Cloudflare wall from here; not circumvented, and still owed."
-          ]
-        ]
-      ],
-      [
-        "Heraldry — consulted, not relied on",
-        [
-          [
-            "Blasonario Giuliano, letter D",
-            "https://www.unioneistriani.it/wp-content/uploads/2021/12/Blasonario_D.pdf",
-            "This one IS relied on: it carries the family's entry."
-          ],
-          [
-            "Blasonario Giuliano, letter F",
-            "https://www.unioneistriani.it/wp-content/uploads/2021/12/Blasonario_F.pdf",
-            ""
-          ],
-          [
-            "Plemstvo.hr — Franceschi",
-            "http://www.plemstvo.hr/obitelji/franceschi",
-            ""
-          ],
-          [
-            "Heraldry's Institute",
-            "https://www.heraldrysinstitute.com/lang/en/cognomi/Franceschi/Italia/idc/5784/idt/en/",
-            "Commercial."
-          ],
-          [
-            "House of Names",
-            "https://www.houseofnames.com/au/franceschi-family-crest",
-            "Commercial, and sells crests. Recorded because the old site used it; this archive does not."
-          ],
-          [
-            "COADB",
-            "https://coadb.com/surnames-rough/franceschi-coat-of-arms-family-crest",
-            "Commercial."
-          ]
-        ]
-      ]
+   ],
+   [
+    "Heraldry — consulted, not relied on",
+    [
+     [
+      "Blasonario Giuliano, letter D",
+      "https://www.unioneistriani.it/wp-content/uploads/2021/12/Blasonario_D.pdf",
+      "This one IS relied on: it carries the family's entry."
+     ],
+     [
+      "Blasonario Giuliano, letter F",
+      "https://www.unioneistriani.it/wp-content/uploads/2021/12/Blasonario_F.pdf",
+      ""
+     ],
+     [
+      "Plemstvo.hr — Franceschi",
+      "http://www.plemstvo.hr/obitelji/franceschi",
+      ""
+     ],
+     [
+      "Heraldry's Institute",
+      "https://www.heraldrysinstitute.com/lang/en/cognomi/Franceschi/Italia/idc/5784/idt/en/",
+      "Commercial."
+     ],
+     [
+      "House of Names",
+      "https://www.houseofnames.com/au/franceschi-family-crest",
+      "Commercial, and sells crests. Recorded because the old site used it; this archive does not."
+     ],
+     [
+      "COADB",
+      "https://coadb.com/surnames-rough/franceschi-coat-of-arms-family-crest",
+      "Commercial."
+     ]
     ]
-  },
-  "maps": {
-    "heading": "The two maps themselves",
-    "text": "Both are still live at the time of writing and both are archived as KML. If the Google account goes, the archived files are the copy of record.",
-    "links": [
-      [
-        "Defranceski Family — the primary map, 1,345 placemarks",
-        "https://www.google.com/maps/d/viewer?mid=1NSF2idD4Q8mN0VQGpBwWPgoJp6Ba1sk"
-      ],
-      [
-        "Old Defranceski Family — 93 placemarks",
-        "https://www.google.com/maps/d/viewer?mid=1c_ed3kiZa4vw9k0NKH0mjpUmOPlFsL1a"
-      ]
-    ]
-  },
-  "verdict": "On the evidence of a page-by-page comparison, defranceski.com can be switched off without losing anything — provided the two MyMaps are either kept alive or left as the archived KML, which they now are. Everything else it carried is either here already, in better condition, or is written down above as something still to do."
+   ]
+  ]
+ },
+ "maps": {
+  "heading": "The two maps themselves",
+  "text": "Both are still live at the time of writing and both are archived as KML. If the Google account goes, the archived files are the copy of record.",
+  "links": [
+   [
+    "Defranceski Family — the primary map, 1,345 placemarks",
+    "https://www.google.com/maps/d/viewer?mid=1NSF2idD4Q8mN0VQGpBwWPgoJp6Ba1sk"
+   ],
+   [
+    "Old Defranceski Family — 93 placemarks",
+    "https://www.google.com/maps/d/viewer?mid=1c_ed3kiZa4vw9k0NKH0mjpUmOPlFsL1a"
+   ]
+  ]
+ },
+ "verdict": "On the evidence of a page-by-page comparison, defranceski.com can be switched off without losing anything — provided the two MyMaps are either kept alive or left as the archived KML, which they now are. Everything else it carried is either here already, in better condition, or is written down above as something still to do. Re-verified on the three pages you named — The Name, The Coat of Arms and The People — on 8 September 2026; three gaps found and closed, two omissions made deliberately and stated above.",
+ "recheck": {
+  "heading": "Checked again, line by line, on the three pages you named",
+  "lead": "The reckoning above was made from the whole site at once. On 8 September 2026 the three pages you asked about — **The Name**, **The Coat of Arms** and **The People** — were re-read out of the stored HTML, claim by claim, against what this archive now publishes. Three things were genuinely missing. They have been written. Two things are deliberately not carried, and here is why.",
+  "rows": [
+   {
+    "lab": "The Name — closed",
+    "text": "The old page's variant list ended with two forms this archive had never addressed. **«Dei Francesci»** is now on the Name page with the verdict it deserves: not found once in eighteen towns, and almost certainly *dei Franceschi* with the -h lost in transcription. **«Franceschini»** is now there too, with the correction that it is **not a variant of this surname at all** — it is Franceschi plus the diminutive -ino, formed independently wherever Francesco was a common name. Four people in this archive carry it, every one of them by marriage or as a mother's name.",
+    "key": true
+   },
+   {
+    "lab": "The Name — already here, and tested",
+    "text": "Everything else the old page carried from plemstvo.hr is here: Niccolò and the Buda charter of 8 March 1359, the 1838 submission to the Austrian nobility commission, Heyer von Rosenfeld 1873, Zuane and Perinuša, Giovanni de Franceschi of «La Dalmazia». One claim was tested and **failed**: «Franceschi dalle Rose», Ravenna to Venice in 1040 and the Giudecca, is the origin story of the **Donà dalle Rose** — a different Venetian house entirely. That is on the Searched page so it is never repeated."
+   },
+   {
+    "lab": "The People — closed",
+    "text": "**Toma de Franceschi** is now on the Namesakes page. Notary of Zadar: sworn to the city council by hereditary right in 1714, appointed public notary in 1722, forty years in the office, and — the detail worth having — running his practice in **Croatian as well as Italian**, in a city whose notarial record is otherwise Latin and Venetian. His son Ivan Krševan followed him. He matters because a notary of forty years leaves an archive, and the Zadar notarial fond is where the whole Croatian noble claim can actually be tested.",
+    "key": true
+   },
+   {
+    "lab": "The People — already here, and then some",
+    "text": "The old page had eleven figures. This archive has twenty-eight, every one labelled kin or not kin, and the two the earlier reckoning listed as still owed — **Andrea dei Franceschi and Titian**, and **Francesco the painter** — have both since been written. Piero della Francesca, Girolamo, Alessandro OP, Domenico, Mariano, Carlo Francesco, and both Napoleonic Defrance / Franceschi-Delonne are all present with fuller lives than the old page gave them."
+   },
+   {
+    "lab": "The Coat of Arms — well ahead of it",
+    "text": "The old page reproduced four Blasonario Giuliano blazons and linked houseofnames, heraldrysinstitute and coadb. The Arms page here carries the same four — the stork of Gianantonio 1724, the lion, Carlo's cross-arrows-and-pomegranate, and Giacomo of Pisino 1788 — **drawn**, translated, and set against three independent witnesses the old site did not have: Carlo's own letter of about 1873, Matejčić's 1979 architectural survey recording the shield on the Moncalvo façade, and the 2012 American reunion album describing the same weathered stone. It also says plainly what the old page did not: **there is no coat of arms for a surname**, and the crest vendors are selling a picture keyed to a text string."
+   },
+   {
+    "lab": "Not carried, on purpose — the works list",
+    "text": "The old People page ran a long catalogue of **Piero della Francesca's paintings**, museum by museum: Arezzo, Berlin, the Gardner, the Uffizi, Lisbon, the National Gallery, Thyssen-Bornemisza, the Brera, Poldi Pezzoli, Monterchi, the Frick, the Louvre, Perugia, the Tempio Malatestiano, Sansepolcro, Urbino, the Accademia, Washington. It is a good list and it is **not family history** — no connection between the Tuscan Franceschi and this family has ever been shown, and a hundred-line museum catalogue for a man we cannot claim would be the largest single block of text on the site. He keeps his entry on Namesakes, with the diptych, and the catalogue stays in the stored HTML."
+   },
+   {
+    "lab": "Not carried, on purpose — the living",
+    "text": "The old page listed the members of the Croatian Noble Corps by name, with birth years, professions and current cities. **They are living people.** This archive omits the living rather than hiding them, so they are not here and will not be. The stored HTML keeps the record for the family's own use."
+   }
+  ]
+ }
 }
