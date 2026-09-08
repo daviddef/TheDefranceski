@@ -65,3 +65,6 @@
 - British History Online (Cal. State Papers Venice) — BLOCKED, CAPTCHA. Do not retry.
 - NEW: is the Glagolitic Hum/Colmo register in the family fond (DARI-254, 1610–1685) the same manuscript Vlahov published in 1999 (1608–1639)? €13.27 settles it.
 - NEW: reopen the 1512/1513 Venice–Cairo embassy. Tassini puts OUR Andrea on it in 1513; this archive had dismissed it as a different family of Cividale di Belluno.
+- ~~hrcak / Dabar repositories~~ — BOTH now behind bot checks. Do not retry; look for papers on CORE, author pages, or the publisher's own site.
+- ~~Doblanović on Svetvinčenat~~ — read via CORE. Published.
+- **NEW, and big: the family library at NSK Zagreb.** 2,396 items, catalogued 2009–2021, signature PDF 0.001–1.273+. Next steps: (a) ask NSK for the shelf list / catalogue export of the PDF signature range; (b) Hauptmann's report of 12 Aug 1945, published in Leideck 2015 — get it; (c) Sveučilišna knjižnica Pula: Carlo De Franceschi's CORRESPONDENCE, in the Collection of Old Books and Manuscripts; (d) DAPA's own De Franceschi family fond — never yet identified here.
