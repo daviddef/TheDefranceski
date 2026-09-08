@@ -115,6 +115,10 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
       </div>
     ))}
   </div>
+  <div class="one" style="margin-top:26px;border-left-color:var(--accent)">
+    <div class="lab">{hda.method.heading}</div>
+    <p style="margin-top:8px" set:html={hda.method.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  </div>
   <p class="cap" style="margin-top:18px">{hda.source_hda}</p>
 </section>
 

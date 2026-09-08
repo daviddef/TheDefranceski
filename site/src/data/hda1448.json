@@ -2,9 +2,19 @@
  "heading": "The other collection — and it is the one that reaches the twentieth century",
  "lead": "Everything above is FamilySearch, and FamilySearch stops. Its Croatian films were made from the state archives, and its birth registers were cut at the hundred-year line as it stood when the filming was done: Crikvenica births end in 1896, Senj in 1894, Bribir and Grižane in 1886. A second collection does not stop there, and this archive had not used it. **HR-HDA-1448, the Zbirka dopunskih mikrofilmova matičnih knjiga i popisa obitelji** — the supplementary microfilm collection of registers and family lists — held by the Hrvatski državni arhiv in Zagreb, with its own searchable finding aid on arhiv.hr.",
  "what": [
-  {"lab":"What it is","text":"Registers of every denomination from the whole territory of Croatia, from the middle of the sixteenth century to **the first half of the twentieth**, plus Roman Catholic books from Bosnia and Herzegovina. Filming began in 1985 with the HDA's own collection HR-HDA-883 and was then extended outward to every other holder — state archives, church archives, **parish offices, civil registry offices** and monasteries. Most of it was shot in the HDA's central photographic laboratory, and part of it in the microfilming laboratory of the Državni arhiv u Pazinu — the same laboratory that answered this family's letter in 2021."},
-  {"lab":"Why it goes further than FamilySearch","text":"Because it filmed the **matični uredi** — the civil registry offices that took custody of the parish books after 1946 — as well as the parishes and the archives. The registry office copy of a parish register is the same book, and it was not subject to the same restriction. That single difference is the whole gain, and it is worth years.","key":true},
-  {"lab":"What you get, and what you then do","text":"The finding aid returns, for each volume: place, denomination, kind of register, period, holding institution, **the roll signature** (e.g. ZM-34J/251), **the topographic mark** (M-5976), and whether a digital copy exists. It does not show images. Material is read in the HDA reading room — digitised rolls on the reader computers, the rest on microfilm readers, maximum ten units a day — or ordered by e-mail to info@arhiv.hr quoting place, kind, period, roll signature and topographic mark. Copies are charged for by the published tariff."}
+  {
+   "lab": "What it is",
+   "text": "Registers of every denomination from the whole territory of Croatia, from the middle of the sixteenth century to **the first half of the twentieth**, plus Roman Catholic books from Bosnia and Herzegovina. Filming began in 1985 with the HDA's own collection HR-HDA-883 and was then extended outward to every other holder — state archives, church archives, **parish offices, civil registry offices** and monasteries. Most of it was shot in the HDA's central photographic laboratory, and part of it in the microfilming laboratory of the Državni arhiv u Pazinu — the same laboratory that answered this family's letter in 2021."
+  },
+  {
+   "lab": "Why it goes further than FamilySearch",
+   "text": "Because it filmed the **matični uredi** — the civil registry offices that took custody of the parish books after 1946 — as well as the parishes and the archives. The registry office copy of a parish register is the same book, and it was not subject to the same restriction. That single difference is the whole gain, and it is worth years.",
+   "key": true
+  },
+  {
+   "lab": "What you get, and what you then do",
+   "text": "The finding aid returns, for each volume: place, denomination, kind of register, period, holding institution, **the roll signature** (e.g. ZM-34J/251), **the topographic mark** (M-5976), and whether a digital copy exists. It does not show images. Material is read in the HDA reading room — digitised rolls on the reader computers, the rest on microfilm readers, maximum ten units a day — or ordered by e-mail to info@arhiv.hr quoting place, kind, period, roll signature and topographic mark. Copies are charged for by the published tariff."
+  }
  ],
  "key": "R rođenih (births) · U umrlih (deaths) · V vjenčanih (marriages) · S Status animarum, the household census of a Catholic parish · Z krizmanika (confirmations) · O Anniversarii · I the index to births, marriages and deaths",
  "tables": [
@@ -12,47 +22,253 @@
    "title": "Crikvenica",
    "note": "Read the R column down and the gap jumps out: 1859–1880, 1881–1896, then nothing until 1909. The eleven years 1897–1908 are the one stretch of Crikvenica births not in this collection either — which is exactly the stretch this archive wants, and it is the stretch in which Ruža was born. But look at the last three rows and the S rows. Those are the way in.",
    "rows": [
-    ["R","1738–1793","Župni ured Crikvenica","ZM-34J/249","M-5974","yes"],
-    ["R","1793–1815","Župni ured Crikvenica","ZM-34J/249","M-5974","yes"],
-    ["R","1815–1823 · 1822–1855 · 1855–1858","Hrvatski državni arhiv","ZM-34/043","M-43","yes"],
-    ["R","1859–1880","Državni arhiv u Rijeci","ZM-34J/027","M-2738","no"],
-    ["R","1881–1896","Državni arhiv u Rijeci","ZM-34J/027","M-2738","no"],
-    ["R","1909–1926","Matični ured Crikvenica","ZM-34J/361","M-6956","yes"],
-    ["R","1909–1926","Matični ured Crikvenica","ZM-34J/362","M-6957","yes"],
-    ["R","1927–1948","Matični ured Crikvenica","ZM-34J/362","M-6957","yes"],
-    ["U","1798–1809 · 1815–1823 · 1822–1855 · 1855–1858","Hrvatski državni arhiv","ZM-34/043","M-43","yes"],
-    ["U","1859–1892","Državni arhiv u Rijeci","ZM-34J/028","M-2739","no"],
-    ["U","1893–1908","Državni arhiv u Rijeci","ZM-34J/029","M-2740","no"],
-    ["U","1909–1928","Matični ured Crikvenica","ZM-34J/363","M-6958","yes"],
-    ["V","1800–1823 · 1822–1855 · 1856–1858","Hrvatski državni arhiv","ZM-34/043","M-43","yes"],
-    ["V","1859–1908","Državni arhiv u Rijeci","ZM-34J/028","M-2739","no"],
-    ["V","1909–1947","Matični ured Crikvenica","ZM-34J/362","M-6957","yes"],
-    ["S","1793–1812 · 1821–1832 · 18th–19th c. · 19th c.","Župni ured Crikvenica","ZM-34J/249","M-5974","yes"],
-    ["S","1834–1873 · 19th c. · 19th–20th c.","Župni ured Crikvenica","ZM-34J/250","M-5975","yes"],
-    ["S","20th century","Župni ured Crikvenica","ZM-34J/251","M-5976","yes"]
+    [
+     "R",
+     "1738–1793",
+     "Župni ured Crikvenica",
+     "ZM-34J/249",
+     "M-5974",
+     "yes"
+    ],
+    [
+     "R",
+     "1793–1815",
+     "Župni ured Crikvenica",
+     "ZM-34J/249",
+     "M-5974",
+     "yes"
+    ],
+    [
+     "R",
+     "1815–1823 · 1822–1855 · 1855–1858",
+     "Hrvatski državni arhiv",
+     "ZM-34/043",
+     "M-43",
+     "yes"
+    ],
+    [
+     "R",
+     "1859–1880",
+     "Državni arhiv u Rijeci",
+     "ZM-34J/027",
+     "M-2738",
+     "no"
+    ],
+    [
+     "R",
+     "1881–1896",
+     "Državni arhiv u Rijeci",
+     "ZM-34J/027",
+     "M-2738",
+     "no"
+    ],
+    [
+     "R",
+     "1909–1926",
+     "Matični ured Crikvenica",
+     "ZM-34J/361",
+     "M-6956",
+     "yes"
+    ],
+    [
+     "R",
+     "1909–1926",
+     "Matični ured Crikvenica",
+     "ZM-34J/362",
+     "M-6957",
+     "yes"
+    ],
+    [
+     "R",
+     "1927–1948",
+     "Matični ured Crikvenica",
+     "ZM-34J/362",
+     "M-6957",
+     "yes"
+    ],
+    [
+     "U",
+     "1798–1809 · 1815–1823 · 1822–1855 · 1855–1858",
+     "Hrvatski državni arhiv",
+     "ZM-34/043",
+     "M-43",
+     "yes"
+    ],
+    [
+     "U",
+     "1859–1892",
+     "Državni arhiv u Rijeci",
+     "ZM-34J/028",
+     "M-2739",
+     "no"
+    ],
+    [
+     "U",
+     "1893–1908",
+     "Državni arhiv u Rijeci",
+     "ZM-34J/029",
+     "M-2740",
+     "no"
+    ],
+    [
+     "U",
+     "1909–1928",
+     "Matični ured Crikvenica",
+     "ZM-34J/363",
+     "M-6958",
+     "yes"
+    ],
+    [
+     "V",
+     "1800–1823 · 1822–1855 · 1856–1858",
+     "Hrvatski državni arhiv",
+     "ZM-34/043",
+     "M-43",
+     "yes"
+    ],
+    [
+     "V",
+     "1859–1908",
+     "Državni arhiv u Rijeci",
+     "ZM-34J/028",
+     "M-2739",
+     "no"
+    ],
+    [
+     "V",
+     "1909–1947",
+     "Matični ured Crikvenica",
+     "ZM-34J/362",
+     "M-6957",
+     "yes"
+    ],
+    [
+     "S",
+     "1793–1812 · 1821–1832 · 18th–19th c. · 19th c.",
+     "Župni ured Crikvenica",
+     "ZM-34J/249",
+     "M-5974",
+     "yes"
+    ],
+    [
+     "S",
+     "1834–1873 · 19th c. · 19th–20th c.",
+     "Župni ured Crikvenica",
+     "ZM-34J/250",
+     "M-5975",
+     "yes"
+    ],
+    [
+     "S",
+     "20th century",
+     "Župni ured Crikvenica",
+     "ZM-34J/251",
+     "M-5976",
+     "yes"
+    ]
    ]
   },
   {
    "title": "Proložac — the Imotski parish",
    "note": "Listed here because it is where the Dalmatian family's own ground is. Donji Proložac is where the Franciscans of the Imotski monastery came from — the fifteen friars and six hundred people Zuane Ivan Franceschi took onto his estate at Dobrče in January 1715 — and there is a Frančeski stone in the churchyard. The registers run unbroken from 1853 to 1949, and everything from 1892 onward is digitised.",
    "rows": [
-    ["R","1853–1862","Državni arhiv u Splitu","ZM-34F/130","M-2165","yes"],
-    ["R","1862–1870 · 1870–1876 · 1877–1884","Državni arhiv u Splitu","ZM-34F/935","M-4522","no"],
-    ["R","1877–1884 · 1884–1892","Državni arhiv u Splitu","ZM-34F/936","M-4523","no"],
-    ["R","1892–1908 · 1908–1912","Matični ured Imotski","ZM-34F/1116","M-6181","yes"],
-    ["R","1912–1922 · 1922–1929 · 1929–1940","Matični ured Imotski","ZM-34F/1117","M-6182","yes"],
-    ["U","1859–1878 · 1879–1890","Državni arhiv u Splitu","ZM-34F/936","M-4523","no"],
-    ["U","1890–1908","Državni arhiv u Splitu","ZM-34F/937","M-4524","no"],
-    ["U","1908–1915 · 1915–1936","Matični ured Imotski","ZM-34F/1118","M-6183","yes"],
-    ["U","1915–1936 · 1936–1949","Matični ured Imotski","ZM-34F/1119","M-6184","yes"]
+    [
+     "R",
+     "1853–1862",
+     "Državni arhiv u Splitu",
+     "ZM-34F/130",
+     "M-2165",
+     "yes"
+    ],
+    [
+     "R",
+     "1862–1870 · 1870–1876 · 1877–1884",
+     "Državni arhiv u Splitu",
+     "ZM-34F/935",
+     "M-4522",
+     "no"
+    ],
+    [
+     "R",
+     "1877–1884 · 1884–1892",
+     "Državni arhiv u Splitu",
+     "ZM-34F/936",
+     "M-4523",
+     "no"
+    ],
+    [
+     "R",
+     "1892–1908 · 1908–1912",
+     "Matični ured Imotski",
+     "ZM-34F/1116",
+     "M-6181",
+     "yes"
+    ],
+    [
+     "R",
+     "1912–1922 · 1922–1929 · 1929–1940",
+     "Matični ured Imotski",
+     "ZM-34F/1117",
+     "M-6182",
+     "yes"
+    ],
+    [
+     "U",
+     "1859–1878 · 1879–1890",
+     "Državni arhiv u Splitu",
+     "ZM-34F/936",
+     "M-4523",
+     "no"
+    ],
+    [
+     "U",
+     "1890–1908",
+     "Državni arhiv u Splitu",
+     "ZM-34F/937",
+     "M-4524",
+     "no"
+    ],
+    [
+     "U",
+     "1908–1915 · 1915–1936",
+     "Matični ured Imotski",
+     "ZM-34F/1118",
+     "M-6183",
+     "yes"
+    ],
+    [
+     "U",
+     "1915–1936 · 1936–1949",
+     "Matični ured Imotski",
+     "ZM-34F/1119",
+     "M-6184",
+     "yes"
+    ]
    ]
   }
  ],
  "asks": [
-  {"lab":"The one book to order first","text":"**Crikvenica, Status animarum, twentieth century. Roll ZM-34J/251, topographic mark M-5976, Župni ured Crikvenica, digitised.** A Status animarum is a household census: it lists a house, its head, his wife, and every child under them with a birth date beside each name. It is the book that gave this archive the whole of Gračišće house 24 — the midwife, the mason and the eleven children — in one opening. A twentieth-century Crikvenica volume should hold Josip Defranceschi's household on the Kvarner in the same form, and if it does it answers the ZO…, the POLD… and the Ruža of the monument in a single page, without ever needing the missing baptisms.","key":true},
-  {"lab":"The second","text":"**Crikvenica, marriages 1909–1947. Roll ZM-34J/362, mark M-6957, Matični ured Crikvenica, digitised.** Ruža Defranceschi, born 1903, married a Jarmacki and died in 1939. Her marriage falls squarely inside this book, and a Croatian marriage entry of that period names both parents of both parties. One line settles whether she is Josip and Ana's daughter."},
-  {"lab":"The third","text":"**Crikvenica, deaths 1909–1928. Roll ZM-34J/363, mark M-6958, digitised.** If the POLD… born 1901 died young, he is here — and the death column would give his age and his parents. The register also runs through the influenza of 1918 and the whole of the first war."},
-  {"lab":"And what will still be missing","text":"Crikvenica births 1897–1908 are in neither collection. Either that volume was never filmed, or it did not survive. If the three books above do not answer the question, the remaining step is the parish office at Crikvenica itself, or the Rijeka archdiocesan archive — a letter, not a search."}
+  {
+   "lab": "The one book to order first",
+   "text": "**Crikvenica, Status animarum, twentieth century. Roll ZM-34J/251, topographic mark M-5976, Župni ured Crikvenica, digitised.** A Status animarum is a household census: it lists a house, its head, his wife, and every child under them with a birth date beside each name. It is the book that gave this archive the whole of Gračišće house 24 — the midwife, the mason and the eleven children — in one opening. A twentieth-century Crikvenica volume should hold Josip Defranceschi's household on the Kvarner in the same form, and if it does it answers the ZO…, the POLD… and the Ruža of the monument in a single page, without ever needing the missing baptisms.",
+   "key": true
+  },
+  {
+   "lab": "The second",
+   "text": "**Crikvenica, marriages 1909–1947. Roll ZM-34J/362, mark M-6957, Matični ured Crikvenica, digitised.** Ruža Defranceschi, born 1903, married a Jarmacki and died in 1939. Her marriage falls squarely inside this book, and a Croatian marriage entry of that period names both parents of both parties. One line settles whether she is Josip and Ana's daughter."
+  },
+  {
+   "lab": "The third",
+   "text": "**Crikvenica, deaths 1909–1928. Roll ZM-34J/363, mark M-6958, digitised.** If the POLD… born 1901 died young, he is here — and the death column would give his age and his parents. The register also runs through the influenza of 1918 and the whole of the first war."
+  },
+  {
+   "lab": "And what will still be missing",
+   "text": "Crikvenica births 1897–1908 are in neither collection. Either that volume was never filmed, or it did not survive. If the three books above do not answer the question, the remaining step is the parish office at Crikvenica itself, or the Rijeka archdiocesan archive — a letter, not a search."
+  }
  ],
- "source_hda": "Hrvatski državni arhiv, HR-HDA-1448, Zbirka dopunskih mikrofilmova matičnih knjiga i popisa obitelji, searched through the finding aid at arhiv.hr on 8 September 2026 for Crikvenica and Proložac across all seven kinds of register. The collection description, the abbreviations and the ordering procedure are quoted from that page. Nothing here has been read yet: this is a list of what exists and where it is, which is the step this archive keeps finding is missing."
+ "source_hda": "Hrvatski državni arhiv, HR-HDA-1448, Zbirka dopunskih mikrofilmova matičnih knjiga i popisa obitelji, searched through the finding aid at arhiv.hr on 8 September 2026 for Crikvenica and Proložac across all seven kinds of register. The collection description, the abbreviations and the ordering procedure are quoted from that page. Nothing here has been read yet: this is a list of what exists and where it is, which is the step this archive keeps finding is missing.",
+ "method": {
+  "heading": "A note on method — how to read an unindexed image properly",
+  "text": "Most of what this archive still wants is in images nobody has indexed, and the ordinary way to look at them — the viewer in a browser window — shows a 6000-pixel register page shrunk to about 600 pixels, which is unreadable for handwriting. There is a better way and it is worth writing down. FamilySearch serves every image as a **Deep Zoom pyramid**: an XML descriptor at `/service/records/storage/deepzoomcloud/dz/v1/<image ark>/image.xml` giving the master dimensions, and 256-pixel tiles beneath it at `/image_files/<level>/<col>_<row>.jpg`. From a signed-in session the tiles for any chosen rectangle can be fetched and composed onto a canvas **at true resolution**, so a single column of a register can be read as clearly as if the book were open on the desk. That is how entry 17 of the Imotski deaths for 1845 was read. It needs a signed-in session and it respects the same access rules as the viewer — it is the same images, at the size they were photographed."
+ }
 }
