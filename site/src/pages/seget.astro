@@ -439,5 +439,21 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:16px">{s.deeper.source_deeper}</p>
 </section>
 
+<Rule name="arcade" label="The chapel at Seget" />
+
+<section class="blk">
+  <h2>{s.umagbook.heading}</h2>
+  <p class="dek" style="margin-top:8px">{s.umagbook.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {s.umagbook.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{s.umagbook.source_umag}</p>
+</section>
+
   <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "simon2024", "archiveorg"]} />
 </Base>
