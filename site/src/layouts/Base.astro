@@ -4,11 +4,16 @@ const { title, dek, eyebrow, bare } = Astro.props;
 const SITE = "The Defranceschi Archive";
 const nav = [
   ["Start", [["/", "Home"], ["/story/", "The Story"], ["/tree/", "The Tree"], ["/atlas/", "The Atlas"], ["/search/", "Search"]]],
-  ["Our line", [["/direct-line/", "The Spine"], ["/carnia/", "Carnia"], ["/gologorica-line/", "Gologorica"],
-                ["/crikvenica-house/", "Crikvenica"], ["/pfullingen/", "Pfullingen"], ["/senj-line/", "Senj"]]],
-  ["Families", [["/lines/", "The four families"], ["/the-eleven/", "The Eleven"], ["/seget/", "Seget"],
-                      ["/omis-line/", "Omiš"], ["/imotski/", "Imotski"], ["/istria-sweep/", "Every Town"],
-                      ["/diaspora/", "Diaspora"], ["/namesakes/", "Namesakes"]]],
+  ["Our line", [["/direct-line/", "The Spine"], ["/carnia/", "1 · Carnia"], ["/gologorica-line/", "2 · Gologorica"],
+                ["/the-eleven/", "3 · Gračišće — the Eleven"], ["/crikvenica-house/", "4 · Crikvenica"],
+                ["/senj-line/", "5 · Senj"], ["/pfullingen/", "6 · Pfullingen"]]],
+  ["The families", [["/lines/", "All five, compared"], ["/carnia/", "Out of Carnia — ours"],
+                ["/omis-line/", "Out of Venice — Omiš"], ["/imotski/", "…and Imotski"],
+                ["/seget/", "Out of Crete — Seget"], ["/liznjan/", "Southern Istria — Ližnjan"],
+                ["/lines/#fam-corsica", "Corsica — not ours"],
+                ["/lines/#regions", "Bakar, Fiume & the unplaced"],
+                ["/istria-sweep/", "Every town"], ["/diaspora/", "Where the name went"],
+                ["/namesakes/", "Namesakes"]]],
   ["People", [["/people/", "People"], ["/households/", "Households"], ["/explorer/", "Explorer"],
                        ["/marriages/", "Marriages"], ["/places/", "Places"], ["/journeys/", "Journeys"],
                        ["/emigration/", "Leaving"], ["/timeline/", "Timeline"]]],
@@ -16,7 +21,7 @@ const nav = [
   ["Names", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"]]],
   ["Sources", [["/gallery/", "Gallery"], ["/archive/", "Archive"], ["/parish-books/", "Parish Books"], ["/the-library/", "The Library"],
                ["/carlos-letter/", "Carlo's Letter"], ["/carlos-book/", "Carlo's Book"],
-               ["/sources/", "Sources"], ["/who/", "People"], ["/searched/", "Searched"], ["/research-log/", "Research Log"], ["/liznjan/", "Ližnjan"], ["/old-site/", "defranceski.com"], ["/about/", "About"]]],
+               ["/sources/", "Sources"], ["/who/", "People"], ["/searched/", "Searched"], ["/research-log/", "Research Log"], ["/old-site/", "defranceski.com"], ["/about/", "About"]]],
 ];
 const here = Astro.url.pathname;
 ---

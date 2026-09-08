@@ -3,10 +3,37 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import o from "../data/omis.json";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 ---
 <Base title="The Omiš Line" eyebrow="Seventeen generations published · 1318–1948"
       dek="A family chart for the Dalmatian branch, running from an envoy of Pope Urban V to the middle of the twentieth century. Three of its people were already in this archive under other sources, and they match."
 >
+<section class="blk">
+  <h2>{o.story.heading}</h2>
+  <p class="dek" style="margin-top:8px">{o.story.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {o.story.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{o.story.source_story}</p>
+</section>
+
+<Rule name="pomegranate" label="The branch itself" />
+
+<section class="blk">
+  <h2>{o.photos.heading}</h2>
+  <p class="dek" style="margin-top:8px">{o.photos.lead}</p>
+  <div style="margin-top:24px"><Plates ids={o.photos.ids} /></div>
+</section>
+<Lightbox />
+
+<Rule name="arrows" label="The chart" />
+
 <section class="blk">
   <div class="note">{o.caveat}</div>
   <div class="prose" style="margin-top:26px">

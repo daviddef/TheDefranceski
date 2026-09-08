@@ -27,10 +27,10 @@ import Lightbox from "../../components/Lightbox.astro";
     ))}
   </div>
 
-  <h3 style="font-size:23px;margin-top:40px">The five families</h3>
+  <h3 id="families" style="font-size:23px;margin-top:40px">The five families</h3>
   <div class="famgrid">
     {fam.families.map(f => (
-      <a class={f.not_ours ? "famcard away" : "famcard"} href={u(f.href)} style={`--c:${f.colour}`}>
+      <a id={"fam-" + f.slug} class={f.not_ours ? "famcard away" : "famcard"} href={u(f.href)} style={`--c:${f.colour}`}>
         <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}{f.not_ours && <span style="color:var(--terra)"> · not this family</span>}</div>
         <h4>{f.name}</h4>
         <div class="fc-meta"><span><b>From</b> {f.from}</span><span><b>Here from</b> {f.when}</span></div>
@@ -40,7 +40,7 @@ import Lightbox from "../../components/Lightbox.astro";
     ))}
   </div>
 
-  <h3 style="font-size:23px;margin-top:44px">{fam.clusters_head}</h3>
+  <h3 id="clusters" style="font-size:23px;margin-top:44px">{fam.clusters_head}</h3>
   <p class="dek" style="margin-top:8px">{fam.clusters_lead}</p>
   <div class="scroll" style="margin-top:18px">
     <table>
