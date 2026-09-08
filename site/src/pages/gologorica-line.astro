@@ -537,5 +537,21 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="cap" style="margin-top:16px">{g.orbanic2024.source_orb}</p>
 </section>
 
+<Rule name="helm" label="Antiquity" />
+
+<section class="blk">
+  <h2>{g.krizman1979.heading}</h2>
+  <p class="dek" style="margin-top:8px">{g.krizman1979.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {g.krizman1979.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{g.krizman1979.source_kriz}</p>
+</section>
+
   <Sources ids={["trogrlic", "bertosa", "dapa", "kobler", "anno", "carlo1879", "grah", "malecki", "attirovigno", "gologorica2026", "archiveorg", "hrcak", "familysearch"]} />
 </Base>
