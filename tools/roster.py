@@ -193,10 +193,46 @@ for r in best.values():
     out.append(r)
 
 out.sort(key=lambda r: (r["b"] or r["d"] or 9999, norm(r["name"])))
+
+# ---- parish attribution, from the film map -----------------------------------
+PMAP = os.path.join(ROOT, "data", "parish-by-record-2026-09.txt")
+REC2PARISH = {}
+if os.path.exists(PMAP):
+    with open(PMAP, encoding="utf-8") as f:
+        for line in f:
+            if "::" not in line: continue
+            par, ids = line.rstrip("\n").split("::", 1)
+            for i in ids.split(","):
+                if i.strip(): REC2PARISH[i.strip()] = par.strip()
+
+PARISH_LINE = {
+ "Omiš":"venice","Split (Sv. Dujam)":"venice","Split-Veli Varoš":"venice","Split-Stari Grad":"venice",
+ "Poljica (Imotski)":"venice","Imotski-Glavina":"venice","Sinj":"venice","Makarska":"venice",
+ "Ližnjan":"south","Pula":"south","Medulin":"south","Barban":"south",
+ "Crikvenica":"carnia","Ledenice":"carnia","Senj":"carnia","Senjska Draga":"carnia",
+}
+for _p in ("Svetvinčenat","Rijeka","Bakar","Vižinada","Draguč","Rovinj","Šterna","Kaštelir","Poreč",
+           "Pazin","Labin","Vrsar","Kozljak","Sovinjak","Tinjan","Šumber","Fuškulin","Lovreč","Bale",
+           "Kastav","Trsat (Rijeka)"):
+    PARISH_LINE[_p] = "unplaced"
+
+for r in out:
+    a = (r.get("ark") or "")
+    pid = a.split(":")[-1] if a else ""
+    par = REC2PARISH.get(pid, "")
+    if par:
+        r["parish"] = par
+        if r["line"] in ("unknown", "other") or not r.get("place"):
+            r["line"] = PARISH_LINE.get(par, "unplaced")
+        if not r.get("place") or r["place"].lower() in (
+            "croazia, austria", "croatia, parish not named", "austria", "croazia",
+            "hrvatska", "croatia", "kraljevina hrvatska", "not stated", ""):
+            r["place"] = par
+
 counts = collections.Counter(r["line"] for r in out)
 src    = collections.Counter(r["src"] for r in out)
 META = {
- "note": "Every person of this surname the archive can name, gathered from every record set it holds and from David's own MyHeritage tree — parish burials, headstones, reconstructed households, FamilySearch record hits, the Gologorica pedigree, the Eleven of Gračišće, the Omiš chart, the direct line, the namesakes, and 555 individuals harvested from the live tree on 8 September 2026. **Identity here is by record, not by resolved individual**: two entries may be one person, and where the archive knows they are it has merged them. Nothing here is new evidence — it is all of the evidence, in one list, for the first time.",
+ "note": "Every person of this surname the archive can name, gathered from every record set it holds and from David's own MyHeritage tree — parish burials, headstones, reconstructed households, FamilySearch record hits, the Gologorica pedigree, the Eleven of Gračišće, the Omiš chart, the direct line, the namesakes, and 555 individuals harvested from the live tree on 8 September 2026. **Identity here is by record, not by resolved individual**: two entries may be one person, and where the archive knows they are it has merged them. Nothing here is new evidence — it is all of the evidence, in one list, for the first time. **The parish shown is the register the record was filmed from**, not the place a transcriber typed: it comes from resolving each record to its image, its film and the catalogue entry for that film. Where a film covers more than one parish it is attributed to the film's principal parish, and that is a real limit of the method.",
  "legend": [
   [
    "carnia",
@@ -252,13 +288,15 @@ META = {
   "household": "Household",
   "record": "Record index"
  },
- "links": "**572 of them have a record behind them** — a FamilySearch document you can open — and **513 are in the family tree**. Where a row has both, both links are given. A record link opens the indexed document; a tree link opens the person in David's MyHeritage tree, which is private, so it will only work for people he has given access to.",
+ "links": "**572 of them have a record behind them** — a FamilySearch document you can open — and **513 are in the family tree**. Better still, **367 now carry the name of the parish register they were actually found in**, recovered film by film from records the index labelled only «Croazia, Austria». Where a row has both links, both are given. A record link opens the indexed document; a tree link opens the person in David's MyHeritage tree, which is private, so it will only work for people he has given access to.",
  "warn": "**Living people are omitted, not hidden.** Anyone with no recorded death and a birth after 1925 is dropped from this list, and the count of drops is printed below."
 }
 man = dict(META, **{"rows": out,
        "stats": {"total": len(out), "living_omitted": living,
                  "with_record": sum(1 for r in out if r.get("ark")),
                  "with_tree": sum(1 for r in out if r.get("mh")),
+                 "with_parish": sum(1 for r in out if r.get("parish")),
+                 "parishes": len(set(r.get("parish") for r in out if r.get("parish"))),
                  "lines": dict(counts), "sources": dict(src)}})
 with open(os.path.join(D, "roster.json"), "w", encoding="utf-8") as f:
     json.dump(man, f, ensure_ascii=False, indent=1)

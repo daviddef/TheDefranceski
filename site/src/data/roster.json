@@ -1,5 +1,5 @@
 {
- "note": "Every person of this surname the archive can name, gathered from every record set it holds and from David's own MyHeritage tree — parish burials, headstones, reconstructed households, FamilySearch record hits, the Gologorica pedigree, the Eleven of Gračišće, the Omiš chart, the direct line, the namesakes, and 555 individuals harvested from the live tree on 8 September 2026. **Identity here is by record, not by resolved individual**: two entries may be one person, and where the archive knows they are it has merged them. Nothing here is new evidence — it is all of the evidence, in one list, for the first time.",
+ "note": "Every person of this surname the archive can name, gathered from every record set it holds and from David's own MyHeritage tree — parish burials, headstones, reconstructed households, FamilySearch record hits, the Gologorica pedigree, the Eleven of Gračišće, the Omiš chart, the direct line, the namesakes, and 555 individuals harvested from the live tree on 8 September 2026. **Identity here is by record, not by resolved individual**: two entries may be one person, and where the archive knows they are it has merged them. Nothing here is new evidence — it is all of the evidence, in one list, for the first time. **The parish shown is the register the record was filmed from**, not the place a transcriber typed: it comes from resolving each record to its image, its film and the catalogue entry for that film. Where a film covers more than one parish it is attributed to the film's principal parish, and that is a real limit of the method.",
  "legend": [
   [
    "carnia",
@@ -55,7 +55,7 @@
   "household": "Household",
   "record": "Record index"
  },
- "links": "**572 of them have a record behind them** — a FamilySearch document you can open — and **513 are in the family tree**. Where a row has both, both links are given. A record link opens the indexed document; a tree link opens the person in David's MyHeritage tree, which is private, so it will only work for people he has given access to.",
+ "links": "**572 of them have a record behind them** — a FamilySearch document you can open — and **513 are in the family tree**. Better still, **367 now carry the name of the parish register they were actually found in**, recovered film by film from records the index labelled only «Croazia, Austria». Where a row has both links, both are given. A record link opens the indexed document; a tree link opens the person in David's MyHeritage tree, which is private, so it will only work for people he has given access to.",
  "warn": "**Living people are omitted, not hidden.** Anyone with no recorded death and a birth after 1925 is dropped from this list, and the count of drops is printed below.",
  "rows": [
   {
@@ -212,7 +212,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/gioannes-maria-de-franceschi/"
+   "who": "/who/gioannes-maria-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Pietro Antonio detto Perini de Franceschi",
@@ -259,18 +260,19 @@
    "name": "Pietro De Franceschi",
    "b": null,
    "d": 1619,
-   "place": "Croatia, parish not named",
+   "place": "Rovinj",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NSMR",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pietro-de-franceschi/"
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Girolamo de Franceschi",
@@ -301,7 +303,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/joannem-anto-de-franceschi/"
+   "who": "/who/joannem-anto-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Nicolo De Franceschi",
@@ -318,7 +321,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/nicolo-de-franceschi/"
+   "who": "/who/nicolo-de-franceschi/",
+   "parish": "Split (Sv. Dujam)"
   },
   {
    "name": "Gioanna Victoriam de Franceschi",
@@ -335,7 +339,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/gioanna-victoriam-de-franceschi/"
+   "who": "/who/gioanna-victoriam-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Mariam de Franceschi",
@@ -352,7 +357,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/mariam-de-franceschi/"
+   "who": "/who/mariam-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Margarita Franceschi",
@@ -383,7 +389,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/nicolaa-de-franceschi/"
+   "who": "/who/nicolaa-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Zuanne Franceschi",
@@ -431,141 +438,150 @@
    "name": "Antonia De Franceschi",
    "b": null,
    "d": 1659,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-6M9T",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/antonia-de-franceschi/"
+   "who": "/who/antonia-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Colotta De Franceschi",
    "b": 1666,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-34HF",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/colotta-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/colotta-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Fioretta De Franceschi",
    "b": 1666,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3VD4",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/fioretta-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/fioretta-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Franceschina De Franceschi",
    "b": 1667,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-TK98",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/franceschina-de-franceschi/"
+   "who": "/who/franceschina-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Mattia De Franceschi",
    "b": 1669,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-MZG6",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/mattia-de-franceschi/"
+   "who": "/who/mattia-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Mattia Defranceschi",
    "b": 1669,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-MZG6",
    "mh": "4511035",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Anto De Franceschi",
    "b": 1671,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BT6G",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/anto-de-franceschi/"
+   "who": "/who/anto-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Antonius Defranceschi",
    "b": 1671,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BT6G",
    "mh": "4511036",
-   "line": "unknown",
-   "who": "/who/antonius-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/antonius-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giacomo De Franceschi",
    "b": 1671,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3VLV",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giacomo-de-franceschi/"
+   "who": "/who/giacomo-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Gian / Giovanni / Ivan Battista Defranceschi",
@@ -584,18 +600,19 @@
    "name": "Giovanna De Franceschi",
    "b": 1673,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-MMS4",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giovanna-de-franceschi/"
+   "who": "/who/giovanna-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giovanni — il Zuane — de Franceschi",
@@ -631,49 +648,52 @@
    "name": "Mattio De Franceschi",
    "b": 1674,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-1K8S",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/mattio-de-franceschi/"
+   "who": "/who/mattio-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Mattio Defranceschi",
    "b": 1674,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-1K8S",
    "mh": "4511037",
-   "line": "unknown",
-   "who": "/who/mattio-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/mattio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giacoma De Franceschi",
    "b": null,
    "d": 1683,
-   "place": "Croatia, parish not named",
+   "place": "Vrsar",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-RRQX",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giacoma-de-franceschi/"
+   "who": "/who/giacoma-de-franceschi/",
+   "parish": "Vrsar"
   },
   {
    "name": "Gisanna Defranceschi",
@@ -692,106 +712,113 @@
    "name": "Francesco De Franceschi",
    "b": null,
    "d": 1686,
-   "place": "Croatia, parish not named",
+   "place": "Vrsar",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-5X2F",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/francesco-de-franceschi/"
+   "who": "/who/francesco-de-franceschi/",
+   "parish": "Vrsar"
   },
   {
    "name": "Zuana De Franceschi",
    "b": 1688,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3K7F",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/zuana-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/zuana-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Zuana Defranceschi",
    "b": 1688,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3K7F",
    "mh": "4511062",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Mattio Defranceschi",
    "b": 1690,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-9D17",
    "mh": "4510997",
-   "line": "unknown",
-   "who": "/who/mattio-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/mattio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Batista De Franceschi",
    "b": 1692,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BYD4",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/batista-de-franceschi/"
+   "who": "/who/batista-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Batista Defranceschi",
    "b": 1692,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BYD4",
    "mh": "4511061",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Flora De Franceschi",
    "b": 1692,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-THLD",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/flora-de-franceschi/"
+   "who": "/who/flora-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Pietro Defranceschi",
@@ -839,162 +866,172 @@
    "name": "Veneranda De Franceschi",
    "b": 1701,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3KRP",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/veneranda-de-franceschi/"
+   "who": "/who/veneranda-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giacoma De Franceschi",
    "b": 1702,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-Q8MS",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giacoma-de-franceschi/"
+   "who": "/who/giacoma-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Domenica De Franceschi",
    "b": 1703,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-34V2",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/domenica-de-franceschi/"
+   "who": "/who/domenica-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Antonio De Franceschi",
    "b": 1704,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-9D17",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/antonio-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/antonio-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Antonio Defranceschi",
    "b": 1704,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-9D17",
    "mh": "4510999",
-   "line": "unknown",
-   "who": "/who/antonio-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Doma De Franceschi",
    "b": 1705,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3H8Z",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/doma-de-franceschi/"
+   "who": "/who/doma-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giacomo De Franceschi",
    "b": 1706,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-34JT",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giacomo-de-franceschi/"
+   "who": "/who/giacomo-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Piero De Franceschi",
    "b": 1707,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-34BH",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/piero-de-franceschi/"
+   "who": "/who/piero-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Maria De Franceschi",
    "b": 1709,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-T88P",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/maria-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/maria-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Marina De Franceschi",
    "b": 1710,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3HTQ",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/marina-de-franceschi/"
+   "who": "/who/marina-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Toma de Franceschi",
@@ -1024,7 +1061,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/catarina-de-franceschi/"
+   "who": "/who/catarina-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Ellena Defranceschi",
@@ -1044,15 +1082,16 @@
    "name": "Vitorio Defranceschi",
    "b": 1720,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B4Q-DFFG",
    "mh": "4510957",
-   "line": "unknown",
-   "who": "/who/vitorio-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/vitorio-defranceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Josephus Defranceschi",
@@ -1072,18 +1111,19 @@
    "name": "Martino De Franceschi",
    "b": 1722,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Rovinj",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B4Q-ZC63",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/martino-de-franceschi/"
+   "who": "/who/martino-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Antonio de Franceschi",
@@ -1155,55 +1195,59 @@
    "also": [
     "record"
    ],
-   "who": "/who/antonio-defranceschi/"
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Matto De Franceschi",
    "b": null,
    "d": 1728,
-   "place": "Croatia, parish not named",
+   "place": "Rovinj",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-2C3F",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/matto-de-franceschi/"
+   "who": "/who/matto-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Domenico Gasparo De Franceschi",
    "b": 1731,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-R1CF",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/domenico-gasparo-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/domenico-gasparo-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giacomo De Franceschi",
    "b": 1731,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-B7FK",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giacomo-de-franceschi/"
+   "who": "/who/giacomo-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Mattia Defranceschi",
@@ -1222,18 +1266,19 @@
    "name": "Maria Defranceschi",
    "b": 1733,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-QDF8",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Catharina Defranceschi",
@@ -1251,7 +1296,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/catharina-defranceschi/"
+   "who": "/who/catharina-defranceschi/",
+   "parish": "Bakar"
   },
   {
    "name": "Catharinam Sablich (Defranceschi)",
@@ -1264,7 +1310,8 @@
    "notable": false,
    "ark": "1:1:DCJ2-6PPZ",
    "mh": "4506647",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Bakar"
   },
   {
    "name": "Jacobus Antonius Defranceschi",
@@ -1296,35 +1343,37 @@
    "name": "Pietro De Franceschi",
    "b": 1734,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-MS9B",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pietro-de-franceschi/"
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Bata De Franceschi",
    "b": 1735,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-R1SW",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/bata-de-franceschi/"
+   "who": "/who/bata-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Gio / Giovanni Battista Defranceschi",
@@ -1343,15 +1392,16 @@
    "name": "Piero Anto De Franceschi",
    "b": 1736,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Rovinj",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B4Q-DFFG",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/piero-anto-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/piero-anto-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Piero Anto Defranceschi",
@@ -1364,7 +1414,8 @@
    "notable": false,
    "ark": "1:1:6B4Q-DFFG",
    "mh": "4511457",
-   "line": "south"
+   "line": "south",
+   "parish": "Rovinj"
   },
   {
    "name": "Andrea Defranceschi",
@@ -1377,7 +1428,8 @@
    "notable": false,
    "ark": "1:1:6B4Q-QM2N",
    "mh": "4510959",
-   "line": "south"
+   "line": "south",
+   "parish": "Pula"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -1422,7 +1474,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/francescha-defranceschi/"
+   "who": "/who/francescha-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Mattio Defranceschi",
@@ -1440,7 +1493,8 @@
     "household",
     "record"
    ],
-   "who": "/who/mattio-defranceschi/"
+   "who": "/who/mattio-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Nicolo Defranceschi",
@@ -1458,7 +1512,8 @@
     "household",
     "record"
    ],
-   "who": "/who/nicolo-defranceschi/"
+   "who": "/who/nicolo-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Antonius Defranceschi",
@@ -1491,15 +1546,16 @@
    "name": "Giuseppe Defranceschi",
    "b": 1748,
    "d": 1778,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-GND2",
    "mh": "4510404",
-   "line": "unknown",
-   "who": "/who/giuseppe-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/giuseppe-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giovanni Defranceschi",
@@ -1519,18 +1575,19 @@
    "name": "Mathęius De Franceschi",
    "b": 1750,
    "d": 1819,
-   "place": "Croatia, parish not named",
+   "place": "Vižinada",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4BMD",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/matheius-de-franceschi/"
+   "who": "/who/matheius-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Maria Defranceschi",
@@ -1548,7 +1605,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Bortolo Defranceschi",
@@ -1593,7 +1651,8 @@
     "household",
     "record"
    ],
-   "who": "/who/antonio-de-franceschi/"
+   "who": "/who/antonio-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Gian / Giovanni / Ivan Battista Defranceschi",
@@ -1612,18 +1671,19 @@
    "name": "Bortolo De Franceschi",
    "b": 1756,
    "d": 1812,
-   "place": "Croatia, parish not named",
+   "place": "Šterna",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3DVT",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/bortolo-de-franceschi/"
+   "who": "/who/bortolo-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -1655,7 +1715,8 @@
     "household",
     "record"
    ],
-   "who": "/who/aloysia-defranceschi/"
+   "who": "/who/aloysia-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Maria Defranceschi",
@@ -1673,7 +1734,8 @@
     "household",
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Pietro Antonio de Franceschi",
@@ -1705,19 +1767,20 @@
    "name": "Vitorio Defranceschi",
    "b": 1758,
    "d": 1812,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4JQF",
    "mh": "4510943",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/vitorio-defranceschi/"
+   "who": "/who/vitorio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Jacobus de Franceschi",
@@ -1737,18 +1800,19 @@
    "name": "Michiel De Franceschi",
    "b": 1761,
    "d": 1821,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-6BKS",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/michiel-de-franceschi/"
+   "who": "/who/michiel-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Jacobus Defranceschi",
@@ -1794,19 +1858,20 @@
    "name": "Petrus Defranceschi",
    "b": 1765,
    "d": 1829,
-   "place": "Croatia, parish not named",
+   "place": "Rovinj",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-LGXJ",
    "mh": "4510932",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/petrus-defranceschi/"
+   "who": "/who/petrus-defranceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Leonardus Defranceschi",
@@ -1857,28 +1922,30 @@
    "name": "Franca De Franceschi",
    "b": 1769,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BYYP",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/franca-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/franca-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Valentinus / Valentin Defranceschi",
    "b": 1770,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-ZFPR",
    "mh": "4507544",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Anna Prencis (Defranceschi)",
@@ -1919,7 +1986,8 @@
    "ark": "1:1:6ZCL-ZC65",
    "mh": "4507543",
    "line": "unplaced",
-   "who": "/who/petrus-defranceschi/"
+   "who": "/who/petrus-defranceschi/",
+   "parish": "Bakar"
   },
   {
    "name": "Valentino Defranceschi",
@@ -1938,7 +2006,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/valentino-defranceschi/"
+   "who": "/who/valentino-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Valentinus Franciscus Xaverius Defranceschi",
@@ -1955,21 +2024,23 @@
    "also": [
     "record"
    ],
-   "who": "/who/valentinus-franciscus-xaverius-defranceschi/"
+   "who": "/who/valentinus-franciscus-xaverius-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Pasqua Vitoria De Franceschi",
    "b": 1773,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-TZNN",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/pasqua-vitoria-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/pasqua-vitoria-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Hellena Margaritha Maria Defranceschi",
@@ -1986,7 +2057,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/hellena-margaritha-maria-defranceschi/"
+   "who": "/who/hellena-margaritha-maria-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Anna Margherita Elisabeth Defranceschi",
@@ -2036,24 +2108,26 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/ellena-defranceschi/"
+   "who": "/who/ellena-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Francesco De Franceschi",
    "b": 1775,
    "d": 1827,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-2V6P",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/francesco-de-franceschi/"
+   "who": "/who/francesco-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Ivana Defranceschi",
@@ -2083,7 +2157,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/valentinum-defranceschi/"
+   "who": "/who/valentinum-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Valentinus Defranceschi",
@@ -2100,24 +2175,26 @@
    "also": [
     "record"
    ],
-   "who": "/who/valentinus-defranceschi/"
+   "who": "/who/valentinus-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Francesco De Franceschi",
    "b": 1776,
    "d": null,
-   "place": "",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-XFRY",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/francesco-de-franceschi/"
+   "who": "/who/francesco-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Valentinum Josephum Gregorium Defranceschi",
@@ -2134,7 +2211,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/valentinum-josephum-gregorium-defranceschi/"
+   "who": "/who/valentinum-josephum-gregorium-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Valentinus Defranceschi",
@@ -2148,24 +2226,26 @@
    "ark": "1:1:6YBR-ZFPR",
    "mh": "4510402",
    "line": "unplaced",
-   "who": "/who/valentinus-defranceschi/"
+   "who": "/who/valentinus-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Felice Anto De Franceschi",
    "b": 1778,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3D76",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/felice-anto-de-franceschi/"
+   "who": "/who/felice-anto-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Felice Antonio Defranceschi",
@@ -2178,7 +2258,8 @@
    "notable": false,
    "ark": "1:1:X9DP-3D76",
    "mh": "4510995",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giulio Defranceschi",
@@ -2195,7 +2276,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/giulio-defranceschi/"
+   "who": "/who/giulio-defranceschi/",
+   "parish": "Kaštelir"
   },
   {
    "name": "Hellenam Ludovicam Defranceschi",
@@ -2209,7 +2291,8 @@
    "ark": "1:1:XQMQ-6DFC",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/hellenam-ludovicam-defranceschi/"
+   "who": "/who/hellenam-ludovicam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Anna Bembo (Defranceschi)",
@@ -2239,7 +2322,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/niccolo-defranceschi/"
+   "who": "/who/niccolo-defranceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Mathias Ivan Defranceschi",
@@ -2269,7 +2353,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/sebastiano-de-franceschi/"
+   "who": "/who/sebastiano-de-franceschi/",
+   "parish": "Sovinjak"
   },
   {
    "name": "Sebastiano Defranceschi",
@@ -2282,7 +2367,8 @@
    "notable": false,
    "ark": "1:1:6B47-Q4DX",
    "mh": "4510849",
-   "line": "other"
+   "line": "unplaced",
+   "parish": "Sovinjak"
   },
   {
    "name": "Catharina Jerbulla (Defranceschi)",
@@ -2301,36 +2387,38 @@
    "name": "Giuseppe Defranceschi",
    "b": 1784,
    "d": 1819,
-   "place": "Croatia, parish not named",
+   "place": "Draguč",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-GFLL",
    "mh": "4510909",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/giuseppe-defranceschi/"
+   "who": "/who/giuseppe-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Maria Matthia De Franceschi",
    "b": 1784,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-MSCF",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-matthia-de-franceschi/"
+   "who": "/who/maria-matthia-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Pietro DeFranceschi",
@@ -2446,7 +2534,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/mariana-de-franceschi/"
+   "who": "/who/mariana-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Catharina Hellena Defranceschi",
@@ -2490,20 +2579,22 @@
    "also": [
     "record"
    ],
-   "who": "/who/maddalena-defranceschi/"
+   "who": "/who/maddalena-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Elisabetta Dalino Defranceschi",
    "b": 1789,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-JM8G",
    "mh": "4510893",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rovinj"
   },
   {
    "name": "Maria Defranceschi",
@@ -2537,18 +2628,19 @@
    "name": "Stella Defranceschi",
    "b": 1789,
    "d": 1855,
-   "place": "Croatia, parish not named",
+   "place": "Draguč",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-PJZH",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/stella-defranceschi/"
+   "who": "/who/stella-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Stella Tamburin (Defranceschi)",
@@ -2561,37 +2653,40 @@
    "notable": false,
    "ark": "1:1:6BKV-P7LM",
    "mh": "4510907",
-   "line": "south"
+   "line": "south",
+   "parish": "Draguč"
   },
   {
    "name": "Aloÿsius Defranceschi",
    "b": 1790,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C848",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/aloysius-defranceschi/"
+   "who": "/who/aloysius-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Aloysius Defranceschi (Labinaz)",
    "b": 1790,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C848",
    "mh": "4510982",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Catharina Defranceschi",
@@ -2618,7 +2713,8 @@
    "notable": false,
    "ark": "1:1:6BKJ-74LG",
    "mh": "4510816",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Pazin"
   },
   {
    "name": "Matthäus Franceschi del Campo",
@@ -2649,7 +2745,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/petrus-de-franceschi/"
+   "who": "/who/petrus-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Liberatus Francus Xavus Defranceschi",
@@ -2666,7 +2763,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/liberatus-francus-xavus-defranceschi/"
+   "who": "/who/liberatus-francus-xavus-defranceschi/",
+   "parish": "Pazin"
   },
   {
    "name": "Mariæ De Franceschi",
@@ -2683,7 +2781,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/mari-de-franceschi/"
+   "who": "/who/mari-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Maria Antonia Defranceschi",
@@ -2714,7 +2813,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/giorgio-de-franceschi/"
+   "who": "/who/giorgio-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Conraddus Vincentius Defranceschi",
@@ -2728,7 +2828,8 @@
    "ark": "1:1:6BKV-G2ZJ",
    "mh": "4510922",
    "line": "unplaced",
-   "who": "/who/conraddus-vincentius-defranceschi/"
+   "who": "/who/conraddus-vincentius-defranceschi/",
+   "parish": "Pazin"
   },
   {
    "name": "Mattheus Defranceschi",
@@ -2758,21 +2859,23 @@
    "also": [
     "record"
    ],
-   "who": "/who/pietro-defranceschi/"
+   "who": "/who/pietro-defranceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Matio De Franceschi",
    "b": 1794,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMQ-MG8V",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/matio-de-franceschi/"
+   "line": "south",
+   "who": "/who/matio-de-franceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Nicoló De Franceschi",
@@ -2789,7 +2892,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/nicolo-de-franceschi/"
+   "who": "/who/nicolo-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Theresiam Mariam Josepham Defranceschi",
@@ -2852,14 +2956,15 @@
    "name": "Vittorio / Vitorio Defranceschi",
    "b": 1795,
    "d": null,
-   "place": "",
+   "place": "Draguč",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-P7LM",
    "mh": "4510906",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Draguč"
   },
   {
    "name": "Giosefa Defranceschi",
@@ -2877,7 +2982,8 @@
     "household",
     "record"
    ],
-   "who": "/who/giosefa-defranceschi/"
+   "who": "/who/giosefa-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giosefa Joannam Nepomucenam Defranceschi",
@@ -2890,7 +2996,8 @@
    "notable": false,
    "ark": "1:1:6YBR-FS91",
    "mh": "4512628",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepha Ludovica Joanna Nepomucena Defranceschi",
@@ -2903,7 +3010,8 @@
    "notable": false,
    "ark": "1:1:6YBR-FS91",
    "mh": "4510417",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepham Joannam Nepomucenam Defranceschi",
@@ -2921,7 +3029,8 @@
     "household",
     "record"
    ],
-   "who": "/who/josepham-joannam-nepomucenam-defranceschi/"
+   "who": "/who/josepham-joannam-nepomucenam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Franciscum Josephum Aloysium Defranceschi",
@@ -2934,7 +3043,8 @@
    "notable": false,
    "ark": "1:1:6YBR-8XBV",
    "mh": "4512629",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Franciscum Josephum Aloysium Joannem Defranceschi",
@@ -2947,7 +3057,8 @@
    "notable": false,
    "ark": "1:1:6YBR-8XBV",
    "mh": "4510399",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Franciscum Josephum Aloysium Joannem Nepomuc Defranceschi",
@@ -2964,7 +3075,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/franciscum-josephum-aloysium-joannem-nepomuc-defranceschi/"
+   "who": "/who/franciscum-josephum-aloysium-joannem-nepomuc-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Franciscus Defranceschi",
@@ -2978,24 +3090,26 @@
    "ark": "1:1:6B47-8BRN",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/franciscus-defranceschi/"
+   "who": "/who/franciscus-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Maria Defranceschi",
    "b": 1798,
    "d": 1840,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-7LZQ",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Anna Defranceschi",
@@ -3013,7 +3127,8 @@
     "household",
     "record"
    ],
-   "who": "/who/anna-defranceschi/"
+   "who": "/who/anna-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Annam Mariam Josepham Defranceschi",
@@ -3026,7 +3141,8 @@
    "notable": false,
    "ark": "1:1:6YBR-DQ23",
    "mh": "4512624",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Annam Mariam Josepham Nepomucenam Defranceschi",
@@ -3044,21 +3160,23 @@
     "household",
     "record"
    ],
-   "who": "/who/annam-mariam-josepham-nepomucenam-defranceschi/"
+   "who": "/who/annam-mariam-josepham-nepomucenam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giuseppa Ludovica Defranceschi",
    "b": 1800,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-X6Q1",
    "mh": "4510985",
-   "line": "unknown",
-   "who": "/who/giuseppa-ludovica-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/giuseppa-ludovica-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepha Defranceschi",
@@ -3075,7 +3193,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/josepha-defranceschi/"
+   "who": "/who/josepha-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepham Ludovicam Joannam Defranceschi",
@@ -3088,7 +3207,8 @@
    "notable": false,
    "ark": "1:1:6YBR-FSZZ",
    "mh": "4512626",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepham Ludovicam Joannam Nepomuc Defranceschi",
@@ -3102,21 +3222,23 @@
    "ark": "1:1:6YBR-FSZZ",
    "mh": "4510425",
    "line": "unplaced",
-   "who": "/who/josepham-ludovicam-joannam-nepomuc-defranceschi/"
+   "who": "/who/josepham-ludovicam-joannam-nepomuc-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Natale Defranceschi",
    "b": 1800,
    "d": null,
-   "place": "",
+   "place": "Draguč",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-LNLG",
    "mh": "4510903",
-   "line": "unknown",
-   "who": "/who/natale-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/natale-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Annam Mariam Ludovicam Defranceschi",
@@ -3135,7 +3257,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/annam-mariam-ludovicam-defranceschi/"
+   "who": "/who/annam-mariam-ludovicam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Antonio de Franceschi",
@@ -3194,7 +3317,8 @@
     "household",
     "record"
    ],
-   "who": "/who/joannem-nepomuc-aloysium-paschalem-defranceschi/"
+   "who": "/who/joannem-nepomuc-aloysium-paschalem-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Joannes / Giovanni Nepomucenus Aloysius Paschalus Defranceschi",
@@ -3207,7 +3331,8 @@
    "notable": false,
    "ark": "1:1:6YBR-HBHG",
    "mh": "4510418",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Maria Teresa Martecchini (Defranceschi)",
@@ -3220,7 +3345,8 @@
    "notable": false,
    "ark": "1:1:X374-LK85",
    "mh": "4512622",
-   "line": "abroad"
+   "line": "abroad",
+   "parish": "Dubrovnik-Grad"
   },
   {
    "name": "Petrum Julium Paschalem Defranceschi",
@@ -3237,7 +3363,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/petrum-julium-paschalem-defranceschi/"
+   "who": "/who/petrum-julium-paschalem-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Petrus Defranceschi",
@@ -3251,7 +3378,8 @@
    "ark": "1:1:6B47-8YRY",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/petrus-defranceschi/"
+   "who": "/who/petrus-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Petrus Julius Paschalus Defranceschi",
@@ -3264,7 +3392,8 @@
    "notable": false,
    "ark": "1:1:6YBR-ZDKH",
    "mh": "4510419",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Pietro / Petrum Julium Paschalem Defranceschi",
@@ -3277,41 +3406,44 @@
    "notable": false,
    "ark": "1:1:6YBR-ZDKH",
    "mh": "4507546",
-   "line": "venice"
+   "line": "venice",
+   "parish": "Rijeka"
   },
   {
    "name": "Antonia De Franceschi",
    "b": 1804,
    "d": 1808,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-74XV",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/antonia-de-franceschi/"
+   "who": "/who/antonia-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Jacobina Defranceschi",
    "b": 1804,
    "d": 1882,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-S2MT",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/jacobina-defranceschi/"
+   "who": "/who/jacobina-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Maria Defranceschi",
@@ -3330,7 +3462,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Antonium Petrum Nataliem Joannem Defranceschi",
@@ -3346,7 +3479,8 @@
    "line": "unplaced",
    "also": [
     "myheritage"
-   ]
+   ],
+   "parish": "Rijeka"
   },
   {
    "name": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
@@ -3363,7 +3497,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/antonium-petrum-nataliem-joannem-kepomuc-defranceschi/"
+   "who": "/who/antonium-petrum-nataliem-joannem-kepomuc-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepham Ludovicam Joannam Defranceschi",
@@ -3376,21 +3511,23 @@
    "notable": false,
    "ark": "1:1:6YBR-89WD",
    "mh": "4512623",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Antonius Defranceschi",
    "b": 1806,
    "d": null,
-   "place": "",
+   "place": "Sv. Marko (Zagreb)",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X7NG-RW7W",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/antonius-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/antonius-defranceschi/",
+   "parish": "Sv. Marko (Zagreb)"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -3423,14 +3560,15 @@
    "name": "Maria Bergamo (Defranceschi)",
    "b": 1807,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BBMY",
    "mh": "4510939",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Petrina Tamburin Or Defranceschi",
@@ -3477,35 +3615,37 @@
    "name": "Damiano Defranceschi",
    "b": 1808,
    "d": 1846,
-   "place": "Croatia, parish not named",
+   "place": "Draguč",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-P9ZQ",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/damiano-defranceschi/"
+   "who": "/who/damiano-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Francisca Defranceschi",
    "b": 1808,
    "d": 1887,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BHS8",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/francisca-defranceschi/"
+   "who": "/who/francisca-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Josephus Lambertus Defranceschi",
@@ -3581,7 +3721,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/cattarina-de-franceschi/"
+   "who": "/who/cattarina-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Giovanna Maddalena Defranceschi",
@@ -3600,18 +3741,19 @@
    "name": "Giovanni Pietro Defranceschi",
    "b": 1809,
    "d": 1809,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4JDR",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-pietro-defranceschi/"
+   "who": "/who/giovanni-pietro-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Marianna Defranceschi",
@@ -3651,7 +3793,8 @@
    "ark": "1:1:6B47-DNDS",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/elisabeth-defranceschi/"
+   "who": "/who/elisabeth-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Elisabetham-Franciscam Defranceschi",
@@ -3668,7 +3811,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/elisabetham-franciscam-defranceschi/"
+   "who": "/who/elisabetham-franciscam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Elisabetta Defranceschi",
@@ -3686,7 +3830,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/elisabetta-defranceschi/"
+   "who": "/who/elisabetta-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giovanni Batta Defranceschi",
@@ -3730,7 +3875,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/margarita-maria-defranceschi/"
+   "who": "/who/margarita-maria-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Mathæus Defranceschi",
@@ -3747,7 +3893,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/math-us-defranceschi/"
+   "who": "/who/math-us-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Pietro Antonio Defranceschi",
@@ -3766,18 +3913,19 @@
    "name": "Antonio Defranceschi",
    "b": 1811,
    "d": 1811,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-SK4W",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/antonio-defranceschi/"
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -3824,18 +3972,19 @@
    "name": "Matheus Defranceschi",
    "b": 1811,
    "d": null,
-   "place": "",
+   "place": "Poreč",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-1TXQ",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/matheus-defranceschi/"
+   "who": "/who/matheus-defranceschi/",
+   "parish": "Poreč"
   },
   {
    "name": "Matteo Defranceschi",
@@ -3868,32 +4017,34 @@
    "name": "Agostino Defranceschi",
    "b": 1812,
    "d": 1812,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-9HSY",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/agostino-defranceschi/"
+   "who": "/who/agostino-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Carlo De Franceschi",
    "b": 1812,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-HJ6N",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/carlo-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/carlo-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Maria Defranceschi (Ivich)",
@@ -3923,7 +4074,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/nadalina-defranceschi/"
+   "who": "/who/nadalina-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Pascuala Rodriguez De Franceschi",
@@ -3967,24 +4119,26 @@
    "also": [
     "record"
    ],
-   "who": "/who/catharina-defranceschi/"
+   "who": "/who/catharina-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Gioanni Maria Defranceschi",
    "b": null,
    "d": 1813,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4JGF",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/gioanni-maria-defranceschi/"
+   "who": "/who/gioanni-maria-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Mariana Defranceschi",
@@ -4026,7 +4180,8 @@
    "ark": "1:1:6BKV-8W2Y",
    "mh": "4510914",
    "line": "south",
-   "who": "/who/vitorio-defranceschi/"
+   "who": "/who/vitorio-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Antonio Matteo Defranceschi",
@@ -4083,21 +4238,23 @@
    "ark": "1:1:6BKV-LNLG",
    "mh": "4510916",
    "line": "south",
-   "who": "/who/angelo-defranceschi/"
+   "who": "/who/angelo-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Antonius Defranceschi",
    "b": 1815,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BBMY",
    "mh": "4510938",
-   "line": "unknown",
-   "who": "/who/antonius-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/antonius-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Maria Maddalena Defranceschi",
@@ -4116,18 +4273,19 @@
    "name": "Vitnio Defranceschi",
    "b": 1815,
    "d": 1815,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-9H9Q",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/vitnio-defranceschi/"
+   "who": "/who/vitnio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Zuanne Defranceschi",
@@ -4141,37 +4299,40 @@
    "ark": "1:1:6YBR-MJKX",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/zuanne-defranceschi/"
+   "who": "/who/zuanne-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Domenica Maria De Franceschi",
    "b": 1816,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8ZR",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/domenica-maria-de-franceschi/"
+   "who": "/who/domenica-maria-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenica Maria Defranceschi",
    "b": 1816,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8ZR",
    "mh": "4510989",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Franciscus Xaverius Joseph Defranceschi",
@@ -4202,7 +4363,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/irene-de-franceschi/"
+   "who": "/who/irene-de-franceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Maria De Franceschi",
@@ -4216,7 +4378,8 @@
    "ark": "1:1:XQM3-P511",
    "mh": "",
    "line": "south",
-   "who": "/who/maria-de-franceschi/"
+   "who": "/who/maria-de-franceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Maria Defranceschi (Marcorich)",
@@ -4259,7 +4422,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/natale-mattio-de-franceschi/"
+   "who": "/who/natale-mattio-de-franceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Natale Mattio Defranceschi",
@@ -4272,24 +4436,26 @@
    "notable": false,
    "ark": "1:1:6BKV-PTTH",
    "mh": "4510917",
-   "line": "south"
+   "line": "south",
+   "parish": "Draguč"
   },
   {
    "name": "Cattarina Defranceschi",
    "b": 1817,
    "d": 1834,
-   "place": "not stated",
+   "place": "Split-Veli Varoš",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X7N5-6KW9",
    "mh": "",
-   "line": "unknown",
+   "line": "venice",
    "also": [
     "record"
    ],
-   "who": "/who/cattarina-defranceschi/"
+   "who": "/who/cattarina-defranceschi/",
+   "parish": "Split-Veli Varoš"
   },
   {
    "name": "Maria Schiffic(Defranceschi)",
@@ -4308,49 +4474,52 @@
    "name": "Pietro De Franceschi",
    "b": 1817,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-Q92L",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pietro-de-franceschi/"
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Pietro Defranceschi",
    "b": 1817,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-Q92L",
    "mh": "4510984",
-   "line": "unknown",
-   "who": "/who/pietro-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/pietro-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenica Michiela Giovanna De Franceschi",
    "b": 1818,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-8H1G",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/domenica-michiela-giovanna-de-franceschi/"
+   "who": "/who/domenica-michiela-giovanna-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenica Michiela Giovanna Defranceschi",
@@ -4363,24 +4532,26 @@
    "notable": false,
    "ark": "1:1:6B47-8H1G",
    "mh": "4510950",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Francesco Naplone De Franceschi",
    "b": 1818,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-ZMTQ",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/francesco-naplone-de-franceschi/"
+   "who": "/who/francesco-naplone-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Joanna Defranceschi (Sestan)",
@@ -4399,19 +4570,20 @@
    "name": "Natale Defranceschi",
    "b": 1818,
    "d": 1855,
-   "place": "Croatia, parish not named",
+   "place": "Draguč",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-LRFZ",
    "mh": "4510915",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/natale-defranceschi/"
+   "who": "/who/natale-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Pierre Defranceschi",
@@ -4438,7 +4610,8 @@
    "ark": "1:1:XQM3-PRHC",
    "mh": "",
    "line": "south",
-   "who": "/who/antonio-de-franceschi/"
+   "who": "/who/antonio-de-franceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Antonio Defranceschi",
@@ -4458,35 +4631,37 @@
    "name": "Bartolo De Franceschi",
    "b": null,
    "d": 1819,
-   "place": "Croatia, parish not named",
+   "place": "Šterna",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-TLHH",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/bartolo-de-franceschi/"
+   "who": "/who/bartolo-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Domenico Giovanni Anto De Franceschi",
    "b": 1819,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4SSG",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/domenico-giovanni-anto-de-franceschi/"
+   "who": "/who/domenico-giovanni-anto-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Francisca Defranceschi",
@@ -4521,7 +4696,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/franciscus-defranceschi/"
+   "who": "/who/franciscus-defranceschi/",
+   "parish": "Kaštelir"
   },
   {
    "name": "Maria Defranceschi",
@@ -4539,7 +4715,8 @@
     "household",
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Mattio De Franceschi",
@@ -4556,38 +4733,41 @@
    "also": [
     "record"
    ],
-   "who": "/who/mattio-de-franceschi/"
+   "who": "/who/mattio-de-franceschi/",
+   "parish": "Kaštelir"
   },
   {
    "name": "Pietro De Franceschi",
    "b": 1819,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-467C",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pietro-de-franceschi/"
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Pietro Defranceschi",
    "b": 1819,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-467C",
    "mh": "4510987",
-   "line": "unknown",
-   "who": "/who/pietro-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/pietro-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Sancta-Alexandra Defranceschi (Sestan)",
@@ -4606,15 +4786,16 @@
    "name": "Antonio Defranceschi",
    "b": 1820,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQM3-GS5Z",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/antonio-defranceschi/"
+   "line": "south",
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Lucia Defranceschi",
@@ -4634,15 +4815,16 @@
    "name": "Teresa Domenica De Franceschi",
    "b": 1820,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4SM4",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/teresa-domenica-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/teresa-domenica-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Clementina Defranceschi",
@@ -4661,28 +4843,30 @@
    "name": "Franco De Defranceschi",
    "b": 1821,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-ZG45",
    "mh": "4510990",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Franco De Franceschi",
    "b": 1821,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-ZQKW",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/franco-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/franco-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Matteo Giovanni Defranceschi",
@@ -4700,7 +4884,8 @@
     "household",
     "record"
    ],
-   "who": "/who/matteo-giovanni-defranceschi/"
+   "who": "/who/matteo-giovanni-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Mattia Defranceschi",
@@ -4736,32 +4921,34 @@
    "name": "Domenica De Franceschi",
    "b": 1822,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-437Q",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/domenica-de-franceschi/"
+   "who": "/who/domenica-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenica Defranceschi",
    "b": 1822,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-437Q",
    "mh": "4510988",
-   "line": "unknown",
-   "who": "/who/domenica-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/domenica-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Franz Defranceschi",
@@ -4789,21 +4976,23 @@
    "ark": "1:1:XQM3-P8CX",
    "mh": "",
    "line": "south",
-   "who": "/who/gregorio-de-franceschi/"
+   "who": "/who/gregorio-de-franceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Gregorio Defranceschi",
    "b": 1822,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQM3-1DFT",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/gregorio-defranceschi/"
+   "line": "south",
+   "who": "/who/gregorio-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Helena Defranceschi (Weber)",
@@ -4822,65 +5011,69 @@
    "name": "Maria Martina De Franceschi",
    "b": 1822,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-438M",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-martina-de-franceschi/"
+   "who": "/who/maria-martina-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Stefano Matteo De Franceschi",
    "b": 1822,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8GP",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/stefano-matteo-de-franceschi/"
+   "who": "/who/stefano-matteo-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Stefano Matteo Defranceschi",
    "b": 1822,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8GP",
    "mh": "4510979",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Veniera De Franceschi",
    "b": 1822,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4SJC",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/veniera-de-franceschi/"
+   "who": "/who/veniera-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Katharina Johanna de Franceschi",
@@ -4941,52 +5134,55 @@
    "name": "Cristoforo De Franceschi",
    "b": 1824,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-8CZ7",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/cristoforo-de-franceschi/"
+   "who": "/who/cristoforo-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Martina De Franceschi",
    "b": 1824,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-43M8",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/martina-de-franceschi/"
+   "who": "/who/martina-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Pasqua De Franceschi",
    "b": 1824,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-82WB",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pasqua-de-franceschi/"
+   "who": "/who/pasqua-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Pietro da Franceschi",
@@ -5047,18 +5243,19 @@
    "name": "Ermenegildo Defranceschi",
    "b": 1825,
    "d": 1871,
-   "place": "not stated",
+   "place": "Split-Veli Varoš",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X7N5-4BYM",
    "mh": "",
-   "line": "unknown",
+   "line": "venice",
    "also": [
     "record"
    ],
-   "who": "/who/ermenegildo-defranceschi/"
+   "who": "/who/ermenegildo-defranceschi/",
+   "parish": "Split-Veli Varoš"
   },
   {
    "name": "Giovanni Eliseo De Franceschi",
@@ -5075,7 +5272,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-eliseo-de-franceschi/"
+   "who": "/who/giovanni-eliseo-de-franceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Giovanni Eliseo Defranceschi",
@@ -5092,37 +5290,40 @@
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-eliseo-defranceschi/"
+   "who": "/who/giovanni-eliseo-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Maria Maddalena De Franceschi",
    "b": 1825,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BBMY",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-maddalena-de-franceschi/"
+   "who": "/who/maria-maddalena-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Maria Maddalena Defranceschi",
    "b": 1825,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BBMY",
    "mh": "4511032",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Matteo Defranceschi",
@@ -5142,31 +5343,33 @@
    "name": "Pasqua De Franceschi",
    "b": 1825,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-SMHN",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pasqua-de-franceschi/"
+   "who": "/who/pasqua-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Pasqua Defranceschi",
    "b": 1825,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-SMHN",
    "mh": "4510991",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Aloysius Defranceschi",
@@ -5200,15 +5403,16 @@
    "name": "Lucia De Franceschi",
    "b": 1826,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-8L5L",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/lucia-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/lucia-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Lucia Defranceschi",
@@ -5222,58 +5426,62 @@
    "ark": "1:1:6B47-8L5L",
    "mh": "4510964",
    "line": "unplaced",
-   "who": "/who/lucia-defranceschi/"
+   "who": "/who/lucia-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Magdalena Defranceschi",
    "b": 1826,
    "d": 1831,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-9JQX",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/magdalena-defranceschi/"
+   "who": "/who/magdalena-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giovanni De Franceschi",
    "b": 1827,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-9BJ9",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-de-franceschi/"
+   "who": "/who/giovanni-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Vincenzo Defranceschi",
    "b": 1827,
    "d": null,
-   "place": "",
+   "place": "Makarska",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMM-C17D",
    "mh": "",
-   "line": "unknown",
+   "line": "venice",
    "also": [
     "record"
    ],
-   "who": "/who/vincenzo-defranceschi/"
+   "who": "/who/vincenzo-defranceschi/",
+   "parish": "Makarska"
   },
   {
    "name": "Angelus Defranceschi",
@@ -5286,11 +5494,12 @@
    "notable": false,
    "ark": "1:1:6B47-C6M4",
    "mh": "",
-   "line": "other",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/angelus-defranceschi/"
+   "who": "/who/angelus-defranceschi/",
+   "parish": "Tinjan"
   },
   {
    "name": "Giuseppe Domenico Franceschi",
@@ -5310,18 +5519,19 @@
    "name": "Lucia De Franceschi",
    "b": 1828,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4QQV",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/lucia-de-franceschi/"
+   "who": "/who/lucia-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Maximilianus Antonius Defranceschi",
@@ -5354,32 +5564,34 @@
    "name": "Pietro De Franceschi",
    "b": 1828,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8Y5",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pietro-de-franceschi/"
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Pietro Defranceschi",
    "b": 1828,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8Y5",
    "mh": "4510986",
-   "line": "unknown",
-   "who": "/who/pietro-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/pietro-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Antonija Defranceschi",
@@ -5397,7 +5609,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/antonija-defranceschi/"
+   "who": "/who/antonija-defranceschi/",
+   "parish": "Trsat (Rijeka)"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -5417,36 +5630,38 @@
    "name": "Domenica Defranceschi",
    "b": 1829,
    "d": 1831,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-TMTR",
    "mh": "4511030",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/domenica-defranceschi/"
+   "who": "/who/domenica-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giovanni De Franceschi",
    "b": 1829,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-D95P",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-de-franceschi/"
+   "who": "/who/giovanni-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Giovanni Defranceschi",
@@ -5460,7 +5675,8 @@
    "ark": "1:1:6B47-D95P",
    "mh": "4510947",
    "line": "unplaced",
-   "who": "/who/giovanni-defranceschi/"
+   "who": "/who/giovanni-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Ivan de Franceschi",
@@ -5480,35 +5696,37 @@
    "name": "Maria De Franceschi",
    "b": 1829,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-D8NP",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-de-franceschi/"
+   "who": "/who/maria-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenica De Franceschi",
    "b": 1830,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-83BK",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/domenica-de-franceschi/"
+   "who": "/who/domenica-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenica Defranceschi",
@@ -5522,7 +5740,8 @@
    "ark": "1:1:6B47-83BK",
    "mh": "4510963",
    "line": "unplaced",
-   "who": "/who/domenica-defranceschi/"
+   "who": "/who/domenica-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Henricus Jacobus Defranceschi",
@@ -5553,24 +5772,26 @@
    "ark": "1:1:6BKV-P75B",
    "mh": "4510900",
    "line": "south",
-   "who": "/who/natale-defranceschi/"
+   "who": "/who/natale-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Stefano De Franceschi",
    "b": 1831,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-CD76",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/stefano-de-franceschi/"
+   "who": "/who/stefano-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Stefano Defranceschi",
@@ -5583,7 +5804,8 @@
    "notable": false,
    "ark": "1:1:6B47-CD76",
    "mh": "4510976",
-   "line": "south"
+   "line": "south",
+   "parish": "Vižinada"
   },
   {
    "name": "Aloysius / Aloisius \"Luigi\" Defranceschi",
@@ -5616,18 +5838,19 @@
    "name": "Dominicus Defranceschi",
    "b": 1832,
    "d": 1832,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-3LZ3",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/dominicus-defranceschi/"
+   "who": "/who/dominicus-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Elena Franceschi",
@@ -5647,48 +5870,51 @@
    "name": "Giovanni Defranceschi",
    "b": 1832,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4J6C",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-defranceschi/"
+   "who": "/who/giovanni-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Johannes Defranceschi",
    "b": 1832,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-WT5X",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/johannes-defranceschi/"
+   "who": "/who/johannes-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Johannes / Giovanni Defranceschi",
    "b": 1832,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-WT5X",
    "mh": "4510972",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Maria Defranceschi (Dobrez)",
@@ -5731,7 +5957,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/julius-defranceschi/"
+   "who": "/who/julius-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Julius Laurentius Defranceschi",
@@ -5745,69 +5972,74 @@
    "ark": "1:1:6B47-CL59",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/julius-laurentius-defranceschi/"
+   "who": "/who/julius-laurentius-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Maria De Franceschi",
    "b": 1833,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-91RH",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/maria-de-franceschi/"
+   "who": "/who/maria-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Maria Defranceschi",
    "b": 1833,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-91RH",
    "mh": "4510965",
-   "line": "unknown",
-   "who": "/who/maria-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/maria-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Giulio Defranceschi",
    "b": 1834,
    "d": 1837,
-   "place": "not stated",
+   "place": "Split (Sv. Dujam)",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X311-32X8",
    "mh": "",
-   "line": "unknown",
+   "line": "venice",
    "also": [
     "record"
    ],
-   "who": "/who/giulio-defranceschi/"
+   "who": "/who/giulio-defranceschi/",
+   "parish": "Split (Sv. Dujam)"
   },
   {
    "name": "Giulio Valentino Lodovico Defranceschi",
    "b": 1834,
    "d": null,
-   "place": "",
+   "place": "Dubrovnik-Grad",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X374-LK85",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/giulio-valentino-lodovico-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/giulio-valentino-lodovico-defranceschi/",
+   "parish": "Dubrovnik-Grad"
   },
   {
    "name": "Andreas Defranceschi",
@@ -5826,15 +6058,16 @@
    "name": "Matteo Defranceschi",
    "b": 1835,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQM3-18YC",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/matteo-defranceschi/"
+   "line": "south",
+   "who": "/who/matteo-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Matteo / Mattio Defranceschi",
@@ -5853,18 +6086,19 @@
    "name": "Filomena Defranceschi Or Alacevich",
    "b": 1836,
    "d": 1862,
-   "place": "not stated",
+   "place": "Marina (Trogir)",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMM-ZLSL",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/filomena-defranceschi-or-alacevich/"
+   "who": "/who/filomena-defranceschi-or-alacevich/",
+   "parish": "Marina (Trogir)"
   },
   {
    "name": "Ludovicam Vincentium Caratum Franciscum Defranceschi",
@@ -5896,18 +6130,19 @@
    "name": "Pietro De Franceschi",
    "b": 1837,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-D978",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/pietro-de-franceschi/"
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Veneranda Defranceschi (Subiotto)",
@@ -5951,7 +6186,8 @@
     "household",
     "record"
    ],
-   "who": "/who/antonio-defranceschi/"
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Maria Defranceschi",
@@ -5968,7 +6204,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Carolina Maria Defranceschi",
@@ -5988,84 +6225,89 @@
    "name": "Francesco Defranceschi",
    "b": 1840,
    "d": null,
-   "place": "",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-78QB",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/francesco-defranceschi/"
+   "who": "/who/francesco-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Johanna / Giovanna Cleva (Defranceschi)",
    "b": 1840,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-WT5X",
    "mh": "4510973",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Bonetta De Franceschi",
    "b": 1841,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-DSVB",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/bonetta-de-franceschi/"
+   "who": "/who/bonetta-de-franceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Domenico Defranceschi",
    "b": 1841,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-B129",
    "mh": "4511031",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "household",
     "record"
    ],
-   "who": "/who/domenico-defranceschi/"
+   "who": "/who/domenico-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Stella Appolonia Defranceschi",
    "b": 1841,
    "d": 1841,
-   "place": "Croatia, parish not named",
+   "place": "Draguč",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-P75B",
    "mh": "4510902",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/stella-appolonia-defranceschi/"
+   "who": "/who/stella-appolonia-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Joannes Baptista Defranceschi",
@@ -6139,7 +6381,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/maria-giuseppina-anna-defranceschi/"
+   "who": "/who/maria-giuseppina-anna-defranceschi/",
+   "parish": "Split (Sv. Dujam)"
   },
   {
    "name": "Teresia Defranceschi",
@@ -6184,24 +6427,26 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/anna-maria-defranceschi/"
+   "who": "/who/anna-maria-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Arveneria Defranceschi",
    "b": 1844,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vižinada",
    "src": "household",
    "href": "/households/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-8PYW",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/arveneria-defranceschi/"
+   "who": "/who/arveneria-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Carolina Katharina Visentheiner (Defranceschi)",
@@ -6231,7 +6476,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/catarina-defranceschi/"
+   "who": "/who/catarina-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -6271,18 +6517,19 @@
    "name": "Vittorio Defranceschi",
    "b": 1844,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-T6FT",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/vittorio-defranceschi/"
+   "who": "/who/vittorio-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giovanni Defranceschi",
@@ -6299,7 +6546,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/giovanni-defranceschi/"
+   "who": "/who/giovanni-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Joanna Udovicic (Defranceschi)",
@@ -6335,19 +6583,20 @@
    "name": "Victorius Defranceschi",
    "b": 1845,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-WKQ1",
    "mh": "4510940",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "household",
     "record"
    ],
-   "who": "/who/victorius-defranceschi/"
+   "who": "/who/victorius-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Antonio Defranceschi",
@@ -6365,7 +6614,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/antonio-defranceschi/"
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Cattarina Defranceschi",
@@ -6397,7 +6647,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/francesco-domenico-defranceschi/"
+   "who": "/who/francesco-domenico-defranceschi/",
+   "parish": "Poreč"
   },
   {
    "name": "Giovanni De Franceschi",
@@ -6428,24 +6679,26 @@
    "also": [
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Paolo Defranceschi",
    "b": 1846,
    "d": null,
-   "place": "",
+   "place": "Poreč",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-Z4NK",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/paolo-defranceschi/"
+   "who": "/who/paolo-defranceschi/",
+   "parish": "Poreč"
   },
   {
    "name": "Paolo Francisco Domenico Defranceschi",
@@ -6472,7 +6725,8 @@
    "ark": "1:1:6YB5-N7RR",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/paolo-fransco-domco-defranceschi/"
+   "who": "/who/paolo-fransco-domco-defranceschi/",
+   "parish": "Poreč"
   },
   {
    "name": "Angelo Eustode Pietra Giovanni Nepomuceno Defranceschi",
@@ -6486,7 +6740,8 @@
    "ark": "1:1:X311-MTY8",
    "mh": "",
    "line": "venice",
-   "who": "/who/angelo-eustode-pietra-giovanni-nepomuceno-defranceschi/"
+   "who": "/who/angelo-eustode-pietra-giovanni-nepomuceno-defranceschi/",
+   "parish": "Split (Sv. Dujam)"
   },
   {
    "name": "Leonardus Defranceschi",
@@ -6568,15 +6823,16 @@
    "name": "Antonius Defranceschi",
    "b": 1848,
    "d": null,
-   "place": "",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-H86N",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/antonius-defranceschi/"
+   "line": "south",
+   "who": "/who/antonius-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Domenico Matteo Defranceschi",
@@ -6634,7 +6890,8 @@
    "ark": "1:1:6B47-ZG45",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/carlo-francesco-andrea-defranceschi/"
+   "who": "/who/carlo-francesco-andrea-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Catterina Franceschi",
@@ -6693,7 +6950,8 @@
     "household",
     "record"
    ],
-   "who": "/who/vittorio-giovanni-defranceschi/"
+   "who": "/who/vittorio-giovanni-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Catterina Franceschi Raschich",
@@ -6753,7 +7011,8 @@
     "household",
     "record"
    ],
-   "who": "/who/angelo-defranceschi/"
+   "who": "/who/angelo-defranceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Caterina DeFranceschi",
@@ -6935,20 +7194,22 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/julius-defranceschi/"
+   "who": "/who/julius-defranceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Maria-Francisca Ottochian (Defranceschi)",
    "b": 1853,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-WKQ1",
    "mh": "4510941",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giovanni Giuseppe Maria Franceschi",
@@ -7023,14 +7284,15 @@
    "name": "Catterina Carlutto (Defranceschi)",
    "b": 1856,
    "d": null,
-   "place": "",
+   "place": "Poreč",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-Z4NK",
    "mh": "4510920",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Poreč"
   },
   {
    "name": "Elena Anna Maria Franceschi",
@@ -7058,7 +7320,8 @@
    "ark": "1:1:6B47-J14L",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/giulio-giuseppe-defranceschi/"
+   "who": "/who/giulio-giuseppe-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giuseppe Costante Defranceschi",
@@ -7077,18 +7340,19 @@
    "name": "Euphemia Defranceschi",
    "b": 1857,
    "d": 1890,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-3L86",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/euphemia-defranceschi/"
+   "who": "/who/euphemia-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Giovanni Girolamo Andrea Felice Franceschi",
@@ -7121,15 +7385,16 @@
    "name": "Mathæus Defranceschi",
    "b": 1857,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQM3-RZ7K",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/math-us-defranceschi/"
+   "line": "south",
+   "who": "/who/math-us-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Antonia Defranceschi",
@@ -7161,7 +7426,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/joannes-aloysius-defranceschi/"
+   "who": "/who/joannes-aloysius-defranceschi/",
+   "parish": "Kaštelir"
   },
   {
    "name": "Mattheus Defranceschi",
@@ -7205,24 +7471,26 @@
    "also": [
     "record"
    ],
-   "who": "/who/virginia-de-franceschi/"
+   "who": "/who/virginia-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Virginia Lambertina Defranceschi",
    "b": 1858,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-F11C",
    "mh": "4510935",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/virginia-lambertina-defranceschi/"
+   "who": "/who/virginia-lambertina-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Emanuel Antonius Defranceschi",
@@ -7255,15 +7523,16 @@
    "name": "Emmanuel Defranceschi",
    "b": 1860,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-QSZQ",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/emmanuel-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/emmanuel-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Girolamo Franceschi",
@@ -7365,15 +7634,16 @@
    "name": "Ivan Defranceschi",
    "b": 1862,
    "d": null,
-   "place": "",
+   "place": "Split-Veli Varoš",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X7N5-C6Q8",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/ivan-defranceschi/"
+   "line": "venice",
+   "who": "/who/ivan-defranceschi/",
+   "parish": "Split-Veli Varoš"
   },
   {
    "name": "Josephus Defranceschi",
@@ -7391,7 +7661,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/josephus-defranceschi/"
+   "who": "/who/josephus-defranceschi/",
+   "parish": "Kaštelir"
   },
   {
    "name": "Niccolo Franceschi",
@@ -7645,7 +7916,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/lamberta-defranceschi/"
+   "who": "/who/lamberta-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Maria Theresia Franceschi",
@@ -7693,7 +7965,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/aurelia-augusta-defranceschi/"
+   "who": "/who/aurelia-augusta-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Caterina Iacobelli De Franceschi",
@@ -7792,7 +8065,8 @@
    "ark": "1:1:6YB5-N4WF",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/camillo-romano-defranceschi/"
+   "who": "/who/camillo-romano-defranceschi/",
+   "parish": "Poreč"
   },
   {
    "name": "Catharina Defranceschi",
@@ -7837,7 +8111,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/domenica-defranceschi/"
+   "who": "/who/domenica-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Domenica Elisabettha Defranceschi",
@@ -7939,15 +8214,16 @@
    "name": "Giovanni Defranceschi",
    "b": 1869,
    "d": null,
-   "place": "Kraljevina Hrvatska",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-KGZC",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/giovanni-defranceschi/"
+   "line": "south",
+   "who": "/who/giovanni-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Giovanni / Joannes Baptista Defranceschi",
@@ -7994,15 +8270,16 @@
    "name": "Joannes Baptista Defranceschi",
    "b": 1869,
    "d": null,
-   "place": "",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-XCHK",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/joannes-baptista-defranceschi/"
+   "line": "south",
+   "who": "/who/joannes-baptista-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Andreas Babtist Defranceschi",
@@ -8100,7 +8377,8 @@
     "myheritage",
     "record"
    ],
-   "who": "/who/joannes-defranceschi/"
+   "who": "/who/joannes-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Marco Giuseppe Franceschi",
@@ -8186,24 +8464,26 @@
    "also": [
     "record"
    ],
-   "who": "/who/elisabetta-defranceschi/"
+   "who": "/who/elisabetta-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Francisca Defranceschi",
    "b": 1872,
    "d": 1877,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-WSLZ",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/francisca-defranceschi/"
+   "who": "/who/francisca-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Giovanni Maria Cesare Defranceschi",
@@ -8233,7 +8513,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/maria-defranceschi/"
+   "who": "/who/maria-defranceschi/",
+   "parish": "Kaštelir"
   },
   {
    "name": "Michele Angelo DeFranceschi",
@@ -8482,7 +8763,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/matteo-defranceschi/"
+   "who": "/who/matteo-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Matthaeus Matteo Nicolaus Defranceschi",
@@ -8920,7 +9202,8 @@
    "ark": "1:1:6B47-24H9",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/julius-frane-joseph-defranceschi/"
+   "who": "/who/julius-frane-joseph-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Maria Giuseppina Franceschi",
@@ -9450,7 +9733,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/josephus-defranceschi/"
+   "who": "/who/josephus-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Maria Runko (Defranceschi)",
@@ -9543,7 +9827,8 @@
    "notable": false,
    "ark": "1:1:XQMS-8XGZ",
    "mh": "4000056",
-   "line": "carnia"
+   "line": "carnia",
+   "parish": "Ledenice"
   },
   {
    "name": "Anton Defranceski",
@@ -9604,18 +9889,19 @@
    "name": "Joannes Defranceschi",
    "b": 1890,
    "d": 1890,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-M6FF",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/joannes-defranceschi/"
+   "who": "/who/joannes-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Mathæus Defranceschi",
@@ -9632,7 +9918,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/math-us-defranceschi/"
+   "who": "/who/math-us-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Faustina Julia Defranceschi",
@@ -9652,15 +9939,16 @@
    "name": "Francisca Defranceschi",
    "b": 1891,
    "d": null,
-   "place": "Kraljevina Hrvatska",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-6PZC",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/francisca-defranceschi/"
+   "line": "south",
+   "who": "/who/francisca-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Mattheus Defranceschi",
@@ -9706,18 +9994,19 @@
    "name": "Josephus Defranceschi",
    "b": 1892,
    "d": 1892,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-DS18",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/josephus-defranceschi/"
+   "who": "/who/josephus-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Marija Stjepanka Defranceschi",
@@ -9734,7 +10023,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/marija-stjepanka-defranceschi/"
+   "who": "/who/marija-stjepanka-defranceschi/",
+   "parish": "Ledenice"
   },
   {
    "name": "Romanus Defranceschi",
@@ -9754,18 +10044,19 @@
    "name": "Antonius Defranceschi",
    "b": 1893,
    "d": 1893,
-   "place": "Croatia, parish not named",
+   "place": "Pula",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-DSBN",
    "mh": "",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/antonius-defranceschi/"
+   "who": "/who/antonius-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Estella Ida Defranceschi",
@@ -9854,7 +10145,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/ivan-de-franceschi/"
+   "who": "/who/ivan-de-franceschi/",
+   "parish": "Crikvenica"
   },
   {
    "name": "Joseph Defranceschi",
@@ -10041,18 +10333,19 @@
    "name": "Victorius Defranceschi",
    "b": null,
    "d": 1897,
-   "place": "Croatia, parish not named",
+   "place": "Svetvinčenat",
    "src": "burial",
    "href": "/burials/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-BCW8",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/victorius-defranceschi/"
+   "who": "/who/victorius-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Caterina Defranceschi",
@@ -11761,15 +12054,16 @@
    "name": "Agustin De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Omiš",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMM-LJ8G",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/agustin-de-franceschi/"
+   "line": "venice",
+   "who": "/who/agustin-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Aloysiae Defranceschi",
@@ -11799,7 +12093,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/aloysium-joannes-petre-defranceschi/"
+   "who": "/who/aloysium-joannes-petre-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Amelia Defranceschi",
@@ -11840,7 +12135,8 @@
    "ark": "1:1:6B4Q-QM2N",
    "mh": "",
    "line": "south",
-   "who": "/who/andrea-de-franceschi/"
+   "who": "/who/andrea-de-franceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Angelo Defranceschi",
@@ -11920,7 +12216,8 @@
    "ark": "1:1:6B47-F6HL",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/anna-maria-defranceschi/"
+   "who": "/who/anna-maria-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Annae Bonet / Bonetti (Defranceschi)",
@@ -11939,28 +12236,30 @@
    "name": "Antonia Crosseta (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-MLHF",
    "mh": "4510970",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Antonia Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3K7F",
    "mh": "4511060",
-   "line": "unknown",
-   "who": "/who/antonia-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/antonia-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Antonia Niedermair (Defranceschi)",
@@ -11990,7 +12289,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/antoniam-defranceschi/"
+   "who": "/who/antoniam-defranceschi/",
+   "parish": "Bakar"
   },
   {
    "name": "Antonietta Moser (Defranceschi)",
@@ -12033,25 +12333,27 @@
    "also": [
     "record"
    ],
-   "who": "/who/antonio-de-franceschi/"
+   "who": "/who/antonio-de-franceschi/",
+   "parish": "Split (Sv. Dujam)"
   },
   {
    "name": "Antonio Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMQ-MLLT",
    "mh": "4508045",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/antonio-defranceschi/"
+   "who": "/who/antonio-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Antonius Defranceschi",
@@ -12100,31 +12402,33 @@
    "name": "Bortolo De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Šterna",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-9QSQ",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/bortolo-de-franceschi/"
+   "who": "/who/bortolo-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Bortolo Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3D76",
    "mh": "4510993",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Carlotta Strosio (Defranceschi)",
@@ -12222,18 +12526,19 @@
    "name": "Cattarina Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Ližnjan",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMQ-MLJG",
    "mh": "4512026",
-   "line": "unknown",
+   "line": "south",
    "also": [
     "record"
    ],
-   "who": "/who/cattarina-defranceschi/"
+   "who": "/who/cattarina-defranceschi/",
+   "parish": "Ližnjan"
   },
   {
    "name": "Cattarina Delli Zotti (Defranceschi)",
@@ -12273,7 +12578,8 @@
    "ark": "1:1:6BKV-G2ZJ",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/conraddus-vincentius-defranceschi/"
+   "who": "/who/conraddus-vincentius-defranceschi/",
+   "parish": "Pazin"
   },
   {
    "name": "1789–1810 de Franceschi",
@@ -12295,28 +12601,30 @@
    "name": "Domco Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-QJJ3",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/domco-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/domco-defranceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Domenica Chersin (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Draguč",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-LNLG",
    "mh": "4510904",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Draguč"
   },
   {
    "name": "Domenica Englaro (Defranceschi)",
@@ -12348,14 +12656,15 @@
    "name": "Domenica Moscarda (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NBW7",
    "mh": "4510928",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rovinj"
   },
   {
    "name": "Domenico de Franceschi",
@@ -12386,7 +12695,8 @@
    "also": [
     "myheritage"
    ],
-   "who": "/who/domenico-defranceschi/"
+   "who": "/who/domenico-defranceschi/",
+   "parish": "Vižinada"
   },
   {
    "name": "Dominicae Defranceschi",
@@ -12405,15 +12715,16 @@
    "name": "Dominicus De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-32D3",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/dominicus-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/dominicus-de-franceschi/",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Druis Jacobus Defranceschi",
@@ -12443,7 +12754,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/elisabetta-de-franceschi/"
+   "who": "/who/elisabetta-de-franceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Elisabetta Defranceschi",
@@ -12457,20 +12769,22 @@
    "ark": "1:1:6B47-XD56",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/elisabetta-defranceschi/"
+   "who": "/who/elisabetta-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Eufemia Bergamo (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-QFBM",
    "mh": "4511013",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Euphemia Franca (Defranceschi)",
@@ -12500,7 +12814,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/federico-felice-antonio-de-franceschi/"
+   "who": "/who/federico-felice-antonio-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Francesca Tomasich (Defranceschi)",
@@ -12531,7 +12846,8 @@
     "chart",
     "record"
    ],
-   "who": "/who/francesco-de-franceschi/"
+   "who": "/who/francesco-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Francesco de' Franceschi, the painter",
@@ -12561,7 +12877,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/franciscam-joanne-theresiam-defranceschi/"
+   "who": "/who/franciscam-joanne-theresiam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Francisci Defranceschi",
@@ -12600,31 +12917,33 @@
    "name": "Franco De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NJ1N",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/franco-de-franceschi/"
+   "who": "/who/franco-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Franco Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NJ1N",
    "mh": "4510929",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rovinj"
   },
   {
    "name": "Françoise Guillellemont (Defranceschi)",
@@ -12660,15 +12979,16 @@
    "name": "Gasparo De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Labin",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B4Q-HMFS",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/gasparo-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/gasparo-de-franceschi/",
+   "parish": "Labin"
   },
   {
    "name": "Gasparo Defranceschi",
@@ -12690,14 +13010,15 @@
    "name": "Gaspero Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3K7F",
    "mh": "4511059",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Giacoma Defranceschi (di Prato)",
@@ -12749,15 +13070,16 @@
    "name": "Gio Batta De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Šterna",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-9J27",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/gio-batta-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/gio-batta-de-franceschi/",
+   "parish": "Šterna"
   },
   {
    "name": "Gioanná Victoriam Franceschi",
@@ -12777,15 +13099,16 @@
    "name": "Giorgius Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Pula",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB5-F8PD",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/giorgius-defranceschi/"
+   "line": "south",
+   "who": "/who/giorgius-defranceschi/",
+   "parish": "Pula"
   },
   {
    "name": "Giovanna Toso (Defranceschi)",
@@ -12804,14 +13127,15 @@
    "name": "Giovanna / Zuanna Beluzzi (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Draguč",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-PFYT",
    "mh": "4510910",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Draguč"
   },
   {
    "name": "Giovanni Batta Defranceschi",
@@ -12877,14 +13201,15 @@
    "name": "Giovanni Maria Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4SJC",
    "mh": "4510945",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Giovanni Nep Defranceschi",
@@ -12898,7 +13223,8 @@
    "ark": "1:1:6B47-6P88",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/giovanni-nep-defranceschi/"
+   "who": "/who/giovanni-nep-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giuseppa Ludovica Defranceschi",
@@ -12912,7 +13238,8 @@
    "ark": "1:1:6B47-X6Q1",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/giuseppa-ludovica-defranceschi/"
+   "who": "/who/giuseppa-ludovica-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Giuseppa Piazza (Defranceschi)",
@@ -12969,7 +13296,8 @@
    "ark": "1:1:6B47-X32T",
    "mh": "",
    "line": "unplaced",
-   "who": "/who/guilio-defranceschi/"
+   "who": "/who/guilio-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Guiseppe \"Joseph\" DeFranceschi",
@@ -13017,15 +13345,16 @@
    "name": "Ignatium Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMQ-D9YD",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/ignatium-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/ignatium-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Jean-Baptiste-Marie Franceschi",
@@ -13124,21 +13453,23 @@
    "also": [
     "record"
    ],
-   "who": "/who/joannem-de-franceschi/"
+   "who": "/who/joannem-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Joannem Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Bakar",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6Z2F-LSSQ",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/joannem-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/joannem-defranceschi/",
+   "parish": "Bakar"
   },
   {
    "name": "Joannem / John / Joannes / Ivan / Giovanni Baptista Defranceschi",
@@ -13151,7 +13482,8 @@
    "notable": false,
    "ark": "1:1:DCJ2-6PPZ",
    "mh": "4506646",
-   "line": "unplaced"
+   "line": "unplaced",
+   "parish": "Bakar"
   },
   {
    "name": "Joannes Baptista Defranceschi",
@@ -13284,7 +13616,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/josepham-catharinam-defranceschi/"
+   "who": "/who/josepham-catharinam-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Josepham Ludovicam Joannam Nepomuc Defranceschi",
@@ -13301,7 +13634,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/josepham-ludovicam-joannam-nepomuc-defranceschi/"
+   "who": "/who/josepham-ludovicam-joannam-nepomuc-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Josephi Defranceschi",
@@ -13345,7 +13679,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/juliam-mariam-franciscam-de-franceschi/"
+   "who": "/who/juliam-mariam-franciscam-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Julius Defranceschi",
@@ -13458,15 +13793,16 @@
    "name": "Liberatus Maria Xaverius Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Pazin",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKJ-74LG",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/liberatus-maria-xaverius-defranceschi/"
+   "line": "unplaced",
+   "who": "/who/liberatus-maria-xaverius-defranceschi/",
+   "parish": "Pazin"
   },
   {
    "name": "LOUISIANA Defranceschi",
@@ -13485,15 +13821,16 @@
    "name": "Luca De Franceschi",
    "b": null,
    "d": null,
-   "place": "Croazia, Austria",
+   "place": "Vrsar",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3FG6",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/luca-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/luca-de-franceschi/",
+   "parish": "Vrsar"
   },
   {
    "name": "Luca di Nicolò de Franceschi",
@@ -13513,14 +13850,15 @@
    "name": "Lucia Bonassin (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-4SJC",
    "mh": "4510946",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Lucia Defranceschi (Lazaro)",
@@ -13576,7 +13914,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/mandalina-de-franceschi/"
+   "who": "/who/mandalina-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Margaretha Rossi (Defranceschi)",
@@ -13622,27 +13961,29 @@
    "name": "Maria Abba (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Draguč",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKV-P75B",
    "mh": "4510901",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Draguč"
   },
   {
    "name": "Maria Anna Charnar (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Pazin",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKJ-74LG",
    "mh": "4510817",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Pazin"
   },
   {
    "name": "Maria Antonia Defranceschi",
@@ -13783,14 +14124,15 @@
    "name": "Maria Dorliguzzo (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-DSVB",
    "mh": "4510955",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Maria Faustina (Defranceschi)",
@@ -13835,14 +14177,15 @@
    "name": "Maria Malusa (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-C8ZR",
    "mh": "4510949",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Maria Pittino (Defranceschi)",
@@ -13977,7 +14320,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/mariam-de-franceschi/"
+   "who": "/who/mariam-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Mariam Dorothæam Defranceschi",
@@ -13994,7 +14338,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/mariam-doroth-am-defranceschi/"
+   "who": "/who/mariam-doroth-am-defranceschi/",
+   "parish": "Bakar"
   },
   {
    "name": "Mariana Defranceschi",
@@ -14093,7 +14438,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/matheus-franciscus-de-franceschi/"
+   "who": "/who/matheus-franciscus-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Matteo Defranceschi",
@@ -14129,15 +14475,16 @@
    "name": "Mattio De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NVW4",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/mattio-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/mattio-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Michele C Defranceschi (De Laune)",
@@ -14168,7 +14515,8 @@
     "chart",
     "record"
    ],
-   "who": "/who/niccolo-de-franceschi/"
+   "who": "/who/niccolo-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Nicefaro Defranceschi",
@@ -14198,7 +14546,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/nicolaus-francus-de-franceschi/"
+   "who": "/who/nicolaus-francus-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Paolo Defranceschi",
@@ -14244,14 +14593,15 @@
    "name": "Pasqua Gorlato (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Vižinada",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-D9DZ",
    "mh": "4510952",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Vižinada"
   },
   {
    "name": "Pasquale Defranceschi",
@@ -14281,7 +14631,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/perina-de-franceschi/"
+   "who": "/who/perina-de-franceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Peter Defranceschi",
@@ -14357,33 +14708,35 @@
    "name": "Pietro De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Bale",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YB2-DBF4",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/pietro-de-franceschi/"
+   "line": "unplaced",
+   "who": "/who/pietro-de-franceschi/",
+   "parish": "Bale"
   },
   {
    "name": "Pietro Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-X6Z1",
    "mh": "4509677",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage",
     "record"
    ],
-   "who": "/who/pietro-defranceschi/"
+   "who": "/who/pietro-defranceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Robert Defranceschi",
@@ -14456,28 +14809,30 @@
    "name": "Simon De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Omiš",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMM-CSN9",
    "mh": "",
-   "line": "unknown",
-   "who": "/who/simon-de-franceschi/"
+   "line": "venice",
+   "who": "/who/simon-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Sinforosa Defranceschi (Volpi Campana)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DG-TMTR",
    "mh": "4511452",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Stefano de Franceschi",
@@ -14589,44 +14944,47 @@
    "name": "Ursula de Benzoni (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-ZFPR",
    "mh": "4510403",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Ursula / Orsola De Berzoni (Defranceschi)",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-ZFPR",
    "mh": "4507545",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Rijeka"
   },
   {
    "name": "Valentinum De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rijeka",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6YBR-ZFPR",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/valentinum-de-franceschi/"
+   "who": "/who/valentinum-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Veneranda Defranceschi (Demarin)",
@@ -14658,14 +15016,15 @@
    "name": "Vincentius Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Pazin",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKJ-74LG",
    "mh": "4510814",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Pazin"
   },
   {
    "name": "Vincenzo Defranceschi",
@@ -14709,7 +15068,8 @@
    "also": [
     "record"
    ],
-   "who": "/who/vitorio-de-franceschi/"
+   "who": "/who/vitorio-de-franceschi/",
+   "parish": "Draguč"
   },
   {
    "name": "Vittoria Defranceschi",
@@ -14728,48 +15088,51 @@
    "name": "Vittorio De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NBW7",
    "mh": "",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "record"
    ],
-   "who": "/who/vittorio-de-franceschi/"
+   "who": "/who/vittorio-de-franceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Vittorio Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Rovinj",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6BKK-NBW7",
    "mh": "4510927",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage"
    ],
-   "who": "/who/vittorio-defranceschi/"
+   "who": "/who/vittorio-defranceschi/",
+   "parish": "Rovinj"
   },
   {
    "name": "Zannetta Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-3D76",
    "mh": "4510994",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Zenardi Maria (Defranceschi)",
@@ -14814,54 +15177,58 @@
     "household",
     "record"
    ],
-   "who": "/who/zuane-de-franceschi/"
+   "who": "/who/zuane-de-franceschi/",
+   "parish": "Rijeka"
   },
   {
    "name": "Zuanna Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:X9DP-9D17",
    "mh": "4510998",
-   "line": "unknown"
+   "line": "unplaced",
+   "parish": "Svetvinčenat"
   },
   {
    "name": "Zuanne De Franceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Omiš",
    "src": "record",
    "href": "/archive/",
    "note": "",
    "notable": false,
    "ark": "1:1:XQMM-5DZG",
    "mh": "",
-   "line": "unknown",
+   "line": "venice",
    "also": [
     "record"
    ],
-   "who": "/who/zuanne-de-franceschi/"
+   "who": "/who/zuanne-de-franceschi/",
+   "parish": "Omiš"
   },
   {
    "name": "Zuanne Defranceschi",
    "b": null,
    "d": null,
-   "place": "",
+   "place": "Svetvinčenat",
    "src": "myheritage",
    "href": "/people/",
    "note": "",
    "notable": false,
    "ark": "1:1:6B47-MLHF",
    "mh": "4510968",
-   "line": "unknown",
+   "line": "unplaced",
    "also": [
     "myheritage"
    ],
-   "who": "/who/zuanne-defranceschi/"
+   "who": "/who/zuanne-defranceschi/",
+   "parish": "Svetvinčenat"
   }
  ],
  "stats": {
@@ -14869,15 +15236,17 @@
   "living_omitted": 3,
   "with_record": 572,
   "with_tree": 513,
+  "with_parish": 367,
+  "parishes": 27,
   "lines": {
-   "venice": 88,
+   "venice": 96,
    "crete": 2,
-   "other": 53,
-   "unknown": 386,
-   "unplaced": 150,
+   "other": 51,
+   "unknown": 185,
+   "unplaced": 323,
+   "south": 83,
    "carnia": 169,
    "trentino": 44,
-   "south": 61,
    "abroad": 64,
    "corsica": 4
   },

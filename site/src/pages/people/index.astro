@@ -34,6 +34,7 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
       {ORDER.filter(k => S.lines[k]).map(k => <button class="rf" data-l={k}>{LINEN[k]}</button>)}
       <button class="rf" data-l="star">★ Notable</button>
       <button class="rf" data-l="rec">Has a record</button>
+      <button class="rf" data-l="par">Parish known</button>
     </div>
     <div id="rn" class="rn"></div>
   </div>
@@ -51,7 +52,9 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
             </td>
             <td class="m">{r.b || "—"}</td>
             <td class="m">{r.d || "—"}</td>
-            <td class="rplace">{r.place || "—"}</td>
+            <td class="rplace">{r.parish
+                ? <span class="parish" title="The parish register this record was filmed from">{r.parish}</span>
+                : (r.place || "—")}{r.parish && r.place && r.place !== r.parish && <span class="rnote"> · {r.place}</span>}</td>
             <td><span class={"lchip l-" + r.line}>{LINEN[r.line]}</span></td>
             <td class="rsrc"><a href={u(r.href)}>{roster.srclabel[r.src]}</a>{r.note && <span class="rnote"> · {r.note}</span>}</td>
             <td class="rlinks">
@@ -119,6 +122,7 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
         var okL = mode === "all"
           || (mode === "star" ? r.getAttribute("data-star") === "1"
           : mode === "rec" ? r.getAttribute("data-rec") === "1"
+          : mode === "par" ? r.getAttribute("data-par") === "1"
           : r.getAttribute("data-l") === mode);
         var okQ = !t || r.getAttribute("data-k").indexOf(t) !== -1;
         var show = okL && okQ;
@@ -168,7 +172,8 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
   table.roster td.m{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);
     font-variant-numeric:tabular-nums;white-space:nowrap}
   .rname{font-weight:600;min-width:190px}
-  .rplace{color:var(--ink-2);font-size:13px;max-width:24ch}
+  .rplace{color:var(--ink-2);font-size:13px;max-width:26ch}
+  .parish{color:var(--ink);border-bottom:1px dotted var(--rule-strong)}
   .rsrc{font-size:12.5px;color:var(--ink-3)}
   .rlinks{white-space:nowrap}
   .reclink{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.08em;
