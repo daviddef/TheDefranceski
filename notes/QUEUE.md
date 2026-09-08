@@ -56,3 +56,12 @@
 - **Orbanić, «Visita Spirituale del 1788 in Istria»** (Quaderni di Archiva Ecclesiae 13, Vatican City 2016) — de Buset's parish-by-parish visitation of the Pićan diocese, 31 March–31 August 1788, 178 sheets. Originals in the Diocesan Archives of **Trieste**, not Pazin. Covers Gologorica and Gallignana. Highest-value printed target now open.
 - **Names to follow:** Elvis Orbanić (director, DAPA) and Jakov Jelinčić — both working directly on Pićan/Pazin ecclesiastical records.
 - **Cleared as irrelevant, do not revisit:** isidore.co Res pro Deo journals (Catholic Historical Review, Nova et Vetera, The Thomist — entire 496-issue text layer searched, zero hits); Nova et Vetera 21:2 (2023); Zelda Alice Franceschi's CV (a Bologna anthropologist, unrelated); Benedetti on the 1512 Venice–Cairo embassy (Andrea de' Franceschi of Cividale di Belluno, a different family); Bruni on the Giunti stockbook (Francesco De Franceschi, printer, born Siena c.1530, a third different family).
+
+## Answered, September 2026
+- ~~Venice street «dei Franceschi»~~ — Rio Terà dei Franceschi at SS. Apostoli, plus a lost Ponte dei Franceschi. Tassini 1872. Published on Namesakes.
+- ~~Rijeka «Defranceschi bridge»~~ — it is a PIER, De Franceschijev gat, the former Mol Zichy. Published. OPEN: which De Franceschi it is named for — Rijeka city archive / street-naming records.
+- ~~istrianet.org sweep~~ — already done in an earlier session.
+- ~~smrikve.com~~ — nothing the Seget page does not carry.
+- British History Online (Cal. State Papers Venice) — BLOCKED, CAPTCHA. Do not retry.
+- NEW: is the Glagolitic Hum/Colmo register in the family fond (DARI-254, 1610–1685) the same manuscript Vlahov published in 1999 (1608–1639)? €13.27 settles it.
+- NEW: reopen the 1512/1513 Venice–Cairo embassy. Tassini puts OUR Andrea on it in 1513; this archive had dismissed it as a different family of Cividale di Belluno.

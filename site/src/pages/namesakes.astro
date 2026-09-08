@@ -3,7 +3,9 @@ import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
+import Rule from "../components/Rule.astro";
 import ns from "../data/namesakes.json";
+import lm from "../data/landmarks.json";
 import artsrc from "../data/art-src.json";
 import plates from "../data/plates.json";
 
@@ -76,7 +78,23 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
   </style>
 
   <Lightbox />
-  <Sources ids={["howard", "banic", "dbi", "blasonario", "commons", "dfcom"]} />
+<Rule name="arrows" label="On the map" />
+
+<section class="blk" id="landmarks">
+  <h2>{lm.heading}</h2>
+  <p class="dek" style="margin-top:8px">{lm.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {lm.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{lm.source_land}</p>
+</section>
+
+  <Sources ids={["howard", "banic", "dbi", "blasonario", "commons", "tassini1872", "arcaadriatica", "dfcom"]} />
 </Base>
 
 <script>
