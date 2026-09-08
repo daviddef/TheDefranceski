@@ -87,3 +87,32 @@
     work; «giuliodrawings» already referenced in library.json.
   Rules: public-domain or clearly licensed only; caption must say holder and licence;
   no living people. Wire into who/[slug].astro and people/[slug].astro, not just gallery.
+
+- **WALK ALONG THE LINE — an itinerary per family.** David: "an itinerary for rich
+  Defranceschi exploration within a line, showing the drive / walk / path to travel,
+  where you should go to see the houses, the graves, the icons, the marks of the family."
+  Start with **Carnia**, get it right, then do the other four.
+  Carnia line, the raw material this archive already holds:
+  · **Agrons** (Ovaro) — the village Brhan/Bertoša name as the family's own, with
+    gismanial feudal rights. Never yet visited or photographed.
+  · **Mione di Ovaro** — the 1679 headmen's list man; the Antenati registers 1806–15;
+    Chiesa di Sant'Antonio and the provincial sign at its door.
+  · **Pieve di Santa Maria di Gorto, Luincis** — the mother church, leaning C14 campanile,
+    Romanesque Wise and Foolish Virgins frescoes, 1778 organ by de Corte of Ovasta;
+    the cemetery with 30+ stones and the 1954 war memorial (De Franceschi Isidoro,
+    De Franceschi Egidio). 18 plates published.
+  · **Muina, Ovasta, Luint, Cella, Givigliana, Paluzza** — the valley's other villages.
+  · **Gologorica (Moncalvo)** — the 1711 house with the carved shield over the door;
+    Carlo's grave and memorial tablet; the Glagolitic shrine niche; the palazzetto with
+    the arcaded portico Matejčić records.
+  · **Gračišće (Gallignana)** — houses 5, 19 and 24; the Salamon palace on the square;
+    the parish church; Maria Volhardt's obelisk (6.IV.1867–3.X.1945).
+  · **Klenovica** — house 22, where Anton Rudolf was baptised in 1890.
+  · **Crikvenica** — the family's town 1892–1940s; the monument.
+  · **Senj** — nine graves in the town cemetery; Ivan's grave (1925–1995).
+  · **Bribir · Krivi Put · Karlobag · Fužine** — the wives' country.
+  · **Pfullingen · Reutlingen · Metzingen · Neuhausen · Bad Urach** — the 1941–45 leg.
+  Wants: a real route (drive times, order, what to ask for at each door), what is
+  publicly visible vs what needs permission, and what to photograph that this archive
+  still lacks — the Gologorica lintel close up, the Gorto return-visit list, Agrons.
+  Deliver as a page with a map and a step-by-step itinerary, not a list of dots.
