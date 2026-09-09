@@ -58,6 +58,8 @@
 - **Cleared as irrelevant, do not revisit:** isidore.co Res pro Deo journals (Catholic Historical Review, Nova et Vetera, The Thomist — entire 496-issue text layer searched, zero hits); Nova et Vetera 21:2 (2023); Zelda Alice Franceschi's CV (a Bologna anthropologist, unrelated); Benedetti on the 1512 Venice–Cairo embassy (Andrea de' Franceschi of Cividale di Belluno, a different family); Bruni on the Giunti stockbook (Francesco De Franceschi, printer, born Siena c.1530, a third different family).
 
 ## Answered, September 2026
+- **NEW, from Antoljak, 9 Sept:** «Famiglia Franceschi», *Il Rammentatore zaratino, Lunario per l'anno 1859*, Zara, p. 30 — a printed article on the Franceschi family of Zadar. Znanstvena knjižnica Zadar / DAZD. One page. Highest-value unread thing now known.
+- **NEW:** Sabalich, *Guida archeologica di Zara*, pp. 375–377, 470–471, 497–498 — the Grisogono-Franceschi and Ferro-Grisogono-Franceschi palaces. On the Internet Archive.
 - ~~Venice street «dei Franceschi»~~ — Rio Terà dei Franceschi at SS. Apostoli, plus a lost Ponte dei Franceschi. Tassini 1872. Published on Namesakes.
 - ~~Rijeka «Defranceschi bridge»~~ — it is a PIER, De Franceschijev gat, the former Mol Zichy. Published. OPEN: which De Franceschi it is named for — Rijeka city archive / street-naming records.
 - ~~istrianet.org sweep~~ — already done in an earlier session.

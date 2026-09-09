@@ -89,6 +89,22 @@ import d from "../data/listria.json";
     <p>{d.sourcing}</p>
   </section>
 
+<Rule name="pomegranate" label="Antoljak, 1992" />
+
+<section class="blk">
+  <h2>{d.antoljak.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.antoljak.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.antoljak.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{d.antoljak.source}</p>
+</section>
+
 <section class="blk">
   <h2>{d.otherbook.heading}</h2>
   <p class="dek" style="margin-top:8px">{d.otherbook.lead}</p>

@@ -94,5 +94,21 @@ import Lightbox from "../components/Lightbox.astro";
   <p class="cap" style="margin-top:16px">{o.gazzetta1840.source_gdz}</p>
 </section>
 
+<Rule name="arrows" label="Zara — Široka ulica" />
+
+<section class="blk">
+  <h2>{o.zadarpalace.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={o.zadarpalace.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {o.zadarpalace.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{o.zadarpalace.conf}</p>
+</section>
+
   <Sources ids={["plemstvo", "omisphotos", "familysearch", "gazzetta-zara-1840"]} />
 </Base>
