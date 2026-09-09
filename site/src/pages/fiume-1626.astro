@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import f from "../data/fiume.json";
-const md = (s) => s
+const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>");
@@ -42,7 +42,7 @@ const md = (s) => s
       <div class="lab">{r.lab}</div>
       {r.q && <blockquote set:html={md(r.q)} />}
       {r.en && <p class="tr">{r.en}</p>}
-      <p class={r.q ? "wh" : "wh nb"} set:html={md(r.why)} />
+      <p class={r.q ? "wh" : "wh nb"} style="white-space:pre-line" set:html={md(r.why || r.text || "")} />
       {r.link && <p class="mono" style="margin-top:10px"><a href={u(r.link)}>The Seget branch →</a></p>}
     </li>
   ))}</ol>
@@ -57,7 +57,7 @@ const md = (s) => s
       <div class="lab">{r.lab}</div>
       {r.q && <blockquote set:html={md(r.q)} />}
       {r.en && <p class="tr">{r.en}</p>}
-      <p class={r.q ? "wh" : "wh nb"} set:html={md(r.why)} />
+      <p class={r.q ? "wh" : "wh nb"} style="white-space:pre-line" set:html={md(r.why || r.text)} />
     </li>
   ))}</ol>
   <p class="cap" style="margin-top:16px">{f.rovinj.source}</p>
