@@ -6,35 +6,142 @@
  "ships": {
   "heading": "Four vessels, thirteen years",
   "rows": [
-   {"n":"Natalia","y":"1865–1866","t":"The Black Sea grain trade. Cleared **Constantinople** for the United Kingdom in October 1865 and appears in the Gazette's Constantinople and **Galatz** columns through November and December — Galatz being the Danube grain port. In November 1866 she is at **Marseilles, arrived from Balchik** on the Bulgarian coast."},
-   {"n":"Peppina Luigia","y":"1869","t":"«**Trieste, April 21 — Peppina Luigia, Defranceschi, Troon**», in the Edinburgh Evening Courant of 28 April 1869, and in the Exchange Shipping List «at **Trieste from Troon**». Troon is the Ayrshire coal port. Trieste out, Scottish coal home."},
-   {"n":"Rachel","y":"1869–1870","t":"«**Rassel, Defranceschi, at Dardanelles Oct 13**» (December 1869); «**Antwerp, arrived Jan. 14 … Rachel, Defranceschi, Odessa**» (January 1870); and in August 1870 «**Constantinople, cleared Aug. 6 for … Rachel, Defranceschi, United Kingdom**». Odessa wheat to the Low Countries."},
-   {"n":"Aquilone","y":"1872–1878","t":"The one the record follows properly, and the one with a tonnage: **«Aquilone, Aus, 350, Defranceschi»** — Austrian, three hundred and fifty tons. The Belfast Telegraph calls her «**the Austrian barque Aquilone**» in July 1872 and «**the Italian barque Aquillone**» three weeks later, which is a fair summary of what Istria was."}
+   {
+    "n": "Natalia",
+    "y": "1865–1866",
+    "t": "The Black Sea grain trade. Cleared **Constantinople** for the United Kingdom in October 1865 and appears in the Gazette's Constantinople and **Galatz** columns through November and December — Galatz being the Danube grain port. In November 1866 she is at **Marseilles, arrived from Balchik** on the Bulgarian coast."
+   },
+   {
+    "n": "Peppina Luigia",
+    "y": "1869",
+    "t": "«**Trieste, April 21 — Peppina Luigia, Defranceschi, Troon**», in the Edinburgh Evening Courant of 28 April 1869, and in the Exchange Shipping List «at **Trieste from Troon**». Troon is the Ayrshire coal port. Trieste out, Scottish coal home."
+   },
+   {
+    "n": "Rachel",
+    "y": "1869–1870",
+    "t": "«**Rassel, Defranceschi, at Dardanelles Oct 13**» (December 1869); «**Antwerp, arrived Jan. 14 … Rachel, Defranceschi, Odessa**» (January 1870); and in August 1870 «**Constantinople, cleared Aug. 6 for … Rachel, Defranceschi, United Kingdom**». Odessa wheat to the Low Countries."
+   },
+   {
+    "n": "Aquilone",
+    "y": "1872–1878",
+    "t": "The one the record follows properly, and the one with a tonnage: **«Aquilone, Aus, 350, Defranceschi»** — Austrian, three hundred and fifty tons. The Belfast Telegraph calls her «**the Austrian barque Aquilone**» in July 1872 and «**the Italian barque Aquillone**» three weeks later, which is a fair summary of what Istria was."
+   }
   ]
  },
  "voyages": {
   "heading": "The Aquilone, port by port",
   "lead": "Assembled from Lloyd's List, the Shipping and Mercantile Gazette, the Belfast Telegraph, the Shields Daily Gazette, the Western Morning News, the South Wales Daily News and the Cardiff Shipping and Mercantile Gazette. Every line is a printed sighting.",
   "rows": [
-   ["31 Jan 1872","Newport","arrived from **Bordeaux**"],
-   ["5 Jul 1872","Queenstown","arrived **from Alexandria, wheat**"],
-   ["11 Jul 1872","Queenstown → Belfast","«the Austrian barque Aquilone, Defranceschi, from Alexandria, with wheat, for Belfast»"],
-   ["6 Aug 1872","Belfast → Troon","«the Italian barque Aquillone, Defranceschi, **for Troon, to load for Trieste**»"],
-   ["12 Oct 1872","Trieste","arrived **from Troon**"],
-   ["9 May 1873","Antwerp",""],
-   ["Jul 1873","Constantinople → Newcastle",""],
-   ["18 Oct 1873","in quarantine","passed down the Dardanelles, for Falmouth"],
-   ["29 Nov 1873","Plymouth","«from **Sulina**, with barley» — the Danube mouth"],
-   ["Feb 1875","Deal → Stockton","sailed, then «**put back and anchored**»"],
-   ["11 Jun 1875","Malta → Newcastle",""],
-   ["14 Oct 1875","Trieste","«cleared for **Rochefort**»"],
-   ["9 Dec 1875","Rochefort","sailed"],
-   ["10 Jul 1876","Bristol",""],
-   ["18 Aug 1876","Swansea → **Venice**","and past the **Wolf Rock** the same day"],
-   ["11 Dec 1877","**Cardiff → Guadaloupe**","«Aquilone, Aus, 350, Defranceschi, **G. Montaldo & Co**» — entered inward and outward at Cardiff"],
-   ["10 Dec 1877","Newport",""],
-   ["7 Jun 1878","Ghent","«Aquilone, Defranceschi, **351**, W.I.D., Clarkson»"],
-   ["7 Aug 1878","Barcelona → London",""]
+   [
+    "31 Jan 1872",
+    "Newport",
+    "arrived from **Bordeaux**"
+   ],
+   [
+    "5 Jul 1872",
+    "Queenstown",
+    "arrived **from Alexandria, wheat**"
+   ],
+   [
+    "11 Jul 1872",
+    "Queenstown → Belfast",
+    "«the Austrian barque Aquilone, Defranceschi, from Alexandria, with wheat, for Belfast»"
+   ],
+   [
+    "3 Jul 1872",
+    "Queenstown",
+    "«Aquilone, de Franceschi (**wheat**) [Alexandria»"
+   ],
+   [
+    "6 Aug 1872",
+    "Belfast → Troon",
+    "«the Italian barque Aquillone, Defranceschi, **for Troon, to load for Trieste**»"
+   ],
+   [
+    "12 Oct 1872",
+    "Trieste",
+    "arrived **from Troon**"
+   ],
+   [
+    "9 May 1873",
+    "Antwerp",
+    ""
+   ],
+   [
+    "Jul 1873",
+    "Constantinople → Newcastle",
+    ""
+   ],
+   [
+    "18 Oct 1873",
+    "in quarantine",
+    "passed down the Dardanelles, for Falmouth"
+   ],
+   [
+    "29 Nov 1873",
+    "Plymouth",
+    "«from **Sulina**, with barley» — the Danube mouth"
+   ],
+   [
+    "26 Jan 1874",
+    "**Leith → Trieste**",
+    "off the Bosphorus(?) — «Aquilone, de Franceschi, Leith for Trieste»"
+   ],
+   [
+    "Feb 1875",
+    "Deal → Stockton",
+    "sailed, then «**put back and anchored**»"
+   ],
+   [
+    "19 Feb 1875",
+    "Deal, anchored",
+    "«Aquilone, De Franceschi, **Alexandria, for Stockton**»"
+   ],
+   [
+    "11 Jun 1875",
+    "Malta → Newcastle",
+    ""
+   ],
+   [
+    "14 Oct 1875",
+    "Trieste",
+    "«cleared for **Rochefort**»"
+   ],
+   [
+    "9 Dec 1875",
+    "Rochefort",
+    "sailed"
+   ],
+   [
+    "10 Jul 1876",
+    "Bristol",
+    ""
+   ],
+   [
+    "18 Aug 1876",
+    "Swansea → **Venice**",
+    "and past the **Wolf Rock** the same day"
+   ],
+   [
+    "11 Dec 1877",
+    "**Cardiff → Guadaloupe**",
+    "«Aquilone, Aus, 350, Defranceschi, **G. Montaldo & Co**» — entered inward and outward at Cardiff"
+   ],
+   [
+    "10 Dec 1877",
+    "Newport",
+    ""
+   ],
+   [
+    "7 Jun 1878",
+    "Ghent",
+    "«Aquilone, Defranceschi, **351**, W.I.D., Clarkson»"
+   ],
+   [
+    "7 Aug 1878",
+    "Barcelona → London",
+    ""
+   ]
   ]
  },
  "company": {
@@ -45,11 +152,40 @@
   "heading": "An old Cardiff family, and a girl from the Vienna Conservatoire",
   "lead": "The Aquilone entered outward at Cardiff for Guadaloupe on 11 December 1877. Nineteen years later the Cardiff papers carry the surname again, and not in the shipping columns.",
   "rows": [
-   {"lab":"South Wales Daily News, 23 May 1896","q":"**CARDIFF EXHIBITION. ADDITIONAL ATTRACTION.** Messrs Thompson and Shackell have arranged with **Signorina Defranceschi** to give a series of pianoforte recitals on Monday, Wednesday, and Saturday afternoons in the Art Gallery **on a magnificent harpsichord grand**.","why":""},
-   {"lab":"South Wales Echo, 23 May 1896","key":true,"q":"This piano is a fac-simile of the instrument presented to the Duchess of York on the occasion of her marriage. **Signorina Defranceschi belongs to an old Cardiff family, and has recently taken her degree at the Vienna Conservatoire of Music.** The first recital…","why":"**«An old Cardiff family.»** In 1896 a Cardiff paper could write that phrase about people of this surname and expect its readers to know who was meant.\n\nAnd there is a marriage to go with it. Findmypast's **Wales Roman Catholic Marriages** has **Emerico de Franceschi, married 1876 at St Peter's, Roath, Glamorganshire** — the Catholic parish of Cardiff, in the year before the Aquilone cleared the Bute Docks for the West Indies. The transcript is outside this subscription's tier and has not been read."},
-   {"lab":"South Wales Echo, 1 June 1896 — «The Man About Town»","q":"…in a picture gallery, but **one might go far and not meet with such a finished pianist as I heard on Saturday**. Signorina Defranceschi, who was giving a pianoforte recital free to the visitors to the Exhibition, is a young lady who has **passed with distinction**…","why":"A columnist wandering the Cardiff Exhibition, stopping in front of a harpsichord, and going home to write that he had not expected to hear playing like that. It is the only sentence in this whole archive in which somebody of the name is simply **admired**."}
+   {
+    "lab": "South Wales Daily News, 23 May 1896",
+    "q": "**CARDIFF EXHIBITION. ADDITIONAL ATTRACTION.** Messrs Thompson and Shackell have arranged with **Signorina Defranceschi** to give a series of pianoforte recitals on Monday, Wednesday, and Saturday afternoons in the Art Gallery **on a magnificent harpsichord grand**.",
+    "why": ""
+   },
+   {
+    "lab": "South Wales Echo, 23 May 1896",
+    "key": true,
+    "q": "This piano is a fac-simile of the instrument presented to the Duchess of York on the occasion of her marriage. **Signorina Defranceschi belongs to an old Cardiff family, and has recently taken her degree at the Vienna Conservatoire of Music.** The first recital…",
+    "why": "**«An old Cardiff family.»** In 1896 a Cardiff paper could write that phrase about people of this surname and expect its readers to know who was meant.\n\nAnd there is a marriage to go with it. Findmypast's **Wales Roman Catholic Marriages** has **Emerico de Franceschi, married 1876 at St Peter's, Roath, Glamorganshire** — the Catholic parish of Cardiff, in the year before the Aquilone cleared the Bute Docks for the West Indies. The transcript is outside this subscription's tier and has not been read."
+   },
+   {
+    "lab": "South Wales Echo, 1 June 1896 — «The Man About Town»",
+    "q": "…in a picture gallery, but **one might go far and not meet with such a finished pianist as I heard on Saturday**. Signorina Defranceschi, who was giving a pianoforte recital free to the visitors to the Exhibition, is a young lady who has **passed with distinction**…",
+    "why": "A columnist wandering the Cardiff Exhibition, stopping in front of a harpsichord, and going home to write that he had not expected to hear playing like that. It is the only sentence in this whole archive in which somebody of the name is simply **admired**."
+   }
   ]
  },
  "honest": "**What this is and is not.** Shipping intelligence gives a surname and no more, so no man on this page is identified — not the master of the *Natalia* in the Black Sea in 1865, not the master of the *Aquilone* at Cardiff in 1877, and not the family the *South Wales Echo* called old. **None of them is connected to any line on this site**, and the surname is a patronymic that formed independently wherever Francesco was a common name. What the seventy articles do establish is that between 1865 and 1878 the name was on the master's line of Austrian ships in the Black Sea, the Adriatic and the Bristol Channel, and that by the 1890s there were Defranceschi in Cardiff long enough established to be called old. **Both are new to this archive.**",
- "source": "Findmypast British & Irish Newspapers, keyword search on the name, 9 September 2026: 70 articles. Titles cited — Lloyd's List; Shipping and Mercantile Gazette; Cardiff Shipping and Mercantile Gazette; Belfast Telegraph; Shields Daily Gazette; Western Morning News; Edinburgh Evening Courant; South Wales Daily News; South Wales Echo. OCR is imperfect and the vessel's name is variously set as Aquilone, Aquillone, Aquions, Aqalone and Aquilooe; readings here follow the clearest setting of each line."
+ "source": "Findmypast British & Irish Newspapers, keyword search on the name, 9 September 2026: 70 articles. Titles cited — Lloyd's List; Shipping and Mercantile Gazette; Cardiff Shipping and Mercantile Gazette; Belfast Telegraph; Shields Daily Gazette; Western Morning News; Edinburgh Evening Courant; South Wales Daily News; South Wales Echo; Shields Daily News; Daily Malta Chronicle and Garrison Gazette. A second search on «de Franceschi» returned a further 83 articles, and those readings are included here. OCR is imperfect and the vessel's name is variously set as Aquilone, Aquillone, Aquions, Aqalone and Aquilooe; readings here follow the clearest setting of each line.",
+ "mast": {
+  "heading": "And one before the mast",
+  "rows": [
+   {
+    "lab": "The loss of the Shields steamer «Aberlady Bay», Board of Trade inquiry, June 1889",
+    "key": true,
+    "q": "George Howard Davidson, second officer; Peter Engstrom, A.B.; **George De Franceschi, A.B., an Austrian**; and Edward Eliassen, A.B., all stated that the light which was observed on the port bow of the vessel…",
+    "why": "*Shields Daily News*, 22 June 1889. Not a master this time — an **able seaman**, giving evidence at the Board of Trade inquiry into a wreck, and the reporter takes the trouble to write **«an Austrian»** after his name.\n\nThis is the other half of the same world. The Adriatic did not only send captains into the British trades; it sent crews. **George De Franceschi, A.B.**, is the first man of this surname anywhere in this archive who is named, dated, placed on a named ship, and quoted."
+   },
+   {
+    "lab": "Malta, 11 October 1899",
+    "q": "PASSENGERS ARRIVED ON THE 11th. By the **Aust[ro]-Hung[arian] Carola from Syracuse**: Rev. H. H. Mitchell, **E. De Franceschi**, L. Miceli and family, G. S. Cala…",
+    "why": "*Daily Malta Chronicle and Garrison Gazette*, 13 October 1899. Twenty-one years after the *Aquilone* last appeared, somebody of the name is still crossing the middle sea under the Habsburg flag — this time as a passenger, on the Austro-Hungarian Lloyd's *Carola* out of Syracuse."
+   }
+  ]
+ }
 }

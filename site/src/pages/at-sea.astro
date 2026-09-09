@@ -40,6 +40,19 @@ const md = (s) => s
     <p style="white-space:pre-line" set:html={md(d.company.text)}></p>
   </div>
 
+  <Rule name="arrows" label="Before the mast" />
+
+  <h2 style="font-size:31px">{d.mast.heading}</h2>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.mast.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <blockquote class="cut" set:html={md(r.q)} />
+        <p style="margin-top:12px;white-space:pre-line" set:html={md(r.why)}></p>
+      </div>
+    ))}
+  </div>
+
   <Rule name="pomegranate" label="Cardiff, 1896" />
 
   <h2 style="font-size:31px">{d.cardiff.heading}</h2>
