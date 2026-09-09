@@ -62,6 +62,20 @@ const md = (s) => s
   ))}</ol>
   <p class="cap" style="margin-top:16px">{f.rovinj.source}</p>
 
+  <Rule name="pomegranate" label="A correction" />
+
+  <h2 style="font-size:31px">{f.vodnjan.heading}</h2>
+  <p class="dek" style="margin-top:8px">{f.vodnjan.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {f.vodnjan.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={md(r.text)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{f.vodnjan.source}</p>
+
     <p class="cap" style="margin-top:30px">{f.source}</p>
   <p class="cap" style="margin-top:10px">
     See <a href={u("/carlos-letter/")}>Carlo's Letter</a> for Kobler's Fiume households and Valentino of 1739 ·
