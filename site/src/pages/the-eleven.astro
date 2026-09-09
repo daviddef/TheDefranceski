@@ -93,6 +93,19 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
     ))}
   </div>
 
+
+  <h3 style="font-size:25px;margin-top:46px">{am.antonio.heading}</h3>
+  <p class="dek" style="margin-top:8px">{am.antonio.lead}</p>
+  <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
+    {am.antonio.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        {r.q && <blockquote class="doc" set:html={md(r.q)} />}
+        <p style="margin-top:10px;white-space:pre-line" set:html={md(r.why || r.text)}></p>
+      </div>
+    ))}
+  </div>
+
   <h3 style="font-size:25px;margin-top:46px">{am.cleared.heading}</h3>
   <div style="margin-top:14px;display:flex;flex-direction:column;gap:14px">
     {am.cleared.rows.map(r => (
