@@ -7,6 +7,8 @@ import FamilyCard from "../components/FamilyCard.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import e from "../data/eleven.json";
+import am from "../data/america.json";
+const md = (t) => t.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>");
 const kids = e.children;
 const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" && w !== "Gallignana");
 ---
@@ -51,6 +53,47 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
     <h3>Where they went</h3>
     <p>{dests.join(" · ")}. The footnote to the 2012 chart lists the destinations of the original eleven as Argentina — Buenos Aires, Croatia, Italy, Slovenia and the USA. Daniele's departure is dated <strong>1947</strong>, the year of the treaty that moved the border, and puts him among the roughly 350,000 who left Istria, Rijeka and Dalmatia in the exodus. See <a href={u("/emigration/")}>Leaving</a>.</p>
   </section>
+
+<Rule name="arrows" label="New York, 1917–1994" />
+
+<section class="blk">
+  <h2 style="font-size:31px">{am.heading}</h2>
+  <p class="dek" style="margin-top:8px">{am.lead}</p>
+  <p class="note" style="margin-top:16px">{am.note}</p>
+
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:18px">
+    {am.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        {r.table && (
+          <div class="scroll" style="margin-top:12px">
+            <table class="hh">
+              <thead><tr>{r.table.head.map(h => <th>{h}</th>)}</tr></thead>
+              <tbody>{r.table.rows.map(row => (
+                <tr>{row.map((c, i) => i === 0 ? <td><strong>{c}</strong></td> : <td class={i > 2 ? "m" : ""}>{c}</td>)}</tr>
+              ))}</tbody>
+            </table>
+          </div>
+        )}
+        <p style="margin-top:10px;white-space:pre-line" set:html={md(r.text)}></p>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:25px;margin-top:44px">{am.fused.heading}</h3>
+  <p class="dek" style="margin-top:8px">{am.fused.lead}</p>
+  <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
+    {am.fused.rows.map(r => (
+      <div class="one">
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={md(r.text)}></p>
+      </div>
+    ))}
+  </div>
+
+  <p class="prose note" style="margin-top:26px" set:html={md(am.honest)}></p>
+  <p class="cap" style="margin-top:14px">{am.source}</p>
+</section>
 
   <h2 style="font-size:30px;margin-top:52px">And the arms are on the house</h2>
   <div class="grid g2" style="margin-top:22px;align-items:start">
@@ -171,3 +214,8 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 
   <Sources ids={["album2012", "dapa", "familysearch", "findagrave", "attirovigno", "gologorica2026"]} />
 </Base>
+
+<style>
+  table.hh{font-size:14px}
+  table.hh td,table.hh th{padding:6px 12px 6px 0}
+</style>
