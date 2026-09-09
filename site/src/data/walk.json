@@ -18,22 +18,22 @@
   {
    "id": "kvarner",
    "name": "The Kvarner line",
-   "href": "",
-   "status": "queued",
+   "href": "/walk/kvarner/",
+   "status": "written",
    "dek": "Klenovica, Crikvenica, Senj, Bribir. The coast the family moved down to."
   },
   {
    "id": "venice",
    "name": "The Venice and Dalmatia line",
-   "href": "",
-   "status": "queued",
+   "href": "/walk/venice/",
+   "status": "written",
    "dek": "Venice, Zadar, Omiš, Imotski."
   },
   {
    "id": "german",
    "name": "The German leg",
-   "href": "",
-   "status": "queued",
+   "href": "/walk/german/",
+   "status": "written",
    "dek": "Pfullingen, Reutlingen, Metzingen, Neuhausen, Bad Urach, 1941–45."
   }
  ],
@@ -585,6 +585,569 @@
    "**Write to the archives before you book the flight.** Two of the four need weeks.",
    "**Do not photograph recent graves with living relatives named.** This site omits living people, and that starts in the churchyard.",
    "**Record what you did not find.** An empty shelf is a finding and this archive publishes those."
+  ]
+ },
+ "kvarner": {
+  "title": "The Kvarner walk",
+  "eyebrow": "Klenovica · Crikvenica · Senj · Bribir · four days",
+  "dek": "The coast the family came down to, and the one leg of the journey where the archive already holds the register pages — so this trip is about stones and houses, not paper.",
+  "intro": [
+   "This is **chapter four of our own line**: the stonecutter's son coming down off the Gračišće hill between 1892 and 1894 and stopping on the Vinodol shore. Unlike Carnia, the documents here are largely **already in hand** — the Klenovica baptism of 1890, the Ledenice entry for Ana Kalanj, the Crikvenica burials, the 1906 death entry with its five-word life.",
+   "So the point of going is different. **What is missing is physical**: the house, the graves, the quarry, and the answer to a question no register will settle — whether the family's stonecutting was the reason they came to a coast that was then being built."
+  ],
+  "base": {
+   "where": "Crikvenica, or Novi Vinodolski if you want to be nearer Klenovica",
+   "why": "Crikvenica is central: Klenovica and Ledenice are half an hour south and inland, Bribir twenty minutes up the valley, Senj forty minutes down the coast. **Novi Vinodolski** is the alternative and puts Klenovica ten minutes away.",
+   "getting": "Fly to **Rijeka (Krk)** or drive from Trieste in about two and a half hours. The old Adriatic coast road is the one to take, not the motorway — it is the road the family would have walked and it passes every stop on days two and four.",
+   "when": "**May, or late September.** July and August are the Kvarner high season: the cemeteries are fine but the parish offices keep short hours and the coast road is slow."
+  },
+  "days": [
+   {
+    "n": 1,
+    "title": "Crikvenica: the house, the graves, the parish",
+    "sub": "Crikvenica · a full day on foot",
+    "lead": "Everything on this day is within a walk of the seafront. Start at the parish, because whether you get into the registers decides how you spend day two.",
+    "stops": [
+     {
+      "n": "1a",
+      "place": "Župa Crikvenica — the parish office",
+      "access": "book",
+      "key": true,
+      "what": "The registers this archive has read in film form. What is wanted here is **the marriage entry for Josip Defranceschi and Ana Kalanj** — this archive has their four children and Josip's death entry but has never seen the marriage. A pencil note in the 1890 Klenovica baptism says «**vjenčao se na Crikvenici**», he married at Crikvenica. That is the note to take with you.",
+      "ask": "Tražim vjenčanje **Josipa Defranceschija i Ane Kalanj**, oko 1888.–1890. U krsnom listu iz Klenovice piše «vjenčao se na Crikvenici». Molim presliku upisa i signaturu knjige.",
+      "link": "/crikvenica-house/"
+     },
+     {
+      "n": "1b",
+      "place": "The house the family built",
+      "access": "open",
+      "key": true,
+      "what": "This archive has the story and not the address. **Photograph the whole street, not just the door** — and if anyone is in, ask what the house was called. House-names outlive owners here.",
+      "ask": "Ovu kuću je gradila obitelj Defranceschi početkom stoljeća. Znate li kako se kuća zvala?"
+     },
+     {
+      "n": "1c",
+      "place": "Crikvenica cemetery",
+      "access": "open",
+      "key": true,
+      "what": "**Josip died in 1906**, «vešti klesar sada tvorničar». Two daughters died as children, in 1905 and 1906. Their stones — if they stand — are the only physical trace of that household.\n\nWork the whole ground, not just the Defranceschi name: **Kalanj, Kalaj-Kučarica, Kovačina**. This archive found «Ana Kalaj-Kučarica» only because a burial clerk added a house-name.",
+      "ask": "—"
+     }
+    ],
+    "shots": [
+     "Every Defranceschi and Kalanj stone in Crikvenica cemetery, **whole stone first, then the inscription**",
+     "The house, from across the street, with its neighbours in frame",
+     "The parish church exterior and any dated stonework — Josip was a stonecutter in a town being built"
+    ]
+   },
+   {
+    "n": 2,
+    "title": "Klenovica and Ledenice: where the wife came from",
+    "sub": "Klenovica → Rijenovica → Ledenice · about 40 km",
+    "lead": "House 22 at Klenovica is the single most precise address this archive holds anywhere. Anton Rudolf was born there on 20 January 1890 — and the register says why: his parents were staying with **her** people.",
+    "stops": [
+     {
+      "n": "2a",
+      "place": "Klenovica, house 22",
+      "access": "open",
+      "key": true,
+      "what": "«**Roditelji djeteta nahodeć se kod svojih u Klenovici, t.j. kod roditelja žene Ane**» — the child's parents being with their own at Klenovica, that is with the parents of the wife Ana. **The Kalanj house.** Numbers have been renumbered since; ask, do not assume.",
+      "ask": "Tražim staru kuću br. 22 — obitelj **Kalanj**. Je li numeracija mijenjana?",
+      "link": "/crikvenica-house/"
+     },
+     {
+      "n": "2b",
+      "place": "Rijenovica",
+      "access": "open",
+      "what": "Where **Ana Kalanj was born on 3 January 1864**. A hamlet, not a town. The point of standing here is scale: this is the size of the place the coast branch married into."
+     },
+     {
+      "n": "2c",
+      "place": "Župa Ledenice and its churchyard",
+      "access": "seasonal",
+      "what": "Ana's baptism is entry 2 for 1864 in the Ledenice register — godparents Josephus Ban and his wife Anna, priest Vincentius Segulja. The other names on that page are **Perković, Butković, Mataija, Semper**: the surnames of one valley. Photograph the churchyard for all of them.",
+      "ask": "Tražim grobove obitelji **Kalanj** i **Perković** iz 19. stoljeća."
+     }
+    ],
+    "shots": [
+     "Klenovica house 22 and the houses either side, with any number plates legible",
+     "The Ledenice churchyard, every legible 19th-century stone",
+     "Rijenovica from the road — a landscape frame, for the scale of it"
+    ]
+   },
+   {
+    "n": 3,
+    "title": "Bribir and the Vinodol",
+    "sub": "Bribir → Grižane → Hreljin · about 35 km",
+    "lead": "Inland, and older. This is where the Fiume and Kvarner households sit that this archive **cannot attach to any line** — and one of them held an office worth checking.",
+    "stops": [
+     {
+      "n": "3a",
+      "place": "Bribir",
+      "access": "open",
+      "key": true,
+      "what": "Kobler's account has a De Franceschi brother becoming **castellan of Bribir** around the 1740s, when Giovanni Battista arrived at Fiume from the County of Pazin. **This archive has never tested that.** The castle and the parish are both here.",
+      "ask": "Postoje li popisi kaštelana Bribira iz 18. stoljeća, i gdje se čuvaju?",
+      "link": "/carlos-letter/"
+     },
+     {
+      "n": "3b",
+      "place": "Grižane and Hreljin churchyards",
+      "access": "open",
+      "what": "Both appear in this archive's sweeps with nothing attached. **A negative is a finding**: if the name is not on these stones, write that down."
+     }
+    ],
+    "shots": [
+     "Bribir castle and any inscription or arms on it",
+     "Grižane and Hreljin churchyards — the name, or its absence"
+    ]
+   },
+   {
+    "n": 4,
+    "title": "Senj: nine graves and a shipping family",
+    "sub": "Senj · a full day",
+    "lead": "The other Carnian household on this coast, one headland north — Antonio's brother's line. Nine graves in the town cemetery, and a family in shipping.",
+    "stops": [
+     {
+      "n": "4a",
+      "place": "Senj town cemetery",
+      "access": "open",
+      "key": true,
+      "what": "**Nine graves of the name.** This archive has them as a list and not as photographs. Ivan died here on 30 October 1995 under a slab cut **IVAN DEFRANČESKI** — with the Croatian č, which is the spelling this branch settled on.",
+      "ask": "—",
+      "link": "/senj-line/"
+     },
+     {
+      "n": "4b",
+      "place": "Gradski muzej Senj and the parish",
+      "access": "book",
+      "what": "For the shipping records. A family in coastal trade leaves crew lists, tonnage returns and harbour-master papers, and none of that is on any film this archive can reach.",
+      "ask": "Istražujem obitelj **Defranceschi / Defrančeski** u Senju, 19.–20. st. Zanimaju me pomorski dokumenti — popisi posade, upisnici brodova."
+     }
+    ],
+    "shots": [
+     "All nine Senj stones, whole then close",
+     "The IVAN DEFRANČESKI slab specifically — this archive quotes it and has never seen it",
+     "Any Defranceschi name on a Senj shipping or harbour plaque"
+    ]
+   }
+  ],
+  "doors": [
+   {
+    "who": "Župa Crikvenica",
+    "how": "Telephone or email first; parish offices here keep short and irregular hours.",
+    "say": "Tražim vjenčanje Josipa Defranceschija i Ane Kalanj, oko 1888.–1890., te upise za njihovu djecu.",
+    "gets": "The one register entry this archive is missing from its own direct line."
+   },
+   {
+    "who": "Župa Ledenice",
+    "how": "Through Novi Vinodolski if Ledenice is unstaffed.",
+    "say": "Molim preslik upisa krštenja Ane Kalanj, 3. siječnja 1864., Rijenovica kbr. 22.",
+    "gets": "A certified copy of a page this archive has only as a film image."
+   },
+   {
+    "who": "Državni arhiv u Rijeci",
+    "how": "Reading room, book in advance. Bring the fond numbers.",
+    "say": "Zanimaju me fondovi HR-DARI-254 i HR-DARI-382, kut. 1, vezano uz prezime Defranceschi u Rijeci i Bakru.",
+    "gets": "The Kvarner households that are attached to no line — the whole point of day three."
+   },
+   {
+    "who": "Gradski muzej Senj",
+    "how": "Email ahead; small staff.",
+    "say": "Istražujem obitelj Defrančeski u Senju. Zanimaju me pomorski i grobljanski izvori.",
+    "gets": "Shipping papers, and possibly a cemetery plan that saves a day."
+   }
+  ],
+  "open": [
+   {
+    "q": "Did the stonecutting bring them down?",
+    "a": "Josip was «vešti klesar» and his father Antonius was entered at Gračišće as **lapicida**. Crikvenica in the 1890s was being built. **No document links the trade to the move** — but a quarry, a mason's yard or a dated lintel in the town would be the first physical evidence either way."
+   },
+   {
+    "q": "Where is the marriage?",
+    "a": "A pencil note says he married at Crikvenica. The entry has never been seen. It would give both sets of parents and settle whether the couple met on the coast or on the hill."
+   },
+   {
+    "q": "Is Kobler's castellan of Bribir real?",
+    "a": "It has been repeated in this archive from Kobler and **never checked**. Bribir is twenty minutes from the base."
+   }
+  ],
+  "rules": [
+   "**Photograph the whole stone before the detail.** Half the gaps in this archive are because a name was framed and the dates were not.",
+   "**Ask before photographing inside a church**, always, and never during a service.",
+   "**Do not photograph recent graves with living relatives named on them.** This site omits living people, and that begins in the churchyard.",
+   "**Write down the house-names.** Nobody else is going to.",
+   "**Note what you did not find.** An empty cemetery is a finding, and this archive publishes those too."
+  ]
+ },
+ "venice": {
+  "title": "The Venice and Dalmatia walk",
+  "eyebrow": "Venice · Zadar · Split · Omiš · Imotski · six days",
+  "dek": "The oldest and best-documented line, and the one whose evidence is in state archives rather than churchyards. Less walking, more reading rooms.",
+  "intro": [
+   "This line goes back furthest — **Zadar in 1359, Omiš in 1584** — and it is the one where the family were *cittadini originari* of the Republic, soldiers and salt officials rather than weavers. Its records are therefore **secular**: notarial acts, land grants, military pay, and the *Rammentatore zaratino*.",
+   "Two warnings. First, **this is an archive trip, not a hike**: book everything. Second, this line is the one the retired 2018 GEDCOM spliced onto David's own — so **treat every join with suspicion**, and read the Corrections page before you go."
+  ],
+  "base": {
+   "where": "Split for days three to six; Venice and Zadar are separate legs",
+   "why": "Venice and Zadar are best done as their own two-day leg by ferry or road. **Split** then serves Omiš (30 minutes), Imotski (an hour and a half) and the Split archive itself.",
+   "getting": "Venice → Zadar by ferry seasonally, otherwise the coast road through Trieste and Rijeka. **Split** has the airport and the state archive.",
+   "when": "**April–May or October.** The Dalmatian archives close or shorten in August, and Imotski in high summer is punishing."
+  },
+  "days": [
+   {
+    "n": 1,
+    "title": "Venice: the printers, the Chancellor, and the citizen registers",
+    "sub": "Venice · a full day",
+    "lead": "Two different families of the name sit here, and the archive's own portraits page exists to keep them apart. Do not conflate them on the ground.",
+    "stops": [
+     {
+      "n": "1a",
+      "place": "Archivio di Stato di Venezia",
+      "access": "book",
+      "key": true,
+      "what": "For the ***cittadini originari*** registers, which is the status this line claims. Also the **Avogaria di Comun** for proofs of citizenship.",
+      "ask": "Cerco la famiglia **de Franceschi / Franceschi** fra i cittadini originari, e le prove di cittadinanza presso l'Avogaria di Comun.",
+      "link": "/omis-line/"
+     },
+     {
+      "n": "1b",
+      "place": "Museo Correr",
+      "access": "open",
+      "what": "**Francesco de' Franceschi's** *Martyrdom of St Mamas* is here — the Venetian painter, active 1443–1468, and **not** this family. Worth seeing precisely so the distinction stays real.",
+      "link": "/namesakes/"
+     },
+     {
+      "n": "1c",
+      "place": "Biblioteca Marciana",
+      "access": "book",
+      "what": "For **Domenico de' Franceschi**, the printer who issued Palladio's *I quattro libri* in 1570, and **Francesco Franceschi**, d. c.1599. Namesakes, documented as such."
+     }
+    ],
+    "shots": [
+     "Any *cittadini originari* entry for the name, photographed with its shelfmark",
+     "The Correr Martyrdom, and its label"
+    ]
+   },
+   {
+    "n": 2,
+    "title": "Zadar: 1359, and a palace on Široka ulica",
+    "sub": "Zadar · a full day",
+    "lead": "The earliest date this line holds, and a building this archive cites from a footnote it has never read.",
+    "stops": [
+     {
+      "n": "2a",
+      "place": "Široka ulica — the Ferro-Grisogono-Franceschi palace",
+      "access": "open",
+      "key": true,
+      "what": "This archive names this house from «Famiglia Franceschi», *Il Rammentatore zaratino*, 1859, p. 30 — **a page nobody here has seen**. Photograph the façade, any arms, and any date.",
+      "link": "/omis-line/"
+     },
+     {
+      "n": "2b",
+      "place": "Znanstvena knjižnica Zadar",
+      "access": "book",
+      "key": true,
+      "what": "**Get page 30 of the 1859 Rammentatore.** It is errand 6 on this archive's list and it can be done in an afternoon here.",
+      "ask": "Molim uvid u **Il Rammentatore zaratino, 1859.**, str. 30 — natuknica «Famiglia Franceschi». Molim i presliku naslovnice."
+     },
+     {
+      "n": "2c",
+      "place": "Državni arhiv u Zadru",
+      "access": "book",
+      "what": "For the 1359 grant of «**nobiles regni Croacie**» by Louis I, and for Venetian-period notarial acts."
+     }
+    ],
+    "shots": [
+     "The palace, whole façade and any coat of arms",
+     "Rammentatore p. 30 and the title page",
+     "Any Franceschi arms in the Zadar archive's heraldic material"
+    ]
+   },
+   {
+    "n": 3,
+    "title": "Split: the cathedral choir, and a canon of Candia",
+    "sub": "Split · a full day",
+    "lead": "The record that ties the Cretan family to Dalmatia, and it is under the floor of the cathedral.",
+    "stops": [
+     {
+      "n": "3a",
+      "place": "Split cathedral — the canons' vault",
+      "access": "permission",
+      "key": true,
+      "what": "**Don Nicolò de Franceschi, «Can.co di S. Vito di Candia»**, died aged about ninety and was buried **in the choir, in the canons' vault**, in 1716. That is four years before the Seget purchase of 1720 and it is the first document — not tradition — linking Cretan De Franceschi to Dalmatia.",
+      "ask": "Postoji li popis pokopanih u kanoničkoj grobnici u koru katedrale, i može li se pogledati?",
+      "link": "/omis-line/"
+     },
+     {
+      "n": "3b",
+      "place": "Državni arhiv u Splitu",
+      "access": "book",
+      "what": "Notarial and land records for Omiš and Imotski, and the Napoleonic decree that stripped the particle — which is why the descendants of a count are called **Franceschi**."
+     }
+    ],
+    "shots": [
+     "The choir and any floor slabs or vault plaques in the cathedral",
+     "Any Franceschi name in the cathedral's own records"
+    ]
+   },
+   {
+    "n": 4,
+    "title": "Omiš: a house founded on 18 June 1584",
+    "sub": "Omiš · a full day",
+    "lead": "The most precisely dated event in this line, and the town where the family were salt officials.",
+    "stops": [
+     {
+      "n": "4a",
+      "place": "The old town of Omiš",
+      "access": "open",
+      "key": true,
+      "what": "«Francesco the Venetian lays the foundations of his house on **18 June 1584**.» Find the quarter, photograph what stands, and ask the town museum which building the tradition attaches to.",
+      "link": "/omis-line/"
+     },
+     {
+      "n": "4b",
+      "place": "Omiš parish and cemetery",
+      "access": "open",
+      "what": "This archive holds seven Omiš households and a chart going back to a **Francesco, d. 1512, saliera di porto di Zara**. Nothing photographed."
+     }
+    ],
+    "shots": [
+     "Whatever the town identifies as the 1584 house",
+     "Every Franceschi stone in the Omiš cemetery",
+     "Any salt-office or harbour inscription"
+    ]
+   },
+   {
+    "n": 5,
+    "title": "Imotski and the Vrljika mills",
+    "sub": "Imotski → Perinuša → Opačac · about 25 km",
+    "lead": "1717: Zuane takes the town and is paid in ruined land. The mills are the payment, and they were family property into living memory.",
+    "stops": [
+     {
+      "n": "5a",
+      "place": "Imotski — the fortress and the town",
+      "access": "open",
+      "key": true,
+      "what": "Taken from the Ottomans in 1717. The grant of ruined land on the **Vrljika** is what founded this branch's wealth.",
+      "link": "/imotski/"
+     },
+     {
+      "n": "5b",
+      "place": "Perinuša and Opačac",
+      "access": "open",
+      "key": true,
+      "what": "**Six wheels, then eleven, then fourteen.** The spring at Opačac is the head of the river. Ask locally who the mills belonged to — this is within living memory and the answer will not be in an archive."
+     }
+    ],
+    "shots": [
+     "The mill sites at Perinuša, and any surviving stonework",
+     "Opačac spring",
+     "The fortress and the town from the Vrljika side"
+    ]
+   },
+   {
+    "n": 6,
+    "title": "A day in reserve, for whichever door opened",
+    "sub": "Split or Zadar",
+    "lead": "Deliberately unplanned. On a trip this archive-heavy, **one of days one to five will produce a reference that needs a second visit**, and the whole point of coming is to follow it."
+   }
+  ],
+  "doors": [
+   {
+    "who": "Archivio di Stato di Venezia",
+    "how": "Reading-room card required; apply online in advance.",
+    "say": "Cerco la famiglia de Franceschi fra i cittadini originari e le prove di cittadinanza presso l'Avogaria di Comun.",
+    "gets": "The status this line claims, tested against the Republic's own registers."
+   },
+   {
+    "who": "Znanstvena knjižnica Zadar",
+    "how": "Walk-in, but email ahead for a 19th-century periodical.",
+    "say": "Molim uvid u «Il Rammentatore zaratino», 1859., str. 30.",
+    "gets": "Errand 6 on this archive's list, closed in an afternoon."
+   },
+   {
+    "who": "Split cathedral chapter",
+    "how": "Through the parish or the chapter office — this is a request to see a burial vault, so allow time.",
+    "say": "Istražujem kanonika Nikolu de Franceschija, pokopanog 1716. u kanoničkoj grobnici u koru.",
+    "gets": "The physical end of the Crete-to-Dalmatia link."
+   },
+   {
+    "who": "Državni arhiv u Splitu",
+    "how": "Reading room, book ahead.",
+    "say": "Zanimaju me bilježnički spisi i zemljišni izvori za Omiš i Imotski, prezime Franceschi / de Franceschi.",
+    "gets": "The notarial spine of the whole Dalmatian line."
+   }
+  ],
+  "open": [
+   {
+    "q": "Is the Crete link a document or a tradition?",
+    "a": "**One document**: Don Nicolò, canon of St Vitus of Candia, buried at Split in 1716. Everything else is published scholarship treating the Seget and Gologorica families as two Istrian branches of one house — the largest single claim anyone has made about this surname in Istria, and untested here."
+   },
+   {
+    "q": "Where does the Imotski splice actually fail?",
+    "a": "The retired 2018 GEDCOM joined this line to David's own. **It does not join.** Going will not fix that — but the notarial records at Split would show what the Imotski family actually was, which is the only way to stop the splice coming back."
+   },
+   {
+    "q": "What is on page 30?",
+    "a": "A single citation this archive has repeated and never read. It could name the palace's builders outright."
+   }
+  ],
+  "rules": [
+   "**Photograph the whole stone before the detail.** Half the gaps in this archive are because a name was framed and the dates were not.",
+   "**Ask before photographing inside a church**, always, and never during a service.",
+   "**Do not photograph recent graves with living relatives named on them.** This site omits living people, and that begins in the churchyard.",
+   "**Write down the house-names.** Nobody else is going to.",
+   "**Note what you did not find.** An empty cemetery is a finding, and this archive publishes those too."
+  ]
+ },
+ "german": {
+  "title": "The German leg",
+  "eyebrow": "Pfullingen · Reutlingen · Metzingen · Neuhausen · Bad Urach · three days",
+  "dek": "The smallest district in this archive and the one where the line turns. Everything after 1945 leaves from here.",
+  "intro": [
+   "Five towns inside twenty kilometres below the Swabian Alb. **Petar left Yugoslavia in April 1939**, five months before the war; **Zdravko was taken by the Partisans in 1943** and then to Germany; **Ivan, born at Crikvenica in 1925**, was issued papers at Pfullingen. In 1949 the brothers parted — 8 March, Australia; 22 July, «*a une maison, 2 autos*» and Petar stays.",
+   "This is a **records trip in a country that keeps records well**. Town archives, the Landeskirche, the Kreisarchiv and the International Tracing Service between them should be able to give what this archive has only in fragments: arrival dates, employers, addresses, and the resettlement files."
+  ],
+  "base": {
+   "where": "Reutlingen",
+   "why": "Reutlingen is the Kreis town and all five places are within twenty minutes. Pfullingen is effectively a suburb of it.",
+   "getting": "**Stuttgart airport**, then forty minutes by road or rail to Reutlingen.",
+   "when": "Any time — these are municipal offices, not churchyards. **Avoid the fortnight around Christmas**, when German town archives close entirely."
+  },
+  "days": [
+   {
+    "n": 1,
+    "title": "Pfullingen and Reutlingen: the papers",
+    "sub": "Pfullingen → Reutlingen",
+    "lead": "The two documents this archive already has both come from here. The point of day one is to find what sits behind them.",
+    "stops": [
+     {
+      "n": "1a",
+      "place": "Stadtarchiv Pfullingen",
+      "access": "book",
+      "key": true,
+      "what": "**Anton Rudolf Defranceski is on the Pfullingen list of foreigners in 1947** and was certified by the town's mayor in 1950. Those two documents exist; what this archive does not have is the **Einwohnermeldekartei** — the residents' registration card, which gives every address, every date of arrival and departure, and usually the employer.",
+      "ask": "Ich forsche zur Familie **Defranceski / Defranceschi**, 1941–1955 in Pfullingen. Gibt es Einwohnermeldekarten, Ausländerlisten oder Meldeunterlagen aus dieser Zeit?",
+      "link": "/pfullingen/"
+     },
+     {
+      "n": "1b",
+      "place": "Stadtarchiv Reutlingen and Kreisarchiv Reutlingen",
+      "access": "book",
+      "key": true,
+      "what": "For the wider district: **forced-labour and displaced-persons records**, employer lists, and the housing registers of 1945–50. Zdravko's route into Germany was as a labourer, and that leaves a paper trail on the employer's side as much as the state's.",
+      "ask": "Ich suche Unterlagen zu jugoslawischen Arbeitskräften und Displaced Persons im Kreis Reutlingen, 1941–1950, Familienname **Defranceski**."
+     }
+    ],
+    "shots": [
+     "Every residents' card for the name, front and back",
+     "The 1947 foreigners' list page in full, not cropped",
+     "Any employer or housing record naming the family"
+    ]
+   },
+   {
+    "n": 2,
+    "title": "Metzingen, Neuhausen an der Erms and Bad Urach",
+    "sub": "about 30 km round",
+    "lead": "The three smaller towns. These are short visits: a town archive each, and a churchyard.",
+    "stops": [
+     {
+      "n": "2a",
+      "place": "Stadtarchiv Metzingen",
+      "access": "book",
+      "what": "Textiles. If the family worked, this is one of the places they worked."
+     },
+     {
+      "n": "2b",
+      "place": "Neuhausen an der Erms",
+      "access": "open",
+      "what": "On this archive's map with no document behind it. **Establish whether that is right** — and if the name is not here, record the negative."
+     },
+     {
+      "n": "2c",
+      "place": "Bad Urach",
+      "access": "open",
+      "what": "Same. A negative from a named town archive is worth more than an empty line on a map."
+     }
+    ],
+    "shots": [
+     "Any street or house this archive can attach to the family",
+     "The town archives' own finding aids, photographed — they save a return trip"
+    ]
+   },
+   {
+    "n": 3,
+    "title": "The two files that are not in this district",
+    "sub": "Reutlingen · a desk day",
+    "lead": "Two requests that can be made from anywhere but are best made from here, where the staff know the collections.",
+    "stops": [
+     {
+      "n": "3a",
+      "place": "Arolsen Archives (International Tracing Service)",
+      "access": "book",
+      "key": true,
+      "what": "The successor to the ITS at Bad Arolsen holds **the DP and forced-labour registrations for the whole of occupied Europe**, much of it now online. A search on **Defranceski, Defranceschi, Defrančeski** across 1941–1950 is the single highest-value request on this itinerary.",
+      "ask": "(Online request — but ask the Reutlingen archivist which spelling variants their own indexes use.)"
+     },
+     {
+      "n": "3b",
+      "place": "Landeskirchliches Archiv Stuttgart",
+      "access": "book",
+      "what": "If any of the family married or had children baptised in Württemberg between 1941 and 1955, it is here — and this archive currently has **no German-side family events at all**."
+     }
+    ],
+    "shots": [
+     "Anything Arolsen returns, with its file reference visible"
+    ]
+   }
+  ],
+  "doors": [
+   {
+    "who": "Stadtarchiv Pfullingen",
+    "how": "Email; small archive, appointment needed.",
+    "say": "Ich forsche zur Familie Defranceski, 1941–1955 in Pfullingen. Gibt es Einwohnermeldekarten und Ausländerlisten?",
+    "gets": "Addresses, arrival and departure dates, employers — the spine of the German years."
+   },
+   {
+    "who": "Kreisarchiv Reutlingen",
+    "how": "Email with dates and spellings.",
+    "say": "Ich suche Unterlagen zu jugoslawischen Arbeitskräften und Displaced Persons im Kreis Reutlingen, 1941–1950.",
+    "gets": "The context: who employed them and under what status."
+   },
+   {
+    "who": "Arolsen Archives",
+    "how": "Online request form; free.",
+    "say": "(English is fine.) Searching for Defranceski / Defranceschi / Defrančeski, Yugoslav nationals in Württemberg, 1941–1950.",
+    "gets": "The DP and forced-labour registrations. Possibly the whole answer."
+   },
+   {
+    "who": "Landeskirchliches Archiv Stuttgart",
+    "how": "Email; they answer written enquiries.",
+    "say": "Ich suche Trauungen und Taufen der Familie Defranceski in Württemberg, 1941–1955.",
+    "gets": "German-side family events, of which this archive has none."
+   }
+  ],
+  "open": [
+   {
+    "q": "How did Petar get out in April 1939?",
+    "a": "Five months before the war, from a country that was not yet at war, to a country that was arming. **This archive has the date and nothing else** — no employer, no permit, no route. The Reutlingen employer records are the likeliest place it survives."
+   },
+   {
+    "q": "What is in Zdravko's file?",
+    "a": "His resettlement file is the source for the Partisan seizure that the family remembers as his father's. **This archive has read a summary of it, not the file.** Arolsen may hold the German end."
+   },
+   {
+    "q": "Why did one brother stay?",
+    "a": "«*A une maison, 2 autos*» — a house and two cars, written in July 1949. That sentence is the only reason this archive has for Petar staying while Ivan and Zdravko went to Australia. A residents' card would show whether the house was his."
+   }
+  ],
+  "rules": [
+   "**Photograph the whole stone before the detail.** Half the gaps in this archive are because a name was framed and the dates were not.",
+   "**Ask before photographing inside a church**, always, and never during a service.",
+   "**Do not photograph recent graves with living relatives named on them.** This site omits living people, and that begins in the churchyard.",
+   "**Write down the house-names.** Nobody else is going to.",
+   "**Note what you did not find.** An empty cemetery is a finding, and this archive publishes those too."
   ]
  }
 }

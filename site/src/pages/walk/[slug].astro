@@ -1,0 +1,166 @@
+---
+import Base from "../../layouts/Base.astro";
+import Rule from "../../components/Rule.astro";
+import { u } from "../../lib/url.js";
+import w from "../../data/walk.json";
+export function getStaticPaths() {
+  return ["kvarner", "venice", "german"].map(slug => ({ params: { slug }, props: { slug } }));
+}
+const { slug } = Astro.props;
+const c = w[slug];
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+const A = { open:["Publicly visible","ac-open"], book:["Book ahead","ac-book"], seasonal:["Seasonal — check","ac-seas"], permission:["Ask permission","ac-perm"] };
+const shots = c.days.flatMap(d => (d.shots || []).map(s => ({ d: d.n, s })));
+---
+<Base
+  title={c.title}
+  eyebrow={c.eyebrow}
+  dek={c.dek}>
+
+  <section class="prose">
+    {c.intro.map(p => <p set:html={md(p)} />)}
+  </section>
+
+
+  <div class="grid g2 base" style="margin-top:34px;align-items:start">
+    <div class="panel">
+      <div class="lab">Where to stay</div>
+      <h3>{c.base.where}</h3>
+      <p class="dek" style="margin-top:8px" set:html={md(c.base.why)} />
+    </div>
+    <div class="panel">
+      <div class="lab">Getting there · when to go</div>
+      <p class="dek" style="margin-top:8px" set:html={md(c.base.getting)} />
+      <p class="dek" style="margin-top:10px" set:html={md(c.base.when)} />
+    </div>
+  </div>
+
+  <Rule />
+
+  <h2 style="font-size:31px">The itinerary</h2>
+  <ol class="days">{c.days.map(d => (
+    <li class={"day d" + d.n} id={"day-" + d.n}>
+      <div class="d-head">
+        <span class="d-n">{d.n}</span>
+        <div>
+          <h3>{d.title}</h3>
+          <p class="mono d-sub">{d.sub}</p>
+        </div>
+      </div>
+      <p class="d-lead" set:html={md(d.lead)} />
+      <ol class="stops">{(d.stops || []).map(s => (
+        <li class={"stop" + (s.key ? " is-key" : "")}>
+          <div class="s-top">
+            <span class="s-n">{s.n}</span>
+            <h4>{s.place}</h4>
+            <span class={"ac " + A[s.access][1]}>{A[s.access][0]}</span>
+          </div>
+          <p set:html={md(s.what)} />
+          {s.ask && <p class="s-ask"><span class="lab">At the door</span><span set:html={md(s.ask)} /></p>}
+          {s.link && <p class="mono s-link"><a href={u(s.link)}>What this archive already holds →</a></p>}
+        </li>
+      ))}</ol>
+      {(d.shots || []).length > 0 && (
+        <div class="s-shots">
+          <div class="lab">Photograph these — we do not have them</div>
+          <ul>{(d.shots || []).map(x => <li set:html={md(x)} />)}</ul>
+        </div>
+      )}
+    </li>
+  ))}</ol>
+
+  <Rule />
+
+  <h2 style="font-size:31px">{c.doors.length} doors, and what to say at them</h2>
+  <p class="dek" style="margin-top:8px">The wording is there to be read off a phone. It is plain and it is polite. Check the address and the opening hours on each institution\u2019s own site before you go.</p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Who</th><th>How</th><th>What to say</th><th>What it gets you</th></tr></thead>
+      <tbody>{c.doors.map(d => (
+        <tr>
+          <td><strong>{d.who}</strong></td>
+          <td class="dek" style="font-size:13px">{d.how}</td>
+          <td>{d.say === "—" ? <span class="mono">—</span> : <em style="font-size:16px">{d.say}</em>}</td>
+          <td class="dek" style="font-size:13px">{d.gets}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:31px;margin-top:52px">What the trip is actually for</h2>
+  <p class="dek" style="margin-top:8px">Questions this archive cannot answer from a desk. Going is the only method left.</p>
+  <div class="grid g3" style="margin-top:20px">{c.open.map(o => (
+    <div class="one" style="border-left-color:var(--ochre)">
+      <h3 style="font-size:19px">{o.q}</h3>
+      <p style="margin-top:8px;font-size:16.5px" set:html={md(o.a)} />
+    </div>
+  ))}</div>
+
+  <h2 style="font-size:31px;margin-top:52px">Everything to photograph, in one list</h2>
+  <p class="dek" style="margin-top:8px">{shots.length} frames this archive does not have. Print it.</p>
+  <ul class="allshots">{shots.map(x => (
+    <li><span class="mono as-d">Day {x.d}</span><span set:html={md(x.s)} /></li>
+  ))}</ul>
+
+  <div class="panel" style="margin-top:34px;border-left:3px solid var(--terra)">
+    <div class="lab">Five rules for the churchyard</div>
+    <ul class="rules">{c.rules.map(r => <li set:html={md(r)} />)}</ul>
+  </div>
+
+  <p class="cap" style="margin-top:34px">Sources for every claim on this page are on the pages it links to. Drive times and distances are approximate and were not measured on the ground; check the roads and the opening hours before you go. <a href={u("/walk/")}>The other itineraries →</a></p>
+</Base>
+
+<style>
+  .base .panel h3{font-size:20px;margin-top:6px}
+  .days{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:34px}
+  .day{border-top:1px solid var(--rule);padding-top:22px}
+  .d-head{display:flex;gap:16px;align-items:flex-start}
+  .d-n{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ground);
+    background:var(--accent);width:32px;height:32px;flex:0 0 32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-top:3px}
+  .day.d1 .d-n{background:var(--ochre)}
+  .day.d3 .d-n{background:var(--terra)}
+  .day.d4 .d-n{background:var(--ink-2)}
+  .day.d5 .d-n{background:var(--r-napo)}
+  .day h3{font-size:26px}
+  .d-sub{color:var(--ink-3);margin-top:5px;font-size:11.5px;letter-spacing:.05em}
+  .d-lead{margin-top:14px;max-width:68ch;font-size:18px}
+  .stops{list-style:none;margin:20px 0 0;padding:0 0 0 48px;display:flex;flex-direction:column;gap:2px;
+    border-left:1px solid var(--rule);margin-left:15px}
+  .stop{padding:16px 0 18px;max-width:74ch;position:relative}
+  .stop+.stop{border-top:1px dotted var(--rule)}
+  .stop.is-key{background:var(--accent-wash);margin-left:-16px;padding-left:16px;
+    padding-right:16px;border-radius:3px;border-top:0}
+  .s-top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .s-n{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:600}
+  .s-top h4{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:0}
+  .stop p{margin-top:8px;font-size:16.5px;line-height:1.6}
+  .ac{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.11em;
+    text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap}
+  .ac-open{background:var(--panel-2);color:var(--ink-2)}
+  .ac-book{background:var(--ochre);color:var(--band-label)}
+  .ac-seas{background:var(--terra);color:var(--band-label)}
+  .s-ask{border-left:2px solid var(--ochre);padding-left:12px;margin-top:12px}
+  .s-ask .lab{display:block;margin-bottom:3px;color:var(--ochre)}
+  .s-link{margin-top:10px}
+  .s-shots{margin:22px 0 0 63px;background:var(--panel);border:1px solid var(--rule);
+    border-radius:3px;padding:16px 20px;max-width:74ch}
+  .s-shots ul{margin:10px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;
+    font-size:15.5px;color:var(--ink-2)}
+  .allshots{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:6px;
+    grid-template-columns:repeat(2,minmax(0,1fr))}
+  .allshots li{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+    padding:11px 14px;font-size:15.5px;display:flex;gap:10px;align-items:baseline}
+  .as-d{color:var(--ink-3);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    white-space:nowrap;flex:0 0 auto}
+  .rules{margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:8px;
+    font-size:16px;max-width:74ch}
+  @media(max-width:860px){
+    .base.g2,.allshots,.grid.g3{grid-template-columns:1fr}
+    .stops{padding-left:20px}
+    .s-shots{margin-left:0}
+  }
+</style>
