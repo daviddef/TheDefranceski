@@ -124,3 +124,19 @@
   publicly visible vs what needs permission, and what to photograph that this archive
   still lacks — the Gologorica lintel close up, the Gorto return-visit list, Agrons.
   Deliver as a page with a map and a step-by-step itinerary, not a list of dots.
+
+## Keeping the site in sync (added 9 Sept 2026)
+
+`roster.json` and `searchindex.json` do not rebuild themselves. After any
+finding that adds or moves a person:
+
+1. add/update the row in `site/src/data/roster.json` and recompute `stats`
+2. run `python3 scripts/build-search-index.py` — regenerates every `Person`
+   and `Register reading` entry from the data, leaving the other kinds alone
+3. `npm --prefix site run build`, then recreate the `site/dist/TheDefranceski`
+   symlink, then commit and push
+
+David asked on 9 Sept why the roster count had not moved all day. It was
+because step 1 was being skipped: the narrative pages were current and the
+roster was three commits behind, and it was still filing the Vodnjan people
+under Vižinada.
