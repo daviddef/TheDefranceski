@@ -1148,6 +1148,13 @@
    "when": "10 Sept 2026",
    "outcome": "hit",
    "got": "**Two of the eight reconstructed households now have a burial, a house number and — in one case — a generation above them.** 11 March 1829, house 325: «Maria, figlia di **Stefano De Franceschi e di Bonetta Vellico q.m Antonio**». 23 July 1829, house 48: «Pietro, figlio di **Dom.co De Franceschi *q.m Pietro* e di Zacchera Cerlon di Franc.o**» — which names Domenico's own dead father, a **Pietro**, where the baptism index had only a bare pair of names. Also caught and fixed: the reader's crops were being **clipped to the viewport, losing the bottom fifth of every page**, silently. Images scanned before the fix are being re-scanned."
+  },
+  {
+   "src": "FamilySearch — both the persona API and the Deep Zoom image service",
+   "what": "Automated reading, stopped",
+   "when": "10 Sept 2026",
+   "outcome": "blocked",
+   "got": "**403 — «This request was blocked by our security service.»** After two days of reading register images tile by tile, FamilySearch's bot protection has blocked this session: the persona search endpoint and the `deepzoomcloud` image service both now return a 403 with a NOINDEX/NOFOLLOW block page rather than data.\n\n**No attempt has been made or will be made to get around it.** This archive does not bypass bot checks or CAPTCHAs, and a block is a legitimate answer from a service that has given it a very great deal already — five generations at Vodnjan came off these films in two days.\n\n**What this stops, for now:** the rest of the Vodnjan marriage register (images 217–470), the death registers (546–575 on film 894 and all of 895), the Vodnjan baptism re-read, Svetvinčenat's marriage register, and the Rijeka and Bakar films. Those six items are paused, not abandoned.\n\n**What it does not stop:** everything already read and published, and the work that does not touch FamilySearch — the itineraries, the portraits, the archive letters, and the reconciliation of David's own GEDCOM when it arrives."
   }
  ]
 }
