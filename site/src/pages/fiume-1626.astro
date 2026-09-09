@@ -48,7 +48,21 @@ const md = (s) => s
   ))}</ol>
   <p class="prose note" style="margin-top:24px" set:html={md(f.more.close)}></p>
 
-  <p class="cap" style="margin-top:30px">{f.source}</p>
+<Rule name="arrows" label="Rovinj, 1619" />
+
+  <h2 style="font-size:31px">{f.rovinj.heading}</h2>
+  <p class="dek" style="margin-top:8px">{f.rovinj.lead}</p>
+  <ol class="ents" style="margin-top:24px">{f.rovinj.rows.map(r => (
+    <li class={"ent" + (r.key ? " is-key" : "")}>
+      <div class="lab">{r.lab}</div>
+      {r.q && <blockquote set:html={md(r.q)} />}
+      {r.en && <p class="tr">{r.en}</p>}
+      <p class={r.q ? "wh" : "wh nb"} set:html={md(r.why)} />
+    </li>
+  ))}</ol>
+  <p class="cap" style="margin-top:16px">{f.rovinj.source}</p>
+
+    <p class="cap" style="margin-top:30px">{f.source}</p>
   <p class="cap" style="margin-top:10px">
     See <a href={u("/carlos-letter/")}>Carlo's Letter</a> for Kobler's Fiume households and Valentino of 1739 ·
     <a href={u("/senj-line/")}>Senj</a> · <a href={u("/omis-line/")}>the Omiš line</a> ·
