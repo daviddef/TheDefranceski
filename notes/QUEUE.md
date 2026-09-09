@@ -59,7 +59,7 @@
 
 ## Answered, September 2026
 - ~~**Find the Vodnjan registers**~~ — DONE 9 Sept 2026. koha:963267, DGS 005497893 (baptisms 1815–1866), 005497894 (baptisms 1867–78 + **marriages 1815–1884** + deaths 1815–33), 005497895 (deaths 1834–93). One page read. **STILL TO DO: the marriage register 005497894, which would name the fathers of Maria Malusà, Maddalena Francin, Zacchera Cerlon, Bonetta Vellico, Lucia Bonassin, Pasqua Gorlato and Maria Oliva Dorliguzzo — and would place Don Stefano De Franceschi.**
-- **NEW:** **Vižinada, DGS 005497893** — five households 1816–1844, all indexed, none read. Start with Domenico × Zacchera Cerlon (three sons called Pietro) and follow Bona → Rovinj.
+- ~~**Vižinada, DGS 005497893** — five households 1816–1844~~ **DONE / was a ghost.** DGS 005497893 is the **Vodnjan** baptism film, not Vižinada's; those households are the eight Vodnjan ones and they have been read. See the two-parish reel correction.
 - ~~**The 1893 New South Wales outlier**~~ — SOLVED 9 Sept 2026. G. Defranceschi, 28, Austrian, **quartermaster** of the RMS *Miowera*, Melbourne to Sydney, 6 January 1893. Crew, not migrant.
 - **NEW, Findmypast, 9 Sept:** buy or subscribe to read four transcripts — Bruno de Franceschi 1939 and 1942 (US Naturalization Petitions, NY), Gerda 1939, and Joseph 1912 — they will carry birthplace, ship, date of arrival and address. Also the four **Vermont** border crossings (Barre granite). And the single outlier **«G de Franceschi, b.1865, New South Wales, 1893»**, sixty years before every other Australian row.
 - **NEW, from Antoljak, 9 Sept:** «Famiglia Franceschi», *Il Rammentatore zaratino, Lunario per l'anno 1859*, Zara, p. 30 — a printed article on the Franceschi family of Zadar. Znanstvena knjižnica Zadar / DAZD. One page. Highest-value unread thing now known.
@@ -154,3 +154,15 @@ None of these rebuild themselves. Run them in this order after a finding:
    then commits and pushes. It refuses to push a failed build. Use it always:
    a broken /fiume-1626/ went live on 9 Sept because `npm run build | tail`
    hides the exit code, which was the second time that happened.
+
+
+## The place parameter does not filter (tested 9 Sept 2026)
+
+`q.anyPlace` on the FamilySearch persona endpoint is a **relevance boost, not a
+filter**. Ten values were tested including «Zzzznowhere» and «Atlantis»; every
+one returned the same total, **3,652**. Vižinada and Draguč return identical
+sets. `f.recordPlace` is a real filter but rejects plain town names.
+
+**Never count records by place with `q.*Place`.** Resolve each record to its
+film and read the catalogue's *item list* — not the film heading, because a
+film can carry more than one parish.

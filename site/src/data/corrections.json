@@ -136,6 +136,15 @@
    "said": "Nothing wrong in the words — but wherever a paragraph of running prose contained a **bold phrase**, the phrase was thrown onto a line of its own, so the sentence read as three broken fragments.",
    "true": "A styling fault, live across the site for an unknown period and on eleven pages that pass marked-up text into a paragraph.",
    "how": "`.prose` was declared `display:flex; flex-direction:column`, which turns every inline child — including a `<strong>` — into its own flex item. It is now spacing applied between block children only. Found by looking at a new page rather than by any test. Two stylesheets exist in this repo and only one is loaded; the first fix went into the wrong one."
+  },
+  {
+   "when": "9 Sept 2026",
+   "what": "Counting records by place, with a parameter that does not count",
+   "sev": "serious",
+   "where": "/istria-sweep/",
+   "said": "Per-place record counts for this surname across sixty Istrian and Kvarner towns, and a research queue carrying «Vižinada — 53 records, unread», «Draguč — 25», «Dubrovnik — 38».",
+   "true": "**The place parameter on this search endpoint does not filter.** Ten values were tested, including «Zzzznowhere» and «Atlantis», and every one returned the same total: **3,652**. Vižinada and Draguč return identical result sets. Dubrovnik returns the unfiltered list. The queued «Vižinada 53» records are on the **Vodnjan** film and have already been read.",
+   "how": "The parameter is a relevance boost dressed as a filter — no error, no warning, just the whole set back in a different order. The sweep survives because its method independently checked each record's own place text before counting it; the **queue did not**, and carried three phantom tasks for days. The reliable route is to resolve records to their film and read the catalogue's item list — remembering that a film can carry more than one parish."
   }
  ]
 }

@@ -87,6 +87,22 @@ const max = Math.max(...d.clusters.map(c => c.n));
 </section>
 
 
+  <Rule name="pomegranate" label="A test of the method" />
+
+<section class="blk" id="filter">
+  <h2>{d.filter.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.filter.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.filter.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/`(.+?)`/g,"<code>$1</code>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{d.filter.source_filter}</p>
+</section>
+
   <Rule name="tablet" label="Ninety-three parishes" />
 
 <section class="blk" id="parishmap">
