@@ -36,20 +36,16 @@ const md = (s) => s
   </div>
 
   <h2 style="font-size:31px;margin-top:52px">{f.more.heading}</h2>
-  <p class="dek" style="margin-top:8px">{f.more.lead}</p>
-  <div class="scroll" style="margin-top:20px">
-    <table>
-      <thead><tr><th class="m">Date</th><th>Place</th><th>The index entry</th><th>Why it matters</th></tr></thead>
-      <tbody>{f.more.rows.map(r => (
-        <tr>
-          <td class="m" style="white-space:nowrap">{r.y}</td>
-          <td>{r.p}</td>
-          <td set:html={md(r.t)} />
-          <td class="dek" style="font-size:13px">{r.why}</td>
-        </tr>
-      ))}</tbody>
-    </table>
-  </div>
+  <p class="dek" style="margin-top:8px" set:html={md(f.more.lead)}></p>
+  <ol class="ents" style="margin-top:24px">{f.more.rows.map(r => (
+    <li class={"ent" + (r.key ? " is-key" : "")}>
+      <div class="lab">{r.lab}</div>
+      {r.q && <blockquote set:html={md(r.q)} />}
+      {r.en && <p class="tr">{r.en}</p>}
+      <p class={r.q ? "wh" : "wh nb"} set:html={md(r.why)} />
+    </li>
+  ))}</ol>
+  <p class="prose note" style="margin-top:24px" set:html={md(f.more.close)}></p>
 
   <p class="cap" style="margin-top:30px">{f.source}</p>
   <p class="cap" style="margin-top:10px">
@@ -67,4 +63,5 @@ const md = (s) => s
   .ent blockquote{margin:10px 0 0;font-size:17.5px;line-height:1.7;font-style:italic}
   .ent .tr{margin-top:12px;font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2)}
   .ent .wh{margin-top:14px;padding-top:14px;border-top:1px dotted var(--rule);font-size:16.5px}
+  .ent .wh.nb{margin-top:8px;padding-top:0;border-top:0}
 </style>
