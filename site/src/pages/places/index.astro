@@ -4,9 +4,9 @@ import Base from "../../layouts/Base.astro";
 import Sources from "../../components/Sources.astro";
 import places from "../../data/places.json";
 const alt=(p)=>Object.entries(p.alt||{}).map(([k,v])=>`${k}. ${v}`).join(" · ");
-const groups=[["istria","Central & southern Istria"],["kvarner","Senj & Vinodol"],["carnia","Carnia, Friuli"],["dalmatia","Dalmatia — Omiš, Imotski, Split"]];
+const groups=[["istria","Central & southern Istria"],["kvarner","Kvarner — Rijeka, Bakar, Senj & Vinodol"],["carnia","Carnia, Friuli"],["dalmatia","Dalmatia — Omiš, Imotski, Split, Brač"],["trentino","Trentino & South Tyrol — same name, no proven descent"],["diaspora","Where they went — America, Germany, the Veneto"]];
 ---
-<Base title="Places" eyebrow="Nine settlements, three jurisdictions"
+<Base title="Places" eyebrow={`${places.length} settlements, six regions`}
       dek="Every place carries all of its names, because which name a document uses tells you who was keeping it.">
 {groups.map(([g,label])=>(
   <section class="blk">

@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import c from "../data/corrections.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+const sev = { serious: "Serious", minor: "Minor", process: "Process", note: "Not ours" };
+const order = ["serious", "process", "minor", "note"];
+const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
+const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev === k).length]));
+---
+<Base title="Corrections"
+      eyebrow={`${c.rows.length} entries · ${counts.serious} serious`}
+      dek="Every claim this archive has published and then had to take back.">
+
+<section class="blk">
+  <p class="prose note" set:html={md(c.note)}></p>
+</section>
+
+<Rule name="arrows" label="The list" />
+
+<section class="blk">
+  <div style="display:flex;flex-direction:column;gap:20px">
+    {rows.map(r => (
+      <article class={"corr sev-" + r.sev}>
+        <div class="chead">
+          <span class="tag">{sev[r.sev]}</span>
+          <span class="when">{r.when}</span>
+          <h3>{r.what}</h3>
+        </div>
+        <dl>
+          <dt>This archive said</dt><dd set:html={md(r.said)}></dd>
+          <dt>What is true</dt><dd set:html={md(r.true)}></dd>
+          <dt>How it happened</dt><dd set:html={md(r.how)}></dd>
+        </dl>
+        {r.where && <p class="cap"><a href={u(r.where)}>Corrected in place, here →</a></p>}
+      </article>
+    ))}
+  </div>
+</section>
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="prose note">Corrections are made on the page where the claim was made, under the original wording, rather than by deleting it. This page is the index to them, not a substitute. The running log of every search, including the ones that found nothing, is in <a href={u("/research-log/")}>the Search Register</a>.</p>
+</section>
+
+<style>
+  .corr { border: 1px solid var(--rule, #dcd6cc); border-left-width: 4px; border-radius: 3px; padding: 20px 22px; }
+  .sev-serious { border-left-color: var(--terra, #a5442c); }
+  .sev-process { border-left-color: #8a7f5c; }
+  .sev-minor   { border-left-color: var(--rule, #dcd6cc); }
+  .sev-note    { border-left-color: transparent; opacity: .88; }
+  .chead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .tag { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px;
+         border: 1px solid currentColor; border-radius: 2px; opacity: .75; }
+  .sev-serious .tag { color: var(--terra, #a5442c); opacity: 1; }
+  .when { font-size: 12px; opacity: .6; }
+  .chead h3 { flex: 1 1 100%; margin: 6px 0 0; font-size: 21px; line-height: 1.25; }
+  dl { margin: 16px 0 0; display: grid; grid-template-columns: minmax(0,150px) 1fr; gap: 10px 22px; }
+  dt { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; opacity: .6; padding-top: 3px; }
+  dd { margin: 0; font-size: 15.5px; line-height: 1.68; }
+  .corr .cap { margin-top: 16px; }
+  @media (max-width: 640px) { dl { grid-template-columns: 1fr; gap: 4px; } dt { margin-top: 10px; } }
+</style>
+</Base>
