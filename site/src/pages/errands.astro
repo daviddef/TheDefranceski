@@ -1,0 +1,60 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import e from "../data/errands.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+const pri = { high: "Send first", medium: "Worth sending", low: "When convenient" };
+---
+<Base title={e.title} eyebrow={e.eyebrow} dek={e.dek}>
+<section class="blk"><p class="prose" set:html={md(e.lead)}></p></section>
+<Rule name="arrows" label="The requests" />
+<section class="blk">
+  <div style="display:flex;flex-direction:column;gap:22px">
+    {e.rows.map(r => (
+      <article class={"errand p-" + r.pri}>
+        <div class="ehead">
+          <span class="num">{String(r.n).padStart(2, "0")}</span>
+          <span class="tag">{pri[r.pri]}</span>
+          <h3>{r.what}</h3>
+          <div class="who">{r.who}</div>
+        </div>
+        <dl>
+          <dt>Reference</dt><dd class="mono" set:html={md(r.ref)}></dd>
+          <dt>What it settles</dt><dd set:html={md(r.why)}></dd>
+          <dt>What to ask for</dt><dd set:html={md(r.ask)}></dd>
+        </dl>
+        <div class="draft"><div class="dl">Draft</div><p set:html={md(r.draft)}></p></div>
+      </article>
+    ))}
+  </div>
+</section>
+<Rule name="pomegranate" />
+<section class="blk"><p class="prose note" set:html={md(e.close)}></p>
+  <p class="cap" style="margin-top:14px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/parish-books/")}>Parish Books →</a></p>
+</section>
+<style>
+  .errand { border: 1px solid var(--rule, #dcd6cc); border-left-width: 4px; border-radius: 3px; padding: 20px 22px; }
+  .p-high { border-left-color: var(--terra, #a5442c); }
+  .p-medium { border-left-color: #8a7f5c; }
+  .p-low { border-left-color: var(--rule, #dcd6cc); }
+  .ehead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .num { font-size: 12px; opacity: .45; font-variant-numeric: tabular-nums; }
+  .tag { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px;
+         border: 1px solid currentColor; border-radius: 2px; opacity: .7; }
+  .p-high .tag { color: var(--terra, #a5442c); opacity: 1; }
+  .ehead h3 { flex: 1 1 100%; margin: 6px 0 0; font-size: 21px; line-height: 1.25; }
+  .ehead .who { flex: 1 1 100%; font-size: 13px; opacity: .68; }
+  dl { margin: 16px 0 0; display: grid; grid-template-columns: minmax(0,148px) 1fr; gap: 10px 22px; }
+  dt { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; opacity: .6; padding-top: 3px; }
+  dd { margin: 0; font-size: 15px; line-height: 1.66; }
+  .draft { margin-top: 18px; padding: 14px 16px; border: 1px dashed var(--rule, #dcd6cc); border-radius: 3px; }
+  .dl { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; opacity: .55; }
+  .draft p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.7; }
+  @media (max-width: 640px) { dl { grid-template-columns: 1fr; gap: 4px; } dt { margin-top: 10px; } }
+</style>
+</Base>
