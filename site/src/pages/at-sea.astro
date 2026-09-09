@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/atsea.json";
+const md = (s) => s
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+  <p class="note" style="margin-top:26px" set:html={md(d.how)}></p>
+
+  <Rule name="arrows" label="Vessels" />
+
+  <h2 style="font-size:31px">{d.ships.heading}</h2>
+  <ol class="ships">{d.ships.rows.map(s => (
+    <li>
+      <div class="sh-name"><em>{s.n}</em><span class="mono">{s.y}</span></div>
+      <p set:html={md(s.t)}></p>
+    </li>
+  ))}</ol>
+
+  <h2 style="font-size:31px;margin-top:52px">{d.voyages.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.voyages.lead}</p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th class="m">Date</th><th>Port</th><th>As printed</th></tr></thead>
+      <tbody>{d.voyages.rows.map(([a, b, c]) => (
+        <tr><td class="m" style="white-space:nowrap">{a}</td><td set:html={md(b)} /><td set:html={md(c)} /></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <Rule />
+
+  <h2 style="font-size:31px">{d.company.heading}</h2>
+  <div class="one" style="border-left-color:var(--accent);margin-top:18px">
+    <p style="white-space:pre-line" set:html={md(d.company.text)}></p>
+  </div>
+
+  <Rule name="pomegranate" label="Cardiff, 1896" />
+
+  <h2 style="font-size:31px">{d.cardiff.heading}</h2>
+  <p class="dek" style="margin-top:8px">{d.cardiff.lead}</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.cardiff.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <blockquote class="cut" set:html={md(r.q)} />
+        {r.why && <p style="margin-top:12px;white-space:pre-line" set:html={md(r.why)}></p>}
+      </div>
+    ))}
+  </div>
+
+  <p class="prose note" style="margin-top:30px" set:html={md(d.honest)}></p>
+  <p class="cap" style="margin-top:14px">{d.source}</p>
+  <p class="cap" style="margin-top:10px">
+    See <a href={u("/lines/#regions")}>Bakar among the regions</a> ·
+    <a href={u("/diaspora/")}>Where the name went</a> ·
+    <a href={u("/namesakes/")}>Namesakes</a>.
+  </p>
+</Base>
+
+<style>
+  .ships{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
+  .ships li{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--accent-2);
+    border-radius:3px;padding:16px 20px;max-width:78ch}
+  .sh-name{display:flex;gap:12px;align-items:baseline;margin-bottom:8px}
+  .sh-name em{font-size:22px;font-family:var(--serif)}
+  .sh-name .mono{color:var(--ink-3);letter-spacing:.06em}
+  blockquote.cut{margin:10px 0 0;padding-left:14px;border-left:2px solid var(--rule-strong);
+    font-size:17px;line-height:1.7;font-style:italic}
+</style>
