@@ -80,6 +80,29 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
     ))}
   </div>
 
+
+  <h3 style="font-size:25px;margin-top:46px">{am.images.heading}</h3>
+  <p class="dek" style="margin-top:8px">{am.images.lead}</p>
+  <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
+    {am.images.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        {r.q && <blockquote class="doc" set:html={md(r.q)} />}
+        <p style="margin-top:10px;white-space:pre-line" set:html={md(r.why)}></p>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size:25px;margin-top:46px">{am.cleared.heading}</h3>
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:14px">
+    {am.cleared.rows.map(r => (
+      <div class="one" style="border-left-color:var(--ink-3)">
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={md(r.text)}></p>
+      </div>
+    ))}
+  </div>
+
   <h3 style="font-size:25px;margin-top:44px">{am.fused.heading}</h3>
   <p class="dek" style="margin-top:8px">{am.fused.lead}</p>
   <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
@@ -218,4 +241,6 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 <style>
   table.hh{font-size:14px}
   table.hh td,table.hh th{padding:6px 12px 6px 0}
+  blockquote.doc{margin:12px 0 0;padding:12px 16px;background:var(--panel-2);border-radius:3px;
+    font-family:var(--mono);font-size:13px;line-height:1.75;white-space:pre-line}
 </style>
