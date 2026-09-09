@@ -1,0 +1,83 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import v from "../data/vodnjan.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+---
+<Base title={v.title} eyebrow={v.eyebrow} dek={v.dek}>
+<section class="blk"><p class="prose" set:html={md(v.lead)}></p></section>
+
+{v.trees.map(t => (
+<>
+<Rule name="arrows" label={t.name} />
+<section class="blk">
+  <h2>{t.name}</h2>
+  <p class="dek" style="margin-top:8px">{t.note}</p>
+  <div class="tree">
+    {t.gens.map((g, i) => (
+      <div class="gen">
+        <div class="gn">{["I","II","III","IV","V"][i]}</div>
+        <div class="row">
+          {g.map(p => (
+            <div class={"pn " + p.c}>
+              <div class="nm">{p.n}</div>
+              <div class="dt">{p.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+</>
+))}
+
+<Rule name="pomegranate" label="The daughters" />
+<section class="blk">
+  <h2>{v.women.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={md(v.women.lead)}></p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Name</th><th>When</th><th>How she was found</th></tr></thead>
+      <tbody>{v.women.rows.map(([a,b,c]) => (<tr><td><strong>{a}</strong></td><td class="m">{b}</td><td>{c}</td></tr>))}</tbody>
+    </table>
+  </div>
+</section>
+
+<Rule name="tablet" label="Open" />
+<section class="blk">
+  <h2>{v.open.heading}</h2>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {v.open.rows.map(([lab, txt]) => (
+      <div class="one"><div class="lab">{lab}</div><p style="margin-top:8px" set:html={md(txt)}></p></div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:22px">{v.source}</p>
+  <p class="cap" style="margin-top:10px">
+    Entry by entry, in the order it was read: <a href={u("/fiume-1626/")}>the register reading →</a> ·
+    <a href={u("/places/vodnjan/")}>Vodnjan in Places →</a> ·
+    <a href={u("/errands/")}>the Pola dispensations that would settle it →</a>
+  </p>
+</section>
+
+<style>
+  .tree { margin-top: 24px; display: flex; flex-direction: column; gap: 4px; }
+  .gen { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start;
+         padding: 12px 0; border-top: 1px solid var(--rule, #dcd6cc); }
+  .gen:first-child { border-top: 0; }
+  .gn { font-size: 11px; letter-spacing: .1em; opacity: .45; padding-top: 6px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pn { flex: 1 1 236px; min-width: 0; padding: 10px 13px; border: 1px solid var(--rule, #dcd6cc);
+        border-left-width: 3px; border-radius: 2px; }
+  .pn.doc { border-left-color: var(--terra, #a5442c); }
+  .pn.inf { border-left-color: var(--rule, #dcd6cc); border-left-style: dashed; }
+  .pn .nm { font-size: 16px; line-height: 1.3; }
+  .pn .dt { margin-top: 4px; font-size: 12.5px; line-height: 1.5; opacity: .72; }
+  @media (max-width: 620px) { .gen { grid-template-columns: 1fr; gap: 6px; } .pn { flex: 1 1 100%; } }
+</style>
+</Base>

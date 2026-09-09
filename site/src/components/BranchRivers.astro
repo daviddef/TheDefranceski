@@ -73,6 +73,22 @@ const LANES = [
     ],
   },
   {
+    key: "vodnjan", colour: "var(--r-venice, var(--ochre))", label: "Vodnjan — five generations, read by eye", href: "/vodnjan/", read: "The Vodnjan page →",
+    conf: "documented · marriage register indexed nowhere",
+    nodes: [
+      ["Pietro", "1770s", "Named only in his son's patronymic — «Gio. Maria De Franceschi fu Pietro». The oldest man in the line, standing behind a marriage of the 1770s"],
+      ["Gio. Maria", "by 1818", "× Michiela Zambaletta fu Cristoforo. Both dead by 1830, and neither appears in any baptism register on any film this archive can reach"],
+      ["Pietro", "1818", "Born about 1776; widower of Veniera Francin, remarries Lorenza Tesser on 30 March 1818 — the first entry this archive found in the book"],
+      ["Gio: Maria", "1821", "Born about 1799; marries Lucia Bonassin on 9 June 1821, and the entry names his father, grandfather and great-grandfather"],
+      ["Giuseppe", "1833", "The other household: Giuseppe × Lucia Tromba, parents of Don Stefano the priest, Pietro the ploughman, Cristoforo the weaver and Maria Francesca"],
+    ],
+    ends: [
+      ["Rovinj", "/places/rovinj/", "«Ob.to di Matt.o de Franceschi da Dignano», buried at Rovinj on 27 December 1728 — and in the 1840s Bona Defranceschi, daughter of Dominicus and Oliva Dorligurro, marrying there. The town-name is written down only from outside the town."],
+      ["Šišan", "/places/sterna/", "A wedding at Sissano in January 1824 witnessed by «Pietro De Franceschi di Gio., da Dignano, Tessitore»."],
+      ["Svetvinčenat", "/istria-sweep/", "«Ant.o De Franceschi fu Vittorio» witnessing at a wedding held by the archpriest at Sanvicenti in 1826. Recorded as a coincidence of the page and not claimed as a link."],
+    ],
+  },
+  {
     key: "corsica", colour: "var(--r-italy)", label: "Out of Corsica — never in Istria",
     conf: "documented · not this family", href: "/namesakes/", read: "The namesakes →",
     parallel: true,
@@ -98,19 +114,22 @@ const UNPLACED = [
   ["Fiume", "/carlos-letter/", "Kobler found three separate stocks in the Rijeka civic registers and refused to join them to one another. One of them — Valentino, «venuto dalla Carnia», a citizen in 1739 — is almost certainly the Carnian family. The other two are not placed."],
   ["Svetvinčenat", "/istria-sweep/", "142 records from 1666, the second-largest concentration in the sweep. Kandler's list of the Carnian families settled at Sanvincenti names Defranceschi among Lupieri, Fiorencis, Fabris and Crosilla — so the origin is Carnian, but whether it is our Carnian household or another one out of the same valleys is not shown."],
   ["Bakar", "/crikvenica-house/", "Twelve people, one household across three generations, from before 1772 to a death in 1819 — Dominus Giovanni Battista son of Dominus Francesco, styled Dominus, a citizen-class family. Nothing on the page ties them to Gologorica, to Gračišće, or to Kobler's Fiume stocks, and this archive will not join a fourth household to them on the strength of two common Christian names."],
-  ["Vodnjan", "/istria-sweep/", "78 records. Carlo's own book names Franceschi among the nobles of Pola «venuti da Capodistria» before the plague of 1631 — which would make them the extinct Koper family and none of the four."],
+  ["Rovinj", "/places/rovinj/", "The earliest dated Istrian record this archive holds — «morì ser Piero di Franceschi da Pola», 27 May 1619 — plus a Rovinj household across three generations from Giacomo to Piero Anto in 1736. Neither is joined to any lane. It is also where Carlo De Franceschi was married at his own bedside in 1852."],
 ];
 const LOOSE = [
   ["Brazil", "/diaspora/", "The largest cluster of the surname anywhere — Rio Grande do Sul, Santa Catarina, São Paulo. Veneto and Trentino, not Istrian: the in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco."],
   ["Ticino", "/diaspora/", "Italian-speaking Switzerland, over the border from Lombardy. A different stock of the same ordinary patronymic."],
   ["Michigan", "/diaspora/", "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan, with a wife born in Switzerland. Nothing joins him to Istria."],
 ];
-const BANDS = [ {y0:34,sp:112,h:150}, {y0:192,sp:268,h:140}, {y0:340,sp:414,h:140}, {y0:488,sp:566,h:128}, {y0:630,sp:712,h:150} ];
+const BH = 140, BGAP = 152;
+const BANDS = LANES.map((_, i) => ({ y0: 34 + i * BGAP, sp: 34 + i * BGAP + 76, h: BH }));
+const LOOSE_Y = 34 + LANES.length * BGAP + 22;   // rule
+const VH = LOOSE_Y + 124;                        // viewBox height
 const X0 = 150, X1 = 700, XE = 902;
 ---
 <figure class="rivers">
-  <svg viewBox="0 0 1040 930" role="img" aria-labelledby="riversttl">
-    <title id="riversttl">Four families of one surname, and the road each of them took</title>
+  <svg viewBox={`0 0 1040 ${VH}`} role="img" aria-labelledby="riversttl">
+    <title id="riversttl">Six families of one surname, and the road each of them took</title>
     {LANES.map((lane, li) => {
       const b = BANDS[li];
       const n = lane.nodes.length;
@@ -171,31 +190,31 @@ const X0 = 150, X1 = 700, XE = 902;
       );
     })}
     <g>
-      <line x1="12" y1="806" x2={W - 12} y2="806" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="2 4" />
-      <text x="12" y="826" class="loose-head">Real households of the name — not yet placed on any of these lines</text>
+      <line x1="12" y1={LOOSE_Y} x2={W - 12} y2={LOOSE_Y} stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="12" y={LOOSE_Y + 20} class="loose-head">Real households of the name — not yet placed on any of these lines</text>
       {UNPLACED.map((l, i) => (
         <g class="node" tabindex="0" role="button"
            data-place={l[0]} data-year="unplaced" data-why={l[2]}
            data-lane="Not yet placed on a line" data-href={u(l[1])} data-read={`Where ${l[0]} is written up`}>
           <title>{l[0]} — {l[2]}</title>
-          <circle cx={150 + i * 200} cy={846} r="7" fill="transparent" />
-          <circle cx={150 + i * 200} cy={846} r="4.5" fill="none" stroke="var(--ink-2)" stroke-width="1.8" />
-          <text x={162 + i * 200} y={850} class="loose">{l[0]}</text>
+          <circle cx={150 + i * 200} cy={LOOSE_Y + 40} r="7" fill="transparent" />
+          <circle cx={150 + i * 200} cy={LOOSE_Y + 40} r="4.5" fill="none" stroke="var(--ink-2)" stroke-width="1.8" />
+          <text x={162 + i * 200} y={LOOSE_Y + 44} class="loose">{l[0]}</text>
         </g>
       ))}
 
-      <text x="12" y="886" class="loose-head">Attached to no line here — a different stock of a very common name</text>
+      <text x="12" y={LOOSE_Y + 80} class="loose-head">Attached to no line here — a different stock of a very common name</text>
       {LOOSE.map((l, i) => (
         <g class="node" tabindex="0" role="button"
            data-place={l[0]} data-year="—" data-why={l[2]}
            data-lane="Attached to no line here" data-href={u(l[1])} data-read={`Where ${l[0]} is written up`}>
           <title>{l[0]} — {l[2]}</title>
-          <circle cx={150 + i * 200} cy={906} r="7" fill="transparent" />
-          <circle cx={150 + i * 200} cy={906} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
-          <text x={162 + i * 200} y={910} class="loose">{l[0]}</text>
+          <circle cx={150 + i * 200} cy={LOOSE_Y + 100} r="7" fill="transparent" />
+          <circle cx={150 + i * 200} cy={LOOSE_Y + 100} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
+          <text x={162 + i * 200} y={LOOSE_Y + 104} class="loose">{l[0]}</text>
         </g>
       ))}
-      <text x={760} y={910} class="loose-note">— the commonest patronymic in Italy</text>
+      <text x={760} y={LOOSE_Y + 104} class="loose-note">— the commonest patronymic in Italy</text>
     </g>
   </svg>
   <div class="riverread" id="riverread" aria-live="polite">

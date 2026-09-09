@@ -15,7 +15,7 @@ const payload = JSON.stringify({ places: a.places, base: u("/") });
 ---
 <Base
   title="The Atlas"
-  eyebrow="Fifty places, one map"
+  eyebrow={`${a.places.length} places, one map`}
   dek="Every place this archive can put a document in — from the Gorto valley in Carnia to a cemetery in the Victorian Wimmera. The dark line is the documented descent, walked in order.">
 
   <div id="atlas" data-atlas={payload}></div>
