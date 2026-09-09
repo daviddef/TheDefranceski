@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import p from "../data/shots.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+const walks = [...new Set(p.rows.map(r => r.walk))];
+---
+<Base title={p.title} eyebrow={p.eyebrow} dek={p.dek}>
+<section class="blk"><p class="prose" set:html={md(p.lead)}></p></section>
+{walks.map(wk => (
+<>
+<Rule name="arrows" label={wk} />
+<section class="blk">
+  <h2>{wk}</h2>
+  <ol class="frames">
+    {p.rows.filter(r => r.walk === wk).map(r => (
+      <li>
+        <span class="fw"><span class="fd">{r.day === "—" ? "—" : "Day " + r.day}</span><span class="fs">{r.sub}</span></span>
+        <span class="ft" set:html={md(r.shot)}></span>
+      </li>
+    ))}
+  </ol>
+  <p class="cap" style="margin-top:14px"><a href={u(p.rows.find(r => r.walk === wk).href)}>Where this belongs →</a></p>
+</section>
+</>
+))}
+<Rule name="pomegranate" />
+<section class="blk"><p class="prose note" set:html={md(p.close)}></p>
+  <p class="cap" style="margin-top:14px"><a href={u("/walk/")}>The itineraries →</a> · <a href={u("/corrections/")}>Corrections →</a></p>
+</section>
+<style>
+  .frames { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; counter-reset: f; }
+  .frames li { display: grid; grid-template-columns: minmax(0,168px) 1fr; gap: 18px; padding: 12px 14px;
+               border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; }
+  .fw { display: flex; flex-direction: column; gap: 2px; }
+  .fd { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; opacity: .55; }
+  .fs { font-size: 13px; opacity: .8; line-height: 1.35; }
+  .ft { font-size: 15.5px; line-height: 1.62; }
+  @media (max-width: 640px) { .frames li { grid-template-columns: 1fr; gap: 4px; } }
+</style>
+</Base>

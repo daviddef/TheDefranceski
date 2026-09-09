@@ -49,6 +49,24 @@ const md = (s) => String(s ?? "")
   </div>
 </section>
 
+<Rule name="arrows" label="№ domus" />
+<section class="blk">
+  <h2>{v.houses.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={md(v.houses.lead)}></p>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th>House</th><th>When</th><th>Kind</th><th>Whose</th></tr></thead>
+      <tbody>{v.houses.rows.map(([h, w, k, who]) => (
+        <tr><td set:html={md(h)}></td><td class="m">{w}</td><td class="m">{k}</td><td set:html={md(who)}></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="one" style="margin-top:22px;border-left-color:var(--terra)">
+    <div class="lab">The one that repeats</div>
+    <p style="margin-top:8px;white-space:pre-line" set:html={md(v.houses.note)}></p>
+  </div>
+</section>
+
 <Rule name="tablet" label="Open" />
 <section class="blk">
   <h2>{v.open.heading}</h2>
