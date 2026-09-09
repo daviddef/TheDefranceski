@@ -120,6 +120,33 @@ for r in _load("graves"):
     bits = [r.get("span"), r.get("cem"), r.get("place"), r.get("plot")]
     _add(r.get("name"), "Headstone", bits, "/graves/", r.get("url"))
 
+
+# ---- MyHeritage key rows, and provenance for tree-only people ----
+MH = {}
+kr = os.path.join(ROOT, "notes", "myheritage-key-rows.md")
+if os.path.exists(kr):
+    for line in open(kr, encoding="utf-8"):
+        if not re.match(r"^\d{6,8}\|", line): continue
+        f = [x.strip() for x in line.rstrip("\n").split("|")]
+        f += [""] * (8 - len(f))
+        MH[f[0]] = {"name": f[1], "b": f[2], "bp": f[3], "d": f[4], "dp": f[5], "rel": f[6], "arks": f[7]}
+
+def mh_record(r):
+    """A provenance card for a person the archive knows only from the family tree."""
+    k = MH.get(str(r.get("mh") or ""))
+    bits = []
+    if k:
+        if k["b"]: bits.append("Born " + k["b"] + (" at " + k["bp"] if k["bp"] else ""))
+        if k["d"]: bits.append("Died " + k["d"] + (" at " + k["dp"] if k["dp"] else ""))
+        if k["rel"]: bits.append("relationship in the tree: " + k["rel"])
+        if k["arks"]: bits.append("cited to " + str(len(k["arks"].split(","))) + " FamilySearch record(s)")
+    if not bits:
+        yrs = "–".join([str(r["b"]) if r.get("b") else "", str(r["d"]) if r.get("d") else ""]).strip("–")
+        bits = [x for x in (yrs, r.get("place") or "") if x]
+    bits.append("MyHeritage tree 4, individual " + str(r.get("mh")))
+    return {"kind": "Family tree entry — not yet checked against a register",
+            "text": " · ".join(bits), "href": "/people/", "url": None}
+
 old = json.load(open(os.path.join(DATA, "dossiers.json"), encoding="utf-8"))
 people = {}
 
@@ -166,7 +193,8 @@ for slug, rows in by_slug.items():
         "facts": facts,
         "known": notes[0] if notes else "",
         "more": notes[1:],
-        "records": RECORDS.get(" ".join(_key(name)), [])[:12],
+        "records": (RECORDS.get(" ".join(_key(name)), [])[:12]
+                    or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
         "roster": True,
     }
 

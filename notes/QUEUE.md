@@ -166,3 +166,6 @@ sets. `f.recordPlace` is a real filter but rejects plain town names.
 **Never count records by place with `q.*Place`.** Resolve each record to its
 film and read the catalogue's *item list* — not the film heading, because a
 film can carry more than one parish.
+
+`python3 scripts/build-changes.py` — rebuilds /changes/ from the Search
+Register and Corrections. Run it with the other two generators.

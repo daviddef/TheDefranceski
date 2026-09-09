@@ -1,0 +1,60 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import c from "../data/changes.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+  .replace(/\n\n/g, "</p><p style='margin-top:10px'>");
+const K = {
+  hit: ["Found", "k-hit"], yield: ["Yield", "k-hit"], correction: ["Correction", "k-corr"],
+  nothing: ["Nothing", "k-none"], blocked: ["Blocked", "k-none"], pending: ["Pending", "k-none"],
+  partial: ["Partial", "k-part"], mixed: ["Mixed", "k-part"], miss: ["Miss", "k-none"], search: ["Search", "k-part"],
+};
+---
+<Base title={c.title} eyebrow={c.eyebrow} dek={c.dek}>
+<section class="blk"><p class="prose" set:html={md(c.lead)}></p></section>
+{c.days.map(d => (
+<>
+<Rule name="arrows" label={d.when} />
+<section class="blk">
+  <h2>{d.when}</h2>
+  <div class="feed">
+    {d.rows.map(r => (
+      <article class={"ev " + (K[r.kind] || K.search)[1]}>
+        <div class="eh">
+          <span class="tag">{(K[r.kind] || K.search)[0]}</span>
+          <h3>{r.what}</h3>
+          <div class="src">{r.src}</div>
+        </div>
+        <p set:html={md(r.text)}></p>
+        <p class="cap" style="margin-top:10px"><a href={u(r.href)}>Where this lives →</a></p>
+      </article>
+    ))}
+  </div>
+</section>
+</>
+))}
+<Rule name="pomegranate" />
+<section class="blk"><p class="prose note" set:html={md(c.close)}></p>
+  <p class="cap" style="margin-top:12px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/corrections/")}>Corrections →</a> · <a href={u("/method/")}>Method →</a></p>
+</section>
+<style>
+  .feed { display: flex; flex-direction: column; gap: 16px; }
+  .ev { border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-radius: 3px; padding: 16px 18px; }
+  .k-hit  { border-left-color: var(--accent, #8a5a3b); }
+  .k-corr { border-left-color: var(--terra, #a5442c); }
+  .k-part { border-left-color: #8a7f5c; }
+  .k-none { border-left-color: var(--rule, #dcd6cc); }
+  .eh { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .tag { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px;
+         border: 1px solid currentColor; border-radius: 2px; opacity: .7; }
+  .k-corr .tag { color: var(--terra, #a5442c); opacity: 1; }
+  .eh h3 { flex: 1 1 100%; margin: 6px 0 0; font-size: 20px; line-height: 1.28; }
+  .eh .src { flex: 1 1 100%; font-size: 12.5px; opacity: .62; }
+  .ev p { margin: 12px 0 0; font-size: 15.5px; line-height: 1.68; }
+</style>
+</Base>
