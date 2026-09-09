@@ -69,11 +69,29 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   )}
 </section>
 
+{(p.records && p.records.length > 0) && (
+<Rule name="arrows" label="The records themselves" />
+<section class="blk">
+  <div class="recs">
+    {p.records.map(r => (
+      <div class="rec">
+        <div class="rk">{r.kind}</div>
+        <div class="rt">{r.text}</div>
+        <p class="cap" style="margin-top:8px">
+          <a href={u(r.href)}>Where this set is written up →</a>
+          {r.url && <> · <a href={r.url} rel="noopener">the headstone →</a></>}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+)}
+
 {groups.length === 0 && (
 <section class="blk">
   <div class="one">
     <div class="lab">No prose mention yet</div>
-    <p style="margin-top:8px">This person was found in a record rather than written up in an essay — most often read straight off a register page that no index anywhere contains. What is known is at the top, and the pages linked above are where the finding sits.</p>
+    <p style="margin-top:8px">This person has not been written up in an essay yet — most often read straight off a register page that no index anywhere contains. What is known is at the top, and the pages linked above are where the finding sits.</p>
   </div>
 </section>
 )}
@@ -97,6 +115,11 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </Base>
 
 <style>
+  .recs { display: flex; flex-direction: column; gap: 14px; }
+  .rec { padding: 14px 16px; border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px;
+         border-left-color: var(--accent, #8a5a3b); border-radius: 3px; }
+  .rk { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; opacity: .6; }
+  .rt { margin-top: 5px; font-size: 15.5px; line-height: 1.6; }
   .pgal{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
   .pgal .plate{padding:0;border:1px solid var(--rule);background:var(--panel);
     border-radius:3px;cursor:zoom-in;line-height:0;overflow:hidden}

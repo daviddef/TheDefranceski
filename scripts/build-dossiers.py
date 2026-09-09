@@ -78,6 +78,48 @@ for f in sorted(glob.glob(os.path.join(DATA, "*.json"))):
     except Exception:
         pass
 
+
+# ---- structured records, so an index-only person's page shows the record ----
+def _load(name):
+    fp = os.path.join(DATA, name + ".json")
+    if not os.path.exists(fp): return []
+    try: d = json.load(open(fp, encoding="utf-8"))
+    except Exception: return []
+    r = d.get("rows", d) if isinstance(d, dict) else d
+    return r if isinstance(r, list) else []
+
+def _key(n):
+    n = re.sub(r"\s*\(.*?\)\s*", " ", str(n or ""))
+    n = unicodedata.normalize("NFD", n)
+    n = "".join(c for c in n if unicodedata.category(c) != "Mn").lower()
+    n = n.replace("defranceschi", "de franceschi").replace("defranceski", "de franceschi")
+    return re.sub(r"[^a-z ]+", " ", n).split()
+
+RECORDS = {}
+def _add(name, kind, bits, href, extra=None):
+    k = " ".join(_key(name))
+    if not k: return
+    RECORDS.setdefault(k, []).append({"kind": kind, "text": " · ".join([b for b in bits if b]),
+                                      "href": href, "url": extra})
+
+for r in _load("fsrecords"):
+    bits = []
+    for lab in ("birth", "christening", "marriage", "death", "burial"):
+        if r.get(lab): bits.append(f"{lab.capitalize()} {r[lab]}")
+    if r.get("place"): bits.append(r["place"])
+    if r.get("parents"): bits.append("parents: " + r["parents"])
+    if r.get("spouses"): bits.append("spouse: " + r["spouses"])
+    _add(r.get("name"), "FamilySearch record", bits, "/archive/")
+
+for r in _load("burials"):
+    bits = [f"Buried {r['buried']}" if r.get("buried") else "", r.get("place"),
+            f"aged {r['age']}" if r.get("age") else "", r.get("kin")]
+    _add(r.get("name"), "Parish burial", bits, "/burials/")
+
+for r in _load("graves"):
+    bits = [r.get("span"), r.get("cem"), r.get("place"), r.get("plot")]
+    _add(r.get("name"), "Headstone", bits, "/graves/", r.get("url"))
+
 old = json.load(open(os.path.join(DATA, "dossiers.json"), encoding="utf-8"))
 people = {}
 
@@ -124,6 +166,7 @@ for slug, rows in by_slug.items():
         "facts": facts,
         "known": notes[0] if notes else "",
         "more": notes[1:],
+        "records": RECORDS.get(" ".join(_key(name)), [])[:12],
         "roster": True,
     }
 
@@ -131,7 +174,7 @@ for slug, rows in by_slug.items():
 kept = 0
 for slug, p in old.get("people", {}).items():
     if slug not in people:
-        p.setdefault("facts", []); p.setdefault("known", ""); p.setdefault("more", [])
+        p.setdefault("facts", []); p.setdefault("known", ""); p.setdefault("more", []); p.setdefault("records", [])
         p["roster"] = False
         people[slug] = p
         kept += 1

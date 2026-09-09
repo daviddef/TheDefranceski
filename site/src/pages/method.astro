@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import m from "../data/method.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/`(.+?)`/g, "<code>$1</code>")
+  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+---
+<Base title={m.title} eyebrow={m.eyebrow} dek={m.dek}>
+<section class="blk"><p class="prose" set:html={md(m.lead)}></p></section>
+<Rule name="arrows" label="Eleven things" />
+<section class="blk">
+  <ol class="rules">
+    {m.rows.map((r, i) => (
+      <li class={r.key ? "is-key" : ""}>
+        <span class="num">{String(i + 1).padStart(2, "0")}</span>
+        <div>
+          <h3>{r.lab}</h3>
+          <p set:html={md(r.text)}></p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="prose note" set:html={md(m.close)}></p>
+  <p class="cap" style="margin-top:14px">{m.source}</p>
+  <p class="cap" style="margin-top:10px">
+    <a href={u("/corrections/")}>Corrections →</a> · <a href={u("/research-log/")}>The Search Register →</a> ·
+    <a href={u("/istria-sweep/")}>The sweep, and the test of it →</a> · <a href={u("/vodnjan/")}>What the unindexed book gave →</a>
+  </p>
+</section>
+<style>
+  .rules { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+  .rules li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 16px 18px;
+              border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-radius: 3px; }
+  .rules li.is-key { border-left-color: var(--terra, #a5442c); }
+  .num { font-size: 13px; opacity: .4; font-variant-numeric: tabular-nums; padding-top: 5px; }
+  .rules h3 { margin: 0; font-size: 20px; line-height: 1.25; }
+  .rules p { margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; white-space: pre-line; }
+  @media (max-width: 620px) { .rules li { grid-template-columns: 1fr; gap: 6px; } }
+</style>
+</Base>
