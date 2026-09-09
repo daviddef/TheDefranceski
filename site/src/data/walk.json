@@ -1,11 +1,41 @@
 {
  "note": "Itineraries for walking a line on the ground. Carnia first. Everything on these pages is drawn from what this archive has already established; where a stop rests on something unverified it says so.",
  "lines": [
-  {"id":"carnia","name":"The Carnia line","href":"/walk/carnia/","status":"written","dek":"Val Degano, Friuli — three days on foot and one in an archive. The valley the weavers came out of."},
-  {"id":"gologorica","name":"The Gologorica line","href":"","status":"next","dek":"Central Istria: Gologorica, Gračišće, Pićan, Pazin. The house of 1711 and the eleven."},
-  {"id":"kvarner","name":"The Kvarner line","href":"","status":"queued","dek":"Klenovica, Crikvenica, Senj, Bribir. The coast the family moved down to."},
-  {"id":"venice","name":"The Venice and Dalmatia line","href":"","status":"queued","dek":"Venice, Zadar, Omiš, Imotski."},
-  {"id":"german","name":"The German leg","href":"","status":"queued","dek":"Pfullingen, Reutlingen, Metzingen, Neuhausen, Bad Urach, 1941–45."}
+  {
+   "id": "carnia",
+   "name": "The Carnia line",
+   "href": "/walk/carnia/",
+   "status": "written",
+   "dek": "Val Degano, Friuli — three days on foot and one in an archive. The valley the weavers came out of."
+  },
+  {
+   "id": "gologorica",
+   "name": "The Gologorica line",
+   "href": "/walk/gologorica/",
+   "status": "written",
+   "dek": "Central Istria: the house of 1711, Carlo's grave, Gračišće, Pićan, and four archives. Chapters two and three of our own line."
+  },
+  {
+   "id": "kvarner",
+   "name": "The Kvarner line",
+   "href": "",
+   "status": "queued",
+   "dek": "Klenovica, Crikvenica, Senj, Bribir. The coast the family moved down to."
+  },
+  {
+   "id": "venice",
+   "name": "The Venice and Dalmatia line",
+   "href": "",
+   "status": "queued",
+   "dek": "Venice, Zadar, Omiš, Imotski."
+  },
+  {
+   "id": "german",
+   "name": "The German leg",
+   "href": "",
+   "status": "queued",
+   "dek": "Pfullingen, Reutlingen, Metzingen, Neuhausen, Bad Urach, 1941–45."
+  }
  ],
  "carnia": {
   "title": "Walk the Carnia line",
@@ -29,9 +59,30 @@
     "sub": "Tolmezzo → Villa Santina → Ovaro · about 30 km · half a day",
     "lead": "Do not drive straight up the valley. The single fact that makes the whole Carnia line intelligible — that these were not peasants who emigrated but a licensed trade that travelled — is best learned in one afternoon in Tolmezzo.",
     "stops": [
-     {"n":"1a","place":"Museo Carnico delle Arti Popolari «Michele Gortani», Tolmezzo","access":"open","what":"The museum of Carnian material culture, in the Palazzo Campeis. What you are there for is the **cramar** — the pedlar-weaver of these valleys who went north and east with a *crame*, a wooden chest strapped to his back, selling linen and thread and coming home in the spring. Carlo De Franceschi's own book says this trade is what took the men of the Ovaro parishes out of the valley.","ask":"Ask whether they hold anything on the *tessitori* of the Canale di Gorto specifically, and on the seventeenth-century *merighi* returns.","link":"/carnia/#weavers"},
-     {"n":"1b","place":"Villa Santina — the mouth of the valley","access":"open","what":"Ten minutes on. Where the Degano comes out of the mountains into the Tagliamento. It is worth five minutes standing on the bridge, because this is the gate: every man who left the Canale di Gorto for Istria came through here, and so did every one who came back.","ask":"","link":""},
-     {"n":"1c","place":"Ovaro","access":"open","what":"Up the SR355. Ovaro is the *comune* — thirteen villages under one town hall, and four of them are on your list. Get the lie of it before dark: the town is on the valley floor, the Pieve is on the terrace above to the north, and Agrons and Mione are on the slopes either side.","ask":"At the **Municipio di Ovaro**, ask the *ufficio anagrafe* whether the **stato civile** registers from 1871 can be searched for De Franceschi, and whether anyone in the office knows which houses in Mione and Muina carry the name today. This is the single most productive door in the valley and almost nobody knocks on it.","link":"/carnia/#households1806"}
+     {
+      "n": "1a",
+      "place": "Museo Carnico delle Arti Popolari «Michele Gortani», Tolmezzo",
+      "access": "open",
+      "what": "The museum of Carnian material culture, in the Palazzo Campeis. What you are there for is the **cramar** — the pedlar-weaver of these valleys who went north and east with a *crame*, a wooden chest strapped to his back, selling linen and thread and coming home in the spring. Carlo De Franceschi's own book says this trade is what took the men of the Ovaro parishes out of the valley.",
+      "ask": "Ask whether they hold anything on the *tessitori* of the Canale di Gorto specifically, and on the seventeenth-century *merighi* returns.",
+      "link": "/carnia/#weavers"
+     },
+     {
+      "n": "1b",
+      "place": "Villa Santina — the mouth of the valley",
+      "access": "open",
+      "what": "Ten minutes on. Where the Degano comes out of the mountains into the Tagliamento. It is worth five minutes standing on the bridge, because this is the gate: every man who left the Canale di Gorto for Istria came through here, and so did every one who came back.",
+      "ask": "",
+      "link": ""
+     },
+     {
+      "n": "1c",
+      "place": "Ovaro",
+      "access": "open",
+      "what": "Up the SR355. Ovaro is the *comune* — thirteen villages under one town hall, and four of them are on your list. Get the lie of it before dark: the town is on the valley floor, the Pieve is on the terrace above to the north, and Agrons and Mione are on the slopes either side.",
+      "ask": "At the **Municipio di Ovaro**, ask the *ufficio anagrafe* whether the **stato civile** registers from 1871 can be searched for De Franceschi, and whether anyone in the office knows which houses in Mione and Muina carry the name today. This is the single most productive door in the valley and almost nobody knocks on it.",
+      "link": "/carnia/#households1806"
+     }
     ]
    },
    {
@@ -40,10 +91,38 @@
     "sub": "Ovaro → Luincis · 1.5 km · a full day, and take a tripod",
     "lead": "There are more De Franceschi in this one churchyard than this archive has found in the whole of Istria. Give it the entire day. It is the reason the rest of the itinerary exists.",
     "stops": [
-     {"n":"2a","place":"Pieve di Santa Maria di Gorto, Luincis","access":"open","what":"The mother church of the whole Canale di Gorto, on the terrace above Ovaro — one of the eleven ancient *pievi* of Carnia, probably eighth-century, says the provincial panel at the door. It burned and was rebuilt in 1431 by «maestro Stefano quondam Simone di Mena»; the present building is eighteenth-century over that. Mione, Muina, Agrons, Cella, Ovasta and Luint were all subject to it. **Every baptism, marriage and burial of this family before the nineteenth century happened here or was registered here.**","ask":"","link":"/carnia/#gorto"},
-     {"n":"2b","place":"Inside: the campanile, the frescoes, the organ","access":"open","what":"The leaning fourteenth-century bell tower. The Romanesque **Wise and Foolish Virgins** frescoes. And the **organ of 1778 by de Corte of Ovasta** — built two kilometres up the road by a family from the next village, and the loudest surviving object anyone in this family would have heard.","ask":"Ask the parish whether the organ case carries the builder's inscription and whether it can be photographed. This archive has no image of it.","link":""},
-     {"n":"2c","place":"The churchyard — thirty stones","access":"open","what":"Work it as a grid, not as a hunt. Thirty-odd stones carry the name or marry into it. What the family photographed in 2026 gave this archive **Soravito De Franceschi** cut in stone — proof that the Carnian house-name in David's tree is a real thing on real granite — and a list of in-laws that reads like the Istrian surname list: Crosilla, Pustetto, Rovis, Giorgis, Fiorencis, Corva, Misdariis, Dell'Oste, Mirai, Adami, Cecconi.","ask":"","link":"/carnia/#gortostones"},
-     {"n":"2d","place":"The 1954 war memorial in the yard","access":"open","what":"«GUERRA 1940–1945». Among the missing, **DE FRANCESCHI ISIDORO**; among the civilians killed on 1–2 November 1944, **DE FRANCESCHI EGIDIO**. Photograph the whole panel, both columns, straight on — this archive has it, but not in a frame that reads end to end.","ask":"","link":"/carnia/#gorto_war"}
+     {
+      "n": "2a",
+      "place": "Pieve di Santa Maria di Gorto, Luincis",
+      "access": "open",
+      "what": "The mother church of the whole Canale di Gorto, on the terrace above Ovaro — one of the eleven ancient *pievi* of Carnia, probably eighth-century, says the provincial panel at the door. It burned and was rebuilt in 1431 by «maestro Stefano quondam Simone di Mena»; the present building is eighteenth-century over that. Mione, Muina, Agrons, Cella, Ovasta and Luint were all subject to it. **Every baptism, marriage and burial of this family before the nineteenth century happened here or was registered here.**",
+      "ask": "",
+      "link": "/carnia/#gorto"
+     },
+     {
+      "n": "2b",
+      "place": "Inside: the campanile, the frescoes, the organ",
+      "access": "open",
+      "what": "The leaning fourteenth-century bell tower. The Romanesque **Wise and Foolish Virgins** frescoes. And the **organ of 1778 by de Corte of Ovasta** — built two kilometres up the road by a family from the next village, and the loudest surviving object anyone in this family would have heard.",
+      "ask": "Ask the parish whether the organ case carries the builder's inscription and whether it can be photographed. This archive has no image of it.",
+      "link": ""
+     },
+     {
+      "n": "2c",
+      "place": "The churchyard — thirty stones",
+      "access": "open",
+      "what": "Work it as a grid, not as a hunt. Thirty-odd stones carry the name or marry into it. What the family photographed in 2026 gave this archive **Soravito De Franceschi** cut in stone — proof that the Carnian house-name in David's tree is a real thing on real granite — and a list of in-laws that reads like the Istrian surname list: Crosilla, Pustetto, Rovis, Giorgis, Fiorencis, Corva, Misdariis, Dell'Oste, Mirai, Adami, Cecconi.",
+      "ask": "",
+      "link": "/carnia/#gortostones"
+     },
+     {
+      "n": "2d",
+      "place": "The 1954 war memorial in the yard",
+      "access": "open",
+      "what": "«GUERRA 1940–1945». Among the missing, **DE FRANCESCHI ISIDORO**; among the civilians killed on 1–2 November 1944, **DE FRANCESCHI EGIDIO**. Photograph the whole panel, both columns, straight on — this archive has it, but not in a frame that reads end to end.",
+      "ask": "",
+      "link": "/carnia/#gorto_war"
+     }
     ],
     "shots": [
      "The **Pustetto / De Franceschi** stone — the existing frame cuts off the death years.",
@@ -62,11 +141,47 @@
     "sub": "Mione · Muina · Agrons · Cella and Ovasta · under 10 km all told · a full day",
     "lead": "These are the four names the documents give: Mione and Muina from Carlo's own letter and from the Napoleonic registers, Agrons from the 1679 weavers' list and from Brhan, Cella alongside it. Walk between them if the weather allows — the paths are older than the road, and the distances are twenty minutes each.",
     "stops": [
-     {"n":"3a","place":"Mione di Ovaro","access":"open","what":"**The village of the 1679 list.** «Zuane De Franceschi con un suo fiolo, Zuane d'Erman: questi tre nell'Istria, luogo imperiale.» Also the village of the **dal Ginut** household — five generations of De Franceschi with their trades and their house-name — and the birthplace, on 8 December 1939, of **Monsignor Lucio Soravito de Franceschi**, later Bishop of Adria-Rovigo. The Chiesa di Sant'Antonio and the provincial sign at its door.","ask":"Ask in the village for the house **«dal Ginut»**. A house-name outlives the family in it, and somebody will know which building it is. Nobody in this project has ever identified it on the ground.","link":"/carnia/#ginut"},
-     {"n":"3b","place":"The war memorial at Mione, by the cemetery road","access":"open","what":"Set 19 September 1954. Two columns: the soldiers, with **DE FRANCESCHI ISIDORO** first among the *dispersi*, and the civilians killed on 1 and 2 November 1944, with **DE FRANCESCHI EGIDIO**.","ask":"","link":"/carnia/#gorto_war"},
-     {"n":"3c","place":"Muina","access":"open","what":"The other village Carlo names — «ve n'ha tuttodì a Mione e Muina della Carnia», there are still some today at Mione and Muina. The Napoleonic marriage acts put a household here four generations deep: **Leonardo**, dead before 1808; his son **Antonio** and **Maria née Corva**, farmers; their son **Osvaldo**, born at Muina 14 March 1788, married at twenty in January 1808. The memorial of 22 August 1920 carries **DE FRANCESCHI VITTORIO** and **DE FRANCESCHI ISIDORO** among sixteen dead of the first war.","ask":"","link":"/carnia/#muina"},
-     {"n":"3d","place":"Agrons","access":"open","what":"**The one stop on this itinerary nobody in this family has ever made.** Agrons is the village Brhan and Bertoša name as the family's own, with *gismanial* feudal rights attached, and the 1679 list pairs it with Cella: «Mathio Ruvis con doi fioli… questi tre nell'Istria, luogo imperiale» — the **Rovis**, who are the Carnian family of Gimino in Istria, out of Agrons. Photograph everything: the village, its church, the house-name plates, any stone with the surname.","ask":"Ask whether there is a village *cappella* with its own burials, and who holds the key.","link":"/carnia/#agrons","key":true},
-     {"n":"3e","place":"Cella, Ovasta and Luint","access":"open","what":"The rest of the parish, twenty minutes' walk apart. Cella is named beside Agrons in 1679; Ovasta gave the Pieve its organ-builders; Luint sent «Anzolo del Fabro, mogliato nell'Istria» in the same return — married into Istria, in the imperial place.","ask":"","link":"/carnia/#weavers"}
+     {
+      "n": "3a",
+      "place": "Mione di Ovaro",
+      "access": "open",
+      "what": "**The village of the 1679 list.** «Zuane De Franceschi con un suo fiolo, Zuane d'Erman: questi tre nell'Istria, luogo imperiale.» Also the village of the **dal Ginut** household — five generations of De Franceschi with their trades and their house-name — and the birthplace, on 8 December 1939, of **Monsignor Lucio Soravito de Franceschi**, later Bishop of Adria-Rovigo. The Chiesa di Sant'Antonio and the provincial sign at its door.",
+      "ask": "Ask in the village for the house **«dal Ginut»**. A house-name outlives the family in it, and somebody will know which building it is. Nobody in this project has ever identified it on the ground.",
+      "link": "/carnia/#ginut"
+     },
+     {
+      "n": "3b",
+      "place": "The war memorial at Mione, by the cemetery road",
+      "access": "open",
+      "what": "Set 19 September 1954. Two columns: the soldiers, with **DE FRANCESCHI ISIDORO** first among the *dispersi*, and the civilians killed on 1 and 2 November 1944, with **DE FRANCESCHI EGIDIO**.",
+      "ask": "",
+      "link": "/carnia/#gorto_war"
+     },
+     {
+      "n": "3c",
+      "place": "Muina",
+      "access": "open",
+      "what": "The other village Carlo names — «ve n'ha tuttodì a Mione e Muina della Carnia», there are still some today at Mione and Muina. The Napoleonic marriage acts put a household here four generations deep: **Leonardo**, dead before 1808; his son **Antonio** and **Maria née Corva**, farmers; their son **Osvaldo**, born at Muina 14 March 1788, married at twenty in January 1808. The memorial of 22 August 1920 carries **DE FRANCESCHI VITTORIO** and **DE FRANCESCHI ISIDORO** among sixteen dead of the first war.",
+      "ask": "",
+      "link": "/carnia/#muina"
+     },
+     {
+      "n": "3d",
+      "place": "Agrons",
+      "access": "open",
+      "what": "**The one stop on this itinerary nobody in this family has ever made.** Agrons is the village Brhan and Bertoša name as the family's own, with *gismanial* feudal rights attached, and the 1679 list pairs it with Cella: «Mathio Ruvis con doi fioli… questi tre nell'Istria, luogo imperiale» — the **Rovis**, who are the Carnian family of Gimino in Istria, out of Agrons. Photograph everything: the village, its church, the house-name plates, any stone with the surname.",
+      "ask": "Ask whether there is a village *cappella* with its own burials, and who holds the key.",
+      "link": "/carnia/#agrons",
+      "key": true
+     },
+     {
+      "n": "3e",
+      "place": "Cella, Ovasta and Luint",
+      "access": "open",
+      "what": "The rest of the parish, twenty minutes' walk apart. Cella is named beside Agrons in 1679; Ovasta gave the Pieve its organ-builders; Luint sent «Anzolo del Fabro, mogliato nell'Istria» in the same return — married into Istria, in the imperial place.",
+      "ask": "",
+      "link": "/carnia/#weavers"
+     }
     ],
     "shots": [
      "**Agrons entire** — this archive holds not one frame of it.",
@@ -82,9 +197,30 @@
     "sub": "Udine · 55 km back down · a full day, booked in advance",
     "lead": "Three institutions, all in Udine, and all of them hold something this project has only ever seen through a digitised index. Write ahead: none of them will produce a fond on the day you walk in.",
     "stops": [
-     {"n":"4a","place":"Archivio di Stato di Udine","access":"book","what":"The **stato civile napoleonico** — the registers of 1806–15 that gave this archive the five households at Mione and Muina, the marriage *allegati*, and the deepest name it holds: «Giacoma figlia legitima e naturale di Osualdo quondam **Gio: Batta de' Franceschi di Mione**», certified by the parish priest of Gorto in 1806 for a girl born in 1789. Also the **notarial fonds** of the Canale di Gorto, which are not digitised and which nobody has searched for this surname.","ask":"Ask specifically for the notaries of Ovaro and Tolmezzo, seventeenth and eighteenth century, and for any *rotoli* of the *merighi* of the Canale di Gorto.","link":"/carnia/#deepest"},
-     {"n":"4b","place":"Archivio Diocesano / Curia Arcivescovile, Udine","access":"book","what":"Where the parish registers of the Pieve di Santa Maria di Gorto and the bishops' **visitation records** are kept or microfilmed. The pre-1806 baptisms — the ones that would carry Zuane of 1679 himself — are here or at the parish, not on any website this archive can reach.","ask":"Ask for the baptismal registers of the Pieve di Gorto for the seventeenth century, and for the visitation acts covering Ovaro.","link":""},
-     {"n":"4c","place":"Biblioteca / bookshop errand","access":"open","what":"Giorgio Ferigo, **«Le cifre, le anime»** (Forum, Udine) — the book that quotes the 1679 headmen's return in full and proves the list is a list of weavers. This archive has the passage; it does not own the book.","ask":"","link":"/carnia/#weavers"}
+     {
+      "n": "4a",
+      "place": "Archivio di Stato di Udine",
+      "access": "book",
+      "what": "The **stato civile napoleonico** — the registers of 1806–15 that gave this archive the five households at Mione and Muina, the marriage *allegati*, and the deepest name it holds: «Giacoma figlia legitima e naturale di Osualdo quondam **Gio: Batta de' Franceschi di Mione**», certified by the parish priest of Gorto in 1806 for a girl born in 1789. Also the **notarial fonds** of the Canale di Gorto, which are not digitised and which nobody has searched for this surname.",
+      "ask": "Ask specifically for the notaries of Ovaro and Tolmezzo, seventeenth and eighteenth century, and for any *rotoli* of the *merighi* of the Canale di Gorto.",
+      "link": "/carnia/#deepest"
+     },
+     {
+      "n": "4b",
+      "place": "Archivio Diocesano / Curia Arcivescovile, Udine",
+      "access": "book",
+      "what": "Where the parish registers of the Pieve di Santa Maria di Gorto and the bishops' **visitation records** are kept or microfilmed. The pre-1806 baptisms — the ones that would carry Zuane of 1679 himself — are here or at the parish, not on any website this archive can reach.",
+      "ask": "Ask for the baptismal registers of the Pieve di Gorto for the seventeenth century, and for the visitation acts covering Ovaro.",
+      "link": ""
+     },
+     {
+      "n": "4c",
+      "place": "Biblioteca / bookshop errand",
+      "access": "open",
+      "what": "Giorgio Ferigo, **«Le cifre, le anime»** (Forum, Udine) — the book that quotes the 1679 headmen's return in full and proves the list is a list of weavers. This archive has the passage; it does not own the book.",
+      "ask": "",
+      "link": "/carnia/#weavers"
+     }
     ],
     "shots": []
    },
@@ -94,22 +230,68 @@
     "sub": "Ovaro → Sutrio → Paluzza · about 40 km via Tolmezzo, or 30 km of hairpins over the Zoncolan · half a day",
     "lead": "A second Carnian cluster of the surname, in the next valley east — the Val Bût. Whether it joins the Val Degano family is not established, and this page will not pretend it is.",
     "stops": [
-     {"n":"5a","place":"Paluzza, Val Bût","access":"open","what":"The registers give **Zuanne De Franceschi** and Maria Delli Zotti — Zuanne being the same Venetian form of Giovanni as the man of 1679 — then his son **Daniele**, born 1782; **Francesco** and Domenica Englaro, with sons born at Naunina in Paluzza in 1807 and 1810; and **Pietro**, born 1851, dead at forty-four in the civic hospital at San Daniele del Friuli in 1895, entered as a mason.","ask":"Ask the parish whether any De Franceschi remain, and look for the name in the cemetery.","link":"/carnia/#paluzza"},
-     {"n":"5b","place":"The Zoncolan road","access":"seasonal","what":"The SP from Ovaro over Monte Zoncolan to Sutrio is one of the hardest climbs in cycling and is shut by snow for much of the year. If it is open it is the direct way, and it shows you exactly how separate these two valleys were. If it is not, go down to Tolmezzo and up the SS52bis — forty minutes.","ask":"","link":""}
+     {
+      "n": "5a",
+      "place": "Paluzza, Val Bût",
+      "access": "open",
+      "what": "The registers give **Zuanne De Franceschi** and Maria Delli Zotti — Zuanne being the same Venetian form of Giovanni as the man of 1679 — then his son **Daniele**, born 1782; **Francesco** and Domenica Englaro, with sons born at Naunina in Paluzza in 1807 and 1810; and **Pietro**, born 1851, dead at forty-four in the civic hospital at San Daniele del Friuli in 1895, entered as a mason.",
+      "ask": "Ask the parish whether any De Franceschi remain, and look for the name in the cemetery.",
+      "link": "/carnia/#paluzza"
+     },
+     {
+      "n": "5b",
+      "place": "The Zoncolan road",
+      "access": "seasonal",
+      "what": "The SP from Ovaro over Monte Zoncolan to Sutrio is one of the hardest climbs in cycling and is shut by snow for much of the year. If it is open it is the direct way, and it shows you exactly how separate these two valleys were. If it is not, go down to Tolmezzo and up the SS52bis — forty minutes.",
+      "ask": "",
+      "link": ""
+     }
     ],
-    "shots": ["Any De Franceschi stone in the Paluzza cemetery — this archive has none.","Naunina, the hamlet of Paluzza where the 1807 and 1810 births are registered."]
+    "shots": [
+     "Any De Franceschi stone in the Paluzza cemetery — this archive has none.",
+     "Naunina, the hamlet of Paluzza where the 1807 and 1810 births are registered."
+    ]
    }
   ],
   "doors": [
-   {"who":"The parish of Santa Maria di Gorto","how":"Through the parish office at Ovaro. Do not turn up expecting registers on the day.","say":"Sto ricostruendo la storia della famiglia De Franceschi, originaria di Mione e Muina. Cerco i registri parrocchiali del Sei e Settecento — sono qui, o presso l'Archivio Diocesano di Udine?","gets":"Whether the seventeenth-century books are at the church or at Udine. That single answer decides your archive day."},
-   {"who":"The Comune di Ovaro, ufficio anagrafe","how":"Walk in during office hours; write ahead if you want a search done.","say":"Cerco i De Franceschi di Mione, Muina e Agrons. Sono ancora presenti nel comune? E si può consultare lo stato civile dal 1871?","gets":"Living households of the name — which is how you find the house *dal Ginut* — and civil records from unification onward."},
-   {"who":"Anyone over sixty, in any of the four villages","how":"In the bar, at the church door, on the bench.","say":"Conosce la casa che chiamano «dal Ginut»? E ci sono ancora Di Francesc in paese?","gets":"House-names. They are not written down anywhere and they are the only handle a Carnian village gives you on a family."},
-   {"who":"Archivio di Stato di Udine","how":"Book. Bring identification. Request fonds by name in advance.","say":"—","gets":"Notarial records of the Canale di Gorto: the one body of paper that could put this family in the valley before 1679."}
+   {
+    "who": "The parish of Santa Maria di Gorto",
+    "how": "Through the parish office at Ovaro. Do not turn up expecting registers on the day.",
+    "say": "Sto ricostruendo la storia della famiglia De Franceschi, originaria di Mione e Muina. Cerco i registri parrocchiali del Sei e Settecento — sono qui, o presso l'Archivio Diocesano di Udine?",
+    "gets": "Whether the seventeenth-century books are at the church or at Udine. That single answer decides your archive day."
+   },
+   {
+    "who": "The Comune di Ovaro, ufficio anagrafe",
+    "how": "Walk in during office hours; write ahead if you want a search done.",
+    "say": "Cerco i De Franceschi di Mione, Muina e Agrons. Sono ancora presenti nel comune? E si può consultare lo stato civile dal 1871?",
+    "gets": "Living households of the name — which is how you find the house *dal Ginut* — and civil records from unification onward."
+   },
+   {
+    "who": "Anyone over sixty, in any of the four villages",
+    "how": "In the bar, at the church door, on the bench.",
+    "say": "Conosce la casa che chiamano «dal Ginut»? E ci sono ancora Di Francesc in paese?",
+    "gets": "House-names. They are not written down anywhere and they are the only handle a Carnian village gives you on a family."
+   },
+   {
+    "who": "Archivio di Stato di Udine",
+    "how": "Book. Bring identification. Request fonds by name in advance.",
+    "say": "—",
+    "gets": "Notarial records of the Canale di Gorto: the one body of paper that could put this family in the valley before 1679."
+   }
   ],
   "open": [
-   {"q":"Is Agrons the place, or is it Mione?","a":"The 1679 list puts **Rovis** at Agrons and Cella, and **De Franceschi** at Mione. Brhan and Bertoša attach the family to Agrons and its gismanial rights. Both cannot be the primary seat and this archive has not resolved it. Standing in both villages, and looking at what each churchyard and each set of house-names says, is the point of day three."},
-   {"q":"How far back do the Gorto registers go?","a":"Unknown to this project. Carnian pievi commonly begin in the later sixteenth century. If Gorto's baptisms reach back to the 1600s, Zuane of 1679 is findable — with a father."},
-   {"q":"Is the Paluzza group the same family?","a":"No evidence either way. Same surname, same region, different valley. Treated here as a separate stop, not a continuation."}
+   {
+    "q": "Is Agrons the place, or is it Mione?",
+    "a": "The 1679 list puts **Rovis** at Agrons and Cella, and **De Franceschi** at Mione. Brhan and Bertoša attach the family to Agrons and its gismanial rights. Both cannot be the primary seat and this archive has not resolved it. Standing in both villages, and looking at what each churchyard and each set of house-names says, is the point of day three."
+   },
+   {
+    "q": "How far back do the Gorto registers go?",
+    "a": "Unknown to this project. Carnian pievi commonly begin in the later sixteenth century. If Gorto's baptisms reach back to the 1600s, Zuane of 1679 is findable — with a father."
+   },
+   {
+    "q": "Is the Paluzza group the same family?",
+    "a": "No evidence either way. Same surname, same region, different valley. Treated here as a separate stop, not a continuation."
+   }
   ],
   "rules": [
    "**Photograph the whole stone before the detail.** Half the gaps in this archive are because a name was framed and the dates were not.",
@@ -117,6 +299,292 @@
    "**Do not photograph recent graves with living relatives named on them.** This site omits living people, and that begins in the churchyard.",
    "**Write down the house-names.** Nobody else is going to.",
    "**Note what you did not find.** An empty cemetery is a finding, and this archive publishes those too."
+  ]
+ },
+ "gologorica": {
+  "title": "Walk the Gologorica line",
+  "eyebrow": "Central Istria · four days and two archive days",
+  "dek": "Chapter two of this line, and chapter three. Everything here is inside a triangle twelve kilometres on a side — Gologorica, Gračišće, Pićan — with Pazin in the middle of it and the family's own archive sixty kilometres away at Rijeka. It is the densest ground this family has.",
+  "intro": [
+   "The Carnia walk was about a place the family left. **This one is about the place they became themselves in.** The surname is first written at Gologorica in the baptismal book of **1661**; the house on the square carries a portal dated **1711**; the man who wrote the history of Istria was born in that house in 1809 and is buried four hundred metres from it. Three of those things can be touched in an afternoon.",
+   "Distances are trivial — Gologorica to Gračišće is eleven kilometres by road, Gračišće to Pićan is five — and the roads are good. What is not trivial is **access**: the house is privately owned and lived in, the parish archives are behind a priest, and the family's own papers are in a state archive that wants a written request. **Half of this itinerary is correspondence you send six weeks before you fly.**",
+   "Base yourself at **Pazin**. It is the county town, it has the archive, and everything on days two to four is within twenty minutes of it."
+  ],
+  "base": {
+   "where": "Pazin",
+   "why": "The centre of the old Habsburg County, the seat of the **Državni arhiv u Pazinu (DAPA)**, and within twenty minutes' drive of every village on this itinerary. It also has the castle, the chasm and the Ethnographic Museum of Istria, which will fill any afternoon an archive closes on you.",
+   "getting": "Fly to **Pula** (40 km, 45 minutes) or **Trieste** (100 km). Rijeka is 60 km east on the A8 through the Učka tunnel, and you will be driving that road anyway for the archive. A car is not optional here: Gologorica has no bus worth the name.",
+   "when": "**April to June, or September to October.** The archives close for parts of August, the villages are hot and empty in high summer, and the light for photographing cut stone is best in spring. Avoid the week of the Assumption."
+  },
+  "days": [
+   {
+    "n": 1,
+    "title": "Pazin, and the archive you must write to first",
+    "sub": "Pazin · a full day, booked six weeks out",
+    "lead": "Do the paperwork before the walking. Two of the four things this itinerary most needs are in reading rooms, and neither will be handed over on the day.",
+    "stops": [
+     {
+      "n": "1a",
+      "place": "Državni arhiv u Pazinu — the Istrian state archive",
+      "access": "book",
+      "what": "The **parish registers of Gologorica and Gračišće** are here on microfilm, and this archive has read parts of them from the family's own photographs of the reading-room screens. The originals of the **Status Animarum** — the books of souls that give house 5, house 19, house 24 and their four generations — are the single richest thing in Istria for this family.",
+      "ask": "Ask specifically for the **Status Animarum of Gallignana** and of **Gologorica**, and for anything catalogued under **«De Franceschi»** as a family fond. Elvis Orbanić, the director, works on the Pićan diocese himself and is named in this archive's own sources.",
+      "link": "/direct-line/#statusanimarum"
+     },
+     {
+      "n": "1b",
+      "place": "Pazin castle and the Ethnographic Museum of Istria",
+      "access": "open",
+      "what": "The Kaštel is the building the whole county was administered from — the county whose documented history Carlo's son **Camillo** wrote. The museum holds the material culture of exactly the households in these registers.",
+      "ask": "",
+      "link": "/namesakes/"
+     },
+     {
+      "n": "1c",
+      "place": "An afternoon reading the ground",
+      "access": "open",
+      "what": "Pazin sits on the **Foiba**, the chasm Dante and Jules Verne both used. From the castle terrace you can see the shape of the county: the Čepić basin to the north-east, the ridge of the Učka behind it, the hill villages on their spurs. Every village on this itinerary is visible from within twenty kilometres of this spot.",
+      "ask": "",
+      "link": ""
+     }
+    ],
+    "shots": []
+   },
+   {
+    "n": 2,
+    "title": "Gologorica — the house, the shield, and the grave",
+    "sub": "Pazin → Cerovlje → Gologorica · 15 km · a full day",
+    "lead": "This is the day the itinerary exists for. Give it all of the light.",
+    "stops": [
+     {
+      "n": "2a",
+      "place": "The house on the square",
+      "access": "permission",
+      "key": true,
+      "what": "«**Na trgu je pokraj crkve velika kamena palača obitelji De Franceschi, dvokatna građevina s balkonom i portalom iz 1711., ukrašena grbom i natpisom te reljefom s prikazom Isusa**» — on the square, beside the church, the great stone palace of the De Franceschi family, a two-storey building with a balcony and a **portal of 1711**, decorated with **a coat of arms and an inscription and a relief of Jesus**. That is a civil-engineering journal describing it in 2012 without any interest in the family.\n\nRadmila Matejčić, in 1979: «A Moncalvo di Pisino la famiglia Defranceschi innalza il proprio **palazzetto con portico ad arcate e blasone sulla facciata**» — with an arcaded loggia and arms on the front.\n\nAnd Carlo, privately, about 1873: «**Il mio trisavolo fabbricò la nostra casa nel 1711 come da relativa iscrizione**» — my great-great-grandfather built our house in 1711, as the inscription says.\n\n**Three independent witnesses, a century apart, describing the same three stones.** They are still there.",
+      "ask": "**It is somebody's home.** Knock, explain, and ask before you photograph anything closer than the lane: «Buon giorno — sto ricostruendo la storia della famiglia De Franceschi. Posso fotografare il portale e lo stemma?» The lane and the square are public; the loggia and the courtyard are not.",
+      "link": "/gologorica-line/#house"
+     },
+     {
+      "n": "2b",
+      "place": "The cemetery, and Carlo's grave",
+      "access": "open",
+      "key": true,
+      "what": "«L'illustre storiografo riposa nell'umile cimitero» — the illustrious historian rests in the humble cemetery of his own village, wrote *Il giovine Pensiero* in January 1893. **The grave is not humble. It is the largest thing in the yard.** A stone screen wall with a cross on top and three panels set into it; rose-veined marble in the middle under fluted pilasters; a grey pedimented tablet either side, and in the peak of each pediment **a carved shield under a five-pointed coronet**; a broad flat slab in front with iron lifting rings over the vault. And over the centre panel, cut in relief, **a serpent with its tail in its mouth**.",
+      "ask": "",
+      "link": "/gologorica-line/#carlograve"
+     },
+     {
+      "n": "2c",
+      "place": "The parish church, and the parish archive",
+      "access": "permission",
+      "what": "The surname is first written in this village in the **baptismal book of 1661**. Elvis Orbanić's 2024 paper in *Acta Histriae* shows that **the Gologorica parish archive exists and is being worked in**.",
+      "ask": "Ask the parish — through the Pazin deanery if there is no resident priest — whether the pre-1800 books are at the church, at Pazin, or at the diocese, and whether the 1661 baptismal register survives.",
+      "link": "/gologorica-line/#first1661"
+     },
+     {
+      "n": "2d",
+      "place": "The village round",
+      "access": "open",
+      "what": "The **Glagolitic shrine niche**; the **oval cartouche** whose legend this archive has never read; the second set of arms cut in the cemetery a century after the first; the fortified core the *Građevinar* survey takes apart building by building; and the view north over the **Čepić basin**, which was a lake until it was drained in the 1930s and which is why this village sits where it sits.",
+      "ask": "",
+      "link": "/gologorica-line/#kasteli2012"
+     }
+    ],
+    "shots": [
+     "**The portal of 1711 — the inscription, close, in raking light.** This archive has the tablet in a wide frame and has never read it word for word.",
+     "**The blasone on the façade**, straight on and filling the frame — the arms Carlo blazons in his letter: a cross crossed by two arrows, a pomegranate beneath.",
+     "**The relief of Jesus** on the portal, which the 2012 survey names and no photograph here shows.",
+     "The **oval cartouche** in raking light, morning or late afternoon.",
+     "The **Glagolitic niche**, with a scale in frame.",
+     "Carlo's grave: **each of the three panels separately**, and the serpent in close-up.",
+     "The **modern Carlo memorial tablet**, whole and legible.",
+     "The loggia's two arches and the stone stair from the lane."
+    ]
+   },
+   {
+    "n": 3,
+    "title": "Gračišće — houses 5, 19 and 24",
+    "sub": "Gologorica → Gračišće · 11 km · a full day",
+    "lead": "This is where the spine of this line actually runs. Gologorica is the grand cousin; **Gračišće is the farmers and the stonecutters this family comes down from**, and the book of souls gives their house numbers.",
+    "stops": [
+     {
+      "n": "3a",
+      "place": "The village, and the three houses",
+      "access": "open",
+      "key": true,
+      "what": "**House 5** — «Joan. Bapt. Defranceschi, *agricola*, natus 13. Augusti 1787 … obiit 14. Sept. 1846», with **Francisca Salomon**, born 17 March 1797, and seven children.\n**House 19** — **Antonius Defranceschi q. Joannis, *scalpellino* — stonecutter** — and Maria née Fernasar, and their children, the eldest of them **Antonius born 6 August 1856**, who is the head of the chart the American cousins printed in 2012.\n**House 24** — the household of the **Status Animarum of 1925**, and the house **Maria Volhardt** lived in.\n\nThe numbers are still on the houses in villages like this. **Finding which door is which is a morning's work and nobody has done it.**",
+      "ask": "At the **općina** or in the bar, ask whether the old house numbers survive and whether anyone holds a plan. «Esistono ancora i vecchi numeri civici? C'è una pianta del paese?»",
+      "link": "/direct-line/#statusanimarum"
+     },
+     {
+      "n": "3b",
+      "place": "The Salamon palace on the square",
+      "access": "open",
+      "what": "Irma Huić's study of the town — *Prostor* 23 (2015) — puts a **palace of the Salamon** facing the site of the **bishop of Pedena's residence**. And the wife of house 5 is **Francisca Salamon**. The family this line married into has a palace on the square and a stone in the cemetery.",
+      "ask": "",
+      "link": "/direct-line/#gracisce_town"
+     },
+     {
+      "n": "3c",
+      "place": "The parish church, and the bishop's palace",
+      "access": "open",
+      "what": "Gračišće was a residence of the **bishops of Pedena** — and the bishop of Pedena was **the lord of Gologorica**, on whose *affitto fermo* this family held the lease, collecting it rather than paying it, renewed by every bishop until the see was suppressed in **1788**. Huić locates the palace by its wall and a parcel matching the footprint; **the entrance to the bell tower survives** and belonged to the same complex.",
+      "ask": "",
+      "link": "/direct-line/#gracisce_town"
+     },
+     {
+      "n": "3d",
+      "place": "The cemetery",
+      "access": "open",
+      "what": "Three stones are already published here — a **Defranceschi**, a **Salamon**, and a **Marfan** — and the Salamon stone is what turns Francisca from a surname into a family still in the ground. **Maria Volhardt's obelisk** (6.IV.1867 – 3.X.1945) is the one this archive most wants photographed whole.",
+      "ask": "",
+      "link": "/direct-line/#fieldplates"
+     }
+    ],
+    "shots": [
+     "**Maria Volhardt's obelisk**, the whole inscription, straight on.",
+     "**Houses 5, 19 and 24**, if the numbers can be matched — and the door lintels of each.",
+     "The **Salamon palace** façade on the square.",
+     "The surviving **bell-tower entrance** of the bishop's complex.",
+     "The Defranceschi, Salamon and Marfan stones re-shot with the dates legible end to end."
+    ]
+   },
+   {
+    "n": 4,
+    "title": "Pićan, and the ring around it",
+    "sub": "Gračišće → Pićan → Lindar → Beram → Sveti Petar u Šumi · 40 km · a full day",
+    "lead": "The lordship, the neighbours, and the two churches that explain what kind of country this was.",
+    "stops": [
+     {
+      "n": "4a",
+      "place": "Pićan — Pedena",
+      "access": "open",
+      "key": true,
+      "what": "The **cathedral town of the bishops who owned Gologorica**, styled «Dominus Gollaegoritiae, Scopliaci et Tupliaci». Every bishop from 1589 had to send Rome a sworn report on the state of the diocese, and Ivan Grah published the whole series in 1980. The see was suppressed in 1788.\n\n**And Pićan is where Antonio Defranceschi was living in 1922** when he sailed for New York — «G. Pedena, Venezia», his wife **Marta Defranceschi at Pedena 10** left behind him.",
+      "ask": "**Ask for house number 10.** And ask the parish whether its registers after 1918 are at the church or at Pazin — they would carry Marta, and whether Antonio came home.",
+      "link": "/the-eleven/"
+     },
+     {
+      "n": "4b",
+      "place": "Lindar and Beram",
+      "access": "open",
+      "what": "Two of the county's other castle-villages, twenty minutes apart. **Beram** has the church of St Mary at Škrilinah with the *Danse Macabre* fresco of 1474 — the single best surviving image of what the world these registers describe believed about death.",
+      "ask": "",
+      "link": ""
+     },
+     {
+      "n": "4c",
+      "place": "Sveti Petar u Šumi",
+      "access": "open",
+      "what": "The Pauline monastery whose **chronicle of the miracles of the weeping Madonna** Elvis Orbanić worked from in 2024 — and among its pilgrims, the **parish priest of Gologorica**. It is also the best-preserved cloister in inland Istria.",
+      "ask": "",
+      "link": "/gologorica-line/#orbanic2024"
+     },
+     {
+      "n": "4d",
+      "place": "Svetvinčenat — if you have the appetite",
+      "access": "open",
+      "what": "An hour south. **Nineteen openings of its baptismal film have been read for this archive** and the surname is in them from 1666 — Nadal, Anto, Mattio, Gasparo, Leonardo, and a Piero baptised twice. The castle Grimani and the great square are worth the drive on their own.",
+      "ask": "",
+      "link": "/lines/#fam-svetread"
+     }
+    ],
+    "shots": [
+     "**Pedena house number 10**, if it still stands — Marta's address.",
+     "The bishop's cathedral and any surviving episcopal arms at Pićan.",
+     "Beram's *Danse Macabre*, for the archive's own use in explaining this world."
+    ]
+   },
+   {
+    "n": 5,
+    "title": "The archive days",
+    "sub": "Rijeka · Pula · and, if you are serious, Zagreb and Trieste",
+    "lead": "Four institutions hold four different pieces of this family, and not one of them is in Istria's villages.",
+    "stops": [
+     {
+      "n": "5a",
+      "place": "Državni arhiv u Rijeci — the family's own fond",
+      "access": "book",
+      "key": true,
+      "what": "**HR-DARI-254, «Obitelj De Franceschi iz Gologorice»**, catalogue dates **1610–1934**. This is the family archive itself. Its oldest item is the **Glagolitic income book of the parish church of Hum, 1610–1685** — collected by the family, most probably by Carlo, not generated by it; the family's own earliest paper is **1703**.",
+      "ask": "Write ahead naming the fond. Ask for the **inventory** first, then order by item. And ask whether the **bundle returned to the Naučna biblioteka at Pula in 1950** — three miscellanea fascicles — was ever reunited with it.",
+      "link": "/gologorica-line/#fond254"
+     },
+     {
+      "n": "5b",
+      "place": "Sveučilišna knjižnica Pula — Carlo's correspondence",
+      "access": "book",
+      "what": "The **Collection of Old Books and Manuscripts** at the university library holds **Carlo De Franceschi's correspondence**. This archive has published his letters to Giovanni Kobler from a printed edition of 1928; the manuscripts are another matter.",
+      "ask": "Ask for the correspondence by name and for any finding aid to it.",
+      "link": "/carlos-letter/"
+     },
+     {
+      "n": "5c",
+      "place": "Nacionalna i sveučilišna knjižnica, Zagreb — the library",
+      "access": "book",
+      "what": "**2,396 items** of the family's book collection, catalogued between 2009 and 2021 and described in *Libellarium* 13/2 (2022). It came out of the house at Gologorica after 1945 and sat unprocessed for sixty years.",
+      "ask": "Ask for the **catalogue export of the PDF signature range** — the shelf list. It is one email and it would give this archive the whole library at once.",
+      "link": "/the-library/"
+     },
+     {
+      "n": "5d",
+      "place": "Trieste — the cadastre and the visitation",
+      "access": "book",
+      "what": "The **Catasto franceschino of 1820** is in the state archive at Trieste, and Dean Brhan's work in it prints **six De Franceschi hearths at Moncalvo**, one of them «Giobatta **di Gallignana**» — the only document that has ever put the two villages in one line. And the **Diocesan Archives of Trieste** hold de Buset's **1788 visitation** of the Pićan diocese, parish by parish, published by Orbanić in 2016.",
+      "ask": "",
+      "link": "/gologorica-line/#cadastre1820"
+     }
+    ],
+    "shots": []
+   }
+  ],
+  "doors": [
+   {
+    "who": "Whoever lives in the house at Gologorica",
+    "how": "Knock. It is a home, not a monument.",
+    "say": "Buon giorno. Sto ricostruendo la storia della famiglia De Franceschi, che ha costruito questa casa nel 1711. Posso fotografare il portale, l'iscrizione e lo stemma?",
+    "gets": "The three stones this archive has been arguing from for a year, photographed properly — and, if you are lucky, whatever the family who live there have been told about the house."
+   },
+   {
+    "who": "Državni arhiv u Pazinu",
+    "how": "Write six weeks ahead. Bring identification.",
+    "say": "Vorrei consultare gli Status Animarum di Gallignana e di Gologorica, e qualsiasi fondo intitolato alla famiglia De Franceschi.",
+    "gets": "The books of souls — house 5, house 19, house 24 — and the answer to whether DAPA has a De Franceschi fond of its own, which this archive has never established."
+   },
+   {
+    "who": "Državni arhiv u Rijeci",
+    "how": "Write ahead, naming HR-DARI-254.",
+    "say": "Molim inventar fonda HR-DARI-254, Obitelj De Franceschi iz Gologorice, i uvid u građu.",
+    "gets": "The family's own archive, 1610–1934. This is the single most important body of paper about this family anywhere, and nobody in it has read it."
+   },
+   {
+    "who": "The parish, Gologorica",
+    "how": "Through the Pazin deanery if there is no resident priest.",
+    "say": "Postoji li još matična knjiga krštenih iz 1661.? Gdje se čuva — u župi, u Pazinu ili u biskupiji?",
+    "gets": "Whether the register that first writes this surname in this village still exists, and where."
+   }
+  ],
+  "open": [
+   {
+    "q": "Does the Gologorica house join the Gračišće line?",
+    "a": "**Both families believe it does and neither has the page.** The nearest thing is the 1820 cadastre at Trieste, where one of six De Franceschi hearths at Moncalvo is «Giobatta **di Gallignana**». Standing in both villages will not settle it; the Trieste cadastre and the Pazin books of souls might."
+   },
+   {
+    "q": "What does the 1711 inscription actually say?",
+    "a": "Carlo says it records his great-great-grandfather building the house. The *Građevinar* survey says the portal carries **arms, an inscription and a relief of Jesus**. **Nobody has published the words.** One photograph in raking light ends a year of paraphrase."
+   },
+   {
+    "q": "Did Antonio come home to Pićan?",
+    "a": "He is in no American record after April 1930 and he left a wife at **Pedena 10**. The Pićan registers and the Croatian civil records after 1930 would say. **Neither has been looked at**, and it is the largest unanswered question about the Eleven."
+   }
+  ],
+  "rules": [
+   "**The house is lived in.** Everything else on this itinerary is public; that is not. Ask, and take no for an answer.",
+   "**Photograph inscriptions in raking light** — early or late, never at noon. Cut stone at midday is a blank.",
+   "**Write to the archives before you book the flight.** Two of the four need weeks.",
+   "**Do not photograph recent graves with living relatives named.** This site omits living people, and that starts in the churchyard.",
+   "**Record what you did not find.** An empty shelf is a finding and this archive publishes those."
   ]
  }
 }

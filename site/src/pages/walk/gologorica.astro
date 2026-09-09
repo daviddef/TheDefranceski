@@ -1,10 +1,10 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Rule from "../../components/Rule.astro";
-import WalkMap from "../../components/WalkMap.astro";
+import WalkMap from "../../components/WalkMapIstria.astro";
 import { u } from "../../lib/url.js";
 import w from "../../data/walk.json";
-const c = w.carnia;
+const c = w.gologorica;
 const md = (s) => s
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -56,7 +56,7 @@ const shots = c.days.flatMap(d => (d.shots || []).map(s => ({ d: d.n, s })));
             <h4>{s.place}</h4>
             <span class={"ac " + A[s.access][1]}>{A[s.access][0]}</span>
           </div>
-          <p set:html={md(s.what)} />
+          <p style="white-space:pre-line" set:html={md(s.what)} />
           {s.ask && <p class="s-ask"><span class="lab">At the door</span><span set:html={md(s.ask)} /></p>}
           {s.link && <p class="mono s-link"><a href={u(s.link)}>What this archive already holds →</a></p>}
         </li>
@@ -141,6 +141,7 @@ const shots = c.days.flatMap(d => (d.shots || []).map(s => ({ d: d.n, s })));
   .ac-open{background:var(--panel-2);color:var(--ink-2)}
   .ac-book{background:var(--ochre);color:var(--band-label)}
   .ac-seas{background:var(--terra);color:var(--band-label)}
+  .ac-perm{background:var(--accent);color:var(--band-label)}
   .s-ask{border-left:2px solid var(--ochre);padding-left:12px;margin-top:12px}
   .s-ask .lab{display:block;margin-bottom:3px;color:var(--ochre)}
   .s-link{margin-top:10px}

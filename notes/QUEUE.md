@@ -92,6 +92,7 @@
   Rules: public-domain or clearly licensed only; caption must say holder and licence;
   no living people. Wire into who/[slug].astro and people/[slug].astro, not just gallery.
 
+- ~~**WALK ALONG THE LINE — Gologorica**~~ — DONE 9 Sept 2026, /walk/gologorica/: five days, Pazin · Gologorica · Gračišće · Pićan · the four archives; a schematic Istria map; four doors; three open questions; nineteen missing frames including the 1711 portal inscription word for word.
 - ~~**WALK ALONG THE LINE — Carnia**~~ — DONE 9 Sept 2026, /walk/carnia/: five days, a schematic valley map, four doors with the Italian to say, three open questions, twenty missing frames. **The other four lines are stubbed at /walk/ and await David's verdict on Carnia.**
 - **WALK ALONG THE LINE — an itinerary per family.** David: "an itinerary for rich
   Defranceschi exploration within a line, showing the drive / walk / path to travel,

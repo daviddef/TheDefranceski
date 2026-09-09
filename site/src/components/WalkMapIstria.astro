@@ -1,0 +1,79 @@
+---
+// Schematic map of central Istria. Relative positions are true; the scale is not.
+const P = [
+  { x: 470, y: 372, n: "Pazin", d: 1, big: true },
+  { x: 596, y: 236, n: "Gologorica", d: 2, big: true, key: true },
+  { x: 548, y: 272, n: "Cerovlje", d: 0, sm: true },
+  { x: 592, y: 388, n: "Gračišće", d: 3, big: true },
+  { x: 668, y: 412, n: "Pićan", d: 4 },
+  { x: 524, y: 336, n: "Lindar", d: 4, sm: true },
+  { x: 402, y: 336, n: "Beram", d: 4, sm: true },
+  { x: 396, y: 462, n: "Sv. Petar u Šumi", d: 4, sm: true },
+  { x: 306, y: 556, n: "Svetvinčenat", d: 4, sm: true },
+  { x: 872, y: 156, n: "Rijeka", d: 5, big: true },
+  { x: 236, y: 622, n: "Pula", d: 5 },
+  { x: 178, y: 84, n: "Trieste", d: 5 },
+];
+const C = { 0: "var(--ink-3)", 1: "var(--ochre)", 2: "var(--accent)", 3: "var(--terra)", 4: "var(--r-italy)", 5: "var(--r-napo)" };
+---
+<figure class="wm">
+  <svg viewBox="0 0 1000 700" role="img" aria-label="Schematic map of central Istria showing Pazin, Gologorica, Gračišće and Pićan, with Rijeka, Pula and Trieste around them.">
+    <defs>
+      <linearGradient id="wmi" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="var(--panel-2)" stop-opacity=".5"/>
+        <stop offset="1" stop-color="var(--panel)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1000" height="700" fill="url(#wmi)"/>
+
+    <path d="M760 60 L800 140 L830 240 L820 340 L780 430" fill="none"
+          stroke="var(--rule-strong)" stroke-width="1.3" opacity=".7"/>
+    <text x="806" y="330" class="wm-ridge sm" transform="rotate(84 806 330)">U Č K A</text>
+
+    <ellipse cx="672" cy="272" rx="72" ry="34" fill="var(--accent-2)" opacity=".16"/>
+    <text x="672" y="277" class="wm-riv">Čepić polje</text>
+
+    <path d="M470 372 L548 272 L596 236" fill="none" stroke="var(--ink-2)" stroke-width="2.2" opacity=".5"/>
+    <path d="M470 372 L524 336 L592 388 L668 412" fill="none" stroke="var(--ink-2)" stroke-width="2.2" opacity=".5"/>
+    <path d="M470 372 L402 336 M470 372 L396 462 L306 556 L236 622" fill="none"
+          stroke="var(--ink-3)" stroke-width="1.7" opacity=".6"/>
+    <path d="M596 236 Q740 190 872 156" fill="none" stroke="var(--ink-3)"
+          stroke-width="1.7" stroke-dasharray="7 6" opacity=".7"/>
+    <text x="746" y="182" class="wm-rd">A8 · Učka tunnel</text>
+    <text x="300" y="200" class="wm-rd">Adriatic</text>
+
+    {P.map(p => (
+      <g class={"wm-p" + (p.key ? " key" : "")}>
+        <circle cx={p.x} cy={p.y} r={p.big ? 8 : p.sm ? 4 : 5.5} fill={C[p.d]}
+                stroke="var(--ground)" stroke-width="1.6"/>
+        {p.key && <circle cx={p.x} cy={p.y} r="13" fill="none" stroke={C[p.d]} stroke-width="1.2" opacity=".8"/>}
+        <text x={p.x + (p.big ? 13 : 10)} y={p.y + 4}
+              class={"wm-n" + (p.big ? " big" : "") + (p.sm ? " sm" : "")}>{p.n}</text>
+      </g>
+    ))}
+  </svg>
+  <figcaption class="cap">
+    Schematic — relative positions are right, the scale is not.
+    <b style="color:var(--ochre)">Day one</b>, Pazin and the archive ·
+    <b style="color:var(--accent)">day two</b>, Gologorica ·
+    <b style="color:var(--terra)">day three</b>, Gračišće ·
+    <b style="color:var(--r-italy)">day four</b>, Pićan and the ring ·
+    <b style="color:var(--r-napo)">day five</b>, the archives at Rijeka, Pula and Trieste.
+    The ringed dot is <b>Gologorica</b> — the house of 1711, and the only stop on this itinerary that needs somebody's permission.
+  </figcaption>
+</figure>
+
+<style>
+  .wm{margin:26px 0 0}
+  .wm svg{width:100%;height:auto;display:block;background:var(--panel);
+    border:1px solid var(--rule);border-radius:3px}
+  .wm-n{font-family:var(--sans);font-size:13px;fill:var(--ink)}
+  .wm-n.big{font-size:15.5px;font-weight:600}
+  .wm-n.sm{font-size:11.5px;fill:var(--ink-2)}
+  .wm-ridge{font-family:var(--sans);font-size:13px;letter-spacing:.34em;word-spacing:.9em;
+    fill:var(--ink-3);text-anchor:middle;opacity:.8}
+  .wm-ridge.sm{font-size:11px;letter-spacing:.3em;opacity:.75}
+  .wm-riv{font-family:var(--serif);font-style:italic;font-size:13px;fill:var(--accent-2);
+    text-anchor:middle;opacity:.95}
+  .wm-rd{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3);text-anchor:middle}
+</style>
