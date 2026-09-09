@@ -255,6 +255,20 @@ const g = c.nextGen;
   </div>
   <p class="cap" style="margin-top:14px">{c.monument.source_mon}</p>
 </section>
+<Rule name="tablet" label="A correction" />
+<section class="blk">
+  <h2>{c.face.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={c.face.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {c.face.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>").replace(/\n\n/g,"</p><p style='margin-top:10px'>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{c.face.source_face}</p>
+</section>
 <Rule name="tablet" label="Stateless" />
 <section class="blk">
   <h2>{c.stateless.heading}</h2>
