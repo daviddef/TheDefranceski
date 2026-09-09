@@ -109,7 +109,8 @@ for slug, rows in by_slug.items():
     facts = []
     r0 = rows[0]
     yrs = "–".join([str(r0["b"]) if r0.get("b") else "", str(r0["d"]) if r0.get("d") else ""]).strip("–")
-    if r0.get("place"): facts.append(["Place", r0["place"]])
+    if r0.get("place"):
+        facts.append(["Place", r0["place"]] + ([f"/places/{r0['placeSlug']}/"] if r0.get("placeSlug") else []))
     if yrs: facts.append(["Years", yrs])
     if r0.get("parish"): facts.append(["Parish", r0["parish"]])
     if r0.get("line") and legend.get(r0["line"]): facts.append(["Line", legend[r0["line"]].split("—")[0].strip()])

@@ -44,7 +44,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 {(p.facts && p.facts.length > 0) && (
 <section class="blk">
   <div class="facts">
-    {p.facts.map(([k, v]) => (<div class="fact"><span class="fk">{k}</span><span class="fv">{v}</span></div>))}
+    {p.facts.map(([k, v, href]) => (<div class="fact"><span class="fk">{k}</span><span class="fv">{href ? <a href={u(href)}>{v}</a> : v}</span></div>))}
   </div>
   {p.known && (
     <div class="known">
