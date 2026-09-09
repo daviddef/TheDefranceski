@@ -74,5 +74,41 @@ const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
   <p class="cap" style="margin-top:14px">{mig.conterosso.source_cr}</p>
 </section>
 
+<Rule name="arrows" label="Findmypast, 2026" />
+
+<section class="blk">
+  <h2>{mig.fmp.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={mig.fmp.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+
+  <ul class="setlist">{mig.fmp.sets.map(([n, w]) => (
+    <li><span class="sn">{n}</span><span class="sw">{w}</span></li>
+  ))}</ul>
+
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+    {mig.fmp.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text
+          .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+          .replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")
+          .replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+      </div>
+    ))}
+  </div>
+
+  <p class="prose note" style="margin-top:24px" set:html={mig.fmp.honest.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="cap" style="margin-top:14px">{mig.fmp.source}</p>
+</section>
+
   <Sources ids={["familysearch", "arolsen", "findagrave", "album2012"]} />
 </Base>
+
+<style>
+  .setlist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:5px;
+    grid-template-columns:repeat(2,minmax(0,1fr))}
+  .setlist li{display:flex;gap:10px;align-items:baseline;background:var(--panel);
+    border:1px solid var(--rule);border-radius:3px;padding:9px 13px}
+  .setlist .sn{font-family:var(--sans);font-size:13px;font-weight:600;flex:1}
+  .setlist .sw{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);white-space:nowrap}
+  @media(max-width:820px){.setlist{grid-template-columns:1fr}}
+</style>
