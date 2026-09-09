@@ -8,7 +8,7 @@ const letters = [...new Set(people.map(p => p.name[0].toUpperCase()))].sort();
 const total = people.reduce((s, p) => s + p.n, 0);
 ---
 <Base title="Every Person" eyebrow={`${people.length} named people · ${total} mentions`}
-      dek="One page per person, joining every mention of them anywhere on this site. Click a name to see everything the archive holds under it.">
+      dek="One page per person — every single one the archive can name, including those read straight off a register page that no index anywhere contains. Each opens with what is known, then gathers every mention of the name from every page of the site.">
 <section class="blk">
   <p class="prose note">{d.note}</p>
 </section>

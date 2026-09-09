@@ -140,3 +140,17 @@ David asked on 9 Sept why the roster count had not moved all day. It was
 because step 1 was being skipped: the narrative pages were current and the
 roster was three commits behind, and it was still filing the Vodnjan people
 under Vižinada.
+
+## The three generated files (added 9 Sept 2026)
+
+None of these rebuild themselves. Run them in this order after a finding:
+
+1. `python3 scripts/build-dossiers.py` — one /who/ page per roster person,
+   with the roster facts at the top and every prose mention gathered under it.
+2. `python3 scripts/build-search-index.py` — every person and every register
+   reading into the search box.
+3. `./scripts/publish.sh "subject" "body" …` — builds WITHOUT a pipe, checks
+   every source page produced an output file, relinks dist/TheDefranceski,
+   then commits and pushes. It refuses to push a failed build. Use it always:
+   a broken /fiume-1626/ went live on 9 Sept because `npm run build | tail`
+   hides the exit code, which was the second time that happened.

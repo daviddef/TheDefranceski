@@ -14,6 +14,7 @@ const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
 const groups = Object.entries(byPage);
 const art = Object.fromEntries(artsrc.map(a => [a.id, a]));
+const md = (x) => String(x ?? "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/«(.+?)»/g, "<em>«$1»</em>");
 const pt = port.map[p.slug];
 const pics = pt ? pt.ids.map(i => art[i]).filter(Boolean) : [];
 const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:/, ""),
@@ -40,6 +41,21 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
+{(p.facts && p.facts.length > 0) && (
+<section class="blk">
+  <div class="facts">
+    {p.facts.map(([k, v]) => (<div class="fact"><span class="fk">{k}</span><span class="fv">{v}</span></div>))}
+  </div>
+  {p.known && (
+    <div class="known">
+      <div class="lab">What the archive knows</div>
+      <p set:html={md(p.known)}></p>
+      {p.more && p.more.map(x => (<p style="margin-top:10px" set:html={md(x)}></p>))}
+    </div>
+  )}
+</section>
+)}
+
 <section class="blk">
   <div class="note">
     Identity here is by <strong>name</strong>, not by resolved individual. Where two people of one name appear
@@ -52,6 +68,15 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
     </p>
   )}
 </section>
+
+{groups.length === 0 && (
+<section class="blk">
+  <div class="one">
+    <div class="lab">No prose mention yet</div>
+    <p style="margin-top:8px">This person was found in a record rather than written up in an essay — most often read straight off a register page that no index anywhere contains. What is known is at the top, and the pages linked above are where the finding sits.</p>
+  </div>
+</section>
+)}
 
 {groups.map(([title, g]) => (
 <Rule name="arrows" />
@@ -79,4 +104,15 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   .pcap{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2);
     margin-top:14px;max-width:74ch;border-left:2px solid var(--ochre);padding-left:12px}
   .pcap .lab{display:block;color:var(--ochre);margin-bottom:3px}
+</style>
+
+<style>
+  .facts { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; overflow: hidden; }
+  .fact { flex: 1 1 170px; padding: 12px 16px; border-right: 1px solid var(--rule, #dcd6cc); min-width: 0; }
+  .fact:last-child { border-right: 0; }
+  .fk { display: block; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; opacity: .62; }
+  .fv { display: block; margin-top: 4px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; }
+  .known { margin-top: 18px; padding: 16px 18px; border-left: 3px solid var(--accent, #8a5a3b); background: color-mix(in srgb, var(--accent, #8a5a3b) 5%, transparent); border-radius: 0 3px 3px 0; }
+  .known p { margin: 0; font-size: 15.5px; line-height: 1.68; }
+  @media (max-width: 620px) { .fact { flex: 1 1 100%; border-right: 0; border-bottom: 1px solid var(--rule, #dcd6cc); } .fact:last-child { border-bottom: 0; } }
 </style>
