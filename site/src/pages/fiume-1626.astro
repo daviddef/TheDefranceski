@@ -1,0 +1,70 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import f from "../data/fiume.json";
+const md = (s) => s
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+---
+<Base title={f.title} eyebrow={f.eyebrow} dek={f.dek}>
+
+  <section class="prose">{f.lead.map(p => <p set:html={md(p)} />)}</section>
+
+  <Rule name="arrows" label="Liber Baptizatorum, Fiume" />
+
+  <ol class="ents">{f.rows.map(r => (
+    <li class={"ent" + (r.key ? " is-key" : "")}>
+      <div class="lab">{r.lab}</div>
+      <blockquote set:html={md(r.q)} />
+      <p class="tr">{r.en}</p>
+      <p class="wh" set:html={md(r.why)} />
+    </li>
+  ))}</ol>
+
+  <Rule />
+
+  <h2 style="font-size:31px">{f.means.heading}</h2>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {f.means.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={md(r.text)} />
+      </div>
+    ))}
+  </div>
+
+  <h2 style="font-size:31px;margin-top:52px">{f.more.heading}</h2>
+  <p class="dek" style="margin-top:8px">{f.more.lead}</p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th class="m">Date</th><th>Place</th><th>The index entry</th><th>Why it matters</th></tr></thead>
+      <tbody>{f.more.rows.map(r => (
+        <tr>
+          <td class="m" style="white-space:nowrap">{r.y}</td>
+          <td>{r.p}</td>
+          <td set:html={md(r.t)} />
+          <td class="dek" style="font-size:13px">{r.why}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <p class="cap" style="margin-top:30px">{f.source}</p>
+  <p class="cap" style="margin-top:10px">
+    See <a href={u("/carlos-letter/")}>Carlo's Letter</a> for Kobler's Fiume households and Valentino of 1739 ·
+    <a href={u("/senj-line/")}>Senj</a> · <a href={u("/omis-line/")}>the Omiš line</a> ·
+    <a href={u("/lines/#regions")}>where Fiume sits among the regions</a>.
+  </p>
+</Base>
+
+<style>
+  .ents{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:22px}
+  .ent{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule-strong);
+    border-radius:3px;padding:20px 24px;max-width:78ch}
+  .ent.is-key{border-left-color:var(--accent)}
+  .ent blockquote{margin:10px 0 0;font-size:17.5px;line-height:1.7;font-style:italic}
+  .ent .tr{margin-top:12px;font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2)}
+  .ent .wh{margin-top:14px;padding-top:14px;border-top:1px dotted var(--rule);font-size:16.5px}
+</style>

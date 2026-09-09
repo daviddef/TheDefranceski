@@ -157,7 +157,7 @@ import Lightbox from "../../components/Lightbox.astro";
                 <td><strong>{place}</strong></td>
                 <td class="regline">{line}</td>
                 <td><span class={"vd vd-" + conf}>{conf === "doc" ? "on a line" : conf === "inf" ? "on a line · inferred" : conf === "lore" ? "lore only" : conf === "unplaced" ? "not placed" : conf === "none" ? "a different family" : conf === "allied" ? "allied, not ours" : "a place, not a family"}</span></td>
-                <td set:html={why.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></td>
+                <td set:html={why.replace(/\[(.+?)\]\((\/.+?)\)/g, (m,t,h) => `<a href="${u(h)}">${t}</a>`).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></td>
               </tr>
             ))}
           </tbody>
