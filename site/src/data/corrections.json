@@ -127,6 +127,15 @@
    "said": "Nothing — these were caught before publication and are recorded so they are not found again.",
    "true": "**Franceschich** of Buzet is a Slavic patronymic, not Franceschi. **Francin** is its own Vodnjan family — although Pietro De Franceschi's first wife was a Francin, so in that parish the two are a household deep in each other. **Pietro Francin q.m Dom.co de Rondel** is not a De Franceschi.",
    "how": "Read by eye rather than matched by string. This is the whole argument for reading a register instead of querying one."
+  },
+  {
+   "when": "9 Sept 2026",
+   "what": "Bold words breaking onto their own line",
+   "sev": "process",
+   "where": "/carlo/",
+   "said": "Nothing wrong in the words — but wherever a paragraph of running prose contained a **bold phrase**, the phrase was thrown onto a line of its own, so the sentence read as three broken fragments.",
+   "true": "A styling fault, live across the site for an unknown period and on eleven pages that pass marked-up text into a paragraph.",
+   "how": "`.prose` was declared `display:flex; flex-direction:column`, which turns every inline child — including a `<strong>` — into its own flex item. It is now spacing applied between block children only. Found by looking at a new page rather than by any test. Two stylesheets exist in this repo and only one is loaded; the first fix went into the wrong one."
   }
  ]
 }

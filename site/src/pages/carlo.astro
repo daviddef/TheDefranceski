@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Plates from "../components/Plates.astro";
+import { u } from "../lib/url.js";
+import c from "../data/carlo.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+---
+<Base title={c.title} eyebrow={c.eyebrow} dek={c.dek}>
+<section class="blk">
+  <p class="prose" set:html={md(c.lead)}></p>
+</section>
+
+{c.rows.map(r => (
+<>
+<Rule name="arrows" label={r.yr} />
+<section class="blk">
+  <div class={"life" + (r.key ? " is-key" : "")}>
+    <div class="yr">{r.yr}</div>
+    <div class="body">
+      <h2>{r.lab}</h2>
+      {r.q && <blockquote class="doc2" style="white-space:pre-line" set:html={md(r.q)}></blockquote>}
+      <p style="margin-top:12px" set:html={md(r.text)}></p>
+      {r.plates && <div style="margin-top:20px"><Plates ids={r.plates} /></div>}
+      {r.links && (
+        <p class="cap" style="margin-top:16px">
+          {r.links.map(([t, h], i) => (<>{i > 0 ? " · " : ""}<a href={u(h)}>{t} →</a></>))}
+        </p>
+      )}
+    </div>
+  </div>
+</section>
+</>
+))}
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="cap">{c.source}</p>
+</section>
+
+<style>
+  .life { display: grid; grid-template-columns: 92px 1fr; gap: 0 26px; }
+  .life .yr { font-size: 13px; letter-spacing: .06em; opacity: .55; padding-top: 8px; font-variant-numeric: tabular-nums; }
+  .life .body h2 { margin: 0; font-size: 27px; line-height: 1.2; }
+  .life.is-key .body { border-left: 3px solid var(--terra, #a5442c); padding-left: 20px; margin-left: -20px; }
+  @media (max-width: 680px) { .life { grid-template-columns: 1fr; } .life .yr { padding-top: 0; margin-bottom: 6px; } }
+</style>
+</Base>
