@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "182 entries · 19 of them corrections",
+ "eyebrow": "183 entries · 19 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -61,6 +61,14 @@
      "what": "Automated reading, stopped",
      "src": "FamilySearch — both the persona API and the Deep Zoom image service",
      "text": "**403 — «This request was blocked by our security service.»** After two days of reading register images tile by tile, FamilySearch's bot protection has blocked this session: the persona search endpoint and the `deepzoomcloud` image service both now return a 403 with a NOINDEX/NOFOLLOW block page rather than data.\n\n**No attempt has been made or will be made to get around it.** This archive does not bypass bot checks or CAPTCHAs, and a block is a legitimate answer from a service that has given it a very great deal already — five generations at Vodnjan came off these films in two days.\n\n**What this stops, for now:** the rest of the Vodnjan marriage register (images 217–470), the death registers (546–575 on film 894 and all of 895), the Vodnjan baptism re-read, Svetvinčenat's marriage register, and the Rijeka and Bakar films. Those six items are paused, not abandoned.\n\n**What it does not stop:** everything already read and published, and the work that does not touch FamilySearch — the itineraries, the portraits, the archive letters, and the reconciliation of David's own GEDCOM when it arrives.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "10 Sept 2026",
+     "kind": "hit",
+     "what": "Giuseppe De Franceschi, found",
+     "src": "Vodnjan, Liber Defunctorum — DGS 005497894, images 553–557",
+     "text": "**The bracket closes exactly.** This archive had no date for Giuseppe De Franceschi — only a range derived from how his sons were written, «*di* Giuseppe» in November 1828 and «*fu* Giuseppe» in February 1833. The death register gives **14 February 1830**: «**Giuseppe De Franceschi q.m Pietro era ammogliato con Lucia Tromba fu Cristoforo**», **house 324**, **aged 72** — so born about **1758** — of an **organic defect of the chest**, and, in the sacraments column, «**senza assistenza spirituale per morte improvvisa**»: **suddenly, with no priest**. His own son was a priest of that parish. **And five months later, 13 July 1830, house 501: «Lucia De Franceschi q.m Pietro era Moglie di Alviso Birattan q.m Sabà», aged 70**, of dropsy — the woman whose three daughters married out in 1821, 1824 and 1825. **Both «q.m Pietro», born about 1758 and 1760, dead five months apart**: almost certainly brother and sister, which joins the two households and puts a Pietro born around 1730 behind both.",
      "href": "/research-log/"
     },
     {
