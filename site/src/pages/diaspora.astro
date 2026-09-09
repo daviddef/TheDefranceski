@@ -75,5 +75,22 @@ import d from "../data/diaspora.json";
 
 
 
+<Rule name="arrows" label="Trove, 2026" />
+
+<section class="blk">
+  <h2>{d.trove.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={d.trove.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {d.trove.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+        {r.conf && <p class="mono" style="margin-top:10px;color:var(--ink-3);font-size:11.5px">{r.conf}</p>}
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:14px">{d.trove.source}</p>
+</section>
+
   <Sources ids={["familysearch","findagrave","album2012","arolsen"]} />
 </Base>
