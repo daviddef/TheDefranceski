@@ -54,6 +54,10 @@
   {
    "lab": "Do not let a pipe hide a failure",
    "text": "`npm run build | tail -2` reports the exit status of **`tail`**, not of the build. A broken page went live twice before this was taken seriously.\n\nThere is now a publish script that builds without a pipe, checks that every source page produced an output file, and **refuses to commit or push if either fails**."
+  },
+  {
+   "lab": "Check that your own crop is not being cut off",
+   "text": "The tile reader used to read these registers draws a canvas and the browser **clips it to the viewport rather than scaling it down**. A crop 906 pixels tall in a pane 728 pixels tall silently loses **the bottom fifth of every page** — with no error and no visible edge.\n\nThis was running for several openings of the Vodnjan death register before it was noticed, and the fix is arithmetic: **crop height × scale must be smaller than the pane**. Any page scanned before the fix has to be scanned again.\n\nThe general form: **when a tool renders rather than reports, measure what it actually gave you against what you asked for.**"
   }
  ],
  "close": "None of this is a complaint about the sources. FamilySearch's films are the reason any of this was possible at all, and the volunteers who indexed the baptisms saved months. The point is narrower: **these tools answer the question you actually asked**, which is often not the question you meant — and the only defence is to open the image.",
