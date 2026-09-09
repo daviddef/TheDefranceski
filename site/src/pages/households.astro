@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Household from "../components/Household.astro";
@@ -28,6 +29,7 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
     <div class="stat"><div class="n">1645</div><div class="l">earliest reconstructed household</div></div>
   </div>
   <div class="note" style="margin-top:28px">How this is built, and where it can be wrong. Each indexed record names its parents. Grouping records by a normalised parent pair recovers the sibling set — but the index writes the same man as <em>Valentino</em>, <em>Valentini</em> and <em>Valentinus</em>, and the same woman as <em>Ursula</em>, <em>Ursulæ</em> and <em>Orsola</em>, so a normaliser collapses Latin case endings and known spelling variants before grouping. Two different men of the same name in the same parish will merge wrongly. Every household here is <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> and needs the register page to confirm it.</div>
+  <div class="note" style="margin-top:16px"><strong>Seven of them no longer are.</strong> On 9 September 2026 the Vodnjan marriage register — which no index anywhere contains — was read opening by opening, and it confirmed four of these households <em>from the weddings that made them</em>, naming both sets of parents. It also produced <strong>three households the baptism index could never have seen</strong>, including one whose husband and wife appear in no register on any film this archive can reach: they exist only because their widowed daughter remarried at forty-nine and the clerk wrote her parents out in full. Those seven carry the reading beneath them. <a href={u("/fiume-1626/")}>How they were read →</a></div>
 </section>
 <Rule name="arrows" />
 

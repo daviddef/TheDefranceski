@@ -1,5 +1,9 @@
 ---
 const { h } = Astro.props;
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
 const yr = (c) => {
   const b = (c.birth||'').match(/1[5-9]\d\d|20\d\d/)?.[0];
   const d = (c.death||'').match(/1[5-9]\d\d|20\d\d/)?.[0];
@@ -29,9 +33,22 @@ const shortLife = (c) => {
       </div>
     ))}
   </div>
+  {h.confirmed && (
+    <div class="conf">
+      <div class="ct">Confirmed from the register · {h.confirmed}</div>
+      {h.read && <p set:html={md(h.read)}></p>}
+    </div>
+  )}
   <figcaption>
     <span class="mono">{h.place || 'place not localised'}</span>
     <span class="mono">{h.from}{h.to && h.to !== h.from ? `–${h.to}` : ''}</span>
     <span class="mono">{h.n} children recorded</span>
   </figcaption>
 </figure>
+
+<style>
+  .conf { margin-top: 16px; padding: 14px 16px; border-left: 3px solid var(--terra, #a5442c);
+          background: color-mix(in srgb, var(--terra, #a5442c) 6%, transparent); border-radius: 0 3px 3px 0; }
+  .conf .ct { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--terra, #a5442c); }
+  .conf p { margin: 8px 0 0; font-size: 14px; line-height: 1.65; }
+</style>
