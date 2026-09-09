@@ -4,7 +4,7 @@ import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
 import w from "../../data/walk.json";
 export function getStaticPaths() {
-  return ["kvarner", "venice", "german"].map(slug => ({ params: { slug }, props: { slug } }));
+  return ["line", "kvarner", "venice", "german"].map(slug => ({ params: { slug }, props: { slug } }));
 }
 const { slug } = Astro.props;
 const c = w[slug];
