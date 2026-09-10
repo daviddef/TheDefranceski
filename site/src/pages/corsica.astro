@@ -1,0 +1,80 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/corsica.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p>");
+const P = (s) => `<p>${md(s)}</p>`;
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+<section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+
+<Rule name="arrows" label={d.why.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.why.text)}></div></section>
+
+<Rule name="pomegranate" label={d.hold.heading} />
+<section class="blk">
+  <div class="tw">
+    <table class="hold">
+      <thead><tr><th>Who</th><th>Where</th><th>How this archive knows</th></tr></thead>
+      <tbody>{d.hold.rows.map(([w, p, s]) => (
+        <tr><td class="g">{w}</td><td class="pl">{p}</td><td class="sr" set:html={md(s)}></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={md(d.hold.close)}></p>
+</section>
+
+<Rule name="arrows" label={d.route.heading} />
+<section class="blk"><div class="prose" set:html={P(d.route.text)}></div></section>
+
+<Rule name="pomegranate" label={d.plan.heading} />
+<section class="blk">
+  <ol class="plan">{d.plan.rows.map(([n, t]) => (
+    <li><span class="pn">{n}</span><span set:html={md(t)}></span></li>
+  ))}</ol>
+</section>
+
+<Rule name="arrows" label={d.open.heading} />
+<section class="blk">
+  <div class="opens">{d.open.rows.map(([h, t]) => (
+    <div class="op"><h3>{h}</h3><p set:html={md(t)}></p></div>
+  ))}</div>
+</section>
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="cap src"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="cap" style="margin-top:12px">
+    <a href={u("/lines/")}>All the families →</a> · <a href={u("/namesakes/")}>Namesakes →</a> ·
+    <a href={u("/diaspora/")}>Where the name went →</a> · <a href={u("/method/")}>Method →</a>
+  </p>
+</section>
+
+<style>
+  .tw { overflow-x: auto; border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; }
+  table.hold { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.hold th { text-align: left; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase;
+    opacity: .55; font-weight: 600; padding: 9px 12px; border-bottom: 1px solid var(--rule, #dcd6cc); }
+  table.hold td { padding: 9px 12px; vertical-align: top; border-top: 1px solid rgba(0,0,0,.05); line-height: 1.5; }
+  table.hold td.g { font-weight: 500; }
+  table.hold td.pl { opacity: .75; white-space: nowrap; }
+  table.hold td.sr { font-size: 13px; opacity: .85; }
+  .plan { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .plan li { display: flex; gap: 14px; font-size: 14.5px; line-height: 1.65; }
+  .pn { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1px solid #8a7f5c;
+        display: inline-flex; align-items: center; justify-content: center; font-size: 12.5px; opacity: .8; }
+  .opens { display: grid; gap: 15px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .op { border-left: 3px solid #8a7f5c; padding: 2px 0 2px 14px; }
+  .op h3 { margin: 0 0 6px; font-size: 16px; line-height: 1.3; }
+  .op p { margin: 0; font-size: 13.5px; line-height: 1.6; }
+  .prose.hi p:first-child { font-size: 17px; }
+  .src { max-width: 80ch; }
+  @media (prefers-color-scheme: dark) { table.hold td { border-top-color: rgba(255,255,255,.07); } }
+</style>
+</Base>
