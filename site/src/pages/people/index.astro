@@ -23,6 +23,10 @@ const N = {
 const PLACES = Object.entries(
   R.reduce((a, r) => { const k = (r.place || "").split(",")[0].trim(); if (k) a[k] = (a[k] || 0) + 1; return a; }, {})
 ).filter(([, n]) => n >= 3).sort((a, b) => b[1] - a[1]);
+const nt = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/href="(\/[^"]*)"/g, (_, h) => `href="${u(h)}"`);
 ---
 <Base title="Everyone" eyebrow={`${S.total} people of the name, from every record set in this archive`}
       dek="The whole roster, in one list. Start with ★ My line if you only want the people this archive can attach to David\u2019s own descent — the rest are of the name, not of the family.">
@@ -82,7 +86,7 @@ const PLACES = Object.entries(
                 ? <span class="parish" title="The parish register this record was filmed from">{r.parish}</span>
                 : (r.place || "—")}{r.parish && r.place && r.place !== r.parish && <span class="rnote"> · {r.place}</span>}</td>
             <td><span class={"lchip l-" + r.line}>{LINEN[r.line]}</span></td>
-            <td class="rsrc"><a href={u(r.href)}>{roster.srclabel[r.src]}</a>{r.note && <span class="rnote"> · {r.note}</span>}</td>
+            <td class="rsrc"><a href={u(r.href)}>{roster.srclabel[r.src]}</a>{r.note && <span class="rnote" set:html={" · " + nt(r.note)}></span>}</td>
             <td class="rlinks">
               {r.ark && <a class="reclink" href={`https://www.familysearch.org/ark:/61903/${r.ark}`} rel="noopener" title="The indexed record on FamilySearch">record</a>}
               {r.mh && <a class="reclink tree" href={`https://www.myheritage.com/site-family-tree-OYYV7AGVV4FMSGNWXC6TO74JQDUMOYA?familyTreeID=4&individualId=${r.mh}`} rel="noopener" title="This person in the family tree">tree</a>}

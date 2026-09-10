@@ -99,6 +99,24 @@ const P = (s) => `<p>${md(s)}</p>`;
   <p class="prose note" style="margin-top:24px" set:html={md(d.jar.quiet)}></p>
 </section>
 
+<Rule name="arrows" label={d.books.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.books.intro)}></div>
+  <div class="bks">
+    {d.books.rows.map(b => (
+      <article class="bk">
+        <header>
+          <h3>{b.t}</h3>
+          <p class="bsub" set:html={md(b.sub)}></p>
+          <p class="bmeta"><span>{b.w}</span>{b.y !== "—" && <span class="by">{b.y}</span>}</p>
+        </header>
+        <div class="prose" set:html={P(b.d)}></div>
+      </article>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px" set:html={md(d.books.close)}></p>
+</section>
+
 <Rule name="arrows" label={d.excluded.heading} />
 <section class="blk"><div class="prose" set:html={P(d.excluded.text)}></div></section>
 
@@ -149,5 +167,13 @@ const P = (s) => `<p>${md(s)}</p>`;
   .jd { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; opacity: .55; font-weight: 600; }
   .jt { font-size: 14.5px; line-height: 1.6; }
   @media (prefers-color-scheme: dark) { .bar .bt { background: rgba(255,255,255,.1); } }
+
+  .bks { display: flex; flex-direction: column; gap: 26px; margin-top: 26px; }
+  .bk { border-left: 3px solid #8a7f5c; padding-left: 18px; max-width: 78ch; }
+  .bk h3 { margin: 0; font-size: 20px; line-height: 1.25; }
+  .bsub { margin: 4px 0 0; font-size: 13.5px; opacity: .75; font-style: italic; }
+  .bmeta { margin: 8px 0 12px; display: flex; gap: 14px; font-size: 11.5px; letter-spacing: .05em;
+           text-transform: uppercase; opacity: .6; font-variant-numeric: tabular-nums; }
+  .bk .prose p { font-size: 14.5px; }
 </style>
 </Base>
