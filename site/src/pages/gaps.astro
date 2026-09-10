@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import g from "../data/gaps.json";
+import d from "../data/dossiers.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+const slugOf = (n) => Object.values(d.people).find(p => p.name === n)?.slug;
+---
+<Base title={g.title} eyebrow={g.eyebrow} dek={g.dek}>
+<section class="blk"><p class="prose" set:html={md(g.lead)}></p></section>
+<Rule name="arrows" label="Unfinished" />
+<section class="blk">
+  <div class="gaps">
+    {g.rows.map(r => (
+      <article class="gap">
+        <div class="gh">
+          <h3>{slugOf(r.name) ? <a href={u(`/who/${slugOf(r.name)}/`)}>{r.name}</a> : r.name}</h3>
+          {r.place && <span class="pl">{r.place}</span>}
+        </div>
+        <p set:html={md(r.known)}></p>
+        <p class="cap" style="margin-top:8px"><span class="lab">Where the death should be</span> {r.where}</p>
+      </article>
+    ))}
+  </div>
+</section>
+<Rule name="pomegranate" />
+<section class="blk"><p class="prose note" set:html={md(g.close)}></p>
+  <p class="cap" style="margin-top:12px"><a href={u("/vodnjan/")}>The Vodnjan lines →</a> · <a href={u("/method/")}>Method →</a> · <a href={u("/changes/")}>What changed →</a></p>
+</section>
+<style>
+  .gaps { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%,340px), 1fr)); }
+  .gap { border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-left-color: #8a7f5c;
+         border-radius: 3px; padding: 15px 17px; }
+  .gh { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .gh h3 { margin: 0; font-size: 18.5px; line-height: 1.25; }
+  .pl { font-size: 12px; opacity: .6; }
+  .gap p { margin: 9px 0 0; font-size: 14.5px; line-height: 1.6; }
+</style>
+</Base>
