@@ -183,6 +183,7 @@ for slug, rows in by_slug.items():
     if yrs: facts.append(["Years", yrs])
     if r0.get("parish"): facts.append(["Parish", r0["parish"]])
     if r0.get("line") and legend.get(r0["line"]): facts.append(["Line", legend[r0["line"]].split("—")[0].strip()])
+    if r0.get("img"): facts.append(["Read from", r0["img"]])
     srcs = sorted({srclabel.get(r["src"], r["src"]) for r in rows})
     if srcs: facts.append(["Found in", " · ".join(srcs)])
     notes = [r["note"] for r in rows if r.get("note")]
