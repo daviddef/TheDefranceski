@@ -59,8 +59,8 @@ const P = (s) => `<p>${md(s)}</p>`;
           ? <div class="td">{x.l[0]}</div>
           : <figure class="tv">
               <span class="tno">{x.no}</span>
-              {x.title && <h3 class="ttl">{x.title}{x.verified && <span class="vfy" title="Stanza breaks confirmed against the original">stanzas verified</span>}</h3>}
               {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
+              {x.title && <h3 class="ttl">{x.title}{x.verified && <span class="vfy" title="Stanza breaks confirmed against the original">stanzas verified</span>}</h3>}
               <div class="verse">{x.l.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
               {x.titlenote && <p class="ttlnote">{x.titlenote}</p>}
               {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={md(x.note)}></span></figcaption>}
