@@ -61,9 +61,80 @@ const P = (s) => `<p>${md(s)}</p>`;
               <span class="tno">{x.no}</span>
               {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
               <div class="verse">{x.l.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
+              {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={md(x.note)}></span></figcaption>}
             </figure>
     ))}
   </div>
+</section>
+
+<Rule name="pomegranate" label="What the archive makes of it" />
+<section class="blk">
+  <p class="prose note">Everything above is hers. Everything below is the archive's, and is set here rather than among her work.</p>
+</section>
+
+<Rule name="arrows" label={d.corona.heading} />
+<section class="blk">
+  <img class="pimg wide" src={u("/poems/corona.jpg")} alt="" loading="lazy" decoding="async" width="1000" height="670" />
+  <div class="prose hi" set:html={P(d.corona.intro)}></div>
+  <div class="prose" style="margin-top:20px" set:html={P(d.corona.close)}></div>
+</section>
+
+<Rule name="pomegranate" label={d.elegy.heading} />
+<section class="blk">
+  <img class="pimg wide" src={u("/poems/elegy-2021.jpg")} alt="" loading="lazy" decoding="async" width="1000" height="670" />
+  <div class="prose hi" set:html={P(d.elegy.intro)}></div>
+</section>
+
+<Rule name="arrows" label={d.dark.heading} />
+<section class="blk">
+  <div class="prose" set:html={P(d.dark.text)}></div>
+  <p class="prose pnote" set:html={md(d.dark.note)}></p>
+</section>
+
+<Rule name="pomegranate" label={d.jar.heading} />
+<section class="blk jarhead">
+  <img class="pimg wide" src={u(`/poems/${d.jar.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
+</section>
+<section class="blk">
+  <div class="prose hi" set:html={P(d.jar.intro)}></div>
+  <h3 class="sh">{d.jar.shape.heading}</h3>
+  <div class="prose" set:html={P(d.jar.shape.text)}></div>
+  <div class="bars">
+    {d.jar.shape.bars.map(([m, n]) => (
+      <div class={"bar" + (n === 0 ? " zero" : "") + (m === "June" ? " june" : "")}>
+        <span class="bm">{m}</span>
+        <span class="bt"><i style={`width:${(n / 31) * 100}%`}></i></span>
+        <span class="bn">{n === 0 ? "\u2014" : n}</span>
+      </div>
+    ))}
+  </div>
+  <h3 class="sh">{d.jar.june.heading}</h3>
+  <div class="prose" set:html={P(d.jar.june.text)}></div>
+  <div class="jrows">
+    {d.jar.june.rows.map(([dt, tx]) => (
+      <div class="jr"><span class="jd">{dt}</span><span class="jt" set:html={md(tx)}></span></div>
+    ))}
+  </div>
+  <div class="prose hi" style="margin-top:22px" set:html={P(d.jar.june.close)}></div>
+  <p class="prose note" style="margin-top:24px" set:html={md(d.jar.quiet)}></p>
+</section>
+
+<Rule name="arrows" label={d.books.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.books.intro)}></div>
+  <div class="bks">
+    {d.books.rows.map(b => (
+      <article class="bk">
+        <header>
+          <h3>{b.t}</h3>
+          <p class="bsub" set:html={md(b.sub)}></p>
+          <p class="bmeta"><span>{b.w}</span>{b.y !== "\u2014" && <span class="by">{b.y}</span>}</p>
+        </header>
+        <div class="prose" set:html={P(b.d)}></div>
+      </article>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:24px" set:html={md(d.books.close)}></p>
 </section>
 
 <Rule name="arrows" label={d.excluded.heading} />
@@ -173,5 +244,10 @@ const P = (s) => `<p>${md(s)}</p>`;
   .tv .verse .ln { font-size: 17px; line-height: 1.55; }
   .tv .verse br { display: block; content: ""; height: 12px; }
   .tv .pimg { max-width: 460px; margin-bottom: 16px; }
+
+  .tnote { margin-top: 14px; border-left: 2px solid #8a7f5c; padding-left: 12px; font-size: 13.5px;
+           line-height: 1.65; opacity: .88; max-width: 66ch; }
+  .tnote .lab { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+                opacity: .5; font-weight: 600; margin-bottom: 4px; }
 </style>
 </Base>
