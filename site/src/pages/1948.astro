@@ -56,6 +56,12 @@ const P = (s) => `<p>${md(s)}</p>`;
   </div>
 </section>
 
+<Rule name="arrows" label={d.closed.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.closed.text)}></div>
+  <p class="settle"><span class="lab">Confidence</span> <span set:html={md(d.closed.grade)}></span> · <a href={u("/cheryl-lerena/")}>Cheryl Lerena →</a></p>
+</section>
+
 <Rule name="arrows" label={d.transposition.heading} />
 <section class="blk">
   <div class="prose" set:html={P(d.transposition.text)}></div>
