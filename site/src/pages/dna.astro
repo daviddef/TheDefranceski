@@ -1,0 +1,180 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/dna.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p>");
+const P = (s) => `<p>${md(s)}</p>`;
+const MAXP = 65;
+const HUE = {
+  "Balkan": "#c9a227", "East European": "#9bbf4f", "Greek and Albanian": "#d1517a",
+  "Baltic": "#e0805c", "Germanic": "#4fb3c4", "Dutch": "#d1736a", "English": "#4f9fd1",
+  "Scottish and Welsh": "#8d8de0", "Irish": "#e05fa8", "Danish": "#b06fd1",
+  "Breton": "#7f9e3a", "North Italian": "#4a7a52", "South Italian": "#2f6fc4",
+  "French": "#e06a3a", "Sardinian": "#3fb59a", "Swedish": "#e0b93a"
+};
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+<section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+
+<Rule name="arrows" label="Three estimates" />
+<section class="blk">
+  <div class="cols">
+    {d.people.map(p => (
+      <div class="col">
+        <div class="ch">
+          <h3>{p.who}</h3>
+          <span class="cn">{p.note}</span>
+        </div>
+        <div class="bars">
+          {Object.entries(p.bars).map(([k, v]) => (
+            <div class="bar">
+              <span class="bk">{k}</span>
+              <span class="bt"><i style={`width:${(v / MAXP) * 100}%;background:${HUE[k] || "#8a7f5c"}`}></i></span>
+              <span class="bv">{v.toFixed(1)}%</span>
+            </div>
+          ))}
+        </div>
+        {p.sub.length > 0 && (
+          <div class="sub"><span class="lab">Within Balkan</span>
+            <ul>{p.sub.map(s => <li>{s}</li>)}</ul></div>
+        )}
+        {p.groups.length > 0 && (
+          <div class="sub"><span class="lab">Genetic groups</span>
+            <ul>{p.groups.map(s => <li>{s}</li>)}</ul></div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+<Rule name="pomegranate" label={d.midpoint.heading} />
+<section class="blk">
+  <div class="prose" set:html={P(d.midpoint.lead)}></div>
+  <div class="tw" style="margin-top:20px">
+    <table class="mid">
+      <thead><tr><th>Group</th><th>Ivan</th><th>Cheryl Anne</th><th>Midpoint</th><th>David</th><th>Drift</th></tr></thead>
+      <tbody>{d.midpoint.rows.map(([k, i, c, m, a, del]) => (
+        <tr class={Math.abs(del) >= 4 ? "big" : (del === 0 ? "exact" : "")}>
+          <td class="g"><i class="sw" style={`background:${HUE[k] || "#8a7f5c"}`}></i>{k}</td>
+          <td>{i ? i.toFixed(1) : "—"}</td>
+          <td>{c ? c.toFixed(1) : "—"}</td>
+          <td class="m">{m.toFixed(1)}</td>
+          <td><strong>{a ? a.toFixed(1) : "—"}</strong></td>
+          <td class={"d " + (del > 0 ? "up" : del < 0 ? "dn" : "eq")}>{del > 0 ? "+" : ""}{del.toFixed(1)}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:20px" set:html={P(d.midpoint.close)}></div>
+</section>
+
+<Rule name="arrows" label={d.meet.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.meet.text)}></div>
+  <p class="cap" style="margin-top:12px">
+    <a href={u("/direct-line/")}>The Spine →</a> · <a href={u("/crikvenica-house/")}>Crikvenica →</a> · <a href={u("/senj-line/")}>Senj →</a>
+  </p>
+</section>
+
+<Rule name="pomegranate" label={d.horizon.heading} />
+<section class="blk">
+  <div class="prose" set:html={P(d.horizon.lead)}></div>
+  <div class="tw" style="margin-top:18px">
+    <table class="hz">
+      <thead><tr><th>Ancestor</th><th>Where</th><th>Steps</th><th>Share of David</th><th></th></tr></thead>
+      <tbody>{d.horizon.rows.map(([who, where, n, pc, when]) => {
+        const val = 100 / Math.pow(2, n);
+        return (
+          <tr class={val < 1 ? "under" : ""}>
+            <td class="g">{who}<span class="wh">{when}</span></td>
+            <td class="pl">{where}</td>
+            <td class="m">{n}</td>
+            <td class="m"><strong>{pc}</strong></td>
+            <td class="spark"><i style={`width:${Math.max(val / 50 * 100, 0.35)}%`}></i></td>
+          </tr>
+        );
+      })}</tbody>
+    </table>
+  </div>
+  <p class="floor"><span></span> the faded rows fall under the ~1% reporting floor — invisible to the test, whatever the registers say</p>
+  <div class="prose" style="margin-top:18px" set:html={P(d.horizon.close)}></div>
+</section>
+
+<Rule name="arrows" label={d.groups.heading} />
+<section class="blk"><div class="prose" set:html={P(d.groups.text)}></div>
+  <p class="cap" style="margin-top:12px"><a href={u("/diaspora/")}>Where the name went →</a> · <a href={u("/emigration/")}>Leaving →</a></p>
+</section>
+
+<Rule name="pomegranate" label={d.greek.heading} />
+<section class="blk"><div class="prose" set:html={P(d.greek.text)}></div></section>
+
+<Rule name="arrows" label={d.terms.heading} />
+<section class="blk">
+  <div class="terms">
+    {d.terms.rows.map(([k, v]) => (
+      <div class="term"><div class="tk">{k}</div><p set:html={md(v)}></p></div>
+    ))}
+  </div>
+</section>
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="prose note" set:html={md(d.privacy)}></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="cap" style="margin-top:12px"><a href={u("/method/")}>Method →</a> · <a href={u("/sources/")}>Sources →</a> · <a href={u("/people/")}>Everyone →</a></p>
+</section>
+
+<style>
+  .cols { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
+  .col { border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 16px 18px; }
+  .ch h3 { margin: 0; font-size: 19px; }
+  .cn { font-size: 12px; opacity: .6; }
+  .bars { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .bar { display: grid; grid-template-columns: 1fr 4.2rem 3.2rem; align-items: center; gap: 8px; font-size: 12.5px; }
+  .bk { line-height: 1.25; }
+  .bt { height: 8px; background: rgba(0,0,0,.07); border-radius: 2px; overflow: hidden; }
+  .bt i { display: block; height: 100%; }
+  .bv { text-align: right; font-variant-numeric: tabular-nums; opacity: .75; }
+  .sub { margin-top: 14px; }
+  .sub .lab { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; opacity: .55; font-weight: 600; }
+  .sub ul { margin: 5px 0 0; padding-left: 16px; font-size: 12.5px; line-height: 1.5; opacity: .8; }
+  .tw { overflow-x: auto; border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: right; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; opacity: .55;
+       font-weight: 600; padding: 9px 12px; border-bottom: 1px solid var(--rule, #dcd6cc); white-space: nowrap; }
+  th:first-child, th:nth-child(2) { text-align: left; }
+  td { padding: 8px 12px; border-top: 1px solid rgba(0,0,0,.05); text-align: right;
+       font-variant-numeric: tabular-nums; }
+  td.g, td.pl { text-align: left; font-variant-numeric: normal; }
+  td.g { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .sw { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: none; }
+  .wh { font-size: 11.5px; opacity: .55; }
+  .pl { opacity: .7; font-size: 12.5px; }
+  tr.big td { background: rgba(138,127,92,.09); }
+  tr.exact td.d { font-weight: 700; }
+  td.d.up { color: #7a5c2f; } td.d.dn { color: #4a6b7a; } td.d.eq { opacity: .45; }
+  tr.under td { opacity: .55; }
+  .spark { width: 34%; }
+  .spark i { display: block; height: 7px; background: #8a7f5c; border-radius: 2px; }
+  tr.under .spark i { background: #b9b1a0; }
+  .floor { font-size: 12.5px; opacity: .7; margin-top: 10px; display: flex; align-items: center; gap: 10px; }
+  .floor span { flex: none; width: 34px; height: 7px; border-radius: 2px; background: #b9b1a0; }
+  .terms { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
+  .term { border-left: 3px solid #8a7f5c; padding: 2px 0 2px 14px; }
+  .tk { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; opacity: .6; font-weight: 600; }
+  .term p { margin: 6px 0 0; font-size: 13.5px; line-height: 1.6; }
+  .prose.hi p:first-child { font-size: 17px; }
+  .src { max-width: 80ch; }
+  @media (prefers-color-scheme: dark) {
+    .bt { background: rgba(255,255,255,.1); }
+    td { border-top-color: rgba(255,255,255,.07); }
+    tr.big td { background: rgba(201,162,39,.12); }
+    td.d.up { color: #d8b877; } td.d.dn { color: #8fb6c9; }
+  }
+</style>
+</Base>
