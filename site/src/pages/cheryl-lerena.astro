@@ -71,6 +71,34 @@ const P = (s) => `<p>${md(s)}</p>`;
   <p class="prose pnote" set:html={md(d.dark.note)}></p>
 </section>
 
+<Rule name="pomegranate" label={d.jar.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.jar.intro)}></div>
+
+  <h3 class="sh">{d.jar.shape.heading}</h3>
+  <div class="prose" set:html={P(d.jar.shape.text)}></div>
+  <div class="bars">
+    {d.jar.shape.bars.map(([m, n, tot]) => (
+      <div class={"bar" + (n === 0 ? " zero" : "") + (m === "June" ? " june" : "")}>
+        <span class="bm">{m}</span>
+        <span class="bt"><i style={`width:${(n / 31) * 100}%`}></i></span>
+        <span class="bn">{n === 0 ? "—" : n}</span>
+      </div>
+    ))}
+  </div>
+
+  <h3 class="sh">{d.jar.june.heading}</h3>
+  <div class="prose" set:html={P(d.jar.june.text)}></div>
+  <div class="jrows">
+    {d.jar.june.rows.map(([dt, tx]) => (
+      <div class="jr"><span class="jd">{dt}</span><span class="jt" set:html={md(tx)}></span></div>
+    ))}
+  </div>
+  <div class="prose hi" style="margin-top:22px" set:html={P(d.jar.june.close)}></div>
+
+  <p class="prose note" style="margin-top:24px" set:html={md(d.jar.quiet)}></p>
+</section>
+
 <Rule name="arrows" label={d.excluded.heading} />
 <section class="blk"><div class="prose" set:html={P(d.excluded.text)}></div></section>
 
@@ -105,5 +133,21 @@ const P = (s) => `<p>${md(s)}</p>`;
   .seqp .verse .ln { font-size: 15.5px; line-height: 1.5; }
   .poem .dt { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .55;
               font-weight: 600; margin-bottom: 10px; }
+
+  .sh { font-size: 18px; margin: 30px 0 12px; }
+  .bars { display: flex; flex-direction: column; gap: 5px; margin-top: 20px; max-width: 460px; }
+  .bar { display: grid; grid-template-columns: 6.5rem 1fr 2rem; align-items: center; gap: 10px; font-size: 13px; }
+  .bar .bt { height: 10px; background: rgba(0,0,0,.07); border-radius: 2px; overflow: hidden; }
+  .bar .bt i { display: block; height: 100%; background: #8a7f5c; }
+  .bar .bn { text-align: right; font-variant-numeric: tabular-nums; opacity: .7; }
+  .bar.june .bt i { background: #a3402f; }
+  .bar.june .bm, .bar.june .bn { font-weight: 700; }
+  .bar.zero .bm, .bar.zero .bn { opacity: .45; }
+  .jrows { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; max-width: 76ch; }
+  .jr { display: grid; grid-template-columns: 7.5rem 1fr; gap: 12px; align-items: baseline;
+        border-left: 2px solid var(--rule, #dcd6cc); padding-left: 14px; }
+  .jd { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; opacity: .55; font-weight: 600; }
+  .jt { font-size: 14.5px; line-height: 1.6; }
+  @media (prefers-color-scheme: dark) { .bar .bt { background: rgba(255,255,255,.1); } }
 </style>
 </Base>
