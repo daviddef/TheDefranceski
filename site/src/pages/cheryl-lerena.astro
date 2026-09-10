@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/cheryl.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p>");
+const P = (s) => `<p>${md(s)}</p>`;
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+<section class="blk">
+  <p class="prose note living" set:html={md(d.living)}></p>
+  <div class="prose" style="margin-top:20px" set:html={P(d.lead)}></div>
+</section>
+
+{d.poems.map((p, i) => (
+  <>
+    <Rule name={i === 0 ? "arrows" : "pomegranate"} label={i === 0 ? "The poem" : "And one that may be hers"} />
+    <section class="blk">
+      <figure class="poem">
+        <h2>{p.title}</h2>
+        <div class="verse">{p.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
+        <figcaption>
+          <p class="occ" set:html={md(p.occasion)}></p>
+          <p class="conf"><span class="lab">Confidence</span> {p.conf}</p>
+        </figcaption>
+      </figure>
+      <p class="prose pnote" set:html={md(p.note)}></p>
+    </section>
+  </>
+))}
+
+<Rule name="arrows" label={d.excluded.heading} />
+<section class="blk"><div class="prose" set:html={P(d.excluded.text)}></div></section>
+
+<Rule name="pomegranate" label={d.rest.heading} />
+<section class="blk"><div class="prose" set:html={P(d.rest.text)}></div></section>
+
+<Rule name="arrows" label={d.lerena.heading} />
+<section class="blk"><div class="prose" set:html={P(d.lerena.text)}></div>
+  <p class="cap" style="margin-top:12px"><a href={u("/dna/")}>The DNA →</a> · <a href={u("/people/")}>Everyone →</a></p>
+</section>
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="cap src"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+</section>
+
+<style>
+  .living { border-left: 3px solid #8a7f5c; padding-left: 14px; }
+  .poem { margin: 0; max-width: 62ch; }
+  .poem h2 { margin: 0 0 18px; font-size: 23px; font-style: italic; font-weight: 500; line-height: 1.25; }
+  .verse { display: flex; flex-direction: column; gap: 3px; padding-left: 4px; }
+  .verse .ln { font-size: 19px; line-height: 1.55; letter-spacing: .005em; }
+  .verse br { display: block; content: ""; height: 14px; }
+  .poem figcaption { margin-top: 22px; border-top: 1px solid var(--rule, #dcd6cc); padding-top: 12px; }
+  .poem .occ { margin: 0; font-size: 13.5px; line-height: 1.6; opacity: .85; }
+  .poem .conf { margin: 8px 0 0; font-size: 12.5px; opacity: .7; }
+  .lab { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; opacity: .6;
+         font-weight: 600; margin-right: 6px; }
+  .pnote { margin-top: 22px; max-width: 74ch; }
+  .src { max-width: 80ch; }
+</style>
+</Base>
