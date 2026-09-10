@@ -52,7 +52,7 @@ const P = (s) => `<p>${md(s)}</p>`;
     <section class="blk">
       <figure class="poem">
         {p.img && <img class="pimg" src={u(`/poems/${p.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
-        <h2>{p.title}</h2>
+        <h2><span class="pno">{p.no}</span>{p.title}</h2>
         <div class="verse">{p.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
         <figcaption>
           <p class="occ" set:html={md(p.occasion)}></p>
@@ -71,7 +71,7 @@ const P = (s) => `<p>${md(s)}</p>`;
   <div class="seq">
     {d.corona.poems.map(x => (
       <figure class="poem seqp">
-        <div class="dt">{x.date}{x.sub && <span class="sub"> — {x.sub}</span>}</div>
+        <div class="dt"><span class="pno sm">{x.no}</span>{x.date}{x.sub && <span class="sub"> — {x.sub}</span>}</div>
         <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
       </figure>
     ))}
@@ -86,7 +86,7 @@ const P = (s) => `<p>${md(s)}</p>`;
     <div style="margin-top:28px">
       <figure class="poem">
         {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
-        <div class="dt">{x.date}</div>
+        <div class="dt"><span class="pno sm">{x.no}</span>{x.date}</div>
         <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
       </figure>
       {x.note && <p class="prose pnote" set:html={md(x.note)}></p>}
@@ -244,5 +244,9 @@ const P = (s) => `<p>${md(s)}</p>`;
   .jarhead .pimg { margin-left: auto; margin-right: auto; }
 
   .seqp .dt .sub { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .85; }
+
+  .pno { display: inline-block; min-width: 2.1em; font-variant-numeric: tabular-nums; opacity: .38;
+         font-weight: 400; font-style: normal; font-size: .62em; vertical-align: middle; }
+  .pno.sm { min-width: 1.9em; font-size: 1em; opacity: .45; }
 </style>
 </Base>
