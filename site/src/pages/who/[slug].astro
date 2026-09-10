@@ -57,12 +57,40 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
-{!p.ptree && (
+{(!p.ptree && p.rec) && (
+<Rule name="arrows" label="The record itself" />
 <section class="blk">
-  <div class="mt-warn drops"><strong>No family is drawn for this name.</strong> This archive has not yet
-  placed it in a household — no parents, no spouse, no children are recorded here. Everything it does hold
-  is below, and <a href={u(`/register/?q=${encodeURIComponent(p.name)}`)}>every indexed record naming this
-  name</a> is on The Register.</div>
+  <figure class="recstrip">
+    <div class="rs-lab">This archive has not placed this name in a household. What it does have is one indexed entry.</div>
+    <div class="rs-row">
+      <span class="pnode me"><span class="nm">{p.name}</span>
+        {p.rec.says && <span class="dt">{p.rec.says}</span>}
+        {p.rec.place && <span class="via gen">{p.rec.place}</span>}</span>
+      {p.rec.others.length > 0 && <span class="rs-and">named on the same record</span>}
+      {p.rec.others.map(o => (
+        o.slug
+          ? <a class="pnode via-index" href={u(`/who/${o.slug}/`)}><span class="nm">{o.n}</span><span class="via">also in this archive</span></a>
+          : <span class="pnode via-index"><span class="nm">{o.n}</span><span class="via">named here only</span></span>
+      ))}
+    </div>
+    <figcaption>
+      <p class="warn"><strong>This is a record, not a family.</strong> The index names these people on one page and does not
+      say how they are related — a parent, a spouse and a godparent look identical here. Nothing above has been joined to anything.</p>
+      <p class="cap" style="margin-top:10px">
+        <a href={p.rec.url} rel="noopener">FamilySearch <span class="mono">{p.rec.id}</span> →</a> ·
+        <a href={u(`/register/?q=${encodeURIComponent(p.name)}`)}>Every record naming {p.name} →</a>
+      </p>
+    </figcaption>
+  </figure>
+</section>
+)}
+
+{(!p.ptree && !p.rec) && (
+<section class="blk">
+  <div class="mt-warn drops"><strong>No family is drawn for this name, and no record stands behind it.</strong> This archive
+  has not placed it in a household and holds no indexed entry for it — the name reached this project through a chart, a
+  narrative source or the family tree, and everything it does hold is below.
+  <a href={u(`/register/?q=${encodeURIComponent(p.name)}`)}>The Register</a> is where a record would appear if one turned up.</div>
 </section>
 )}
 
@@ -376,4 +404,12 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   .prov .lab { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .55; font-weight: 600; }
   .prov p { margin: 9px 0 0; font-size: 14px; line-height: 1.65; }
   .prov .lk { font-size: 13px; opacity: .85; margin-top: 12px; }
+
+  .recstrip { margin: 0; }
+  .rs-lab { font-size: 13px; opacity: .7; margin-bottom: 12px; max-width: 74ch; line-height: 1.6; }
+  .rs-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .rs-and { font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; opacity: .5; padding: 0 4px; }
+  .recstrip figcaption { margin-top: 16px; }
+  .recstrip .warn { font-size: 13.5px; line-height: 1.6; border-left: 3px solid #8a7f5c; padding-left: 12px; margin: 0; }
+  .mono { font-variant-numeric: tabular-nums; opacity: .7; }
 </style>

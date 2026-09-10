@@ -193,6 +193,36 @@ def mini_tree(name):
 
 
 
+# ---- the record itself: for people with no household, show the index entry ----
+REGROWS = {}
+try:
+    _rg = json.load(open(os.path.join(DATA, "register.json"), encoding="utf-8"))
+    for _r in _rg.get("rows", []): REGROWS[_r["id"]] = _r
+except Exception:
+    pass
+
+def record_strip(rows):
+    """The indexed entry a person appears in — the record, not a reconstructed family."""
+    ids = []
+    for r in rows:
+        m = re.search(r"([0-9A-Z]{4}-[0-9A-Z]{3,4})", str(r.get("ark") or ""))
+        if m: ids.append(m.group(1))
+        ids += r.get("arks") or []
+    for i in ids:
+        e = REGROWS.get(i)
+        if not e: continue
+        others = []
+        for nm in (e.get("o") or []):
+            row = ROW_BY_NAME.get(_nm(nm))
+            o = {"n": nm}
+            if row: o["slug"] = slugify(row["name"])
+            others.append(o)
+        return {"id": i, "says": e.get("says") or "", "place": e.get("p") or "",
+                "sp": e.get("sp") or "", "others": others,
+                "url": "https://www.familysearch.org/ark:/61903/1:1:" + i}
+    return None
+
+
 # ---- the pedigree chart: parents / self+spouse / children / siblings, with provenance ----
 # Provenance tiers, strongest first. They are NOT interchangeable and the page says so.
 #   line     the archive's own descent, argued on /direct-line/
@@ -443,6 +473,7 @@ for slug, rows in by_slug.items():
                     or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
         "tree": mini_tree(name),
         "ptree": ptree(name),
+        "rec": record_strip(rows),
         "chain": chain_tree(name),
         "roster": True,
     }
