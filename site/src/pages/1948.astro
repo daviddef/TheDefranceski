@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/y1948.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p>");
+const P = (s) => `<p>${md(s)}</p>`;
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+<section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+
+{d.claims.map(c => (
+  <>
+    <Rule name={c.n === "I" || c.n === "III" ? "arrows" : "pomegranate"} label={`Claim ${c.n}`} />
+    <section class="blk">
+      <blockquote class="said">
+        <span class="qn">{c.n}</span>
+        <p set:html={md(c.said)}></p>
+        <span class="grade">{c.grade}</span>
+      </blockquote>
+      <div class="prose" set:html={P(c.against)}></div>
+      {c.readings && c.readings.length > 0 && (
+        <div class="reads">
+          <div class="lab">{c.readings.length === 1 ? "How to read it" : `${c.readings.length} readings, and nothing yet to choose between them`}</div>
+          <ol>{c.readings.map(r => <li set:html={md(r)}></li>)}</ol>
+        </div>
+      )}
+      {c.settle && (
+        <p class="settle"><span class="lab">What would settle it</span> <span set:html={md(c.settle)}></span></p>
+      )}
+    </section>
+  </>
+))}
+
+<Rule name="arrows" label={d.transposition.heading} />
+<section class="blk">
+  <div class="prose" set:html={P(d.transposition.text)}></div>
+  <div class="dates">
+    <div class="dt"><span class="dl">Crikvenica &amp; Senj pages</span><b>8 · 3 · 1926</b><span class="dw">8 March</span></div>
+    <div class="dx">↔</div>
+    <div class="dt"><span class="dl">Certified Senj extract, 1954</span><b>3 · 8 · 1926</b><span class="dw">3 August</span></div>
+  </div>
+</section>
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <div class="prose note" set:html={P(d.close)}></div>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="cap" style="margin-top:12px">
+    <a href={u("/crikvenica-house/")}>The Crikvenica house →</a> ·
+    <a href={u("/senj-line/")}>The Senj line →</a> ·
+    <a href={u("/errands/")}>Errands →</a> ·
+    <a href={u("/corrections/")}>Corrections →</a>
+  </p>
+</section>
+
+<style>
+  .said { margin: 0 0 20px; border-left: 3px solid #8a7f5c; padding: 4px 0 4px 18px; position: relative; }
+  .said p { margin: 0; font-size: 20px; line-height: 1.45; font-style: italic; }
+  .qn { position: absolute; left: -34px; top: 2px; font-size: 12px; letter-spacing: .08em;
+        opacity: .4; font-style: normal; }
+  .grade { display: inline-block; margin-top: 9px; font-size: 10.5px; letter-spacing: .09em;
+           text-transform: uppercase; border: 1px solid var(--rule, #dcd6cc); border-radius: 999px;
+           padding: 2px 9px; opacity: .7; }
+  .reads { margin-top: 18px; border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 14px 17px; }
+  .lab { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; opacity: .55; font-weight: 600; }
+  .reads ol { margin: 9px 0 0; padding-left: 20px; }
+  .reads li { margin-top: 8px; font-size: 14px; line-height: 1.65; }
+  .settle { margin-top: 16px; font-size: 13.5px; line-height: 1.65; max-width: 80ch; opacity: .9; }
+  .settle .lab { margin-right: 6px; }
+  .dates { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 20px; }
+  .dt { border: 1px solid var(--rule, #dcd6cc); border-left: 3px solid #8a7f5c; border-radius: 3px;
+        padding: 12px 18px; display: flex; flex-direction: column; gap: 3px; }
+  .dl { font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; opacity: .55; }
+  .dt b { font-size: 24px; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+  .dw { font-size: 12.5px; opacity: .65; }
+  .dx { font-size: 22px; opacity: .4; }
+  .src { max-width: 80ch; }
+  @media (max-width: 560px) { .qn { position: static; display: block; margin-bottom: 4px; } }
+</style>
+</Base>
