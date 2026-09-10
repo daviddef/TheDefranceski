@@ -44,6 +44,7 @@ const PLACES = Object.entries(
       <button class="rf on" data-l="all">All <span class="rfn">{S.total}</span></button>
       <button class="rf is-mine" data-l="mine">★ My line <span class="rfn">{N.mine}</span></button>
       <button class="rf is-mine" data-l="direct">★ Direct line <span class="rfn">{N.direct}</span></button>
+      <button class="rf is-mine" data-l="rel">★ Related to David <span class="rfn">{R.filter(r => r.rel).length}</span></button>
       {ORDER.filter(k => S.lines[k] && k !== "carnia").map(k => <button class="rf" data-l={k}>{LINEN[k]} <span class="rfn">{S.lines[k]}</span></button>)}
       <button class="rf" data-l="star">Notable <span class="rfn">{N.star}</span></button>
       <button class="rf" data-l="rec">Has a record <span class="rfn">{N.rec}</span></button>
@@ -65,12 +66,15 @@ const PLACES = Object.entries(
       <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th>Place</th><th>Family</th><th>Where it is written up</th><th>Records</th></tr></thead>
       <tbody>
         {roster.rows.map(r => (
-          <tr data-l={r.line} data-star={r.notable ? "1" : "0"} data-mine={r.mine ? "1" : "0"} data-direct={r.direct ? "1" : "0"}
+          <tr data-l={r.line} data-star={r.notable ? "1" : "0"} data-mine={r.mine ? "1" : "0"} data-rel={r.rel ? "1" : "0"} data-direct={r.direct ? "1" : "0"}
               data-k={(r.name + " " + r.place + " " + (r.b||"") + " " + (r.d||"") + " " + (r.note||"")).toLowerCase()}
               data-place={(r.place || "").split(",")[0].trim().toLowerCase()}>
             <td class="rname">
               {r.notable && <span class="star" title="Notable — has a life written up">★</span>}
               {r.who ? <a href={u(r.who)}>{r.name}</a> : r.name}
+              {r.me && <span class="mechip" title="This is David, the compiler — every relationship on this site is measured from here">ME</span>}
+              {r.living && <span class="livechip" title="Living — named only; no dates, no places, no photograph">living</span>}
+              {r.rel && <span class="relchip">{r.rel}</span>}
             </td>
             <td class="m">{r.b || "—"}</td>
             <td class="m">{r.d || "—"}</td>
@@ -143,7 +147,8 @@ const PLACES = Object.entries(
       for (var i = 0; i < rows.length; i++) {
         var r = rows[i];
         var okL = mode === "all"
-          || (mode === "mine" ? r.getAttribute("data-mine") === "1"
+          || (mode === "rel" ? r.getAttribute("data-rel") === "1"
+          : mode === "mine" ? r.getAttribute("data-mine") === "1"
           : mode === "direct" ? r.getAttribute("data-direct") === "1"
           : mode === "star" ? r.getAttribute("data-star") === "1"
           : mode === "rec" ? r.getAttribute("data-rec") === "1"
@@ -185,6 +190,12 @@ const PLACES = Object.entries(
   .rtools input{width:100%;padding:12px 14px;font-family:var(--sans);font-size:15px;
     border:1px solid var(--rule);border-radius:10px;background:var(--panel);color:var(--ink)}
   .rfilters{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .relchip{display:inline-block;margin-left:7px;font-family:var(--sans);font-size:11px;line-height:1.3;
+    padding:2px 7px;border-radius:9px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+  .mechip{display:inline-block;margin-left:7px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+    padding:2px 6px;border-radius:3px;background:var(--accent);color:var(--ground)}
+  .livechip{display:inline-block;margin-left:7px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;
+    text-transform:uppercase;padding:2px 6px;border-radius:3px;border:1px solid var(--rule-strong);color:var(--ink-3)}
   .rfn{opacity:.55;font-variant-numeric:tabular-nums;margin-left:4px}
   .rf.is-mine{border-color:var(--accent);color:var(--accent)}
   .rf.is-mine.on{background:var(--accent);color:var(--ground);border-color:var(--accent)}
