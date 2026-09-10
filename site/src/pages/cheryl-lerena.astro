@@ -34,6 +34,43 @@ const P = (s) => `<p>${md(s)}</p>`;
   </>
 ))}
 
+<Rule name="pomegranate" label={d.corona.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.corona.intro)}></div>
+  <div class="seq">
+    {d.corona.poems.map(x => (
+      <figure class="poem seqp">
+        <div class="dt">{x.date}</div>
+        <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
+      </figure>
+    ))}
+  </div>
+  <div class="prose" style="margin-top:26px" set:html={P(d.corona.close)}></div>
+</section>
+
+<Rule name="arrows" label={d.elegy.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.elegy.intro)}></div>
+  {d.elegy.poems.map(x => (
+    <div style="margin-top:28px">
+      <figure class="poem">
+        <div class="dt">{x.date}</div>
+        <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
+      </figure>
+      {x.note && <p class="prose pnote" set:html={md(x.note)}></p>}
+    </div>
+  ))}
+</section>
+
+<Rule name="pomegranate" label={d.dark.heading} />
+<section class="blk">
+  <div class="prose" set:html={P(d.dark.text)}></div>
+  <figure class="poem" style="margin-top:24px">
+    <div class="verse">{d.dark.text2.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
+  </figure>
+  <p class="prose pnote" set:html={md(d.dark.note)}></p>
+</section>
+
 <Rule name="arrows" label={d.excluded.heading} />
 <section class="blk"><div class="prose" set:html={P(d.excluded.text)}></div></section>
 
@@ -62,5 +99,11 @@ const P = (s) => `<p>${md(s)}</p>`;
          font-weight: 600; margin-right: 6px; }
   .pnote { margin-top: 22px; max-width: 74ch; }
   .src { max-width: 80ch; }
+
+  .seq { display: grid; gap: 26px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); margin-top: 26px; }
+  .seqp { border-left: 2px solid var(--rule, #dcd6cc); padding-left: 16px; max-width: none; }
+  .seqp .verse .ln { font-size: 15.5px; line-height: 1.5; }
+  .poem .dt { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .55;
+              font-weight: 600; margin-bottom: 10px; }
 </style>
 </Base>
