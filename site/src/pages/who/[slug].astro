@@ -72,22 +72,23 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 {(p.tree || p.chain) && (
 <Rule name="arrows" label="Where this name sits" />
 <section class="blk">
+  {(p.chain && p.chain.length > 1) && (
+    <div class="mt-note">
+      <strong>These are not one man.</strong> This page gathers everyone recorded under the name, which is the archive's rule — so the {p.chain.length} positions below are {p.chain.length} different people who happen to share it{pt ? ", and none of them is necessarily the man in the pictures above" : ""}.
+    </div>
+  )}
+
   {p.tree && (
   <div class="mt">
     {p.tree.parents && (
-      <div class="mt-row">
-        <span class="mt-l">Parents</span>
+      <div class="mt-row"><span class="mt-l">Parents</span>
         <span class="mt-v"><strong>{p.tree.parents[0]}</strong> <span class="amp">×</span> <strong>{p.tree.parents[1]}</strong>
-          {p.tree.parentsPlace && <span class="mt-p">{p.tree.parentsPlace}</span>}</span>
-      </div>
+          {p.tree.parentsPlace && <span class="mt-p">{p.tree.parentsPlace}</span>}</span></div>
     )}
-    <div class="mt-row is-self">
-      <span class="mt-l">This name</span>
-      <span class="mt-v"><strong>{p.name}</strong>{p.tree.asChild && <span class="mt-p">{p.tree.asChild}</span>}</span>
-    </div>
+    <div class="mt-row is-self"><span class="mt-l">This name</span>
+      <span class="mt-v"><strong>{p.name}</strong>{p.tree.asChild && <span class="mt-p">{p.tree.asChild}</span>}</span></div>
     {p.tree.siblings && p.tree.siblings.length > 0 && (
-      <div class="mt-row"><span class="mt-l">Brothers &amp; sisters</span>
-        <span class="mt-v">{p.tree.siblings.join(" · ")}</span></div>
+      <div class="mt-row"><span class="mt-l">Brothers &amp; sisters</span><span class="mt-v">{p.tree.siblings.join(" · ")}</span></div>
     )}
     {p.tree.spouse && (
       <div class="mt-row"><span class="mt-l">Married</span>
@@ -95,27 +96,32 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
     )}
     {p.tree.children && p.tree.children.length > 0 && (
       <div class="mt-row"><span class="mt-l">Children</span>
-        <span class="mt-v">{p.tree.children.map((c, i) => (<>{i > 0 ? " · " : ""}{c.n}{c.d && <span class="mt-y"> {c.d}</span>}</>))}</span></div>
+        <span class="mt-v">{p.tree.children.map((c, i) => (<>{i > 0 ? " · " : ""}{c.n}</>))}</span></div>
     )}
     {p.tree.ambiguous && (
-      <p class="mt-warn">This name matches <strong>{p.tree.upN > 1 ? p.tree.upN + " different households as a child" : ""}{p.tree.upN > 1 && p.tree.downN > 1 ? " and " : ""}{p.tree.downN > 1 ? p.tree.downN + " different households as a parent" : ""}</strong>. The one shown is the first; the archive has not resolved which is right, and joining them on a name alone is exactly the mistake this site keeps having to correct.</p>
+      <p class="mt-warn">This name matches more than one household. The one shown is the first; joining them on a name alone is the mistake this site keeps having to correct.</p>
     )}
   </div>
   )}
 
-  {p.chain && p.chain.map(ch => (
+  {p.chain && (
   <div class="mt chain">
-    <div class="mt-head">{ch.label} — <a href={u(ch.href)}>see the whole line →</a></div>
-    {ch.above && <div class="mt-row"><span class="mt-l">Before</span><span class="mt-v">{ch.above.n}<span class="mt-p">{ch.above.d}</span></span></div>}
-    <div class="mt-row is-self"><span class="mt-l">Generation {ch.pos} of {ch.of}</span>
-      <span class="mt-v"><strong>{ch.self.n}</strong><span class="mt-p">{ch.self.d}</span></span></div>
-    {ch.below && <div class="mt-row"><span class="mt-l">After</span><span class="mt-v">{ch.below.n}<span class="mt-p">{ch.below.d}</span></span></div>}
-    {ch.caveat && <p class="mt-warn">{ch.caveat}</p>}
+    <div class="mt-head">{p.chain[0].label} — <a href={u(p.chain[0].href)}>see the whole line →</a></div>
+    <div class="scroll">
+      <table class="chaintab">
+        <thead><tr><th>Gen</th><th>Father before</th><th>This name</th><th>Child after</th></tr></thead>
+        <tbody>{p.chain.map(ch => (
+          <tr>
+            <td class="m">{ch.pos}/{ch.of}</td>
+            <td>{ch.above ? ch.above.n : "—"}</td>
+            <td><strong>{ch.self.n}</strong><span class="mt-p">{ch.self.d}</span></td>
+            <td>{ch.below ? ch.below.n : "—"}</td>
+          </tr>
+        ))}</tbody>
+      </table>
+    </div>
+    {p.chain[0].caveat && <p class="mt-warn">{p.chain[0].caveat}</p>}
   </div>
-  ))}
-
-  {p.chain && p.chain.length > 1 && (
-    <p class="mt-warn" style="margin-top:14px">This forename appears <strong>{p.chain.length} times</strong> in that line. All of its positions are shown, because identity here is by name and the archive will not guess which one a reader means.</p>
   )}
 </section>
 )}
@@ -178,6 +184,14 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   .mt-p { display: block; font-size: 12.5px; opacity: .66; margin-top: 2px; }
   .mt-y { opacity: .6; font-size: 13px; }
   .amp { opacity: .5; padding: 0 4px; }
+  .mt-note { border-left: 3px solid var(--terra, #a5442c); padding: 12px 16px; margin-bottom: 14px;
+             background: color-mix(in srgb, var(--terra, #a5442c) 6%, transparent);
+             border-radius: 0 3px 3px 0; font-size: 15px; line-height: 1.6; }
+  .chaintab { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .chaintab th { text-align: left; font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase;
+                 opacity: .55; font-weight: 400; padding: 8px 16px; }
+  .chaintab td { padding: 9px 16px; border-top: 1px solid var(--rule, #dcd6cc); vertical-align: top; }
+  .chaintab td .mt-p { margin-top: 1px; }
   .mt-warn { margin: 0; padding: 10px 16px 12px; font-size: 13.5px; line-height: 1.6; opacity: .82; }
   @media (max-width: 620px) { .mt-row { grid-template-columns: 1fr; gap: 2px; } }
   .recs { display: flex; flex-direction: column; gap: 14px; }
