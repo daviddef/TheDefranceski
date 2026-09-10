@@ -1,0 +1,162 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import r from "../data/register.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+const S = r.stat;
+const nf = (n) => n.toLocaleString("en-GB");
+const groups = r.spellings.map(([name, n]) => ({
+  name, n, rows: r.rows.filter(x => x.sp === name)
+}));
+const ark = (id) => `https://www.familysearch.org/ark:/61903/1:1:${id}`;
+const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" };
+---
+<Base title={r.title} eyebrow={r.eyebrow} dek={r.dek}>
+
+<section class="blk">
+  <p class="prose lede">
+    <strong>{nf(S.entries)} entries for {nf(S.names)} distinct names</strong>, {S.span[0]}–{S.span[1]},
+    <strong>{nf(S.linked)} of them with a link</strong> to the record they came from.
+  </p>
+  <div class="chips">
+    <button class="ch on" data-st="all">All <b>{nf(S.entries)}</b></button>
+    <button class="ch" data-st="in">In the archive <b>{nf(S.in)}</b></button>
+    <button class="ch" data-st="cand">Same name, not joined <b>{nf(S.cand)}</b></button>
+    <button class="ch" data-st="lead">Lead <b>{nf(S.lead)}</b></button>
+  </div>
+  <div class="filt">
+    <input id="q" type="search" placeholder="Filter by name, place, year or what the source says…" autocomplete="off" />
+    <span id="cnt" class="cap"></span>
+  </div>
+</section>
+
+<Rule name="arrows" label={r.caveat_head} />
+
+<section class="blk">
+  <div class="cav">
+    {r.caveats.map(([h, b]) => (
+      <div class="cv"><h3>{h}</h3><p set:html={md(b)}></p></div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={md(r.convention)}></p>
+</section>
+
+<Rule name="pomegranate" label="The list" />
+
+<section class="blk">
+  {groups.map(g => (
+    <div class="grp" data-grp={g.name}>
+      <h2 class="gh">{g.name} <span class="gn">{nf(g.n)}</span></h2>
+      <div class="tw">
+        <table class="reg">
+          <thead><tr><th>Name</th><th>What the source says</th><th>Source</th></tr></thead>
+          <tbody>
+            {g.rows.map(x => (
+              <tr data-st={x.st} data-k={[x.n, x.says, x.p, x.y, x.o.join(" ")].join(" ").toLowerCase()}>
+                <td class="nm">
+                  <span class="pn">{x.n}</span>
+                  <span class={"st st-" + x.st}>{LAB[x.st]}</span>
+                  {x.o.length > 0 && <span class="rel">with {x.o.join(", ")}</span>}
+                </td>
+                <td class="sy">
+                  {x.says ? <span set:html={md(x.says)}></span> : <span class="none">no dated event indexed</span>}
+                  {x.p && <span class="pl">{x.p}</span>}
+                </td>
+                <td class="sr"><a href={ark(x.id)} rel="noopener">FamilySearch <span class="id">{x.id}</span></a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  ))}
+</section>
+
+<Rule name="pomegranate" />
+<section class="blk">
+  <p class="prose note" set:html={md(r.close)}></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> {r.source}</p>
+  <p class="cap" style="margin-top:12px">
+    <a href={u("/people/")}>Everyone the archive knows →</a> ·
+    <a href={u("/searched/")}>What has been searched →</a> ·
+    <a href={u("/method/")}>Method →</a>
+  </p>
+</section>
+
+<script is:inline>
+(function(){
+  var q=document.getElementById('q'), cnt=document.getElementById('cnt');
+  var rows=[].slice.call(document.querySelectorAll('tr[data-k]'));
+  var grps=[].slice.call(document.querySelectorAll('.grp'));
+  var st='all';
+  function run(){
+    var t=(q.value||'').trim().toLowerCase(), n=0;
+    rows.forEach(function(tr){
+      var ok=(st==='all'||tr.dataset.st===st)&&(!t||tr.dataset.k.indexOf(t)>-1);
+      tr.hidden=!ok; if(ok)n++;
+    });
+    grps.forEach(function(g){
+      var vis=g.querySelectorAll('tr[data-k]:not([hidden])').length;
+      g.hidden=vis===0;
+      var b=g.querySelector('.gn'); if(b) b.textContent=vis.toLocaleString('en-GB');
+    });
+    cnt.textContent=n.toLocaleString('en-GB')+(n===1?' entry':' entries')+' shown';
+  }
+  q.addEventListener('input',run);
+  [].slice.call(document.querySelectorAll('.ch')).forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.ch').forEach(function(o){o.classList.remove('on')});
+      b.classList.add('on'); st=b.dataset.st; run();
+    });
+  });
+  run();
+})();
+</script>
+
+<style>
+  .lede{font-size:17.5px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .ch{font:inherit;font-size:13px;padding:5px 12px;border:1px solid var(--rule,#dcd6cc);
+      border-radius:999px;background:transparent;color:inherit;cursor:pointer}
+  .ch b{font-weight:600;opacity:.55;margin-left:6px;font-variant-numeric:tabular-nums}
+  .ch.on{border-color:#8a7f5c;background:rgba(138,127,92,.11)}
+  .ch.on b{opacity:.8}
+  .filt{display:flex;align-items:baseline;gap:12px;margin-top:14px;flex-wrap:wrap}
+  #q{flex:1 1 300px;font:inherit;font-size:14.5px;padding:8px 12px;border-radius:3px;
+     border:1px solid var(--rule,#dcd6cc);background:transparent;color:inherit}
+  .cav{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+  .cv{border-left:3px solid #8a7f5c;padding:2px 0 2px 14px}
+  .cv h3{margin:0 0 6px;font-size:16px;line-height:1.25}
+  .cv p{margin:0;font-size:14px;line-height:1.6}
+  .grp{margin-top:30px}
+  .gh{margin:0 0 8px;font-size:19px;display:flex;align-items:baseline;gap:10px}
+  .gn{font-size:12.5px;opacity:.55;font-weight:400;font-variant-numeric:tabular-nums}
+  .tw{overflow-x:auto;border:1px solid var(--rule,#dcd6cc);border-radius:3px}
+  table.reg{width:100%;border-collapse:collapse;font-size:14px}
+  table.reg th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+    opacity:.55;font-weight:600;padding:9px 12px;border-bottom:1px solid var(--rule,#dcd6cc);white-space:nowrap}
+  table.reg td{padding:9px 12px;vertical-align:top;border-top:1px solid rgba(0,0,0,.05)}
+  table.reg tbody tr:first-child td{border-top:0}
+  .pn{display:block;line-height:1.3}
+  .st{display:inline-block;margin-top:4px;font-size:10.5px;letter-spacing:.04em;
+      padding:1px 7px;border-radius:999px;border:1px solid var(--rule,#dcd6cc);opacity:.75}
+  .st-in{border-color:#5c7a5c;color:#3f5c3f;opacity:1}
+  .st-cand{border-color:#8a7f5c;color:#6d6244;opacity:1}
+  .rel{display:block;margin-top:4px;font-size:12px;opacity:.6}
+  .sy{line-height:1.45}
+  .sy .pl{display:block;font-size:12.5px;opacity:.62;margin-top:3px}
+  .sy .none{opacity:.45;font-style:italic}
+  .sr{white-space:nowrap}
+  .sr a{font-size:13px}
+  .sr .id{display:block;font-size:11px;opacity:.5;font-variant-numeric:tabular-nums}
+  .src{max-width:80ch}
+  @media (prefers-color-scheme:dark){
+    .st-in{color:#9fc39f}.st-cand{color:#c3b78a}
+    table.reg td{border-top-color:rgba(255,255,255,.07)}
+  }
+</style>
+</Base>

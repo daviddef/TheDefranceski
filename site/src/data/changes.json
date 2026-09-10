@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "184 entries · 19 of them corrections",
+ "eyebrow": "186 entries · 21 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -78,6 +78,22 @@
      "src": "Vodnjan, Liber Defunctorum — DGS 005497894, images 558–559",
      "text": "**11 September 1830, house 325: «Bonetta Vellico q.m Antonio, Moglie di Stefano De Franceschi *di* Domenico *q.m* Pietro»**, aged 57 — born about 1773 — of pulmonary consumption, eighteen months after her daughter died in the same house. The two different words matter: ***di*** Domenico means **his father was alive**; ***q.m*** Pietro means his grandfather was not. A third Vodnjan line stands — **Pietro → Domenico → Stefano** — and it gives that household three generations where the baptism index gave none. It also makes **house 325 theirs**, which sharpens the question raised two days ago: the same number stands against Domenico De Franceschi, 46, son of a Pietro and Martina Civico, remarrying there in 1832. The connection is now **likely**; which connection it is stays **open**, because on the stated ages that Domenico is too young to be Stefano's father.",
      "href": "/research-log/"
+    },
+    {
+     "when": "10 Sept 2026",
+     "kind": "correction",
+     "what": "The FamilySearch paging cap",
+     "src": "A claim taken back",
+     "text": "**This archive said** A method note stated the persona endpoint caps out at about **1,100 records**.\n\n**What is true** The real ceiling is about **1,800**. The 1,100 figure came from a run that stopped early and was never retested; the full harvest of 10 September reached 1,800 distinct records before the endpoint began serving page one again.\n\n**How it happened** Retested deliberately, at offsets 1,800, 2,600 and 3,600, before publishing a number that the whole of <a href=\"/register/\">The Register</a> now rests on.",
+     "href": "/method/"
+    },
+    {
+     "when": "10 Sept 2026",
+     "kind": "correction",
+     "what": "Living people",
+     "src": "A claim taken back",
+     "text": "**This archive said** The footer of every page read **«Living people are excluded from this build.»**\n\n**What is true** At David's instruction the policy changed: living people the archive knows of are now named, **by name only** — no date of birth, no address, no place of residence, no photograph.\n\n**How it happened** The footer was corrected the same day the policy changed, rather than left contradicting the pages above it.",
+     "href": "site-wide"
     },
     {
      "when": "10 Sept 2026",
