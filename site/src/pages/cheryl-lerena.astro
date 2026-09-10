@@ -54,7 +54,10 @@ const P = (s) => `<p>${md(s)}</p>`;
   <div class="tsc">
     {d.transcript.map(x => (
       x.k === "prose"
-        ? <p class={"tp" + (x.restored ? " restored" : "") + (x.gap ? " gap" : "")}>{x.l[0]}{x.restored && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
+        ? <div>
+            {x.title && <h3 class="ttl">{x.title}</h3>}
+            <p class={"tp" + (x.restored ? " restored" : "") + (x.gap ? " gap" : "")}>{x.l[0]}{x.restored && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
+          </div>
         : x.k === "date"
           ? <div class="td">{x.l[0]}</div>
           : <figure class="tv">
