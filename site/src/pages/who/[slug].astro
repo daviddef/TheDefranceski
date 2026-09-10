@@ -16,6 +16,7 @@ const groups = Object.entries(byPage);
 const art = Object.fromEntries(artsrc.map(a => [a.id, a]));
 const md = (x) => String(x ?? "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/«(.+?)»/g, "<em>«$1»</em>");
 const pt = port.map[p.slug];
+const VIAW = { line: "the archive\u2019s own line", read: "a register read here", index: "a FamilySearch index entry", tree: "the family tree, unverified" };
 const pics = pt ? pt.ids.map(i => art[i]).filter(Boolean) : [];
 const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:/, ""),
   caption: [a.artist, a.date && a.date.slice(0,10), a.licence].filter(Boolean).join(" · "),
@@ -56,18 +57,14 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
+{!p.ptree && (
 <section class="blk">
-  <div class="note">
-    Identity here is by <strong>name</strong>, not by resolved individual. Where two people of one name appear
-    in this archive they share this page, and it is for the reader to keep them apart — the surrounding text
-    usually makes it obvious. Nothing here is new evidence; it is the same evidence, brought together.
-  </div>
-  {p.pages.length > 0 && (
-    <p class="prose" style="margin-top:20px">
-      Appears on: {p.pages.map((x, i) => (<>{i > 0 ? " · " : ""}<a href={u(x.h)}>{x.t}</a></>))}
-    </p>
-  )}
+  <div class="mt-warn drops"><strong>No family is drawn for this name.</strong> This archive has not yet
+  placed it in a household — no parents, no spouse, no children are recorded here. Everything it does hold
+  is below, and <a href={u(`/register/?q=${encodeURIComponent(p.name)}`)}>every indexed record naming this
+  name</a> is on The Register.</div>
 </section>
+)}
 
 {(p.tree || p.chain) && (
 <Rule name="arrows" label="Where this name sits" />
@@ -78,30 +75,92 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
     </div>
   )}
 
-  {p.tree && (
-  <div class="mt">
-    {p.tree.parents && (
-      <div class="mt-row"><span class="mt-l">Parents</span>
-        <span class="mt-v"><strong>{p.tree.parents[0]}</strong> <span class="amp">×</span> <strong>{p.tree.parents[1]}</strong>
-          {p.tree.parentsPlace && <span class="mt-p">{p.tree.parentsPlace}</span>}</span></div>
+  {(p.ptree && !p.ptree.none) && (
+  <figure class="ptree">
+    {p.ptree.parents && p.ptree.parents.length > 0 && (
+      <div class="tier">
+        <div class="tlab">Parents{p.ptree.parentsPlace ? <span class="tpl">{p.ptree.parentsPlace}</span> : null}</div>
+        <div class="prow">{p.ptree.parents.map(x => (
+          x.slug
+            ? <a class={`pnode via-${x.via || "none"}`} href={u(`/who/${x.slug}/`)} title={`Known from: ${VIAW[x.via] || "no source recorded"}`}>
+                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></a>
+            : <span class={`pnode via-${x.via || "none"}`} title={`Known from: ${VIAW[x.via] || "no source recorded"}`}>
+                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></span>
+        ))}</div>
+        <div class="drop" aria-hidden="true"></div>
+      </div>
     )}
-    <div class="mt-row is-self"><span class="mt-l">This name</span>
-      <span class="mt-v"><strong>{p.name}</strong>{p.tree.asChild && <span class="mt-p">{p.tree.asChild}</span>}</span></div>
-    {p.tree.siblings && p.tree.siblings.length > 0 && (
-      <div class="mt-row"><span class="mt-l">Brothers &amp; sisters</span><span class="mt-v">{p.tree.siblings.join(" · ")}</span></div>
+    <div class="tier self">
+      <div class="prow">
+        <span class="pnode me">
+          <span class="nm">{p.ptree.self.n}</span>
+          {p.ptree.self.dt && <span class="dt">{p.ptree.self.dt}</span>}
+          {p.ptree.self.me
+            ? <span class="via gen">this is David</span>
+            : (p.ptree.self.rel && <span class="via gen">{p.ptree.self.rel}</span>)}
+        </span>
+        {p.ptree.spouse && (
+          p.ptree.spouse.slug
+            ? <a class={`pnode spouse via-${p.ptree.spouse.via || "none"}`} href={u(`/who/${p.ptree.spouse.slug}/`)}>
+                <span class="mar">married</span><span class="nm">{p.ptree.spouse.n}</span>
+                {p.ptree.spouse.dt && <span class="dt">{p.ptree.spouse.dt}</span>}</a>
+            : <span class={`pnode spouse via-${p.ptree.spouse.via || "none"}`}>
+                <span class="mar">married</span><span class="nm">{p.ptree.spouse.n}</span>
+                {p.ptree.spouse.dt && <span class="dt">{p.ptree.spouse.dt}</span>}</span>
+        )}
+      </div>
+    </div>
+    {p.ptree.children && p.ptree.children.length > 0 && (
+      <div class="tier">
+        <div class="drop up" aria-hidden="true"></div>
+        <div class="tlab">{p.ptree.children.length} {p.ptree.children.length === 1 ? "child" : "children"}
+          {p.ptree.span ? <span class="tpl">recorded {p.ptree.span}</span> : null}</div>
+        <div class="prow">{p.ptree.children.map(x => (
+          x.slug
+            ? <a class={`pnode via-${x.via || "none"}`} href={u(`/who/${x.slug}/`)} title={`Known from: ${VIAW[x.via] || "no source recorded"}`}>
+                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></a>
+            : <span class={`pnode via-${x.via || "none"}`}><span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></span>
+        ))}</div>
+      </div>
     )}
-    {p.tree.spouse && (
-      <div class="mt-row"><span class="mt-l">Married</span>
-        <span class="mt-v"><strong>{p.tree.spouse}</strong>{p.tree.span && <span class="mt-p">children recorded {p.tree.span}</span>}</span></div>
+    {p.ptree.siblings && p.ptree.siblings.length > 0 && (
+      <div class="tier sibs">
+        <div class="tlab">{p.ptree.siblings.length} {p.ptree.siblings.length === 1 ? "brother or sister" : "brothers and sisters"}</div>
+        <div class="prow">{p.ptree.siblings.map(x => (
+          x.slug
+            ? <a class={`pnode small via-${x.via || "none"}`} href={u(`/who/${x.slug}/`)} title={`Known from: ${VIAW[x.via] || "no source recorded"}`}>
+                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}</a>
+            : <span class={`pnode small via-${x.via || "none"}`}><span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}</span>
+        ))}</div>
+      </div>
     )}
-    {p.tree.children && p.tree.children.length > 0 && (
-      <div class="mt-row"><span class="mt-l">Children</span>
-        <span class="mt-v">{p.tree.children.map((c, i) => (<>{i > 0 ? " · " : ""}{c.n}</>))}</span></div>
-    )}
-    {p.tree.ambiguous && (
-      <p class="mt-warn">This name matches more than one household. The one shown is the first; joining them on a name alone is the mistake this site keeps having to correct.</p>
-    )}
-  </div>
+    <figcaption>
+      <span class="keys">
+        <span class="key"><i class="sw line"></i> the archive's own line</span>
+        <span class="key"><i class="sw read"></i> a register read here</span>
+        <span class="key"><i class="sw index"></i> a FamilySearch index entry</span>
+        <span class="key"><i class="sw tree"></i> the family tree, unverified</span>
+      </span>
+      {p.ptree.dupNames && p.ptree.dupNames.length > 0 && (
+        <p class="warn"><strong>Two children here carry one name</strong> — {p.ptree.dupNames.join(", ")}.
+        In these parishes that is usually not an error: <strong>a child who died was very often replaced by a later child given the same name</strong>.
+        It is also exactly how an index invents one person out of two, so both are drawn.</p>
+      )}
+      {(p.ptree.upN > 1 || p.ptree.downN > 1) && (
+        <p class="warn"><strong>This name sits in more than one household.</strong> {p.ptree.upN > 1 ? `${p.ptree.upN} sets of parents ` : ""}
+        {p.ptree.upN > 1 && p.ptree.downN > 1 ? "and " : ""}{p.ptree.downN > 1 ? `${p.ptree.downN} households of his or her own ` : ""}
+        survive the date check. <strong>The first is drawn.</strong> Joining them on a name alone is the mistake this site keeps having to correct.</p>
+      )}
+    </figcaption>
+  </figure>
+  )}
+
+  {(p.ptree && p.ptree.none) && (
+    <div class="mt-warn drops"><strong>No family is drawn for this name.</strong> The archive holds
+    {" "}{p.ptree.dropped.length} household{p.ptree.dropped.length === 1 ? "" : "s"} under it, and
+    {p.ptree.dropped.length === 1 ? " its dates do" : " none of their dates do"} not fit this person:
+    {" "}{p.ptree.dropped.map((g, i) => (<>{i > 0 ? " · " : ""}<em>{g[1]}{g[2] ? ` × ${g[2]}` : ""}</em>{g[3] ? ` (${g[3]})` : ""}</>))}.
+    A shared forename is not a family.</div>
   )}
 
   {p.chain && (
@@ -125,6 +184,55 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   )}
 </section>
 )}
+
+{(p.ptree && !p.ptree.none) && (
+<section class="blk">
+  <div class="prov">
+    <div class="lab">Where this comes from</div>
+    <p><strong>{p.ptree.nread}</strong> of the {p.ptree.nrel} relationship{p.ptree.nrel === 1 ? "" : "s"} drawn above
+      {p.ptree.nread === 1 ? " is" : " are"} written in a register this archive has read with its own eyes.
+      {p.ptree.tally.filter(([k]) => k === "index").map(([, n]) => (
+        <> <strong>{n}</strong> come from a <strong>FamilySearch index entry</strong> — a transcription, not the page.</>
+      ))}
+      {p.ptree.tally.filter(([k]) => k === "tree").map(([, n]) => (
+        <> <strong>{n}</strong> come from the family tree and {n === 1 ? "is" : "are"} <strong>unverified here</strong>.</>
+      ))}
+      {p.ptree.tally.filter(([k]) => k === "").map(([, n]) => (
+        <> <strong>{n}</strong> carry <strong>no source at all</strong> in this archive yet.</>
+      ))}
+    </p>
+    {p.ptree.dropped && p.ptree.dropped.length > 0 && (
+      <p><strong>{p.ptree.dropped.length} household{p.ptree.dropped.length === 1 ? " was" : "s were"} rejected</strong> before
+        this chart was drawn, because the dates do not fit a person of this name:
+        {" "}{p.ptree.dropped.map((g, i) => (<>{i > 0 ? " · " : ""}<em>{g[1]}{g[2] ? ` × ${g[2]}` : ""}</em>{g[3] ? ` (${g[3]})` : ""}</>))}.
+      </p>
+    )}
+    {p.ptree.unchecked && p.ptree.unchecked.length > 0 && (
+      <p><strong>Joined on a name alone.</strong> {p.ptree.unchecked.length === 1 ? "One household" : `${p.ptree.unchecked.length} households`} above
+        could not be date-checked, because this archive holds no year for the person or for the household. Treat that link as a lead.</p>
+    )}
+    <p class="lk">
+      <a href={u("/households/")}>The households →</a> ·
+      <a href={u(`/register/?q=${encodeURIComponent(p.name)}`)}>Every record naming {p.name} →</a> ·
+      <a href={u("/direct-line/")}>The Spine →</a> ·
+      <a href={u("/method/")}>How this is decided →</a>
+    </p>
+  </div>
+</section>
+)}
+
+<section class="blk">
+  <div class="note">
+    Identity here is by <strong>name</strong>, not by resolved individual. Where two people of one name appear
+    in this archive they share this page, and it is for the reader to keep them apart — the surrounding text
+    usually makes it obvious. Nothing here is new evidence; it is the same evidence, brought together.
+  </div>
+  {p.pages.length > 0 && (
+    <p class="prose" style="margin-top:20px">
+      Appears on: {p.pages.map((x, i) => (<>{i > 0 ? " · " : ""}<a href={u(x.h)}>{x.t}</a></>))}
+    </p>
+  )}
+</section>
 
 {(p.records && p.records.length > 0) && (
 <Rule name="arrows" label="The records themselves" />
@@ -217,4 +325,45 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   .known { margin-top: 18px; padding: 16px 18px; border-left: 3px solid var(--accent, #8a5a3b); background: color-mix(in srgb, var(--accent, #8a5a3b) 5%, transparent); border-radius: 0 3px 3px 0; }
   .known p { margin: 0; font-size: 15.5px; line-height: 1.68; }
   @media (max-width: 620px) { .fact { flex: 1 1 100%; border-right: 0; border-bottom: 1px solid var(--rule, #dcd6cc); } .fact:last-child { border-bottom: 0; } }
+
+  figure.ptree { margin: 0; padding: 0; }
+  .ptree .tier { position: relative; }
+  .ptree .tlab { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .55;
+    font-weight: 600; margin: 0 0 8px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .ptree .tpl { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .8; }
+  .ptree .prow { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ptree .drop { height: 20px; width: 1px; margin: 6px 0 6px 28px; background: var(--rule, #dcd6cc); }
+  .ptree .tier.self { margin: 4px 0; }
+  .ptree .tier.sibs { margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--rule, #dcd6cc); }
+  .pnode { display: flex; flex-direction: column; gap: 1px; text-decoration: none; color: inherit;
+    border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-radius: 3px;
+    padding: 8px 12px; min-width: 148px; max-width: 260px; }
+  a.pnode:hover { background: rgba(138,127,92,.09); }
+  .pnode .nm { font-size: 14.5px; line-height: 1.25; font-weight: 500; }
+  .pnode .dt { font-size: 12px; opacity: .65; font-variant-numeric: tabular-nums; }
+  .pnode .via { font-size: 10.5px; opacity: .5; margin-top: 2px; }
+  .pnode .mar { font-size: 10px; letter-spacing: .07em; text-transform: uppercase; opacity: .5; }
+  .pnode.small { min-width: 120px; padding: 6px 10px; }
+  .pnode.small .nm { font-size: 13px; font-weight: 400; }
+  .pnode.me { border-left-color: #3f5c3f; border-width: 2px; border-left-width: 4px; background: rgba(92,122,92,.08); }
+  .pnode.me .nm { font-weight: 700; font-size: 16px; }
+  .pnode.me .gen { opacity: .8; }
+  .via-line { border-left-color: #3f5c3f; }
+  .via-read { border-left-color: #8a7f5c; }
+  .via-index { border-left-color: #6d7f8a; }
+  .via-tree { border-left-color: #b0a89a; border-left-style: dashed; }
+  .via-none { border-left-color: transparent; }
+  .ptree figcaption { margin-top: 18px; }
+  .ptree .keys { display: flex; flex-wrap: wrap; gap: 14px; font-size: 11.5px; opacity: .7; }
+  .ptree .key { display: inline-flex; align-items: center; gap: 6px; }
+  .ptree .sw { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+  .sw.line { background: #3f5c3f; } .sw.read { background: #8a7f5c; }
+  .sw.index { background: #6d7f8a; } .sw.tree { background: #b0a89a; }
+  .ptree .warn { margin-top: 12px; font-size: 13.5px; line-height: 1.6; border-left: 3px solid #8a7f5c;
+    padding-left: 12px; opacity: .9; }
+  .mt-warn.drops { font-size: 14px; line-height: 1.65; }
+  .prov { border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 15px 17px; }
+  .prov .lab { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .55; font-weight: 600; }
+  .prov p { margin: 9px 0 0; font-size: 14px; line-height: 1.65; }
+  .prov .lk { font-size: 13px; opacity: .85; margin-top: 12px; }
 </style>

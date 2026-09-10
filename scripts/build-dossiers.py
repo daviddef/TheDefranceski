@@ -192,6 +192,142 @@ def mini_tree(name):
     return t
 
 
+
+# ---- the pedigree chart: parents / self+spouse / children / siblings, with provenance ----
+# Provenance tiers, strongest first. They are NOT interchangeable and the page says so.
+#   line     the archive's own descent, argued on /direct-line/
+#   read     a register this archive has read with its own eyes
+#   index    a FamilySearch index entry — a transcription, not the page
+#   tree     David's MyHeritage tree, unverified here
+VIA_RANK = {"line": 0, "read": 1, "index": 2, "tree": 3, "": 4}
+
+ROW_BY_NAME = {}
+for _r in roster["rows"]:
+    ROW_BY_NAME.setdefault(_nm(_r["name"]), _r)
+    ROW_BY_NAME.setdefault(_nm(re.sub(r"\s*\(.*?\)\s*", "", _r["name"])), _r)
+
+def _dates(row, child=None):
+    if row and row.get("living"): return ""
+    if child and (child.get("birth") or child.get("death")):
+        b, d = child.get("birth") or "", child.get("death") or ""
+        return f"{b} – {d}" if b and d else (f"b. {b}" if b else f"d. {d}")
+    if not row: return ""
+    b, d = row.get("b"), row.get("d")
+    if b and d: return f"{b} – {d}"
+    if b: return f"b. {b}"
+    if d: return f"d. {d}"
+    return ""
+
+def _via(row, hh=None, child=None):
+    if hh and hh.get("src") == "read": return "read"
+    if child and child.get("id"): return "index"
+    if row:
+        if row.get("direct") or row.get("mine"): return "line"
+        if row.get("src") == "read": return "read"
+        if row.get("ark"): return "index"
+        if row.get("mh"): return "tree"
+        if hh: return "index" if hh.get("src") == "index" else ""
+    if hh and hh.get("src") == "index": return "index"
+    return ""
+
+def node(name, hh=None, child=None, small=False):
+    if not name or name == "—": return None
+    row = ROW_BY_NAME.get(_nm(name))
+    sl = slugify(row["name"]) if row else None
+    n = {"n": name, "dt": _dates(row, child), "via": _via(row, hh, child)}
+    if sl: n["slug"] = sl
+    if small: n["small"] = True
+    return n
+
+VIA_WORD = {"line": "the archive's own line", "read": "a register this archive has read",
+            "index": "a FamilySearch index entry", "tree": "the family tree, unverified"}
+
+
+def _yr(x):
+    m = re.search(r"\b(1[3-9]\d\d|20\d\d)\b", str(x or ""))
+    return int(m.group()) if m else None
+
+def _fits_child(myY, me, hh, t):
+    """Is the person plausibly THIS household's child? A name is not enough."""
+    cY = _yr(me.get("birth")) or _yr(me.get("death"))
+    if myY is None or cY is None:
+        t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
+        return True
+    if abs(myY - cY) <= 6: return True
+    t["gate"].append(["dropped", hh.get("father") or "", hh.get("mother") or "", f"{cY}"])
+    return False
+
+def _fits_parent(myY, hh, t):
+    """Is the person plausibly a PARENT in this household?"""
+    f, to = hh.get("from"), hh.get("to")
+    if myY is None or not isinstance(f, int):
+        t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
+        return True
+    gap = f - myY
+    if 12 <= gap <= 60: return True
+    t["gate"].append(["dropped", hh.get("father") or "", hh.get("mother") or "",
+                      f"{f}\u2013{to}" if to else str(f)])
+    return False
+
+def ptree(name):
+    k = _nm(name)
+    if not k: return None
+    up, down = CHILD_IN.get(k, []), PARENT_OF.get(k, [])
+    if not up and not down: return None
+    row = ROW_BY_NAME.get(k)
+    t = {"self": {"n": name, "dt": _dates(row), "via": _via(row)}}
+    myY = None
+    if row:
+        for _f in ("b", "d"):
+            if isinstance(row.get(_f), int): myY = row[_f]; break
+    t["gate"] = []
+    if row and row.get("rel"): t["self"]["rel"] = row["rel"]
+    if row and row.get("me"): t["self"]["me"] = True
+    up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t)]
+    down = [hh for hh in down if _fits_parent(myY, hh, t)]
+    if up:
+        hh, me = up[0]
+        par = [node(hh.get("father"), hh), node(hh.get("mother"), hh)]
+        t["parents"] = [x for x in par if x]
+        t["parentsPlace"] = hh.get("place") or ""
+        t["parentsHref"] = "/households/"
+        sibs = [node(c["name"], hh, c, small=True) for c in (hh.get("children") or [])
+                if _nm(c.get("name")) != k]
+        t["siblings"] = [x for x in sibs if x]
+        if me.get("birth"): t["self"]["dt"] = t["self"]["dt"] or f"b. {me['birth']}"
+    if down:
+        hh = down[0]
+        mine = _nm(hh.get("father")) == k
+        t["spouse"] = node(hh.get("mother") if mine else hh.get("father"), hh)
+        kids = [node(c["name"], hh, c) for c in (hh.get("children") or [])]
+        t["children"] = [x for x in kids if x]
+        t["span"] = f"{hh.get('from','')}–{hh.get('to','')}".strip("–")
+        t["childrenPlace"] = hh.get("place") or ""
+    t["upN"], t["downN"] = len(up), len(down)
+    t["dropped"] = [g for g in t["gate"] if g[0] == "dropped"]
+    t["unchecked"] = [g for g in t["gate"] if g[0] == "unchecked"]
+    t.pop("gate", None)
+    if not t.get("parents") and not t.get("children") and not t.get("spouse"):
+        return {"none": True, "dropped": t["dropped"], "self": t["self"]} if t["dropped"] else None
+
+    # every relationship drawn, counted by how it is known
+    rel = (t.get("parents") or []) + (t.get("siblings") or []) + (t.get("children") or [])
+    if t.get("spouse"): rel = rel + [t["spouse"]]
+    tally = {}
+    for x in rel: tally[x["via"]] = tally.get(x["via"], 0) + 1
+    t["tally"] = sorted(tally.items(), key=lambda kv: VIA_RANK.get(kv[0], 9))
+    t["nrel"] = len(rel)
+    t["nread"] = tally.get("read", 0) + tally.get("line", 0)
+    # a repeated forename among the children is the classic false join
+    seen, dup = {}, set()
+    for x in (t.get("children") or []):
+        g = " ".join(_given(x["n"])) if _given(x["n"]) else x["n"]
+        if g in seen: dup.add(g)
+        seen[g] = 1
+    t["dupNames"] = sorted(dup)
+    return t
+
+
 # ---- linear pedigrees: the Omis chart and the direct line, as chains ----
 CHAINS = []
 def _raw(name):
@@ -290,6 +426,7 @@ for slug, rows in by_slug.items():
         "records": (RECORDS.get(" ".join(_key(name)), [])[:12]
                     or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
         "tree": mini_tree(name),
+        "ptree": ptree(name),
         "chain": chain_tree(name),
         "roster": True,
     }

@@ -106,6 +106,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
     });
     cnt.textContent=n.toLocaleString('en-GB')+(n===1?' entry':' entries')+' shown';
   }
+  try{var qp=new URLSearchParams(location.search).get('q');if(qp){q.value=qp;}}catch(e){}
   q.addEventListener('input',run);
   [].slice.call(document.querySelectorAll('.ch')).forEach(function(b){
     b.addEventListener('click',function(){
