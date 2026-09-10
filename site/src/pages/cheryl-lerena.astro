@@ -17,6 +17,9 @@ const P = (s) => `<p>${md(s)}</p>`;
   <div class="prose" style="margin-top:20px" set:html={P(d.lead)}></div>
 </section>
 
+<Rule name="pomegranate" label={d.preface.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.preface.text)}></div></section>
+
 <Rule name="arrows" label={d.bio.heading} />
 <section class="blk"><div class="prose hi" set:html={P(d.bio.text)}></div></section>
 
@@ -63,12 +66,12 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" label={d.corona.heading} />
 <section class="blk">
-  <img class="pimg wide" src={u(`/poems/${d.corona.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
+  {d.corona.img && <img class="pimg wide" src={u(`/poems/${d.corona.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
   <div class="prose hi" set:html={P(d.corona.intro)}></div>
   <div class="seq">
     {d.corona.poems.map(x => (
       <figure class="poem seqp">
-        <div class="dt">{x.date}</div>
+        <div class="dt">{x.date}{x.sub && <span class="sub"> — {x.sub}</span>}</div>
         <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
       </figure>
     ))}
@@ -239,5 +242,7 @@ const P = (s) => `<p>${md(s)}</p>`;
   .pimg.wide { max-width: 760px; margin-bottom: 24px; }
   .jarhead { display: block; }
   .jarhead .pimg { margin-left: auto; margin-right: auto; }
+
+  .seqp .dt .sub { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .85; }
 </style>
 </Base>
