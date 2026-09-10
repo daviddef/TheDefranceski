@@ -54,7 +54,7 @@ const P = (s) => `<p>${md(s)}</p>`;
   <div class="tsc">
     {d.transcript.map(x => (
       x.k === "prose"
-        ? <p class="tp">{x.l[0]}</p>
+        ? <p class={"tp" + (x.restored ? " restored" : "")}>{x.l[0]}{x.restored && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
         : x.k === "date"
           ? <div class="td">{x.l[0]}</div>
           : <figure class="tv">
@@ -258,5 +258,8 @@ const P = (s) => `<p>${md(s)}</p>`;
   .vfy { display: inline-block; margin-left: 10px; font-size: 9.5px; letter-spacing: .09em;
          text-transform: uppercase; font-style: normal; font-weight: 600; opacity: .5;
          border: 1px solid var(--rule, #dcd6cc); border-radius: 999px; padding: 2px 8px; vertical-align: middle; }
+
+  .tp.restored { border-left: 2px solid #8a7f5c; padding-left: 14px; }
+  .rst { display: block; margin-top: 8px; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; opacity: .5; }
 </style>
 </Base>
