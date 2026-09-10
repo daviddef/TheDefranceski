@@ -147,6 +147,96 @@ def mh_record(r):
     return {"kind": "Family tree entry — not yet checked against a register",
             "text": " · ".join(bits), "href": "/people/", "url": None}
 
+
+# ---- the mini-tree: parents, siblings, spouse, children, from households.json ----
+HH = _load("households")
+
+def _nm(x):
+    """Normalise a register name to something matchable: drop the patronymic tail."""
+    x = re.sub(r"\s*\(.*?\)\s*", " ", str(x or ""))
+    x = re.split(r"\b(?:q\.?m|fu|di|del|dei|della)\b", x, 1)[0]
+    x = unicodedata.normalize("NFD", x)
+    x = "".join(c for c in x if unicodedata.category(c) != "Mn").lower()
+    x = x.replace("defranceschi", "de franceschi").replace("defranceski", "de franceschi")
+    return " ".join(re.sub(r"[^a-z ]+", " ", x).split())
+
+PARENT_OF, CHILD_IN = {}, {}
+for hh in HH:
+    for role in ("father", "mother"):
+        k = _nm(hh.get(role))
+        if k: PARENT_OF.setdefault(k, []).append(hh)
+    for c in hh.get("children") or []:
+        k = _nm(c.get("name"))
+        if k: CHILD_IN.setdefault(k, []).append((hh, c))
+
+def mini_tree(name):
+    k = _nm(name)
+    if not k: return None
+    up, down = CHILD_IN.get(k, []), PARENT_OF.get(k, [])
+    if not up and not down: return None
+    t = {"ambiguous": len(up) > 1 or len(down) > 1}
+    if up:
+        hh, me = up[0]
+        t["parents"] = [hh.get("father") or "—", hh.get("mother") or "—"]
+        t["parentsPlace"] = hh.get("place") or ""
+        t["siblings"] = [c["name"] for c in (hh.get("children") or []) if _nm(c.get("name")) != k]
+        t["asChild"] = me.get("birth") or ""
+    if down:
+        hh = down[0]
+        mine = _nm(hh.get("father")) == k
+        t["spouse"] = (hh.get("mother") if mine else hh.get("father")) or "—"
+        t["children"] = [{"n": c["name"], "d": c.get("birth") or ""} for c in (hh.get("children") or [])]
+        t["span"] = f"{hh.get('from','')}–{hh.get('to','')}".strip("–")
+        t["childrenPlace"] = hh.get("place") or ""
+    t["upN"], t["downN"] = len(up), len(down)
+    return t
+
+
+# ---- linear pedigrees: the Omis chart and the direct line, as chains ----
+CHAINS = []
+def _raw(name):
+    fp = os.path.join(DATA, name + ".json")
+    if not os.path.exists(fp): return {}
+    try: return json.load(open(fp, encoding="utf-8"))
+    except Exception: return {}
+
+_om = _raw("omis")
+if isinstance(_om, dict) and isinstance(_om.get("line"), list):
+    CHAINS.append({"label": "The Omiš chart — twenty generations, 1318 to 1992",
+                   "href": "/omis-line/", "caveat": "A made family chart, not a register.",
+                   "people": [{"n": r[0], "d": " · ".join(x for x in r[1:] if x)} for r in _om["line"] if r and r[0]]})
+_dl = _raw("directline")
+if isinstance(_dl, dict) and isinstance(_dl.get("generations"), list):
+    CHAINS.append({"label": "The direct line — Gologorica to Brisbane",
+                   "href": "/direct-line/", "caveat": "",
+                   "people": [{"n": g.get("name") or "", "d": " · ".join(str(x) for x in (g.get("born"), g.get("died"), g.get("place")) if x)}
+                              for g in _dl["generations"] if g.get("name")]})
+
+CHAIN_AT = {}
+for ci, ch in enumerate(CHAINS):
+    for i, pr in enumerate(ch["people"]):
+        k = _nm(pr["n"])
+        if k: CHAIN_AT.setdefault(k, []).append((ci, i))
+
+def _given(x):
+    """The person's own name with the surname stripped, so it matches a chart's bare forename."""
+    k = _nm(x)
+    return re.sub(r"\s*de franceschi\s*$", "", k).strip()
+
+def chain_tree(name):
+    g = _given(name)
+    if not g: return None
+    out = []
+    for ci, ch in enumerate(CHAINS):
+        for i, pr in enumerate(ch["people"]):
+            if _given(pr["n"]) != g: continue
+            out.append({"label": ch["label"], "href": ch["href"], "caveat": ch["caveat"],
+                        "above": ch["people"][i-1] if i > 0 else None,
+                        "self": ch["people"][i],
+                        "below": ch["people"][i+1] if i + 1 < len(ch["people"]) else None,
+                        "pos": i + 1, "of": len(ch["people"])})
+    return out or None
+
 old = json.load(open(os.path.join(DATA, "dossiers.json"), encoding="utf-8"))
 people = {}
 
@@ -196,6 +286,8 @@ for slug, rows in by_slug.items():
         "more": notes[1:],
         "records": (RECORDS.get(" ".join(_key(name)), [])[:12]
                     or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
+        "tree": mini_tree(name),
+        "chain": chain_tree(name),
         "roster": True,
     }
 
@@ -203,7 +295,7 @@ for slug, rows in by_slug.items():
 kept = 0
 for slug, p in old.get("people", {}).items():
     if slug not in people:
-        p.setdefault("facts", []); p.setdefault("known", ""); p.setdefault("more", []); p.setdefault("records", [])
+        p.setdefault("facts", []); p.setdefault("known", ""); p.setdefault("more", []); p.setdefault("records", []); p.setdefault("tree", mini_tree(p.get("name"))); p.setdefault("chain", chain_tree(p.get("name")))
         p["roster"] = False
         people[slug] = p
         kept += 1

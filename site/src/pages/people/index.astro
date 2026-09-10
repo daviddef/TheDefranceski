@@ -12,9 +12,20 @@ const LINEN = { carnia: "Carnia", venice: "Venice", crete: "Crete", south: "S. I
                 abroad: "Abroad", unknown: "No place", other: "Other" };
 const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "corsica",
                "abroad", "unknown", "other"];
+const R = roster.rows;
+const N = {
+  mine: R.filter(r => r.mine).length,
+  direct: R.filter(r => r.direct).length,
+  star: R.filter(r => r.notable).length,
+  rec: R.filter(r => r.ark).length,
+  par: R.filter(r => r.parish).length,
+};
+const PLACES = Object.entries(
+  R.reduce((a, r) => { const k = (r.place || "").split(",")[0].trim(); if (k) a[k] = (a[k] || 0) + 1; return a; }, {})
+).filter(([, n]) => n >= 3).sort((a, b) => b[1] - a[1]);
 ---
 <Base title="Everyone" eyebrow={`${S.total} people of the name, from every record set in this archive`}
-      dek="The whole roster, in one list. Search it, filter it by family, and follow any name to wherever it is written up.">
+      dek="The whole roster, in one list. Start with ★ My line if you only want the people this archive can attach to David\u2019s own descent — the rest are of the name, not of the family.">
 
 <section class="blk">
   <p class="dek" set:html={roster.note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
@@ -30,11 +41,21 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
   <div class="rtools">
     <input id="rq" type="search" placeholder="Search a name, a place, a year…" autocomplete="off" />
     <div class="rfilters">
-      <button class="rf on" data-l="all">All</button>
-      {ORDER.filter(k => S.lines[k]).map(k => <button class="rf" data-l={k}>{LINEN[k]}</button>)}
-      <button class="rf" data-l="star">★ Notable</button>
-      <button class="rf" data-l="rec">Has a record</button>
-      <button class="rf" data-l="par">Parish known</button>
+      <button class="rf on" data-l="all">All <span class="rfn">{S.total}</span></button>
+      <button class="rf is-mine" data-l="mine">★ My line <span class="rfn">{N.mine}</span></button>
+      <button class="rf is-mine" data-l="direct">★ Direct line <span class="rfn">{N.direct}</span></button>
+      {ORDER.filter(k => S.lines[k] && k !== "carnia").map(k => <button class="rf" data-l={k}>{LINEN[k]} <span class="rfn">{S.lines[k]}</span></button>)}
+      <button class="rf" data-l="star">Notable <span class="rfn">{N.star}</span></button>
+      <button class="rf" data-l="rec">Has a record <span class="rfn">{N.rec}</span></button>
+      <button class="rf" data-l="par">Parish known <span class="rfn">{N.par}</span></button>
+    </div>
+    <div class="rplacewrap">
+      <label for="rp">Narrow by place</label>
+      <select id="rp">
+        <option value="">Everywhere</option>
+        {PLACES.map(([k, n]) => <option value={k.toLowerCase()}>{k} — {n}</option>)}
+      </select>
+      <span class="rphint">★ My line is the Carnia lane — everyone this archive places on the family's own road. ★ Direct line is the documented spine, generation by generation.</span>
     </div>
     <div id="rn" class="rn"></div>
   </div>
@@ -44,8 +65,9 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
       <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th>Place</th><th>Family</th><th>Where it is written up</th><th>Records</th></tr></thead>
       <tbody>
         {roster.rows.map(r => (
-          <tr data-l={r.line} data-star={r.notable ? "1" : "0"}
-              data-k={(r.name + " " + r.place + " " + (r.b||"") + " " + (r.d||"") + " " + (r.note||"")).toLowerCase()}>
+          <tr data-l={r.line} data-star={r.notable ? "1" : "0"} data-mine={r.mine ? "1" : "0"} data-direct={r.direct ? "1" : "0"}
+              data-k={(r.name + " " + r.place + " " + (r.b||"") + " " + (r.d||"") + " " + (r.note||"")).toLowerCase()}
+              data-place={(r.place || "").split(",")[0].trim().toLowerCase()}>
             <td class="rname">
               {r.notable && <span class="star" title="Notable — has a life written up">★</span>}
               {r.who ? <a href={u(r.who)}>{r.name}</a> : r.name}
@@ -117,21 +139,26 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
     var rows = Array.prototype.slice.call(tab.tBodies[0].rows), mode = "all";
     function apply() {
       var t = q.value.trim().toLowerCase(), n = 0;
+      var pl = (document.getElementById("rp") || {}).value || "";
       for (var i = 0; i < rows.length; i++) {
         var r = rows[i];
         var okL = mode === "all"
-          || (mode === "star" ? r.getAttribute("data-star") === "1"
+          || (mode === "mine" ? r.getAttribute("data-mine") === "1"
+          : mode === "direct" ? r.getAttribute("data-direct") === "1"
+          : mode === "star" ? r.getAttribute("data-star") === "1"
           : mode === "rec" ? r.getAttribute("data-rec") === "1"
           : mode === "par" ? r.getAttribute("data-par") === "1"
           : r.getAttribute("data-l") === mode);
         var okQ = !t || r.getAttribute("data-k").indexOf(t) !== -1;
-        var show = okL && okQ;
+        var okP = !pl || r.getAttribute("data-place") === pl;
+        var show = okL && okQ && okP;
         r.hidden = !show;
         if (show) n++;
       }
       out.textContent = n + (n === 1 ? " person" : " people") + " shown";
     }
     q.addEventListener("input", apply);
+    var sel = document.getElementById("rp"); if (sel) sel.addEventListener("change", apply);
     document.querySelectorAll(".rf").forEach(function (b) {
       b.addEventListener("click", function () {
         document.querySelectorAll(".rf").forEach(function (x) { x.classList.remove("on"); });
@@ -158,6 +185,15 @@ const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "co
   .rtools input{width:100%;padding:12px 14px;font-family:var(--sans);font-size:15px;
     border:1px solid var(--rule);border-radius:10px;background:var(--panel);color:var(--ink)}
   .rfilters{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .rfn{opacity:.55;font-variant-numeric:tabular-nums;margin-left:4px}
+  .rf.is-mine{border-color:var(--accent);color:var(--accent)}
+  .rf.is-mine.on{background:var(--accent);color:var(--ground);border-color:var(--accent)}
+  .rf.is-mine.on .rfn{opacity:.8}
+  .rplacewrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .rplacewrap label{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+  .rplacewrap select{font-family:var(--sans);font-size:13.5px;padding:6px 10px;border:1px solid var(--rule);
+    border-radius:3px;background:var(--panel);color:var(--ink);max-width:min(100%,320px)}
+  .rphint{flex:1 1 100%;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-3)}
   .rf{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
     padding:6px 11px;border-radius:20px;border:1px solid var(--rule);background:transparent;
     color:var(--ink-3);cursor:pointer}

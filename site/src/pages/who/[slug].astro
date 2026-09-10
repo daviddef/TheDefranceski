@@ -69,6 +69,57 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   )}
 </section>
 
+{(p.tree || p.chain) && (
+<Rule name="arrows" label="Where this name sits" />
+<section class="blk">
+  {p.tree && (
+  <div class="mt">
+    {p.tree.parents && (
+      <div class="mt-row">
+        <span class="mt-l">Parents</span>
+        <span class="mt-v"><strong>{p.tree.parents[0]}</strong> <span class="amp">×</span> <strong>{p.tree.parents[1]}</strong>
+          {p.tree.parentsPlace && <span class="mt-p">{p.tree.parentsPlace}</span>}</span>
+      </div>
+    )}
+    <div class="mt-row is-self">
+      <span class="mt-l">This name</span>
+      <span class="mt-v"><strong>{p.name}</strong>{p.tree.asChild && <span class="mt-p">{p.tree.asChild}</span>}</span>
+    </div>
+    {p.tree.siblings && p.tree.siblings.length > 0 && (
+      <div class="mt-row"><span class="mt-l">Brothers &amp; sisters</span>
+        <span class="mt-v">{p.tree.siblings.join(" · ")}</span></div>
+    )}
+    {p.tree.spouse && (
+      <div class="mt-row"><span class="mt-l">Married</span>
+        <span class="mt-v"><strong>{p.tree.spouse}</strong>{p.tree.span && <span class="mt-p">children recorded {p.tree.span}</span>}</span></div>
+    )}
+    {p.tree.children && p.tree.children.length > 0 && (
+      <div class="mt-row"><span class="mt-l">Children</span>
+        <span class="mt-v">{p.tree.children.map((c, i) => (<>{i > 0 ? " · " : ""}{c.n}{c.d && <span class="mt-y"> {c.d}</span>}</>))}</span></div>
+    )}
+    {p.tree.ambiguous && (
+      <p class="mt-warn">This name matches <strong>{p.tree.upN > 1 ? p.tree.upN + " different households as a child" : ""}{p.tree.upN > 1 && p.tree.downN > 1 ? " and " : ""}{p.tree.downN > 1 ? p.tree.downN + " different households as a parent" : ""}</strong>. The one shown is the first; the archive has not resolved which is right, and joining them on a name alone is exactly the mistake this site keeps having to correct.</p>
+    )}
+  </div>
+  )}
+
+  {p.chain && p.chain.map(ch => (
+  <div class="mt chain">
+    <div class="mt-head">{ch.label} — <a href={u(ch.href)}>see the whole line →</a></div>
+    {ch.above && <div class="mt-row"><span class="mt-l">Before</span><span class="mt-v">{ch.above.n}<span class="mt-p">{ch.above.d}</span></span></div>}
+    <div class="mt-row is-self"><span class="mt-l">Generation {ch.pos} of {ch.of}</span>
+      <span class="mt-v"><strong>{ch.self.n}</strong><span class="mt-p">{ch.self.d}</span></span></div>
+    {ch.below && <div class="mt-row"><span class="mt-l">After</span><span class="mt-v">{ch.below.n}<span class="mt-p">{ch.below.d}</span></span></div>}
+    {ch.caveat && <p class="mt-warn">{ch.caveat}</p>}
+  </div>
+  ))}
+
+  {p.chain && p.chain.length > 1 && (
+    <p class="mt-warn" style="margin-top:14px">This forename appears <strong>{p.chain.length} times</strong> in that line. All of its positions are shown, because identity here is by name and the archive will not guess which one a reader means.</p>
+  )}
+</section>
+)}
+
 {(p.records && p.records.length > 0) && (
 <Rule name="arrows" label="The records themselves" />
 <section class="blk">
@@ -115,6 +166,20 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </Base>
 
 <style>
+  .mt { border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 4px 0; margin-top: 14px; }
+  .mt.chain { border-left: 3px solid var(--ochre, #8a7f5c); }
+  .mt-head { padding: 10px 16px 4px; font-size: 12px; letter-spacing: .04em; opacity: .72; }
+  .mt-row { display: grid; grid-template-columns: minmax(0,150px) 1fr; gap: 8px 18px;
+            padding: 9px 16px; border-top: 1px solid var(--rule, #dcd6cc); }
+  .mt-row:first-child { border-top: 0; }
+  .mt-row.is-self { background: color-mix(in srgb, var(--accent, #8a5a3b) 7%, transparent); }
+  .mt-l { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; opacity: .6; padding-top: 3px; }
+  .mt-v { font-size: 15.5px; line-height: 1.5; }
+  .mt-p { display: block; font-size: 12.5px; opacity: .66; margin-top: 2px; }
+  .mt-y { opacity: .6; font-size: 13px; }
+  .amp { opacity: .5; padding: 0 4px; }
+  .mt-warn { margin: 0; padding: 10px 16px 12px; font-size: 13.5px; line-height: 1.6; opacity: .82; }
+  @media (max-width: 620px) { .mt-row { grid-template-columns: 1fr; gap: 2px; } }
   .recs { display: flex; flex-direction: column; gap: 14px; }
   .rec { padding: 14px 16px; border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px;
          border-left-color: var(--accent, #8a5a3b); border-radius: 3px; }
