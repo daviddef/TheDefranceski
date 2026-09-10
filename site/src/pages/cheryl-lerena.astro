@@ -46,111 +46,24 @@ const P = (s) => `<p>${md(s)}</p>`;
 <Rule name="arrows" label={d.intro.heading} />
 <section class="blk"><div class="prose" set:html={P(d.intro.text)}></div></section>
 
-{d.poems.map((p, i) => (
-  <>
-    <Rule name={i % 2 === 0 ? "arrows" : "pomegranate"} label={p.conf.startsWith("inf") ? "And one that may be hers" : `Poem ${i + 1}`} />
-    <section class="blk">
-      <figure class="poem">
-        {p.img && <img class="pimg" src={u(`/poems/${p.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
-        <h2><span class="pno">{p.no}</span>{p.title}</h2>
-        <div class="verse">{p.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
-        <figcaption>
-          <p class="occ" set:html={md(p.occasion)}></p>
-          <p class="conf"><span class="lab">Confidence</span> {p.conf}</p>
-        </figcaption>
-      </figure>
-      <p class="prose pnote" set:html={md(p.note)}></p>
-    </section>
-  </>
-))}
+<Rule name="pomegranate" label={d.how.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.how.text)}></div></section>
 
-<Rule name="pomegranate" label={d.corona.heading} />
+<Rule name="arrows" label="The collection, entire" />
 <section class="blk">
-  {d.corona.img && <img class="pimg wide" src={u(`/poems/${d.corona.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
-  <div class="prose hi" set:html={P(d.corona.intro)}></div>
-  <div class="seq">
-    {d.corona.poems.map(x => (
-      <figure class="poem seqp">
-        <div class="dt"><span class="pno sm">{x.no}</span>{x.date}{x.sub && <span class="sub"> — {x.sub}</span>}</div>
-        <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
-      </figure>
+  <div class="tsc">
+    {d.transcript.map(x => (
+      x.k === "prose"
+        ? <p class="tp">{x.l[0]}</p>
+        : x.k === "date"
+          ? <div class="td">{x.l[0]}</div>
+          : <figure class="tv">
+              <span class="tno">{x.no}</span>
+              {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
+              <div class="verse">{x.l.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
+            </figure>
     ))}
   </div>
-  <div class="prose" style="margin-top:26px" set:html={P(d.corona.close)}></div>
-</section>
-
-<Rule name="arrows" label={d.elegy.heading} />
-<section class="blk">
-  <div class="prose hi" set:html={P(d.elegy.intro)}></div>
-  {d.elegy.poems.map(x => (
-    <div style="margin-top:28px">
-      <figure class="poem">
-        {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
-        <div class="dt"><span class="pno sm">{x.no}</span>{x.date}</div>
-        <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
-      </figure>
-      {x.note && <p class="prose pnote" set:html={md(x.note)}></p>}
-    </div>
-  ))}
-</section>
-
-<Rule name="pomegranate" label={d.dark.heading} />
-<section class="blk">
-  <div class="prose" set:html={P(d.dark.text)}></div>
-  <figure class="poem" style="margin-top:24px">
-    <img class="pimg" src={u(`/poems/${d.dark.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
-    <div class="verse">{d.dark.text2.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
-  </figure>
-  <p class="prose pnote" set:html={md(d.dark.note)}></p>
-</section>
-
-<Rule name="pomegranate" label={d.jar.heading} />
-<section class="blk jarhead">
-  <img class="pimg wide" src={u(`/poems/${d.jar.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
-</section>
-<section class="blk">
-  <div class="prose hi" set:html={P(d.jar.intro)}></div>
-
-  <h3 class="sh">{d.jar.shape.heading}</h3>
-  <div class="prose" set:html={P(d.jar.shape.text)}></div>
-  <div class="bars">
-    {d.jar.shape.bars.map(([m, n, tot]) => (
-      <div class={"bar" + (n === 0 ? " zero" : "") + (m === "June" ? " june" : "")}>
-        <span class="bm">{m}</span>
-        <span class="bt"><i style={`width:${(n / 31) * 100}%`}></i></span>
-        <span class="bn">{n === 0 ? "—" : n}</span>
-      </div>
-    ))}
-  </div>
-
-  <h3 class="sh">{d.jar.june.heading}</h3>
-  <div class="prose" set:html={P(d.jar.june.text)}></div>
-  <div class="jrows">
-    {d.jar.june.rows.map(([dt, tx]) => (
-      <div class="jr"><span class="jd">{dt}</span><span class="jt" set:html={md(tx)}></span></div>
-    ))}
-  </div>
-  <div class="prose hi" style="margin-top:22px" set:html={P(d.jar.june.close)}></div>
-
-  <p class="prose note" style="margin-top:24px" set:html={md(d.jar.quiet)}></p>
-</section>
-
-<Rule name="arrows" label={d.books.heading} />
-<section class="blk">
-  <div class="prose hi" set:html={P(d.books.intro)}></div>
-  <div class="bks">
-    {d.books.rows.map(b => (
-      <article class="bk">
-        <header>
-          <h3>{b.t}</h3>
-          <p class="bsub" set:html={md(b.sub)}></p>
-          <p class="bmeta"><span>{b.w}</span>{b.y !== "—" && <span class="by">{b.y}</span>}</p>
-        </header>
-        <div class="prose" set:html={P(b.d)}></div>
-      </article>
-    ))}
-  </div>
-  <p class="prose note" style="margin-top:24px" set:html={md(d.books.close)}></p>
 </section>
 
 <Rule name="arrows" label={d.excluded.heading} />
@@ -248,5 +161,17 @@ const P = (s) => `<p>${md(s)}</p>`;
   .pno { display: inline-block; min-width: 2.1em; font-variant-numeric: tabular-nums; opacity: .38;
          font-weight: 400; font-style: normal; font-size: .62em; vertical-align: middle; }
   .pno.sm { min-width: 1.9em; font-size: 1em; opacity: .45; }
+
+  .tsc { max-width: 74ch; }
+  .tp { font-size: 15px; line-height: 1.75; margin: 26px 0 0; opacity: .92; }
+  .td { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .55; font-weight: 600;
+        margin: 34px 0 -6px; font-variant-numeric: tabular-nums; }
+  .tv { margin: 22px 0 0; position: relative; padding-left: 0; }
+  .tno { display: block; font-size: 11px; letter-spacing: .08em; opacity: .35; font-variant-numeric: tabular-nums;
+         margin-bottom: 8px; }
+  .tv .verse { display: flex; flex-direction: column; gap: 2px; }
+  .tv .verse .ln { font-size: 17px; line-height: 1.55; }
+  .tv .verse br { display: block; content: ""; height: 12px; }
+  .tv .pimg { max-width: 460px; margin-bottom: 16px; }
 </style>
 </Base>
