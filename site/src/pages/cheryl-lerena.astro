@@ -17,6 +17,32 @@ const P = (s) => `<p>${md(s)}</p>`;
   <div class="prose" style="margin-top:20px" set:html={P(d.lead)}></div>
 </section>
 
+<Rule name="arrows" label={d.bio.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.bio.text)}></div></section>
+
+<Rule name="pomegranate" label={d.tree.heading} />
+<section class="blk">
+  <p class="cap">{d.tree.note}</p>
+  <figure class="ctree">
+    {d.tree.tiers.map((t, i) => (
+      <div class={"ctier" + (t.self ? " self" : "")}>
+        <div class="tlab">{t.lab}</div>
+        <div class="crow">{t.nodes.map(n => (
+          n.slug
+            ? <a class={"cnode via-" + n.via} href={u(`/who/${n.slug}/`)}>
+                <span class="nm">{n.n}</span><span class="dt">{n.d}</span></a>
+            : <span class={"cnode via-" + n.via}><span class="nm">{n.n}</span><span class="dt">{n.d}</span></span>
+        ))}</div>
+        {i < d.tree.tiers.length - 1 && <div class="cdrop" aria-hidden="true"></div>}
+      </div>
+    ))}
+    <figcaption><p class="warn" set:html={md(d.tree.close)}></p></figcaption>
+  </figure>
+</section>
+
+<Rule name="arrows" label={d.intro.heading} />
+<section class="blk"><div class="prose" set:html={P(d.intro.text)}></div></section>
+
 {d.poems.map((p, i) => (
   <>
     <Rule name={i % 2 === 0 ? "arrows" : "pomegranate"} label={p.conf.startsWith("inf") ? "And one that may be hers" : `Poem ${i + 1}`} />
@@ -72,6 +98,16 @@ const P = (s) => `<p>${md(s)}</p>`;
 </section>
 
 <Rule name="pomegranate" label={d.jar.heading} />
+<section class="blk jarhead">
+  <svg class="jarsvg" viewBox="0 0 120 150" role="img" aria-label="A jar half full of folded notes">
+    <path d="M40 14 h40 a4 4 0 0 1 4 4 v8 h-48 v-8 a4 4 0 0 1 4 -4 z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M30 26 h60 a8 8 0 0 1 8 8 v98 a8 8 0 0 1 -8 8 h-60 a8 8 0 0 1 -8 -8 v-98 a8 8 0 0 1 8 -8 z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M22 84 h76" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
+    {[[32,128],[52,131],[72,127],[42,116],[62,118],[80,120],[34,106],[56,104],[76,108],[46,94],[68,92],[30,92]].map(([cx,cy]) => (
+      <rect x={cx-7} y={cy-5} width="14" height="10" rx="2" fill="currentColor" opacity=".18"/>
+    ))}
+  </svg>
+</section>
 <section class="blk">
   <div class="prose hi" set:html={P(d.jar.intro)}></div>
 
@@ -175,5 +211,29 @@ const P = (s) => `<p>${md(s)}</p>`;
   .bmeta { margin: 8px 0 12px; display: flex; gap: 14px; font-size: 11.5px; letter-spacing: .05em;
            text-transform: uppercase; opacity: .6; font-variant-numeric: tabular-nums; }
   .bk .prose p { font-size: 14.5px; }
+
+  .ctree { margin: 18px 0 0; }
+  .ctier { position: relative; }
+  .ctier .tlab { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; opacity: .5;
+                 font-weight: 600; margin-bottom: 8px; }
+  .crow { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cdrop { height: 18px; width: 1px; margin: 8px 0 8px 26px; background: var(--rule, #dcd6cc); }
+  .cnode { display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: inherit;
+           border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-radius: 3px;
+           padding: 8px 13px; min-width: 150px; max-width: 300px; }
+  a.cnode:hover { background: rgba(138,127,92,.09); }
+  .cnode .nm { font-size: 14.5px; line-height: 1.25; font-weight: 500; }
+  .cnode .dt { font-size: 11.5px; opacity: .62; }
+  .via-doc { border-left-color: #8a7f5c; }
+  .via-lore { border-left-color: #b0a89a; border-left-style: dashed; }
+  .via-living { border-left-color: #6d7f8a; }
+  .via-me { border-left-color: #3f5c3f; border-width: 2px; border-left-width: 4px;
+            background: rgba(92,122,92,.08); }
+  .via-me .nm { font-weight: 700; font-size: 16px; }
+  .ctier.self .crow { padding: 12px 0; }
+  .ctree figcaption { margin-top: 18px; }
+  .ctree .warn { font-size: 14px; line-height: 1.6; border-left: 3px solid #8a7f5c; padding-left: 12px; margin: 0; }
+  .jarhead { display: flex; justify-content: center; padding-top: 4px; }
+  .jarsvg { width: 92px; height: auto; color: #8a7f5c; opacity: .85; }
 </style>
 </Base>
