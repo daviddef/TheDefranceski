@@ -33,6 +33,9 @@ const P = (s) => `<p>${md(s)}</p>`;
 <Rule name="arrows" label={d.route.heading} />
 <section class="blk"><div class="prose" set:html={P(d.route.text)}></div></section>
 
+<Rule name="arrows" label={d.lever.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.lever.text)}></div></section>
+
 <Rule name="pomegranate" label={d.plan.heading} />
 <section class="blk">
   <ol class="plan">{d.plan.rows.map(([n, t]) => (

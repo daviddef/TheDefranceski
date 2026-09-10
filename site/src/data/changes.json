@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "206 entries · 28 of them corrections",
+ "eyebrow": "207 entries · 28 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -181,6 +181,14 @@
      "what": "Whether the Croatian church books are machine-readable yet",
      "src": "FamilySearch full-text search — untested",
      "text": "**A maybe, recorded so it is not lost.** FamilySearch has been extending an AI handwriting-recognition search that makes the **text inside register images** searchable rather than only the catalogue around them. **Whether the Croatian church books are in it is not known** — it has not been tested, and FamilySearch is refusing this session at the time of writing.\n\nIt matters more than anything else on the list. Reading Vodnjan's death register 1815–1833 by eye is about **105 images and four and a half thousand entries**; if the text is already searchable, that work is a query instead of a campaign. **Test this before committing to any exhaustive read**, because a positive answer makes the plan obsolete and a negative one costs a single request.\n\nIf it is not available: the fallback is **handwritten-text recognition trained on this clerk's hand** — twenty pages transcribed by hand to train on, then the rest by machine. That costs money and setup and is **David's decision, not this archive's**.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "10 Sept 2026",
+     "kind": "hit",
+     "what": "Whether the Corsican records can be searched by surname",
+     "src": "Archives de Corse — archives.isula.corsica",
+     "text": "**They cannot, and finding that out is the result.** The Archives of the Collectivité de Corse are free, need no account and are **not FamilySearch** — the platform refuses a command-line client but opens normally in a browser.\n\n**No module has a surname field.** *État civil*, *Corsica christiana*, *Recensements*, *Registres matricules* all take the same three criteria — **commune, date range, record type** — and the platform says outright that anything else is *une recherche non indexée*.\n\nSo Corsica is images to be read, like Vodnjan. **But the record types include TABLE DÉCENNALE** — the alphabetical ten-yearly index French civil registration compiled for every commune, 1793–1902. That is roughly **eleven index pages per commune** instead of ten years of acts, and it is why Corsica can be finished when Vodnjan cannot: an Austrian *Liber Defunctorum* was never indexed by anybody.\n\nSix Cap Corse communes are on the platform and all are in scope: **Tomino, Rogliano, Ersa, Centuri, Morsiglia, Barrettali**. Available types: *naissances, mariages, décès, baptêmes, sépultures, publications de mariage, table décennale*.",
      "href": "/research-log/"
     },
     {
