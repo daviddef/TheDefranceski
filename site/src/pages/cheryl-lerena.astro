@@ -48,6 +48,7 @@ const P = (s) => `<p>${md(s)}</p>`;
     <Rule name={i % 2 === 0 ? "arrows" : "pomegranate"} label={p.conf.startsWith("inf") ? "And one that may be hers" : `Poem ${i + 1}`} />
     <section class="blk">
       <figure class="poem">
+        {p.img && <img class="pimg" src={u(`/poems/${p.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
         <h2>{p.title}</h2>
         <div class="verse">{p.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
         <figcaption>
@@ -62,6 +63,7 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" label={d.corona.heading} />
 <section class="blk">
+  <img class="pimg wide" src={u(`/poems/${d.corona.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
   <div class="prose hi" set:html={P(d.corona.intro)}></div>
   <div class="seq">
     {d.corona.poems.map(x => (
@@ -80,6 +82,7 @@ const P = (s) => `<p>${md(s)}</p>`;
   {d.elegy.poems.map(x => (
     <div style="margin-top:28px">
       <figure class="poem">
+        {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
         <div class="dt">{x.date}</div>
         <div class="verse">{x.text.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
       </figure>
@@ -92,6 +95,7 @@ const P = (s) => `<p>${md(s)}</p>`;
 <section class="blk">
   <div class="prose" set:html={P(d.dark.text)}></div>
   <figure class="poem" style="margin-top:24px">
+    <img class="pimg" src={u(`/poems/${d.dark.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
     <div class="verse">{d.dark.text2.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
   </figure>
   <p class="prose pnote" set:html={md(d.dark.note)}></p>
@@ -99,14 +103,7 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" label={d.jar.heading} />
 <section class="blk jarhead">
-  <svg class="jarsvg" viewBox="0 0 120 150" role="img" aria-label="A jar half full of folded notes">
-    <path d="M40 14 h40 a4 4 0 0 1 4 4 v8 h-48 v-8 a4 4 0 0 1 4 -4 z" fill="none" stroke="currentColor" stroke-width="2.5"/>
-    <path d="M30 26 h60 a8 8 0 0 1 8 8 v98 a8 8 0 0 1 -8 8 h-60 a8 8 0 0 1 -8 -8 v-98 a8 8 0 0 1 8 -8 z" fill="none" stroke="currentColor" stroke-width="2.5"/>
-    <path d="M22 84 h76" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
-    {[[32,128],[52,131],[72,127],[42,116],[62,118],[80,120],[34,106],[56,104],[76,108],[46,94],[68,92],[30,92]].map(([cx,cy]) => (
-      <rect x={cx-7} y={cy-5} width="14" height="10" rx="2" fill="currentColor" opacity=".18"/>
-    ))}
-  </svg>
+  <img class="pimg wide" src={u(`/poems/${d.jar.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />
 </section>
 <section class="blk">
   <div class="prose hi" set:html={P(d.jar.intro)}></div>
@@ -164,7 +161,8 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="cap src"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="prose note" set:html={md(d.art.note)}></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
 </section>
 
 <style>
@@ -235,5 +233,11 @@ const P = (s) => `<p>${md(s)}</p>`;
   .ctree .warn { font-size: 14px; line-height: 1.6; border-left: 3px solid #8a7f5c; padding-left: 12px; margin: 0; }
   .jarhead { display: flex; justify-content: center; padding-top: 4px; }
   .jarsvg { width: 92px; height: auto; color: #8a7f5c; opacity: .85; }
+
+  .pimg { display: block; width: 100%; max-width: 560px; height: auto; border-radius: 3px;
+          margin: 0 0 20px; border: 1px solid var(--rule, #dcd6cc); }
+  .pimg.wide { max-width: 760px; margin-bottom: 24px; }
+  .jarhead { display: block; }
+  .jarhead .pimg { margin-left: auto; margin-right: auto; }
 </style>
 </Base>
