@@ -419,7 +419,7 @@ for slug, rows in by_slug.items():
     yrs = "–".join([str(r0["b"]) if r0.get("b") else "", str(r0["d"]) if r0.get("d") else ""]).strip("–")
     if r0.get("place"):
         facts.append(["Place", r0["place"]] + ([f"/places/{r0['placeSlug']}/"] if r0.get("placeSlug") else []))
-    if yrs: facts.append(["Years", yrs])
+    if yrs: facts.append(["Years", yrs + (f" \u00b7 from {r0['yfrom']}" if r0.get("yfrom") else "")])
     elif r0.get("bEst"):
         _rg = r0.get("bEstRange") or []
         facts.append(["Years", f"born about {r0['bEst']}" + (f" (somewhere {_rg[0]}\u2013{_rg[1]})" if len(_rg) == 2 else "") + " \u2014 estimated, not recorded"])
