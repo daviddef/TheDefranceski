@@ -61,6 +61,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
                   <span class="pn">{x.n}</span>
                   <span class={"st st-" + x.st}>{LAB[x.st]}</span>
                   {x.o.length > 0 && <span class="rel">with {x.o.join(", ")}</span>}
+                  {x.note && <span class="rnote" set:html={md(x.note)}></span>}
                 </td>
                 <td class="sy">
                   {x.says ? <span set:html={md(x.says)}></span> : <span class="none">no dated event indexed</span>}
