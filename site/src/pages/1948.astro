@@ -37,6 +37,25 @@ const P = (s) => `<p>${md(s)}</p>`;
   </>
 ))}
 
+<Rule name="pomegranate" label={d.route.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.route.text)}></div>
+  <p class="settle"><span class="lab">Confidence</span> <span set:html={md(d.route.grade)}></span></p>
+  <div class="road">
+    <div class="stop"><b>1941</b><span>Ivan enters a Reutlingen factory, 21 October, aged sixteen</span></div>
+    <div class="arw" aria-hidden="true"></div>
+    <div class="stop"><b>1947</b><span>Anton Rudolf on the Pfullingen list of foreigners</span></div>
+    <div class="arw" aria-hidden="true"></div>
+    <div class="stop go"><b>1948</b><span>Ivan and Hedviga go, to leave the country</span></div>
+    <div class="arw" aria-hidden="true"></div>
+    <div class="stop out"><b>1949</b><span>Zdravko and Anton out to Australia — «Emigré Australie le 8.3.49»</span></div>
+    <div class="arw" aria-hidden="true"></div>
+    <div class="stop back"><b>by 1951</b><span>Back on the coast. A son born at Senj, 17 December</span></div>
+    <div class="arw" aria-hidden="true"></div>
+    <div class="stop shut"><b>1952</b><span>The IRO closes its books, 28 February</span></div>
+  </div>
+</section>
+
 <Rule name="arrows" label={d.transposition.heading} />
 <section class="blk">
   <div class="prose" set:html={P(d.transposition.text)}></div>
@@ -82,5 +101,19 @@ const P = (s) => `<p>${md(s)}</p>`;
   .dx { font-size: 22px; opacity: .4; }
   .src { max-width: 80ch; }
   @media (max-width: 560px) { .qn { position: static; display: block; margin-bottom: 4px; } }
+
+  .road { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; margin-top: 22px; }
+  .stop { flex: 1 1 150px; min-width: 140px; border: 1px solid var(--rule, #dcd6cc);
+          border-top-width: 3px; border-top-color: #b9b1a0; border-radius: 3px;
+          padding: 11px 13px; display: flex; flex-direction: column; gap: 4px; }
+  .stop b { font-size: 15px; font-variant-numeric: tabular-nums; }
+  .stop span { font-size: 12.5px; line-height: 1.45; opacity: .8; }
+  .stop.go { border-top-color: #8a7f5c; background: rgba(138,127,92,.10); }
+  .stop.go b { font-size: 19px; }
+  .stop.out { border-top-color: #4a7a52; }
+  .stop.back { border-top-color: #a3402f; }
+  .stop.shut { border-top-color: #6d7f8a; }
+  .arw { flex: 0 0 18px; align-self: center; height: 1px; background: var(--rule, #dcd6cc); }
+  @media (max-width: 700px) { .arw { display: none; } .road { gap: 8px; } }
 </style>
 </Base>
