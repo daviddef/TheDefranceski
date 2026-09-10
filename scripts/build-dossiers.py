@@ -247,9 +247,14 @@ def _yr(x):
     m = re.search(r"\b(1[3-9]\d\d|20\d\d)\b", str(x or ""))
     return int(m.group()) if m else None
 
-def _fits_child(myY, me, hh, t):
+def _fits_child(myY, me, hh, t, estY=None):
     """Is the person plausibly THIS household's child? A name is not enough."""
     cY = _yr(me.get("birth")) or _yr(me.get("death"))
+    if myY is None and estY is not None and cY is not None:
+        # only an estimate to test against, so the window is deliberately loose
+        if abs(estY - cY) <= 25: return True
+        t["gate"].append(["estimate", hh.get("father") or "", hh.get("mother") or "", str(cY)])
+        return False
     if myY is None or cY is None:
         t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
         return True
@@ -257,9 +262,13 @@ def _fits_child(myY, me, hh, t):
     t["gate"].append(["dropped", hh.get("father") or "", hh.get("mother") or "", f"{cY}"])
     return False
 
-def _fits_parent(myY, hh, t):
+def _fits_parent(myY, hh, t, estY=None):
     """Is the person plausibly a PARENT in this household?"""
     f, to = hh.get("from"), hh.get("to")
+    if myY is None and estY is not None and isinstance(f, int):
+        if 5 <= f - estY <= 75: return True
+        t["gate"].append(["estimate", hh.get("father") or "", hh.get("mother") or "", str(f)])
+        return False
     if myY is None or not isinstance(f, int):
         t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
         return True
@@ -276,15 +285,18 @@ def ptree(name):
     if not up and not down: return None
     row = ROW_BY_NAME.get(k)
     t = {"self": {"n": name, "dt": _dates(row), "via": _via(row)}}
-    myY = None
+    myY = estY = None
     if row:
         for _f in ("b", "d"):
             if isinstance(row.get(_f), int): myY = row[_f]; break
+        if myY is None and isinstance(row.get("bEst"), int):
+            estY = row["bEst"]
+            t["est"] = [estY, row.get("bEstRange") or [estY - 11, estY + 9], row.get("yfrom") or ""]
     t["gate"] = []
     if row and row.get("rel"): t["self"]["rel"] = row["rel"]
     if row and row.get("me"): t["self"]["me"] = True
-    up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t)]
-    down = [hh for hh in down if _fits_parent(myY, hh, t)]
+    up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t, estY)]
+    down = [hh for hh in down if _fits_parent(myY, hh, t, estY)]
     if up:
         hh, me = up[0]
         par = [node(hh.get("father"), hh), node(hh.get("mother"), hh)]
@@ -306,6 +318,7 @@ def ptree(name):
     t["upN"], t["downN"] = len(up), len(down)
     t["dropped"] = [g for g in t["gate"] if g[0] == "dropped"]
     t["unchecked"] = [g for g in t["gate"] if g[0] == "unchecked"]
+    t["estRej"] = [g for g in t["gate"] if g[0] == "estimate"]
     t.pop("gate", None)
     if not t.get("parents") and not t.get("children") and not t.get("spouse"):
         return {"none": True, "dropped": t["dropped"], "self": t["self"]} if t["dropped"] else None
@@ -407,6 +420,9 @@ for slug, rows in by_slug.items():
     if r0.get("place"):
         facts.append(["Place", r0["place"]] + ([f"/places/{r0['placeSlug']}/"] if r0.get("placeSlug") else []))
     if yrs: facts.append(["Years", yrs])
+    elif r0.get("bEst"):
+        _rg = r0.get("bEstRange") or []
+        facts.append(["Years", f"born about {r0['bEst']}" + (f" (somewhere {_rg[0]}\u2013{_rg[1]})" if len(_rg) == 2 else "") + " \u2014 estimated, not recorded"])
     if r0.get("parish"): facts.append(["Parish", r0["parish"]])
     if r0.get("line") and legend.get(r0["line"]): facts.append(["Line", legend[r0["line"]].split("—")[0].strip()])
     if r0.get("me"): facts.append(["Who this is", "David — the compiler of this archive"])

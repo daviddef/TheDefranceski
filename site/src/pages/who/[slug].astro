@@ -207,6 +207,16 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
         {" "}{p.ptree.dropped.map((g, i) => (<>{i > 0 ? " · " : ""}<em>{g[1]}{g[2] ? ` × ${g[2]}` : ""}</em>{g[3] ? ` (${g[3]})` : ""}</>))}.
       </p>
     )}
+    {p.ptree.est && (
+      <p><strong>This person has no recorded year.</strong> The archive estimates a birth <strong>about {p.ptree.est[0]}</strong>
+        {p.ptree.est[1] && <> — somewhere between {p.ptree.est[1][0]} and {p.ptree.est[1][1]}</>}, {p.ptree.est[2]}.
+        The households above were tested against that estimate rather than a date, on a deliberately loose window.
+        <strong>That is a sanity check, not a verification</strong> — it can throw out an absurdity, and it cannot confirm a link.</p>
+    )}
+    {p.ptree.estRej && p.ptree.estRej.length > 0 && (
+      <p><strong>{p.ptree.estRej.length} household{p.ptree.estRej.length === 1 ? " was" : "s were"} rejected even on that loose estimate</strong>:
+        {" "}{p.ptree.estRej.map((g, i) => (<>{i > 0 ? " · " : ""}<em>{g[1]}{g[2] ? ` × ${g[2]}` : ""}</em>{g[3] ? ` (${g[3]})` : ""}</>))}.</p>
+    )}
     {p.ptree.unchecked && p.ptree.unchecked.length > 0 && (
       <p><strong>Joined on a name alone.</strong> {p.ptree.unchecked.length === 1 ? "One household" : `${p.ptree.unchecked.length} households`} above
         could not be date-checked, because this archive holds no year for the person or for the household. Treat that link as a lead.</p>
