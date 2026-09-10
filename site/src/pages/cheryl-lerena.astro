@@ -56,14 +56,16 @@ const P = (s) => `<p>${md(s)}</p>`;
       x.k === "prose"
         ? <div>
             {x.title && <h3 class="ttl">{x.title}</h3>}
-            <p class={"tp" + (x.restored ? " restored" : "") + (x.gap ? " gap" : "")}>{x.l[0]}{x.restored && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
+            {x.l.filter(l => l !== "").map((l, i) => (
+              <p class={"tp" + (x.restored ? " restored" : "") + (x.gap ? " gap" : "")}>{l}{x.restored && i === x.l.length - 1 && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
+            ))}
           </div>
         : x.k === "date"
           ? <div class="td">{x.l[0]}</div>
           : <figure class="tv">
               {x.no && <span class="tno">{x.no}</span>}
               {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
-              {x.title && <h3 class="ttl">{x.title}{x.verified && <span class="vfy" title="Stanza breaks confirmed against the original">stanzas verified</span>}</h3>}
+              {x.title && <h3 class="ttl">{x.title}</h3>}
               <div class="verse">{x.l.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
               {x.titlenote && <p class="ttlnote">{x.titlenote}</p>}
               {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={md(x.note)}></span></figcaption>}
