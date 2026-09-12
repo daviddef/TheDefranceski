@@ -10,9 +10,9 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
 **1. ~~Test FamilySearch full-text search.~~ DONE 13 Sept 2026.** Answer: the **Croatian parish books are not in it** — the Vodnjan reading plan stands unchanged. But **US naturalisation, declarations of intention and passenger manifests are**, at full text, and searching the **village name** returns people born there under any surname. Two verified hits for *Gologorica* (Brooklyn 1929, Tacoma 1935–38), neither of them a De Franceschi. **New workstream:** sweep Gologorica, Gračišće, Crikvenica, Vodnjan, Ližnjan as *place* terms. Result counts look inflated and are untested.
 
-**2. Retry Arolsen.** `collections.arolsen-archives.org` was down for both of us. Four searches: `Defranceski`, `Defranceschi`, `Blazevic Hedviga`, `Kovacina Ursula`. **The window that matters is 1948–1951** — a failed exit leaves nothing in any Croatian register, so this is the only place it can exist. Any record of **Anton Rudolf after 1943** separately settles whether Uršula was a widow or a wife when the man called *Car* appears.
+**2. Retry Arolsen — STILL DOWN, verified 13 Sept.** `collections.arolsen-archives.org` times out while `arolsen-archives.org` returns 200, so the outage is theirs. `collections.arolsen-archives.org` was down for both of us. Four searches: `Defranceski`, `Defranceschi`, `Blazevic Hedviga`, `Kovacina Ursula`. **The window that matters is 1948–1951** — a failed exit leaves nothing in any Croatian register, so this is the only place it can exist. Any record of **Anton Rudolf after 1943** separately settles whether Uršula was a widow or a wife when the man called *Car* appears.
 
-**3. Corsica — start reading.** Nothing about it is blocked. Archives départementales de la Haute-Corse, état civil 1793–1902, all communes, free. Tomino first, exhaustively, every hit not just the two names held. Then Rogliano, Ersa, Macinaggio. Plan is on `/corsica/`.
+**3. Corsica — DOORS FOUND 13 Sept.** Tomino's tables décennales are **12 NUM 4186–4194**, nine volumes, unbroken 1802–1892, listed on `/corsica/`. The viewer opens in a pop-up the pane blocks — that is the next thing to solve. Original note: Nothing about it is blocked. Archives départementales de la Haute-Corse, état civil 1793–1902, all communes, free. Tomino first, exhaustively, every hit not just the two names held. Then Rogliano, Ersa, Macinaggio. Plan is on `/corsica/`.
 
 ---
 
@@ -27,7 +27,7 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
 ## Reading, when FamilySearch relents
 
-- Vodnjan deaths, **image 562** → 575 (Luigetta, Martina Civico, Veniera De Rocchi)
+- Vodnjan deaths, **562 and 563 READ 13 Sept** (two hits at house 456 — Maddalena Francin 14 Mar 1831, Pasqua 19 May 1831). Resume at **564** → 575 (Luigetta, Martina Civico, Veniera De Rocchi)
 - Then images 471–545, deaths 1815–1828
 - **Film 005497895**, deaths 1834–1893 — the richest unopened film; should close most of the **30 open gaps**
 - Marriages vol I 217–265, then vol II — settles the two Stefani of the 1850s
@@ -38,9 +38,9 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
 ## Mine, needing nobody
 
-- **The Trentino cluster** — Fiera di Primiero, Telve, Strigno, Grigno, Sacco, plus Mione ×8 and Paluzza ×5. The archive has no page that knows Trentino exists. Most interesting thing unwritten.
+- ~~The Trentino cluster~~ **DONE 13 Sept** — `/trentino/` published: 49 people, no register record, plus Giubiasco and Gaillard folded in.
 - 161 people with no place · 56 unplaced households · 55 suppressed charts to review by hand · 40 remaining name-alone joins · 1,153 unworked lead rows
-- Switzerland (Giubiasco, Ticino) and Haute-Savoie (Gaillard, by Geneva) — two more separate stories, untouched
+- ~~Switzerland and Haute-Savoie~~ **DONE 13 Sept** — both on `/trentino/`. Giubiasco is one household of four; Gaillard is one man.
 
 ---
 
