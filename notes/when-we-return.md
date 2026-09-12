@@ -27,9 +27,9 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
 ## Reading, when FamilySearch relents
 
-- Vodnjan deaths. **562–565 worked 13 Sept.** Two hits at house 456 — Maddalena Francin 14 Mar 1831, Pasqua 19 May 1831. 564–565 (book pages 161–163, entries 120–167 + 1832/1–6) read clean, no De Franceschi.
-  **GAP TO CLOSE FIRST: entries 96–119, June–August 1831** — the left-hand pages of frames 562 and 563 were never opened. **Every frame is a two-page opening and the viewer hides the left page; zooming out does not reveal it. Pan hard left, and check the entry numbers run on.**
-  Then resume at **566** → 575 (Luigetta, Martina Civico, Veniera De Rocchi)
+- Vodnjan deaths. **561–565 READ COMPLETE 13 Sept**, both pages of every frame, entries 20–167 of 1831 continuous plus 1832/1–6. Two De Franceschi: Maddalena Francin 14 Mar 1831 and Pasqua 19 May 1831, both house 456. 561 re-read confirms the published Michiela/Domenica entry.
+  **Every frame is a two-page opening. The viewer opens on the RIGHT page and hides the left; zoom-out does not reveal it. Pan hard left, and check the entry numbers run on from the last page — that is the register's own checksum.**
+  Resume at **566** → 575
 - Then images 471–545, deaths 1815–1828
 - **Film 005497895**, deaths 1834–1893 — the richest unopened film; should close most of the **30 open gaps**
 - Marriages vol I 217–265, then vol II — settles the two Stefani of the 1850s
