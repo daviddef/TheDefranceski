@@ -1,0 +1,79 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/trentino.json";
+const md = (s) => String(s ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\n\n/g, "</p><p>");
+const P = (s) => `<p>${md(s)}</p>`;
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+<section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+
+<Rule name="arrows" label={d.why.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.why.text)}></div></section>
+
+<Rule name="pomegranate" label={d.places.heading} />
+<section class="blk">
+  <div class="tw">
+    <table class="hold">
+      <thead><tr><th>Place</th><th>Region</th><th>People</th><th>What is there</th></tr></thead>
+      <tbody>{d.places.rows.map(([p, r, n, w]) => (
+        <tr><td class="g">{p}</td><td class="pl">{r}</td><td class="pl">{n}</td><td class="sr" set:html={md(w)}></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={md(d.places.close)}></p>
+</section>
+
+<Rule name="arrows" label={d.laives.heading} />
+<section class="blk"><div class="prose hi" set:html={P(d.laives.text)}></div></section>
+
+<Rule name="pomegranate" label={d.brazil.heading} />
+<section class="blk"><div class="prose" set:html={P(d.brazil.text)}></div></section>
+
+<Rule name="arrows" label={d.alps.heading} />
+<section class="blk">
+  <div class="opens">{d.alps.rows.map(([h, t]) => (
+    <div class="op"><h3>{h}</h3><p set:html={md(t)}></p></div>
+  ))}</div>
+  <p class="prose note" style="margin-top:18px" set:html={md(d.alps.close)}></p>
+</section>
+
+<Rule name="pomegranate" label={d.next.heading} />
+<section class="blk">
+  <ol class="plan">{d.next.rows.map(([n, t]) => (
+    <li><span class="n">{n}</span><span set:html={md(t)}></span></li>
+  ))}</ol>
+</section>
+
+<Rule name="arrows" />
+<section class="blk">
+  <p class="cap src"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="cap" style="margin-top:12px">
+    <a href={u("/lines/")}>All the families →</a> · <a href={u("/corsica/")}>Corsica →</a> ·
+    <a href={u("/namesakes/")}>Namesakes →</a> · <a href={u("/diaspora/")}>Where the name went →</a>
+  </p>
+</section>
+
+<style>
+  .tw { overflow-x: auto; border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; }
+  table.hold { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.hold th { text-align: left; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase;
+    opacity: .55; font-weight: 600; padding: 9px 12px; border-bottom: 1px solid var(--rule, #dcd6cc); }
+  table.hold td { padding: 9px 12px; vertical-align: top; border-top: 1px solid rgba(0,0,0,.05); line-height: 1.5; }
+  table.hold td.g { font-weight: 500; }
+  table.hold td.pl { opacity: .75; white-space: nowrap; }
+  table.hold td.sr { font-size: 13px; opacity: .9; }
+  .opens { display: grid; gap: 18px; }
+  .op h3 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+  .op p { margin: 0; font-size: 14.5px; line-height: 1.7; opacity: .9; }
+  ol.plan { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 68ch; }
+  ol.plan li { display: flex; gap: 14px; font-size: 14.5px; line-height: 1.7; }
+  ol.plan .n { flex: 0 0 auto; font-variant-numeric: tabular-nums; opacity: .45; font-weight: 600; }
+</style>
+</Base>
