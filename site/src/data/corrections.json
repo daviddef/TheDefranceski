@@ -1,7 +1,16 @@
 {
  "note": "Every claim this archive has published and then had to take back, with what was said, what is true, and how the mistake was made. It is kept because an archive that only shows its successes is not telling you how reliable it is. Corrections are made **in the place where the mistake was made**, not quietly on a back page — this list is the index to them.",
- "lead": "Sixteen things this archive got wrong.",
+ "lead": "Seventeen things this archive got wrong.",
  "rows": [
+  {
+   "when": "13 Sept 2026",
+   "what": "Full-text result counts that were a year, not a count",
+   "sev": "serious",
+   "where": "/method/",
+   "said": "That FamilySearch's full-text search returned **1,952 results for *Gologorica*, 1,719 for *Gračišće* and 1,885 for *Defranceschi*** — and, noting how implausibly alike those three numbers were, that they «**have not been tested**» and should not be trusted.",
+   "true": "Every one of the three is wrong, and the real figures are not close.\n\n**Gologorica returns 19.** *Gračišće* three pages. *Crikvenica* fifteen. *Ližnjan* **two**. **Defranceschi returns about 9,900** — **five times** what was published, not a fifth of it. And **Vodnjan returns nothing at all**: the Croatian name post-dates every record in the corpus, which uses **Dignano** — about 12,200 of those, most of them the *other* Dignano, in Friuli.",
+   "how": "The number was scraped with a loose pattern — `([0-9,]+)\\s*Results` — off a page whose visible text ends *«… Border Crossing Records 1924-**1952**\\nResults per page:»*. **It matched a year out of a collection title.** «1,952 results» was a border-crossing collection's end date standing next to the words «Results per page».\n\nWhat makes this worse than a scraping bug: **the page said the numbers looked wrong and published them anyway.** Three unrelated searches returning numbers of the same size was called «the shape of a number that counts something other than what you think» — and then the one check that would have settled it, *look at how many results are actually on the page*, was not run. It takes one request.\n\n**Flagging a doubt is not the same as resolving it.** A figure you have publicly called untrustworthy should not be in the sentence at all.\n\nThe finding underneath is unharmed and is better than it looked: **19 hits for Gologorica is a set small enough to read end to end**, which is exactly what makes the village sweep worth doing."
+  },
   {
    "when": "13 Sept 2026",
    "what": "A correction that never reached the data file",
