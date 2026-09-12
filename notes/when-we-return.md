@@ -8,7 +8,7 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
 ## First, in this order
 
-**1. Test FamilySearch full-text search.** One request. They've been rolling out AI handwriting recognition that makes the text *inside* register images searchable. If the Croatian church books are in it, the whole Vodnjan reading plan below becomes a query instead of a campaign. **Do this before committing to anything else** — a positive answer makes weeks of work obsolete; a negative one costs a minute.
+**1. ~~Test FamilySearch full-text search.~~ DONE 13 Sept 2026.** Answer: the **Croatian parish books are not in it** — the Vodnjan reading plan stands unchanged. But **US naturalisation, declarations of intention and passenger manifests are**, at full text, and searching the **village name** returns people born there under any surname. Two verified hits for *Gologorica* (Brooklyn 1929, Tacoma 1935–38), neither of them a De Franceschi. **New workstream:** sweep Gologorica, Gračišće, Crikvenica, Vodnjan, Ližnjan as *place* terms. Result counts look inflated and are untested.
 
 **2. Retry Arolsen.** `collections.arolsen-archives.org` was down for both of us. Four searches: `Defranceski`, `Defranceschi`, `Blazevic Hedviga`, `Kovacina Ursula`. **The window that matters is 1948–1951** — a failed exit leaves nothing in any Croatian register, so this is the only place it can exist. Any record of **Anton Rudolf after 1943** separately settles whether Uršula was a widow or a wife when the man called *Car* appears.
 
