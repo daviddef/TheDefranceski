@@ -36,6 +36,17 @@ const P = (s) => `<p>${md(s)}</p>`;
 <Rule name="arrows" label={d.lever.heading} />
 <section class="blk"><div class="prose hi" set:html={P(d.lever.text)}></div></section>
 
+<Rule name="arrows" label={d.shelf.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(d.shelf.text)}></div>
+  <table class="hold" style="margin-top:18px">
+    <tbody>{d.shelf.rows.map(([c, y]) => (
+      <tr><td class="g">{c}</td><td class="pl">{y}</td></tr>
+    ))}</tbody>
+  </table>
+  <p class="prose note" style="margin-top:18px" set:html={md(d.shelf.close)}></p>
+</section>
+
 <Rule name="pomegranate" label={d.plan.heading} />
 <section class="blk">
   <ol class="plan">{d.plan.rows.map(([n, t]) => (
