@@ -74,12 +74,19 @@ def main(md=False):
         if p and p != "—" and norm(p) not in COUNTRY: forms[norm(p)].add(p)
     R["multiform"] = {k: sorted(v) for k, v in forms.items() if len(v) > 1}
 
+    # the no-place figure, broken down — a single number hides who is blocked on what
+    R["noplace_src"] = dict(collections.Counter(
+        r.get("src") for r in ros if not (r.get("place") or "").strip()).most_common())
+
     if md:
         s = R["reg_status"]
         print(f"**Computed by `scripts/audit.py`, not typed.** "
               f"{R['roster']} people · {R['households']} households · {R['reg']} indexed records "
               f"({s.get('in',0)} accepted, {s.get('cand',0)} candidate, {s.get('lead',0)} lead).\n")
-        print(f"- **{R['roster_noplace']}** people with no place · **{R['hh_noplace']}** households with no place")
+        ns = R["noplace_src"]
+        print(f"- **{R['roster_noplace']}** people with no place "
+              + "(" + ", ".join(f"{v} {k}" for k, v in ns.items()) + ")"
+              + f" · **{R['hh_noplace']}** households with no place")
         print(f"- **{R['no_chart']}** of {R['dossiers']} dossiers have no pedigree chart")
         if R["offchart"]:
             print(f"- **{len(R['offchart'])}** places hold accepted records but appear on no lane: "
@@ -88,7 +95,7 @@ def main(md=False):
             print(f"- **{len(R['multiform'])}** towns are written under more than one name in the register")
         return
 
-    print("ROSTER      %5d rows, %d with no place" % (R["roster"], R["roster_noplace"]))
+    print("ROSTER      %5d rows, %d with no place  %s" % (R["roster"], R["roster_noplace"], R["noplace_src"]))
     print("HOUSEHOLDS  %5d, %d with no place" % (R["households"], R["hh_noplace"]))
     print("DOSSIERS    %5d, %d with no pedigree chart" % (R["dossiers"], R["no_chart"]))
     print("REGISTER    %5d rows  %s" % (R["reg"], R["reg_status"]))
