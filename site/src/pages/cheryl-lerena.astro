@@ -53,16 +53,19 @@ const P = (s) => `<p>${md(s)}</p>`;
 <section class="blk">
   <div class="tsc">
     {d.transcript.map(x => (
-      x.k === "prose"
-        ? <div>
+      x.head
+        ? <h2 class="thd">{x.title}</h2>
+      : x.k === "prose"
+        ? <div class={"tw" + (x.no ? " work" : "")}>
+            {x.no && <span class="tno">{x.no}</span>}
             {x.title && <h3 class="ttl">{x.title}</h3>}
             {x.l.filter(l => l !== "").map((l, i) => (
-              <p class={"tp" + (x.restored ? " restored" : "") + (x.gap ? " gap" : "")}>{l}{x.restored && i === x.l.length - 1 && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
+              <p class={"tp" + (x.restored ? " restored" : "")}>{l}{x.restored && i === x.l.filter(k => k !== "").length - 1 && <span class="rst">restored from the original — the scan destroyed this paragraph</span>}</p>
             ))}
           </div>
         : x.k === "date"
           ? <div class="td">{x.l[0]}</div>
-          : <figure class="tv">
+          : <figure class={"tv" + (x.no ? " work" : "")}>
               {x.no && <span class="tno">{x.no}</span>}
               {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
               {x.title && <h3 class="ttl">{x.title}</h3>}
@@ -70,7 +73,7 @@ const P = (s) => `<p>${md(s)}</p>`;
               {x.titlenote && <p class="ttlnote">{x.titlenote}</p>}
               {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={md(x.note)}></span></figcaption>}
             </figure>
-    ))}
+    ))}}
   </div>
 </section>
 
@@ -241,6 +244,13 @@ const P = (s) => `<p>${md(s)}</p>`;
   .pno.sm { min-width: 1.9em; font-size: 1em; opacity: .45; }
 
   .tsc { max-width: 74ch; }
+  .thd { margin: 76px 0 4px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+         font-weight: 700; opacity: .6; max-width: 62ch; line-height: 1.5; }
+  .tw.work, .tv.work { margin-top: 46px; border-top: 1px solid var(--rule, #dcd6cc); padding-top: 18px; }
+  .tw.work > .ttl, .tv.work > .ttl { margin-top: 6px; }
+  .tw.work > .tno, .tv.work > .tno { margin-bottom: 2px; }
+  .tw.work > .ttl + .tp { margin-top: 14px; }
+
   .tp { font-size: 15px; line-height: 1.75; margin: 26px 0 0; opacity: .92; }
   .td { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .55; font-weight: 600;
         margin: 34px 0 -6px; font-variant-numeric: tabular-nums; }
