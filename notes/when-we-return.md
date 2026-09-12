@@ -35,10 +35,11 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
 ## Reading, when FamilySearch relents
 
-- Vodnjan deaths. **Book pages 156–167 READ COMPLETE 13 Sept** — 1831 entries 20–167 and 1832 entries 1–82, continuous, both pages of every frame.
-  Two De Franceschi in the whole stretch: **Maddalena Francin 14 Mar 1831** and **Pasqua 19 May 1831**, both house 456. Three look-alike candidates examined and given up (*q.m Francesco*, *di Francesco*, *da Francesche*).
-  **Count by BOOK PAGE, not by frame.** Consecutive frames share a page and some frames are re-shoots with cut strips laid on a blank leaf (frame 567 does exactly this). 581 frames is not 581 pages. The page number is at the top outer corner; the entry numbers are the checksum.
-  **Resume at book page 168** — frame 569 onward
+- Vodnjan deaths. **Book pages 156–171 READ 13 Sept** — 1831 entries 20–167, **all of 1832 (1–157)**, and 1833 entries 1–3. Both pages of every frame.
+  Two De Franceschi in the whole stretch: **Maddalena Francin 14 Mar 1831** and **Pasqua 19 May 1831**, both house 456. Four look-alike candidates examined and given up (*q.m Francesco*, *di Francesco*, *da Francesche*, *Da Franceschi?*).
+  **ONE GAP: entry 83 of 1832**, foot of page 167 — not yet seen. Close it first.
+  **Count by BOOK PAGE, not by frame.** Consecutive frames share a page; frame 567 is a re-shoot of 566 with cut strips laid on a blank leaf. 581 frames is not 581 pages. Page number top outer corner; entry numbers are the checksum.
+  **Resume at book page 172**
 - Then images 471–545, deaths 1815–1828
 - **Film 005497895**, deaths 1834–1893 — the richest unopened film; should close most of the **30 open gaps**
 - Marriages vol I 217–265, then vol II — settles the two Stefani of the 1850s
