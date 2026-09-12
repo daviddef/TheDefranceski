@@ -137,6 +137,53 @@
     "1883 – 1892"
    ]
   ],
-  "close": "The site is an old frameset behind Cloudflare. The search must be driven **inside the frameset** — the results post to a frame that does not exist if you open the form on its own — and a direct request to the search endpoint is refused by a **bot check, which this archive does not attempt to get around**. The image viewer opens in a pop-up, which is the next thing to solve."
+  "close": "**The pop-up is solved.** The site opens its image viewer through a JavaScript call — `openLot(idfic, 'THOTDESC_'+ref, ref, 'THOTDESC', '', '0')` — which spawns a window the browser pane blocks. Reading the function shows what it builds, and that address works **typed straight in**:\n\n`/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_<ref>&idfic=<idfic>&ref=<ref>&appliCindoc=THOTDESC&init=1&visionneuseHTML5=1`\n\n**12 NUM 4186 is open and legible** — nineteen images, the first of them headed *«Commune de Tomino — Mariages célébrés en l'an XI»*, with *Jean Xavier Orlandi × M.lle Marie Polidori, 15 frimaire* as its first entry. The volume indexes several Cap Corse communes, Tomino among them.\n\n**What is still not solved:** paging inside the viewer. Its next-image control and its page box both accept input and neither advances the picture, and the image is drawn without a plain URL to fetch. So the door is open and the first page is readable; **turning the page is the next problem**.",
+  "ids": [
+   {
+    "cote": "12 NUM 4186",
+    "years": "1802 – 1812",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202755&idfic=393122&ref=202755&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4187",
+    "years": "1813 – 1822",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202756&idfic=393124&ref=202756&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4188",
+    "years": "1823 – 1832",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202757&idfic=393126&ref=202757&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4189",
+    "years": "1833 – 1842",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202758&idfic=393128&ref=202758&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4190",
+    "years": "1843 – 1852",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202759&idfic=393130&ref=202759&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4191",
+    "years": "1853 – 1862",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202760&idfic=393132&ref=202760&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4192",
+    "years": "1863 – 1872",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202761&idfic=393134&ref=202761&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4193",
+    "years": "1873 – 1882",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202762&idfic=393136&ref=202762&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   },
+   {
+    "cote": "12 NUM 4194",
+    "years": "1883 – 1892",
+    "url": "https://archives.isula.corsica/Internet_THOT/FrmLotDocFrame.asp?idlot=THOTDESC_202763&idfic=393138&ref=202763&appliCindoc=THOTDESC&resX=1440&resY=900&init=1&visionneuseHTML5=1"
+   }
+  ]
  }
 }

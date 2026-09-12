@@ -2,7 +2,15 @@
 
 State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 
-**Where things stand:** 1,136 people · 112 households · 1,508 indexed records · 1,167 pages · 26 corrections · 25 method lessons.
+## Where things stand
+
+**Computed by `scripts/audit.py`, not typed.** 1140 people · 112 households · 1508 indexed records (335 accepted, 20 candidate, 1153 lead).
+
+- **162** people with no place · **1** households with no place
+- **763** of 1056 dossiers have no pedigree chart
+- **6** places hold accepted records but appear on no lane: Kaštelir (4), Pola (2), Sovignacco (1), Pisino (1), Tar (1), Pula (1)
+- **3** towns are written under more than one name in the register
+
 
 ---
 
@@ -41,7 +49,7 @@ State at 10 September 2026. Site: https://daviddef.github.io/TheDefranceski/
 ## Mine, needing nobody
 
 - ~~The Trentino cluster~~ **DONE 13 Sept** — `/trentino/` published: 49 people, no register record, plus Giubiasco and Gaillard folded in.
-- 161 people with no place · 56 unplaced households · 55 suppressed charts to review by hand · 40 remaining name-alone joins · 1,153 unworked lead rows
+- The backlog, **computed not typed** — see the block at the top, refreshed by `scripts/audit.py` on every publish. The big one is **763 of 1,056 dossiers with no pedigree chart**; the old note said 55.
 - ~~Switzerland and Haute-Savoie~~ **DONE 13 Sept** — both on `/trentino/`. Giubiasco is one household of four; Gaillard is one man.
 
 ---

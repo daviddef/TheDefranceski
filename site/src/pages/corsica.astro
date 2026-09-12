@@ -40,8 +40,8 @@ const P = (s) => `<p>${md(s)}</p>`;
 <section class="blk">
   <div class="prose hi" set:html={P(d.shelf.text)}></div>
   <table class="hold" style="margin-top:18px">
-    <tbody>{d.shelf.rows.map(([c, y]) => (
-      <tr><td class="g">{c}</td><td class="pl">{y}</td></tr>
+    <tbody>{d.shelf.ids.map((r) => (
+      <tr><td class="g"><a href={r.url} rel="noopener">{r.cote}</a></td><td class="pl">{r.years}</td></tr>
     ))}</tbody>
   </table>
   <p class="prose note" style="margin-top:18px" set:html={md(d.shelf.close)}></p>

@@ -28,6 +28,12 @@ while IFS= read -r page; do
 done < <(find site/src/pages -name '*.astro')
 [[ $missing -eq 0 ]] || { echo "Pages missing from dist — nothing pushed."; exit 1; }
 
+# standing audit — the numbers the notes quote, recomputed every publish
+if [[ -f scripts/audit.py ]]; then
+  python3 scripts/audit.py --md > notes/AUDIT.md || { echo "audit.py failed — nothing pushed."; exit 1; }
+  echo "audit: $(sed -n '3p' notes/AUDIT.md)"
+fi
+
 ( cd site/dist && ln -sfn . TheDefranceski )
 
 subject="$1"; shift
