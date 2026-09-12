@@ -13,6 +13,7 @@ const LANES = [
       ["Moncalvo", "1661", "The surname enters the Moncalvo di Pisino baptism book"],
       ["Gologorica", "1711", "ANNO · DOMNI · 1711 cut over the door of the house"],
       ["Gračišće", "1787", "Joannes Baptista, farmer of house 5 — the line's earliest dated ancestor"],
+      ["Poreč", "1800s", "Named in this line's own route description for a year before it was ever drawn on it: ten register entries, eight of them accepted, and twenty-one more people on the roster. Parenzo is where the inland parishes reach the western coast."],
       ["Crikvenica", "1892", "The stonecutter's son comes down to the coast between 1892 and 1894"],
     ],
     ends: [
@@ -83,7 +84,8 @@ const LANES = [
       ["Giuseppe", "1833", "The other household: Giuseppe × Lucia Tromba, parents of Don Stefano the priest, Pietro the ploughman, Cristoforo the weaver and Maria Francesca"],
     ],
     ends: [
-      ["Rovinj", "/places/rovinj/", "«Ob.to di Matt.o de Franceschi da Dignano», buried at Rovinj on 27 December 1728 — and in the 1840s Bona Defranceschi, daughter of Dominicus and Oliva Dorligurro, marrying there. The town-name is written down only from outside the town."],
+      ["The Poreč hinterland", "/istria-sweep/", "Kaštelir, Vižinada, Šterna, Tar and Draguč — five parishes in the country behind Poreč and Buje, carrying the name between them on about sixty entries across the register and the roster, with Kaštelir the densest at twenty-seven. No lane on this chart runs through any of them. It is the largest piece of Istria the archive can document and cannot yet explain."],
+  ["Rovinj", "/places/rovinj/", "«Ob.to di Matt.o de Franceschi da Dignano», buried at Rovinj on 27 December 1728 — and in the 1840s Bona Defranceschi, daughter of Dominicus and Oliva Dorligurro, marrying there. The town-name is written down only from outside the town."],
       ["Šišan", "/places/sterna/", "A wedding at Sissano in January 1824 witnessed by «Pietro De Franceschi di Gio., da Dignano, Tessitore»."],
       ["Svetvinčenat", "/istria-sweep/", "«Ant.o De Franceschi fu Vittorio» witnessing at a wedding held by the archpriest at Sanvicenti in 1826. Recorded as a coincidence of the page and not claimed as a link."],
     ],
@@ -111,7 +113,7 @@ const W = 1040;
 /* Households of the name that are real, documented and NOT yet on any lane —
    drawn so that the diagram does not quietly imply everything has been placed. */
 const UNPLACED = [
-  ["Fiume", "/carlos-letter/", "Kobler found three separate stocks in the Rijeka civic registers and refused to join them to one another. One of them — Valentino, «venuto dalla Carnia», a citizen in 1739 — is almost certainly the Carnian family. The other two are not placed."],
+  ["Rijeka — Fiume, Vitipolis", "/carlos-letter/", "The largest concentration of the name this archive holds outside Vodnjan, and it was hidden in plain sight: the index writes this one city under three different names — «Fiume» (52 records), «Vitipolis» (45) and «Rijeka» (9). Vitipolis is Latin for the city of Saint Vitus, after «Terra Fluminis Sancti Viti», the river of St Vitus whose cathedral stands there. 106 records in all, 22 of them accepted — though 65 are spelt Francetich and only 20 Defranceschi, so most of the pile is a Croatian surname that may be nobody's. Kobler found three separate stocks in the civic registers and refused to join them to one another. One — Valentino, «venuto dalla Carnia», a citizen in 1739 — is almost certainly the Carnian family. The other two are not placed."],
   ["Svetvinčenat", "/istria-sweep/", "142 records from 1666, the second-largest concentration in the sweep. Kandler's list of the Carnian families settled at Sanvincenti names Defranceschi among Lupieri, Fiorencis, Fabris and Crosilla — so the origin is Carnian, but whether it is our Carnian household or another one out of the same valleys is not shown."],
   ["Bakar", "/crikvenica-house/", "Twelve people, one household across three generations, from before 1772 to a death in 1819 — Dominus Giovanni Battista son of Dominus Francesco, styled Dominus, a citizen-class family. Nothing on the page ties them to Gologorica, to Gračišće, or to Kobler's Fiume stocks, and this archive will not join a fourth household to them on the strength of two common Christian names."],
   ["Rovinj", "/places/rovinj/", "The earliest dated Istrian record this archive holds — «morì ser Piero di Franceschi da Pola», 27 May 1619 — plus a Rovinj household across three generations from Giacomo to Piero Anto in 1736. Neither is joined to any lane. It is also where Carlo De Franceschi was married at his own bedside in 1852."],
@@ -124,7 +126,7 @@ const LOOSE = [
 const BH = 140, BGAP = 152;
 const BANDS = LANES.map((_, i) => ({ y0: 34 + i * BGAP, sp: 34 + i * BGAP + 76, h: BH }));
 const LOOSE_Y = 34 + LANES.length * BGAP + 22;   // rule
-const VH = LOOSE_Y + 124;                        // viewBox height
+const VH = LOOSE_Y + 124 + (Math.ceil(UNPLACED.length / 3) - 1) * 26;                        // viewBox height
 const X0 = 150, X1 = 700, XE = 902;
 ---
 <figure class="rivers">
@@ -197,24 +199,24 @@ const X0 = 150, X1 = 700, XE = 902;
            data-place={l[0]} data-year="unplaced" data-why={l[2]}
            data-lane="Not yet placed on a line" data-href={u(l[1])} data-read={`Where ${l[0]} is written up`}>
           <title>{l[0]} — {l[2]}</title>
-          <circle cx={150 + i * 200} cy={LOOSE_Y + 40} r="7" fill="transparent" />
-          <circle cx={150 + i * 200} cy={LOOSE_Y + 40} r="4.5" fill="none" stroke="var(--ink-2)" stroke-width="1.8" />
-          <text x={162 + i * 200} y={LOOSE_Y + 44} class="loose">{l[0]}</text>
+          <circle cx={110 + (i % 3) * 310} cy={LOOSE_Y + 40 + Math.floor(i / 3) * 26} r="7" fill="transparent" />
+          <circle cx={110 + (i % 3) * 310} cy={LOOSE_Y + 40 + Math.floor(i / 3) * 26} r="4.5" fill="none" stroke="var(--ink-2)" stroke-width="1.8" />
+          <text x={122 + (i % 3) * 310} y={LOOSE_Y + 44 + Math.floor(i / 3) * 26} class="loose">{l[0]}</text>
         </g>
       ))}
 
-      <text x="12" y={LOOSE_Y + 80} class="loose-head">Attached to no line here — a different stock of a very common name</text>
+      <text x="12" y={LOOSE_Y + 80 + (Math.ceil(UNPLACED.length / 3) - 1) * 26} class="loose-head">Attached to no line here — a different stock of a very common name</text>
       {LOOSE.map((l, i) => (
         <g class="node" tabindex="0" role="button"
            data-place={l[0]} data-year="—" data-why={l[2]}
            data-lane="Attached to no line here" data-href={u(l[1])} data-read={`Where ${l[0]} is written up`}>
           <title>{l[0]} — {l[2]}</title>
-          <circle cx={150 + i * 200} cy={LOOSE_Y + 100} r="7" fill="transparent" />
-          <circle cx={150 + i * 200} cy={LOOSE_Y + 100} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
-          <text x={162 + i * 200} y={LOOSE_Y + 104} class="loose">{l[0]}</text>
+          <circle cx={150 + i * 200} cy={LOOSE_Y + 100 + (Math.ceil(UNPLACED.length / 3) - 1) * 26} r="7" fill="transparent" />
+          <circle cx={150 + i * 200} cy={LOOSE_Y + 100 + (Math.ceil(UNPLACED.length / 3) - 1) * 26} r="4.5" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-dasharray="2 2" />
+          <text x={162 + i * 200} y={LOOSE_Y + 104 + (Math.ceil(UNPLACED.length / 3) - 1) * 26} class="loose">{l[0]}</text>
         </g>
       ))}
-      <text x={760} y={LOOSE_Y + 104} class="loose-note">— the commonest patronymic in Italy</text>
+      <text x={760} y={LOOSE_Y + 104 + (Math.ceil(UNPLACED.length / 3) - 1) * 26} class="loose-note">— the commonest patronymic in Italy</text>
     </g>
   </svg>
   <div class="riverread" id="riverread" aria-live="polite">
