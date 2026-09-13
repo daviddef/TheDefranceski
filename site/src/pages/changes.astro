@@ -8,7 +8,11 @@ const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+  // A markdown link in the prose has to go through u() like every other link.
+  // Without it the href ships as /gaps/ instead of /TheDefranceski/gaps/ and
+  // 404s on GitHub Pages — which is exactly what twenty-one of them were doing.
+  .replace(/\[([^\]]+)\]\(([^)]+)\)/g,
+           (_m, t, h) => `<a href="${/^(?:https?:|mailto:|tel:|#)/.test(h) ? h : u(h)}">${t}</a>`)
   .replace(/\n\n/g, "</p><p style='margin-top:10px'>");
 const K = {
   hit: ["Found", "k-hit"], yield: ["Yield", "k-hit"], correction: ["Correction", "k-corr"],
