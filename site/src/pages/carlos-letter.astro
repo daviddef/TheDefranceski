@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import k from "../data/kobler.json";
@@ -22,8 +23,8 @@ import k from "../data/kobler.json";
     {k.quotes.map(q => (
       <div class="qz">
         <p class="qit">“{q.it}”</p>
-        <p class="qen">{q.en}</p>
-        <p class="qwhy">{q.why}</p>
+        <p class="qen" set:html={_md(q.en)}></p>
+        <p class="qwhy" set:html={_md(q.why)}></p>
       </div>
     ))}
   </div>
@@ -58,13 +59,13 @@ import k from "../data/kobler.json";
 
 <section class="blk">
   <h2>{k.correction.heading}</h2>
-  <p class="dek">{k.correction.lead}</p>
+  <p class="dek" set:html={_md(k.correction.lead)}></p>
   <div class="qz" style="margin-top:20px">
     <p class="qit">“{k.correction.quote}”</p>
-    <p class="qen">{k.correction.en}</p>
-    <p class="qwhy">{k.correction.why}</p>
+    <p class="qen" set:html={_md(k.correction.en)}></p>
+    <p class="qwhy" set:html={_md(k.correction.why)}></p>
   </div>
-  <p class="cap" style="margin-top:20px">{k.correction.trees.note}</p>
+  <p class="cap" style="margin-top:20px" set:html={_md(k.correction.trees.note)}></p>
   <div class="grid g2" style="margin-top:12px">
     <div class="one"><div class="lab">The Fiume line</div>
       {k.correction.trees.left.map((n,i) => <p style={"margin-left:" + (i*14) + "px"}>{n}</p>)}</div>
@@ -76,36 +77,36 @@ import k from "../data/kobler.json";
 
 <section class="blk">
   <h2>{k.gologorica.heading}</h2>
-  <p class="dek">{k.gologorica.lead}</p>
+  <p class="dek" set:html={_md(k.gologorica.lead)}></p>
   <div class="qz" style="margin-top:20px">
     <p class="qit">“{k.gologorica.quote}”</p>
-    <p class="qen">{k.gologorica.en}</p>
-    <p class="qwhy">{k.gologorica.why}</p>
+    <p class="qen" set:html={_md(k.gologorica.en)}></p>
+    <p class="qwhy" set:html={_md(k.gologorica.why)}></p>
   </div>
 </section>
 <Rule name="loom" />
 
 <section class="blk">
   <h2>{k.bells.heading}</h2>
-  <p class="dek">{k.bells.lead}</p>
+  <p class="dek" set:html={_md(k.bells.lead)}></p>
   <div class="grid g2" style="margin-top:20px">
     {k.bells.rows.map(r => (
       <div class="one" style="border-left-color:var(--accent)">
         <div class="lab">{r.what}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:20px">{k.bells.close}</p>
+  <p class="prose note" style="margin-top:20px" set:html={_md(k.bells.close)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{k.bribir.heading}</h2>
-  <p class="dek">{k.bribir.lead}</p>
+  <p class="dek" set:html={_md(k.bribir.lead)}></p>
   <div class="prose" style="margin-top:16px">
-    <p>{k.bribir.text}</p>
-    <p>{k.bribir.coda}</p>
+    <p set:html={_md(k.bribir.text)}></p>
+    <p set:html={_md(k.bribir.coda)}></p>
   </div>
 </section>
 <Rule name="pomegranate" />
@@ -114,63 +115,63 @@ import k from "../data/kobler.json";
   <div class="one">
     <div class="lab">Aside</div>
     <h3>{k.razvod.heading}</h3>
-    <p>{k.razvod.text}</p>
-    <p class="cap" style="margin-top:12px">{k.razvod.why}</p>
+    <p set:html={_md(k.razvod.text)}></p>
+    <p class="cap" style="margin-top:12px" set:html={_md(k.razvod.why)}></p>
   </div>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{k.otherhalf.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.otherhalf.lead}</p>
-  <p class="prose note" style="margin-top:16px">{k.otherhalf.never}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.otherhalf.lead)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(k.otherhalf.never)}></p>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:24px">
     <div class="lab">Four words</div>
     <h3>{k.otherhalf.question.heading}</h3>
-    <p>{k.otherhalf.question.text}</p>
+    <p set:html={_md(k.otherhalf.question.text)}></p>
   </div>
 
   <div class="one" style="border-left-color:var(--terra);margin-top:18px">
     <div class="lab">A second document for Carnia</div>
     <h3>{k.otherhalf.valentino.heading}</h3>
     <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:17px;margin-top:10px">“{k.otherhalf.valentino.text}”</p>
-    <p style="margin-top:12px">{k.otherhalf.valentino.en}</p>
+    <p style="margin-top:12px" set:html={_md(k.otherhalf.valentino.en)}></p>
     <p style="margin-top:12px"><strong>{k.otherhalf.valentino.why}</strong></p>
-    <p class="cap" style="margin-top:12px">{k.otherhalf.valentino.then}</p>
+    <p class="cap" style="margin-top:12px" set:html={_md(k.otherhalf.valentino.then)}></p>
   </div>
-  <p class="cap" style="margin-top:18px">{k.otherhalf.source}</p>
+  <p class="cap" style="margin-top:18px" set:html={_md(k.otherhalf.source)}></p>
 </section>
 <Rule name="tablet" />
 
 <section class="blk">
   <h2>{k.chapel.heading}</h2>
-  <p class="dek" style="margin-top:10px">{k.chapel.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(k.chapel.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{k.chapel.quote}”</p>
-    <p class="qen">{k.chapel.en}</p>
+    <p class="qen" set:html={_md(k.chapel.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.chapel.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose" style="margin-top:20px">{k.chapel.tomb}</p>
+  <p class="prose" style="margin-top:20px" set:html={_md(k.chapel.tomb)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:20px">
     <div class="lab">What to ask for next</div>
-    <p style="margin-top:8px">{k.chapel.todo}</p>
+    <p style="margin-top:8px" set:html={_md(k.chapel.todo)}></p>
   </div>
-  <p class="cap" style="margin-top:16px">{k.chapel.source}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(k.chapel.source)}></p>
 </section>
 <Rule name="arcade" />
 
 <section class="blk">
   <h2>{k.threestocks.heading}</h2>
-  <p class="dek" style="margin-top:10px">{k.threestocks.lead}</p>
-  <p class="prose note" style="margin-top:16px">{k.threestocks.open}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(k.threestocks.lead)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(k.threestocks.open)}></p>
 
   {k.threestocks.stocks.map(st => (
     <div class="one" style="border-left-color:var(--accent);margin-top:24px">
@@ -187,89 +188,89 @@ import k from "../data/kobler.json";
   <div class="one" style="border-left-color:var(--terra);margin-top:26px">
     <div class="lab">Where the two accounts meet</div>
     <h3>{k.threestocks.collision.heading}</h3>
-    <p style="margin-top:10px">{k.threestocks.collision.text}</p>
-    <p style="margin-top:12px">{k.threestocks.collision.then}</p>
+    <p style="margin-top:10px" set:html={_md(k.threestocks.collision.text)}></p>
+    <p style="margin-top:12px" set:html={_md(k.threestocks.collision.then)}></p>
     <p style="margin-top:12px"><strong>{k.threestocks.collision.why}</strong></p>
   </div>
 
-  <p class="prose note" style="margin-top:22px">{k.threestocks.discrepancies}</p>
-  <p class="cap" style="margin-top:14px">{k.threestocks.source_stocks}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(k.threestocks.discrepancies)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.threestocks.source_stocks)}></p>
 </section>
 <Rule name="loom" />
 
 <section class="blk">
   <h2>{k.politics.heading}</h2>
-  <p class="dek" style="margin-top:10px">{k.politics.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(k.politics.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {k.politics.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:24px">{k.politics.balance}</p>
+  <p class="prose note" style="margin-top:24px" set:html={_md(k.politics.balance)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:20px">
     <div class="lab">The seventy-six pages still unread</div>
-    <p style="margin-top:8px">{k.politics.bertosa}</p>
+    <p style="margin-top:8px" set:html={_md(k.politics.bertosa)}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{k.politics.source_politics}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.politics.source_politics)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{k.bakar.heading}</h2>
-  <p class="dek" style="margin-top:10px">{k.bakar.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(k.bakar.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {k.bakar.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{k.bakar.honest}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(k.bakar.honest)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:20px">
     <div class="lab">And two names for the Vodnjan question</div>
-    <p style="margin-top:8px">{k.bakar.wagna}</p>
+    <p style="margin-top:8px" set:html={_md(k.bakar.wagna)}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{k.bakar.source_bakar}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.bakar.source_bakar)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{k.obituary.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.obituary.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.obituary.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{k.obituary.quote}”</p>
-    <p class="qen">{k.obituary.en}</p>
+    <p class="qen" set:html={_md(k.obituary.en)}></p>
   </div>
-  <p class="prose" style="margin-top:16px">{k.obituary.grave}</p>
+  <p class="prose" style="margin-top:16px" set:html={_md(k.obituary.grave)}></p>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{k.funeral.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.funeral.lead}</p>
-  <p class="cap" style="margin-top:12px">{k.funeral.caution}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.funeral.lead)}></p>
+  <p class="cap" style="margin-top:12px" set:html={_md(k.funeral.caution)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:22px">
     {k.funeral.items.map(it => (
       <div class="one" style={it.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{it.kicker}</div>
-        {it.text && <p style="margin-top:10px">{it.text}</p>}
+        {it.text && <p style="margin-top:10px" set:html={_md(it.text)}></p>}
         {it.quote && (
           <div class="qz" style="margin-top:12px">
             <p class="qit">“{it.quote}”</p>
-            <p class="qen">{it.en}</p>
+            <p class="qen" set:html={_md(it.en)}></p>
           </div>
         )}
-        {it.why && <p style="margin-top:12px">{it.why}</p>}
-        <p class="cap" style="margin-top:12px">{it.cite}</p>
+        {it.why && <p style="margin-top:12px" set:html={_md(it.why)}></p>}
+        <p class="cap" style="margin-top:12px" set:html={_md(it.cite)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:24px">{k.funeral.croatian}</p>
-  <p class="prose" style="margin-top:16px">{k.funeral.close}</p>
+  <p class="prose note" style="margin-top:24px" set:html={_md(k.funeral.croatian)}></p>
+  <p class="prose" style="margin-top:16px" set:html={_md(k.funeral.close)}></p>
 </section>
 <Rule name="tablet" />
 
@@ -282,83 +283,83 @@ import k from "../data/kobler.json";
     <p><strong>And there is a coat of arms after all.</strong> A Greek cross crossed by two arrows above, a pomegranate below, a plumed helm over the shield. Not one of the achievements sold by surname; his own, described in a private letter, and matching nothing in any catalogue this archive consulted.</p>
   </div>
   <div class="note" style="margin-top:26px">A caution that Carlo himself would want kept. This is testimony, not a register: a man in his sixties reporting what his family believed, some of it at second hand from a cousin's papers. The Bergamo origin, the castles in Carnia and the claim to the patriarchal nobility «dei Germani» are family tradition. The Carnian origin, the 1711 house, the two sons and the Fiume connection are things he was in a position to know. <span class="chip inf" style="padding:2px 7px;font-size:10px">Inferred</span> where he is repeating tradition; <span class="chip doc" style="padding:2px 7px;font-size:10px">Documented</span> as his own testimony throughout.</div>
-  <p class="cap">{k.source}</p>
+  <p class="cap" set:html={_md(k.source)}></p>
 </section>
 <Rule name="arcade" />
 
 <section class="blk">
   <h2>{k.benzoni.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.benzoni.lead}</p>
-  <p class="prose" style="margin-top:16px">{k.benzoni.kobler}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.benzoni.lead)}></p>
+  <p class="prose" style="margin-top:16px" set:html={_md(k.benzoni.kobler)}></p>
   <div class="qz" style="margin-top:14px">
-    <p class="qen">{k.benzoni.en}</p>
+    <p class="qen" set:html={_md(k.benzoni.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.benzoni.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{k.benzoni.us}</p>
-  <p class="cap" style="margin-top:14px">{k.benzoni.source_benzoni}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(k.benzoni.us)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.benzoni.source_benzoni)}></p>
 </section>
 <Rule name="loom" />
 
 <section class="blk">
   <h2>{k.benzonihouse.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.benzonihouse.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.benzonihouse.lead)}></p>
   <div class="qz" style="margin-top:16px">
-    <p class="qen">{k.benzonihouse.quote}</p>
+    <p class="qen" set:html={_md(k.benzonihouse.quote)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.benzonihouse.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:24px">{k.benzonihouse.turn}</p>
+  <p class="prose note" style="margin-top:24px" set:html={_md(k.benzonihouse.turn)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.benzonihouse.house.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose" style="margin-top:22px">{k.benzonihouse.gap}</p>
-  <p class="prose note" style="margin-top:16px">{k.benzonihouse.close}</p>
-  <p class="cap" style="margin-top:14px">{k.benzonihouse.source_house}</p>
+  <p class="prose" style="margin-top:22px" set:html={_md(k.benzonihouse.gap)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(k.benzonihouse.close)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.benzonihouse.source_house)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{k.restofbook.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.restofbook.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.restofbook.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.restofbook.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
     <div class="one" style="border-left-color:var(--accent)">
       <div class="lab">{k.restofbook.daughter.lab}</div>
-      <p style="margin-top:8px">{k.restofbook.daughter.text}</p>
+      <p style="margin-top:8px" set:html={_md(k.restofbook.daughter.text)}></p>
     </div>
   </div>
-  <p class="prose" style="margin-top:22px">{k.restofbook.faribault}</p>
-  <p class="prose note" style="margin-top:16px">{k.restofbook.why}</p>
-  <p class="cap" style="margin-top:14px">{k.restofbook.source_rest}</p>
+  <p class="prose" style="margin-top:22px" set:html={_md(k.restofbook.faribault)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(k.restofbook.why)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.restofbook.source_rest)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{k.affittofermo.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.affittofermo.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.affittofermo.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.affittofermo.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -367,7 +368,7 @@ import k from "../data/kobler.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{k.affittofermo.source_af}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(k.affittofermo.source_af)}></p>
 </section>
 
 
@@ -377,7 +378,7 @@ import k from "../data/kobler.json";
 
 <section class="blk">
   <h2>{k.sisic1919.heading}</h2>
-  <p class="dek" style="margin-top:8px">{k.sisic1919.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(k.sisic1919.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {k.sisic1919.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -386,7 +387,7 @@ import k from "../data/kobler.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{k.sisic1919.source_sisic}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(k.sisic1919.source_sisic)}></p>
 </section>
 
   <Sources ids={["kobler", "grah", "cavalli", "fiumemondo", "jelincic", "anno", "hrcak", "carlo1879", "attirovigno", "simon2024", "archiveorg"]} />

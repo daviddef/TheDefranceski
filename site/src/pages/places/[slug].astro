@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { md as _md } from "../../lib/md.js";
 import places from "../../data/places.json";
 import Locator from "../../components/Locator.astro";
 import names from "../../data/names.json";
@@ -17,7 +18,7 @@ const langName={it:"Italian",de:"German",fur:"Friulian",other:"also written"};
 <section class="blk">
   <div class="grid g2">
     <div class="prose">
-      {p.body.map(t=><p>{t}</p>)}
+      {p.body.map(t => <p set:html={_md(t)}></p>)}
     </div>
     <div>
       <div class="panel">

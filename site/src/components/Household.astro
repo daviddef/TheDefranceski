@@ -35,7 +35,7 @@ const shortLife = (c) => {
   </div>
   {h.confirmed && (
     <div class="conf">
-      <div class="ct">Confirmed from the register · {h.confirmed}</div>
+      <div class="ct">Confirmed from the register · <span set:html={md(h.confirmed)} /></div>
       {h.read && <p set:html={md(h.read)}></p>}
     </div>
   )}

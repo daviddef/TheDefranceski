@@ -1,5 +1,6 @@
 ---
 import tri from "../data/triage.json";
+import { md as _md } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -12,7 +13,7 @@ import d from "../data/library.json";
   dek="The books and the family archive from the house at Gologorica were not destroyed in 1945. They are in the National and University Library, they have been catalogued, and this project did not know.">
 
   <section class="prose">
-    <p>{d.lead}</p>
+    <p set:html={_md(d.lead)}></p>
   </section>
 
   <div class="grid g4" style="margin-top:32px">
@@ -27,7 +28,7 @@ import d from "../data/library.json";
   <div class="one" style="border-left-color:var(--terra);margin-top:34px">
     <div class="lab">The part that matters</div>
     <h3>{d.archive.heading}</h3>
-    <p>{d.archive.text}</p>
+    <p set:html={_md(d.archive.text)}></p>
     <p style="margin-top:12px"><strong>{d.archive.why}</strong></p>
   </div>
 
@@ -39,14 +40,14 @@ import d from "../data/library.json";
         <div class="body">
           <div class="lab">{s.y}</div>
           <h3 style="font-size:21px">{s.t}</h3>
-          <p style="margin-top:8px">{s.w}</p>
+          <p style="margin-top:8px" set:html={_md(s.w)}></p>
         </div>
       </article>
     ))}
   </div>
 
   <h2 style="font-size:30px;margin-top:52px">{d.marks.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.marks.text}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.marks.text)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Signature as it appears</th><th class="m">Books</th><th>Who</th></tr></thead>
@@ -62,13 +63,13 @@ import d from "../data/library.json";
       <div class="one" style={p.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{p.d}</div>
         <h3 style="font-size:20px">{p.who}</h3>
-        <p>{p.w}</p>
+        <p set:html={_md(p.w)}></p>
       </div>
     ))}
   </div>
 
   <h2 style="font-size:30px;margin-top:52px">{d.inventory.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.inventory.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.inventory.lead)}></p>
 
   <div style="margin-top:22px">
     {d.inventory.boxes.map(b => (
@@ -77,7 +78,7 @@ import d from "../data/library.json";
           <div class="lab">Box {b.n}</div>
           <h3 style="font-size:19px;margin-top:6px">{b.t}</h3>
         </div>
-        <div><p style="margin:0">{b.w}</p></div>
+        <div><p style="margin:0" set:html={_md(b.w)}></p></div>
       </div>
     ))}
   </div>
@@ -87,18 +88,18 @@ import d from "../data/library.json";
     {d.inventory.folders.map(f => (
       <div class="linerow" style={"padding:13px 0;border-bottom:1px solid var(--rule)" + (f.key ? ";border-left:2px solid var(--accent);padding-left:16px" : "")}>
         <div><div class="lab">Folder {f.n}</div></div>
-        <div><p style="margin:0">{f.w}</p></div>
+        <div><p style="margin:0" set:html={_md(f.w)}></p></div>
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.inventory.span}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.inventory.span)}></p>
 
   <h2 style="font-size:28px;margin-top:48px">{d.inventory.threads.heading}</h2>
   <div class="grid g3" style="margin-top:20px">
     {d.inventory.threads.rows.map(r => (
       <div class="one" style="border-left-color:var(--terra)">
         <h3 style="font-size:18px">{r.t}</h3>
-        <p>{r.w}</p>
+        <p set:html={_md(r.w)}></p>
       </div>
     ))}
   </div>
@@ -106,8 +107,8 @@ import d from "../data/library.json";
   <div class="one" style="margin-top:34px">
     <div class="lab">Tomaso Luciani's seventeen bookplates</div>
     <h3>{d.house.heading}</h3>
-    <p>{d.house.text}</p>
-    <p style="margin-top:12px">{d.house.then}</p>
+    <p set:html={_md(d.house.text)}></p>
+    <p style="margin-top:12px" set:html={_md(d.house.then)}></p>
   </div>
 
   <section class="blk" style="margin-top:40px">
@@ -117,42 +118,42 @@ import d from "../data/library.json";
     </ol>
     <div class="one" style="border-left-color:var(--accent);margin-top:24px">
       <div class="lab">Already written</div>
-      <p>{d.ask.drafted}</p>
+      <p set:html={_md(d.ask.drafted)}></p>
     </div>
-    <p class="prose note" style="margin-top:20px">{d.ask.caution}</p>
+    <p class="prose note" style="margin-top:20px" set:html={_md(d.ask.caution)}></p>
     <p class="cap" style="margin-top:20px">Carlo's own account of the house is on <a href={u("/carlos-letter/")}>Carlo's Letter</a>; what his family did at Gologorica is there too. The seventy-two people the parish registers give for that village are on <a href={u("/gologorica-line/")}>Gologorica</a>.</p>
   </section>
 
-  <p class="cap" style="margin-top:26px">{d.source}</p>
+  <p class="cap" style="margin-top:26px" set:html={_md(d.source)}></p>
 
 <section class="blk">
   <h2>{d.trieste.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.trieste.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.trieste.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {d.trieste.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{d.trieste.two}</p>
-  <p class="cap" style="margin-top:14px">{d.trieste.source_trieste}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(d.trieste.two)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.trieste.source_trieste)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{d.giuliodrawings.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.giuliodrawings.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.giuliodrawings.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {d.giuliodrawings.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{d.giuliodrawings.source_g}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.giuliodrawings.source_g)}></p>
 </section>
 
 
@@ -170,14 +171,14 @@ import d from "../data/library.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.camillobib.source_cam}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.camillobib.source_cam)}></p>
 </section>
 
 <Rule name="pomegranate" label="What to buy" />
 
 <section class="blk">
   <h2>{d.acquire.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.acquire.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.acquire.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.acquire.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -187,14 +188,14 @@ import d from "../data/library.json";
     ))}
   </div>
   <p class="prose note" style="margin-top:22px" set:html={d.acquire.total.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
-  <p class="cap" style="margin-top:14px">{d.acquire.source_acq}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.acquire.source_acq)}></p>
 </section>
 
 <Rule name="loom" label="Trieste, 1869" />
 
 <section class="blk">
   <h2>{d.trieste1869.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.trieste1869.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.trieste1869.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.trieste1869.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -203,14 +204,14 @@ import d from "../data/library.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.trieste1869.source_alm}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.trieste1869.source_alm)}></p>
 </section>
 
 <Rule name="tablet" label="Twenty-three at once" />
 
 <section class="blk">
   <h2>{tri.heading}</h2>
-  <p class="dek" style="margin-top:8px">{tri.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(tri.lead)}></p>
 
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
     {tri.top.map(r => (
@@ -227,14 +228,14 @@ import d from "../data/library.json";
     {tri.lines.map(r => (
       <div class="one">
         <div class="lab">{r.t} · {r.n}</div>
-        <p style="margin-top:7px">{r.text}</p>
+        <p style="margin-top:7px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
 
-  <p class="prose note" style="margin-top:26px">{tri.none}</p>
+  <p class="prose note" style="margin-top:26px" set:html={_md(tri.none)}></p>
   <p class="prose note" style="margin-top:16px" set:html={tri.ocr.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
-  <p class="cap" style="margin-top:16px">{tri.source_tri}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(tri.source_tri)}></p>
 </section>
 
   <Rule name="pomegranate" label="Found" />
@@ -250,7 +251,7 @@ import d from "../data/library.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.nsk2022.source_nsk}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.nsk2022.source_nsk)}></p>
 </section>
 
 <Sources ids={["arhivskivjesnik", "siasp", "libellarium", "kobler", "carlo1879", "dapa", "nsk2022"]} />

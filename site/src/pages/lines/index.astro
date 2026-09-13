@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { md as _md } from "../../lib/md.js";
 import Rule from "../../components/Rule.astro";
 import Sources from "../../components/Sources.astro";
 import Chip from "../../components/Chip.astro";
@@ -17,7 +18,7 @@ import Lightbox from "../../components/Lightbox.astro";
       dek="Separating three things this site had been adding together: a family is an origin, a station is a stop on one family's road, and a namesake is somebody who happens to share the commonest patronymic in Italy.">
 <section class="blk">
   <h2>{fam.heading}</h2>
-  <p class="dek" style="margin-top:10px">{fam.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(fam.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {fam.why.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -35,13 +36,13 @@ import Lightbox from "../../components/Lightbox.astro";
         <h4>{f.name}</h4>
         <div class="fc-meta"><span><b>From</b> {f.from}</span><span><b>Here from</b> {f.when}</span></div>
         <p class="fc-rest" set:html={f.rests.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
-        <p class="fc-who">{f.who}</p>
+        <p class="fc-who" set:html={_md(f.who)}></p>
       </a>
     ))}
   </div>
 
   <h3 id="clusters" style="font-size:23px;margin-top:44px">{fam.clusters_head}</h3>
-  <p class="dek" style="margin-top:8px">{fam.clusters_lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(fam.clusters_lead)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Where</th><th>How much</th><th>What it is, and which family it probably belongs to</th></tr></thead>
@@ -56,7 +57,7 @@ import Lightbox from "../../components/Lightbox.astro";
   </div>
 
   <h3 style="font-size:23px;margin-top:44px">{fam.dest_head}</h3>
-  <p class="dek" style="margin-top:8px">{fam.dest_lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(fam.dest_lead)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Destination</th><th>Whose</th><th>How well</th><th>What is behind it</th></tr></thead>
@@ -74,7 +75,7 @@ import Lightbox from "../../components/Lightbox.astro";
   </div>
 
   <p class="prose note" style="margin-top:26px" set:html={fam.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
-  <p class="cap" style="margin-top:14px">{fam.source_fam}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(fam.source_fam)}></p>
 </section>
 <Rule name="pomegranate" label="The pages themselves" />
 
@@ -88,7 +89,7 @@ import Lightbox from "../../components/Lightbox.astro";
         </div>
         <div>
           <div class="meta"><span><b>Route</b> {l.route}</span><span><b>Earliest</b> {l.earliest}</span></div>
-          <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:12px;max-width:62ch">{l.note}</p>
+          <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:12px;max-width:62ch" set:html={_md(l.note)}></p>
         </div>
       </div>
     ))}
@@ -114,7 +115,7 @@ import Lightbox from "../../components/Lightbox.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{fam.svetjoin.source_svet}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(fam.svetjoin.source_svet)}></p>
 </section>
 
 <Rule name="pomegranate" label="Read, not searched" />
@@ -130,7 +131,7 @@ import Lightbox from "../../components/Lightbox.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{fam.svetread.source_read}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(fam.svetread.source_read)}></p>
 </section>
 
 <Rule name="arrows" label="The whole inventory" />
@@ -169,14 +170,14 @@ import Lightbox from "../../components/Lightbox.astro";
   <div class="one" style="margin-top:28px;border-left-color:var(--accent)">
     <p set:html={reg.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
   </div>
-  <p class="cap" style="margin-top:16px">{reg.source_reg}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(reg.source_reg)}></p>
 </section>
 
 <Rule name="helm" label="Three arrivals" />
 
 <section class="blk">
   <h2>{arr.heading}</h2>
-  <p class="dek" style="margin-top:10px">{arr.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(arr.lead)}></p>
 
   <div class="arrgrid">
     {arr.cards.map(c => (
@@ -200,7 +201,7 @@ import Lightbox from "../../components/Lightbox.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{arr.source_arr}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(arr.source_arr)}></p>
 </section>
 <Lightbox />
 

@@ -30,7 +30,14 @@
       at = (n + set.length) % set.length;
       const p = set[at];
       img.src = p.src; img.alt = p.title;
-      ttl.textContent = p.title; cap.textContent = p.caption; hol.textContent = p.holder;
+      // Plate captions are written in the archive's light markdown; render it
+      // rather than printing the asterisks at the reader.
+      const fmt = (x) => String(x ?? "")
+        .replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/«(.+?)»/g, "<em>«$1»</em>")
+        .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+      ttl.textContent = p.title; cap.innerHTML = fmt(p.caption); hol.textContent = p.holder;
     };
 
     document.querySelectorAll("[data-plates]").forEach((grid) => {

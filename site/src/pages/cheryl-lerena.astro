@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import d from "../data/cheryl.json";
@@ -25,7 +26,7 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" label={d.tree.heading} />
 <section class="blk">
-  <p class="cap">{d.tree.note}</p>
+  <p class="cap" set:html={_md(d.tree.note)}></p>
   <figure class="ctree">
     {d.tree.tiers.map((t, i) => (
       <div class={"ctier" + (t.self ? " self" : "")}>
@@ -70,7 +71,7 @@ const P = (s) => `<p>${md(s)}</p>`;
               {x.img && <img class="pimg" src={u(`/poems/${x.img}.jpg`)} alt="" loading="lazy" decoding="async" width="1000" height="670" />}
               {x.title && <h3 class="ttl">{x.title}</h3>}
               <div class="verse">{x.l.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
-              {x.titlenote && <p class="ttlnote">{x.titlenote}</p>}
+              {x.titlenote && <p class="ttlnote" set:html={_md(x.titlenote)}></p>}
               {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={md(x.note)}></span></figcaption>}
             </figure>
     ))}}

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
@@ -15,13 +16,13 @@ import d from "../data/oldsite.json";
     {d.captured.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">{d.maps.heading}</div>
-    <p style="margin-top:8px">{d.maps.text}</p>
+    <p style="margin-top:8px" set:html={_md(d.maps.text)}></p>
     <ul class="prose" style="display:block;margin-top:10px">
       {d.maps.links.map(([t, href]) => <li style="margin:.4em 0"><a href={href} rel="noopener">{t}</a></li>)}
     </ul>
@@ -57,12 +58,12 @@ import d from "../data/oldsite.json";
 
 <section class="blk">
   <h2>{d.newfound.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.newfound.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.newfound.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {d.newfound.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
@@ -71,7 +72,7 @@ import d from "../data/oldsite.json";
 
 <section class="blk">
   <h2>{d.resources.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.resources.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.resources.lead)}></p>
   {d.resources.groups.map(([g, items]) => (
     <div style="margin-top:24px">
       <div class="lab">{g}</div>

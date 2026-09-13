@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Plates from "../components/Plates.astro";
 import { u } from "../lib/url.js";
@@ -39,7 +40,7 @@ const md = (s) => String(s ?? "")
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="cap">{c.source}</p>
+  <p class="cap" set:html={_md(c.source)}></p>
 </section>
 
 <style>

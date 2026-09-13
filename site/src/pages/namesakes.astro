@@ -6,6 +6,11 @@ import { u } from "../lib/url.js";
 import { peopleSlugs } from "../lib/exists.js";
 import Rule from "../components/Rule.astro";
 import ns from "../data/namesakes.json";
+const nmd = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")
+  .replace(/\n\n/g, "</p><p>");
 import lm from "../data/landmarks.json";
 import artsrc from "../data/art-src.json";
 import plates from "../data/plates.json";
@@ -55,8 +60,8 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
             <span class="field">{n.field}</span>
             <h3>{n.name}</h3>
             <div class="who"><span>{n.dates}</span><span>{n.where}</span></div>
-            <p>{n.text}</p>
-            {n.note && <div class="src">{n.note}</div>}
+            <p set:html={nmd(n.text)}></p>
+            {n.note && <div class="src" set:html={nmd(n.note)}></div>}
             {n.person && peopleSlugs.has(n.person) && <p class="more"><a href={u(`/people/${n.person}/`)}>Read the full life &rarr;</a></p>}
           </div>
         </article>

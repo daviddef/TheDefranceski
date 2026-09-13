@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
@@ -22,7 +23,7 @@ const md = (s) => String(s ?? "")
 <Rule name="arrows" label={t.name} />
 <section class="blk">
   <h2>{t.name}</h2>
-  <p class="dek" style="margin-top:8px">{t.note}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(t.note)}></p>
   <div class="tree">
     {t.gens.map((g, i) => (
       <div class="gen">
@@ -92,7 +93,7 @@ const md = (s) => String(s ?? "")
       <div class="one"><div class="lab">{lab}</div><p style="margin-top:8px" set:html={md(txt)}></p></div>
     ))}
   </div>
-  <p class="cap" style="margin-top:22px">{v.source}</p>
+  <p class="cap" style="margin-top:22px" set:html={_md(v.source)}></p>
   <p class="cap" style="margin-top:10px">
     Entry by entry, in the order it was read: <a href={u("/fiume-1626/")}>the register reading →</a> ·
     <a href={u("/places/vodnjan/")}>Vodnjan in Places →</a> ·

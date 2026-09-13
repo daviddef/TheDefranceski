@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import { u } from "../lib/url.js";
 import all from "../data/sources.json";
 const blurb = {
@@ -49,9 +50,9 @@ const kinds = [...order.filter(k => present.includes(k)),
               {s.where && <span>{s.where}</span>}
               {s.url && <span class="mono">{s.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>}
             </div>
-            <p>{s.what}</p>
+            <p set:html={_md(s.what)}></p>
             {s.cites.length > 0 && <div class="refs">{s.cites.map(c => <code>{c}</code>)}</div>}
-            {s.note && <p class="cav">{s.note}</p>}
+            {s.note && <p class="cav" set:html={_md(s.note)}></p>}
             {s.held && <p class="cap" style="margin-top:8px"><strong>Held.</strong> A copy is in this project's source library: <span class="mono">{s.held}</span></p>}
           </article>
         ))}

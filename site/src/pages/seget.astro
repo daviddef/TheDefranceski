@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Spine from "../components/Spine.astro";
 import spines from "../data/spines.json";
@@ -84,7 +85,7 @@ import { u } from "../lib/url.js";
   <div class="prose" style="margin-top:24px">
     <p>The first is worth sitting with. Carlo De Franceschi spent his life arguing for the Italian character of Istria. In the middle of a passage on when Slavic place-names begin to appear in the record, he notes that in <strong>1102</strong> one finds <em>Golgoriza</em> — and adds the Italian name in brackets, <em>Moncalvo</em>. It is the earliest documented mention of his own birthplace, and he is recording it as evidence of Slavic settlement.</p>
   </div>
-  <p class="cap">{s.source}</p>
+  <p class="cap" set:html={_md(s.source)}></p>
 </section>
 <Rule name="arcade" />
 
@@ -93,7 +94,7 @@ import { u } from "../lib/url.js";
   <p class="dek">A 2020 feature in <em>la Voce del popolo</em> — the Italian-language daily of Rijeka — sets out the Seghetto family's own account of itself, and it explains what the branch was doing in Crete in the first place.</p>
   <div class="prose" style="margin-top:22px">
     <p>They were not merchants there. They held a county. In the Veneto-Turkish war of <strong>1538</strong> the counts de Franceschi defended the Cretan ports of Calus, Lemiores and Sabionera with <strong>nine hundred vassals</strong> of their own county, at their own expense — and in 1581 the Duke of Candia, Marcantonio Querini, confirmed them the privileges of <em>mero et misto imperio</em>, the delegated power to administer justice, for services rendered <em>“nelle più ardue ricorrenze, col somministrar gente, haveri et cavalli, esponendo ancora se stessi ai rischi di guerra per la difesa del Regno”</em> — in the hardest of times, supplying men, goods and horses, and exposing themselves to the risks of war for the defence of the Kingdom.</p>
-    <p class="note" style="margin-top:14px">{v.wreck}</p>
+    <p class="note" style="margin-top:14px" set:html={_md(v.wreck)}></p>
     <p>That is the sentence the Seget story turns on. The family did not simply relocate. They were evacuated by Morosini's galleys with the other Venetian families of Candia, and the fleet that carried them was wrecked in a storm on the way home. The people who bought the Umago estate fifty-one years later were the ones who got out of the water.</p>
   </div>
   <div class="scroll" style="margin-top:24px">
@@ -112,7 +113,7 @@ import { u } from "../lib/url.js";
     <SegetArms />
     <div class="prose">
       <p>The <em>Blasonario Giuliano</em> lists a second family of this name whose arms it can only give as <em>“Di … al leone di …”</em> — a lion, tinctures unrecorded. The Seghetto façade supplies them: <strong>troncato di azzurro e d'oro al leone rampante al naturale</strong>, per fess azure and or.</p>
-      <p>{v.trade}</p>
+      <p set:html={_md(v.trade)}></p>
       <p>Two men of standing are recorded as guests of the house: {v.guests.map((g, i) => <><strong>{g[0]}</strong> ({g[1]}), {g[2]}{i < v.guests.length - 1 ? " And " : ""}</>)}</p>
     </div>
   </div>
@@ -149,7 +150,7 @@ import { u } from "../lib/url.js";
 
 <section class="blk">
   <h2>{s.voce.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.voce.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.voce.lead)}></p>
 
   <div class="scroll" style="margin-top:22px">
     <table>
@@ -167,20 +168,20 @@ import { u } from "../lib/url.js";
   <div class="one" style="border-left-color:var(--terra);margin-top:32px">
     <div class="lab">The arms over the door</div>
     <h3>{s.voce.house.heading}</h3>
-    <p>{s.voce.house.text}</p>
+    <p set:html={_md(s.voce.house.text)}></p>
     <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:18px;margin-top:16px">“{s.voce.house.blazon}”</p>
-    <p style="margin-top:10px">{s.voce.house.blazonEn}</p>
-    <p class="cap" style="margin-top:12px">{s.voce.house.rest}</p>
+    <p style="margin-top:10px" set:html={_md(s.voce.house.blazonEn)}></p>
+    <p class="cap" style="margin-top:12px" set:html={_md(s.voce.house.rest)}></p>
   </div>
 
   <div class="one" style="margin-top:20px">
     <div class="lab">Santa Costanza</div>
     <h3>{s.voce.chapel.heading}</h3>
-    <p>{s.voce.chapel.text}</p>
+    <p set:html={_md(s.voce.chapel.text)}></p>
   </div>
 
   <h3 style="font-size:24px;margin-top:38px">{s.voce.public.heading}</h3>
-  <p class="dek" style="margin-top:8px">{s.voce.public.branches}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(s.voce.public.branches)}></p>
   <div class="scroll" style="margin-top:16px">
     <table>
       <thead><tr><th>Who</th><th class="m">When</th><th>What</th></tr></thead>
@@ -189,18 +190,18 @@ import { u } from "../lib/url.js";
       ))}</tbody>
     </table>
   </div>
-  <p class="prose" style="margin-top:18px">{s.voce.public.guests}</p>
-  <p class="cap" style="margin-top:16px">{s.voce.caveat}</p>
+  <p class="prose" style="margin-top:18px" set:html={_md(s.voce.public.guests)}></p>
+  <p class="cap" style="margin-top:16px" set:html={_md(s.voce.caveat)}></p>
 </section>
 <Rule name="tablet" />
 
 <section class="blk">
   <h2>{s.diet.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.diet.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.diet.lead)}></p>
 
   <blockquote class="qz" style="margin-top:20px">
-    <p style="font-style:italic">{s.diet.quote}</p>
-    <p class="cap" style="margin-top:12px">{s.diet.en}</p>
+    <p style="font-style:italic" set:html={_md(s.diet.quote)}></p>
+    <p class="cap" style="margin-top:12px" set:html={_md(s.diet.en)}></p>
   </blockquote>
 
   <h3 style="font-size:22px;margin-top:30px">What he does in that one sitting</h3>
@@ -211,65 +212,65 @@ import { u } from "../lib/url.js";
   <div class="one" style="border-left-color:var(--terra);margin-top:26px">
     <div class="lab">On the same order paper</div>
     <h3>{s.diet.gallignana.heading}</h3>
-    <p>{s.diet.gallignana.text}</p>
+    <p set:html={_md(s.diet.gallignana.text)}></p>
   </div>
 
   <div class="one" style="margin-top:18px">
     <div class="lab">Identity</div>
     <h3>{s.diet.who.heading}</h3>
-    <p>{s.diet.who.text}</p>
-    <p class="cap" style="margin-top:12px">{s.diet.who.caution}</p>
+    <p set:html={_md(s.diet.who.text)}></p>
+    <p class="cap" style="margin-top:12px" set:html={_md(s.diet.who.caution)}></p>
   </div>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:22px">
     <div class="lab">Confirmed</div>
     <h3>{s.diet.confirmed.heading}</h3>
     <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:16.5px">“{s.diet.confirmed.text}”</p>
-    <p style="margin-top:12px">{s.diet.confirmed.en}</p>
+    <p style="margin-top:12px" set:html={_md(s.diet.confirmed.en)}></p>
     <p style="margin-top:12px"><strong>{s.diet.confirmed.why}</strong></p>
-    <p class="cap" style="margin-top:12px">{s.diet.confirmed.also}</p>
+    <p class="cap" style="margin-top:12px" set:html={_md(s.diet.confirmed.also)}></p>
   </div>
   <div style="margin-top:24px"><Plates ids={["igp-1895-p1","igp-1895-p2"]} /></div>
-  <p class="cap" style="margin-top:14px">{s.diet.source}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.diet.source)}></p>
 </section>
 <Rule name="arcade" />
 
 <section class="blk">
   <h2>{s.umago.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.umago.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.umago.lead)}></p>
   <div class="scroll" style="margin-top:18px">
     <table><tbody>{s.umago.mayors.map((m, i) => (
       <tr><td style="width:44px">{i + 1}</td><td><strong>{m.n}</strong></td><td>{m.note}</td></tr>
     ))}</tbody></table>
   </div>
-  <p class="prose" style="margin-top:16px">{s.umago.count}</p>
-  <p class="prose" style="margin-top:14px">{s.umago.after}</p>
+  <p class="prose" style="margin-top:16px" set:html={_md(s.umago.count)}></p>
+  <p class="prose" style="margin-top:14px" set:html={_md(s.umago.after)}></p>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:26px">
     <div class="lab">A collector of unpublished manuscripts</div>
     <h3>{s.umago.historian.heading}</h3>
-    <p style="margin-top:10px">{s.umago.historian.text}</p>
+    <p style="margin-top:10px" set:html={_md(s.umago.historian.text)}></p>
     <p style="margin-top:12px"><strong>{s.umago.historian.why}</strong></p>
   </div>
 
   <div class="one" style="border-left-color:var(--terra);margin-top:18px">
     <div class="lab">Verteneglio, 1775 and 1819</div>
     <h3>{s.umago.woods.heading}</h3>
-    <p style="margin-top:10px">{s.umago.woods.text}</p>
-    <p style="margin-top:12px">{s.umago.woods.then}</p>
+    <p style="margin-top:10px" set:html={_md(s.umago.woods.text)}></p>
+    <p style="margin-top:12px" set:html={_md(s.umago.woods.then)}></p>
   </div>
-  <p class="cap" style="margin-top:18px">{s.umago.source_umago}</p>
+  <p class="cap" style="margin-top:18px" set:html={_md(s.umago.source_umago)}></p>
 </section>
 <Rule name="loom" />
 
 <section class="blk">
   <h2>{s.dossier.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.dossier.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.dossier.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {s.dossier.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
@@ -277,83 +278,83 @@ import { u } from "../lib/url.js";
   <div class="one" style="border-left-color:var(--terra);margin-top:26px">
     <div class="lab">L'Istria Agricola, 1927 and 1934</div>
     <h3>{s.dossier.later.heading}</h3>
-    <p style="margin-top:10px">{s.dossier.later.text}</p>
-    <p style="margin-top:12px">{s.dossier.later.also}</p>
+    <p style="margin-top:10px" set:html={_md(s.dossier.later.text)}></p>
+    <p style="margin-top:12px" set:html={_md(s.dossier.later.also)}></p>
   </div>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">Il Piccolo di Trieste, 25 November 1897</div>
     <h3>{s.dossier.death.heading}</h3>
-    <p style="margin-top:10px">{s.dossier.death.text}</p>
+    <p style="margin-top:10px" set:html={_md(s.dossier.death.text)}></p>
     <div class="qz" style="margin-top:12px">
       <p class="qit">“{s.dossier.death.quote}”</p>
-      <p class="qen">{s.dossier.death.en}</p>
+      <p class="qen" set:html={_md(s.dossier.death.en)}></p>
     </div>
     <p style="margin-top:12px"><strong>{s.dossier.death.why}</strong></p>
   </div>
 
-  <p class="prose note" style="margin-top:22px">{s.dossier.candia_note}</p>
-  <p class="cap" style="margin-top:14px">{s.dossier.source_dossier}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(s.dossier.candia_note)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.dossier.source_dossier)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{s.reichsrat.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.reichsrat.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.reichsrat.lead)}></p>
   <div class="scroll" style="margin-top:18px">
     <table><tbody>{s.reichsrat.terms.map(([w, x]) => (
       <tr><td style="width:130px"><strong>{w}</strong></td><td>{x}</td></tr>
     ))}</tbody></table>
   </div>
-  <p class="prose" style="margin-top:16px">{s.reichsrat.count}</p>
-  <p class="prose" style="margin-top:14px">{s.reichsrat.candidacy}</p>
+  <p class="prose" style="margin-top:16px" set:html={_md(s.reichsrat.count)}></p>
+  <p class="prose" style="margin-top:14px" set:html={_md(s.reichsrat.candidacy)}></p>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:24px">
     <div class="lab">{s.reichsrat.annul.where}</div>
     <h3>{s.reichsrat.annul.heading}</h3>
-    <p style="margin-top:10px">{s.reichsrat.annul.text}</p>
-    <p style="margin-top:12px">{s.reichsrat.annul.context}</p>
+    <p style="margin-top:10px" set:html={_md(s.reichsrat.annul.text)}></p>
+    <p style="margin-top:12px" set:html={_md(s.reichsrat.annul.context)}></p>
     <p style="margin-top:12px"><strong>{s.reichsrat.annul.why}</strong></p>
   </div>
-  <p class="prose note" style="margin-top:20px">{s.reichsrat.lega}</p>
-  <p class="cap" style="margin-top:14px">{s.reichsrat.source_reichsrat}</p>
+  <p class="prose note" style="margin-top:20px" set:html={_md(s.reichsrat.lega)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.reichsrat.source_reichsrat)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{s.photographed.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.photographed.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.photographed.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {s.photographed.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{s.photographed.why}</p>
-  <p class="prose" style="margin-top:16px">{s.photographed.next}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(s.photographed.why)}></p>
+  <p class="prose" style="margin-top:16px" set:html={_md(s.photographed.next)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:24px">
     <div class="lab">Puhmajer 2019</div>
     <h3>{s.photographed.correction.heading}</h3>
-    <p style="margin-top:10px">{s.photographed.correction.text}</p>
+    <p style="margin-top:10px" set:html={_md(s.photographed.correction.text)}></p>
     <p style="margin-top:12px"><strong>{s.photographed.correction.consequence}</strong></p>
-    <p style="margin-top:12px">{s.photographed.correction.blank}</p>
-    <p style="margin-top:12px">{s.photographed.correction.stars}</p>
-    <p style="margin-top:12px">{s.photographed.correction.dates}</p>
+    <p style="margin-top:12px" set:html={_md(s.photographed.correction.blank)}></p>
+    <p style="margin-top:12px" set:html={_md(s.photographed.correction.stars)}></p>
+    <p style="margin-top:12px" set:html={_md(s.photographed.correction.dates)}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{s.photographed.source_photo}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.photographed.source_photo)}></p>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{s.umagtomb.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.umagtomb.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.umagtomb.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {s.umagtomb.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
@@ -367,21 +368,21 @@ import { u } from "../lib/url.js";
       ))}</tbody>
     </table>
   </div>
-  <p class="prose" style="margin-top:18px">{s.umagtomb.tablet}</p>
-  <p class="prose" style="margin-top:14px">{s.umagtomb.ettore}</p>
-  <p class="prose note" style="margin-top:20px">{s.umagtomb.why}</p>
-  <p class="cap" style="margin-top:14px">{s.umagtomb.source_tomb}</p>
+  <p class="prose" style="margin-top:18px" set:html={_md(s.umagtomb.tablet)}></p>
+  <p class="prose" style="margin-top:14px" set:html={_md(s.umagtomb.ettore)}></p>
+  <p class="prose note" style="margin-top:20px" set:html={_md(s.umagtomb.why)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.umagtomb.source_tomb)}></p>
 </section>
 <Rule name="tablet" />
 
 <section class="blk">
   <h2>{s.puhmajer.heading}</h2>
-  <p class="dek" style="margin-top:10px">{s.puhmajer.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(s.puhmajer.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {s.puhmajer.finds.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
@@ -395,7 +396,7 @@ import { u } from "../lib/url.js";
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:16px">{s.puhmajer.tree.note}</p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(s.puhmajer.tree.note)}></p>
 
   <h3 style="font-size:22px;margin-top:36px">Five corrections to the timeline at the top of this page</h3>
   <div class="scroll" style="margin-top:14px">
@@ -404,9 +405,9 @@ import { u } from "../lib/url.js";
     ))}</tbody></table>
   </div>
 
-  <p class="prose" style="margin-top:22px">{s.puhmajer.after}</p>
-  <p class="prose note" style="margin-top:16px">{s.puhmajer.palladio}</p>
-  <p class="cap" style="margin-top:14px">{s.puhmajer.source_puhmajer}</p>
+  <p class="prose" style="margin-top:22px" set:html={_md(s.puhmajer.after)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(s.puhmajer.palladio)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.puhmajer.source_puhmajer)}></p>
 </section>
 
   <Lightbox />
@@ -414,25 +415,25 @@ import { u } from "../lib/url.js";
 
 <section class="blk">
   <h2>{s.umagstones.heading}</h2>
-  <p class="dek" style="margin-top:8px">{s.umagstones.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(s.umagstones.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {s.umagstones.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{s.umagstones.arms}</p>
-  <p class="prose" style="margin-top:16px">{s.umagstones.negative}</p>
-  <p class="cap" style="margin-top:14px">{s.umagstones.source_umag}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(s.umagstones.arms)}></p>
+  <p class="prose" style="margin-top:16px" set:html={_md(s.umagstones.negative)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.umagstones.source_umag)}></p>
 </section>
 <Rule name="helm" label="Seget and Umag, photographed" />
 <section class="blk">
   <h2>{s.fieldplates.heading}</h2>
-  <p class="dek" style="margin-top:8px">{s.fieldplates.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(s.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={s.fieldplates.ids} /></div>
-  <p class="cap" style="margin-top:14px">{s.fieldplates.note}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(s.fieldplates.note)}></p>
 </section>
 <Lightbox />
 
@@ -441,7 +442,7 @@ import { u } from "../lib/url.js";
 
 <section class="blk">
   <h2>{s.deeper.heading}</h2>
-  <p class="dek" style="margin-top:8px">{s.deeper.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(s.deeper.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {s.deeper.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -450,14 +451,14 @@ import { u } from "../lib/url.js";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{s.deeper.source_deeper}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(s.deeper.source_deeper)}></p>
 </section>
 
 <Rule name="arcade" label="The chapel at Seget" />
 
 <section class="blk">
   <h2>{s.umagbook.heading}</h2>
-  <p class="dek" style="margin-top:8px">{s.umagbook.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(s.umagbook.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {s.umagbook.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -466,7 +467,7 @@ import { u } from "../lib/url.js";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{s.umagbook.source_umag}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(s.umagbook.source_umag)}></p>
 </section>
 
   <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "simon2024", "archiveorg"]} />

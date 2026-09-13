@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Spine from "../components/Spine.astro";
 import spines from "../data/spines.json";
@@ -26,7 +27,7 @@ import d from "../data/imotski.json";
 
 
   <section class="prose">
-    <p>{d.why}</p>
+    <p set:html={_md(d.why)}></p>
   </section>
 
   <h2 style="font-size:30px;margin-top:50px">The Dalmatian house</h2>
@@ -39,7 +40,7 @@ import d from "../data/imotski.json";
         <div class="body">
           <div class="lab">Generation {g.n}</div>
           <h3 style="font-size:22px">{g.who} <span class="mono" style="font-size:13px;color:var(--ink-3);font-weight:400">{g.dates}</span></h3>
-          {g.what && <p>{g.what}</p>}
+          {g.what && <p set:html={_md(g.what)}></p>}
         </div>
       </article>
     ))}
@@ -52,27 +53,27 @@ import d from "../data/imotski.json";
       <div class="one" style={c.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{c.dates || "dates unknown"}</div>
         <h3 style="font-size:20px">{c.who}</h3>
-        {c.what && <p>{c.what}</p>}
+        {c.what && <p set:html={_md(c.what)}></p>}
       </div>
     ))}
   </div>
 
   <h2 style="font-size:30px;margin-top:56px">{d.seam.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.seam.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.seam.lead)}></p>
 
   <div class="grid g2" style="margin-top:22px">
     {d.seam.points.map(p => (
       <div class="one" style={p.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{p.lab}</div>
-        <p style="margin-top:8px">{p.text}</p>
+        <p style="margin-top:8px" set:html={_md(p.text)}></p>
       </div>
     ))}
   </div>
 
-  <p class="prose note" style="margin-top:26px">{d.seam.close}</p>
+  <p class="prose note" style="margin-top:26px" set:html={_md(d.seam.close)}></p>
 
   <h2 style="font-size:30px;margin-top:56px">{d.salvage.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.salvage.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.salvage.lead)}></p>
 
   <div class="scroll" style="margin-top:18px">
     <table>
@@ -92,8 +93,8 @@ import d from "../data/imotski.json";
   <div class="one" style="border-left-color:var(--terra);margin-top:44px">
     <div class="lab">A correction</div>
     <h3>{d.zdravko.heading}</h3>
-    <p>{d.zdravko.text}</p>
-    <p style="margin-top:12px">{d.zdravko.how}</p>
+    <p set:html={_md(d.zdravko.text)}></p>
+    <p style="margin-top:12px" set:html={_md(d.zdravko.how)}></p>
     <p class="cap" style="margin-top:12px">The memorials are on the <a href={u("/graves/")}>graves</a> page. Zdravko and Ruža's road to Horsham is on <a href={u("/pfullingen/")}>Pfullingen</a>.</p>
   </div>
 
@@ -108,7 +109,7 @@ import d from "../data/imotski.json";
 <Rule name="helm" label="The Imotski house, in its own right" />
 <section class="blk">
   <h2>{d.story.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.story.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.story.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {d.story.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -117,12 +118,12 @@ import d from "../data/imotski.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{d.story.source_im}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.story.source_im)}></p>
 </section>
 <Rule name="pomegranate" label="Jagul" />
 <section class="blk">
   <h2>{d.jagul.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.jagul.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.jagul.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {d.jagul.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
@@ -134,9 +135,9 @@ import d from "../data/imotski.json";
   <div class="one" style="border-left-color:var(--ochre);margin-top:20px">
     <div class="lab">Unresolved</div>
     <h3 style="font-size:18px">{d.anadates.heading}</h3>
-    <p style="margin-top:8px">{d.anadates.text}</p>
+    <p style="margin-top:8px" set:html={_md(d.anadates.text)}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{d.jagul.source_j}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.jagul.source_j)}></p>
 </section>
 <section class="blk"><ScenePerinusa /></section>
 
@@ -146,7 +147,7 @@ import d from "../data/imotski.json";
 
 <section class="blk">
   <h2>{d.deeper.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.deeper.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.deeper.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.deeper.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -155,14 +156,14 @@ import d from "../data/imotski.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.deeper.source_deep}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.deeper.source_deep)}></p>
 </section>
 
 <Rule name="loom" label="Entry 17" />
 
 <section class="blk">
   <h2>{d.entry17.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.entry17.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.entry17.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.entry17.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -171,14 +172,14 @@ import d from "../data/imotski.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.entry17.source_e17}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.entry17.source_e17)}></p>
 </section>
 
 <Rule name="tablet" label="The registers" />
 
 <section class="blk">
   <h2>{d.registers.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.registers.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.registers.lead)}></p>
 
   {d.registers.vols.map(v => (
     <div style="margin-top:26px">
@@ -205,14 +206,14 @@ import d from "../data/imotski.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.registers.source_reg}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.registers.source_reg)}></p>
 </section>
 
 <Rule name="pomegranate" label="Donji Proložac" />
 
 <section class="blk">
   <h2>{d.prolozac.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.prolozac.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.prolozac.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.prolozac.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -221,7 +222,7 @@ import d from "../data/imotski.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{d.prolozac.source_pro}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.prolozac.source_pro)}></p>
 </section>
 
   <Sources ids={["myheritage", "findagrave", "dapa"]} />

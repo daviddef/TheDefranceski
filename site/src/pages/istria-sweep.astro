@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import ParishBars from "../components/ParishBars.astro";
 import pm from "../data/parishmap.json";
 import Rule from "../components/Rule.astro";
@@ -14,8 +15,8 @@ const max = Math.max(...d.clusters.map(c => c.n));
   dek="A place-by-place sweep of the indexed records from Muggia to Senj. Twenty-one towns carry the name, thirty-nine do not — and the blanks are the most important part of the table.">
 
   <section class="prose">
-    <p>{d.lead}</p>
-    <p class="cap">{d.method}</p>
+    <p set:html={_md(d.lead)}></p>
+    <p class="cap" set:html={_md(d.method)}></p>
   </section>
 
   <h2 style="font-size:30px;margin-top:46px">Where the name is</h2>
@@ -34,7 +35,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
         </div>
         <div>
           <p style="margin:0"><em>{c.who}</em></p>
-          {c.note && <p class="cap" style="margin-top:8px">{c.note}</p>}
+          {c.note && <p class="cap" style="margin-top:8px" set:html={_md(c.note)}></p>}
         </div>
       </div>
     ))}
@@ -43,8 +44,8 @@ const max = Math.max(...d.clusters.map(c => c.n));
   <div class="one" style="border-left-color:var(--terra);margin-top:44px">
     <div class="lab">Read this before you read the table</div>
     <h3>{d.caveat.heading}</h3>
-    <p>{d.caveat.text}</p>
-    <p style="margin-top:12px">{d.caveat.then}</p>
+    <p set:html={_md(d.caveat.text)}></p>
+    <p style="margin-top:12px" set:html={_md(d.caveat.then)}></p>
   </div>
 
   <h2 style="font-size:26px;margin-top:44px">The thirty-nine blanks</h2>
@@ -56,7 +57,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
     {d.reading.map(r => (
       <div class="one">
         <h3 style="font-size:19px">{r.h}</h3>
-        <p>{r.t}</p>
+        <p set:html={_md(r.t)}></p>
       </div>
     ))}
   </div>
@@ -70,7 +71,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
 <Rule name="loom" label="Rebuilt and re-run" />
 <section class="blk">
   <h2>{d.resweep.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.resweep.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.resweep.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table><thead><tr><th>Town</th><th>People</th><th>Range</th><th></th></tr></thead>
     <tbody>{d.resweep.table.map(([t,n,r,w]) => (
@@ -81,7 +82,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
     {d.resweep.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
@@ -93,7 +94,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
 
 <section class="blk" id="filter">
   <h2>{d.filter.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.filter.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.filter.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.filter.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
@@ -102,7 +103,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.filter.source_filter}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.filter.source_filter)}></p>
 </section>
 
   <Rule name="tablet" label="The forty-five per cent" />
@@ -118,7 +119,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.noplace.source_np}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.noplace.source_np)}></p>
 </section>
 
   <Rule name="arcade" label="Read by image, not by place" />
@@ -140,7 +141,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.byimage.source_bi}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.byimage.source_bi)}></p>
 </section>
 
   <Rule name="helm" label="The other half of the lesson" />
@@ -156,7 +157,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.surnames.source_sn}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(d.surnames.source_sn)}></p>
 </section>
 
   <Rule name="tablet" label="Ninety-three parishes" />
@@ -173,7 +174,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
     ))}
   </div>
   <ParishBars />
-  <p class="cap" style="margin-top:16px">{pm.source_pm}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(pm.source_pm)}></p>
 </section>
 
 <Sources ids={["familysearch", "dapa", "carlo1879"]} />

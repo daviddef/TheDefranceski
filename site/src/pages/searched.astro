@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
@@ -19,7 +20,7 @@ const groups = order.map(k => [k, d.rows.filter(r => r.outcome === k)]);
     <div class="stat"><div class="n">{n("blocked")}</div><div class="l">Blocked, not circumvented</div></div>
     <div class="stat"><div class="n">{n("pending")}</div><div class="l">Known and not yet got</div></div>
   </div>
-  <p class="prose note" style="margin-top:24px">{d.note}</p>
+  <p class="prose note" style="margin-top:24px" set:html={_md(d.note)}></p>
 </section>
 
 {groups.map(([k, rows]) => rows.length > 0 && (
@@ -32,9 +33,9 @@ const groups = order.map(k => [k, d.rows.filter(r => r.outcome === k)]);
         <tbody>{rows.map(r => (
           <tr>
             <td><strong>{r.src}</strong></td>
-            <td>{r.what}</td>
+            <td set:html={_md(r.what)}></td>
             <td class="m">{r.when}</td>
-            <td>{r.got}</td>
+            <td set:html={_md(r.got).replace(/\n\n+/g, "<br><br>")}></td>
           </tr>
         ))}</tbody>
       </table>

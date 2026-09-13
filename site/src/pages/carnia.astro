@@ -8,6 +8,10 @@ import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import Locator from "../components/Locator.astro";
 import c from "../data/carnia.json";
+const cmd = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 ---
 <Base
   title="Back to Carnia"
@@ -26,8 +30,8 @@ import c from "../data/carnia.json";
   <div class="one" style="border-left-color:var(--accent);margin-top:34px">
     <div class="lab">Mione di Ovaro</div>
     <h3>The name is still in the village in 1939</h3>
-    <p>{c.mione.found}</p>
-    <p>{c.mione.why}</p>
+    <p set:html={cmd(c.mione.found)}></p>
+    <p set:html={cmd(c.mione.why)}></p>
     <p class="cap" style="margin-top:12px">A bishop is a public figure and his dates are published; this archive names him for that reason and stops there. No claim of descent is made — what the record shows is that the surname persisted in the village the family's own tradition points to, for two hundred and sixty years after the only document that puts it there.</p>
   </div>
 
@@ -37,7 +41,7 @@ import c from "../data/carnia.json";
   <div class="one" style="border-left-color:var(--terra);margin-top:24px">
     <div class="lab">The first three lines of the book</div>
     <h3>Defranceschi. Defranceschi. De Franceschi.</h3>
-    <p>{c.mione.registers.index}</p>
+    <p set:html={cmd(c.mione.registers.index)}></p>
   </div>
 
   <div style="margin-top:24px"><Plates ids={["mione-index"]} cols={1} /></div>
@@ -59,7 +63,7 @@ import c from "../data/carnia.json";
   <div style="margin-top:24px"><Plates ids={["mione-1809-32","mione-1810-1","mione-1810-21"]} /></div>
 
   <div class="prose" style="margin-top:28px">
-    <p class="note">{c.mione.registers.read}</p>
+    <p class="note" set:html={cmd(c.mione.registers.read)}></p>
     <p>The witnesses to these acts are worth reading too. A shoemaker and a tailor of Luint; a household servant; Lupieri Matteo, <em>possidente</em>. The registrar through all of them is <strong>Giacomo Micoli</strong> — the Micoli of Mione, whose family archive is listed on this archive's research log as holding the Gorto contracts that name the Erman who travelled to Istria with Zuane De Franceschi in 1679. The same dozen surnames run through the village for a hundred and thirty years.</p>
     <p><strong>What to do next is now obvious.</strong> The same series holds nine volumes of <em>Matrimoni</em> and thirteen of <em>Matrimoni, allegati</em> for Mione. In Napoleonic practice the <em>allegati</em> are the supporting papers filed with a marriage — birth extracts for the bride and groom, and often death extracts for their parents. A single De Franceschi marriage at Mione between 1806 and 1815 would therefore reach back into the middle of the eighteenth century, and possibly to the generation of the Zuane of 1679. Nothing else available to this project can do that.</p>
   </div>
@@ -70,7 +74,7 @@ import c from "../data/carnia.json";
   <Plates group="carnia" cols={3} />
   <p class="cap" style="margin-top:12px">Three photographs of Muina, harvested from Wikimedia Commons on 13 September 2026 and held here under their own licences, named above each plate. <strong>None of them is a De Franceschi house</strong> — this archive has not identified one, and would say so if it had. They are here because the page has spent two thousand words on a village nobody reading it has seen.</p>
 
-  <p class="dek" style="margin-top:8px">{c.muina.intro}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.muina.intro)}></p>
 
   <div class="spine" style="margin-top:20px">
     {c.muina.chain.map(g => (
@@ -79,7 +83,7 @@ import c from "../data/carnia.json";
         <div class="body">
           <div class="lab">Generation {g.n}</div>
           <h3 style="font-size:24px">{g.who}</h3>
-          <p class="cap" style="max-width:64ch">{g.what}</p>
+          <p class="cap" style="max-width:64ch" set:html={cmd(g.what)}></p>
         </div>
       </article>
     ))}
@@ -90,14 +94,14 @@ import c from "../data/carnia.json";
   <div class="one" style="border-left-color:var(--ochre);margin-top:28px">
     <div class="lab">The name in the chain</div>
     <h3>Antonio, son of the late Leonardo</h3>
-    <p>{c.muina.leonardo}</p>
+    <p set:html={cmd(c.muina.leonardo)}></p>
     <p class="cap" style="margin-top:12px"><span class="chip inf">Inferred, and weakly</span> This is a name recurring in a family, not a link between two families. It is set out here because it is the kind of thing that later turns out to matter, and because saying it plainly is better than either suppressing it or overselling it.</p>
   </div>
 
-  <p class="prose" style="margin-top:24px">{c.muina.witnesses}</p>
+  <p class="prose" style="margin-top:24px" set:html={cmd(c.muina.witnesses)}></p>
 
   <h2 style="font-size:30px;margin-top:50px">{c.households1806.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.households1806.intro}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.households1806.intro)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Household</th><th>Where</th><th>Trade</th><th>What names them</th></tr></thead>
@@ -108,12 +112,12 @@ import c from "../data/carnia.json";
   </div>
   <div style="margin-top:22px"><Plates ids={["mione-matr-1806"]} cols={1} /></div>
   <div class="prose" style="margin-top:24px">
-    <p class="note">{c.households1806.tailors}</p>
-    <p>{c.households1806.micoli}</p>
+    <p class="note" set:html={cmd(c.households1806.tailors)}></p>
+    <p set:html={cmd(c.households1806.micoli)}></p>
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">{c.deaths.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.deaths.intro}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.deaths.intro)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Name</th><th>Where</th><th class="m">Died</th><th class="m">Act</th><th>Note</th></tr></thead>
@@ -123,18 +127,18 @@ import c from "../data/carnia.json";
     </table>
   </div>
   <div style="margin-top:22px"><Plates ids={["mione-morti-index"]} cols={1} /></div>
-  <p class="prose" style="margin-top:22px">{c.deaths.read}</p>
+  <p class="prose" style="margin-top:22px" set:html={cmd(c.deaths.read)}></p>
 
   <h2 style="font-size:30px;margin-top:50px">{c.deepest.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.deepest.intro}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.deepest.intro)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:22px">
     <p style="font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5;color:var(--ink)">“{c.deepest.quote}”</p>
-    <p style="margin-top:14px">{c.deepest.trans}</p>
+    <p style="margin-top:14px" set:html={cmd(c.deepest.trans)}></p>
   </div>
   <div style="margin-top:22px"><Plates ids={["mione-fede-1789","mione-consenso-1805"]} /></div>
   <div class="prose" style="margin-top:24px">
-    <p>{c.deepest.why}</p>
-    <p class="note">{c.deepest.care}</p>
+    <p set:html={cmd(c.deepest.why)}></p>
+    <p class="note" set:html={cmd(c.deepest.care)}></p>
     <p><strong>And it names the book.</strong> {c.deepest.next}</p>
   </div>
 
@@ -168,8 +172,8 @@ import c from "../data/carnia.json";
   <p class="prose" style="margin-top:20px">Mione is a <em>frazione</em> of Ovaro, and Ovaro is the parish. These are the first entries this archive has been able to put in that parish under this surname — and one of them carries the house-name that the bishop born there in 1939 also carries.</p>
 
   <h2 style="font-size:30px;margin-top:54px">{c.ginut.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.ginut.lead}</p>
-  <p class="prose" style="margin-top:14px">{c.ginut.why}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.ginut.lead)}></p>
+  <p class="prose" style="margin-top:14px" set:html={cmd(c.ginut.why)}></p>
 
   <div class="spine" style="margin-top:24px">
     {c.ginut.chain.map(g => (
@@ -179,7 +183,7 @@ import c from "../data/carnia.json";
           <div class="lab">Generation {g.n}</div>
           <h3 style="font-size:22px">{g.who}</h3>
           <p class="cap" style="margin-top:2px">with {g.with}</p>
-          <p style="margin-top:8px">{g.what}</p>
+          <p style="margin-top:8px" set:html={cmd(g.what)}></p>
         </div>
       </article>
     ))}
@@ -196,20 +200,20 @@ import c from "../data/carnia.json";
   </div>
 
   <h3 style="font-size:24px;margin-top:40px">{c.ginut.notes.heading}</h3>
-  <p class="dek" style="margin-top:8px">{c.ginut.notes.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.ginut.notes.lead)}></p>
   <div class="grid g2" style="margin-top:18px">
     {c.ginut.notes.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
-        <p style="font-style:italic">{r.fur}</p>
-        <p class="cap" style="margin-top:10px">{r.en}</p>
+        <p style="font-style:italic" set:html={cmd(r.fur)}></p>
+        <p class="cap" style="margin-top:10px" set:html={cmd(r.en)}></p>
       </div>
     ))}
   </div>
 
-  <p class="prose note" style="margin-top:24px">{c.ginut.close}</p>
+  <p class="prose note" style="margin-top:24px" set:html={cmd(c.ginut.close)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">The best contact this archive has</div>
-    <p style="margin-top:8px">{c.ginut.ask}</p>
+    <p style="margin-top:8px" set:html={cmd(c.ginut.ask)}></p>
   </div>
 
   <section class="prose" style="margin-top:46px">
@@ -219,9 +223,9 @@ import c from "../data/carnia.json";
     <p><strong>And one thing found by reading Carlo himself.</strong> His published history of Istria — 524 pages, 1879 — never makes the Carnia claim. The word appears twice in the whole book, neither time about his family, and there is no mention of Mione, Muina or Ovaro anywhere in it. He said it privately, in his memoirs and in the letter this archive holds, and chose not to say it in the book that carries his name as a historian. That does not make it false; it does mean the testimony rests on one man speaking in one register, and it should be weighed that way. See <a href={u("/carlos-book/")}>Carlo's Book</a>.</p>
     <div class="one" style="border-left-color:var(--terra);margin-top:8px;margin-bottom:20px">
       <div class="lab">{c.second_document.heading}</div>
-      <p style="margin-top:8px">{c.second_document.text}</p>
+      <p style="margin-top:8px" set:html={cmd(c.second_document.text)}></p>
       <p style="margin-top:12px"><strong>{c.second_document.why}</strong></p>
-      <p class="cap" style="margin-top:10px">{c.second_document.source}</p>
+      <p class="cap" style="margin-top:10px" set:html={cmd(c.second_document.source)}></p>
     </div>
     <h3>What to ask for next</h3>
     <p>The <strong>Ovaro parish registers before 1806</strong>, which are in no portal and must be requested from the parish, and the <strong>Archivio Storico Diocesano at Udine</strong>, which may hold duplicates. Ask for baptisms and marriages at Mione and Muina between 1650 and 1720, looking for a Zuane with a son of working age in 1679. Separately, the <strong>Micoli Toscano family archive at Mione</strong> holds Gorto contracts, including ones naming the Erman who travelled with Zuane. See the <a href={u("/research-log/")}>research log</a>.</p>
@@ -230,16 +234,16 @@ import c from "../data/carnia.json";
   </section>
 <section class="blk">
   <h2>{c.weavers.heading}</h2>
-  <p class="dek" style="margin-top:10px">{c.weavers.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={cmd(c.weavers.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{c.weavers.quote}”</p>
-    <p class="qen">{c.weavers.en}</p>
+    <p class="qen" set:html={cmd(c.weavers.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.weavers.gains.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
@@ -249,50 +253,50 @@ import c from "../data/carnia.json";
     {c.weavers.road.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose" style="margin-top:20px">{c.weavers.road.where}</p>
-  <p class="prose note" style="margin-top:16px">{c.weavers.road.word}</p>
-  <p class="prose" style="margin-top:20px">{c.weavers.lawsuit}</p>
+  <p class="prose" style="margin-top:20px" set:html={cmd(c.weavers.road.where)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={cmd(c.weavers.road.word)}></p>
+  <p class="prose" style="margin-top:20px" set:html={cmd(c.weavers.lawsuit)}></p>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:30px">
     <div class="lab">Archivio di Stato di Udine · Notarile antico · B. 2979</div>
     <h3>{c.weavers.notary.heading}</h3>
-    <p style="margin-top:10px">{c.weavers.notary.text}</p>
+    <p style="margin-top:10px" set:html={cmd(c.weavers.notary.text)}></p>
     <p style="margin-top:12px"><strong>{c.weavers.notary.why}</strong></p>
   </div>
-  <p class="cap" style="margin-top:18px">{c.weavers.sourcing}</p>
+  <p class="cap" style="margin-top:18px" set:html={cmd(c.weavers.sourcing)}></p>
 </section>
 <section class="blk"><SceneFurlans /></section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{c.brhan.heading}</h2>
-  <p class="dek" style="margin-top:10px">{c.brhan.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={cmd(c.brhan.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.brhan.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:24px">{c.brhan.why}</p>
-  <p class="cap" style="margin-top:14px">{c.brhan.source}</p>
+  <p class="prose note" style="margin-top:24px" set:html={cmd(c.brhan.why)}></p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.brhan.source)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{c.gorto.heading}</h2>
-  <p class="dek" style="margin-top:10px">{c.gorto.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={cmd(c.gorto.lead)}></p>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.gorto.churches.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
@@ -306,168 +310,168 @@ import c from "../data/carnia.json";
       ))}</tbody>
     </table>
   </div>
-  <p class="prose" style="margin-top:20px">{c.gorto.daughters}</p>
-  <p class="prose note" style="margin-top:16px">{c.gorto.neighbours}</p>
-  <p class="prose note" style="margin-top:16px">{c.gorto.furlani}</p>
-  <p class="prose" style="margin-top:18px">{c.gorto.views}</p>
+  <p class="prose" style="margin-top:20px" set:html={cmd(c.gorto.daughters)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={cmd(c.gorto.neighbours)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={cmd(c.gorto.furlani)}></p>
+  <p class="prose" style="margin-top:18px" set:html={cmd(c.gorto.views)}></p>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{c.gorto_war.heading}</h2>
-  <p class="dek" style="margin-top:10px">{c.gorto_war.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={cmd(c.gorto_war.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.gorto_war.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose" style="margin-top:22px">{c.gorto_war.what}</p>
-  <p class="prose note" style="margin-top:16px">{c.gorto_war.isidoro}</p>
-  <p class="prose" style="margin-top:16px">{c.gorto_war.todo}</p>
+  <p class="prose" style="margin-top:22px" set:html={cmd(c.gorto_war.what)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={cmd(c.gorto_war.isidoro)}></p>
+  <p class="prose" style="margin-top:16px" set:html={cmd(c.gorto_war.todo)}></p>
 </section>
 <Rule name="tablet" />
 
 <section class="blk">
   <h2>{c.brhan2004.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.brhan2004.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.brhan2004.lead)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">{c.brhan2004.key.lab}</div>
-    <p style="margin-top:8px">{c.brhan2004.key.text}</p>
+    <p style="margin-top:8px" set:html={cmd(c.brhan2004.key.text)}></p>
   </div>
   <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
     {c.brhan2004.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{c.brhan2004.source_brhan}</p>
+  <p class="cap" style="margin-top:16px" set:html={cmd(c.brhan2004.source_brhan)}></p>
 </section>
 <Rule name="arcade" />
 
 <section class="blk">
   <h2>{c.agrons.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.agrons.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.agrons.lead)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">{c.agrons.carlo.lab}</div>
     <p class="qit" style="margin-top:10px">“{c.agrons.carlo.q}”</p>
-    <p class="qen" style="margin-top:8px">{c.agrons.carlo.en}</p>
+    <p class="qen" style="margin-top:8px" set:html={cmd(c.agrons.carlo.en)}></p>
     <p style="margin-top:12px"><strong>{c.agrons.carlo.why}</strong></p>
   </div>
   <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
     {c.agrons.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{c.agrons.join}</p>
-  <p class="prose" style="margin-top:16px">{c.agrons.careful}</p>
-  <p class="cap" style="margin-top:14px">{c.agrons.source_agrons}</p>
+  <p class="prose note" style="margin-top:22px" set:html={cmd(c.agrons.join)}></p>
+  <p class="prose" style="margin-top:16px" set:html={cmd(c.agrons.careful)}></p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.agrons.source_agrons)}></p>
 </section>
 <Rule name="loom" />
 
 <section class="blk">
   <h2>{c.encyclopedia.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.encyclopedia.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.encyclopedia.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.encyclopedia.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{c.encyclopedia.uspomene}</p>
-  <p class="cap" style="margin-top:14px">{c.encyclopedia.source_enc}</p>
+  <p class="prose note" style="margin-top:22px" set:html={cmd(c.encyclopedia.uspomene)}></p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.encyclopedia.source_enc)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{c.gismani.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.gismani.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.gismani.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.gismani.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
   <h3 style="margin-top:30px">{c.gismani.printed.heading}</h3>
-  <p class="dek" style="margin-top:8px">{c.gismani.printed.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.gismani.printed.lead)}></p>
   <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
     {c.gismani.printed.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:24px">{c.gismani.where}</p>
-  <p class="prose" style="margin-top:16px">{c.gismani.negatives}</p>
-  <p class="cap" style="margin-top:14px">{c.gismani.source_gismani}</p>
+  <p class="prose note" style="margin-top:24px" set:html={cmd(c.gismani.where)}></p>
+  <p class="prose" style="margin-top:16px" set:html={cmd(c.gismani.negatives)}></p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.gismani.source_gismani)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{c.svetvincenat.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.svetvincenat.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.svetvincenat.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.svetvincenat.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
         {r.link && <p style="margin-top:8px"><a href={u(r.link)}>{r.linktext} &rarr;</a></p>}
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{c.svetvincenat.next}</p>
-  <p class="cap" style="margin-top:14px">{c.svetvincenat.source_sv}</p>
+  <p class="prose note" style="margin-top:22px" set:html={cmd(c.svetvincenat.next)}></p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.svetvincenat.source_sv)}></p>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{c.twobranches.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.twobranches.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.twobranches.lead)}></p>
   <div class="qz" style="margin-top:18px">
-    <p class="qit">{c.twobranches.quote}</p>
-    <p class="qen">{c.twobranches.en}</p>
+    <p class="qit" set:html={cmd(c.twobranches.quote)}></p>
+    <p class="qen" set:html={cmd(c.twobranches.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.twobranches.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{c.twobranches.source_two}</p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.twobranches.source_two)}></p>
 </section>
 <Rule name="tablet" />
 
 <section class="blk">
   <h2>{c.brhan3.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.brhan3.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.brhan3.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.brhan3.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={cmd(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{c.brhan3.source_b3}</p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.brhan3.source_b3)}></p>
 </section>
 <Rule name="loom" label="Standing in the valley" />
 <section class="blk">
   <h2>{c.fieldplates.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.fieldplates.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={c.fieldplates.ids} /></div>
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
     {c.fieldplates.rows.map(r => (
@@ -477,14 +481,14 @@ import c from "../data/carnia.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{c.fieldplates.source_fp}</p>
+  <p class="cap" style="margin-top:14px" set:html={cmd(c.fieldplates.source_fp)}></p>
 </section>
 
 <Rule name="tablet" label="The stones themselves" />
 
 <section class="blk">
   <h2>{c.gortostones.heading}</h2>
-  <p class="dek" style="margin-top:8px">{c.gortostones.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.gortostones.lead)}></p>
   <div style="margin-top:24px"><Plates ids={c.gortostones.ids} /></div>
   <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
     {c.gortostones.rows.map(r => (
@@ -494,7 +498,7 @@ import c from "../data/carnia.json";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{c.gortostones.source_gorto}</p>
+  <p class="cap" style="margin-top:16px" set:html={cmd(c.gortostones.source_gorto)}></p>
 </section>
 
 <Lightbox />

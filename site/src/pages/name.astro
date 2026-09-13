@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import OneName from "../components/OneName.astro";
 import on from "../data/onename.json";
 import Rule from "../components/Rule.astro";
@@ -24,7 +25,7 @@ import gn from "../data/givennames.json";
     <table>
       <thead><tr><th>Form</th><th class="m">Era</th><th>Where</th><th>What produced it</th></tr></thead>
       <tbody>{names.variants.map(v=>(
-        <tr><td>{v.form}</td><td class="m">{v.era}</td><td>{v.where}</td><td>{v.why}</td></tr>
+        <tr><td>{v.form}</td><td class="m">{v.era}</td><td>{v.where}</td><td set:html={_md(v.why)}></td></tr>
       ))}</tbody>
     </table>
   </div>
@@ -66,7 +67,7 @@ import gn from "../data/givennames.json";
     <table>
       <thead><tr><th>Spelling</th><th>Where it belongs</th><th>Where they live now</th><th class="m">Today</th><th class="m">Mid-century</th><th>Trend</th></tr></thead>
       <tbody>{names.croatia_clusters.rows.map(r=>(
-        <tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td class="m">{r[3]}</td><td class="m">{r[4]}</td>
+        <tr><td>{r[0]}</td><td>{r[1]}</td><td set:html={_md(String(r[2]))}></td><td class="m">{r[3]}</td><td class="m">{r[4]}</td>
         <td style={r[5]==="growing"?"color:var(--accent)":"color:var(--terra)"}>{r[5]}</td></tr>
       ))}</tbody>
     </table>
@@ -85,7 +86,7 @@ import gn from "../data/givennames.json";
     <table>
       <thead><tr><th>Spelling</th><th class="m">Bearers</th><th>Notes</th></tr></thead>
       <tbody>{names.spellings_world.rows.map(r=>(
-        <tr><td>{r[0]}</td><td class="m">{r[1].toLocaleString()}</td><td>{r[2]}</td></tr>
+        <tr><td>{r[0]}</td><td class="m">{r[1].toLocaleString()}</td><td set:html={_md(String(r[2]))}></td></tr>
       ))}</tbody>
     </table>
   </div>
@@ -102,13 +103,13 @@ import gn from "../data/givennames.json";
       ))}
     </div>
     <p class="prose note" style="margin-top:16px" set:html={names.living.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
-    <p class="cap" style="margin-top:12px">{names.living.source}</p>
+    <p class="cap" style="margin-top:12px" set:html={_md(names.living.source)}></p>
   </section>)}
 
   {names.spellings_world.bycountry && (
   <section class="blk" style="margin-top:34px">
     <h3 style="font-size:21px">{names.spellings_world.bycountry.heading}</h3>
-    <p class="dek" style="margin-top:6px">{names.spellings_world.bycountry.lead}</p>
+    <p class="dek" style="margin-top:6px" set:html={_md(names.spellings_world.bycountry.lead)}></p>
     <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px">
       {names.spellings_world.bycountry.rows.map(([sp,n,txt]) => (
         <div class="one">
@@ -125,7 +126,7 @@ import gn from "../data/givennames.json";
         </div>
       ))}
     </div>
-    <p class="cap" style="margin-top:14px">{names.spellings_world.bycountry.source}</p>
+    <p class="cap" style="margin-top:14px" set:html={_md(names.spellings_world.bycountry.source)}></p>
   </section>)}
 
   <p class="cap">Source: {names.spellings_world.source}. {names.spellings_world.note} Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
@@ -151,52 +152,52 @@ import gn from "../data/givennames.json";
 <Rule name="arrows" />
 <section class="blk">
   <h2>{names.zagreb.heading}</h2>
-  <p class="dek" style="margin-top:10px">{names.zagreb.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(names.zagreb.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{names.zagreb.quote}”</p>
-    <p class="qen">{names.zagreb.en}</p>
+    <p class="qen" set:html={_md(names.zagreb.en)}></p>
   </div>
-  <p class="prose" style="margin-top:18px">{names.zagreb.why}</p>
-  <p class="prose note" style="margin-top:16px">{names.zagreb.more}</p>
-  <p class="cap" style="margin-top:14px">{names.zagreb.source}</p>
+  <p class="prose" style="margin-top:18px" set:html={_md(names.zagreb.why)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(names.zagreb.more)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(names.zagreb.source)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{names.sarenjaci.heading}</h2>
-  <p class="dek" style="margin-top:10px">{names.sarenjaci.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(names.sarenjaci.lead)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:20px">
     <div class="lab">«Naša Sloga», 1 March 1872</div>
-    <p style="margin-top:8px">{names.sarenjaci.tale}</p>
-    <p style="margin-top:12px">{names.sarenjaci.then}</p>
+    <p style="margin-top:8px" set:html={_md(names.sarenjaci.tale)}></p>
+    <p style="margin-top:12px" set:html={_md(names.sarenjaci.then)}></p>
   </div>
   <div class="qz" style="margin-top:16px">
     <p class="qit">“{names.sarenjaci.quote}”</p>
-    <p class="qen">{names.sarenjaci.quote_en}</p>
+    <p class="qen" set:html={_md(names.sarenjaci.quote_en)}></p>
   </div>
-  <p class="cap" style="margin-top:10px">{names.sarenjaci.quote_src}</p>
+  <p class="cap" style="margin-top:10px" set:html={_md(names.sarenjaci.quote_src)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:18px">
     <div class="lab">And what it has to do with this family</div>
-    <p style="margin-top:8px">{names.sarenjaci.us}</p>
+    <p style="margin-top:8px" set:html={_md(names.sarenjaci.us)}></p>
   </div>
-  <p class="prose note" style="margin-top:22px">{names.sarenjaci.caution}</p>
-  <p class="cap" style="margin-top:14px">{names.sarenjaci.source}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(names.sarenjaci.caution)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(names.sarenjaci.source)}></p>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{names.inuse.heading}</h2>
-  <p class="dek" style="margin-top:8px">{names.inuse.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(names.inuse.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {names.inuse.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  {names.inuse.what && <p class="prose note" style="margin-top:22px">{names.inuse.what}</p>}
-  <p class="cap" style="margin-top:14px">{names.inuse.source_inuse}</p>
+  {names.inuse.what && <p class="prose note" style="margin-top:22px" set:html={_md(names.inuse.what)}></p>}
+  <p class="cap" style="margin-top:14px" set:html={_md(names.inuse.source_inuse)}></p>
 </section>
 
 
@@ -210,7 +211,7 @@ import gn from "../data/givennames.json";
   <div class="one" style="margin-top:22px;border-left-color:var(--accent)">
     <p set:html={on.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{on.source_on}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(on.source_on)}></p>
 </section>
 
 </Base>

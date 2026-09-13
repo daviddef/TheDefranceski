@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import SceneLapidarius from "../components/SceneLapidarius.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -52,8 +53,8 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
             </div>
           )}
 
-          <p class="cap" style="max-width:62ch">{g.evidence}</p>
-          {g.flag && <p class="note" style="margin-top:12px">{g.flag}</p>}
+          <p class="cap" style="max-width:62ch" set:html={_md(g.evidence)}></p>
+          {g.flag && <p class="note" style="margin-top:12px" set:html={_md(g.flag)}></p>}
 
           {g.sources && g.sources.length > 0 && (
             <p class="mono" style="margin-top:10px;color:var(--ink-3)">
@@ -87,25 +88,25 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <Lightbox />
 <section class="blk">
   <h2>{dl.gracisce_town.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.gracisce_town.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.gracisce_town.lead)}></p>
   <div class="grid g3" style="margin-top:22px">
     {dl.gracisce_town.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <h3 style="font-size:18px">{r.t}</h3>
-        <p>{r.w}</p>
+        <p set:html={_md(r.w)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:20px">{dl.gracisce_town.caution}</p>
+  <p class="prose note" style="margin-top:20px" set:html={_md(dl.gracisce_town.caution)}></p>
 
   <h3 style="font-size:22px;margin-top:34px">{dl.gracisce_town.salamon.heading}</h3>
-  <p class="dek" style="margin-top:8px">{dl.gracisce_town.salamon.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.gracisce_town.salamon.lead)}></p>
   <div style="margin-top:18px"><SalamonPalace /></div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.gracisce_town.salamon.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
@@ -123,8 +124,8 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <div class="one" style="border-left-color:var(--ochre);margin-top:22px">
     <div class="lab">Chased, and blocked</div>
     <h3>{dl.gracisce_town.cadastre.heading}</h3>
-    <p>{dl.gracisce_town.cadastre.text}</p>
-    <p style="margin-top:12px">{dl.gracisce_town.cadastre.ask}</p>
+    <p set:html={_md(dl.gracisce_town.cadastre.text)}></p>
+    <p style="margin-top:12px" set:html={_md(dl.gracisce_town.cadastre.ask)}></p>
     <p style="margin-top:12px"><strong>{dl.gracisce_town.cadastre.why}</strong></p>
     <p class="cap" style="margin-top:12px">Three ways to get it:</p>
     <ul class="prose" style="display:block;margin-top:4px">
@@ -134,31 +135,31 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <div class="one" style="border-left-color:var(--accent);margin-top:22px">
     <div class="lab">Located</div>
     <h3>{dl.gracisce_town.urbaria.heading}</h3>
-    <p>{dl.gracisce_town.urbaria.text}</p>
+    <p set:html={_md(dl.gracisce_town.urbaria.text)}></p>
     <div class="scroll" style="margin-top:14px">
       <table><tbody>{dl.gracisce_town.urbaria.rows.map(([a,b,c]) => (
         <tr><td>{a}</td><td>{b}</td><td class="m">{c}</td></tr>
       ))}</tbody></table>
     </div>
     <p style="margin-top:14px"><strong>{dl.gracisce_town.urbaria.why}</strong></p>
-    <p class="cap" style="margin-top:12px">{dl.gracisce_town.urbaria.note}</p>
+    <p class="cap" style="margin-top:12px" set:html={_md(dl.gracisce_town.urbaria.note)}></p>
     <h3 style="margin-top:26px">{dl.gracisce_town.urbaria.found.heading}</h3>
     <div style="margin-top:14px;display:flex;flex-direction:column;gap:16px">
       {dl.gracisce_town.urbaria.found.rows.map(r => (
         <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
           <div class="lab">{r.lab}</div>
-          <p style="margin-top:8px">{r.text}</p>
+          <p style="margin-top:8px" set:html={_md(r.text)}></p>
         </div>
       ))}
     </div>
-    <p class="cap" style="margin-top:14px">{dl.gracisce_town.urbaria.found.source_u}</p>
+    <p class="cap" style="margin-top:14px" set:html={_md(dl.gracisce_town.urbaria.found.source_u)}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{dl.gracisce_town.source}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(dl.gracisce_town.source)}></p>
 </section>
 <Rule name="arrows" />
 <section class="blk">
   <h2>{dl.village_1895.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.village_1895.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.village_1895.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table>
       <thead><tr><th class="m">When</th><th>What</th><th>As the paper has it</th></tr></thead>
@@ -167,14 +168,14 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:18px">{dl.village_1895.close}</p>
-  <p class="cap" style="margin-top:12px">{dl.village_1895.source}</p>
+  <p class="prose note" style="margin-top:18px" set:html={_md(dl.village_1895.close)}></p>
+  <p class="cap" style="margin-top:12px" set:html={_md(dl.village_1895.source)}></p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>{dl.town.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.town.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.town.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table>
       <thead><tr><th class="m">When</th><th>What</th><th>What Ivetic shows</th></tr></thead>
@@ -183,55 +184,55 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:18px">{dl.town.close}</p>
-  <p class="cap" style="margin-top:12px">{dl.town.source}</p>
+  <p class="prose note" style="margin-top:18px" set:html={_md(dl.town.close)}></p>
+  <p class="cap" style="margin-top:12px" set:html={_md(dl.town.source)}></p>
 </section>
 <Rule name="helm" />
 
 <section class="blk">
   <h2>{dl.film215.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.film215.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.film215.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {dl.film215.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
   <div class="one" style="border-left-color:var(--terra);margin-top:24px">
     <div class="lab">1679, the year of the headmen's list</div>
     <h3>{dl.film215.year1679.heading}</h3>
-    <p style="margin-top:10px">{dl.film215.year1679.text}</p>
+    <p style="margin-top:10px" set:html={_md(dl.film215.year1679.text)}></p>
     <p style="margin-top:12px"><strong>{dl.film215.year1679.why}</strong></p>
   </div>
-  <p class="prose note" style="margin-top:22px">{dl.film215.todo}</p>
-  <p class="prose" style="margin-top:14px">{dl.film215.caution}</p>
-  <p class="cap" style="margin-top:12px">{dl.film215.source}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(dl.film215.todo)}></p>
+  <p class="prose" style="margin-top:14px" set:html={_md(dl.film215.caution)}></p>
+  <p class="cap" style="margin-top:12px" set:html={_md(dl.film215.source)}></p>
 </section>
 <Rule name="tablet" />
 
 <section class="blk">
   <h2>{dl.count1720.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.count1720.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.count1720.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{dl.count1720.quote}”</p>
-    <p class="qen">{dl.count1720.en}</p>
+    <p class="qen" set:html={_md(dl.count1720.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.count1720.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{dl.count1720.means}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(dl.count1720.means)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:20px">
     <div class="lab">A person to find</div>
-    <p style="margin-top:8px">{dl.count1720.next}</p>
+    <p style="margin-top:8px" set:html={_md(dl.count1720.next)}></p>
   </div>
-  <p class="cap" style="margin-top:14px">{dl.count1720.source_count}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(dl.count1720.source_count)}></p>
 </section>
 <Rule name="arcade" />
 
@@ -239,65 +240,65 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 
 <section class="blk">
   <h2>{dl.gologoricamen.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.gologoricamen.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.gologoricamen.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.gologoricamen.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
   <div class="one" style="border-left-color:var(--terra);margin-top:22px">
     <div class="lab">One word, enlarged eleven times</div>
-    <p style="margin-top:8px">{dl.gologoricamen.reading}</p>
+    <p style="margin-top:8px" set:html={_md(dl.gologoricamen.reading)}></p>
   </div>
-  <p class="prose note" style="margin-top:22px">{dl.gologoricamen.weight}</p>
-  <p class="prose" style="margin-top:16px">{dl.gologoricamen.shape}</p>
-  <p class="cap" style="margin-top:14px">{dl.gologoricamen.source_men}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(dl.gologoricamen.weight)}></p>
+  <p class="prose" style="margin-top:16px" set:html={_md(dl.gologoricamen.shape)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(dl.gologoricamen.source_men)}></p>
 </section>
 <Rule name="loom" />
 
 <section class="blk">
   <h2>{dl.suppanus.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.suppanus.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.suppanus.lead)}></p>
   <div class="qz" style="margin-top:18px">
-    <p class="qit">{dl.suppanus.quote}</p>
-    <p class="qen">{dl.suppanus.en}</p>
+    <p class="qit" set:html={_md(dl.suppanus.quote)}></p>
+    <p class="qen" set:html={_md(dl.suppanus.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.suppanus.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{dl.suppanus.tension}</p>
-  <p class="prose" style="margin-top:16px">{dl.suppanus.careful}</p>
-  <p class="cap" style="margin-top:14px">{dl.suppanus.source_sup}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(dl.suppanus.tension)}></p>
+  <p class="prose" style="margin-top:16px" set:html={_md(dl.suppanus.careful)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(dl.suppanus.source_sup)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{dl.statusanimarum.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.statusanimarum.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.statusanimarum.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.statusanimarum.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px">{dl.statusanimarum.scale}</p>
-  <p class="cap" style="margin-top:14px">{dl.statusanimarum.source_sa}</p>
+  <p class="prose note" style="margin-top:22px" set:html={_md(dl.statusanimarum.scale)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(dl.statusanimarum.source_sa)}></p>
 </section>
 <section class="blk"><SceneLapidarius /></section>
 <Rule name="tablet" label="Checked against the family tree" />
 <section class="blk">
   <h2>{dl.treecheck.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.treecheck.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.treecheck.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.treecheck.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -306,12 +307,12 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{dl.treecheck.source_tc}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(dl.treecheck.source_tc)}></p>
 </section>
 <Rule name="arcade" label="Gračišće, photographed" />
 <section class="blk">
   <h2>{dl.fieldplates.heading}</h2>
-  <p class="dek" style="margin-top:8px">{dl.fieldplates.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(dl.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={dl.fieldplates.ids} /></div>
 </section>
 <Lightbox />
@@ -335,7 +336,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{dl.raymundus.source_ray}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(dl.raymundus.source_ray)}></p>
 </section>
 
 <Sources ids={["dapa", "maticne", "familysearch", "album2012", "huic", "anno", "hrcak", "ivetic", "attirovigno", "archiveorg", "arhivskivjesnik"]} />

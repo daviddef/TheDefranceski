@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
@@ -41,7 +42,7 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
           <td>{k.n}</td>
           <td class="m">{k.born}{k.died ? ` – ${k.died}` : ""}</td>
           <td>{k.where}</td>
-          <td>{k.story}{k.check && <><br /><span class="mono" style="color:var(--accent);font-size:11.5px">Corroborated: {k.check}</span></>}</td>
+          <td><span set:html={md(k.story)} />{k.check && <><br /><span class="mono" style="color:var(--accent);font-size:11.5px">Corroborated: <span set:html={md(k.check)} /></span></>}</td>
         </tr>
       ))}</tbody>
     </table>
@@ -58,8 +59,8 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 
 <section class="blk">
   <h2 style="font-size:31px">{am.heading}</h2>
-  <p class="dek" style="margin-top:8px">{am.lead}</p>
-  <p class="note" style="margin-top:16px">{am.note}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(am.lead)}></p>
+  <p class="note" style="margin-top:16px" set:html={_md(am.note)}></p>
 
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:18px">
     {am.rows.map(r => (
@@ -70,7 +71,7 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
             <table class="hh">
               <thead><tr>{r.table.head.map(h => <th>{h}</th>)}</tr></thead>
               <tbody>{r.table.rows.map(row => (
-                <tr>{row.map((c, i) => i === 0 ? <td><strong>{c}</strong></td> : <td class={i > 2 ? "m" : ""}>{c}</td>)}</tr>
+                <tr>{row.map((c, i) => i === 0 ? <td><strong set:html={md(String(c))} /></td> : <td class={i > 2 ? "m" : ""} set:html={md(String(c))}></td>)}</tr>
               ))}</tbody>
             </table>
           </div>
@@ -82,7 +83,7 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 
 
   <h3 style="font-size:25px;margin-top:46px">{am.images.heading}</h3>
-  <p class="dek" style="margin-top:8px">{am.images.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(am.images.lead)}></p>
   <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
     {am.images.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -95,7 +96,7 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 
 
   <h3 style="font-size:25px;margin-top:46px">{am.antonio.heading}</h3>
-  <p class="dek" style="margin-top:8px">{am.antonio.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(am.antonio.lead)}></p>
   <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
     {am.antonio.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -117,7 +118,7 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
   </div>
 
   <h3 style="font-size:25px;margin-top:44px">{am.fused.heading}</h3>
-  <p class="dek" style="margin-top:8px">{am.fused.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(am.fused.lead)}></p>
   <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
     {am.fused.rows.map(r => (
       <div class="one">
@@ -128,14 +129,14 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
   </div>
 
   <p class="prose note" style="margin-top:26px" set:html={md(am.honest)}></p>
-  <p class="cap" style="margin-top:14px">{am.source}</p>
+  <p class="cap" style="margin-top:14px" set:html={_md(am.source)}></p>
 </section>
 
   <h2 style="font-size:30px;margin-top:52px">And the arms are on the house</h2>
   <div class="grid g2" style="margin-top:22px;align-items:start">
     <div class="prose">
       <p>The 2012 album's opening essay describes the house at Moncalvo — Gologorica — that the family says Gian Battista built in 1711:</p>
-      <p class="note" style="margin-top:14px">{e.arms}</p>
+      <p class="note" style="margin-top:14px" set:html={_md(e.arms)}></p>
       <p>Read that against the blazon. The <em>Blasonario Giuliano</em> gives, for the Defranceschi of Fiume: <em>per fess — argent, a cross issuing from the division pierced by two arrows, all gules; vert, a pomegranate proper</em>. And Carlo De Franceschi, writing privately about his own family around 1873: <em>a cross crossed by two arrows; in the lower part a pomegranate</em>.</p>
       <p>An American cousin standing in an Istrian village square, squinting at a worn stone, described a silver field with a red cross crossed by two arrows and a green field with a fruit on it — and called the fruit a turnip, which is exactly what a weathered pomegranate looks like.</p>
       <p>The armorial is not an independent witness — it credits its blazon to <span class="mono">(C. de F.)</span>, Carlo himself. <strong>The stone is.</strong> A man who had read neither the letter nor the armorial described the thing on the wall, and got it right.</p>
@@ -148,45 +149,45 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 
 <section class="blk">
   <h2>{e.album.heading}</h2>
-  <p class="dek" style="margin-top:10px">{e.album.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(e.album.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {e.album.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
   <div class="one" style="border-left-color:var(--terra);margin-top:22px">
     <div class="lab">Three things in family hands</div>
-    <p style="margin-top:8px">{e.album.provenance}</p>
+    <p style="margin-top:8px" set:html={_md(e.album.provenance)}></p>
   </div>
-  <p class="prose" style="margin-top:22px">{e.album.cousins}</p>
-  <p class="prose note" style="margin-top:16px">{e.album.note_date}</p>
+  <p class="prose" style="margin-top:22px" set:html={_md(e.album.cousins)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(e.album.note_date)}></p>
 </section>
 <Rule name="arrows" />
 
 <section class="blk">
   <h2>{e.gracisce.heading}</h2>
-  <p class="dek" style="margin-top:10px">{e.gracisce.lead}</p>
-  <div class="qz" style="margin-top:16px"><p class="qit">{e.gracisce.quote}</p></div>
+  <p class="dek" style="margin-top:10px" set:html={_md(e.gracisce.lead)}></p>
+  <div class="qz" style="margin-top:16px"><p class="qit" set:html={_md(e.gracisce.quote)}></p></div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {e.gracisce.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose" style="margin-top:22px">{e.gracisce.gathered}</p>
-  <p class="prose note" style="margin-top:16px">{e.gracisce.why}</p>
-  <p class="cap" style="margin-top:14px">{e.gracisce.source_gracisce}</p>
+  <p class="prose" style="margin-top:22px" set:html={_md(e.gracisce.gathered)}></p>
+  <p class="prose note" style="margin-top:16px" set:html={_md(e.gracisce.why)}></p>
+  <p class="cap" style="margin-top:14px" set:html={_md(e.gracisce.source_gracisce)}></p>
 </section>
 <Rule name="tablet" label="House 24, in the priest's own hand" />
 
 <section class="blk">
   <h2>{e.register.heading}</h2>
-  <p class="dek" style="margin-top:10px">{e.register.lead}</p>
+  <p class="dek" style="margin-top:10px" set:html={_md(e.register.lead)}></p>
   <div style="margin-top:22px"><Plates ids={["pazin-h24-eleven","pazin-h24-daniel"]} /></div>
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
     {e.register.rows.map(r => (
@@ -200,9 +201,9 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
               facts={e.household.facts} spouse={e.household.spouse}
               children={e.household.children} note={e.household.note} tone="accent" />
 
-  {e.register.further && <p class="prose" style="margin-top:22px">{e.register.further}</p>}
-  {e.register.scale && <p class="prose note" style="margin-top:16px">{e.register.scale}</p>}
-  <p class="cap" style="margin-top:14px">{e.register.source_reg}</p>
+  {e.register.further && <p class="prose" style="margin-top:22px" set:html={_md(e.register.further)}></p>}
+  {e.register.scale && <p class="prose note" style="margin-top:16px" set:html={_md(e.register.scale)}></p>}
+  <p class="cap" style="margin-top:14px" set:html={_md(e.register.source_reg)}></p>
 </section>
 
 <Rule name="arrows" label="Brooklyn" />
@@ -218,7 +219,7 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{e.america.source_am}</p>
+  <p class="cap" style="margin-top:16px" set:html={_md(e.america.source_am)}></p>
 </section>
 
   <section class="prose" style="margin-top:46px">
@@ -235,16 +236,16 @@ const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" &
 
 <section class="blk">
   <h2>{e.before.heading}</h2>
-  <p class="dek" style="margin-top:8px">{e.before.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={_md(e.before.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {e.before.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px">{r.text}</p>
+        <p style="margin-top:8px" set:html={_md(r.text)}></p>
       </div>
     ))}
   </div>
-  {e.before.method && <p class="prose note" style="margin-top:22px">{e.before.method}</p>}
+  {e.before.method && <p class="prose note" style="margin-top:22px" set:html={_md(e.before.method)}></p>}
   <p class="cap" style="margin-top:14px">{e.before.source_before || e.before.source_lives}</p>
 </section>
 
