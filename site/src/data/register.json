@@ -21380,6 +21380,31 @@
    ]
   ],
   "close": "Counted by `scripts/audit.py` on every publish, so it cannot go stale. **A lead row is not a finding — but this many of them, pointing at this few women, is a queue rather than noise.**",
-  "close_krbune": "**One of the twenty-six has since been placed, and not by working the row.** «Mariana Defranceschi» — five children by a husband the index spells *Marziol*, *Marizo*, *Marjas* and *Marjiol* — is at **Krbune**, a one-volume parish of 124 images in the County of Pazin, four kilometres from Gologorica. She was found by matching her children's **image arks** to the parish's book rather than by reading her empty place field. The same test will place others: every row in this queue has an empty place, and every one of them sits on a page bound into some parish's register."
+  "close_krbune": "**One of the twenty-six has since been placed, and not by working the row.** «Mariana Defranceschi» — five children by a husband the index spells *Marziol*, *Marizo*, *Marjas* and *Marjiol* — is at **Krbune**, a one-volume parish of 124 images in the County of Pazin, four kilometres from Gologorica. She was found by matching her children's **image arks** to the parish's book rather than by reading her empty place field. The same test will place others: every row in this queue has an empty place, and every one of them sits on a page bound into some parish's register.",
+  "resolved": {
+   "heading": "The queue, resolved — and most of them were Vodnjan's all along",
+   "lead": "The twenty-six women were followed through the one field their rows do have: the **film number** carried by every child's record. **137 of their 155 rows** resolved to a reel.",
+   "rows": [
+    {
+     "lab": "Forty-nine rows are on one reel, and it is not the parish the catalogue names",
+     "key": true,
+     "text": "**Domenica, Dominica, Lucia, Michiela, Pascha, Pasqua, Veneranda, Maria, Michaela, Cattarina, Anna** — about **forty-nine** of the children's records sit on film **005497893**.\n\nThat film's catalogue creator reads «Rimokatolička crkva, **Župa Vižinada**». It is not Vižinada's. Tested image by image earlier the same day, **two of the hundred and twelve town-less records on that reel are Vižinada's**; the rest are on the second item bound to it, the books this archive identified in September as **Vodnjan's**.\n\nSo the largest block of «lost daughters» are **Vodnjan's own daughters**, and the Vodnjan marriage register had already said so. Read in September, it gave *«four women of the name married out before the books open — Domenica, Antonia Maria, Lucia and Veniera»*, recoverable only because their daughters' weddings named their mothers. **The index has been holding their children the whole time**, in rows with no place on them. <span class=\"chip inf\" style=\"padding:2px 7px;font-size:10px\">Inferred — proven not to be Vižinada's; Vodnjan is the only other parish on the reel</span>"
+    },
+    {
+     "lab": "Francisca, the biggest of them, is at Svetvinčenat",
+     "key": true,
+     "text": "**Francisca Defranceschi — nine children, 1831–1846, by Antonius Cerneca** — has been the head of this queue since it was built. All nine of her rows are on film **005497886**: **Svetvinčenat**, the deaths-and-marriages reel.\n\nShe is not alone there. **Veneranda Defranceschi**'s nine rows are on **005497885**, Svetvinčenat's baptism reel, and **Sinforosa Defranceschi** is on 005497886 too — and *Sinforosa* is already in the nineteen Svetvinčenat marriages read out of that book this morning: **«Andrea Vernier × Sinforosa Defranceschi, 1801»**. Two routes, run hours apart, landing on the same woman."
+    },
+    {
+     "lab": "And four of them left Istria",
+     "text": "**Marietta Defranceschi** — three children 1843–1871 — is at **Dubrovnik**, two rows on the city parish's reel and one on another. **Antonia Defranceschi**, 1796, is at **Rijeka**. **Dominica** and **Domenica Defranceschi** have five rows between them on **Labin**'s reel. **Catharina Defranceschi** has one at **Barban**.\n\nNone of those four towns would ever have been guessed from the rows, because the rows say nothing at all."
+    },
+    {
+     "lab": "What is still open",
+     "text": "Eight reels remain unnamed, and they hold the rest: **005494789** (nine rows of a *Maria Defranceschi*, the single largest unresolved block), 005494797, 005494798, 005494788, 005497818, 005497822 (five rows of **Mariana** — expected to be **Krbune**, where a Mariana De Franceschi × Vincentius Marziol was found the same day), 005497825, 005497835. **005497826** came back carrying three parishes at once — Pazin, Pomer and Plomin — and needs the ark test rather than the catalogue.\n\nEighteen rows matched no record in any harvest and need re-fetching one at a time.\n\nThe work stopped where it did because FamilySearch returned **403** for the second time in an afternoon. It is a throttle, not a wall."
+    }
+   ],
+   "source_res": "Resolved 13 September 2026 by re-harvesting the persona index on q.motherSurname across Croatia, indexing every persona id in each record rather than only the principal's — which is why 137 of 155 rows matched where an earlier pass matched one — and reading each record's own FS_DIGITAL_FILM_NBR."
+  }
  }
 }

@@ -59,6 +59,21 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
   </div>
   <p class="prose note" style="margin-top:16px" set:html={md(r.lost.close)}></p>
   {r.lost.close_krbune && <div class="one" style="margin-top:18px;border-left-color:var(--accent)"><div class="lab">Placed, 13 September 2026</div><p style="margin-top:8px" set:html={md(r.lost.close_krbune)}></p></div>}
+
+{r.lost.resolved && (
+<section class="blk" id="resolved" style="margin-top:44px">
+  <h2 style="font-size:26px">{r.lost.resolved.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={md(r.lost.resolved.lead)}></p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+    {r.lost.resolved.rows.map(x => (
+      <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{x.lab}</div>
+        <p style="margin-top:8px;white-space:pre-line" set:html={md(x.text)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px">{r.lost.resolved.source_res}</p>
+</section>)}
 </section>
 
 <Rule name="pomegranate" label="The list" />
