@@ -1,0 +1,150 @@
+---
+/* Kin — the direct line widened by one step.
+   Every child of every generation, not only the one who carried the name;
+   the mother's family linked out to its own page; and the collateral
+   branches this archive has actually documented, named as such. */
+import { u } from "../lib/url.js";
+import dl from "../data/directline.json";
+import doss from "../data/dossiers.json";
+import mi from "../data/marriedin.json";
+import { makeResolver, norm } from "../lib/people.js";
+const resolve = makeResolver(Object.values(doss.people));
+
+const famSlug = (spouseName) => {
+  if (!spouseName) return null;
+  const s = norm(spouseName);
+  const hit = mi.rows.find(r => r.detail && s.includes(norm(r.name).split(" ")[0]));
+  return hit ? hit.slug : null;
+};
+
+const gens = dl.generations.filter(g => (g.children || []).length > 0);
+const totalKids = gens.reduce((a, g) => a + g.children.length, 0);
+const totalSibs = totalKids - gens.length;
+
+const BRANCH = {
+  "Antonius|1856": { href: "/the-eleven/", label: "Eleven children, and a branch on three continents" },
+};
+const branchOf = (c) => {
+  const y = String(c.born || "").match(/\b(1[89]\d\d)\b/);
+  return BRANCH[`${(c.name || "").split(" ")[0]}|${y ? y[1] : ""}`] || null;
+};
+---
+<div class="kin">
+  <p class="kin-lede">
+    Eight generations carried the name down. Beside them stood <strong>{totalSibs} brothers and sisters</strong>
+    who did not — and whose descendants are as much this family as the line that happens to reach the keeper of the archive.
+    This is the line widened by one step. Every child the registers give, the one who carried it marked;
+    and where a sibling founded a branch this archive has worked, the branch is linked.
+  </p>
+
+  <div class="kin-key">
+    <span class="k"><i class="sw carry"></i>carried the name to the next generation</span>
+    <span class="k"><i class="sw"></i>a brother or sister of the line</span>
+    <span class="k"><i class="sw lost"></i>died as a child</span>
+    <span class="k"><i class="sw br"></i>founded a documented branch</span>
+  </div>
+
+  {gens.map(g => {
+    const fs = famSlug(g.spouse && g.spouse.name);
+    return (
+      <section class="kg">
+        <div class="kg-h">
+          <span class="kg-n">{g.n}</span>
+          <div class="kg-c">
+            <span class="kg-f">{g.name}</span>
+            {g.spouse && <><span class="kg-amp">×</span><span class="kg-m">{g.spouse.name}</span></>}
+          </div>
+          {fs && <a class="kg-fam" href={u(`/married-in/${fs}/`)}>her family →</a>}
+        </div>
+        {g.place && <div class="kg-p">{g.place}</div>}
+
+        <div class="kg-kids">
+          {g.children.map(c => {
+            const carries = !!(c.line || c.carries);
+            const br = branchOf(c);
+            const died = /–|—/.test(String(c.born || "")) && /19\d\d|18\d\d/.test(String(c.born || "")) && String(c.born).includes("–");
+            const slug = resolve(c.name, c.born);
+            const Tag = slug ? "a" : "div";
+            return (
+              <Tag class={`knd${carries ? " carry" : ""}${br ? " br" : ""}`}
+                   href={slug ? u(`/who/${slug}/`) : undefined}>
+                <div class="knd-n">{c.name}</div>
+                <div class="knd-d">{c.born || "dates unknown"}</div>
+                {c.note && <div class="knd-note">{c.note}</div>}
+                {carries && <div class="knd-tag">carried the line</div>}
+                {br && <div class="knd-br">{br.label}</div>}
+              </Tag>
+            );
+          })}
+        </div>
+
+        {g.children.some(c => branchOf(c)) && (
+          <div class="kg-out">
+            {g.children.filter(c => branchOf(c)).map(c => (
+              <a class="kg-go" href={u(branchOf(c).href)}>Open {c.name}'s branch →</a>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  })}
+
+  <div class="kin-note">
+    <div class="kin-nh">What this view still cannot do</div>
+    <p>It widens the line by <strong>one</strong> step — children, not grandchildren. To go further sideways the archive
+    needs the siblings' own households, and it has them for exactly one: <strong>Antonio of 1856</strong>, whose eleven
+    children are worked in full. For the other {totalSibs - 1} the registers have not been followed past the baptism.
+    <strong>That is the honest limit, and it is a to-do rather than a wall</strong> — every one of those names has a parish and a year.</p>
+  </div>
+</div>
+
+<style>
+.kin{margin:24px 0}
+.kin-lede{font-family:var(--sans);font-size:14.5px;line-height:1.68;color:var(--ink-2);
+  max-width:82ch;margin:0 0 18px;border-left:2px solid var(--accent);padding-left:18px}
+.kin-key{display:flex;flex-wrap:wrap;gap:9px 22px;margin-bottom:24px;
+  font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+.kin-key .k{display:inline-flex;align-items:center;gap:7px}
+.kin-key .sw{width:13px;height:13px;border-radius:2px;border:1px solid var(--rule-strong);flex:none}
+.kin-key .sw.carry{border-color:var(--accent);background:var(--accent-wash)}
+.kin-key .sw.lost{border-style:dashed}
+.kin-key .sw.br{border-color:var(--ochre);background:color-mix(in srgb,var(--ochre) 14%,transparent)}
+
+.kg{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.kg:last-of-type{border-bottom:0}
+.kg-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+.kg-n{flex:none;width:26px;height:26px;line-height:24px;text-align:center;border-radius:50%;
+  border:1px solid var(--accent);color:var(--accent);background:var(--accent-wash);
+  font-family:var(--mono);font-size:12px}
+.kg-c{font-family:var(--serif);font-size:21px;line-height:1.25;color:var(--ink)}
+.kg-amp{color:var(--ink-3);margin:0 8px;font-size:16px}
+.kg-m{color:var(--ink-2)}
+.kg-fam{font-family:var(--sans);font-size:11.5px;text-decoration:none;white-space:nowrap}
+.kg-fam:hover{text-decoration:underline}
+.kg-p{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin:6px 0 0 38px}
+
+.kg-kids{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:10px;margin:14px 0 0 38px}
+.knd{display:block;text-decoration:none;border:1px solid var(--rule);border-radius:2px;
+  padding:11px 13px 12px;background:none}
+a.knd:hover{border-color:var(--accent)}
+.knd.carry{border-color:var(--accent);background:var(--accent-wash)}
+.knd.br{border-color:var(--ochre)}
+.knd-n{font-family:var(--serif);font-size:16px;line-height:1.25;color:var(--ink)}
+.knd-d{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:4px;
+  font-variant-numeric:tabular-nums}
+.knd-note{font-family:var(--sans);font-size:11.5px;line-height:1.5;color:var(--ink-2);margin-top:7px}
+.knd-tag{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--accent);margin-top:8px}
+.knd-br{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--ochre);margin-top:8px}
+.kg-out{margin:12px 0 0 38px}
+.kg-go{font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.kg-go:hover{text-decoration:underline}
+
+.kin-note{margin-top:10px;border:1px solid var(--rule);border-left:3px solid var(--terra);
+  border-radius:2px;padding:14px 18px}
+.kin-nh{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:7px}
+.kin-note p{font-family:var(--sans);font-size:13.5px;line-height:1.66;color:var(--ink-2);margin:0;max-width:84ch}
+
+@media (max-width:640px){ .kg-kids,.kg-p,.kg-out{margin-left:0} }
+</style>

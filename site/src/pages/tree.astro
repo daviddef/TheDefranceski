@@ -7,6 +7,7 @@ import dl from "../data/directline.json";
 import anc from "../data/ancestors.json";
 import AncChart from "../components/AncChart.astro";
 import Spine from "../components/Spine.astro";
+import Kin from "../components/Kin.astro";
 import spines from "../data/spines.json";
 import arch from "@daviddef/archive-kit/data/archives.json";
 import doss from "../data/dossiers.json";
@@ -214,6 +215,13 @@ const md = (x) => String(x ?? "")
   </section>
 
   <Sources ids={["dapa", "maticne", "mftpkg", "arolsen", "myheritage"]} />
+  <Rule name="arrows" label="The line, widened" />
+  <section class="blk">
+    <h2 style="font-size:30px;margin:6px 0 4px">The brothers and sisters, and where their branches go</h2>
+    <Kin />
+  </section>
+
+
 </Base>
 
 <style>
