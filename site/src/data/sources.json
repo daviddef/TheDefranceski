@@ -936,5 +936,19 @@
   "where": "«Libellarium» 13, 2 (2022), pp. 3–28. doi 10.15291/libellarium.3708. Open access; read in full, September 2026.",
   "note": "The first published account of the family's own library — 2,396 items, 1503–1945 — in the National and University Library at Zagreb, where it lay unprocessed in boxes from 1949 until 2009. Carries Hauptmann's 1945 report on the house at Gologorica, the signatures of five generations, the D'Annunzio and Martinuzzi manuscripts, and a third independent statement that the Gologorica and Šeget families are two families.",
   "cites": []
+ },
+ {
+  "id": "soli",
+  "kind": "Database",
+  "title": "The Statue of Liberty–Ellis Island Foundation, Arrival Records Collection",
+  "where": "statueofliberty.org · free, no account, no paywall",
+  "url": "https://www.statueofliberty.org/arrival-records-collection/",
+  "what": "The Foundation's own passenger database, searched for this archive for the first time on 13 September 2026. It aggregates seven American arrival collections — including **New York, Passenger Lists 1820–1920**, which covers the Castle Garden decades before Ellis Island opened, and the Vermont and Philadelphia border and port lists. Its records carry a **Last Residence** field, which is the field this archive most needs and which a name index alone never gives.\n\nTwo working notes for whoever comes after. **Use the exact-surname option**: the default is fuzzy and returns nine thousand rows of every spelling of Franceschi, while exact returns 204 and they are the right 204. And **the arrival-year filter does not work** — it changes the result count but not the rows returned, so a year-sliced harvest silently returns the same first page each time. Partition by name, not by year.",
+  "cites": [
+   "De Franceschi, exact surname: 204 arrivals",
+   "Defranceski, De Franceski, Defrančeski, Defranzeschi: 0 arrivals each",
+   "Antonio and Albina De Franceschi, 9 September 1922",
+   "Giov De Franceschi and four children, the St Germain, 1882"
+  ]
  }
 ]
