@@ -117,3 +117,19 @@ Closing that gap means **reading Vodnjan whole**: ~105 images, ~4,600 entries, r
 6. The **Labin 1615 Aloysius** is not in the pool; our Labin records run 1826–1866. Worth re-testing.
 
 **Unchanged and still open:** Vodnjan deaths from book page 176; film 005497895; Corsica 12 NUM 4186–4194; Arolsen (enquiry sent 13 Sept, awaiting reply).
+
+### Later on 13 September — the corrections the round produced
+
+- **131 register rows written back with a resolved town** (`pl` + `plsrc:"film"`): Vodnjan 47 · Svetvinčenat 20 · Fažana 10 · Ližnjan 8 · Pula 7 · Labin 7 · Pomer 7 · Krbune 6 · Vižinada 4 · Dubrovnik 4 · Barban 3 · Medulin 3 · Pazin, Rovinj, Rijeka, Galižana, Split 1 each.
+- **audit.py** now separates *unlocated* from *located but unread*: «of 40 rows, 20 carry a parish resolved from the film».
+- **Six new atlas pages**: Pomer, Krbune, Dubrovnik, Labin, Medulin, Galižana. Two new chart entries: Dubrovnik, and «The daughters' villages».
+- **The Labin 1615 is under correction.** Three later measurements cannot find it (rebuilt sweep 1789, by-image 1826, and the register holds no such row). Earliest in Istria that can actually be produced: **Rovinj 1619, then Svetvinčenat 1628**.
+- **The head-of-page cluster table now carries a by-image column beside every row.** Oprtalj, Roč and Hum hold none of this family. Šterna 1→11, Rovinj 3→21, Kaštelir 4→17, Ližnjan 18→95, Svetvinčenat 11→118.
+
+### Stopped on a hard block
+FamilySearch returned **403 on everything** — search, catalogue, waypoints *and* the Deep Zoom tile service — after a day of heavy use. Earlier 403s cleared in tens of minutes; this one did not within the session. **Resume with light, spaced calls and check `/service/search/hr/v2/personas?...&count=1` before doing anything bulk.**
+
+### First three things when it lifts
+1. **Zanetta Gravisi.** Two Šterna marriage entries, arks `3:1:3QS7-L99X-LH9T` and `3:1:3QSQ-G99X-L4BY`, film 005497888, book «Marriages (Vjenčani) 1723-1820». Two *different* images, both naming Bortolo De Franceschi, son of Gio Batta and Zanetta Gravisi/Granisi — one with «Nazario», one with «Zorzi Marchege». Two marriages of Bortolo, or one entry indexed twice? The pages will say. Gravisi is a Capodistrian marquisal name.
+2. **Francisca Defranceschi × Antonius Cerneca**, nine children 1831–1846, film 005497886 = **Svetvinčenat**. The head of the lost-daughters queue, now located and still unread.
+3. **Fažana**, 42 records and never read by eye: Vittorio × Stella Tamborin and Giuseppe × Giovanna Beluzzi, plus **Maria Defranceschi × Giovanni Moscarda**, six children 1835–1849.
