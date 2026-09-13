@@ -1,0 +1,201 @@
+{
+ "note": "Each line drawn the way the Falco archive draws one: places along a channel, generations numbered, in-marrying families as tributaries.",
+ "spines": [
+  {
+   "key": "carnia",
+   "ours": true,
+   "name": "Out of Carnia, for work",
+   "sub": "Eight generations · Gologorica to Brisbane · 1750 to 2026",
+   "lede": "The channel is the movement of the line. Each stop is a place it actually stood in. The names beneath a stop are the people born there; the arrows coming down are the families that married in, each bringing a town of its own.",
+   "band": {
+    "from": 1,
+    "to": 1,
+    "label": "Three generations born at the one house-number town"
+   },
+   "stops": [
+    {
+     "place": "Gologorica",
+     "years": "by 1750",
+     "gloss": "Caroiba · the house with 1711 over the door",
+     "kind": "origin"
+    },
+    {
+     "place": "Gračišće",
+     "years": "1787 · 1825 · 1863",
+     "gloss": "Gallignana · house 5, then house 19",
+     "kind": "anchor"
+    },
+    {
+     "place": "Crikvenica",
+     "years": "from 1863",
+     "gloss": "over the mountain, onto the coast — out of Istria",
+     "kind": "move"
+    },
+    {
+     "place": "Klenovica",
+     "years": "1890",
+     "gloss": "house 22 · «Gallignana u Istriji» written in the register",
+     "kind": "stop"
+    },
+    {
+     "place": "Pfullingen",
+     "years": "1941",
+     "gloss": "taken to work in the Reich at sixteen",
+     "kind": "rupture"
+    },
+    {
+     "place": "Senj",
+     "years": "to 1995",
+     "gloss": "buried under IVAN DEFRANČESKI",
+     "kind": "stop"
+    },
+    {
+     "place": "Johannesburg",
+     "years": "from 1960s",
+     "gloss": "the second leaving",
+     "kind": "move"
+    },
+    {
+     "place": "Brisbane",
+     "years": "to 2026",
+     "gloss": "",
+     "kind": "end"
+    }
+   ],
+   "people": [
+    {
+     "gen": 1,
+     "name": "Giovanni Defranceschi",
+     "d": "1750 – 1829",
+     "at": 0
+    },
+    {
+     "gen": 2,
+     "name": "Giovanni Battista Defranceschi",
+     "d": "b. 13 Aug 1787 – 1846",
+     "at": 1
+    },
+    {
+     "gen": 3,
+     "name": "Antonio Defranceschi",
+     "d": "b. 20 Sep 1825 – 1894",
+     "at": 1
+    },
+    {
+     "gen": 4,
+     "name": "Josip Defranceschi",
+     "d": "b. 22 Mar 1863 – 1951",
+     "at": 1
+    },
+    {
+     "gen": 5,
+     "name": "Anton Rudolf Defranceski",
+     "d": "b. 20 Jan 1890 – 1943",
+     "at": 3
+    },
+    {
+     "gen": 6,
+     "name": "Ivan Defranceski",
+     "d": "b. 1925 – 1995",
+     "at": 2
+    },
+    {
+     "gen": 7,
+     "name": "Ivan Defranceski",
+     "d": "d. 2026",
+     "at": 5
+    },
+    {
+     "gen": 8,
+     "name": "D. Defranceski",
+     "d": "living — named only",
+     "at": 6
+    }
+   ],
+   "joins": [
+    {
+     "family": "Salomon",
+     "person": "Francisca Salomon",
+     "born": "b. 17 Mar 1797",
+     "gen": 2,
+     "at": 1,
+     "from": "Gračišće",
+     "note": "a family with a palace on the square, facing the bishop's"
+    },
+    {
+     "family": "Fernasar",
+     "person": "Maria née Fernasar",
+     "born": "b. 17 Oct 1832",
+     "gen": 3,
+     "at": 1,
+     "from": "Gračišće",
+     "note": "written Fernasar in one hand and Tornasar in another"
+    },
+    {
+     "family": "Kalanj",
+     "person": "Anna Kalanj",
+     "born": "b. 3 Jan 1864",
+     "gen": 4,
+     "at": 2,
+     "from": "Rijenovica, in the Vinodol",
+     "note": "the valley directly above Crikvenica — she did not move far"
+    },
+    {
+     "family": "Kovačina",
+     "person": "Uršula Kovačina",
+     "born": "b. about 1890",
+     "gen": 5,
+     "at": 3,
+     "from": "not known",
+     "note": "her own birth record has not been found",
+     "open": true
+    },
+    {
+     "family": "Blažević",
+     "person": "Hedviga Blažević",
+     "born": "1926 – 2001",
+     "gen": 6,
+     "at": 5,
+     "from": "Senj",
+     "note": "out of a line of Senj carriers reaching back past 1768",
+     "arch": "blazevic"
+    },
+    {
+     "family": "Lerena",
+     "person": "C. A. Defranceski",
+     "born": "living — named only",
+     "gen": 7,
+     "at": 6,
+     "from": "Johannesburg",
+     "note": "her family is kept in The Lerena Archive",
+     "arch": "lerena"
+    }
+   ],
+   "strands": [
+    {
+     "kind": "proved",
+     "label": "The Eleven of Gračišće",
+     "gen": "from gen 3",
+     "note": "Antonio's elder brother's eleven children — New York, Buenos Aires, Tuscany, Slovenia, Croatia. Same house, proved kin, a different branch.",
+     "href": "/the-eleven/"
+    },
+    {
+     "kind": "open",
+     "label": "Gologorica before 1750",
+     "gen": "above gen 1",
+     "note": "A candidate generation above Giovanni, read but not proved. This is the wall the line stops at.",
+     "href": "/gologorica-line/"
+    },
+    {
+     "kind": "not-joined",
+     "label": "Paluzza, one valley east",
+     "gen": "—",
+     "note": "Eight people of the name in the same Carnia, unworked. Same ground, no join shown.",
+     "href": "/carnia/"
+    }
+   ],
+   "href": "/story/",
+   "cta": "The nine chapters →"
+  }
+ ]
+}

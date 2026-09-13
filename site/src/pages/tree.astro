@@ -6,6 +6,8 @@ import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
 import anc from "../data/ancestors.json";
 import AncChart from "../components/AncChart.astro";
+import Spine from "../components/Spine.astro";
+import spines from "../data/spines.json";
 import arch from "@daviddef/archive-kit/data/archives.json";
 import doss from "../data/dossiers.json";
 import hhs from "../data/households.json";
@@ -61,6 +63,13 @@ const md = (x) => String(x ?? "")
   title="Our line — the tree"
   eyebrow={`${gens.length} generations down · 17 named ancestors and 11 walls back`}
   dek="This is one family of the five — ours. Eight generations of a single descent, each as the couple it actually was. Every mother is named, with her own birthplace and — where her family keeps one — a link to her own archive. Every child is listed, not only the one who carried the line.">
+
+
+  <section class="blk">
+    <div class="lab">The line as ground covered</div>
+    <h2 style="font-size:30px;margin:6px 0 4px">Eight generations, and the seven places that hold them</h2>
+    <Spine s={spines.spines.find(x => x.key === "carnia")} />
+  </section>
 
   <section class="t-anc-sec">
     <h2 class="t-h2">Backwards — the ancestry</h2>
