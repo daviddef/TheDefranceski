@@ -788,3 +788,45 @@ body.is-home #onthispage{display:none}
   background:var(--panel);border:1px solid var(--rule)}
 .feat > h2{font-size:clamp(24px,3.4vw,34px)}
 .feat .dek{margin-top:8px}
+
+
+/* The ladder's own two colours. --ochre and --ink-3 are page-furniture tones
+   and sit at 3.3-4.4:1 on the panel, which is under the line for 10px
+   uppercase, so the two levels that used them get dedicated values instead —
+   checked against all four light papers and all three dark ones. */
+:root{ --ev-inferred:#7A5200; --ev-family:#5F584A; }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ev-inferred:#E0B45C; --ev-family:#B0A796;
+}}
+:root[data-theme="dark"]{ --ev-inferred:#E0B45C; --ev-family:#B0A796; }
+
+/* ---- the shared evidence ladder --------------------------------------- *
+ * Five levels, one meaning across all seven archives. Colour carries the
+ * level; the word carries it too, so the chips are still readable in
+ * monochrome and to anyone who does not separate these hues.              */
+.ev{
+  display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+  border:1px solid currentColor;white-space:nowrap;vertical-align:.08em;
+}
+.ev-documented{color:var(--accent);background:var(--accent-wash)}
+.ev-probable{color:var(--accent);background:transparent}
+.ev-inferred{color:var(--ev-inferred);background:transparent}
+.ev-family{color:var(--ev-family);border-style:dashed;background:transparent}
+.ev-disputed{color:var(--terra);background:transparent}
+
+/* The construct Booyzen invented and the others borrow: state the thing a
+   reader will assume, and say plainly that the archive does not assert it. */
+.notclaimed{
+  border-left:3px solid var(--terra);background:var(--panel);
+  padding:12px 16px;margin:18px 0;
+}
+.notclaimed .lab{
+  font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--terra);display:block;margin-bottom:4px;
+}
+
+.ladder{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;margin-top:18px;align-items:baseline}
+.ladder dt{margin:0}
+.ladder dd{margin:0;color:var(--ink-2)}
+@media (max-width:560px){.ladder{grid-template-columns:1fr;gap:4px 0}.ladder dd{margin-bottom:10px}}

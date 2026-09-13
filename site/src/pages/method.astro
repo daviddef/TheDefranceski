@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Evidence from "../components/Evidence.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import m from "../data/method.json";
@@ -11,6 +12,34 @@ const md = (s) => String(s ?? "")
   .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
 ---
 <Base title={m.title} eyebrow={m.eyebrow} dek={m.dek}>
+
+  <section class="blk" id="ladder">
+    <h2>The five words</h2>
+    <p class="prose">All seven of these family archives grade a claim with the same five words, so a
+    level means the same thing wherever you meet it. The word is always printed next to the colour,
+    because a reader should never have to know the palette to know the confidence.</p>
+    <dl class="ladder">
+      <dt><Evidence level="documented" /></dt>
+      <dd>A record was read, and it says this. The source is named.</dd>
+      <dt><Evidence level="probable" /></dt>
+      <dd>The evidence points one way and nothing found so far points the other. Not proven.</dd>
+      <dt><Evidence level="inferred" /></dt>
+      <dd>Reasoned from what is known — a gap of the right size, a name in the right place — rather
+      than witnessed in a record.</dd>
+      <dt><Evidence level="family" /></dt>
+      <dd>Told, remembered, or written on a family chart. Kept, because discarding it would lose the
+      lead; labelled, because it is not evidence.</dd>
+      <dt><Evidence level="disputed" /></dt>
+      <dd>Two sources disagree and neither has been ruled out. Both are shown.</dd>
+    </dl>
+    <div class="notclaimed">
+      <span class="lab">Not claimed</span>
+      <p class="prose">Some pages carry this instead. It states the thing a reader is likely to
+      assume — the connection that would be tidy, the identification that almost works — and says
+      plainly that this archive does not assert it. An archive is judged as much by what it refuses
+      to say as by what it says.</p>
+    </div>
+  </section>
 <section class="blk"><p class="prose" set:html={md(m.lead)}></p></section>
 <Rule name="arrows" label="Eleven things" />
 <section class="blk">
