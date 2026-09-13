@@ -2,6 +2,8 @@
 import Base from "../../layouts/Base.astro";
 import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
+import dl from "../../data/directline.json";
+import { makeResolver } from "../../lib/people.js";
 import d from "../../data/dossiers.json";
 import artsrc from "../../data/art-src.json";
 import port from "../../data/portraits.json";
@@ -10,6 +12,15 @@ export function getStaticPaths() {
   return Object.values(d.people).map(p => ({ params: { slug: p.slug }, props: { p } }));
 }
 const { p } = Astro.props;
+
+/* Is this person on the direct line? If so the page should say so and lead back
+   to the tree, which is where the eight generations are set out as couples. */
+const _res = makeResolver(Object.values(d.people));
+let onTree = null;
+for (const g of dl.generations) {
+  if (_res(g.name, `${g.born || ""} ${g.died || ""}`) === p.slug) { onTree = { g, role: "in the direct line" }; break; }
+  if (g.spouse && _res(g.spouse.name, g.spouse.born) === p.slug) { onTree = { g, role: `married into it — ${g.name}'s wife` }; break; }
+}
 const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
 const groups = Object.entries(byPage);
@@ -35,6 +46,13 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 ---
 <Base title={p.name} eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
       dek={`Everything this archive holds under this name, gathered from every page of the site.`}>
+
+{onTree && (
+  <a class="ontree" href={u("/tree/#g" + onTree.g.n)}>
+    <span class="ot-k">Generation {onTree.g.n} of {dl.generations.length}</span>
+    <span class="ot-t">This person is on the tree — {onTree.role}. See the generation as the couple it was, with its children and its evidence →</span>
+  </a>
+)}
 
 {pics.length > 0 && (
 <section class="blk">
@@ -369,6 +387,13 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
     border-left: 2px solid var(--terra); color: var(--ink-2);
     font-size: 12.5px; line-height: 1.55;
   }
+  .ontree {
+    display: block; margin: 0 0 20px; padding: 11px 14px; text-decoration: none;
+    border-left: 3px solid var(--accent); background: var(--panel);
+  }
+  .ot-k { display: block; font-family: var(--sans); font-size: 10.5px; letter-spacing: .12em;
+          text-transform: uppercase; color: var(--accent); }
+  .ot-t { display: block; margin-top: 4px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
 </style>
 
 <style>

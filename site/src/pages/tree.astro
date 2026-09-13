@@ -8,6 +8,8 @@ import anc from "../data/ancestors.json";
 import AncChart from "../components/AncChart.astro";
 import arch from "../data/archives.json";
 import doss from "../data/dossiers.json";
+import hhs from "../data/households.json";
+import { makeResolver, norm } from "../lib/people.js";
 
 const gens = dl.generations;
 
@@ -25,15 +27,24 @@ const archOf = (name) => {
   return null;
 };
 
-/* Link a name to its dossier page where one exists. */
-const slugBy = {};
-for (const p of Object.values(doss.people)) {
-  const k = String(p.name || "").toLowerCase().replace(/[^a-z ]/g, "").trim();
-  if (k && !slugBy[k]) slugBy[k] = p.slug;
-}
-const whoOf = (name) => {
-  const k = String(name || "").toLowerCase().replace(/[^a-z ]/g, "").trim();
-  return slugBy[k] || null;
+/* Link a name to its dossier page — via the shared resolver, which will not
+   return a match it cannot confirm against dates. */
+const resolve = makeResolver(Object.values(doss.people));
+const whoOf = (name, dates) => resolve(name, dates);
+
+/* And link a generation to the household this archive reconstructed for it. */
+const hhOf = (g) => {
+  if (!g.spouse) return null;
+  const a = norm(g.name), b = norm(g.spouse.name);
+  const bs = b.split(" ").pop();
+  /* Father's full name must match; for the mother only the surname, because the
+     register writes "Ana Kalanj" where the family chart writes "Anna Kalanj".
+     And the match must be unique — one candidate or none. */
+  const cand = hhs.filter(h => norm(h.father) === a && norm(h.mother).split(" ").pop() === bs);
+  /* Accept several candidates only when they are plainly the same couple — this
+     archive holds Josip and Ana Kalanj twice, at Ledenice and at Crikvenica. */
+  const one = new Set(cand.map(h => norm(h.father) + "|" + norm(h.mother))).size === 1;
+  return cand.length && one ? cand[0] : null;
 };
 
 const CONF = {
@@ -79,11 +90,13 @@ const md = (x) => String(x ?? "")
     const [chip, confLabel, colour] = CONF[g.confidence] || CONF.documented;
     const sp = g.spouse;
     const spArch = sp ? archOf(sp.name) : null;
-    const who = whoOf(g.name);
+    const who = whoOf(g.name, `${g.born || ""} ${g.died || ""}`);
+    const hh = hhOf(g);
+    const spWho = sp ? whoOf(sp.name, sp.born) : null;
     const kids = g.children || [];
     const isLast = i === gens.length - 1;
     return (
-      <section class="t-gen" style={`--c:${colour}`}>
+      <section class="t-gen" id={`g${g.n}`} style={`--c:${colour}`}>
         <div class="t-rail">
           <div class="t-gno">{g.n}</div>
           {!isLast && <div class="t-drop"></div>}
@@ -105,7 +118,7 @@ const md = (x) => String(x ?? "")
               <>
                 <div class="t-amp" aria-hidden="true">×</div>
                 <div class="t-person t-her">
-                  <div class="t-nm">{sp.name}</div>
+                  <div class="t-nm">{spWho ? <a href={u(`/who/${spWho}/`)}>{sp.name}</a> : sp.name}</div>
                   {sp.born && <div class="t-meta"><span>b. {sp.born}</span></div>}
                   {spArch
                     ? <a class="t-xarch" href={spArch.url}>Her family has its own archive — {spArch.name} →</a>
@@ -128,6 +141,7 @@ const md = (x) => String(x ?? "")
           <div class="t-strip">
             <span class="t-where">{g.place}</span>
             {g.married && <span class="m">married {g.married}</span>}
+            {hh && <a class="t-hh" href={u("/households/")}>the household this archive reconstructed{hh.n ? ` — ${hh.n} children` : ""} →</a>}
             <span class="t-cf" style="--c:var(--c)">{confLabel}</span>
           </div>
 
@@ -244,6 +258,7 @@ const md = (x) => String(x ?? "")
   }
   .t-strip .t-where { font-size: 14px; color: var(--ink); }
   .t-strip .m { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+  .t-strip .t-hh { font-size: 12.5px; color: var(--accent); text-decoration: none; }
   .t-strip .t-cf {
     margin-left: auto; font-family: var(--sans); font-size: 10.5px;
     letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);

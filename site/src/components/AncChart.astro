@@ -1,8 +1,11 @@
 ---
 import { u } from "../lib/url.js";
 import arch from "../data/archives.json";
+import doss from "../data/dossiers.json";
+import { makeResolver } from "../lib/people.js";
 const { root } = Astro.props;
 const A = Object.fromEntries(arch.archives.map(a => [a.key, a]));
+const resolve = makeResolver(Object.values(doss.people));
 
 /* Lay the ancestor chart out by computing every box's position first, so an
    eight-deep branch beside a two-deep one cannot tear the page open. */
@@ -19,7 +22,7 @@ function place(node, gen) {
     row = rows.reduce((a, b) => a + b, 0) / rows.length;
     for (const r of rows) links.push({ gen, from: row, to: r });
   }
-  const b = { ...node, gen, row };
+  const b = { ...node, gen, row, who: node.who || (node.wall ? null : resolve(node.n, node.d)) };
   boxes.push(b);
   if (node.wall) walls.push(b);
   return row;
