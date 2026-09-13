@@ -8,6 +8,12 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# The dist/TheDefranceski self-symlink (recreated at the end of every publish so
+# the local preview serves the base path) makes Astro's own build recurse into
+# itself and fail with a module-resolution error. Remove it before building.
+# This has broken a publish four times; it is not going to be remembered by hand.
+rm -f site/dist/TheDefranceski
+
 python3 scripts/build-search-index.py
 
 if ! npm --prefix site run build > /tmp/defr-build.log 2>&1; then
