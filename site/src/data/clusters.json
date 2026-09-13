@@ -2,7 +2,7 @@
  "clusters": {
   "kvarner": {
    "key": "kvarner",
-   "note": "Nine households of the name on the Kvarner, from 1626 to 1855, in two towns twelve kilometres apart. **None of them is joined to another by a record.** They are set out in the order the register produced them, with the broken rungs marked for what they are — the places where a join looks likely and is not written down. Read the mothers' surnames with care: on four of these the indexer has copied the father's name into the mother's field, which is why so many of these men appear to have married a woman of their own name.",
+   "note": "Nine households of the name on the Kvarner, from 1626 to 1855, in two towns twelve kilometres apart. **None of them is joined to another by a record.** They are **not, however, farmers**: the Hungarian state records name a harbour master of Fiume, a draughtsman who drew the imperial salt office at Bakar in 1827, and two naval officers of the name. They are set out in the order the register produced them, with the broken rungs marked for what they are — the places where a join looks likely and is not written down. Read the mothers' surnames with care: on four of these the indexer has copied the father's name into the mother's field, which is why so many of these men appear to have married a woman of their own name.",
    "cards": [
     {
      "span": "1626–1632",
@@ -320,10 +320,10 @@
        "died": ""
       }
      ],
-     "says": "**Twins, and a week that took two children.** Anna Francisca Catharina and Franciscus Andreas were both baptised on 10 November 1849. Carolo was buried on the 14th and Anna on the 17th. The father is entered as *Francisci Defranceschi **Regii*** — of the king — which in the Hungarian free port means an office, not a farm; and he is married to a second Bellinich, Carolina, where the 1836 household names Catharina.",
+     "says": "**Twins, and a week that took two children.** Anna Francisca Catharina and Franciscus Andreas were both baptised on 10 November 1849. Carolo was buried on the 14th and Anna on the 17th. The father is entered as *Francisci Defranceschi **Regii*** — of the king — which in the Hungarian free port means an office, not a farm — and the Hungarian state's own pension rolls name a **Defranceschi Ferencz, harbour master of Fiume**, retired 1857 after forty-two years; and he is married to a second Bellinich, Carolina, where the 1836 household names Catharina.",
      "rung": {
-      "kind": "inf",
-      "text": "*Franciscus × Catharina Bellinich* in 1836 and *Francisci Regii × Carolinæ Bellinich* in 1849 are almost certainly **one man and two sisters** — the widower marrying his wife's sister — or one woman whose name two indexers read differently. Either way it is the same house. The register would settle it in a line."
+      "kind": "doc",
+      "text": "*Franciscus × Catharina Bellinich* in 1836 and *Francisci Regii × Carolinæ Bellinich* in 1849 are almost certainly **one man and two sisters** — the widower marrying his wife's sister. **And the office is no longer a guess.** The Hungarian parliamentary pension schedule of 1872 names **Defranceschi Ferencz, révkapitány — harbour master — of the Fiume Maritime Authority**, with 42 years and 10 months of service and a pension from 1857. *Ferencz* is Franciscus. Forty-three years back from 1857 puts him in state service by about 1814, which makes him the right age to be fathering at Bakar in 1836 and 1849."
      },
      "ours": false,
      "href": null,
@@ -355,7 +355,50 @@
      "cta": null
     }
    ],
-   "missing": "Two books. **The Rijeka marriage register** would give each of these men a father and a bride's family, and would close or break the Valentino chain in an afternoon. **The Bakar baptisms** would say whether Franciscus of 1836 and Francisci Regii of 1849 are one man, and whether the Bakar household came out of Rijeka or arrived separately by sea. Neither has been read by this archive; both survive."
+   "missing": "Two books and a third thing. **The Rijeka marriage register** would give each of these men a father and a bride's family, and would close or break the Valentino chain in an afternoon. **The Bakar baptisms** would say whether Franciscus of 1836 and Francisci Regii of 1849 are one man. Neither has been read by this archive; both survive.\n\n**And now a third, which is open and free and merely unworked.** Hungaricana holds **196 entries for Julius Defranceschi** in the k. u. k. navy rank lists between 1894 and 1909 — a complete officer's career, ship by ship and rank by rank, that nobody has yet sat down and transcribed. It also holds Ferencz's pension schedule, Francziska's twelve years of state charity, and Anton's 1827 plan of the Bakar salt office. That is a week's honest work on material that costs nothing.",
+   "officials": {
+    "heading": "And what the Hungarian state records say they did",
+    "note": "Fiume and Bakar were **Hungarian crown land**, not Austrian and not Croatian, so the men who held office there are in Hungarian paperwork. This archive never looked until 13 September 2026. Everything below is documented, and none of it was here yesterday.",
+    "rows": [
+     {
+      "who": "Anton Defranceschi",
+      "when": "1827",
+      "what": "Drew the **«Bauriss der zu Buccari befündlichen aerarial Salz-Einnehmer und Controlors Wohnung»** — the ground plan and section of the imperial salt-receiver's and comptroller's residence at Bakar. Manuscript, 56 × 45 cm, one sheet.",
+      "where": "National Archives of Hungary, T 62 No 1642, out of E 96 Tricesimalia 1827, 4:51"
+     },
+     {
+      "who": "Ferencz Defranceschi",
+      "when": "to 1857",
+      "what": "**Révkapitány — harbour master — of the Fiume Maritime Authority.** 42 years, 10 months and 5 days of public service; pension of 1,050 forints from 1857. That puts him into state service about 1814.",
+      "where": "Képviselőházi irományok, 1872, XV. kötet, 1872-650, p. 106"
+     },
+     {
+      "who": "Francziska Defranceschi",
+      "when": "1888 – 1900",
+      "what": "«*Defranceschi Ferencz révkapitány árva leánya*» — the harbour master's orphan daughter, on a **kegydíj of 80 forints** renewed in three-year terms. Her father was dead by 1888; she was still unmarried and on the state's charity in 1900.",
+      "where": "Állami zárszámadás 1888, 1894, 1898, 1900; Képviselőházi irományok 1892"
+     },
+     {
+      "who": "Valentin Defranceschi",
+      "when": "1854 – 1856",
+      "what": "**K. K. Kriegs-Marine, Marine-Direktion at Pola.** And *Valentin* is the one forename that runs through the Rijeka households — a Valentino fathering there in 1742–57, and another in 1794–1805.",
+      "where": "Militärschematismus des österreichischen Kaiserthumes, Wien 1854, 1855, 1856"
+     },
+     {
+      "who": "Julius Defranceschi",
+      "when": "1894 – 1909",
+      "what": "**k. u. k. Kriegsmarine.** He appears **196 times** across fifteen years of rank and distribution lists, by 1909 a *Linienschiffsleutnant*. A complete naval career, open and free, and not yet transcribed.",
+      "where": "Rangs- und Eintheilungs-Listen der k. u. k. Kriegs-Marine, 1894–1909"
+     },
+     {
+      "who": "Theodor Defranceschi",
+      "when": "1909",
+      "what": "K. K. Landwehr, foot troops.",
+      "where": "Schematismus der K. K. Landwehr und der K. K. Gendarmerie, Wien 1909"
+     }
+    ],
+    "close": "**Which re-reads the saints.** This archive noted this morning that nine of the twelve children born to Valentino and Ursula at Rijeka between 1794 and 1805 carry *Nepomucena* or *Nepomuc*, and read it as Habsburg dynastic piety. That is half of it. **John of Nepomuk is the saint invoked against drowning** — the patron of bridges, and of men whose work is on the water. In a harbour master's town, a family that names nine children for him is not only being loyal. It is being careful."
+   }
   },
   "southistria": {
    "key": "southistria",

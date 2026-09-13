@@ -5,6 +5,10 @@ import Cluster from "../components/Cluster.astro";
 import { u } from "../lib/url.js";
 import cl from "../data/clusters.json";
 const c = cl.clusters.kvarner;
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 ---
 <Base
   title="The Kvarner households"
@@ -17,9 +21,9 @@ const c = cl.clusters.kvarner;
   </section>
 
   <div class="doors" style="margin-top:26px">
-    <div class="door" style="border-left:3px solid var(--terra)">
-      <div class="dn">The name is an office, not a farm</div>
-      <div class="dd">Nine of twelve children in the 1794 household carry <em>Nepomucena</em> or <em>Nepomuc</em>, for the Habsburgs' Bohemian saint; and the Bakar father of 1849 is entered <em>Defranceschi Regii</em> — of the king. In the Hungarian crown's free port that is a post, and it is the first evidence anywhere in this archive of the name holding one.</div>
+    <div class="door" style="border-left:3px solid var(--accent)">
+      <div class="dn">The name is an office, not a farm — and now it is documented</div>
+      <div class="dd">The Bakar father of 1849 is entered <em>Defranceschi Regii</em>, of the king. That was an inference until the Hungarian state's own paperwork was opened, and it holds a <strong>harbour master of Fiume</strong>, a draughtsman who drew the <strong>imperial salt office at Bakar in 1827</strong>, and two naval officers of the name.</div>
     </div>
     <div class="door" style="border-left:3px solid var(--ochre)">
       <div class="dn">The chain that almost closes</div>
@@ -30,6 +34,22 @@ const c = cl.clusters.kvarner;
   <Rule name="arrows" label="Nine households, in the order the register made them" />
 
   <Cluster c={c} />
+
+  <Rule name="arrows" label={c.officials.heading} />
+  <p class="note" set:html={md(c.officials.note)}></p>
+  <div class="offs">
+    {c.officials.rows.map(r => (
+      <article class="off">
+        <div class="off-h">
+          <span class="off-w">{r.who}</span>
+          <span class="off-y">{r.when}</span>
+        </div>
+        <p class="off-t" set:html={md(r.what)}></p>
+        <p class="off-s">{r.where}</p>
+      </article>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px;border-left-color:var(--accent)" set:html={md(c.officials.close)}></p>
 
   <Rule name="arrows" label="Where this sits" />
   <div class="doors">
@@ -50,6 +70,16 @@ const c = cl.clusters.kvarner;
     </a>
   </div>
 
-  <p class="cap" style="margin-top:26px">Every household on this page is built from FamilySearch index entries. The spellings are the indexers'. Where a mother carries the father's surname, that is the index, not the marriage. Confidence on the two findings above: <strong>inferred</strong> — both rest on naming patterns and on a title written into an index field, and both would be settled by a register this archive has not yet read.</p>
+  <p class="cap" style="margin-top:26px">Every household on this page is built from FamilySearch index entries. The spellings are the indexers'. Where a mother carries the father's surname, that is the index, not the marriage. Confidence is now split. <strong>The office is documented</strong> — the Hungarian state's own pension schedules, plan catalogue and military schematisms name the men and their posts, and those citations are given above. <strong>That any of them is the Franciscus of the 1836 and 1849 baptisms remains inferred</strong>, resting on <em>Ferencz</em> being Franciscus and on the dates fitting; a Bakar register would settle it. <strong>The Valentino chain stays inferred</strong> and is still broken by a burial.</p>
+
+<style>
+.offs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:20px}
+.off{border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:2px;padding:13px 16px 14px}
+.off-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.off-w{font-family:var(--serif);font-size:18px;color:var(--ink)}
+.off-y{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.off-t{font-family:var(--sans);font-size:13px;line-height:1.62;color:var(--ink-2);margin:7px 0 0}
+.off-s{font-family:var(--mono);font-size:10.5px;line-height:1.5;color:var(--ink-3);margin:9px 0 0}
+</style>
 
 </Base>
