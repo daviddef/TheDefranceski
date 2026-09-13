@@ -14,6 +14,17 @@ const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
 const groups = Object.entries(byPage);
 const art = Object.fromEntries(artsrc.map(a => [a.id, a]));
+import { placeSlugs, slugify } from "../../lib/exists.js";
+
+/* A fact carries [label, value, href]. Place hrefs in the data were slugified
+   by an older routine that dropped non-ASCII letters, so they are recomputed
+   from the place name here and only kept if that place has a page. */
+const factHref = (label, value, href) => {
+  if (!href || !href.startsWith("/places/")) return href;
+  const slug = slugify(value);
+  return placeSlugs.has(slug) ? `/places/${slug}/` : null;
+};
+
 const md = (x) => String(x ?? "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/«(.+?)»/g, "<em>«$1»</em>");
 const pt = port.map[p.slug];
 const VIAW = { line: "the archive\u2019s own line", read: "a register read here", index: "a FamilySearch index entry", tree: "the family tree, unverified" };
@@ -45,7 +56,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 {(p.facts && p.facts.length > 0) && (
 <section class="blk">
   <div class="facts">
-    {p.facts.map(([k, v, href]) => (<div class="fact"><span class="fk">{k}</span><span class="fv">{href ? <a href={u(href)}>{v}</a> : v}</span></div>))}
+    {p.facts.map(([k, v, href]) => { const h = factHref(k, v, href); return (<div class="fact"><span class="fk">{k}</span><span class="fv">{h ? <a href={u(h)}>{v}</a> : v}</span></div>); })}
   </div>
   {p.known && (
     <div class="known">

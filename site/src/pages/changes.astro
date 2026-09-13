@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
+import { linkParts } from "../lib/exists.js";
 import c from "../data/changes.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -31,7 +32,9 @@ const K = {
           <div class="src">{r.src}</div>
         </div>
         <p set:html={md(r.text)}></p>
-        <p class="cap" style="margin-top:10px"><a href={u(r.href)}>Where this lives →</a></p>
+        <p class="cap" style="margin-top:10px">Where this lives: {linkParts(r.href).map((x, i) => (
+          <>{i > 0 ? " · " : ""}{x.href ? <a href={u(x.href)}>{x.text}</a> : <span>{x.text}</span>}</>
+        ))}</p>
       </article>
     ))}
   </div>

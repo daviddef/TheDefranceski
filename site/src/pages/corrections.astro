@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
+import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -36,7 +37,9 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
           <dt>What is true</dt><dd set:html={md(r.true)}></dd>
           <dt>How it happened</dt><dd set:html={md(r.how)}></dd>
         </dl>
-        {r.where && <p class="cap"><a href={u(r.where)}>Corrected in place, here →</a></p>}
+        {r.where && <p class="cap">Corrected in place, here: {linkParts(r.where).map((x, i) => (
+          <>{i > 0 ? " · " : ""}{x.href ? <a href={u(x.href)}>{x.text}</a> : <span>{x.text}</span>}</>
+        ))}</p>}
       </article>
     ))}
   </div>
