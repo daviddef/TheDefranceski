@@ -89,6 +89,22 @@ import gn from "../data/givennames.json";
       ))}</tbody>
     </table>
   </div>
+  {names.living && (
+  <section class="blk" style="margin-top:38px">
+    <h3 style="font-size:22px">{names.living.heading}</h3>
+    <p class="dek" style="margin-top:6px;white-space:pre-line" set:html={names.living.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+    <div style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
+      {names.living.rows.map(r => (
+        <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+          <div class="lab">{r.lab}</div>
+          <p style="margin-top:7px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        </div>
+      ))}
+    </div>
+    <p class="prose note" style="margin-top:16px" set:html={names.living.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+    <p class="cap" style="margin-top:12px">{names.living.source}</p>
+  </section>)}
+
   {names.spellings_world.bycountry && (
   <section class="blk" style="margin-top:34px">
     <h3 style="font-size:21px">{names.spellings_world.bycountry.heading}</h3>
