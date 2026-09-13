@@ -44,6 +44,23 @@ const ARM = {
     })}
   </ol>
 
+  <Rule name="arrows" label={s.war.heading} />
+  <p class="dek" style="margin-top:8px" set:html={md(s.war.lead)}></p>
+  <div class="war">
+    {s.war.rows.map(r => (
+      <article class={"wr" + (r.key ? " key" : "") + (r.open ? " open" : "")}>
+        <div class="wr-h">
+          <span class="wr-n">{r.who}</span>
+          <span class="wr-d">{r.when}</span>
+          <span class="wr-w">{r.what}</span>
+        </div>
+        <p class="wr-t" set:html={md(r.detail)}></p>
+        <p class="wr-s">{r.src}</p>
+      </article>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:20px;border-left-color:var(--terra)" set:html={md(s.war.close)}></p>
+
   <Rule name="arrows" label="What the roll actually says" />
   <div class="prose">{s.means.map(p => <p set:html={md(p)} />)}</div>
 
@@ -69,6 +86,19 @@ const ARM = {
   </div>
 
 </Base>
+
+<style>
+.war{display:grid;gap:12px;margin-top:20px}
+.wr{border:1px solid var(--rule);border-left:3px solid var(--rule-strong);border-radius:2px;padding:13px 17px 14px}
+.wr.key{border-left-color:var(--accent)}
+.wr.open{border-left-style:dashed;border-left-color:var(--ochre)}
+.wr-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.wr-n{font-family:var(--serif);font-size:18px;color:var(--ink)}
+.wr-d{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.wr-w{font-family:var(--sans);font-size:12.5px;color:var(--ink-2)}
+.wr-t{font-family:var(--sans);font-size:13.5px;line-height:1.65;color:var(--ink-2);margin:8px 0 0;max-width:84ch}
+.wr-s{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin:8px 0 0}
+</style>
 
 <style>
 .rl{list-style:none;margin:22px 0 0;padding:0}
