@@ -149,6 +149,20 @@ Corrections it forced, same day: Zanetta Gravisi is Bortolo's **wife**, not his 
 2. **Marchese Nazario Gravisi of Cepich** — the slip also records «Nazario Gravisi 29/5 1737», presumably his own marriage, in the same book.
 3. Šterna's books run **1723–1836** and only this one page has been read.
 
+## VPN was the cause — and the rate limit is separate
+
+Turning the VPN off cleared Error 15 immediately. **But with the VPN off it still returned after ~25 calls.** Two different limits. Budget bursts of ~20 calls, pause, and spend them on images rather than index rows.
+
+## Since the VPN came off
+- **Francisca Defranceschi married JOANNES BERGAMO**, not Antonius Cerneca, and the "nine children 1831–1846" are the **weddings of four sons**. The Svetvinčenat marriage book is a ruled table with printed GENITORES SPONSI / GENITORES SPONSAE columns; the index flattens all four parents into one list. **Every husband inferred from an `o` list on a post-1815 marriage row is suspect** — birth rows are safe. The 19 husbands placed earlier were re-checked: 17 rest only on birth rows, the other two have birth rows too. They stand.
+- Bergamo is on Kandler's list of Carnian families at Sanvincenti, beside Defranceschi. With *Vittorio De Franceschi × Eufemia Bergamo* in the same book, that is two Carnian houses intermarrying twice, a generation apart.
+
+## Still to read, in this order when the limit allows
+1. **Vodnjan book page 173** — the Michiela/Domenica Giachin conflict. Film 005497894; book page 164 ≈ image 560, so try images 565–572. Note the Giachin rows are all **birth** rows, so Domenica and Michiela really are the mothers; the conflict with the death-register reading stands.
+2. **Nazario Gravisi, 29/5 1737**, recorded on the Šterna finding-aid slip — same book as the Cargna entry.
+3. **The rest of Šterna's marriage book, 1723–1820.** This priest wrote origins in the margin. One page gave «Cargna»; there may be more.
+4. Vodnjan deaths from book page 176; film 005497895.
+
 ## Blocked again, harder
 FamilySearch returned **Access Denied Error 15** on every endpoint — search, catalogue, waypoints *and* tiles — in **both** browsers, after ~40 calls. It reports `clientIp 168.140.255.212 / proxyIp 45.223.168.251`. **That looks like a VPN exit: ask David to turn a VPN off before anything else.** Signing in does not help; the block is above authentication.
 
