@@ -13,6 +13,12 @@ const md = (s) => String(s ?? "")
   // 404s on GitHub Pages — which is exactly what twenty-one of them were doing.
   .replace(/\[([^\]]+)\]\(([^)]+)\)/g,
            (_m, t, h) => `<a href="${/^(?:https?:|mailto:|tel:|#)/.test(h) ? h : u(h)}">${t}</a>`)
+  // Some rows carry raw <a href="/gaps/"> rather than a markdown link. Those
+  // bypass the rule above entirely and shipped without the base, so they 404
+  // on GitHub Pages. Base them here too, and leave anything already based,
+  // external, or an anchor alone.
+  .replace(/href="(\/(?!\/)[^"]*)"/g,
+           (m, h) => h.startsWith(u("/")) ? m : `href="${u(h)}"`)
   .replace(/\n\n/g, "</p><p style='margin-top:10px'>");
 const K = {
   hit: ["Found", "k-hit"], yield: ["Yield", "k-hit"], correction: ["Correction", "k-corr"],
