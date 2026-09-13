@@ -133,3 +133,27 @@ FamilySearch returned **403 on everything** — search, catalogue, waypoints *an
 1. **Zanetta Gravisi.** Two Šterna marriage entries, arks `3:1:3QS7-L99X-LH9T` and `3:1:3QSQ-G99X-L4BY`, film 005497888, book «Marriages (Vjenčani) 1723-1820». Two *different* images, both naming Bortolo De Franceschi, son of Gio Batta and Zanetta Gravisi/Granisi — one with «Nazario», one with «Zorzi Marchege». Two marriages of Bortolo, or one entry indexed twice? The pages will say. Gravisi is a Capodistrian marquisal name.
 2. **Francisca Defranceschi × Antonius Cerneca**, nine children 1831–1846, film 005497886 = **Svetvinčenat**. The head of the lost-daughters queue, now located and still unread.
 3. **Fažana**, 42 records and never read by eye: Vittorio × Stella Tamborin and Giuseppe × Giovanna Beluzzi, plus **Maria Defranceschi × Giovanni Moscarda**, six children 1835–1849.
+
+---
+
+## 13 September, late — the find the project was built to get
+
+**«Alli 12 9bre 1777. Cepich. Cargna. — Bortolo figlio del q. Gio: Batta de Franceschi *dalla Cargna*, Diocese d'Udine, ha contratto legitimo Matrimonio coll'Ill.ma Sig.a Zanetta Gravisi figlia dell'Ill.mo Sig.r Marchese Nazario della Villa di Cepich di questa Pieve…»**
+
+Šterna marriage book, page 39, film **005497888**, ark `3:1:3QS7-L99X-LH9T`. **The first entry this archive has found that states where an Istrian De Franceschi came from.** Confirmed word-for-word by an archivist's pencil finding-aid slip filmed with the book (ark `3:1:3QSQ-G99X-L4BY`), which the index counted as a second marriage.
+
+Corrections it forced, same day: Zanetta Gravisi is Bortolo's **wife**, not his mother; there was never a second marriage.
+
+**Open from it:**
+1. **Gio: Batta de Franceschi of Carnia** — dead before 1777, in no Istrian register. Now look for him in Carnia: Ovaro/Mione, Paluzza, and the Udine diocesan books.
+2. **Marchese Nazario Gravisi of Cepich** — the slip also records «Nazario Gravisi 29/5 1737», presumably his own marriage, in the same book.
+3. Šterna's books run **1723–1836** and only this one page has been read.
+
+## Blocked again, harder
+FamilySearch returned **Access Denied Error 15** on every endpoint — search, catalogue, waypoints *and* tiles — in **both** browsers, after ~40 calls. It reports `clientIp 168.140.255.212 / proxyIp 45.223.168.251`. **That looks like a VPN exit: ask David to turn a VPN off before anything else.** Signing in does not help; the block is above authentication.
+
+## Local work finished while blocked
+- Suppressed charts **55 → 46**, and the audit now bands them: only the ≤25-year ones are work.
+- **75 charts** drawn from a single indexed birth row (Colotta and Fioretta of 1666 among them), with three guards: two-word keys, birth rows only, and the date gate.
+- **Twenty false birth years** corrected — first-appearance dates carried in as births. Rule: parent in a household, same place, year inside the childbearing span.
+- **Kršan** given a page; Anna Maria Francisca's dates fixed from this site's own Gologorica page (b. 1860, d. Trieste 1941), which links the Kršan Domazetović marriages back to Gologorica.
