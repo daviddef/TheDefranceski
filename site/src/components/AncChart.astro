@@ -76,7 +76,7 @@ const GENLAB = ["Self", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "G
         <div class="ac-m">
           {b.d && <span class="ac-d">{b.d}</span>}
           {b.place && <span class="ac-p">{b.place}</span>}
-          {b.arch && A[b.arch] && <a class="ac-x" href={A[b.arch].url} title={A[b.arch].name}>her archive →</a>}
+          {b.arch && A[b.arch] && <a class="ac-x" href={A[b.arch].url} title={A[b.arch].name}>{A[b.arch].name.replace("The ","").replace(" Archive","")} archive →</a>}
         </div>
       </div>
     ))}

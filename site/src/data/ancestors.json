@@ -1,13 +1,13 @@
 {
- "note": "An ancestor chart for D. Defranceski, worked backwards. Every box is a person a document names. A WALL is a place where this archive knows a person existed and cannot name their parents — and the reasons differ. Living people are shown by initials and surname, with no dates.",
+ "note": "An ancestor chart for D. Defranceski, worked backwards. Every box is a person a document names. A WALL is a place where this archive knows a person existed and cannot name their parents — and the reasons differ. Living people are shown by initials and surname, with no dates. Where a line continues in one of the sibling archives the wall links straight into it.",
  "root": {
   "n": "D. Defranceski",
   "conf": "living",
   "note": "Living — initials and surname only, and no dates.",
   "f": {
-   "n": "I. Defranceski",
-   "conf": "living",
-   "note": "Living — initials and surname only.",
+   "n": "Ivan Defranceski",
+   "conf": "doc",
+   "note": "Died in 2026. **His birth date is not yet on this page** — the archive holds the name, the moves and the death year, and wants the rest from David.",
    "f": {
     "n": "Ivan Defranceski",
     "d": "1925 – 1995",
@@ -168,13 +168,24 @@
       "q": "Papić"
      }
     }
-   }
+   },
+   "d": "d. 2026",
+   "place": "Senj → Johannesburg → Brisbane"
   },
   "m": {
-   "wall": true,
-   "kind": "living",
-   "label": "Withheld",
-   "note": "Living. This archive holds no name for her on this page; her own family is kept in one of the sibling archives."
+   "n": "C. A. Defranceski",
+   "conf": "living",
+   "arch": "lerena",
+   "note": "**Cheryl Anne Defranceski, née Lerena.** Living, so this chart gives initials and surname and no dates, by the archive's own rule. Her writing is on this site; her family is kept in **The Lerena Archive**.",
+   "who": "cheryl-lerena",
+   "f": {
+    "wall": true,
+    "kind": "other-archive",
+    "label": "Continues elsewhere",
+    "arch": "lerena",
+    "q": "Lerena",
+    "note": "The Lerena line is kept in **The Lerena Archive**, not here."
+   }
   }
  }
 }
