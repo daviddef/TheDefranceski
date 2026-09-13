@@ -105,6 +105,14 @@ def main(md=False):
     R["lost_top"] = sorted(((len(v), [o for o in (v[0].get("o") or []) if DFN.search(o)][0])
                             for k, v in kids.items() if k not in known), reverse=True)[:10]
 
+    # a woman with no household is not the same as a woman with no location:
+    # rows resolved to a parish by film number carry pl, and those are readable, not lost.
+    lost_rows = [r for k in R["lost_parents"] for r in kids[k]]
+    R["lost_rows"] = len(lost_rows)
+    R["lost_placed"] = sum(1 for r in lost_rows if (r.get("pl") or "").strip())
+    R["lost_where"] = collections.Counter(
+        (r.get("pl") or "").strip() for r in lost_rows if (r.get("pl") or "").strip()).most_common(12)
+
     # parents in the wrong slot — the index harvest assigned couples by position, not sex
     FEMN = re.compile(r"^(maria|marietta|michiela|michaela|domenica|dominica|lucia|veniera|antonia|giovanna|"
                       r"catterina|caterina|cattarina|anna|elena|eufemia|pasqua|margarita|orsola|francesca|"
@@ -134,7 +142,10 @@ def main(md=False):
         if R["multiform"]:
             print(f"- **{len(R['multiform'])}** towns are written under more than one name in the register")
         print(f"- **{len(R['lost_parents'])}** De Franceschi *women* named as a mother in the unworked leads belong to **no household** — "
-              f"**{R['lost_children']}** indexed children hang off them. These are the married-out daughters.")
+              f"**{R['lost_children']}** indexed children hang off them. These are the married-out daughters." + (
+            "\n- Of those %d rows, **%d** now carry a parish resolved from the film they were photographed on: %s."
+            % (R["lost_rows"], R["lost_placed"], " · ".join("%s %d" % (p, n) for p, n in R["lost_where"]))
+            if R.get("lost_placed") else ""))
         if R["swapped"]:
             print(f"- **{len(R['swapped'])}** households have a woman in the father field — parents swapped")
         return
@@ -150,6 +161,10 @@ def main(md=False):
         print("  %4d  %-22s %s" % (n, p, sp))
     print("\nMARRIED-OUT DAUGHTERS UNWORKED: %d women, %d children" % (len(R["lost_parents"]), R["lost_children"]))
     for n, nm in R["lost_top"]: print("  %3d  %s" % (n, nm))
+    if R.get("lost_rows"):
+        print("    of %d rows, %d carry a parish resolved from the film:" % (R["lost_rows"], R["lost_placed"]))
+        if R["lost_where"]:
+            print("      " + " · ".join("%s %d" % (p, n) for p, n in R["lost_where"]))
     print("\nHOUSEHOLDS WITH A WOMAN IN THE FATHER FIELD: %d" % len(R["swapped"]))
     for f in R["swapped"]: print("  ", f)
     print("\nTOWNS WRITTEN UNDER MORE THAN ONE NAME")
