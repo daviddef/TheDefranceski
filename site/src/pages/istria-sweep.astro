@@ -19,6 +19,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
   </section>
 
   <h2 style="font-size:30px;margin-top:46px">Where the name is</h2>
+  {d.clusters_note && <p class="cap" style="margin-top:10px;padding:14px 16px;border-left:2px solid var(--terra);background:var(--rule-soft, transparent)" set:html={d.clusters_note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>}
   <div style="margin-top:20px">
     {d.clusters.map(c => (
       <div class="linerow" style={"padding:12px 0;border-bottom:1px solid var(--rule)" + (c.key ? ";border-left:2px solid var(--terra);padding-left:14px" : "")}>
@@ -29,6 +30,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
             <div style={`height:7px;width:${Math.max(4, Math.round(c.n / max * 100))}%;background:var(--accent)`}></div>
           </div>
           <span class="mono" style="font-size:11px;color:var(--ink-3)">{c.n} indexed entries</span>
+          {c.now && <div class="mono" style="font-size:11px;margin-top:7px;color:var(--ink-2)"><span style="color:var(--ink-3)">by image, 13 Sept:</span> <span set:html={c.now.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></span></div>}
         </div>
         <div>
           <p style="margin:0"><em>{c.who}</em></p>
