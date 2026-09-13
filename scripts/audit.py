@@ -74,6 +74,13 @@ def main(md=False):
         if p and p != "—" and norm(p) not in COUNTRY: forms[norm(p)].add(p)
     R["multiform"] = {k: sorted(v) for k, v in forms.items() if len(v) > 1}
 
+    # parents in the wrong slot — the index harvest assigned couples by position, not sex
+    FEMN = re.compile(r"^(maria|marietta|michiela|michaela|domenica|dominica|lucia|veniera|antonia|giovanna|"
+                      r"catterina|caterina|cattarina|anna|elena|eufemia|pasqua|margarita|orsola|francesca|"
+                      r"luigia|natalia|marina|bonetta|giacoma|martina|teresa|rosa|angela|magdalena|maddalena|"
+                      r"nicoletta|damiana|fosca|apollonia|cristina|vincenza|oliva|olivia|elisabetta)\b", re.I)
+    R["swapped"] = [h.get("father", "") for h in hh if FEMN.match((h.get("father") or "").strip())]
+
     # the no-place figure, broken down — a single number hides who is blocked on what
     R["noplace_src"] = dict(collections.Counter(
         r.get("src") for r in ros if not (r.get("place") or "").strip()).most_common())
@@ -93,6 +100,8 @@ def main(md=False):
                   + ", ".join(f"{p} ({n})" for p, n in R["offchart"][:8]))
         if R["multiform"]:
             print(f"- **{len(R['multiform'])}** towns are written under more than one name in the register")
+        if R["swapped"]:
+            print(f"- **{len(R['swapped'])}** households have a woman in the father field — parents swapped")
         return
 
     print("ROSTER      %5d rows, %d with no place  %s" % (R["roster"], R["roster_noplace"], R["noplace_src"]))
@@ -103,6 +112,8 @@ def main(md=False):
     for p, n in R["offchart"]:
         sp = ", ".join(f"{a}×{b}" for a, b in R["offchart_spellings"][p])
         print("  %4d  %-22s %s" % (n, p, sp))
+    print("\nHOUSEHOLDS WITH A WOMAN IN THE FATHER FIELD: %d" % len(R["swapped"]))
+    for f in R["swapped"]: print("  ", f)
     print("\nTOWNS WRITTEN UNDER MORE THAN ONE NAME")
     for k, v in sorted(R["multiform"].items()):
         print("  %-14s %s" % (k, " · ".join(v)))

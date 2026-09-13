@@ -1,7 +1,16 @@
 {
  "note": "Every claim this archive has published and then had to take back, with what was said, what is true, and how the mistake was made. It is kept because an archive that only shows its successes is not telling you how reliable it is. Corrections are made **in the place where the mistake was made**, not quietly on a back page — this list is the index to them.",
- "lead": "Eighteen things this archive got wrong.",
+ "lead": "Nineteen things this archive got wrong.",
  "rows": [
+  {
+   "when": "13 Sept 2026",
+   "what": "Twenty-four households with the parents the wrong way round",
+   "sev": "serious",
+   "where": "/households/ · /people/",
+   "said": "Twenty-four of this archive's 112 households named a **De Franceschi woman as the father** and **her husband as the mother**. *«father: Michiela De Franceschi · mother: Domenico Giachin»*. Forty people's roster entries said things like *«**Domenico Giachin** — named as **mother** on 2 baptisms»*.",
+   "true": "Every one is inverted. The women are the mothers; the men are the fathers. **All 24 are De Franceschi daughters married out** — which is why the error clusters exactly where it does.",
+   "how": "The households built from the FamilySearch index take the two parent names the index returns and assign them **by position**, not by sex. Where the De Franceschi parent was listed first — which is what happens when the *mother* is the one carrying this archive's surname — the pair went in backwards.\n\n**So the bug bit precisely the people this archive is worst at tracking.** The whole Vodnjan argument is that «the surname keeps its sons and loses its daughters»; twenty-four married-out daughters were in the data and the data had them down as men.\n\nFound while testing something else entirely — chasing whether one **Michiela De Franceschi fu Giuseppe** was a daughter of the Giuseppe this archive already documents. The check that found it is now in `scripts/audit.py` and runs on every publish: **a female given name in the father field**. It would have caught this the day it was introduced."
+  },
   {
    "when": "13 Sept 2026",
    "what": "Counted four candidates and could name three",
