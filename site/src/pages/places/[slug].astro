@@ -3,11 +3,15 @@ import Base from "../../layouts/Base.astro";
 import { md as _md } from "../../lib/md.js";
 import places from "../../data/places.json";
 import Locator from "../../components/Locator.astro";
+import Plates from "../../components/Plates.astro";
+import Lightbox from "../../components/Lightbox.astro";
+import allplates from "../../data/plates.json";
 import names from "../../data/names.json";
 export function getStaticPaths(){
   return places.map(p=>({params:{slug:p.slug},props:{p}}));
 }
 const { p } = Astro.props;
+const mine = allplates.filter(x => x.id === `place-${p.slug}` || x.id.startsWith(`place-${p.slug}-`));
 const r = p.registers;
 const census = names.census1945.rows.filter(x=>x[1]===p.name);
 const alt=Object.entries(p.alt||{});
@@ -47,6 +51,8 @@ const langName={it:"Italian",de:"German",fur:"Friulian",other:"also written"};
 </section>
 
 {p.coords && <Locator place={p.name} radius={p.lane === "istria" ? 16 : 28} />}
+
+{mine.length > 0 && <><Plates ids={mine.map(x => x.id)} cols={1} /><Lightbox /></>}
 
 
 {r && <section class="blk">

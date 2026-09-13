@@ -72,9 +72,12 @@ if (target) {
   pts = near.map(p => { const [x, y] = px(p); return { ...p, x, y }; });
   // nudge labels that land on top of one another
   pts.sort((a, b) => a.y - b.y);
+  pts.forEach(p => { p.ly = p.y; });
+  /* stack labels that land on one another — chain off the previous *label*,
+     not the previous dot, so three close names spread instead of two */
   for (let i = 1; i < pts.length; i++)
-    if (Math.abs(pts[i].y - pts[i-1].y) < 13 && Math.abs(pts[i].x - pts[i-1].x) < 120) pts[i].ly = pts[i-1].y + 13;
-  pts.forEach(p => { if (!p.ly) p.ly = p.y; });
+    if (Math.abs(pts[i].ly - pts[i-1].ly) < 14 && Math.abs(pts[i].x - pts[i-1].x) < 130)
+      pts[i].ly = pts[i-1].ly + 14;
   /* keep the centre label's own line clear — nudge neighbours out of it */
   pts.forEach(p => {
     if (Math.abs(p.ly - (h/2 - 15)) < 15 && Math.abs(p.x - w/2) < 130)

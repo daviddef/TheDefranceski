@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url.js";
 import SiblingArchives from "@daviddef/archive-kit/components/SiblingArchives.astro";
+import SocialHead from "@daviddef/archive-kit/components/SocialHead.astro";
 import VisitCount from "@daviddef/archive-kit/components/VisitCount.astro";
 import ring from "@daviddef/archive-kit/data/archives.json";
 const { title, dek, eyebrow, bare } = Astro.props;
@@ -44,6 +45,7 @@ const thisArchive = ring.archives.find(
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{title === SITE ? SITE : `${title} — ${SITE}`}</title>
 <meta name="description" content={dek} />
+<SocialHead title={title} description={dek || description} site={SITE} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
