@@ -6,6 +6,7 @@ import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
+import Locator from "../components/Locator.astro";
 import c from "../data/carnia.json";
 ---
 <Base
@@ -18,6 +19,9 @@ import c from "../data/carnia.json";
     <p>All of that is testimony. None of it was record. The Ovaro parish registers before 1806 are in no portal, and every sweep this archive ran through the Italian indexes came back with Tuscans, Venetians and Trentini and no Carnians at all.</p>
     <p>Searching by <em>place</em> instead of by name changed that.</p>
   </section>
+
+  <Locator place="Mione di Ovaro" radius={14}
+            note="Mione is a frazione of Ovaro, in the Val Degano — the Canale di Gorto of the 1679 headmen's list. Muina is the next hamlet down the valley." />
 
   <div class="one" style="border-left-color:var(--accent);margin-top:34px">
     <div class="lab">Mione di Ovaro</div>
@@ -61,6 +65,11 @@ import c from "../data/carnia.json";
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">{c.muina.heading}</h2>
+  <Locator place="Muina" radius={9} note="Seven hundred and eighty-four metres from Mione, across the Degano — Carlo De Franceschi named the two villages in one breath in the 1870s, and they are barely a village apart." />
+
+  <Plates group="carnia" cols={3} />
+  <p class="cap" style="margin-top:12px">Three photographs of Muina, harvested from Wikimedia Commons on 13 September 2026 and held here under their own licences, named above each plate. <strong>None of them is a De Franceschi house</strong> — this archive has not identified one, and would say so if it had. They are here because the page has spent two thousand words on a village nobody reading it has seen.</p>
+
   <p class="dek" style="margin-top:8px">{c.muina.intro}</p>
 
   <div class="spine" style="margin-top:20px">
@@ -130,6 +139,7 @@ import c from "../data/carnia.json";
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
+  <Locator place="Paluzza" radius={22} note="Over the shoulder of the mountain from Mione — a different valley, and on this archive's evidence a different household of the name." />
   <p class="dek" style="margin-top:8px">Twenty-five kilometres east of Mione, over the shoulder of the mountain. A De Franceschi family documented from the eighteenth century into the nineteenth.</p>
   <div class="scroll" style="margin-top:18px">
     <table>

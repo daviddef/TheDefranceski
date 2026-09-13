@@ -1,0 +1,162 @@
+---
+/* Locator — "where is this place, actually".
+   Drawn from the archive's own coordinates, with the other places this
+   archive knows plotted around it, a real scale bar, and a link out to a map.
+   No tiles, no external images, no API: the geometry is the data. */
+import atlas from "../data/atlas.json";
+import places from "../data/places.json";
+
+const { place, radius = 12, w = 520, h = 300, note = "" } = Astro.props;
+
+const norm = (s) => String(s ?? "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "");
+const pool = [
+  ...atlas.places.map(p => ({ name: p.name, lat: p.lat, lon: p.lon, when: p.when, what: p.what, cat: p.cat })),
+  ...places.filter(p => p.coords).map(p => ({ name: p.name, lat: p.coords[0], lon: p.coords[1], cat: "place" })),
+];
+const target = pool.find(p => norm(p.name) === norm(place))
+             || pool.find(p => norm(p.name).startsWith(norm(place)))
+             || pool.find(p => norm(p.name).includes(norm(place)));
+
+const R = 6371;
+const rad = (d) => d * Math.PI / 180;
+const dist = (a, b) => {
+  const dLat = rad(b.lat - a.lat), dLon = rad(b.lon - a.lon);
+  const x = Math.sin(dLat/2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLon/2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(x));
+};
+const bearing = (a, b) => {
+  const y = Math.sin(rad(b.lon - a.lon)) * Math.cos(rad(b.lat));
+  const x = Math.cos(rad(a.lat)) * Math.sin(rad(b.lat)) - Math.sin(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.cos(rad(b.lon - a.lon));
+  return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+};
+const COMPASS = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+const card = (d) => COMPASS[Math.round(d / 22.5) % 16];
+
+/* One place can sit in both the atlas and the gazetteer under two names —
+   "Mione" and "Mione di Ovaro" — so dedupe on the ground, not on the string.
+   Anything within 600 m of a place already kept is that place. */
+const head = (n) => norm(n).split(/[\s,(]/)[0];
+const all = [];
+for (const p of pool) {
+  const dup = all.some(q =>
+    norm(q.name) === norm(p.name) ||
+    dist(q, p) < 0.6 ||
+    (head(q.name) === head(p.name) && dist(q, p) < 3));   /* "Mione" and "Mione di Ovaro" */
+  if (!dup) all.push(p);
+}
+
+let near = [], span = radius, scaleKm = 5, pts = [];
+if (target) {
+  near = all.filter(p => p !== target)
+            .map(p => ({ ...p, d: dist(target, p), b: bearing(target, p) }))
+            .filter(p => p.d <= radius && p.d > 0.6)
+            .sort((a, b) => a.d - b.d)
+            .slice(0, 9);
+  span = Math.max(radius * 0.55, near.length ? near[near.length - 1].d * 1.25 : radius * 0.5);
+  const kmPerDegLat = 111.32, kmPerDegLon = 111.32 * Math.cos(rad(target.lat));
+  const pad = 34, iw = w - pad * 2, ih = h - pad * 2;
+  const sc = Math.min(iw, ih) / (span * 2);
+  const px = (p) => [ w/2 + (p.lon - target.lon) * kmPerDegLon * sc,
+                      h/2 - (p.lat - target.lat) * kmPerDegLat * sc ];
+  pts = near.map(p => { const [x, y] = px(p); return { ...p, x, y }; });
+  // nudge labels that land on top of one another
+  pts.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < pts.length; i++)
+    if (Math.abs(pts[i].y - pts[i-1].y) < 13 && Math.abs(pts[i].x - pts[i-1].x) < 120) pts[i].ly = pts[i-1].y + 13;
+  pts.forEach(p => { if (!p.ly) p.ly = p.y; });
+  const nice = [1, 2, 5, 10, 20, 50];
+  scaleKm = nice.find(n => n * sc > 44 && n <= span) || nice.find(n => n <= span) || 1;
+  var SC = sc;
+}
+const gmaps = target ? `https://www.google.com/maps/search/?api=1&query=${target.lat},${target.lon}` : null;
+const osm = target ? `https://www.openstreetmap.org/?mlat=${target.lat}&mlon=${target.lon}#map=13/${target.lat}/${target.lon}` : null;
+const dms = (v, pos, neg) => `${Math.abs(v).toFixed(4)}° ${v >= 0 ? pos : neg}`;
+---
+{target ? (
+  <figure class="loc">
+    <div class="loc-map">
+      <svg viewBox={`0 0 ${w} ${h}`} role="img"
+           aria-label={`Locator map: ${target.name} and ${pts.length} nearby places this archive knows`}>
+        <rect x="0" y="0" width={w} height={h} class="loc-bg" />
+        {[0.33, 0.66, 1].map(f => (
+          <circle cx={w/2} cy={h/2} r={span * f * SC} class="loc-ring" />
+        ))}
+        <line x1={w/2} y1="10" x2={w/2} y2={h-10} class="loc-ax" />
+        <line x1="10" y1={h/2} x2={w-10} y2={h/2} class="loc-ax" />
+        {pts.map(p => (
+          <>
+            <line x1={w/2} y1={h/2} x2={p.x} y2={p.y} class="loc-spoke" />
+            <circle cx={p.x} cy={p.y} r="3.4" class="loc-dot" />
+            <text x={p.x + (p.x > w/2 ? 7 : -7)} y={p.ly + 3.5}
+                  text-anchor={p.x > w/2 ? "start" : "end"} class="loc-lb">{p.name}</text>
+          </>
+        ))}
+        <circle cx={w/2} cy={h/2} r="6.5" class="loc-me" />
+        <text x={w/2} y={h/2 - 13} text-anchor="middle" class="loc-mel">{target.name}</text>
+        <g transform={`translate(${w - 34 - scaleKm * SC}, ${h - 20})`}>
+          <line x1="0" y1="0" x2={scaleKm * SC} y2="0" class="loc-sc" />
+          <line x1="0" y1="-4" x2="0" y2="4" class="loc-sc" />
+          <line x1={scaleKm * SC} y1="-4" x2={scaleKm * SC} y2="4" class="loc-sc" />
+          <text x={scaleKm * SC / 2} y="-8" text-anchor="middle" class="loc-sct">{scaleKm} km</text>
+        </g>
+        <text x="20" y="26" class="loc-n">N ↑</text>
+      </svg>
+    </div>
+
+    <figcaption class="loc-cap">
+      <div class="loc-row">
+        <span class="loc-k">Where</span>
+        <span class="loc-v">{dms(target.lat, "N", "S")}, {dms(target.lon, "E", "W")}</span>
+      </div>
+      {near.length > 0 && (
+        <div class="loc-row">
+          <span class="loc-k">Nearest</span>
+          <span class="loc-v">
+            {near.slice(0, 3).map((p, i) => (
+              <>{i > 0 && <span class="loc-sep">·</span>}<span class="loc-near">{`${p.name} — ${p.d < 1 ? Math.round(p.d * 1000) + " m" : p.d.toFixed(1) + " km"} ${card(p.b)}`}</span></>
+            ))}
+          </span>
+        </div>
+      )}
+      {target.what && <div class="loc-row"><span class="loc-k">Why here</span><span class="loc-v">{target.what}</span></div>}
+      {note && <div class="loc-row"><span class="loc-k">Note</span><span class="loc-v">{note}</span></div>}
+      <div class="loc-links">
+        <a href={gmaps} rel="noopener noreferrer" target="_blank">Open in Google Maps ↗</a>
+        <a href={osm} rel="noopener noreferrer" target="_blank">OpenStreetMap ↗</a>
+      </div>
+    </figcaption>
+  </figure>
+) : (
+  <p class="loc-miss">No coordinates held for <strong>{place}</strong>. It is named in the text but not in the archive's gazetteer.</p>
+)}
+
+<style>
+.loc{margin:22px 0;border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.loc-map{background:var(--accent-wash)}
+.loc svg{display:block;width:100%;height:auto}
+.loc-bg{fill:none}
+.loc-ring{fill:none;stroke:var(--rule-strong);stroke-width:.6;opacity:.45}
+.loc-ax{stroke:var(--rule-strong);stroke-width:.5;opacity:.3}
+.loc-spoke{stroke:var(--rule-strong);stroke-width:.6;opacity:.5}
+.loc-dot{fill:var(--ink-3)}
+.loc-lb{fill:var(--ink-2);font-family:var(--sans);font-size:10.5px}
+.loc-me{fill:var(--accent);stroke:var(--ground);stroke-width:2}
+.loc-mel{fill:var(--accent);font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em}
+.loc-sc{stroke:var(--ink-3);stroke-width:1}
+.loc-sct{fill:var(--ink-3);font-family:var(--mono);font-size:9.5px}
+.loc-n{fill:var(--ink-3);font-family:var(--mono);font-size:10px}
+
+.loc-cap{padding:13px 16px 14px;border-top:1px solid var(--rule)}
+.loc-row{display:flex;gap:14px;margin-bottom:6px;align-items:baseline}
+.loc-k{flex:none;width:64px;font-family:var(--sans);font-size:9.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.loc-v{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-2);min-width:0}
+.loc-sep{margin:0 7px;opacity:.5}
+.loc-near{white-space:nowrap}
+.loc-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)}
+.loc-links a{font-family:var(--sans);font-size:12px;text-decoration:none}
+.loc-links a:hover{text-decoration:underline}
+.loc-miss{font-family:var(--sans);font-size:13px;color:var(--ink-3);
+  border-left:2px solid var(--terra);padding-left:14px;margin:18px 0}
+@media (max-width:520px){ .loc-k{width:56px} .loc-lb{font-size:9.5px} }
+</style>
