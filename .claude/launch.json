@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "archive",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "preview", "--prefix", "site"],
-      "port": 4321
+      "name": "site-dist",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4317", "--directory", "site/dist"],
+      "port": 4317
     }
   ]
 }

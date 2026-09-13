@@ -1,47 +1,261 @@
 ---
 import Base from "../layouts/Base.astro";
-import TreeNode from "../components/TreeNode.astro";
+import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
-import t from "../data/tree.json";
+import dl from "../data/directline.json";
+import arch from "../data/archives.json";
+import doss from "../data/dossiers.json";
+
+const gens = dl.generations;
+
+/* Every mother came from a family that may have an archive of its own.
+   Map a surname to the sibling archive that holds it. */
+const archOf = (name) => {
+  if (!name) return null;
+  for (const a of arch.archives) {
+    if (a.key === "defranceski") continue;
+    for (const s of a.surnames || []) {
+      const re = new RegExp("(^|\\s|né[e]?\\s|born\\s)" + s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+      if (re.test(name)) return a;
+    }
+  }
+  return null;
+};
+
+/* Link a name to its dossier page where one exists. */
+const slugBy = {};
+for (const p of Object.values(doss.people)) {
+  const k = String(p.name || "").toLowerCase().replace(/[^a-z ]/g, "").trim();
+  if (k && !slugBy[k]) slugBy[k] = p.slug;
+}
+const whoOf = (name) => {
+  const k = String(name || "").toLowerCase().replace(/[^a-z ]/g, "").trim();
+  return slugBy[k] || null;
+};
+
+const CONF = {
+  documented: ["doc", "Documented", "var(--accent)"],
+  family:     ["lore", "Family chart", "var(--ochre)"],
+  living:     ["", "Living — name only", "var(--ink-3)"],
+};
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 ---
 <Base
   title="The Tree"
-  eyebrow="Seven generations · openable"
-  dek="The documented descent, generation by generation. Click a name to open or close its children; every branch that goes anywhere carries a link down to the page that proves it.">
+  eyebrow={`${gens.length} generations · 1750 to now`}
+  dek="Eight generations of one descent, each as the couple it actually was. Every mother is named, with her own birthplace and — where her family keeps one — a link to her own archive. Every child is listed, not only the one who carried the line.">
 
-  <div class="legend" style="margin-bottom:18px">
+  <div class="legend" style="margin-bottom:22px">
     <span><i style="background:var(--accent);border-radius:0;width:3px;height:14px"></i>Documented — a register page or certified extract</span>
-    <span><i style="background:var(--ochre);border-radius:0;width:3px;height:14px"></i>Inferred</span>
-    <span><i style="background:var(--ink-3);border-radius:0;width:3px;height:14px"></i>Family lore, or deliberately withheld</span>
+    <span><i style="background:var(--ochre);border-radius:0;width:3px;height:14px"></i>The family's own chart, not yet a register</span>
+    <span><i style="background:var(--ink-3);border-radius:0;width:3px;height:14px"></i>Living — name only, by the archive's rule</span>
   </div>
 
-  <div class="treewrap">
-    <TreeNode node={t.root} />
+  <div class="t-spine">
+  {gens.map((g, i) => {
+    const [chip, confLabel, colour] = CONF[g.confidence] || CONF.documented;
+    const sp = g.spouse;
+    const spArch = sp ? archOf(sp.name) : null;
+    const who = whoOf(g.name);
+    const kids = g.children || [];
+    const isLast = i === gens.length - 1;
+    return (
+      <section class="t-gen" style={`--c:${colour}`}>
+        <div class="t-rail">
+          <div class="t-gno">{g.n}</div>
+          {!isLast && <div class="t-drop"></div>}
+        </div>
+
+        <div class="t-body">
+          <div class="t-couple">
+            <div class="t-person t-him">
+              <div class="t-nm">{who ? <a href={u(`/who/${who}/`)}>{g.name}</a> : g.name}</div>
+              {g.latin && <div class="t-alt">as the register writes him — {g.latin}</div>}
+              <div class="t-meta">
+                {(g.bornExact || g.born) && <span>b. {g.bornExact || g.born}</span>}
+                {(g.diedExact || g.died) && <span>d. {g.diedExact || g.died}</span>}
+              </div>
+              {g.occupation && <div class="t-occ">{g.occupation}</div>}
+            </div>
+
+            {sp ? (
+              <>
+                <div class="t-amp" aria-hidden="true">×</div>
+                <div class="t-person t-her">
+                  <div class="t-nm">{sp.name}</div>
+                  {sp.born && <div class="t-meta"><span>b. {sp.born}</span></div>}
+                  {spArch
+                    ? <a class="t-xarch" href={spArch.url}>Her family has its own archive — {spArch.name} →</a>
+                    : <div class="t-alt">No archive of her own line yet</div>}
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="t-amp" aria-hidden="true">×</div>
+                <div class="t-person t-her empty">
+                  <div class="t-nm">{g.confidence === "living" ? "Withheld" : "Not named"}</div>
+                  <div class="t-alt">{g.confidence === "living"
+                    ? "Living people are named here and no more, by the archive's own rule."
+                    : "This generation's wife is in no source the archive holds."}</div>
+                </div>
+              </>
+            )}
+          </div>
+
+          <div class="t-strip">
+            <span class="t-where">{g.place}</span>
+            {g.married && <span class="m">married {g.married}</span>}
+            <span class="t-cf" style="--c:var(--c)">{confLabel}</span>
+          </div>
+
+          {kids.length > 0 && (
+            <div class="t-kids">
+              <div class="t-klab">{kids.length} {kids.length === 1 ? "child" : "children"} recorded</div>
+              <div class="t-krow">
+                {kids.map(c => (
+                  <div class={"t-kid" + (c.line ? " carries" : "")}>
+                    <span class="t-kn">{c.name}</span>
+                    {c.born && c.born !== "—" && <span class="t-kd">{c.born}</span>}
+                    {c.note && <span class="t-knote">{c.note}</span>}
+                    {c.line && <span class="t-carry">carries the line</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {g.evidence && <p class="t-ev" set:html={md(g.evidence)}></p>}
+
+          {g.flag && (
+            <div class="t-flag">
+              <div class="t-flab">Open question</div>
+              <p set:html={md(g.flag)}></p>
+            </div>
+          )}
+
+          {(g.sources || []).length > 0 && (
+            <div class="t-src">
+              {g.sources.map(s => <div><span class="t-sl">{s.label}</span>{s.note && <span class="t-sn"> — {s.note}</span>}</div>)}
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  })}
   </div>
 
-  <p class="cap" style="margin-top:16px">{t.note}</p>
+  <p class="cap" style="margin-top:22px">Built from <a href={u("/direct-line/")}>the direct line</a>, which carries the working and the objections. Where a generation's evidence is an inference it says so here, in the same words.</p>
 
-  <section class="blk" style="margin-top:30px">
-    <h2>Other ways in</h2>
+  <Rule name="arrows" label="Other ways in" />
+  <section class="blk">
     <div class="doors" style="margin-top:20px">
-      <a class="door" href={u("/search/")}>
-        <div class="dn">Search everything</div>
-        <div class="dd">594 people, places, households, records, plates and namesakes in one index — diacritics folded, so «Gracisce» finds Gračišće.</div>
-        <div class="go">Open search →</div>
-      </a>
-      <a class="door" href={u("/people/")}>
-        <div class="dn">The people list</div>
-        <div class="dd">Everyone the archive names, with dates, places and the role each played.</div>
-        <div class="go">Browse people →</div>
+      <a class="door" href={u("/direct-line/")}>
+        <div class="dn">The spine, in full</div>
+        <div class="dd">The same eight generations with every objection, every plate and every certificate reference set out at length.</div>
+        <div class="go">Open the direct line →</div>
       </a>
       <a class="door" href={u("/households/")}>
         <div class="dn">Households</div>
-        <div class="dd">Fifty-two reconstructed households, by house number where the register gives one.</div>
+        <div class="dd">Every reconstructed household the archive holds — not only this line — by house number where the register gives one.</div>
         <div class="go">Browse households →</div>
+      </a>
+      <a class="door" href={u("/search/")}>
+        <div class="dn">Search everything</div>
+        <div class="dd">People, places, households, records and plates in one index — diacritics folded, so «Gracisce» finds Gračišće.</div>
+        <div class="go">Open search →</div>
       </a>
     </div>
   </section>
 
   <Sources ids={["dapa", "maticne", "mftpkg", "arolsen", "myheritage"]} />
 </Base>
+
+<style>
+  .t-spine { margin-top: 8px; }
+
+  .t-gen { display: grid; grid-template-columns: 44px 1fr; gap: 0 16px; }
+  .t-rail { display: flex; flex-direction: column; align-items: center; }
+  .t-gno {
+    width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--c); color: var(--ground);
+    font-family: var(--sans); font-size: 13px; font-weight: 700; line-height: 1;
+  }
+  .t-drop { flex: 1; width: 2px; background: var(--rule); margin: 8px 0 0; min-height: 24px; }
+
+  .t-body {
+    border-left: 3px solid var(--c); background: var(--panel);
+    padding: 16px 18px 15px; margin-bottom: 26px; border-radius: 2px;
+  }
+
+  .t-couple { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+  .t-person { flex: 1 1 240px; min-width: 0; }
+  .t-person.her { border-left: 1px solid var(--rule); padding-left: 14px; }
+  .t-person.her.empty .t-nm { color: var(--ink-3); font-style: italic; }
+  .t-amp { font-family: var(--serif); font-size: 22px; color: var(--ink-3); padding-top: 4px; }
+  .t-nm { font-family: var(--serif); font-size: 20px; line-height: 1.25; }
+  .t-nm a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  .t-nm a:hover { border-bottom-color: var(--accent); }
+  .t-alt { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; font-style: italic; }
+  .t-meta { margin-top: 5px; display: flex; gap: 12px; flex-wrap: wrap;
+          font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+  .t-occ { margin-top: 5px; font-size: 13px; color: var(--ink-2); }
+  .t-xarch {
+    display: inline-block; margin-top: 6px; font-size: 12.5px;
+    color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent;
+  }
+  .t-xarch:hover { border-bottom-color: var(--accent); }
+
+  .t-strip {
+    margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule);
+    display: flex; gap: 10px 16px; flex-wrap: wrap; align-items: baseline;
+  }
+  .t-strip .t-where { font-size: 14px; color: var(--ink); }
+  .t-strip .m { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+  .t-strip .t-cf {
+    margin-left: auto; font-family: var(--sans); font-size: 10.5px;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+    border: 1px solid var(--rule-strong); padding: 2px 7px; border-radius: 2px;
+  }
+
+  .t-kids { margin-top: 13px; }
+  .t-klab {
+    font-family: var(--sans); font-size: 10.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 7px;
+  }
+  .t-krow { display: flex; flex-wrap: wrap; gap: 8px; }
+  .t-kid {
+    border: 1px solid var(--rule); border-radius: 2px; padding: 7px 10px;
+    background: var(--panel-2); min-width: 0; flex: 0 1 auto;
+  }
+  .t-kid.carries { border-color: var(--c); background: var(--accent-wash); }
+  .t-kn { display: block; font-size: 14px; }
+  .t-kd { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); margin-top: 2px; }
+  .t-knote { display: block; font-size: 11.5px; color: var(--ink-3); margin-top: 3px; max-width: 34ch; }
+  .t-carry {
+    display: inline-block; margin-top: 5px; font-family: var(--sans);
+    font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+  }
+
+  .t-ev { margin-top: 13px; font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
+
+  .t-flag { margin-top: 12px; padding: 10px 12px; border-left: 2px solid var(--terra); background: var(--panel-2); }
+  .t-flab {
+    font-family: var(--sans); font-size: 10.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 4px;
+  }
+  .t-flag p { margin: 0; font-size: 13.5px; line-height: 1.58; }
+
+  .t-src { margin-top: 12px; font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); line-height: 1.7; }
+  .t-src .t-sl { color: var(--ink-2); }
+
+  @media (max-width: 620px) {
+    .t-gen { grid-template-columns: 30px 1fr; gap: 0 10px; }
+    .t-person.her { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 10px; }
+    .t-amp { display: none; }
+    .t-strip .t-cf { margin-left: 0; }
+  }
+</style>
