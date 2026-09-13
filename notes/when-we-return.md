@@ -116,6 +116,8 @@ Closing that gap means **reading Vodnjan whole**: ~105 images, ~4,600 entries, r
 5. Šterna and Sovinjak are **not in this filmed collection** — they need a different route.
 6. The **Labin 1615 Aloysius** is not in the pool; our Labin records run 1826–1866. Worth re-testing.
 
+**Letters out, awaiting reply:** Arolsen (sent 13 Sept) · **HAZU Library, Zagreb — scan of Klen's 1425 Petrapilosa tax roll, Starine 58 pp. 85–124 (sent 13 Sept, thread 1a099eeac2779c13)**.
+
 **Unchanged and still open:** Vodnjan deaths from book page 176; film 005497895; Corsica 12 NUM 4186–4194; Arolsen (enquiry sent 13 Sept, awaiting reply).
 
 ### Later on 13 September — the corrections the round produced

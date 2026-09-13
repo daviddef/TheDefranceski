@@ -190,7 +190,7 @@ A **DSpace 7 repository with an open REST API** — harvests cleanly, no bot che
 
 ## Roadmap added 13 September 2026
 
-**1. HAZU scan request — DRAFTED, FOR DAVID TO SEND.** `notes/outbox/hazu-starine-58-request.txt`, in English and Croatian. Asks dizbi@hazu.hr for **Klen, «Urbar Petre Pilose iz 1425. godine», Starine 58 (1980), pp. 85–124** — the tax roll naming the twelve villages of the Petrapilosa fief, the district Šterna and Sovinjak sit in. Includes a second ask for Klen's «Iz prošlosti Kostela — Petre Pilose i njegovih sela», whose journal is not yet identified.
+**1. HAZU scan request — SENT 13 September 2026, awaiting reply.** (Gmail thread `1a099eeac2779c13`, to library@hazu.hr, cc informator@ and dizbi@.) `notes/outbox/hazu-starine-58-request.txt`, in English and Croatian. Asks dizbi@hazu.hr for **Klen, «Urbar Petre Pilose iz 1425. godine», Starine 58 (1980), pp. 85–124** — the tax roll naming the twelve villages of the Petrapilosa fief, the district Šterna and Sovinjak sit in. Includes a second ask for Klen's «Iz prošlosti Kostela — Petre Pilose i njegovih sela», whose journal is not yet identified.
 
 **2. forebears.io — a source this archive already uses and has under-used.** `names.json` cites Forebears for the worldwide spelling totals, but had never taken the **country breakdowns** or the **per-place surname lists**. Both are now proven useful:
    - Country breakdowns added to `/name/` on 13 Sept.
