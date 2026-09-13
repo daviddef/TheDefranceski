@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "227 entries · 36 of them corrections",
+ "eyebrow": "228 entries · 37 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -150,6 +150,14 @@
      "src": "A claim taken back",
      "text": "**This archive said** That **Pula** had «about fifty records» and that **Krk, Kastav and Oprtalj** were towns missing from the lines chart.\n\n**What is true** Pula has **ten** in the register. The fifty came from adding register, roster and households together and folding «Pola» into «Pula» — three different kinds of row counted as one kind. And Krk, Kastav and Oprtalj are **not gaps at all**: the surnames there are **Franceschini** and **Francetich**, different stocks of a different name.\n\n**How it happened** Caught before publishing, by recounting per source and printing the **spelling column** beside each place. The lesson is the one this archive keeps meeting from a new direction: **a place count means nothing until you have looked at what surname is actually standing in it.**",
      "href": "— (in conversation)"
+    },
+    {
+     "when": "13 Sept 2026",
+     "kind": "correction",
+     "what": "Publishing this archive's own method back to it as a discovery",
+     "src": "A claim taken back",
+     "text": "**This archive said** That forty-five per cent of the indexed records carry no town, that the film number in each record is the way to a parish, and — presented as the day's lesson — that a reel can carry more than one parish, so the film is «a fast first pass and not an answer».\n\n**What is true** **All three were already on this site.** The parish-map section of the same page says the index «usually gives no parish… every persona carries the ark of the image it was read from, the service turns that ark into a DGS film number, and the catalogue names the film's parish». And the correction entry above it, from 9 September, already ends: «The reliable route is to resolve records to their film and read the catalogue's item list — *remembering that a film can carry more than one parish*.»\n\nThe 45% is a measurement of something this archive had already stated qualitatively. It was written up as though nobody here had noticed.\n\n**How it happened** By not reading the page being added to. Four sections were appended to /istria-sweep/ in one afternoon without the existing parish-map section being read first — the same page, eighty lines further down.\n\n**What is actually new, and it is narrower:** `q.fatherSurname` and `q.motherSurname` are honoured when either is the sole name term, which the reference note said was impossible and which took the pool from 954 records to 1,619; and resolving a record through its **image ark to the book waypoint** is finer than film-to-catalogue — it settles a two-parish reel *automatically* instead of requiring somebody to remember to check. The measurement that 110 of 112 records on film 005497893 are the second parish's is new. The idea is not.",
+     "href": "/istria-sweep/#noplace"
     }
    ]
   },
