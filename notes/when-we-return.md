@@ -173,3 +173,17 @@ FamilySearch returned **Access Denied Error 15** on every endpoint — search, c
 - **75 charts** drawn from a single indexed birth row (Colotta and Fioretta of 1666 among them), with three guards: two-word keys, birth rows only, and the date gate.
 - **Twenty false birth years** corrected — first-appearance dates carried in as births. Rule: parent in a household, same place, year inside the childbearing span.
 - **Kršan** given a page; Anna Maria Francisca's dates fixed from this site's own Gologorica page (b. 1860, d. Trieste 1941), which links the Kršan Domazetović marriages back to Gologorica.
+
+---
+
+## 13 September, evening — Vodnjan film structure, and a numbering question
+
+**The Vodnjan film is filed under the ORTHODOX branch of the waypoint tree**, which is why it never appeared in the Roman Catholic parish list and why earlier attempts to find its waypoint failed. Working ids:
+- Film 005497894, 581 images: `9R2D-927:391644701,391690101,391807401`
+- Its parent: `9R2H-GPX:391644701,391690101` («Vodnjan»), under `9RKB-BZ7:391644701` («Orthodox (Pravoslavna crkva)»).
+
+**A numbering question to settle before resuming.** Image 573 of that film is a *Liber Defunctorum* opening of **1832**, entries roughly 85–118, and the printed page number in the top outer corner appeared to read **76** — not 173. Read at low magnification only, and the block hit before it could be confirmed.
+
+If that is right, this archive's «book page 156–175» and «resume at book page 176» are **its own running count, not the book's printed numbers**, and the resume instruction is ambiguous for anyone else. **First job next session: open image 573, read the printed page number at full magnification, and either confirm the archive's numbering or restate the resume point in image numbers.**
+
+**Forebears town sweep, started.** Gračišće and Vodnjan done (see `/places/vodnjan/` for the result — the esodo visible in a surname list). Ližnjan's slug does not resolve as `liznjan` or `ližnjan`; find the right one. Gologorica has no page.
