@@ -1,0 +1,138 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Sift from "../components/Sift.astro";
+import Gist from "../components/Gist.astro";
+import Locator from "../components/Locator.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import g from "../data/giornaletto.json";
+import gists from "../data/gists.json";
+const anno = (d) => `https://anno.onb.ac.at/cgi-content/anno?aid=gdp&datum=${d}`;
+const CONF = { doc: ["Documented", "var(--accent)"], inf: ["Inferred", "var(--ochre)"] };
+const dateLabel = (s) => {
+  const M = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  return `${+s.slice(8,10)} ${M[+s.slice(5,7) - 1]} ${s.slice(0,4)}`;
+};
+---
+<Base
+  title="Il Giornaletto di Pola, read end to end"
+  eyebrow="164 issues · 1914 to 1919 · four people"
+  dek="A street name led here. One hundred and sixty-four issues of Pola's daily carry the family name; this is what happened when every one of them was read in full.">
+
+  <Gist g={gists.gists["giornaletto"]} />
+
+  <section class="prose">
+    <p>In September 2026 this archive found <strong>via Carlo Defranceschi</strong> in the classified columns of <em>Il Giornaletto di Pola</em> — Pola had named a street after him, and by 1914 it was simply where the beer depot was. That was a landmark, and it was found by accident while reading the paper for something else.</p>
+    <p><strong>The obvious next question was never asked: does the paper carry the family as well as the address?</strong> A street name recurring in rental advertisements is a fact about the city. A name in a conscription list, a subscription column or a police item is a fact about a person.</p>
+    <p>So the whole run was read. ANNO publishes a full-text endpoint for every digitised issue, which means an issue can be fetched as plain text rather than turned page by page in a viewer; <strong>one hundred and sixty-four issues carry some spelling of the name, and all one hundred and sixty-four were read from end to end.</strong></p>
+  </section>
+
+  <Rule name="arrows" label="What one hundred and sixty-four issues actually hold" />
+  <Sift g={g} />
+
+  <div class="one" id="ratio">
+    <p set:html={md("**The ratio is the finding before any of the names are.** One hundred and fifty-eight of these issues are somebody wanting to let two rooms and a kitchen at *via Carlo Defranceschi 48*, or telling you where the Goess beer depot is. Filtering that out is most of the work, and it has to be done by hand: the OCR turns *via* into *vla*, *wvia*, *ia* and *tia*, breaks the street name across two columns, and stitches the classifieds into the middle of a war telegram from Antwerp.")}></p>
+    <p set:html={md("Six issues survive the street. **Four of them name a person.**")}></p>
+  </div>
+
+  <Rule name="arrows" label="The four" />
+
+  <div class="gd-people">
+    {g.people.map((p) => {
+      const [lab, col] = CONF[p.conf] || CONF.inf;
+      return (
+        <article class="gd-p" id={p.datum}>
+          <header class="gd-h">
+            <span class="gd-d">{dateLabel(p.date)}</span>
+            <span class="gd-c" style={`--c:${col}`}>{lab}</span>
+          </header>
+          <h3 class="gd-n" set:html={md(p.lab)}></h3>
+          <div class="gd-q">
+            <span class="gd-qh">{p.head}</span>
+            <p class="gd-it" set:html={md(p.it)}></p>
+            <p class="gd-en" set:html={md(p.en)}></p>
+          </div>
+          <div class="gd-note"><p set:html={mdp(p.note)}></p></div>
+          <a class="gd-go" href={anno(p.datum)} rel="noopener" target="_blank">The issue at ANNO →</a>
+        </article>
+      );
+    })}
+  </div>
+
+  <Rule name="arrows" label="And two the paper will not name" />
+
+  <div class="gd-un">
+    {g.unnamed.map((x) => (
+      <div class="gd-u">
+        <span class="gd-ud">{dateLabel(x.date)}</span>
+        <p set:html={md(x.t)}></p>
+        <a class="gd-go" href={anno(x.datum)} rel="noopener" target="_blank">The issue at ANNO →</a>
+      </div>
+    ))}
+  </div>
+
+  <Rule name="arrows" label="Where Fasana is" />
+  <Locator place="Fažana" radius={18}
+           note="Angelo Defranceschi gave his village to a reporter in 1914 — «da Fasana» — and that is the fact the register row for his birth year does not have. Fažana is eight kilometres up the coast from Pola, within walking distance of the shipyard that drew half of Istria into the city." />
+
+  <Rule name="arrows" label="What the run does not show" />
+
+  <div class="one" style="border-left-color:var(--terra)" id="artefact">
+    <p set:html={md("**The name stops in March 1915 and reappears once in May 1919, and that is not history — it is digitisation.** One hundred and twenty-seven of the issues are 1914, thirty-six are January to March 1915, one is 20 May 1919.")}></p>
+    <p set:html={md("It is a tempting shape. Pola's civilian population was cleared out during the war, and a street vanishing from the rental columns in the spring of 1915 would fit that exactly. **It is an artefact.** Probing ANNO for issues the search did not return: every 1914 date tested comes back with a full text, and *no* date tested in 1916, 1917 or 1918 does. **ANNO's run of the *Giornaletto* is complete for 1914, patchy for early 1915, and then essentially absent** — so the silence is the library's, not the city's.")}></p>
+    <p class="cap" style="margin-top:12px" set:html={md("Tested before it was written, because this archive published a count of 837 issues earlier the same week that turned out to be five. The rule now is that a surprising shape gets a control before it gets a sentence.")}></p>
+  </div>
+
+  <div class="doors" style="margin-top:30px">
+    <a class="door" href={u("/open-questions/")}>
+      <div class="dn">Riccardo B———</div>
+      <div class="dd">A bride's surname is in the archive and the groom's is not, because the paper set it in swash capitals. The page image would settle it.</div>
+      <div class="go">The open questions →</div>
+    </a>
+    <a class="door" href={u("/carlo/")}>
+      <div class="dn">The man the street is named for</div>
+      <div class="dd">Carlo De Franceschi, 1809–1893 — historian of Istria, and by 1914 an address in the small ads.</div>
+      <div class="go">His life →</div>
+    </a>
+    <a class="door" href={u("/searched/")}>
+      <div class="dn">The Search Register</div>
+      <div class="dd">Every source this archive has opened, what it gave, and what it did not.</div>
+      <div class="go">The register →</div>
+    </a>
+  </div>
+
+</Base>
+
+<style>
+  .gd-people { display: grid; gap: 22px; margin-top: 18px; }
+  .gd-p {
+    background: var(--panel); border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent); border-radius: 3px; padding: 20px 22px;
+  }
+  .gd-h { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .gd-d { font: 400 12px/1 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
+  .gd-c {
+    font: 400 10px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--c); border: 1px solid var(--c); border-radius: 2px; padding: 3px 7px;
+  }
+  .gd-n { font-family: var(--serif); font-size: 20px; line-height: 1.3; margin: 10px 0 0; }
+  .gd-q { margin: 16px 0 0; padding: 14px 0 2px; border-top: 1px solid var(--rule); }
+  .gd-qh {
+    display: block; font: 400 10px/1 var(--sans); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;
+  }
+  .gd-it { font-family: var(--serif); font-size: 15px; line-height: 1.65; color: var(--ink-2); margin: 0; }
+  .gd-en { font-size: 14px; line-height: 1.7; margin: 12px 0 0; color: var(--ink); }
+  .gd-note { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .gd-note :global(p) { font-size: 14px; line-height: 1.75; margin: 0 0 10px; }
+  .gd-go {
+    display: inline-block; margin-top: 8px;
+    font: 400 12px/1 var(--mono); letter-spacing: .03em; color: var(--accent);
+  }
+  .gd-un { display: grid; gap: 14px; margin-top: 18px; }
+  .gd-u { border-left: 2px solid var(--ochre); padding: 4px 0 4px 16px; }
+  .gd-u :global(p) { font-size: 14px; line-height: 1.75; margin: 6px 0 0; }
+  .gd-ud { font: 400 12px/1 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
+  @media (max-width: 620px) { .gd-p { padding: 16px; } .gd-n { font-size: 18px; } }
+</style>
