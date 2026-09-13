@@ -7,6 +7,10 @@ import cl from "../data/clusters.json";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import o from "../data/omis.json";
+const vmd = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 ---
@@ -99,7 +103,7 @@ import Lightbox from "../components/Lightbox.astro";
 
 <section class="blk">
   <h2>{o.gazzetta1840.heading}</h2>
-  <p class="dek" style="margin-top:8px">{o.gazzetta1840.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={vmd(o.gazzetta1840.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {o.gazzetta1840.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
@@ -128,4 +132,31 @@ import Lightbox from "../components/Lightbox.astro";
 </section>
 
   <Sources ids={["plemstvo", "omisphotos", "familysearch", "gazzetta-zara-1840"]} />
+  <Rule name="arrows" label="A different kind of record" />
+  <section class="blk">
+    <h2 style="font-size:30px;margin:6px 0 10px">{o.valente.heading}</h2>
+    <p class="dek" set:html={vmd(o.valente.lead)}></p>
+
+    <blockquote class="vq" set:html={vmd(o.valente.quote)}></blockquote>
+    <p class="vt" set:html={vmd(o.valente.trans)}></p>
+
+    <div class="vwhy">
+      {o.valente.why.map(w => <p set:html={vmd(w)}></p>)}
+    </div>
+
+    <p class="note" style="margin-top:20px" set:html={vmd(o.valente.where)}></p>
+    <p class="note" style="margin-top:14px;border-left-color:var(--accent)" set:html={vmd(o.valente.next)}></p>
+  </section>
+
+
 </Base>
+
+<style>
+.vq{margin:20px 0 0;padding:14px 0 14px 20px;border-left:3px solid var(--ochre);
+  font-family:var(--serif);font-size:16px;line-height:1.66;color:var(--ink-2);max-width:82ch}
+.vt{font-family:var(--sans);font-size:14.5px;line-height:1.7;color:var(--ink);
+  margin:16px 0 0;max-width:82ch}
+.vwhy{margin-top:20px}
+.vwhy p{font-family:var(--sans);font-size:14px;line-height:1.68;color:var(--ink-2);
+  margin:0 0 14px;max-width:84ch}
+</style>
