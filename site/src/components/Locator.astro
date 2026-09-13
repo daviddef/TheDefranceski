@@ -45,14 +45,25 @@ for (const p of pool) {
   if (!dup) all.push(p);
 }
 
-let near = [], span = radius, scaleKm = 5, pts = [];
+let near = [], span = radius, scaleKm = 5, pts = [], wide = false;
 if (target) {
-  near = all.filter(p => p !== target)
-            .map(p => ({ ...p, d: dist(target, p), b: bearing(target, p) }))
-            .filter(p => p.d <= radius && p.d > 0.6)
-            .sort((a, b) => a.d - b.d)
-            .slice(0, 9);
-  span = Math.max(radius * 0.55, near.length ? near[near.length - 1].d * 1.25 : radius * 0.5);
+  const ranked = all.filter(p => p !== target)
+                    .map(p => ({ ...p, d: dist(target, p), b: bearing(target, p) }))
+                    .filter(p => p.d > 0.6)
+                    .sort((a, b) => a.d - b.d);
+  near = ranked.filter(p => p.d <= radius).slice(0, 9);
+  /* Some places in this archive stand alone — Torrington, Dubrovnik, Laives.
+     Rather than draw an empty frame, pull back until the nearest few appear
+     and say on the page that the scale is not the local one. */
+  if (!near.length && ranked.length) {
+    /* keep the pull-back sane: a place 6,000 km away would flatten the scale
+       and tell the reader nothing, so take only what sits near the nearest. */
+    const first = ranked[0].d;
+    near = ranked.filter(p => p.d <= first * 3.5).slice(0, 4);
+    wide = true;
+  }
+  /* fit the frame to what is actually plotted, not to the search radius */
+  span = near.length ? Math.max(near[near.length - 1].d * 1.3, 0.8) : radius * 0.5;
   const kmPerDegLat = 111.32, kmPerDegLon = 111.32 * Math.cos(rad(target.lat));
   const pad = 34, iw = w - pad * 2, ih = h - pad * 2;
   const sc = Math.min(iw, ih) / (span * 2);
@@ -69,8 +80,10 @@ if (target) {
     if (Math.abs(p.ly - (h/2 - 15)) < 15 && Math.abs(p.x - w/2) < 130)
       p.ly += (p.y <= h/2 ? -19 : 19);
   });
-  const nice = [1, 2, 5, 10, 20, 50];
-  scaleKm = nice.find(n => n * sc > 44 && n <= span) || nice.find(n => n <= span) || 1;
+  /* aim for a bar about 90px long, then round down to a readable number */
+  const nice = [0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
+  const rawKm = 90 / sc;
+  scaleKm = [...nice].reverse().find(n => n <= rawKm) || nice[0];
   var SC = sc;
 }
 const gmaps = target ? `https://www.google.com/maps/search/?api=1&query=${target.lat},${target.lon}` : null;
@@ -115,7 +128,7 @@ const dms = (v, pos, neg) => `${Math.abs(v).toFixed(4)}° ${v >= 0 ? pos : neg}`
       </div>
       {near.length > 0 && (
         <div class="loc-row">
-          <span class="loc-k">Nearest</span>
+          <span class="loc-k">{wide ? "Nearest held" : "Nearest"}</span>
           <span class="loc-v">
             {near.slice(0, 3).map((p, i) => (
               <>{i > 0 && <span class="loc-sep">·</span>}<span class="loc-near">{`${p.name} — ${p.d < 1 ? Math.round(p.d * 1000) + " m" : p.d.toFixed(1) + " km"} ${card(p.b)}`}</span></>
@@ -123,6 +136,7 @@ const dms = (v, pos, neg) => `${Math.abs(v).toFixed(4)}° ${v >= 0 ? pos : neg}`
           </span>
         </div>
       )}
+      {wide && <div class="loc-row"><span class="loc-k">Scale</span><span class="loc-v loc-wide">This place stands on its own — no other place in this archive lies within {radius} km, so the frame is pulled back to reach the nearest that do.</span></div>}
       {target.what && <div class="loc-row"><span class="loc-k">Why here</span><span class="loc-v">{target.what}</span></div>}
       {note && <div class="loc-row"><span class="loc-k">Note</span><span class="loc-v">{note}</span></div>}
       <div class="loc-links">
@@ -160,6 +174,7 @@ const dms = (v, pos, neg) => `${Math.abs(v).toFixed(4)}° ${v >= 0 ? pos : neg}`
 .loc-v{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-2);min-width:0}
 .loc-sep{margin:0 7px;opacity:.5}
 .loc-near{white-space:nowrap}
+.loc-wide{color:var(--ochre)}
 .loc-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)}
 .loc-links a{font-family:var(--sans);font-size:12px;text-decoration:none}
 .loc-links a:hover{text-decoration:underline}

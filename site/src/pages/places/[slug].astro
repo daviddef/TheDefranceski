@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import places from "../../data/places.json";
+import Locator from "../../components/Locator.astro";
 import names from "../../data/names.json";
 export function getStaticPaths(){
   return places.map(p=>({params:{slug:p.slug},props:{p}}));
@@ -43,6 +44,9 @@ const langName={it:"Italian",de:"German",fur:"Friulian",other:"also written"};
     </div>
   </div>
 </section>
+
+{p.coords && <Locator place={p.name} radius={p.lane === "istria" ? 16 : 28} />}
+
 
 {r && <section class="blk">
   <h2>The registers</h2>
