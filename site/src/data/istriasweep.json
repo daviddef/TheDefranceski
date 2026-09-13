@@ -411,7 +411,7 @@
  },
  "byimage": {
   "heading": "Twenty parishes read by image instead of by place",
-  "lead": "Every sweep on this page until today matched records to towns by the **place text written in the index**. For Istria that text is very often «Croazia, Austria» and nothing more — no town at all — so every place-based count here has been built on the minority of records that happen to name one. The fix is to stop reading the place field. **Every image on FamilySearch is bound into a parish's book, and the book is the parish.** Fetch the image list under each of a parish's volumes, then match records to parishes by **image ark**. A record cannot be at the wrong parish if the page it is written on is in that parish's register.\n\nDone that way against a pool of **1,768 distinct indexed records**, thirty Istrian parishes were tested. Twenty carry the name. Six that this archive had counted as carrying it do not.",
+  "lead": "Every sweep on this page until today matched records to towns by the **place text written in the index**. For Istria that text is very often «Croazia, Austria» and nothing more — no town at all — so every place-based count here has been built on the minority of records that happen to name one. The fix is to stop reading the place field. **Every image on FamilySearch is bound into a parish's book, and the book is the parish.** Fetch the image list under each of a parish's volumes, then match records to parishes by **image ark**. A record cannot be at the wrong parish if the page it is written on is in that parish's register.\n\nDone that way against a pool of **1,768 distinct indexed records**, **forty-three Istrian parishes were tested. Twenty-two carry the name; twenty-one do not** — and six of the twenty-one had been counted here as carrying it.",
   "table": [
    [
     "Ližnjan",
@@ -552,6 +552,27 @@
     1,
     "—",
     "One record, Francesich. Not ours."
+   ],
+   [
+    "Krbune",
+    9,
+    9,
+    "1832–1843",
+    "One woman, one village, eleven entries — and she is on the lost-daughters queue."
+   ],
+   [
+    "Kršan",
+    5,
+    5,
+    "1881–1894",
+    "Two De Franceschi women, two Domazetović men."
+   ],
+   [
+    "Krnica",
+    0,
+    1,
+    "—",
+    "One Franceskich. Not ours."
    ]
   ],
   "rows": [
@@ -577,6 +598,15 @@
    {
     "lab": "Two households that begin and end inside the record",
     "text": "**Vrsar, 1670–1686.** «Luca De Franceschi, son of **Francesco De Franceschi and Giacoma**», baptised 11 August 1670. Giacoma buried 1683. A Marga «of Francesco» buried 19 August 1686. **Francesco himself buried 26 November 1686.** Five entries; a marriage, children, a widowing and a death, and then the name stops at Vrsar.\n\n**Rovinj, 1722–1728.** **Mattio De Franceschi × Elisabetta** baptise Martino in 1722 and Benedetto on 23 October 1726. **Isabetta is buried on 4 December 1728 and Matto on the 27th** — three weeks apart. And this archive already holds that 27 December entry from another direction: «**Ob.to di Matt.o de Franceschi da Dignano**». So the man buried at Rovinj at Christmas 1728 and described from outside as *from Dignano* had been living there long enough to baptise two sons, and buried his wife three weeks before he died. <span class=\"chip inf\" style=\"padding:2px 7px;font-size:10px\">Inferred — that the Isabetta of 4 December is the wife and not a daughter</span>"
+   },
+   {
+    "lab": "And one of the twenty-six lost daughters, found at Krbune",
+    "key": true,
+    "text": "The register page on this site carries a queue of **twenty-six De Franceschi women who married out and are attached to no household**, with forty indexed children hanging off them. Every one of those rows has **an empty place field** — that is precisely why they were never worked.\n\nThe image test places one of them. **Krbune** is a single-volume parish of 124 images in the County of Pazin, four kilometres from Gologorica. Its book holds **Mariana De Franceschi and her husband Vincentius Marziol** with five children between 1832 and 1843 — *Maria*, *Rosaria* 1833, *Franciscus* 21 November 1836, *Anna* 16 November 1839, *Antonia* 17 March 1843 — plus four more entries where the couple stand as godparents to other families' children.\n\nShe looked like several women because **the index spells her husband four ways** — *Marziol*, *Marizo*, *Marjas*, *Marjiol* — and her own name *Mariana*, *Marianna* and, in the Croatian orthography of the 1830s, **«Marianna Defrančeški»**. One woman, one village, eleven entries.\n\nAnd the village matters: **Krbune is inside the County of Pazin**, the same small country as Gologorica and Gračišće, where this archive's own line lives."
+   },
+   {
+    "lab": "Kršan: two De Franceschi women and two Domazetović men",
+    "text": "**Kršan** holds five records, all late and all of the same kind. **Anna Maria Francisca De Franceschi × Thomas Joachimus Clemens de Domazetovich** — children in 1881, 1883 and 1887. **Clotildis Adelaidis Defranceschi × Rudolfus Stanislaus de Domazetovich** — children in 1893 and 1894.\n\nTwo women of the name marrying two men of one family, inside twelve years, in a parish where the surname appears nowhere else. Whether they are sisters the register does not say. The particle on *de Domazetovich* says the family they married into kept one. <span class=\"chip inf\" style=\"padding:2px 7px;font-size:10px\">Inferred that the two women are of one household</span>"
    }
   ],
   "source_bi": "FamilySearch waypoint image lists for thirty Istrian parishes in Croatia, Church Books 1516-1994 (collection 2040054), intersected against 1,768 distinct indexed records gathered on 13 September 2026. The Pazin 1684 entry was read tile by tile from the Deep Zoom service at full magnification. Counts marked «ours» exclude Franceschini, Franceschina, Franceschich, Francocich, Fracischetto and the other formations of the same root that the index's fuzzy matching returns."

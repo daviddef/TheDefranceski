@@ -58,6 +58,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
     </table>
   </div>
   <p class="prose note" style="margin-top:16px" set:html={md(r.lost.close)}></p>
+  {r.lost.close_krbune && <div class="one" style="margin-top:18px;border-left-color:var(--accent)"><div class="lab">Placed, 13 September 2026</div><p style="margin-top:8px" set:html={md(r.lost.close_krbune)}></p></div>}
 </section>
 
 <Rule name="pomegranate" label="The list" />

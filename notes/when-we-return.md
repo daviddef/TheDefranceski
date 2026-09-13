@@ -71,3 +71,33 @@ Closing that gap means **reading Vodnjan whole**: ~105 images, ~4,600 entries, r
 13 on `/errands/`, including four from your 1948 testimony: Senj births 1926 **and** marriages 1948 · Arolsen · Crikvenica deaths 1943 plus the surname **Car** · the Therapia programmes.
 
 **Already sent:** the Hotel Kvarner Palace (ex-Therapia), 10 Sept — asking what they hold from the Therapia years and, if nothing, where it went.
+
+---
+
+## The Istrian round — 13 September 2026
+
+**Method change that made it work.** Stop matching records to towns by the index's place text — in Istria it is usually «Croazia, Austria» and nothing more. Match by **image ark**: every image is bound into a parish's book, and the book is the parish. `/platform/records/waypoints/<id>?cc=2040054&count=1000&start=0` lists a parish's books, then each book's image arks. Also: **`q.fatherSurname` works** when it is the sole name term (our reference note said every `q.` but `q.surname` was ignored — wrong, and it is the only way into books where the child has no surname).
+
+**Forty-three Istrian parishes tested against 1,768 records. Twenty-two carry the name.**
+
+- **Svetvinčenat 1628** — Elena, daughter of Francescho di Franceschi and Eufemia, 21 Dec 1628. Read on the page. Thirty-eight years before the 1666 the archive had, and thirty-three years *before* Moncalvo, not after.
+- **Pazin 1684** — Maria, daughter of Francisco de Franceschi and Marina, 24 March. 107 years earlier than our earliest Pazin record, and 56 years before Kobler's «intorno al 1740» departure for Fiume. The index drops the -i and puts a godparent in the mother's field.
+- **Vižinada + Kaštelir + Tar = one family.** Giulio × Maria Ceselin → Francesco Napoleone (b. Vižinada 1818) × Maria Radojković at Kaštelir; Angelus × Lucia-Antonia Rodella, son Julius bapt. Kaštelir 1866, buried Tar 1870.
+- **Krbune** — Mariana De Franceschi × Vincentius Marziol, five children 1832–43, in the County of Pazin. **She is one of the 26 lost daughters**, and she was placed by ark, not by working the row. The other 25 should go the same way.
+- **Fažana 42 records, all ours** — and Natale Mattio, Vittorio, Elisabetta and Irene, listed here for a year under *Pula*, are Fažana's.
+- **Pula: 38 of 85 are ours**; the other 47 are Franceschini/Franceschina, a different family.
+- **Rovinj begins 1619, not 1569** (Fracischetto/Francoscheto/Franceschero are not ours). Mattio × Elisabetta baptise two sons 1722/1726; Isabetta buried 4 Dec 1728, Matto «da Dignano» on the 27th.
+- **Vrsar 1670–1686** — Francesco × Giacoma, one household beginning and ending in five entries.
+- **Kršan** — two De Franceschi women marrying two de Domazetovich men, 1881–94.
+- **Draguč holds nothing.** Its 25 were Vižinada's, doubled by the place parameter. Tested blanks now also: Kanfanar, Tinjan, Roč, Novigrad, Marčana, Boljun, Funtana, Plomin, Rakalj, Presika, Rovinjsko Selo, Stari Pazin, Lupoglav, Nedešćina, Kringa.
+- **Oprtalj 0 of 9 ours** — it was on this round's own list of fifteen and should not have been.
+
+**Next, and cheap, because the machinery now exists**
+1. Run the ark test on the other **25 lost daughters** — every row has an empty place and a page in somebody's book.
+2. **Fažana**, 42 records and never read by eye. Two households, books from 1810.
+3. **Svetvinčenat marriages 1762–1858** — 19 records found by ark, unread on the page.
+4. **Rovinj**, 29 volumes from 1553, 21 records, nothing read.
+5. Šterna and Sovinjak are **not in this filmed collection** — they need a different route.
+6. The **Labin 1615 Aloysius** is not in the pool; our Labin records run 1826–1866. Worth re-testing.
+
+**Unchanged and still open:** Vodnjan deaths from book page 176; film 005497895; Corsica 12 NUM 4186–4194; Arolsen (enquiry sent 13 Sept, awaiting reply).
