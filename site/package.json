@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --port 4321",
-    "build": "astro build",
-    "preview": "astro preview --port 4321"
+    "build": "astro build && npm run sitemap",
+    "preview": "astro preview --port 4321",
+    "sitemap": "python3 ../tools/sitemap.py"
   },
   "dependencies": {
     "astro": "^5.18.2"
