@@ -3,7 +3,7 @@
    two of them linked to nobody at all. This renders every archive except the
    one you are standing in, from a file that is identical in all seven, so the
    list cannot drift apart. */
-import ring from "../data/archives.json";
+import ring from "@daviddef/archive-kit/data/archives.json";
 
 const here = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
 const others = ring.archives.filter(a => a.base !== here);

@@ -1,19 +1,18 @@
 {
- "note": "An ancestor chart for David, worked backwards. Every box is a person a document names. A WALL is a place where this archive knows a person existed and cannot name their parents — and the reasons differ.",
+ "note": "An ancestor chart for D. Defranceski, worked backwards. Every box is a person a document names. A WALL is a place where this archive knows a person existed and cannot name their parents — and the reasons differ. Living people are shown by initials and surname, with no dates.",
  "root": {
-  "n": "David",
+  "n": "D. Defranceski",
   "conf": "living",
-  "note": "Living — named only, by the archive's rule.",
+  "note": "Living — initials and surname only, and no dates.",
   "f": {
-   "n": "Ivan",
+   "n": "I. Defranceski",
    "conf": "living",
-   "note": "Living — named only.",
+   "note": "Living — initials and surname only.",
    "f": {
     "n": "Ivan Defranceski",
     "d": "1925 – 1995",
     "place": "Crikvenica → Pfullingen → Senj",
     "conf": "doc",
-    "who": "ivan-defranceski",
     "note": "Taken to work in the Reich at sixteen; went home, married, and is buried on his own coast under «IVAN DEFRANČESKI».",
     "f": {
      "n": "Anton Rudolf Defranceski",
@@ -56,120 +55,126 @@
          }
         },
         "m": {
-         "n": "Francisca Salomon",
-         "d": "b. 17 Mar 1797",
-         "place": "Gračišće",
-         "conf": "doc",
-         "note": "Of a family with a palace on the square facing the bishop's; by 1848 a Salomon sat in the parliament at Vienna.",
-         "f": {
-          "wall": true,
-          "kind": "unworked",
-          "label": "Unworked",
-          "note": "Her parents are not in this archive. The Gračišće registers that would name them are the ones being read film by film."
-         }
+         "wall": true,
+         "kind": "unknown",
+         "label": "Not named",
+         "note": "Giovanni's wife — the mother of the 1787 generation — is in no source this archive holds."
         }
        },
        "m": {
-        "n": "Maria née Fernasar",
-        "d": "b. 17 Oct 1832",
+        "n": "Francisca Salomon",
+        "d": "b. 17 Mar 1797",
         "place": "Gračišće",
         "conf": "doc",
+        "note": "Of a family with a palace on the square facing the bishop's; by 1848 a Salomon sat in the parliament at Vienna.",
         "f": {
          "wall": true,
          "kind": "unworked",
          "label": "Unworked",
-         "note": "The surname is written Fernasar and Tornasar in different hands, which is the first thing to settle."
+         "note": "Her parents are not in this archive. The Gračišće registers that would name them are the ones being read film by film."
         }
        }
       },
       "m": {
-       "n": "Anna Kalanj",
-       "d": "b. 3 Jan 1864",
-       "place": "Rijenovica h.22, Vinodol",
+       "n": "Maria née Fernasar",
+       "d": "b. 17 Oct 1832",
+       "place": "Gračišće",
        "conf": "doc",
-       "arch": "blazevic",
-       "note": "Her baptism survives: Ledenice register, entry 2 of 1864.",
        "f": {
-        "n": "Josephus Kalanj",
-        "place": "Rijenovica h.22",
-        "conf": "doc",
-        "f": {
-         "wall": true,
-         "kind": "other-archive",
-         "label": "Continues elsewhere",
-         "note": "The Kalanj line is kept in **The Blažević Archive**, not here."
-        }
-       },
-       "m": {
-        "n": "Rosalia née Perković",
-        "place": "Rijenovica h.22",
-        "conf": "doc",
-        "f": {
-         "wall": true,
-         "kind": "other-archive",
-         "label": "Continues elsewhere",
-         "note": "The Perković line is kept in **The Blažević Archive**."
-        }
+        "wall": true,
+        "kind": "unworked",
+        "label": "Unworked",
+        "note": "The surname is written Fernasar and Tornasar in different hands, which is the first thing to settle."
        }
       }
      },
      "m": {
-      "n": "Uršula Kovačina",
-      "d": "b. about 1890",
+      "n": "Anna Kalanj",
+      "d": "b. 3 Jan 1864",
+      "place": "Rijenovica h.22, Vinodol",
       "conf": "doc",
-      "note": "On the Pfullingen list of foreigners in 1947 and certified by that town's mayor in 1950. The 1948 window is the one Arolsen is being asked about.",
+      "arch": "blazevic",
+      "note": "Her baptism survives: Ledenice register, entry 2 of 1864.",
       "f": {
-       "wall": true,
-       "kind": "unworked",
-       "label": "Unworked",
-       "note": "Her parents are not in this archive. Her own birth record has not been found — «about 1890» is all the certificates give."
+       "n": "Josephus Kalanj",
+       "place": "Rijenovica h.22",
+       "conf": "doc",
+       "f": {
+        "wall": true,
+        "kind": "other-archive",
+        "label": "Continues elsewhere",
+        "note": "The Kalanj line is kept in **The Blažević Archive**, not here.",
+        "arch": "blazevic",
+        "q": "Kalanj"
+       }
+      },
+      "m": {
+       "n": "Rosalia née Perković",
+       "place": "Rijenovica h.22",
+       "conf": "doc",
+       "f": {
+        "wall": true,
+        "kind": "unworked",
+        "label": "Unworked",
+        "note": "The Perković line is **not** in The Blažević Archive either — that archive holds Kalanj, Blažević and Papić, but a search of it for Perković returns nothing. Rosalia née Perković of Rijenovica house 22 is, for now, in no archive at all."
+       }
       }
      }
     },
     "m": {
-     "n": "Hedviga Blažević",
-     "d": "1926 – 2001",
-     "place": "Senj → Johannesburg",
+     "n": "Uršula Kovačina",
+     "d": "b. about 1890",
      "conf": "doc",
-     "arch": "blazevic",
-     "note": "Born at Senj, died at Johannesburg on 30 October 2001, six years to the day after Ivan died at Senj. Her birth date stands in this archive as both 8 March and 3 August 1926 — an unresolved disagreement between documents.",
+     "note": "On the Pfullingen list of foreigners in 1947 and certified by that town's mayor in 1950. The 1948 window is the one Arolsen is being asked about.",
      "f": {
-      "n": "Ljubomir Blažević",
-      "conf": "doc",
-      "arch": "blazevic",
-      "f": {
-       "wall": true,
-       "kind": "other-archive",
-       "label": "Continues elsewhere",
-       "note": "«A line of Senj carriers reaching back past 1768» — kept in **The Blažević Archive**."
-      }
-     },
-     "m": {
-      "n": "Milka Papić",
-      "conf": "doc",
-      "arch": "blazevic",
-      "occ": "cigar-roller, tobacco factory",
-      "f": {
-       "wall": true,
-       "kind": "other-archive",
-       "label": "Continues elsewhere",
-       "note": "The Papić line is kept in **The Blažević Archive**."
-      }
+      "wall": true,
+      "kind": "unworked",
+      "label": "Unworked",
+      "note": "Her parents are not in this archive. Her own birth record has not been found — «about 1890» is all the certificates give."
      }
     }
    },
    "m": {
-    "wall": true,
-    "kind": "living",
-    "label": "Withheld",
-    "note": "Living — this archive names living people and no more."
+    "n": "Hedviga Blažević",
+    "d": "1926 – 2001",
+    "place": "Senj → Johannesburg",
+    "conf": "doc",
+    "arch": "blazevic",
+    "note": "Born at Senj, died at Johannesburg on 30 October 2001, six years to the day after Ivan died at Senj. Her birth date stands in this archive as both 8 March and 3 August 1926 — an unresolved disagreement between documents.",
+    "f": {
+     "n": "Ljubomir Blažević",
+     "conf": "doc",
+     "arch": "blazevic",
+     "f": {
+      "wall": true,
+      "kind": "other-archive",
+      "label": "Continues elsewhere",
+      "note": "«A line of Senj carriers reaching back past 1768» — kept in **The Blažević Archive**.",
+      "arch": "blazevic",
+      "q": "Blažević"
+     }
+    },
+    "m": {
+     "n": "Milka Papić",
+     "conf": "doc",
+     "arch": "blazevic",
+     "occ": "cigar-roller, tobacco factory",
+     "f": {
+      "wall": true,
+      "kind": "other-archive",
+      "label": "Continues elsewhere",
+      "note": "The Papić line is kept in **The Blažević Archive**.",
+      "arch": "blazevic",
+      "q": "Papić"
+     }
+    }
    }
   },
   "m": {
    "wall": true,
    "kind": "living",
    "label": "Withheld",
-   "note": "Living — this archive names living people and no more."
+   "note": "Living. This archive holds no name for her on this page; her own family is kept in one of the sibling archives."
   }
  }
 }

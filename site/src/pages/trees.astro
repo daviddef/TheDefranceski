@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import t from "../data/trees.json";
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+const STATE = {
+  drawn:    ["Drawn",        "var(--accent)"],
+  drawable: ["Could be drawn","var(--ochre)"],
+  web:      ["A web, not a line", "var(--terra)"],
+  route:    ["A route, not a line", "var(--ink-3)"],
+};
+---
+<Base
+  title="The trees"
+  eyebrow={`${t.rows.length} families · one tree drawn`}
+  dek="This archive follows five families of the name. Only one of them is known deeply enough to draw as a tree. This page says, for each, how far the genealogy actually goes and what is missing before it could be drawn — because a tree with invented joins in it is worse than no tree.">
+
+  <div class="tl">
+    {t.rows.map(r => {
+      const [lab, col] = STATE[r.state] || STATE.route;
+      return (
+        <section class="tl-row" style={`--c:${col}`}>
+          <div class="tl-head">
+            <div>
+              <div class="tl-n">{r.name}{r.ours && <span class="tl-ours">ours</span>}</div>
+              <div class="tl-d">{r.depth}</div>
+            </div>
+            <span class="tl-s">{lab}</span>
+          </div>
+          <p class="tl-w" set:html={md(r.what)}></p>
+          {r.gap && <p class="tl-g" set:html={md(r.gap)}></p>}
+          <a class="tl-go" href={u(r.href)}>{r.cta}</a>
+        </section>
+      );
+    })}
+  </div>
+
+  <p class="prose note" style="margin-top:24px" set:html={md(t.close)}></p>
+
+  <Rule name="arrows" label="The one that is drawn" />
+  <section class="blk">
+    <div class="doors" style="margin-top:18px">
+      <a class="door" href={u("/tree/")}>
+        <div class="dn">Our line — the tree</div>
+        <div class="dd">Eight generations as the couples they were, every mother named and every child listed; and backwards, seventeen ancestors and eleven walls.</div>
+        <div class="go">Open the tree →</div>
+      </a>
+      <a class="door" href={u("/lines/")}>
+        <div class="dn">All five, compared</div>
+        <div class="dd">The families side by side — where each begins, what it rests on, and where it ended up.</div>
+        <div class="go">Compare them →</div>
+      </a>
+      <a class="door" href={u("/households/")}>
+        <div class="dn">Households</div>
+        <div class="dd">The 112 reconstructed couples the trees would be built from, whichever family they belong to.</div>
+        <div class="go">Browse households →</div>
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .tl { display: flex; flex-direction: column; gap: 16px; margin-top: 6px; }
+  .tl-row { border-left: 3px solid var(--c); background: var(--panel); padding: 15px 17px; border-radius: 2px; }
+  .tl-head { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+  .tl-n { font-family: var(--serif); font-size: 20px; }
+  .tl-ours {
+    margin-left: 9px; font-family: var(--sans); font-size: 9.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent);
+    padding: 1px 6px; border-radius: 2px; vertical-align: middle;
+  }
+  .tl-d { font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin-top: 3px; }
+  .tl-s {
+    margin-left: auto; font-family: var(--sans); font-size: 10px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--c); border: 1px solid var(--c);
+    padding: 2px 8px; border-radius: 2px; white-space: nowrap;
+  }
+  .tl-w { margin-top: 11px; font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
+  .tl-g { margin-top: 9px; font-size: 13.5px; line-height: 1.6; color: var(--ink-3);
+          border-left: 2px solid var(--rule-strong); padding-left: 11px; }
+  .tl-go { display: inline-block; margin-top: 11px; font-size: 13px; color: var(--accent); text-decoration: none; }
+  .tl-go:hover { text-decoration: underline; }
+  @media (max-width: 620px) { .tl-s { margin-left: 0; } }
+</style>

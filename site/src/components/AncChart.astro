@@ -1,6 +1,6 @@
 ---
 import { u } from "../lib/url.js";
-import arch from "../data/archives.json";
+import arch from "@daviddef/archive-kit/data/archives.json";
 import doss from "../data/dossiers.json";
 import { makeResolver } from "../lib/people.js";
 const { root } = Astro.props;
@@ -48,6 +48,11 @@ const GENLAB = ["Self", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "G
       <div class="ac-gl" style={`left:${X(g)}px`}>{GENLAB[g]}</div>
     ))}
 
+    {/* one dashed lane per generation, so a column can be followed down the page */}
+    {Array.from({ length: maxGen }, (_, i) => (
+      <div class="ac-lane" style={`left:${X(i + 1) - GAPX / 2}px`}></div>
+    ))}
+
     {links.map(l => {
       const x0 = X(l.gen) + COLW, x1 = X(l.gen + 1);
       const y0 = Y(l.from) + BOXH / 2 + 26, y1 = Y(l.to) + BOXH / 2 + 26;
@@ -61,7 +66,9 @@ const GENLAB = ["Self", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "G
 
     {boxes.map(b => b.wall ? (
       <div class="ac-wall" style={`left:${X(b.gen)}px;top:${Y(b.row) + 26}px;--k:${KIND[b.kind] || "var(--ink-3)"}`}>
-        <span class="ac-wl">{b.label}</span>
+        {b.arch && A[b.arch]
+          ? <a class="ac-wl ac-wlink" href={`${A[b.arch].url}search/?q=${encodeURIComponent(b.q)}`}>{b.label} →</a>
+          : <span class="ac-wl">{b.label}</span>}
       </div>
     ) : (
       <div class="ac-box" style={`left:${X(b.gen)}px;top:${Y(b.row) + 26}px;--c:${CONF[b.conf] || "var(--ink-3)"}`}>
@@ -81,7 +88,14 @@ const GENLAB = ["Self", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "G
   {walls.map(w => (
     <div class="ac-wrow" style={`--k:${KIND[w.kind] || "var(--ink-3)"}`}>
       <div class="ac-wk">{w.label}</div>
-      <div class="ac-wn" set:html={md(w.note)}></div>
+      <div class="ac-wn">
+        <span set:html={md(w.note)}></span>
+        {w.arch && A[w.arch] && (
+          <a class="ac-go" href={`${A[w.arch].url}search/?q=${encodeURIComponent(w.q)}`}>
+            Search {A[w.arch].name} for {w.q} →
+          </a>
+        )}
+      </div>
     </div>
   ))}
 </div>
@@ -93,12 +107,16 @@ const GENLAB = ["Self", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "G
     position: absolute; top: 0; font-family: var(--sans); font-size: 10px;
     letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
   }
+  .ac-lane {
+    position: absolute; top: 16px; bottom: 0; width: 0;
+    border-left: 1px dashed rgba(255, 255, 255, .2); pointer-events: none;
+  }
   .ac-h, .ac-v { position: absolute; }
-  .ac-h { border-top: 1px solid var(--rule-strong); }
-  .ac-v { border-left: 1px solid var(--rule-strong); }
+  .ac-h { border-top: 1px solid var(--rule-strong); z-index: 1; }
+  .ac-v { border-left: 1px solid var(--rule-strong); z-index: 1; }
 
   .ac-box, .ac-wall {
-    position: absolute; width: 232px; height: 52px; box-sizing: border-box;
+    position: absolute; z-index: 2; width: 232px; height: 52px; box-sizing: border-box;
     border-radius: 2px; padding: 7px 10px; overflow: hidden;
   }
   .ac-box { border: 1px solid var(--rule); border-left: 3px solid var(--c); background: var(--panel); }
@@ -121,6 +139,9 @@ const GENLAB = ["Self", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "G
              padding: 8px 0; border-top: 1px solid var(--rule); }
   .ac-wk { font-family: var(--sans); font-size: 10px; letter-spacing: .1em;
            text-transform: uppercase; color: var(--k); padding-top: 2px; }
+  .ac-wlink { text-decoration: none; border-bottom: 1px solid currentColor; }
+  .ac-go { display: inline-block; margin-left: 6px; font-size: 13px; color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .ac-go:hover { text-decoration: underline; }
   .ac-wn { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
   @media (max-width: 620px) { .ac-wrow { grid-template-columns: 1fr; } }
 </style>

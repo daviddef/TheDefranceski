@@ -6,7 +6,7 @@ import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
 import anc from "../data/ancestors.json";
 import AncChart from "../components/AncChart.astro";
-import arch from "../data/archives.json";
+import arch from "@daviddef/archive-kit/data/archives.json";
 import doss from "../data/dossiers.json";
 import hhs from "../data/households.json";
 import { makeResolver, norm } from "../lib/people.js";
@@ -58,9 +58,9 @@ const md = (x) => String(x ?? "")
   .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 ---
 <Base
-  title="The Tree"
+  title="Our line — the tree"
   eyebrow={`${gens.length} generations down · 17 named ancestors and 11 walls back`}
-  dek="Eight generations of one descent, each as the couple it actually was. Every mother is named, with her own birthplace and — where her family keeps one — a link to her own archive. Every child is listed, not only the one who carried the line.">
+  dek="This is one family of the five — ours. Eight generations of a single descent, each as the couple it actually was. Every mother is named, with her own birthplace and — where her family keeps one — a link to her own archive. Every child is listed, not only the one who carried the line.">
 
   <section class="t-anc-sec">
     <h2 class="t-h2">Backwards — the ancestry</h2>
