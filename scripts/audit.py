@@ -56,6 +56,19 @@ def main(md=False):
          # three different states, and they were being reported as one
          "chart_real": sum(1 for v in dos.values() if v.get("ptree") and not v["ptree"].get("none")),
          "chart_gated": sum(1 for v in dos.values() if v.get("ptree") and v["ptree"].get("none")),
+         # a suppressed chart is not automatically a job: most are the gate refusing a
+         # name collision, which is the gate working. Split by how near the nearest
+         # rejected candidate was, so the number stops reading as a backlog.
+         "chart_gated_bands": (lambda D: collections.Counter(
+             ("no year" if g is None else "near" if g <= 25 else "far" if g < 100 else "impossible")
+             for g in (
+                 min((abs(sy - hy) for hy in (
+                         (lambda m: int(m.group()) if m else None)(re.search(r"\b(1[3-9]\d\d|20\d\d)\b", str(x[3])))
+                         for x in v["ptree"].get("dropped", [])) if hy is not None), default=None)
+                 for v in D.values() if v.get("ptree") and v["ptree"].get("none")
+                 for sy in [(lambda m: int(m.group()) if m else None)(
+                     re.search(r"\b(1[3-9]\d\d|20\d\d)\b", str((v["ptree"].get("self") or {}).get("dt"))))]
+                 if sy is not None)))(dos),
          "chart_none": sum(1 for v in dos.values() if not v.get("ptree")),
          "reg": len(reg)}
     R["reg_status"] = dict(collections.Counter(r.get("st") for r in reg))
@@ -134,7 +147,10 @@ def main(md=False):
               + "(" + ", ".join(f"{v} {k}" for k, v in ns.items()) + ")"
               + f" · **{R['hh_noplace']}** households with no place")
         print(f"- pedigree charts, of {R['dossiers']} dossiers: **{R['chart_real']}** drawn · "
-              f"**{R['chart_gated']}** suppressed by the date gate (candidates existed, all rejected) · "
+              f"**{R['chart_gated']}** suppressed by the date gate — of those, "
+              f"{R['chart_gated_bands'].get('impossible',0)} reject their nearest candidate by a century or more and "
+              f"{R['chart_gated_bands'].get('far',0)} by 26–99 years (both are the gate refusing a name collision, which is it working); "
+              f"only **{R['chart_gated_bands'].get('near',0)}** sit within 25 years and are worth a person's time · "
               f"**{R['chart_none']}** with nothing to draw (no household link at all)")
         if R["offchart"]:
             print(f"- **{len(R['offchart'])}** places hold accepted records but appear on no lane: "
@@ -154,6 +170,11 @@ def main(md=False):
     print("HOUSEHOLDS  %5d, %d with no place" % (R["households"], R["hh_noplace"]))
     print("DOSSIERS    %5d  charts: %d drawn, %d gate-suppressed, %d nothing to draw"
           % (R["dossiers"], R["chart_real"], R["chart_gated"], R["chart_none"]))
+    if R.get("chart_gated_bands"):
+        b = R["chart_gated_bands"]
+        print("             of the %d suppressed: %d impossible (100y+), %d far (26-99y), %d near (<=25y)"
+              " — only the near ones are work" % (R["chart_gated"], b.get("impossible", 0),
+                                                  b.get("far", 0), b.get("near", 0)))
     print("REGISTER    %5d rows  %s" % (R["reg"], R["reg_status"]))
     print("\nACCEPTED RECORDS AT PLACES ON NO LANE")
     for p, n in R["offchart"]:
