@@ -850,3 +850,12 @@ body.is-home #onthispage{display:none}
 .ring .rl{display:block;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
 .ring .rs{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:8px}
 .ring .rkids{margin-top:18px;font-size:14.5px;color:var(--ink-2)}
+
+/* ---- the shared search box -------------------------------------------- */
+.ksearch input{
+  width:100%;font-family:var(--sans);font-size:19px;padding:12px 14px;
+  border:2px solid var(--rule-strong);border-radius:4px;background:var(--panel);
+  color:var(--ink);
+}
+.ksearch input:focus{outline:none;border-color:var(--accent)}
+.ksearch input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

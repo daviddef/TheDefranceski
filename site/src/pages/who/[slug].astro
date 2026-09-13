@@ -16,10 +16,14 @@ const { p } = Astro.props;
 /* Is this person on the direct line? If so the page should say so and lead back
    to the tree, which is where the eight generations are set out as couples. */
 const _res = makeResolver(Object.values(d.people));
-let onTree = null;
+/* This page gathers everyone recorded under one name, so more than one
+   generation of the line can land on it. Name them all rather than the first. */
+const onTree = [];
 for (const g of dl.generations) {
-  if (_res(g.name, `${g.born || ""} ${g.died || ""}`) === p.slug) { onTree = { g, role: "in the direct line" }; break; }
-  if (g.spouse && _res(g.spouse.name, g.spouse.born) === p.slug) { onTree = { g, role: `married into it — ${g.name}'s wife` }; break; }
+  if (_res(g.name, `${g.born || ""} ${g.died || ""}`) === p.slug)
+    onTree.push({ g, role: "in the direct line" });
+  else if (g.spouse && _res(g.spouse.name, g.spouse.born) === p.slug)
+    onTree.push({ g, role: `married into it — ${g.name}'s wife` });
 }
 const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
@@ -47,11 +51,15 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 <Base title={p.name} eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
       dek={`Everything this archive holds under this name, gathered from every page of the site.`}>
 
-{onTree && (
-  <a class="ontree" href={u("/tree/#g" + onTree.g.n)}>
-    <span class="ot-k">Generation {onTree.g.n} of {dl.generations.length}</span>
-    <span class="ot-t">This person is on the tree — {onTree.role}. See the generation as the couple it was, with its children and its evidence →</span>
-  </a>
+{onTree.length > 0 && (
+  <div class="ontreewrap">
+    {onTree.map(o => (
+      <a class="ontree" href={u("/tree/#g" + o.g.n)}>
+        <span class="ot-k">Generation {o.g.n} of {dl.generations.length}{onTree.length > 1 ? " — one of several people on this page" : ""}</span>
+        <span class="ot-t">{o.g.name}{o.g.born || o.g.died ? `, ${o.g.born || "?"}–${o.g.died || ""}` : ""} is on the tree — {o.role}. See the generation as the couple it was, with its children and its evidence →</span>
+      </a>
+    ))}
+  </div>
 )}
 
 {pics.length > 0 && (
