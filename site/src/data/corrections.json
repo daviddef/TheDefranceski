@@ -4,6 +4,14 @@
  "rows": [
   {
    "when": "13 Sept 2026",
+   "what": "The households list counts one Omiš family twice",
+   "sev": "minor",
+   "where": "/households/ · h036 and h079 · /omis-line/",
+   "said": "That this archive held **112 reconstructed households**, among them *Francesco Franceschi × Maria De Caralipco* at **Omiš**, 1854–1877, seventeen children, and *Francesco Franceschi × Maria De Caralipeo* at **Almissa**, 1856–1873, seven children — as two separate families.",
+   "true": "**They are one family.** Almissa is simply the Italian name for Omiš, and the two mothers' surnames differ by a single letter that two indexers read differently. Six of the seven children in the smaller household are the *same named individuals* as in the larger one.\n\nThe error was mine and it was structural: the household builder keys on the place string as the index writes it, so a town recorded in two languages becomes two towns, and a wife spelled two ways becomes two wives. Nothing was invented — but a family was doubled, and the archive's household count is one too high.\n\n**It is not only a subtraction.** The seventh child, **Carlo Paolo Michele Maria Franceschi**, appears in the smaller household and not in the larger. Merging them does not take a family away; it gives this one an eighteenth child. The duplicate is now flagged in the data and named on the page; the merge itself is held back because the household ids are referenced in several places and a silent renumbering would be worse than the duplicate."
+  },
+  {
+   "when": "13 Sept 2026",
    "what": "I corrected a note that was right",
    "sev": "minor",
    "where": "/method/ · the queue notes",
