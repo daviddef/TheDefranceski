@@ -21301,5 +21301,84 @@
   }
  ],
  "source": "FamilySearch persona index, surname De Franceschi, records in Croatia, paged in full on 10 September 2026 and de-duplicated on name plus every dated event plus the related names. Links resolve to www.familysearch.org/ark:/61903/1:1:{id} and need a free FamilySearch account.",
- "close": "A row on this page is a **lead**. It becomes part of the archive only when a second document puts the same person in a household — a father named, a house number, a spouse who appears again. Until then it sits here, honestly, as a name the net caught."
+ "close": "A row on this page is a **lead**. It becomes part of the archive only when a second document puts the same person in a household — a father named, a house number, a spouse who appears again. Until then it sits here, honestly, as a name the net caught.",
+ "lost": {
+  "heading": "What the leads are hiding: the daughters",
+  "lead": "Of the **1,153 unworked lead rows** above, **175 name a De Franceschi *woman* as the mother of a child carrying a different surname**. Those children are the issue of **De Franceschi daughters who married out**, and **26 of those women are attached to no household in this archive**, with **40 indexed children** hanging off them.\n\nThis is the pattern the Vodnjan register keeps demonstrating one entry at a time: **the surname keeps its sons and loses its daughters**, and the only way back is a record that had to name the mother. The difference is that these rows were **already harvested** and have been sitting here unopened. When a question about one *Michiela De Franceschi fu Giuseppe* was asked on 13 September 2026, the answer turned out to be **nine such rows nobody had looked at**.\n\n**The number is smaller than it first looked, and the reason is worth stating.** A wider sweep returned 425 rows — but **60 of those write the De Franceschi parent as a Latin genitive** (*«Jacobi»*, *«Victorii»*, *«Gaspari»*), which makes that parent the **father**, not a married-out mother; and **402 of the children have «Surname not indexed»**, so some of them are De Franceschi children whose surname the indexer simply never captured. Only the rows with an unambiguously female given name are counted here.",
+  "rows": [
+   [
+    "Francisca Defranceschi",
+    "Antonius Cerneca",
+    "1831–1846",
+    "9"
+   ],
+   [
+    "Mariana Defranceschi",
+    "Vincentius Marizo",
+    "1836–1843",
+    "3"
+   ],
+   [
+    "Dominica De Franceschi",
+    "Dominicus Codacovich",
+    "1855–1858",
+    "2"
+   ],
+   [
+    "Pascha De Franceschi",
+    "Angelus Ferrarese",
+    "1857–1859",
+    "2"
+   ],
+   [
+    "Pasqua Defranceschi",
+    "Angelus Ferrarese",
+    "1861",
+    "2"
+   ],
+   [
+    "Mariana De Franceschi",
+    "Aincentius Marjiol",
+    "—",
+    "2"
+   ],
+   [
+    "Antonia Defranceschi",
+    "Annae Ratejcich",
+    "1796",
+    "1"
+   ],
+   [
+    "Michiela Teresa De Franceschi",
+    "Domenico Giacbin",
+    "1817",
+    "1"
+   ],
+   [
+    "Bonetta De Franceschi",
+    "Niccolo Biasiol",
+    "1825",
+    "1"
+   ],
+   [
+    "Cattarina De Franceschi",
+    "Angela Prinilegi",
+    "1827",
+    "1"
+   ],
+   [
+    "Michaela De Franceschi",
+    "Francesco Vellico",
+    "1831",
+    "1"
+   ],
+   [
+    "Bona Defranceschi",
+    "Blasius Medelin",
+    "1832",
+    "1"
+   ]
+  ],
+  "close": "Counted by `scripts/audit.py` on every publish, so it cannot go stale. **A lead row is not a finding — but this many of them, pointing at this few women, is a queue rather than noise.**"
+ }
 }

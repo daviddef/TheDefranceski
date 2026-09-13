@@ -77,6 +77,32 @@ def main(md=False):
         if p and p != "—" and norm(p) not in COUNTRY: forms[norm(p)].add(p)
     R["multiform"] = {k: sorted(v) for k, v in forms.items() if len(v) > 1}
 
+    # married-out daughters sitting unworked in the index
+    import unicodedata as _u
+    def _nk(x):
+        x = _u.normalize("NFD", (x or "").lower())
+        x = "".join(c for c in x if _u.category(c) != "Mn")
+        return re.sub(r"[^a-z ]", "", x).strip()
+    DFN = re.compile(r"de\s*franceschi|defranceschi|defrancesch", re.I)
+    # only unambiguously female given names: a Latin genitive ("Jacobi", "Victorii") is the FATHER,
+    # and a child with "Surname not indexed" may be a De Franceschi the indexer never captured
+    FEMP = re.compile(r"^(maria|marietta|michiela|michaela|domenica|dominica|lucia|veniera|veneranda|"
+                      r"antonia|giovanna|catterina|cattarina|anna|elena|eufemia|pasqua|pascha|francisca|"
+                      r"francesca|perina|mariana|luigia|orsola|magdalena|maddalena|bona|oliva|fosca|"
+                      r"nicoletta|martina|marina|bonetta|giacoma|teresa|angela|apollonia|vincenza|"
+                      r"cristina|elisabetta)\b", re.I)
+    known = {_nk(a) for h in hh for a in (h.get("father"), h.get("mother")) if a}
+    kids = collections.defaultdict(list)
+    for r in reg:
+        if r.get("st") != "lead": continue
+        if DFN.search(r.get("n") or ""): continue
+        df = [o for o in (r.get("o") or []) if DFN.search(o) and FEMP.match(o)]
+        if df: kids[_nk(df[0])].append(r)
+    R["lost_parents"] = [k for k in kids if k not in known]
+    R["lost_children"] = sum(len(kids[k]) for k in R["lost_parents"])
+    R["lost_top"] = sorted(((len(v), [o for o in (v[0].get("o") or []) if DFN.search(o)][0])
+                            for k, v in kids.items() if k not in known), reverse=True)[:10]
+
     # parents in the wrong slot — the index harvest assigned couples by position, not sex
     FEMN = re.compile(r"^(maria|marietta|michiela|michaela|domenica|dominica|lucia|veniera|antonia|giovanna|"
                       r"catterina|caterina|cattarina|anna|elena|eufemia|pasqua|margarita|orsola|francesca|"
@@ -105,6 +131,8 @@ def main(md=False):
                   + ", ".join(f"{p} ({n})" for p, n in R["offchart"][:8]))
         if R["multiform"]:
             print(f"- **{len(R['multiform'])}** towns are written under more than one name in the register")
+        print(f"- **{len(R['lost_parents'])}** De Franceschi *women* named as a mother in the unworked leads belong to **no household** — "
+              f"**{R['lost_children']}** indexed children hang off them. These are the married-out daughters.")
         if R["swapped"]:
             print(f"- **{len(R['swapped'])}** households have a woman in the father field — parents swapped")
         return
@@ -118,6 +146,8 @@ def main(md=False):
     for p, n in R["offchart"]:
         sp = ", ".join(f"{a}×{b}" for a, b in R["offchart_spellings"][p])
         print("  %4d  %-22s %s" % (n, p, sp))
+    print("\nMARRIED-OUT DAUGHTERS UNWORKED: %d women, %d children" % (len(R["lost_parents"]), R["lost_children"]))
+    for n, nm in R["lost_top"]: print("  %3d  %s" % (n, nm))
     print("\nHOUSEHOLDS WITH A WOMAN IN THE FATHER FIELD: %d" % len(R["swapped"]))
     for f in R["swapped"]: print("  ", f)
     print("\nTOWNS WRITTEN UNDER MORE THAN ONE NAME")

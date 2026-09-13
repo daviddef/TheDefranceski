@@ -7,6 +7,7 @@ const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>");
+const P = (s) => "<p>" + md(s).replace(/\n\n/g, "</p><p>") + "</p>";
 const S = r.stat;
 const nf = (n) => n.toLocaleString("en-GB");
 const groups = r.spellings.map(([name, n]) => ({
@@ -43,6 +44,20 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
     ))}
   </div>
   <p class="prose note" style="margin-top:18px" set:html={md(r.convention)}></p>
+</section>
+
+<Rule name="pomegranate" label={r.lost.heading} />
+<section class="blk">
+  <div class="prose hi" set:html={P(r.lost.lead)}></div>
+  <div class="tw" style="margin-top:18px;overflow-x:auto;border:1px solid var(--rule,#dcd6cc);border-radius:3px">
+    <table class="lost">
+      <thead><tr><th>The mother</th><th>Her husband</th><th>Children indexed</th><th>N</th></tr></thead>
+      <tbody>{r.lost.rows.map(([w, h, y, n]) => (
+        <tr><td class="g">{w}</td><td class="pl">{h}</td><td class="pl">{y}</td><td class="pl">{n}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:16px" set:html={md(r.lost.close)}></p>
 </section>
 
 <Rule name="pomegranate" label="The list" />
@@ -120,6 +135,12 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
 </script>
 
 <style>
+  table.lost { width:100%; border-collapse:collapse; font-size:14px; }
+  table.lost th { text-align:left; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+    opacity:.55; font-weight:600; padding:9px 12px; border-bottom:1px solid var(--rule,#dcd6cc); }
+  table.lost td { padding:9px 12px; border-top:1px solid rgba(0,0,0,.05); line-height:1.5; }
+  table.lost td.g { font-weight:500; }
+  table.lost td.pl { opacity:.75; }
   .pl .res { font-weight: 600; opacity: .75; font-style: normal; }
   .lede{font-size:17.5px}
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
