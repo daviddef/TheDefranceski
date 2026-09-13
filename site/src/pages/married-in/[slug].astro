@@ -3,6 +3,8 @@ import Base from "../../layouts/Base.astro";
 import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
 import mi from "../../data/marriedin.json";
+import Cluster from "../../components/Cluster.astro";
+import cl from "../../data/clusters.json";
 export function getStaticPaths() {
   return Object.keys(mi.detail).map(slug => ({ params: { slug } }));
 }
@@ -25,6 +27,13 @@ const md = (x) => String(x ?? "")
     <>
       <Rule name="arrows" label="What is held" />
       <ul class="kn">{d.known.map(k => <li set:html={md(k)}></li>)}</ul>
+    </>
+  )}
+
+  {cl.clusters[slug] && (
+    <>
+      <Rule name="arrows" label="What can be drawn" />
+      <Cluster c={cl.clusters[slug]} />
     </>
   )}
 

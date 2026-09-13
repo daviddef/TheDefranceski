@@ -33,7 +33,7 @@ const KIND = { doc: "documented", inf: "inferred", lore: "tradition", none: "no 
             <div class="cl-meta">
               <span class="cl-pl">{x.place}</span>
               <span class="cl-sep">·</span>
-              <span class="cl-cn">{x.n} children indexed</span>
+              <span class="cl-cn">{x.nlabel ? x.nlabel : `${x.n} ${x.n === 1 ? "child" : "children"} indexed`}</span>
               {x.buried > 0 && <><span class="cl-sep">·</span><span class="cl-bd">{x.buried} buried as infants</span></>}
             </div>
             {x.kids && x.kids.length > 0 && (
