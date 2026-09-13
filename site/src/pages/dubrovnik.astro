@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Cluster from "../components/Cluster.astro";
+import Locator from "../components/Locator.astro";
+import { u } from "../lib/url.js";
+import { md } from "../lib/md.js";
+import cl from "../data/clusters.json";
+const c = cl.clusters.dubrovnik;
+---
+<Base
+  title="Ragusa — the Dubrovnik household"
+  eyebrow="Four records · 1829 to 1871 · one family"
+  dek="A Defranceschi daughter who married into Ragusa, and the three children she had there. It is the smallest group on this site, and until today it was not a group at all.">
+
+  <section class="prose">
+    <p>When this archive was asked in September 2026 whether Dubrovnik could have a page of its own, the answer was no: <em>four people, and one of the rows carries four parent names, which is exactly the tabular-register trap that burned us on Francisca</em>. Giving it a page would dress four records as a group.</p>
+    <p><strong>That was the right caution and the wrong conclusion.</strong> The trap was real; the answer was to apply the rule, not to walk away. Applied, the four records resolve into a household.</p>
+  </section>
+
+  <Locator place="Dubrovnik" radius={20}
+           note="Ragusa — a republic in its own right until 1808, and neither Venetian Dalmatia nor Austrian Istria. Its records are its own." />
+
+  <Rule name="arrows" label="The household, read together" />
+  <Cluster c={c} />
+
+  <Rule name="arrows" label="And one more thing about the mother-in-law" />
+  <div class="one" style="border-left-color:var(--ochre)">
+    <p set:html={md("**Teresa Martecchini** is not a Venetian name, and this archive had her filed as one. **Martecchini was the printing house of Dubrovnik.** Pier-Francesco Martecchini published «Galleria di Ragusei illustri» in 1841 and printed the city's editions of Ignjat Đurđević and the Bunić poets through the 1830s, 40s and 60s — the press that put Ragusan literature into print.")}></p>
+    <p set:html={md("She appears here as the mother of the man Marietta Defranceschi married, in **1829**, which is the generation before those imprints. **No claim is made that she is of the printers' immediate family** — Martecchini is rare but it is not unique, and one Ragusan marriage row is not a genealogy. What can be said is that the surname this archive had grouped under «Venetian», on the strength of how it looks, belongs to **Ragusa**, and has been moved.")}></p>
+    <p class="cap" style="margin-top:12px" set:html={md("The archive also spelled her **Martechini**, following the index. Forebears finds exactly **one** person of that spelling in the world and suggests *Martecchini* at 95% — which is the form the Croatian record uses throughout.")}></p>
+  </div>
+
+  <div class="doors" style="margin-top:30px">
+    <a class="door" href={u("/married-in/")}>
+      <div class="dn">The families they married</div>
+      <div class="dd">Seventy-four surnames, each routed to the empire that held its town — the method that moved Martecchini out of the Venetian basket.</div>
+      <div class="go">The jurisdictions →</div>
+    </a>
+    <a class="door" href={u("/corrections/")}>
+      <div class="dn">The tabular-register trap</div>
+      <div class="dd">Four parent names on one row means two couples, not one. It has caught this archive three times; the rule is written down.</div>
+      <div class="go">Read the corrections →</div>
+    </a>
+  </div>
+
+</Base>

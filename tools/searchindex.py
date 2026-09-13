@@ -1,23 +1,72 @@
 #!/usr/bin/env python3
 """One flat index over everything the archive can point at."""
 import json, os, re, unicodedata
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, "site", "src", "data")
 L = lambda f: json.load(open(os.path.join(D, f), encoding="utf-8"))
 
 rows = []
-def fold(s):
-    """Strip diacritics so a reader typing Gracisce finds Gračišće."""
-    s = unicodedata.normalize("NFD", s)
-    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
-    return (s.replace("đ", "d").replace("Đ", "D")
-             .replace("ø", "o").replace("ł", "l").replace("æ", "ae"))
+# The fold and the row contract come from the kit, so this archive and the
+# search box that reads its index cannot disagree about what a letter is.
+sys.path.insert(0, os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "site", "node_modules", "@daviddef", "archive-kit", "kit", "tools"))
+import searchkit  # noqa: E402
+
+fold = searchkit.fold
 
 def add(kind, title, sub, href, extra=""):
-    raw = " ".join(x for x in (title, sub, extra) if x).lower()
-    q = raw + " " + fold(raw)
-    rows.append({"k": kind, "t": title, "s": sub, "h": href, "q": q})
+    rows.append(searchkit.row(kind, title, sub, href, extra))
+
+# ---- people, from the dossiers -------------------------------------------
+# This block went missing at some point and nobody noticed, because the index
+# is committed: the file kept 1,141 Person rows while the generator that is
+# supposed to make them produced 51, so regenerating it would have HALVED the
+# archive's search. people.json used to hold everyone and now holds nine
+# notables; the roster that /who/ is built from lives in dossiers.json.
+for _p in json.load(open(os.path.join(D, "dossiers.json"), encoding="utf-8"))["people"].values():
+    _facts = " ".join(str(x) for x in (_p.get("facts") or [])[:12])
+    _where = " · ".join(x.get("t", "") for x in (_p.get("pages") or [])[:6])
+    add("Person", _p["name"], _where, f"/who/{_p['slug']}/",
+        " ".join(x for x in (_facts, _p.get("known", ""), str(_p.get("rec", ""))) if x))
+
+# ---- the people inside each household ------------------------------------
+# Every child named in a reconstructed household is a person a reader may
+# search for, and 69 of them were in the committed index with nothing left
+# generating them.
+for _h in L("households.json"):
+    _where = " · ".join(x for x in (_h.get("place"), _h.get("region")) if x)
+    for _c in (_h.get("children") or []):
+        _n = _c.get("name") if isinstance(_c, dict) else _c
+        if _n:
+            add("Person", _n, f"{_where} · {_h.get('from') or ''}".strip(" ·"),
+                "/households/", f"{_h.get('father','')} {_h.get('mother','')}")
+
+# ---- the register readings the narrative pages carry ----------------------
+# Fifty-eight acts read out of the Fiume baptismal register and ten out of the
+# Eleven, which exist as prose on those two pages and nowhere else.
+for _f, _href, _label in (("fiume.json", "/fiume-1626/", "Fiume, 1626"),
+                          ("eleven.json", "/the-eleven/", "The Eleven")):
+    _d = json.load(open(os.path.join(D, _f), encoding="utf-8"))
+    _acts = list(_d.get("rows") or []) + list(_d.get("children") or [])
+    for _k in ("more", "rovinj", "vodnjan", "gracisce", "arms", "album"):
+        _blk = _d.get(_k)
+        if isinstance(_blk, dict):
+            _acts += [x for x in (_blk.get("rows") or []) if isinstance(x, dict)]
+        elif isinstance(_blk, list):
+            _acts += [x for x in _blk if isinstance(x, dict)]
+    for _r in _acts:
+        if not isinstance(_r, dict):
+            continue
+        _t = (_r.get("lab") or _r.get("t") or _r.get("title")
+              or _r.get("n") or _r.get("name"))
+        if not _t:
+            continue
+        add("Register reading", _t, _label, _href,
+            " ".join(str(v) for k, v in _r.items()
+                     if k not in ("lab", "t", "title", "n", "name")))
 
 for p in L("people.json"):
     add("Person", p["name"], f"{p.get('born') or '?'}–{p.get('died') or '?'} · {', '.join(p.get('roles', []))}",

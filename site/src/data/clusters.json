@@ -1238,6 +1238,67 @@
     }
    ],
    "missing": "**The Volosca registers.** Lambertina was born there about 1786 and married out of it in 1807; her baptism would name her father in one line and either close or break the link to Mathias. Volosca — Volosko, beside Opatija — was **Austrian Istria**, so its books are at Pazin or Rijeka, not in Hungarian paperwork. **And the Fiume side is the opposite case**: Pasqualina and Ercolano are recorded there, on Hungarian crown land, in exactly the jurisdiction this archive opened for the first time on 13 September 2026 and has barely begun to read."
+  },
+  "dubrovnik": {
+   "key": "dubrovnik",
+   "note": "**Four records, and this archive said they were too thin to be anything.** That was wrong, and the reason it was wrong is instructive: read singly they are four unrelated Persich baptisms with a Defranceschi somewhere in the margin. Read together, and with the tabular-register rule applied to the first of them, **they are one household across forty-two years** — a Defranceschi daughter who married into Ragusa, and her three children.",
+   "cards": [
+    {
+     "span": "1829",
+     "father": "Antonio Persich",
+     "mother": "Teresa Martecchini",
+     "place": "Dubrovnik (Ragusa)",
+     "n": 1,
+     "nlabel": "one son recorded",
+     "buried": 0,
+     "kids": [
+      {
+       "y": "1829",
+       "name": "Matteo Persich",
+       "died": ""
+      }
+     ],
+     "says": "**The groom's parents.** The index files this as a birth and hangs four parent names on it — *Pietro Defranceschi, Marietta Defranceschi, Teresa Martechini, Antonio Persich*. Four names on one row is the signature of an **Austrian tabular marriage register**, whose printed columns run SPONSI, SPONSAE, GENITORES SPONSI, GENITORES SPONSAE, and which the index flattens into a single list. **This archive has been caught by that exact pattern twice before.** Read as a marriage it resolves cleanly: Matteo Persich, born 1829, son of Antonio Persich and Teresa Martecchini, marrying a daughter of Pietro Defranceschi.",
+     "rung": null,
+     "ours": false,
+     "href": "/corrections/",
+     "cta": "The tabular-register trap →"
+    },
+    {
+     "span": "1853 – 1871",
+     "father": "Matteo Persich",
+     "mother": "Marietta Defranceschi",
+     "place": "Dubrovnik (Ragusa)",
+     "n": 3,
+     "buried": 1,
+     "kids": [
+      {
+       "y": "1853",
+       "name": "Antonio Persich",
+       "died": "d. 5 Feb 1863"
+      },
+      {
+       "y": "1863",
+       "name": "Cattarina Teresa Vittoria Maria",
+       "died": ""
+      },
+      {
+       "y": "1871",
+       "name": "Giustino Antonio Alberto Lucciano Peršić",
+       "died": ""
+      }
+     ],
+     "says": "**And the children carry the proof.** The first son is **Antonio** — his father's father. The daughter born 23 December 1863 is **Cattarina *Teresa* Vittoria Maria** — his father's mother. That is the ordinary Adriatic naming order, and it is independent support for reading the 1829 row as a marriage rather than a birth.\n\nThe index writes the mother *Maria* in 1853 and *Marietta* in 1863 and 1871, and the surname drifts from **Persich** to **Peršić** across the same eighteen years — one family, three spellings, as the century turns Croatian.",
+     "rung": {
+      "kind": "inf",
+      "text": "**Marietta is the Defranceschi.** She is named as mother on all three baptisms and as a daughter of **Pietro Defranceschi** on the marriage row. Her own birth is in no record this archive holds, and neither is Pietro's — so the family that produced her is unplaced."
+     },
+     "ours": false,
+     "href": null,
+     "cta": null
+    }
+   ],
+   "missing": "**Who Pietro Defranceschi was, and what he was doing in Dubrovnik.** Marietta is the only Defranceschi in this group whose existence is certain, and she is documented entirely through her husband and her children. Her father is a name on one flattened index row.\n\nRagusa is neither Istria nor the Kvarner nor the Venetian Dalmatia of the Omiš chart — it was **its own republic until 1808**, with its own archive, and this archive has never searched it. The **Državni arhiv u Dubrovniku** holds the parish registers of the city and the republic's own records; nothing in this project has ever been asked of it."
   }
  }
 }
