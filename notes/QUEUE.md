@@ -187,3 +187,16 @@ A **DSpace 7 repository with an open REST API** — harvests cleanly, no bot che
 - **Danilo Klen, «Urbar Roča iz prve polovice…»** — the Roč urbarium, same country.
 - **Domenico Venturini, «Il casato dei marchesi Gravisi», AMSI 22, no. 3–4 (1906): 296–346.** The Gravisi family history — would carry a Nazario.
 - ~~Camillo de Franceschi, *Storia documentata della Contea di Pisino*~~ — **this archive already holds it** (library, sources, Carnia and Gologorica pages all cite it). Checked before queueing. What Banić adds is the page-level citation `391–92, doc. 8`, i.e. the charters are printed *in extenso* at the back — worth using as a document source rather than only as narrative.
+
+## Roadmap added 13 September 2026
+
+**1. HAZU scan request — DRAFTED, FOR DAVID TO SEND.** `notes/outbox/hazu-starine-58-request.txt`, in English and Croatian. Asks dizbi@hazu.hr for **Klen, «Urbar Petre Pilose iz 1425. godine», Starine 58 (1980), pp. 85–124** — the tax roll naming the twelve villages of the Petrapilosa fief, the district Šterna and Sovinjak sit in. Includes a second ask for Klen's «Iz prošlosti Kostela — Petre Pilose i njegovih sela», whose journal is not yet identified.
+
+**2. forebears.io — a source this archive already uses and has under-used.** `names.json` cites Forebears for the worldwide spelling totals, but had never taken the **country breakdowns** or the **per-place surname lists**. Both are now proven useful:
+   - Country breakdowns added to `/name/` on 13 Sept.
+   - **Per-place surname lists are the untapped half.** A place page (e.g. `forebears.io/croatia/istria-county/gračišće`) gives the commonest surnames in that settlement with counts, as of 2014. For Gračišće: Jugovac 489, Šestan 316, Pauro 234, **Marfan 132**, Bomeštar 41, Kmet Jugovac Pascale 31, Maurović 31, Stifanich 31, Buljan 20. **Marfan is already all over this archive** — «one of the surnames standing beside Defranceschi in the Gračišće ground», from the cemetery. The living population corroborates the gravestones.
+   - **To do:** run the place pages for Vodnjan, Ližnjan, Svetvinčenat, Kaštelir, Vižinada, Fažana, Pomer, Krbune, Barban, Labin, and match each town's surname list against the allied families this archive already holds from registers and stones. Note Gologorica has no forebears page (too small); Gračišće does.
+
+**3. Two countries nobody here has knocked on.** Of the seventeen **Defranceski** in the world, one is in **Serbia** and one in **Slovenia** — neither appears on this site's map, register or chart. A third is in **Argentina**, where this archive has an open question about Rotilio and Buenos Aires; there are also **37 Argentine Defranceschi**.
+
+**4. A figure to resolve.** The site says twice that the surname is «down to about ten people in Croatia». Forebears gives **50 Defranceschi in Croatia** and calls Croatia the country of highest density for the spelling. Not necessarily a contradiction — «about ten» may mean a line or a village — but the archive does not say which, and should.

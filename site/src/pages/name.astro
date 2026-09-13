@@ -89,6 +89,29 @@ import gn from "../data/givennames.json";
       ))}</tbody>
     </table>
   </div>
+  {names.spellings_world.bycountry && (
+  <section class="blk" style="margin-top:34px">
+    <h3 style="font-size:21px">{names.spellings_world.bycountry.heading}</h3>
+    <p class="dek" style="margin-top:6px">{names.spellings_world.bycountry.lead}</p>
+    <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px">
+      {names.spellings_world.bycountry.rows.map(([sp,n,txt]) => (
+        <div class="one">
+          <div class="lab">{sp} · {n}</div>
+          <p style="margin-top:7px" set:html={txt.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+        </div>
+      ))}
+    </div>
+    <div style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
+      {names.spellings_world.bycountry.rows2.map(r => (
+        <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+          <div class="lab">{r.lab}</div>
+          <p style="margin-top:7px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+        </div>
+      ))}
+    </div>
+    <p class="cap" style="margin-top:14px">{names.spellings_world.bycountry.source}</p>
+  </section>)}
+
   <p class="cap">Source: {names.spellings_world.source}. {names.spellings_world.note} Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
 </section>
 <Rule name="loom" />
