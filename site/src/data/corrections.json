@@ -4,6 +4,14 @@
  "rows": [
   {
    "when": "13 Sept 2026",
+   "what": "The Search Register has been hiding forty-three per cent of itself",
+   "sev": "serious",
+   "where": "/searched/",
+   "said": "That the Search Register listed every source this archive had examined — *«197 sources examined»*, as its own header said.",
+   "true": "**It was showing 112 of them.** Eighty-five rows were on the page's data file and not on the page.\n\nThe cause is dull and the consequence is not. The template grouped rows by an `outcome` field and knew five values — *yield, partial, nothing, blocked, pending*. Over a year the rows had been written with twelve: **70 of them say «hit»**, seven say «miss», and the rest are «found», «note», «mixed», «correction», «clean». **Anything the template did not recognise was silently dropped.** No error, no gap, no warning — the row simply was not drawn.\n\nSo the register understated the work by a factor approaching two, and did it in the one place on this site whose entire purpose is to say honestly how much has been looked at. **A page that exists to record negative results was itself losing results.**\n\n**And three of the eighty-five were written today, by me.** The Hungaricana searches and the ANNO search were all filed as «found», published, and were never visible. I found them missing only because I went back to check that a published finding had actually appeared — which is a habit this archive should make routine rather than occasional.\n\nFixed two ways: the twelve words are now mapped onto the five outcomes, and **any value that still is not recognised falls into an «Other» group rather than disappearing.** It is no longer possible for a row to be invisible. 197 render."
+  },
+  {
+   "when": "13 Sept 2026",
    "what": "I gave the harbour master's daughter the wrong allowance, off the line above",
    "sev": "minor",
    "where": "/rijeka/ · the Kvarner officials",

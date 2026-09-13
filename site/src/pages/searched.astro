@@ -5,10 +5,18 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/searched.json";
-const n = k => d.rows.filter(r => r.outcome === k).length;
-const label = { yield: "Yielded", nothing: "Nothing", blocked: "Blocked", partial: "Partly", pending: "Not yet" };
+const n = k => d.rows.filter(r => oc(r) === k).length;
+// Rows have been written with a dozen different words for the same five outcomes.
+// Anything unrecognised used to vanish from this page; now it is mapped, and
+// whatever still is not falls into "Other" rather than disappearing.
+const ALIAS = { hit: "yield", found: "yield", miss: "nothing", clean: "nothing",
+                mixed: "partial", note: "partial", correction: "partial" };
+const oc = (r) => ALIAS[r.outcome] || r.outcome;
+const label = { yield: "Yielded", nothing: "Nothing", blocked: "Blocked",
+                partial: "Partly", pending: "Not yet", other: "Other" };
 const order = ["yield", "partial", "nothing", "blocked", "pending"];
-const groups = order.map(k => [k, d.rows.filter(r => r.outcome === k)]);
+const groups = [...order.map(k => [k, d.rows.filter(r => oc(r) === k)]),
+                ["other", d.rows.filter(r => !order.includes(oc(r)))]];
 ---
 <Base title="The Search Register" eyebrow={`${d.rows.length} sources examined`}
       dek="Everything looked at, whether or not it found anything — because a search that returns nothing is a result, and the next person should not have to repeat it.">
