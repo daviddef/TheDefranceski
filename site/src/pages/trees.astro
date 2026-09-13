@@ -8,16 +8,16 @@ const md = (x) => String(x ?? "")
   .replace(/«(.+?)»/g, "<em>«$1»</em>")
   .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 const STATE = {
-  drawn:    ["Drawn",        "var(--accent)"],
-  drawable: ["Could be drawn","var(--ochre)"],
-  web:      ["A web, not a line", "var(--terra)"],
-  route:    ["A route, not a line", "var(--ink-3)"],
+  drawn:    ["Drawn as a line",  "var(--accent)"],
+  drawable: ["Could be drawn",    "var(--ochre)"],
+  web:      ["Drawn as a web",    "var(--terra)"],
+  route:    ["A route, not a line","var(--ink-3)"],
 };
 ---
 <Base
   title="The trees"
-  eyebrow={`${t.rows.length} families · one tree drawn`}
-  dek="This archive follows five families of the name. Only one of them is known deeply enough to draw as a tree. This page says, for each, how far the genealogy actually goes and what is missing before it could be drawn — because a tree with invented joins in it is worse than no tree.">
+  eyebrow={`${t.rows.length} families · all six drawn`}
+  dek="This archive follows six families of the name, and every one of them is now drawn — not all as pedigrees, because only two of them are pedigrees. A line that moved is drawn as the ground it covered; a parish that never joined up is drawn as the web it is; a chart a family made about itself is drawn banded by how much of it can be tested. A tree with invented joins in it is worse than no tree, so none of these has any.">
 
   <div class="tl">
     {t.rows.map(r => {
@@ -41,7 +41,7 @@ const STATE = {
 
   <p class="prose note" style="margin-top:24px" set:html={md(t.close)}></p>
 
-  <Rule name="arrows" label="The one that is drawn" />
+  <Rule name="arrows" label="Where to start" />
   <section class="blk">
     <div class="doors" style="margin-top:18px">
       <a class="door" href={u("/tree/")}>

@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Spine from "../components/Spine.astro";
+import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import d from "../data/corsica.json";
@@ -11,6 +13,13 @@ const md = (s) => String(s ?? "")
 const P = (s) => `<p>${md(s)}</p>`;
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+
+  <section class="blk">
+    <div class="lab">The line as ground covered</div>
+    <h2 style="font-size:30px;margin:6px 0 4px">Six generations that never once touch Istria</h2>
+    <Spine s={spines.spines.find(x => x.key === "corsica")} />
+  </section>
 
 <section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
 

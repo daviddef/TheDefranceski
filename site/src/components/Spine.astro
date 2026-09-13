@@ -64,10 +64,11 @@ const KIND = {
           {/* ---- lane 4 · who was born here ---- */}
           <div class="sp-dn">
             {at(s.people, i).map(p => (
-              <div class="sp-p">
+              <div class={`sp-p${p.conf ? " c-" + p.conf : ""}`}>
                 <span class="sp-g">{p.gen}</span>
                 <span class="sp-pn">{p.name}</span>
                 <span class="sp-pd">{p.d}</span>
+                {p.what && <span class="sp-pw">{p.what}</span>}
               </div>
             ))}
           </div>
@@ -80,7 +81,12 @@ const KIND = {
     <span class="k"><i class="sw" style="background:var(--accent)"></i>where the line stood longest</span>
     <span class="k"><i class="sw" style="background:var(--terra)"></i>a move, or a rupture</span>
     <span class="k"><i class="sw dash"></i>a family that married in</span>
-    <span class="k"><i class="sw num">7</i>generation, counted from the oldest proved man</span>
+    <span class="k"><i class="sw num">7</i>generation, counted from the oldest man on the line</span>
+    {s.confkey && <>
+      <span class="k"><i class="sw" style="background:var(--accent)"></i>documented</span>
+      <span class="k"><i class="sw" style="background:var(--ochre)"></i>inferred</span>
+      <span class="k"><i class="sw dash"></i>the family's own account</span>
+    </>}
   </p>
 
   {s.strands && s.strands.length > 0 && (
@@ -110,9 +116,9 @@ const KIND = {
 .sp-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:10px;
   -webkit-overflow-scrolling:touch}
 .sp-grid{display:grid;grid-auto-flow:column;
-  grid-auto-columns:minmax(214px,1fr);
+  grid-auto-columns:252px;
   grid-template-rows:auto 40px auto auto;
-  min-width:100%;width:max-content}
+  width:max-content}
 
 /* lane 1 — tributaries */
 .sp-up{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;
@@ -166,6 +172,11 @@ const KIND = {
 .sp-pn{display:block;font-family:var(--serif);font-size:15px;line-height:1.25;color:var(--ink)}
 .sp-pd{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:2px;
   font-variant-numeric:tabular-nums}
+.sp-pw{display:block;font-family:var(--sans);font-size:11.5px;line-height:1.5;
+  color:var(--ink-2);margin-top:4px}
+.sp-p.c-doc{border-left-color:var(--accent)}
+.sp-p.c-inf{border-left-color:var(--ochre)}
+.sp-p.c-lore{border-left-color:var(--rule-strong);border-left-style:dashed}
 
 /* key */
 .sp-key{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 0;
@@ -198,6 +209,6 @@ const KIND = {
 .sp-s:hover .sp-sl{text-decoration:underline}
 
 @media (max-width:720px){
-  .sp-grid{grid-auto-columns:minmax(196px,1fr)}
+  .sp-grid{grid-auto-columns:216px}
 }
 </style>

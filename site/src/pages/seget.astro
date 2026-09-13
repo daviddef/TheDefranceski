@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Spine from "../components/Spine.astro";
+import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
@@ -11,6 +13,13 @@ import { u } from "../lib/url.js";
 ---
 <Base title="Seget, and Crete" eyebrow="The other Istrian branch"
       dek="A published monograph on an estate near Umag says something no family account here had: that there were two branches of this family in Istria — one seated at Gologorica, the other at Umag and Seget — and that the second came out of Crete.">
+
+
+  <section class="blk">
+    <div class="lab">The line as ground covered</div>
+    <h2 style="font-size:30px;margin:6px 0 4px">From Candia to Seget, and the pension that carries the join</h2>
+    <Spine s={spines.spines.find(x => x.key === "crete")} />
+  </section>
 
 <section class="blk">
   <div class="prose">

@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Cluster from "../components/Cluster.astro";
+import cl from "../data/clusters.json";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
@@ -7,6 +9,13 @@ import d from "../data/liznjan.json";
 const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 ---
 <Base title="Ližnjan" eyebrow="Third of eighteen towns, and no page until now" dek={d.note}>
+
+
+  <section class="blk">
+    <div class="lab">The family drawn as what it is</div>
+    <h2 style="font-size:30px;margin:6px 0 4px">Nine households, two hundred and twenty-four years, and no join at all</h2>
+    <Cluster c={cl.clusters.southistria} />
+  </section>
 
 <section class="blk">
   <h2>{d.grga.heading}</h2>
