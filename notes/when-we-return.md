@@ -92,8 +92,23 @@ Closing that gap means **reading Vodnjan whole**: ~105 images, ~4,600 entries, r
 - **Draguč holds nothing.** Its 25 were Vižinada's, doubled by the place parameter. Tested blanks now also: Kanfanar, Tinjan, Roč, Novigrad, Marčana, Boljun, Funtana, Plomin, Rakalj, Presika, Rovinjsko Selo, Stari Pazin, Lupoglav, Nedešćina, Kringa.
 - **Oprtalj 0 of 9 ours** — it was on this round's own list of fifteen and should not have been.
 
+**Then the same key was turned on the whole pool, and the number reframes everything**
+
+- **`q.motherSurname` works too** — the field the married-out daughters live in. 218 records the surname search had never seen.
+- Every record carries **`FS_DIGITAL_FILM_NBR`**. The place is optional; the film never is.
+- **727 of 1,619 records — 45% — have no town at all.** Every place-based table on this site was built from the other 55%.
+- **396 of the 727 resolve to one parish from the film alone**: Svetvinčenat 102 · Pula 83 · **Dubrovnik-Grad 47** · Sv. Dujam Split 46 · Rijeka 31 · Split-Veli Varoš 15 · Labin 10 · Nerežišća 10 · Dubrovnik-Pile 9 · Rovinj 7 · Barban 6 · Kastav 6 · Vižinada 5 · Split-Stari Grad 5 · Imotski-Glavina 4 · Split-Bol 4 · Vrsar 3 · Poreč 3. **Dubrovnik (56) and Split (~70) are on no lane of the branch chart.**
+- **331 sit on reels carrying more than one parish.** 005497884 = Svetvinčenat + Petar u Šumi. 005497893 = Vižinada + the unnamed State Archive item. 005494037 carries seven parishes. **The film number is a fast first pass, not an answer; the ark is the answer.**
+- **Proof of that, measured:** film 005497893 holds 112 town-less records and its catalogue creator is «Župa Vižinada». **Two of the 112 are Vižinada's.** The other 110 are the Vodnjan books bound onto the same reel. Attribution by film creator would have misfiled 110 records by forty kilometres — the same reel and the same mistake as the withdrawn «Vižinada, five households 1816–1844».
+- **Šterna has a film: 005497888** — shared with Šumber. One ark test settles it. **Run this first.**
+
+**THROTTLED.** After roughly 200 catalogue and waypoint calls in a few minutes FamilySearch returned **403**. Not a wall — a throttle. The archive's own note has said *pace it* since the Vodnjan tiles, and today it was ignored.
+
 **Next, and cheap, because the machinery now exists**
-1. Run the ark test on the other **25 lost daughters** — every row has an empty place and a page in somebody's book.
+1. **Šterna vs Šumber on film 005497888** — one ark test, five records.
+2. Resolve the remaining **331** multi-parish-reel records by ark, worst reels first (005494037 has seven parishes on it).
+3. Run the ark test on the other **25 lost daughters** — every row has an empty place and a page in somebody's book. `q.motherSurname` is the way in.
+4. **Dubrovnik and Split** — 126 town-less records between them, and neither city is on the chart.
 2. **Fažana**, 42 records and never read by eye. Two households, books from 1810.
 3. **Svetvinčenat marriages 1762–1858** — 19 records found by ark, unread on the page.
 4. **Rovinj**, 29 volumes from 1553, 21 records, nothing read.
