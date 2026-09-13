@@ -20,6 +20,7 @@ const pri = { high: "Send first", medium: "Worth sending", low: "When convenient
         <div class="ehead">
           <span class="num">{String(r.n).padStart(2, "0")}</span>
           <span class="tag">{pri[r.pri]}</span>
+          {r.sent && <span class="tag sent">Sent {r.sent}</span>}
           <h3>{r.what}</h3>
           <div class="who">{r.who}</div>
         </div>
@@ -38,6 +39,7 @@ const pri = { high: "Send first", medium: "Worth sending", low: "When convenient
   <p class="cap" style="margin-top:14px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/parish-books/")}>Parish Books →</a></p>
 </section>
 <style>
+  .tag.sent { background: #2f6b3f; color: #fff; border-color: #2f6b3f; }
   .errand { border: 1px solid var(--rule, #dcd6cc); border-left-width: 4px; border-radius: 3px; padding: 20px 22px; }
   .p-high { border-left-color: var(--terra, #a5442c); }
   .p-medium { border-left-color: #8a7f5c; }
