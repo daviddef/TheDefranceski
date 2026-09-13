@@ -1,0 +1,133 @@
+---
+/* The last hole in the spine: six of the seven archives publish a list of what
+   they do not know, and the richest of them did not.
+   Nothing here is new. These are the questions the research log has been
+   carrying all along, in site/src/data/questions.json, set out one at a time
+   with what each would actually take to answer — because a question with a
+   next step is a job somebody can pick up, and a question without one is just
+   a sigh. */
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Evidence from "../components/Evidence.astro";
+import { u } from "../lib/url.js";
+import questions from "../data/questions.json";
+
+const open = questions.open.filter(o => o.status === "open");
+const blocked = questions.open.filter(o => o.status === "blocked");
+const answered = questions.open.filter(o => o.status === "answered");
+const closed = questions.closed;
+
+/* What a question needs decides who can take it. Read off the "next step" the
+   archive has already written for each one — every question in this file has
+   one, so there is no unscoped bucket. Order matters: a question that wants a
+   photograph wants a photograph even if it also mentions a register. */
+const RULES = [
+  [/\b(photograph|photo\b|raking light|square on|in person|visiting|go and stand)\b/i,
+   "feet", "Somebody standing there",
+   "The cheapest questions in the archive, and the ones it can do nothing about from here. Each needs one person, in one place, with a camera."],
+  [/\bY-?DNA\b/i,
+   "dna", "A DNA test",
+   "Two of these have been open for years and would be settled in weeks by one test on one living man."],
+  [/\b(letter|write to|enquir|appointment|his working papers|boxes|inventor)\b/i,
+   "letter", "A letter to an archive",
+   "The next step is known and somebody has to be asked. Several of these letters are already drafted."],
+  [/\b(book|printed edition|edition|library|published|zbornik|AMSI|volume)\b/i,
+   "book", "A book to find",
+   "Printed and citable. No archive appointment needed — only a copy."],
+  [/\b(register|records|series|film|fond|index|parish book|baptism|marriage|death entr)\b/i,
+   "reg", "A register to read",
+   "The largest group, and the slowest. Each names the exact series that would answer it."],
+];
+function kindOf(o) {
+  const n = o.needed || "";
+  for (const [re, c, label] of RULES) if (re.test(n)) return { c, label };
+  return { c: "reg", label: "A register to read" };
+}
+const byKind = RULES.map(([, c, label, note]) => ({
+  c, label, note,
+  rows: [...open, ...blocked].filter(o => kindOf(o).c === c),
+})).filter(g => g.rows.length);
+
+const total = open.length + blocked.length;
+---
+<Base title="Open Questions"
+      eyebrow={`${total} unanswered — ${open.length} open, ${blocked.length} blocked`}
+      dek="What this archive does not know, written down so that a gap is never mistaken for a fact, and so that anybody who can close one can see exactly what it would take.">
+
+  <section class="blk">
+    <p class="prose">Every one of these has been worked on and none of them has been closed. They
+    are kept in the open because an archive that publishes only its answers is not showing its
+    work — and because more than one of them could be closed in an afternoon by somebody who
+    happens to live in the right town.</p>
+    <p class="prose" style="margin-top:1rem"><strong>Blocked</strong> means the next step is known
+    and cannot be taken from a desk. <strong>{closed.length}</strong> other questions have been
+    answered and are kept, with their answers, on
+    <a href={u("/research-log/")}>the research log</a>.</p>
+
+    <div class="scroll" style="margin-top:20px">
+      <table>
+        <tbody>
+          {byKind.map(g => (
+            <tr>
+              <td><a href={`#${g.c}`}>{g.label}</a></td>
+              <td class="mono">{g.rows.length}</td>
+            </tr>
+          ))}
+          <tr><td><strong>Unanswered, all told</strong></td><td class="mono"><strong>{total}</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <Rule name="arrows" />
+
+  {byKind.map(g => (
+    <section class="blk" id={g.c}>
+      <h2>{g.label} <span class="dim mono">{g.rows.length}</span></h2>
+      {g.note && <p class="dek">{g.note}</p>}
+      <div class="stack" style="margin-top:22px">
+        {g.rows.map(o => (
+          <article class="qrow">
+            <div>
+              <h3 class="qq">{o.q}</h3>
+              <Evidence level={o.status === "blocked" ? "disputed" : "inferred"}>
+                {o.status === "blocked" ? "Blocked" : "Open"}
+              </Evidence>
+            </div>
+            <div>
+              <p class="qw">{o.known}</p>
+              <p class="qn"><b>What would answer it:</b> {o.needed}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  {answered.length > 0 && (
+    <>
+      <Rule name="arrows" />
+      <section class="blk">
+        <h2>Answered, and still on the list <span class="dim mono">{answered.length}</span></h2>
+        <p class="dek">Answered but not yet folded back into the pages they affect. They stay here
+        until they are.</p>
+        <div class="stack" style="margin-top:22px">
+          {answered.map(o => (
+            <article class="qrow">
+              <div><h3 class="qq">{o.q}</h3><Evidence level="documented">Answered</Evidence></div>
+              <div><p class="qw">{o.known}</p><p class="qn"><b>Next:</b> {o.needed}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  )}
+
+  <section class="blk">
+    <p class="prose dim">This page and <a href={u("/research-log/")}>the research log</a> are two
+    views of one file, so a question cannot be closed on one and left open on the other. The list of
+    places already searched without result is on <a href={u("/searched/")}>Searched</a>; the deaths
+    that ought to exist and cannot be found are on <a href={u("/gaps/")}>Gaps</a>, which is a
+    different thing again.</p>
+  </section>
+</Base>

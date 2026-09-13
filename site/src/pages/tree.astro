@@ -4,6 +4,8 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
+import anc from "../data/ancestors.json";
+import AncChart from "../components/AncChart.astro";
 import arch from "../data/archives.json";
 import doss from "../data/dossiers.json";
 
@@ -46,8 +48,25 @@ const md = (x) => String(x ?? "")
 ---
 <Base
   title="The Tree"
-  eyebrow={`${gens.length} generations · 1750 to now`}
+  eyebrow={`${gens.length} generations down · 17 named ancestors and 11 walls back`}
   dek="Eight generations of one descent, each as the couple it actually was. Every mother is named, with her own birthplace and — where her family keeps one — a link to her own archive. Every child is listed, not only the one who carried the line.">
+
+  <section class="t-anc-sec">
+    <h2 class="t-h2">Backwards — the ancestry</h2>
+    <p class="t-lead">Every line that runs into this family, worked backwards from the keeper of the archive. Each box is a person a document names.
+      A <strong>wall</strong> is a place where this archive knows a person existed and cannot name their parents — and the reasons differ, so each wall says which it is.
+      Seventeen ancestors are named; there are eleven walls.</p>
+    <div class="t-wkey">
+      <span style="--k:var(--ochre)">A candidate, not a proof</span>
+      <span style="--k:var(--terra)">Not named in any source</span>
+      <span style="--k:var(--ink-3)">Unworked — the registers exist</span>
+      <span style="--k:var(--accent)">Continues in another archive</span>
+    </div>
+    <AncChart root={anc.root} />
+    <p class="cap" style="margin-top:12px">{anc.note}</p>
+  </section>
+
+  <Rule name="loom" label="Forwards — the descent" />
 
   <div class="legend" style="margin-bottom:22px">
     <span><i style="background:var(--accent);border-radius:0;width:3px;height:14px"></i>Documented — a register page or certified extract</span>
@@ -175,6 +194,16 @@ const md = (x) => String(x ?? "")
 </Base>
 
 <style>
+  .t-h2 { font-family: var(--serif); font-size: 27px; margin: 0 0 8px; }
+  .t-lead { font-size: 15px; line-height: 1.65; color: var(--ink-2); max-width: 68ch; }
+  .t-wkey { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 14px 0 18px; }
+  .t-wkey span {
+    font-family: var(--sans); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-3); border-left: 3px solid var(--k); padding-left: 8px;
+  }
+  .t-ancwrap { overflow-x: auto; padding: 6px 2px 14px; }
+  .t-anc-sec { margin-bottom: 10px; }
+
   .t-spine { margin-top: 8px; }
 
   .t-gen { display: grid; grid-template-columns: 44px 1fr; gap: 0 16px; }
