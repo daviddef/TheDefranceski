@@ -837,7 +837,10 @@ body.is-home #onthispage{display:none}
 .ring > p{color:var(--ink-2);max-width:62ch;margin:0 0 20px}
 .ring ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;
   grid-template-columns:repeat(auto-fit,minmax(268px,1fr))}
-.ring li{border:1px solid var(--rule);border-left:4px solid var(--ring-accent);border-radius:4px}
+.ring li{--ring-accent:var(--ring-l);
+  border:1px solid var(--rule);border-left:4px solid var(--ring-accent);border-radius:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ring li{--ring-accent:var(--ring-d)}}
+:root[data-theme="dark"] .ring li{--ring-accent:var(--ring-d)}
 .ring li a{display:block;padding:13px 15px;text-decoration:none;color:inherit}
 .ring li a:hover{background:var(--panel-2)}
 .ring .rn{display:block;font-family:var(--serif);font-size:19px;font-weight:600;
