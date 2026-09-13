@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import v from "../data/vodnjan.json";
@@ -11,6 +12,10 @@ const md = (s) => String(s ?? "")
 ---
 <Base title={v.title} eyebrow={v.eyebrow} dek={v.dek}>
 <section class="blk"><p class="prose" set:html={md(v.lead)}></p></section>
+
+  <Locator place="Vodnjan" radius={14}
+            note="Dignano. Forty-seven records, and the reel that had to be resolved by film number rather than by the place field." />
+
 
 {v.trees.map(t => (
 <>

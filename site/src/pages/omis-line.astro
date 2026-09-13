@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Spine from "../components/Spine.astro";
 import spines from "../data/spines.json";
 import Cluster from "../components/Cluster.astro";
@@ -23,6 +24,10 @@ import Lightbox from "../components/Lightbox.astro";
     <h2 style="font-size:30px;margin:6px 0 4px">Seventeen generations, banded by what can be tested</h2>
     <Spine s={spines.spines.find(x => x.key === "venice")} />
   </section>
+
+  <Locator place="Omiš" radius={52}
+            note="Almissa. Eight households between 1639 and 1887 — and the town the family chart calls home from the seventeenth century." />
+
 
   <section class="blk">
     <div class="lab">And the parish underneath it</div>

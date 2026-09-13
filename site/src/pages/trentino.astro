@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import d from "../data/trentino.json";
@@ -13,6 +14,10 @@ const P = (s) => `<p>${md(s)}</p>`;
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 
 <section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+
+  <Locator place="Telve" radius={14}
+            note="The Valsugana. A concentration of the name with no shown connection to this family." />
+
 
 <Rule name="arrows" label={d.why.heading} />
 <section class="blk"><div class="prose hi" set:html={P(d.why.text)}></div></section>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import FamilyCard from "../components/FamilyCard.astro";
 import SceneCrikvenica from "../components/SceneCrikvenica.astro";
 import Rule from "../components/Rule.astro";
@@ -18,6 +19,10 @@ const g = c.nextGen;
   <section class="prose">
     <p>A stonecutter's son from Gračišće married a girl from a hamlet in the Vinodol and settled on the coast below it. That is the hinge of this whole archive, and until this week it was a sentence with one document behind it. It now has six, and eleven photographs.</p>
   </section>
+
+  <Locator place="Crikvenica" radius={30}
+            note="Where the line came out of Istria in 1863, and where Ivan was born in 1925." />
+
 
 <section class="blk">
   <FamilyCard eyebrow={c.card.eyebrow} head={c.card.head} headMeta={c.card.headMeta}

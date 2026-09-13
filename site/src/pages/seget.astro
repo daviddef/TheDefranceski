@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Spine from "../components/Spine.astro";
 import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
@@ -20,6 +21,10 @@ import { u } from "../lib/url.js";
     <h2 style="font-size:30px;margin:6px 0 4px">From Candia to Seget, and the pension that carries the join</h2>
     <Spine s={spines.spines.find(x => x.key === "crete")} />
   </section>
+
+  <Locator place="Seget" radius={22}
+            note="Seghetto, above Umag. The estate the brothers bought in 1720, the palace of 1724, and the well-head cut M A · F in 1732." />
+
 
 <section class="blk">
   <div class="prose">

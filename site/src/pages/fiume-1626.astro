@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import f from "../data/fiume.json";
@@ -11,6 +12,10 @@ const md = (s) => String(s ?? "")
 <Base title={f.title} eyebrow={f.eyebrow} dek={f.dek}>
 
   <section class="prose">{f.lead.map(p => <p set:html={md(p)} />)}</section>
+
+  <Locator place="Rijeka" radius={32}
+            note="Fiume — where the oldest household in this archive baptised six children between 1626 and 1632." />
+
 
   <Rule name="arrows" label="Liber Baptizatorum, Fiume" />
 

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Spine from "../components/Spine.astro";
 import spines from "../data/spines.json";
 import ScenePerinusa from "../components/ScenePerinusa.astro";
@@ -19,6 +20,10 @@ import d from "../data/imotski.json";
     <h2 style="font-size:30px;margin:6px 0 4px">Seventeen generations, banded by what can be tested</h2>
     <Spine s={spines.spines.find(x => x.key === "venice")} />
   </section>
+
+  <Locator place="Imotski" radius={48}
+            note="Taken from the Ottomans in 1717 and given to the man who took it. The mills at Perinuša lie on the Vrljika below." />
+
 
   <section class="prose">
     <p>{d.why}</p>

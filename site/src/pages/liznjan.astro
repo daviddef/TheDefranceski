@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Locator from "../components/Locator.astro";
 import Cluster from "../components/Cluster.astro";
 import cl from "../data/clusters.json";
 import Rule from "../components/Rule.astro";
@@ -16,6 +17,10 @@ const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     <h2 style="font-size:30px;margin:6px 0 4px">Nine households, two hundred and twenty-four years, and no join at all</h2>
     <Cluster c={cl.clusters.southistria} />
   </section>
+
+  <Locator place="Ližnjan" radius={16}
+            note="Southern Istria. Svetvinčenat, where the 1628 baptism was read, is thirty kilometres north." />
+
 
 <section class="blk">
   <h2>{d.grga.heading}</h2>
