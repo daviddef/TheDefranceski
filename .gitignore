@@ -2,3 +2,12 @@ node_modules/
 site/dist/
 site/.astro/
 .DS_Store
+
+# The private MyHeritage material. The surname export carries birth years and
+# birthplaces, including for people who are alive, and this repository is
+# public. The working notes quote the same rows. The archive's own data under
+# site/src/data is the redacted, publishable form; these are the raw source.
+data/myheritage-surname-2026-09.tsv
+notes/myheritage-key-rows.md
+notes/myheritage-media.md
+notes/myheritage-reconciliation.md
