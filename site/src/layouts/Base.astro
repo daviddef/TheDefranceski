@@ -1,5 +1,6 @@
 ---
 import { u } from "../lib/url.js";
+import SiblingArchives from "../components/SiblingArchives.astro";
 const { title, dek, eyebrow, bare } = Astro.props;
 const SITE = "The Defranceschi Archive";
 const nav = [
@@ -85,6 +86,7 @@ const here = Astro.url.pathname;
 
 <footer class="site">
   <div class="wrap">
+    <SiblingArchives />
     <p class="foot">An evidence-first family archive for the Defranceschi, De Franceschi, Defranceski and de Franceski families of Istria, Kvarner, Carnia and the diaspora. Every claim carries its confidence. Living people appear by name only — no dates, no places, no photographs.</p>
     <p class="foot dim">Built {new Date().getFullYear()} · Sources listed on <a href={u("/about/")}>About</a> · Everything this archive got wrong is on <a href={u("/corrections/")}>Corrections</a></p>
   </div>

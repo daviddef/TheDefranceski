@@ -169,3 +169,19 @@ film can carry more than one parish.
 
 `python3 scripts/build-changes.py` — rebuilds /changes/ from the Search
 Register and Corrections. Run it with the other two generators.
+
+## Queued 13 September 2026 — from CEU OpenResearch (openresearch.ceu.edu)
+
+A **DSpace 7 repository with an open REST API** — harvests cleanly, no bot check. `/server/api/discover/search/objects?query=…`. Substantial Istrian holding: Istria 71, Rijeka 97, Senj 25, repopulation 31, Uskoks 17, colonization-Istria 11, Bertoša 5.
+
+**Caveat established on the first pass:** every "De Franceschi" hit in the repository is a **citation of Carlo or Camillo**, not a family record. Camillo is cited in 4 theses, Carlo in 2.
+
+- **Kurelić, Robert, «Eagle and lion: integration, immigration, and conflict on the Istrian frontier in the sixteenth century»** (CEU PhD, 2013). Full text contains **Gologorica, Svetvinčenat, "county of Pazin", Mitterburg**. The 16th-century Habsburg/Venetian frontier *from the perspective of the rural subject population* — this archive's own country, a century before its earliest records. **PDF restricted at CEU.** Kurelić teaches at Pula and published it as a book: get it that way, or write to him.
+- **Hlača, Tea, «The living cross image in Lindar»** (2017). Contains De Franceschi, Gologorica, Svetvinčenat. Lindar adjoins Gračišće. **Restricted.**
+- ~~**Banić, Josip, «Venetian Istria in the embrace of a nascent Dominium (c. 1381–c. 1470)»** (2021)~~ **DOWNLOADED AND READ 13 Sept** — gave the Gravisi of Petrapilosa in full. Now on `/places/sterna/`.
+
+**Named primary sources to chase, from Banić's apparatus:**
+- **«Urbar Petrapilose iz 1425. godine» [The tax roll of Petrapilosa from 1425], *Starine* 58 (1980): 85–124.** A household-level tax roll for the Šterna/Buzet country. Edited and published.
+- **Danilo Klen, «Urbar Roča iz prve polovice…»** — the Roč urbarium, same country.
+- **Domenico Venturini, «Il casato dei marchesi Gravisi», AMSI 22, no. 3–4 (1906): 296–346.** The Gravisi family history — would carry a Nazario.
+- ~~Camillo de Franceschi, *Storia documentata della Contea di Pisino*~~ — **this archive already holds it** (library, sources, Carnia and Gologorica pages all cite it). Checked before queueing. What Banić adds is the page-level citation `391–92, doc. 8`, i.e. the charters are printed *in extenso* at the back — worth using as a document source rather than only as narrative.

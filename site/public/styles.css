@@ -830,3 +830,20 @@ body.is-home #onthispage{display:none}
 .ladder dt{margin:0}
 .ladder dd{margin:0;color:var(--ink-2)}
 @media (max-width:560px){.ladder{grid-template-columns:1fr;gap:4px 0}.ladder dd{margin-bottom:10px}}
+
+/* ---- the ring of sibling archives ------------------------------------- */
+.ring{border-top:2px solid var(--rule-strong);margin-top:56px;padding-top:26px}
+.ring h2{font-family:var(--serif);font-size:26px;font-weight:600;margin:0 0 6px}
+.ring > p{color:var(--ink-2);max-width:62ch;margin:0 0 20px}
+.ring ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(268px,1fr))}
+.ring li{border:1px solid var(--rule);border-left:4px solid var(--ring-accent);border-radius:4px}
+.ring li a{display:block;padding:13px 15px;text-decoration:none;color:inherit}
+.ring li a:hover{background:var(--panel-2)}
+.ring .rn{display:block;font-family:var(--serif);font-size:19px;font-weight:600;
+  color:var(--ring-accent);line-height:1.2}
+.ring .rw{display:block;font-family:var(--sans);font-size:10.5px;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:4px 0 7px}
+.ring .rl{display:block;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.ring .rs{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:8px}
+.ring .rkids{margin-top:18px;font-size:14.5px;color:var(--ink-2)}
