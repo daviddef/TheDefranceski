@@ -1,0 +1,805 @@
+{
+ "heading": "The families they married",
+ "lead": "Seventy-one surnames married into this one, across two hundred and twenty-one recorded marriages. Until now they were a list with counts against it. This page asks a different question of each of them: **which empire held the town this family came from — and therefore which archive has them.**",
+ "why": "That question matters more than it sounds. On 13 September 2026 this archive learned, the hard way, that **Fiume and Bakar were Hungarian crown land** and that their office-holders sit in Hungarian state paperwork, invisible to every Austrian and Croatian portal the project had been using for a year. The same logic applies to every family below. A name from the Vinodol and a name from Gračišće are forty kilometres apart and **in two different legal worlds**, with two different sets of surviving records. Looking for both in the Croatian parish books alone is why some of these families have stayed blank.",
+ "routes": {
+  "istria-austrian": {
+   "label": "Austrian Istria — the Küstenland",
+   "places": "Gračišće · Gologorica · Pazin · Volosca · Vižinada · Svetvinčenat · Vodnjan · Ližnjan",
+   "held": "Habsburg from 1797 (Venetian before it), the **Austrian Littoral** from 1849, Italian 1920, Yugoslav 1945, Croatian 1991.",
+   "registers": "**Državni arhiv u Pazinu**, and the parish books on FamilySearch film.",
+   "beyond": "**ANNO** (Austrian National Library newspapers) and **ALEX** (the imperial *Hof- und Staatshandbuch*) for anyone who held office; the Vienna **Kriegsarchiv** for conscripts. This is the branch the archive knows best.",
+   "gap": "ALEX is behind a security check that will not clear for this archive. It has never been read."
+  },
+  "hungarian-littoral": {
+   "label": "The Hungarian Littoral",
+   "places": "Fiume (Rijeka) · Bakar (Buccari) · the Vinodol — Rijenovica, Crikvenica, Ledenice, Novi · Senj",
+   "held": "**Hungarian crown land**, not Austrian — a separate legal world with its own ministries, budgets and civil service.",
+   "registers": "**Državni arhiv u Rijeci** and the parish books.",
+   "beyond": "**Hungaricana** — free, full-text, and the single most under-used source this archive has. State final accounts naming pensioners and their orphans; parliamentary pension schedules with years of service; the National Archives of Hungary plan collection. **This is where the office-holders are**, and they are in none of the Austrian or Croatian portals.",
+   "gap": "Barely begun. Opened for the first time on 13 September 2026.",
+   "proved": true
+  },
+  "dalmatia": {
+   "label": "Austrian Dalmatia",
+   "places": "Zadar · Šibenik · Split · Omiš · Postira · Dubrovnik · Seget",
+   "held": "Venetian to 1797, then Habsburg as the **Kingdom of Dalmatia**, governed from Zadar by a Luogotenenza answering to Vienna.",
+   "registers": "**Državni arhiv u Zadru** and **u Splitu**.",
+   "beyond": "The **Namjesništvo / Luogotenenza** fond at Zadar — the governor's office, which watched the press and the politically suspect and wrote down what it saw. One file in it has just given this archive Valente Defranceschi. **Political-police fonds are indexed by name and almost wholly unworked for this surname.**",
+   "gap": "One errand queued; nothing yet requested.",
+   "proved": true
+  },
+  "carnia": {
+   "label": "Carnia and Friuli",
+   "places": "Ovaro · Mione · Muina · Paluzza · Tolmezzo · Sequals · Lestans · Pinzano",
+   "held": "Venetian to 1797, Austrian 1815–66, Italian after.",
+   "registers": "**Archivio di Stato di Udine**, and the parish archives; the pre-1806 Ovaro books are in no portal at all.",
+   "beyond": "**Antenati** (the Italian state archives portal) for the civil registration from 1806 — but it 403s this archive and its name search is behind a bot check. The Austrian decades 1815–66 should leave Habsburg administrative traces that nobody has looked for.",
+   "gap": "The largest hole in the archive. **Fourteen of the seventy-one in-married families carry Carnian surnames** — which is either the strongest circumstantial support the Carnia origin has, or a surname-morphology illusion. It has never been tested against a Carnian register."
+  },
+  "venice": {
+   "label": "Venice and the Veneto",
+   "places": "Venice · Castelgomberto and Cornedo in Vicenza · Ponte nelle Alpi in Belluno · Pederobba in Treviso",
+   "held": "The Republic to 1797; Austrian; Italian from 1866.",
+   "registers": "**Archivio di Stato di Venezia** and the provincial state archives.",
+   "beyond": "Antenati again, with the same block. The Venetian state archive's own series are catalogued online but not imaged.",
+   "gap": "Never systematically searched for the in-married names."
+  }
+ },
+ "rows": [
+  {
+   "slug": "bergamo",
+   "name": "Bergamo",
+   "c": 17,
+   "origin": "venetian",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": true
+  },
+  {
+   "slug": "cerlon",
+   "name": "Cerlon",
+   "c": 12,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "chersin",
+   "name": "Chersin",
+   "c": 8,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "francin",
+   "name": "Francin",
+   "c": 8,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "malusa",
+   "name": "Malusà",
+   "c": 8,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "primus",
+   "name": "Primus",
+   "c": 7,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "schifich",
+   "name": "Schifich",
+   "c": 7,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "bonassin",
+   "name": "Bonassin",
+   "c": 6,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "dorliguzzo",
+   "name": "Dorliguzzo",
+   "c": 6,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "frezza",
+   "name": "Frezza",
+   "c": 6,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "tamborin",
+   "name": "Tamborin",
+   "c": 6,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "vellico",
+   "name": "Vellico",
+   "c": 6,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "buich",
+   "name": "Buich",
+   "c": 4,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "cleva",
+   "name": "Cleva",
+   "c": 4,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "franca",
+   "name": "Franca",
+   "c": 4,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "kalanj",
+   "name": "Kalanj",
+   "c": 4,
+   "origin": "slavic",
+   "route": "hungarian-littoral",
+   "ours": true,
+   "detail": true
+  },
+  {
+   "slug": "martechini",
+   "name": "Martechini",
+   "c": 4,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "skoko",
+   "name": "Skoko",
+   "c": 4,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "bellinich",
+   "name": "Bellinich",
+   "c": 3,
+   "origin": "slavic",
+   "route": "hungarian-littoral",
+   "ours": false,
+   "detail": true
+  },
+  {
+   "slug": "cosulich",
+   "name": "Cosulich",
+   "c": 3,
+   "origin": "maritime",
+   "route": "hungarian-littoral",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "elegnan",
+   "name": "Elegnan",
+   "c": 3,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "michelcich",
+   "name": "Michelcich",
+   "c": 3,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "michelich",
+   "name": "Michelich",
+   "c": 3,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "mihecich",
+   "name": "Mihecich",
+   "c": 3,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "minio",
+   "name": "Minio",
+   "c": 3,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "padovan",
+   "name": "Padovan",
+   "c": 3,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "patovan",
+   "name": "Patovan",
+   "c": 3,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "percesino",
+   "name": "Percesino",
+   "c": 3,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "vojnic",
+   "name": "Vojnić",
+   "c": 3,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "allacevich",
+   "name": "Allacevich",
+   "c": 2,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "belloni",
+   "name": "Belloni",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "beluzzi",
+   "name": "Beluzzi",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "bubich",
+   "name": "Bubich",
+   "c": 2,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "carina",
+   "name": "Carina",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "carlutto",
+   "name": "Carlutto",
+   "c": 2,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "ceselin",
+   "name": "Ceselin",
+   "c": 2,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "clagnan",
+   "name": "Clagnan",
+   "c": 2,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "climan",
+   "name": "Climan",
+   "c": 2,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "corva",
+   "name": "Corva",
+   "c": 2,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "crosseta",
+   "name": "Crosseta",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "fajolli",
+   "name": "Fajolli",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "faravallo",
+   "name": "Faravallo",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "filipich",
+   "name": "Filipich",
+   "c": 2,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "granisi",
+   "name": "Granisi",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "gravisi",
+   "name": "Gravisi",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "medin",
+   "name": "Medin",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "moscarda",
+   "name": "Moscarda",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "ottochian",
+   "name": "Ottochian",
+   "c": 2,
+   "origin": "uskok",
+   "route": "hungarian-littoral",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "perusino",
+   "name": "Perusino",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "peucovich",
+   "name": "Peucovich",
+   "c": 2,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "salomon",
+   "name": "Salomon",
+   "c": 2,
+   "origin": "austrian",
+   "route": "istria-austrian",
+   "ours": true,
+   "detail": true
+  },
+  {
+   "slug": "samburin",
+   "name": "Samburin",
+   "c": 2,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "stefanutti",
+   "name": "Stefanutti",
+   "c": 2,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "zenardi",
+   "name": "Zenardi",
+   "c": 2,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "bacusich",
+   "name": "Bacusich",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "bembo",
+   "name": "Bembo",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "berzoni",
+   "name": "Berzoni",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "brunelli",
+   "name": "Brunelli",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "cambi",
+   "name": "Cambi",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "crosilla",
+   "name": "Crosilla",
+   "c": 1,
+   "origin": "carnia",
+   "route": "carnia",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "descoveo",
+   "name": "Descoveo",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "ivancic",
+   "name": "Ivancić",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "lucetich",
+   "name": "Lucetich",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "marinovich",
+   "name": "Marinovich",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "michielli",
+   "name": "Michielli",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "pesle",
+   "name": "Pesle",
+   "c": 1,
+   "origin": "austrian",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "rocco",
+   "name": "Rocco",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "sablich",
+   "name": "Sablich",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "stanisic",
+   "name": "Stanišić",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "zanca",
+   "name": "Zanca",
+   "c": 1,
+   "origin": "venetian",
+   "route": "venice",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "zvitanovich",
+   "name": "Zvitanovich",
+   "c": 1,
+   "origin": "slavic",
+   "route": "istria-austrian",
+   "ours": false,
+   "detail": false
+  },
+  {
+   "slug": "peschle",
+   "name": "Peschle",
+   "c": 0,
+   "origin": "—",
+   "route": "hungarian-littoral",
+   "ours": true,
+   "detail": true,
+   "notindexed": true
+  },
+  {
+   "slug": "fernasar",
+   "name": "Fernasar / Tornasar",
+   "c": 0,
+   "origin": "—",
+   "route": "istria-austrian",
+   "ours": true,
+   "detail": true,
+   "notindexed": true
+  },
+  {
+   "slug": "kovacina",
+   "name": "Kovačina",
+   "c": 0,
+   "origin": "—",
+   "route": "hungarian-littoral",
+   "ours": true,
+   "detail": true,
+   "notindexed": true
+  }
+ ],
+ "detail": {
+  "peschle": {
+   "from": "Volosca, on the Kvarner — and Fiume",
+   "route": "hungarian-littoral",
+   "ours": true,
+   "why": "**Lambertina Peschle married Josephus de Franceschi at Gologorica on 3 February 1807 and became the mother of Carlo De Franceschi**, the historian this whole archive leans on. She was born about 1786 and died on 16 July 1863; the 1826 status animarum of house 7 records her as *Lambertina*.",
+   "known": [
+    "**Mathias Peschle**, b. 1756, married Justina Jacich.",
+    "**Alexander Peschle**, b. 1803, son of Mathias and Justina, married Franca Descovich.",
+    "**Alexander Peschle**, b. 1797, married Anna Promagnoli.",
+    "**Pasqualina** and **Ercolano Peschle**, their children, at **Fiume**.",
+    "**Paschalis Maria Peschle**, b. 28 April 1832, of Alessandro and Anna.",
+    "**Carmina Peschle**, 1832–1833, died in infancy."
+   ],
+   "found": "**Fifty-one hits on Hungaricana, and almost all of them are one man.** *Dr **Cäsar Peschle***, a medical officer of the **K. K. Landwehr**, commissioned 1 August 1895 with rank from 5 September 1895, serving as *Assistenzarzt* and then with the 5th and 23rd Regiments, attached to the **Landsturm district of Görz — Gorizia** — and still on the lists in 1918. Twenty-three years of an Austrian army doctor's career, free, page by page.\n\n**Nothing joins him to Lambertina.** But note where he is: Gorizia is where Carlo De Franceschi was sent to the seminary. That is a coincidence of place and not evidence, and it is written down so that whoever tests it knows what to look for.",
+   "next": "Volosca's registers are at Pazin or Rijeka; the Peschle at **Fiume** belong in Hungarian paperwork. **The name is Germanic and the forename is Germanic** — *Lambertina*, for St Lambert of Maastricht, is a Rhineland and Low Countries name, not an Istrian or a Venetian one. A German-named family on the Kvarner in the eighteenth century is most likely an **immigrant administrative or mercantile household**, which is exactly the kind that leaves imperial rather than parish traces."
+  },
+  "salomon": {
+   "from": "Gračišće (Gallignana), Istria",
+   "route": "istria-austrian",
+   "ours": true,
+   "why": "**Francisca Salomon, born 17 March 1797, married Giovanni Battista Defranceschi** and is the mother of the third generation of our line. Her family had a palace on the square at Gračišće, facing the bishop's.",
+   "known": [
+    "Children recorded: **Raymundus** b. 9 October 1823, **Antonius** b. 20 September 1825 — who carried the line — and **Joannes** b. 30 June 1833."
+   ],
+   "found": "**Nothing yet in the Hungarian material**, which is the expected answer: Gračišće is Austrian Istria, not Hungarian crown land, so its people belong in Vienna's paperwork and Pazin's, not Budapest's.",
+   "next": "A family with a palace on the town square is a family with **property deeds, tax assessments and probably a coat of arms**. The Austrian **Franciscan cadastre** of 1818–20 names the owner of every parcel, and the *Blasonario Giuliano* — already used by this archive for our own name — should be checked for Salomon. Neither has been done."
+  },
+  "fernasar": {
+   "from": "Gračišće (Gallignana), Istria",
+   "route": "istria-austrian",
+   "ours": true,
+   "why": "**Maria née Fernasar, born 17 October 1832, married Antonio Defranceschi** and is the mother of Josip, who took the line out of Istria to Crikvenica.",
+   "known": [
+    "The surname is written **Fernasar** in one hand and **Tornasar** in another, and which is right has never been settled.",
+    "A related puzzle sits beside her: a marriage recorded 25 November 1856 with an eldest son born 6 August 1856, three and a half months earlier."
+   ],
+   "found": "**Zero hits** for either spelling anywhere in the Hungarian material — and that is worth recording rather than passing over. A surname that returns nothing across the whole Habsburg-Hungarian administrative corpus is a surname of people who **never held office, never served, and never drew a pension**. It is also, possibly, a surname this archive is spelling wrong.",
+   "next": "Settle the spelling first, from the register image rather than the index, because every later search depends on it. Then the Gračišće status animarum, which lists households by name."
+  },
+  "kalanj": {
+   "from": "Rijenovica, in the Vinodol",
+   "route": "hungarian-littoral",
+   "ours": true,
+   "why": "**Anna Kalanj, born 3 January 1864, married Josip Defranceschi** — the generation that left Istria. She came from the valley directly above Crikvenica and did not move far.",
+   "known": [
+    "Four marriages of the name into this family in the index.",
+    "Two households: **Josip × Ana Kalanj** at **Ledenice** 1890–92, and at **Crikvenica** 1894–96 — the same couple, recorded in two parishes."
+   ],
+   "found": "Not yet searched in the Hungarian material — **and it should be.** The Vinodol was in **Modruš-Fiume county, Hungarian crown land**, which is precisely the jurisdiction whose records this archive only opened on 13 September 2026.",
+   "next": "Hungaricana for the surname; the Vinodol parish books at Rijeka. Ledenice and Crikvenica are eight kilometres apart and the family used both."
+  },
+  "kovacina": {
+   "from": "not known",
+   "route": "hungarian-littoral",
+   "ours": true,
+   "why": "**Uršula Kovačina, born about 1890, married Anton Rudolf Defranceski** — our fifth generation, the one taken to Pfullingen.",
+   "known": [
+    "**Her own birth record has not been found.** She is the nearest wall in the direct line and the only mother in eight generations whose origin is blank."
+   ],
+   "found": "Nothing. She has not been searched for outside the Croatian books.",
+   "next": "She married a man of Klenovica, in the Hungarian Littoral, about 1912–24. If she was local, she is in Hungarian-administered parishes and possibly in Hungarian civil paperwork. **Of all the names on this page, hers is the one where a new jurisdiction is most likely to break a wall in our own line.**"
+  },
+  "bergamo": {
+   "from": "southern Istria — the parish behind «Croazia, Austria»",
+   "route": "istria-austrian",
+   "why": "**The largest in-marrying family in the whole archive: seventeen marriages.** And it goes both ways — Antonio De Franceschi married **Maria Bergamo** (six children, 1825–45), and **Francesca Defranceschi** married **Giovanni Bergamo** (seven children, 1831–46). Two households, one generation, two directions.",
+   "known": [
+    "This is also where this archive made one of its worst errors: Francisca was published as the wife of Antonius Cerneca, off a tabular register whose four parent columns the index flattens into one list. She married Bergamo. The correction stands."
+   ],
+   "found": "Not searched in any imperial source.",
+   "next": "Seventeen marriages into one family across one parish is not chance — it is **two houses intermarrying for a century**, which normally means neighbours or business partners. The Svetvinčenat status animarum would put both households on a street."
+  },
+  "bellinich": {
+   "from": "Bakar (Vitipolis), on the Kvarner",
+   "route": "hungarian-littoral",
+   "why": "**Catharina Bellinich** married Franciscus Defranceschi at Bakar (three baptisms, 1836), and **Carolina Bellinich** married *Francisci Defranceschi **Regii*** there in 1849 — the twins, and the week that took two children.",
+   "known": [
+    "Almost certainly **one man and two sisters**, the widower marrying his wife's sister; or one woman whose name two indexers read differently."
+   ],
+   "found": "Not yet searched — but Bakar is **Hungarian crown land**, and the Hungarian material has already produced the Bakar salt office plan of 1827 and the Royal Hungarian port captain.",
+   "next": "Hungaricana for Bellinich, and the Bakar baptisms, which would settle the one-man-or-two question in a line."
+  }
+ },
+ "close": "**Three of the six women who married into our own direct line are not in this index at all.** *Peschle*, *Fernasar* and *Kovačina* appear below with a count of zero — not because those marriages did not happen, but because the indexed marriage set does not contain them. Two of the three are mothers of generations of this line. It is a useful reminder of what a count on this page is actually measuring: **not marriages, but marriages somebody has indexed.**\n\n**Fourteen of the seventy-one carry Carnian surnames** — Cerlon, Francin, Tamborin, Bonassin, Dorliguzzo, Cleva, Elegnan, Ceselin and more. If this family came out of Carnia and went on marrying other Carnian families in Istria, that is exactly the pattern it would leave. It is also exactly what surname-morphology guessing produces when you go looking for it, and this archive has never tested a single one of them against a Carnian register. **It is the best lead on the page and the least worked.**"
+}

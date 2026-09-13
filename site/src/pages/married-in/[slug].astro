@@ -1,0 +1,78 @@
+---
+import Base from "../../layouts/Base.astro";
+import Rule from "../../components/Rule.astro";
+import { u } from "../../lib/url.js";
+import mi from "../../data/marriedin.json";
+export function getStaticPaths() {
+  return Object.keys(mi.detail).map(slug => ({ params: { slug } }));
+}
+const { slug } = Astro.params;
+const d = mi.detail[slug];
+const row = mi.rows.find(r => r.slug === slug);
+const R = mi.routes[d.route];
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+---
+<Base title={row.name}
+  eyebrow={`${row.c ? `${row.c} indexed marriage${row.c === 1 ? "" : "s"}` : "not in the marriage index"} · ${d.from}`}
+  dek={d.ours ? "A family that married into our own direct line." : "A family that married into this one."}>
+
+  <p class="prose" set:html={md(d.why)}></p>
+
+  {d.known && d.known.length > 0 && (
+    <>
+      <Rule name="arrows" label="What is held" />
+      <ul class="kn">{d.known.map(k => <li set:html={md(k)}></li>)}</ul>
+    </>
+  )}
+
+  <Rule name="arrows" label="Searched beyond the parish books" />
+  <div class="one" style={`border-left-color:${d.found.includes("Zero hits") || d.found.startsWith("Nothing") || d.found.startsWith("Not yet") ? "var(--ink-3)" : "var(--accent)"}`}>
+    {d.found.split("\n\n").map(p => <p set:html={md(p)} />)}
+  </div>
+
+  <Rule name="arrows" label="Where to look next" />
+  <p class="prose" set:html={md(d.next)}></p>
+
+  <Rule name="arrows" label="The jurisdiction this family sits in" />
+  <section class="rt">
+    <h2 class="rt-n">{R.label}</h2>
+    <div class="rt-p">{R.places}</div>
+    <dl class="rt-d">
+      <dt>Who held it</dt><dd set:html={md(R.held)}></dd>
+      <dt>The registers</dt><dd set:html={md(R.registers)}></dd>
+      <dt>Beyond the registers</dt><dd set:html={md(R.beyond)}></dd>
+      <dt>Where this archive stands</dt><dd set:html={md(R.gap)}></dd>
+    </dl>
+  </section>
+
+  <div class="doors" style="margin-top:28px">
+    <a class="door" href={u("/married-in/")}>
+      <div class="dn">All seventy-one</div>
+      <div class="dd">Every family that married into this one, routed to the empire that held its town.</div>
+      <div class="go">The families they married →</div>
+    </a>
+    <a class="door" href={u("/marriages/")}>
+      <div class="dd">The marriages themselves — couples, dates, and the origin grouping behind these pages.</div>
+      <div class="dn">Marriages</div>
+      <div class="go">Browse marriages →</div>
+    </a>
+  </div>
+
+</Base>
+
+<style>
+.kn{margin:16px 0 0;padding-left:20px;max-width:84ch}
+.kn li{font-family:var(--sans);font-size:14px;line-height:1.68;color:var(--ink-2);margin-bottom:9px}
+.rt{border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:2px;
+  padding:16px 20px 18px;margin-top:16px}
+.rt-n{margin:0;font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink)}
+.rt-p{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--ink-3);margin-top:7px}
+.rt-d{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:14px 0 0}
+.rt-d dt{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);padding-top:3px;white-space:nowrap}
+.rt-d dd{margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.62;color:var(--ink-2);max-width:78ch}
+@media (max-width:560px){ .rt-d{grid-template-columns:1fr;gap:2px 0} .rt-d dt{padding-top:9px} }
+</style>
