@@ -1,0 +1,94 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import s from "../data/imperial.json";
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+const ARM = {
+  chamber:  ["The chamber",    "var(--ochre)"],
+  port:     ["Port service",   "var(--accent)"],
+  navy:     ["The navy",       "var(--accent-2)"],
+  army:     ["The army",       "var(--terra)"],
+  landwehr: ["The Landwehr",   "var(--ink-3)"],
+  inlaw:    ["Married in",     "var(--ochre)"],
+};
+---
+<Base title={s.title} eyebrow={s.eyebrow} dek={s.dek}>
+
+  <section class="prose">{s.lede.map(p => <p set:html={md(p)} />)}</section>
+
+  <Rule name="arrows" label="The roll" />
+
+  <ol class="rl">
+    {s.roll.map(r => {
+      const [lab, col] = ARM[r.arm] || ARM.army;
+      return (
+        <li class={"rl-r" + (r.key ? " key" : "") + (r.open ? " open" : "")} style={`--c:${col}`}>
+          <div class="rl-w">{r.when}</div>
+          <div class="rl-b">
+            <div class="rl-h">
+              <span class="rl-n">{r.who}</span>
+              <span class="rl-t">{r.what}</span>
+              <span class="rl-a">{lab}</span>
+            </div>
+            <p class="rl-d" set:html={md(r.detail)}></p>
+            <p class="rl-s">{r.src}</p>
+            {r.href && <a class="rl-go" href={u(r.href)}>{r.cta}</a>}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+
+  <Rule name="arrows" label="What the roll actually says" />
+  <div class="prose">{s.means.map(p => <p set:html={md(p)} />)}</div>
+
+  <Rule name="arrows" label="And what it cannot" />
+  <ul class="cn">{s.cannot.map(x => <li set:html={md(x)}></li>)}</ul>
+
+  <div class="doors" style="margin-top:30px">
+    <a class="door" href={u("/rijeka/")}>
+      <div class="dn">The Kvarner households</div>
+      <div class="dd">The nine households at Rijeka and Bakar these men most likely belong to — and the broken rungs between them.</div>
+      <div class="go">Where they probably come from →</div>
+    </a>
+    <a class="door" href={u("/julius/")}>
+      <div class="dn">Julius, in full</div>
+      <div class="dd">Twenty-four years in the k. u. k. navy, transcribed from 181 entries across 79 volumes.</div>
+      <div class="go">The whole career →</div>
+    </a>
+    <a class="door" href={u("/married-in/")}>
+      <div class="dn">The families they married</div>
+      <div class="dd">Seventy-four surnames, routed to the empire that held each town — which is how these men were found at all.</div>
+      <div class="go">The jurisdictions →</div>
+    </a>
+  </div>
+
+</Base>
+
+<style>
+.rl{list-style:none;margin:22px 0 0;padding:0}
+.rl-r{display:flex;align-items:flex-start}
+.rl-w{flex:none;width:132px;padding:13px 14px 0 0;text-align:right;font-family:var(--mono);
+  font-size:11.5px;color:var(--ink-3);line-height:1.4;font-variant-numeric:tabular-nums}
+.rl-b{flex:1;min-width:0;border-left:2px solid var(--c);padding:11px 0 22px 20px;position:relative}
+.rl-r.open .rl-b{border-left-style:dashed}
+.rl-b::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;
+  background:var(--ground);border:2px solid var(--c)}
+.rl-r.key .rl-b::before{background:var(--c)}
+.rl-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.rl-n{font-family:var(--serif);font-size:19px;color:var(--ink)}
+.rl-t{font-family:var(--sans);font-size:13px;color:var(--ink-2)}
+.rl-a{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--c);border:1px solid var(--c);border-radius:2px;padding:2px 7px}
+.rl-d{font-family:var(--sans);font-size:14px;line-height:1.66;color:var(--ink-2);margin:9px 0 0;max-width:82ch}
+.rl-s{font-family:var(--mono);font-size:10.5px;line-height:1.5;color:var(--ink-3);margin:9px 0 0}
+.rl-go{display:inline-block;font-family:var(--sans);font-size:12.5px;margin-top:8px;text-decoration:none}
+.rl-go:hover{text-decoration:underline}
+.cn{margin:16px 0 0;padding-left:20px;max-width:84ch}
+.cn li{font-family:var(--sans);font-size:14px;line-height:1.68;color:var(--ink-2);margin-bottom:11px}
+@media (max-width:640px){ .rl-w{width:84px;font-size:10.5px} }
+</style>
