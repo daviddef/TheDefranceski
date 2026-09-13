@@ -107,7 +107,8 @@ Closing that gap means **reading Vodnjan whole**: ~105 images, ~4,600 entries, r
 **Next, and cheap, because the machinery now exists**
 1. **Šterna vs Šumber on film 005497888** — one ark test, five records.
 2. Resolve the remaining **331** multi-parish-reel records by ark, worst reels first (005494037 has seven parishes on it).
-3. Run the ark test on the other **25 lost daughters** — every row has an empty place and a page in somebody's book. `q.motherSurname` is the way in.
+3. ~~Run the ark test on the 25 lost daughters~~ **DONE 13 Sept — 137 of 155 rows placed.** ~49 are on film 005497893 = **Vodnjan** (not the Vižinada its catalogue names). **Francisca** (9 children) and **Veneranda** (9) are **Svetvinčenat**. **Marietta → Dubrovnik**, **Antonia → Rijeka**, **Dominica/Domenica → Labin**, **Catharina → Barban**. Still unnamed: films 005494789 (9 rows of a Maria), 005494797, 005494798, 005494788, 005497818, 005497822 (5 rows of Mariana, expect Krbune), 005497825, 005497835; and 005497826 carries Pazin+Pomer+Plomin and needs the ark test. 18 rows matched nothing and need re-fetching.
+   **Method note:** each search result carries THREE persona ids (child + both parents). Indexing only the principal's matched 1 row of 155; indexing all three matched 137.
 4. **Dubrovnik and Split** — 126 town-less records between them, and neither city is on the chart.
 2. **Fažana**, 42 records and never read by eye. Two households, books from 1810.
 3. **Svetvinčenat marriages 1762–1858** — 19 records found by ark, unread on the page.

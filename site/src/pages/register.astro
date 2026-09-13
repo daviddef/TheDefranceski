@@ -72,6 +72,13 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
       </div>
     ))}
   </div>
+  {r.lost.resolved.table && (
+  <div class="scroll" style="margin-top:24px">
+    <table><thead><tr><th>As the index spells her</th><th>Where her children were baptised</th><th></th></tr></thead>
+    <tbody>{r.lost.resolved.table.map(([a,b,c]) => (
+      <tr><td>{a}</td><td class="m">{b}</td><td set:html={md(c)}></td></tr>
+    ))}</tbody></table>
+  </div>)}
   <p class="cap" style="margin-top:16px">{r.lost.resolved.source_res}</p>
 </section>)}
 </section>
