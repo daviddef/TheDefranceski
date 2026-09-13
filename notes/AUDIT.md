@@ -2,6 +2,5 @@
 
 - **162** people with no place (104 myheritage, 55 index, 1 household, 1 record, 1 life) · **1** households with no place
 - pedigree charts, of 1056 dossiers: **238** drawn · **55** suppressed by the date gate (candidates existed, all rejected) · **763** with nothing to draw (no household link at all)
-- **6** places hold accepted records but appear on no lane: Kaštelir (4), Pola (2), Sovignacco (1), Pisino (1), Tar (1), Pula (1)
 - **3** towns are written under more than one name in the register
 - **26** De Franceschi *women* named as a mother in the unworked leads belong to **no household** — **40** indexed children hang off them. These are the married-out daughters.

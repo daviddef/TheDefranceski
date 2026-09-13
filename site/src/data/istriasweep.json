@@ -387,5 +387,26 @@
    }
   ],
   "source_filter": "FamilySearch persona search endpoint, tested 9 September 2026 against ten place values including two nonsense controls."
+ },
+ "surnames": {
+  "heading": "And the surname does not filter either — twenty-one towns that were never ours",
+  "lead": "The place parameter was tested in September and found to be a relevance boost rather than a filter. This is the other half of the same lesson, and it was found by asking a much duller question: **which towns in our own register have no entry in our own atlas?** Twenty-one of them, holding forty-two rows between them. **Thirty-two of the forty-two carry a surname that is not a Franceschi form at all.**",
+  "rows": [
+   {
+    "lab": "What the thirty-two actually say",
+    "key": true,
+    "text": "**Franceschini** at Krk — nine rows, 1676 to 1742, the largest single block. **Francetich** at Kastav — six, 1736 to 1861. **Defrančichi** at Pomer — three. **Franceschić** and **Franceschich** at Skitača — two, and they are the same woman twice. **Franceschin** at Lovran and Lovrana — two, and those are the same place twice. **Franciscolich** at Lussinpiccolo. **Francescon** at Knin. **Franchini** at Grobnik, at Pag and at Oprtalj.\n\nThese are not spellings of our name. They are other surnames — several of them formed from the same Latin root, in a province where that root is everywhere — and the index gathered them because the search was built to be generous. Generous is right for a first pass. It is wrong for a map."
+   },
+   {
+    "lab": "Which makes Oprtalj a correction, not a target",
+    "key": true,
+    "text": "On 13 September this archive drew up a round of fifteen Istrian towns to work, and put **Oprtalj** on it — sixteenth on the parish table, five indexed rows, a book filmed from 1815. The five rows are *Andreas Vesnaver Franecich*, *Catharina Franceschini*, *Catharina Francaschini*, *Anna Franchini* and *Joannes Vesnaver Franocich*.\n\n**None of them is ours.** The target was made out of a count, and the count was made out of a fuzzy match. The plan was wrong within the hour of being written, which is the argument for checking a list against its own rows before working it."
+   },
+   {
+    "lab": "Six rows survive, and one of them is a household",
+    "text": "Of the forty-two, six carry a Franceschi form: two at **Sovinjak**, one at **Tar**, one at **Pag**, one at **Makarska**, one at **Nerežišća** on Brač.\n\nSovinjak is the one worth the walk. **Zuane Franceschi, buried there in 1759, son of Gio Batta Franceschi.** **Sebastiano De Franceschi, born and buried on 6 August 1783, son of Gio Battista De Franceschi.** One small hill parish above Buzet; two sons of a man of that name, twenty-four years apart. Either a father who buried a son in middle age and another in old age, or two generations keeping the grandfather's name — which is what this family does everywhere else it can be watched.\n\n**It cannot be settled from a screen.** Sovinjak is not one of the forty-three parishes in the filmed collection this archive has walked. Neither is Draguč, and neither is Šterna."
+   }
+  ],
+  "source_sn": "Computed from register.json against places.json on 13 September 2026, and checked row by row against the index's own surname field."
  }
 }

@@ -26,7 +26,9 @@ ALIAS = {"pola": "pula", "vitipolis": "rijeka", "fiume": "rijeka", "parenzo": "p
          "sanvincenti": "svetvincenat", "rovigno": "rovinj", "pisino": "pazin",
          "capodistria": "koper", "umago": "umag", "verteneglio": "brtonigla",
          "sissano": "sisan", "lisignano": "liznjan", "fasana": "fazana", "veglia": "krk",
-         "sebenico": "sibenik", "zara": "zadar", "albona": "labin", "montona": "motovun"}
+         "sebenico": "sibenik", "zara": "zadar", "albona": "labin", "montona": "motovun",
+         "sovignacco": "sovinjak", "castellier": "kastelir", "buccari": "bakar",
+         "segna": "senj", "volosko": "opatija", "torre": "tar"}
 # not towns — a record whose place is a country tells you nothing about a lane
 COUNTRY = {"croazia", "hrvatska", "austria", "osterreich", "italia", "italy", "regnumcroatiae",
            "kraljevinahrvatska", "croatiaslavonia", "ungheria", "magyarorszag", "madarska",
@@ -42,7 +44,7 @@ def main(md=False):
            "site/src/components/BranchRivers.astro").read_text(encoding="utf-8")
     chart = set()
     for x in re.findall(r'"([A-ZŠŽČĆĐ][^"\\]{2,60})"', src):
-        for part in re.split(r"[—·,/]| - ", x):
+        for part in re.split(r"[—·,/]| - | and ", x):   # "Kaštelir and Tar" is two towns
             k = norm(part)
             if len(k) > 2: chart.add(k)
 

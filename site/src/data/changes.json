@@ -1,12 +1,28 @@
 {
  "title": "What changed",
- "eyebrow": "223 entries · 34 of them corrections",
+ "eyebrow": "227 entries · 36 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
   {
    "when": "13 Sept 2026",
    "rows": [
+    {
+     "when": "13 Sept 2026",
+     "kind": "partial",
+     "what": "Testing Michiela De Franceschi fu Giuseppe against the marriage register",
+     "src": "Vodnjan, Liber Copulatorum — DGS 005497894, images 172–174",
+     "text": "**The test is not settled, and the reason is worth more than the answer would have been.**\n\nThe plan was to find the marriage of **Michiela De Franceschi × Domenico Giachin** — a marriage entry names *both* of the bride's parents, so if her mother is **Lucia Tromba** she is Giuseppe's daughter. Her first child is baptised in **1817**, so the marriage should fall about 1815–16.\n\n**What was established.** The register opens **«LIBER COPULATORUM in Ecclesia Sancti Blasii Adignani, Annus 1815»**, first entry **12 October 1815**. The fourteen De Franceschi marriages this archive has already catalogued from it run **1817–1832**, and **none of them is this one**. So the marriage lies either in the register's first fifteen months or **before the book begins**. Images 172–174 were opened; the 1815–16 entries have **not** been scanned surname by surname, and that is a bounded job, not an open one.\n\n**What was found instead, and it changes the reading.** There are **at least three different Michiela De Franceschis** at Vodnjan in this period:\n\n**Michiela *fu Pietro*** — wife of Andrea Palin, house 24, dead before January 1831.\n**Michiela *di Cristoforo* q.m Gio: Maria** — mother Maria Luigia Manzin, born about 1800, married in the register.\n**Michiela *fu Giuseppe*** — wife of Domenico Giachin, house 532, alive in 1833.\n\n**Michiela is not a rare name in this family; it is one of its commonest.** That is exactly why the inference has to rest on the patronymic and not on the name — and it is a good argument for *not* having claimed the Giuseppe link outright.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "13 Sept 2026",
+     "kind": "miss",
+     "what": "February – June 1833, entries 45–81",
+     "src": "Vodnjan, Liber Defunctorum — DGS 005497894, image 572 (book pages 174–175)",
+     "text": "Thirty-seven entries, no De Franceschi. But this stretch is where the parish register stops being only about the parish.\n\n**Entry 73, 24 April 1833, «Caserma Militare»** — not a house number but the **barracks**. *«Giorgio Carl… soldato della Compagnia XXI, Battaglione III, Reggimento XXII Principe Leopoldo, entrò nel 1808»* — dead of an inflammation of the bone *«in parte per caduta accidentale»*, in part from an accidental fall. Enlisted in 1808 and still serving in 1833: **twenty-five years a soldier**.\n\n**That is the third appearance of the XXII Prince Leopold regiment** on this film — page 164 entry 11, page 172 entry 8, and now this. The regiment was quartered at Vodnjan, and the parish buried its men and its men's children.\n\n**Entry 71, 22 April, house 280.** *«La Sig.ra Elisabetta nata Klettner fu Ignazio, Vedova del Sig.r Francesco Kneipf, nata … in Moravia»* — a Moravian gentlewoman, dead of apoplexy and buried on the 24th.\n\nTaken with the gunner *Giorgio Sabotz* and the man from a district in the Friulian provinces, that is **four outsiders in about a year**, each given more biography by this register than most of the town's own children get.",
+     "href": "/research-log/"
+    },
     {
      "when": "13 Sept 2026",
      "kind": "hit",
@@ -86,6 +102,22 @@
      "src": "Vodnjan, Liber Defunctorum — DGS 005497894, image 562",
      "text": "**Entry 48, 14 March 1831, house 456.** «**Maddalena Francin di Giovanni, Moglie di Pietro De Franceschi q.m Pietro**», *cattolica*, *femmina*, **aged 39**, dead of **tisi polmonare**. The sacraments column is full: *Conf.e, Com.e, Extr. Unz.e, Ind. in art. mortis.*\n\n**She is the mother of the eleven-year-old.** House 456 is where, on **15 December 1830**, «Pietro figlio di Pietro De Franceschi q.m Pietro e di **Maddalena Francin di Giovanni** giugali» died of scarlatina — and the two entries name the same couple in the same words. **The boy dies in December; his mother dies ninety days later**, in the same house, of consumption.\n\nThe sacraments columns set side by side are the whole of it. For the boy: «*senza assistenza spirituale per la malattia repentina*» — no priest, the illness was too sudden. For his mother, dying slowly of tuberculosis: **every rite there is**.\n\nAged 39 in March 1831 puts her birth about **1791–92**, and about **27** at the boy's birth in 1819.",
      "href": "/research-log/"
+    },
+    {
+     "when": "13 Sept 2026",
+     "kind": "correction",
+     "what": "I corrected a note that was right",
+     "src": "A claim taken back",
+     "text": "**This archive said** That the working notes' line — *«**55 suppressed charts** to review by hand»* — was stale and wrong, and that the true figure was **763 of 1,056 dossiers with no pedigree chart**: *«wrong by a factor of fourteen, in the direction that makes the job look nearly done»*.\n\n**What is true** **The note was right and I was measuring something else.** A dossier has three possible states, not two:\n\n**238** have a chart drawn. **55** have candidate households that the **date gate rejected every one of** — a chart *suppressed*, which is exactly what the note said and exactly the pile that needs reviewing by hand. **763** have **no household link at all**, so there is nothing to suppress and nothing to draw.\n\n55 is the review queue. 763 is not a backlog; it is the shape of the evidence.\n\n**How it happened** `v.get(\"ptree\")` was read as «has a chart». It is not: the builder returns a `ptree` object carrying **`none: True`** when it found candidates and the gate threw them all out. Conflating «suppressed» with «absent» turned a precise note into a false alarm — and the alarm was published in a commit that was itself about numbers going stale.\n\nThe audit now prints all three states separately. **Being loudly right about an error is not the same as being right**, and the check I built to stop numbers rotting produced a rotten number on its first day.",
+     "href": "/method/ · the queue notes"
+    },
+    {
+     "when": "13 Sept 2026",
+     "kind": "correction",
+     "what": "Twenty-four households with the parents the wrong way round",
+     "src": "A claim taken back",
+     "text": "**This archive said** Twenty-four of this archive's 112 households named a **De Franceschi woman as the father** and **her husband as the mother**. *«father: Michiela De Franceschi · mother: Domenico Giachin»*. Forty people's roster entries said things like *«**Domenico Giachin** — named as **mother** on 2 baptisms»*.\n\n**What is true** Every one is inverted. The women are the mothers; the men are the fathers. **All 24 are De Franceschi daughters married out** — which is why the error clusters exactly where it does.\n\n**How it happened** The households built from the FamilySearch index take the two parent names the index returns and assign them **by position**, not by sex. Where the De Franceschi parent was listed first — which is what happens when the *mother* is the one carrying this archive's surname — the pair went in backwards.\n\n**So the bug bit precisely the people this archive is worst at tracking.** The whole Vodnjan argument is that «the surname keeps its sons and loses its daughters»; twenty-four married-out daughters were in the data and the data had them down as men.\n\nFound while testing something else entirely — chasing whether one **Michiela De Franceschi fu Giuseppe** was a daughter of the Giuseppe this archive already documents. The check that found it is now in `scripts/audit.py` and runs on every publish: **a female given name in the father field**. It would have caught this the day it was introduced.",
+     "href": "/households/ · /people/"
     },
     {
      "when": "13 Sept 2026",
