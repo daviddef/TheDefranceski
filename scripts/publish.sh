@@ -34,6 +34,12 @@ if [[ -f scripts/audit.py ]]; then
   echo "audit: $(sed -n '3p' notes/AUDIT.md)"
 fi
 
+# every row in the list data must actually reach its page — see /corrections/,
+# 13 Sept 2026, when the Search Register was found drawing 112 of 197 rows
+if [[ -f scripts/verify-rendered.py ]]; then
+  python3 scripts/verify-rendered.py | tail -n 3
+fi
+
 ( cd site/dist && ln -sfn . TheDefranceski )
 
 subject="$1"; shift

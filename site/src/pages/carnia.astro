@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Gist from "../components/Gist.astro";
+import gists from "../data/gists.json";
 import SceneFurlans from "../components/SceneFurlans.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -18,6 +20,8 @@ const cmd = (x) => String(x ?? "")
   eyebrow="Mione · Paluzza · Ovaro"
   dek="Every account this family gives of itself begins in Carnia, and until now not one De Franceschi could be documented there. Here are twelve, across three villages — and the name is still at Mione in 1939.">
 
+
+  <Gist g={gists.gists["carnia"]} />
   <section class="prose">
     <p>This is the archive's oldest open question. Carlo De Franceschi said the family came out of Carnia and settled in Istria <em>intorno al 1700</em>. A headmen's list of 1679 names a Zuane De Franceschi of Mione working in the imperial part of Istria with his son. Carlo added that in his own day, the 1870s, De Franceschi were still living at Mione and Muina.</p>
     <p>All of that is testimony. None of it was record. The Ovaro parish registers before 1806 are in no portal, and every sweep this archive ran through the Italian indexes came back with Tuscans, Venetians and Trentini and no Carnians at all.</p>

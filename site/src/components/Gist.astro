@@ -1,0 +1,72 @@
+---
+/* Gist — a way into a page that runs to twenty thousand words.
+   The load-bearing claims, numbered, each with its confidence and a jump to
+   the section that carries the evidence; then what the page still cannot say.
+   It is not a summary of the prose. It is a list of what the page establishes. */
+import { u } from "../lib/url.js";
+import { md } from "../lib/md.js";
+const { g } = Astro.props;
+const CONF = {
+  doc:  ["Documented", "var(--accent)"],
+  inf:  ["Inferred",   "var(--ochre)"],
+  lore: ["Tradition",  "var(--ink-3)"],
+  neg:  ["A negative", "var(--terra)"],
+};
+---
+<aside class="gist" aria-label="What this page establishes">
+  <div class="gist-h">
+    <span class="gist-t">What this page establishes</span>
+    {g.size && <span class="gist-s">{g.size}</span>}
+  </div>
+
+  <ol class="gist-l">
+    {g.claims.map((c, i) => {
+      const [lab, col] = CONF[c.conf] || CONF.inf;
+      const body = <><span class="gist-n">{i + 1}</span>
+        <span class="gist-w" set:html={md(c.what)}></span>
+        <span class="gist-c" style={`--c:${col}`}>{lab}</span></>;
+      return (
+        <li>{c.id
+          ? <a class="gist-i" href={`#${c.id}`}>{body}</a>
+          : <span class="gist-i">{body}</span>}</li>
+      );
+    })}
+  </ol>
+
+  {g.cannot && g.cannot.length > 0 && (
+    <div class="gist-x">
+      <span class="gist-xh">And what it cannot say</span>
+      <ul>{g.cannot.map(x => <li set:html={md(x)}></li>)}</ul>
+    </div>
+  )}
+</aside>
+
+<style>
+.gist{border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:2px;
+  padding:16px 20px 18px;margin:26px 0 8px;background:var(--accent-wash)}
+.gist-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;justify-content:space-between;
+  padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.gist-t{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent)}
+.gist-s{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.gist-l{list-style:none;margin:0;padding:0}
+.gist-l li{border-bottom:1px solid var(--rule)}
+.gist-l li:last-child{border-bottom:0}
+.gist-i{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:baseline;
+  padding:11px 0;text-decoration:none;color:inherit}
+a.gist-i:hover .gist-w{color:var(--accent)}
+.gist-n{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-align:right}
+.gist-w{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);min-width:0}
+.gist-c{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--c);border:1px solid var(--c);border-radius:2px;
+  padding:2px 6px;white-space:nowrap}
+.gist-x{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)}
+.gist-xh{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--terra)}
+.gist-x ul{margin:8px 0 0;padding-left:18px}
+.gist-x li{font-family:var(--sans);font-size:12.5px;line-height:1.6;color:var(--ink-3);margin-bottom:5px}
+@media (max-width:560px){
+  .gist-i{grid-template-columns:20px 1fr;gap:9px}
+  .gist-c{grid-column:2;justify-self:start;margin-top:5px}
+}
+</style>

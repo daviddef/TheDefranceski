@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Gist from "../components/Gist.astro";
+import gists from "../data/gists.json";
 import { md as _md } from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Plates from "../components/Plates.astro";
@@ -16,6 +18,8 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Base title="The Gologorica Line" eyebrow={`${g.counts.individuals} people · ${g.counts.families} families · ${Math.min(...yrs)}–${Math.max(...yrs)}`}
       dek="Read off the parish register itself, page by page, from microfilm of the Gologorica books held by the Pazin Records Office. This is the ancestral line, and it is the only part of this archive built from the pages rather than from an index.">
 
+
+  <Gist g={gists.gists["gologorica-line"]} />
 <section class="blk">
   <div class="note">Everything on this page comes from two microfilm volumes, <span class="mono">ZM34K-214</span> and <span class="mono">ZM34K-215</span> — about 1,465 page images of the Roman Catholic registers for <strong>Gologorica, Gračišće and Lindar</strong>, baptisms, marriages, deaths, confirmations and household censuses. FamilySearch does not hold these films; they came from the Pazin Records Office directly. That is why this line exists and the rest of the archive's Istrian interior does not.</div>
   <div class="prose" style="margin-top:26px">
