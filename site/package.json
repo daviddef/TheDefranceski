@@ -5,11 +5,12 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --port 4321",
-    "build": "npm run publish:index && astro build && npm run sitemap && npm run check:kit",
+    "build": "npm run publish:index && astro build && npm run sitemap && npm run check:living && npm run check:kit",
     "preview": "astro preview --port 4321",
     "sitemap": "python3 ../tools/sitemap.py",
     "publish:index": "node -e \"require('fs').copyFileSync('src/data/searchindex.json','public/searchindex.json')\"",
-    "check:kit": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkarchive.py --dist dist"
+    "check:kit": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkarchive.py --dist dist",
+    "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data"
   },
   "dependencies": {
     "@daviddef/archive-kit": "github:daviddef/TheArchiveKit",
