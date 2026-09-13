@@ -404,9 +404,181 @@
    },
    {
     "lab": "Six rows survive, and one of them is a household",
-    "text": "Of the forty-two, six carry a Franceschi form: two at **Sovinjak**, one at **Tar**, one at **Pag**, one at **Makarska**, one at **Nerežišća** on Brač.\n\nSovinjak is the one worth the walk. **Zuane Franceschi, buried there in 1759, son of Gio Batta Franceschi.** **Sebastiano De Franceschi, born and buried on 6 August 1783, son of Gio Battista De Franceschi.** One small hill parish above Buzet; two sons of a man of that name, twenty-four years apart. Either a father who buried a son in middle age and another in old age, or two generations keeping the grandfather's name — which is what this family does everywhere else it can be watched.\n\n**It cannot be settled from a screen.** Sovinjak is not one of the forty-three parishes in the filmed collection this archive has walked. Neither is Draguč, and neither is Šterna."
+    "text": "Of the forty-two, six carry a Franceschi form: two at **Sovinjak**, one at **Tar**, one at **Pag**, one at **Makarska**, one at **Nerežišća** on Brač.\n\nSovinjak is the one worth the walk. **Zuane Franceschi, buried there in 1759, son of Gio Batta Franceschi.** **Sebastiano De Franceschi, born and buried on 6 August 1783, son of Gio Battista De Franceschi.** One small hill parish above Buzet; two sons of a man of that name, twenty-four years apart. Either a father who buried a son in middle age and another in old age, or two generations keeping the grandfather's name — which is what this family does everywhere else it can be watched.\n\n**It cannot be settled from a screen.** Sovinjak is not one of the parishes in the filmed collection this archive has walked, and neither is Šterna. *(Corrected the same day: Draguč, named here as equally unfilmed, is filmed — three volumes — and was tested image by image on 13 September. It holds none of the name.)*"
    }
   ],
   "source_sn": "Computed from register.json against places.json on 13 September 2026, and checked row by row against the index's own surname field."
+ },
+ "byimage": {
+  "heading": "Twenty parishes read by image instead of by place",
+  "lead": "Every sweep on this page until today matched records to towns by the **place text written in the index**. For Istria that text is very often «Croazia, Austria» and nothing more — no town at all — so every place-based count here has been built on the minority of records that happen to name one. The fix is to stop reading the place field. **Every image on FamilySearch is bound into a parish's book, and the book is the parish.** Fetch the image list under each of a parish's volumes, then match records to parishes by **image ark**. A record cannot be at the wrong parish if the page it is written on is in that parish's register.\n\nDone that way against a pool of **1,768 distinct indexed records**, thirty Istrian parishes were tested. Twenty carry the name. Six that this archive had counted as carrying it do not.",
+  "table": [
+   [
+    "Ližnjan",
+    95,
+    103,
+    "1794–1896",
+    "The largest. Fifty-one spelt Defranceschi, thirty-three Defranceski, four with the háček."
+   ],
+   [
+    "Pula",
+    38,
+    85,
+    "1659–1898",
+    "Thirty-eight of the eighty-five are ours. The other forty-seven are Franceschini and Franceschina — a second, larger family at Pula that is not this one, and that every previous count here silently folded in."
+   ],
+   [
+    "Fažana",
+    42,
+    42,
+    "1770–1855",
+    "Forty-two, and every one of them ours. See below: most of what this page has been calling the Pula cluster is Fažana."
+   ],
+   [
+    "Poreč",
+    27,
+    29,
+    "1811–1880",
+    ""
+   ],
+   [
+    "Vižinada",
+    23,
+    24,
+    "1750–1877",
+    "Joined to Kaštelir and Tar below."
+   ],
+   [
+    "Rovinj",
+    21,
+    25,
+    "1619–1864",
+    "The 1569, 1583 and 1592 entries are Fracischetto, Francoscheto and Franceschero — not ours. Rovinj begins in 1619."
+   ],
+   [
+    "Kaštelir",
+    17,
+    18,
+    "1819–1895",
+    ""
+   ],
+   [
+    "Premantura",
+    15,
+    16,
+    "1791–1853",
+    ""
+   ],
+   [
+    "Labin",
+    8,
+    14,
+    "1826–1866",
+    "Six of the fourteen are Franceschich, Francescich, Francocich — Slavic formations, not ours."
+   ],
+   [
+    "Pazin",
+    6,
+    7,
+    "1684–1859",
+    "And the 1684 is the find of the day. Below."
+   ],
+   [
+    "Vrsar",
+    3,
+    5,
+    "1670–1686",
+    "Three records and one whole household."
+   ],
+   [
+    "Medulin",
+    4,
+    4,
+    "1836–1874",
+    ""
+   ],
+   [
+    "Tar",
+    4,
+    4,
+    "1828–1892",
+    ""
+   ],
+   [
+    "Barban",
+    3,
+    3,
+    "1818–1824",
+    ""
+   ],
+   [
+    "Galižana",
+    2,
+    2,
+    "1824–1852",
+    ""
+   ],
+   [
+    "Labinci",
+    2,
+    2,
+    "1825–1827",
+    ""
+   ],
+   [
+    "Bale",
+    1,
+    2,
+    "—",
+    "One, and undated. Bale's books run from 1538 and are effectively empty of the name."
+   ],
+   [
+    "Buzet",
+    1,
+    1,
+    "1790–1790",
+    ""
+   ],
+   [
+    "Oprtalj",
+    0,
+    9,
+    "—",
+    "Nine records, none of them ours: Franceschini ×5, Franchini, Francocich, Petrina."
+   ],
+   [
+    "Hum",
+    0,
+    1,
+    "—",
+    "One record, Francesich. Not ours."
+   ]
+  ],
+  "rows": [
+   {
+    "lab": "Pazin, 24 March 1684 — a century earlier than this archive had it",
+    "key": true,
+    "text": "«**Die 24 huius — Ego qui supra baptizavi Mariam filiam legitimam Francisci de Franceschi et uxoris eius Marinę. Patrini fuerunt Hilarius Celin[?] et Jacoba eiusdem…**» Pazin, *Births 1582, 1614–1624, 1645, 1643–1685*, read at full magnification.\n\nThis archive's earliest Pazin record was **1791**. This is **1684** — a hundred and seven years earlier, and it is a household: a father, a wife, a legitimate daughter, two godparents.\n\nWhy it matters more than its age. Kobler has a Giovanni Battista reaching Fiume **from the County of Pazin «intorno al 1740»**, and that departure has never been looked for at the departing end. A De Franceschi family is now documented in the county town **fifty-six years before the date Kobler gives**. That is not proof of a connection and is not offered as one. It is the first time the question can be asked of a real household instead of an assumption. <span class=\"chip inf\" style=\"padding:2px 7px;font-size:10px\">Inferred</span>\n\n**And the index has it wrong twice.** It transcribes the surname as «De Francesch», dropping the -i that the page plainly writes; and it puts **Jacoba — a godparent — into the mother's field**. The mother is **Marina**."
+   },
+   {
+    "lab": "Vižinada, Kaštelir and Tar are one family, and now it can be drawn",
+    "key": true,
+    "text": "The lines chart has carried these three, with Šterna and Draguč, as «the Poreč hinterland» — *the largest piece of Istria the archive can document and cannot yet explain*. Three of the five now explain themselves, because the same people are in all three books.\n\n**Mattio**, whose son is buried at Vižinada in 1750. **Giulio (Julius) De Franceschi × Maria Ceselin — also written Sesalin and Cedelini** — whose son **Francesco Napoleone** is baptised at **Vižinada on 7 September 1818**, whose daughter Catharina is baptised at **Kaštelir in 1829**, and who is himself buried at **Kaštelir on 19 September 1854**, entered as «Giulio Defranceschi, of Mattio». **Francesco Napoleone** then appears at Kaštelir with a wife, **Maria Radojković**, and three children — Aloisia 1859, Josephus 1862, Margarita 1869.\n\nAnd the second household: **Angelus Defranceschi × Lucia-Antonia Rodella**, whose son **Julius is baptised at Kaštelir on 29 January 1866** — and buried at **Tar on 9 March 1870**, aged four. Angelus himself dies at Tar on 23 April 1895, aged sixty-seven. The Tar page on this site was written yesterday from the Tar entries alone, and could not say where the child was born. Kaštelir says. <span class=\"chip inf\" style=\"padding:2px 7px;font-size:10px\">Inferred — the join is by name, date and parish adjacency, not by a document that names both places</span>"
+   },
+   {
+    "lab": "Draguč does not exist, and five more blanks are now real blanks",
+    "key": true,
+    "text": "The parish table on this page gives **Draguč 25 records, 1784–1851**. The September filter test had already shown that Vižinada and Draguč return *the same records in the same order*, and suspected the Draguč figure was Vižinada's set counted twice.\n\n**It was.** Draguč's three volumes were fetched and every image ark in them tested against the pool: **zero**. The twenty-five were never there.\n\nFive more come back empty on the same test, and these are now tested blanks rather than untested ones: **Kanfanar** (four books — and it adjoins Svetvinčenat, where the family is thickest), **Tinjan**, **Roč** (ten books from 1651), **Novigrad** (twenty books from 1662), **Marčana**."
+   },
+   {
+    "lab": "Most of the «Pula» cluster is Fažana",
+    "text": "The table at the head of this page names the Pula cluster's people as «**Natale Mattio, Angelo, Vitorio, Elisabetta, Irene De Franceschi**», 1778–1890.\n\nRead by image, **Natale Mattio, Vittorio, Elisabetta and Irene are all in the Fažana register**, not Pula's — children of two households four miles up the coast. **Vittorio De Franceschi × Stella Tamborin** (written Etella, Steffa and Samburin in four different entries) baptise Perina in 1810, Vittorio in 1813 and **Natale Mattio on 21 April 1816**. **Giuseppe De Franceschi × Giovanna Beluzzi** baptise Elisabetta in 1810 and Irene on 13 October 1816.\n\nFažana has **forty-two records, all of them ours** — more than any Istrian parish except Ližnjan, Pula and Svetvinčenat, and it has been drawn on this site as a single dot reading «Baptisms and deaths at Fasana through the 1810s»."
+   },
+   {
+    "lab": "Two households that begin and end inside the record",
+    "text": "**Vrsar, 1670–1686.** «Luca De Franceschi, son of **Francesco De Franceschi and Giacoma**», baptised 11 August 1670. Giacoma buried 1683. A Marga «of Francesco» buried 19 August 1686. **Francesco himself buried 26 November 1686.** Five entries; a marriage, children, a widowing and a death, and then the name stops at Vrsar.\n\n**Rovinj, 1722–1728.** **Mattio De Franceschi × Elisabetta** baptise Martino in 1722 and Benedetto on 23 October 1726. **Isabetta is buried on 4 December 1728 and Matto on the 27th** — three weeks apart. And this archive already holds that 27 December entry from another direction: «**Ob.to di Matt.o de Franceschi da Dignano**». So the man buried at Rovinj at Christmas 1728 and described from outside as *from Dignano* had been living there long enough to baptise two sons, and buried his wife three weeks before he died. <span class=\"chip inf\" style=\"padding:2px 7px;font-size:10px\">Inferred — that the Isabetta of 4 December is the wife and not a daughter</span>"
+   }
+  ],
+  "source_bi": "FamilySearch waypoint image lists for thirty Istrian parishes in Croatia, Church Books 1516-1994 (collection 2040054), intersected against 1,768 distinct indexed records gathered on 13 September 2026. The Pazin 1684 entry was read tile by tile from the Deep Zoom service at full magnification. Counts marked «ours» exclude Franceschini, Franceschina, Franceschich, Francocich, Fracischetto and the other formations of the same root that the index's fuzzy matching returns."
  }
 }
