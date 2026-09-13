@@ -4,6 +4,7 @@ import arch from "@daviddef/archive-kit/data/archives.json";
 import doss from "../data/dossiers.json";
 import { makeResolver } from "../lib/people.js";
 const { root } = Astro.props;
+const whoPages = new Set(Object.values(doss.people).map(p => p.slug));
 const A = Object.fromEntries(arch.archives.map(a => [a.key, a]));
 const resolve = makeResolver(Object.values(doss.people));
 
@@ -22,7 +23,11 @@ function place(node, gen) {
     row = rows.reduce((a, b) => a + b, 0) / rows.length;
     for (const r of rows) links.push({ gen, from: row, to: r });
   }
-  const b = { ...node, gen, row, who: node.who || (node.wall ? null : resolve(node.n, node.d)) };
+  /* /who/[slug] is built from the dossier slugs alone. A `who` typed into
+     ancestors.json that is not one of them is a dead link, and one was:
+     "cheryl-lerena" for a page that is cheryl-lerena-defranceski. Check. */
+  const _w = node.who || (node.wall ? null : resolve(node.n, node.d));
+  const b = { ...node, gen, row, who: _w && whoPages.has(_w) ? _w : null };
   boxes.push(b);
   if (node.wall) walls.push(b);
   return row;

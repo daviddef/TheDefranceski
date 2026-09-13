@@ -87,7 +87,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 
   <Lightbox />
 <section class="blk">
-  <h2>{dl.gracisce_town.heading}</h2>
+  <h2 id="gracisce_town">{dl.gracisce_town.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.gracisce_town.lead)}></p>
   <div class="grid g3" style="margin-top:22px">
     {dl.gracisce_town.rows.map(r => (
@@ -158,7 +158,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 </section>
 <Rule name="arrows" />
 <section class="blk">
-  <h2>{dl.village_1895.heading}</h2>
+  <h2 id="village_1895">{dl.village_1895.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.village_1895.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table>
@@ -174,7 +174,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <h2>{dl.town.heading}</h2>
+  <h2 id="town">{dl.town.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.town.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table>
@@ -190,7 +190,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 <Rule name="helm" />
 
 <section class="blk">
-  <h2>{dl.film215.heading}</h2>
+  <h2 id="film215">{dl.film215.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.film215.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {dl.film215.rows.map(r => (
@@ -213,7 +213,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 <Rule name="tablet" />
 
 <section class="blk">
-  <h2>{dl.count1720.heading}</h2>
+  <h2 id="count1720">{dl.count1720.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.count1720.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{dl.count1720.quote}”</p>
@@ -239,7 +239,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 
 
 <section class="blk">
-  <h2>{dl.gologoricamen.heading}</h2>
+  <h2 id="gologoricamen">{dl.gologoricamen.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.gologoricamen.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.gologoricamen.rows.map(r => (
@@ -260,7 +260,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 <Rule name="loom" />
 
 <section class="blk">
-  <h2>{dl.suppanus.heading}</h2>
+  <h2 id="suppanus">{dl.suppanus.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.suppanus.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit" set:html={_md(dl.suppanus.quote)}></p>
@@ -281,7 +281,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{dl.statusanimarum.heading}</h2>
+  <h2 id="statusanimarum">{dl.statusanimarum.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.statusanimarum.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.statusanimarum.rows.map(r => (
@@ -297,7 +297,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 <section class="blk"><SceneLapidarius /></section>
 <Rule name="tablet" label="Checked against the family tree" />
 <section class="blk">
-  <h2>{dl.treecheck.heading}</h2>
+  <h2 id="treecheck">{dl.treecheck.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.treecheck.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {dl.treecheck.rows.map(r => (
@@ -311,7 +311,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
 </section>
 <Rule name="arcade" label="Gračišće, photographed" />
 <section class="blk">
-  <h2>{dl.fieldplates.heading}</h2>
+  <h2 id="fieldplates">{dl.fieldplates.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(dl.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={dl.fieldplates.ids} /></div>
 </section>
@@ -325,7 +325,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
   <Rule name="arrows" label="The eldest son" />
 
 <section class="blk" id="raymundus">
-  <h2>{dl.raymundus.heading}</h2>
+  <h2 id="raymundus">{dl.raymundus.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={dl.raymundus.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
   <div style="margin-top:22px"><Plates ids={["status-animarum-gb"]} cols={1} /></div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">

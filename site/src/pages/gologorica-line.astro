@@ -76,7 +76,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 <Rule name="arcade" />
 <section class="blk">
-  <h2>{g.chronicle.heading}</h2>
+  <h2 id="chronicle">{g.chronicle.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.chronicle.lead)}></p>
 
   <div class="one" style="border-left-color:var(--terra);margin-top:26px">
@@ -132,7 +132,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="loom" />
 
 <section class="blk">
-  <h2>{g.argument.heading}</h2>
+  <h2 id="argument">{g.argument.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.argument.lead)}></p>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:26px">
@@ -180,7 +180,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{g.dialect.heading}</h2>
+  <h2 id="dialect">{g.dialect.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.dialect.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {g.dialect.rows.map(r => (
@@ -196,7 +196,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <h2>{g.bandnight.heading}</h2>
+  <h2 id="bandnight">{g.bandnight.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.bandnight.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.bandnight.rows.map(r => (
@@ -216,7 +216,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="helm" />
 
 <section class="blk">
-  <h2>{g.bembo.heading}</h2>
+  <h2 id="bembo">{g.bembo.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.bembo.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{g.bembo.quote}”</p>
@@ -240,7 +240,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="tablet" />
 
 <section class="blk">
-  <h2>{g.palazzetto.heading}</h2>
+  <h2 id="palazzetto">{g.palazzetto.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.palazzetto.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{g.palazzetto.quote}”</p>
@@ -274,7 +274,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arcade" />
 
 <section class="blk">
-  <h2>{g.casa31.heading}</h2>
+  <h2 id="casa31">{g.casa31.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.casa31.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.casa31.rows.map(r => (
@@ -298,7 +298,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="loom" />
 
 <section class="blk">
-  <h2>{g.house.heading}</h2>
+  <h2 id="house">{g.house.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.house.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.house.rows.map(r => (
@@ -340,7 +340,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{g.carlograve.heading}</h2>
+  <h2 id="carlograve">{g.carlograve.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.carlograve.lead)}></p>
   <p class="prose" style="margin-top:16px" set:html={_md(g.carlograve.what)}></p>
 
@@ -378,7 +378,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <h2>{g.bishop.heading}</h2>
+  <h2 id="bishop">{g.bishop.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(g.bishop.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
     {g.bishop.rows.map(r => (
@@ -394,7 +394,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="helm" />
 
 <section class="blk">
-  <h2>{g.first1661.heading}</h2>
+  <h2 id="first1661">{g.first1661.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.first1661.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit" set:html={_md(g.first1661.quote)}></p>
@@ -419,7 +419,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="tablet" />
 
 <section class="blk">
-  <h2>{g.press.heading}</h2>
+  <h2 id="press">{g.press.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.press.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {g.press.rows.map(r => (
@@ -435,7 +435,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arcade" />
 
 <section class="blk">
-  <h2>{g.lives.heading}</h2>
+  <h2 id="lives">{g.lives.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.lives.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {g.lives.rows.map(r => (
@@ -451,7 +451,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="loom" />
 
 <section class="blk">
-  <h2>{g.before1661.heading}</h2>
+  <h2 id="before1661">{g.before1661.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.before1661.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {g.before1661.rows.map(r => (
@@ -483,7 +483,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 <Rule name="pomegranate" label="From the family tree" />
 <section class="blk">
-  <h2>{g.fromtree.heading}</h2>
+  <h2 id="fromtree">{g.fromtree.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.fromtree.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {g.fromtree.rows.map(r => (
@@ -497,7 +497,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 </section>
 <Rule name="tablet" label="Photographed on the ground" />
 <section class="blk">
-  <h2>{g.fieldplates.heading}</h2>
+  <h2 id="fieldplates">{g.fieldplates.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={g.fieldplates.ids} /></div>
   <p class="cap" style="margin-top:14px" set:html={_md(g.fieldplates.note)}></p>
@@ -514,7 +514,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arcade" label="The village, surveyed" />
 
 <section class="blk">
-  <h2>{g.kasteli2012.heading}</h2>
+  <h2 id="kasteli2012">{g.kasteli2012.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.kasteli2012.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.kasteli2012.rows.map(r => (
@@ -530,7 +530,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="tablet" label="The parish archive" />
 
 <section class="blk">
-  <h2>{g.orbanic2024.heading}</h2>
+  <h2 id="orbanic2024">{g.orbanic2024.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.orbanic2024.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.orbanic2024.rows.map(r => (
@@ -546,7 +546,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="helm" label="Antiquity" />
 
 <section class="blk">
-  <h2>{g.krizman1979.heading}</h2>
+  <h2 id="krizman1979">{g.krizman1979.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(g.krizman1979.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.krizman1979.rows.map(r => (
@@ -562,7 +562,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="tablet" label="12 August 1945" />
 
 <section class="blk" id="hauptmann">
-  <h2>{g.hauptmann1945.heading}</h2>
+  <h2 id="hauptmann1945">{g.hauptmann1945.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={g.hauptmann1945.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.hauptmann1945.rows.map(r => (
@@ -578,7 +578,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" label="The family's own archive" />
 
 <section class="blk">
-  <h2>{g.fond254.heading}</h2>
+  <h2 id="fond254">{g.fond254.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={g.fond254.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.fond254.rows.map(r => (
@@ -594,7 +594,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="tablet" label="The cadastre of 1820" />
 
 <section class="blk">
-  <h2>{g.cadastre1820.heading}</h2>
+  <h2 id="cadastre1820">{g.cadastre1820.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={g.cadastre1820.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.cadastre1820.rows.map(r => (

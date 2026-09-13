@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
-import { u } from "../lib/url.js";
+import { u, based } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
 const md = (s) => String(s ?? "")
@@ -18,7 +18,7 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
       dek="Every claim this archive has published and then had to take back.">
 
 <section class="blk">
-  <p class="prose note" set:html={md(c.note)}></p>
+  <p class="prose note" set:html={based(md(c.note))}></p>
 </section>
 
 <Rule name="arrows" label="The list" />
@@ -33,9 +33,9 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
           <h3>{r.what}</h3>
         </div>
         <dl>
-          <dt>This archive said</dt><dd set:html={md(r.said)}></dd>
-          <dt>What is true</dt><dd set:html={md(r.true)}></dd>
-          <dt>How it happened</dt><dd set:html={md(r.how)}></dd>
+          <dt>This archive said</dt><dd set:html={based(md(r.said))}></dd>
+          <dt>What is true</dt><dd set:html={based(md(r.true))}></dd>
+          <dt>How it happened</dt><dd set:html={based(md(r.how))}></dd>
         </dl>
         {r.where && <p class="cap">Corrected in place, here: {linkParts(r.where).map((x, i) => (
           <>{i > 0 ? " · " : ""}{x.href ? <a href={u(x.href)}>{x.text}</a> : <span>{x.text}</span>}</>

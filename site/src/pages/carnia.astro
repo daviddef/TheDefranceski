@@ -68,7 +68,7 @@ const cmd = (x) => String(x ?? "")
     <p><strong>What to do next is now obvious.</strong> The same series holds nine volumes of <em>Matrimoni</em> and thirteen of <em>Matrimoni, allegati</em> for Mione. In Napoleonic practice the <em>allegati</em> are the supporting papers filed with a marriage — birth extracts for the bride and groom, and often death extracts for their parents. A single De Franceschi marriage at Mione between 1806 and 1815 would therefore reach back into the middle of the eighteenth century, and possibly to the generation of the Zuane of 1679. Nothing else available to this project can do that.</p>
   </div>
 
-  <h2 style="font-size:30px;margin-top:50px">{c.muina.heading}</h2>
+  <h2 id="muina" style="font-size:30px;margin-top:50px">{c.muina.heading}</h2>
   <Locator place="Muina" radius={9} note="Seven hundred and eighty-four metres from Mione, across the Degano — Carlo De Franceschi named the two villages in one breath in the 1870s, and they are barely a village apart." />
 
   <Plates group="carnia" cols={3} />
@@ -100,7 +100,7 @@ const cmd = (x) => String(x ?? "")
 
   <p class="prose" style="margin-top:24px" set:html={cmd(c.muina.witnesses)}></p>
 
-  <h2 style="font-size:30px;margin-top:50px">{c.households1806.heading}</h2>
+  <h2 id="households1806" style="font-size:30px;margin-top:50px">{c.households1806.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.households1806.intro)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
@@ -116,7 +116,7 @@ const cmd = (x) => String(x ?? "")
     <p set:html={cmd(c.households1806.micoli)}></p>
   </div>
 
-  <h2 style="font-size:30px;margin-top:50px">{c.deaths.heading}</h2>
+  <h2 id="deaths" style="font-size:30px;margin-top:50px">{c.deaths.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.deaths.intro)}></p>
   <div class="scroll" style="margin-top:18px">
     <table>
@@ -129,7 +129,7 @@ const cmd = (x) => String(x ?? "")
   <div style="margin-top:22px"><Plates ids={["mione-morti-index"]} cols={1} /></div>
   <p class="prose" style="margin-top:22px" set:html={cmd(c.deaths.read)}></p>
 
-  <h2 style="font-size:30px;margin-top:50px">{c.deepest.heading}</h2>
+  <h2 id="deepest" style="font-size:30px;margin-top:50px">{c.deepest.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.deepest.intro)}></p>
   <div class="one" style="border-left-color:var(--terra);margin-top:22px">
     <p style="font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5;color:var(--ink)">“{c.deepest.quote}”</p>
@@ -142,7 +142,7 @@ const cmd = (x) => String(x ?? "")
     <p><strong>And it names the book.</strong> {c.deepest.next}</p>
   </div>
 
-  <h2 style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
+  <h2 id="paluzza" style="font-size:30px;margin-top:50px">Paluzza, in the Val Bût</h2>
   <Locator place="Paluzza" radius={22} note="Over the shoulder of the mountain from Mione — a different valley, and on this archive's evidence a different household of the name." />
   <p class="dek" style="margin-top:8px">Twenty-five kilometres east of Mione, over the shoulder of the mountain. A De Franceschi family documented from the eighteenth century into the nineteenth.</p>
   <div class="scroll" style="margin-top:18px">
@@ -171,7 +171,7 @@ const cmd = (x) => String(x ?? "")
   </div>
   <p class="prose" style="margin-top:20px">Mione is a <em>frazione</em> of Ovaro, and Ovaro is the parish. These are the first entries this archive has been able to put in that parish under this surname — and one of them carries the house-name that the bishop born there in 1939 also carries.</p>
 
-  <h2 style="font-size:30px;margin-top:54px">{c.ginut.heading}</h2>
+  <h2 id="ginut" style="font-size:30px;margin-top:54px">{c.ginut.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.ginut.lead)}></p>
   <p class="prose" style="margin-top:14px" set:html={cmd(c.ginut.why)}></p>
 
@@ -233,7 +233,7 @@ const cmd = (x) => String(x ?? "")
     <p>From the sixteenth century the villages of the parishes of Ovaro and Luincis sent weavers down what was called the road of the Furlans, into Istria. It began as seasonal work: out in the autumn, home in late spring. The 1679 entry catches exactly that, a father and a son wintering in the County of Pazin. Some of them stopped coming home. The section below sets out the documents behind that sentence, which this archive had been asserting before it could show them.</p>
   </section>
 <section class="blk">
-  <h2>{c.weavers.heading}</h2>
+  <h2 id="weavers">{c.weavers.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={cmd(c.weavers.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit">“{c.weavers.quote}”</p>
@@ -273,7 +273,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{c.brhan.heading}</h2>
+  <h2 id="brhan">{c.brhan.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={cmd(c.brhan.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.brhan.rows.map(r => (
@@ -289,7 +289,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <h2>{c.gorto.heading}</h2>
+  <h2 id="gorto">{c.gorto.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={cmd(c.gorto.lead)}></p>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -318,7 +318,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="helm" />
 
 <section class="blk">
-  <h2>{c.gorto_war.heading}</h2>
+  <h2 id="gorto_war">{c.gorto_war.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={cmd(c.gorto_war.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.gorto_war.rows.map(r => (
@@ -335,7 +335,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="tablet" />
 
 <section class="blk">
-  <h2>{c.brhan2004.heading}</h2>
+  <h2 id="brhan2004">{c.brhan2004.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.brhan2004.lead)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">{c.brhan2004.key.lab}</div>
@@ -354,7 +354,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="arcade" />
 
 <section class="blk">
-  <h2>{c.agrons.heading}</h2>
+  <h2 id="agrons">{c.agrons.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.agrons.lead)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:20px">
     <div class="lab">{c.agrons.carlo.lab}</div>
@@ -377,7 +377,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="loom" />
 
 <section class="blk">
-  <h2>{c.encyclopedia.heading}</h2>
+  <h2 id="encyclopedia">{c.encyclopedia.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.encyclopedia.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.encyclopedia.rows.map(r => (
@@ -393,7 +393,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{c.gismani.heading}</h2>
+  <h2 id="gismani">{c.gismani.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.gismani.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.gismani.rows.map(r => (
@@ -420,7 +420,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <h2>{c.svetvincenat.heading}</h2>
+  <h2 id="svetvincenat">{c.svetvincenat.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.svetvincenat.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.svetvincenat.rows.map(r => (
@@ -437,7 +437,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="helm" />
 
 <section class="blk">
-  <h2>{c.twobranches.heading}</h2>
+  <h2 id="twobranches">{c.twobranches.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.twobranches.lead)}></p>
   <div class="qz" style="margin-top:18px">
     <p class="qit" set:html={cmd(c.twobranches.quote)}></p>
@@ -456,7 +456,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="tablet" />
 
 <section class="blk">
-  <h2>{c.brhan3.heading}</h2>
+  <h2 id="brhan3">{c.brhan3.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.brhan3.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {c.brhan3.rows.map(r => (
@@ -470,7 +470,7 @@ const cmd = (x) => String(x ?? "")
 </section>
 <Rule name="loom" label="Standing in the valley" />
 <section class="blk">
-  <h2>{c.fieldplates.heading}</h2>
+  <h2 id="fieldplates">{c.fieldplates.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={c.fieldplates.ids} /></div>
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
@@ -487,7 +487,7 @@ const cmd = (x) => String(x ?? "")
 <Rule name="tablet" label="The stones themselves" />
 
 <section class="blk">
-  <h2>{c.gortostones.heading}</h2>
+  <h2 id="gortostones">{c.gortostones.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.gortostones.lead)}></p>
   <div style="margin-top:24px"><Plates ids={c.gortostones.ids} /></div>
   <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">

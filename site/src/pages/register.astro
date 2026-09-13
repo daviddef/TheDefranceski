@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
-import { u } from "../lib/url.js";
+import { u, based } from "../lib/url.js";
 import r from "../data/register.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -40,15 +40,15 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
 <section class="blk">
   <div class="cav">
     {r.caveats.map(([h, b]) => (
-      <div class="cv"><h3>{h}</h3><p set:html={md(b)}></p></div>
+      <div class="cv"><h3>{h}</h3><p set:html={based(md(b))}></p></div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:18px" set:html={md(r.convention)}></p>
+  <p class="prose note" style="margin-top:18px" set:html={based(md(r.convention))}></p>
 </section>
 
 <Rule name="pomegranate" label={r.lost.heading} />
 <section class="blk">
-  <div class="prose hi" set:html={P(r.lost.lead)}></div>
+  <div class="prose hi" set:html={based(P(r.lost.lead))}></div>
   <div class="tw" style="margin-top:18px;overflow-x:auto;border:1px solid var(--rule,#dcd6cc);border-radius:3px">
     <table class="lost">
       <thead><tr><th>The mother</th><th>Her husband</th><th>Children indexed</th><th>N</th></tr></thead>
@@ -57,18 +57,18 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:16px" set:html={md(r.lost.close)}></p>
-  {r.lost.close_krbune && <div class="one" style="margin-top:18px;border-left-color:var(--accent)"><div class="lab">Placed, 13 September 2026</div><p style="margin-top:8px" set:html={md(r.lost.close_krbune)}></p></div>}
+  <p class="prose note" style="margin-top:16px" set:html={based(md(r.lost.close))}></p>
+  {r.lost.close_krbune && <div class="one" style="margin-top:18px;border-left-color:var(--accent)"><div class="lab">Placed, 13 September 2026</div><p style="margin-top:8px" set:html={based(md(r.lost.close_krbune))}></p></div>}
 
 {r.lost.resolved && (
 <section class="blk" id="resolved" style="margin-top:44px">
   <h2 style="font-size:26px">{r.lost.resolved.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={md(r.lost.resolved.lead)}></p>
+  <p class="dek" style="margin-top:8px" set:html={based(md(r.lost.resolved.lead))}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {r.lost.resolved.rows.map(x => (
       <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{x.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={md(x.text)}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={based(md(x.text))}></p>
       </div>
     ))}
   </div>
@@ -76,7 +76,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
   <div class="scroll" style="margin-top:24px">
     <table><thead><tr><th>As the index spells her</th><th>Where her children were baptised</th><th></th></tr></thead>
     <tbody>{r.lost.resolved.table.map(([a,b,c]) => (
-      <tr><td>{a}</td><td class="m">{b}</td><td set:html={md(c)}></td></tr>
+      <tr><td>{a}</td><td class="m">{b}</td><td set:html={based(md(c))}></td></tr>
     ))}</tbody></table>
   </div>)}
   <p class="cap" style="margin-top:16px">{r.lost.resolved.source_res}</p>
@@ -99,10 +99,10 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
                   <span class="pn">{x.n}</span>
                   <span class={"st st-" + x.st}>{LAB[x.st]}</span>
                   {x.o.length > 0 && <span class="rel">with {x.o.join(", ")}</span>}
-                  {x.note && <span class="rnote" set:html={md(x.note)}></span>}
+                  {x.note && <span class="rnote" set:html={based(md(x.note))}></span>}
                 </td>
                 <td class="sy">
-                  {x.says ? <span set:html={md(x.says)}></span> : <span class="none">no dated event indexed</span>}
+                  {x.says ? <span set:html={based(md(x.says))}></span> : <span class="none">no dated event indexed</span>}
                   {x.p && <span class="pl">{x.p}{x.pl && x.pl !== x.p.split(",")[0].trim() && <b class="res"> = {x.pl}</b>}</span>}
                 </td>
                 <td class="sr"><a href={ark(x.id)} rel="noopener">FamilySearch <span class="id">{x.id}</span></a></td>
@@ -117,7 +117,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="prose note" set:html={md(r.close)}></p>
+  <p class="prose note" set:html={based(md(r.close))}></p>
   <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> {r.source}</p>
   <p class="cap" style="margin-top:12px">
     <a href={u("/people/")}>Everyone the archive knows →</a> ·

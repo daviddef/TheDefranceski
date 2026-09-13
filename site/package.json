@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --port 4321",
-    "build": "npm run publish:index && astro build && npm run sitemap",
+    "build": "npm run publish:index && astro build && npm run sitemap && npm run check:kit",
     "preview": "astro preview --port 4321",
     "sitemap": "python3 ../tools/sitemap.py",
     "publish:index": "node -e \"require('fs').copyFileSync('src/data/searchindex.json','public/searchindex.json')\"",

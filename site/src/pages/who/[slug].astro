@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import { md as _md } from "../../lib/md.js";
 import Rule from "../../components/Rule.astro";
-import { u } from "../../lib/url.js";
+import { u, based } from "../../lib/url.js";
 import dl from "../../data/directline.json";
 import { makeResolver } from "../../lib/people.js";
 import d from "../../data/dossiers.json";
@@ -88,8 +88,8 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   {p.known && (
     <div class="known">
       <div class="lab">What the archive knows</div>
-      <p set:html={md(p.known)}></p>
-      {p.more && p.more.map(x => (<p style="margin-top:10px" set:html={md(x)}></p>))}
+      <p set:html={based(md(p.known))}></p>
+      {p.more && p.more.map(x => (<p style="margin-top:10px" set:html={based(md(x))}></p>))}
     </div>
   )}
 </section>
@@ -201,7 +201,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
       </div>
     )}
     <figcaption>
-      {p.ptree.parentsCaveat && <p class="rowcav" set:html={_md(p.ptree.parentsCaveat)}></p>}
+      {p.ptree.parentsCaveat && <p class="rowcav" set:html={based(_md(p.ptree.parentsCaveat))}></p>}
       <span class="keys">
         <span class="key"><i class="sw line"></i> the archive's own line</span>
         <span class="key"><i class="sw read"></i> a register read here</span>
@@ -350,7 +350,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <p class="prose note" set:html={_md(d.note)}></p>
+  <p class="prose note" set:html={based(_md(d.note))}></p>
   <p class="cap" style="margin-top:14px"><a href={u("/who/")}>All {Object.keys(d.people).length} people →</a> · <a href={u("/search/")}>Search the whole archive →</a></p>
 </section>
 <Lightbox />

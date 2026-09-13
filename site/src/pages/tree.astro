@@ -33,7 +33,16 @@ const archOf = (name) => {
 /* Link a name to its dossier page — via the shared resolver, which will not
    return a match it cannot confirm against dates. */
 const resolve = makeResolver(Object.values(doss.people));
-const whoOf = (name, dates) => resolve(name, dates);
+/* /who/[slug] is generated from the dossier slugs and nothing else, so a
+   resolved name that is not one of them is a link to a page that will not be
+   built. The resolver returned exactly one — cheryl-lerena, whose page is
+   cheryl-lerena-defranceski — and it shipped as a dead link on the tree.
+   Ask before linking, the same way the changelog and namesakes pages do. */
+const whoPages = new Set(Object.values(doss.people).map(p => p.slug));
+const whoOf = (name, dates) => {
+  const slug = resolve(name, dates);
+  return slug && whoPages.has(slug) ? slug : null;
+};
 
 /* And link a generation to the household this archive reconstructed for it. */
 const hhOf = (g) => {

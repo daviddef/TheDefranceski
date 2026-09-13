@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
-import { u } from "../lib/url.js";
+import { u, based } from "../lib/url.js";
 import d from "../data/searched.json";
 const n = k => d.rows.filter(r => oc(r) === k).length;
 // Rows have been written with a dozen different words for the same five outcomes.
@@ -28,7 +28,7 @@ const groups = [...order.map(k => [k, d.rows.filter(r => oc(r) === k)]),
     <div class="stat"><div class="n">{n("blocked")}</div><div class="l">Blocked, not circumvented</div></div>
     <div class="stat"><div class="n">{n("pending")}</div><div class="l">Known and not yet got</div></div>
   </div>
-  <p class="prose note" style="margin-top:24px" set:html={_md(d.note)}></p>
+  <p class="prose note" style="margin-top:24px" set:html={based(_md(d.note))}></p>
 </section>
 
 {groups.map(([k, rows]) => rows.length > 0 && (
@@ -41,9 +41,9 @@ const groups = [...order.map(k => [k, d.rows.filter(r => oc(r) === k)]),
         <tbody>{rows.map(r => (
           <tr>
             <td><strong>{r.src}</strong></td>
-            <td set:html={_md(r.what)}></td>
+            <td set:html={based(_md(r.what))}></td>
             <td class="m">{r.when}</td>
-            <td set:html={_md(r.got).replace(/\n\n+/g, "<br><br>")}></td>
+            <td set:html={based(_md(r.got).replace(/\n\n+/g, "<br><br>"))}></td>
           </tr>
         ))}</tbody>
       </table>

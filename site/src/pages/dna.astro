@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
-import { u } from "../lib/url.js";
+import { u, based } from "../lib/url.js";
 import d from "../data/dna.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -20,7 +20,7 @@ const HUE = {
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 
-<section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+<section class="blk"><div class="prose" set:html={based(P(d.lead))}></div></section>
 
 <Rule name="arrows" label="Three estimates" />
 <section class="blk">
@@ -55,7 +55,7 @@ const HUE = {
 
 <Rule name="pomegranate" label={d.midpoint.heading} />
 <section class="blk">
-  <div class="prose" set:html={P(d.midpoint.lead)}></div>
+  <div class="prose" set:html={based(P(d.midpoint.lead))}></div>
   <div class="tw" style="margin-top:20px">
     <table class="mid">
       <thead><tr><th>Group</th><th>Ivan</th><th>Cheryl Anne</th><th>Midpoint</th><th>David</th><th>Drift</th></tr></thead>
@@ -71,11 +71,11 @@ const HUE = {
       ))}</tbody>
     </table>
   </div>
-  <div class="prose" style="margin-top:20px" set:html={P(d.midpoint.close)}></div>
+  <div class="prose" style="margin-top:20px" set:html={based(P(d.midpoint.close))}></div>
 </section>
 
 <Rule name="arrows" label={d.meet.heading} />
-<section class="blk"><div class="prose hi" set:html={P(d.meet.text)}></div>
+<section class="blk"><div class="prose hi" set:html={based(P(d.meet.text))}></div>
   <p class="cap" style="margin-top:12px">
     <a href={u("/direct-line/")}>The Spine →</a> · <a href={u("/crikvenica-house/")}>Crikvenica →</a> · <a href={u("/senj-line/")}>Senj →</a>
   </p>
@@ -83,7 +83,7 @@ const HUE = {
 
 <Rule name="pomegranate" label={d.horizon.heading} />
 <section class="blk">
-  <div class="prose" set:html={P(d.horizon.lead)}></div>
+  <div class="prose" set:html={based(P(d.horizon.lead))}></div>
   <div class="tw" style="margin-top:18px">
     <table class="hz">
       <thead><tr><th>Ancestor</th><th>Where</th><th>Steps</th><th>Share of David</th><th></th></tr></thead>
@@ -102,20 +102,20 @@ const HUE = {
     </table>
   </div>
   <p class="floor"><span></span> the faded rows fall under the ~1% reporting floor — invisible to the test, whatever the registers say</p>
-  <div class="prose" style="margin-top:18px" set:html={P(d.horizon.close)}></div>
+  <div class="prose" style="margin-top:18px" set:html={based(P(d.horizon.close))}></div>
 </section>
 
 <Rule name="arrows" label={d.groups.heading} />
-<section class="blk"><div class="prose" set:html={P(d.groups.text)}></div>
+<section class="blk"><div class="prose" set:html={based(P(d.groups.text))}></div>
   <p class="cap" style="margin-top:12px"><a href={u("/diaspora/")}>Where the name went →</a> · <a href={u("/emigration/")}>Leaving →</a></p>
 </section>
 
 <Rule name="pomegranate" label={d.greek.heading} />
-<section class="blk"><div class="prose" set:html={P(d.greek.text)}></div></section>
+<section class="blk"><div class="prose" set:html={based(P(d.greek.text))}></div></section>
 
 <Rule name="arrows" label={d.notable.heading} />
 <section class="blk">
-  <div class="prose" set:html={P(d.notable.lead)}></div>
+  <div class="prose" set:html={based(P(d.notable.lead))}></div>
   <div class="scale">
     {d.notable.scale.map(([band, word, cls]) => (
       <span class={"sb " + (cls || "vc")}><b>{band}</b> {word}</span>
@@ -144,32 +144,32 @@ const HUE = {
 </section>
 
 <Rule name="pomegranate" label={d.notable.impossible.heading} />
-<section class="blk"><div class="prose hi" set:html={P(d.notable.impossible.text)}></div></section>
+<section class="blk"><div class="prose hi" set:html={based(P(d.notable.impossible.text))}></div></section>
 
 <Rule name="arrows" label={d.notable.behaves.heading} />
-<section class="blk"><div class="prose" set:html={P(d.notable.behaves.text)}></div></section>
+<section class="blk"><div class="prose" set:html={based(P(d.notable.behaves.text))}></div></section>
 
 <Rule name="pomegranate" label={d.notable.gap.heading} />
-<section class="blk"><div class="prose" set:html={P(d.notable.gap.text)}></div></section>
+<section class="blk"><div class="prose" set:html={based(P(d.notable.gap.text))}></div></section>
 
 <Rule name="arrows" label={d.notable.resonance.heading} />
-<section class="blk"><div class="prose" set:html={P(d.notable.resonance.text)}></div>
-  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.notable.source)}></span></p>
+<section class="blk"><div class="prose" set:html={based(P(d.notable.resonance.text))}></div>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(md(d.notable.source))}></span></p>
 </section>
 
 <Rule name="arrows" label={d.terms.heading} />
 <section class="blk">
   <div class="terms">
     {d.terms.rows.map(([k, v]) => (
-      <div class="term"><div class="tk">{k}</div><p set:html={md(v)}></p></div>
+      <div class="term"><div class="tk">{k}</div><p set:html={based(md(v))}></p></div>
     ))}
   </div>
 </section>
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="prose note" set:html={md(d.privacy)}></p>
-  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="prose note" set:html={based(md(d.privacy))}></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(md(d.source))}></span></p>
   <p class="cap" style="margin-top:12px"><a href={u("/method/")}>Method →</a> · <a href={u("/sources/")}>Sources →</a> · <a href={u("/people/")}>Everyone →</a></p>
 </section>
 

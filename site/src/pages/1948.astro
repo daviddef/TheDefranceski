@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
-import { u } from "../lib/url.js";
+import { u, based } from "../lib/url.js";
 import d from "../data/y1948.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -12,7 +12,7 @@ const P = (s) => `<p>${md(s)}</p>`;
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 
-<section class="blk"><div class="prose" set:html={P(d.lead)}></div></section>
+<section class="blk"><div class="prose" set:html={based(P(d.lead))}></div></section>
 
 {d.claims.map(c => (
   <>
@@ -20,18 +20,18 @@ const P = (s) => `<p>${md(s)}</p>`;
     <section class="blk">
       <blockquote class="said">
         <span class="qn">{c.n}</span>
-        <p set:html={md(c.said)}></p>
+        <p set:html={based(md(c.said))}></p>
         <span class="grade">{c.grade}</span>
       </blockquote>
-      <div class="prose" set:html={P(c.against)}></div>
+      <div class="prose" set:html={based(P(c.against))}></div>
       {c.readings && c.readings.length > 0 && (
         <div class="reads">
           <div class="lab">{c.readings.length === 1 ? "How to read it" : `${c.readings.length} readings, and nothing yet to choose between them`}</div>
-          <ol>{c.readings.map(r => <li set:html={md(r)}></li>)}</ol>
+          <ol>{c.readings.map(r => <li set:html={based(md(r))}></li>)}</ol>
         </div>
       )}
       {c.settle && (
-        <p class="settle"><span class="lab">What would settle it</span> <span set:html={md(c.settle)}></span></p>
+        <p class="settle"><span class="lab">What would settle it</span> <span set:html={based(md(c.settle))}></span></p>
       )}
     </section>
   </>
@@ -39,8 +39,8 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" label={d.route.heading} />
 <section class="blk">
-  <div class="prose hi" set:html={P(d.route.text)}></div>
-  <p class="settle"><span class="lab">Confidence</span> <span set:html={md(d.route.grade)}></span></p>
+  <div class="prose hi" set:html={based(P(d.route.text))}></div>
+  <p class="settle"><span class="lab">Confidence</span> <span set:html={based(md(d.route.grade))}></span></p>
   <div class="road">
     <div class="stop"><b>1941</b><span>Ivan enters a Reutlingen factory, 21 October, aged sixteen</span></div>
     <div class="arw" aria-hidden="true"></div>
@@ -58,13 +58,13 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="arrows" label={d.closed.heading} />
 <section class="blk">
-  <div class="prose hi" set:html={P(d.closed.text)}></div>
-  <p class="settle"><span class="lab">Confidence</span> <span set:html={md(d.closed.grade)}></span> · <a href={u("/cheryl-lerena/")}>Cheryl Lerena →</a></p>
+  <div class="prose hi" set:html={based(P(d.closed.text))}></div>
+  <p class="settle"><span class="lab">Confidence</span> <span set:html={based(md(d.closed.grade))}></span> · <a href={u("/cheryl-lerena/")}>Cheryl Lerena →</a></p>
 </section>
 
 <Rule name="arrows" label={d.transposition.heading} />
 <section class="blk">
-  <div class="prose" set:html={P(d.transposition.text)}></div>
+  <div class="prose" set:html={based(P(d.transposition.text))}></div>
   <div class="dates">
     <div class="dt"><span class="dl">Crikvenica &amp; Senj pages</span><b>8 · 3 · 1926</b><span class="dw">8 March</span></div>
     <div class="dx">↔</div>
@@ -74,8 +74,8 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <div class="prose note" set:html={P(d.close)}></div>
-  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <div class="prose note" set:html={based(P(d.close))}></div>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(md(d.source))}></span></p>
   <p class="cap" style="margin-top:12px">
     <a href={u("/crikvenica-house/")}>The Crikvenica house →</a> ·
     <a href={u("/senj-line/")}>The Senj line →</a> ·
