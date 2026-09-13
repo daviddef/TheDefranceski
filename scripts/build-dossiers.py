@@ -201,6 +201,21 @@ try:
 except Exception:
     pass
 
+# a person can have parents named in a register row and still have no household object.
+# 99 people were in that state: the row exists, nobody had built a family from it.
+# Two guards, both learned the hard way:
+#   - the key must be at least two words. _nm strips a patronymic tail, so "Andrea dei
+#     Franceschi" collapses to "andrea", which matches every Andrea in the register.
+#   - the row must be a BIRTH. On a marriage row the other names are in-laws and a
+#     spouse, not parents, and drawing them as parents invents a family.
+REG_BY_NAME = {}
+for _r in REGROWS.values():
+    if not _r.get("o"): continue
+    if not str(_r.get("says") or "").strip().startswith("b."): continue
+    _k = _nm(_r.get("n"))
+    if len(_k.split()) < 2: continue
+    REG_BY_NAME.setdefault(_k, []).append(_r)
+
 def record_strip(rows):
     """The indexed entry a person appears in — the record, not a reconstructed family."""
     ids = []
@@ -312,7 +327,8 @@ def ptree(name):
     k = _nm(name)
     if not k: return None
     up, down = CHILD_IN.get(k, []), PARENT_OF.get(k, [])
-    if not up and not down: return None
+    # no household either way — but one register row may still name this person's parents
+    if not up and not down and len(REG_BY_NAME.get(k, [])) != 1: return None
     row = ROW_BY_NAME.get(k)
     t = {"self": {"n": name, "dt": _dates(row), "via": _via(row)}}
     myY = estY = None
@@ -350,6 +366,31 @@ def ptree(name):
     t["unchecked"] = [g for g in t["gate"] if g[0] == "unchecked"]
     t["estRej"] = [g for g in t["gate"] if g[0] == "estimate"]
     t.pop("gate", None)
+    # No household could be matched. But the index row that names this person may
+    # name their parents too — draw that, clearly marked as a single index entry.
+    if not t.get("parents"):
+        cand = REG_BY_NAME.get(k) or []
+        # the same date gate the household path uses. Without it a Domenico de' Franceschi
+        # of the 1560s collects the parents of a Domenico baptised at Svetvinčenat in the 1800s.
+        if len(cand) == 1 and myY is not None:
+            rY = _yr(cand[0].get("y")) or _yr(cand[0].get("says"))
+            if rY is not None and abs(rY - myY) > 6:
+                t.setdefault("dropped", []).append(
+                    ["dropped", cand[0].get("o", [""])[0] if cand[0].get("o") else "", "", str(rY)])
+                cand = []
+        if len(cand) == 1:
+            e = cand[0]
+            ps = [o for o in (e.get("o") or []) if o and o != "—"][:2]
+            if ps:
+                t["parents"] = [x for x in (node(p) for p in ps) if x]
+                for x in t["parents"]: x["via"] = "index"
+                t["parentsPlace"] = (e.get("pl") or "").strip()
+                t["parentsHref"] = "/register/"
+                t["parentsFromRow"] = True
+                t["parentsCaveat"] = ("Drawn from the one indexed entry that names this person, not from a "
+                                      "household this archive has built. The entry names these people together; "
+                                      "it does not prove the relationship it implies.")
+
     if not t.get("parents") and not t.get("children") and not t.get("spouse"):
         return {"none": True, "dropped": t["dropped"], "self": t["self"]} if t["dropped"] else None
 

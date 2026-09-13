@@ -94,7 +94,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
-{(p.tree || p.chain) && (
+{(p.tree || p.chain || (p.ptree && !p.ptree.none)) && (
 <Rule name="arrows" label="Where this name sits" />
 <section class="blk">
   {(p.chain && p.chain.length > 1) && (
@@ -163,6 +163,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
       </div>
     )}
     <figcaption>
+      {p.ptree.parentsCaveat && <p class="rowcav">{p.ptree.parentsCaveat}</p>}
       <span class="keys">
         <span class="key"><i class="sw line"></i> the archive's own line</span>
         <span class="key"><i class="sw read"></i> a register read here</span>
@@ -352,6 +353,11 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   .pcap{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2);
     margin-top:14px;max-width:74ch;border-left:2px solid var(--ochre);padding-left:12px}
   .pcap .lab{display:block;color:var(--ochre);margin-bottom:3px}
+  .ptree figcaption .rowcav {
+    margin: 0 0 10px; padding: 8px 11px; text-align: left;
+    border-left: 2px solid var(--terra); color: var(--ink-2);
+    font-size: 12.5px; line-height: 1.55;
+  }
 </style>
 
 <style>
