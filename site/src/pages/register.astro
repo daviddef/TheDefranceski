@@ -56,7 +56,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
           <thead><tr><th>Name</th><th>What the source says</th><th>Source</th></tr></thead>
           <tbody>
             {g.rows.map(x => (
-              <tr data-st={x.st} data-k={[x.n, x.says, x.p, x.y, x.o.join(" ")].join(" ").toLowerCase()}>
+              <tr data-st={x.st} data-k={[x.n, x.says, x.p, x.pl || "", x.y, x.o.join(" ")].join(" ").toLowerCase()}>
                 <td class="nm">
                   <span class="pn">{x.n}</span>
                   <span class={"st st-" + x.st}>{LAB[x.st]}</span>
@@ -65,7 +65,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
                 </td>
                 <td class="sy">
                   {x.says ? <span set:html={md(x.says)}></span> : <span class="none">no dated event indexed</span>}
-                  {x.p && <span class="pl">{x.p}</span>}
+                  {x.p && <span class="pl">{x.p}{x.pl && x.pl !== x.p.split(",")[0].trim() && <b class="res"> = {x.pl}</b>}</span>}
                 </td>
                 <td class="sr"><a href={ark(x.id)} rel="noopener">FamilySearch <span class="id">{x.id}</span></a></td>
               </tr>
@@ -120,6 +120,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
 </script>
 
 <style>
+  .pl .res { font-weight: 600; opacity: .75; font-style: normal; }
   .lede{font-size:17.5px}
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
   .ch{font:inherit;font-size:13px;padding:5px 12px;border:1px solid var(--rule,#dcd6cc);

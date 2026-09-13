@@ -1,7 +1,16 @@
 {
  "note": "Every claim this archive has published and then had to take back, with what was said, what is true, and how the mistake was made. It is kept because an archive that only shows its successes is not telling you how reliable it is. Corrections are made **in the place where the mistake was made**, not quietly on a back page — this list is the index to them.",
- "lead": "Nineteen things this archive got wrong.",
+ "lead": "Twenty things this archive got wrong.",
  "rows": [
+  {
+   "when": "13 Sept 2026",
+   "what": "I corrected a note that was right",
+   "sev": "minor",
+   "where": "/method/ · the queue notes",
+   "said": "That the working notes' line — *«**55 suppressed charts** to review by hand»* — was stale and wrong, and that the true figure was **763 of 1,056 dossiers with no pedigree chart**: *«wrong by a factor of fourteen, in the direction that makes the job look nearly done»*.",
+   "true": "**The note was right and I was measuring something else.** A dossier has three possible states, not two:\n\n**238** have a chart drawn. **55** have candidate households that the **date gate rejected every one of** — a chart *suppressed*, which is exactly what the note said and exactly the pile that needs reviewing by hand. **763** have **no household link at all**, so there is nothing to suppress and nothing to draw.\n\n55 is the review queue. 763 is not a backlog; it is the shape of the evidence.",
+   "how": "`v.get(\"ptree\")` was read as «has a chart». It is not: the builder returns a `ptree` object carrying **`none: True`** when it found candidates and the gate threw them all out. Conflating «suppressed» with «absent» turned a precise note into a false alarm — and the alarm was published in a commit that was itself about numbers going stale.\n\nThe audit now prints all three states separately. **Being loudly right about an error is not the same as being right**, and the check I built to stop numbers rotting produced a rotten number on its first day."
+  },
   {
    "when": "13 Sept 2026",
    "what": "Twenty-four households with the parents the wrong way round",

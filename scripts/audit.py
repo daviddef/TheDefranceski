@@ -51,7 +51,10 @@ def main(md=False):
          "households": len(hh),
          "hh_noplace": sum(1 for h in hh if not (h.get("place") or "").strip()),
          "dossiers": len(dos),
-         "no_chart": sum(1 for v in dos.values() if not v.get("ptree")),
+         # three different states, and they were being reported as one
+         "chart_real": sum(1 for v in dos.values() if v.get("ptree") and not v["ptree"].get("none")),
+         "chart_gated": sum(1 for v in dos.values() if v.get("ptree") and v["ptree"].get("none")),
+         "chart_none": sum(1 for v in dos.values() if not v.get("ptree")),
          "reg": len(reg)}
     R["reg_status"] = dict(collections.Counter(r.get("st") for r in reg))
 
@@ -94,7 +97,9 @@ def main(md=False):
         print(f"- **{R['roster_noplace']}** people with no place "
               + "(" + ", ".join(f"{v} {k}" for k, v in ns.items()) + ")"
               + f" · **{R['hh_noplace']}** households with no place")
-        print(f"- **{R['no_chart']}** of {R['dossiers']} dossiers have no pedigree chart")
+        print(f"- pedigree charts, of {R['dossiers']} dossiers: **{R['chart_real']}** drawn · "
+              f"**{R['chart_gated']}** suppressed by the date gate (candidates existed, all rejected) · "
+              f"**{R['chart_none']}** with nothing to draw (no household link at all)")
         if R["offchart"]:
             print(f"- **{len(R['offchart'])}** places hold accepted records but appear on no lane: "
                   + ", ".join(f"{p} ({n})" for p, n in R["offchart"][:8]))
@@ -106,7 +111,8 @@ def main(md=False):
 
     print("ROSTER      %5d rows, %d with no place  %s" % (R["roster"], R["roster_noplace"], R["noplace_src"]))
     print("HOUSEHOLDS  %5d, %d with no place" % (R["households"], R["hh_noplace"]))
-    print("DOSSIERS    %5d, %d with no pedigree chart" % (R["dossiers"], R["no_chart"]))
+    print("DOSSIERS    %5d  charts: %d drawn, %d gate-suppressed, %d nothing to draw"
+          % (R["dossiers"], R["chart_real"], R["chart_gated"], R["chart_none"]))
     print("REGISTER    %5d rows  %s" % (R["reg"], R["reg_status"]))
     print("\nACCEPTED RECORDS AT PLACES ON NO LANE")
     for p, n in R["offchart"]:
