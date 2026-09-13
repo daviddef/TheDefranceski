@@ -1,0 +1,129 @@
+---
+/* Cluster — a parish drawn honestly when it is a web and not a line.
+   Households sit on a time rule in the order the register produced them.
+   Nothing is joined unless the register joins it; where a join is only
+   likely, it is drawn as a broken rung and labelled as an inference. */
+import { u } from "../lib/url.js";
+const { c } = Astro.props;
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+const KIND = { doc: "documented", inf: "inferred", lore: "tradition", none: "no join shown" };
+---
+<div class="cl">
+  {c.note && <p class="cl-note" set:html={md(c.note)}></p>}
+
+  <div class="cl-rail">
+    {c.cards.map((x, i) => (
+      <>
+        {x.rung && (
+          <div class={`cl-rung ${x.rung.kind}`}>
+            <span class="cl-rk">{KIND[x.rung.kind] || x.rung.kind}</span>
+            <span class="cl-rt" set:html={md(x.rung.text)}></span>
+          </div>
+        )}
+        <article class={`cl-h${x.ours ? " ours" : ""}`}>
+          <div class="cl-y">{x.span}</div>
+          <div class="cl-b">
+            <h3 class="cl-n">
+              <span class="cl-f">{x.father}</span>
+              <span class="cl-amp">×</span>
+              <span class="cl-m">{x.mother}</span>
+            </h3>
+            <div class="cl-meta">
+              <span class="cl-pl">{x.place}</span>
+              <span class="cl-sep">·</span>
+              <span class="cl-cn">{x.n} children indexed</span>
+              {x.buried > 0 && <><span class="cl-sep">·</span><span class="cl-bd">{x.buried} buried as infants</span></>}
+            </div>
+            {x.kids && x.kids.length > 0 && (
+              <ol class="cl-k">
+                {x.kids.map(k => (
+                  <li class={k.died ? "gone" : ""}>
+                    <span class="cl-ky">{k.y || "—"}</span>
+                    <span class="cl-kn">{k.name}</span>
+                    {k.died && <span class="cl-kd">{k.died}</span>}
+                  </li>
+                ))}
+              </ol>
+            )}
+            {x.says && <p class="cl-says" set:html={md(x.says)}></p>}
+            {x.href && <a class="cl-go" href={u(x.href)}>{x.cta || "The household →"}</a>}
+          </div>
+        </article>
+      </>
+    ))}
+  </div>
+
+  {c.missing && (
+    <div class="cl-miss">
+      <div class="cl-mh">What would turn this into a tree</div>
+      <p set:html={md(c.missing)}></p>
+    </div>
+  )}
+</div>
+
+<style>
+.cl{margin:22px 0}
+.cl-note{font-family:var(--sans);font-size:14px;line-height:1.62;color:var(--ink-2);
+  max-width:82ch;margin:0 0 22px;border-left:2px solid var(--ochre);padding-left:16px}
+
+.cl-rail{position:relative;padding-left:2px}
+.cl-rung{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+  margin:0 0 0 92px;padding:9px 0 9px 20px;border-left:2px dashed var(--rule-strong)}
+.cl-rung.doc{border-left-style:solid;border-left-color:var(--accent)}
+.cl-rung.inf{border-left-color:var(--ochre)}
+.cl-rk{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--rule-strong);
+  border-radius:2px;padding:2px 7px;flex:none}
+.cl-rung.doc .cl-rk{color:var(--accent);border-color:var(--accent);background:var(--accent-wash)}
+.cl-rung.inf .cl-rk{color:var(--ochre);border-color:var(--ochre)}
+.cl-rung.none .cl-rk{border-style:dashed}
+.cl-rt{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-2);max-width:74ch}
+
+.cl-h{display:flex;gap:0;align-items:flex-start}
+.cl-y{flex:none;width:92px;padding:14px 12px 0 0;text-align:right;
+  font-family:var(--mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;
+  line-height:1.35}
+.cl-b{flex:1;min-width:0;border-left:2px solid var(--rule-strong);padding:12px 0 18px 20px;position:relative}
+.cl-h.ours .cl-b{border-left-color:var(--accent)}
+.cl-b::before{content:"";position:absolute;left:-7px;top:17px;width:12px;height:12px;
+  border-radius:50%;background:var(--ground);border:2px solid var(--rule-strong)}
+.cl-h.ours .cl-b::before{border-color:var(--accent);background:var(--accent)}
+
+.cl-n{margin:0;font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.25}
+.cl-f{color:var(--ink)}
+.cl-amp{color:var(--ink-3);margin:0 7px;font-size:15px}
+.cl-m{color:var(--ink-2)}
+.cl-meta{font-family:var(--sans);font-size:11.5px;color:var(--ink-3);margin-top:5px}
+.cl-sep{margin:0 7px;opacity:.6}
+.cl-bd{color:var(--terra)}
+
+.cl-k{list-style:none;margin:11px 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:3px 20px}
+.cl-k li{display:flex;gap:9px;align-items:baseline;font-family:var(--sans);
+  font-size:12.5px;line-height:1.5;color:var(--ink-2)}
+.cl-ky{font-family:var(--mono);font-size:11px;color:var(--ink-3);flex:none;width:34px;
+  font-variant-numeric:tabular-nums}
+.cl-kn{min-width:0;overflow-wrap:anywhere}
+.cl-k li.gone .cl-kn{color:var(--ink-3)}
+.cl-kd{font-family:var(--mono);font-size:10.5px;color:var(--terra);flex:none}
+
+.cl-says{font-family:var(--sans);font-size:13px;line-height:1.62;color:var(--ink-2);
+  margin:11px 0 0;max-width:80ch}
+.cl-go{display:inline-block;font-family:var(--sans);font-size:12px;margin-top:9px;text-decoration:none}
+.cl-go:hover{text-decoration:underline}
+
+.cl-miss{margin-top:22px;border:1px solid var(--rule);border-left:3px solid var(--terra);
+  border-radius:2px;padding:14px 18px}
+.cl-mh{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:7px}
+.cl-miss p{font-family:var(--sans);font-size:13.5px;line-height:1.65;color:var(--ink-2);
+  margin:0;max-width:82ch}
+
+@media (max-width:640px){
+  .cl-y{width:60px;font-size:11px}
+  .cl-rung{margin-left:60px}
+  .cl-k{grid-template-columns:1fr}
+}
+</style>

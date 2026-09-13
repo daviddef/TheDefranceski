@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import Cluster from "../components/Cluster.astro";
+import { u } from "../lib/url.js";
+import cl from "../data/clusters.json";
+const c = cl.clusters.kvarner;
+---
+<Base
+  title="The Kvarner households"
+  eyebrow="Rijeka · Bakar · 1626 to 1855"
+  dek="Eighty-two people of the name on the Kvarner, in nine households across two hundred and thirty years — the second-largest concentration this archive holds, and the one it has said least about. This page draws what is there, and marks every place a join is missing.">
+
+  <section class="prose">
+    <p>Rijeka is where the archive's <em>oldest</em> household sits — six children baptised between 1626 and 1632 — and it is also where the archive has done the least work. The reason is the shape of the material. Gračišće gave a line because the registers there name fathers; Rijeka gives a stack of households that never touch.</p>
+    <p>Two things emerged when they were finally set in order, and neither had been noticed before.</p>
+  </section>
+
+  <div class="doors" style="margin-top:26px">
+    <div class="door" style="border-left:3px solid var(--terra)">
+      <div class="dn">The name is an office, not a farm</div>
+      <div class="dd">Nine of twelve children in the 1794 household carry <em>Nepomucena</em> or <em>Nepomuc</em>, for the Habsburgs' Bohemian saint; and the Bakar father of 1849 is entered <em>Defranceschi Regii</em> — of the king. In the Hungarian crown's free port that is a post, and it is the first evidence anywhere in this archive of the name holding one.</div>
+    </div>
+    <div class="door" style="border-left:3px solid var(--ochre)">
+      <div class="dn">The chain that almost closes</div>
+      <div class="dd">Valentino fathering 1742–57, Giuseppe naming his first son Valentino in 1772, a Valentino fathering again 1794–1805. The grandfather-to-grandson pattern is exactly right — and the boy who would carry it was buried on 22 August 1775, aged two.</div>
+    </div>
+  </div>
+
+  <Rule name="arrows" label="Nine households, in the order the register made them" />
+
+  <Cluster c={c} />
+
+  <Rule name="arrows" label="Where this sits" />
+  <div class="doors">
+    <a class="door" href={u("/fiume-1626/")}>
+      <div class="dn">Fiume, 1626</div>
+      <div class="dd">The one household on this page that has been read on the page rather than taken from the index — the baptisms in the priest's own hand.</div>
+      <div class="go">Read the entries →</div>
+    </a>
+    <a class="door" href={u("/trees/")}>
+      <div class="dn">The trees</div>
+      <div class="dd">How far each family of the name actually goes, and what form its evidence allows it to be drawn in.</div>
+      <div class="go">All the families →</div>
+    </a>
+    <a class="door" href={u("/households/")}>
+      <div class="dn">Households</div>
+      <div class="dd">All 112 reconstructed couples, with every indexed child and the warning that goes with each.</div>
+      <div class="go">Browse them →</div>
+    </a>
+  </div>
+
+  <p class="cap" style="margin-top:26px">Every household on this page is built from FamilySearch index entries. The spellings are the indexers'. Where a mother carries the father's surname, that is the index, not the marriage. Confidence on the two findings above: <strong>inferred</strong> — both rest on naming patterns and on a title written into an index field, and both would be settled by a register this archive has not yet read.</p>
+
+</Base>
