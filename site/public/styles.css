@@ -46,7 +46,6 @@ img{max-width:100%}
 .lab{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink-3)}
 .mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
-.sans{font-family:var(--sans)}
 .dek{font-family:var(--sans);font-size:15px;line-height:1.62;color:var(--ink-2);max-width:76ch}
 .cap{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-3);margin-top:12px;max-width:92ch}
 .prose{max-width:80ch}/* was display:flex;gap:16px, which made an inline <strong> inside a <p class="prose"> its own   flex item, so bold words broke onto their own line. Spacing now applies between block   children only, leaving inline markup alone. */.prose>*+*{margin-top:16px}p.prose{display:block}
@@ -348,12 +347,6 @@ dialog.lb::backdrop{background:rgba(10,14,18,.88)}
 .linkbtn:hover{border-color:var(--accent);color:var(--accent)}
 .linkbtn b{display:block;font-weight:600;color:var(--ink);font-size:12.5px}
 .empty{font-family:var(--sans);font-size:13px;color:var(--ink-3);padding:26px 4px}
-
-/* ---- search ---- */
-.searchbox{position:relative}
-.searchbox input{width:100%;font-family:var(--sans);font-size:17px;padding:15px 18px;
-  background:var(--panel);color:var(--ink);border:1px solid var(--rule-strong);border-radius:3px}
-.searchbox input::placeholder{color:var(--ink-3)}
 .hits{display:flex;flex-direction:column;gap:1px;margin-top:20px;
   border-top:1px solid var(--rule);max-height:none}
 .hit{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px 4px;
@@ -364,9 +357,6 @@ dialog.lb::backdrop{background:rgba(10,14,18,.88)}
 .hit .t{font-family:var(--sans);font-size:14.5px;font-weight:500;color:var(--ink);line-height:1.35}
 .hit .s{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);line-height:1.45;margin-top:2px}
 .hit mark{background:var(--accent-wash);color:var(--accent);padding:0 2px;border-radius:2px}
-.searchhint{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px}
-.kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--rule-strong);
-  border-bottom-width:2px;border-radius:3px;padding:1px 5px;color:var(--ink-2);background:var(--panel)}
 
 /* ---- the register of the dead ---- */
 .lifebars{display:flex;flex-direction:column;gap:3px;margin-top:18px}
@@ -432,12 +422,7 @@ nav.grouped .gl{font-family:var(--sans);font-size:9px;font-weight:600;letter-spa
 nav.grouped a{font-family:var(--sans);font-size:13px;color:var(--ink-2);text-decoration:none;
   padding:2px 0;border-bottom:1.5px solid transparent}
 nav.grouped a:hover{color:var(--accent)}
-nav.grouped a.on{color:var(--ink);border-bottom-color:var(--terra)}
-
-/* ---- navigation: always open on desktop, a real menu on a phone ---- */
-.navbox{flex:1 1 auto;min-width:0}
-.navbox > summary{display:none}
-.navbox > nav{display:flex}
+nav.grouped a.on{color:var(--ink);border-bottom-color:var(--terra)}/* ---- navigation: always open on desktop{flex:1 1 auto;min-width:0}
 /* no-JS safety: if the script never runs, the nav is simply open. */
 @media (max-width:900px){
   .sitein{gap:0;padding-top:11px;padding-bottom:11px;align-items:center;
@@ -580,29 +565,10 @@ a.stat:hover .go{opacity:1}
   font-size:12.5px;color:var(--ink-2)}
 .atlas-key i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px;
   vertical-align:-1px;border:1px solid rgba(0,0,0,.25)}
-.leaflet-popup-content{font-family:var(--sans);font-size:13px;line-height:1.5}
-.leaflet-popup-content b{font-size:14px}
-
-/* Tree */
-.treewrap{overflow:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);
-  padding:20px}
-.tnode{display:inline-flex;flex-direction:column;gap:2px;border:1px solid var(--rule-strong);
-  border-radius:3px;padding:8px 12px;background:var(--ground);min-width:150px;
-  text-decoration:none;color:inherit;transition:border-color .15s}
-.tnode:hover{border-color:var(--accent)}
-.tnode .tn{font-size:15px;line-height:1.2;color:var(--ink)}
 .tnode .td{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
 .tnode.doc{border-left:3px solid var(--accent)}
 .tnode.inf{border-left:3px dashed var(--ochre)}
 .tnode.lore{border-left:3px dotted var(--ink-3)}
-.tkids{display:flex;gap:14px;margin-left:26px;padding-left:20px;border-left:1px solid var(--rule);
-  flex-direction:column;margin-top:8px}
-.tbranch{margin-top:8px}
-.tbranch > .tnode{margin-left:0}
-details.tb > summary{list-style:none;cursor:pointer;display:inline-block}
-details.tb > summary::-webkit-details-marker{display:none}
-details.tb > summary .tnode::after{content:" ▸";color:var(--ink-3);font-size:11px}
-details.tb[open] > summary .tnode::after{content:" ▾"}
 
 /* Ribbon timeline */
 .ribbon{position:relative;overflow-x:auto;border:1px solid var(--rule);border-radius:3px;
@@ -643,9 +609,6 @@ details.tb[open] > summary .tnode::after{content:" ▾"}
   .chap .cn .yr{font-size:20px}
   .atlas-key{font-size:11.5px;gap:6px 14px}
   #atlas{height:min(62vh,460px)}
-  .treewrap{padding:12px}
-  .tkids{margin-left:8px;padding-left:12px}
-  .tnode{min-width:0;padding:7px 10px}
 }
 
 /* ---- On this page: a jump list built from the section headings -------- */
@@ -762,8 +725,6 @@ header.site nav.topnav{display:flex;align-items:center;gap:1px;flex-wrap:nowrap}
   .burger .bars::before{top:0;box-shadow:0 4.75px 0 var(--ink)}
   .burger .bars::after{bottom:0}
 }
-/* the old open-by-default nav is retired */
-.navbox{display:none!important}
 nav.grouped{display:none!important}
 
 /* the on-this-page box never opens itself any more */
