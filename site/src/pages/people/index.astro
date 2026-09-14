@@ -2,7 +2,7 @@
 import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
-import Chip from "../../components/Chip.astro";
+import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import people from "../../data/people.json";
 import notables from "../../data/notables.json";
 import roster from "../../data/roster.json";
@@ -117,7 +117,7 @@ const nt = (x) => String(x ?? "")
       <a class="cardlink" href={u(`/people/${p.slug}/`)}>
         <div class="nm">{p.name}</div>
         <div class="alt">{p.born||"?"}–{p.died||"?"} · {p.roles.join(", ")}</div>
-        <div style="margin-top:10px"><Chip c={p.confidence} /></div>
+        <div style="margin-top:10px"><Evidence level={p.confidence} /></div>
         <div class="txt">{p.lead}</div>
       </a>
     ))}
@@ -133,7 +133,7 @@ const nt = (x) => String(x ?? "")
       <thead><tr><th>Name</th><th class="m">Dates</th><th>What</th><th>Where</th><th>Link to this family</th></tr></thead>
       <tbody>{notables.map(n=>(
         <tr><td>{n.name}</td><td class="m">{n.dates}</td><td>{n.what}</td><td>{n.where}</td>
-        <td><Chip c={n.conn} />{n.link && <div style="margin-top:6px;font-size:12px">{n.link}</div>}</td></tr>
+        <td><Evidence level={n.conn} />{n.link && <div style="margin-top:6px;font-size:12px">{n.link}</div>}</td></tr>
       ))}</tbody>
     </table>
   </div>

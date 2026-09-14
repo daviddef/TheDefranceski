@@ -3,7 +3,7 @@ import Base from "../../layouts/Base.astro";
 import { md as _md } from "../../lib/md.js";
 import Rule from "../../components/Rule.astro";
 import Sources from "../../components/Sources.astro";
-import Chip from "../../components/Chip.astro";
+import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import JourneyMap from "../../components/JourneyMap.astro";
 import { u } from "../../lib/url.js";
 import lines from "../../data/lines.json";
@@ -68,7 +68,7 @@ import Lightbox from "../../components/Lightbox.astro";
           <td style="white-space:nowrap">{d.fam === "none"
             ? <span style="color:var(--ink-3)">not this family</span>
             : <span style="color:var(--accent);font-weight:600">{d.fam}</span>}</td>
-          <td><Chip c={d.conf === "doc" ? "documented" : d.conf === "inf" ? "inferred" : "lore"} /></td>
+          <td><Evidence level={d.conf === "doc" ? "documented" : d.conf === "inf" ? "inferred" : "lore"} /></td>
           <td set:html={d.what.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></td>
         </tr>
       ))}</tbody>
@@ -86,7 +86,7 @@ import Lightbox from "../../components/Lightbox.astro";
       <div class="linerow">
         <div>
           <h2 style="font-size:26px">{l.name}</h2>
-          <div style="margin-top:10px"><Chip c={l.status} /></div>
+          <div style="margin-top:10px"><Evidence level={l.status} /></div>
         </div>
         <div>
           <div class="meta"><span><b>Route</b> {l.route}</span><span><b>Earliest</b> {l.earliest}</span></div>

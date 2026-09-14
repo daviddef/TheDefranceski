@@ -2,7 +2,7 @@
 import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
-import Chip from "../../components/Chip.astro";
+import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import SceneImotski from "../../components/SceneImotski.astro";
 import people from "../../data/people.json";
 import places from "../../data/places.json";
@@ -16,7 +16,7 @@ const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died|
 
 <section class="blk">
   <div class="lab">The record</div>
-  <div style="margin-top:6px"><Chip c={p.confidence} /></div>
+  <div style="margin-top:6px"><Evidence level={p.confidence} /></div>
   <div class="rec" style="margin-top:18px">
     {p.record.map(([k,v,w])=>(<>
       <div class="k">{k}</div><div class="v">{v}</div><div class="w">{w}</div>
