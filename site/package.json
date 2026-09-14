@@ -8,12 +8,12 @@
     "build": "npm run publish:index && astro build && npm run sitemap && npm run check:living && npm run check:kit",
     "preview": "astro preview --port 4321",
     "sitemap": "python3 ../tools/sitemap.py",
-    "publish:index": "node -e \"require('fs').copyFileSync('src/data/searchindex.json','public/searchindex.json')\"",
+    "publish:index": "node -e \"const f=require('fs');f.copyFileSync('src/data/searchindex.json','public/searchindex.json');const a=JSON.parse(f.readFileSync('src/data/atlas.json','utf8'));f.writeFileSync('public/atlas-data.json',JSON.stringify({places:a.places,stats:a.stats}));\"",
     "check:kit": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkarchive.py --dist dist",
     "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data --policy named-bare"
   },
   "dependencies": {
-    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#c776fec54a8da0ab8fc414459405bebf204932c6",
+    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#c891e66",
     "astro": "^5.18.2"
   }
 }
