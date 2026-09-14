@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "261 entries · 50 of them corrections",
+ "eyebrow": "264 entries · 51 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -129,6 +129,22 @@
     },
     {
      "when": "14 Sept 2026",
+     "kind": "hit",
+     "what": "Books & Libraries, and the surname written with a space",
+     "src": "Trove — the zones and the spelling the first pass missed",
+     "text": "**The first Trove pass ran newspapers only, and only the fused spellings.** It reported «Defranceski» 2 and «Defranceschi» 13. This archive's own variant rule — that each spelling returns a different, non-overlapping set — was never applied to Trove.\n\n**«De Franceschi» with a space returns 82 newspaper articles.** Six times the fused count. The samples are twentieth-century Canberra: *«Carol De Franceschi, 19, of Flynn»* in the Canberra Times of 7 July 1981, and a fatal accident report of 22 June 1977 naming a sister at Willyamba Place, Flynn. **An ACT family of the name, which this archive had not seen.**\n\n**Books & Libraries — a zone never opened — returns 19.** It does not find new relatives; it hardens two namesakes the archive already carries on assertion:\n\n· **Carlo Prospero Defranceschi** is confirmed as **Salieri's librettist** from two independent catalogue authorities. *«Cäsar auf Pharmacusa»* (Theater an der Wien, 3 editions 1801–1808) — *«Libretto by Carlo Defranceschi — New Grove»*; and *«Angiolina, oder Die Heyrath durchs Getöse»* (4 editions 1803–1807) — *«la poesia è del Sig. Carlo Defranceschi»*, per the **U.S. RISM Libretto Project** and *Stieger, Opernlexikon*.\n· **Jean Defranceschi**, *«La Corse française: 30 novembre 1789 – 15 juin 1794»* (1980) — the Corsican historian the archive lists, now with a book and a date.\n\n**A note on the tool.** Trove's interface now loads each zone only on a click and throttles under repeated queries; its API needs a key this project does not hold. The remaining zones — Diaries, Images, Magazines, People & Organisations — were not completed and are left open.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "14 Sept 2026",
+     "kind": "yield",
+     "what": "Whether the Carnian civil registers are online anywhere at all",
+     "src": "Portale Antenati — the registers, not the name index",
+     "text": "**Mione has fifty-nine registers of its own, digitised, free, and open — and this archive has been saying for months that they were not online.**\n\nThe name search was the wrong door. Antenati says so itself: *«Non tutti i nomi sono ricercabili perché solo una parte dei registri disponibili è stata completamente indicizzata»* — only part of the holding is name-indexed, and Tolmezzo returns **nothing** by surname. The other form, **`/search-registry/`**, browses the registers themselves.\n\n**Ovaro: 271 registers**, all held by the **Archivio di Stato di Udine**, in two fonds — *Stato civile napoleonico* (173) and *Stato civile italiano, Comuni afferenti al Tribunale di Tolmezzo* (98). The series break down by village:\n\n· **Mione (oggi frazione di Ovaro) — 59 registers**\n· Ovaro itself — 144 · Lenzone — 9 · Chialina — 8 · Cludinico — 8 · and nine more series behind them\n\nBy type: **Morti 61, Matrimoni 49, Nati 39, Matrimoni pubblicazioni ed opposizioni 31, Matrimoni allegati 28**, and eighteen more. By year they run from **1806** through **1871** and beyond — so both the Napoleonic registration and the Italian civil registration after unification.\n\nEach result carries its own shelfmark and a *«Vedi il registro»* link — for example *Registro 1806, Nati, segnatura 12995, Agrons con Cella*; *1806, Matrimoni allegati, segnatura 185, Lenzone*.\n\n**Tolmezzo has 452 registers on the same portal**, and the other Carnian communes are there too.\n\n**This is the same material FamilySearch holds and keeps behind «Image Restricted».** The Italian state archive has published it itself, and published it open.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "14 Sept 2026",
      "kind": "correction",
      "what": "I said Dubrovnik was too thin to be a group. It is a household.",
      "src": "A claim taken back",
@@ -149,6 +165,14 @@
      "what": "«642 volumes open at page one» — the Carnian ones do not open at all",
      "src": "A claim taken back",
      "text": "**This archive said** Published this morning: «985 more volumes now open at page one», counting **343 Dalmatian and 642 Carnian**. The Carnian half was described exactly like the Croatian half.\n\n**What is true** **The images of the entire Udine collection are restricted.** The viewer answers *«Image Restricted — access is typically determined by local laws or the custodian»*. Tested at **Colza, Comeglians and Paluzza**; all three are shut. The Croatian volumes — Istria, the Kvarner and Dalmatia — open normally, which is how the mistake survived a spot-check: the one volume tested end to end that morning was **Tinjan**, and Tinjan is Croatian.\n\nSo the honest count is **652 volumes that open** and **642 that are addressable but gated**. The link is still worth having — it names the exact volume and its register number, which is what a reading-room request needs — but it is a catalogue entry, not a document.\n\n**How it happened** Found within hours, by going to do the thing the page promised: reading Colza to settle whether Ovaro's registers are filed under it. **The page said the volume was open; the volume was shut.** A link was tested for the wrong country and the claim was written for both.",
+     "href": "/parish-books/"
+    },
+    {
+     "when": "14 Sept 2026",
+     "kind": "correction",
+     "what": "«Settling Ovaro means a reading room» — it means a browser, and always did",
+     "src": "A claim taken back",
+     "text": "**This archive said** Published hours earlier, on finding FamilySearch's Udine images restricted: *«Settling Ovaro now means a Family History Center, an affiliate library, or the Archivio di Stato di Udine itself — not an afternoon at a screen.»*\n\n**What is true** **The Archivio di Stato di Udine has published them itself, on Antenati, free and open.** Ovaro has **271 registers** there and **fifty-nine of them are Mione's**, catalogued under its own name.\n\nThe first correction was right about FamilySearch and wrong about the world. **One vendor's gate was mistaken for the state of the record.**\n\nThe reason it was missed is worth keeping: Antenati was searched **by name**, which returns nothing for Tolmezzo, because only part of the holding is name-indexed. The portal says so on the results page. **The registers were one form away the whole time.**\n\n**How it happened** Found by retrying a source this archive had twice written off — once as «403s both browsers», once as «needs a reading room» — and by reading the failure message instead of accepting it.",
      "href": "/parish-books/"
     }
    ]

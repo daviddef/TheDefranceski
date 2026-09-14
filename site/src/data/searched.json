@@ -5277,6 +5277,58 @@
     "archives",
     "Austria-Hungary"
    ]
+  },
+  {
+   "src": "Trove — the zones and the spelling the first pass missed",
+   "what": "Books & Libraries, and the surname written with a space",
+   "when": "14 Sept 2026",
+   "outcome": "hit",
+   "got": "**The first Trove pass ran newspapers only, and only the fused spellings.** It reported «Defranceski» 2 and «Defranceschi» 13. This archive's own variant rule — that each spelling returns a different, non-overlapping set — was never applied to Trove.\n\n**«De Franceschi» with a space returns 82 newspaper articles.** Six times the fused count. The samples are twentieth-century Canberra: *«Carol De Franceschi, 19, of Flynn»* in the Canberra Times of 7 July 1981, and a fatal accident report of 22 June 1977 naming a sister at Willyamba Place, Flynn. **An ACT family of the name, which this archive had not seen.**\n\n**Books & Libraries — a zone never opened — returns 19.** It does not find new relatives; it hardens two namesakes the archive already carries on assertion:\n\n· **Carlo Prospero Defranceschi** is confirmed as **Salieri's librettist** from two independent catalogue authorities. *«Cäsar auf Pharmacusa»* (Theater an der Wien, 3 editions 1801–1808) — *«Libretto by Carlo Defranceschi — New Grove»*; and *«Angiolina, oder Die Heyrath durchs Getöse»* (4 editions 1803–1807) — *«la poesia è del Sig. Carlo Defranceschi»*, per the **U.S. RISM Libretto Project** and *Stieger, Opernlexikon*.\n· **Jean Defranceschi**, *«La Corse française: 30 novembre 1789 – 15 juin 1794»* (1980) — the Corsican historian the archive lists, now with a book and a date.\n\n**A note on the tool.** Trove's interface now loads each zone only on a click and throttles under repeated queries; its API needs a key this project does not hold. The remaining zones — Diaries, Images, Magazines, People & Organisations — were not completed and are left open.",
+   "url": "https://trove.nla.gov.au/search/category/newspapers?keyword=%22De+Franceschi%22",
+   "dest": "Trove — National Library of Australia",
+   "ev": [
+    [
+     "/namesakes/",
+     "Namesakes"
+    ],
+    [
+     "/diaspora/",
+     "Where the name went"
+    ],
+    [
+     "/corsica/",
+     "Corsica"
+    ]
+   ],
+   "tags": [
+    "newspapers",
+    "indexes",
+    "emigration"
+   ]
+  },
+  {
+   "src": "Portale Antenati — the registers, not the name index",
+   "what": "Whether the Carnian civil registers are online anywhere at all",
+   "when": "14 Sept 2026",
+   "outcome": "yield",
+   "got": "**Mione has fifty-nine registers of its own, digitised, free, and open — and this archive has been saying for months that they were not online.**\n\nThe name search was the wrong door. Antenati says so itself: *«Non tutti i nomi sono ricercabili perché solo una parte dei registri disponibili è stata completamente indicizzata»* — only part of the holding is name-indexed, and Tolmezzo returns **nothing** by surname. The other form, **`/search-registry/`**, browses the registers themselves.\n\n**Ovaro: 271 registers**, all held by the **Archivio di Stato di Udine**, in two fonds — *Stato civile napoleonico* (173) and *Stato civile italiano, Comuni afferenti al Tribunale di Tolmezzo* (98). The series break down by village:\n\n· **Mione (oggi frazione di Ovaro) — 59 registers**\n· Ovaro itself — 144 · Lenzone — 9 · Chialina — 8 · Cludinico — 8 · and nine more series behind them\n\nBy type: **Morti 61, Matrimoni 49, Nati 39, Matrimoni pubblicazioni ed opposizioni 31, Matrimoni allegati 28**, and eighteen more. By year they run from **1806** through **1871** and beyond — so both the Napoleonic registration and the Italian civil registration after unification.\n\nEach result carries its own shelfmark and a *«Vedi il registro»* link — for example *Registro 1806, Nati, segnatura 12995, Agrons con Cella*; *1806, Matrimoni allegati, segnatura 185, Lenzone*.\n\n**Tolmezzo has 452 registers on the same portal**, and the other Carnian communes are there too.\n\n**This is the same material FamilySearch holds and keeps behind «Image Restricted».** The Italian state archive has published it itself, and published it open.",
+   "url": "https://antenati.cultura.gov.it/search-registry/?localita=Ovaro",
+   "dest": "Antenati — the Ovaro registers",
+   "ev": [
+    [
+     "/carnia/",
+     "Carnia"
+    ],
+    [
+     "/parish-books/",
+     "Parish Books"
+    ]
+   ],
+   "tags": [
+    "parish registers",
+    "archives",
+    "Italy"
+   ]
   }
  ]
 }

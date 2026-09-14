@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import d from "../data/mymap-page.json";
+const c = d.counts;
+---
+<Base title="David's Map"
+      eyebrow={`${c.pins} pins · ${c.lines} movements · ${c.areas} areas · kept whole`}
+      dek="The Google My Map this family built over years, imported from its KML and kept exactly as it was drawn — including the parts the Atlas does not carry, and the links that have since died.">
+
+  <section class="blk">
+    <p class="prose" set:html={mdp(d.lead)}></p>
+    <div class="grid g4" style="margin-top:22px">
+      <div class="stat"><div class="n">{c.pins}</div><div class="l">pins, every one kept</div></div>
+      <div class="stat"><div class="n">{c.notOnAtlas}</div><div class="l">of them stand where the Atlas has no place at all</div></div>
+      <div class="stat"><div class="n">{c.revived}</div><div class="l">dead FamilySearch links repaired</div></div>
+      <div class="stat"><div class="n">{c.dead}</div><div class="l">still dead, and marked as such</div></div>
+    </div>
+    <div class="note" style="margin-top:22px" set:html={mdp(d.note)}></div>
+    <p class="cap" style="margin-top:14px">
+      <a href={d.source} rel="noopener" target="_blank">The original, while it is still up &#8599;</a> ·
+      <a href={u("/atlas/")}>The archive's own Atlas →</a> ·
+      <a href={u("/old-site/")}>What else was saved before the switch-off →</a>
+    </p>
+  </section>
+
+  {d.layers.map(L => (L.pins.length + L.lines.length + L.areas.length) > 0 && (
+    <>
+      <Rule name="arrows" label={L.name} />
+      <section class="blk">
+        <p class="cap">{L.pins.length} pins · {L.lines.length} movements · {L.areas.length} areas</p>
+
+        {L.lines.length > 0 && (
+          <div style="margin-top:14px">
+            <div class="lab">The movements he drew</div>
+            <ul class="prose" style="display:block;margin-top:8px;column-count:2;column-gap:28px">
+              {L.lines.map(x => <li style="margin:.25em 0;break-inside:avoid">{x.n || "(unnamed)"}</li>)}
+            </ul>
+          </div>
+        )}
+        {L.areas.length > 0 && (
+          <div style="margin-top:16px">
+            <div class="lab">The areas he shaded</div>
+            <ul class="prose" style="display:block;margin-top:8px">
+              {L.areas.map(x => <li style="margin:.25em 0">{x.n}</li>)}
+            </ul>
+          </div>
+        )}
+
+        <div class="scroll" style="margin-top:18px">
+          <table>
+            <thead><tr><th style="width:26%">Pin</th><th class="m" style="width:14%">Where</th><th style="width:12%">On the Atlas?</th><th>His note, and his links</th></tr></thead>
+            <tbody>{L.pins.map(p => (
+              <tr>
+                <td><strong>{p.n}</strong></td>
+                <td class="m" style="font-size:11.5px">{p.c[0]}, {p.c[1]}</td>
+                <td style={p.on ? "color:var(--ink-3)" : "color:var(--terra)"}>{p.on ? "yes" : "no place there"}</td>
+                <td>
+                  {p.note && <div style="font-size:13px;line-height:1.55">{p.note}</div>}
+                  {p.links && (
+                    <ul style="list-style:none;margin:6px 0 0;padding:0">
+                      {p.links.map(k => (
+                        <li style="margin:2px 0;font-size:12px">
+                          {k.dead
+                            ? <span style="color:var(--terra)">{k.t}</span>
+                            : <a href={k.u} rel="noopener" target="_blank">{k.t} &#8599;</a>}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      </section>
+    </>
+  ))}
+
+</Base>
