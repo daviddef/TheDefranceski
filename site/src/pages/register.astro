@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import lw from "../data/leads.json";
+import { md as _mdl } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import r from "../data/register.json";
@@ -206,4 +208,41 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
     table.reg td{border-top-color:rgba(255,255,255,.07)}
   }
 </style>
+
+<Rule name="arrows" label="The worklist" />
+
+<section class="blk">
+  <h2>{lw.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={_mdl(lw.lead)}></p>
+
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th style="width:30%">What the lead actually is</th><th class="m" style="width:10%">Rows</th><th>Why it matters</th></tr></thead>
+      <tbody>{lw.rows.map(([what, n, why]) => (
+        <tr><td><strong>{what}</strong></td><td class="m">{n}</td><td set:html={_mdl(why)}></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <div class="note reading" style="margin-top:24px" set:html={_mdl(lw.close)}></div>
+
+  <h3 style="font-size:21px;margin-top:34px">Where the hundred and forty-five are</h3>
+  <p class="cap" style="margin-top:6px">Each of these rows names its parents and its parish. «Volumes» is what this archive can already open for that parish — a nought means the books are not filmed and the row is a letter, not an afternoon.</p>
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Parish</th><th class="m">Rows to work</th><th class="m">Volumes openable</th><th>The first few</th></tr></thead>
+      <tbody>{lw.parishes.map(p => (
+        <tr>
+          <td><strong>{p.parish}</strong></td>
+          <td class="m">{p.n}</td>
+          <td class="m" style={p.films ? "color:var(--accent)" : "color:var(--terra)"}>{p.films || "none"}</td>
+          <td style="font-size:12.5px">{p.who.slice(0,4).map(w => (
+            <div>{w.n}{w.y ? " " + w.y : ""}{w.o && w.o.length ? " — " + w.o.join(", ") : ""}</div>
+          ))}{p.n > 4 && <div style="color:var(--ink-3)">and {p.n - 4} more</div>}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px">{lw.source_leads}</p>
+</section>
 </Base>

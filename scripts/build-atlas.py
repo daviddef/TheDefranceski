@@ -92,10 +92,28 @@ for r in roster:
         people[h].append({"n": r["name"], "b": r.get("b"), "d": r.get("d"),
                           "who": r.get("who"), "line": r.get("line"), "src": r.get("src")})
 
+# The register data names parishes the way the film does — «Poreč (Poreč)»,
+# «Senj (Senj)», «Lupoglav (Pazin)» — while the roster names the town. Twenty
+# people sat on Poreč with its thirty-two volumes one bracket away.
+REGHEAD = {}
+for _k in REG:
+    REGHEAD.setdefault(_k, _k)
+    _bare = re.sub(r"\s*\(.*?\)\s*", " ", _k).strip()
+    if _bare and _bare != _k: REGHEAD.setdefault(_bare, _k)
+
 def filmsFor(h):
     """Every volume filmed for this pin, gathered across all its spellings."""
     out, seen = [], set()
-    for alt in ({h} | {x for x in coord if x in REG and coord.get(x) == coord.get(h)}):
+    keys = {h}
+    if h in REGHEAD: keys.add(REGHEAD[h])
+    keys |= {x for x in coord if x in REG and coord.get(x) == coord.get(h)}
+    # The register names a parish the way the film does. head() has already
+    # flattened «Poreč (Poreč)» to "porec porec" and «Senj (Senj)» to "senj
+    # senj", so a pin called "porec" matched nothing. Same word-set, same place.
+    hw = set(h.split())
+    for rk in REG:
+        if set(rk.split()) == hw: keys.add(rk)
+    for alt in keys:
         for f in REG.get(alt, []):
             if f["ark"] in seen: continue
             seen.add(f["ark"]); out.append(f)
