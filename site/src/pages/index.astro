@@ -2,6 +2,8 @@
 import { u } from "../lib/url.js";
 import Rule from "../components/Rule.astro";
 import Base from "../layouts/Base.astro";
+import WaysIn from "@daviddef/archive-kit/components/WaysIn.astro";
+import Numbers from "@daviddef/archive-kit/components/Numbers.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
 import BranchRivers from "../components/BranchRivers.astro";
 import Chip from "../components/Chip.astro";
@@ -59,23 +61,11 @@ const finds = [
     <span class="chip lore" style="padding:2px 8px;font-size:10px">Family lore</span>
   </p>
 
-  <div class="doors">
-    <a class="door" href={u("/story/")}>
-      <div class="dn">Read the main story</div>
-      <div class="dd">Nine chapters, 1679 to Brisbane — the line this archive descends from, told once, in order, with the document behind every claim. The other three families have pages of their own.</div>
-      <div class="go">Start at Mione →</div>
-    </a>
-    <a class="door" href={u("/tree/")}>
-      <div class="dn">Look up a person</div>
-      <div class="dd">The family tree, openable generation by generation — or search 594 people, places, records and plates at once.</div>
-      <div class="go">Open the tree →</div>
-    </a>
-    <a class="door" href={u("/atlas/")}>
-      <div class="dn">See where it happened</div>
-      <div class="dd">Every place the archive can put a document in, on one map — from the Gorto valley to the Wimmera.</div>
-      <div class="go">Open the atlas →</div>
-    </a>
-  </div>
+  <WaysIn doors={[
+    { href: u("/story/"), name: "Read the main story", blurb: "Nine chapters, 1679 to Brisbane — the line this archive descends from, told once, in order, with the document behind every claim. The other three families have pages of their own.", cta: "Start at Mione →" },
+    { href: u("/tree/"), name: "Look up a person", blurb: "The family tree, openable generation by generation — or search 594 people, places, records and plates at once.", cta: "Open the tree →" },
+    { href: u("/atlas/"), name: "See where it happened", blurb: "Every place the archive can put a document in, on one map — from the Gorto valley to the Wimmera.", cta: "Open the atlas →" },
+  ]} />
 </section>
 
 <section class="feat" style="margin-top:38px">
@@ -96,19 +86,7 @@ const finds = [
 </section>
 <Rule name="helm" />
 
-<section class="blk">
-  <h2>The archive in numbers</h2>
-  <p class="dek">Every one of these is a link to the page that earns it.</p>
-  <div class="statgrid">
-    {stats.map(([n, l, href]) => (
-      <a class="stat" href={u(href)}>
-        <div class="n">{n}</div>
-        <div class="l">{l}</div>
-        <div class="go">See the evidence →</div>
-      </a>
-    ))}
-  </div>
-</section>
+<Numbers rows={stats.map(([n, l, h]) => [n, l, u(h)])} />
 <Rule name="arrows" />
 
 <section class="blk">

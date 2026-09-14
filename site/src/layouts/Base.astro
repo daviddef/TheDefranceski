@@ -4,6 +4,7 @@ import { u } from "../lib/url.js";
 import SiblingArchives from "@daviddef/archive-kit/components/SiblingArchives.astro";
 import SkipLink from "@daviddef/archive-kit/components/SkipLink.astro";
 import SocialHead from "@daviddef/archive-kit/components/SocialHead.astro";
+import JsonLd from "@daviddef/archive-kit/components/JsonLd.astro";
 import VisitCount from "@daviddef/archive-kit/components/VisitCount.astro";
 import ring from "@daviddef/archive-kit/data/archives.json";
 const { title, description = "", dek, eyebrow, bare, noindex } = Astro.props;
@@ -30,6 +31,9 @@ const thisArchive = ring.archives.find(
 <title>{title === SITE ? SITE : `${title} — ${SITE}`}</title>
 <meta name="description" content={dek} />
 <SocialHead title={title} description={dek || description} site={SITE} />
+<JsonLd type={bare ? "WebSite" : "Article"} name={title} description={dek || description}
+        url={Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname}
+        site={SITE} about={Astro.props.person} />
     {noindex && <meta name="robots" content="noindex" />}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
