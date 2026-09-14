@@ -64,8 +64,15 @@ function spine(people) {
        data already says, and it is not a date to print. */
     var sp = g.spouse || null;
     var spDt = sp && sp.born && !/living|withheld/i.test(sp.born) ? sp.born : "";
+    /* The archive now maps each generation to the dossier page that carries
+       them, with a note saying what that page is. Those pages are NAME-LEVEL —
+       generations 6 and 7 are both on ivan-defranceski, and its headline facts
+       are generation 6's — so the mapping is a link to read more, never an
+       identity. The two men stay two nodes. */
     people[id(g)] = people[id(g)] || {
       slug: id(g), name: g.name,
+      page: g.dossier ? "/who/" + g.dossier + "/" : null,
+      pageNote: g.dossierNote || "",
       spouse: sp ? sp.name : null, spouseDt: spDt,
       /* "2026" on its own reads as a birth year. Say which it is. */
       dt: living ? ""
