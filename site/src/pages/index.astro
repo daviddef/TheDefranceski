@@ -88,8 +88,6 @@ const finds = [
 </section>
 <Rule name="helm" />
 
-<Numbers rows={stats.map(([n, l, h]) => [n, l, u(h)])} />
-<Rule name="arrows" />
 
 <section class="blk">
   <h2>Recently found</h2>
@@ -146,6 +144,9 @@ const finds = [
       </div>
     </div>
   </section>
+
+<Rule name="arrows" />
+<Numbers rows={stats.map(([n, l, h]) => [n, l, u(h)])} />
 
   <section class="blk" style="border-bottom:0">
     <h2>What is still missing</h2>
