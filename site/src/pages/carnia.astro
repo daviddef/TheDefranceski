@@ -197,6 +197,18 @@ const cmdp = (x) => cmd(x).replace(/\n\n+/g, "</p><p>");
   </div>
   <p class="cap" style="margin-top:16px" set:html={cmd(c.mionedone.source)}></p>
 
+  <h3 id="istriaroad" style="font-size:24px;margin-top:44px">{c.istriaroad.heading}</h3>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.istriaroad.lead)}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {c.istriaroad.rows.map(([k, v]) => (
+      <div class="one" style="border-left-color:var(--accent)">
+        <div class="lab">{k}</div>
+        <div class="prose" style="margin-top:8px" set:html={cmdp(v)}></div>
+      </div>
+    ))}
+  </div>
+  <div class="prose" style="margin-top:22px" set:html={cmdp(c.istriaroad.close)}></div>
+
   <h2 id="muina" style="font-size:30px;margin-top:50px">{c.muina.heading}</h2>
   <Locator place="Muina" radius={9} note="Seven hundred and eighty-four metres from Mione, across the Degano — Carlo De Franceschi named the two villages in one breath in the 1870s, and they are barely a village apart." />
 
