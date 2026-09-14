@@ -4,6 +4,8 @@ import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import k from "../data/kobler.json";
+import Provenance from "../components/Provenance.astro";
+import prov from "../data/provenance.json";
 ---
 <Base title="Carlo's Letter" eyebrow="Parenzo, about 1873"
       dek="Giovanni Kobler wrote to Carlo De Franceschi asking about the families of Fiume who carried his surname. Carlo's reply answers, in his own hand, most of what this archive has spent its time trying to establish."
@@ -14,6 +16,7 @@ import k from "../data/kobler.json";
     <p>The existing family research has always said its account of the lines came “from historical correspondence between Carlo de Franceschi and Kobler.” That correspondence was printed in 1928 and runs to a hundred pages. This is what is actually in it.</p>
     <p>Carlo is writing from Parenzo. He is in his sixties, he has just published <em>L'Istria: note storiche</em>, and Kobler — the historian of Fiume — has sent him notes on the Defranceschi families of that city. Carlo replies as a man identifying his own relatives.</p>
   </div>
+  <Provenance p={prov.pages["carlos-letter"]} />
 </section>
 <Rule name="arrows" />
 

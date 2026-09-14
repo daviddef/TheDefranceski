@@ -1,0 +1,89 @@
+---
+/* Provenance — "how this page got here", drawn as the chain it actually is.
+   Written September 2026, when the archive was asked why a page could quote a
+   document at length and offer no way to travel back to it. A citation that
+   names a book is not provenance; provenance is every hand the thing passed
+   through between the event and this screen, with the links that exist and an
+   honest blank where none does. */
+import { u } from "../lib/url.js";
+import { md } from "../lib/md.js";
+const { p } = Astro.props;
+const KIND = {
+  doc:  ["The document",  "var(--accent)"],
+  print:["In print",      "var(--ochre)"],
+  copy: ["The copy read", "var(--ink-3)"],
+  here: ["On this page",  "var(--accent)"],
+};
+---
+<aside class="pv" aria-label="How this page got here">
+  <div class="pv-h">
+    <span class="pv-t">How this page got here</span>
+    {p.summary && <span class="pv-s" set:html={md(p.summary)}></span>}
+  </div>
+
+  <ol class="pv-chain">
+    {p.chain.map((s, i) => {
+      const [lab, col] = KIND[s.kind] || KIND.copy;
+      return (
+        <li class="pv-step" style={`--c:${col}`}>
+          <span class="pv-n">{i + 1}</span>
+          <div class="pv-b">
+            <div class="pv-k">{lab}</div>
+            <div class="pv-w" set:html={md(s.what)}></div>
+            {s.where && <div class="pv-l" set:html={md(s.where)}></div>}
+            {s.links && s.links.length > 0 && (
+              <p class="pv-go">{s.links.map(([t, href]) => (
+                href.startsWith("/")
+                  ? <a href={u(href)}>{t} →</a>
+                  : <a href={href} rel="noopener" target="_blank">{t} ↗</a>
+              ))}</p>
+            )}
+            {s.gap && <div class="pv-gap" set:html={md(s.gap)}></div>}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+
+  {p.caution && <p class="pv-c" set:html={md(p.caution)}></p>}
+</aside>
+
+<style>
+  .pv {
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--panel); padding: 20px 22px; margin: 26px 0;
+  }
+  .pv-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+  .pv-t {
+    font: 400 11px/1 var(--sans); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+  .pv-s { font: 400 12px/1.4 var(--mono); color: var(--ink-3); }
+  .pv-chain { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 2px; }
+  .pv-step {
+    display: grid; grid-template-columns: 26px 1fr; gap: 12px;
+    padding: 12px 0 12px 10px; border-left: 2px solid var(--c);
+  }
+  .pv-n {
+    font: 400 11px/1.6 var(--mono); color: var(--c);
+    border: 1px solid var(--c); border-radius: 50%;
+    width: 20px; height: 20px; text-align: center; align-self: start;
+  }
+  .pv-k {
+    font: 400 10px/1 var(--sans); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--c); margin-bottom: 5px;
+  }
+  .pv-w { font-size: 14px; line-height: 1.65; }
+  .pv-l { font: 400 12px/1.5 var(--mono); color: var(--ink-3); margin-top: 5px; }
+  .pv-go { margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .pv-go a { font: 400 13px/1.3 var(--sans); }
+  .pv-gap {
+    margin-top: 8px; padding-left: 10px; border-left: 2px solid var(--terra);
+    font-size: 13px; line-height: 1.6; color: var(--ink-2);
+  }
+  .pv-c {
+    margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--rule);
+    font-size: 13px; line-height: 1.7; color: var(--ink-2);
+  }
+  @media (max-width: 620px) { .pv { padding: 16px; } }
+</style>
