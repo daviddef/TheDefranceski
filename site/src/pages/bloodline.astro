@@ -7,12 +7,19 @@ import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import { graph, components } from "../lib/bloodline.js";
 import fs from "node:fs";
-import crypto from "node:crypto";
-/* The chart script had no version on it, so a fix sat behind a ten-minute
-   cache while somebody reloaded and saw the old drawing. Hash it. */
-const blv = crypto.createHash("sha1")
-  .update(fs.readFileSync(new URL("../../public/bloodline.js", import.meta.url)))
-  .digest("hex").slice(0, 8);
+import path from "node:path";
+import "@daviddef/archive-kit/styles/bloodline.css";
+
+/* The renderer comes from the kit, inlined, rather than from this archive's own
+   public/ folder. It used to live here because this is where the chart was
+   invented — and that is exactly how it went stale: the other six archives took
+   the shared component, the shared one was rewritten when a 217-person family
+   broke the layout, and this page alone kept drawing the old way. Reading it
+   out of node_modules means there is one renderer again and no version to
+   hash, because the script is part of the page. */
+const client = fs.readFileSync(
+  path.join(process.cwd(), "node_modules/@daviddef/archive-kit/kit/lib/bloodline.client.js"),
+  "utf8");
 
 const people = graph();
 const comps = components(people);
@@ -72,9 +79,8 @@ const S = linked[start];
     <label for="who">Choose a person</label>
     <input id="who" type="search" placeholder="A name, or just a surname — Franceschi, Pietro, Bonetta…" autocomplete="off" />
     <p id="bl-none" class="cap" hidden>Nobody of that name is drawn here — and if you were looking
-      for someone alive, that is the point rather than a fault. <b>The living are left out of this
-      archive entirely</b>: not hidden behind a login or a flag, but never written into the site at
-      all. <a href={u("/about/")}>How that works →</a><br />
+      for someone alive, they are here — carried by <b>name and nothing else</b>, no dates and no
+      detail, which is the rule across all seven archives. <a href={u("/about/")}>How that works →</a><br />
       If it was somebody long dead, it may be the spelling. These registers say
       <b>Defranceschi</b> and <b>De Franceschi</b> far more often than Defranceski —
       <b>Franceschi</b> finds every one of them.</p>
@@ -122,49 +128,6 @@ const S = linked[start];
   <Sources ids={["familysearch", "matricula", "dapa"]} />
 
   <script is:inline set:html={`window.__BLOOD = ${JSON.stringify(linked)}; window.__START = ${JSON.stringify(start)};`} />
-  <script is:inline src={`${u("/bloodline.js")}?v=${blv}`}></script>
+  <script is:inline set:html={client} />
 
-<style is:global>
-  /* is:global: this page had no style block before, and a scoped one makes
-     Astro stamp data-astro-cid onto every element it renders. The selectors
-     below are specific to this page anyway. */
-  .bl-ctl{margin:26px 0 10px;max-width:46rem}
-  .bl-ctl label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-  .bl-ctl input{width:100%;font:inherit;font-size:15px;padding:9px 13px;border-radius:4px;
-    border:1px solid var(--rule);background:transparent;color:inherit}
-  .bl-sum{margin-top:18px}
-  /* the whole family, however wide and however deep — so it scrolls both ways */
-  .bl-stage{margin-top:8px;border:1px solid var(--rule);border-radius:6px;overflow:auto;
-    background:var(--panel);max-height:78vh}
-  .bl-stage svg{display:block}
-  .bl-key{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px}
-  .bl-key i{display:inline-block;width:22px;height:0;border-top-width:2.5px;vertical-align:middle;margin-right:7px}
-  .bl-key .k-line{border-top-style:solid;border-top-color:var(--accent);border-top-width:3.4px}
-  .bl-key .k-read{border-top-style:solid;border-top-color:var(--accent-2,#5c8a5c)}
-  .bl-key .k-index{border-top-style:solid;border-top-color:var(--accent)}
-  .bl-key .k-tree{border-top-style:dashed;border-top-color:var(--ochre,#8a7f5c)}
-  .bl-hits{margin-top:8px;display:flex;flex-direction:column;gap:2px;max-width:46rem}
-  .bl-hit{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
-    width:100%;text-align:left;font:inherit;font-size:14.5px;cursor:pointer;
-    padding:7px 12px;border-radius:4px;border:1px solid transparent;background:transparent;color:inherit}
-  .bl-hit:hover,.bl-hit:focus-visible{background:var(--panel-2);border-color:var(--rule)}
-  .bl-hit-d{font-size:12px;color:var(--ink-3);white-space:nowrap}
-  .bl-more{font-size:12.5px;color:var(--ink-3);padding:6px 12px}
-  .bl-node{cursor:pointer}
-  .bl-node rect{fill:var(--panel-2);stroke:var(--rule-2);stroke-width:1}
-  /* The direct line — up the paternal chain and down through the children —
-     is the thread the archive is built along. Everyone else is kin and stays
-     legible rather than being greyed into the background. */
-  .bl-node.is-line rect{stroke:var(--accent);stroke-width:1.8;fill:var(--panel)}
-  .bl-node.is-line text{font-weight:500}
-  .bl-node.is-kin rect{stroke-dasharray:0;opacity:.92}
-  .bl-node.is-kin text{fill:var(--ink-2)}
-  .bl-node.is-kin .bl-dt{fill:var(--ink-3)}
-  .bl-node.is-self rect{stroke:var(--accent);stroke-width:2.6;fill:var(--accent-wash,var(--panel))}
-  .bl-node.is-spouse rect{stroke-dasharray:4 3}
-  .bl-node:hover rect{stroke:var(--ink-2)}
-  .bl-node text{font-family:inherit;font-size:12.5px;fill:var(--ink)}
-  .bl-node .bl-dt{font-size:10.5px;fill:var(--ink-3)}
-  .bl-lane{font-size:10.5px;fill:var(--ink-3);letter-spacing:.08em;text-transform:uppercase}
-</style>
 </Base>
