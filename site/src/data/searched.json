@@ -5608,6 +5608,30 @@
     "registers",
     "Antenati"
    ]
+  },
+  {
+   "src": "23andMe — David's kit (paternal haplogroup, ancestry composition, timeline)",
+   "what": "Whether a second company confirms L-M27, and whether anything South Asian shows in the autosomes",
+   "when": "14 Sept 2026",
+   "outcome": "found",
+   "got": "**Both, and they agree.**\n\n**«David, your paternal haplogroup is L-M27»** — 23andMe's own chip, own Y-tree, own algorithm, with the full path published (K-M9 → LT-P326 → L-M20 → L-M22 → L-M2481 → L-M27) and a change log recording that in April 2024 they *«excluded variants that were performing poorly on our v5 chip»* to make paternal assignments more accurate. *(One caution stands: if the MyHeritage kit is an upload of this same 23andMe file, the two are one reading. The father's kit is a separate sample regardless.)*\n\n**And the thing MyHeritage could not see.** 23andMe puts David at **99.5% European** with **0.5% Trace Ancestry** — a category MyHeritage's model does not have: **Southern Indian & Sri Lankan 0.2%**, **Angolan & Congolese 0.3%**. Southern Indian and Sri Lankan is **exactly where L-M27 peaks** (6.5% Sri Lanka, 4.2% India by MyHeritage's own counts). MyHeritage's floor is about 1%; this is 0.2%; the signal was under the floor.\n\n**0.2% is 1/512 — nine generations, about 1750–1780.** That is the window this archive reasoned to from the Y chromosome alone, published hours earlier, before the trace was known.\n\n**Graded with care.** A 0.2% call sits at the edge of the method and could be noise; the halving arithmetic assumes one ancestor and average recombination. It is a **consistency between two independent measurements**, not a proof.\n\n**Still open:** which parent the trace came from. 23andMe's Parental Inheritance is paywalled and was not bought — **Ivan's own 23andMe kit answers it free.**\n\nAlso: 23andMe names **Lika-Senj County, Croatia** first inside Greek & Balkan, agreeing with MyHeritage from a different reference panel. Maternal haplogroup **H**. Health reports were not read in and are not published.",
+   "url": "https://you.23andme.com/reports/paternal_haplogroup/",
+   "dest": "23andMe — Paternal Haplogroup",
+   "ev": [
+    [
+     "/dna/#ydna23",
+     "A second opinion, and the 0.2%"
+    ],
+    [
+     "/dna/#ydna",
+     "The Y chromosome"
+    ]
+   ],
+   "tags": [
+    "DNA",
+    "Senj",
+    "method"
+   ]
   }
  ]
 }

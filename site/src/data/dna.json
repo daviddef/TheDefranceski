@@ -602,7 +602,7 @@
   },
   "limits": {
    "heading": "What this is not, and it is important",
-   "text": "**This is not a Y-DNA test.** MyHeritage reads the haplogroup off the *same autosomal microarray chip* that produced the ethnicity percentages. Those chips carry a limited and uneven scatter of Y markers. That is enough to place a man on a major branch of the tree; it is **not** enough to place him on a twig, and it is not the same instrument as a dedicated Y test.\n\n**Two kits agreeing is not two tests agreeing.** David and his father return the same call, and if both kits ran on the same chip a systematic error would produce exactly that agreement. This archive does not know which platform each kit used, and says so rather than assuming.\n\n**Nothing here identifies a generation.** A haplogroup is a fact about a lineage, not an event with a date. This page does **not** claim a break in the male line at any point, does not name one, and has no basis to. What it reports is a marker and an inconsistency with expectation — and the honest position is that the inconsistency has more than one explanation, including a rare-but-real European L-M27 of the kind those five Italians carry.\n\n**The part that would say *when* is behind a paywall.** The Time Tree — the branch structure and the dates on it — is locked, and unlocks only with a **Big Y-700** from FamilyTreeDNA.",
+   "text": "**This is not a Y-DNA test.** MyHeritage reads the haplogroup off the *same autosomal microarray chip* that produced the ethnicity percentages. Those chips carry a limited and uneven scatter of Y markers. That is enough to place a man on a major branch of the tree; it is **not** enough to place him on a twig, and it is not the same instrument as a dedicated Y test.\n\n**Two kits agreeing is not two tests agreeing.** David and his father return the same call, and if both kits ran on the same chip a systematic error would produce exactly that agreement. *(This objection was written in the morning. **A second company answered it the same day** — see <a href=\"#ydna23\">the second opinion</a> below.)*\n\n**Nothing here identifies a generation.** A haplogroup is a fact about a lineage, not an event with a date. This page does **not** claim a break in the male line at any point, does not name one, and has no basis to. What it reports is a marker and an inconsistency with expectation — and the honest position is that the inconsistency has more than one explanation, including a rare-but-real European L-M27 of the kind those five Italians carry.\n\n**The part that would say *when* is behind a paywall.** The Time Tree — the branch structure and the dates on it — is locked, and unlocks only with a **Big Y-700** from FamilyTreeDNA.",
    "grade": "This section is graded **disputed**: the observation is documented, the reading of it is not settled, and the instrument is not the right one for the question."
   },
   "ancient": {
@@ -631,5 +631,52 @@
    ]
   },
   "ydnasource": "MyHeritage DNA → Y-DNA, powered by **FamilyTreeDNA**, read 14 September 2026 from David's own account: David's kit and the kit of his father, both returning **L-M27**. Country frequencies, ancient connections and notable connections as displayed on that date. Ancient samples I1634 and I1632 are from **Lazaridis et al. 2016**; the Sayyid Ajall study is **Chuan-Chao Wang et al.**, *Present Y chromosomes support the Persian ancestry of Sayyid Ajall Shams al-Din Omar and Eminent Navigator Zheng He*. The **Time Tree was not read** — it is behind the Big Y-700 upgrade."
+ },
+ "ydna23": {
+  "heading": "A second opinion, and the 0.2% that changes the reading",
+  "lead": "Everything above was written from **one company's** reading. The same day, David opened his **23andMe** account, which is a different chip, a different reference tree and a different algorithm. It answers the two open questions on this page — and it answers them in the same direction.",
+  "call": {
+   "heading": "The same haplogroup, from a different laboratory",
+   "text": "**«David, your paternal haplogroup is L-M27.»**\n\n23andMe publishes the whole path it walked: **A → A1b1-L419 → BT-M42 → CT-M168 → CF-P143 → F-M89 → GHIJK-M3658 → HIJK-M578 → IJK-L15 → K-M9 → LT-P326 → L-M20 → L-M22 → L-M2481 → L-M27.**\n\nIt also publishes a change log, and one entry in it matters here: on **22 April 2024** the company *«corrected variant metadata errors and excluded variants that were performing poorly on our v5 chip»*, specifically so that *«some customers received more accurate paternal haplogroup assignments»*. **The obvious failure mode — a bad Y marker on a microarray — is the one they went in and cleaned up.**\n\n**One caution survives, and it is a real one.** If David's MyHeritage kit is an *upload of this same 23andMe file*, then the two readings are one reading counted twice. This archive does not know which, and is asking. **What is certain either way is that his father's kit is a separate sample of a separate man**, and it returns L-M27 as well."
+  },
+  "trace": {
+   "heading": "And then the part nobody had seen",
+   "text": "MyHeritage reported David as **100% European**. 23andMe reports him as **99.5% European** — and files the remaining **0.5%** under a heading MyHeritage's model does not have, **Trace Ancestry**:\n\n**Angolan & Congolese — 0.3%**\n**Southern Indian & Sri Lankan — 0.2%**\n\n**Southern Indian and Sri Lankan is the exact population in which L-M27 peaks.** By MyHeritage's own tester counts, published further up this page, the lineage runs at **6.5% in Sri Lanka** and **4.2% in India** — its two highest figures anywhere.\n\nSo the two tests were never in conflict. **MyHeritage's reporting floor is about 1%, and this is 0.2%.** The signal was under the floor, and the Y chromosome — which has no floor — was the only instrument that could see the line it came down."
+  },
+  "arith": {
+   "heading": "What 0.2% is worth in generations",
+   "text": "A single ancestor contributes **1/2ⁿ** of your genome n generations back. One half, one quarter, one eighth — and at the ninth generation, **1/512, which is 0.195%.**\n\nDavid's Southern Indian & Sri Lankan share is **0.2%**.\n\nNine generations above David is a man born somewhere around **1750 to 1780**.\n\n**That is the number this page reasoned to this morning, from the Y chromosome alone, before the trace was known.** The sentence is still above, unedited: *«If an L-M27 man entered this paternal line more than roughly eight generations above Ivan — before about 1750, which is where these registers are still thin — the estimates would look exactly as they look.»*\n\n**Two instruments, two companies, one century.** That is a convergence, and it is the strongest thing on this page.",
+   "warn": "**And now the cold water, because it is owed.** A **0.2% call is at the outer edge of what these methods can do** — it is one or two short stretches of chromosome, it is exactly where a model's noise lives, and 23andMe quarantines it under «Trace Ancestry» for that reason. The 1/2ⁿ arithmetic assumes **exactly one** such ancestor and **average** recombination, and in a single family recombination is not average; the true figure could sit two generations either side. **This is a consistency between two readings, not a proof of either.** It would be worth very little on its own. What makes it worth publishing is that it agrees with a completely different measurement taken from a different chromosome by a different company."
+  },
+  "next23": {
+   "heading": "The one test that would settle it, and it is free",
+   "rows": [
+    [
+     "Ivan's own 23andMe kit",
+     "**This is the whole question.** If David's father carries the **Southern Indian & Sri Lankan** trace too, it came down the **paternal** line, and the Y chromosome and the autosomes are telling one story about one man. If he does not — and David's mother does — then the trace is hers, it has nothing to do with L-M27, and the Y stands alone and unexplained.\n\nDavid's parents both have 23andMe kits. **Nothing needs to be bought and nothing needs to be tested.** It is one page on each account."
+    ],
+    [
+     "What was not bought",
+     "23andMe sells a **Parental Inheritance** upgrade that splits ancestry by parent without the parents' kits. It was not purchased, and this archive will not spend money to answer a question that two existing kits answer for nothing."
+    ],
+    [
+     "The Angolan & Congolese 0.3%",
+     "Unexplained, and **probably maternal**: David's mother's genetic groups are **South Africa, South Africa and Zimbabwe**, and she and her family lived there. But «probably» is doing real work in that sentence, and the same two kits settle this one too."
+    ],
+    [
+     "And the Big Y-700 still stands",
+     "Nothing here dates the branch or finds a matching man. Only a proper Y sequence does that, and only another **male-line De Franceschi** turns a haplogroup into a fact about a surname."
+    ]
+   ]
+  },
+  "senj": {
+   "heading": "Senj, named a third time by a stranger",
+   "text": "One more thing, and it cuts the other way — in favour of the paper.\n\n23andMe breaks David's **Greek & Balkan 31.9%** down to named regions, and the first it names is **«Lika-Senj County, Croatia»**, with the Federation of Bosnia and Herzegovina second. MyHeritage, with an entirely different reference panel, named the same county for David and for his father.\n\n**Two companies that share no data and no method have both pointed at the Croatian county this archive's registers point at.** The Eastern European share is localised to **Slovenia**, the next country up the same coast road.\n\nWhatever the Y chromosome turns out to mean, **the rest of this family is exactly where the clerks said it was.**"
+  },
+  "mat": {
+   "heading": "And the maternal line, for completeness",
+   "text": "**Haplogroup H.** David's mother's mother's mother's line, back to a woman who lived about **18,000 years ago**, by way of L → L3 → N → R → H.\n\nH is the commonest maternal lineage in Europe — roughly **four Europeans in ten** carry it. It says the maternal line is European and it says almost nothing else, and this page would rather record that plainly than dress it up."
+  },
+  "source23": "23andMe, read 14 September 2026 from David's own account: **Paternal Haplogroup** (L-M27, with the full tree path and the report change log), **Maternal Haplogroup** (H), **Ancestry Composition v5.11** as updated 28 July 2021 — 99.5% European, Trace Ancestry 0.5% (Angolan & Congolese 0.3%, Southern Indian & Sri Lankan 0.2%) — and the **Ancestry Timeline**, which gives Greek & Balkan at generation 2 (about 1920), British & Irish, Eastern European and French & German at generation 4 (about 1860), and Italian, Sardinian and Finnish between generations 5 and 8 or more. **The Timeline does not date trace populations**, so the generation figure used on this page is this archive's own arithmetic and not 23andMe's estimate. **Health and trait reports were not read into this archive and are not published**: the rule for living people here is name only, and a medical report is a very long way past a name."
  }
 }
