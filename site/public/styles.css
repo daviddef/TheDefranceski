@@ -48,7 +48,7 @@ img{max-width:100%}
 .mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
 .dek{font-family:var(--sans);font-size:15px;line-height:1.62;color:var(--ink-2);max-width:76ch}
 .cap{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-3);margin-top:12px;max-width:92ch}
-.prose{max-width:80ch}/* was display:flex;gap:16px, which made an inline <strong> inside a <p class="prose"> its own   flex item, so bold words broke onto their own line. Spacing now applies between block   children only, leaving inline markup alone. */.prose>*+*{margin-top:16px}p.prose{display:block}
+.prose{max-width:80ch}/* was display:flex;gap:16px, which made an inline <strong> inside a <p class="prose"> its own   flex item, so bold words broke onto their own line. Spacing now applies between block   children only, leaving inline markup alone. */.prose>*+*{margin-top:16px}p.prose{display:block}p.prose+p.prose{margin-top:16px}
 .prose h3{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-3);margin-top:14px}
 .scroll{overflow-x:auto;padding-bottom:6px}
