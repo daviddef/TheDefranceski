@@ -1,5 +1,5 @@
 {
- "note": "The descent from Gologorica to Brisbane. Generations 1-4 rest on two Status Animarum entries and one baptismal entry from the Gracisce parish books, certified by the Pazin State Archive in 2021. Generations 5-6 rest on wartime and displaced-persons paper held by the Arolsen Archives. The last two generations are given as the family itself publishes them, without dates.",
+ "note": "The descent from Gologorica to Brisbane. Generations 1-4 rest on two Status Animarum entries and one baptismal entry from the Gracisce parish books, certified by the Pazin State Archive in 2021. Generations 5-6 rest on wartime and displaced-persons paper held by the Arolsen Archives. The last two generations are given as the family itself publishes them, without dates.\n\n**Each generation now carries an explicit `dossier` slug.** It is not derivable: the archive keys dossiers by **name**, not by resolved individual, so matching on the name alone merges men. Generations 6 and 7 are both Ivan Defranceski and share one page; generation 3 sits inside a page whose headline belongs to an Antonio of Svetvinčenat born in 1704. Where a slug is shared or its headline is somebody else, a `dossierNote` says so.",
  "generations": [
   {
    "n": 1,
@@ -10,7 +10,8 @@
    "place": "Gologorica → Gračišće",
    "confidence": "family",
    "evidence": "Carried on the family's own descent chart. The Status Animarum entry for his son calls that son Joan. Bapt. Defranceschi, and the next generation is styled q. Joannis — son of the late Giovanni — so a Giovanni stands at the head of the line. The 1750–1829 dates come from the family chart, not yet from a register page. What is no longer in doubt is the place: the Klenovica register of 1890 records Gallignana as this family's zavičaj, its inherited commune, four generations downstream. There is now a candidate for him too, and he is not simply Giovanni: the Joannes Baptista Defranceschi who headed casa 31 at Gologorica, husband of Theresia née Grach, whose son of the same name was baptised on 13 August 1787. If that identification holds, the family chart's Giovanni is a Giovanni Battista, and behind him stands the Leonardus who gives the casa-31 branch its byname «detti Leonardi».",
-   "sources": []
+   "sources": [],
+   "dossier": "giovanni-defranceschi"
   },
   {
    "n": 2,
@@ -54,7 +55,8 @@
      "label": "DAPA ZM34K 217, M01072071",
      "note": "Supplied by the Pazin State Archive, 24 June 2021"
     }
-   ]
+   ],
+   "dossier": "giovanni-battista-defranceschi"
   },
   {
    "n": 3,
@@ -107,7 +109,9 @@
      "label": "MKR Gračišće 1841-1899",
      "note": "Certified copy supplied 26 April 2021"
     }
-   ]
+   ],
+   "dossier": "antonio-defranceschi",
+   "dossierNote": "Shared, name-level dossier. Its headline facts — Svetvinčenat, b. 1704 — belong to a different Antonio Defranceschi; this generation is inside the same page because the archive keys dossiers by name, not by resolved individual. Do not read the page's dates as his."
   },
   {
    "n": 4,
@@ -163,7 +167,8 @@
     "anton-1890"
    ],
    "flag": "The marriage itself has still not been found. And the family's own genealogy file gives Josip a wife Ana Grubišić, 1863–1936, whose gravestone it photographs — a different birth date and a different maiden name from the Ana Kalanj the registers name in all four children's entries. The registers govern here; the stone is an open question worth a letter.",
-   "occupation": "vešti klesar sada tvorničar — skilled stonemason, later a factory worker"
+   "occupation": "vešti klesar sada tvorničar — skilled stonemason, later a factory worker",
+   "dossier": "josip-defranceschi"
   },
   {
    "n": 5,
@@ -217,7 +222,8 @@
      "name": "Anka",
      "born": "dates unknown"
     }
-   ]
+   ],
+   "dossier": "anton-rudolf-defranceski"
   },
   {
    "n": 6,
@@ -243,7 +249,9 @@
    "plates": [
     "kk-ivan",
     "ivan-grave"
-   ]
+   ],
+   "dossier": "ivan-defranceski",
+   "dossierNote": "The dossier's headline facts — Crikvenica → Pfullingen → Senj, 1925–1995 — are this man. The same page also carries generation 7 and an unrelated Ivan of the Omiš chart (1829–1895), so anything drawn from it must be filtered, not taken whole."
   },
   {
    "n": 7,
@@ -255,14 +263,17 @@
    "spouse": {
     "name": "Cheryl Anne Defranceski, née Lerena",
     "born": "living, dates withheld"
-   }
+   },
+   "dossier": "ivan-defranceski",
+   "dossierNote": "Same page as generation 6, and its headline facts are NOT his. He is inside it only as the note «Generation 7 of the direct line — David's father … born at Senj on 17 December 1951». Two men and one dossier: relatives pulled from this page cannot be attributed to generation 7 without checking each one."
   },
   {
    "n": 8,
    "name": "David Defranceski",
    "place": "Johannesburg → Brisbane",
    "confidence": "living",
-   "evidence": "Living — named only, by the archive's rule. Keeper of this archive."
+   "evidence": "Living — named only, by the archive's rule. Keeper of this archive.",
+   "dossier": "david-defranceski"
   }
  ],
  "gracisce_town": {
