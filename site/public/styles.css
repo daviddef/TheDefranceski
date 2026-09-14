@@ -719,7 +719,14 @@ header.site nav.topnav{display:flex;align-items:center;gap:1px;flex-wrap:nowrap}
 @media (max-width:1180px){
   header.site nav.topnav{display:none!important}
   .burger{display:inline-flex!important}
-  .burger .bars{width:15px;height:11px;position:relative;display:inline-block}
+  /* Two different things are called .bars in this sheet: a stacked chart
+     .bars{display:flex;flex-direction:column;gap:7px;margin-top:20px}
+   and the three lines inside the menu button. The burger rule overrode the
+   display and the size and never the MARGIN, so on every phone in the
+   estate the icon sat 20px below the word next to it. Reset it here; the
+   chart keeps its own spacing. */
+  .burger .bars{width:15px;height:11px;position:relative;display:inline-block;
+    margin:0;flex:none;align-self:center}
   .burger .bars::before,.burger .bars::after{content:"";position:absolute;left:0;right:0;
     height:1.5px;background:var(--ink)}
   .burger .bars::before{top:0;box-shadow:0 4.75px 0 var(--ink)}
