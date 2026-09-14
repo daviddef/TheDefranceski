@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "264 entries · 51 of them corrections",
+ "eyebrow": "266 entries · 52 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -145,6 +145,14 @@
     },
     {
      "when": "14 Sept 2026",
+     "kind": "partial",
+     "what": "The twenty-eight allegati files, starting with the two for Mione and the one for Muina",
+     "src": "Antenati — the Ovaro marriage allegati, opened one by one",
+     "text": "**The Mione allegati had already been read, and the page that says so is this archive's own.**\n\n**Mione 1806** (segnatura 185, six images) is a single marriage file: **Ignazio di Prato of Chialina × Giacoma de' Franceschi of Mione**, September 1806. It holds the groom's Latin baptism of **13 December 1777** — *Ignatius, son of Iacobus son of the late Leonardus de Prato* — the bride's parish certificate of **25 May 1789**, and the consent of the groom's mother **Catterina, widow of the late Gio: Giacomo di Prato**, who could not attend the signing. **Every one of those facts is already on the Carnia page.**\n\n**Mione 1808** (segnatura 12984) is catalogued as *Matrimoni, allegati* and **is not a marriage file at all**. It is one image: a covering letter of **17 February 1809** from the Municipalità of Mione to the Civil Tribunal of First Instance at Udine, transmitting the previous year's registers. **No names of this family, and no marriage.**\n\n**Muina 1806** (segnatura 185, ten images) is the one still worth opening. Only its cover sheet was reached: Antenati's session then returned **«400 Bad Request — size of a request header field exceeds server limit»**, which is the cookie growing across a long sitting rather than a block. It clears with a fresh session.\n\n**And a correction made before it was published.** On the first pass this reader transcribed the Mione 1806 certificate as *«Giovanna, daughter of Giacomo q. Gio: Batta, born 1785»*. **All three were wrong.** Zoomed properly it reads ***Giacoma**, daughter of **Osvaldo** q. Gio: Batta, born **1789***. It was caught by checking the archive before writing, which turned up the same certificate already transcribed correctly — and had it not been checked, this archive would have gained a daughter, a father and a birth year that do not exist.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "14 Sept 2026",
      "kind": "correction",
      "what": "I said Dubrovnik was too thin to be a group. It is a household.",
      "src": "A claim taken back",
@@ -174,6 +182,14 @@
      "src": "A claim taken back",
      "text": "**This archive said** Published hours earlier, on finding FamilySearch's Udine images restricted: *«Settling Ovaro now means a Family History Center, an affiliate library, or the Archivio di Stato di Udine itself — not an afternoon at a screen.»*\n\n**What is true** **The Archivio di Stato di Udine has published them itself, on Antenati, free and open.** Ovaro has **271 registers** there and **fifty-nine of them are Mione's**, catalogued under its own name.\n\nThe first correction was right about FamilySearch and wrong about the world. **One vendor's gate was mistaken for the state of the record.**\n\nThe reason it was missed is worth keeping: Antenati was searched **by name**, which returns nothing for Tolmezzo, because only part of the holding is name-indexed. The portal says so on the results page. **The registers were one form away the whole time.**\n\n**How it happened** Found by retrying a source this archive had twice written off — once as «403s both browsers», once as «needs a reading room» — and by reading the failure message instead of accepting it.",
      "href": "/parish-books/"
+    },
+    {
+     "when": "14 Sept 2026",
+     "kind": "correction",
+     "what": "«Antenati has the Mione registers all along» — this archive already knew, on its own Carnia page",
+     "src": "A claim taken back",
+     "text": "**This archive said** Published this afternoon: that Mione's fifty-nine registers are open on Antenati and that «this archive has been saying for months that they were not online».\n\n**What is true** **The Carnia page already said it**, in as many words: *«The Archivio di Stato di Udine has digitised the Napoleonic civil registers of the Comune di Mione — fifty-nine volumes… and publishes them openly on the Antenati portal.»* It had already read the 1809 and 1810 birth books and published four households out of them.\n\nWhat was actually new this afternoon was narrower and should have been stated as such: **the 1806 volume had not been read**, and it holds a fifth household and a generation above it.\n\nThe error was mine and it was the ordinary one — **I searched the web before I searched the archive.** A site of twelve hundred pages will tell you what it already knows if you ask it first.\n\n**How it happened** Caught within the hour, by grepping this archive's own data before writing up the register act.",
+     "href": "/searched/"
     }
    ]
   },
