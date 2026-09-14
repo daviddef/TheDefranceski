@@ -11,6 +11,7 @@
    own evidence, and an edge is always drawn at the WEAKEST grade of the two
    records that produced it. */
 import d from "../data/dossiers.json";
+import dl from "../data/directline.json";
 
 const P = d.people;
 
@@ -32,6 +33,52 @@ const P = d.people;
 
 const RANK = { read: 3, line: 3, index: 2, tree: 1 };
 const weakest = (a, b) => (RANK[a] ?? 1) <= (RANK[b] ?? 1) ? (a || "tree") : (b || "tree");
+
+/* THE SPINE. The dossiers are built from register readings, so they stop where
+   the parish books stop — and the last four generations of this family are not
+   in a parish book at all. Building the chart from the dossiers alone left the
+   archive's own direct line out of it: a reader looking for their father, or
+   themselves, found nothing and was told to check the spelling.
+
+   directline.json is the chain the archive argues page by page, eight
+   generations from Gologorica to Brisbane, and consecutive generations are
+   parent and child by definition. It goes in.
+
+   Each generation keeps its OWN id rather than being matched to a dossier page
+   by name, because generations 6 and 7 are both called Ivan Defranceski —
+   father and son, one name — and matching on it would fold two men into one.
+   That is the same mistake that gave one Pietro five mothers; it is not made
+   twice.
+
+   The living are named and nothing more, which is this archive's rule and the
+   reason the last generation is here at all: a person who is alive is the one
+   most likely to want to see their own line. No date is carried for them, and
+   the build's own living check enforces that independently. */
+function spine(people) {
+  const rows = (dl.generations || []).filter((g) => g && g.name);
+  const id = (g) => "line-" + g.n;
+  for (const g of rows) {
+    const living = g.confidence === "living";
+    people[id(g)] = people[id(g)] || {
+      slug: id(g), name: g.name,
+      /* "2026" on its own reads as a birth year. Say which it is. */
+      dt: living ? ""
+        : g.born && g.died ? g.born + " – " + g.died
+        : g.born ? "b. " + g.born
+        : g.died ? "d. " + g.died : "",
+      spine: g.n, living, place: g.place || "",
+      parents: [], children: [], siblings: [], spouse: null,
+    };
+  }
+  for (const g of rows) {
+    const up = rows.find((x) => x.n === g.n - 1);
+    if (!up) continue;
+    const me = people[id(g)], par = people[id(up)];
+    me.parents.push({ slug: id(up), name: up.name, dt: people[id(up)].dt, via: "line" });
+    par.children.push({ slug: id(g), name: g.name, dt: me.dt, via: "line" });
+  }
+  return people;
+}
 
 export function graph() {
   const people = {};
@@ -67,6 +114,8 @@ export function graph() {
         me.children.push({ slug: null, name: c.n, dt: c.d || "", via: "tree" });
     }
   }
+
+  spine(people);
 
   /* A child reached both ways — asserted by a dossier with a slug, and named
      again on the parent's tree record — was appearing twice in the chart, once
