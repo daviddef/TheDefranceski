@@ -113,6 +113,67 @@ const HUE = {
 <Rule name="pomegranate" label={d.greek.heading} />
 <section class="blk"><div class="prose" set:html={based(P(d.greek.text))}></div></section>
 
+<Rule name="arrows" label={d.ydna.heading} />
+<section class="blk" id="ydna">
+  <div class="prose hi" set:html={based(P(d.ydna.lead))}></div>
+
+  <div class="ycall">
+    {d.ydna.call.rows.map(([who, hap, note]) => (
+      <div class="yk">
+        <div class="yw">{who}</div>
+        <div class="yh">{hap}</div>
+        <div class="yn">{note}</div>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:14px" set:html={based(md(d.ydna.call.note))}></p>
+</section>
+
+<Rule name="pomegranate" label={d.ydna.freq.heading} />
+<section class="blk">
+  <div class="prose" set:html={based(P(d.ydna.freq.lead))}></div>
+  <div class="tw" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Paternal origin</th><th>L-M27</th><th>Testers</th><th>Share</th><th></th></tr></thead>
+      <tbody>{d.ydna.freq.rows.map(([c, n, tot, pc, tag]) => (
+        <tr class={tot === 0 ? "none" : ""}>
+          <td class="pl">{c}</td>
+          <td>{tot === 0 ? "—" : n}</td>
+          <td>{tot === 0 ? "—" : tot.toLocaleString("en-GB")}</td>
+          <td class="ypc">{pc}</td>
+          <td class="vd">{tag}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:18px" set:html={based(P(d.ydna.freq.close))}></div>
+</section>
+
+<Rule name="arrows" label={d.ydna.both.heading} />
+<section class="blk"><div class="prose hi" set:html={based(P(d.ydna.both.text))}></div></section>
+
+<Rule name="pomegranate" label={d.ydna.limits.heading} />
+<section class="blk">
+  <div class="prose" set:html={based(P(d.ydna.limits.text))}></div>
+  <p class="ygrade" set:html={based(md(d.ydna.limits.grade))}></p>
+</section>
+
+<Rule name="arrows" label={d.ydna.ancient.heading} />
+<section class="blk"><div class="prose" set:html={based(P(d.ydna.ancient.text))}></div></section>
+
+<Rule name="pomegranate" label={d.ydna.sayyid.heading} />
+<section class="blk"><div class="prose" set:html={based(P(d.ydna.sayyid.text))}></div></section>
+
+<Rule name="arrows" label={d.ydna.next.heading} />
+<section class="blk">
+  <div class="terms">
+    {d.ydna.next.rows.map(([k, v]) => (
+      <div class="term"><div class="tk">{k}</div><p set:html={based(md(v))}></p></div>
+    ))}
+  </div>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.ydna.ydnasource))}></span></p>
+</section>
+
 <Rule name="arrows" label={d.notable.heading} />
 <section class="blk">
   <div class="prose" set:html={based(P(d.notable.lead))}></div>
@@ -158,7 +219,7 @@ const HUE = {
 </section>
 
 <Rule name="arrows" label={d.terms.heading} />
-<section class="blk">
+<section class="blk" id="terms">
   <div class="terms">
     {d.terms.rows.map(([k, v]) => (
       <div class="term"><div class="tk">{k}</div><p set:html={based(md(v))}></p></div>
@@ -174,6 +235,16 @@ const HUE = {
 </section>
 
 <style>
+  .ycall { display: grid; gap: 16px; margin-top: 20px;
+           grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+  .yk { border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 16px 18px; }
+  .yw { font-size: 12px; letter-spacing: .07em; text-transform: uppercase; opacity: .55; font-weight: 600; }
+  .yh { font-size: 30px; line-height: 1.1; margin: 6px 0 4px; font-variant-numeric: tabular-nums; }
+  .yn { font-size: 12px; opacity: .6; }
+  .ypc { font-weight: 600; }
+  tr.none td { opacity: .6; }
+  .ygrade { margin-top: 16px; font-size: 13px; line-height: 1.55; padding: 11px 14px;
+            border-left: 3px solid var(--rule, #dcd6cc); background: rgba(0,0,0,.025); border-radius: 0 3px 3px 0; }
   .cols { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
   .col { border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 16px 18px; }
   .ch h3 { margin: 0; font-size: 19px; }
