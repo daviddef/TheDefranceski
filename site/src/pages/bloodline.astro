@@ -56,9 +56,13 @@ const S = linked[start];
   <div class="bl-ctl">
     <label for="who">Choose a person</label>
     <input id="who" type="search" placeholder="A name, or just a surname — Franceschi, Pietro, Bonetta…" autocomplete="off" />
-    <p id="bl-none" class="cap" hidden>Nobody of that name is joined to anybody here yet. The
-      registers spell it <b>Defranceschi</b> and <b>De Franceschi</b> more often than Defranceski —
-      try <b>Franceschi</b>, which finds all of them.</p>
+    <p id="bl-none" class="cap" hidden>Nobody of that name is drawn here — and if you were looking
+      for someone alive, that is the point rather than a fault. <b>The living are left out of this
+      archive entirely</b>: not hidden behind a login or a flag, but never written into the site at
+      all. <a href={u("/about/")}>How that works →</a><br />
+      If it was somebody long dead, it may be the spelling. These registers say
+      <b>Defranceschi</b> and <b>De Franceschi</b> far more often than Defranceski —
+      <b>Franceschi</b> finds every one of them.</p>
   </div>
 
   <div id="bl-stage" class="bl-stage"><svg id="bl-svg" role="img" aria-label="Blood relatives chart"></svg></div>
