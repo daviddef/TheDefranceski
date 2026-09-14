@@ -10,7 +10,7 @@
     "sitemap": "python3 ../tools/sitemap.py",
     "publish:index": "node -e \"require('fs').copyFileSync('src/data/searchindex.json','public/searchindex.json')\"",
     "check:kit": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkarchive.py --dist dist",
-    "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data"
+    "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data --policy named-bare"
   },
   "dependencies": {
     "@daviddef/archive-kit": "github:daviddef/TheArchiveKit",
