@@ -13,7 +13,7 @@
     "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data --policy named-bare"
   },
   "dependencies": {
-    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#c891e66",
+    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#152ca28",
     "astro": "^5.18.2"
   }
 }
