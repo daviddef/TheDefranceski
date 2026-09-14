@@ -31,6 +31,13 @@ const rows = t.rows.map(r => ({ ...r, href: r.href ? u(r.href) : null }));
         <div class="dd">The 112 reconstructed couples the trees would be built from, whichever family they belong to.</div>
         <div class="go">Browse households →</div>
       </a>
+      <a class="door" href={u("/bloodline/")}>
+        <div class="dn">Blood relatives</div>
+        <div class="dd">The other way round: pick one person and the chart is built around them — parents
+          above, brothers and sisters beside, children below, and every line drawn in the colour of
+          the record behind it. The direct line runs through it to the living generation.</div>
+        <div class="go">Start with a person →</div>
+      </a>
     </div>
   </section>
 </Base>
