@@ -1,0 +1,15 @@
+---
+/* The page a wrong link lands on. GitHub's own 404 offers no way back in. */
+import Base from "../layouts/Base.astro";
+import NotFound from "@daviddef/archive-kit/components/NotFound.astro";
+import { u } from "../lib/url.js";
+---
+<Base title="Not found" noindex={true}>
+  <NotFound ways={[
+      { href: u("/"), name: "Home" },
+      { href: u("/trees/"), name: "The trees" },
+      { href: u("/tree/"), name: "Our line, drawn" },
+      { href: u("/atlas/"), name: "The Atlas" },
+      { href: u("/search/"), name: "Search the archive" },
+  ]} />
+</Base>
