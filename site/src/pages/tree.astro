@@ -5,8 +5,8 @@ import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
 import anc from "../data/ancestors.json";
-import AncChart from "../components/AncChart.astro";
-import Spine from "../components/Spine.astro";
+import AncChart from "@daviddef/archive-kit/components/AncChart.astro";
+import Spine from "@daviddef/archive-kit/components/Spine.astro";
 import Kin from "../components/Kin.astro";
 import spines from "../data/spines.json";
 import arch from "@daviddef/archive-kit/data/archives.json";
@@ -42,6 +42,13 @@ const whoPages = new Set(Object.values(doss.people).map(p => p.slug));
 const whoOf = (name, dates) => {
   const slug = resolve(name, dates);
   return slug && whoPages.has(slug) ? slug : null;
+};
+
+/* The ancestor chart is the kit's now, and the kit does not know this
+   archive's slugs — so it asks. Same question whoOf already answers. */
+const ancHref = (b) => {
+  const slug = b.who && whoPages.has(b.who) ? b.who : whoOf(b.n, b.d);
+  return slug ? u(`/who/${slug}/`) : null;
 };
 
 /* And link a generation to the household this archive reconstructed for it. */
@@ -92,7 +99,7 @@ const md = (x) => String(x ?? "")
       <span style="--k:var(--ink-3)">Unworked — the registers exist</span>
       <span style="--k:var(--accent)">Continues in another archive</span>
     </div>
-    <AncChart root={anc.root} />
+    <AncChart root={anc.root} personHref={ancHref} />
     <p class="cap" style="margin-top:12px">{anc.note}</p>
   </section>
 
