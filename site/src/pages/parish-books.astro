@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { md as _mdx, mdp as _mdp } from "../lib/md.js";
+import { u } from "../lib/url.js";
 import kv from "../data/kvarner-books.json";
 import pb from "../data/parishbooks.json";
 import hda from "../data/hda1448.json";
@@ -26,6 +27,7 @@ const linked = pb.linked || 0;
       dek="Every register volume photographed for the places this family came from, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name. The Croatian volumes open at their own first image; the Carnian ones name the volume but their images are restricted.">
 
 <section class="blk">
+  <p class="dek" style="margin-bottom:18px">This page is the <strong>inventory</strong> — the volumes that exist for the places this family came from. <a href={u("/research-map/")}>The Research Map</a> is the same question asked of the whole country: <strong>1,196 record-book places across Croatia</strong>, every confession, with a colour for how far this archive has got with each one. It is rebuilt from David's own Google My Map, which cannot otherwise be kept.</p>
   <div class="note">Gologorica and Gračišće are not here, and neither is Pićan, Cerovlje, Vodnjan, Motovun or Lindar. But <strong>the ring of parishes around them is</strong>, and a family at Gologorica married, buried and stood godparent across that ring constantly. These are the books to read next, and none of their contents is name-indexed — a search returns nothing while the pages may be full of the surname.</div>
 
   <h2 style="margin-top:38px">The ring around Gologorica</h2>
