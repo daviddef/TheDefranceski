@@ -11,10 +11,15 @@ import { md, mdp } from "../lib/md.js";
 import r from "../data/researchmap.json";
 
 const s = r.stats;
+/* Three states have to be told apart at four pixels across, on a pale map,
+   in a wash of a thousand markers. The archive's own palette is all mid-tone
+   and they vanished into each other, so these are pulled apart on BOTH hue
+   and lightness: cold pale grey for nothing, hot gold for the middle, deep
+   green for done. */
 const cats = [
-  ["untouched", "Not walked — waypoint only", "#6E6A86"],
-  ["listed",    "Volumes inventoried",        "#9A6B18"],
-  ["read",      "Something here has been read", "#A8442B"],
+  ["untouched", "Not walked — waypoint only",    "#93A1AD"],
+  ["listed",    "Volumes catalogued",            "#E9A020"],
+  ["read",      "Something here has been read",  "#12703F"],
 ];
 const LAB = { rc: "Roman Catholic", orth: "Orthodox", gc: "Greek Catholic",
               jew: "Jewish", mil: "Military", ref: "Reformed", civil: "Civil",
@@ -56,7 +61,7 @@ What every pin does carry is a **FamilySearch browse waypoint**: \`owc=9R2S-MJ7:
       <div class="prose" style="margin-top:8px" set:html={mdp(
 `**Not walked** is the honest state of most of this map: the archive holds the parish's waypoint and nothing else. It knows the books exist. It has never opened the shelf.
 
-**Volumes inventoried** means the parish has been walked and its volume list is held here, with a link that opens each book at its first image. **It does not mean anybody has read them.**
+**Volumes catalogued** means the parish has been walked and its volume list is held here, with a link that opens each book at its first image. **It does not mean anybody has read them.**
 
 **Something here has been read** means a row in the [search register](${"/searched/"}) names the place as a source. That flag is **derived by matching place names against the register's own source and destination fields** — never against its prose, which mentions places for all sorts of reasons. A handful of names that are also ordinary Croatian words or surnames are excluded by hand. **It is approximate, and it will be wrong in both directions until every row is tagged properly.**`)}></div>
     </div>

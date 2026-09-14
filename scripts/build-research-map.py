@@ -120,10 +120,14 @@ def main():
             if m:
                 wp = urllib.parse.unquote(m.group(1)).split("?")[0]
             p = places.setdefault(k, {"key": k, "name": nm.replace(", Croatia", "").strip(),
-                                      "alt": set(), "layers": set(), "c": None, "wp": None})
+                                      "alt": set(), "layers": set(), "c": None, "wp": None,
+                                      "wps": {}})
             p["alt"].add(nm); p["layers"].add(LAYERS[head])
             p["c"]  = p["c"]  or c
             p["wp"] = p["wp"] or wp
+            # A town with books in two confessions has two shelves and two
+            # waypoints. Keeping one of them threw away ninety-four of them.
+            if wp: p["wps"][LAYERS[head]] = wp
 
     # ---- what this archive already holds ----------------------------------
     vols, films = {}, {}
@@ -192,11 +196,14 @@ def main():
         out.append({"key": k, "name": p["name"], "alt": sorted(x for x in p["alt"] if x != p["name"]),
                     "lat": c[0] if c else None, "lon": c[1] if c else None, "geo": how,
                     "cat": state, "layers": sorted(p["layers"]), "wp": p["wp"],
+                    "wps": p["wps"],
                     "n": n, "region": region, "reads": reads.get(k, 0),
                     "films": films.get(k, [])})
 
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
              "withWaypoint": sum(1 for o in out if o["wp"]),
+             "shelves": sum(len(o["wps"]) for o in out),
+             "multiConfession": sum(1 for o in out if len(o["wps"]) > 1),
              "volumes": sum(o["n"] for o in out),
              "read": sum(1 for o in out if o["cat"] == "read"),
              "listed": sum(1 for o in out if o["cat"] == "listed"),
