@@ -133,8 +133,17 @@ def main():
     for parish, books in lk.items():
         films[norm(parish)] = [{"t": t, "ark": b["ark"], "cc": "2040054", "wc": b.get("wc")}
                                for t, b in books.items()]
+    # Kvarner keeps its volumes under «films», like Dalmatia, and a stale
+    # «books» title-list on six of its forty parishes. Reading «books» here
+    # under-counted Kvarner by thirty-four parishes and produced a gap on this
+    # map that did not exist. Both fields are read, films first.
     for r in load("kvarner-books.json")["parishes"]:
-        vols.setdefault(norm(r["name"]), ("Kvarner", len(r.get("books", []))))
+        vs = r.get("films") or r.get("books") or []
+        vols.setdefault(norm(r["name"]), ("Kvarner", len(vs)))
+        if r.get("films"):
+            films.setdefault(norm(r["name"]), [{"t": f["t"], "ark": f["ark"],
+                                                "cc": "2040054", "wc": f.get("wc")}
+                                               for f in r["films"]])
     for r in load("dalmatia-books.json")["parishes"]:
         vols.setdefault(norm(r["name"]), ("Dalmatia", len(r.get("films", []))))
         films.setdefault(norm(r["name"]), [{"t": f["t"], "ark": f["ark"], "cc": "2040054",
