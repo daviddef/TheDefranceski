@@ -68,6 +68,14 @@ export function graph() {
     }
   }
 
+  /* A child reached both ways — asserted by a dossier with a slug, and named
+     again on the parent's tree record — was appearing twice in the chart, once
+     as a link and once as a bare name. Keep the link. */
+  for (const p of Object.values(people)) {
+    const linkedNames = new Set(p.children.filter((c) => c.slug).map((c) => c.name));
+    p.children = p.children.filter((c) => c.slug || !linkedNames.has(c.name));
+  }
+
   /* siblings are symmetric; the dossiers only record one direction */
   for (const [slug, me] of Object.entries(people))
     for (const s of me.siblings) {
