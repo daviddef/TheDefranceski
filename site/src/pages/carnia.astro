@@ -14,6 +14,7 @@ const cmd = (x) => String(x ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>")
   .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+const cmdp = (x) => cmd(x).replace(/\n\n+/g, "</p><p>");
 ---
 <Base
   title="Back to Carnia"
@@ -65,6 +66,32 @@ const cmd = (x) => String(x ?? "")
   </div>
 
   <div style="margin-top:24px"><Plates ids={["mione-1809-32","mione-1810-1","mione-1810-21"]} /></div>
+
+  <h3 style="font-size:24px;margin-top:44px">{c.mione1806.heading}</h3>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.mione1806.lead)}></p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">The act, as it stands on the page</div>
+    <dl style="margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;line-height:1.6">
+      <dt class="lab" style="white-space:nowrap">When</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.when)}></dd>
+      <dt class="lab" style="white-space:nowrap">The parents</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.who)}></dd>
+      <dt class="lab" style="white-space:nowrap">The child</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.child)}></dd>
+      <dt class="lab" style="white-space:nowrap">Brought by</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.brought)}></dd>
+      <dt class="lab" style="white-space:nowrap">Witnesses</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.witnesses)}></dd>
+      <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.signed)}></dd>
+      <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={cmd(c.mione1806.act.ref)}></dd>
+    </dl>
+    <p class="cap" style="margin-top:12px">{c.mione1806.grade}</p>
+  </div>
+
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {c.mione1806.why.map(x => (
+      <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{x.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={cmdp(x.text)}></div>
+      </div>
+    ))}
+  </div>
 
   <div class="prose" style="margin-top:28px">
     <p class="note" set:html={cmd(c.mione.registers.read)}></p>
