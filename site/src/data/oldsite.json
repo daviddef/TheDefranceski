@@ -301,32 +301,72 @@
   ]
  },
  "backto": {
-  "heading": "If you need to go back to the old site",
-  "lead": "David is switching **defranceski.com** off. This is the standing reference to it — the live address while it is still up, and what survives after it is not.",
-  "live": [
-   "The site itself, while it is still up",
-   "https://sites.google.com/defranceski.com/defranceski/home"
-  ],
+  "heading": "The old site is on the public record now",
+  "lead": "David is switching **defranceski.com** off. Before that happened, **all twelve of its pages were submitted to the Wayback Machine and captured** — on **14 September 2026**. This is the standing reference: the permanent address of every page, and the live one while it lasts.",
   "rows": [
    {
-    "lab": "The Internet Archive has it — but only the front page",
+    "lab": "Every page, permanently, at the Internet Archive",
     "key": true,
-    "text": "The Wayback Machine holds **two** captures of the old site and no more.",
+    "text": "Twelve captures, all reported **success** by Save Page Now and verified by fetching them back. *The People* came back at 413 KB — byte for byte the size of the live page — so these are whole captures and not stubs.",
     "links": [
      [
-      "1 January 2022 — the site root",
-      "https://web.archive.org/web/20220101095833/https://sites.google.com/defranceski.com/defranceski/"
+      "The site root  ·  14.09.2026",
+      "https://web.archive.org/web/20260914000832/https://sites.google.com/defranceski.com/defranceski/"
      ],
      [
-      "11 July 2025 — the home page",
-      "https://web.archive.org/web/20250711044602/https://sites.google.com/defranceski.com/defranceski/home"
+      "Home  ·  14.09.2026",
+      "https://web.archive.org/web/20260914000817/https://sites.google.com/defranceski.com/defranceski/home"
+     ],
+     [
+      "Family Trees  ·  14.09.2026",
+      "https://web.archive.org/web/20260914000908/https://sites.google.com/defranceski.com/defranceski/family-trees"
+     ],
+     [
+      "The People  ·  14.09.2026",
+      "https://web.archive.org/web/20260914000929/https://sites.google.com/defranceski.com/defranceski/the-people"
+     ],
+     [
+      "The Places  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001719/https://sites.google.com/defranceski.com/defranceski/the-places"
+     ],
+     [
+      "The Places · The Map  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001729/https://sites.google.com/defranceski.com/defranceski/the-places/the-map"
+     ],
+     [
+      "The Story  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001835/https://sites.google.com/defranceski.com/defranceski/the-story"
+     ],
+     [
+      "The Story · The Name  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001922/https://sites.google.com/defranceski.com/defranceski/the-story/the-name"
+     ],
+     [
+      "The Story · The Coat of Arms  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001942/https://sites.google.com/defranceski.com/defranceski/the-story/the-coat-of-arms"
+     ],
+     [
+      "About  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001807/https://sites.google.com/defranceski.com/defranceski/about"
+     ],
+     [
+      "About · Publications  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001815/https://sites.google.com/defranceski.com/defranceski/about/publications"
+     ],
+     [
+      "About · Resources  ·  14.09.2026",
+      "https://web.archive.org/web/20260914001825/https://sites.google.com/defranceski.com/defranceski/about/resources"
      ]
     ],
-    "after": "**Nothing below the home page is archived.** Family Trees, The People, The Places, The Map, The Name, The Coat of Arms, Publications, Resources, About — a Wayback query for every URL under that host returns those two pages and nothing else. Google Sites builds its navigation in script, which is why the crawler never followed it down.\n\nSo the public net will keep the front door and lose the rooms. **This archive is the record of the rooms** — that is what the page-by-page table below is for, and it was written before the switch-off for exactly this reason."
+    "after": "**Before this, the Wayback Machine held two pages of the site and no more**: the root of 1 January 2022 and the home page of 11 July 2025. Family Trees, The People, The Places, The Map, The Name, The Coat of Arms, Publications, Resources and About were archived nowhere on the public net. Google Sites builds its navigation in script, so the crawler had never followed it below the front page — and the page list had to be read out of the page source rather than crawled, for the same reason.\n\nThe two sub-pages under *The Story* were not in the archive's own reckoning table, which folded them into their parent. Reading the source found them. **Twelve pages, not nine.**"
    },
    {
-    "lab": "What was taken off it before it goes",
-    "text": "The whole site was captured as HTML, and both Google MyMaps were exported as KML, on **8 September 2026**. Those files are held with the archive's own material rather than on a server that can be turned off. **The maps are the part that would actually have been lost**: a My Map dies with the account, and no crawler saves one.\n\nThe other Google Site on the same domain, **drawinglight**, has a single Wayback capture. It is not family history, and is noted here only so that nobody later wonders whether it was missed.",
+    "lab": "One thing the capture cannot hold, and the reason the KML matters",
+    "text": "*The Places · The Map* archived at 150 KB, and the surname does not appear in it once. That is correct and expected: the page is a frame around **Google My Map `mid=1NSF2idD4Q8mN0VQGpBwWPgoJp6Ba1sk`**, and a Wayback capture keeps the frame, not the map inside it. The reference survives; the pins do not.\n\n**This is why both My Maps were exported as KML on 8 September 2026** and are held with the archive's own material. A My Map dies with the account and no crawler saves one — it is the single part of the old site that archiving could never have rescued."
+   },
+   {
+    "lab": "What it took, which is worth writing down",
+    "text": "**Save Page Now no longer accepts anonymous requests.** A POST without a session returns *401 «You need to be logged in to use Save Page Now»* — a change from the days when that endpoint was open to anyone. David signed in; no credential passed through this project.\n\nIt also rate-limits a signed-in account: submitting twelve pages nine seconds apart drew **429** twice, and both were taken on a later pass. The other Google Site on the same domain, **drawinglight**, keeps its single capture of 28 November 2021. It is not family history, and is noted only so that nobody later wonders whether it was missed.",
     "links": [
      [
       "drawinglight, 28 November 2021",
@@ -335,60 +375,14 @@
     ]
    },
    {
-    "lab": "Every page of the old site, and the twelve addresses they live at",
-    "key": true,
-    "text": "The old site's own navigation is built in script, so it had to be read out of the page source rather than crawled. **Twelve live addresses**, all returning 200 on 14 September 2026 — the ten pages of the table below, the two sub-pages under *The Story*, and the site root:",
+    "lab": "The live site, while it is still up",
+    "text": "Until David turns it off, the original is still the easiest thing to read.",
     "links": [
      [
-      "The site root",
-      "https://sites.google.com/defranceski.com/defranceski/"
-     ],
-     [
-      "Home",
+      "defranceski.com",
       "https://sites.google.com/defranceski.com/defranceski/home"
-     ],
-     [
-      "Family Trees",
-      "https://sites.google.com/defranceski.com/defranceski/family-trees"
-     ],
-     [
-      "The People",
-      "https://sites.google.com/defranceski.com/defranceski/the-people"
-     ],
-     [
-      "The Places",
-      "https://sites.google.com/defranceski.com/defranceski/the-places"
-     ],
-     [
-      "The Places · The Map",
-      "https://sites.google.com/defranceski.com/defranceski/the-places/the-map"
-     ],
-     [
-      "The Story",
-      "https://sites.google.com/defranceski.com/defranceski/the-story"
-     ],
-     [
-      "The Story · The Name",
-      "https://sites.google.com/defranceski.com/defranceski/the-story/the-name"
-     ],
-     [
-      "The Story · The Coat of Arms",
-      "https://sites.google.com/defranceski.com/defranceski/the-story/the-coat-of-arms"
-     ],
-     [
-      "About",
-      "https://sites.google.com/defranceski.com/defranceski/about"
-     ],
-     [
-      "About · Publications",
-      "https://sites.google.com/defranceski.com/defranceski/about/publications"
-     ],
-     [
-      "About · Resources",
-      "https://sites.google.com/defranceski.com/defranceski/about/resources"
      ]
-    ],
-    "after": "**These are the pages to put on the public record before the switch-off**, and submitting them to the Wayback Machine is the only way to do it: once the site is gone, nothing can archive it retrospectively.\n\n**The Internet Archive no longer allows this anonymously.** Save Page Now returns *«You need to be logged in to use Save Page Now»* to any request without a session — a change since the last time this was possible without an account. So the twelve pages are queued against David signing in at archive.org, and are listed here in the meantime so that the list itself survives even if the saving does not."
+    ]
    }
   ]
  }

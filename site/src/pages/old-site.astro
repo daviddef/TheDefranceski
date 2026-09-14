@@ -14,9 +14,6 @@ import d from "../data/oldsite.json";
   <div class="one" style="border-left-color:var(--terra)">
     <div class="lab">{d.backto.heading}</div>
     <p style="margin-top:8px" set:html={_md(d.backto.lead)}></p>
-    <p style="margin-top:12px">
-      <a href={d.backto.live[1]} rel="noopener" target="_blank">{d.backto.live[0]} &#8599;</a>
-    </p>
   </div>
   <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
     {d.backto.rows.map(r => (
