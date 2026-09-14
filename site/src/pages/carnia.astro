@@ -131,6 +131,18 @@ const cmdp = (x) => cmd(x).replace(/\n\n+/g, "</p><p>");
 
   <p class="prose" style="margin-top:24px" set:html={cmd(c.muina.witnesses)}></p>
 
+  <h3 id="muina-allegati" style="font-size:25px;margin-top:44px">{c.muina.allegati.heading}</h3>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.muina.allegati.lead)}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
+    {c.muina.allegati.rows.map(([k, v]) => (
+      <div class="one">
+        <div class="lab">{k}</div>
+        <p style="margin-top:8px;max-width:66ch" set:html={cmd(v)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="prose" style="margin-top:22px" set:html={cmd(c.muina.allegati.close)}></p>
+
   <h2 id="households1806" style="font-size:30px;margin-top:50px">{c.households1806.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.households1806.intro)}></p>
   <div class="scroll" style="margin-top:18px">
