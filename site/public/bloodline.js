@@ -102,12 +102,60 @@
       : ", " + rem + "× removed") : name;
   }
 
+  /* The direct line through whoever is selected: up the paternal chain, and
+     down through their own descendants. Everyone else in the chart is kin, but
+     this is the thread the archive is built along and it should be the thing
+     the eye lands on.
+
+     Going up, a person can have two parents and the paternal one is not
+     recorded as such anywhere here. The surname is: preferring the parent who
+     carries the same one picks the father's side wherever the names survive,
+     and falls back to the first recorded parent where they do not, which is
+     what the spine gives anyway since each of its generations has exactly one
+     parent. */
+  function surnameOf(slug) {
+    var parts = String(P[slug].name || "").trim().split(/\s+/);
+    return parts.length > 1 ? fold(parts[parts.length - 1]) : "";
+  }
+  function lineage(root) {
+    var set = {}, x = root;
+    set[root] = true;
+    for (var i = 0; i < 40; i++) {                 // up
+      var ps = pars(x);
+      if (!ps.length) break;
+      var mine = surnameOf(x);
+      var pick = ps.find(function (p) { return P[p.slug] && surnameOf(p.slug) === mine && mine; })
+                 || ps[0];
+      if (!pick || set[pick.slug]) break;
+      set[pick.slug] = true; x = pick.slug;
+    }
+    /* Down, follow the line rather than the whole cone of descendants. The
+       archive already marks which child carried the line onward, so on the
+       spine it is that child and then theirs. Highlighting every descendant
+       lit up Josip's daughters as well, and they are his children but they are
+       not his line — which is the distinction this page exists to draw. */
+    var y = root;
+    for (var j = 0; j < 40; j++) {
+      var cs = kids(y);
+      if (!cs.length) break;
+      var next = null;
+      if (P[y].spine != null) {
+        next = cs.find(function (c) { return P[c.slug] && P[c.slug].spine === P[y].spine + 1; });
+      }
+      if (!next) next = cs.length === 1 ? cs[0] : null;   // no line marked: only follow an only child
+      if (!next || set[next.slug]) break;
+      set[next.slug] = true; y = next.slug;
+    }
+    return set;
+  }
+
   function draw(root) {
     var me = P[root];
     if (!me) return;
     while (svg.firstChild) svg.removeChild(svg.firstChild);
 
     var h = household(root), gen = h.gen;
+    var LIN = lineage(root);
     var byGen = {};
     Object.keys(gen).forEach(function (s) { (byGen[gen[s]] = byGen[gen[s]] || []).push(s); });
     var gens = Object.keys(byGen).map(Number).sort(function (a, b) { return a - b; });
@@ -157,11 +205,15 @@
       var A = xy[a], B = xy[b];
       if (!A || !B) return;
       var s = STROKE[via] || STROKE.tree;
+      var onLine = LIN[a] && LIN[b];
       var ax = A.x + BOX / 2, ay = A.y + BH, bx = B.x + BOX / 2, by = B.y;
       svg.appendChild(el("path", {
         d: "M" + ax + "," + ay + " C" + ax + "," + (ay + LANE * 0.35) +
            " " + bx + "," + (by - LANE * 0.35) + " " + bx + "," + by,
-        stroke: s[0], "stroke-width": 2, "stroke-dasharray": s[1], fill: "none", "stroke-opacity": ".85"
+        stroke: s[0], "stroke-width": onLine ? 3.4 : 1.6,
+        "stroke-dasharray": s[1], fill: "none",
+        "stroke-opacity": onLine ? 1 : ".45",
+        class: onLine ? "bl-edge is-line" : "bl-edge"
       }));
     }
     function el(n, a, t) {
@@ -178,7 +230,9 @@
 
     Object.keys(gen).forEach(function (s) {
       var p = xy[s], isMe = s === root;
-      var g = el("g", { class: "bl-node" + (isMe ? " is-self" : "") });
+      var g = el("g", { class: "bl-node" + (isMe ? " is-self" : "")
+                        + (LIN[s] && !isMe ? " is-line" : "")
+                        + (!LIN[s] ? " is-kin" : "") });
       if (!isMe) {
         g.setAttribute("tabindex", "0");
         g.setAttribute("role", "button");

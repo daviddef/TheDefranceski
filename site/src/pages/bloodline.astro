@@ -84,6 +84,7 @@ const S = linked[start];
   <div id="bl-stage" class="bl-stage"><svg id="bl-svg" role="img" aria-label="Blood relatives chart"></svg></div>
 
   <p class="cap bl-key">
+    <span><i class="k-line"></i>the direct line through this person</span>
     <span><i class="k-read"></i>a register was read</span>
     <span><i class="k-index"></i>an index says so</span>
     <span><i class="k-tree"></i>the tree says so, nothing read</span>
@@ -138,6 +139,7 @@ const S = linked[start];
   .bl-stage svg{display:block}
   .bl-key{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px}
   .bl-key i{display:inline-block;width:22px;height:0;border-top-width:2.5px;vertical-align:middle;margin-right:7px}
+  .bl-key .k-line{border-top-style:solid;border-top-color:var(--accent);border-top-width:3.4px}
   .bl-key .k-read{border-top-style:solid;border-top-color:var(--accent-2,#5c8a5c)}
   .bl-key .k-index{border-top-style:solid;border-top-color:var(--accent)}
   .bl-key .k-tree{border-top-style:dashed;border-top-color:var(--ochre,#8a7f5c)}
@@ -150,7 +152,15 @@ const S = linked[start];
   .bl-more{font-size:12.5px;color:var(--ink-3);padding:6px 12px}
   .bl-node{cursor:pointer}
   .bl-node rect{fill:var(--panel-2);stroke:var(--rule-2);stroke-width:1}
-  .bl-node.is-self rect{stroke:var(--accent);stroke-width:2}
+  /* The direct line — up the paternal chain and down through the children —
+     is the thread the archive is built along. Everyone else is kin and stays
+     legible rather than being greyed into the background. */
+  .bl-node.is-line rect{stroke:var(--accent);stroke-width:1.8;fill:var(--panel)}
+  .bl-node.is-line text{font-weight:500}
+  .bl-node.is-kin rect{stroke-dasharray:0;opacity:.92}
+  .bl-node.is-kin text{fill:var(--ink-2)}
+  .bl-node.is-kin .bl-dt{fill:var(--ink-3)}
+  .bl-node.is-self rect{stroke:var(--accent);stroke-width:2.6;fill:var(--accent-wash,var(--panel))}
   .bl-node.is-spouse rect{stroke-dasharray:4 3}
   .bl-node:hover rect{stroke:var(--ink-2)}
   .bl-node text{font-family:inherit;font-size:12.5px;fill:var(--ink)}
