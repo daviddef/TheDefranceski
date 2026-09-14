@@ -456,6 +456,15 @@
    "said": "Published this afternoon: that Mione's fifty-nine registers are open on Antenati and that «this archive has been saying for months that they were not online».",
    "true": "**The Carnia page already said it**, in as many words: *«The Archivio di Stato di Udine has digitised the Napoleonic civil registers of the Comune di Mione — fifty-nine volumes… and publishes them openly on the Antenati portal.»* It had already read the 1809 and 1810 birth books and published four households out of them.\n\nWhat was actually new this afternoon was narrower and should have been stated as such: **the 1806 volume had not been read**, and it holds a fifth household and a generation above it.\n\nThe error was mine and it was the ordinary one — **I searched the web before I searched the archive.** A site of twelve hundred pages will tell you what it already knows if you ask it first.",
    "how": "Caught within the hour, by grepping this archive's own data before writing up the register act."
+  },
+  {
+   "when": "14 Sept 2026",
+   "what": "«Mione and Muina are both done, and both are closed» — Mione has twelve allegati, not two",
+   "sev": "moderate",
+   "where": "/errands/",
+   "said": "Published this evening, as the closing note on the Ovaro marriage allegati: *«Mione and Muina are both done, and both are closed.»*",
+   "true": "**Mione is not closed.** The Antenati register browser returns its results ten to a page, and I read page one. Page one carries two Mione files. **Pages two and three carry ten more** — 1808, 1809 (two files), 1810 (two), 1811 (two), 1812, 1813, 1814 and 1815. Only the 1806 file had been read.\n\nOvaro itself has eight further allegati on those same pages, and none of them had been counted either.\n\nThe error was the shape of the tool, not the archive: **a paginated result set answered as though it were the whole set.** The fix is the obvious one — page to the end before saying «all».",
+   "how": "Caught the same evening, going back for the remaining village files and finding the count did not match."
   }
  ]
 }
