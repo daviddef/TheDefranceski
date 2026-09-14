@@ -9,7 +9,7 @@ import Lightbox from "../components/Lightbox.astro";
 import SceneGologorica from "../components/SceneGologorica.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
-import Pedigree from "../components/Pedigree.astro";
+import DescentTree from "../components/DescentTree.astro";
 import g from "../data/gologorica.json";
 import j from "../data/josip1863.json";
 import roots from "../data/gologorica_roots.json";
@@ -37,7 +37,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <h2>The pedigree</h2>
   <p class="dek">Two branches, drawn from their earliest recorded couple down. The register knows them apart by house and byname long before it knows how they join.</p>
   {roots.map(r => (
-    <div style="margin-top:34px"><Pedigree famId={r} /></div>
+    <div style="margin-top:34px"><DescentTree famId={r} /></div>
   ))}
 </section>
 <Rule name="pomegranate" />
