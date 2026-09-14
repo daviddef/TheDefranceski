@@ -133,15 +133,21 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
   var q=document.getElementById('q'), cnt=document.getElementById('cnt');
   var rows=[].slice.call(document.querySelectorAll('tr[data-k]'));
   var grps=[].slice.call(document.querySelectorAll('.grp'));
+  // Each row's group, resolved once. The group loop used to ask the DOM to
+  // collect every unhidden row again, per group, per keystroke — which is
+  // the tally the row loop above already has.
+  var at=new Map(); grps.forEach(function(g,i){at.set(g,i)});
+  var owner=rows.map(function(tr){return at.get(tr.closest('.grp'))});
   var st='all';
   function run(){
     var t=(q.value||'').trim().toLowerCase(), n=0;
-    rows.forEach(function(tr){
+    var live=grps.map(function(){return 0});
+    rows.forEach(function(tr,i){
       var ok=(st==='all'||tr.dataset.st===st)&&(!t||tr.dataset.k.indexOf(t)>-1);
-      tr.hidden=!ok; if(ok)n++;
+      tr.hidden=!ok; if(ok){n++;live[owner[i]]++}
     });
-    grps.forEach(function(g){
-      var vis=g.querySelectorAll('tr[data-k]:not([hidden])').length;
+    grps.forEach(function(g,i){
+      var vis=live[i];
       g.hidden=vis===0;
       var b=g.querySelector('.gn'); if(b) b.textContent=vis.toLocaleString('en-GB');
     });
@@ -245,4 +251,16 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
   </div>
   <p class="cap" style="margin-top:14px">{lw.source_leads}</p>
 </section>
+<style>
+  /* Only the groups on screen need laying out; every row stays in the HTML. */
+  .grp {
+    content-visibility: auto;
+    /* Plain length first: browsers from Chrome 85 to 110 support
+       content-visibility but cannot parse the "auto" keyword here, and
+       without a usable estimate they collapse every off-screen section
+       to nothing and the scrollbar jumps as you scroll. */
+    contain-intrinsic-size: 420px;
+    contain-intrinsic-size: auto 420px;
+  }
+</style>
 </Base>
