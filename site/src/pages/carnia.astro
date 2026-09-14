@@ -99,6 +99,32 @@ const cmdp = (x) => cmd(x).replace(/\n\n+/g, "</p><p>");
     <p><strong>What to do next is now obvious.</strong> The same series holds nine volumes of <em>Matrimoni</em> and thirteen of <em>Matrimoni, allegati</em> for Mione. In Napoleonic practice the <em>allegati</em> are the supporting papers filed with a marriage — birth extracts for the bride and groom, and often death extracts for their parents. A single De Franceschi marriage at Mione between 1806 and 1815 would therefore reach back into the middle of the eighteenth century, and possibly to the generation of the Zuane of 1679. Nothing else available to this project can do that.</p>
   </div>
 
+  <h3 id="mione1809" style="font-size:24px;margin-top:44px">{c.mione1809.heading}</h3>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.mione1809.lead)}></p>
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">The extract, as it stands on the page</div>
+    <dl style="margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;line-height:1.6">
+      <dt class="lab" style="white-space:nowrap">When</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.when)}></dd>
+      <dt class="lab" style="white-space:nowrap">Who</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.who)}></dd>
+      <dt class="lab" style="white-space:nowrap">Born</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.child)}></dd>
+      <dt class="lab" style="white-space:nowrap">Bundled with</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.brought)}></dd>
+      <dt class="lab" style="white-space:nowrap">The hand</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.witnesses)}></dd>
+      <dt class="lab" style="white-space:nowrap">Docket</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.signed)}></dd>
+      <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={cmd(c.mione1809.act.ref)}></dd>
+    </dl>
+    <p class="cap" style="margin-top:12px">{c.mione1809.grade}</p>
+  </div>
+
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {c.mione1809.why.map(x => (
+      <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{x.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={cmdp(x.text)}></div>
+      </div>
+    ))}
+  </div>
+
   <h2 id="muina" style="font-size:30px;margin-top:50px">{c.muina.heading}</h2>
   <Locator place="Muina" radius={9} note="Seven hundred and eighty-four metres from Mione, across the Degano — Carlo De Franceschi named the two villages in one breath in the 1870s, and they are barely a village apart." />
 
