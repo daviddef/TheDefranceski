@@ -84,6 +84,25 @@ export function graph() {
         other.siblings.push({ slug, name: me.name, dt: me.dt, via: s.via });
     }
 
+  /* The registers contradict themselves in places: anto-de-franceschi is
+     recorded as Mattio's father in one dossier and as his brother in another.
+     Drawing him in both lanes puts the same man on the chart twice in two
+     incompatible roles, which is worse than either reading. A parent or child
+     link is directional and comes from a ptree the archive argued over, so it
+     wins; the sibling claim is dropped. The contradiction is not hidden — both
+     men keep their own pages, and the dossier still records both readings. */
+  for (const me of Object.values(people)) {
+    const kin = new Set([...me.parents, ...me.children].map((k) => k.slug).filter(Boolean));
+    me.siblings = me.siblings.filter((s) => !kin.has(s.slug));
+  }
+
+  /* and no one is their own relative */
+  for (const [slug, me] of Object.entries(people)) {
+    me.parents = me.parents.filter((k) => k.slug !== slug);
+    me.children = me.children.filter((k) => k.slug !== slug);
+    me.siblings = me.siblings.filter((k) => k.slug !== slug);
+  }
+
   return people;
 }
 
