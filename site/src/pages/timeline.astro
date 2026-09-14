@@ -2,7 +2,8 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
-import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
+import SovereigntyTimeline from "@daviddef/archive-kit/components/SovereigntyTimeline.astro";
+import sov from "../data/sovereignty.json";
 import sov from "../data/sovereignty.json";
 import pressures from "../data/pressures.json";
 import Ribbon from "../components/Ribbon.astro";
@@ -19,7 +20,7 @@ import Ribbon from "../components/Ribbon.astro";
 <Rule name="arrows" />
 
 <section class="blk">
-  <SovereigntyTimeline events={true} />
+  <SovereigntyTimeline sov={sov} events={true} />
   <div class="evlist">
     {sov.events.map(e=><span><b>{e.year}</b>{e.text}</span>)}
   </div>

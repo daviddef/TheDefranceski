@@ -4,7 +4,8 @@ import Rule from "../components/Rule.astro";
 import Base from "../layouts/Base.astro";
 import WaysIn from "@daviddef/archive-kit/components/WaysIn.astro";
 import Numbers from "@daviddef/archive-kit/components/Numbers.astro";
-import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
+import SovereigntyTimeline from "@daviddef/archive-kit/components/SovereigntyTimeline.astro";
+import sov from "../data/sovereignty.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
 import rivers from "../data/rivers.json";
 import Chip from "../components/Chip.astro";
@@ -82,7 +83,7 @@ const finds = [
   <div class="kicker" style="color:var(--terra)">Eight hundred years, four countries, one family</div>
   <h2 style="margin-top:6px">What they were living under, and what they were up against</h2>
   <p class="dek" style="margin-top:10px">The ancestral places do not share a past. Gologorica was Habsburg from 1374 and Italian between the wars; Senj was never Italian at all; Mione was Venetian for three hundred and seventy-seven years. <strong>Red above the lanes is this family. Ochre below is the wars, plagues, treaties and regime changes they were lived through.</strong> Hover or tab any marker and it tells you what it is.</p>
-  <div style="margin-top:26px"><SovereigntyTimeline events={true} /></div>
+  <div style="margin-top:26px"><SovereigntyTimeline sov={sov} events={true} /></div>
   <p class="cap" style="margin-top:16px"><a href={u("/timeline/")}>The full timeline, with lives and pressures →</a></p>
 </section>
 <Rule name="helm" />
