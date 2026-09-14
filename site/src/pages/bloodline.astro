@@ -1,0 +1,130 @@
+---
+/* The blood relatives of one person, drawn, with every line carrying the
+   evidence that produced it. Derived from the dossiers — see lib/bloodline.js
+   for why there is no data file of its own. */
+import Base from "../layouts/Base.astro";
+import Sources from "../components/Sources.astro";
+import { u } from "../lib/url.js";
+import { graph, components } from "../lib/bloodline.js";
+
+const people = graph();
+const comps = components(people);
+const linked = Object.fromEntries(
+  Object.entries(people).filter(([, p]) =>
+    p.parents.length || p.children.length || p.siblings.length));
+
+/* Open on someone who has all three lanes filled — parents above, brothers
+   and sisters beside, children below. Raw connectedness picks a person with
+   twenty children and no known parents, which draws a chart that teaches the
+   reader nothing about what the page is for. */
+const shape = (s) => {
+  const p = linked[s];
+  if (!p) return -1;
+  const up = p.parents.length, side = p.siblings.length, down = p.children.filter((c) => c.slug).length;
+  return (up ? 1000 : 0) + (down ? 1000 : 0) + (side ? 500 : 0) + up + side + down;
+};
+const start = [...comps[0]].sort((a, b) => shape(b) - shape(a))[0];
+
+const edges = Object.values(linked).reduce(
+  (n, p) => n + p.parents.length + p.children.length + p.siblings.length, 0);
+const viaCount = {};
+for (const p of Object.values(linked))
+  for (const k of [...p.parents, ...p.children, ...p.siblings])
+    viaCount[k.via] = (viaCount[k.via] || 0) + 1;
+
+const big = comps.filter((c) => c.length >= 3);
+const S = linked[start];
+---
+<Base
+  title="Blood relatives"
+  eyebrow={`${Object.keys(linked).length} people joined by ${edges / 2 | 0} links · largest family ${comps[0].length}`}
+  dek="Choose a person and they go to the middle of the chart: parents above, brothers and sisters beside them, children below. Every line is drawn in the colour of the evidence that made it, and a line is always drawn at the weaker grade of the two records behind it.">
+
+  <section class="prose">
+    <p>This archive has always said, in words, how well each claim is known. This page is the first
+    that says it in a picture. A solid line means a register was read and it names the relationship.
+    A lighter line means an index says so. A dashed line means the family tree asserts it and nothing
+    has been read that confirms it — and those are the ones worth your suspicion, because they are
+    the ones that have been wrong before.</p>
+    <p><strong>{Object.keys(linked).length} of the {Object.keys(people).length} people this archive
+    can name</strong> are joined to at least one other by a link it can show you. They fall into
+    {big.length} families of three or more; the largest holds <strong>{comps[0].length}</strong>.
+    The rest stand alone — not because they are unrelated, but because the register that would join
+    them has not been read.</p>
+  </section>
+
+  <div class="bl-ctl">
+    <label for="who">Choose a person</label>
+    <input id="who" type="search" list="bl-names" placeholder="Type a name — Giovanni, Pietro, Bonetta…" autocomplete="off" />
+    <datalist id="bl-names"></datalist>
+    <p id="bl-none" class="cap" hidden>No one of that name is joined to anybody yet.</p>
+  </div>
+
+  <div id="bl-stage" class="bl-stage"><svg id="bl-svg" role="img" aria-label="Blood relatives chart"></svg></div>
+
+  <p class="cap bl-key">
+    <span><i class="k-read"></i>a register was read</span>
+    <span><i class="k-index"></i>an index says so</span>
+    <span><i class="k-tree"></i>the tree says so, nothing read</span>
+  </p>
+
+  <noscript>
+    <section class="blk">
+      <h2>{S.name}</h2>
+      <p class="dek">The chart needs JavaScript. The links themselves do not — here they are.</p>
+      {S.parents.length > 0 && <p><strong>Parents:</strong> {S.parents.map((p) => p.name).join(" · ")}</p>}
+      {S.siblings.length > 0 && <p><strong>Brothers and sisters:</strong> {S.siblings.map((p) => p.name).join(" · ")}</p>}
+      {S.children.length > 0 && <p><strong>Children:</strong> {S.children.map((p) => p.name).join(" · ")}</p>}
+    </section>
+  </noscript>
+
+  <section class="blk">
+    <h2>What the lines are made of</h2>
+    <p class="dek">Every link on this page, counted by the kind of record behind it. The archive has
+    far more links taken from an index than read out of a register, and the chart does not hide it.</p>
+    <div class="scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th style="width:14rem">How the link was made</th><th class="m" style="width:8rem">Links</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td><b>Read</b></td><td class="m">{viaCount.read || 0}</td><td>a baptism, marriage or burial act was read and it names the relationship.</td></tr>
+          <tr><td><b>Index</b></td><td class="m">{viaCount.index || 0}</td><td>an index entry gives the relationship; the act behind it has not been opened.</td></tr>
+          <tr><td><b>Direct line</b></td><td class="m">{viaCount.line || 0}</td><td>carried on the archive's own spine, where the joins are argued page by page.</td></tr>
+          <tr><td><b>Tree</b></td><td class="m">{viaCount.tree || 0}</td><td>the family tree asserts it and no record has been read. Drawn dashed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {/* the links drawn above come out of the register readings and the indexes
+      behind them, which is exactly what these three are */}
+  <Sources ids={["familysearch", "matricula", "dapa"]} />
+
+  <script is:inline set:html={`window.__BLOOD = ${JSON.stringify(linked)}; window.__START = ${JSON.stringify(start)};`} />
+  <script is:inline src={u("/bloodline.js")}></script>
+
+<style is:global>
+  /* is:global: this page had no style block before, and a scoped one makes
+     Astro stamp data-astro-cid onto every element it renders. The selectors
+     below are specific to this page anyway. */
+  .bl-ctl{margin:26px 0 10px;max-width:46rem}
+  .bl-ctl label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+  .bl-ctl input{width:100%;font:inherit;font-size:15px;padding:9px 13px;border-radius:4px;
+    border:1px solid var(--rule);background:transparent;color:inherit}
+  .bl-stage{margin-top:18px;border:1px solid var(--rule);border-radius:6px;overflow-x:auto;
+    background:var(--panel);min-height:320px}
+  .bl-stage svg{display:block;min-width:640px;width:100%}
+  .bl-key{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px}
+  .bl-key i{display:inline-block;width:22px;height:0;border-top-width:2.5px;vertical-align:middle;margin-right:7px}
+  .bl-key .k-read{border-top-style:solid;border-top-color:var(--accent-2,#5c8a5c)}
+  .bl-key .k-index{border-top-style:solid;border-top-color:var(--accent)}
+  .bl-key .k-tree{border-top-style:dashed;border-top-color:var(--ochre,#8a7f5c)}
+  .bl-node{cursor:pointer}
+  .bl-node rect{fill:var(--panel-2);stroke:var(--rule-2);stroke-width:1}
+  .bl-node.is-self rect{stroke:var(--accent);stroke-width:2}
+  .bl-node.is-spouse rect{stroke-dasharray:4 3}
+  .bl-node:hover rect{stroke:var(--ink-2)}
+  .bl-node text{font-family:inherit;font-size:12.5px;fill:var(--ink)}
+  .bl-node .bl-dt{font-size:10.5px;fill:var(--ink-3)}
+  .bl-lane{font-size:10.5px;fill:var(--ink-3);letter-spacing:.08em;text-transform:uppercase}
+</style>
+</Base>
