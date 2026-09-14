@@ -1,5 +1,8 @@
 ---
 import "@daviddef/archive-kit/styles/print.css";
+import { versioner } from "@daviddef/archive-kit/lib/assetv.js";
+/* every public asset gets a fingerprint, so a fix is never served stale */
+const v = versioner();
 import { u } from "../lib/url.js";
 import SiblingArchives from "@daviddef/archive-kit/components/SiblingArchives.astro";
 import SkipLink from "@daviddef/archive-kit/components/SkipLink.astro";
@@ -39,7 +42,7 @@ const thisArchive = ring.archives.find(
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-<link rel="stylesheet" href={u("/styles.css")} />
+<link rel="stylesheet" href={u("/styles.css") + v("styles.css")} />
 </head>
 <body class={bare ? "is-home" : ""}>
 <SkipLink />
@@ -178,6 +181,6 @@ const thisArchive = ring.archives.find(
     });
   })();
 </script>
-  <script src={u("/wholink.js")} defer></script>
+  <script src={u("/wholink.js") + v("wholink.js")} defer></script>
 </body>
 </html>

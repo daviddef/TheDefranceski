@@ -8,7 +8,8 @@ import JourneyMap from "../../components/JourneyMap.astro";
 import { u } from "../../lib/url.js";
 import lines from "../../data/lines.json";
 import fam from "../../data/families.json";
-import BranchRivers from "../../components/BranchRivers.astro";
+import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
+import rivers from "../../data/rivers.json";
 import arr from "../../data/arrivals.json";
 import reg from "../../data/regions.json";
 import Plates from "../../components/Plates.astro";
@@ -99,7 +100,7 @@ import Lightbox from "../../components/Lightbox.astro";
 <section class="blk">
   <h2>The five roads, drawn</h2>
   <p class="dek" style="margin-top:8px">One surname, five families, and five entirely different reasons for being where they are. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
-  <div style="margin-top:24px"><BranchRivers /></div>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} /></div>
 </section>
 
 <Rule name="tablet" label="A parish named" />

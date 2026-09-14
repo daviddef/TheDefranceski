@@ -5,7 +5,8 @@ import Base from "../layouts/Base.astro";
 import WaysIn from "@daviddef/archive-kit/components/WaysIn.astro";
 import Numbers from "@daviddef/archive-kit/components/Numbers.astro";
 import SovereigntyTimeline from "../components/SovereigntyTimeline.astro";
-import BranchRivers from "../components/BranchRivers.astro";
+import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
+import rivers from "../data/rivers.json";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
 import fs from "node:fs";
@@ -72,7 +73,7 @@ const finds = [
   <div class="kicker" style="color:var(--accent)">Six families, one surname</div>
   <h2 style="margin-top:6px">Where each of them came from, and where each of them went</h2>
   <p class="dek" style="margin-top:10px">They are not one family and they never were. They arrive from different directions for different reasons — one for work, one as soldiers paid off in ruined land, one as refugees off a wrecked fleet. And the fifth, drawn dashed at the bottom, never came to Istria at all: a fully documented family of the same name that runs from a poor cape in Corsica to the Caribbean, put beside the others so it can be told apart from them.</p>
-  <div style="margin-top:24px"><BranchRivers /></div>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} /></div>
   <p class="cap" style="margin-top:14px"><a href={u("/lines/")}>The four families, the households still unplaced, and which diaspora belongs to whom →</a></p>
 </section>
 <Rule name="arrows" />
