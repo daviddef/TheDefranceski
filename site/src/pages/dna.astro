@@ -197,6 +197,25 @@ const HUE = {
   <p class="ygrade" set:html={based(md(d.ydna23.arith.warn))}></p>
 </section>
 
+<Rule name="arrows" label={d.compare.heading} />
+<section class="blk" id="compare">
+  <div class="prose hi" set:html={based(P(d.compare.lead))}></div>
+  <div class="tw" style="margin-top:18px">
+    <table>
+      <thead><tr>{d.compare.cols.map((h, i) => (<th style={i === 0 ? "text-align:left;width:16rem" : ""}>{h}</th>))}</tr></thead>
+      <tbody>{d.compare.rows.map(r => (
+        <tr>{r.map((cell, i) => (<td class={i === 0 ? "pl" : ""} set:html={based(md(cell))}></td>))}</tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="terms" style="margin-top:22px">
+    {d.compare.close.map(x => (
+      <div class="term"><div class="tk">{x.lab}</div><div class="prose" set:html={based(P(x.text))}></div></div>
+    ))}
+  </div>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.compare.source))}></span></p>
+</section>
+
 <Rule name="pomegranate" label={d.ydna23.next23.heading} />
 <section class="blk">
   <div class="terms">
