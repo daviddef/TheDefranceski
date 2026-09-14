@@ -5060,6 +5060,32 @@
     "archives",
     "indexes"
    ]
+  },
+  {
+   "src": "FamilySearch image waypoints — every Istrian and Kvarner volume, addressed",
+   "what": "The waypoint tree of Croatia Church Books 2040054, walked to the level of the individual volume",
+   "when": "14 Sept 2026",
+   "outcome": "yield",
+   "got": "**Three hundred and nine register volumes now have their own address, and every one of them was tested.** The archive had listed 263 Istrian volumes and 46 Kvarner ones as plain text since the day it walked the waypoints; there was no way to open a single one of them.\n\nThe tree is collection → **9RKB-7M9:391644801** (Roman Catholic) → parish → volume, and one call returns all **1,000** Croatian parishes. A volume's waypoint yields the arks of its images, and `familysearch.org/ark:/61903/<first ark>?cc=2040054&wc=<waypoint>` opens the viewer at page one of that book. **263 of 263 Istrian volumes and 46 of 46 Kvarner volumes returned a link; nothing failed.** 307 calls at 2.2-second spacing drew no rate limiting at all, against the 25–40 per burst this archive had recorded.\n\n**The Kvarner links this page already carried were dead.** They used FamilySearch's «owc» browse form, which now answers «Something Went Wrong» for every waypoint tried. Nine broken links, replaced by 46 working ones.\n\n**And joining the inventory to the film produced a finding.** Of the 1,151 books the Pazin inventory catalogues: 142 are on film; 495 are in parishes with no film at all; 449 are twentieth-century civil registration the church film never covered; and **26 are old parish books in parishes that were filmed, which the filming skipped** — eighteen of them still on a shelf in the village. Barban's births from **1629** and Ližnjan's marriages from **1680** are on that list.",
+   "url": "https://www.familysearch.org/search/collection/2040054",
+   "dest": "FamilySearch — Croatia, Church Books, 1516–1994",
+   "ev": [
+    [
+     "/parish-books/",
+     "Parish Books — 309 volumes, each one openable"
+    ],
+    [
+     "/archive/",
+     "The Archive — and the 26 books the film skipped"
+    ]
+   ],
+   "tags": [
+    "parish registers",
+    "archives",
+    "indexes",
+    "Istria",
+    "Kvarner"
+   ]
   }
  ]
 }

@@ -8,8 +8,44 @@ import recs from "../data/fsrecords.json";
 import at from "../data/austria.json";
 import sweep from "../data/sweep.json";
 import wp from "../data/waypoints.json";
+import pbl from "../data/parishbooks.json";
 const kinds={MKR:"Baptisms",MKV:"Marriages",MKU:"Burials",SD:"Household census",MK:"Register"};
 const places=[...new Set(registers.map(r=>r.place))].sort();
+/* Where a catalogued book is also on film, the row opens the film. The
+   inventory and the film name their parishes differently, so the names are
+   normalised; a match needs the same parish, the same kind of register, and
+   overlapping years. Anything short of that gets the archive's front door
+   instead of a guess. */
+const ALIAS = { "Poreč": "Poreč (Poreč)", "Vodnjan / Dignano": "Vodnjan",
+                "Umag / Umago": "Umag", "Motovun / Montona": "Motovun",
+                "Čepić": "Polje Čepić" };
+const KIND2 = { MKR: "Rođeni", MKV: "Vjenčani", MKU: "Umrli" };
+const years = (s) => (String(s).match(/\d{4}/g) || []).map(Number);
+const span = (s) => { const y = years(s); return y.length ? [Math.min(...y), Math.max(...y)] : null; };
+const filmFor = (r) => {
+  const parish = ALIAS[r.place] || r.place;
+  const books = (pbl.links || {})[parish];
+  if (!books || !KIND2[r.type]) return null;
+  const a = span(r.period); if (!a) return null;
+  for (const [title, rec] of Object.entries(books)) {
+    if (title.indexOf(KIND2[r.type]) === -1) continue;
+    const b = span(title); if (!b) continue;
+    if (a[0] <= b[1] && b[0] <= a[1])
+      return { href: `https://www.familysearch.org/ark:/61903/${rec.ark}?cc=2040054&wc=${encodeURIComponent(rec.wc)}`, title };
+  }
+  return null;
+};
+const DAPA = "https://www.dapa.hr/maticne-knjige/";
+const nFilm = registers.filter(filmFor).length;
+/* Linking the inventory to the film answered a question nobody had asked:
+   how much of what Pazin catalogues is reachable from a desk. Four buckets,
+   counted by exactly the rule that draws the links. */
+const filmed = (r) => Boolean((pbl.links || {})[ALIAS[r.place] || r.place]);
+const yr = (r) => { const a = span(r.period); return a ? a[0] : 9999; };
+const noFilm  = registers.filter(r => !filmed(r));
+const gapRows = registers.filter(r => filmed(r) && KIND2[r.type] && !filmFor(r) && yr(r) < 1900)
+                         .sort((a, b) => yr(a) - yr(b));
+const modern  = registers.filter(r => filmed(r) && KIND2[r.type] && !filmFor(r) && yr(r) >= 1900);
 const dig=registers.filter(r=>r.digitised==="yes").length;
 const nParish=places.length;
 ---
@@ -35,7 +71,8 @@ const nParish=places.length;
     <strong>read a town's death registers act by act</strong> rather than searching an index for one surname. Six thousand of its
     people are the town, not the family. <strong>That is the difference in method, and this page is the reason ours can close it.</strong>
   </div>
-  <div class="note" style="margin-top:28px">Custody codes: <b>ŽU</b> parish office, still in the village · <b>BA Poreč</b> diocesan archive of Poreč-Pula · <b>DAPA</b> State Archives in Pazin · <b>MU</b> civil registry office. The State Archives states publicly that its staff do not undertake genealogical research, will not act on a request lacking a name, an approximate period and a place, and will not review large quantities of material. Research is done by the user in the reading room, by appointment.</div>
+  <div class="note" style="margin-top:28px" id="opening"><strong>Every row can now be opened.</strong> <strong>{nFilm}</strong> of these {registers.length} catalogued books match a volume that FamilySearch has photographed, and those rows link straight into the image viewer at page one of that book — same parish, same kind of register, overlapping years, and nothing linked on a looser match than that. The rest link to the Pazin archive's own registers page, which is the door you would actually have to walk through. A FamilySearch account is free; the reading room at Pazin is by appointment.</div>
+  <div class="note" style="margin-top:14px">Custody codes: <b>ŽU</b> parish office, still in the village · <b>BA Poreč</b> diocesan archive of Poreč-Pula · <b>DAPA</b> State Archives in Pazin · <b>MU</b> civil registry office. The State Archives states publicly that its staff do not undertake genealogical research, will not act on a request lacking a name, an approximate period and a place, and will not review large quantities of material. Research is done by the user in the reading room, by appointment.</div>
 </section>
 <Rule name="arrows" />
 
@@ -49,16 +86,49 @@ const nParish=places.length;
   </div>
   <div class="scroll" style="margin-top:18px">
     <table id="regtable">
-      <thead><tr><th>Parish</th><th>Type</th><th class="m">Period</th><th>Held at</th><th class="m">Digitised</th></tr></thead>
+      <thead><tr><th>Parish</th><th>Type</th><th class="m">Period</th><th>Held at</th><th class="m">Digitised</th><th>Open it</th></tr></thead>
       <tbody>{registers.map(r=>(
         <tr data-place={r.place} data-kind={r.type} data-dig={r.digitised}>
           <td>{r.place}</td><td>{kinds[r.type]||r.type}</td><td class="m">{r.period}</td>
           <td>{r.held_at}</td>
           <td class="m" style={r.digitised==="yes"?"color:var(--accent)":"color:var(--terra)"}>{r.digitised}</td>
+          <td>{(() => { const f = filmFor(r); return f
+            ? <a class="opn" href={f.href} rel="noopener" target="_blank" title={f.title}>the film &#8599;</a>
+            : <a class="opn dim" href={DAPA} rel="noopener" target="_blank">the archive &#8599;</a>; })()}</td>
         </tr>
       ))}</tbody>
     </table>
   </div>
+</section>
+<Rule name="arrows" label="What linking the two lists showed" />
+
+<section class="blk">
+  <h2>Twenty-six books you cannot get to from a desk</h2>
+  <div class="prose" style="margin-top:16px">
+    <p>Joining this inventory to the film, volume by volume, was meant only to make the rows clickable. It answered a question nobody here had asked: <strong>how much of what Pazin catalogues can actually be reached from a desk.</strong> Four answers, and they are very unequal.</p>
+  </div>
+  <div class="grid g4" style="margin-top:20px">
+    <div class="stat"><div class="n">{nFilm}</div><div class="l">on film — open at page one from the table above</div></div>
+    <div class="stat"><div class="n">{noFilm.length}</div><div class="l">in a parish with <strong>no film at all</strong> — Vodnjan, Umag, Motovun, Pićan, Gračišće, Gologorica, Cerovlje</div></div>
+    <div class="stat"><div class="n">{modern.length}</div><div class="l">twentieth-century civil registration, which the church film never covered</div></div>
+    <div class="stat"><div class="n">{gapRows.length}</div><div class="l">old parish books in a filmed parish that the film <strong>skipped</strong></div></div>
+  </div>
+  <div class="note reading" style="margin-top:24px">
+    <strong>The last number is the interesting one.</strong> These are volumes in parishes the Genealogical Society of Utah did photograph — and these particular books were left out. Most of them are seventeenth century, and most are still held in the village: <strong>ŽU</strong> means the parish office, a shelf in a presbytery. Barban's births from <strong>1629</strong> and Ližnjan's marriages from <strong>1680</strong> are on that list, and neither exists anywhere else.
+  </div>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Parish</th><th>Type</th><th class="m">Period</th><th>Held at</th></tr></thead>
+      <tbody>{gapRows.map(r => (
+        <tr>
+          <td>{r.place}</td><td>{kinds[r.type]||r.type}</td>
+          <td class="m">{r.period}</td>
+          <td style={String(r.held_at).startsWith("ŽU") ? "color:var(--terra);font-weight:600" : ""}>{r.held_at}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px">Counted by the same rule that draws the links: same parish, same kind of register, overlapping years. A book is only called «skipped» when its parish is on film and no filmed volume of that kind covers any of its years.</p>
 </section>
 
 <script is:inline>
@@ -263,4 +333,8 @@ const nParish=places.length;
   </div>
 </section>
   <Sources ids={["familysearch"]} />
+<style>
+  .opn { font: 400 12px/1.3 var(--mono); letter-spacing: .02em; white-space: nowrap; }
+  .opn.dim { color: var(--ink-3); }
+</style>
 </Base>

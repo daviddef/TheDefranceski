@@ -8,6 +8,15 @@ import hda from "../data/hda1448.json";
 const RING = ["Pazin","Stari Pazin","Tinjan","Kringa","Krbune","Boljun","Lupoglav (Pazin)","Petar u Šumi","Polje Čepić","Kršan"];
 const ring = pb.list.filter(p => RING.includes(p.parish));
 const rest = pb.list.filter(p => !RING.includes(p.parish));
+/* Every volume's own address at FamilySearch, harvested from the image
+   waypoints in September 2026. Until then this page listed 263 books and
+   offered no way to open one of them. */
+const film = (parish, title) => {
+  const rec = (pb.links || {})[parish];
+  const hit = rec && rec[title];
+  return hit ? `https://www.familysearch.org/ark:/61903/${hit.ark}?cc=2040054&wc=${encodeURIComponent(hit.wc)}` : null;
+};
+const linked = pb.linked || 0;
 ---
 <Base title="Parish Books" eyebrow={`${pb.volumes} volumes · ${pb.parishes} Istrian parishes`}
       dek="Every Roman Catholic register volume photographed for Istria, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name.">
@@ -21,7 +30,12 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
       <thead><tr><th>Parish</th><th class="m">From</th><th>Volumes</th></tr></thead>
       <tbody>{ring.map(p => (
         <tr><td>{p.parish}</td><td class="m">{p.earliest}</td>
-          <td>{p.books.map(b => <div style="padding:1px 0">{b}</div>)}</td></tr>
+          <td>{p.books.map(b => {
+            const href = film(p.parish, b);
+            return <div style="padding:1px 0">{href
+              ? <a href={href} rel="noopener" target="_blank">{b} &#8599;</a>
+              : <span>{b}</span>}</div>;
+          })}</td></tr>
       ))}</tbody>
     </table>
   </div>
@@ -38,13 +52,24 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
   <p class="dek">Sorted by the earliest year the parish holds. Labin opens in 1536; Rovinj has twenty-nine volumes; Poreč has thirty-two.</p>
   <div class="scroll" style="margin-top:22px">
     <table>
-      <thead><tr><th>Parish</th><th class="m">From</th><th class="m">Volumes</th></tr></thead>
+      <thead><tr><th style="width:18%">Parish</th><th class="m" style="width:9%">From</th><th class="m" style="width:9%">Volumes</th><th>Open one</th></tr></thead>
       <tbody>{rest.map(p => (
-        <tr><td>{p.parish}</td><td class="m">{p.earliest || "—"}</td><td class="m">{p.volumes}</td></tr>
+        <tr>
+          <td>{p.parish}</td>
+          <td class="m">{p.earliest || "—"}</td>
+          <td class="m">{p.volumes}</td>
+          <td>{p.books.map(b => {
+            const href = film(p.parish, b);
+            return <div style="padding:1px 0">{href
+              ? <a href={href} rel="noopener" target="_blank">{b} &#8599;</a>
+              : <span>{b}</span>}</div>;
+          })}</td>
+        </tr>
       ))}</tbody>
     </table>
   </div>
   <p class="cap">{pb.source}</p>
+  <p class="cap" style="margin-top:8px"><strong>{linked} of {pb.volumes} volumes open straight into the FamilySearch image viewer</strong>, at the first page of that book. The links were harvested from the collection's own image waypoints; a volume without one is a volume whose waypoint returned no image, and it is left as plain text rather than pointed somewhere it does not go. A FamilySearch account is needed to view the images, and it is free.</p>
 </section>
 <Rule name="pomegranate" />
 
@@ -56,8 +81,15 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
       <thead><tr><th>Parish</th><th>What survives on film</th><th>Why it matters</th></tr></thead>
       <tbody>{kv.parishes.map(p => (
         <tr>
-          <td><a href={`https://www.familysearch.org/search/image/index?owc=${encodeURIComponent(p.owc)}%3Fcc%3D2040054`} rel="noopener">{p.name}</a></td>
-          <td>{p.books.length ? <ul style="margin:0;padding-left:16px">{p.books.map(b => <li style="font-size:12.5px;line-height:1.5">{b}</li>)}</ul> : <span style="color:var(--ink-3)">not listed in the map extract</span>}</td>
+          <td>{p.name}</td>
+          <td>{p.films && p.films.length
+            ? <ul style="margin:0;padding-left:16px">{p.films.map(f => (
+                <li style="font-size:12.5px;line-height:1.5">
+                  <a href={`https://www.familysearch.org/ark:/61903/${f.ark}?cc=2040054&wc=${encodeURIComponent(f.wc)}`} rel="noopener" target="_blank">{f.t} &#8599;</a>
+                </li>))}</ul>
+            : (p.books.length
+                ? <ul style="margin:0;padding-left:16px">{p.books.map(b => <li style="font-size:12.5px;line-height:1.5">{b}</li>)}</ul>
+                : <span style="color:var(--ink-3)">not listed in the map extract</span>)}</td>
           <td>{p.why}</td>
         </tr>
       ))}</tbody>
@@ -65,6 +97,7 @@ const rest = pb.list.filter(p => !RING.includes(p.parish));
   </div>
   <div class="note" style="margin-top:24px">{kv.gap}</div>
   <p class="cap" style="margin-top:16px">{kv.note}</p>
+  <p class="cap" style="margin-top:8px"><strong>{kv.linked} volumes here open straight into the image viewer.</strong> {kv.harvested}</p>
 </section>
 
 <Rule name="tablet" label="HR-HDA-1448" />

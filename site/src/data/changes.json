@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "250 entries · 48 of them corrections",
+ "eyebrow": "251 entries · 48 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -53,6 +53,14 @@
      "what": "Every archived URL on the family's own Google Site, before it is switched off",
      "src": "The Wayback Machine — everything under sites.google.com/defranceski.com",
      "text": "**Checked, found nearly empty, and filled.** A CDX query for every URL under that host returned **two** successful captures: the site root of **1 January 2022** and the home page of **11 July 2025**. Family Trees, The People, The Places, The Map, The Name, The Coat of Arms, Publications, Resources and About were archived **nowhere on the public net** — Google Sites builds its navigation in script, so the crawler never followed it below the front page.\n\nThe same fact made the page list uncrawlable, so it was read out of the page source instead: **twelve live addresses, not the nine of this archive's own reckoning table**, which had folded the two sub-pages under *The Story* into their parent.\n\n**All twelve were submitted to Save Page Now on 14 September 2026 and all twelve captured**, every job reporting success, verified by fetching the snapshots back — *The People* returns at 413 KB, byte for byte the live page. Two drew **429** on the first pass and were taken on a later one.\n\nTwo things learned in the doing. **Save Page Now no longer accepts anonymous requests**: a POST without a session returns *401 «You need to be logged in to use Save Page Now»*. And a Wayback capture of a Google Sites page keeps the **frame** around an embedded My Map, not the map — which is why the KML export of 8 September 2026 is the only thing standing between those pins and the account being closed.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "14 Sept 2026",
+     "kind": "yield",
+     "what": "The waypoint tree of Croatia Church Books 2040054, walked to the level of the individual volume",
+     "src": "FamilySearch image waypoints — every Istrian and Kvarner volume, addressed",
+     "text": "**Three hundred and nine register volumes now have their own address, and every one of them was tested.** The archive had listed 263 Istrian volumes and 46 Kvarner ones as plain text since the day it walked the waypoints; there was no way to open a single one of them.\n\nThe tree is collection → **9RKB-7M9:391644801** (Roman Catholic) → parish → volume, and one call returns all **1,000** Croatian parishes. A volume's waypoint yields the arks of its images, and `familysearch.org/ark:/61903/<first ark>?cc=2040054&wc=<waypoint>` opens the viewer at page one of that book. **263 of 263 Istrian volumes and 46 of 46 Kvarner volumes returned a link; nothing failed.** 307 calls at 2.2-second spacing drew no rate limiting at all, against the 25–40 per burst this archive had recorded.\n\n**The Kvarner links this page already carried were dead.** They used FamilySearch's «owc» browse form, which now answers «Something Went Wrong» for every waypoint tried. Nine broken links, replaced by 46 working ones.\n\n**And joining the inventory to the film produced a finding.** Of the 1,151 books the Pazin inventory catalogues: 142 are on film; 495 are in parishes with no film at all; 449 are twentieth-century civil registration the church film never covered; and **26 are old parish books in parishes that were filmed, which the filming skipped** — eighteen of them still on a shelf in the village. Barban's births from **1629** and Ližnjan's marriages from **1680** are on that list.",
      "href": "/research-log/"
     },
     {

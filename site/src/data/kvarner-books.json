@@ -1,27 +1,370 @@
 {
  "note": "What survives on film for the parishes of the Kvarner coast and the Vinodol, from the FamilySearch collection «Croatia, Church Books, 1516–1994» (cc 2040054). Almost none of it is name-indexed: these are images to be read page by page, and the point of listing them is to say exactly which volume to open.",
  "parishes": [
-  {"name": "Crikvenica", "owc": "9RKB-DP8:391644801,391675201",
-   "books": ["Births 1815–1823, 1855–1858, 1822–1855", "Births 1859–1896", "Marriages 1800–1822, 1856–1858, 1822–1855, 1798–1809", "Marriages 1859–1908", "Deaths 1859–1892", "Deaths 1893–1908"],
-   "why": "Births 1859–1896 holds all four children of Josip and Ana. Deaths 1893–1908 holds Marija Stjepanka, dead at twelve in 1905. And Marriages 1859–1908 is the single most valuable unopened volume in this archive: Josip and Ana married somewhere in the later 1880s, and if they married in his parish rather than hers, the entry is in this book."},
-  {"name": "Ledenice", "owc": "9RK1-SPG:391644801,391884501",
-   "books": ["Births 1734–1795", "Births 1795–1820", "Births 1796–1822", "Births 1820–1861", "Births 1822–1861", "Births 1861–1894", "Marriages 1734–1825", "Marriages 1826–1865", "Marriages 1866–1882", "Deaths 1734–1824", "Deaths 1824–1865", "Deaths 1866–1902"],
-   "why": "Ana Kalanj's own baptism of 3 January 1864 is in Births 1861–1894 — the page the family already holds a scan of. Marriages 1866–1882 is the other candidate for her wedding, and marriages were commonly celebrated in the bride's parish. If they married in or after 1883 this parish's marriage film runs out and Crikvenica is the place to look."},
-  {"name": "Novi Vinodolski", "owc": "9RK1-3YQ:391644801,391936901",
-   "books": ["Births 1650–1784", "Marriages 1674–1786", "Deaths 1704–1782", "Births 1784–1804", "Births 1804–1852", "Marriages 1787–1859", "Deaths 1784–1815, 1823–1824, 1815–1823", "Births 1852–1874", "Births 1875–1900", "Deaths 1823–1859", "Deaths 1859–1888", "Deaths 1888–1899"],
-   "why": "The deepest run on this coast — baptisms from 1650. A Joannes Baptista De Franceski died at Crikvenica on 30 March 1801, a century before Josip came down from Istria, and if the name was already on the Vinodol then, these are the books that would show it."},
-  {"name": "Grižane", "owc": "9RKB-N3K:391644801,391830101",
-   "books": ["Births 1692–1790", "Births 1735–1811", "Church census (Stanje duša) 1738", "Births 1812–1857", "Deaths 1735–1790", "Births 1858–1886", "Deaths 1817–1858", "Deaths 1859–1894"],
-   "why": "Note the Stanje duša of 1738 — a book of souls, the same kind of household register that broke this archive's Istrian line open."},
-  {"name": "Selce", "owc": "9R2M-BZX:391644801,391919101",
-   "books": ["Births 1778–1815", "Deaths 1790–1815", "Births 1816–1861", "Marriages 1790–1815", "Deaths 1816–1886", "Marriages 1815–1878"], "why": "The next parish along the coast from Crikvenica."},
-  {"name": "Senj", "owc": "9RK1-W3G:391644801,391920301",
-   "books": ["Births 1734–1756", "Births 1756–1858", "Births 1859–1877", "Births 1878–1894", "Marriages 1734–1819", "Marriages 1820–1858", "Marriages 1859–1920", "Deaths 1820–1848", "Deaths 1849–1858", "Deaths 1859–1907"],
-   "why": "Where the line went next, in the generation after Ivan of 1925."},
-  {"name": "Fužine", "owc": "9RKB-Y47:391644801,391820101", "books": [],
-   "why": "Ruža Hreljac was born here on 13 February 1922. The volumes are not listed in the map extract; the browse link is live."},
-  {"name": "Bribir", "owc": "9RKB-JWL:391644801,391644802", "books": [], "why": "Vinodol parish, listed for completeness."},
-  {"name": "Drivenik", "owc": "9RKB-2JM:391644801,391813601", "books": [], "why": "Vinodol parish, listed for completeness."}
+  {
+   "name": "Crikvenica",
+   "owc": "9RKB-DP8:391644801,391675201",
+   "books": [
+    "Births 1815–1823, 1855–1858, 1822–1855",
+    "Births 1859–1896",
+    "Marriages 1800–1822, 1856–1858, 1822–1855, 1798–1809",
+    "Marriages 1859–1908",
+    "Deaths 1859–1892",
+    "Deaths 1893–1908"
+   ],
+   "why": "Births 1859–1896 holds all four children of Josip and Ana. Deaths 1893–1908 holds Marija Stjepanka, dead at twelve in 1905. And Marriages 1859–1908 is the single most valuable unopened volume in this archive: Josip and Ana married somewhere in the later 1880s, and if they married in his parish rather than hers, the entry is in this book.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1815-1823, 1855-1858, 1822-1855 Marriages (Vjenčani) 1800-1822, 1856-1858, 1822-1855, 1798-1809 Deaths (Umrli) 1815-1823, 1855-1858, 1822-1855",
+     "ark": "3:1:939V-R99R-RX",
+     "wc": "9RKB-DPD:391644801,391675201,954381901"
+    },
+    {
+     "t": "Births (Rođeni) 1859-1896",
+     "ark": "3:1:3QS7-899X-R9W3-X",
+     "wc": "9R28-RMH:391644801,391675201,391676801"
+    },
+    {
+     "t": "Deaths (Umrli) 1859-1892",
+     "ark": "3:1:3QS7-899X-5RDS",
+     "wc": "9R28-SPX:391644801,391675201,391679201"
+    },
+    {
+     "t": "Deaths (Umrli) 1893-1908",
+     "ark": "3:1:3QS7-899X-K8HD",
+     "wc": "9R2H-HZQ:391644801,391675201,391679801"
+    },
+    {
+     "t": "Marriages (Vjenčani) 1859-1908",
+     "ark": "3:1:3QS7-L99X-R5Y",
+     "wc": "9R28-3Y9:391644801,391675201,391678301"
+    }
+   ]
+  },
+  {
+   "name": "Ledenice",
+   "owc": "9RK1-SPG:391644801,391884501",
+   "books": [
+    "Births 1734–1795",
+    "Births 1795–1820",
+    "Births 1796–1822",
+    "Births 1820–1861",
+    "Births 1822–1861",
+    "Births 1861–1894",
+    "Marriages 1734–1825",
+    "Marriages 1826–1865",
+    "Marriages 1866–1882",
+    "Deaths 1734–1824",
+    "Deaths 1824–1865",
+    "Deaths 1866–1902"
+   ],
+   "why": "Ana Kalanj's own baptism of 3 January 1864 is in Births 1861–1894 — the page the family already holds a scan of. Marriages 1866–1882 is the other candidate for her wedding, and marriages were commonly celebrated in the bride's parish. If they married in or after 1883 this parish's marriage film runs out and Crikvenica is the place to look.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1734-1795 Marriages (Vjenčani) 1734-1825 Deaths (Umrli) 1734-1824 Births (Rođeni) 1795-1820",
+     "ark": "3:1:3QSQ-G99F-2S35",
+     "wc": "9R2F-JW5:391644801,391884501,391885401"
+    },
+    {
+     "t": "Births (Rođeni) 1734-1795 Marriages (Vjenčani) 1734-1825 Deaths (Umrli) 1734-1824 Births (Rođeni) 1796-1822",
+     "ark": "3:1:3QSQ-G99C-L994-B",
+     "wc": "9RK1-SPP:391644801,391884501,391884502"
+    },
+    {
+     "t": "Births (Rođeni) 1820-1861 Marriages (Vjenčani) 1826-1865 Deaths (Umrli) 1824-1865",
+     "ark": "3:1:3QSQ-G99F-FC26",
+     "wc": "9R2F-4WP:391644801,391884501,391885601"
+    },
+    {
+     "t": "Births (Rođeni) 1822-1861 Marriages (Vjenčani) 1826-1865 Deaths (Umrli) 1824-1865",
+     "ark": "3:1:3QSQ-G99C-RD16",
+     "wc": "9R29-W3D:391644801,391884501,391884601"
+    },
+    {
+     "t": "Births (Rođeni) 1861-1894",
+     "ark": "3:1:3QS7-899X-K7YV",
+     "wc": "9R2H-RM4:391644801,391884501,391884801"
+    },
+    {
+     "t": "Deaths (Umrli) 1866-1902",
+     "ark": "3:1:3QS7-L99X-5Q1V",
+     "wc": "9R28-7MW:391644801,391884501,391885201"
+    },
+    {
+     "t": "Marriages (Vjenčani) 1866-1882",
+     "ark": "3:1:3QS7-L99X-K3NV",
+     "wc": "9R2H-RMQ:391644801,391884501,391885101"
+    }
+   ]
+  },
+  {
+   "name": "Novi Vinodolski",
+   "owc": "9RK1-3YQ:391644801,391936901",
+   "books": [
+    "Births 1650–1784",
+    "Marriages 1674–1786",
+    "Deaths 1704–1782",
+    "Births 1784–1804",
+    "Births 1804–1852",
+    "Marriages 1787–1859",
+    "Deaths 1784–1815, 1823–1824, 1815–1823",
+    "Births 1852–1874",
+    "Births 1875–1900",
+    "Deaths 1823–1859",
+    "Deaths 1859–1888",
+    "Deaths 1888–1899"
+   ],
+   "why": "The deepest run on this coast — baptisms from 1650. A Joannes Baptista De Franceski died at Crikvenica on 30 March 1801, a century before Josip came down from Istria, and if the name was already on the Vinodol then, these are the books that would show it.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1650-1784 Marriages (Vjenčani) 1674-1786 Deaths (Umrli) 1704-1782 Births (Rođeni) 1784-1804",
+     "ark": "3:1:3QSQ-G99C-L9S4-9",
+     "wc": "9RK1-3Y7:391644801,391936901,391936902"
+    },
+    {
+     "t": "Births (Rođeni) 1804-1852 Marriages (Vjenčani) 1787-1859 Deaths (Umrli) 1784-1815, 1823-1824, 1815-1823",
+     "ark": "3:1:3QS7-899C-59CP",
+     "wc": "9R2M-82L:391644801,391936901,391937101"
+    },
+    {
+     "t": "Births (Rođeni) 1852-1874",
+     "ark": "3:1:3QS7-899X-RQDB",
+     "wc": "9R28-T3K:391644801,391936901,391937401"
+    },
+    {
+     "t": "Births (Rođeni) 1875-1900",
+     "ark": "3:1:3QS7-L99X-R9QR-B",
+     "wc": "9R28-YWG:391644801,391936901,391937601"
+    },
+    {
+     "t": "Deaths (Umrli) 1823-1859",
+     "ark": "3:1:3QS7-L99C-R6BS",
+     "wc": "9R29-4W1:391644801,391936901,391937301"
+    },
+    {
+     "t": "Deaths (Umrli) 1859-1888",
+     "ark": "3:1:3QS7-899X-R9CS-W",
+     "wc": "9R28-YW1:391644801,391936901,391937701"
+    },
+    {
+     "t": "Deaths (Umrli) 1888-1899",
+     "ark": "3:1:3QS7-899X-2334",
+     "wc": "9R2C-82J:391644801,391936901,391938001"
+    }
+   ]
+  },
+  {
+   "name": "Grižane",
+   "owc": "9RKB-N3K:391644801,391830101",
+   "books": [
+    "Births 1692–1790",
+    "Births 1735–1811",
+    "Church census (Stanje duša) 1738",
+    "Births 1812–1857",
+    "Deaths 1735–1790",
+    "Births 1858–1886",
+    "Deaths 1817–1858",
+    "Deaths 1859–1894"
+   ],
+   "why": "Note the Stanje duša of 1738 — a book of souls, the same kind of household register that broke this archive's Istrian line open.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1692-1790",
+     "ark": "3:1:3QSQ-G99C-21D6",
+     "wc": "9RKB-K68:391644801,391830101,391830102"
+    },
+    {
+     "t": "Births (Rođeni) 1735-1811 Church Census (Stanje duša) 1738 Births (Rođeni) 1812-1857 Deaths (Umrli) 1735-1790 Marriages (Vjenčani) 1735-1858 Deaths (Umrli) 1811-1817",
+     "ark": "3:1:3QSQ-G99C-28RC",
+     "wc": "9RKB-N32:391644801,391830101,954386801"
+    },
+    {
+     "t": "Births (Rođeni) 1858-1886",
+     "ark": "3:1:3QSQ-G99F-XWNH",
+     "wc": "9R2F-SP6:391644801,391830101,391659901"
+    },
+    {
+     "t": "Deaths (Umrli) 1817-1858",
+     "ark": "3:1:3QSQ-G99C-2YVT",
+     "wc": "9RKB-K6V:391644801,391830101,391830501"
+    },
+    {
+     "t": "Deaths (Umrli) 1859-1894",
+     "ark": "3:1:3QS7-L99F-X8RQ",
+     "wc": "9R2F-3TY:391644801,391830101,391830601"
+    }
+   ]
+  },
+  {
+   "name": "Selce",
+   "owc": "9R2M-BZX:391644801,391919101",
+   "books": [
+    "Births 1778–1815",
+    "Deaths 1790–1815",
+    "Births 1816–1861",
+    "Marriages 1790–1815",
+    "Deaths 1816–1886",
+    "Marriages 1815–1878"
+   ],
+   "why": "The next parish along the coast from Crikvenica.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1778-1815 Deaths (Umrli) 1790-1815 Births (Rođeni) 1816-1861 Marriages (Vjenčani) 1790-1815",
+     "ark": "3:1:3QSQ-G99C-5962-Y",
+     "wc": "9R2M-BZF:391644801,391919101,391919102"
+    },
+    {
+     "t": "Deaths (Umrli) 1816-1886",
+     "ark": "3:1:3QS7-L99X-13T7",
+     "wc": "9R2D-N32:391644801,391919101,391919301"
+    },
+    {
+     "t": "Marriages (Vjenčani) 1815-1878",
+     "ark": "3:1:3QS7-L99X-1QL7",
+     "wc": "9R2D-N35:391644801,391919101,391919201"
+    }
+   ]
+  },
+  {
+   "name": "Senj",
+   "owc": "9RK1-W3G:391644801,391920301",
+   "books": [
+    "Births 1734–1756",
+    "Births 1756–1858",
+    "Births 1859–1877",
+    "Births 1878–1894",
+    "Marriages 1734–1819",
+    "Marriages 1820–1858",
+    "Marriages 1859–1920",
+    "Deaths 1820–1848",
+    "Deaths 1849–1858",
+    "Deaths 1859–1907"
+   ],
+   "why": "Where the line went next, in the generation after Ivan of 1925.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1734-1756",
+     "ark": "3:1:3QSQ-G99C-PV4W",
+     "wc": "9RK1-T3F:391644801,391920301,391902501"
+    },
+    {
+     "t": "Births (Rođeni) 1756-1858",
+     "ark": "3:1:3QS7-899C-5YLC",
+     "wc": "9R2M-L27:391644801,391920301,391920401"
+    },
+    {
+     "t": "Births (Rođeni) 1859-1877",
+     "ark": "3:1:3QSQ-G99X-137H",
+     "wc": "9R2D-JW5:391644801,391920301,391699301"
+    },
+    {
+     "t": "Births (Rođeni) 1878-1894",
+     "ark": "3:1:3QS7-L99X-17FP",
+     "wc": "9R2D-JWL:391644801,391920301,391809001"
+    },
+    {
+     "t": "Deaths (Umrli) 1859-1907",
+     "ark": "3:1:3QS7-899X-14XF",
+     "wc": "9R2D-K6D:391644801,391920301,391921401"
+    },
+    {
+     "t": "Marriages (Vjenčani) 1734-1819 Marriages (Vjenčani) 1820-1858 Deaths (Umrli) 1820-1848 Deaths (Umrli) 1849-1858",
+     "ark": "3:1:3QSQ-G99C-L42V",
+     "wc": "9RK1-W3P:391644801,391920301,391920701"
+    },
+    {
+     "t": "Marriages (Vjenčani) 1859-1920",
+     "ark": "3:1:3QS7-L99X-179M",
+     "wc": "9R2D-N3F:391644801,391920301,391921101"
+    }
+   ]
+  },
+  {
+   "name": "Fužine",
+   "owc": "9RKB-Y47:391644801,391820101",
+   "books": [],
+   "why": "Ruža Hreljac was born here on 13 February 1922. The volumes are not listed in the map extract; the browse link is live.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1725-1778",
+     "ark": "3:1:3QS7-L99C-LSC9",
+     "wc": "9RKB-Y4W:391644801,391820101,391820102"
+    },
+    {
+     "t": "Births (Rođeni) 1778-1857 Marriages (Vjenčani) 1815-1856 Deaths (Umrli) 1815-1857",
+     "ark": "3:1:3QS7-899C-GVTF",
+     "wc": "9RK1-DP8:391644801,391820101,391820301"
+    },
+    {
+     "t": "Births (Rođeni) 1858-1889",
+     "ark": "3:1:3QSQ-G99F-X4R1",
+     "wc": "9R2F-3TG:391644801,391820101,391665401"
+    },
+    {
+     "t": "Deaths (Umrli) 1858-1888",
+     "ark": "3:1:3QSQ-G99F-XHR4",
+     "wc": "9R2F-3TL:391644801,391820101,391820601"
+    },
+    {
+     "t": "Deaths (Umrli) 1888-1916",
+     "ark": "3:1:3QSQ-G99F-X48R",
+     "wc": "9R2F-SP5:391644801,391820101,391820801"
+    }
+   ]
+  },
+  {
+   "name": "Bribir",
+   "owc": "9RKB-JWL:391644801,391644802",
+   "books": [],
+   "why": "Vinodol parish, listed for completeness.",
+   "films": [
+    {
+     "t": "Births (Rođeni) 1678-1736 Marriages (Vjenčani) 1678-1738 Deaths (Umrli) 1678-1744",
+     "ark": "3:1:3QSQ-G99C-2P5Z",
+     "wc": "9RKB-J49:391644801,391644802,391645701"
+    },
+    {
+     "t": "Births (Rođeni) 1815-1858 Marriages (Vjenčani) 1815-1821, 1853-1858 Deaths (Umrli) 1787-1843",
+     "ark": "3:1:3QS7-L99C-2KF2",
+     "wc": "9RKB-JWG:391644801,391644802,391648001"
+    },
+    {
+     "t": "Births (Rođeni) 1858-1886",
+     "ark": "3:1:3QSQ-G99X-PX82",
+     "wc": "9R2Z-ZNG:391644801,391644802,391659901"
+    },
+    {
+     "t": "Deaths (Umrli) 1843-1858",
+     "ark": "3:1:939V-5YKN-6",
+     "wc": "9RKB-HZ7:391644801,391644802,391644803"
+    },
+    {
+     "t": "Deaths (Umrli) 1858-1898",
+     "ark": "3:1:3QS7-899X-RBR7",
+     "wc": "9R28-L23:391644801,391644802,391651401"
+    },
+    {
+     "t": "Marriages (Vjenčani) 1858-1900",
+     "ark": "3:1:3QS7-899X-RBR7",
+     "wc": "9R28-L2Q:391644801,391644802,391654901"
+    }
+   ]
+  },
+  {
+   "name": "Drivenik",
+   "owc": "9RKB-2JM:391644801,391813601",
+   "books": [],
+   "why": "Vinodol parish, listed for completeness.",
+   "films": [
+    {
+     "t": "Marriages (Vjenčani) 1815-1857 Deaths (Umrli) 1815-1857",
+     "ark": "3:1:3QS7-899C-299G-Y",
+     "wc": "9RKB-2J9:391644801,391813601,391813602"
+    }
+   ]
+  }
  ],
- "gap": "Nothing on this film reaches 1936. The death of the Ana De Franceschi whose gravestone the family photographs — 28 May 1936 — falls outside every filmed volume, and would have to be asked for from the Croatian state archive at Rijeka or from the parish itself."
+ "gap": "Nothing on this film reaches 1936. The death of the Ana De Franceschi whose gravestone the family photographs — 28 May 1936 — falls outside every filmed volume, and would have to be asked for from the Croatian state archive at Rijeka or from the parish itself.",
+ "linked": 46,
+ "harvested": "Volume links harvested from the image waypoints, 14 September 2026. The parish links this page carried before that used FamilySearch's «owc» browse form, which no longer resolves — it returns «Something Went Wrong». Every link here now points at a volume's own first image."
 }
