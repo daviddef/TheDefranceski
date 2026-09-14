@@ -68,8 +68,14 @@
     }
     return d;
   }
-  var ORD = ["", "great-", "great-great-", "3× great-", "4× great-", "5× great-", "6× great-"];
-  function updown(n, word) { return (ORD[Math.max(0, n - (word === "parent" ? 1 : 1))] || (n + "× ") ) + word; }
+  /* How many "greats" go in front. A grandparent has none, a great-grandparent
+     one, and past two it is counted rather than repeated — "5× great-" reads
+     where "great-great-great-great-great-" does not. The first version of this
+     put the prefix in front of a word that already contained one and produced
+     "3× great-great-aunt". */
+  function greats(k) {
+    return k <= 0 ? "" : k === 1 ? "great-" : k === 2 ? "great-great-" : k + "× great-";
+  }
 
   function kin(root, x) {
     if (x === root) return "this person";
@@ -79,16 +85,21 @@
       if (!best || tot < best.t) best = { t: tot, a: A[k], b: B[k] };
     }
     /* a sibling link with no shared parent recorded still means a sibling */
-    if (!best) return sibs(root).some(function (s) { return s.slug === x; }) ? "brother or sister" : "related";
-    var up = best.a, down = best.b;          // up: root→ancestor, down: x→ancestor
-    if (down === 0) return up === 1 ? "parent" : up === 2 ? "grandparent" : updown(up, "grandparent");
-    if (up === 0) return down === 1 ? "child" : down === 2 ? "grandchild" : updown(down, "grandchild");
+    if (!best) return sibs(root).some(function (s) { return s.slug === x; })
+      ? "brother or sister" : "related";
+    var up = best.a, down = best.b;        // up: root→ancestor, down: x→ancestor
+    if (down === 0) return up === 1 ? "parent"
+      : up === 2 ? "grandparent" : greats(up - 2) + "grandparent";
+    if (up === 0) return down === 1 ? "child"
+      : down === 2 ? "grandchild" : greats(down - 2) + "grandchild";
     if (up === 1 && down === 1) return "brother or sister";
-    if (down === 1) return up === 2 ? "aunt or uncle" : updown(up - 1, "great-aunt or uncle");
-    if (up === 1) return down === 2 ? "niece or nephew" : updown(down - 1, "great-niece or nephew");
+    if (down === 1) return greats(up - 2) + "aunt or uncle";
+    if (up === 1) return greats(down - 2) + "niece or nephew";
     var deg = Math.min(up, down) - 1, rem = Math.abs(up - down);
-    var name = deg === 1 ? "first cousin" : deg === 2 ? "second cousin" : deg + "rd cousin";
-    return rem ? name + (rem === 1 ? ", once removed" : rem === 2 ? ", twice removed" : ", " + rem + "× removed") : name;
+    var name = deg === 1 ? "first cousin" : deg === 2 ? "second cousin"
+      : deg === 3 ? "third cousin" : deg + "th cousin";
+    return rem ? name + (rem === 1 ? ", once removed" : rem === 2 ? ", twice removed"
+      : ", " + rem + "× removed") : name;
   }
 
   function draw(root) {

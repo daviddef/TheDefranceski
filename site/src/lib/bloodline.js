@@ -83,6 +83,33 @@ function spine(people) {
     me.parents.push({ slug: id(up), name: up.name, dt: people[id(up)].dt, via: "line" });
     par.children.push({ slug: id(g), name: g.name, dt: me.dt, via: "line" });
   }
+
+  /* THE BROTHERS AND SISTERS OF THE LINE. Each generation records the other
+     children in its house — nineteen of them — and the chart was drawing only
+     the one child who carried the line onward. Those others are somebody's
+     great-aunts and great-uncles, and the person most likely to be reading
+     this page is looking for exactly them.
+
+     The child marked `line: true` is the next generation and already has a
+     node; the rest become nodes of their own, hung off the same parent, which
+     makes them siblings of the direct ancestor without anything being
+     asserted that the data does not already say. */
+  for (const g of rows) {
+    const par = people[id(g)];
+    (g.children || []).forEach((c, i) => {
+      if (!c || !c.name || c.line) return;
+      const cid = id(g) + "-c" + i;
+      people[cid] = people[cid] || {
+        /* "—" and "dates unknown" are the archive saying it has no date. They
+           are not dates and should not sit where one goes. */
+        slug: cid, name: c.name,
+        dt: c.born && !/^(—|-|\?+)$|unknown|withheld/i.test(c.born) ? c.born : "",
+        note: c.note || "", parents: [], children: [], siblings: [], spouse: null,
+      };
+      people[cid].parents.push({ slug: id(g), name: g.name, dt: par.dt, via: "line" });
+      par.children.push({ slug: cid, name: c.name, dt: people[cid].dt, via: "line" });
+    });
+  }
   return people;
 }
 
