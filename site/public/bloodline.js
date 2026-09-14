@@ -13,11 +13,30 @@
   var STROKE = { read: ["var(--accent-2,#5c8a5c)", "0"], line: ["var(--accent-2,#5c8a5c)", "0"],
                  index: ["var(--accent)", "0"], tree: ["var(--ochre,#8a7f5c)", "6 4"] };
 
-  Object.keys(P).sort(function (a, b) { return P[a].name.localeCompare(P[b].name); })
-    .forEach(function (s) {
-      var o = document.createElement("option");
-      o.value = P[s].name; o.dataset.slug = s; list.appendChild(o);
-    });
+  /* Folding, kept the same shape as the kit's search so the two agree about
+     what a reader typing with no accents and no punctuation means. */
+  function fold(x) {
+    return String(x == null ? "" : x).normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+  function squash(x) { return fold(x).replace(/[^a-z0-9]+/g, ""); }
+
+  var ALL = Object.keys(P).map(function (s) {
+    return { slug: s, name: P[s].name, f: fold(P[s].name), q: squash(P[s].name),
+             deg: P[s].parents.length + P[s].children.length + P[s].siblings.length };
+  }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+
+  function search(v) {
+    var f = fold(v.trim()), q = squash(v);
+    if (!f) return [];
+    return ALL.filter(function (p) { return p.f.indexOf(f) > -1 || (q && p.q.indexOf(q) > -1); })
+      .sort(function (a, b) {
+        /* a name that STARTS with what was typed first, then the best connected,
+           because a person with no relatives draws an empty chart */
+        var as = a.f.indexOf(f) === 0 ? 0 : 1, bs = b.f.indexOf(f) === 0 ? 0 : 1;
+        return as - bs || b.deg - a.deg || a.name.localeCompare(b.name);
+      });
+  }
 
   function el(n, a, t) {
     var e = document.createElementNS(NS, n);
@@ -113,11 +132,53 @@
     history.replaceState(null, "", "?p=" + encodeURIComponent(slug));
   }
 
-  input.addEventListener("change", function () {
-    var v = input.value.trim().toLowerCase();
-    var hit = Object.keys(P).find(function (s) { return P[s].name.toLowerCase() === v; });
-    none.hidden = !!hit || !v;
-    if (hit) go(hit);
+  /* The first version of this listened for "change" and demanded the reader
+     type a person's whole name exactly. Typing a surname did nothing at all,
+     silently — and the surname is spelt Defranceschi in these registers and
+     Defranceski on the modern side of the family, so even the obvious guess
+     missed. It is a search now. */
+  var results = document.createElement("div");
+  results.className = "bl-hits";
+  input.parentNode.insertBefore(results, none);
+
+  function render(v) {
+    var hits = search(v);
+    results.textContent = "";
+    none.hidden = !v.trim() || hits.length > 0;
+    if (!v.trim()) return;
+    hits.slice(0, 10).forEach(function (h) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "bl-hit";
+      b.innerHTML = "";
+      var n = document.createElement("span");
+      n.className = "bl-hit-n"; n.textContent = h.name;
+      var d = document.createElement("span");
+      d.className = "bl-hit-d";
+      d.textContent = h.deg ? h.deg + (h.deg === 1 ? " relative" : " relatives") : "no relatives yet";
+      b.appendChild(n); b.appendChild(d);
+      b.addEventListener("click", function () { go(h.slug); results.textContent = ""; });
+      results.appendChild(b);
+    });
+    if (hits.length > 10) {
+      var more = document.createElement("div");
+      more.className = "bl-more";
+      more.textContent = hits.length - 10 + " more — keep typing";
+      results.appendChild(more);
+    }
+  }
+
+  var t;
+  input.addEventListener("input", function () {
+    clearTimeout(t);
+    var v = input.value;
+    t = setTimeout(function () { render(v); }, 120);
+  });
+  input.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    var hits = search(input.value);
+    if (hits.length) { go(hits[0].slug); results.textContent = ""; }
   });
 
   var q = new URLSearchParams(location.search).get("p");
