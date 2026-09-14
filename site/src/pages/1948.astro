@@ -62,6 +62,20 @@ const P = (s) => `<p>${md(s)}</p>`;
   <p class="settle"><span class="lab">Confidence</span> <span set:html={based(md(d.closed.grade))}></span> · <a href={u("/cheryl-lerena/")}>Cheryl Lerena →</a></p>
 </section>
 
+<Rule name="pomegranate" label={d.after.heading} />
+<section class="blk">
+  <div style="display:flex;flex-direction:column;gap:18px">
+    {d.after.sections.map(x => (
+      <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{x.lab}</div>
+        <div class="prose" style="margin-top:10px" set:html={based(P(x.text))}></div>
+      </div>
+    ))}
+  </div>
+  <p class="settle" style="margin-top:20px"><span class="lab">Confidence</span> <span set:html={based(md(d.after.grade))}></span> · <a href={u("/cheryl-lerena/")}>Cheryl Lerena →</a></p>
+  <div class="note" style="margin-top:18px" set:html={based(P(d.after.note))}></div>
+</section>
+
 <Rule name="arrows" label={d.transposition.heading} />
 <section class="blk">
   <div class="prose" set:html={based(P(d.transposition.text))}></div>

@@ -5236,6 +5236,47 @@
     "parish registers",
     "Istria"
    ]
+  },
+  {
+   "src": "Portale Antenati — the Carnia side",
+   "what": "The surname across the whole Italian state-archive portal, and then the Carnian communes",
+   "when": "14 Sept 2026",
+   "outcome": "partial",
+   "got": "**It is open again, and Carnia is in it.** This archive's note said Antenati 403s both browsers; on 14 September the portal answered normally. The search is at `/search-nominative/` and the parameter is **`cognome`**, not `q` — which is why earlier attempts looked like a block and were not one.\n\n**418 results for «de franceschi»**, spread across five spellings: De Franceschi (393), De' Franceschi (7), Dè Franceschi (6), De Franceschi Roncadin (2), Dé Franceschi (2). The heaviest places are **Roma (63), Brescia (59), Dosolo (45), San Ferdinando (26), Genova (21)** — and thirty-nine more localities behind them.\n\n**The very first result is Carnian**: *Maria De Franceschi, born **Paluzza, 1865**, married Gio Batta Della Pietra, daughter of **Costantino De Franceschi and Giovanna Lazzara*** — a marriage record with both parents named. Paluzza is eighteen kilometres from Mione.\n\n**Then the bot protection closed.** An XHR fetch to the same endpoint returned 403 and the navigations that followed returned «403 Forbidden». **No attempt was made to get round it.** The portal is worth a patient second visit: the Carnian communes David named — Tolmezzo, Enemonzo, Socchieve, Ampezzo — were never reached.",
+   "url": "https://antenati.cultura.gov.it/search-nominative/?cognome=de+franceschi",
+   "dest": "Portale Antenati",
+   "ev": [
+    [
+     "/carnia/",
+     "Carnia"
+    ]
+   ],
+   "tags": [
+    "archives",
+    "Italy",
+    "parish registers",
+    "indexes"
+   ]
+  },
+  {
+   "src": "Matricula Online — the Senj and Karlobag side",
+   "what": "Whether it holds Croatian parish registers at all",
+   "when": "14 Sept 2026",
+   "outcome": "nothing",
+   "got": "**Matricula does not hold Croatia.** Its fonds are Germany 9,123 · Austria 2,857 · Slovenia 723 · Switzerland 292 · Luxembourg 277 · **Italy 106** · Poland 5 · Serbia 5 · Bosnia 2. There is no Croatian section, so **Senj and Karlobag are not there and cannot be**.\n\n**Nor is Carnia.** Italy on Matricula is **Bozen-Brixen only** — South Tyrol. Friuli, Udine and the Val Degano are absent.\n\n**And it cannot be searched by name at all.** The search page is headed *«Search for Places»* and its fields are `place`, `diocese` and `date_filter`. There is no surname index. Matricula is a shelf you browse, not an index you query — which is worth knowing before anyone spends an evening trying.\n\n**One thing it does have.** The Koper diocese carries 198 parishes including the whole Vipava valley — **Ajdovščina, Vipava, Podnanos, Col, Budanje, Vrhpolje and Šturje itself**. Šturje is the parish of the *Johann Defranceski* this archive found acting as court-appointed *curator ad actum* at Laibach between 1865 and 1875, and whose village it had never placed in a register. **That is a door, and it is open.**",
+   "url": "https://data.matricula-online.eu/en/slovenia/koper/Sturje/",
+   "dest": "Matricula — Šturje parish",
+   "ev": [
+    [
+     "/imperial/",
+     "The name in imperial service"
+    ]
+   ],
+   "tags": [
+    "parish registers",
+    "archives",
+    "Austria-Hungary"
+   ]
   }
  ]
 }
