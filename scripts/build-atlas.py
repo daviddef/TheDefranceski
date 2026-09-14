@@ -114,12 +114,19 @@ def km(a, b):
     return 2 * 6371 * math.asin(math.sqrt(h))
 
 def samePlace(h1, h2):
-    """One town under two names. Gazetteers disagree by a few hundred metres,
-    so ground alone is not enough and a name alone is not enough either."""
-    d = km(coord[h1], coord[h2])
-    if d < 2: return True
+    """One town under two names — never two towns that merely stand close.
+
+    Gologorica and Gračišće are 2.4 km apart on this archive's own figures and
+    are the first and second steps of the documented descent. Proximity alone
+    merged them once; it will not again. Names must agree, or one must be the
+    other with a qualifier («Mione» and «Mione di Ovaro»)."""
     n1, n2 = norm(label.get(h1, h1)), norm(label.get(h2, h2))
-    return n1 == n2 and d < 30
+    if not n1 or not n2: return False
+    d = km(coord[h1], coord[h2])
+    if n1 == n2: return d < 30
+    w1, w2 = set(n1.split()), set(n2.split())
+    if w1 < w2 or w2 < w1: return d < 12          # one qualifies the other
+    return False
 
 reps = []
 groups = collections.defaultdict(list)
@@ -169,12 +176,27 @@ for h, ppl in people.items():
     })
 # places the archive names in the atlas but where no roster person sits —
 # skipped when a pin already stands on that ground
-ground = [(p["lat"], p["lon"], norm(p["name"])) for p in out]
+# A seed place already covered by a roster pin must hand its identity over —
+# «Mione di Ovaro» and «Mione» are one village, and the first carries the
+# order number that makes it part of the documented descent.
+def standingOn(a):
+    an = norm(a["name"]); aw = set(an.split())
+    for p in out:
+        pn = norm(p["name"]); d = km((a["lat"], a["lon"]), (p["lat"], p["lon"]))
+        if an == pn and d < 30: return p
+        pw = set(pn.split())
+        if (aw < pw or pw < aw) and d < 12: return p
+    return None
 for a in oldatlas:
-    if any(km((a["lat"], a["lon"]), (la, lo)) < 2 or
-           (norm(a["name"]) == nm and km((a["lat"], a["lon"]), (la, lo)) < 30)
-           for la, lo, nm in ground): continue
-    ground.append((a["lat"], a["lon"], norm(a["name"])))
+    p = standingOn(a)
+    if p is not None:
+        if a.get("order") and not p.get("order"):
+            p["order"] = a["order"]; p["cat"] = a.get("cat") or p["cat"]
+            p["name"] = a["name"]
+            p["when"] = p["when"] or a.get("when", "")
+            p["what"] = p["what"] or a.get("what", "")
+            p["href"] = p["href"] or a.get("href", "")
+        continue
     out.append({**a, "n": 0, "also": [], "people": [], "more": 0,
                 "films": REG.get(head(a["name"]), [])[:80],
                 "nfilms": len(REG.get(head(a["name"]), []))})
@@ -187,6 +209,9 @@ def fold(rows):
         hit = None
         for k in keep:
             if norm(k["name"]) == norm(r["name"]) and km((k["lat"], k["lon"]), (r["lat"], r["lon"])) < 30:
+                hit = k; break
+            kw, rw = set(norm(k["name"]).split()), set(norm(r["name"]).split())
+            if (kw < rw or rw < kw) and km((k["lat"], k["lon"]), (r["lat"], r["lon"])) < 12:
                 hit = k; break
         if hit is None: keep.append(r); continue
         if r["n"] > hit["n"]:                      # the heavier pin keeps the ground

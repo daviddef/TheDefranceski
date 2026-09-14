@@ -40,8 +40,14 @@ const s = a.stats;
         <button class="at-cat on" data-cat={k}><i style={`background:${c}`}></i>{label}</button>
       ))}
     </div>
+    <div class="atlas-key at-over">
+      <button class="at-cat on" data-over="spine"><i style="background:#A8442B"></i>The documented descent</button>
+      <button class="at-cat on" data-over="moves"><i style="background:#7A5CA8"></i>Movements — David's own arrows</button>
+      <button class="at-cat" data-over="areas"><i style="background:#4E7A55"></i>The hot-spots he drew</button>
+    </div>
   </div>
   <p class="cap" id="at-count"></p>
+  <p class="cap" style="margin-top:6px"><strong>Movements and hot-spots are David's own</strong>, lifted whole from the Google My Map he kept for years — fifty-six arrows and ten shaded areas. They are drawn dashed and labelled as his, because <em>motion on a map is persuasive in a way that evidence is not</em>. The one journey this archive holds a document for is Zuane De Franceschi of Mione, working in the County of Pazin in 1679.</p>
 
   <section class="blk" style="margin-top:34px">
     <h2>Reading the map</h2>
@@ -140,10 +146,54 @@ const s = a.stats;
       m._p = p; markers.push(m); pts.push([p.lat, p.lon]);
     });
 
-    var spine = d.places.filter(function (p) { return p.order; })
+    // ---- the documented descent: the only line drawn solid ----------------
+    var spinePts = d.places.filter(function (p) { return p.order; })
       .sort(function (x, y) { return x.order - y.order; })
       .map(function (p) { return [p.lat, p.lon]; });
-    L.polyline(spine, { color: "#A8442B", weight: 2.5, opacity: 0.75, dashArray: "1 7", lineCap: "round" }).addTo(map);
+    var spineLayer = L.layerGroup().addTo(map);
+    L.polyline(spinePts, { color: "#A8442B", weight: 3, opacity: 0.85, lineCap: "round" }).addTo(spineLayer);
+
+    // ---- David's own arrows, dashed and animated --------------------------
+    // Motion is persuasive in a way that evidence is not, so these stay dashed
+    // and say whose they are. Nothing here is upgraded to a document.
+    var movesLayer = L.layerGroup();
+    (d.moves || []).forEach(function (m) {
+      var line = L.polyline([m.from, m.to], {
+        color: "#7A5CA8", weight: 1.6, opacity: 0.55,
+        dashArray: "5 7", className: "at-flow", lineCap: "round"
+      });
+      line.bindTooltip(m.n + " · " + m.km + " km", { sticky: true });
+      line.bindPopup("<b>" + esc(m.n) + "</b><br><i>" + esc(m.layer) + "</i><br>" +
+        m.km + " km<br><span style='font-size:11px;opacity:.75'>Drawn by David on his own map. " +
+        "This archive has not verified it.</span>");
+      line.addTo(movesLayer);
+      // a head at the destination, so the arrow has a direction
+      L.circleMarker(m.to, { radius: 2.6, color: "#7A5CA8", weight: 0, fillColor: "#7A5CA8", fillOpacity: 0.8 })
+        .addTo(movesLayer);
+    });
+
+    // ---- the hot-spots, as he drew them -----------------------------------
+    var areasLayer = L.layerGroup();
+    (d.areas || []).forEach(function (a) {
+      if (!a.ring || a.ring.length < 3) return;
+      L.polygon(a.ring, { color: "#4E7A55", weight: 1.4, opacity: 0.7,
+                          fillColor: "#4E7A55", fillOpacity: 0.10 })
+        .bindTooltip(a.n, { sticky: true })
+        .bindPopup("<b>" + esc(a.n) + "</b><br><i>" + esc(a.layer) + "</i><br>" +
+          "<span style='font-size:11px;opacity:.75'>An area David shaded on his own map.</span>")
+        .addTo(areasLayer);
+    });
+
+    movesLayer.addTo(map);   // the arrows are what the map is for
+    var OVER = { spine: spineLayer, moves: movesLayer, areas: areasLayer };
+    document.querySelectorAll(".at-cat[data-over]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-over"), lay = OVER[k];
+        var on = map.hasLayer(lay);
+        if (on) map.removeLayer(lay); else lay.addTo(map);
+        b.classList.toggle("on", !on);
+      });
+    });
 
     map.fitBounds(L.latLngBounds([[35, 9], [49, 26]]), { padding: [24, 24] });
 
@@ -227,6 +277,10 @@ const s = a.stats;
   }
   .at-cat.on { opacity: 1; color: var(--ink-2); border-color: var(--ink-3); }
   .at-cat i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .at-over { width: 100%; }
+  :global(.at-flow) { stroke-dasharray: 5 7; animation: at-march 1.6s linear infinite; }
+  @keyframes at-march { to { stroke-dashoffset: -24; } }
+  @media (prefers-reduced-motion: reduce) { :global(.at-flow) { animation: none; } }
   @media (max-width: 860px) {
     .at-wrap { grid-template-columns: 1fr; }
     .at-map { height: 380px; } .at-panel { height: auto; max-height: 460px; }
