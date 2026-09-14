@@ -245,6 +245,18 @@
     }
   }
 
+  /* The box carries the name of whoever is on screen, so the next thing a
+     reader wants to do is replace it, not append to it. Select it on focus and
+     one keystroke starts a new search instead of a dozen backspaces. iOS puts
+     the caret where it was tapped after the focus event, so it has to be done
+     again on the next frame, and the click guard keeps a deliberate
+     cursor-placement from being stolen back. */
+  function selectAll() { try { input.select(); } catch (e) {} }
+  input.addEventListener("focus", function () { selectAll(); setTimeout(selectAll, 0); });
+  input.addEventListener("click", function () {
+    if (input.selectionStart === input.selectionEnd) selectAll();
+  });
+
   var t;
   input.addEventListener("input", function () {
     clearTimeout(t); var v = input.value;

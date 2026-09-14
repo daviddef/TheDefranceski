@@ -63,6 +63,20 @@ table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:13.5
 th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-3);padding:0 16px 9px 0;border-bottom:1px solid var(--rule-strong);white-space:nowrap}
 td{padding:10px 16px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2);line-height:1.5}
+
+/* Tables on a phone. Column widths on this site are written as inline rem
+   values chosen for a desktop column — 14rem for a label, 8rem for a count —
+   and on a 390px screen that fixed 22rem leaves the column carrying the actual
+   sentence about nine characters wide, one or two words a line. Below 600px
+   the content decides instead, and the gutters come in. Inline styles can only
+   be beaten with !important, which is what it is for. */
+@media (max-width:600px){
+  table th[style*="width"],
+  table td[style*="width"]{width:auto!important;min-width:0!important}
+  th{padding-right:10px}
+  td{padding:9px 10px 9px 0}
+  table{font-size:13px}
+}
 td:first-child{color:var(--ink);font-weight:500}
 td.m,th.m{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .chip{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.04em;
