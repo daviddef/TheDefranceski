@@ -59,15 +59,21 @@ function spine(people) {
   const id = (g) => "line-" + g.n;
   for (const g of rows) {
     const living = g.confidence === "living";
+    /* The wives are recorded on the line and were being dropped. The living
+       among them are named and nothing more — "dates withheld" is what the
+       data already says, and it is not a date to print. */
+    var sp = g.spouse || null;
+    var spDt = sp && sp.born && !/living|withheld/i.test(sp.born) ? sp.born : "";
     people[id(g)] = people[id(g)] || {
       slug: id(g), name: g.name,
+      spouse: sp ? sp.name : null, spouseDt: spDt,
       /* "2026" on its own reads as a birth year. Say which it is. */
       dt: living ? ""
         : g.born && g.died ? g.born + " – " + g.died
         : g.born ? "b. " + g.born
         : g.died ? "d. " + g.died : "",
       spine: g.n, living, place: g.place || "",
-      parents: [], children: [], siblings: [], spouse: null,
+      parents: [], children: [], siblings: [],
     };
   }
   for (const g of rows) {

@@ -6,6 +6,13 @@ import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import { graph, components } from "../lib/bloodline.js";
+import fs from "node:fs";
+import crypto from "node:crypto";
+/* The chart script had no version on it, so a fix sat behind a ten-minute
+   cache while somebody reloaded and saw the old drawing. Hash it. */
+const blv = crypto.createHash("sha1")
+  .update(fs.readFileSync(new URL("../../public/bloodline.js", import.meta.url)))
+  .digest("hex").slice(0, 8);
 
 const people = graph();
 const comps = components(people);
@@ -114,7 +121,7 @@ const S = linked[start];
   <Sources ids={["familysearch", "matricula", "dapa"]} />
 
   <script is:inline set:html={`window.__BLOOD = ${JSON.stringify(linked)}; window.__START = ${JSON.stringify(start)};`} />
-  <script is:inline src={u("/bloodline.js")}></script>
+  <script is:inline src={`${u("/bloodline.js")}?v=${blv}`}></script>
 
 <style is:global>
   /* is:global: this page had no style block before, and a scoped one makes

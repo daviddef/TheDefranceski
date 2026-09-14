@@ -119,8 +119,14 @@
       list.forEach(function (s, i) { pos[s] = i; });
     });
 
-    var widest = Math.max.apply(null, gens.map(function (gi) { return byGen[gi].length; }));
-    var W = Math.max(640, PAD * 2 + widest * BOX + (widest - 1) * GAPX);
+    /* a married person takes two boxes' worth of room, their own and their
+       husband's or wife's, so the rows have to be measured rather than counted */
+    var wide = function (s) { return BOX + (P[s].spouse ? GAPX + BOX : 0); };
+    var rowW = function (gi) {
+      return byGen[gi].reduce(function (t, s) { return t + wide(s); }, 0)
+             + (byGen[gi].length - 1) * GAPX * 2;
+    };
+    var W = Math.max(640, PAD * 2 + Math.max.apply(null, gens.map(rowW)));
     var H = PAD * 2 + gens.length * LANE;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     svg.setAttribute("width", W);
@@ -129,10 +135,10 @@
     var xy = {};
     gens.forEach(function (gi, row) {
       var list = byGen[gi];
-      var total = list.length * BOX + (list.length - 1) * GAPX;
-      var x0 = (W - total) / 2;
-      list.forEach(function (s, i) {
-        xy[s] = { x: x0 + i * (BOX + GAPX), y: PAD + row * LANE };
+      var x = (W - rowW(gi)) / 2;
+      list.forEach(function (s) {
+        xy[s] = { x: x, y: PAD + row * LANE };
+        x += wide(s) + GAPX * 2;
       });
     });
 
@@ -175,6 +181,25 @@
         clip(P[s].dt || kin(root, s), 26)));
       g.appendChild(el("title", {}, P[s].name + (P[s].dt ? ", " + P[s].dt : "") + " — " + kin(root, s)));
       svg.appendChild(g);
+
+      /* The wife or husband, beside them, joined by a marriage line. Drawn
+         differently on purpose: they are not blood, and this page is about
+         blood — but leaving them out makes a family look like a list of
+         single men. */
+      if (P[s].spouse) {
+        var sx = p.x + BOX + GAPX;
+        svg.appendChild(el("path", {
+          d: "M" + (p.x + BOX) + "," + (p.y + BH / 2) + " L" + sx + "," + (p.y + BH / 2),
+          stroke: "var(--ink-3)", "stroke-width": 1.5, "stroke-dasharray": "5 4", fill: "none"
+        }));
+        var sg = el("g", { class: "bl-node is-spouse" });
+        sg.appendChild(el("rect", { x: sx, y: p.y, width: BOX, height: BH, rx: 5 }));
+        sg.appendChild(el("text", { x: sx + 10, y: p.y + 17 }, clip(P[s].spouse, 22)));
+        sg.appendChild(el("text", { x: sx + 10, y: p.y + 31, class: "bl-dt" },
+          clip(P[s].spouseDt ? "b. " + P[s].spouseDt : "married in", 26)));
+        sg.appendChild(el("title", {}, P[s].spouse + " — married " + P[s].name));
+        svg.appendChild(sg);
+      }
     });
 
     var n = Object.keys(gen).length;
