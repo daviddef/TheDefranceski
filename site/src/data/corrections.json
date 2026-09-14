@@ -429,6 +429,15 @@
    "said": "The Atlas carried **52 hand-written pins** and had done since it was built. The dek said «every place this archive can put a document in», which was not true: the roster names **266 place strings** attaching **1,440 people** to the ground.",
    "true": "Rebuilt from the roster, the map holds **154 places and 955 people**. Three things were wrong rather than merely missing.\n\n· **One town was being drawn several times under different names.** Almissa and Omiš are the same place; so are Fiume, Vitipolis and Tarsatica, which is why the first rebuild put **Rijeka on the map three times**. Historic and Italian forms are now folded onto the town they name.\n\n· **This archive holds two different coordinates for Gračišće**, seven kilometres apart — one in *places.json*, one in *atlas.json*. Neither was flagged because nothing had ever compared them. The heavier pin keeps the ground and the builder now refuses to draw one name twice.\n\n· **Seventy-three entries name something that is not a town.** Thirteen say «Österreich», five «Austria», four «Italy»; and four each say **«Santa Maria Assunta», «Immacolata Concezione» and «Assunzione di Maria Santissima»** — church dedications written into a place field. Those are left off the map and are a data error to be cleaned, not a place to be pinned.",
    "how": "Found by building the thing properly rather than by checking it. Nothing compares a gazetteer against itself until something has to draw both."
+  },
+  {
+   "when": "14 Sept 2026",
+   "what": "«642 volumes open at page one» — the Carnian ones do not open at all",
+   "sev": "serious",
+   "where": "/parish-books/",
+   "said": "Published this morning: «985 more volumes now open at page one», counting **343 Dalmatian and 642 Carnian**. The Carnian half was described exactly like the Croatian half.",
+   "true": "**The images of the entire Udine collection are restricted.** The viewer answers *«Image Restricted — access is typically determined by local laws or the custodian»*. Tested at **Colza, Comeglians and Paluzza**; all three are shut. The Croatian volumes — Istria, the Kvarner and Dalmatia — open normally, which is how the mistake survived a spot-check: the one volume tested end to end that morning was **Tinjan**, and Tinjan is Croatian.\n\nSo the honest count is **652 volumes that open** and **642 that are addressable but gated**. The link is still worth having — it names the exact volume and its register number, which is what a reading-room request needs — but it is a catalogue entry, not a document.",
+   "how": "Found within hours, by going to do the thing the page promised: reading Colza to settle whether Ovaro's registers are filed under it. **The page said the volume was open; the volume was shut.** A link was tested for the wrong country and the claim was written for both."
   }
  ]
 }
