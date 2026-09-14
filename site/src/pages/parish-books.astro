@@ -2,9 +2,12 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
+import { md as _mdx, mdp as _mdp } from "../lib/md.js";
 import kv from "../data/kvarner-books.json";
 import pb from "../data/parishbooks.json";
 import hda from "../data/hda1448.json";
+import dal from "../data/dalmatia-books.json";
+import car from "../data/carnia-books.json";
 const RING = ["Pazin","Stari Pazin","Tinjan","Kringa","Krbune","Boljun","Lupoglav (Pazin)","Petar u Šumi","Polje Čepić","Kršan"];
 const ring = pb.list.filter(p => RING.includes(p.parish));
 const rest = pb.list.filter(p => !RING.includes(p.parish));
@@ -18,8 +21,9 @@ const film = (parish, title) => {
 };
 const linked = pb.linked || 0;
 ---
-<Base title="Parish Books" eyebrow={`${pb.volumes} volumes · ${pb.parishes} Istrian parishes`}
-      dek="Every Roman Catholic register volume photographed for Istria, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name.">
+<Base title="Parish Books"
+      eyebrow={`${pb.volumes + kv.linked + dal.volumes + car.volumes} volumes · Istria, the Kvarner, Dalmatia and Carnia`}
+      dek="Every register volume photographed for the places this family came from, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name. Every volume on this page opens at its own first image.">
 
 <section class="blk">
   <div class="note">Gologorica and Gračišće are not here, and neither is Pićan, Cerovlje, Vodnjan, Motovun or Lindar. But <strong>the ring of parishes around them is</strong>, and a family at Gologorica married, buried and stood godparent across that ring constantly. These are the books to read next, and none of their contents is name-indexed — a search returns nothing while the pages may be full of the surname.</div>
@@ -98,6 +102,67 @@ const linked = pb.linked || 0;
   <div class="note" style="margin-top:24px">{kv.gap}</div>
   <p class="cap" style="margin-top:16px">{kv.note}</p>
   <p class="cap" style="margin-top:8px"><strong>{kv.linked} volumes here open straight into the image viewer.</strong> {kv.harvested}</p>
+</section>
+
+<Rule name="loom" label="Dalmatia" />
+
+<section class="blk">
+  <h2>{dal.heading}</h2>
+  <p class="dek" set:html={_mdx(dal.lead)}></p>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="stat"><div class="n">{dal.volumes}</div><div class="l">volumes, every one of them openable</div></div>
+    <div class="stat"><div class="n">{dal.parishes.length}</div><div class="l">parishes — the Omiš, Split, Trogir, Imotski, Zadar and Dubrovnik groups</div></div>
+    <div class="stat"><div class="n">{dal.earliest}</div><div class="l">earliest volume on film</div></div>
+  </div>
+  <div class="scroll" style="margin-top:22px">
+    <table>
+      <thead><tr><th style="width:18%">Parish</th><th class="m" style="width:9%">Volumes</th><th>Open one</th></tr></thead>
+      <tbody>{dal.parishes.map(p => (
+        <tr>
+          <td>{p.name}</td>
+          <td class="m">{p.films.length}</td>
+          <td>{p.films.map(f => (
+            <div style="padding:1px 0">
+              <a href={`https://www.familysearch.org/ark:/61903/${f.ark}?cc=2040054&wc=${encodeURIComponent(f.wc)}`} rel="noopener" target="_blank">{f.t} &#8599;</a>
+            </div>))}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px">{dal.note}</p>
+</section>
+
+<Rule name="pomegranate" label="Carnia" />
+
+<section class="blk">
+  <h2>{car.heading}</h2>
+  <p class="dek" set:html={_mdx(car.lead)}></p>
+
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {car.findings.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={_mdp(r.text)}></p>
+      </div>
+    ))}
+  </div>
+
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th style="width:18%">Comune</th><th class="m" style="width:9%">Volumes</th><th>Open one</th></tr></thead>
+      <tbody>{car.comuni.map(p => (
+        <tr>
+          <td>{p.name}</td>
+          <td class="m">{p.films.length}</td>
+          <td>{p.films.map(f => (
+            <div style="padding:1px 0">
+              <a href={`https://www.familysearch.org/ark:/61903/${f.ark}?cc=1939238&wc=${encodeURIComponent(f.wc)}`} rel="noopener" target="_blank">{f.t} &#8599;</a>
+            </div>))}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px">{car.note}</p>
 </section>
 
 <Rule name="tablet" label="HR-HDA-1448" />

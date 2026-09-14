@@ -5086,6 +5086,32 @@
     "Istria",
     "Kvarner"
    ]
+  },
+  {
+   "src": "FamilySearch image waypoints — Dalmatia and Carnia, every volume addressed",
+   "what": "The Croatian collection walked for sixty Dalmatian parishes, and the Udine collection for twenty-six Carnian comuni",
+   "when": "14 Sept 2026",
+   "outcome": "yield",
+   "got": "**Nine hundred and eighty-five more volumes now open at page one, and nothing failed.**\n\n**Dalmatia — 343 volumes across 60 parishes**, the Omiš, Split, Trogir–Seget, Imotski, Zadar and Dubrovnik groups with the ring each married into. Earliest volume **1569**. Same collection as Istria (2040054), same method.\n\n**Carnia is a different country and took a different route.** It is not in the Croatian collection, and the collections API **silently ignores its own text filter** — a search for «Udine» returns Alabama — so all **3,483** FamilySearch collections had to be paged to find it. There is exactly one: **«Italy, Udine, Civil Registration (State Archive), 1806-1815, 1871-1911»**, collection 1939238, 1.26 million images. **This archive had been describing it as 1806–1815 only**; the 1871–1911 half has never been looked at.\n\n**642 volumes across 26 Carnian comuni** are now linked. Sutrio has 64, Prato 62, Paluzza 56.\n\n**And Ovaro is not in it.** The province lists 627 comuni and Ovaro is not one of them — nor Mione, Muina, Ovasta, Luint, Liariis, Chialina, Agrons or Cludinico. **But Colza is**, a frazione of Ovaro, holding a complete Napoleonic set for 1806–1812: births, deaths, marriages, banns and indexes, **25 volumes**. Whether Mione and Muina are written inside them is a question the images can answer and the index cannot — the record API's place filter is ignored too. The volumes are linked; it is a few minutes' reading and it has not been done.\n\n**Comeglians, the Gorto canton seat, carries the marriage *allegati* for 1807–1815** — the documents behind this archive's Giovanni Battista de' Franceschi «already dead by 1789».\n\n**A warning with it.** The Udine collection indexes 2,201 people called Franceschi. Of the first eleven hundred, **the Carnian communes account for five**. The rest are lowland Friulian families — Lauzzana and Colloredo (209), Udine (129), Muzzana del Turgnano (114), Bertiolo (101). Most Franceschi in the Udine registers are not this family and are not from the mountains.",
+   "url": "https://www.familysearch.org/search/collection/1939238",
+   "dest": "FamilySearch — Italy, Udine, Civil Registration",
+   "ev": [
+    [
+     "/parish-books/",
+     "Parish Books — Dalmatia and Carnia, every volume openable"
+    ],
+    [
+     "/atlas/",
+     "The Atlas — the volumes hang off the places"
+    ]
+   ],
+   "tags": [
+    "parish registers",
+    "archives",
+    "Dalmatia",
+    "Italy",
+    "indexes"
+   ]
   }
  ]
 }

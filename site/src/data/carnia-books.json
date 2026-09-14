@@ -1,0 +1,3367 @@
+{
+ "heading": "Carnia — a different country, a different collection, and one village missing",
+ "lead": "Carnia is not in the Croatian collection, and finding what FamilySearch holds for it meant paging **all 3,483 of its collections**, because the collections API silently ignores its own text filter — a search for «Udine» returns Alabama. There is exactly one: **«Italy, Udine, Civil Registration (State Archive), 1806-1815, 1871-1911»**, collection 1939238, 1.26 million images.",
+ "findings": [
+  {
+   "lab": "The archive had half the dates",
+   "text": "This site has been describing the Udine holding as **«Stato civile (civil only) 1806–1815»** — the Napoleonic registers. The collection is **1806–1815 *and* 1871–1911**. The second half, sixty years of civil registration after Italian unification, has never been looked at here."
+  },
+  {
+   "lab": "There is no Ovaro",
+   "key": true,
+   "text": "The province breaks down into **627 comuni**, and Ovaro is not one of them. Neither is Mione, Muina, Ovasta, Luint, Liariis, Chialina, Agrons nor Cludinico — every Val Degano name was checked.\n\n**But Colza is there**, and Colza is a frazione of Ovaro. It holds a complete Napoleonic set for **1806–1812**: births, deaths, marriages, marriage banns and the indexes to all three. Twenty-five volumes.\n\n**Whether Mione and Muina are written inside those volumes is a question the images can answer and the index cannot** — the record API's place filter is ignored, so it returns the same 2,201 people whatever place you give it. The volumes are linked below. It is a few minutes' reading to settle, and it has not been done yet."
+  },
+  {
+   "lab": "Comeglians holds the allegati this archive already used",
+   "text": "Comeglians — the seat of the Gorto canton — carries the **marriage *allegati* for 1807 to 1815**, nine volumes. Those are the documents behind one of this archive's load-bearing findings: the *allegati* are what pushed the Mione family back to a **Giovanni Battista de' Franceschi already dead by 1789**. They were read from the Archivio di Stato di Udine; this is the same material, openable from a desk."
+  },
+  {
+   "lab": "And a warning about the other two thousand",
+   "text": "The collection indexes **2,201 people called Franceschi**. Of the first eleven hundred, sampled by the search's own ranking, **the Carnian communes barely appear — five entries in all.** The bulk are lowland Friulian families: Lauzzana and Colloredo di Monte Albano (209), Udine (129), Muzzana del Turgnano (114), Bertiolo (101), Magnano in Riviera (46).\n\n**Most of the Franceschi in the Udine registers are not this family and are not from the mountains.** That is worth saying before anyone absorbs two thousand strangers into a Carnian pedigree."
+  }
+ ],
+ "comuni": [
+  {
+   "name": "Ampezzo",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 13362)",
+     "ark": "3:1:3QSQ-G999-BVT5",
+     "wc": "Q4CV-JCM:240168101,240212001,240212002"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 13363)",
+     "ark": "3:1:3QSQ-G999-1SD",
+     "wc": "Q4CV-K6Y:240168101,240212001,240213201"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 13364)",
+     "ark": "3:1:3QS7-8999-1DV",
+     "wc": "Q4CV-VN7:240168101,240212001,240214001"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13365)",
+     "ark": "3:1:3QS7-8999-BFNY",
+     "wc": "Q4CV-JW5:240168101,240212001,240214401"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13366)",
+     "ark": "3:1:3QS7-8999-BF58",
+     "wc": "Q4CV-J47:240168101,240212001,240215101"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 13367)",
+     "ark": "3:1:3QSQ-G999-BVQ2",
+     "wc": "Q4CV-JH3:240168101,240212001,240215601"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 13368)",
+     "ark": "3:1:3QSQ-G999-BVLP",
+     "wc": "Q4CV-JHT:240168101,240212001,240216301"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 13370)",
+     "ark": "3:1:3QS7-L999-198",
+     "wc": "Q4CV-JC8:240168101,240212001,240217301"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 13371)",
+     "ark": "3:1:3QSQ-G999-1JM",
+     "wc": "Q4CV-V6B:240168101,240212001,240218201"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 13369)",
+     "ark": "3:1:3QS7-8999-1385",
+     "wc": "Q4ZH-ZJX:240168101,240212001,240218901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13352)",
+     "ark": "3:1:3QS7-L999-1SC3",
+     "wc": "Q4CV-VDS:240168101,240212001,240219301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13353)",
+     "ark": "3:1:3QS7-8999-13S5",
+     "wc": "Q4ZH-ZJC:240168101,240212001,240219901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13354)",
+     "ark": "3:1:3QS7-L999-13SB",
+     "wc": "Q4CV-VDY:240168101,240212001,240220101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13355)",
+     "ark": "3:1:3QS7-8999-178M",
+     "wc": "Q4CV-VN5:240168101,240212001,240220701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13356)",
+     "ark": "3:1:3QSQ-G999-BZXP",
+     "wc": "Q4CV-JCT:240168101,240212001,240221301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 13357)",
+     "ark": "3:1:3QS7-L999-1SPF",
+     "wc": "Q4CV-VDF:240168101,240212001,240222001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 13358)",
+     "ark": "3:1:3QS7-L999-137R",
+     "wc": "Q4CV-V6S:240168101,240212001,240222501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 13360)",
+     "ark": "3:1:3QS7-L999-13NL",
+     "wc": "Q4CV-V68:240168101,240212001,240223301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 13361)",
+     "ark": "3:1:3QS7-L999-13GH",
+     "wc": "Q4CV-VX7:240168101,240212001,240223701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni indice 1812 (Registro 13359)",
+     "ark": "3:1:3QSQ-G999-17SK",
+     "wc": "Q4CV-VFH:240168101,240212001,240224201"
+    },
+    {
+     "t": "Morti 1806 (Registro 13342)",
+     "ark": "3:1:3QS7-L999-B6BP",
+     "wc": "Q4CV-N86:240168101,240212001,240224501"
+    },
+    {
+     "t": "Morti 1807 (Registro 13343)",
+     "ark": "3:1:3QS7-L999-BXTL",
+     "wc": "Q4CV-NDB:240168101,240212001,240225601"
+    },
+    {
+     "t": "Morti 1808 (Registro 13344)",
+     "ark": "3:1:3QSQ-G999-BZ6B",
+     "wc": "Q4CV-JC5:240168101,240212001,240226301"
+    },
+    {
+     "t": "Morti 1809 (Registro 13345)",
+     "ark": "3:1:3QS7-L999-B8SK",
+     "wc": "Q4CV-J8Q:240168101,240212001,240226801"
+    },
+    {
+     "t": "Morti 1810 (Registro 13346)",
+     "ark": "3:1:3QS7-L999-B6BX",
+     "wc": "Q4CV-NZY:240168101,240212001,240227701"
+    },
+    {
+     "t": "Morti 1811 (Registro 13347)",
+     "ark": "3:1:3QSQ-G999-BNLH",
+     "wc": "Q4CV-NDQ:240168101,240212001,240228101"
+    },
+    {
+     "t": "Morti 1812 (Registro 13348)",
+     "ark": "3:1:3QSQ-G999-BNYV",
+     "wc": "Q4CV-N6V:240168101,240212001,240228501"
+    },
+    {
+     "t": "Morti 1813 (Registro 13350)",
+     "ark": "3:1:3QS7-8999-BCKM",
+     "wc": "Q4CV-JZ4:240168101,240212001,240229301"
+    },
+    {
+     "t": "Morti 1814 (Registro 13351)",
+     "ark": "3:1:3QS7-8999-BZ6T",
+     "wc": "Q4CV-NW8:240168101,240212001,240229801"
+    },
+    {
+     "t": "Morti, indice 1812 (Registro 13345)",
+     "ark": "3:1:3QSQ-G999-1LW",
+     "wc": "Q4CV-VJJ:240168101,240212001,240230701"
+    },
+    {
+     "t": "Nati  1806 (Registro 13324)",
+     "ark": "3:1:3QS7-8999-BCJD",
+     "wc": "Q4ZH-CX8:240168101,240212001,240230901"
+    },
+    {
+     "t": "Nati  1807 (Registro 13326)",
+     "ark": "3:1:3QS7-8999-BZX6",
+     "wc": "Q4CV-NWH:240168101,240212001,240231301"
+    },
+    {
+     "t": "Nati  1808 (Registro 13328)",
+     "ark": "3:1:3QS7-8999-B8KH",
+     "wc": "Q4CV-N4K:240168101,240212001,240232001"
+    },
+    {
+     "t": "Nati  1809 (Registro 13330)",
+     "ark": "3:1:3QSQ-G999-B6CV",
+     "wc": "Q4CV-NHG:240168101,240212001,240233101"
+    },
+    {
+     "t": "Nati  1810 (Registro 13332)",
+     "ark": "3:1:3QS7-8999-BZ9K",
+     "wc": "Q4CV-NWM:240168101,240212001,240234301"
+    },
+    {
+     "t": "Nati  1811 (Registro 13334)",
+     "ark": "3:1:3QSQ-G999-BDMX",
+     "wc": "Q4CV-N44:240168101,240212001,240235301"
+    },
+    {
+     "t": "Nati  1812 (Registro 13336)",
+     "ark": "3:1:3QS7-8999-BD8P",
+     "wc": "Q4CV-NHJ:240168101,240212001,240235701"
+    },
+    {
+     "t": "Nati  1813 (Registro 13338)",
+     "ark": "3:1:3QS7-L999-BD1C",
+     "wc": "Q4CV-NCZ:240168101,240212001,240236601"
+    },
+    {
+     "t": "Nati  1814 (Registro 13340)",
+     "ark": "3:1:3QS7-8999-BXQW",
+     "wc": "Q4CV-NZ1:240168101,240212001,240237201"
+    },
+    {
+     "t": "Nati, indice 1806 (Registro 13325)",
+     "ark": "3:1:3QSQ-G999-1934",
+     "wc": "Q4CV-K6B:240168101,240212001,240238001"
+    },
+    {
+     "t": "Nati, indice 1807 (Registro 13327)",
+     "ark": "3:1:3QSQ-G999-1L2",
+     "wc": "Q4CV-VJK:240168101,240212001,240238301"
+    },
+    {
+     "t": "Nati, indice 1808 (Registro 13329)",
+     "ark": "3:1:3QSQ-G999-BJNM",
+     "wc": "Q4CV-NXQ:240168101,240212001,240238601"
+    },
+    {
+     "t": "Nati, indice 1809 (Registro 13331)",
+     "ark": "3:1:3QS7-8999-BN8N",
+     "wc": "Q4ZH-CXQ:240168101,240212001,240239201"
+    },
+    {
+     "t": "Nati, indice 1810 (Registro 13333)",
+     "ark": "3:1:3QS7-L999-BJLY",
+     "wc": "Q4CV-J8F:240168101,240212001,240239801"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13335)",
+     "ark": "3:1:3QS7-L999-1XY",
+     "wc": "Q4CV-VJG:240168101,240212001,240240001"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 13337)",
+     "ark": "3:1:3QS7-L999-19ZY",
+     "wc": "Q4ZH-ZN1:240168101,240212001,240240601"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 13339)",
+     "ark": "3:1:3QSQ-G999-BFNK",
+     "wc": "Q4CV-NZR:240168101,240212001,240241001"
+    },
+    {
+     "t": "Nati, indice 1814 (Registro 13341)",
+     "ark": "3:1:3QSQ-G999-BVPD",
+     "wc": "Q4CV-JH1:240168101,240212001,240241201"
+    }
+   ]
+  },
+  {
+   "name": "Cavazzo",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1806 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LDJ4",
+     "wc": "Q4CK-4HP:240168101,241031901,240493401"
+    },
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40915)",
+     "ark": "3:1:3QSQ-G9S4-LZP6",
+     "wc": "Q4CK-CFD:240168101,241031901,241032401"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40915)",
+     "ark": "3:1:3QS7-L9S4-LCRC",
+     "wc": "Q4CK-CX6:240168101,241031901,241032901"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40912)",
+     "ark": "3:1:3QSQ-G9S4-L8PV",
+     "wc": "Q4CK-44J:240168101,241031901,241033701"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LFXT",
+     "wc": "Q4CK-H83:240168101,241031901,241034101"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LZ1T",
+     "wc": "Q4CK-44Q:240168101,241031901,241034401"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LCK5",
+     "wc": "Q4CK-CXX:240168101,241031901,241034801"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40911)",
+     "ark": "3:1:3QS7-89S4-LCL2",
+     "wc": "Q4CK-HD1:240168101,241031901,241035101"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40912)",
+     "ark": "3:1:3QS7-89S4-L8QQ",
+     "wc": "Q4CK-CF2:240168101,241031901,241035301"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LZHL",
+     "wc": "Q4CK-CFG:240168101,241031901,241036001"
+    }
+   ]
+  },
+  {
+   "name": "Colza",
+   "films": [
+    {
+     "t": "Matrimoni 1807 (Registro 13461)",
+     "ark": "3:1:3QS7-L999-BN8V",
+     "wc": "Q4CV-JHH:240168101,241371301,241371302"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 13462)",
+     "ark": "3:1:3QS7-8999-BNKG",
+     "wc": "Q4CV-JCW:240168101,241371301,241371701"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13463)",
+     "ark": "3:1:3QS7-L999-197",
+     "wc": "Q4CV-J8J:240168101,241371301,241372001"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13464)",
+     "ark": "3:1:3QS7-L999-1DF",
+     "wc": "Q4CV-VFW:240168101,241371301,241372301"
+    },
+    {
+     "t": "Matrimoni, indice 1806-1810 (Registro 13465)",
+     "ark": "3:1:3QS7-L999-1S2N",
+     "wc": "Q4ZN-VZQ:240168101,241371301,241372501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13457)",
+     "ark": "3:1:3QS7-8999-13YV",
+     "wc": "Q4CV-V6F:240168101,241371301,241372901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13458)",
+     "ark": "3:1:3QSQ-G999-1QFX",
+     "wc": "Q4CV-VXW:240168101,241371301,241373101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13459)",
+     "ark": "3:1:3QSQ-G999-1Q1M",
+     "wc": "Q4CV-VF7:240168101,241371301,241373301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13460)",
+     "ark": "3:1:3QS7-L999-1QXC",
+     "wc": "Q4CV-VFP:240168101,241371301,241373601"
+    },
+    {
+     "t": "Morti 1807 (Registro 13466)",
+     "ark": "3:1:3QSQ-G999-B6HR",
+     "wc": "Q4CV-NHZ:240168101,241371301,241374001"
+    },
+    {
+     "t": "Morti 1808 (Registro 13467)",
+     "ark": "3:1:3QSQ-G999-B6LK",
+     "wc": "Q4CV-NCF:240168101,241371301,241374201"
+    },
+    {
+     "t": "Morti 1809 (Registro 13468)",
+     "ark": "3:1:3QSQ-G999-BF5C",
+     "wc": "Q4CV-NZG:240168101,241371301,241374701"
+    },
+    {
+     "t": "Morti 1810 (Registro 13469)",
+     "ark": "3:1:3QS7-L999-BXGX",
+     "wc": "Q4ZH-C6P:240168101,241371301,241374901"
+    },
+    {
+     "t": "Morti 1811 (Registro 13471)",
+     "ark": "3:1:3QSQ-G999-BDCY",
+     "wc": "Q4CV-N4L:240168101,241371301,241375301"
+    },
+    {
+     "t": "Morti 1812 (Registro 13472)",
+     "ark": "3:1:3QS7-L999-BDJJ",
+     "wc": "Q4CV-NC4:240168101,241371301,241375701"
+    },
+    {
+     "t": "Morti, indice 1806-1810 (Registro 13470)",
+     "ark": "3:1:3QS7-8999-13PG",
+     "wc": "Q4ZH-ZJJ:240168101,241371301,241376101"
+    },
+    {
+     "t": "Nati  1806 (Registro 13448)",
+     "ark": "3:1:3QS7-8999-BC2W",
+     "wc": "Q4CV-JZS:240168101,241371301,241376401"
+    },
+    {
+     "t": "Nati  1807 (Registro 13449)",
+     "ark": "3:1:3QS7-L999-BZY5",
+     "wc": "Q4CV-N7B:240168101,241371301,241376901"
+    },
+    {
+     "t": "Nati  1808 (Registro 13450)",
+     "ark": "3:1:3QS7-8999-BZRY",
+     "wc": "Q4CV-N49:240168101,241371301,241377201"
+    },
+    {
+     "t": "Nati  1809 (Registro 13451)",
+     "ark": "3:1:3QS7-8999-B8Y5",
+     "wc": "Q4CV-NHF:240168101,241371301,241377501"
+    },
+    {
+     "t": "Nati  1810 (Registro 13452)",
+     "ark": "3:1:3QS7-L999-BF24",
+     "wc": "Q4CV-N6T:240168101,241371301,241377701"
+    },
+    {
+     "t": "Nati  1811 (Registro 13454)",
+     "ark": "3:1:3QS7-L999-BZBS",
+     "wc": "Q4CV-J84:240168101,241371301,241378101"
+    },
+    {
+     "t": "Nati  1812 (Registro 13456)",
+     "ark": "3:1:3QSQ-G999-B8W3",
+     "wc": "Q4CV-NW9:240168101,241371301,241378301"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 13453)",
+     "ark": "3:1:3QSQ-G999-BJ2T",
+     "wc": "Q4CV-NX4:240168101,241371301,241378701"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13455)",
+     "ark": "3:1:3QSQ-G999-BV79",
+     "wc": "Q4CV-JHC:240168101,241371301,241378901"
+    }
+   ]
+  },
+  {
+   "name": "Comeglians",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-L6HJ",
+     "wc": "Q4CK-4CN:240168101,241379201,240591301"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-L8C9",
+     "wc": "Q4CK-441:240168101,241379201,240521801"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LHG3",
+     "wc": "Q4CK-HDL:240168101,241379201,241033701"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40911)",
+     "ark": "3:1:3QS7-89S4-LJ4C",
+     "wc": "Q4CK-H8L:240168101,241379201,240251101"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40911)",
+     "ark": "3:1:3QSQ-G9S4-LXX9",
+     "wc": "Q4CK-4C8:240168101,241379201,241381201"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LX9F",
+     "wc": "Q4CK-HZS:240168101,241379201,240688801"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LFWN",
+     "wc": "Q4CK-HZY:240168101,241379201,240764901"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40915)",
+     "ark": "3:1:3QS7-L9S4-LZK6",
+     "wc": "Q4CK-W7P:240168101,241379201,241383601"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LX1Z",
+     "wc": "Q4CK-HZ2:240168101,241379201,241013401"
+    }
+   ]
+  },
+  {
+   "name": "Enemonzo",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 13427)",
+     "ark": "3:1:3QSQ-G999-BVQP",
+     "wc": "Q4CV-JHQ:240168101,241599701,241599702"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 13428)",
+     "ark": "3:1:3QS7-8999-BNPF",
+     "wc": "Q4CV-JHP:240168101,241599701,241599901"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 13429)",
+     "ark": "3:1:3QSQ-G999-1K",
+     "wc": "Q4CV-JDZ:240168101,241599701,241600301"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13430)",
+     "ark": "3:1:3QSQ-G999-1NV",
+     "wc": "Q4CV-VXT:240168101,241599701,241600601"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13431)",
+     "ark": "3:1:3QSQ-G999-1LF",
+     "wc": "Q4CV-VJ7:240168101,241599701,241601101"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 13432)",
+     "ark": "3:1:3QSQ-G999-19LW",
+     "wc": "Q4CV-J86:240168101,241599701,241601901"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 13433)",
+     "ark": "3:1:3QS7-L999-194X",
+     "wc": "Q4ZH-ZN5:240168101,241599701,241602501"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 13435)",
+     "ark": "3:1:3QS7-8999-19KM",
+     "wc": "Q4CV-J8G:240168101,241599701,241602901"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 13437)",
+     "ark": "3:1:3QS7-8999-195D",
+     "wc": "Q4CV-JDW:240168101,241599701,241603301"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 13434)",
+     "ark": "3:1:3QSQ-G999-1S9",
+     "wc": "Q4CV-VJF:240168101,241599701,241604101"
+    },
+    {
+     "t": "Matrimoni, indice 1813 (Registro 13436)",
+     "ark": "3:1:3QS7-8999-1KQ",
+     "wc": "Q4ZH-824:240168101,241599701,241604501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13418)",
+     "ark": "3:1:3QSQ-G999-135X",
+     "wc": "Q4CV-VDL:240168101,241599701,241604801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13419)",
+     "ark": "3:1:3QS7-L999-13CP",
+     "wc": "Q4CV-V6H:240168101,241599701,241605101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13420)",
+     "ark": "3:1:3QS7-L999-1325",
+     "wc": "Q4CV-VXM:240168101,241599701,241605701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13421)",
+     "ark": "3:1:3QS7-8999-1QPZ",
+     "wc": "Q4CV-VF3:240168101,241599701,241606801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro  13421, Parte 2)",
+     "ark": "3:1:3QS7-L999-1QF8",
+     "wc": "Q4CV-VN9:240168101,241599701,241606401"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13422)",
+     "ark": "3:1:3QSQ-G999-1355",
+     "wc": "Q4CV-V6Q:240168101,241599701,241607101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 13423)",
+     "ark": "3:1:3QS7-L999-136K",
+     "wc": "Q4CV-V62:240168101,241599701,241608001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 13424)",
+     "ark": "3:1:3QS7-8999-1QH8",
+     "wc": "Q4CV-VXN:240168101,241599701,241608501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 13425)",
+     "ark": "3:1:3QS7-8999-1QNJ",
+     "wc": "Q4CV-VF4:240168101,241599701,241608901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 13426)",
+     "ark": "3:1:3QS7-8999-1Q15",
+     "wc": "Q4CV-VNF:240168101,241599701,241609601"
+    },
+    {
+     "t": "Morti 1806 (Registro 13438)",
+     "ark": "3:1:3QS7-8999-BDN2",
+     "wc": "Q4CV-NZ9:240168101,241599701,241610001"
+    },
+    {
+     "t": "Morti 1807 (Registro 13439)",
+     "ark": "3:1:3QSQ-G999-BV9H",
+     "wc": "Q4CV-J4N:240168101,241599701,241610701"
+    },
+    {
+     "t": "Morti 1808 (Registro 13440)",
+     "ark": "3:1:3QS7-8999-BNZQ",
+     "wc": "Q4CV-JHJ:240168101,241599701,241611101"
+    },
+    {
+     "t": "Morti 1809 (Registro 13441)",
+     "ark": "3:1:3QS7-L999-B87R",
+     "wc": "Q4ZH-CXJ:240168101,241599701,241611701"
+    },
+    {
+     "t": "Morti 1810 (Registro 13442)",
+     "ark": "3:1:3QS7-L999-B8R1",
+     "wc": "Q4CV-N42:240168101,241599701,241611901"
+    },
+    {
+     "t": "Morti 1811 (Registro 13443)",
+     "ark": "3:1:3QSQ-G999-B6Z6",
+     "wc": "Q4CV-NHP:240168101,241599701,241612701"
+    },
+    {
+     "t": "Morti 1812 (Registro 13444)",
+     "ark": "3:1:3QS7-8999-B67G",
+     "wc": "Q4CV-NZH:240168101,241599701,241613201"
+    },
+    {
+     "t": "Morti 1813 (Registro 13445)",
+     "ark": "3:1:3QS7-8999-BX7N",
+     "wc": "Q4CV-N8F:240168101,241599701,241613501"
+    },
+    {
+     "t": "Morti 1814 (Registro 13447)",
+     "ark": "3:1:3QS7-8999-BZRT",
+     "wc": "Q4CV-N43:240168101,241599701,241613901"
+    },
+    {
+     "t": "Morti, indice 1813 (Registro 13446)",
+     "ark": "3:1:3QS7-L999-B8VH",
+     "wc": "Q4ZH-HZN:240168101,241599701,241614801"
+    },
+    {
+     "t": "Nati  1806 (Registro 13401)",
+     "ark": "3:1:3QSQ-G999-BZX6",
+     "wc": "Q4CV-JZQ:240168101,241599701,241615201"
+    },
+    {
+     "t": "Nati  1807 (Registro 13403)",
+     "ark": "3:1:3QS7-8999-B64V",
+     "wc": "Q4CV-NCL:240168101,241599701,241615501"
+    },
+    {
+     "t": "Nati  1808 (Registro 13405)",
+     "ark": "3:1:3QS7-L999-B6PP",
+     "wc": "Q4CV-N84:240168101,241599701,241616201"
+    },
+    {
+     "t": "Nati  1809 (Registro 13407)",
+     "ark": "3:1:3QSQ-G999-BNGV",
+     "wc": "Q4CV-NDH:240168101,241599701,241616701"
+    },
+    {
+     "t": "Nati  1810 (Registro 13409)",
+     "ark": "3:1:3QS7-8999-BCH9",
+     "wc": "Q4CV-JCD:240168101,241599701,241617401"
+    },
+    {
+     "t": "Nati  1811 (Registro 13411)",
+     "ark": "3:1:3QS7-8999-BC5H",
+     "wc": "Q4CV-JZR:240168101,241599701,241617901"
+    },
+    {
+     "t": "Nati  1812 (Registro 13413)",
+     "ark": "3:1:3QS7-L999-B88Q",
+     "wc": "Q4CV-NWJ:240168101,241599701,241618301"
+    },
+    {
+     "t": "Nati  1813 (Registro 13414)",
+     "ark": "3:1:3QSQ-G999-BNVD",
+     "wc": "Q4CV-NDM:240168101,241599701,241618901"
+    },
+    {
+     "t": "Nati  1814 (Registro 13416)",
+     "ark": "3:1:3QSQ-G999-BNTL",
+     "wc": "Q4CV-N6C:240168101,241599701,241619701"
+    },
+    {
+     "t": "Nati, indice 1806 (Registro 13402)",
+     "ark": "3:1:3QSQ-G999-19PJ",
+     "wc": "Q4CV-JDS:240168101,241599701,241620101"
+    },
+    {
+     "t": "Nati, indice 1807 (Registro 13404)",
+     "ark": "3:1:3QS7-8999-1S32",
+     "wc": "Q4ZH-ZJS:240168101,241599701,241620601"
+    },
+    {
+     "t": "Nati, indice 1808 (Registro 13406)",
+     "ark": "3:1:3QS7-8999-BXTL",
+     "wc": "Q4ZH-C6K:240168101,241599701,241620901"
+    },
+    {
+     "t": "Nati, indice 1809 (Registro 13408)",
+     "ark": "3:1:3QS7-L999-BX1H",
+     "wc": "Q4ZN-6T5:240168101,241599701,241621201"
+    },
+    {
+     "t": "Nati, indice 1810 (Registro 13410)",
+     "ark": "3:1:3QSQ-G999-BV97",
+     "wc": "Q4CV-J4P:240168101,241599701,241621501"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13412)",
+     "ark": "3:1:3QS7-8999-BNL9",
+     "wc": "Q4CV-JCH:240168101,241599701,241622001"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 13415)",
+     "ark": "3:1:3QS7-8999-1SNX",
+     "wc": "Q4CV-V8Q:240168101,241599701,241622401"
+    },
+    {
+     "t": "Nati, indice 1814 (Registro 13417)",
+     "ark": "3:1:3QSQ-G999-BNRX",
+     "wc": "Q4CV-NDY:240168101,241599701,241622701"
+    }
+   ]
+  },
+  {
+   "name": "Forni Avoltri",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40911)",
+     "ark": "3:1:3QSQ-G9S4-L89X",
+     "wc": "Q4CK-CN9:240168101,241928501,241381201"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LCWT",
+     "wc": "Q4CK-CX3:240168101,241928501,241929201"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-LZ5Y",
+     "wc": "Q4CK-WWQ:240168101,241928501,241035101"
+    }
+   ]
+  },
+  {
+   "name": "Forni di Sotto",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40913)",
+     "ark": "3:1:3QS7-89S4-L6TT",
+     "wc": "Q4CK-4CQ:240168101,241930201,240521301"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40916)",
+     "ark": "3:1:3QS7-L9S4-LXKT",
+     "wc": "Q4CK-HZX:240168101,241930201,241411302"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40912)",
+     "ark": "3:1:3QSQ-G9S4-LF2X",
+     "wc": "Q4CK-HZP:240168101,241930201,241033701"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40912)",
+     "ark": "3:1:3QSQ-G9S4-LZY9",
+     "wc": "Q4CK-CFV:240168101,241930201,240645901"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40911)",
+     "ark": "3:1:3QS7-89S4-LCNB",
+     "wc": "Q4CK-HDK:240168101,241930201,241381201"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40912)",
+     "ark": "3:1:3QSQ-G9S4-L8WM",
+     "wc": "Q4CK-W7L:240168101,241930201,240688801"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LHDV",
+     "wc": "Q4CK-HDW:240168101,241930201,241035301"
+    }
+   ]
+  },
+  {
+   "name": "Oltris",
+   "films": [
+    {
+     "t": "Matrimoni 1807 (Registro 13390)",
+     "ark": "3:1:3QSQ-G999-1KM",
+     "wc": "Q4CV-VJ6:240168101,242674401,242674402"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 13391)",
+     "ark": "3:1:3QS7-L999-1RW",
+     "wc": "Q4CV-VJ5:240168101,242674401,242674701"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13392)",
+     "ark": "3:1:3QS7-L999-19WN",
+     "wc": "Q4CV-J82:240168101,242674401,242675001"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13393)",
+     "ark": "3:1:3QSQ-G999-19G7",
+     "wc": "Q4CV-J8Y:240168101,242674401,242675401"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 13394)",
+     "ark": "3:1:3QS7-L999-BN7P",
+     "wc": "Q4ZH-CX9:240168101,242674401,242675701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13384)",
+     "ark": "3:1:3QSQ-G999-BZLW",
+     "wc": "Q4CV-JZT:240168101,242674401,242676101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13385)",
+     "ark": "3:1:3QSQ-G999-134F",
+     "wc": "Q4CV-VD8:240168101,242674401,242676601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13386)",
+     "ark": "3:1:3QSQ-G999-13R8",
+     "wc": "Q4CV-V6M:240168101,242674401,242677101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13387)",
+     "ark": "3:1:3QS7-L999-13FH",
+     "wc": "Q4ZH-ZJN:240168101,242674401,242677501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13388)",
+     "ark": "3:1:3QS7-L999-1QMS",
+     "wc": "Q4CV-VXF:240168101,242674401,242677901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 13389)",
+     "ark": "3:1:3QS7-8999-1Q58",
+     "wc": "Q4CV-VF2:240168101,242674401,242678201"
+    },
+    {
+     "t": "Morti 1806 (Registro 13395)",
+     "ark": "3:1:3QS7-8999-B8QT",
+     "wc": "Q4CV-N4J:240168101,242674401,242678701"
+    },
+    {
+     "t": "Morti 1807 (Registro 13396)",
+     "ark": "3:1:3QS7-8999-BF9W",
+     "wc": "Q4CV-N6M:240168101,242674401,242679201"
+    },
+    {
+     "t": "Morti 1808 (Registro 13397)",
+     "ark": "3:1:3QSQ-G999-BJL2",
+     "wc": "Q4CV-NX3:240168101,242674401,242679801"
+    },
+    {
+     "t": "Morti 1809 (Registro 13398)",
+     "ark": "3:1:3QSQ-G999-BZ2Q",
+     "wc": "Q4CV-JZP:240168101,242674401,242680201"
+    },
+    {
+     "t": "Morti 1810 (Registro 13399)",
+     "ark": "3:1:3QSQ-G999-B857",
+     "wc": "Q4CV-NW2:240168101,242674401,242680501"
+    },
+    {
+     "t": "Morti 1811 (Registro 13400)",
+     "ark": "3:1:3QS7-L999-BDFJ",
+     "wc": "Q4CV-NHC:240168101,242674401,242680901"
+    },
+    {
+     "t": "Nati  1806 (Registro 13372)",
+     "ark": "3:1:3QS7-L999-1QXM",
+     "wc": "Q4ZH-823:240168101,242674401,242681201"
+    },
+    {
+     "t": "Nati  1807 (Registro 13374)",
+     "ark": "3:1:3QS7-8999-B859",
+     "wc": "Q4CV-NH3:240168101,242674401,242681501"
+    },
+    {
+     "t": "Nati  1808 (Registro 13376)",
+     "ark": "3:1:3QS7-8999-BDVY",
+     "wc": "Q4CV-NHT:240168101,242674401,242681701"
+    },
+    {
+     "t": "Nati  1809 (Registro 13378)",
+     "ark": "3:1:3QS7-L999-B6DD",
+     "wc": "Q4CV-NZK:240168101,242674401,242682301"
+    },
+    {
+     "t": "Nati  1810 (Registro 13380)",
+     "ark": "3:1:3QS7-L999-BXN5",
+     "wc": "Q4CV-ND9:240168101,242674401,242682501"
+    },
+    {
+     "t": "Nati  1811 (Registro 13382)",
+     "ark": "3:1:3QS7-8999-17S5",
+     "wc": "Q4ZH-827:240168101,242674401,242682801"
+    },
+    {
+     "t": "Nati, indice 1806 (Registro 13373)",
+     "ark": "3:1:3QS7-L999-1F8",
+     "wc": "Q4ZN-DP8:240168101,242674401,242683201"
+    },
+    {
+     "t": "Nati, indice 1807 (Registro 13375)",
+     "ark": "3:1:3QS7-L999-1LT",
+     "wc": "Q4ZN-DP6:240168101,242674401,242683501"
+    },
+    {
+     "t": "Nati, indice 1808 (Registro 13377)",
+     "ark": "3:1:3QS7-8999-19R8",
+     "wc": "Q4ZH-ZJ9:240168101,242674401,242684501"
+    },
+    {
+     "t": "Nati, indice 1809 (Registro 13379)",
+     "ark": "3:1:3QSQ-G999-BNCY",
+     "wc": "Q4CV-N8R:240168101,242674401,242684901"
+    },
+    {
+     "t": "Nati, indice 1810 (Registro 13381)",
+     "ark": "3:1:3QSQ-G999-BNRZ",
+     "wc": "Q4CV-NDR:240168101,242674401,242685201"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13383)",
+     "ark": "3:1:3QS7-L999-BFRT",
+     "wc": "Q4ZN-6TR:240168101,242674401,242685401"
+    }
+   ]
+  },
+  {
+   "name": "Osais",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 13151)",
+     "ark": "3:1:3QSQ-G999-1D1",
+     "wc": "Q4CV-V6Y:240168101,242708101,242708102"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 13152)",
+     "ark": "3:1:3QS7-L999-1FJ",
+     "wc": "Q4CV-VJV:240168101,242708101,242708501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13149)",
+     "ark": "3:1:3QSQ-G999-1QBL",
+     "wc": "Q4CV-VF6:240168101,242708101,242708801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13150)",
+     "ark": "3:1:3QS7-L999-19GW",
+     "wc": "Q4CV-JDC:240168101,242708101,242709101"
+    },
+    {
+     "t": "Morti 1806 (Registro 13153)",
+     "ark": "3:1:3QS7-8999-B847",
+     "wc": "Q4ZH-ZNP:240168101,242708101,242709501"
+    },
+    {
+     "t": "Morti 1807 (Registro 13154)",
+     "ark": "3:1:3QSQ-G999-BXWB",
+     "wc": "Q4CV-NC6:240168101,242708101,242710001"
+    },
+    {
+     "t": "Nati  1806 (Registro 13147)",
+     "ark": "3:1:3QS7-L999-1Q1G",
+     "wc": "Q4CV-VJQ:240168101,242708101,242710501"
+    },
+    {
+     "t": "Nati  1807 (Registro 13148)",
+     "ark": "3:1:3QS7-8999-BC5Y",
+     "wc": "Q4CV-JZC:240168101,242708101,242711001"
+    }
+   ]
+  },
+  {
+   "name": "Paluzza",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 12025)",
+     "ark": "3:1:3QS7-L9MY-LZX1",
+     "wc": "Q4CV-N7F:240168101,242821401,242821402"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 12026)",
+     "ark": "3:1:3QS7-89MY-L8NX",
+     "wc": "Q4CV-DBS:240168101,242821401,242821501"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 12027)",
+     "ark": "3:1:3QS7-L9MY-L3GF",
+     "wc": "Q4CV-X4Z:240168101,242821401,242821801"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 12028)",
+     "ark": "3:1:3QSQ-G9MY-L76X",
+     "wc": "Q4CV-F9D:240168101,242821401,242822001"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 12029)",
+     "ark": "3:1:3QS7-89MY-LWDJ",
+     "wc": "Q4ZH-HZS:240168101,242821401,242822501"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 12031)",
+     "ark": "3:1:3QS7-89MY-L8RH",
+     "wc": "Q4CV-DB1:240168101,242821401,242822701"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 12033)",
+     "ark": "3:1:3QS7-L9MY-LDXQ",
+     "wc": "Q4CV-D1Y:240168101,242821401,242823001"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 12035)",
+     "ark": "3:1:3QS7-L9MY-LQP3",
+     "wc": "Q4CV-FMW:240168101,242821401,242823201"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 12037)",
+     "ark": "3:1:3QSQ-G9MY-LWJR",
+     "wc": "Q4CV-FS5:240168101,242821401,242823401"
+    },
+    {
+     "t": "Matrimoni 1815 (Registro 12039)",
+     "ark": "3:1:3QS7-L9MY-LWYK",
+     "wc": "Q4CV-FQ3:240168101,242821401,242823801"
+    },
+    {
+     "t": "Matrimoni, indice 1806-1810 (Registro 12030)",
+     "ark": "3:1:3QS7-L9MY-LJMT",
+     "wc": "Q4CV-6QK:240168101,242821401,242824101"
+    },
+    {
+     "t": "Matrimoni, indice 1811 (Registro 12032)",
+     "ark": "3:1:3QS7-89MY-LV2R",
+     "wc": "Q4CV-6YR:240168101,242821401,242824201"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 12034)",
+     "ark": "3:1:3QSQ-G9MY-L8GX",
+     "wc": "Q4CV-DBJ:240168101,242821401,242824501"
+    },
+    {
+     "t": "Matrimoni, indice 1813 (Registro 12036)",
+     "ark": "3:1:3QS7-L9MY-LDJW",
+     "wc": "Q4CV-6M6:240168101,242821401,242824601"
+    },
+    {
+     "t": "Matrimoni, indice 1814 (Registro 12038)",
+     "ark": "3:1:3QS7-89MY-LX7Y",
+     "wc": "Q4ZH-W3T:240168101,242821401,242824801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 12015)",
+     "ark": "3:1:3QSQ-G9MY-L6RR",
+     "wc": "Q4CV-696:240168101,242821401,242824901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 12016)",
+     "ark": "3:1:3QS7-L9MY-LW26",
+     "wc": "Q4CV-FQM:240168101,242821401,242825301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 12017)",
+     "ark": "3:1:3QS7-89MY-LCGR",
+     "wc": "Q4CV-NQD:240168101,242821401,242825601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 12018)",
+     "ark": "3:1:3QS7-L9MY-LXZ6",
+     "wc": "Q4CV-69B:240168101,242821401,242826001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 12019)",
+     "ark": "3:1:3QS7-89MY-LH3Y",
+     "wc": "Q4CV-F7X:240168101,242821401,242826301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 12020)",
+     "ark": "3:1:3QS7-L9MY-L8XQ",
+     "wc": "Q4CV-DYC:240168101,242821401,242826501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 12021)",
+     "ark": "3:1:3QS7-89MY-L4CY",
+     "wc": "Q4CV-FQ1:240168101,242821401,242827001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 12022)",
+     "ark": "3:1:3QS7-L9MY-L8SW",
+     "wc": "Q4CV-N7K:240168101,242821401,242827101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 12023)",
+     "ark": "3:1:3QSQ-G9MY-LDD2",
+     "wc": "Q4CV-D1L:240168101,242821401,242827501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1815 (Registro 12024)",
+     "ark": "3:1:3QSQ-G9MY-LHZT",
+     "wc": "Q4CV-N3G:240168101,242821401,242827801"
+    },
+    {
+     "t": "Morti 1806 (Registro 12040)",
+     "ark": "3:1:3QS7-L9MY-LKP2",
+     "wc": "Q4ZH-WWQ:240168101,242821401,242828101"
+    },
+    {
+     "t": "Morti 1807 (Registro 12041)",
+     "ark": "3:1:3QSQ-G9MY-LQHX",
+     "wc": "Q4CV-X44:240168101,242821401,242828201"
+    },
+    {
+     "t": "Morti 1808 (Registro 12042)",
+     "ark": "3:1:3QS7-L9MY-L7DS",
+     "wc": "Q4CV-F9G:240168101,242821401,242828501"
+    },
+    {
+     "t": "Morti 1809 (Registro 12043)",
+     "ark": "3:1:3QSQ-G9MY-LW8S",
+     "wc": "Q4CV-F3C:240168101,242821401,242828701"
+    },
+    {
+     "t": "Morti 1810 (Registro 12044)",
+     "ark": "3:1:3QS7-89MY-LLC2",
+     "wc": "Q4ZH-4WG:240168101,242821401,242828901"
+    },
+    {
+     "t": "Morti 1811 (Registro 12046)",
+     "ark": "3:1:3QSQ-G9MY-L71K",
+     "wc": "Q4CV-FSD:240168101,242821401,242829201"
+    },
+    {
+     "t": "Morti 1812 (Registro 12048)",
+     "ark": "3:1:3QS7-89MY-L2R5",
+     "wc": "Q4CV-X9D:240168101,242821401,242829501"
+    },
+    {
+     "t": "Morti 1813 (Registro 12050)",
+     "ark": "3:1:3QS7-L9MY-LLWM",
+     "wc": "Q4CV-X3S:240168101,242821401,242829701"
+    },
+    {
+     "t": "Morti 1814 (Registro 12052)",
+     "ark": "3:1:3QSQ-G9MY-L4WS",
+     "wc": "Q4CV-FQW:240168101,242821401,242830101"
+    },
+    {
+     "t": "Morti 1815 (Registro 12054)",
+     "ark": "3:1:3QS7-L9MY-L2V5",
+     "wc": "Q4CV-X91:240168101,242821401,242830401"
+    },
+    {
+     "t": "Morti, indice 1806-1810 (Registro 12045)",
+     "ark": "3:1:3QS7-89MY-LQWQ",
+     "wc": "Q4CV-X41:240168101,242821401,242830701"
+    },
+    {
+     "t": "Morti, indice 1811 (Registro 12047)",
+     "ark": "3:1:3QS7-89MY-LL12",
+     "wc": "Q4CV-X32:240168101,242821401,242831101"
+    },
+    {
+     "t": "Morti, indice 1812 (Registro 12049)",
+     "ark": "3:1:3QSQ-G9MY-L3G9",
+     "wc": "Q4CV-XWK:240168101,242821401,242831301"
+    },
+    {
+     "t": "Morti, indice 1813 (Registro 12051)",
+     "ark": "3:1:3QS7-89MY-L2W1",
+     "wc": "Q4CV-XMM:240168101,242821401,242831501"
+    },
+    {
+     "t": "Morti, indice 1814 (Registro 12053)",
+     "ark": "3:1:3QSQ-G9MY-LKXR",
+     "wc": "Q4CV-XM5:240168101,242821401,242831701"
+    },
+    {
+     "t": "Nati  1806 (Registro 11999)",
+     "ark": "3:1:3QS7-89MY-LDP4",
+     "wc": "Q4CV-D1V:240168101,242821401,242831801"
+    },
+    {
+     "t": "Nati  1807 (Registro 12000)",
+     "ark": "3:1:3QS7-L9MY-L66V",
+     "wc": "Q4CV-693:240168101,242821401,242832101"
+    },
+    {
+     "t": "Nati  1808 (Registro 12001)",
+     "ark": "3:1:3QSQ-G9MY-LXNN",
+     "wc": "Q4CV-6S7:240168101,242821401,242832301"
+    },
+    {
+     "t": "Nati  1809 (Registro 12002)",
+     "ark": "3:1:3QS7-89MY-LN3P",
+     "wc": "Q4CV-639:240168101,242821401,242832501"
+    },
+    {
+     "t": "Nati  1810 (Registro 12003)",
+     "ark": "3:1:3QS7-L9MY-L4BN",
+     "wc": "Q4CV-NQ9:240168101,242821401,242832701"
+    },
+    {
+     "t": "Nati  1811 (Registro 12005)",
+     "ark": "3:1:3QSQ-G9MY-LZB6",
+     "wc": "Q4CV-N7S:240168101,242821401,242833101"
+    },
+    {
+     "t": "Nati  1812 (Registro 12007)",
+     "ark": "3:1:3QS7-89MY-LX58",
+     "wc": "Q4CV-69K:240168101,242821401,242833401"
+    },
+    {
+     "t": "Nati  1813 (Registro 12009)",
+     "ark": "3:1:3QS7-L9MY-LF89",
+     "wc": "Q4CV-6SG:240168101,242821401,242833601"
+    },
+    {
+     "t": "Nati  1814 (Registro 12011)",
+     "ark": "3:1:3QSQ-G9MY-LN83",
+     "wc": "Q4CV-63P:240168101,242821401,242833801"
+    },
+    {
+     "t": "Nati  1815 (Registro 12013)",
+     "ark": "3:1:3QS7-89MY-LZSQ",
+     "wc": "Q4CV-NQ6:240168101,242821401,242834001"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 12004)",
+     "ark": "3:1:3QS7-89MY-LNR5",
+     "wc": "Q4CV-63Y:240168101,242821401,242834301"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 12006)",
+     "ark": "3:1:3QS7-L9MY-LN1M",
+     "wc": "Q4CV-679:240168101,242821401,242834401"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 12008)",
+     "ark": "3:1:3QS7-89MY-L2HT",
+     "wc": "Q4CV-XMF:240168101,242821401,242834901"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 12010)",
+     "ark": "3:1:3QS7-89MY-L2D1",
+     "wc": "Q4CV-X94:240168101,242821401,242835101"
+    },
+    {
+     "t": "Nati, indice 1814 (Registro 12012)",
+     "ark": "3:1:3QS7-89MY-LN23",
+     "wc": "Q4ZH-WQN:240168101,242821401,242835201"
+    },
+    {
+     "t": "Nati, indice 1815 (Registro 12014)",
+     "ark": "3:1:3QS7-89MY-LJ49",
+     "wc": "Q4CV-6QN:240168101,242821401,242835401"
+    }
+   ]
+  },
+  {
+   "name": "Paularo",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 1)",
+     "ark": "3:1:3QSQ-G9S4-L8X3",
+     "wc": "Q4CK-4WR:240168101,242909501,240591301"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 1)",
+     "ark": "3:1:3QSQ-G9S4-LZLL",
+     "wc": "Q4CK-CFQ:240168101,242909501,240478601"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40920)",
+     "ark": "3:1:3QS7-89S4-LFPR",
+     "wc": "Q4CK-HZT:240168101,242909501,240507501"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-L6LR",
+     "wc": "Q4CK-4C2:240168101,242909501,241034101"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40915)",
+     "ark": "3:1:3QS7-L9S4-LZJN",
+     "wc": "Q4CK-W7K:240168101,242909501,242501601"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40916)",
+     "ark": "3:1:3QS7-89S4-LDT2",
+     "wc": "Q4CK-4HZ:240168101,242909501,242724901"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LC28",
+     "wc": "Q4CK-CXJ:240168101,242909501,242914101"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40914)",
+     "ark": "3:1:3QS7-89S4-LNWW",
+     "wc": "Q4CK-H84:240168101,242909501,241763401"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-L6HM",
+     "wc": "Q4CK-4CC:240168101,242909501,242625801"
+    }
+   ]
+  },
+  {
+   "name": "Pesariis",
+   "films": [
+    {
+     "t": "Matrimoni 1807 (Registro 13193)",
+     "ark": "3:1:3QS7-8999-BX4K",
+     "wc": "Q4CV-N8D:240168101,242962601,242962602"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 13194)",
+     "ark": "3:1:3QS7-L999-BX5Q",
+     "wc": "Q4CV-NDN:240168101,242962601,242963001"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13195)",
+     "ark": "3:1:3QSQ-G999-BNTM",
+     "wc": "Q4CV-N69:240168101,242962601,242963101"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13196)",
+     "ark": "3:1:3QS7-L999-BFM9",
+     "wc": "Q4CV-N62:240168101,242962601,242963301"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 13197)",
+     "ark": "3:1:3QS7-L999-1YJ",
+     "wc": "Q4CV-J8Z:240168101,242962601,242963601"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40915)",
+     "ark": "3:1:3QSQ-G9S4-LCMF",
+     "wc": "Q4CK-HD3:240168101,242962601,242723201"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40911)",
+     "ark": "3:1:3QS7-89S4-LC54",
+     "wc": "Q4CK-C6K:240168101,242962601,242964601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13187)",
+     "ark": "3:1:3QS7-L999-1SC1",
+     "wc": "Q4ZN-VZS:240168101,242962601,242964901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13188)",
+     "ark": "3:1:3QSQ-G999-13ZJ",
+     "wc": "Q4CV-VDM:240168101,242962601,242965801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13189)",
+     "ark": "3:1:3QS7-L999-13S7",
+     "wc": "Q4CV-VD5:240168101,242962601,242965901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13190)",
+     "ark": "3:1:3QS7-L999-13JH",
+     "wc": "Q4CV-V6D:240168101,242962601,242966101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13191)",
+     "ark": "3:1:3QS7-8999-1STC",
+     "wc": "Q4CV-V89:240168101,242962601,242966301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 13192)",
+     "ark": "3:1:3QS7-8999-1SB9",
+     "wc": "Q4CV-V82:240168101,242962601,242966501"
+    },
+    {
+     "t": "Morti 1806 (Registro 13198)",
+     "ark": "3:1:3QS7-8999-1QR7",
+     "wc": "Q4CV-VFY:240168101,242962601,242966701"
+    },
+    {
+     "t": "Morti 1807 (Registro 13199)",
+     "ark": "3:1:3QS7-8999-17H2",
+     "wc": "Q4CV-VNG:240168101,242962601,242967301"
+    },
+    {
+     "t": "Morti 1808 (Registro 13200)",
+     "ark": "3:1:3QS7-8999-BCFL",
+     "wc": "Q4CV-JZZ:240168101,242962601,242967501"
+    },
+    {
+     "t": "Morti 1809 (Registro 13201)",
+     "ark": "3:1:3QSQ-G999-BXFN",
+     "wc": "Q4CV-NZM:240168101,242962601,242967801"
+    },
+    {
+     "t": "Morti 1810 (Registro 13202)",
+     "ark": "3:1:3QS7-8999-BXHT",
+     "wc": "Q4CV-N8J:240168101,242962601,242967901"
+    },
+    {
+     "t": "Morti 1811 (Registro 13203)",
+     "ark": "3:1:3QSQ-G999-176Z",
+     "wc": "Q4CV-VNN:240168101,242962601,242968201"
+    },
+    {
+     "t": "Morti 1812 (Registro 13204)",
+     "ark": "3:1:3QS7-8999-BCCB",
+     "wc": "Q4CV-JZW:240168101,242962601,242968301"
+    },
+    {
+     "t": "Morti 1813 (Registro 13205)",
+     "ark": "3:1:3QS7-8999-BCPG",
+     "wc": "Q4CV-J8W:240168101,242962601,242968501"
+    },
+    {
+     "t": "Morti 1814 (Registro 13206)",
+     "ark": "3:1:3QS7-8999-BZG5",
+     "wc": "Q4CV-NWV:240168101,242962601,242969001"
+    },
+    {
+     "t": "Nati  1806 (Registro 13177)",
+     "ark": "3:1:3QS7-8999-B8CX",
+     "wc": "Q4CV-N4G:240168101,242962601,242970001"
+    },
+    {
+     "t": "Nati  1807 (Registro 13178)",
+     "ark": "3:1:3QS7-8999-17M2",
+     "wc": "Q4CV-VNK:240168101,242962601,242970301"
+    },
+    {
+     "t": "Nati  1808 (Registro 13179)",
+     "ark": "3:1:3QSQ-G999-BZNX",
+     "wc": "Q4CV-JCR:240168101,242962601,242970801"
+    },
+    {
+     "t": "Nati  1809 (Registro 13180)",
+     "ark": "3:1:3QS7-L999-BZTF",
+     "wc": "Q4CV-N71:240168101,242962601,242971001"
+    },
+    {
+     "t": "Nati  1810 (Registro 13181)",
+     "ark": "3:1:3QSQ-G999-BDDK",
+     "wc": "Q4CV-N45:240168101,242962601,242971201"
+    },
+    {
+     "t": "Nati  1811 (Registro 13182)",
+     "ark": "3:1:3QS7-8999-BD3L",
+     "wc": "Q4CV-NCS:240168101,242962601,242971401"
+    },
+    {
+     "t": "Nati  1812 (Registro 13183)",
+     "ark": "3:1:3QS7-8999-BCXN",
+     "wc": "Q4CV-JZM:240168101,242962601,242971601"
+    },
+    {
+     "t": "Nati  1813 (Registro 13184)",
+     "ark": "3:1:3QSQ-G999-B8MP",
+     "wc": "Q4CV-J87:240168101,242962601,242971801"
+    },
+    {
+     "t": "Nati  1814 (Registro 13186)",
+     "ark": "3:1:3QS7-8999-BZTK",
+     "wc": "Q4CV-N4M:240168101,242962601,242972301"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 13185)",
+     "ark": "3:1:3QS7-8999-BN4W",
+     "wc": "Q4ZH-CX3:240168101,242962601,242972601"
+    }
+   ]
+  },
+  {
+   "name": "Pieria",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 13159)",
+     "ark": "3:1:3QS7-8999-15K",
+     "wc": "Q4CV-K6R:240168101,242978401,242978402"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 13160)",
+     "ark": "3:1:3QSQ-G999-19ML",
+     "wc": "Q4CV-K6G:240168101,242978401,242978901"
+    },
+    {
+     "t": "Matrimoni, allegati 1806 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LCQQ",
+     "wc": "Q4ZH-T3D:240168101,242978401,240493401"
+    },
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LHYS",
+     "wc": "Q4CK-C68:240168101,242978401,241462101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13157)",
+     "ark": "3:1:3QS7-L999-1SH2",
+     "wc": "Q4CV-V8Z:240168101,242978401,242979701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13158)",
+     "ark": "3:1:3QSQ-G999-1334",
+     "wc": "Q4CV-V8R:240168101,242978401,242980001"
+    },
+    {
+     "t": "Morti 1806 (Registro 13161)",
+     "ark": "3:1:3QS7-8999-B6QJ",
+     "wc": "Q4CV-NZ4:240168101,242978401,242980501"
+    },
+    {
+     "t": "Morti 1807 (Registro 13162)",
+     "ark": "3:1:3QS7-L999-1QS2",
+     "wc": "Q4CV-VFV:240168101,242978401,242980701"
+    },
+    {
+     "t": "Nati  1806 (Registro 13155)",
+     "ark": "3:1:3QS7-8999-BZ8B",
+     "wc": "Q4CV-NWD:240168101,242978401,242980801"
+    },
+    {
+     "t": "Nati  1807 (Registro 13156)",
+     "ark": "3:1:3QSQ-G999-BD8W",
+     "wc": "Q4CV-N4R:240168101,242978401,242980901"
+    }
+   ]
+  },
+  {
+   "name": "Prato",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 13115)",
+     "ark": "3:1:3QSQ-G999-BV1M",
+     "wc": "Q4CV-JCC:240168101,243284401,243284402"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 13116)",
+     "ark": "3:1:3QSQ-G999-13P",
+     "wc": "Q4CV-J8D:240168101,243284401,243284701"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 13117)",
+     "ark": "3:1:3QS7-L999-16F",
+     "wc": "Q4CV-VJZ:240168101,243284401,243284801"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13118)",
+     "ark": "3:1:3QS7-L999-1T2",
+     "wc": "Q4CV-K6P:240168101,243284401,243285201"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13119)",
+     "ark": "3:1:3QS7-L999-194J",
+     "wc": "Q4CV-J8X:240168101,243284401,243285401"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 13121)",
+     "ark": "3:1:3QSQ-G999-BX4R",
+     "wc": "Q4CV-NCK:240168101,243284401,243285701"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 13123)",
+     "ark": "3:1:3QS7-L999-B675",
+     "wc": "Q4CV-NZC:240168101,243284401,243286101"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 13125)",
+     "ark": "3:1:3QSQ-G999-BF1Z",
+     "wc": "Q4CV-N8M:240168101,243284401,243286301"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 13127)",
+     "ark": "3:1:3QS7-8999-BNF4",
+     "wc": "Q4CV-JHV:240168101,243284401,243286701"
+    },
+    {
+     "t": "Matrimoni 1815 (Registro 13128)",
+     "ark": "3:1:3QS7-L999-BJ8P",
+     "wc": "Q4CV-JCQ:240168101,243284401,243287101"
+    },
+    {
+     "t": "Matrimoni, allegati 1806 (Registro 40910)",
+     "ark": "3:1:3QS7-89S4-LJCX",
+     "wc": "Q4CK-H8V:240168101,243284401,242229501"
+    },
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40910)",
+     "ark": "3:1:3QS7-89S4-LNJJ",
+     "wc": "Q4CK-H8H:240168101,243284401,240493801"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-LZGK",
+     "wc": "Q4CK-WWM:240168101,243284401,241211701"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40916)",
+     "ark": "3:1:3QSQ-G9S4-LXB4",
+     "wc": "Q4CK-HZ3:240168101,243284401,242116201"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40914)",
+     "ark": "3:1:3QS7-L9S4-LZ5C",
+     "wc": "Q4CK-WWS:240168101,243284401,241454501"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40914)",
+     "ark": "3:1:3QS7-89S4-LCNH",
+     "wc": "Q4CK-HDJ:240168101,243284401,242724201"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40914)",
+     "ark": "3:1:3QSQ-G9S4-LC91",
+     "wc": "Q4CK-HD4:240168101,243284401,242503001"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LDX4",
+     "wc": "Q4CK-4HG:240168101,243284401,241035301"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40910)",
+     "ark": "3:1:3QS7-89S4-L6Q7",
+     "wc": "Q4CK-4HF:240168101,243284401,241013401"
+    },
+    {
+     "t": "Matrimoni, indice 1806-1810 (Registro 13120)",
+     "ark": "3:1:3QS7-8999-1SQ9",
+     "wc": "Q4ZH-ZJ3:240168101,243284401,243293901"
+    },
+    {
+     "t": "Matrimoni, indice 1811 (Registro 13122)",
+     "ark": "3:1:3QS7-L999-1SZG",
+     "wc": "Q4ZN-VZ3:240168101,243284401,243294201"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 13124)",
+     "ark": "3:1:3QSQ-G999-13MC",
+     "wc": "Q4CV-V8P:240168101,243284401,243294301"
+    },
+    {
+     "t": "Matrimoni, indice 1813 (Registro 13126)",
+     "ark": "3:1:3QSQ-G999-13G7",
+     "wc": "Q4CV-VD1:240168101,243284401,243294501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 13105)",
+     "ark": "3:1:3QSQ-G999-1QDD",
+     "wc": "Q4CV-V6G:240168101,243284401,243294701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13106)",
+     "ark": "3:1:3QS7-L999-1QM2",
+     "wc": "Q4ZH-ZJR:240168101,243284401,243295201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13107)",
+     "ark": "3:1:3QSQ-G999-19BQ",
+     "wc": "Q4CV-JDM:240168101,243284401,243295401"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13108)",
+     "ark": "3:1:3QS7-8999-1S8H",
+     "wc": "Q4CV-VZ5:240168101,243284401,243295501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13109)",
+     "ark": "3:1:3QS7-8999-1QMC",
+     "wc": "Q4CV-V66:240168101,243284401,243295701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 13110)",
+     "ark": "3:1:3QS7-L999-13TZ",
+     "wc": "Q4CV-VX2:240168101,243284401,243296101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 13111)",
+     "ark": "3:1:3QS7-8999-1966",
+     "wc": "Q4CV-J8K:240168101,243284401,243296501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 13112)",
+     "ark": "3:1:3QSQ-G999-1SCZ",
+     "wc": "Q4CV-VZG:240168101,243284401,243296901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 13113)",
+     "ark": "3:1:3QSQ-G999-13MB",
+     "wc": "Q4CV-V8L:240168101,243284401,243297201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1815 (Registro 13114)",
+     "ark": "3:1:3QS7-8999-1QSR",
+     "wc": "Q4CV-VXD:240168101,243284401,243297501"
+    },
+    {
+     "t": "Morti 1806 (Registro 13129)",
+     "ark": "3:1:3QS7-8999-176J",
+     "wc": "Q4CV-VJH:240168101,243284401,243297801"
+    },
+    {
+     "t": "Morti 1807 (Registro 13130)",
+     "ark": "3:1:3QS7-8999-BCPN",
+     "wc": "Q4CV-JZ6:240168101,243284401,243298301"
+    },
+    {
+     "t": "Morti 1808 (Registro 13131)",
+     "ark": "3:1:3QSQ-G999-B8Z9",
+     "wc": "Q4CV-NW3:240168101,243284401,243298801"
+    },
+    {
+     "t": "Morti 1809 (Registro 13132)",
+     "ark": "3:1:3QSQ-G999-B81X",
+     "wc": "Q4CV-N4C:240168101,243284401,243299301"
+    },
+    {
+     "t": "Morti 1810 (Registro 13133)",
+     "ark": "3:1:3QSQ-G999-B6HP",
+     "wc": "Q4CV-NHK:240168101,243284401,243299901"
+    },
+    {
+     "t": "Morti 1811 (Registro 13135)",
+     "ark": "3:1:3QSQ-G999-BZQ7",
+     "wc": "Q4CV-JC2:240168101,243284401,243300101"
+    },
+    {
+     "t": "Morti 1812 (Registro 13137)",
+     "ark": "3:1:3QSQ-G999-BZKD",
+     "wc": "Q4CV-JZ2:240168101,243284401,243301001"
+    },
+    {
+     "t": "Morti 1813 (Registro 13139)",
+     "ark": "3:1:3QS7-8999-BZKT",
+     "wc": "Q4CV-NWG:240168101,243284401,243301601"
+    },
+    {
+     "t": "Morti 1814 (Registro 13141)",
+     "ark": "3:1:3QS7-L999-BD4G",
+     "wc": "Q4CV-NH7:240168101,243284401,243302401"
+    },
+    {
+     "t": "Morti 1815 (Registro 13142)",
+     "ark": "3:1:3QS7-8999-BDG3",
+     "wc": "Q4CV-NC9:240168101,243284401,243303101"
+    },
+    {
+     "t": "Morti, indice 1806-1810 (Registro 13134)",
+     "ark": "3:1:3QSQ-G999-BFQT",
+     "wc": "Q4CV-NZZ:240168101,243284401,243303601"
+    },
+    {
+     "t": "Morti, indice 1811 (Registro 13136)",
+     "ark": "3:1:3QS7-8999-BXHG",
+     "wc": "Q4CV-N8Z:240168101,243284401,243303801"
+    },
+    {
+     "t": "Morti, indice 1812 (Registro 13138)",
+     "ark": "3:1:3QS7-L999-BXY4",
+     "wc": "Q4ZN-6TP:240168101,243284401,243303901"
+    },
+    {
+     "t": "Morti, indice 1813 (Registro 13140)",
+     "ark": "3:1:3QS7-8999-BFPL",
+     "wc": "Q4ZH-CXM:240168101,243284401,243304201"
+    },
+    {
+     "t": "Nati  1806 (Registro 13090)",
+     "ark": "3:1:3QS7-8999-B85Q",
+     "wc": "Q4ZH-HZV:240168101,243284401,243304601"
+    },
+    {
+     "t": "Nati  1807 (Registro 13091)",
+     "ark": "3:1:3QS7-L999-136D",
+     "wc": "Q4CV-V6P:240168101,243284401,243304801"
+    },
+    {
+     "t": "Nati  1808 (Registro 13092)",
+     "ark": "3:1:3QS7-8999-1QQQ",
+     "wc": "Q4ZH-ZJ5:240168101,243284401,243305101"
+    },
+    {
+     "t": "Nati  1809 (Registro 13093)",
+     "ark": "3:1:3QSQ-G999-17QS",
+     "wc": "Q4CV-VFK:240168101,243284401,243305401"
+    },
+    {
+     "t": "Nati  1810 (Registro 13094)",
+     "ark": "3:1:3QS7-8999-17WC",
+     "wc": "Q4CV-VJS:240168101,243284401,243305601"
+    },
+    {
+     "t": "Nati  1811 (Registro 13096)",
+     "ark": "3:1:3QS7-8999-BDHV",
+     "wc": "Q4CV-NHN:240168101,243284401,243305701"
+    },
+    {
+     "t": "Nati  1812 (Registro 13098)",
+     "ark": "3:1:3QS7-L999-13TF",
+     "wc": "Q4CV-VXZ:240168101,243284401,243306101"
+    },
+    {
+     "t": "Nati  1813 (Registro 13100)",
+     "ark": "3:1:3QS7-L999-1Q6H",
+     "wc": "Q4CV-VFD:240168101,243284401,243306601"
+    },
+    {
+     "t": "Nati  1814 (Registro 13102)",
+     "ark": "3:1:3QSQ-G999-1744",
+     "wc": "Q4CV-VNQ:240168101,243284401,243307001"
+    },
+    {
+     "t": "Nati  1815 (Registro 13103)",
+     "ark": "3:1:3QSQ-G999-BZQ4",
+     "wc": "Q4CV-JCF:240168101,243284401,243307401"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 13095)",
+     "ark": "3:1:3QS7-8999-1LW",
+     "wc": "Q4CV-K6J:240168101,243284401,243307601"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13097)",
+     "ark": "3:1:3QSQ-G999-1SDH",
+     "wc": "Q4CV-VZN:240168101,243284401,243307801"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 13099)",
+     "ark": "3:1:3QSQ-G999-BNMZ",
+     "wc": "Q4CV-N88:240168101,243284401,243307901"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 13101)",
+     "ark": "3:1:3QS7-L999-BXTB",
+     "wc": "Q4CV-ND1:240168101,243284401,243308101"
+    },
+    {
+     "t": "Nati, indice 1815 (Registro 13104)",
+     "ark": "3:1:3QSQ-G999-BJVS",
+     "wc": "Q4CV-NXW:240168101,243284401,243308201"
+    }
+   ]
+  },
+  {
+   "name": "Preone",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40914)",
+     "ark": "3:1:3QS7-L9S4-L84M",
+     "wc": "Q4CK-44P:240168101,243341601,241463201"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-LCYQ",
+     "wc": "Q4CK-CXN:240168101,243341601,240685101"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LZMD",
+     "wc": "Q4CK-CFC:240168101,243341601,240645901"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-L8W9",
+     "wc": "Q4CK-44L:240168101,243341601,241381201"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40915)",
+     "ark": "3:1:3QS7-L9S4-LHRP",
+     "wc": "Q4CK-H6M:240168101,243341601,241011201"
+    }
+   ]
+  },
+  {
+   "name": "Priola",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 12529)",
+     "ark": "3:1:3QS7-89MY-L84Q",
+     "wc": "Q4CV-N7D:240168101,243369901,243369902"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 12530)",
+     "ark": "3:1:3QS7-89MY-L8LT",
+     "wc": "Q4CV-DYY:240168101,243369901,243370101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 12527)",
+     "ark": "3:1:3QSQ-G9MY-LF8J",
+     "wc": "Q4CV-6SR:240168101,243369901,243370201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 12528)",
+     "ark": "3:1:3QS7-89MY-LZDQ",
+     "wc": "Q4CV-NQ5:240168101,243369901,243370401"
+    },
+    {
+     "t": "Morti 1806 (Registro 12531)",
+     "ark": "3:1:3QS7-89MY-L39R",
+     "wc": "Q4ZH-4W1:240168101,243369901,243370501"
+    },
+    {
+     "t": "Morti 1807 (Registro 12532)",
+     "ark": "3:1:3QSQ-G9MY-L78L",
+     "wc": "Q4CV-F9L:240168101,243369901,243370701"
+    },
+    {
+     "t": "Nati  1806 (Registro 12525)",
+     "ark": "3:1:3QSQ-G9MY-L6NY",
+     "wc": "Q4CV-69S:240168101,243369901,243370901"
+    },
+    {
+     "t": "Nati  1807 (Registro 12526)",
+     "ark": "3:1:3QS7-89MY-LX62",
+     "wc": "Q4CV-6SZ:240168101,243369901,243371001"
+    }
+   ]
+  },
+  {
+   "name": "Ravascletto",
+   "films": [
+    {
+     "t": "Matrimoni 1807 (Registro 13228)",
+     "ark": "3:1:3QSQ-G999-19CZ",
+     "wc": "Q4CV-K65:240168101,243440101,243440102"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13229)",
+     "ark": "3:1:3QS7-8999-192V",
+     "wc": "Q4CV-J8T:240168101,243440101,243440401"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 13231)",
+     "ark": "3:1:3QSQ-G999-1S8K",
+     "wc": "Q4CV-VZH:240168101,243440101,243440801"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 13233)",
+     "ark": "3:1:3QS7-L999-B6PY",
+     "wc": "Q4CV-N89:240168101,243440101,243441101"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 13234)",
+     "ark": "3:1:3QS7-L999-BXZT",
+     "wc": "Q4CV-N8P:240168101,243440101,243441501"
+    },
+    {
+     "t": "Matrimoni 1815 (Registro 13235)",
+     "ark": "3:1:3QS7-L999-BXP6",
+     "wc": "Q4CV-ND4:240168101,243440101,243441701"
+    },
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40913)",
+     "ark": "3:1:3QS7-89S4-LZG1",
+     "wc": "Q4CK-CXP:240168101,243440101,240521301"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LNWV",
+     "wc": "Q4CK-H8N:240168101,243440101,240478601"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40910)",
+     "ark": "3:1:3QS7-89S4-LCH7",
+     "wc": "Q4CK-H8R:240168101,243440101,240181202"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 1)",
+     "ark": "3:1:3QS7-89S4-LD9C",
+     "wc": "Q4CK-44R:240168101,243440101,240346401"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40910)",
+     "ark": "3:1:3QSQ-G9S4-LXH4",
+     "wc": "Q4CK-4CF:240168101,243440101,242463001"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-LZQN",
+     "wc": "Q4CK-CF4:240168101,243440101,242964601"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40913)",
+     "ark": "3:1:3QSQ-G9S4-LFMN",
+     "wc": "Q4CK-HZW:240168101,243440101,243444101"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-L8LN",
+     "wc": "Q4CK-4HS:240168101,243440101,241035301"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40910)",
+     "ark": "3:1:3QSQ-G9S4-L8ZF",
+     "wc": "Q4CK-W7B:240168101,243440101,241013401"
+    },
+    {
+     "t": "Matrimoni, indice 1806-1810 (Registro 13230)",
+     "ark": "3:1:3QSQ-G999-BVPM",
+     "wc": "Q4CV-JHY:240168101,243440101,243445501"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 13232)",
+     "ark": "3:1:3QS7-8999-1SDV",
+     "wc": "Q4ZH-ZJW:240168101,243440101,243445801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 13219)",
+     "ark": "3:1:3QS7-L999-139L",
+     "wc": "Q4ZH-ZJD:240168101,243440101,243446001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13220)",
+     "ark": "3:1:3QSQ-G999-13GR",
+     "wc": "Q4CV-V69:240168101,243440101,243447201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13221)",
+     "ark": "3:1:3QSQ-G999-1QW5",
+     "wc": "Q4CV-V65:240168101,243440101,243447501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13222)",
+     "ark": "3:1:3QS7-8999-1SGL",
+     "wc": "Q4CV-V88:240168101,243440101,243448101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 13223)",
+     "ark": "3:1:3QSQ-G999-13Q4",
+     "wc": "Q4CV-VD3:240168101,243440101,243448701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 13224)",
+     "ark": "3:1:3QS7-L999-137Q",
+     "wc": "Q4CV-VDR:240168101,243440101,243449001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 13225)",
+     "ark": "3:1:3QS7-L999-13ZP",
+     "wc": "Q4CV-V6Z:240168101,243440101,243449501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 13226)",
+     "ark": "3:1:3QS7-8999-1QWT",
+     "wc": "Q4CV-VX8:240168101,243440101,243450001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1815 (Registro 13227)",
+     "ark": "3:1:3QSQ-G999-1B2",
+     "wc": "Q4CV-K6D:240168101,243440101,243450501"
+    },
+    {
+     "t": "Morti 1808 (Registro 13236)",
+     "ark": "3:1:3QS7-L999-BX2N",
+     "wc": "Q4ZH-C62:240168101,243440101,243451201"
+    },
+    {
+     "t": "Morti 1809 (Registro 13237)",
+     "ark": "3:1:3QS7-8999-17HN",
+     "wc": "Q4CV-VJ4:240168101,243440101,243451601"
+    },
+    {
+     "t": "Morti 1810 (Registro 13238)",
+     "ark": "3:1:3QS7-8999-BC25",
+     "wc": "Q4CV-JC1:240168101,243440101,243451901"
+    },
+    {
+     "t": "Morti 1811 (Registro 13240)",
+     "ark": "3:1:3QSQ-G999-B8KZ",
+     "wc": "Q4CV-NW1:240168101,243440101,243452401"
+    },
+    {
+     "t": "Morti 1812 (Registro 13242)",
+     "ark": "3:1:3QSQ-G999-BD38",
+     "wc": "Q4CV-N4Q:240168101,243440101,243452801"
+    },
+    {
+     "t": "Morti 1813 (Registro 13244)",
+     "ark": "3:1:3QSQ-G999-B6VM",
+     "wc": "Q4CV-NH6:240168101,243440101,243453201"
+    },
+    {
+     "t": "Morti 1814 (Registro 13245)",
+     "ark": "3:1:3QS7-L999-BZNY",
+     "wc": "Q4CV-JCX:240168101,243440101,243453801"
+    },
+    {
+     "t": "Morti, indice 1806-1810 (Registro 13239)",
+     "ark": "3:1:3QS7-8999-19XQ",
+     "wc": "Q4ZH-ZNB:240168101,243440101,243454501"
+    },
+    {
+     "t": "Morti, indice 1811 (Registro 13241)",
+     "ark": "3:1:3QS7-8999-13J9",
+     "wc": "Q4ZH-ZJF:240168101,243440101,243454701"
+    },
+    {
+     "t": "Morti, indice 1812 (Registro 13243)",
+     "ark": "3:1:3QSQ-G999-1QZL",
+     "wc": "Q4CV-V61:240168101,243440101,243455101"
+    },
+    {
+     "t": "Nati  1806 (Registro 13207)",
+     "ark": "3:1:3QS7-L999-BD66",
+     "wc": "Q4CV-NHH:240168101,243440101,243455401"
+    },
+    {
+     "t": "Nati  1807 (Registro 13208)",
+     "ark": "3:1:3QS7-8999-BDJM",
+     "wc": "Q4ZH-C6X:240168101,243440101,243455701"
+    },
+    {
+     "t": "Nati  1808 (Registro 13209)",
+     "ark": "3:1:3QS7-L999-1Q7Z",
+     "wc": "Q4CV-VXB:240168101,243440101,243456001"
+    },
+    {
+     "t": "Nati  1809 (Registro 13210)",
+     "ark": "3:1:3QSQ-G999-17W6",
+     "wc": "Q4CV-VFL:240168101,243440101,243456601"
+    },
+    {
+     "t": "Nati  1810 (Registro 13211)",
+     "ark": "3:1:3QS7-L999-B811",
+     "wc": "Q4CV-N4P:240168101,243440101,243456801"
+    },
+    {
+     "t": "Nati  1811 (Registro 13213)",
+     "ark": "3:1:3QS7-8999-BD2Q",
+     "wc": "Q4CV-NCR:240168101,243440101,243456901"
+    },
+    {
+     "t": "Nati  1812 (Registro 13215)",
+     "ark": "3:1:3QS7-L999-B6WV",
+     "wc": "Q4CV-NZ7:240168101,243440101,243457201"
+    },
+    {
+     "t": "Nati  1813 (Registro 13217)",
+     "ark": "3:1:3QSQ-G999-1748",
+     "wc": "Q4CV-VFN:240168101,243440101,243457301"
+    },
+    {
+     "t": "Nati  1814 (Registro 13218)",
+     "ark": "3:1:3QS7-8999-1Q1N",
+     "wc": "Q4CV-VNH:240168101,243440101,243457501"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 13212)",
+     "ark": "3:1:3QS7-L999-1923",
+     "wc": "Q4ZH-ZJQ:240168101,243440101,243457801"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13214)",
+     "ark": "3:1:3QSQ-G999-BNG1",
+     "wc": "Q4CV-ND6:240168101,243440101,243458101"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 13216)",
+     "ark": "3:1:3QS7-8999-BF3W",
+     "wc": "Q4ZH-C6T:240168101,243440101,243458301"
+    }
+   ]
+  },
+  {
+   "name": "Raveo",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40912)",
+     "ark": "3:1:3QS7-89S4-LX6K",
+     "wc": "Q4CK-4CL:240168101,243458601,241462101"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 1)",
+     "ark": "3:1:3QS7-89S4-L84L",
+     "wc": "Q4CK-CFY:240168101,243458601,240478601"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LZRC",
+     "wc": "Q4CK-WW7:240168101,243458601,240181202"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 1)",
+     "ark": "3:1:3QS7-89S4-LZLC",
+     "wc": "Q4CK-CX1:240168101,243458601,240346401"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 1)",
+     "ark": "3:1:3QSQ-G9S4-LCCR",
+     "wc": "Q4CK-HDX:240168101,243458601,241034401"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 1)",
+     "ark": "3:1:3QS7-89S4-LZRM",
+     "wc": "Q4CK-CFM:240168101,243458601,241929201"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40913)",
+     "ark": "3:1:3QS7-L9S4-LZ5X",
+     "wc": "Q4CK-WW3:240168101,243458601,243444101"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40911)",
+     "ark": "3:1:3QS7-89S4-LCHY",
+     "wc": "Q4CK-H8B:240168101,243458601,241013201"
+    }
+   ]
+  },
+  {
+   "name": "Rigolato",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 12777)",
+     "ark": "3:1:3QS7-L999-BNB4",
+     "wc": "Q4ZH-CXW:240168101,243513101,243513102"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 12778)",
+     "ark": "3:1:3QSQ-G999-BVRT",
+     "wc": "Q4CV-JC3:240168101,243513101,243513501"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 12779)",
+     "ark": "3:1:3QS7-L999-141",
+     "wc": "Q4CV-VXH:240168101,243513101,243513701"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 12780)",
+     "ark": "3:1:3QS7-8999-11V",
+     "wc": "Q4CV-VNJ:240168101,243513101,243513801"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 12781)",
+     "ark": "3:1:3QSQ-G999-1RP",
+     "wc": "Q4CV-K6K:240168101,243513101,243514201"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 12783)",
+     "ark": "3:1:3QS7-L999-BDKY",
+     "wc": "Q4CV-NCW:240168101,243513101,243514601"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 12785)",
+     "ark": "3:1:3QS7-L999-BFF4",
+     "wc": "Q4CV-N6B:240168101,243513101,243515001"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 12787)",
+     "ark": "3:1:3QS7-8999-BFKN",
+     "wc": "Q4CV-JWB:240168101,243513101,243515201"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 12788)",
+     "ark": "3:1:3QS7-L999-BN4D",
+     "wc": "Q4CV-J4G:240168101,243513101,243515401"
+    },
+    {
+     "t": "Matrimoni 1815 (Registro 12789)",
+     "ark": "3:1:3QS7-8999-BNF1",
+     "wc": "Q4CV-JH8:240168101,243513101,243515701"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40912)",
+     "ark": "3:1:3QS7-89S4-LC8S",
+     "wc": "Q4CK-HDQ:240168101,243513101,240759801"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40913)",
+     "ark": "3:1:3QS7-L9S4-LFK8",
+     "wc": "Q4CK-H89:240168101,243513101,241453201"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40913)",
+     "ark": "3:1:3QS7-89S4-LCT1",
+     "wc": "Q4CK-C6P:240168101,243513101,240494201"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40916)",
+     "ark": "3:1:3QSQ-G9S4-L853",
+     "wc": "Q4CK-44V:240168101,243513101,243517701"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LFGV",
+     "wc": "Q4CK-H8W:240168101,243513101,240688801"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40911)",
+     "ark": "3:1:3QSQ-G9S4-L8W4",
+     "wc": "Q4CK-W7G:240168101,243513101,241035101"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40915)",
+     "ark": "3:1:3QS7-L9S4-LDXH",
+     "wc": "Q4CK-4HV:240168101,243513101,241383601"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LZ7S",
+     "wc": "Q4CK-CFF:240168101,243513101,240765701"
+    },
+    {
+     "t": "Matrimoni, indice 1806-1810 (Registro 12782)",
+     "ark": "3:1:3QS7-L999-1SX6",
+     "wc": "Q4CV-V8N:240168101,243513101,243520401"
+    },
+    {
+     "t": "Matrimoni, indice 1811 (Registro 12784)",
+     "ark": "3:1:3QSQ-G999-13XW",
+     "wc": "Q4CV-VDN:240168101,243513101,243520901"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 12786)",
+     "ark": "3:1:3QSQ-G999-19GM",
+     "wc": "Q4CV-J8R:240168101,243513101,243521001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 12767)",
+     "ark": "3:1:3QSQ-G999-134G",
+     "wc": "Q4CV-VDD:240168101,243513101,243521301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 12768)",
+     "ark": "3:1:3QSQ-G999-13P4",
+     "wc": "Q4CV-VDT:240168101,243513101,243521501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 12769)",
+     "ark": "3:1:3QSQ-G999-1SDD",
+     "wc": "Q4CV-VZ8:240168101,243513101,243521701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 12770)",
+     "ark": "3:1:3QS7-L999-1SZM",
+     "wc": "Q4CV-V81:240168101,243513101,243521901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 12771)",
+     "ark": "3:1:3QS7-L999-1SGQ",
+     "wc": "Q4CV-VDX:240168101,243513101,243522001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 12772)",
+     "ark": "3:1:3QS7-L999-137V",
+     "wc": "Q4CV-VD2:240168101,243513101,243522301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 12773)",
+     "ark": "3:1:3QSQ-G999-13Y2",
+     "wc": "Q4CV-V6C:240168101,243513101,243522601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 12774)",
+     "ark": "3:1:3QSQ-G999-13QW",
+     "wc": "Q4CV-V8Y:240168101,243513101,243522701"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 12775)",
+     "ark": "3:1:3QS7-8999-13ZY",
+     "wc": "Q4CV-VDJ:240168101,243513101,243523101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1815 (Registro 12776)",
+     "ark": "3:1:3QS7-8999-13P7",
+     "wc": "Q4CV-V67:240168101,243513101,243523601"
+    },
+    {
+     "t": "Morti 1806 (Registro 12756)",
+     "ark": "3:1:3QS7-8999-1QFM",
+     "wc": "Q4CV-VFC:240168101,243513101,243523901"
+    },
+    {
+     "t": "Morti 1807 (Registro 12757)",
+     "ark": "3:1:3QSQ-G999-173V",
+     "wc": "Q4CV-VFB:240168101,243513101,243524001"
+    },
+    {
+     "t": "Morti 1808 (Registro 12758)",
+     "ark": "3:1:3QS7-8999-17Z6",
+     "wc": "Q4CV-VNY:240168101,243513101,243524201"
+    },
+    {
+     "t": "Morti 1809 (Registro 12759)",
+     "ark": "3:1:3QSQ-G999-BZPM",
+     "wc": "Q4CV-JZX:240168101,243513101,243524501"
+    },
+    {
+     "t": "Morti 1810 (Registro 12760)",
+     "ark": "3:1:3QSQ-G999-B8N6",
+     "wc": "Q4CV-NWL:240168101,243513101,243524801"
+    },
+    {
+     "t": "Morti 1811 (Registro 12762)",
+     "ark": "3:1:3QS7-8999-1QRZ",
+     "wc": "Q4CV-VNS:240168101,243513101,243525001"
+    },
+    {
+     "t": "Morti 1812 (Registro 12763)",
+     "ark": "3:1:3QS7-L999-1QYX",
+     "wc": "Q4CV-VNB:240168101,243513101,243525301"
+    },
+    {
+     "t": "Morti 1813 (Registro 12765)",
+     "ark": "3:1:3QSQ-G999-BZYY",
+     "wc": "Q4CV-JZY:240168101,243513101,243525701"
+    },
+    {
+     "t": "Morti 1814 (Registro 12766)",
+     "ark": "3:1:3QS7-L999-B882",
+     "wc": "Q4CV-NWX:240168101,243513101,243526001"
+    },
+    {
+     "t": "Morti, indice 1806-1810 (Registro 12761)",
+     "ark": "3:1:3QS7-L999-1XC",
+     "wc": "Q4CV-VJN:240168101,243513101,243526301"
+    },
+    {
+     "t": "Morti, indice 1812 (Registro 12764)",
+     "ark": "3:1:3QSQ-G999-19Q9",
+     "wc": "Q4CV-K66:240168101,243513101,243526601"
+    },
+    {
+     "t": "Nati  1806 (Registro 12745)",
+     "ark": "3:1:3QSQ-G999-13PR",
+     "wc": "Q4CV-V63:240168101,243513101,243526901"
+    },
+    {
+     "t": "Nati  1807 (Registro 12746)",
+     "ark": "3:1:3QSQ-G999-1Q44",
+     "wc": "Q4CV-V6T:240168101,243513101,243527001"
+    },
+    {
+     "t": "Nati  1808 (Registro 12747)",
+     "ark": "3:1:3QSQ-G999-BZDX",
+     "wc": "Q4CV-JZ9:240168101,243513101,243527301"
+    },
+    {
+     "t": "Nati  1809 (Registro 12748)",
+     "ark": "3:1:3QS7-L999-B8HN",
+     "wc": "Q4CV-NWQ:240168101,243513101,243527601"
+    },
+    {
+     "t": "Nati  1810 (Registro 12749)",
+     "ark": "3:1:3QS7-8999-BZ1Z",
+     "wc": "Q4CV-N4D:240168101,243513101,243528001"
+    },
+    {
+     "t": "Nati  1811 (Registro 12751)",
+     "ark": "3:1:3QS7-8999-1352",
+     "wc": "Q4CV-V6X:240168101,243513101,243528101"
+    },
+    {
+     "t": "Nati  1812 (Registro 12752)",
+     "ark": "3:1:3QS7-L999-13RZ",
+     "wc": "Q4CV-VXQ:240168101,243513101,243528301"
+    },
+    {
+     "t": "Nati  1813 (Registro 12754)",
+     "ark": "3:1:3QSQ-G999-1QPQ",
+     "wc": "Q4CV-VX1:240168101,243513101,243528601"
+    },
+    {
+     "t": "Nati  1814 (Registro 12755)",
+     "ark": "3:1:3QS7-8999-BZB9",
+     "wc": "Q4CV-NW5:240168101,243513101,243529101"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 12750)",
+     "ark": "3:1:3QS7-L999-BXG4",
+     "wc": "Q4CV-NDS:240168101,243513101,243529601"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 12753)",
+     "ark": "3:1:3QSQ-G999-BNYF",
+     "wc": "Q4CV-N6J:240168101,243513101,243530101"
+    }
+   ]
+  },
+  {
+   "name": "Sauris",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LHZS",
+     "wc": "Q4CK-H8Y:240168101,244258801,241462101"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40910)",
+     "ark": "3:1:3QS7-89S4-LZ5P",
+     "wc": "Q4CK-CXR:240168101,244258801,240521801"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 1)",
+     "ark": "3:1:3QS7-89S4-LNKW",
+     "wc": "Q4CK-H88:240168101,244258801,241929201"
+    },
+    {
+     "t": "Morti, allegati 1810 (Registro 40910)",
+     "ark": "3:1:3QS7-89S4-L84G",
+     "wc": "Q4CK-CFB:240168101,244258801,244260601"
+    },
+    {
+     "t": "Morti, allegati 1811 (Registro 40915)",
+     "ark": "3:1:3QSQ-G9S4-LZYZ",
+     "wc": "Q4CK-CFK:240168101,244258801,244261501"
+    }
+   ]
+  },
+  {
+   "name": "Socchieve",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40920)",
+     "ark": "3:1:3QS7-89S4-LCFT",
+     "wc": "Q4CK-HD6:240168101,244462501,244462502"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40915)",
+     "ark": "3:1:3QS7-89S4-L85V",
+     "wc": "Q4CK-44H:240168101,244462501,241011201"
+    }
+   ]
+  },
+  {
+   "name": "Sutrio",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 12490)",
+     "ark": "3:1:3QS7-89MY-LH61",
+     "wc": "Q4CV-F7P:240168101,244789701,244789702"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 12491)",
+     "ark": "3:1:3QS7-L9MY-L64Q",
+     "wc": "Q4CV-6MK:240168101,244789701,244790201"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 12492)",
+     "ark": "3:1:3QSQ-G9MY-L7NL",
+     "wc": "Q4CV-F9R:240168101,244789701,244791101"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 12493)",
+     "ark": "3:1:3QS7-89MY-LW1J",
+     "wc": "Q4CV-FQS:240168101,244789701,244792401"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 12495)",
+     "ark": "3:1:3QS7-L9MY-L4GH",
+     "wc": "Q4CV-F7C:240168101,244789701,244792901"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 12497)",
+     "ark": "3:1:3QSQ-G9MY-LZ36",
+     "wc": "Q4CV-NQK:240168101,244789701,244793601"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 12499)",
+     "ark": "3:1:3QS7-89MY-L87Q",
+     "wc": "Q4CV-N7R:240168101,244789701,244794101"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 12501)",
+     "ark": "3:1:3QS7-89MY-L7P5",
+     "wc": "Q4CV-FSL:240168101,244789701,244794701"
+    },
+    {
+     "t": "Matrimoni 1815 (Registro 12502)",
+     "ark": "3:1:3QS7-L9MY-LWB8",
+     "wc": "Q4CV-FQX:240168101,244789701,244795301"
+    },
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-LH6K",
+     "wc": "Q4CK-HDH:240168101,244789701,240591301"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40911)",
+     "ark": "3:1:3QS7-L9S4-LFXN",
+     "wc": "Q4CK-H8S:240168101,244789701,241211701"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40912)",
+     "ark": "3:1:3QS7-89S4-LZ3V",
+     "wc": "Q4CK-CXH:240168101,244789701,241033701"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40918)",
+     "ark": "3:1:3QSQ-G9S4-LDTS",
+     "wc": "Q4CK-4HJ:240168101,244789701,240760801"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40916)",
+     "ark": "3:1:3QSQ-G9S4-L8RH",
+     "wc": "Q4CK-44K:240168101,244789701,243517701"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40913)",
+     "ark": "3:1:3QS7-89S4-LXM4",
+     "wc": "Q4CK-4C3:240168101,244789701,244803401"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LHZK",
+     "wc": "Q4CK-HDM:240168101,244789701,240764901"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40912)",
+     "ark": "3:1:3QS7-L9S4-LCQY",
+     "wc": "Q4CK-CXM:240168101,244789701,241035301"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LZQR",
+     "wc": "Q4CK-CFX:240168101,244789701,241013401"
+    },
+    {
+     "t": "Matrimoni, indice 1806-1810 (Registro 12494)",
+     "ark": "3:1:3QSQ-G9MY-LFCS",
+     "wc": "Q4CV-6ST:240168101,244789701,244806701"
+    },
+    {
+     "t": "Matrimoni, indice 1811 (Registro 12496)",
+     "ark": "3:1:3QSQ-G9MY-L8R9",
+     "wc": "Q4CV-DBP:240168101,244789701,244806801"
+    },
+    {
+     "t": "Matrimoni, indice 1812 (Registro 12498)",
+     "ark": "3:1:3QSQ-G9MY-LD6C",
+     "wc": "Q4CV-D15:240168101,244789701,244807001"
+    },
+    {
+     "t": "Matrimoni, indice 1813 (Registro 12500)",
+     "ark": "3:1:3QSQ-G9MY-L6XS",
+     "wc": "Q4CV-6MB:240168101,244789701,244807101"
+    },
+    {
+     "t": "Matrimoni, indice 1815 (Registro 12503)",
+     "ark": "3:1:3QSQ-G9MY-LXDC",
+     "wc": "Q4CV-6S4:240168101,244789701,244807301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 12480)",
+     "ark": "3:1:3QSQ-G9MY-L867",
+     "wc": "Q4CV-DYG:240168101,244789701,244807601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 12481)",
+     "ark": "3:1:3QSQ-G9MY-L697",
+     "wc": "Q4CV-6MF:240168101,244789701,244808201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 12482)",
+     "ark": "3:1:3QS7-L9MY-L8N6",
+     "wc": "Q4CV-DBC:240168101,244789701,244808401"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 12483)",
+     "ark": "3:1:3QS7-89MY-L6T8",
+     "wc": "Q4CV-6MN:240168101,244789701,244808801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 12484)",
+     "ark": "3:1:3QSQ-G9MY-L83V",
+     "wc": "Q4CV-DTR:240168101,244789701,244809401"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 12485)",
+     "ark": "3:1:3QS7-89MY-L6Q6",
+     "wc": "Q4CV-D1T:240168101,244789701,244810001"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 12486)",
+     "ark": "3:1:3QSQ-G9MY-LXX2",
+     "wc": "Q4CV-6S3:240168101,244789701,244810801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 12487)",
+     "ark": "3:1:3QS7-89MY-L8TZ",
+     "wc": "Q4CV-D1W:240168101,244789701,244811101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 12488)",
+     "ark": "3:1:3QS7-89MY-LX5L",
+     "wc": "Q4CV-692:240168101,244789701,244811601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1815 (Registro 12489)",
+     "ark": "3:1:3QS7-L9MY-LFGC",
+     "wc": "Q4ZH-WQX:240168101,244789701,244812201"
+    },
+    {
+     "t": "Morti 1806 (Registro 12504)",
+     "ark": "3:1:3QS7-L9MY-LLHQ",
+     "wc": "Q4CV-X3Q:240168101,244789701,244813001"
+    },
+    {
+     "t": "Morti 1807 (Registro 12505)",
+     "ark": "3:1:3QS7-89MY-L3C8",
+     "wc": "Q4CV-XQB:240168101,244789701,244814001"
+    },
+    {
+     "t": "Morti 1808 (Registro 12506)",
+     "ark": "3:1:3QSQ-G9MY-L3VK",
+     "wc": "Q4CV-XWH:240168101,244789701,244815101"
+    },
+    {
+     "t": "Morti 1809 (Registro 12507)",
+     "ark": "3:1:3QSQ-G9MY-LQV8",
+     "wc": "Q4CV-XHQ:240168101,244789701,244816101"
+    },
+    {
+     "t": "Morti 1810 (Registro 12508)",
+     "ark": "3:1:3QS7-89MY-LGGM",
+     "wc": "Q4CV-XQQ:240168101,244789701,244817001"
+    },
+    {
+     "t": "Morti 1811 (Registro 12510)",
+     "ark": "3:1:3QS7-L9MY-L325",
+     "wc": "Q4CV-X4Q:240168101,244789701,244817701"
+    },
+    {
+     "t": "Morti 1812 (Registro 12512)",
+     "ark": "3:1:3QS7-89MY-LL2L",
+     "wc": "Q4CV-XSX:240168101,244789701,244818301"
+    },
+    {
+     "t": "Morti 1813 (Registro 12514)",
+     "ark": "3:1:3QS7-L9MY-LGQ9",
+     "wc": "Q4CV-XQH:240168101,244789701,244819001"
+    },
+    {
+     "t": "Morti 1814 (Registro 12516)",
+     "ark": "3:1:3QS7-89MY-L3QF",
+     "wc": "Q4CV-X78:240168101,244789701,244819601"
+    },
+    {
+     "t": "Morti 1815 (Registro 12517)",
+     "ark": "3:1:3QS7-L9MY-L3N5",
+     "wc": "Q4CV-XW1:240168101,244789701,244820401"
+    },
+    {
+     "t": "Morti, indice 1806-1810 (Registro 12509)",
+     "ark": "3:1:3QSQ-G9MY-L3V1",
+     "wc": "Q4CV-XWD:240168101,244789701,244820901"
+    },
+    {
+     "t": "Morti, indice 1811 (Registro 12511)",
+     "ark": "3:1:3QS7-89MY-LQ69",
+     "wc": "Q4ZH-448:240168101,244789701,244821201"
+    },
+    {
+     "t": "Morti, indice 1812 (Registro 12513)",
+     "ark": "3:1:3QSQ-G9MY-L7FW",
+     "wc": "Q4CV-F9T:240168101,244789701,244821601"
+    },
+    {
+     "t": "Morti, indice 1813 (Registro 12515)",
+     "ark": "3:1:3QSQ-G9MY-LK6Q",
+     "wc": "Q4CV-XM8:240168101,244789701,244822001"
+    },
+    {
+     "t": "Morti, indice 1815 (Registro 12518)",
+     "ark": "3:1:3QS7-L9MY-LK56",
+     "wc": "Q4ZN-H8W:240168101,244789701,244822201"
+    },
+    {
+     "t": "Nati  1806 (Registro 12464)",
+     "ark": "3:1:3QSQ-G9MY-L84D",
+     "wc": "Q4CV-DT5:240168101,244789701,244822501"
+    },
+    {
+     "t": "Nati  1807 (Registro 12465)",
+     "ark": "3:1:3QS7-89MY-L8F9",
+     "wc": "Q4CV-DYV:240168101,244789701,244822901"
+    },
+    {
+     "t": "Nati  1808 (Registro 12466)",
+     "ark": "3:1:3QSQ-G9MY-LFYG",
+     "wc": "Q4CV-634:240168101,244789701,244823501"
+    },
+    {
+     "t": "Nati  1809 (Registro 12467)",
+     "ark": "3:1:3QS7-L9MY-LN2G",
+     "wc": "Q4CV-6Q7:240168101,244789701,244824201"
+    },
+    {
+     "t": "Nati  1810 (Registro 12468)",
+     "ark": "3:1:3QS7-89MY-LZ1Y",
+     "wc": "Q4CV-DT1:240168101,244789701,244825201"
+    },
+    {
+     "t": "Nati  1811 (Registro 12470)",
+     "ark": "3:1:3QS7-89MY-L813",
+     "wc": "Q4CV-DYX:240168101,244789701,244825901"
+    },
+    {
+     "t": "Nati  1812 (Registro 12472)",
+     "ark": "3:1:3QS7-89MY-LDM9",
+     "wc": "Q4CV-DBY:240168101,244789701,244826601"
+    },
+    {
+     "t": "Nati  1813 (Registro 12474)",
+     "ark": "3:1:3QS7-L9MY-LD5P",
+     "wc": "Q4CV-6MZ:240168101,244789701,244827901"
+    },
+    {
+     "t": "Nati  1814 (Registro 12476)",
+     "ark": "3:1:3QS7-L9MY-LJM5",
+     "wc": "Q4CV-6QP:240168101,244789701,244829201"
+    },
+    {
+     "t": "Nati  1815 (Registro 12478)",
+     "ark": "3:1:3QSQ-G9MY-L8HL",
+     "wc": "Q4CV-DYH:240168101,244789701,244830501"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 12469)",
+     "ark": "3:1:3QS7-89MY-LVHV",
+     "wc": "Q4CV-6YF:240168101,244789701,244831501"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 12471)",
+     "ark": "3:1:3QS7-89MY-LKV7",
+     "wc": "Q4ZH-W78:240168101,244789701,244832201"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 12473)",
+     "ark": "3:1:3QSQ-G9MY-L29H",
+     "wc": "Q4CV-X9J:240168101,244789701,244832601"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 12475)",
+     "ark": "3:1:3QS7-L9MY-LJ4L",
+     "wc": "Q4ZN-HZF:240168101,244789701,244833101"
+    },
+    {
+     "t": "Nati, indice 1814 (Registro 12477)",
+     "ark": "3:1:3QS7-L9MY-LVYK",
+     "wc": "Q4CV-6BN:240168101,244789701,244834001"
+    },
+    {
+     "t": "Nati, indice 1815 (Registro 12479)",
+     "ark": "3:1:3QS7-L9MY-LKNM",
+     "wc": "Q4ZN-HZ5:240168101,244789701,244834401"
+    }
+   ]
+  },
+  {
+   "name": "Tolmezzo",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1806 (Registro 40910)",
+     "ark": "3:1:3QS7-L9S4-LHYM",
+     "wc": "Q4CK-H67:240168101,245113401,242229501"
+    },
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40916)",
+     "ark": "3:1:3QSQ-G9S4-LZZY",
+     "wc": "Q4CK-CXL:240168101,245113401,241482201"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40920)",
+     "ark": "3:1:3QS7-L9S4-LZGR",
+     "wc": "Q4CK-WW9:240168101,245113401,240507501"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40915)",
+     "ark": "3:1:3QS7-L9S4-LHLX",
+     "wc": "Q4CK-HD2:240168101,245113401,242723201"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40926)",
+     "ark": "3:1:3QS7-89S4-LCY1",
+     "wc": "Q4CK-C6T:240168101,245113401,241688601"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40926)",
+     "ark": "3:1:3QSQ-G9S4-L8H6",
+     "wc": "Q4CK-W7R:240168101,245113401,245127901"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40923)",
+     "ark": "3:1:3QS7-89S4-LCVX",
+     "wc": "Q4CK-HDP:240168101,245113401,241913301"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40930)",
+     "ark": "3:1:3QS7-L9S4-L8HC",
+     "wc": "Q4CK-44Y:240168101,245113401,242924601"
+    },
+    {
+     "t": "Matrimoni, allegati 1815 (Registro 40920)",
+     "ark": "3:1:3QS7-89S4-LZGS",
+     "wc": "Q4CK-CX2:240168101,245113401,241391601"
+    }
+   ]
+  },
+  {
+   "name": "Verzegnis",
+   "films": [
+    {
+     "t": "Matrimoni, allegati 1807 (Registro 40913)",
+     "ark": "3:1:3QS7-89S4-LD5P",
+     "wc": "Q4CK-4H4:240168101,246126701,240521301"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40921)",
+     "ark": "3:1:3QS7-L9S4-LZ4Y",
+     "wc": "Q4CK-CFL:240168101,246126701,246129301"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 40913)",
+     "ark": "3:1:3QS7-89S4-LZ57",
+     "wc": "Q4CK-CXV:240168101,246126701,241453201"
+    },
+    {
+     "t": "Matrimoni, allegati 1810 (Registro 40916)",
+     "ark": "3:1:3QS7-L9S4-LZL1",
+     "wc": "Q4CK-W7Y:240168101,246126701,240508801"
+    },
+    {
+     "t": "Matrimoni, allegati 1811 (Registro 40921)",
+     "ark": "3:1:3QS7-89S4-LCB1",
+     "wc": "Q4CK-C6Y:240168101,246126701,240311001"
+    },
+    {
+     "t": "Matrimoni, allegati 1812 (Registro 40915)",
+     "ark": "3:1:3QSQ-G9S4-LF8C",
+     "wc": "Q4CK-HZD:240168101,246126701,241011201"
+    },
+    {
+     "t": "Matrimoni, allegati 1813 (Registro 40920)",
+     "ark": "3:1:3QSQ-G9S4-LXW6",
+     "wc": "Q4CK-4C6:240168101,246126701,241761701"
+    },
+    {
+     "t": "Matrimoni, allegati 1814 (Registro 40913)",
+     "ark": "3:1:3QS7-L9S4-LCHY",
+     "wc": "Q4CK-CXZ:240168101,246126701,241594301"
+    }
+   ]
+  },
+  {
+   "name": "Zovello",
+   "films": [
+    {
+     "t": "Matrimoni 1808 (Registro 13266)",
+     "ark": "3:1:3QSQ-G999-BNB9",
+     "wc": "Q4CV-N6L:240168101,246463501,246463502"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 13267)",
+     "ark": "3:1:3QS7-8999-BFL2",
+     "wc": "Q4CV-J4H:240168101,246463501,246464701"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 13268)",
+     "ark": "3:1:3QSQ-G999-BJTN",
+     "wc": "Q4CV-J4C:240168101,246463501,246464901"
+    },
+    {
+     "t": "Matrimoni, allegati 1808 (Registro 40912)",
+     "ark": "3:1:3QS7-89S4-LFNP",
+     "wc": "Q4CK-HZF:240168101,246463501,240759801"
+    },
+    {
+     "t": "Matrimoni, allegati 1809 (Registro 1)",
+     "ark": "3:1:3QS7-L9S4-L814",
+     "wc": "Q4CK-4H8:240168101,246463501,240522201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 13263)",
+     "ark": "3:1:3QSQ-G999-1Q9C",
+     "wc": "Q4CV-V64:240168101,246463501,246468501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 13264)",
+     "ark": "3:1:3QS7-8999-131D",
+     "wc": "Q4ZH-ZJG:240168101,246463501,246469501"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 13265)",
+     "ark": "3:1:3QSQ-G999-1QJR",
+     "wc": "Q4CV-VXX:240168101,246463501,246470001"
+    },
+    {
+     "t": "Morti 1808 (Registro 13269)",
+     "ark": "3:1:3QS7-L999-BZ5C",
+     "wc": "Q4CV-JZV:240168101,246463501,246470501"
+    },
+    {
+     "t": "Morti 1809 (Registro 13270)",
+     "ark": "3:1:3QS7-L999-B8CJ",
+     "wc": "Q4ZH-ZNL:240168101,246463501,246471301"
+    },
+    {
+     "t": "Morti 1810 (Registro 13271)",
+     "ark": "3:1:3QS7-8999-B8LS",
+     "wc": "Q4CV-N41:240168101,246463501,246472401"
+    },
+    {
+     "t": "Morti 1811 (Registro 13272)",
+     "ark": "3:1:3QS7-8999-BD91",
+     "wc": "Q4CV-NCH:240168101,246463501,246473201"
+    },
+    {
+     "t": "Morti 1812 (Registro 13273)",
+     "ark": "3:1:3QS7-8999-BCPJ",
+     "wc": "Q4CV-JZ8:240168101,246463501,246474101"
+    },
+    {
+     "t": "Morti 1813 (Registro 13274)",
+     "ark": "3:1:3QS7-L999-B89H",
+     "wc": "Q4CV-NWC:240168101,246463501,246474601"
+    },
+    {
+     "t": "Morti 1814 (Registro 13275)",
+     "ark": "3:1:3QS7-8999-BZ1B",
+     "wc": "Q4CV-N48:240168101,246463501,246475701"
+    },
+    {
+     "t": "Nati  1807 (Registro 13246)",
+     "ark": "3:1:3QS7-L999-BZVM",
+     "wc": "Q4CV-JCB:240168101,246463501,246476501"
+    },
+    {
+     "t": "Nati  1808 (Registro 13249)",
+     "ark": "3:1:3QSQ-G999-B62M",
+     "wc": "Q4CV-NC8:240168101,246463501,246477101"
+    },
+    {
+     "t": "Nati  1809 (Registro 13251)",
+     "ark": "3:1:3QSQ-G999-BFJ4",
+     "wc": "Q4CV-NZP:240168101,246463501,246477901"
+    },
+    {
+     "t": "Nati  1810 (Registro 13253)",
+     "ark": "3:1:3QS7-8999-1QY7",
+     "wc": "Q4CV-VF5:240168101,246463501,246478701"
+    },
+    {
+     "t": "Nati  1811 (Registro 13255)",
+     "ark": "3:1:3QSQ-G999-17JS",
+     "wc": "Q4CV-VNP:240168101,246463501,246479401"
+    },
+    {
+     "t": "Nati  1812 (Registro 13257)",
+     "ark": "3:1:3QSQ-G999-BZ2C",
+     "wc": "Q4CV-JZ5:240168101,246463501,246479901"
+    },
+    {
+     "t": "Nati  1813 (Registro 13259)",
+     "ark": "3:1:3QS7-L999-B6KR",
+     "wc": "Q4CV-NZ5:240168101,246463501,246480401"
+    },
+    {
+     "t": "Nati  1814 (Registro 13261)",
+     "ark": "3:1:3QS7-L999-1QZ7",
+     "wc": "Q4CV-VFT:240168101,246463501,246481001"
+    },
+    {
+     "t": "Nati, indice 1807 (Registro 13250)",
+     "ark": "3:1:3QS7-L999-BN3S",
+     "wc": "Q4ZN-6TT:240168101,246463501,246481601"
+    },
+    {
+     "t": "Nati, indice 1807 (Registro 13252)",
+     "ark": "3:1:3QSQ-G999-BVLZ",
+     "wc": "Q4CV-JH5:240168101,246463501,246481901"
+    },
+    {
+     "t": "Nati, indice 1810 (Registro 13254)",
+     "ark": "3:1:3QS7-L999-1D6",
+     "wc": "Q4ZN-VZ7:240168101,246463501,246482101"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 13256)",
+     "ark": "3:1:3QS7-L999-BXY7",
+     "wc": "Q4ZN-6TG:240168101,246463501,246482401"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 13258)",
+     "ark": "3:1:3QS7-8999-BFLJ",
+     "wc": "Q4ZH-C61:240168101,246463501,246483101"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 13260)",
+     "ark": "3:1:3QS7-8999-BN8R",
+     "wc": "Q4ZH-CX7:240168101,246463501,246483801"
+    },
+    {
+     "t": "Nati, indice 1814 (Registro 13262)",
+     "ark": "3:1:3QS7-L999-BJG6",
+     "wc": "Q4ZN-6T1:240168101,246463501,246484201"
+    }
+   ]
+  },
+  {
+   "name": "Zuglio",
+   "films": [
+    {
+     "t": "Matrimoni 1806 (Registro 12655)",
+     "ark": "3:1:3QS7-8999-BXT1",
+     "wc": "Q4ZH-C6L:240168101,246511701,246511702"
+    },
+    {
+     "t": "Matrimoni 1807 (Registro 12656)",
+     "ark": "3:1:3QS7-L999-BX51",
+     "wc": "Q4CV-ND8:240168101,246511701,246512601"
+    },
+    {
+     "t": "Matrimoni 1808 (Registro 12657)",
+     "ark": "3:1:3QS7-L999-BXB3",
+     "wc": "Q4CV-N6W:240168101,246511701,246513201"
+    },
+    {
+     "t": "Matrimoni 1809 (Registro 12658)",
+     "ark": "3:1:3QS7-L999-BFMV",
+     "wc": "Q4CV-N6R:240168101,246511701,246513601"
+    },
+    {
+     "t": "Matrimoni 1810 (Registro 12659)",
+     "ark": "3:1:3QSQ-G999-BJB3",
+     "wc": "Q4CV-J4S:240168101,246511701,246514601"
+    },
+    {
+     "t": "Matrimoni 1811 (Registro 12660)",
+     "ark": "3:1:3QS7-8999-BFB2",
+     "wc": "Q4CV-J4D:240168101,246511701,246515701"
+    },
+    {
+     "t": "Matrimoni 1812 (Registro 12661)",
+     "ark": "3:1:3QS7-L999-BNK7",
+     "wc": "Q4CV-JHN:240168101,246511701,246516201"
+    },
+    {
+     "t": "Matrimoni 1813 (Registro 12662)",
+     "ark": "3:1:3QSQ-G999-BVPH",
+     "wc": "Q4CV-JHB:240168101,246511701,246516801"
+    },
+    {
+     "t": "Matrimoni 1814 (Registro 12663)",
+     "ark": "3:1:3QSQ-G999-1QD",
+     "wc": "Q4CV-VZK:240168101,246511701,246517301"
+    },
+    {
+     "t": "Matrimoni 1815 (Registro 12664)",
+     "ark": "3:1:3QS7-8999-BXT5",
+     "wc": "Q4CV-N81:240168101,246511701,246517901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1806 (Registro 12645)",
+     "ark": "3:1:3QS7-L999-13MK",
+     "wc": "Q4ZH-ZJ6:240168101,246511701,246518601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1807 (Registro 12646)",
+     "ark": "3:1:3QSQ-G999-1QWH",
+     "wc": "Q4CV-V6L:240168101,246511701,246519101"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1808 (Registro 12647)",
+     "ark": "3:1:3QS7-L999-1HS",
+     "wc": "Q4CV-VFR:240168101,246511701,246519401"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1809 (Registro 12648)",
+     "ark": "3:1:3QSQ-G999-19NS",
+     "wc": "Q4CV-J88:240168101,246511701,246519901"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1810 (Registro 12649)",
+     "ark": "3:1:3QSQ-G999-1S3Q",
+     "wc": "Q4CV-J81:240168101,246511701,246520601"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1811 (Registro 12650)",
+     "ark": "3:1:3QSQ-G999-135D",
+     "wc": "Q4CV-V6W:240168101,246511701,246521301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1812 (Registro 12651)",
+     "ark": "3:1:3QSQ-G999-1QCT",
+     "wc": "Q4CV-V6V:240168101,246511701,246521801"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1813 (Registro 12652)",
+     "ark": "3:1:3QS7-L999-1NH",
+     "wc": "Q4CV-K62:240168101,246511701,246522301"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1814 (Registro 12653)",
+     "ark": "3:1:3QS7-8999-19X5",
+     "wc": "Q4CV-J8N:240168101,246511701,246523201"
+    },
+    {
+     "t": "Matrimoni, pubblicazioni ed opposizioni 1815 (Registro 12654)",
+     "ark": "3:1:3QS7-8999-1SQJ",
+     "wc": "Q4CV-JDD:240168101,246511701,246524801"
+    },
+    {
+     "t": "Morti 1806 (Registro 12665)",
+     "ark": "3:1:3QS7-8999-BCF2",
+     "wc": "Q4ZH-CXD:240168101,246511701,246525201"
+    },
+    {
+     "t": "Morti 1807 (Registro 12666)",
+     "ark": "3:1:3QS7-L999-BZ16",
+     "wc": "Q4CV-NW7:240168101,246511701,246526001"
+    },
+    {
+     "t": "Morti 1808 (Registro 12667)",
+     "ark": "3:1:3QSQ-G999-B8PK",
+     "wc": "Q4CV-NWP:240168101,246511701,246527101"
+    },
+    {
+     "t": "Morti 1809 (Registro 12668)",
+     "ark": "3:1:3QS7-L999-13ZW",
+     "wc": "Q4CV-V6J:240168101,246511701,246527801"
+    },
+    {
+     "t": "Morti 1810 (Registro 12669)",
+     "ark": "3:1:3QSQ-G999-BZ4C",
+     "wc": "Q4CV-JCK:240168101,246511701,246528401"
+    },
+    {
+     "t": "Morti 1811 (Registro 12670)",
+     "ark": "3:1:3QS7-8999-BC5N",
+     "wc": "Q4CV-JZN:240168101,246511701,246529101"
+    },
+    {
+     "t": "Morti 1812 (Registro 12671)",
+     "ark": "3:1:3QSQ-G999-B8F3",
+     "wc": "Q4CV-NWN:240168101,246511701,246530001"
+    },
+    {
+     "t": "Morti 1813 (Registro 12672)",
+     "ark": "3:1:3QS7-L999-BDQ3",
+     "wc": "Q4CV-N4Y:240168101,246511701,246530901"
+    },
+    {
+     "t": "Morti 1814 (Registro 12673)",
+     "ark": "3:1:3QS7-8999-13RC",
+     "wc": "Q4CV-V6R:240168101,246511701,246531801"
+    },
+    {
+     "t": "Morti 1815 (Registro 12674)",
+     "ark": "3:1:3QS7-L999-1QQB",
+     "wc": "Q4CV-VXG:240168101,246511701,246532901"
+    },
+    {
+     "t": "Nati  1806 (Registro 12629)",
+     "ark": "3:1:3QSQ-G999-1QLG",
+     "wc": "Q4CV-VX5:240168101,246511701,246533901"
+    },
+    {
+     "t": "Nati  1807 (Registro 12630)",
+     "ark": "3:1:3QS7-8999-1QKH",
+     "wc": "Q4ZH-ZJY:240168101,246511701,246534101"
+    },
+    {
+     "t": "Nati  1808 (Registro 12631)",
+     "ark": "3:1:3QSQ-G999-17X7",
+     "wc": "Q4CV-VNW:240168101,246511701,246534701"
+    },
+    {
+     "t": "Nati  1809 (Registro 12632)",
+     "ark": "3:1:3QSQ-G999-BZCD",
+     "wc": "Q4CV-JCN:240168101,246511701,246535401"
+    },
+    {
+     "t": "Nati  1810 (Registro 12633)",
+     "ark": "3:1:3QS7-L999-13G8",
+     "wc": "Q4CV-VXS:240168101,246511701,246535901"
+    },
+    {
+     "t": "Nati  1811 (Registro 12635)",
+     "ark": "3:1:3QS7-8999-1QZ2",
+     "wc": "Q4CV-VXK:240168101,246511701,246536901"
+    },
+    {
+     "t": "Nati  1812 (Registro 12637)",
+     "ark": "3:1:3QS7-L999-1QJD",
+     "wc": "Q4CV-VF1:240168101,246511701,246537801"
+    },
+    {
+     "t": "Nati  1813 (Registro 12639)",
+     "ark": "3:1:3QSQ-G999-17JH",
+     "wc": "Q4CV-VNT:240168101,246511701,246538501"
+    },
+    {
+     "t": "Nati  1814 (Registro 12641)",
+     "ark": "3:1:3QSQ-G999-BZNK",
+     "wc": "Q4CV-JCY:240168101,246511701,246539201"
+    },
+    {
+     "t": "Nati  1815 (Registro 12643)",
+     "ark": "3:1:3QSQ-G999-1QPN",
+     "wc": "Q4CV-VXR:240168101,246511701,246540201"
+    },
+    {
+     "t": "Nati, indice 1806-1810 (Registro 12634)",
+     "ark": "3:1:3QS7-L999-BDZK",
+     "wc": "Q4CV-NHM:240168101,246511701,246540701"
+    },
+    {
+     "t": "Nati, indice 1811 (Registro 12636)",
+     "ark": "3:1:3QS7-8999-BD34",
+     "wc": "Q4CV-NH1:240168101,246511701,246541801"
+    },
+    {
+     "t": "Nati, indice 1812 (Registro 12638)",
+     "ark": "3:1:3QS7-8999-BFPG",
+     "wc": "Q4CV-J4L:240168101,246511701,246542501"
+    },
+    {
+     "t": "Nati, indice 1813 (Registro 12640)",
+     "ark": "3:1:3QS7-L999-BN5V",
+     "wc": "Q4ZN-6TB:240168101,246511701,246542901"
+    },
+    {
+     "t": "Nati, indice 1814 (Registro 12642)",
+     "ark": "3:1:3QS7-8999-1C1",
+     "wc": "Q4CV-V8W:240168101,246511701,246543501"
+    },
+    {
+     "t": "Nati, indice 1815 (Registro 12644)",
+     "ark": "3:1:3QS7-8999-BDWY",
+     "wc": "Q4ZH-C6D:240168101,246511701,246544101"
+    }
+   ]
+  }
+ ],
+ "volumes": 642,
+ "note": "Italy, Udine, Civil Registration (State Archive), collection 1939238, walked 14 September 2026. A link opens the volume's own first image; a free FamilySearch account is needed. These are civil registers, not parish books — the church registers of Carnia before 1806 are not on film anywhere and must be asked for at the parish, which is what this archive has said all along and still holds."
+}

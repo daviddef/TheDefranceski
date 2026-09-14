@@ -1,6 +1,6 @@
 {
  "title": "What changed",
- "eyebrow": "251 entries · 48 of them corrections",
+ "eyebrow": "253 entries · 49 of them corrections",
  "dek": "Every search this archive has run and every claim it has taken back, newest first.",
  "lead": "Most family archives publish only what they found. This one publishes **what it looked for, what it found, what it did not find, and what it got wrong** — in one feed, in the order it happened.\n\nA search that returned nothing is kept because **an absence from a named source is a finding**, and because the next person should not have to repeat it. A correction is kept because an archive that only shows its successes is not telling you how reliable it is.",
  "days": [
@@ -65,11 +65,27 @@
     },
     {
      "when": "14 Sept 2026",
+     "kind": "yield",
+     "what": "The Croatian collection walked for sixty Dalmatian parishes, and the Udine collection for twenty-six Carnian comuni",
+     "src": "FamilySearch image waypoints — Dalmatia and Carnia, every volume addressed",
+     "text": "**Nine hundred and eighty-five more volumes now open at page one, and nothing failed.**\n\n**Dalmatia — 343 volumes across 60 parishes**, the Omiš, Split, Trogir–Seget, Imotski, Zadar and Dubrovnik groups with the ring each married into. Earliest volume **1569**. Same collection as Istria (2040054), same method.\n\n**Carnia is a different country and took a different route.** It is not in the Croatian collection, and the collections API **silently ignores its own text filter** — a search for «Udine» returns Alabama — so all **3,483** FamilySearch collections had to be paged to find it. There is exactly one: **«Italy, Udine, Civil Registration (State Archive), 1806-1815, 1871-1911»**, collection 1939238, 1.26 million images. **This archive had been describing it as 1806–1815 only**; the 1871–1911 half has never been looked at.\n\n**642 volumes across 26 Carnian comuni** are now linked. Sutrio has 64, Prato 62, Paluzza 56.\n\n**And Ovaro is not in it.** The province lists 627 comuni and Ovaro is not one of them — nor Mione, Muina, Ovasta, Luint, Liariis, Chialina, Agrons or Cludinico. **But Colza is**, a frazione of Ovaro, holding a complete Napoleonic set for 1806–1812: births, deaths, marriages, banns and indexes, **25 volumes**. Whether Mione and Muina are written inside them is a question the images can answer and the index cannot — the record API's place filter is ignored too. The volumes are linked; it is a few minutes' reading and it has not been done.\n\n**Comeglians, the Gorto canton seat, carries the marriage *allegati* for 1807–1815** — the documents behind this archive's Giovanni Battista de' Franceschi «already dead by 1789».\n\n**A warning with it.** The Udine collection indexes 2,201 people called Franceschi. Of the first eleven hundred, **the Carnian communes account for five**. The rest are lowland Friulian families — Lauzzana and Colloredo (209), Udine (129), Muzzana del Turgnano (114), Bertiolo (101). Most Franceschi in the Udine registers are not this family and are not from the mountains.",
+     "href": "/research-log/"
+    },
+    {
+     "when": "14 Sept 2026",
      "kind": "correction",
      "what": "I said Dubrovnik was too thin to be a group. It is a household.",
      "src": "A claim taken back",
      "text": "**This archive said** Asked whether the Rijeka, Dubrovnik and Bakar groups could each have a page, this archive answered that **Dubrovnik could not**: *«it's four people, and the 1829 row has four names in a parent list, which is exactly the tabular-register trap that burned us on Francisca. Giving it a page would dress four records as a group.»*\n\n**What is true** **The caution was right and the conclusion was wrong.** The trap was real. The answer was to *apply the rule*, not to walk away from the records.\n\nApplied, the four resolve into one household across forty-two years. The 1829 row is a **marriage**, not a birth: four parent names is the signature of the Austrian tabular register, whose columns run SPONSI, SPONSAE, GENITORES SPONSI, GENITORES SPONSAE. Read that way it says **Matteo Persich, born 1829, son of Antonio Persich and Teresa Martecchini, marrying a daughter of Pietro Defranceschi** — and the other three records are that couple's children, baptised at Dubrovnik in 1853, 1863 and 1871.\n\n**The children confirm the reading.** The first son is **Antonio**, his father's father. The daughter of 23 December 1863 is **Cattarina *Teresa* Vittoria Maria**, his father's mother. That is the ordinary Adriatic naming order, and it is independent of the row that was misread.\n\nThe lesson is not about Dubrovnik. **A rule this archive learned in order to avoid a false positive was used instead to avoid looking** — which costs more than the error it was guarding against.\n\nAnd two smaller things fell out of it: the surname is **Martecchini**, not Martechini — forebears finds exactly one person of the archive's spelling in the world — and it is **Ragusan**, not Venetian, which is where this site had filed it on the strength of how it looks.\n\n**How it happened** ",
      "href": "/dubrovnik/ · and a reply given on 13 September"
+    },
+    {
+     "when": "14 Sept 2026",
+     "kind": "correction",
+     "what": "The Atlas was drawing a fifth of what the archive knows, and this site holds two different Gračišćes",
+     "src": "A claim taken back",
+     "text": "**This archive said** The Atlas carried **52 hand-written pins** and had done since it was built. The dek said «every place this archive can put a document in», which was not true: the roster names **266 place strings** attaching **1,440 people** to the ground.\n\n**What is true** Rebuilt from the roster, the map holds **154 places and 955 people**. Three things were wrong rather than merely missing.\n\n· **One town was being drawn several times under different names.** Almissa and Omiš are the same place; so are Fiume, Vitipolis and Tarsatica, which is why the first rebuild put **Rijeka on the map three times**. Historic and Italian forms are now folded onto the town they name.\n\n· **This archive holds two different coordinates for Gračišće**, seven kilometres apart — one in *places.json*, one in *atlas.json*. Neither was flagged because nothing had ever compared them. The heavier pin keeps the ground and the builder now refuses to draw one name twice.\n\n· **Seventy-three entries name something that is not a town.** Thirteen say «Österreich», five «Austria», four «Italy»; and four each say **«Santa Maria Assunta», «Immacolata Concezione» and «Assunzione di Maria Santissima»** — church dedications written into a place field. Those are left off the map and are a data error to be cleaned, not a place to be pinned.\n\n**How it happened** Found by building the thing properly rather than by checking it. Nothing compares a gazetteer against itself until something has to draw both.",
+     "href": "/atlas/"
     }
    ]
   },
