@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdp as _mdp } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
@@ -9,6 +9,33 @@ import d from "../data/oldsite.json";
 <Base title="defranceski.com"
       eyebrow="Before the old site is switched off"
       dek={d.note}>
+
+<section class="blk">
+  <div class="one" style="border-left-color:var(--terra)">
+    <div class="lab">{d.backto.heading}</div>
+    <p style="margin-top:8px" set:html={_md(d.backto.lead)}></p>
+    <p style="margin-top:12px">
+      <a href={d.backto.live[1]} rel="noopener" target="_blank">{d.backto.live[0]} &#8599;</a>
+    </p>
+  </div>
+  <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px">
+    {d.backto.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={_mdp(r.text)}></p>
+        {r.links && (
+          <ul class="prose" style="display:block;margin-top:10px">
+            {r.links.map(([t, href]) => (
+              <li style="margin:.35em 0"><a href={href} rel="noopener" target="_blank">{t} &#8599;</a></li>
+            ))}
+          </ul>
+        )}
+        {r.after && <p style="margin-top:12px" set:html={_mdp(r.after)}></p>}
+      </div>
+    ))}
+  </div>
+</section>
+<Rule name="arrows" label="What was captured" />
 
 <section class="blk">
   <h2>{d.captured.heading}</h2>

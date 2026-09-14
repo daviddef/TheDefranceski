@@ -299,5 +299,51 @@
     "text": "The old page listed the members of the Croatian Noble Corps by name, with birth years, professions and current cities. **They are living people.** This archive omits the living rather than hiding them, so they are not here and will not be. The stored HTML keeps the record for the family's own use."
    }
   ]
+ },
+ "backto": {
+  "heading": "If you need to go back to the old site",
+  "lead": "David is switching **defranceski.com** off. This is the standing reference to it — the live address while it is still up, and what survives after it is not.",
+  "live": [
+   "The site itself, while it is still up",
+   "https://sites.google.com/defranceski.com/defranceski/home"
+  ],
+  "rows": [
+   {
+    "lab": "The Internet Archive has it — but only the front page",
+    "key": true,
+    "text": "The Wayback Machine holds **two** captures of the old site and no more.",
+    "links": [
+     [
+      "1 January 2022 — the site root",
+      "https://web.archive.org/web/20220101095833/https://sites.google.com/defranceski.com/defranceski/"
+     ],
+     [
+      "11 July 2025 — the home page",
+      "https://web.archive.org/web/20250711044602/https://sites.google.com/defranceski.com/defranceski/home"
+     ]
+    ],
+    "after": "**Nothing below the home page is archived.** Family Trees, The People, The Places, The Map, The Name, The Coat of Arms, Publications, Resources, About — a Wayback query for every URL under that host returns those two pages and nothing else. Google Sites builds its navigation in script, which is why the crawler never followed it down.\n\nSo the public net will keep the front door and lose the rooms. **This archive is the record of the rooms** — that is what the page-by-page table below is for, and it was written before the switch-off for exactly this reason."
+   },
+   {
+    "lab": "What was taken off it before it goes",
+    "text": "The whole site was captured as HTML, and both Google MyMaps were exported as KML, on **8 September 2026**. Those files are held with the archive's own material rather than on a server that can be turned off. **The maps are the part that would actually have been lost**: a My Map dies with the account, and no crawler saves one.\n\nThe other Google Site on the same domain, **drawinglight**, has a single Wayback capture. It is not family history, and is noted here only so that nobody later wonders whether it was missed.",
+    "links": [
+     [
+      "drawinglight, 28 November 2021",
+      "https://web.archive.org/web/20211128205016/https://sites.google.com/defranceski.com/drawinglight/home"
+     ]
+    ]
+   },
+   {
+    "lab": "Worth doing before the switch-off, and not yet done",
+    "text": "**Submitting each of the old site's nine pages to the Wayback Machine by hand** would put them on the public record permanently, which no later action can do once the site is gone. It is one form per page.\n\nThis has **not** been done. Publishing pages to a third-party archive is David's call, not this project's, so it is listed here rather than carried out.",
+    "links": [
+     [
+      "web.archive.org/save",
+      "https://web.archive.org/save"
+     ]
+    ]
+   }
+  ]
  }
 }

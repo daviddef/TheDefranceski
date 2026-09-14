@@ -5,7 +5,6 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u, based } from "../lib/url.js";
 import d from "../data/searched.json";
-const n = k => d.rows.filter(r => oc(r) === k).length;
 // Rows have been written with a dozen different words for the same five outcomes.
 // Anything unrecognised used to vanish from this page; now it is mapped, and
 // whatever still is not falls into "Other" rather than disappearing.
@@ -15,11 +14,29 @@ const oc = (r) => ALIAS[r.outcome] || r.outcome;
 const label = { yield: "Yielded", nothing: "Nothing", blocked: "Blocked",
                 partial: "Partly", pending: "Not yet", other: "Other" };
 const order = ["yield", "partial", "nothing", "blocked", "pending"];
-const groups = [...order.map(k => [k, d.rows.filter(r => oc(r) === k)]),
-                ["other", d.rows.filter(r => !order.includes(oc(r)))]];
+const kind = (r) => (order.includes(oc(r)) ? oc(r) : "other");
+const n = (k) => d.rows.filter(r => kind(r) === k).length;
+
+// Sort so the register reads the way it is used: what it gave first, and
+// within each outcome the most recent work at the top.
+const monthN = { jan:1, feb:2, mar:3, apr:4, may:5, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
+const when = (s) => {
+  const m = String(s || "").match(/(\d{1,2})?\s*([A-Za-z]{3})[a-z]*\s*(\d{4})/);
+  return m ? (+m[3]) * 10000 + (monthN[m[2].toLowerCase()] || 0) * 100 + (+m[1] || 0) : 0;
+};
+const rank = { yield: 0, partial: 1, pending: 2, blocked: 3, nothing: 4, other: 5 };
+const rows = [...d.rows].sort((a, b) =>
+  rank[kind(a)] - rank[kind(b)] || when(b.when) - when(a.when));
+
+const host = (url) => (url || "").startsWith("/")
+  ? null : (url || "").replace(/^https?:\/\/(www\.)?/, "").split("/")[0];
+// everything a row can be matched on, flattened once at build time
+const hay = (r) => [r.src, r.what, r.when, label[kind(r)], r.got, r.dest,
+                    ...(r.tags || []), ...(r.ev || []).map(e => e[1])]
+  .join(" ").replace(/[*«»]/g, "").toLowerCase();
 ---
-<Base title="The Search Register" eyebrow={`${d.rows.length} sources examined`}
-      dek="Everything looked at, whether or not it found anything — because a search that returns nothing is a result, and the next person should not have to repeat it.">
+<Base title="The Search Register" eyebrow={`${d.rows.length} sources examined · every one of them linked`}
+      dek="Everything looked at, whether or not it found anything — because a search that returns nothing is a result, and the next person should not have to repeat it. Search it, filter it, and follow any row back to the source or forward to what it produced.">
 
 <section class="blk">
   <div class="grid g4" style="margin-top:4px">
@@ -31,36 +48,205 @@ const groups = [...order.map(k => [k, d.rows.filter(r => oc(r) === k)]),
   <p class="prose note" style="margin-top:24px" set:html={based(_md(d.note))}></p>
 </section>
 
-{groups.map(([k, rows]) => rows.length > 0 && (
-<Rule name="arrows" />
-  <section class="blk">
-    <h2>{label[k]}</h2>
-    <div class="scroll" style="margin-top:20px">
-      <table>
-        <thead><tr><th style="width:24%">Source</th><th style="width:20%">What was searched</th><th class="m">When</th><th>What it gave, or did not</th></tr></thead>
-        <tbody>{rows.map(r => (
-          <tr>
-            <td><strong>{r.src}</strong></td>
-            <td set:html={based(_md(r.what))}></td>
-            <td class="m">{r.when}</td>
-            <td set:html={based(_md(r.got).replace(/\n\n+/g, "<br><br>"))}></td>
-          </tr>
-        ))}</tbody>
-      </table>
+<Rule name="arrows" label="Search the register" />
+
+<section class="blk">
+  <form class="sr-bar" role="search" onsubmit="return false">
+    <label class="sr-f">
+      <span class="sr-lb">Search every row</span>
+      <input id="sr-q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="world war · Vodnjan · blocked · Findmypast · 1914" />
+    </label>
+    <div class="sr-chips" id="sr-chips">
+      <button class="sr-c on" data-k="all">All <span class="sr-n">{d.rows.length}</span></button>
+      {order.concat(n("other") ? ["other"] : []).map(k => (
+        <button class="sr-c" data-k={k}>{label[k]} <span class="sr-n">{n(k)}</span></button>
+      ))}
     </div>
-  </section>
-))}
+    <p class="sr-count" id="sr-count" aria-live="polite">{d.rows.length} of {d.rows.length} sources</p>
+  </form>
+
+  <div class="scroll" style="margin-top:18px">
+    <table class="sr-t">
+      <thead><tr>
+        <th style="width:21%">Source</th>
+        <th style="width:15%">What was searched</th>
+        <th class="m" style="width:8%">When</th>
+        <th style="width:13%">Outcome</th>
+        <th>What it gave, or did not</th>
+      </tr></thead>
+      <tbody id="sr-body">{rows.map(r => (
+        <tr data-k={kind(r)} data-h={hay(r)}>
+          <td>
+            {r.url
+              ? <a class="sr-src" href={r.url.startsWith("/") ? u(r.url) : r.url}
+                   rel={r.url.startsWith("/") ? null : "noopener"}
+                   target={r.url.startsWith("/") ? null : "_blank"}>{r.src}</a>
+              : <strong>{r.src}</strong>}
+            {r.url && <span class="sr-dest">{host(r.url) || "on this site"}{host(r.url) ? " ↗" : " →"}</span>}
+          </td>
+          <td set:html={based(_md(r.what))}></td>
+          <td class="m">{r.when}</td>
+          <td>
+            <span class={`sr-o o-${kind(r)}`}>{label[kind(r)]}</span>
+            {r.tags && r.tags.length > 0 && (
+              <span class="sr-tags">{r.tags.map(t => (
+                <button class="sr-tag" data-t={t} type="button">{t}</button>
+              ))}</span>
+            )}
+          </td>
+          <td>
+            <div set:html={based(_md(r.got).replace(/\n\n+/g, "<br><br>"))}></div>
+            {r.ev && r.ev.length > 0 && (
+              <p class="sr-ev">
+                <span class="sr-evl">What it produced on this site</span>
+                {r.ev.map(([href, lab]) => <a href={u(href)}>{lab}</a>)}
+              </p>
+            )}
+          </td>
+        </tr>
+      ))}</tbody>
+    </table>
+    <p class="sr-none" id="sr-none" hidden>Nothing in the register matches that. Try a place, a portal, a year, or an outcome.</p>
+  </div>
+</section>
+
 <Rule name="pomegranate" />
 
 <section class="blk">
   <h2>How to read this</h2>
   <div class="prose" style="margin-top:16px">
-    <p>Three of the five headings are the useful ones. <strong>Nothing</strong> is the heading that saves work: five gigabytes of theology journals searched end to end for twenty place-names and every spelling of the surname, and not one hit — that is worth recording so it is never done again. Three of the entries under it are entirely different families who happen to share the name, and naming them is the only defence against quietly absorbing them.</p>
-    <p><strong>Blocked</strong> means a bot check, a login wall or a paywall that this project has chosen not to get round. Those are recorded rather than worked around, and where a blocked route matters — Antenati for the Carnian civil registers is the sharpest case — it is named as a gap rather than filled with a guess.</p>
+    <p><strong>Every row now carries a way out of the table.</strong> The source name is a link to where the search was actually done — a portal's search page, a newspaper's run at ANNO, a film at FamilySearch, a journal's issue. Where the material came from the family, or from a book that is not online, the link points instead at the page of this site where the scans and extracts live, and says «on this site» rather than naming a host.</p>
+    <p><strong>«What it produced on this site»</strong> is the other direction: from a search to the pages its findings ended up on. That is where the extracts, the transcriptions and the images are — a register row here is the receipt, not the evidence.</p>
+    <p>Three of the five outcomes are the useful ones. <strong>Nothing</strong> is the heading that saves work: five gigabytes of theology journals searched end to end for twenty place-names and every spelling of the surname, and not one hit — that is worth recording so it is never done again. Three of the entries under it are entirely different families who happen to share the name, and naming them is the only defence against quietly absorbing them.</p>
+    <p><strong>Blocked</strong> means a bot check, a login wall or a paywall that this project has chosen not to get round. Those are recorded rather than worked around, and where a blocked route matters — Antenati for the Carnian civil registers is the sharpest case — it is named as a gap rather than filled with a guess. The link still goes to the front door, so anyone with an account can walk through it.</p>
     <p><strong>Not yet</strong> is a shopping list. Most of it is printed and purchasable or is one letter away. Anyone who wants to move this archive forward should start there rather than at the beginning.</p>
     <p>Sources that did yield are described properly in <a href={u("/sources/")}>the bibliography</a>, with what each gave and where it is weak. Open questions are in <a href={u("/research-log/")}>the research log</a>.</p>
   </div>
 </section>
 
   <Sources ids={["openstarts", "hrcak", "archiveorg", "siasp", "dapa"]} />
+
+<script is:inline>
+  (function () {
+    var q = document.getElementById("sr-q");
+    var body = document.getElementById("sr-body");
+    var count = document.getElementById("sr-count");
+    var none = document.getElementById("sr-none");
+    var chips = document.getElementById("sr-chips");
+    if (!q || !body) return;
+    var rows = Array.prototype.slice.call(body.querySelectorAll("tr"));
+    var total = rows.length;
+    var kind = "all";
+
+    function apply() {
+      var terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+      var shown = 0;
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var ok = (kind === "all" || r.getAttribute("data-k") === kind);
+        if (ok && terms.length) {
+          var h = r.getAttribute("data-h");
+          for (var t = 0; t < terms.length; t++) {
+            if (h.indexOf(terms[t]) === -1) { ok = false; break; }
+          }
+        }
+        r.hidden = !ok;
+        if (ok) shown++;
+      }
+      count.textContent = shown === total
+        ? total + " of " + total + " sources"
+        : shown + " of " + total + " sources";
+      none.hidden = shown > 0;
+    }
+
+    q.addEventListener("input", apply);
+    body.addEventListener("click", function (e) {
+      var t = e.target.closest(".sr-tag");
+      if (!t) return;
+      q.value = t.getAttribute("data-t");
+      apply();
+      q.scrollIntoView({ block: "center" });
+    });
+    chips.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-k]");
+      if (!b) return;
+      kind = b.getAttribute("data-k");
+      Array.prototype.forEach.call(chips.querySelectorAll("button"), function (x) {
+        x.classList.toggle("on", x === b);
+      });
+      apply();
+    });
+
+    // deep link: /searched/?q=world+war  or  #blocked
+    var p = new URLSearchParams(location.search).get("q");
+    if (p) { q.value = p; }
+    var h = location.hash.replace("#", "");
+    if (h && chips.querySelector('button[data-k="' + h + '"]')) {
+      chips.querySelector('button[data-k="' + h + '"]').click();
+    }
+    if (p) apply();
+  })();
+</script>
+
+<style>
+  .sr-bar { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+  .sr-f { display: block; }
+  .sr-lb {
+    display: block; font: 400 11px/1 var(--sans); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;
+  }
+  #sr-q {
+    width: 100%; box-sizing: border-box; padding: 12px 14px;
+    font: 400 16px/1.3 var(--serif); color: var(--ink);
+    background: var(--card); border: 1px solid var(--rule); border-radius: 3px;
+  }
+  #sr-q:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  .sr-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sr-c {
+    font: 400 12px/1 var(--sans); letter-spacing: .04em; color: var(--ink-2);
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 999px;
+    padding: 7px 13px; cursor: pointer;
+  }
+  .sr-c:hover { border-color: var(--ink-3); }
+  .sr-c.on { background: var(--accent-wash); border-color: var(--accent); color: var(--ink); }
+  .sr-n { color: var(--ink-3); font-family: var(--mono); font-size: 11px; margin-left: 4px; }
+  .sr-c.on .sr-n { color: var(--accent); }
+  .sr-count { font: 400 12px/1 var(--mono); color: var(--ink-3); margin: 0; }
+  .sr-none { font-family: var(--serif); color: var(--ink-3); padding: 26px 2px; }
+
+  .sr-src { font-weight: 600; }
+  .sr-dest {
+    display: block; margin-top: 4px;
+    font: 400 11px/1.3 var(--mono); color: var(--ink-3); letter-spacing: .02em;
+    overflow-wrap: anywhere;
+  }
+  .sr-o {
+    display: inline-block; white-space: nowrap;
+    font: 400 10px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase;
+    border: 1px solid currentColor; border-radius: 2px; padding: 4px 7px;
+  }
+  .o-yield { color: var(--accent); }
+  .o-partial { color: var(--ochre); }
+  .o-pending { color: var(--ink-3); }
+  .o-blocked { color: var(--terra); }
+  .o-nothing, .o-other { color: var(--ink-3); opacity: .8; }
+  .sr-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .sr-tag {
+    font: 400 10px/1.25 var(--sans); letter-spacing: .03em; color: var(--ink-3);
+    background: none; border: 1px solid var(--rule); border-radius: 2px;
+    padding: 3px 5px; cursor: pointer; text-align: left;
+  }
+  .sr-tag:hover { color: var(--ink); border-color: var(--ink-3); }
+  .sr-ev {
+    margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--rule);
+    display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  }
+  .sr-evl {
+    font: 400 10px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-3); flex: 0 0 100%;
+  }
+  .sr-ev a { font: 400 13px/1.3 var(--sans); }
+  .sr-t tbody tr[hidden] { display: none; }
+</style>
 </Base>
