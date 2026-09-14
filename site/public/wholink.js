@@ -27,7 +27,13 @@
         var p = node.parentElement;
         while (p && p !== main) {
           var t = p.tagName;
+          /* Never touch anything inside an SVG: an HTML <a> injected into an
+             SVG <text> is not laid out by the SVG renderer, so the label
+             measures zero and silently disappears from the chart. SVG tag
+             names are lower-case, so the checks below never caught it. */
+          if (p.ownerSVGElement || t === "svg" || t === "SVG") return NodeFilter.FILTER_REJECT;
           if (t === "A" || t === "CODE" || t === "PRE" || t === "SCRIPT" || t === "STYLE" ||
+              t === "TITLE" || t === "OPTION" ||
               p.classList.contains("noauto")) return NodeFilter.FILTER_REJECT;
           p = p.parentElement;
         }
