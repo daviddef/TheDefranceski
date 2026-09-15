@@ -28,9 +28,9 @@
   },
   {
    "n": 3,
-   "what": "Re-cut the research map's colour scale",
-   "state": "done",
-   "note": "The three states had saturated — 1,219 of 1,239 places the same gold. The map now shades by **depth** (how many volumes sit on the shelf) and keeps green for «something here has been read», which is the number that should stay embarrassing.",
+   "what": "Re-cut the research map's colour scale to depth",
+   "state": "struck",
+   "note": "**Struck: it answered a question nobody was asking.** Shading by how many volumes sit on a shelf looked better than the saturated three-state scale it replaced, and said less — **a parish with forty volumes nobody has opened and a parish with two nobody has opened are in the same state.** The colour now says *how far we have got*: never opened, started, read right through. Depth moved into the panel, in words, where it can sit next to «nobody has read any of it» without pretending to be it.",
    "owner": "this archive",
    "since": "2026-09-14"
   },
@@ -177,6 +177,30 @@
    "owner": "this archive",
    "since": "2026-09-15",
    "note": "Seven confession roots in Croatia Church Books 2040054 are known and walked — Roman Catholic, Orthodox, Greek Catholic, Jewish, Military, Civil, Reformed. **The Evangelical one was never found**, so its parishes sit on [the research map](/research-map/) in no catalogue at all.\n\nIt surfaced because the map's grey filter showed **0 of 1,187 places** — places with no provider block were being dropped from the blob entirely. Fixed; and the three that appeared are **two Evangelical and one Roman Catholic**, which turned a display bug into a real gap with a name."
+  },
+  {
+   "n": 22,
+   "what": "Track which volumes have been read, not just which places",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The map can only say **«read right through»** where the catalogue carries a per-volume read flag, and today that is **Antenati alone** — 16 volumes of 7,159. Everywhere else a reading is recorded against the *place*, in the search register, so Svetvinčenat with 114 volumes and one act read counts the same as a parish half-finished.\n\n**Until this exists, «finished» is unprovable for 1,222 of the 1,242 places**, and the map shows zero green. The fix is a `how` field on FamilySearch volumes, filled as each one is actually opened."
+  },
+  {
+   "n": 23,
+   "what": "The panel now groups the shelf by record type and names the gaps",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "A marker used to list its volumes in whatever order the providers were walked. It now shows a coverage timeline — Births, Marriages, Deaths — with every hole named and measured. **277 real gaps across 160 places**; 1,002 places have none.\n\nA one- or two-year hole is called a labelling artefact rather than a loss, **except where every volume covers a single year** — the Napoleonic comuni — where a missing year is a missing book. That exception is what makes [Mione's lost 1807](/carnia/#gap1807) show as three gaps and not three shrugs."
+  },
+  {
+   "n": 24,
+   "what": "Each place shown under its older and other names",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The «also written» line used to carry nothing but the catalogue's own noise — *«Fažana, Croatia»*. It now carries what the place was called when the register was written: **Rijeka as Fiume and Sankt Veit am Flaum, Pazin as Pisino, Gračišće as Gallignana, Svetvinčenat as Sanvincenti**. 609 of the 1,190 mapped places have one.\n\nTaken from the GeoNames alternate-names column already held offline, with the airport codes, the Mandarin and Cyrillic romanisations, and the modern administrative wrappers («Grad Vodnjan») filtered out — and with spellings that are the same name without hačeks (*Fazhana*, *Svetvinchenat*) folded away rather than listed as identities."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight."

@@ -12,19 +12,23 @@ import r from "../../data/researchmap.json";
 
 const s = r.stats;
 const st = r.stats;
-/* The first cut of this map had three colours — not walked, catalogued, read —
-   and it worked until the cataloguing finished, at which point 1,219 of 1,239
-   places were the same gold and the map said nothing. So the shading now
-   carries DEPTH, which is a thing that actually varies: a parish with two
-   volumes and a parish with forty are not the same prospect. Green still means
-   somebody has read something here, because that is the number that matters
-   and it should stay embarrassing. */
+/* Three cuts of this map, and the third is the one that answers the question.
+
+   First: three coverage states, which saturated the moment the cataloguing
+   finished — 1,219 of 1,239 places went gold. Second: shade by DEPTH, one or
+   two volumes against ten or more, which looked better and said less. A
+   parish with forty volumes nobody has opened and a parish with two nobody
+   has opened are in exactly the same state, and «one or two volumes» told a
+   reader nothing about whether the work had been done.
+
+   Third, and current: the colour says HOW FAR WE HAVE GOT. Depth is not lost
+   — it is in the panel, in words, where "114 volumes catalogued" can sit next
+   to "nobody has opened any of it" without either pretending to be the other. */
 const cats = [
-  ["none", "In no catalogue at all",     "#9AA7B2"],
-  ["thin", "One or two volumes",         "#E8C46A"],
-  ["some", "Three to nine",              "#E9A020"],
-  ["deep", "Ten or more",                "#B04A16"],
-  ["read", "Something here has been read","#12703F"],
+  ["none",      "In no catalogue at all",   "#9AA7B2"],
+  ["untouched", "Catalogued, never opened", "#C9B79A"],
+  ["started",   "Something here read",      "#E9A020"],
+  ["done",      "Read right through",       "#12703F"],
 ];
 const LAB = { rc: "Roman Catholic", orth: "Orthodox", gc: "Greek Catholic",
               jew: "Jewish", mil: "Military", ref: "Reformed", civil: "Civil",
@@ -59,7 +63,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 ---
 <Base
   title="The Research Map"
-  eyebrow={`${s.places} record-book places · ${s.volumes} volumes inventoried · ${s.read + s.listed} places walked`}
+  eyebrow={`${s.places} record-book places · ${s.volumes} volumes catalogued · ${s.volumesRead} of them read`}
   dek="Every parish in Croatia whose registers are on film, and how far this archive has got with each one. Click a marker: it tells you what confession the books are, whether we hold the volume list, and where we hold it, it hands you the volumes themselves.">
 
   <Atlas
@@ -68,13 +72,13 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
     bounds={[[42.2, 13.2], [46.8, 19.6]]}
     homeLabel="Back to Croatia"
     placeholder="Brinje · Svetvinčenat · Otočac · Vodnjan"
-    hint={`${s.placed} of the ${s.places} places can be put on the map. ${s.read + s.listed} of them — ${pct(s.read + s.listed)}% — have been walked to volume level.`}
+    hint={`${s.placed} of the ${s.places} places can be put on the map. ${s.read} of them — ${pct(s.read)}% — have had anything read at all.`}
   />
 
   <div class="one" style="margin-top:26px">
     <div class="lab">One provider at a time</div>
     <div class="prose" style="margin-top:8px" set:html={mdp(
-`The map above is every provider at once. **These show one each**, with the colours meaning exactly what they mean here — a parish that is gold on the FamilySearch view and grey on Pazin's is a parish whose books are filmed but whose originals nobody has listed.`)}></div>
+`The map above is every provider at once. **These show one each**, with the colours meaning exactly what they mean here — a parish that is sand on the FamilySearch view and absent from Pazin's is a parish whose books are filmed but whose originals nobody has listed.`)}></div>
     <div class="atlas-key" style="margin-top:14px">
       {r.sources.map(s => (
         <a class="at-cat on" href={u(`/research-map/${s.key}/`)} style="text-decoration:none">
@@ -104,9 +108,15 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
     <div class="one">
       <div class="lab">What the three colours mean — and what they do not</div>
       <div class="prose" style="margin-top:8px" set:html={mdp(
-`**The four sand-to-rust colours are depth** — how many volumes sit on that parish's shelf: one or two, three to nine, ten or more. **None of them means anybody has read anything.**
+`**The colour says how far we have got, and nothing else.** Sand is *catalogued and never opened* — we know what books are on the shelf and not one of them has been read. Gold is *started*. Green is *read right through*, and **there is not a single green marker on this map**.
 
-**Grey is «in no catalogue at all», and there are only three.** Two of those are *Evangelical*, and they are grey because **this archive never found the Evangelical root in FamilySearch's waypoint tree** — the shelf was not walked, not proved empty. Saying «nothing is filmed here» would blame the collection for a hole of our own making, and the panel on those markers says so.
+**That is the honest picture and it is meant to be uncomfortable.** ${st.byProgress.untouched} places catalogued and untouched · ${st.byProgress.started} started · **${st.byProgress.done} finished** · ${st.volumesRead} volumes of ${s.volumes} read one by one.
+
+*This is the third scale this map has worn.* It carried three coverage states until the cataloguing finished and turned 1,219 of them the same colour; then it shaded by **depth** — one or two volumes against ten or more — which looked better and said less. **A parish with forty volumes nobody has opened and a parish with two nobody has opened are in the same state.** Depth now lives in the panel, in words, next to the sentence that says whether anybody has read it.
+
+**«Read right through» can only be claimed where this archive knows which volumes were read** — which today is Antenati alone, because its catalogue carries a per-volume flag. Everywhere else a reading is recorded against the *place*, not the *book*, so the best that can honestly be said is «started». [That is on the work list](/worklist/).
+
+**Grey is «in no catalogue at all», and there are only three.** Two are *Evangelical*, grey because **this archive never found the Evangelical root in FamilySearch's waypoint tree** — the shelf was not walked, not proved empty. Saying «nothing is filmed here» would blame the collection for a hole of our own making, and the panel on those markers says so.
 
 *The first cut of this map used three colours — not walked, catalogued, read.* It worked for about a day, and then the cataloguing finished and **1,219 of 1,239 places went gold**. A map where everything is one colour is not a map, so the shading was re-cut to carry something that still varies.
 
@@ -116,7 +126,7 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
     <div class="one">
       <div class="lab">The number this page exists to show</div>
       <div class="prose" style="margin-top:8px" set:html={link(mdp(
-`**${s.read + s.listed} of ${s.places}.** Nine per cent of the record-book places on this map have been walked far enough to know what volumes sit in them, and **${s.read}** have had anything actually read.
+`**${s.read} of ${s.places}.** That is how many places on this map have had *anything at all* read out of them — ${pct(s.read)} per cent. The other ${s.byProgress.untouched} are catalogued down to the volume and untouched.
 
 **Four providers, and they are not the same kind of thing.** ${r.sources.map(x => `**${x.label}** — ${st.bySource[x.key].walked} of ${st.bySource[x.key].places} places walked, ${st.bySource[x.key].volumes} volumes`).join(" · ")}.
 
@@ -162,6 +172,18 @@ FamilySearch is broad and shallow: a title, a year span, and **nothing name-inde
         </table>
       </div>
       <p class="cap" style="margin-top:10px">Volume counts in brackets. A span is merged from consecutive volumes, so «Births 1629–1714 (5)» is five books covering that stretch with nothing of their kind on film across it.</p>
+    </div>
+
+    <div class="one">
+      <div class="lab">What a marker tells you now: the shelf, by record type, with the holes named</div>
+      <div class="prose" style="margin-top:8px" set:html={link(mdp(
+`The panel used to list a parish's volumes in whatever order the providers were walked — births, births, deaths, births again — and a reader had to hold thirteen year-ranges in their head to see that nothing survives between two of them. **It now collapses them into a coverage timeline, one block per record type, and names the gaps.**
+
+**${st.timelineGaps.places} of the ${s.placed} places on the map have a real hole in at least one register series** — ${st.timelineGaps.rows} of them in all. **${st.timelineGaps.clean} have none**: every year between their first volume and their last is covered by something.
+
+*A one- or two-year hole is usually not a hole.* A volume titled «1716–1816» sitting beside one that ends in 1714 leaves 1715 uncovered on paper and almost certainly not in fact, so those are marked as a labelling artefact rather than cried over. **The exception is a parish whose volumes each cover a single year** — the Napoleonic comuni are all like this — where a missing year is a missing book. That rule is why [Mione's lost 1807](/carnia/#gap1807) shows on the map as three gaps and not as three shrugs.
+
+**An index is not cover, and neither is an allegato.** They are counted separately at the foot of each panel, because a marriage index for 1815–1830 does not make the marriage book for those years present.`))}></div>
     </div>
 
     <div class="one">

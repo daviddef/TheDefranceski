@@ -87,19 +87,87 @@ def gazetteer(d):
             except ValueError:
                 continue
             rank = (cc == "HR", f[6] == "P", pop)
-            for n in {f[1], f[2]} | {x for x in (f[3] or "").split(",") if x}:
+            alts = [x.strip() for x in (f[3] or "").split(",") if x.strip()]
+            for n in {f[1], f[2]} | set(alts):
                 k = norm(n)
                 if len(k) > 2 and (k not in g or rank > g[k][0]):
-                    g[k] = (rank, round(lat, 5), round(lon, 5), cc)
+                    g[k] = (rank, round(lat, 5), round(lon, 5), cc, f[1], alts)
     return {k: v[1:] for k, v in g.items()}
 
-def depth(n, read):
-    """Read beats everything; below that, colour by how deep the shelf is."""
-    if read:   return "read"
-    if n == 0: return "none"
-    if n <= 2: return "thin"
-    if n <= 9: return "some"
-    return "deep"
+# ---- what a place was called before ------------------------------------
+# GeoNames ships every name a place has ever been indexed under in one
+# comma-separated column, and for this corner of Europe that column is the
+# whole history: Rijeka carries Fiume and Sankt Veit am Flaum, Pazin carries
+# Mitterburg and Pisino, Gračišće carries Gallignana. The registers are
+# written in whichever of those the clerk's empire used, so a reader who
+# only knows the Croatian name cannot find the book.
+LATIN = re.compile(r"^[A-Za-zÀ-ž' .\-]{5,34}$")
+ADMIN = re.compile(r"^(grad|town of|city of|op[cć]ina|comune|municipality|"
+                   r"obcina|gemeinde|distretto)\b", re.I)
+
+def loose(s):
+    """A key that sees through spelling systems rather than just accents.
+
+    GeoNames carries Fažana as «Fazhana» and Svetvinčenat as «Svetvinchenat» —
+    the same name written for a reader who has no hačeks. Those are not older
+    names, they are the same name, and listing them makes the panel look like
+    a parish had five identities when it had one.
+    """
+    s = norm(s)
+    for a, b in (("cz", "c"), ("ch", "c"), ("sz", "s"), ("sh", "s"),
+                 ("zh", "z"), ("tz", "c"), ("y", "i"), ("j", "i"), ("w", "v")):
+        s = s.replace(a, b)
+    return re.sub(r"(.)\1+", r"\1", s)
+
+def older_names(name, alts):
+    """What else this place has been called, minus everything that is noise.
+
+    The dump is generous: it carries airport codes, romanisations meant for
+    Mandarin and Cyrillic readers, and the modern administrative wrapper
+    («Grad Vodnjan»). None of those is an older name. What is left — Fiume for
+    Rijeka, Gallignana for Gračišće, Pisino for Pazin — is the name the clerk
+    who wrote the register would have used, which is the whole point.
+    """
+    seen, out = {loose(name)}, []
+    for a in alts:
+        if not LATIN.match(a) or "," in a or ADMIN.match(a):
+            continue
+        if a == a.lower():          # lowercase entries are transliterations
+            continue
+        k, n = loose(a), norm(a)
+        if k in seen or n.startswith(norm(name)) or norm(name).startswith(n):
+            continue
+        seen.add(k)
+        out.append(a)
+    return out[:6]
+
+def progress(n, reads, vread, vknown):
+    """How far this archive has got, which is the only question worth a colour.
+
+    The first cut of this map coloured by coverage state and saturated. The
+    second coloured by DEPTH — one or two volumes, three to nine, ten or more —
+    and that was worse, because it answered a question nobody was asking. A
+    parish with forty volumes and a parish with two are equally untouched if
+    nobody has opened either, and «one or two volumes» told a reader nothing
+    about whether the work had been done.
+
+    So the colour now says: nothing here, never opened, partly read, read
+    right through. Depth has not been thrown away — it is in the panel, in
+    words, where «114 volumes catalogued» can sit next to «nobody has read
+    any of it» without either pretending to be the other.
+
+    «Read right through» can only be claimed where this archive tracks which
+    volumes were read, which today is Antenati alone. Everywhere else a read
+    is recorded against the PLACE, not the book, so the best that can be
+    honestly said is «started».
+    """
+    if n == 0:
+        return "none"
+    if vknown and vread >= n:
+        return "done"
+    if vread or reads:
+        return "started"
+    return "untouched"
 
 YEARS = re.compile(r"\b(1[5-9]\d\d)\b")
 def span(title):
@@ -134,6 +202,86 @@ def overlaps(a, b):
         return False
     return a[0] <= (b[1] or b[0]) and b[0] <= (a[1] or a[0])
 
+
+# ---- the coverage timeline ----------------------------------------------
+# A parish's panel used to list its volumes in whatever order the providers
+# happened to be walked: births, births, births, deaths, births again, and a
+# reader had to hold thirteen year-ranges in their head to see that nothing
+# survives between 1825 and 1848. This collapses them per record type and
+# names the holes, which is the thing anybody actually came to the map for.
+KIND_LABEL = [("b", "Births"), ("m", "Marriages"), ("d", "Deaths")]
+
+def merge(spans):
+    """Union of [lo, hi] ranges, touching or overlapping ones joined."""
+    out = []
+    for lo, hi in sorted(spans):
+        if out and lo <= out[-1][1] + 1:
+            out[-1][1] = max(out[-1][1], hi)
+        else:
+            out.append([lo, hi])
+    return out
+
+def timeline(books):
+    """[[when, what]] rows: covered stretches and the gaps between them.
+
+    Only births, marriages and deaths get a timeline. An index is not a
+    register and an allegato is not a register, so counting either as cover
+    would draw a line across a hole — the same rule the cross-provider gap
+    test uses. Everything the rule will not classify is counted at the end
+    rather than dropped, because a volume this archive cannot read the title
+    of is still a volume on a shelf.
+    """
+    rows, other, undated = [], [], 0
+    for kind, label in KIND_LABEL:
+        got = [(b["from"], b["to"] or b["from"]) for b in books
+               if kind in kinds(b["t"]) and b.get("from")]
+        if not got:
+            continue
+        n = len(got)
+        runs = merge(got)
+        # Where every volume of this kind covers exactly ONE year — the
+        # Napoleonic comuni are all like this — a missing year is a missing
+        # book, full stop, and softening it would have hidden Mione's lost
+        # 1807, which this archive has proved is a real hole.
+        single = all(lo == hi for lo, hi in got)
+        first, last = runs[0][0], runs[-1][1]
+        head = f"{first}–{last}" if first != last else f"{first}"
+        rows.append([label, f"{n} volume{'' if n == 1 else 's'}, covering {head}"
+                            + ("" if len(runs) == 1 else f", in {len(runs)} stretches")])
+        if len(runs) == 1:
+            rows.append(["  " + head, "unbroken"])
+            continue
+        for i, (lo, hi) in enumerate(runs):
+            rows.append(["  " + (f"{lo}–{hi}" if lo != hi else f"{lo}"), "held"])
+            if i + 1 < len(runs):
+                g0, g1 = hi + 1, runs[i + 1][0] - 1
+                yrs = g1 - g0 + 1
+                when = "  " + (f"{g0}–{g1}" if g0 != g1 else f"{g0}")
+                # A one- or two-year hole is usually how a clerk wrote a title,
+                # not a book that burned: a volume labelled «1716-1816» sitting
+                # beside one that ends 1714 leaves 1715 uncovered on paper and
+                # almost certainly not in fact. Calling that a GAP would cry
+                # wolf on every parish and bury the ones that matter.
+                if yrs <= 2 and not single:
+                    rows.append([when, f"not covered by any title — probably how the "
+                                       f"volumes were labelled, not a missing book"])
+                else:
+                    rows.append([when, f"GAP — no {label.lower()} register filmed, "
+                                       f"{yrs} year{'' if yrs == 1 else 's'}"])
+    for b in books:
+        if not any(k in kinds(b["t"]) for k, _ in KIND_LABEL):
+            other.append(b)
+        elif not b.get("from"):
+            undated += 1
+    if other:
+        rows.append(["Other", f"{len(other)} volume{'' if len(other) == 1 else 's'} "
+                              f"— indexes, allegati, censuses and titles this archive "
+                              f"cannot classify. Not counted as cover."])
+    if undated:
+        rows.append(["Undated", f"{undated} volume{'' if undated == 1 else 's'} whose "
+                                f"title carries no year. Not counted as cover."])
+    return rows
+
 def main():
     gdir = sys.argv[sys.argv.index("--gaz") + 1] if "--gaz" in sys.argv else None
     gaz  = gazetteer(gdir) if gdir else {}
@@ -148,7 +296,7 @@ def main():
     def P(name, key=None):
         k = key or norm(name)
         return places.setdefault(k, {"key": k, "name": name.replace(", Croatia", "").strip(),
-                                     "alt": set(), "layers": set(), "c": None,
+                                     "alt": set(), "layers": set(), "c": None, "geo_alt": None,
                                      "src": {}})
 
     # ---- 1. the KML: coordinates, confessions, and the places FS has dropped
@@ -259,6 +407,29 @@ def main():
     for p in load("places.json"):
         if p.get("coords"):
             atlas.setdefault(norm(p["name"]), {"lat": p["coords"][0], "lon": p["coords"][1]})
+    def gaz_row(p):
+        """The gazetteer entry for a place, however its coordinates were found.
+
+        Coordinates come from the KML or from the previous build's cache long
+        before the gazetteer is consulted, so hanging the alternate names off
+        the coordinate lookup found them for almost nobody. This asks the
+        question on its own, with the same widening the coordinate search uses.
+        """
+        for cand in [p["key"]] + [norm(x) for x in p["alt"]]:
+            if len(cand) > 2 and cand in gaz:
+                return gaz[cand]
+        raw = p["name"]
+        parts = []
+        m = re.search(r"\(([^)]+)\)", raw)
+        if m:
+            parts.append(m.group(1))
+        parts += [x.strip() for x in re.split(r"[-–/]", re.sub(r"\(.*?\)", "", raw)) if x.strip()]
+        for x in parts:
+            kk = norm(x)
+            if len(kk) > 2 and kk in gaz:
+                return gaz[kk]
+        return None
+
     def resolve(p):
         k = p["key"]
         if p["c"]:   return p["c"], "kml"
@@ -280,13 +451,23 @@ def main():
     out, src_count = [], collections.Counter()
     for k, p in sorted(places.items(), key=lambda kv: kv[1]["name"]):
         c, how = resolve(p)
+        gr = gaz_row(p)
+        # gaz rows are (lat, lon, cc, canonical name, alternates)
+        older = older_names(p["name"], gr[4]) if gr and len(gr) > 4 else []
         vols = {}
         for s, blk in p["src"].items():
             n = sum(len(sh["books"]) for sh in blk["shelves"].values() if sh["books"] is not None)
             walked = any(sh["books"] is not None for sh in blk["shelves"].values())
             vols[s] = {"n": n, "walked": walked}
         total = sum(v["n"] for v in vols.values())
-        state = depth(total, reads.get(k))
+        # How many of this place's volumes are known, one by one, to have been
+        # read. Only Antenati carries that flag today; FamilySearch reads are
+        # recorded against the place, not the book.
+        vread = sum(1 for blk in p["src"].values() for sh in blk["shelves"].values()
+                    for b in (sh["books"] or []) if b.get("how") == "read")
+        vknown = any(b.get("how") for blk in p["src"].values()
+                     for sh in blk["shelves"].values() for b in (sh["books"] or []))
+        state = progress(total, reads.get(k), vread, vknown)
 
         # ---- 6b. where the providers disagree ---------------------------
         # A place catalogued by two providers is the only place a gap can be
@@ -335,20 +516,24 @@ def main():
                               "from": cur[0], "to": cur[1], "n": cur[2]})
         for s in p["src"]: src_count[s] += 1
         out.append({"key": k, "name": p["name"],
-                    "alt": sorted(x for x in p["alt"] if x != p["name"]),
+                    "alt": sorted(x for x in p["alt"]
+                                  if norm(x) != norm(p["name"])
+                                  and not norm(x).startswith(norm(p["name"]))),
+                    "older": older,
                     "lat": c[0] if c else None, "lon": c[1] if c else None, "geo": how,
                     "cat": state, "layers": sorted(p["layers"]),
                     "sources": p["src"], "counts": vols, "volumes": total,
-                    "reads": reads.get(k, 0),
+                    "reads": reads.get(k, 0), "vread": vread, "vknown": vknown,
                     "gaps": gaps, "ngaps": len(gaps), "gapSpans": spans})
 
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
              "volumes": sum(o["volumes"] for o in out),
-             "read": sum(1 for o in out if o["cat"] == "read"),
-             "listed": sum(1 for o in out if o["cat"] in ("thin", "some", "deep")),
-             "untouched": sum(1 for o in out if o["cat"] == "none"),
-             "byDepth": {x: sum(1 for o in out if o["cat"] == x)
-                         for x in ("none", "thin", "some", "deep", "read")},
+             "read": sum(1 for o in out if o["cat"] in ("started", "done")),
+             "listed": sum(1 for o in out if o["cat"] == "untouched"),
+             "untouched": sum(1 for o in out if o["cat"] == "untouched"),
+             "byProgress": {x: sum(1 for o in out if o["cat"] == x)
+                            for x in ("none", "untouched", "started", "done")},
+             "volumesRead": sum(o["vread"] for o in out),
              "researchers": len(researchers),
              "bySource": {s: {"places": src_count[s],
                               "volumes": sum(o["counts"].get(s, {}).get("n", 0) for o in out),
@@ -358,13 +543,15 @@ def main():
              "notDigitised": sum(o["sources"].get("dapa", {}).get("notDigitised", 0) for o in out),
              "fsPending": len(fsc.get("f", [])),
              "crossChecked": sum(1 for o in out if len(o["counts"]) > 1),
+             "timelineGaps": None,   # filled once the blobs are built
              "gaps": sum(o["ngaps"] for o in out),
              "gapsBy": dict(collections.Counter(
                  f'{g["have"]}>{g["missing"]}' for o in out for g in o["gaps"])),
              "linked": sum(1 for o in out for b in o.get("sources", {}).get("fs-hr", {}).get("shelves", {}).values()
                            for b in (b["books"] or []) if b.get("ark"))}
 
-    json.dump({"note": "Every record book this archive can name, by place and by provider.",
+    researchmap_note = "Every record book this archive can name, by place and by provider."
+    json.dump({"note": researchmap_note,
                "sources": [{"key": k, "label": l, "what": w} for k, l, w in SOURCES],
                "kml": "data/genealogy-resources-croatia.kml",
                "stats": stats, "places": out, "researchers": researchers},
@@ -388,7 +575,7 @@ def main():
                 continue
             n = sum(o["counts"][s]["n"] for s in got)
             walked = any(o["counts"][s]["walked"] for s in got)
-            state = depth(n, o["reads"])
+            state = progress(n, o["reads"], o["vread"], o["vknown"])
             who = " · ".join(LABEL.get(l, l) for l in o["layers"]) or "Civil"
             prov = " · ".join(dict((k, l) for k, l, _ in SOURCES)[s] for s in got)
             if not got:
@@ -410,26 +597,59 @@ def main():
             elif n == 0:
                 what = f"{who}. Walked, and the shelf is empty — this collection films nothing here."
             else:
-                what = f"{who}. {n} volume{'' if n == 1 else 's'} catalogued, from {prov}."
+                shelf = f"{who}. {n} volume{'' if n == 1 else 's'} catalogued, from {prov}. "
+                if o["vknown"] and o["vread"] >= n:
+                    tail = (f"All {n} have been read. This is the only state on the map that "
+                            f"means the work here is finished.")
+                elif o["vread"]:
+                    tail = (f"{o['vread']} of the {n} have been read, one volume at a time. "
+                            f"{n - o['vread']} have never been opened.")
+                elif o["reads"]:
+                    tail = ("Something here has been read — the search register says what. "
+                            "This archive does not yet track WHICH of these volumes, so this "
+                            "place counts as started and not as finished.")
+                else:
+                    tail = ("Nobody has opened any of it. The number of volumes is the size of "
+                            "the shelf, not a measure of what has been done.")
+                what = shelf + tail
             nd = sum(b.get("notDigitised", 0) for b in got.values())
             if nd:
-                what += f" {nd} of them are not digitised anywhere."
-            ev, films = [], []
+                what += (f" {nd} of them is not digitised anywhere." if nd == 1
+                         else f" {nd} of them are not digitised anywhere.")
+            # The timeline is built from EVERY volume — linked or not, and from
+            # every provider — because coverage is a fact about the shelf, not
+            # about which of its books happen to have an ark yet. The films list
+            # below is the separate question of what you can click.
+            allb, films = [], []
             for s, blk in sorted(got.items()):
                 for sh in blk["shelves"].values():
                     for b in (sh["books"] or []):
-                        yr = (f'{b["from"]}–{b["to"]}' if b.get("from") and b.get("to") != b.get("from")
-                              else (str(b.get("from")) if b.get("from") else "—"))
-                        tag = "" if s == "fs-hr" else f" [{dict((k,l) for k,l,_ in SOURCES)[s]}]"
-                        note = "" if b.get("digitised", True) else "  — NOT DIGITISED"
+                        allb.append(b)
                         if b.get("ark") and not b.get("antenati"):
                             films.append({"t": b["t"], "ark": b["ark"],
                                           "cc": b.get("cc"), "wc": b.get("wc")})
-                        else:
-                            ev.append([yr, re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ",
-                                                  b["t"]).strip(" ,-–") + tag + note])
+            ev = timeline(allb)
+            if ev and not any(t.startswith(("GAP", "not covered")) for _, t in ev):
+                ev.append(["No gaps", "Every year between the first volume and the last is "
+                                      "covered by some register, for each kind above."])
+            nd = [b for b in allb if not b.get("digitised", True)]
+            if nd:
+                ev.append(["Not digitised",
+                           (f"One of the volumes above exists on paper and nowhere else."
+                            if len(nd) == 1 else
+                            f"{len(nd)} of the volumes above exist on paper and nowhere else.")
+                           + " Pazin says so; no other provider admits it."])
             pubs.append({"name": o["name"], "lat": o["lat"], "lon": o["lon"], "cat": state,
-                         "n": 0, "also": o["alt"], "what": what,
+                         "n": 0,
+                         # The panel's «also written» line is the only place a
+                         # reader meets the name the register is actually filed
+                         # under. Catalogue spellings and historic exonyms both
+                         # belong in it — Gračišće is Gallignana in every
+                         # Austrian book, and a reader who only knows the
+                         # Croatian name will never find it.
+                         "also": sorted(set(o["alt"]) | set(o.get("older") or []),
+                                        key=lambda x: (x.lower() != x.lower(), x)),
+                         "what": what,
                          "when": None,
                          # Antenati's arks live on a different host, and the Atlas panel
                          # builds FamilySearch addresses. Rather than reach into the shared
@@ -437,12 +657,31 @@ def main():
                          # all 59 volumes are listed and every one of them is a link.
                          "href": ("/antenati/" if "antenati" in got
                                   else ("/searched/" if o["reads"] else None)),
-                         "events": ev[:60], "films": films, "nfilms": len(films)})
+                         "events": ev[:80], "films": films, "nfilms": len(films)})
         json.dump({"places": pubs, "stats": stats}, open(path, "w", encoding="utf-8"),
                   ensure_ascii=False)
         return len(pubs)
 
     n = blob(allk, os.path.join(PUB, "research-map-data.json"))
+    # Count the real holes off the all-providers blob, which is where the
+    # timeline is actually computed, and fold the figure back into the stats
+    # every page reads.
+    _all = json.load(open(os.path.join(PUB, "research-map-data.json"), encoding="utf-8"))
+    _rows = [t for p in _all["places"] for _, t in p["events"] if t.startswith("GAP")]
+    stats["timelineGaps"] = {
+        "rows": len(_rows),
+        "places": sum(1 for p in _all["places"]
+                      if any(t.startswith("GAP") for _, t in p["events"])),
+        "clean": sum(1 for p in _all["places"]
+                     if any(w == "No gaps" for w, _ in p["events"]))}
+    _all["stats"] = stats
+    json.dump(_all, open(os.path.join(PUB, "research-map-data.json"), "w",
+                         encoding="utf-8"), ensure_ascii=False)
+    json.dump({"note": researchmap_note, "sources": [{"key": k, "label": l, "what": w}
+                                                     for k, l, w in SOURCES],
+               "kml": "data/genealogy-resources-croatia.kml",
+               "stats": stats, "places": out, "researchers": researchers},
+              open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     per = {}
     for k, _, _ in SOURCES:
         per[k] = blob({k}, os.path.join(PUB, f"research-map-{k}.json"))
