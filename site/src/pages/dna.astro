@@ -234,6 +234,16 @@ const HUE = {
   <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.ydna23.source23))}></span></p>
 </section>
 
+<Rule name="pomegranate" label={d.settle.heading} />
+<section class="blk" id="settle">
+  <div class="prose hi" set:html={based(P(d.settle.lead))}></div>
+  <div class="terms" style="margin-top:22px">
+    {d.settle.rows.map(([k, v]) => (
+      <div class="term"><div class="tk">{k}</div><div class="prose" set:html={based(P(v))}></div></div>
+    ))}
+  </div>
+</section>
+
 <Rule name="arrows" label={d.notable.heading} />
 <section class="blk">
   <div class="prose" set:html={based(P(d.notable.lead))}></div>
