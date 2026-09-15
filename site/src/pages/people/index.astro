@@ -2,6 +2,7 @@
 import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
+import FilterTable from "@daviddef/archive-kit/components/FilterTable.astro";
 import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import people from "../../data/people.json";
 import notables from "../../data/notables.json";
@@ -42,60 +43,46 @@ const nt = (x) => String(x ?? "")
     ))}
   </div>
 
-  <div class="rtools">
-    <input id="rq" type="search" placeholder="Search a name, a place, a year…" autocomplete="off" />
-    <div class="rfilters">
-      <button class="rf on" data-l="all">All <span class="rfn">{S.total}</span></button>
-      <button class="rf is-mine" data-l="mine">★ My line <span class="rfn">{N.mine}</span></button>
-      <button class="rf is-mine" data-l="direct">★ Direct line <span class="rfn">{N.direct}</span></button>
-      <button class="rf is-mine" data-l="rel">★ Related to David <span class="rfn">{R.filter(r => r.rel).length}</span></button>
-      {ORDER.filter(k => S.lines[k] && k !== "carnia").map(k => <button class="rf" data-l={k}>{LINEN[k]} <span class="rfn">{S.lines[k]}</span></button>)}
-      <button class="rf" data-l="star">Notable <span class="rfn">{N.star}</span></button>
-      <button class="rf" data-l="rec">Has a record <span class="rfn">{N.rec}</span></button>
-      <button class="rf" data-l="par">Parish known <span class="rfn">{N.par}</span></button>
-    </div>
-    <div class="rplacewrap">
-      <label for="rp">Narrow by place</label>
-      <select id="rp">
-        <option value="">Everywhere</option>
-        {PLACES.map(([k, n]) => <option value={k.toLowerCase()}>{k} — {n}</option>)}
-      </select>
-      <span class="rphint">★ My line is the Carnia lane — everyone this archive places on the family's own road. ★ Direct line is the documented spine, generation by generation.</span>
-    </div>
-    <div id="rn" class="rn"></div>
+  <FilterTable
+    unit="people"
+    note="★ My line is the Carnia lane — everyone this archive places on the family's own road. ★ Direct line is the documented spine, generation by generation."
+    columns={[{ label: "Name", cls: "rname" }, { label: "Born", cls: "m" }, { label: "Died", cls: "m" },
+              { label: "Place", cls: "rplace" }, { label: "Family" },
+              { label: "Where it is written up", cls: "rsrc" }, { label: "Records", cls: "rlinks" }]}
+    facets={[
+      { key: "grp", label: "Who", all: `All (${S.total})`, options: [
+        { k: "mine", v: "1", label: `★ My line <span class="rfn">${N.mine}</span>` },
+        { k: "direct", v: "1", label: `★ Direct line <span class="rfn">${N.direct}</span>` },
+        { k: "rel", v: "1", label: `★ Related to David <span class="rfn">${R.filter((r) => r.rel).length}</span>` },
+        ...ORDER.filter((k) => S.lines[k] && k !== "carnia").map((k) => ({ k: "l", v: k, label: `${LINEN[k]} <span class="rfn">${S.lines[k]}</span>` })),
+        { k: "star", v: "1", label: `Notable <span class="rfn">${N.star}</span>` },
+      ] },
+      { key: "place", label: "Narrow by place", all: "Everywhere",
+        options: PLACES.map(([k, n]) => ({ v: k.toLowerCase(), label: `${k} — ${n}` })) },
+    ]}
+    rows={roster.rows.map((r) => ({
+      hay: (r.name + " " + r.place + " " + (r.b || "") + " " + (r.d || "") + " " + (r.note || "")).toLowerCase(),
+      facets: { l: r.line, star: r.notable ? "1" : "0", mine: r.mine ? "1" : "0",
+                rel: r.rel ? "1" : "0", direct: r.direct ? "1" : "0",
+                place: (r.place || "").split(",")[0].trim().toLowerCase() },
+      cells: [
+        (r.notable ? '<span class="star" title="Notable — has a life written up">★</span>' : "") +
+          (r.who ? `<a href="${u(r.who)}">${r.name}</a>` : r.name) +
+          (r.me ? '<span class="mechip">ME</span>' : "") +
+          (r.living ? '<span class="livechip" title="Living — named only; no dates, no places, no photograph">living</span>' : "") +
+          (r.rel ? `<span class="relchip">${r.rel}</span>` : ""),
+        r.b || "—", r.d || "—",
+        (r.parish ? `<span class="parish" title="The parish register this record was filmed from">${r.parish}</span>` : (r.place || "—")) +
+          (r.parish && r.place && r.place !== r.parish ? `<span class="rnote"> · ${r.place}</span>` : ""),
+        `<span class="lchip l-${r.line}">${LINEN[r.line]}</span>`,
+        `<a href="${u(r.href)}">${roster.srclabel[r.src]}</a>` + (r.note ? `<span class="rnote"> · ${nt(r.note)}</span>` : ""),
+        (r.ark ? `<a class="reclink" href="https://www.familysearch.org/ark:/61903/${r.ark}" rel="noopener">record</a>` : "") +
+        (r.mh ? `<a class="reclink tree" href="https://www.myheritage.com/site-family-tree-OYYV7AGVV4FMSGNWXC6TO74JQDUMOYA?familyTreeID=4&individualId=${r.mh}" rel="noopener">tree</a>` : ""),
+      ],
+    }))} />
   </div>
 
-  <div class="tablewrap" style="margin-top:14px">
-    <table class="roster" id="rtab">
-      <thead><tr><th>Name</th><th class="m">Born</th><th class="m">Died</th><th>Place</th><th>Family</th><th>Where it is written up</th><th>Records</th></tr></thead>
-      <tbody>
-        {roster.rows.map(r => (
-          <tr data-l={r.line} data-star={r.notable ? "1" : "0"} data-mine={r.mine ? "1" : "0"} data-rel={r.rel ? "1" : "0"} data-direct={r.direct ? "1" : "0"}
-              data-k={(r.name + " " + r.place + " " + (r.b||"") + " " + (r.d||"") + " " + (r.note||"")).toLowerCase()}
-              data-place={(r.place || "").split(",")[0].trim().toLowerCase()}>
-            <td class="rname">
-              {r.notable && <span class="star" title="Notable — has a life written up">★</span>}
-              {r.who ? <a href={u(r.who)}>{r.name}</a> : r.name}
-              {r.me && <span class="mechip" title="This is David, the compiler — every relationship on this site is measured from here">ME</span>}
-              {r.living && <span class="livechip" title="Living — named only; no dates, no places, no photograph">living</span>}
-              {r.rel && <span class="relchip">{r.rel}</span>}
-            </td>
-            <td class="m">{r.b || "—"}</td>
-            <td class="m">{r.d || "—"}</td>
-            <td class="rplace">{r.parish
-                ? <span class="parish" title="The parish register this record was filmed from">{r.parish}</span>
-                : (r.place || "—")}{r.parish && r.place && r.place !== r.parish && <span class="rnote"> · {r.place}</span>}</td>
-            <td><span class={"lchip l-" + r.line}>{LINEN[r.line]}</span></td>
-            <td class="rsrc"><a href={u(r.href)}>{roster.srclabel[r.src]}</a>{r.note && <span class="rnote" set:html={" · " + nt(r.note)}></span>}</td>
-            <td class="rlinks">
-              {r.ark && <a class="reclink" href={`https://www.familysearch.org/ark:/61903/${r.ark}`} rel="noopener" title="The indexed record on FamilySearch">record</a>}
-              {r.mh && <a class="reclink tree" href={`https://www.myheritage.com/site-family-tree-OYYV7AGVV4FMSGNWXC6TO74JQDUMOYA?familyTreeID=4&individualId=${r.mh}`} rel="noopener" title="This person in the family tree">tree</a>}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
+
   <p class="cap" style="margin-top:14px">Built by <code>tools/roster.py</code> from ten record sets, September 2026. A name may appear once here and be several people, or appear twice and be one; where the archive knows, it has merged them, and where it does not, it has left them apart rather than guess.</p>
 </section>
 
@@ -139,44 +126,7 @@ const nt = (x) => String(x ?? "")
   </div>
 </section>
 
-<script is:inline>
-  (function () {
-    var q = document.getElementById("rq"), tab = document.getElementById("rtab"),
-        out = document.getElementById("rn");
-    if (!q || !tab) return;
-    var rows = Array.prototype.slice.call(tab.tBodies[0].rows), mode = "all";
-    function apply() {
-      var t = q.value.trim().toLowerCase(), n = 0;
-      var pl = (document.getElementById("rp") || {}).value || "";
-      for (var i = 0; i < rows.length; i++) {
-        var r = rows[i];
-        var okL = mode === "all"
-          || (mode === "rel" ? r.getAttribute("data-rel") === "1"
-          : mode === "mine" ? r.getAttribute("data-mine") === "1"
-          : mode === "direct" ? r.getAttribute("data-direct") === "1"
-          : mode === "star" ? r.getAttribute("data-star") === "1"
-          : mode === "rec" ? r.getAttribute("data-rec") === "1"
-          : mode === "par" ? r.getAttribute("data-par") === "1"
-          : r.getAttribute("data-l") === mode);
-        var okQ = !t || r.getAttribute("data-k").indexOf(t) !== -1;
-        var okP = !pl || r.getAttribute("data-place") === pl;
-        var show = okL && okQ && okP;
-        r.hidden = !show;
-        if (show) n++;
-      }
-      out.textContent = n + (n === 1 ? " person" : " people") + " shown";
-    }
-    q.addEventListener("input", apply);
-    var sel = document.getElementById("rp"); if (sel) sel.addEventListener("change", apply);
-    document.querySelectorAll(".rf").forEach(function (b) {
-      b.addEventListener("click", function () {
-        document.querySelectorAll(".rf").forEach(function (x) { x.classList.remove("on"); });
-        b.classList.add("on"); mode = b.getAttribute("data-l"); apply();
-      });
-    });
-    apply();
-  })();
-</script>
+
 
 <style>
   .rcount{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
