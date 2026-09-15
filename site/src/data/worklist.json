@@ -136,7 +136,7 @@
    "state": "next",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "[The cross-provider check](/research-map/) found **147 volumes listed at Pazin, from before 1890, that FamilySearch has not filmed**, and Pazin marks **49** of its own as digitised by nobody at all.\n\n**That second figure was 154 until this evening.** Pazin's «not digitised» column means «not digitised *by Pazin*», and 105 of the 154 turn out to be on FamilySearch film already. [Logged](/corrections/). [The short list](/undigitised/) is what goes in the letter."
+   "note": "[The cross-provider check](/map/) found **147 volumes listed at Pazin, from before 1890, that FamilySearch has not filmed**, and Pazin marks **49** of its own as digitised by nobody at all.\n\n**That second figure was 154 until this evening.** Pazin's «not digitised» column means «not digitised *by Pazin*», and 105 of the 154 turn out to be on FamilySearch film already. [Logged](/corrections/). [The short list](/undigitised/) is what goes in the letter."
   },
   {
    "n": 17,
@@ -182,7 +182,7 @@
    "n": 22,
    "what": "The priority arks — clickable registers for our own parishes",
    "state": "done",
-   "note": "425 volumes in the Istrian and Kvarner parishes this family is documented in, each now opening at page one from the [research map](/research-map/).",
+   "note": "425 volumes in the Istrian and Kvarner parishes this family is documented in, each now opening at page one from the [research map](/map/).",
    "owner": "this archive",
    "since": "2026-09-15"
   },
@@ -377,6 +377,38 @@
    "owner": "this session",
    "since": "2026-09-15",
    "note": "A second layer on the research map that is not about books at all: **160 towns, 956 placements of documented people, 106 of the towns outside Croatia** — Torrington, Memphis, Pfullingen, Broken Hill, Brisbane. Lifted whole out of `atlas.json` rather than geocoded a second time, stripped of its film lists so no register is offered twice, and **switched off by default** with a violet filter button that turns it on. 43 towns carry both a people marker and a shelf marker."
+  },
+  {
+   "n": 47,
+   "what": "Three maps merged into one, at /map/",
+   "state": "done",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "The research map, the atlas and the graves map were three maps of the same ground with three geocoders and three legends. **1,235 + 160 + 64 markers are 1,358 places**; 84 answer more than one of the three questions and **12 answer all three**. The colour switches between the questions; the panel never does. `/research-map/`, `/atlas/` and `/graves-map/` redirect."
+  },
+  {
+   "n": 48,
+   "what": "Towns for the six living relatives the archive has never been told about",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "The living rule changed on 15 September: **name and town, never a date**. Six people are placed — David and Cheryl at Johannesburg and Brisbane, Cristina, Alessio and Mateo at Brisbane. **Ada, Horst, Mark, Gayle, Nicole and Kirsten have no town**, because nothing in the archive has ever recorded one for them. One line each is all it needs."
+  },
+  {
+   "n": 49,
+   "what": "David's father stands twice in the roster",
+   "state": "next",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "**Mario De Franceschi 1938–2013** (Find a Grave, Centenary Memorial Gardens) and **Mario Defranceschi 1938–2013** (MyHeritage 4507883) are one man, with two slugs under `/who/` and two rows in the roster. The map folds them now — surname spellings are normalised before people are counted — but **`/who/` still has two pages for him**. Fixing it properly means reconciling roster rows across sources, which touches every page that reads the roster."
+  },
+  {
+   "n": 50,
+   "what": "Antony De Franceski of Willowbank — is he the Horsham family?",
+   "state": "running",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "David: *«im pretty sure he is the horsham mob»*. Horsham, Victoria is where **Zdravko «Frank»** (1921–1979) and **Ruža «Rosa»** (d. 1996) Defranceski landed on **8 March 1949** and are buried. Willowbank is in Queensland, west of Ipswich. The question is whether Antony is of that household — a son or grandson — or an unrelated arrival."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight."

@@ -363,6 +363,10 @@
   .at-hits .a { font-size: 11.5px; opacity: .62; font-style: italic; }
   .at-hits .v { margin-left: auto; font-size: 11px; opacity: .6; white-space: nowrap; }
   .at-hits .none { cursor: default; opacity: .6; font-style: italic; }
+  /* A place that cannot answer the question being asked is still findable —
+     it just says so. Clicking it still works; the marker is simply not lit. */
+  .at-hits li.dim .n { opacity: .55; }
+  .at-hits li.dim i { opacity: .25; }
 
   /* ---- the read marks ----------------------------------------------------
      A parish could say «something here has been read» while every volume
@@ -420,10 +424,33 @@
   }
   .at-base button:first-child { border-left: 0; }
   .at-base button.on { background: #7A5CA8; color: #fff; }
+
+  /* ---- three questions, one map -----------------------------------------
+     The archive grew three maps off the same ground. They are one map now,
+     and this is the switch between the questions it can be asked. */
+  .at-scheme { margin: 18px 0 2px; }
+  .at-scheme .at-sc-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 7px; }
+  .at-scheme button {
+    font: 500 13px/1.25 var(--sans, system-ui); text-align: left;
+    padding: 9px 13px; border-radius: 3px; cursor: pointer;
+    background: var(--card); color: var(--ink-2);
+    border: 1px solid var(--rule);
+  }
+  .at-scheme button b { display: block; font-weight: 600; color: var(--ink); }
+  .at-scheme button i {
+    display: block; font-style: normal; font-size: 11px;
+    color: var(--ink-3); margin-top: 2px;
+  }
+  .at-scheme button.on { border-color: var(--accent, #7A5CA8); background: var(--panel); }
+  .at-scheme button.on b { color: var(--accent, #7A5CA8); }
+  .at-cat[data-cat="_none"] { display: none !important; }
+  .at-cat[data-scheme-off] { display: none !important; }
 </style>
 
 <script is:inline define:vars={{ hitsUrl: Astro.props.dataUrl || "",
-                                 startOff: Astro.props.startOff || [] }}>
+                                 startOff: Astro.props.startOff || [],
+                                 SCHEMES: Astro.props.schemes || null,
+                                 CATOF: Astro.props.catOf || null }}>
   (function () {
     var q = document.getElementById("at-q");
     var box = q && q.closest(".at-find");
@@ -569,8 +596,86 @@
       if (btn) btn.addEventListener("click", function () { setTimeout(paint, 30); });
     }
 
+    /* ---- one map, three questions ----------------------------------------
+       Every marker carries up to three categories — the shelf, our people,
+       the ground — and this switches which one is being coloured and filtered.
+       The PANEL never switches: a place that is a parish, a home and a grave
+       says all three at once, which is the whole reason the three maps were
+       merged into this one.
+
+       The kit keeps its filter state in a closure, so the only way in is the
+       one the kit itself provides: each marker's own `cat`, which its apply()
+       reads on every pass. Markers outside the active question are given the
+       category «_none», whose pill is hidden and switched off once at the
+       start, so the kit filters them out by its own rules. */
+    function schemes(map, all) {
+      var row = document.querySelector(".at-scheme .at-sc-row");
+      var tools = document.querySelector(".at-tools");
+      if (!row || !tools) return;
+      var marks = all.filter(function (m) { return m._p && m._p.cats; });
+      if (!marks.length) return;
+
+      document.querySelectorAll(".at-cat[data-cat]").forEach(function (b) {
+        var k = b.getAttribute("data-cat");
+        if (CATOF && CATOF[k]) b.setAttribute("data-of", CATOF[k]);
+      });
+
+      /* «_none» has to be switched off through the kit's own button, once,
+         before anything is hidden by it. */
+      var nil = document.querySelector('.at-cat[data-cat="_none"]');
+      if (nil && nil.classList.contains("on")) nil.click();
+
+      function radius(p, n) {
+        return n > 40 ? 11 : n > 12 ? 8.5 : n > 3 ? 6.5 : p.order ? 7.5 : 5;
+      }
+      function pick(k) {
+        marks.forEach(function (m) {
+          var p = m._p, c = p.cats[k];
+          p.cat = c || "_none";
+          p.n = (p.ns && p.ns[k]) || 0;
+          if (c) m.setStyle({ fillColor: COLOURS[c] || "#666" });
+          m.setRadius(radius(p, p.n));
+        });
+        document.querySelectorAll(".at-cat[data-of]").forEach(function (b) {
+          if (b.getAttribute("data-of") === k) b.removeAttribute("data-scheme-off");
+          else b.setAttribute("data-scheme-off", "1");
+        });
+        row.querySelectorAll("button").forEach(function (b) {
+          b.classList.toggle("on", b.getAttribute("data-sc") === k);
+        });
+        try { localStorage.setItem("at-scheme", k); } catch (e) {}
+        /* The kit re-filters on every keystroke in its own search box, so
+           saying nothing in it is how this asks for a fresh pass. */
+        if (q) q.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+
+      SCHEMES.forEach(function (sc) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("data-sc", sc[0]);
+        b.innerHTML = "<b></b><i></i>";
+        b.querySelector("b").textContent = sc[1];
+        b.querySelector("i").textContent = sc[2] || "";
+        b.addEventListener("click", function () { pick(sc[0]); });
+        row.appendChild(b);
+      });
+      var want = SCHEMES[0][0];
+      try {
+        var saved = localStorage.getItem("at-scheme");
+        if (saved && SCHEMES.some(function (x) { return x[0] === saved; })) want = saved;
+      } catch (e) {}
+      pick(want);
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       if (typeof L === "undefined" || !L.Map || !L.Map.addInitHook) return;
+      /* Every circle marker the kit makes, kept as it is made — the kit's own
+         array is in a closure and a marker the filter has hidden is not on the
+         map to be found. */
+      var all = [];
+      if (SCHEMES && L.CircleMarker && L.CircleMarker.addInitHook) {
+        L.CircleMarker.addInitHook(function () { all.push(this); });
+      }
       L.Map.addInitHook(function () {
         var self = this;
         if (self.getContainer && self.getContainer().id !== "atlas") return;
@@ -579,7 +684,10 @@
            but has no DOM container yet — removing it there throws inside
            Leaflet's own reset. A tick later it is a layer like any other. */
         self.whenReady(function () {
-          setTimeout(function () { baseControl(self); pulse(self); }, 0);
+          setTimeout(function () {
+            baseControl(self); pulse(self);
+            if (SCHEMES) schemes(self, all);
+          }, 0);
         });
       });
     });
@@ -593,9 +701,17 @@
     fetch(hitsUrl).then(function (r) { return r.json(); }).then(function (d) {
       places = (d.places || []).map(function (p) {
         return { name: p.name, also: p.also || [], cat: p.cat, n: p.n || 0,
+                 cats: p.cats || null, ns: p.ns || null,
                  vols: (String(p.what).match(/(\d+)\s+volumes?\s+catalogued/) || [])[1] || null };
       });
     });
+
+    /* Which of the three questions the map is showing, read off the switch
+       rather than held in a second variable that could drift from it. */
+    function active() {
+      var on = document.querySelector(".at-scheme button.on");
+      return on ? on.getAttribute("data-sc") : "shelf";
+    }
 
     function matches(t) {
       t = t.toLowerCase().trim();
@@ -627,6 +743,7 @@
       list.innerHTML = "";
       hits.forEach(function (p) {
         var li = document.createElement("li");
+        if (p.cats && !p.cats[active()]) li.classList.add("dim");
         var dot = document.createElement("i");
         dot.style.background = COLOURS[p.cat] || "#999";
         var n = document.createElement("span"); n.className = "n"; n.textContent = p.name;
@@ -637,11 +754,16 @@
           li.appendChild(a);
         }
         var v = document.createElement("span"); v.className = "v";
-        /* A people marker holds no shelf, and «no catalogue» would be a
-           true sentence about the wrong thing. */
-        v.textContent = p.cat === "people"
-          ? (p.n ? p.n + (p.n === 1 ? " person" : " people") : "our people")
-          : p.vols ? p.vols + (p.vols === "1" ? " volume" : " volumes") : "no catalogue";
+        /* What a place is worth depends on what the map is being asked. Under
+           «our people» a volume count is a true sentence about the wrong
+           thing, and «no catalogue» is worse. */
+        var sc = active();
+        var cnt = p.ns && p.ns[sc];
+        v.textContent =
+            sc === "people" ? (cnt ? cnt + (cnt === 1 ? " person" : " people") : "—")
+          : sc === "graves" ? (cnt ? cnt + (cnt === 1 ? " burial" : " burials") : "—")
+          : p.vols ? p.vols + (p.vols === "1" ? " volume" : " volumes")
+          : "no catalogue";
         li.appendChild(v);
         li.addEventListener("mousedown", function (e) { e.preventDefault(); pick(p); });
         list.appendChild(li);

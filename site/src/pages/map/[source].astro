@@ -1,0 +1,61 @@
+---
+/* One provider's view of the research map. Same Atlas component, same three
+   colours, a different blob — which is the whole reason the source filter is
+   a route rather than a control: the kit filters on one field and that field
+   is already carrying coverage. */
+import Base from "../../layouts/Base.astro";
+import Atlas from "@daviddef/archive-kit/components/Atlas.astro";
+import AtlasTimelineTint from "../../components/AtlasTimelineTint.astro";
+import { u } from "../../lib/url.js";
+import { mdp } from "../../lib/md.js";
+import r from "../../data/researchmap.json";
+
+export function getStaticPaths() {
+  return r.sources.map(s => ({ params: { source: s.key }, props: { s } }));
+}
+const { s } = Astro.props;
+const st = r.stats;
+const mine = st.bySource[s.key];
+const cats = [
+  ["none",      "In no catalogue at all",   "#9AA7B2"],
+  ["untouched", "Catalogued, never opened", "#C9B79A"],
+  /* Researched from print, index or correspondence — and its own registers
+     never opened. Twenty places were amber for this and it was the wrong
+     colour: reading a history OF Žminj is not reading Žminj's books. */
+  ["worked",    "Researched, books unopened", "#2F7A8C"],
+  ["started",   "A volume of its own read",   "#E9A020"],
+  ["done",      "Every volume read",        "#12703F"],
+];
+const others = r.sources.filter(x => x.key !== s.key);
+---
+<Base
+  title={s.label}
+  eyebrow={`${mine.places} places · ${mine.volumes} volumes · ${mine.walked} walked`}
+  dek={`One provider on its own. ${s.what}. The colours mean what they mean on the whole map: grey is a shelf nobody has opened, gold is a shelf we have listed, green is a place where something has actually been read.`}>
+
+  <Atlas
+    dataUrl={u(`/research-map-${s.key}.json`)}
+    cats={cats}
+    bounds={[[42.2, 11.8], [47.2, 19.6]]}
+    homeLabel="Back to the region"
+    placeholder="Find a parish"
+    hint={`${mine.walked} of ${mine.places} places on this provider have been walked to volume level.`}
+  />
+
+  <AtlasTimelineTint dataUrl={u(`/research-map-${s.key}.json`)} />
+
+  <div class="one" style="border-left-color:var(--accent);margin-top:26px">
+    <div class="lab">What this provider is, and what it is not</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+      s.key === "fs-hr"
+        ? `**${s.what}.** Walked from the collection's own waypoint tree rather than from any map — seven confession roots, then one call per parish. It is the broadest of the three by far and the shallowest per book: it gives a volume's title and its year span, and **none of it is name-indexed**, so searching the surname returns nothing while the pages may be full of it.\n\n**${st.fsPending} parishes are still outstanding**, held up by FamilySearch's rate limiter rather than by anything missing.`
+        : s.key === "fs-it"
+        ? `**${s.what}.** The Carnian comuni — Napoleonic civil registration, not church books, which is why the events are *Nati*, *Matrimoni* and *Morti* rather than baptisms and burials. This is the collection the Mione work on the [Carnia page](/carnia/) runs through.\n\n**These links name the volume but do not open the page**: the Udine images are restricted, and the archive reads them through Antenati instead.`
+        : `**${s.what}.** Fourteen places only — it is a partial extract and it is the smallest of the three. It is also the most honest, because it is the only one that records **who physically holds the paper** (a parish office, usually) and **whether the volume has been digitised at all**.\n\n**${st.notDigitised} of its ${mine.volumes} volumes are marked «not digitised»** — books that exist on a shelf in Istria and are nowhere online. Those are the ones worth writing a letter about.`)}></div>
+  </div>
+
+  <p class="cap" style="margin-top:22px">
+    <a href={u("/map/")}>← every provider at once</a>
+    {others.map(o => <span> · <a href={u(`/map/${o.key}/`)}>{o.label}</a></span>)}
+  </p>
+</Base>

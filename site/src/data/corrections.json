@@ -6,7 +6,7 @@
    "when": "15 Sept 2026",
    "what": "Twenty places on the research map were coloured «something here read» when not one of their register volumes had ever been opened.",
    "sev": "major",
-   "where": "/research-map/ · the marker colours and the panel",
+   "where": "/map/ · the marker colours and the panel",
    "said": "The map carried four colours and the third was **«Something here read»** — gold. Twenty-two markers were gold. The page said the scale meant **«how far we have got»** with the shelf, and the panel on a gold marker said *«Something here has been read — the search register says what. This archive does not yet track WHICH of these volumes.»* Read together, that says: we have opened books here and not written down which ones.",
    "true": "**Twenty of the twenty-two had never had a single register volume opened.** They were gold because the search register NAMES them — and what it names them for is *literature*. Žminj is the clean example: the two rows that flag it are **«Libri žminjski, libar drugi» (Žminj 2008)**, a local history sent by David, and **Darovec's 2021 migration paper**, which lists Žminj among the towns the Carni settled at. Both were read. Neither is a register.\n\nOnly **Mione (15 volumes)** and **Ovaro (1)** had a book of their own opened, and both are Antenati, the one provider whose catalogue carries a per-volume flag.\n\n**Reading a book about a parish and reading the parish's own registers are two different acts**, and a scale whose legend says «how far we have got with the shelf» must not paint the first in the colour of the second. The two are now separate colours: **teal — researched, its own books unopened**, and **gold — a volume of its own registers read**. The map loses twenty gold markers and gains a state it did not have a word for.",
    "how": "Found by David, looking at Žminj: «it's on the map as *something here read* but then none of the volumes are marked as *part read* or *read*». The per-volume marks added an hour earlier are what made the contradiction visible — the place said one thing and every book under it said another."
@@ -371,7 +371,7 @@
    "when": "13 Sept 2026",
    "what": "«The earliest the surname is indexed anywhere in Istria: Labin, 1615»",
    "sev": "serious",
-   "where": "/istria-sweep/ · /atlas/",
+   "where": "/istria-sweep/ · /map/",
    "said": "That an **Aloÿsius Defranceschi** appears at Albona in **1615** — «sixty-four years before the Mione headmen's list, and eighty-five before the date Carlo gives for his family's arrival». Carried as one of three key findings of the September sweep, pinned on the atlas, and used as the outer bound of the family's presence in Istria.",
    "true": "**Three later measurements cannot find it.** The **rebuilt sweep** on the same page — written precisely because the first method matched a truncated field and stopped early — gives Labin **1789–1892**. The **by-image test** of 13 September gives **1826–1866**, and six of Labin's fourteen indexed hits are *Franceschich*, *Francescich*, *Francocich*, which are not this family. And this archive's own **register**, 1,508 rows each carrying the id the service returned for it, **holds no 1615 Labin row**; its only 1615 row is an *Andriana Franchini*.\n\nSo the 1615 exists in one place only: the table built by the method this page has already declared broken. **And the source of the number has since been found.** The only *Aloÿsius Defranceschi* in any harvest on disk is born **1790**, son of *Mathæus Defranceschi and Osvalda Labinaz or Dominj* — a **Vižinada** household. The *Gasparo De Franceschi* named beside him is in none of the data. And Labin's filmed volume list contains a book called «**Deaths (Umrli) 1615, 1585-1649**».\n\nSo the entry was a man from the wrong parish dated two centuries early, a man who does not exist, and **a date taken from a shelf-list instead of a record**. It is withdrawn, not merely disputed.\n\n**What stands instead: Rovinj 1619, then Svetvinčenat 1628.** Both are in the register, both have an image behind them, and the second was read off the page the same morning.",
    "how": "By checking a load-bearing number against the archive's own data instead of against the page that first published it. The check cost one grep. It was prompted by writing a new place page for Labin and finding nothing in the register to put on it.\n\n**Withdrawn the same day** after searching every harvest file for the name rather than only the published tables. That search cost one grep too, and should have been the first thing done rather than the second."
@@ -434,7 +434,7 @@
    "when": "14 Sept 2026",
    "what": "The Atlas was drawing a fifth of what the archive knows, and this site holds two different Gračišćes",
    "sev": "moderate",
-   "where": "/atlas/",
+   "where": "/map/",
    "said": "The Atlas carried **52 hand-written pins** and had done since it was built. The dek said «every place this archive can put a document in», which was not true: the roster names **266 place strings** attaching **1,440 people** to the ground.",
    "true": "Rebuilt from the roster, the map holds **154 places and 955 people**. Three things were wrong rather than merely missing.\n\n· **One town was being drawn several times under different names.** Almissa and Omiš are the same place; so are Fiume, Vitipolis and Tarsatica, which is why the first rebuild put **Rijeka on the map three times**. Historic and Italian forms are now folded onto the town they name.\n\n· **This archive holds two different coordinates for Gračišće**, seven kilometres apart — one in *places.json*, one in *atlas.json*. Neither was flagged because nothing had ever compared them. The heavier pin keeps the ground and the builder now refuses to draw one name twice.\n\n· **Seventy-three entries name something that is not a town.** Thirteen say «Österreich», five «Austria», four «Italy»; and four each say **«Santa Maria Assunta», «Immacolata Concezione» and «Assunzione di Maria Santissima»** — church dedications written into a place field. Those are left off the map and are a data error to be cleaned, not a place to be pinned.",
    "how": "Found by building the thing properly rather than by checking it. Nothing compares a gazetteer against itself until something has to draw both."
@@ -549,7 +549,7 @@
    "when": "15 Sept 2026",
    "what": "Thirty-four Kvarner parishes reported as never walked, when they had been",
    "sev": "fixed",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "Published on the Research Map's first build: that **thirty-four of the forty Kvarner parishes carry only a browse link and no volume list at all**, that the rebuild was what made this visible, and that those thirty-four were first in the queue for enumeration. The page's coverage figure was given as **111 of 1,196 places and 590 volumes**.",
    "true": "**They had all been walked, and the fault was in my own builder.**\n\nKvarner keeps its volume lists under a field called **`films`** — the same as Dalmatia — and carries a stale `books` title-list on **six** of its forty parishes. The build script read `books` for Kvarner and `films` for Dalmatia, so thirty-four parishes with full inventories came through as empty.\n\n**Corrected figures: 140 of 1,196 places walked, and 777 volumes inventoried** — not 111 and 590. Kvarner's 255 volumes are on the map, with links that open each book at its first image.\n\nThis was caught within the hour, and only because David asked me to start work on the thirty-four. *The instruction was sound; the premise I had given him was not.*"
   },
@@ -557,7 +557,7 @@
    "when": "15 Sept 2026",
    "what": "Two links on the Research Map printed as literal square brackets",
    "sev": "fixed",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "The page's main paragraph carried two internal links written in markdown — **[Logged as a correction](/corrections/)** among them. Both rendered on the live site exactly as typed, brackets, parentheses and all.",
    "true": "**The archive's markup renderer has no link syntax and never had one.** `md.js` handles bold, italic and «quotes», deliberately, so that data files stay plain. Writing a markdown link into one of those strings does not fail loudly — it just prints.\n\nFixed on the page rather than in the shared renderer: the two links are resolved locally and put through the same base-path helper as every other internal link, so no other page inherits a syntax it was not written for. **The correction that this page pointed at was unreachable for as long as the link was broken**, which is the part that actually mattered."
   },
@@ -565,7 +565,7 @@
    "when": "15 Sept 2026",
    "what": "Matricula Online listed in the plan as a source for Senj and Karlobag",
    "sev": "struck",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "The research map's plan named **Matricula Online** as a fifth provider to be built in, *«(Senj, Karlobag)»*.",
    "true": "**Matricula holds no Croatian parish at all.** Its fonds index lists Germany, Austria, Poland, Serbia, Luxembourg, Bosnia-Herzegovina, Slovenia, Italy and Switzerland, and its place search returns nothing for Senj, Karlobag, Rijeka or Fiume.\n\nThat line was written from memory and never checked before it went into the plan. **The map has four providers, not five**, and the item is struck rather than left to look like outstanding work."
   },
@@ -597,7 +597,7 @@
    "when": "15 Sept 2026",
    "what": "The research map's «Nothing filmed here» filter could never show anything",
    "sev": "fixed",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "The map offered five colours, one of them grey for **«Nothing filmed here»**. Clicking it showed **0 of 1,187 places**, every time. The legend said the state existed and the map said it did not.",
    "true": "**Two faults, and the second matters more than the first.**\n\nThe builder dropped any place with no provider block before it reached the map — which is precisely the set the grey colour was meant to show. **Three places were being silently discarded**; they are now on the all-providers view.\n\n**And the label was a lie.** Two of the three are **Evangelical**, and they are not unfilmed — **this archive never found the Evangelical root in FamilySearch's waypoint tree**, so that shelf was never walked. The colour is now «in no catalogue at all», the panel on those two markers says the fault is ours, and [finding the Evangelical root](/worklist/) is on the work list."
   },
@@ -605,7 +605,7 @@
    "when": "15 Sept 2026",
    "what": "The research map coloured its markers by how many volumes a parish holds",
    "sev": "struck",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "Published this morning, and defended in prose: that shading by **depth** — one or two volumes, three to nine, ten or more — was the fix for a colour scale that had saturated. The legend read *«One or two volumes»*, *«Three to nine»*, *«Ten or more»*.",
    "true": "**It answered a question nobody was asking.** A parish with forty volumes nobody has opened and a parish with two nobody has opened are in **exactly the same state**, and the map was spending its only visual channel on the difference between them.\n\nThe colour now says **how far this archive has got**: catalogued and never opened, started, read right through. Depth has not been lost — it is in the panel, in words, where *«114 volumes catalogued»* can sit beside *«nobody has opened any of it»* without either pretending to be the other.\n\n**The honest picture is worse than the one it replaced**: 1,219 places catalogued and untouched, 20 started, **none finished**, and 16 volumes of 7,159 read one at a time. That is the number the map exists to show.\n\n*Third scale in two days.* The first saturated, the second was pretty and wrong, and this one was David's correction, not mine."
   },
@@ -637,7 +637,7 @@
    "when": "15 Sept 2026",
    "what": "«Every parish in Croatia whose registers are on film»",
    "sev": "fixed",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "The research map's standfirst, since it was built: *«Every parish in Croatia whose registers are on film, and how far this archive has got with each one.»*",
    "true": "**It is every parish in one collection.** *Croatia, Church Books, 1516–1994*, plus three sources added by hand. FamilySearch publishes **3,488 collections**, and Croatian places are scattered through the ones named for other countries — because **a town's registers are filed by whichever state kept them, under the name that state used**.\n\n**Čakovec is filmed as «Csáktornya», in a Hungarian county, inside a collection named for Slovenia.** Five Croatian Istrian parishes are inside an Italian one. A second Croatian church-book collection exists for the Delnice deanery and browses by film number, so no place-based walk would ever find it.\n\nThe standfirst now says what the map actually is, and [a page lists what it cannot see](/elsewhere/).\n\n*Found because David asked whether Croatian towns might be recorded in other countries' books.* They are, and the map had been quietly claiming otherwise for two days."
   },
@@ -653,7 +653,7 @@
    "when": "15 Sept 2026",
    "what": "The research map was in no menu at all",
    "sev": "fixed",
-   "where": "/research-map/",
+   "where": "/map/",
    "said": "Two days of work went into the research map, the collection walk, the undigitised list and the Antenati catalogue. **None of them was in the navigation.** The map could be reached only by a link inside another page.",
    "true": "**Five pages were orphaned** — the research map, «Croatia filed abroad», «Every collection walked», «The undigitised» and the Antenati registers. All five are now in the **Evidence** menu beside Parish Books.\n\n*Found because David asked which menu the map was in.* It was in none, and the build's «nothing links to it» warning had been satisfied by a single in-page link each time — which is not the same as being findable."
   }

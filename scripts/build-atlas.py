@@ -78,10 +78,17 @@ NOTPLACE = {"osterreich","austria","italy","croatia","croazia","dalmatia","istri
 people  = collections.defaultdict(list)
 aliases = collections.defaultdict(collections.Counter)
 dropped = collections.Counter()
+# A living person carries a LIST of towns rather than one place string,
+# because the useful thing about a living relative on a map is the whole
+# arc — Johannesburg and Brisbane, not one of them. The rule that kept them
+# off the map entirely was «no place of residence»; it was replaced on 15
+# September 2026 by «name and town, never a date», which is the rule that
+# lets a reader see where this family actually is.
 for r in roster:
     seen = set()
-    for k in ("place", "parish"):
-        v = str(r.get(k) or "").strip()
+    for k in ("place", "parish", *[f"places#{i}" for i in range(len(r.get("places") or []))]):
+        v = (r["places"][int(k.split("#")[1])] if k.startswith("places#")
+             else str(r.get(k) or "")).strip()
         if not v: continue
         h = head(v)
         if h in NOTPLACE: dropped[h] += 1; continue
@@ -221,6 +228,17 @@ for a in oldatlas:
 # final safety net — one town must not appear twice under the same name, however
 # it got here. The archive's own files disagree about where Gračišće is by seven
 # kilometres, which is what this catches.
+def pkey(q):
+    """One man, one line. David's father stood twice in Brisbane — «Mario De
+    Franceschi 1938–2013» off a headstone and «Mario Defranceschi 1938–2013»
+    out of the MyHeritage tree — because the two sources spell the surname
+    differently and nothing folded them together. Same given names, same birth
+    year, same death year, same town is a duplicate by any reading."""
+    n = norm(q["n"])
+    n = re.sub(r"\bde ?franc?es?ch?i\b", "df", n)
+    n = re.sub(r"\bde ?franceski\b", "df", n)
+    return (n, q.get("y"), q.get("d"))
+
 def fold(rows):
     keep = []
     for r in rows:
@@ -235,9 +253,9 @@ def fold(rows):
         if r["n"] > hit["n"]:                      # the heavier pin keeps the ground
             hit["lat"], hit["lon"] = r["lat"], r["lon"]
         hit["n"] += r["n"]
-        seen = {(q["n"], q.get("y")) for q in hit["people"]}
+        seen = {pkey(q) for q in hit["people"]}
         for q in r["people"]:
-            if (q["n"], q.get("y")) not in seen: hit["people"].append(q); seen.add((q["n"], q.get("y")))
+            if pkey(q) not in seen: hit["people"].append(q); seen.add(pkey(q))
         hit["more"] = max(hit["more"], r["more"])
         arks = {f["ark"] for f in hit["films"]}
         for f in r["films"]:
@@ -248,6 +266,14 @@ def fold(rows):
         hit["href"] = hit["href"] or r["href"];  hit["order"] = hit["order"] or r["order"]
         if r["cat"] == "spine": hit["cat"] = "spine"
     return keep
+for _p in out:                       # two sources, one person, one place
+    _s, _k = [], set()
+    for _q in _p["people"]:
+        if pkey(_q) in _k: continue
+        _k.add(pkey(_q)); _s.append(_q)
+    if len(_s) != len(_p["people"]):
+        _p["n"] -= len(_p["people"]) - len(_s)
+        _p["people"] = _s
 out = fold(out)
 out.sort(key=lambda x: (-x["n"], x["name"]))
 
