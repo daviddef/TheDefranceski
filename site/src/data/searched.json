@@ -9,6 +9,51 @@
  ],
  "rows": [
   {
+   "src": "National Archives of Australia — are any of the eight items digitised?",
+   "dest": "Canberra · Melbourne · Adelaide",
+   "when": "16 Sept 2026",
+   "outcome": "nothing",
+   "key": "src/national-archives-of-australia-752b22",
+   "what": "Before paying for copies: RecordSearch marks an item «Open» whether or not it has been scanned. Which of these can simply be read?",
+   "got": "**None of them. All eight have to be ordered.**\n\n· **A11534, 58–60** — the household with all three dates of birth: not digitised.\n· **B44, V1978/151 and V1978/152** — Zdravko and Ruža's naturalisations: not digitised, and still «not yet examined», so access has to be applied for before a copy can be.\n· **A2571** — the three alien registrations, Zdrafko 76418, Ruza 76419, Anton: not digitised.\n· **B78** — the two Victorian aliens cards, Roza and Zorafko: not digitised.\n\n**«Open» in RecordSearch means readable, not scanned**, and that is the distinction this check existed to draw. It turns the whole Australian side of this family from a search into an order, and the orders should go in one request rather than eight.",
+   "url": "https://recordsearch.naa.gov.au/",
+   "tags": [
+    "naa",
+    "australia",
+    "negative"
+   ],
+   "ev": [
+    [
+     "/pfullingen/",
+     "Six Names at Pfullingen"
+    ],
+    [
+     "/errands/",
+     "Errands"
+    ]
+   ]
+  },
+  {
+   "src": "FamilySearch — full-text search, and a signed-out session",
+   "dest": "FamilySearch",
+   "when": "16 Sept 2026",
+   "outcome": "blocked",
+   "key": "src/familysearch-full-text-search-5726f1",
+   "what": "Test whether FamilySearch's full-text search — which reads the handwriting of unindexed images — works on Istrian parish hands. It would change the shape of this archive: 5,489 catalogued volumes, not one of them name-indexed.",
+   "got": "**Not tested: the session is signed out.** The full-text search redirects to the sign-in page, and the persona search API stopped answering at the same time. **This archive does not enter credentials** — David signs in and the work drives his session.\n\nEverything FamilySearch-side is paused until then. The ark harvest finished first, so nothing is lost: **5,489 of 5,489 volumes are linkable** and the catalogue is complete.",
+   "url": "https://www.familysearch.org/search/full-text",
+   "tags": [
+    "familysearch",
+    "blocked"
+   ],
+   "ev": [
+    [
+     "/map/",
+     "The Map"
+    ]
+   ]
+  },
+  {
    "src": "MyHeritage live tree — the three households of Anton Rudolf's other children",
    "dest": "Crikvenica · Neuhausen · Belgrade",
    "when": "16 Sept 2026",

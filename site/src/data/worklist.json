@@ -545,10 +545,10 @@
   {
    "n": 67,
    "what": "Check whether NAA A2571 and B78 are digitised before paying for a copy",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Five items — the three alien registrations (Zdrafko 76418, Ruza 76419, Anton) and the two B78 cards — are **«Access status: Open»**, which in RecordSearch means readable, not necessarily scanned. **Check the digitised flag on each before ordering anything.** Some of the Victorian B78 aliens cards are already online."
+   "note": "**Checked, and the answer is none of them.** All eight items are **«Open» and not digitised** — A11534, both B44 naturalisations, the three A2571 alien registrations and the two B78 cards. «Open» in RecordSearch means readable, not scanned, which is exactly the distinction this check existed to draw.\n\n**It turns the whole Australian side of this family from a search into an order**, and the two B44 files are still «not yet examined», so access has to be applied for before a copy can be. They should go in one request rather than eight."
   },
   {
    "n": 68,
@@ -732,10 +732,10 @@
   {
    "n": 87,
    "what": "Test FamilySearch's full-text search — it has never been tried",
-   "state": "next",
-   "owner": "this archive",
+   "state": "blocked",
+   "owner": "David",
    "since": "2026-09-15",
-   "note": "Listed as **«untested»** on the search register and left there. FamilySearch's full-text search reads the **handwriting of unindexed images**, which is precisely the state of every Croatian register this archive has catalogued: 5,489 volumes, none of them name-indexed. **If it works on Istrian parish hands it changes the shape of this whole archive.** One afternoon to find out.",
+   "note": "Listed as **«untested»** on the search register and left there. FamilySearch's full-text search reads the **handwriting of unindexed images**, which is precisely the state of every Croatian register this archive has catalogued: 5,489 volumes, none of them name-indexed. **If it works on Istrian parish hands it changes the shape of this whole archive.** One afternoon to find out.\n\n**Blocked on 16 September: the FamilySearch session is signed out.** Full-text search redirects to the login page and the persona API stopped answering at the same time. **This archive does not enter credentials.** One sign-in from David and this runs.",
    "covers": [
     "src:src/familysearch-full-text-searc-9d5358"
    ]
