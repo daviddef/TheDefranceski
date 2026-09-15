@@ -109,5 +109,20 @@ import d from "../data/diaspora.json";
   <p class="cap" style="margin-top:14px" set:html={_md(d.trove.source)}></p>
 </section>
 
-  <Sources ids={["familysearch","findagrave","album2012","arolsen"]} />
+  <Rule name="arrows" label={d.placeholders.heading} />
+<section class="blk">
+  <p class="dek" set:html={_md(d.placeholders.lead)}></p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+    {d.placeholders.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={_md(r.text)}></div>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={_md(d.placeholders.close)}></p>
+  <p class="cap" style="margin-top:12px">Read from David's live MyHeritage tree, family tree 4, on 16 September 2026. <strong>Nobody in these pens is claimed as a relative</strong>; they are recorded because the sorting is itself a finding.</p>
+</section>
+
+<Sources ids={["familysearch","findagrave","album2012","arolsen"]} />
 </Base>

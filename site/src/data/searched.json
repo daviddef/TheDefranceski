@@ -9,6 +9,76 @@
  ],
  "rows": [
   {
+   "src": "MyHeritage live tree — the placeholder scaffold",
+   "dest": "twenty-three countries · seventeen Croatian towns",
+   "when": "16 Sept 2026",
+   "outcome": "hit",
+   "key": "src/myheritage-live-tree-the-place-3b32e1",
+   "what": "Mario of Brisbane's parents were «QLD Defranceschi» and «Unknown Defranceschi». What else is in there?",
+   "got": "**A complete research agenda that David built himself and this archive had never read.**\n\nA node called **«PLACEHOLDERS Defranceschi's for Investigation (not real)»** with **twenty-three children, one per country** — Austria, Puerto Rico, USA, UK, Brazil, Switzerland, Slovenia, Italy, Croatia/Yugoslavia, Germany, Canada, Uruguay, Argentina, Panama, Luxemburg, Mexico, Venezuela, Greece, South Africa, France, Australia & NZ.\n\n**The Croatian pen is a parish list**: seventeen children, and they are towns — Bakar, Rijeka, Pula & Ližnjan, Zagreb, Umag, **Gologorica, Gračišće**. The same map [the sweep](/istria-sweep/) reached from the other end, drawn by hand before any of it was done.\n\n**Australia is filed by state**, and it settles an argument: **Mario of Brisbane hangs under the QLD pen.** This archive flagged him as family and corrected it on 15 September from his placeholder parents. **David had filed him as unconnected himself, years ago.**\n\nAnd the **South Africa** pen holds two named women this archive has never met — **Rosemary Marie Michele** and **Maude De Franceschi**.\n\n*Published on [the diaspora page](/diaspora/).*",
+   "url": "https://www.myheritage.com/",
+   "tags": [
+    "myheritage",
+    "diaspora",
+    "method"
+   ],
+   "ev": [
+    [
+     "/diaspora/",
+     "Where the Name Went"
+    ],
+    [
+     "/corrections/",
+     "Corrections"
+    ]
+   ]
+  },
+  {
+   "src": "MyHeritage live tree — every misspelling of the surname",
+   "dest": "tree 4",
+   "when": "16 Sept 2026",
+   "outcome": "nothing",
+   "key": "src/myheritage-live-tree-every-mis-530e03",
+   "what": "Lisa T was «Defraneski», one letter short, and no search of the family name would ever have returned her. Who else is behind a typo?",
+   "got": "**Nobody. One typo, one person.** Queried on *Defraneski, De Francesci, Defrancheski, Defranceshi, Defrancesky, Defranchesci, Defrancesci* and *Franzeschini*: **Defraneski returns Lisa and nothing else; every other variant returns zero.**\n\nOne thing came up sideways: **Franceschini** returns a group with Brazilian forenames — Aurelio 1892, Turno 1894, Aristeu 1901, Tosca «Tita» 1907 — which belongs with [the Trentino and Brazil material](/trentino/) rather than with this family.",
+   "url": "https://www.myheritage.com/",
+   "tags": [
+    "myheritage",
+    "negative"
+   ],
+   "ev": [
+    [
+     "/trentino/",
+     "Trentino"
+    ]
+   ]
+  },
+  {
+   "src": "Portale Antenati — access, retested",
+   "dest": "Mione · Ovaro · Mieli",
+   "when": "16 Sept 2026",
+   "outcome": "blocked",
+   "key": "src/portale-antenati-access-retest-df16ef",
+   "what": "Eight reading jobs stand on Antenati — the Mione and Ovaro allegati, the Morti, the pubblicazioni, the indices, Ovaro's matrimoni, and the walk of the rest of the Val di Gorto. Retested before starting them.",
+   "got": "**403 Forbidden, on the whole site, in the browser that has been reading it all year.** Not one ark and not after forty-six requests — the root page, on the first request.\n\n**This is a different failure from the one this archive already diagnosed.** The HTTP 400 after about forty-six pages was an eight-kilobyte «recently viewed» cookie exceeding Apache's header limit, and `credentials: \"omit\"` fixed it. A 403 on the root is a block on the connection.\n\nAntenati has always refused this archive's own browser and its shell; **David's Chrome was the way in, and today it is not.** Eight reading jobs are paused on it. Worth retrying later, or from another network.",
+   "url": "https://antenati.cultura.gov.it/",
+   "tags": [
+    "antenati",
+    "blocked",
+    "access"
+   ],
+   "ev": [
+    [
+     "/antenati/",
+     "Antenati registers"
+    ],
+    [
+     "/carnia/",
+     "Carnia"
+    ]
+   ]
+  },
+  {
    "src": "National Archives of Australia — are any of the eight items digitised?",
    "dest": "Canberra · Melbourne · Adelaide",
    "when": "16 Sept 2026",
