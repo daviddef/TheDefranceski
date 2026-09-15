@@ -10,6 +10,13 @@ import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
 import { md, mdp } from "../lib/md.js";
 import registers from "../data/registers.json";
+import rm from "../data/researchmap.json";
+
+/* Which of Pazin's «not digitised» volumes somebody ELSE has filmed. Computed
+   by the research-map builder, which is the only place that holds both
+   catalogues side by side. */
+const filmedToo = new Set(rm.stats.filmedElsewhere || []);
+const covered = (r) => filmedToo.has(r.dapa_no);
 
 const TYPE = { MKR: "Births", MKV: "Marriages", MKU: "Deaths", SD: "Church census" };
 const rows = registers.filter(r => r.digitised !== "yes");
@@ -27,6 +34,8 @@ const places = Object.entries(byPlace).sort((a, b) => b[1].length - a[1].length)
 
 const ours = new Set(["Gologorica", "Gračišće", "Pićan", "Pazin", "Svetvinčenat"]);
 const mine = rows.filter(r => ours.has(r.place));
+const nowhere = rows.filter(r => !covered(r));
+const elsewhere = rows.filter(r => covered(r));
 const HOLDER = {
   DAPA: "Državni arhiv u Pazinu — the state archive itself",
   ZMP: "Zavičajni muzej Poreštine, Poreč",
@@ -38,8 +47,8 @@ const holderName = (h) =>
 ---
 <Base
   title="The hundred and fifty-four"
-  eyebrow={`${rows.length} volumes · ${places.length} places · ${holders.length} holders · none of them photographed`}
-  dek="Every register in Pazin's own list that is marked «not digitised». These are not books missing from a website — they are books that exist, on a shelf in Istria, and cannot be read from anywhere else. This page says exactly which, and who to ask.">
+  eyebrow={`${rows.length} volumes Pazin has not digitised · ${nowhere.length} of them filmed by nobody else either`}
+  dek="Every register in Pazin's own list marked «not digitised» — and, for each, whether anybody else has filmed it. Most of them somebody has. The ones nobody has are the short list worth a letter.">
 
   <div class="one" style="border-left-color:var(--accent)">
     <div class="lab">Why this list is different from everything else here</div>
@@ -48,11 +57,48 @@ const holderName = (h) =>
 
 That single column is worth more than the rest of the catalogue put together, because it converts an absence into an address. **FamilySearch not holding a book tells you nothing** — it might be at Pazin, it might be lost, it might never have existed. Pazin saying «not digitised» tells you the book is real, where it is, and what it is called.
 
-**${mine.length} of the ${rows.length} are in parishes on our own line** — ${[...new Set(mine.map(r => r.place))].sort().join(", ")}. Those are the ones to ask for first.`)}></div>
+**${mine.length} of the ${rows.length} are in parishes on our own line** — ${[...new Set(mine.map(r => r.place))].sort().join(", ")}.`)}></div>
   </div>
 
-  <h2 id="ours" style="font-size:26px;margin-top:44px">Ours first</h2>
-  <p class="dek" style="margin-top:8px">The {mine.length} volumes in parishes this family is actually documented in.</p>
+  <div class="one" style="margin-top:22px;border-left-color:var(--accent)">
+    <div class="lab">And a sentence this page carried for a day that was not true</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+`This page opened by saying these were *«books that exist, on a shelf in Istria, and cannot be read from anywhere else»*. **For ${elsewhere.length} of the ${rows.length}, that is wrong.**
+
+Pazin's column means **«not digitised by Pazin»**. It says nothing about anybody else, and checked against FamilySearch's films of the same parish, record type and years, **${elsewhere.length} of these volumes are already photographed** — often inside a longer film that swallows several of Pazin's shelfmarks at once. Barban's *Births 1716–1750*, *1750–1781* and *1781–1816* are three Pazin volumes and one FamilySearch reel.
+
+**${nowhere.length} are left.** Those are the ones where two catalogues agree that nothing has been photographed, and they are the only ones worth a letter.
+
+*The overlap is inferred, not proved.* Same parish, same record type, overlapping years is a strong match and not an identity — a parish copy and a diocesan copy can both exist. But it is more than enough to stop calling all 154 unreachable.`)}></div>
+  </div>
+
+  <h2 id="nowhere" style="font-size:26px;margin-top:44px">The {nowhere.length} nobody has filmed</h2>
+  <p class="dek" style="margin-top:8px">Pazin has not digitised these and no film of that parish, record type and period turns up anywhere else this archive can reach. <strong>This is the list worth posting.</strong></p>
+  <div class="scroll" style="margin-top:14px">
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+      <thead><tr>
+        <th style="text-align:left;padding:6px 10px 6px 0">Place</th>
+        <th style="text-align:left;padding:6px 10px">Register</th>
+        <th style="text-align:left;padding:6px 10px">Years</th>
+        <th style="text-align:left;padding:6px 10px">Held by</th>
+        <th style="text-align:left;padding:6px 0 6px 10px">DAPA no.</th>
+      </tr></thead>
+      <tbody>
+        {nowhere.map(r => (
+          <tr style="border-top:1px solid var(--rule)">
+            <td style="padding:7px 10px 7px 0;white-space:nowrap"><strong>{r.place}</strong></td>
+            <td style="padding:7px 10px">{TYPE[r.type] || r.type}</td>
+            <td style="padding:7px 10px;white-space:nowrap">{r.period}</td>
+            <td style="padding:7px 10px">{r.held_at}</td>
+            <td style="padding:7px 0 7px 10px;color:var(--dim)">{r.dapa_no}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="ours" style="font-size:26px;margin-top:50px">Ours first</h2>
+  <p class="dek" style="margin-top:8px">The {mine.length} volumes in parishes this family is actually documented in — <strong>{mine.filter(r => !covered(r)).length} of them filmed by nobody else.</strong></p>
   <div class="scroll" style="margin-top:14px">
     <table style="width:100%;border-collapse:collapse;font-size:13.5px">
       <thead><tr>
@@ -108,7 +154,8 @@ That single column is worth more than the rest of the catalogue put together, be
                   <td style="padding:5px 10px 5px 0;white-space:nowrap">{TYPE[r.type] || r.type}</td>
                   <td style="padding:5px 10px;white-space:nowrap">{r.period}</td>
                   <td style="padding:5px 10px">{r.held_at}</td>
-                  <td style="padding:5px 0 5px 10px;color:var(--dim);white-space:nowrap">{r.dapa_no}</td>
+                  <td style="padding:5px 10px;color:var(--dim);white-space:nowrap">{r.dapa_no}</td>
+                  <td style="padding:5px 0 5px 10px;white-space:nowrap" class="cap">{covered(r) ? "filmed elsewhere" : "filmed by nobody"}</td>
                 </tr>
               ))}
             </tbody>

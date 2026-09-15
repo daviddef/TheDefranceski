@@ -64,7 +64,9 @@
   /* A volume somebody has actually opened and read, page by page. This is the
      rarest state in the archive — 16 of 7,159 — and the one the whole map
      exists to grow, so it gets the strongest mark on the panel. */
+  .at-ev li.at-open a { font-size: 12.5px; }
   .at-ev li.at-vols ul li.at-read,
+  .at-ev li.at-read,
   .at-films li.at-read {
     background: rgba(18, 112, 63, 0.14);
     border-left: 2.5px solid #12703F;
@@ -134,13 +136,67 @@
       fold();
     }
 
-    /* The clickable list is the kit's own markup and carries no state, so the
-       read ones are found by the marker the builder puts in their title. */
+    /* ONE list, not two.
+       The kit renders the volumes twice over: once as the coverage timeline
+       this archive feeds it, and once as its own «open at page one» list of
+       links. On a parish with a single book that meant seeing the same volume
+       four times — heading, span, row, link — which is three times too many.
+       So the links are MOVED into the timeline rows they belong to, matched on
+       the label the builder deliberately makes identical on both sides, and
+       the leftover list is removed. Nothing in the shared component changes. */
     function films() {
-      var rows = body.querySelectorAll(".at-films li");
-      for (var i = 0; i < rows.length; i++) {
-        rows[i].classList.toggle("at-read", /—\s*READ/.test(rows[i].textContent || ""));
+      var links = body.querySelectorAll(".at-films li");
+      var rows = body.querySelectorAll(".at-ev li");
+      var pool = [];
+      for (var i = 0; i < links.length; i++) {
+        var a = links[i].querySelector("a");
+        if (a) pool.push({ li: links[i], a: a, key: key(a.textContent) });
       }
+      for (var r = 0; r < rows.length; r++) {
+        var li = rows[r];
+        if (li.querySelector("a")) continue;
+        var ed = li.querySelector(".at-ed");
+        if (!ed || !/^ {4}/.test(ed.textContent || "")) continue;
+        var text = (li.textContent || "").slice((ed.textContent || "").length);
+        var k = key(text);
+        for (var j = 0; j < pool.length; j++) {
+          if (pool[j].used || pool[j].key !== k) continue;
+          pool[j].used = true;
+          var a = pool[j].a;
+          a.setAttribute("target", "_blank");
+          a.setAttribute("rel", "noopener");
+          a.textContent = text.trim() + " \u2197";
+          while (ed.nextSibling) li.removeChild(ed.nextSibling);
+          li.appendChild(a);
+          li.classList.add("at-open");
+          /* The link has moved; its old row must go with it or the section it
+             came from stays alive on a list of empty bullets. */
+          if (pool[j].li.parentNode) pool[j].li.parentNode.removeChild(pool[j].li);
+          break;
+        }
+      }
+      /* Whatever could not be matched keeps its own section rather than being
+         thrown away; if everything matched, the section goes. */
+      var secs = body.querySelectorAll(".at-films");
+      for (var q = 0; q < secs.length; q++) {
+        if (!secs[q].querySelector("li")) {
+          var sec = secs[q].closest(".at-sec");
+          if (sec) sec.hidden = true;
+        }
+      }
+      for (var m = 0; m < rows.length; m++) {
+        rows[m].classList.toggle("at-read", /\u2014\s*READ/.test(rows[m].textContent || ""));
+      }
+    }
+
+    /* Years and letters only, order-insensitive — so «Deaths (Umrli) 1875-1895»
+       from the kit's link and «1875–1895 · Deaths (Umrli)» from the timeline
+       are recognised as one book. */
+    function key(s) {
+      s = String(s || "").replace(/\u2014\s*(READ|not digitised anywhere)/g, "");
+      var years = (s.match(/1[5-9]\d\d/g) || []).sort().join("");
+      var word = s.toLowerCase().replace(/[^a-z\u00c0-\u024f]+/g, "");
+      return years + "|" + word;
     }
 
     /* The builder marks a per-volume row by indenting its date by four
@@ -157,7 +213,7 @@
           var ed = li && li.querySelector ? li.querySelector(".at-ed") : null;
           var deep = !!ed && /^ {4}/.test(ed.textContent || "");
           if (deep && !li.classList.contains("at-vols")) { run.push(li); continue; }
-          if (run.length) { wrap(run); run = []; }
+          if (run.length) { if (run.length > 4) wrap(run); run = []; }
         }
       }
     }

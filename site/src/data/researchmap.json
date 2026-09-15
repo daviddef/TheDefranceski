@@ -71,12 +71,121 @@
    "ref": 11
   },
   "notDigitised": 154,
+  "notDigitisedAnywhere": 49,
+  "filmedElsewhere": [
+   "142",
+   "143",
+   "145",
+   "147",
+   "148",
+   "149",
+   "150",
+   "151",
+   "152",
+   "154",
+   "188",
+   "189",
+   "190",
+   "191",
+   "192",
+   "194",
+   "2197",
+   "2198",
+   "2205",
+   "2206",
+   "221",
+   "2211",
+   "222",
+   "225",
+   "226",
+   "228",
+   "3014",
+   "3015",
+   "3016",
+   "3017",
+   "3018",
+   "3019",
+   "3020",
+   "3056",
+   "3057",
+   "3058",
+   "3059",
+   "3099",
+   "3100",
+   "3101",
+   "3102",
+   "3348",
+   "3349",
+   "3350",
+   "3351",
+   "3352",
+   "3353",
+   "3354",
+   "3355",
+   "3356",
+   "3357",
+   "3358",
+   "3359",
+   "3360",
+   "3361",
+   "3362",
+   "3394",
+   "3395",
+   "3396",
+   "3397",
+   "3398",
+   "3399",
+   "3400",
+   "3401",
+   "3402",
+   "3437",
+   "3438",
+   "3439",
+   "3440",
+   "3441",
+   "3442",
+   "3443",
+   "3444",
+   "3445",
+   "3446",
+   "3447",
+   "3448",
+   "3449",
+   "3450",
+   "4841",
+   "4842",
+   "4843",
+   "4844",
+   "4845",
+   "4849",
+   "4850",
+   "4885",
+   "4888",
+   "4889",
+   "4890",
+   "4916",
+   "4917",
+   "4918",
+   "4919",
+   "5506",
+   "5507",
+   "5508",
+   "5509",
+   "5538",
+   "5539",
+   "5540",
+   "5541",
+   "5542",
+   "5570",
+   "5571"
+  ],
+  "notDigitisedButFilmed": 105,
   "fsPending": 0,
   "crossChecked": 6,
   "timelineGaps": {
    "rows": 277,
    "places": 160,
-   "clean": 1002
+   "clean": 523
   },
   "gaps": 460,
   "gapsBy": {
@@ -2148,7 +2257,8 @@
          "digitised": false,
          "no": "142",
          "from": 1716,
-         "to": 1750
+         "to": 1750,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1750-1781",
@@ -2156,7 +2266,8 @@
          "digitised": false,
          "no": "143",
          "from": 1750,
-         "to": 1781
+         "to": 1781,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1775-1791",
@@ -2172,7 +2283,8 @@
          "digitised": false,
          "no": "145",
          "from": 1781,
-         "to": 1816
+         "to": 1816,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1806-1816",
@@ -2188,7 +2300,8 @@
          "digitised": false,
          "no": "147",
          "from": 1816,
-         "to": 1831
+         "to": 1831,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1816-1835",
@@ -2196,7 +2309,8 @@
          "digitised": false,
          "no": "148",
          "from": 1816,
-         "to": 1835
+         "to": 1835,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1831-1840",
@@ -2204,7 +2318,8 @@
          "digitised": false,
          "no": "149",
          "from": 1831,
-         "to": 1840
+         "to": 1840,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1835-1842",
@@ -2212,7 +2327,8 @@
          "digitised": false,
          "no": "150",
          "from": 1835,
-         "to": 1842
+         "to": 1842,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1841-1860",
@@ -2220,7 +2336,8 @@
          "digitised": false,
          "no": "151",
          "from": 1841,
-         "to": 1860
+         "to": 1860,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1842-1853",
@@ -2228,7 +2345,8 @@
          "digitised": false,
          "no": "152",
          "from": 1842,
-         "to": 1853
+         "to": 1853,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1853-1888",
@@ -2244,7 +2362,8 @@
          "digitised": false,
          "no": "154",
          "from": 1860,
-         "to": 1891
+         "to": 1891,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1891-1922",
@@ -2516,7 +2635,8 @@
          "digitised": false,
          "no": "188",
          "from": 1815,
-         "to": 1821
+         "to": 1821,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1821-1840",
@@ -2524,7 +2644,8 @@
          "digitised": false,
          "no": "189",
          "from": 1821,
-         "to": 1840
+         "to": 1840,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1826-1842",
@@ -2532,7 +2653,8 @@
          "digitised": false,
          "no": "190",
          "from": 1826,
-         "to": 1842
+         "to": 1842,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1841-1860",
@@ -2540,7 +2662,8 @@
          "digitised": false,
          "no": "191",
          "from": 1841,
-         "to": 1860
+         "to": 1860,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1843-1868",
@@ -2548,7 +2671,8 @@
          "digitised": false,
          "no": "192",
          "from": 1843,
-         "to": 1868
+         "to": 1868,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1860-1920",
@@ -2564,7 +2688,8 @@
          "digitised": false,
          "no": "194",
          "from": 1868,
-         "to": 1887
+         "to": 1887,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1920-1948",
@@ -2748,7 +2873,8 @@
          "digitised": false,
          "no": "217",
          "from": 1949,
-         "to": 1959
+         "to": 1959,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1959-1979",
@@ -2780,7 +2906,8 @@
          "digitised": false,
          "no": "221",
          "from": 1717,
-         "to": 1751
+         "to": 1751,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1751/1815",
@@ -2788,7 +2915,8 @@
          "digitised": false,
          "no": "222",
          "from": 1751,
-         "to": 1815
+         "to": 1815,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1778-1786",
@@ -2812,7 +2940,8 @@
          "digitised": false,
          "no": "225",
          "from": 1815,
-         "to": 1821
+         "to": 1821,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1821-1841",
@@ -2820,7 +2949,8 @@
          "digitised": false,
          "no": "226",
          "from": 1821,
-         "to": 1841
+         "to": 1841,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1828-1843",
@@ -2836,7 +2966,8 @@
          "digitised": false,
          "no": "228",
          "from": 1841,
-         "to": 1860
+         "to": 1860,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1843-1879",
@@ -3036,7 +3167,8 @@
          "digitised": false,
          "no": "253",
          "from": 1949,
-         "to": 1976
+         "to": 1976,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1959-1979",
@@ -11259,7 +11391,8 @@
          "digitised": false,
          "no": "875",
          "from": 1934,
-         "to": 1934
+         "to": 1934,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1947-1951",
@@ -11307,7 +11440,8 @@
          "digitised": false,
          "no": "881",
          "from": 1940,
-         "to": 1940
+         "to": 1940,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1947-1951",
@@ -11363,7 +11497,8 @@
          "digitised": false,
          "no": "888",
          "from": 1940,
-         "to": 1940
+         "to": 1940,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1947-1952",
@@ -21968,7 +22103,8 @@
          "digitised": false,
          "no": "1162",
          "from": 1644,
-         "to": 1763
+         "to": 1763,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1764-1788",
@@ -22016,7 +22152,8 @@
          "digitised": false,
          "no": "1168",
          "from": 1945,
-         "to": 1945
+         "to": 1945,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1656-1781",
@@ -22024,7 +22161,8 @@
          "digitised": false,
          "no": "1169",
          "from": 1656,
-         "to": 1781
+         "to": 1781,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1770-1789",
@@ -22056,7 +22194,8 @@
          "digitised": false,
          "no": "1173",
          "from": 1945,
-         "to": 1966
+         "to": 1966,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1646-1777",
@@ -22064,7 +22203,8 @@
          "digitised": false,
          "no": "1174",
          "from": 1646,
-         "to": 1777
+         "to": 1777,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1646-1806",
@@ -22104,7 +22244,8 @@
          "digitised": false,
          "no": "1179",
          "from": 1945,
-         "to": 1966
+         "to": 1966,
+         "alsoFilmed": false
         },
         {
          "t": "Church Census 1826",
@@ -25040,7 +25181,8 @@
          "digitised": false,
          "no": "1198",
          "from": 1912,
-         "to": 1948
+         "to": 1948,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1930-1952",
@@ -41540,7 +41682,8 @@
          "digitised": false,
          "no": "2197",
          "from": 1816,
-         "to": 1864
+         "to": 1864,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1864-1883",
@@ -41548,7 +41691,8 @@
          "digitised": false,
          "no": "2198",
          "from": 1864,
-         "to": 1883
+         "to": 1883,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1884-1948",
@@ -41572,7 +41716,8 @@
          "digitised": false,
          "no": "2201",
          "from": 1949,
-         "to": 1992
+         "to": 1992,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1959-1993",
@@ -41604,7 +41749,8 @@
          "digitised": false,
          "no": "2205",
          "from": 1815,
-         "to": 1902
+         "to": 1902,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1902-1944",
@@ -41612,7 +41758,8 @@
          "digitised": false,
          "no": "2206",
          "from": 1902,
-         "to": 1944
+         "to": 1944,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1947-1952",
@@ -41620,7 +41767,8 @@
          "digitised": false,
          "no": "2207",
          "from": 1947,
-         "to": 1952
+         "to": 1952,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1948-",
@@ -41628,7 +41776,8 @@
          "digitised": false,
          "no": "2208",
          "from": 1948,
-         "to": 1948
+         "to": 1948,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1682-1733",
@@ -41652,7 +41801,8 @@
          "digitised": false,
          "no": "2211",
          "from": 1815,
-         "to": 1900
+         "to": 1900,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1901-1948",
@@ -41684,7 +41834,8 @@
          "digitised": false,
          "no": "2215",
          "from": 1949,
-         "to": 1949
+         "to": 1949,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1959-1993",
@@ -41708,7 +41859,8 @@
          "digitised": false,
          "no": "2218",
          "from": null,
-         "to": null
+         "to": null,
+         "alsoFilmed": false
         },
         {
          "t": "Church Census XVIII-XX. st.",
@@ -50355,7 +50507,8 @@
          "digitised": false,
          "no": "2614",
          "from": 1949,
-         "to": 1949
+         "to": 1949,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1952",
@@ -58721,7 +58874,8 @@
          "digitised": false,
          "no": "3014",
          "from": 1643,
-         "to": 1655
+         "to": 1655,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1655-1689",
@@ -58729,7 +58883,8 @@
          "digitised": false,
          "no": "3015",
          "from": 1655,
-         "to": 1689
+         "to": 1689,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1689-1734",
@@ -58737,7 +58892,8 @@
          "digitised": false,
          "no": "3016",
          "from": 1689,
-         "to": 1734
+         "to": 1734,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1735-1783",
@@ -58745,7 +58901,8 @@
          "digitised": false,
          "no": "3017",
          "from": 1735,
-         "to": 1783
+         "to": 1783,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1784-1812",
@@ -58753,7 +58910,8 @@
          "digitised": false,
          "no": "3018",
          "from": 1784,
-         "to": 1812
+         "to": 1812,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1812-1847",
@@ -58761,7 +58919,8 @@
          "digitised": false,
          "no": "3019",
          "from": 1812,
-         "to": 1847
+         "to": 1847,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1847-1882",
@@ -58769,7 +58928,8 @@
          "digitised": false,
          "no": "3020",
          "from": 1847,
-         "to": 1882
+         "to": 1882,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1883-1907",
@@ -58889,7 +59049,8 @@
          "digitised": false,
          "no": "3035",
          "from": 1934,
-         "to": 1958
+         "to": 1958,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1935",
@@ -59057,7 +59218,8 @@
          "digitised": false,
          "no": "3056",
          "from": 1597,
-         "to": 1635
+         "to": 1635,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1656-1742",
@@ -59065,7 +59227,8 @@
          "digitised": false,
          "no": "3057",
          "from": 1656,
-         "to": 1742
+         "to": 1742,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1743-1812",
@@ -59073,7 +59236,8 @@
          "digitised": false,
          "no": "3058",
          "from": 1743,
-         "to": 1812
+         "to": 1812,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1812-1847",
@@ -59081,7 +59245,8 @@
          "digitised": false,
          "no": "3059",
          "from": 1812,
-         "to": 1847
+         "to": 1847,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1847-1912",
@@ -59177,7 +59342,8 @@
          "digitised": false,
          "no": "3071",
          "from": 1929,
-         "to": 1934
+         "to": 1934,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1930",
@@ -59233,7 +59399,8 @@
          "digitised": false,
          "no": "3078",
          "from": 1935,
-         "to": 1939
+         "to": 1939,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1936",
@@ -59345,7 +59512,8 @@
          "digitised": false,
          "no": "3092",
          "from": 1949,
-         "to": 1962
+         "to": 1962,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1951-1952",
@@ -59401,7 +59569,8 @@
          "digitised": false,
          "no": "3099",
          "from": 1655,
-         "to": 1715
+         "to": 1715,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1716-1776",
@@ -59409,7 +59578,8 @@
          "digitised": false,
          "no": "3100",
          "from": 1716,
-         "to": 1776
+         "to": 1776,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1777-1812",
@@ -59417,7 +59587,8 @@
          "digitised": false,
          "no": "3101",
          "from": 1777,
-         "to": 1812
+         "to": 1812,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1812-1847",
@@ -59425,7 +59596,8 @@
          "digitised": false,
          "no": "3102",
          "from": 1812,
-         "to": 1847
+         "to": 1847,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1847-1909",
@@ -62933,7 +63105,8 @@
          "digitised": false,
          "no": "3206",
          "from": 1948,
-         "to": 1971
+         "to": 1971,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1952",
@@ -65428,7 +65601,8 @@
          "digitised": false,
          "no": "3348",
          "from": 1657,
-         "to": 1692
+         "to": 1692,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1692-1710",
@@ -65436,7 +65610,8 @@
          "digitised": false,
          "no": "3349",
          "from": 1692,
-         "to": 1710
+         "to": 1710,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1710-1734",
@@ -65444,7 +65619,8 @@
          "digitised": false,
          "no": "3350",
          "from": 1710,
-         "to": 1734
+         "to": 1734,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1734-1745",
@@ -65452,7 +65628,8 @@
          "digitised": false,
          "no": "3351",
          "from": 1734,
-         "to": 1745
+         "to": 1745,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1745-1753",
@@ -65460,7 +65637,8 @@
          "digitised": false,
          "no": "3352",
          "from": 1745,
-         "to": 1753
+         "to": 1753,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1753-1765",
@@ -65468,7 +65646,8 @@
          "digitised": false,
          "no": "3353",
          "from": 1753,
-         "to": 1765
+         "to": 1765,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1766-1791",
@@ -65476,7 +65655,8 @@
          "digitised": false,
          "no": "3354",
          "from": 1766,
-         "to": 1791
+         "to": 1791,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1792-1804",
@@ -65484,7 +65664,8 @@
          "digitised": false,
          "no": "3355",
          "from": 1792,
-         "to": 1804
+         "to": 1804,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1799-1829",
@@ -65492,7 +65673,8 @@
          "digitised": false,
          "no": "3356",
          "from": 1799,
-         "to": 1829
+         "to": 1829,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1804-1817",
@@ -65500,7 +65682,8 @@
          "digitised": false,
          "no": "3357",
          "from": 1804,
-         "to": 1817
+         "to": 1817,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1815-1839",
@@ -65508,7 +65691,8 @@
          "digitised": false,
          "no": "3358",
          "from": 1815,
-         "to": 1839
+         "to": 1839,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1838-1841",
@@ -65516,7 +65700,8 @@
          "digitised": false,
          "no": "3359",
          "from": 1838,
-         "to": 1841
+         "to": 1841,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1839-1874-1874",
@@ -65524,7 +65709,8 @@
          "digitised": false,
          "no": "3360",
          "from": 1839,
-         "to": 1874
+         "to": 1874,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1842-1843",
@@ -65532,7 +65718,8 @@
          "digitised": false,
          "no": "3361",
          "from": 1842,
-         "to": 1843
+         "to": 1843,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1844-1846",
@@ -65540,7 +65727,8 @@
          "digitised": false,
          "no": "3362",
          "from": 1844,
-         "to": 1846
+         "to": 1846,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1874-1912",
@@ -65796,7 +65984,8 @@
          "digitised": false,
          "no": "3394",
          "from": 1657,
-         "to": 1705
+         "to": 1705,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1710-1733",
@@ -65804,7 +65993,8 @@
          "digitised": false,
          "no": "3395",
          "from": 1710,
-         "to": 1733
+         "to": 1733,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1733-1753",
@@ -65812,7 +66002,8 @@
          "digitised": false,
          "no": "3396",
          "from": 1733,
-         "to": 1753
+         "to": 1753,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1753-1803",
@@ -65820,7 +66011,8 @@
          "digitised": false,
          "no": "3397",
          "from": 1753,
-         "to": 1803
+         "to": 1803,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1803-1811",
@@ -65828,7 +66020,8 @@
          "digitised": false,
          "no": "3398",
          "from": 1803,
-         "to": 1811
+         "to": 1811,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1813-1815",
@@ -65836,7 +66029,8 @@
          "digitised": false,
          "no": "3399",
          "from": 1813,
-         "to": 1815
+         "to": 1815,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1815-1825",
@@ -65844,7 +66038,8 @@
          "digitised": false,
          "no": "3400",
          "from": 1815,
-         "to": 1825
+         "to": 1825,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1842-1870",
@@ -65852,7 +66047,8 @@
          "digitised": false,
          "no": "3401",
          "from": 1842,
-         "to": 1870
+         "to": 1870,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1870-1887",
@@ -65860,7 +66056,8 @@
          "digitised": false,
          "no": "3402",
          "from": 1870,
-         "to": 1887
+         "to": 1887,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1888-1911",
@@ -66140,7 +66337,8 @@
          "digitised": false,
          "no": "3437",
          "from": 1710,
-         "to": 1733
+         "to": 1733,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1733-1753",
@@ -66148,7 +66346,8 @@
          "digitised": false,
          "no": "3438",
          "from": 1733,
-         "to": 1753
+         "to": 1753,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1753-1782",
@@ -66156,7 +66355,8 @@
          "digitised": false,
          "no": "3439",
          "from": 1753,
-         "to": 1782
+         "to": 1782,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1777-1788",
@@ -66164,7 +66364,8 @@
          "digitised": false,
          "no": "3440",
          "from": 1777,
-         "to": 1788
+         "to": 1788,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1783-1807",
@@ -66172,7 +66373,8 @@
          "digitised": false,
          "no": "3441",
          "from": 1783,
-         "to": 1807
+         "to": 1807,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1788-1793",
@@ -66180,7 +66382,8 @@
          "digitised": false,
          "no": "3442",
          "from": 1788,
-         "to": 1793
+         "to": 1793,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1798-1829",
@@ -66188,7 +66391,8 @@
          "digitised": false,
          "no": "3443",
          "from": 1798,
-         "to": 1829
+         "to": 1829,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1807-1816",
@@ -66196,7 +66400,8 @@
          "digitised": false,
          "no": "3444",
          "from": 1807,
-         "to": 1816
+         "to": 1816,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1815-1838",
@@ -66204,7 +66409,8 @@
          "digitised": false,
          "no": "3445",
          "from": 1815,
-         "to": 1838
+         "to": 1838,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1838-1841",
@@ -66212,7 +66418,8 @@
          "digitised": false,
          "no": "3446",
          "from": 1838,
-         "to": 1841
+         "to": 1841,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1838-1887",
@@ -66220,7 +66427,8 @@
          "digitised": false,
          "no": "3447",
          "from": 1838,
-         "to": 1887
+         "to": 1887,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1842-1843",
@@ -66228,7 +66436,8 @@
          "digitised": false,
          "no": "3448",
          "from": 1842,
-         "to": 1843
+         "to": 1843,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1844-1845",
@@ -66236,7 +66445,8 @@
          "digitised": false,
          "no": "3449",
          "from": 1844,
-         "to": 1845
+         "to": 1845,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1846-1847",
@@ -66244,7 +66454,8 @@
          "digitised": false,
          "no": "3450",
          "from": 1846,
-         "to": 1847
+         "to": 1847,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1887-1930",
@@ -66308,7 +66519,8 @@
          "digitised": false,
          "no": "3458",
          "from": 1929,
-         "to": 1935
+         "to": 1935,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1929-1962",
@@ -66316,7 +66528,8 @@
          "digitised": false,
          "no": "3459",
          "from": 1929,
-         "to": 1962
+         "to": 1962,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1930",
@@ -66380,7 +66593,8 @@
          "digitised": false,
          "no": "3467",
          "from": 1935,
-         "to": 1942
+         "to": 1942,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1936",
@@ -66444,7 +66658,8 @@
          "digitised": false,
          "no": "3475",
          "from": 1942,
-         "to": 1948
+         "to": 1948,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1943",
@@ -84582,7 +84797,8 @@
          "digitised": false,
          "no": "4841",
          "from": 1568,
-         "to": 1588
+         "to": 1588,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1589-1647",
@@ -84590,7 +84806,8 @@
          "digitised": false,
          "no": "4842",
          "from": 1589,
-         "to": 1647
+         "to": 1647,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1663-1708",
@@ -84598,7 +84815,8 @@
          "digitised": false,
          "no": "4843",
          "from": 1663,
-         "to": 1708
+         "to": 1708,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1709-1764",
@@ -84606,7 +84824,8 @@
          "digitised": false,
          "no": "4844",
          "from": 1709,
-         "to": 1764
+         "to": 1764,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1764-1791",
@@ -84614,7 +84833,8 @@
          "digitised": false,
          "no": "4845",
          "from": 1764,
-         "to": 1791
+         "to": 1791,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1785-1790",
@@ -84646,7 +84866,8 @@
          "digitised": false,
          "no": "4849",
          "from": 1815,
-         "to": 1854
+         "to": 1854,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1855-1874",
@@ -84654,7 +84875,8 @@
          "digitised": false,
          "no": "4850",
          "from": 1855,
-         "to": 1874
+         "to": 1874,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1855-1892",
@@ -84934,7 +85156,8 @@
          "digitised": false,
          "no": "4885",
          "from": 1581,
-         "to": 1623
+         "to": 1623,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1588-1674",
@@ -84958,7 +85181,8 @@
          "digitised": false,
          "no": "4888",
          "from": 1762,
-         "to": 1815
+         "to": 1815,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1815-1858",
@@ -84966,7 +85190,8 @@
          "digitised": false,
          "no": "4889",
          "from": 1815,
-         "to": 1858
+         "to": 1858,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1855-1895",
@@ -84974,7 +85199,8 @@
          "digitised": false,
          "no": "4890",
          "from": 1855,
-         "to": 1895
+         "to": 1895,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1895-1942",
@@ -85182,7 +85408,8 @@
          "digitised": false,
          "no": "4916",
          "from": 1791,
-         "to": 1815
+         "to": 1815,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1815-1858",
@@ -85190,7 +85417,8 @@
          "digitised": false,
          "no": "4917",
          "from": 1815,
-         "to": 1858
+         "to": 1858,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1859-1893",
@@ -85198,7 +85426,8 @@
          "digitised": false,
          "no": "4918",
          "from": 1859,
-         "to": 1893
+         "to": 1893,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1894-1917",
@@ -85206,7 +85435,8 @@
          "digitised": false,
          "no": "4919",
          "from": 1894,
-         "to": 1917
+         "to": 1917,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1918-1948",
@@ -94919,7 +95149,8 @@
          "digitised": false,
          "no": "5505",
          "from": 1663,
-         "to": 1732
+         "to": 1732,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1730-1792",
@@ -94927,7 +95158,8 @@
          "digitised": false,
          "no": "5506",
          "from": 1730,
-         "to": 1792
+         "to": 1792,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1792-1828",
@@ -94935,7 +95167,8 @@
          "digitised": false,
          "no": "5507",
          "from": 1792,
-         "to": 1828
+         "to": 1828,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1815-1830",
@@ -94943,7 +95176,8 @@
          "digitised": false,
          "no": "5508",
          "from": 1815,
-         "to": 1830
+         "to": 1830,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1831-1886",
@@ -94951,7 +95185,8 @@
          "digitised": false,
          "no": "5509",
          "from": 1831,
-         "to": 1886
+         "to": 1886,
+         "alsoFilmed": true
         },
         {
          "t": "Births 1887-1934",
@@ -95183,7 +95418,8 @@
          "digitised": false,
          "no": "5538",
          "from": 1663,
-         "to": 1823
+         "to": 1823,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1815/1832",
@@ -95191,7 +95427,8 @@
          "digitised": false,
          "no": "5539",
          "from": 1815,
-         "to": 1832
+         "to": 1832,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1821-1827",
@@ -95199,7 +95436,8 @@
          "digitised": false,
          "no": "5540",
          "from": 1821,
-         "to": 1827
+         "to": 1827,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1827-1829",
@@ -95207,7 +95445,8 @@
          "digitised": false,
          "no": "5541",
          "from": 1827,
-         "to": 1829
+         "to": 1829,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1831-1888",
@@ -95215,7 +95454,8 @@
          "digitised": false,
          "no": "5542",
          "from": 1831,
-         "to": 1888
+         "to": 1888,
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1888-1946",
@@ -95407,7 +95647,8 @@
          "digitised": false,
          "no": "5566",
          "from": 1946,
-         "to": 1972
+         "to": 1972,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1947-1950",
@@ -95439,7 +95680,8 @@
          "digitised": false,
          "no": "5570",
          "from": 1662,
-         "to": 1828
+         "to": 1828,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1815-1830",
@@ -95447,7 +95689,8 @@
          "digitised": false,
          "no": "5571",
          "from": 1815,
-         "to": 1830
+         "to": 1830,
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1831-1910",
@@ -95655,7 +95898,8 @@
          "digitised": false,
          "no": "5597",
          "from": 1946,
-         "to": 1979
+         "to": 1979,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1948-1950",
@@ -96890,7 +97134,8 @@
          "digitised": false,
          "no": "5614",
          "from": 1815,
-         "to": 1827
+         "to": 1827,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1827-1846",
@@ -96898,7 +97143,8 @@
          "digitised": false,
          "no": "5615",
          "from": 1827,
-         "to": 1846
+         "to": 1846,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1847-1866",
@@ -96906,7 +97152,8 @@
          "digitised": false,
          "no": "5616",
          "from": 1847,
-         "to": 1866
+         "to": 1866,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1867-1878",
@@ -96914,7 +97161,8 @@
          "digitised": false,
          "no": "5617",
          "from": 1867,
-         "to": 1878
+         "to": 1878,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1879-1898",
@@ -96978,7 +97226,8 @@
          "digitised": false,
          "no": "5625",
          "from": 1927,
-         "to": 1944
+         "to": 1944,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1928",
@@ -97130,7 +97379,8 @@
          "digitised": false,
          "no": "5644",
          "from": 1945,
-         "to": 1975
+         "to": 1975,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1946-1947",
@@ -97186,7 +97436,8 @@
          "digitised": false,
          "no": "5651",
          "from": 1815,
-         "to": 1847
+         "to": 1847,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1848-1867",
@@ -97194,7 +97445,8 @@
          "digitised": false,
          "no": "5652",
          "from": 1848,
-         "to": 1867
+         "to": 1867,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1867-1884",
@@ -97202,7 +97454,8 @@
          "digitised": false,
          "no": "5653",
          "from": 1867,
-         "to": 1884
+         "to": 1884,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1885-1913",
@@ -97490,7 +97743,8 @@
          "digitised": false,
          "no": "5689",
          "from": 1950,
-         "to": 1950
+         "to": 1950,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1953-1958",
@@ -97554,7 +97808,8 @@
          "digitised": false,
          "no": "5697",
          "from": 1815,
-         "to": 1833
+         "to": 1833,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1834-1849",
@@ -97562,7 +97817,8 @@
          "digitised": false,
          "no": "5698",
          "from": 1834,
-         "to": 1849
+         "to": 1849,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1850-1859",
@@ -97570,7 +97826,8 @@
          "digitised": false,
          "no": "5699",
          "from": 1850,
-         "to": 1859
+         "to": 1859,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1860-1893",
@@ -97578,7 +97835,8 @@
          "digitised": false,
          "no": "5700",
          "from": 1860,
-         "to": 1893
+         "to": 1893,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1894-1923",
@@ -97770,7 +98028,8 @@
          "digitised": false,
          "no": "5724",
          "from": 1945,
-         "to": 1945
+         "to": 1945,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1945",
@@ -105081,7 +105340,8 @@
          "digitised": false,
          "no": "900",
          "from": 1861,
-         "to": 1898
+         "to": 1898,
+         "alsoFilmed": false
         },
         {
          "t": "Births 1899-1933",
@@ -105145,7 +105405,8 @@
          "digitised": false,
          "no": "908",
          "from": 1861,
-         "to": 1898
+         "to": 1898,
+         "alsoFilmed": false
         },
         {
          "t": "Marriages 1898-1948",
@@ -105201,7 +105462,8 @@
          "digitised": false,
          "no": "915",
          "from": 1861,
-         "to": 1898
+         "to": 1898,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1899-1948",
@@ -105233,7 +105495,8 @@
          "digitised": false,
          "no": "919",
          "from": 1949,
-         "to": 1949
+         "to": 1949,
+         "alsoFilmed": false
         },
         {
          "t": "Deaths 1959-1962.1963-1993",

@@ -211,6 +211,25 @@ def overlaps(a, b):
 # names the holes, which is the thing anybody actually came to the map for.
 KIND_LABEL = [("b", "Births"), ("m", "Marriages"), ("d", "Deaths")]
 
+def vol_years(b):
+    return (f'{b["from"]}–{b["to"]}' if b.get("from") and b.get("to") != b.get("from")
+            else (str(b.get("from")) if b.get("from") else "—"))
+
+def timeline_label(b):
+    """One label for a volume, used by the timeline row AND by the clickable
+    list, so the page can recognise that they are the same book and show it
+    once. Years are stripped from the title because the row already carries
+    them in its own column."""
+    t = re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") or b["t"]
+    if b.get("how") == "read":
+        t += " — READ"
+    if not b.get("digitised", True):
+        t += (" — Pazin holds the paper; filmed elsewhere" if b.get("alsoFilmed")
+              else " — NOT FILMED ANYWHERE")
+    return t
+
+
+
 def merge(spans):
     """Union of [lo, hi] ranges, touching or overlapping ones joined."""
     out = []
@@ -232,21 +251,7 @@ def timeline(books):
     of is still a volume on a shelf.
     """
     def vol_row(b):
-        """One volume, as the shelf has it. Four leading spaces mark it as a
-        detail row so the page can fold these away behind a summary."""
-        yr = (f'{b["from"]}–{b["to"]}' if b.get("from") and b.get("to") != b.get("from")
-              else (str(b.get("from")) if b.get("from") else "—"))
-        t = re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") or b["t"]
-        if b.get("how") == "read":
-            t += " — READ"
-        if not b.get("digitised", True):
-            t += " — not digitised anywhere"
-        elif b.get("ark") and not b.get("antenati"):
-            # «openable» means openable FROM THIS PANEL. Antenati's arks are on
-            # another host and the panel cannot build them, so saying so here
-            # would be a promise the marker does not keep.
-            t += " — openable"
-        return ["    " + yr, t]
+        return ["    " + vol_years(b), timeline_label(b)]
 
     rows, other, undated = [], [], 0
     for kind, label in KIND_LABEL:
@@ -270,11 +275,14 @@ def timeline(books):
         done = (" · ALL READ" if nread and nread >= n
                 else f" · {nread} of {n} read" if nread
                 else " · none read")
-        rows.append([label, f"{n} volume{'' if n == 1 else 's'}, covering {head}"
-                            + ("" if len(runs) == 1 else f", in {len(runs)} stretches")
-                            + done])
+        rows.append([label, (f"{n} volumes, covering {head}"
+                             + ("" if len(runs) == 1 else f", in {len(runs)} stretches")
+                             if n > 1 else "1 volume") + done])
         if len(runs) == 1:
-            rows.append(["  " + head, "unbroken"])
+            # An unbroken run needs no span row: the heading gives the span and
+            # the volumes below give it again. Meljani was showing one volume
+            # four times over — heading, span, volume, link — which is three
+            # times more than anybody needs.
             rows += [vol_row(b) for b in sorted(mine, key=lambda b: (b["from"], b["t"]))]
             continue
         for i, (lo, hi) in enumerate(runs):
@@ -522,6 +530,22 @@ def main():
                                      "t": b["t"], "from": yr[0], "to": yr[1],
                                      "digitised": b.get("digitised", True)})
         gaps.sort(key=lambda g: (g["missing"], g["kind"], g["from"]))
+
+        # ---- 6c. is a «not digitised» volume really unreachable? ----------
+        # Pazin's digitised column is the only one in the estate that admits
+        # an absence, and this archive published it as «books that exist on a
+        # shelf in Istria and cannot be read from anywhere else». That is only
+        # true where nobody ELSE has filmed them, and mostly somebody has.
+        filmed = [b for sname, blk in p["src"].items() if sname != "dapa"
+                  for sh in blk["shelves"].values() for b in (sh["books"] or [])]
+        for sh in p["src"].get("dapa", {}).get("shelves", {}).values():
+            for b in (sh["books"] or []):
+                if b.get("digitised", True):
+                    continue
+                kk, yy = kinds(b["t"]), (b.get("from"), b.get("to") or b.get("from"))
+                b["alsoFilmed"] = any(
+                    (kinds(f["t"]) & kk) and overlaps(yy, (f.get("from"), f.get("to") or f.get("from")))
+                    for f in filmed)
         # Ninety-odd single volumes is a list nobody reads. Merged into the
         # stretches of years they cover, the same information is four lines.
         spans = []
@@ -567,6 +591,22 @@ def main():
                           for s, _, _ in SOURCES},
              "byLayer": dict(collections.Counter(l for o in out for l in o["layers"])),
              "notDigitised": sum(o["sources"].get("dapa", {}).get("notDigitised", 0) for o in out),
+             "notDigitisedAnywhere": sum(
+                 1 for o in out for sh in o["sources"].get("dapa", {}).get("shelves", {}).values()
+                 for b in (sh["books"] or [])
+                 if not b.get("digitised", True) and not b.get("alsoFilmed")),
+             # The page that lists these joins on Pazin's own shelfmark, which is
+             # unique, rather than on the place name — the two catalogues spell
+             # «Poreč (Poreč)» and «Vodnjan / Dignano» differently and a name
+             # join silently lost a third of the rows.
+             "filmedElsewhere": sorted(
+                 b["no"] for o in out for sh in o["sources"].get("dapa", {}).get("shelves", {}).values()
+                 for b in (sh["books"] or [])
+                 if not b.get("digitised", True) and b.get("alsoFilmed") and b.get("no")),
+             "notDigitisedButFilmed": sum(
+                 1 for o in out for sh in o["sources"].get("dapa", {}).get("shelves", {}).values()
+                 for b in (sh["books"] or [])
+                 if not b.get("digitised", True) and b.get("alsoFilmed")),
              "fsPending": len(fsc.get("f", [])),
              "crossChecked": sum(1 for o in out if len(o["counts"]) > 1),
              "timelineGaps": None,   # filled once the blobs are built
@@ -652,8 +692,11 @@ def main():
                     for b in (sh["books"] or []):
                         allb.append(b)
                         if b.get("ark") and not b.get("antenati"):
-                            films.append({"t": b["t"] + (" — READ" if b.get("how") == "read" else ""),
-                                          "ark": b["ark"],
+                            # The title here is built to match the volume row in
+                            # the timeline exactly, so the page can move this
+                            # link into that row and drop the duplicate list.
+                            vr = timeline_label(b)
+                            films.append({"t": vr, "ark": b["ark"],
                                           "cc": b.get("cc"), "wc": b.get("wc")})
             # Why the «open at page one» list is missing, when it is missing.
             # Silence there reads as an oversight; for Gračišće it is a fact
@@ -665,7 +708,8 @@ def main():
                             if set(got) == {"dapa"} else
                             "no image address has been harvested for any of them yet."))
             ev = timeline(allb)
-            if ev and not any(t.startswith(("GAP", "not covered")) for _, t in ev):
+            if len(allb) > 2 and ev and not any(t.startswith(("GAP", "not covered"))
+                                                for _, t in ev):
                 ev.append(["No gaps", "Every year between the first volume and the last is "
                                       "covered by some register, for each kind above."])
             nd = [b for b in allb if not b.get("digitised", True)]

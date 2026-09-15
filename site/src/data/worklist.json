@@ -132,11 +132,11 @@
   },
   {
    "n": 16,
-   "what": "Turn the 147 unfilmed Istrian volumes into named requests",
+   "what": "Turn the volumes nobody has filmed into named requests",
    "state": "next",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "[The cross-provider check](/research-map/) found **147 volumes listed at Pazin, from before 1890, that FamilySearch has not filmed** — six places, all Istrian, and **34 of them in parishes on our own line**. [The hundred and fifty-four](/undigitised/) lists the paper; this is turning the overlap into one letter per holder."
+   "note": "[The cross-provider check](/research-map/) found **147 volumes listed at Pazin, from before 1890, that FamilySearch has not filmed**, and Pazin marks **49** of its own as digitised by nobody at all.\n\n**That second figure was 154 until this evening.** Pazin's «not digitised» column means «not digitised *by Pazin*», and 105 of the 154 turn out to be on FamilySearch film already. [Logged](/corrections/). [The short list](/undigitised/) is what goes in the letter."
   },
   {
    "n": 17,
@@ -297,6 +297,14 @@
    "owner": "this archive",
    "since": "2026-09-15",
    "note": "**Green on what is done, red on the gaps, amber on what is part-done** — David's correction, applied to the panel as well as the marker.\n\nA record-type heading turns **green** when every volume of that kind has been read, **amber** when some have, and stays plain when none have. Individual volumes go green when they have been read, in the collapsed list and in the clickable «open at page one» list alike. Gaps keep their red.\n\nMione now reads at a glance: **BIRTHS · ALL READ** in green, **MARRIAGES · 6 of 18 read** in amber, and **1807** in red three times over. All of it done from outside the shared Atlas component, which this session does not own."
+  },
+  {
+   "n": 37,
+   "what": "One volume shown four times in the panel — collapsed to one line",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Meljani has a single register and the panel was showing it **four times**: as a record-type heading, as a coverage span, as a volume row, and again in the kit's own «open at page one» list.\n\n**It is now one line**, with the link moved into the row it belongs to and the leftover list removed. The span row only appears where there is a gap to show; the fold only appears where there are more than four volumes. Done from outside the shared component, by matching the two lists on a label the builder deliberately makes identical."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight."
