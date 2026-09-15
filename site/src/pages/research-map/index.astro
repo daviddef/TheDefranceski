@@ -39,6 +39,23 @@ const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
   (_, t, href) => `<a href="${u(href)}">${t}</a>`);
 const layers = Object.entries(s.byLayer).sort((a, b) => b[1] - a[1]);
 const pct = (n) => ((100 * n) / s.places).toFixed(1);
+/* The cross-provider check. A gap can only be SEEN where two providers describe
+   the same place, which today is six places in Istria — Pazin's own register
+   list against FamilySearch's films. Everything after 1890 is the privacy
+   cut-off and is not a gap at all; everything before about 1720 is a real book
+   nobody has photographed. The page separates them rather than reporting 460. */
+const KND = { b: "Births", m: "Marriages", d: "Deaths" };
+const gapPlaces = r.places
+  .filter(p => (p.gapSpans || []).length)
+  .map(p => ({
+    name: p.name,
+    early: p.gapSpans.filter(g => g.from < 1890),
+    late:  p.gapSpans.filter(g => g.from >= 1890),
+  }))
+  .sort((a, b) => b.early.length - a.early.length || a.name.localeCompare(b.name));
+const nEarly = gapPlaces.reduce((a, p) => a + p.early.reduce((x, g) => x + g.n, 0), 0);
+const nLate  = gapPlaces.reduce((a, p) => a + p.late.reduce((x, g) => x + g.n, 0), 0);
+const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 ---
 <Base
   title="The Research Map"
@@ -104,6 +121,45 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
 FamilySearch is broad and shallow: a title, a year span, and **nothing name-indexed**. [Antenati](/antenati/) is the opposite shape again — two comuni, fifty-nine volumes, and every one of them a book to be turned by hand, because the Italian portal publishes no index of names at all. Its arks sit on a different host from everything else here, so the map sends you to [the archive's own list](/antenati/) rather than dressing them up as FamilySearch links. Pazin is narrow and deep, and it is the only one that admits what is *not* online — **${st.notDigitised} of its volumes are marked «not digitised»**, books that sit on a shelf in Istria and nowhere else. **${st.fsPending} FamilySearch parishes are still outstanding**, stopped by its rate limiter rather than by anything missing.
 
 *This paragraph said something else for about an hour.* It reported that thirty-four of the forty Kvarner parishes had never been walked — **and they had been**. The builder was reading the wrong field: Kvarner keeps its volumes under a field called **films**, like Dalmatia, and carries a stale **books** title-list on six of its forty parishes. Reading **books** invented a gap that did not exist and under-counted the archive by thirty-four parishes and 201 volumes. [Logged as a correction](/corrections/).`))}></div>
+    </div>
+
+    <div class="one" style="border-left-color:var(--accent)">
+      <div class="lab">Where two providers describe the same place, and disagree</div>
+      <div class="prose" style="margin-top:8px" set:html={link(mdp(
+`**${st.crossChecked} places on this map are described by more than one provider**, and they are the only places where a gap can be seen at all. All six are in Istria, and the comparison is the same one every time: **Pazin's own register list against FamilySearch's films.**
+
+**${nEarly} volumes are listed at Pazin, from before 1890, that FamilySearch has not filmed.** Those are the ones worth caring about — books on a shelf in Istria with no photograph of them anywhere, and the reason the [letter list](/parish-books/) exists.
+
+**${nLate} more fall after 1890.** They are **not** a gap. FamilySearch withholds recent registers for privacy, and Pazin lists them because Pazin holds the paper. Counting those as missing film would have turned a real finding of ${nEarly} volumes into a fake one of ${nEarly + nLate}.
+
+*The test is deliberately strict about what counts as cover.* An index is not a register and an allegato is not a register; a marriage index for 1815–1830 does not make the marriage book for those years present. Only births, marriages and deaths are compared, and only against their own kind.`))}></div>
+      <div class="scroll" style="margin-top:14px">
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+          <thead><tr>
+            <th style="text-align:left;padding:6px 10px 6px 0">Place</th>
+            <th style="text-align:left;padding:6px 10px">Filmed nowhere, before 1890</th>
+            <th style="text-align:left;padding:6px 0 6px 10px">Held back for privacy, after 1890</th>
+          </tr></thead>
+          <tbody>
+            {gapPlaces.map(p => (
+              <tr style="border-top:1px solid var(--rule)">
+                <td style="padding:8px 10px 8px 0;white-space:nowrap"><strong>{p.name}</strong></td>
+                <td style="padding:8px 10px">
+                  {p.early.length
+                    ? p.early.map(g => `${KND[g.kind]} ${yrs(g)} (${g.n})`).join(" · ")
+                    : "—"}
+                </td>
+                <td style="padding:8px 0 8px 10px;color:var(--dim)">
+                  {p.late.length
+                    ? p.late.map(g => `${KND[g.kind]} ${yrs(g)} (${g.n})`).join(" · ")
+                    : "—"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="cap" style="margin-top:10px">Volume counts in brackets. A span is merged from consecutive volumes, so «Births 1629–1714 (5)» is five books covering that stretch with nothing of their kind on film across it.</p>
     </div>
 
     <div class="one">

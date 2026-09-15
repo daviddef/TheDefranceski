@@ -36,7 +36,7 @@ colour for the only number that matters:
 
 Writes site/src/data/researchmap.json and one Atlas blob per source view.
 """
-import sys, os, re, json, collections, unicodedata, urllib.parse
+import sys, os, re, json, collections, itertools, unicodedata, urllib.parse
 import xml.etree.ElementTree as ET
 
 NS   = {"k": "http://www.opengis.net/kml/2.2"}
@@ -105,6 +105,34 @@ YEARS = re.compile(r"\b(1[5-9]\d\d)\b")
 def span(title):
     ys = [int(y) for y in YEARS.findall(title or "")]
     return (min(ys), max(ys)) if ys else (None, None)
+
+
+# ---- what kind of book is it? -------------------------------------------
+# Every provider names its volumes differently — FamilySearch in English with
+# the Croatian in brackets, Pazin in three-letter codes, Antenati in Italian —
+# and none of them can be compared with another until the titles are reduced to
+# the same three words. Anything that is an index, an allegato or a census is
+# deliberately NOT given a kind: an index is not a register, and counting one as
+# cover for the other would invent coverage that does not exist.
+KIND = [
+    ("b", r"birth|rodjen|rođen|batti|nati|nascit|taufe|MKR"),
+    ("m", r"marri|vjenc|vjenč|matrimon|trauung|MKV"),
+    ("d", r"death|umrl|morti|sterbe|MKU"),
+]
+SKIP = re.compile(r"index|indic|kazalo|allegat|status animarum|confirmation|"
+                  r"krizman|census|popis|SD\b", re.I)
+
+def kinds(title):
+    t = title or ""
+    if SKIP.search(t):
+        return set()
+    return {k for k, pat in KIND if re.search(pat, t, re.I)}
+
+def overlaps(a, b):
+    """Two year spans, either of which may be half-open or missing entirely."""
+    if not a[0] or not b[0]:
+        return False
+    return a[0] <= (b[1] or b[0]) and b[0] <= (a[1] or a[0])
 
 def main():
     gdir = sys.argv[sys.argv.index("--gaz") + 1] if "--gaz" in sys.argv else None
@@ -260,13 +288,60 @@ def main():
             vols[s] = {"n": n, "walked": walked}
         total = sum(v["n"] for v in vols.values())
         state = depth(total, reads.get(k))
+
+        # ---- 6b. where the providers disagree ---------------------------
+        # A place catalogued by two providers is the only place a gap can be
+        # SEEN. Pazin lists a marriage register for 1815–1830 and FamilySearch
+        # has no marriage film touching those years: that book exists, on paper,
+        # and nobody has photographed it. The reverse happens too, and matters
+        # less — but it is the same test run the other way.
+        shelf = {}
+        for sname, blk in p["src"].items():
+            rows = []
+            for sh in blk["shelves"].values():
+                for b in (sh["books"] or []):
+                    for kd in kinds(b["t"]):
+                        rows.append((kd, (b.get("from"), b.get("to")), b))
+            shelf[sname] = rows
+        gaps = []
+        for sname, rows in shelf.items():
+            for other, orows in shelf.items():
+                if other == sname:
+                    continue
+                for kd, yr, b in rows:
+                    if not yr[0]:
+                        continue
+                    if not any(okd == kd and overlaps(yr, oyr) for okd, oyr, _ in orows):
+                        gaps.append({"have": sname, "missing": other, "kind": kd,
+                                     "t": b["t"], "from": yr[0], "to": yr[1],
+                                     "digitised": b.get("digitised", True)})
+        gaps.sort(key=lambda g: (g["missing"], g["kind"], g["from"]))
+        # Ninety-odd single volumes is a list nobody reads. Merged into the
+        # stretches of years they cover, the same information is four lines.
+        spans = []
+        for key, grp in itertools.groupby(gaps, key=lambda g: (g["have"], g["missing"], g["kind"])):
+            cur = None
+            for g in grp:
+                lo, hi = g["from"], g["to"] or g["from"]
+                if cur and lo <= cur[1] + 1:
+                    cur[1] = max(cur[1], hi)
+                    cur[2] += 1
+                else:
+                    if cur:
+                        spans.append({"have": key[0], "missing": key[1], "kind": key[2],
+                                      "from": cur[0], "to": cur[1], "n": cur[2]})
+                    cur = [lo, hi, 1]
+            if cur:
+                spans.append({"have": key[0], "missing": key[1], "kind": key[2],
+                              "from": cur[0], "to": cur[1], "n": cur[2]})
         for s in p["src"]: src_count[s] += 1
         out.append({"key": k, "name": p["name"],
                     "alt": sorted(x for x in p["alt"] if x != p["name"]),
                     "lat": c[0] if c else None, "lon": c[1] if c else None, "geo": how,
                     "cat": state, "layers": sorted(p["layers"]),
                     "sources": p["src"], "counts": vols, "volumes": total,
-                    "reads": reads.get(k, 0)})
+                    "reads": reads.get(k, 0),
+                    "gaps": gaps, "ngaps": len(gaps), "gapSpans": spans})
 
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
              "volumes": sum(o["volumes"] for o in out),
@@ -283,6 +358,10 @@ def main():
              "byLayer": dict(collections.Counter(l for o in out for l in o["layers"])),
              "notDigitised": sum(o["sources"].get("dapa", {}).get("notDigitised", 0) for o in out),
              "fsPending": len(fsc.get("f", [])),
+             "crossChecked": sum(1 for o in out if len(o["counts"]) > 1),
+             "gaps": sum(o["ngaps"] for o in out),
+             "gapsBy": dict(collections.Counter(
+                 f'{g["have"]}>{g["missing"]}' for o in out for g in o["gaps"])),
              "linked": sum(1 for o in out for b in o.get("sources", {}).get("fs-hr", {}).get("shelves", {}).values()
                            for b in (b["books"] or []) if b.get("ark"))}
 
