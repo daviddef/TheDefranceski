@@ -133,5 +133,19 @@
       det.appendChild(ul);
       host.appendChild(det);
     }
+
+    /* The panel is rebuilt with innerHTML on every marker click, so a one-shot
+       pass would only ever paint the first place a reader opened. */
+    /* fold() moves nodes, which the observer sees. It is idempotent — once a
+       run is inside a <details> those rows are no longer direct children of
+       .at-ev, so the second pass finds nothing to move — but the guard makes
+       that a property of the code rather than of the DOM. */
+    var busy = false;
+    new MutationObserver(function () {
+      if (busy) return;
+      busy = true;
+      try { tag(); } finally { busy = false; }
+    }).observe(body, { childList: true, subtree: true });
+    tag();
   })();
 </script>
