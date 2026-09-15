@@ -10,6 +10,10 @@ import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
 import rivers from "../data/rivers.json";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
+import dossiers from "../data/dossiers.json";
+import reg from "../data/register.json";
+import searched from "../data/searched.json";
+import corrections from "../data/corrections.json";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,13 +21,22 @@ const BANNER = "/art/banner.webp";
 const hasBanner = fs.existsSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "public", BANNER));
 
 /* Every number links to the page that earns it. */
+/* Six tiles, and every one of them a measure of the work rather than a date out
+   of the story. The three years that used to sit here — 1679, 1711, 1787 — are
+   the best facts on the page and they belong in the hero and the cards, where
+   they have room to say what they mean. A tile that reads "1711" tells a reader
+   nothing about how far this archive has got.
+
+   Counted at build time, so they stay true as the work grows instead of being
+   re-typed and quietly going stale. */
+const nothing = searched.rows.filter((r) => ["nothing", "miss"].includes(r.outcome)).length;
 const stats = [
-  ["1679", "a De Franceschi of Mione, weaving in the County of Pazin", "/carnia/"],
-  ["1711", "the year cut on the house Carlo's great-great-grandfather built", "/gologorica-line/"],
-  ["1787", "the farmer of house 5, Gallignana — the line's earliest dated ancestor", "/direct-line/"],
+  [Object.keys(dossiers.people).length.toLocaleString(), "people published, each carrying what is known of them and how well", "/people/"],
   ["18,840", "records read to build the census of where the name actually was", "/istria-sweep/"],
-  ["25", "Defranceschi families left in Istria on 1 October 1945", "/name/"],
-  ["~10", "left in Croatia today", "/diaspora/"],
+  [reg.stat.entries.toLocaleString(), "register entries transcribed and set out one by one", "/register/"],
+  [searched.rows.length, `searches written down, ${nothing} of which found nothing — a negative result is still a finding`, "/searched/"],
+  [corrections.rows.length, "claims this archive has corrected or withdrawn, kept visible", "/corrections/"],
+  ["~10", "of the name left in Croatia today, against 25 families in Istria in 1945", "/diaspora/"],
 ];
 
 const finds = [
