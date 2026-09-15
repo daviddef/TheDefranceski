@@ -4,6 +4,14 @@ import Rule from "../components/Rule.astro";
 import Base from "../layouts/Base.astro";
 import WaysIn from "@daviddef/archive-kit/components/WaysIn.astro";
 import Numbers from "@daviddef/archive-kit/components/Numbers.astro";
+import PlaceSpark from "@daviddef/archive-kit/components/PlaceSpark.astro";
+import placesRaw from "../data/places.json";
+/* This archive stores a place as coords:[lat,lon] and a `lane` for its region;
+   PlaceSpark wants lat, lon and cat. Mapped here rather than in the component,
+   because the shape of an archive\u2019s own data is the archive\u2019s business. */
+const sparkPlaces = (Array.isArray(placesRaw) ? placesRaw : placesRaw.rows || [])
+  .filter((x) => Array.isArray(x.coords) && x.coords.length === 2)
+  .map((x) => ({ name: x.name, lat: x.coords[0], lon: x.coords[1], cat: x.lane, n: x.n || 0 }));
 import SovereigntyTimeline from "@daviddef/archive-kit/components/SovereigntyTimeline.astro";
 import sov from "../data/sovereignty.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
@@ -131,7 +139,21 @@ const finds = [
 <Rule name="helm" />
 
 
-  <section class="blk">
+  
+<section class="blk">
+  <section class="feat">
+    <h2 style="margin-top:6px">Where this family can actually be put</h2>
+    <p class="dek" style="margin-top:10px">Istria, the Kvarner, Carnia, and the places the name went
+    afterwards. <strong>Every dot is a place this archive can put a named person in.</strong> The
+    coast and the borders under them are real — Natural Earth, clipped to this frame — which for
+    this archive matters more than most: the whole argument here is which empire held which town,
+    and the borders are drawn.</p>
+    <PlaceSpark places={sparkPlaces} href={u("/atlas/")}
+                label={`${sparkPlaces.length} places across Istria, the Kvarner and Carnia`} />
+  </section>
+</section>
+
+<section class="blk">
     <h2>What this archive has established</h2>
     <div class="grid two" style="margin-top:1rem">
       <div class="card">
