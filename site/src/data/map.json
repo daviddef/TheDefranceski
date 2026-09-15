@@ -1,47 +1,47 @@
 {
  "note": "The archive had grown three maps off the same ground. The research map\ncarried 1,235 record-book places and asked «how far have we got with the\nshelf». The atlas carried 160 places and asked «where can we put a person».\nThe graves map carried 64 and asked «where is this family in the ground».\nForty-three of the atlas's places were already on the research map, eleven of\nthe graves map's were, and after the people layer was added to the research\nmap in September 2026 one map was a strict superset of another. Three pages,\nthree geocoders, three legends, and a reader holding all of it in their head.",
  "stats": {
-  "places": 1358,
+  "places": 1363,
   "bySchemes": {
-   "shelf": 1182,
+   "people + shelf": 39,
+   "shelf": 1184,
    "people": 76,
-   "graves": 16,
+   "graves": 19,
    "graves + people": 33,
-   "graves + people + shelf": 12,
-   "people + shelf": 39
+   "graves + people + shelf": 12
   },
-  "shelf": 1233,
+  "shelf": 1235,
   "people": 160,
-  "graves": 61,
+  "graves": 64,
   "merged": 84,
   "allThree": 12,
   "peoplePlaced": 954,
-  "burials": 151,
+  "burials": 158,
   "volumes": 3666,
   "byShelf": {
-   "untouched": 1203,
+   "untouched": 1205,
    "worked": 20,
    "none": 8,
    "started": 2
   },
   "byPeople": {
+   "other": 9,
    "sweep": 123,
    "diaspora": 11,
    "carnia": 5,
-   "other": 9,
    "spine": 9,
    "senj": 3
   },
   "byGraves": {
-   "stone": 48,
-   "register": 13
+   "stone": 50,
+   "register": 14
   },
   "sums": {
    "research": 1235,
    "atlas": 160,
    "graves": 64
   },
-  "saved": 101
+  "saved": 96
  },
  "researchStats": {
   "places": 1288,
@@ -246,8 +246,8 @@
   "linked": 3086,
   "people": {
    "places": 160,
-   "named": 956,
-   "listed": 838,
+   "named": 954,
+   "listed": 836,
    "abroad": 106,
    "onShelfToo": 43
   }

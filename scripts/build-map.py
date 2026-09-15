@@ -56,19 +56,33 @@ def km(a, b):
     dlo = math.radians(lo2 - lo1) * math.cos(math.radians((la1 + la2) / 2))
     return 6371 * math.hypot(dla, dlo)
 
-# Two places may share a name and be different towns — Split in Dalmatia and
-# any other Split there might be. Sixty kilometres is generous for a parish
-# and tight enough that no two real settlements of the same name merge.
-NEAR = 60
+# Two places may share a name and be different towns. Sixty kilometres is
+# generous for a parish matched on its OWN name; an alias is a weaker claim
+# and gets a quarter of the rope, because the «also written» lists carry
+# historic exonyms that repeat across the country — «Sveti Martin» is half a
+# dozen villages and «Nova Vas» is a dozen.
+NEAR, NEAR_ALIAS = 60, 15
 
 places, index = [], {}
 
-def key_in(rec, name):
+def key_in(rec, name, scheme, primary):
+    """A candidate place this record could be folded into.
+
+    Two rules, and the second is the one that matters. A place is only ever
+    merged ACROSS the three questions, never within one: if the shelf already
+    holds a place under this key, another shelf place does not join it. Left
+    unrestricted, the alias lists merged Ivanec into Koprivnički Ivanec fifty
+    kilometres away, Nuštar into Beli Manastir, and every Split parish into
+    Split — which is the research map's own business to settle, one source at
+    a time, and not something this page should do silently on its way past."""
     k = loose(name)
     if not k or len(k) < 3:
         return None
+    lim = NEAR if primary else NEAR_ALIAS
     for i in index.get(k, []):
-        if km((places[i]["lat"], places[i]["lon"]), (rec["lat"], rec["lon"])) < NEAR:
+        if scheme in places[i]["cats"]:
+            continue
+        if km((places[i]["lat"], places[i]["lon"]), (rec["lat"], rec["lon"])) < lim:
             return i
     return None
 
@@ -84,8 +98,8 @@ def add(rec, scheme, cat, n, what, when, href, events, films, ppl, more, order):
     Čakovec, Fiume and Rijeka, on one dot."""
     names = [rec["name"]] + list(rec.get("also") or [])
     hit = None
-    for nm in names:
-        hit = key_in(rec, nm)
+    for j, nm in enumerate(names):
+        hit = key_in(rec, nm, scheme, j == 0)
         if hit is not None:
             break
     if hit is None:

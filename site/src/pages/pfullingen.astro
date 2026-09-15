@@ -7,6 +7,7 @@ import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
+import { mdp } from "../lib/md.js";
 import d from "../data/pfullingen.json";
 ---
 <Base
@@ -147,6 +148,19 @@ import d from "../data/pfullingen.json";
   <p class="prose note" style="margin-top:16px">{d.ship.dates}</p>
   <p class="prose" style="margin-top:16px">{d.ship.more}</p>
   <p class="cap" style="margin-top:14px">{d.ship.source_ship}</p>
+
+  <h2 id="naa" style="font-size:26px;margin-top:44px">{d.ship.naa.heading}</h2>
+  <p class="dek" style="margin-top:10px">{d.ship.naa.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+    {d.ship.naa.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={mdp(r.text)}></div>
+      </div>
+    ))}
+  </div>
+  <div class="prose note" style="margin-top:18px" set:html={mdp(d.ship.naa.close)}></div>
+  <p class="cap" style="margin-top:14px">National Archives of Australia, RecordSearch — searched on <em>Defranceski</em>, <em>Franceski</em> and <em>De Franceski</em>, 15 September 2026. Eight items. None has been ordered as a copy yet.</p>
 </section>
 
   <Lightbox />
