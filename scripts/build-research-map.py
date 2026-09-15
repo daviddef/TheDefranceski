@@ -371,20 +371,41 @@ def main():
               open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     # ---- 7. one Atlas blob per view -------------------------------------
+    allk = {k for k, _, _ in SOURCES}
+
     def blob(keys, path):
         pubs = []
         for o in out:
             if not o["lat"]:
                 continue
             got = {s: b for s, b in o["sources"].items() if s in keys}
-            if not got:
+            # A place with NO provider block at all is the one thing the «nothing
+            # filmed here» colour exists to show — it came off David's map and not
+            # one of the four catalogues knows it. Dropping it for having no source
+            # made that filter permanently empty. It belongs on the all-providers
+            # view only: a provider's own page should show that provider's places.
+            if not got and keys != allk:
                 continue
             n = sum(o["counts"][s]["n"] for s in got)
             walked = any(o["counts"][s]["walked"] for s in got)
             state = depth(n, o["reads"])
             who = " · ".join(LABEL.get(l, l) for l in o["layers"]) or "Civil"
             prov = " · ".join(dict((k, l) for k, l, _ in SOURCES)[s] for s in got)
-            if not walked:
+            if not got:
+                # Two of these three are Evangelical, and that is not the same
+                # thing as unfilmed: this archive never found the Evangelical
+                # root in FamilySearch's waypoint tree, so the shelf was never
+                # walked. Saying «nothing is filmed here» would blame the
+                # collection for a hole of our own making.
+                if o["layers"] == ["ev"]:
+                    what = (f"{who}. In no catalogue here — and the fault is ours. This archive "
+                            f"never found the Evangelical root in FamilySearch's waypoint tree, "
+                            f"so the shelf has not been walked. It is not known to be empty.")
+                else:
+                    what = (f"{who}. On the map and in no catalogue. Neither FamilySearch, nor "
+                            f"Pazin, nor Antenati holds a register book for this place — it is "
+                            f"here because David's own map marks it.")
+            elif not walked:
                 what = f"{who}. Not walked yet — we hold the waypoint and nothing more."
             elif n == 0:
                 what = f"{who}. Walked, and the shelf is empty — this collection films nothing here."
@@ -421,7 +442,6 @@ def main():
                   ensure_ascii=False)
         return len(pubs)
 
-    allk = {k for k, _, _ in SOURCES}
     n = blob(allk, os.path.join(PUB, "research-map-data.json"))
     per = {}
     for k, _, _ in SOURCES:

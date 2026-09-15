@@ -583,6 +583,14 @@
    "where": "/carnia/#mionenati1810",
    "said": "Published twice. First from the death act alone: *«Morti 1810, act N. 1 — **28 January 1810**, eight in the evening»*, and — reading the registrar's *«un mese circa»* as a fact — **«born about December 1809»**. Then again after the birth act was found, as **«dead at one month on 28 January»**.",
    "true": "**She died on 25 January 1810, eleven days old.**\n\nThe act opens *«Comune di Mione **li 25 Venticinque Gennajo** mille ottocento dieci»* — the number in figures and spelled out, agreeing. And the birth act of the same register series has her **born Sunday 14 January 1810 at three in the morning**.\n\n**The «un mese circa» is the registrar's own error**, not evidence. Giacomo Micoli wrote both acts eleven days apart and guessed the age of a child whose birth he had himself recorded. This archive then built a December 1809 birth on that guess, and kept the wrong death date even after finding the real birth.\n\n*The lesson is the one this page keeps relearning: **an age in these acts is a guess and a date is a record**, and where they disagree the date wins.*"
+  },
+  {
+   "when": "15 Sept 2026",
+   "what": "The research map's «Nothing filmed here» filter could never show anything",
+   "sev": "fixed",
+   "where": "/research-map/",
+   "said": "The map offered five colours, one of them grey for **«Nothing filmed here»**. Clicking it showed **0 of 1,187 places**, every time. The legend said the state existed and the map said it did not.",
+   "true": "**Two faults, and the second matters more than the first.**\n\nThe builder dropped any place with no provider block before it reached the map — which is precisely the set the grey colour was meant to show. **Three places were being silently discarded**; they are now on the all-providers view.\n\n**And the label was a lie.** Two of the three are **Evangelical**, and they are not unfilmed — **this archive never found the Evangelical root in FamilySearch's waypoint tree**, so that shelf was never walked. The colour is now «in no catalogue at all», the panel on those two markers says the fault is ours, and [finding the Evangelical root](/worklist/) is on the work list."
   }
  ]
 }
