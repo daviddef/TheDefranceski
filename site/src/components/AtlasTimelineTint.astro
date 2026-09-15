@@ -40,6 +40,30 @@
     border-radius: 0 2px 2px 0;
   }
 
+  /* Every volume of a kind, one by one, folded away until asked for.
+     The timeline above answers «is there a hole»; this answers «what is
+     actually on the shelf», and for a parish with a hundred volumes it must
+     not be the first thing a reader meets. */
+  .at-ev li.at-vols { margin: 4px 0 2px; }
+  .at-ev li.at-vols > details > summary {
+    cursor: pointer; font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); list-style: none; padding: 2px 0;
+  }
+  .at-ev li.at-vols > details > summary::-webkit-details-marker { display: none; }
+  .at-ev li.at-vols > details > summary::before { content: "▸ "; }
+  .at-ev li.at-vols > details[open] > summary::before { content: "▾ "; }
+  .at-ev li.at-vols > details > summary:hover { color: var(--ink-2); }
+  .at-ev li.at-vols ul {
+    list-style: none; margin: 6px 0 2px; padding: 0 0 0 12px;
+    border-left: 1px solid var(--rule, #dcd6cc); display: grid; gap: 3px;
+  }
+  .at-ev li.at-vols ul li { font-size: 12px; line-height: 1.45; color: var(--ink-2); }
+  .at-ev li.at-vols ul li .at-ed {
+    display: inline; margin-right: 8px; font-size: 10.5px;
+  }
+  .at-ev li.at-vols ul li.at-read { color: #12703F; }
+  .at-ev li.at-vols ul li.at-paper { color: #8E3A11; }
+
   /* Births / Marriages / Deaths — the block each timeline hangs under. */
   .at-ev li.at-kind { margin-top: 12px; }
   .at-ev li.at-kind .at-ed {
@@ -67,8 +91,47 @@
         li.classList.toggle("at-soft", /^\s*not covered by any title/.test(text));
         li.classList.toggle("at-kind", !/^\s/.test(when) && /volumes?,\s*covering/.test(text));
       }
+      fold();
     }
-    new MutationObserver(tag).observe(body, { childList: true, subtree: true });
-    tag();
+
+    /* The builder marks a per-volume row by indenting its date by four
+       spaces. Consecutive runs of those are lifted out of the flat list and
+       put inside a collapsed <details>, so the shelf is one line until
+       somebody wants it. Done here rather than in the shared Atlas, which
+       this session does not own. */
+    function fold() {
+      var uls = body.querySelectorAll(".at-ev");
+      for (var u = 0; u < uls.length; u++) {
+        var kids = Array.prototype.slice.call(uls[u].children), run = [];
+        for (var i = 0; i <= kids.length; i++) {
+          var li = kids[i];
+          var ed = li && li.querySelector ? li.querySelector(".at-ed") : null;
+          var deep = !!ed && /^ {4}/.test(ed.textContent || "");
+          if (deep && !li.classList.contains("at-vols")) { run.push(li); continue; }
+          if (run.length) { wrap(run); run = []; }
+        }
+      }
+    }
+
+    function wrap(run) {
+      var first = run[0];
+      var host = document.createElement("li");
+      host.className = "at-vols";
+      var det = document.createElement("details");
+      var sum = document.createElement("summary");
+      sum.textContent = run.length + (run.length === 1 ? " volume" : " volumes")
+                      + ", one by one";
+      var ul = document.createElement("ul");
+      first.parentNode.insertBefore(host, first);
+      run.forEach(function (li) {
+        var t = li.textContent || "";
+        if (/\u2014 READ\b/.test(t)) li.classList.add("at-read");
+        else if (/not digitised/.test(t)) li.classList.add("at-paper");
+        ul.appendChild(li);
+      });
+      det.appendChild(sum);
+      det.appendChild(ul);
+      host.appendChild(det);
+    }
   })();
 </script>

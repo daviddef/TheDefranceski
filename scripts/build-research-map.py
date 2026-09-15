@@ -231,10 +231,24 @@ def timeline(books):
     rather than dropped, because a volume this archive cannot read the title
     of is still a volume on a shelf.
     """
+    def vol_row(b):
+        """One volume, as the shelf has it. Four leading spaces mark it as a
+        detail row so the page can fold these away behind a summary."""
+        yr = (f'{b["from"]}–{b["to"]}' if b.get("from") and b.get("to") != b.get("from")
+              else (str(b.get("from")) if b.get("from") else "—"))
+        t = re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") or b["t"]
+        if b.get("how") == "read":
+            t += " — READ"
+        if not b.get("digitised", True):
+            t += " — not digitised anywhere"
+        elif b.get("ark"):
+            t += " — openable"
+        return ["    " + yr, t]
+
     rows, other, undated = [], [], 0
     for kind, label in KIND_LABEL:
-        got = [(b["from"], b["to"] or b["from"]) for b in books
-               if kind in kinds(b["t"]) and b.get("from")]
+        mine = [b for b in books if kind in kinds(b["t"]) and b.get("from")]
+        got = [(b["from"], b["to"] or b["from"]) for b in mine]
         if not got:
             continue
         n = len(got)
@@ -250,6 +264,7 @@ def timeline(books):
                             + ("" if len(runs) == 1 else f", in {len(runs)} stretches")])
         if len(runs) == 1:
             rows.append(["  " + head, "unbroken"])
+            rows += [vol_row(b) for b in sorted(mine, key=lambda b: (b["from"], b["t"]))]
             continue
         for i, (lo, hi) in enumerate(runs):
             rows.append(["  " + (f"{lo}–{hi}" if lo != hi else f"{lo}"), "held"])
@@ -268,6 +283,7 @@ def timeline(books):
                 else:
                     rows.append([when, f"GAP — no {label.lower()} register filmed, "
                                        f"{yrs} year{'' if yrs == 1 else 's'}"])
+        rows += [vol_row(b) for b in sorted(mine, key=lambda b: (b["from"], b["t"]))]
     for b in books:
         if not any(k in kinds(b["t"]) for k, _ in KIND_LABEL):
             other.append(b)
@@ -277,6 +293,7 @@ def timeline(books):
         rows.append(["Other", f"{len(other)} volume{'' if len(other) == 1 else 's'} "
                               f"— indexes, allegati, censuses and titles this archive "
                               f"cannot classify. Not counted as cover."])
+        rows += [vol_row(b) for b in sorted(other, key=lambda b: (b.get("from") or 0, b["t"]))]
     if undated:
         rows.append(["Undated", f"{undated} volume{'' if undated == 1 else 's'} whose "
                                 f"title carries no year. Not counted as cover."])
@@ -628,6 +645,15 @@ def main():
                         if b.get("ark") and not b.get("antenati"):
                             films.append({"t": b["t"], "ark": b["ark"],
                                           "cc": b.get("cc"), "wc": b.get("wc")})
+            # Why the «open at page one» list is missing, when it is missing.
+            # Silence there reads as an oversight; for Gračišće it is a fact
+            # about the record, and the reader should be told which.
+            if n and not films:
+                what += (" Not one of them is openable from here — "
+                         + ("Pazin publishes a catalogue, not images, and FamilySearch's "
+                            "Croatian collection does not hold this parish at all."
+                            if set(got) == {"dapa"} else
+                            "no image address has been harvested for any of them yet."))
             ev = timeline(allb)
             if ev and not any(t.startswith(("GAP", "not covered")) for _, t in ev):
                 ev.append(["No gaps", "Every year between the first volume and the last is "
@@ -657,7 +683,7 @@ def main():
                          # all 59 volumes are listed and every one of them is a link.
                          "href": ("/antenati/" if "antenati" in got
                                   else ("/searched/" if o["reads"] else None)),
-                         "events": ev[:80], "films": films, "nfilms": len(films)})
+                         "events": ev[:260], "films": films, "nfilms": len(films)})
         json.dump({"places": pubs, "stats": stats}, open(path, "w", encoding="utf-8"),
                   ensure_ascii=False)
         return len(pubs)
