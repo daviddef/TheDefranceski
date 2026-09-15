@@ -441,6 +441,238 @@
    "owner": "David",
    "since": "2026-09-15",
    "note": "Three living children of the Australian branch are now named on the map with no dates and a town — **Charlotte Rita Baviello, Louis Hendy and Lewis Rose**, alongside Alessio and Mateo. That follows the rule as David set it: name and town, never a date. **They are other people's children rather than David's**, and if he would rather they were not named at all, it is one line to take them off."
+  },
+  {
+   "n": 55,
+   "what": "Pull all 459 live-tree individuals of the surname to disk",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The 7 September note stops at *«pull the full 459 with their arks to disk»* and nothing was pulled. One pass of `individual-lookup.php` per given name, then the panel endpoint per id, written to `data/myheritage-live.json` — ids, names, dates, places, arks, relationship. **Until that file exists every reconciliation is done by eye**, which is how the Horsham branch stayed invisible for a week after somebody had already read it."
+  },
+  {
+   "n": 56,
+   "what": "Walk every live-tree person's Facts panel for the citation text David typed by hand",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "`facts[].additionalContent` carries the **full source citation** — FamilySearch ark URLs, film and image numbers, archive names — entered by David himself. **211 of 459 people carry one.** It is the most sourced material in this whole estate and none of it is on the site."
+  },
+  {
+   "n": 57,
+   "what": "Search the live tree for misspellings of the surname — Lisa was one letter short",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Lisa T «Defraneski», 1968–2015.** One missing *c*, and no search of the family name would ever have returned her. Query the tree for *Defraneski, De Francesci, Defrancheski, Defranceshi, Franceski, De Franceski, Defrancesky* and every other near-miss, and see who else is hiding behind a typo."
+  },
+  {
+   "n": 58,
+   "what": "List every placeholder node in the live tree, and the unconnected clusters behind them",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Mario of Brisbane's parents are **«QLD Defranceschi (Deceased)»** and **«Unknown Defranceschi»** — stubs David made to hold a family he could not yet join on. Those placeholders are a **map of his own open questions**, and this archive has never read them. Find them all, name the cluster each one holds, and bring the list onto [the open questions](/open-questions/)."
+  },
+  {
+   "n": 59,
+   "what": "Audit every roster row flagged «mine» against the direct line",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Two rows for **Mario Defranceschi of Brisbane** carried the `mine` flag and he is not this family. The flag decides who stands on the family's own markers and who is counted as kin, and **nothing checks it**. Walk all of them against the eight generations and the known households, and write down the test that was applied."
+  },
+  {
+   "n": 60,
+   "what": "Put the live tree in the sources table and mark the 2018 GEDCOM superseded",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "[About](/about/) still lists **«MyHeritage family tree export, July 2018 — 8,286 individuals»** as a live source with no warning on it. It is retired. The source row should say so, name the live tree as the thing that replaced it, and give the date the archive last read it."
+  },
+  {
+   "n": 61,
+   "what": "Make every builder fail loudly when its gazetteer is missing",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "`build-graves-map.py --gaz <wrong path>` produced a map with **23 of 64 places** instead of 64 and said nothing — the gazetteer loader returns an empty dict when the file is not there, and everything downstream treats «cannot place» as a fact about the place. Same trap in `build-research-map.py`. **A missing gazetteer is a broken run, not an empty one.**"
+  },
+  {
+   "n": 62,
+   "what": "A regression guard: a builder that places fewer places than last time must say so",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Nothing in the build noticed that the graves map had lost forty-one coordinates. The page rendered, the links resolved, the audit passed. Each builder already reads its own previous output for cached coordinates; have it **compare the counts and shout** when a number goes backwards."
+  },
+  {
+   "n": 63,
+   "what": "Petar Vid's German household — Ursula, Renate, and Luise Salzer",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The brother who stayed. His daughters **Ursula, born 29 October 1940 at Urach**, and **Renate, born 25 July 1945 at Metzingen**, are on the Arolsen cards as *enfant* and are withheld here as possibly living — **they would now be 85 and 81**. His wife **Luise Salzer**, born 5 October 1919, was stateless by 1949. Three people, one town, and the archive has never looked for any of them."
+  },
+  {
+   "n": 64,
+   "what": "Koka Defranceski — Ivan Anton's second wife, a name and nothing else",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The live tree gives **Ivan Anton Defranceski (1925–1995) a second spouse, «Koka», deceased**, with no dates and no places. David's grandfather married twice and this archive has only ever known about Hedviga. Who she was, when, and whether there are children is entirely open."
+  },
+  {
+   "n": 65,
+   "what": "Hedviga — Blažević or Codron?",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The archive has **Hedviga «Seka» Blažević, 1926–2001**. The live tree carries her as **«Hedviga «Seka» Blažević, ⭐ (Codron)»** — MyHeritage's bracket is the *married* surname, so a Codron marriage is implied before or after Ivan. One of the two is a first husband this archive has never heard of. Worth ten minutes on the tree before it is worth anything else."
+  },
+  {
+   "n": 66,
+   "what": "Order NAA B44 V1978/151 and V1978/152 — Zdravko and Ruža's naturalisation",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Naturalisation at Melbourne in **1978**, twenty-nine years after they landed and a year before he died. A naturalisation file carries **address, occupation, arrival particulars and a photograph**, and this archive has none of those for either of them. Access status «not yet examined», which means it has to be asked for before it can be read."
+  },
+  {
+   "n": 67,
+   "what": "Check whether NAA A2571 and B78 are digitised before paying for a copy",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Five items — the three alien registrations (Zdrafko 76418, Ruza 76419, Anton) and the two B78 cards — are **«Access status: Open»**, which in RecordSearch means readable, not necessarily scanned. **Check the digitised flag on each before ordering anything.** Some of the Victorian B78 aliens cards are already online."
+  },
+  {
+   "n": 68,
+   "what": "Victorian death registrations for Zdravko 1979 and Ruža 1996",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Victoria's historical index is open for deaths to 1988, so **Zdravko's 1979 registration is available now**. A Victorian death entry names **the parents of the deceased** — which would give Anton Rudolf and Ursula Kovačina in an Australian record, and tie the two halves of this family together in a document rather than by inference."
+  },
+  {
+   "n": 69,
+   "what": "The Commonwealth Gazette naturalisation notices of 1978, free on Trove",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Australian naturalisations were **published by name in the Commonwealth of Australia Gazette**, and Trove holds the Gazette. It would confirm NAA B44 without ordering it, and it gives the **town of residence** at the moment of the oath."
+  },
+  {
+   "n": 70,
+   "what": "Trove: the Wimmera Mail-Times and the Horsham papers from 1949",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Trove's newspaper run mostly stops in 1954, but **1949 to 1954 is exactly the family's arrival**. A displaced-persons family reaching a Wimmera country town in 1949 is the sort of thing a country paper prints. Search *Defranceski, De Franceski, Defranceschi* and *Frank Defranceski* against Horsham."
+  },
+  {
+   "n": 71,
+   "what": "Ruža's parents — Lovre Hreljac and Dragica Vlahović of Fužine",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Both are in the live tree, **both deceased, and neither is in this archive**. Ruža was born at **Fužine on 13 February 1922** — her own town certificate says so against a single Arolsen entry that reads 2 May — and a second place, **Belnica**, appears on the Neuhausen list. The Hreljac line enters this family through her and has never been opened."
+  },
+  {
+   "n": 72,
+   "what": "Fužine and Belnica — are they on the map at all?",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Ruža's birthplace and the second place on her Neuhausen entry. **Fužine sits in the Delnice deanery**, which this archive holds as collection 1875189 — browsable only by film, one place on the map, and never walked. If her baptism is anywhere it is there."
+  },
+  {
+   "n": 73,
+   "what": "Crikvenica 1890–1925, the family's own parish",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Five children of Anton Rudolf and Ursula were born there** — Josip Petar 1911, Petar Vid 1913, Anka Nera 1915, Zdravko 1921, Ivan Anton 1925 — and the archive has not one of their baptisms. Crikvenica is on the map as **researched with its books unopened**. This is the single most obviously overdue shelf in the whole archive."
+  },
+  {
+   "n": 74,
+   "what": "Anton Rudolf's exact death date, 1943",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The archive and the tree both say **«circa 1943, Crikvenica»**. His son Zdravko was taken by the Partisans that same year. A death in occupied Croatia in 1943 with no date is a gap worth closing, and the Crikvenica death register is the place it closes."
+  },
+  {
+   "n": 75,
+   "what": "Why the family left Gračišće for the Kvarner coast",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Josip Defranceschi, generation 4 — Gračišće to Crikvenica.** The archive draws the move and has never explained it. It is the second unexplained jump in the line, after Mione to Gologorica, and unlike the first one it happens inside the nineteenth century with registers on both ends."
+  },
+  {
+   "n": 76,
+   "what": "Klenovica, house 22",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Anton Rudolf is **«born 20 January 1890, Ledenice / Klenovica 22»**. A house number is an address the land registers and the church's *status animarum* can both be searched on, and this archive has done neither. It is the Kvarner equivalent of Gologorica's house 17."
+  },
+  {
+   "n": 77,
+   "what": "Senj to the front of the ark queue",
+   "state": "next",
+   "owner": "a machine",
+   "since": "2026-09-15",
+   "note": "**Fifteen volumes across three parishes, not one of them clickable** — the screenshot David sent, and the town his grandfather died in. The harvester works the queue in catalogue order; **put the family's own parishes at the head of it** — Senj, Crikvenica, Gračišće, Gologorica, Ledenice — so the places that matter become openable first."
+  },
+  {
+   "n": 78,
+   "what": "Populate the per-volume read ledger from the search register",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "`site/src/data/reads.json` exists and is **empty**. Two hundred and seventy-six rows of the search register describe readings; some of them name a volume closely enough to pin. Go through them and write down every one that can honestly be tied to a book, so the map's «not written down» marks start turning into «read»."
+  },
+  {
+   "n": 79,
+   "what": "Say in one line what was read at each of the twenty teal places",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Twenty places are now **researched with their own books unopened**, and the panel says so in the general — *«5 things ABOUT this place»*. It should name them. The search register already holds the rows; the map should quote the titles rather than count them."
+  },
+  {
+   "n": 80,
+   "what": "The forty burials with no parish named",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Thirty-six «Croatia, parish not named» and four «not stated»** — read out of indexes that record a death without recording where. They are a quarter of everything this archive knows about the family's graves and they are not on the map. Each one came from a register; **the register knows which parish it is**, even when the index does not."
+  },
+  {
+   "n": 81,
+   "what": "/map/ at phone width",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The merged map page is long, carries a Leaflet map, a scheme switcher, fifteen filter pills and two tables. **It has never been looked at below 400px.** The archive's own rule is that nothing may push the page sideways."
+  },
+  {
+   "n": 82,
+   "what": "Retire the hand-kept coordinates in atlas-seed.json",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Adelaide had to be typed in by hand today** because the atlas resolves places from `places.json`, the seed, and a `/tmp` harvest file — and none of them had it. The graves map already reads `cities500`, which has every town on earth over five hundred people. The atlas should read it too, and the seed should keep only the places a gazetteer genuinely cannot resolve."
+  },
+  {
+   "n": 83,
+   "what": "The `/tmp/harvest-geo.json` dependency",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "`build-atlas.py` reads **`/tmp/harvest-geo.json`** — 107 places, outside the repository, on a path the operating system is entitled to empty. If it disappears the atlas silently loses coordinates, which is the same failure the graves map had today. **Move it into the repo or into the gazetteer.**"
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
