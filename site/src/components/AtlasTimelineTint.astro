@@ -443,6 +443,24 @@
   }
   .at-scheme button.on { border-color: var(--accent, #7A5CA8); background: var(--panel); }
   .at-scheme button.on b { color: var(--accent, #7A5CA8); }
+
+  /* Three layers, each on or off, so the control has to look like a switch and
+     not like a choice. A radio row and a checkbox row are different promises. */
+  .at-scheme button { display: flex; gap: 9px; align-items: flex-start; }
+  .at-sc-box {
+    flex: 0 0 auto; width: 14px; height: 14px; margin-top: 2px; border-radius: 3px;
+    border: 1.5px solid var(--rule); background: var(--ground);
+    position: relative;
+  }
+  .at-scheme button.on .at-sc-box {
+    background: var(--accent, #7A5CA8); border-color: var(--accent, #7A5CA8);
+  }
+  .at-scheme button.on .at-sc-box::after {
+    content: ""; position: absolute; left: 4px; top: 0.5px;
+    width: 4px; height: 8px; border: solid var(--ground);
+    border-width: 0 2px 2px 0; transform: rotate(42deg);
+  }
+  .at-sc-t { min-width: 0; }
   .at-cat[data-cat="_none"] { display: none !important; }
   .at-cat[data-scheme-off] { display: none !important; }
   /* On a phone the three questions sit one above the other, and buttons that
@@ -635,43 +653,82 @@
       function radius(p, n) {
         return n > 40 ? 11 : n > 12 ? 8.5 : n > 3 ? 6.5 : p.order ? 7.5 : 5;
       }
-      function pick(k) {
+
+      /* ---- three layers, not three views ----------------------------------
+         This was a switch: one question at a time, and asking a second put the
+         first away. David: «can our map rather layer the shelf, our people and
+         the ground? so i can toggle on and off rather than only show one at a
+         time».
+
+         So they layer. The kit gives a marker ONE category, and a place that
+         answers two questions still has to be one dot — drawing it twice is
+         what merging the three maps was for. It takes the colour of the
+         RAREST question it answers among the layers that are on: the ground
+         before our people, our people before the shelf. There are 1,235 shelf
+         places, 167 with people and 61 with graves, so the rare thing is the
+         thing worth seeing, and the common thing is the ground it sits on.
+         The panel does not change either way — it says all three whatever the
+         dot is coloured for. */
+      var ORDER = ["graves", "people", "shelf"];
+      var on = {};
+
+      function paint() {
+        var live = ORDER.filter(function (k) { return on[k]; });
         marks.forEach(function (m) {
-          var p = m._p, c = p.cats[k];
-          p.cat = c || "_none";
-          p.n = (p.ns && p.ns[k]) || 0;
-          if (c) m.setStyle({ fillColor: COLOURS[c] || "#666" });
+          var p = m._p, k = null;
+          for (var i = 0; i < live.length; i++) {
+            if (p.cats[live[i]]) { k = live[i]; break; }
+          }
+          p.cat = k ? p.cats[k] : "_none";
+          p.n = (k && p.ns && p.ns[k]) || 0;
+          if (k) m.setStyle({ fillColor: COLOURS[p.cats[k]] || "#666" });
           m.setRadius(radius(p, p.n));
         });
         document.querySelectorAll(".at-cat[data-of]").forEach(function (b) {
-          if (b.getAttribute("data-of") === k) b.removeAttribute("data-scheme-off");
+          if (on[b.getAttribute("data-of")]) b.removeAttribute("data-scheme-off");
           else b.setAttribute("data-scheme-off", "1");
         });
         row.querySelectorAll("button").forEach(function (b) {
-          b.classList.toggle("on", b.getAttribute("data-sc") === k);
+          var k = b.getAttribute("data-sc");
+          b.classList.toggle("on", !!on[k]);
+          b.setAttribute("aria-pressed", on[k] ? "true" : "false");
         });
-        try { localStorage.setItem("at-scheme", k); } catch (e) {}
+        try { localStorage.setItem("at-layers", JSON.stringify(on)); } catch (e) {}
         /* The kit re-filters on every keystroke in its own search box, so
            saying nothing in it is how this asks for a fresh pass. */
         if (q) q.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+
+      function toggle(k) {
+        /* One layer must stay on, or the map is a blank rectangle and the
+           reader has to guess why. */
+        if (on[k] && ORDER.filter(function (x) { return on[x]; }).length === 1) return;
+        on[k] = !on[k];
+        paint();
       }
 
       SCHEMES.forEach(function (sc) {
         var b = document.createElement("button");
         b.type = "button";
         b.setAttribute("data-sc", sc[0]);
-        b.innerHTML = "<b></b><i></i>";
+        b.setAttribute("aria-pressed", "false");
+        b.innerHTML = "<span class=\"at-sc-box\"></span><span class=\"at-sc-t\"><b></b><i></i></span>";
         b.querySelector("b").textContent = sc[1];
         b.querySelector("i").textContent = sc[2] || "";
-        b.addEventListener("click", function () { pick(sc[0]); });
+        b.addEventListener("click", function () { toggle(sc[0]); });
         row.appendChild(b);
       });
-      var want = SCHEMES[0][0];
-      try {
-        var saved = localStorage.getItem("at-scheme");
-        if (saved && SCHEMES.some(function (x) { return x[0] === saved; })) want = saved;
-      } catch (e) {}
-      pick(want);
+
+      var saved = null;
+      try { saved = JSON.parse(localStorage.getItem("at-layers") || "null"); } catch (e) {}
+      if (saved && ORDER.some(function (k) { return saved[k]; })) {
+        ORDER.forEach(function (k) { on[k] = !!saved[k]; });
+      } else {
+        /* All three on the first time, because the whole point of layering is
+           that the reader can see at once which places answer more than one. */
+        ORDER.forEach(function (k) { on[k] = true; });
+      }
+      paint();
     }
 
     document.addEventListener("DOMContentLoaded", function () {

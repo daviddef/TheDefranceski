@@ -75,10 +75,14 @@ const catOf = Object.fromEntries([
   ...peopleCats.map(c => [c[0], "people"]),
   ...gravesCats.map(c => [c[0], "graves"]),
 ]);
+/* Layers, not views. A place that answers two questions is still one dot —
+   drawing it twice is exactly what merging the three maps was for — so it
+   takes the colour of the rarest question it answers: the ground before our
+   people, our people before the shelf. */
 const schemes = [
-  ["shelf",  "The shelf",  "How far we have got with each parish's own registers"],
-  ["people", "Our people", "Where this archive can put a named person"],
-  ["graves", "The ground", "Where the family is actually buried"],
+  ["shelf",  "The shelf",  "1,235 parishes · how far we have got with the registers"],
+  ["people", "Our people", "167 towns · where a named person can be put"],
+  ["graves", "The ground", "61 places · where the family is actually buried"],
 ];
 const m = mp.stats;
 const abroad = m.peopleAbroad;
@@ -122,10 +126,10 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 <Base
   title="The Map"
   eyebrow={`${m.places} places · ${s.volumes} register volumes catalogued · ${m.peoplePlaced} people placed · ${m.burials} burials`}
-  dek="One map and three questions. Where are the record books and how far have we got with them; where can this archive put a named person; and where is the family actually in the ground. Same markers, three colourings — and a marker that can answer more than one tells you all of it at once.">
+  dek="One map and three layers. Where are the record books and how far have we got with them; where can this archive put a named person; and where is the family actually in the ground. Switch any of them on or off. A place that answers more than one question is still one dot, and it wears the colour of the rarest answer it has — so with everything on, the graves and the people stand out of the shelf rather than hiding under it.">
 
   <div class="at-scheme">
-    <div class="lab">Ask the map a question</div>
+    <div class="lab">Three layers — switch any of them on or off</div>
     <div class="at-sc-row"></div>
   </div>
 
@@ -135,7 +139,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
     bounds={[[42.2, 13.2], [46.8, 19.6]]}
     homeLabel="Back to Croatia"
     placeholder="Brinje · Torrington · Otočac · Broken Hill"
-    hint={`${m.places} places, merged out of ${m.sums.research + m.sums.atlas + m.sums.graves} markers across three maps. ${m.merged} of them answer more than one of the three questions; ${m.allThree} answer all three.`}
+    hint={`${m.places} places, merged out of ${m.sums.research + m.sums.atlas + m.sums.graves} markers across three maps. ${m.merged} answer more than one of the three questions and ${m.allThree} answer all three — and with every layer on, those are the ones wearing the rarer colour.`}
   />
 
   <AtlasTimelineTint dataUrl={u("/map-data.json")} schemes={schemes} catOf={catOf} />
@@ -149,7 +153,11 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 
 **Rijeka is the case for merging.** On one page it now says: sixty-nine register volumes catalogued and *not one of them opened*; ninety-six people the archive can put here; and **twenty-three burials**. Those were three separate facts on three separate pages, and the third of them — that we have twenty-three burials in a town whose registers we have never read — is only visible when they sit together.
 
-**The switch changes the colour. It does not change the panel.** Ask the map about the shelf and you get the coverage colours; ask it about the people and the same markers re-colour by how the archive knows them; ask it about the ground and it shows headstone against register. Click any marker in any of the three and it tells you everything it has.
+**The layers change the colour. They never change the panel.** Click any marker, with any combination switched on, and it tells you everything it has: the registers, the people and the graves together.
+
+**A place that answers two questions is still one dot.** Drawing it twice is exactly what merging the three maps was for. It takes the colour of the **rarest question it answers** among the layers that are on — the ground before our people, our people before the shelf. There are 1,235 shelf places, 167 with people and 61 with graves, so the rare thing is the thing worth seeing and the common thing is the ground it sits on. **Rijeka answers all three and wears the burial colour; Gologorica answers two and wears the line's; Senjska Draga answers one and is sand.**
+
+*It was a switch for a day* — one question at a time, and asking a second put the first away. David: «can our map rather layer the shelf, our people and the ground?»
 
 *The old addresses still work.* [/research-map/](/research-map/), [/atlas/](/atlas/) and [/graves-map/](/graves-map/) all land here.`))}></div>
   </div>
