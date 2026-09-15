@@ -46,15 +46,15 @@
  "stats": {
   "places": 1288,
   "placed": 1235,
-  "volumes": 7755,
+  "volumes": 7762,
   "read": 6,
-  "worked": 16,
-  "listed": 1258,
-  "untouched": 1258,
+  "worked": 17,
+  "listed": 1259,
+  "untouched": 1259,
   "byProgress": {
-   "none": 8,
-   "untouched": 1258,
-   "worked": 16,
+   "none": 6,
+   "untouched": 1259,
+   "worked": 17,
    "started": 6,
    "done": 0
   },
@@ -62,9 +62,9 @@
   "researchers": 372,
   "bySource": {
    "fs-hr": {
-    "places": 1202,
-    "volumes": 5292,
-    "walked": 1202
+    "places": 1204,
+    "volumes": 5299,
+    "walked": 1204
    },
    "fs-it": {
     "places": 26,
@@ -225,9 +225,9 @@
   "fsPending": 0,
   "crossChecked": 83,
   "timelineGaps": {
-   "rows": 301,
-   "places": 174,
-   "clean": 549
+   "rows": 304,
+   "places": 175,
+   "clean": 550
   },
   "gaps": 2035,
   "gapsBy": {
@@ -243,7 +243,7 @@
    "antenati>fs-cat": 28,
    "fs-hr>fs-it-pola": 16
   },
-  "linked": 5292
+  "linked": 5299
  },
  "places": [
   {
@@ -11614,13 +11614,46 @@
    "lat": 45.50045,
    "lon": 17.06433,
    "geo": "kml",
-   "cat": "none",
+   "cat": "untouched",
    "layers": [
     "ev"
    ],
-   "sources": {},
-   "counts": {},
-   "volumes": 0,
+   "sources": {
+    "fs-hr": {
+     "shelves": {
+      "ev": {
+       "wp": "9R2D-7MJ:391644401,391649401",
+       "books": [
+        {
+         "t": "Births (Rođeni) 1868-1900 Marriages (Vjenčani) 1868-1900",
+         "wp": "9R2D-FM3:391644401,391649401,391644401,391649401,391649402",
+         "from": 1868,
+         "to": 1900,
+         "ark": "3:1:3QSQ-G99X-1SG7",
+         "cc": "2040054",
+         "wc": "9R2D-FM3:391644401,391649401,391644401,391649401,391649402"
+        },
+        {
+         "t": "Deaths (Umrli) 1868-1900",
+         "wp": "9R2D-7MV:391644401,391649401,391644401,391649401,391650901",
+         "from": 1868,
+         "to": 1900,
+         "ark": "3:1:3QSQ-G99X-195M",
+         "cc": "2040054",
+         "wc": "9R2D-7MV:391644401,391649401,391644401,391649401,391650901"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-hr": {
+     "n": 2,
+     "walked": true
+    }
+   },
+   "volumes": 2,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -16140,8 +16173,13 @@
     }
    },
    "volumes": 6,
-   "reads": 4,
+   "reads": 5,
    "readrows": [
+    {
+     "t": "FamilySearch — Fužine and Crikvenica film coverage, read off the catalogue",
+     "w": "15 Sept 2026",
+     "o": "nothing"
+    },
     {
      "t": "FamilySearch — Croatian church books, Bakar country and Crikvenica",
      "w": "Sept 2026",
@@ -26705,7 +26743,7 @@
    "lat": 45.3046,
    "lon": 14.7136,
    "geo": "atlas",
-   "cat": "untouched",
+   "cat": "worked",
    "layers": [
     "rc"
    ],
@@ -26772,8 +26810,14 @@
     }
    },
    "volumes": 5,
-   "reads": 0,
-   "readrows": [],
+   "reads": 1,
+   "readrows": [
+    {
+     "t": "FamilySearch — Fužine and Crikvenica film coverage, read off the catalogue",
+     "w": "15 Sept 2026",
+     "o": "nothing"
+    }
+   ],
    "vread": 0,
    "vpart": 0,
    "vknown": false,
@@ -33690,13 +33734,37 @@
    "lat": 45.55083,
    "lon": 16.9891,
    "geo": "kml",
-   "cat": "none",
+   "cat": "untouched",
    "layers": [
     "ev"
    ],
-   "sources": {},
-   "counts": {},
-   "volumes": 0,
+   "sources": {
+    "fs-hr": {
+     "shelves": {
+      "ev": {
+       "wp": "9R28-3YC:391644401,391647701",
+       "books": [
+        {
+         "t": "Marriages (Vjenčani) 1889-1893, 1869-1902 Births (Rođeni) 1886-1904, 1870-1903",
+         "wp": "9R28-3YZ:391644401,391647701,391644401,391647701,391647702",
+         "from": 1869,
+         "to": 1904,
+         "ark": "3:1:3QS7-899X-5QCK",
+         "cc": "2040054",
+         "wc": "9R28-3YZ:391644401,391647701,391644401,391647701,391647702"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-hr": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -80926,17 +80994,31 @@
          "wc": "9R2F-J49:391643901,391646401,391662101"
         }
        ]
+      },
+      "ev": {
+       "wp": "9R27-7MH:391644401,391646401",
+       "books": [
+        {
+         "t": "Church Census (Stanje duša), Deaths (Umrli) 1900-1938",
+         "wp": "9R27-7MC:391644401,391646401,391644401,391646401,391646402",
+         "from": 1900,
+         "to": 1938,
+         "ark": "3:1:3QSQ-G99X-DVDS",
+         "cc": "2040054",
+         "wc": "9R27-7MC:391644401,391646401,391644401,391646401,391646402"
+        }
+       ]
       }
      }
     }
    },
    "counts": {
     "fs-hr": {
-     "n": 2,
+     "n": 3,
      "walked": true
     }
    },
-   "volumes": 2,
+   "volumes": 3,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -103089,17 +103171,31 @@
          "wc": "9R2W-ZNT:391644501,391648701,391671301"
         }
        ]
+      },
+      "ev": {
+       "wp": "9R2D-HZ3:391644401,391648701",
+       "books": [
+        {
+         "t": "Marriages (Vjenčani) 1901-1920 Deaths (Umrli) 1898-1920",
+         "wp": "9R2D-HZQ:391644401,391648701,391644401,391648701,391648702",
+         "from": 1898,
+         "to": 1920,
+         "ark": "3:1:3QS7-899X-1S3X",
+         "cc": "2040054",
+         "wc": "9R2D-HZQ:391644401,391648701,391644401,391648701,391648702"
+        }
+       ]
       }
      }
     }
    },
    "counts": {
     "fs-hr": {
-     "n": 7,
+     "n": 8,
      "walked": true
     }
    },
-   "volumes": 7,
+   "volumes": 8,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -118430,17 +118526,31 @@
          "wc": "9R2W-DPV:391644701,391651301,391759102"
         }
        ]
+      },
+      "ev": {
+       "wp": "9R2D-7MB:391644401,391651301",
+       "books": [
+        {
+         "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1893-1900",
+         "wp": "9R2D-7M1:391644401,391651301,391644401,391651301,391651302",
+         "from": 1893,
+         "to": 1900,
+         "ark": "3:1:3QS7-L99X-11H",
+         "cc": "2040054",
+         "wc": "9R2D-7M1:391644401,391651301,391644401,391651301,391651302"
+        }
+       ]
       }
      }
     }
    },
    "counts": {
     "fs-hr": {
-     "n": 1,
+     "n": 2,
      "walked": true
     }
    },
-   "volumes": 1,
+   "volumes": 2,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -133483,17 +133593,31 @@
          "wc": "9R27-L2W:391644501,391644402,391666601"
         }
        ]
+      },
+      "ev": {
+       "wp": "9R27-7MZ:391644401,391644402",
+       "books": [
+        {
+         "t": "Births (Rođeni) 1879-1903",
+         "wp": "9R27-7M8:391644401,391644402,391644401,391644402,1290425102",
+         "from": 1879,
+         "to": 1903,
+         "ark": "3:1:3QS7-899X-DK1C",
+         "cc": "2040054",
+         "wc": "9R27-7M8:391644401,391644402,391644401,391644402,1290425102"
+        }
+       ]
       }
      }
     }
    },
    "counts": {
     "fs-hr": {
-     "n": 36,
+     "n": 37,
      "walked": true
     }
    },
-   "volumes": 36,
+   "volumes": 37,
    "reads": 0,
    "readrows": [],
    "vread": 0,
