@@ -41,7 +41,17 @@ const factHref = (label, value, href) => {
   return placeSlugs.has(slug) ? `/places/${slug}/` : null;
 };
 
-const md = (x) => String(x ?? "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/«(.+?)»/g, "<em>«$1»</em>");
+/* This page keeps its own renderer rather than the shared one because nine of
+   the dossier fields carry deliberate HTML — an anchor, a chip, an <em> inside
+   a Croatian surname — and the shared md() escapes. What it did NOT do was
+   links, so thirty [text](/path/) written into the data printed as literal
+   square brackets, including on Antony De Franceski's own page. It does now,
+   through the same base helper every other link uses. */
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\*(.+?)\*/g, "<em>$1</em>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/\[([^\]\n]+)\]\((\/[^)\s]*)\)/g, (_, t, href) => `<a href="${u(href)}">${t}</a>`);
 const pt = port.map[p.slug];
 const VIAW = { line: "the archive\u2019s own line", read: "a register read here", index: "a FamilySearch index entry", tree: "the family tree, unverified" };
 const pics = pt ? pt.ids.map(i => art[i]).filter(Boolean) : [];

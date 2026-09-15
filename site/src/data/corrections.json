@@ -3,6 +3,15 @@
  "lead": "Twenty things this archive got wrong.",
  "rows": [
   {
+   "when": "16 Sept 2026",
+   "what": "Antony De Franceski was published as «Zdravko and Ruža's only child» on a day this archive had already found his sister.",
+   "sev": "major",
+   "where": "/who/antony-de-franceski/",
+   "said": "The page opened: *«**Anton Mario De Franceski**, born **21 August 1944 at Reutlingen** — Zdravko and Ruža's **only child**, and the four-year-old who sailed with them.»* Below it, in the same column, the archive printed **«No family is drawn for this name, and no record stands behind it»** — under four sentences naming his parents, his father's date of birth and the file they are all three on.",
+   "true": "**He had a sister, and this archive found her the same afternoon it wrote «only child».** **Petrica Defranceski** was born at Horsham nine years after the family landed, and she is the reason the whole Australian branch came into the archive at all — David asked why she was not here.\n\n**The second sentence was worse than wrong, it was structural.** `households.json` is built from registers, and this family's modern generations have never been in a register this archive can reach, so **the mini-tree had nothing to draw from** — for Antony, for Zdravko, for David's own father, for David. Nine households have been added from the family's own tree and the documents already held, marked as tree-derived and not register-read. Antony's page now draws his parents, his sister, his wife and his two children.\n\n**And thirty internal links across the person pages were printing as literal square brackets** — including the one on this page — because the renderer that page keeps has never understood a link. It does now.",
+   "how": "David: *«this doesnt make sense. if he is Zdravko's son then you should be able to draw this tree? along with his sister, and kids».* Both faults were visible on one screen and neither had been noticed by the archive that wrote them."
+  },
+  {
    "when": "15 Sept 2026",
    "what": "Fourteen people were counted as the compiler's own kin on the strength of a shared surname on a headstone.",
    "sev": "major",
