@@ -189,10 +189,15 @@ def span(title):
 # the same three words. Anything that is an index, an allegato or a census is
 # deliberately NOT given a kind: an index is not a register, and counting one as
 # cover for the other would invent coverage that does not exist.
+# Five languages, because five states kept these books. The Hungarian words
+# arrived with Međimurje, whose registers are filed under Hungarian county
+# names in a collection named for Slovenia — without them, 365 volumes fell
+# into «Other» and the coverage timeline for a whole Croatian county said
+# nothing at all.
 KIND = [
-    ("b", r"birth|rodjen|rođen|batti|nati|nascit|taufe|MKR"),
-    ("m", r"marri|vjenc|vjenč|matrimon|trauung|MKV"),
-    ("d", r"death|umrl|morti|sterbe|MKU"),
+    ("b", r"birth|rodjen|rođen|batti|battesim|nati|nascit|taufe|szulett|születt|MKR"),
+    ("m", r"marri|vjenc|vjenč|matrimon|trauung|hazasult|házasult|MKV"),
+    ("d", r"death|umrl|morti|sterbe|halottak|MKU"),
 ]
 SKIP = re.compile(r"index|indic|kazalo|allegat|status animarum|confirmation|"
                   r"krizman|census|popis|SD\b", re.I)

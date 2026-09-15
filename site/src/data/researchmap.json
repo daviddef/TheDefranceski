@@ -20,20 +20,35 @@
    "key": "antenati",
    "label": "Antenati",
    "what": "Portale Antenati, Archivio di Stato di Udine — the Carnia civil registers"
+  },
+  {
+   "key": "fs-it-pola",
+   "label": "FamilySearch — Pola & Trieste",
+   "what": "Italy, Pola and Trieste, Catholic Church Records 1593–1941 (collection 2152685) — Croatian Istrian parishes filed by Italy"
+  },
+  {
+   "key": "fs-si-mj",
+   "label": "FamilySearch — Međimurje",
+   "what": "Slovenia, Prekmurje and Međimurje, Civil Registers 1895–1918 (collection 1985107) — Croatian towns under Hungarian county names"
+  },
+  {
+   "key": "fs-hr-delnice",
+   "label": "FamilySearch — Delnice",
+   "what": "Croatia, Delnice Deanery Catholic Church Books 1571–1926 (collection 1875189) — browsable only by film"
   }
  ],
  "kml": "data/genealogy-resources-croatia.kml",
  "stats": {
-  "places": 1242,
-  "placed": 1190,
-  "volumes": 7159,
-  "read": 20,
-  "listed": 1219,
-  "untouched": 1219,
+  "places": 1277,
+  "placed": 1224,
+  "volumes": 7566,
+  "read": 21,
+  "listed": 1253,
+  "untouched": 1253,
   "byProgress": {
    "none": 3,
-   "untouched": 1219,
-   "started": 20,
+   "untouched": 1253,
+   "started": 21,
    "done": 0
   },
   "volumesRead": 16,
@@ -58,13 +73,28 @@
     "places": 3,
     "volumes": 74,
     "walked": 3
+   },
+   "fs-it-pola": {
+    "places": 9,
+    "volumes": 36,
+    "walked": 9
+   },
+   "fs-si-mj": {
+    "places": 46,
+    "volumes": 365,
+    "walked": 46
+   },
+   "fs-hr-delnice": {
+    "places": 1,
+    "volumes": 6,
+    "walked": 1
    }
   },
   "byLayer": {
-   "rc": 991,
+   "rc": 997,
    "orth": 240,
    "gc": 15,
-   "civil": 7,
+   "civil": 53,
    "mil": 17,
    "ev": 6,
    "jew": 16,
@@ -181,15 +211,20 @@
   ],
   "notDigitisedButFilmed": 105,
   "fsPending": 0,
-  "crossChecked": 6,
+  "crossChecked": 27,
   "timelineGaps": {
-   "rows": 277,
-   "places": 160,
-   "clean": 523
+   "rows": 300,
+   "places": 173,
+   "clean": 539
   },
-  "gaps": 460,
+  "gaps": 687,
   "gapsBy": {
-   "dapa>fs-hr": 460
+   "dapa>fs-hr": 460,
+   "fs-hr>fs-si-mj": 128,
+   "fs-si-mj>fs-hr": 78,
+   "fs-hr>fs-hr-delnice": 3,
+   "fs-it-pola>fs-hr": 2,
+   "fs-hr>fs-it-pola": 16
   },
   "linked": 3086
  },
@@ -5282,13 +5317,16 @@
   {
    "key": "belica",
    "name": "Belica",
-   "alt": [],
+   "alt": [
+    "Belicza"
+   ],
    "older": [],
    "lat": 46.40417,
    "lon": 16.51833,
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -5345,15 +5383,310 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1903",
+         "wp": "M6KH-G36:323440801,323590401,323590402",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1904-1906",
+         "wp": "M6KH-G68:323440801,323590401,323475601",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1912",
+         "wp": "M6KH-GWL:323440801,323590401,323595901",
+         "from": 1907,
+         "to": 1912,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1898",
+         "wp": "M6KH-GTL:323440801,323590401,323522401",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1898-1906",
+         "wp": "M6KH-GNL:323440801,323590401,323524301",
+         "from": 1898,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KH-G29:323440801,323590401,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KH-PM9:323440801,323590401,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1901",
+         "wp": "M6KH-P68:323440801,323590401,323501201",
+         "from": 1899,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 5,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 8,
+     "walked": true
     }
    },
-   "volumes": 5,
+   "volumes": 13,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1848-1849",
+     "from": 1848,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1848-1849",
+     "from": 1848,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1916-1925",
+     "from": 1916,
+     "to": 1925,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1794-1849",
+     "from": 1794,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1848-1849",
+     "from": 1848,
+     "to": 1849,
+     "digitised": true
+    }
+   ],
+   "ngaps": 5,
+   "gapSpans": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1848,
+     "to": 1849,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1848,
+     "to": 1849,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1916,
+     "to": 1925,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1794,
+     "to": 1849,
+     "n": 2
+    }
+   ]
+  },
+  {
+   "key": "beltinci",
+   "name": "Beltinci",
+   "alt": [
+    "Belatincz"
+   ],
+   "older": [
+    "Belatinc",
+    "Beltintsi",
+    "Občina Beltinci"
+   ],
+   "lat": 46.60541,
+   "lon": 16.24123,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1899",
+         "wp": "M6KH-23D:323440801,323546901,323530502",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1900-1903",
+         "wp": "M6KH-2WL:323440801,323546901,323550001",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1904-1906",
+         "wp": "M6KH-2NL:323440801,323546901,323475601",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1898",
+         "wp": "M6KH-2PD:323440801,323546901,323522401",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1898-1900",
+         "wp": "M6KH-229:323440801,323546901,323559101",
+         "from": 1898,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1901-1906",
+         "wp": "M6KH-2TG:323440801,323546901,323561401",
+         "from": 1901,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1896",
+         "wp": "M6KH-L29:323440801,323546901,323481601",
+         "from": 1895,
+         "to": 1896,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1896-1897",
+         "wp": "M6KH-LZ9:323440801,323546901,323565801",
+         "from": 1896,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1901-1902",
+         "wp": "M6KH-LNL:323440801,323546901,323569101",
+         "from": 1901,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1902",
+         "wp": "M6KH-LTP:323440801,323546901,323571401",
+         "from": 1902,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1903-1904",
+         "wp": "M6KH-GM9:323440801,323546901,323498601",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KH-LTG:323440801,323546901,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 12,
+     "walked": true
+    }
+   },
+   "volumes": 12,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -7297,6 +7630,123 @@
    "gapSpans": []
   },
   {
+   "key": "bodonci",
+   "name": "Bodonci",
+   "alt": [
+    "Bodoncz"
+   ],
+   "older": [
+    "Bodohegy",
+    "Radovci",
+    "Tiborfa",
+    "Vadarci",
+    "Zenkovci"
+   ],
+   "lat": 46.74417,
+   "lon": 16.09222,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1896",
+         "wp": "M6KH-DZ3:323440701,323440702,323440703",
+         "from": 1895,
+         "to": 1896,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1895-1898",
+         "wp": "M6KH-D23:323440701,323440702,323440803",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1896-1917",
+         "wp": "M6KH-6MS:323440701,323440702,323443301",
+         "from": 1896,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1898-1917",
+         "wp": "M6KH-6Z9:323440701,323440702,323446201",
+         "from": 1898,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1910",
+         "wp": "M6KH-6TG:323440701,323440702,323451101",
+         "from": 1895,
+         "to": 1910,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1911-1917",
+         "wp": "M6KH-62S:323440701,323440702,323455101",
+         "from": 1911,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1903",
+         "wp": "M6KH-XM9:323440701,323440702,323456601",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1903-1906",
+         "wp": "M6KH-X2S:323440701,323440702,323463601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1907",
+         "wp": "M6KH-F68:323440701,323440702,323467401",
+         "from": 1907,
+         "to": 1907,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 9,
+     "walked": true
+    }
+   },
+   "volumes": 9,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "bogdanovci",
    "name": "Bogdanovci",
    "alt": [],
@@ -7335,6 +7785,129 @@
     }
    },
    "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "bogojina",
+   "name": "Bogojina",
+   "alt": [
+    "Bagonya"
+   ],
+   "older": [
+    "Bagolina",
+    "Bagonya",
+    "Bogolina"
+   ],
+   "lat": 46.67611,
+   "lon": 16.28389,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1901-1906",
+         "wp": "M6KH-VNP:323440801,323519001,323519002",
+         "from": 1901,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1907-1917",
+         "wp": "M6KH-VP8:323440801,323519001,323477301",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1898",
+         "wp": "M6KH-K68:323440801,323519001,323522401",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1898-1906",
+         "wp": "M6KH-KWG:323440801,323519001,323524301",
+         "from": 1898,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KH-K3D:323440801,323519001,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1901",
+         "wp": "M6KH-K36:323440801,323519001,323531001",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1901",
+         "wp": "M6KH-KTL:323440801,323519001,323538001",
+         "from": 1901,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1902-1904",
+         "wp": "M6KH-KNL:323440801,323519001,323503701",
+         "from": 1902,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904-1906",
+         "wp": "M6KH-KP8:323440801,323519001,323465101",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KH-K2S:323440801,323519001,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 10,
+     "walked": true
+    }
+   },
+   "volumes": 10,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -9911,6 +10484,64 @@
    "gapSpans": []
   },
   {
+   "key": "brtonigla",
+   "name": "Brtonigla",
+   "alt": [
+    "Verteneglio"
+   ],
+   "older": [
+    "Crni Vrh",
+    "Verteneglio"
+   ],
+   "lat": 45.38139,
+   "lon": 13.62944,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "rc"
+   ],
+   "sources": {
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Zenone Martire — Matrimoni 1835-1936",
+         "wp": "M7ZG-WM3:369479401,369515101,369515102,369479404",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "San Zenone Martire — Morti 1835-1936",
+         "wp": "M7ZG-W38:369479401,369515101,369515102,369488701",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-it-pola": {
+     "n": 2,
+     "walked": true
+    }
+   },
+   "volumes": 2,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "brusje",
    "name": "Brusje",
    "alt": [],
@@ -10122,6 +10753,64 @@
     }
    },
    "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "buje",
+   "name": "Buje",
+   "alt": [
+    "Buie"
+   ],
+   "older": [
+    "Buie d'Istria",
+    "Bullae"
+   ],
+   "lat": 45.41,
+   "lon": 13.66194,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "rc"
+   ],
+   "sources": {
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Servolo Martire — Matrimoni 1835-1936",
+         "wp": "M7ZG-9N5:369479401,369479402,369479403,369479404",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "San Servolo Martire — Morti 1835-1925",
+         "wp": "M7ZG-S68:369479401,369479402,369479403,369483001",
+         "from": 1835,
+         "to": 1925,
+         "cc": "2152685",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-it-pola": {
+     "n": 2,
+     "walked": true
+    }
+   },
+   "volumes": 2,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -13785,6 +14474,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -13832,21 +14522,325 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1901",
+         "wp": "M6KH-TNP:323440801,323712901,323470102",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1901",
+         "wp": "M6KH-TP8:323440801,323712901,323715401",
+         "from": 1901,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1902-1906",
+         "wp": "M6KH-TN5:323440801,323712901,323444601",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KH-TTL:323440801,323712901,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1903",
+         "wp": "M6KH-YMQ:323440801,323712901,323722401",
+         "from": 1903,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KH-Y38:323440801,323712901,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KH-YZ9:323440801,323712901,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1902",
+         "wp": "M6KH-Y68:323440801,323712901,323654001",
+         "from": 1900,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1902-1903",
+         "wp": "M6KH-YM3:323440801,323712901,323526201",
+         "from": 1902,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1904",
+         "wp": "M6KH-Y2Q:323440801,323712901,323506301",
+         "from": 1904,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1904-1906",
+         "wp": "M6KH-Y23:323440801,323712901,323465101",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 4,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 11,
+     "walked": true
     }
    },
-   "volumes": 4,
+   "volumes": 15,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1895-1899",
+     "from": 1895,
+     "to": 1899,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1900-1902",
+     "from": 1900,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1902-1903",
+     "from": 1902,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1904",
+     "from": 1904,
+     "to": 1904,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1904-1906",
+     "from": 1904,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1895-1901",
+     "from": 1895,
+     "to": 1901,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1901",
+     "from": 1901,
+     "to": 1901,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1902-1906",
+     "from": 1902,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1895-1903",
+     "from": 1895,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1903",
+     "from": 1903,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1904-1906",
+     "from": 1904,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1790-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1789-1869",
+     "from": 1789,
+     "to": 1869,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1790-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    }
+   ],
+   "ngaps": 17,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1895,
+     "to": 1906,
+     "n": 5
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1895,
+     "to": 1906,
+     "n": 3
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1895,
+     "to": 1906,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1790,
+     "to": 1857,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1789,
+     "to": 1869,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1790,
+     "to": 1857,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "delnice",
@@ -13898,21 +14892,129 @@
        ]
       }
      }
+    },
+    "fs-hr-delnice": {
+     "shelves": {
+      "all": {
+       "books": [
+        {
+         "t": "Film 004679898 — 577 images",
+         "ark": "3:1:939V-5YKN-6",
+         "cc": "1875189",
+         "from": 1571,
+         "to": 1926
+        },
+        {
+         "t": "Film 004679900 — 568 images",
+         "ark": "3:1:939V-R99R-RX",
+         "cc": "1875189",
+         "from": 1571,
+         "to": 1926
+        },
+        {
+         "t": "Film 004679901 — 583 images",
+         "ark": "3:1:939V-R3FJ-6",
+         "cc": "1875189",
+         "from": 1571,
+         "to": 1926
+        },
+        {
+         "t": "Film 004679924 — 570 images",
+         "ark": "3:1:939V-R7DN-Z",
+         "cc": "1875189",
+         "from": 1571,
+         "to": 1926
+        },
+        {
+         "t": "Film 004679930 — 595 images",
+         "ark": "3:1:939V-5RB4-F",
+         "cc": "1875189",
+         "from": 1571,
+         "to": 1926
+        },
+        {
+         "t": "Film 004679933 — 592 images",
+         "ark": "3:1:939V-5Y9D-D1",
+         "cc": "1875189",
+         "from": 1571,
+         "to": 1926
+        }
+       ],
+       "wp": null
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 3,
      "walked": true
+    },
+    "fs-hr-delnice": {
+     "n": 6,
+     "walked": true
     }
    },
-   "volumes": 3,
+   "volumes": 9,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-hr-delnice",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1879",
+     "from": 1858,
+     "to": 1879,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-hr-delnice",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1858-1889, 1881-1889",
+     "from": 1858,
+     "to": 1889,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-hr-delnice",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1858-1890",
+     "from": 1858,
+     "to": 1890,
+     "digitised": true
+    }
+   ],
+   "ngaps": 3,
+   "gapSpans": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-hr-delnice",
+     "kind": "b",
+     "from": 1858,
+     "to": 1879,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-hr-delnice",
+     "kind": "d",
+     "from": 1858,
+     "to": 1889,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-hr-delnice",
+     "kind": "m",
+     "from": 1858,
+     "to": 1890,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "desinic",
@@ -14976,6 +16078,152 @@
    "gapSpans": []
   },
   {
+   "key": "domanjsevci",
+   "name": "Domanjševci",
+   "alt": [
+    "Úrdomb"
+   ],
+   "older": [
+    "Domanjsovci",
+    "Domansovci",
+    "Domonkosfa"
+   ],
+   "lat": 46.78167,
+   "lon": 16.30611,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1904",
+         "wp": "M6KH-TWL:323440701,323701501,323701502",
+         "from": 1895,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1904-1917",
+         "wp": "M6KH-TZ9:323440701,323701501,323704701",
+         "from": 1904,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1896-1917",
+         "wp": "M6KH-T38:323440701,323701501,323708001",
+         "from": 1896,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1904",
+         "wp": "M6KH-TNL:323440701,323701501,323711901",
+         "from": 1895,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904-1906",
+         "wp": "M6KH-T29:323440701,323701501,323465101",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1907-1918",
+         "wp": "M6KH-GPF:323440701,323701501,323717101",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1907-1918 Házasultak 1907-1918 Halottak 1918",
+         "wp": "M6KH-GPX:323440701,323701501,323603701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
+    }
+   },
+   "volumes": 7,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "domasinec",
+   "name": "Domašinec",
+   "alt": [],
+   "older": [
+    "Damasa"
+   ],
+   "lat": 46.4325,
+   "lon": 16.6,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Házasultak 1913-1917",
+         "wp": "M6KH-YNG:323440801,323739101,323739102",
+         "from": 1913,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "donjabrela",
    "name": "Donja Brela",
    "alt": [],
@@ -15036,7 +16284,9 @@
   {
    "key": "donjadubrava",
    "name": "Donja Dubrava",
-   "alt": [],
+   "alt": [
+    "Alsó-Domború"
+   ],
    "older": [
     "Alsodomboru",
     "Donji Dombori"
@@ -15046,6 +16296,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -15102,21 +16353,349 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1898",
+         "wp": "M6KH-DZS:323440801,323440802,323440803",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1898-1901",
+         "wp": "M6KH-D2Q:323440801,323440802,323442401",
+         "from": 1898,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1902-1906",
+         "wp": "M6KH-DWP:323440801,323440802,323444601",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1906",
+         "wp": "M6KH-668:323440801,323440802,323447901",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1914",
+         "wp": "M6KH-6NL:323440801,323440802,323448501",
+         "from": 1907,
+         "to": 1914,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1915-1917",
+         "wp": "M6KH-629:323440801,323440802,323450101",
+         "from": 1915,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1897",
+         "wp": "M6KH-XWL:323440801,323440802,323450501",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1897-1906",
+         "wp": "M6KH-6TL:323440801,323440802,323451301",
+         "from": 1897,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KH-6P8:323440801,323440802,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KH-XMS:323440801,323440802,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1897-1899",
+         "wp": "M6KH-XNL:323440801,323440802,323459001",
+         "from": 1897,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1903",
+         "wp": "M6KH-X29:323440801,323440802,323461501",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1904-1906",
+         "wp": "M6KH-XP8:323440801,323440802,323465101",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1907-1917",
+         "wp": "M6KH-FNL:323440801,323440802,323467601",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 5,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 14,
+     "walked": true
     }
    },
-   "volumes": 5,
+   "volumes": 19,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1895-1897",
+     "from": 1895,
+     "to": 1897,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1897-1899",
+     "from": 1897,
+     "to": 1899,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1900-1903",
+     "from": 1900,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1904-1906",
+     "from": 1904,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1907-1917",
+     "from": 1907,
+     "to": 1917,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1895-1898",
+     "from": 1895,
+     "to": 1898,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1898-1901",
+     "from": 1898,
+     "to": 1901,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1895-1897",
+     "from": 1895,
+     "to": 1897,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1897-1906",
+     "from": 1897,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1907-1917",
+     "from": 1907,
+     "to": 1917,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1790-1843",
+     "from": 1790,
+     "to": 1843,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1843-1857 Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1790-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1876",
+     "from": 1858,
+     "to": 1876,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1876-1883 Deaths (Umrli) 1858-1876",
+     "from": 1858,
+     "to": 1883,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1843-1857 Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1790-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1876-1883 Deaths (Umrli) 1858-1876",
+     "from": 1858,
+     "to": 1883,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1843-1857 Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1790-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    }
+   ],
+   "ngaps": 17,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1895,
+     "to": 1917,
+     "n": 5
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1895,
+     "to": 1901,
+     "n": 2
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1895,
+     "to": 1917,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1790,
+     "to": 1883,
+     "n": 4
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1790,
+     "to": 1883,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1790,
+     "to": 1857,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "donjakupcina",
@@ -15913,7 +17492,9 @@
   {
    "key": "donjikraljevec",
    "name": "Donji Kraljevec (Zlatar Bistrica)",
-   "alt": [],
+   "alt": [
+    "Alsókrályevecz"
+   ],
    "older": [
     "D. Kraljevec",
     "Donji Kraljevoc",
@@ -15925,6 +17506,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -15954,15 +17536,92 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KH-FWL:323440801,323470601,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1904",
+         "wp": "M6KH-F38:323440801,323470601,323474001",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1904-1906",
+         "wp": "M6KH-XTG:323440801,323470601,323475601",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1917",
+         "wp": "M6KH-NWL:323440801,323470601,323477301",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1906",
+         "wp": "M6KH-NZ9:323440801,323470601,323479701",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1896",
+         "wp": "M6KH-N38:323440801,323470601,323481601",
+         "from": 1895,
+         "to": 1896,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901-1904",
+         "wp": "M6KH-FTG:323440801,323470601,323482901",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KH-N29:323440801,323470601,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 2,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 8,
+     "walked": true
     }
    },
-   "volumes": 2,
+   "volumes": 10,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -16402,13 +18061,16 @@
   {
    "key": "donjividovec",
    "name": "Donji Vidovec",
-   "alt": [],
+   "alt": [
+    "Alsóvidovecz"
+   ],
    "older": [],
    "lat": 46.32917,
    "lon": 16.78667,
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -16501,21 +18163,240 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KH-VMS:323440801,323508001,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KH-V68:323440801,323508001,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1906",
+         "wp": "M6KH-VWL:323440801,323508001,323479701",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1917",
+         "wp": "M6KH-KM9:323440801,323508001,323514101",
+         "from": 1917,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1900",
+         "wp": "M6KH-V29:323440801,323508001,323514501",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1901",
+         "wp": "M6KH-VTL:323440801,323508001,323517501",
+         "from": 1900,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 9,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 6,
+     "walked": true
     }
    },
-   "volumes": 9,
+   "volumes": 15,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1895-1902",
+     "from": 1895,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1903-1906",
+     "from": 1903,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1917",
+     "from": 1917,
+     "to": 1917,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1671-1729 Marriages (Vjenčani) 1683-1753",
+     "from": 1671,
+     "to": 1753,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1741-1843",
+     "from": 1741,
+     "to": 1843,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1844-1868 Marriages (Vjenčani) 1762-1843 Deaths (Umrli) 1760-1843 Marriages (Vjenčani) 1844-1868 Deaths (Umrli) 1844-1892",
+     "from": 1760,
+     "to": 1892,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1844-1868 Marriages (Vjenčani) 1762-1843 Deaths (Umrli) 1760-1843 Marriages (Vjenčani) 1844-1868 Deaths (Umrli) 1844-1892",
+     "from": 1760,
+     "to": 1892,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1671-1729 Marriages (Vjenčani) 1683-1753",
+     "from": 1671,
+     "to": 1753,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1844-1868 Marriages (Vjenčani) 1762-1843 Deaths (Umrli) 1760-1843 Marriages (Vjenčani) 1844-1868 Deaths (Umrli) 1844-1892",
+     "from": 1760,
+     "to": 1892,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    }
+   ],
+   "ngaps": 12,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1895,
+     "to": 1906,
+     "n": 2
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1917,
+     "to": 1917,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1671,
+     "to": 1892,
+     "n": 4
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1760,
+     "to": 1892,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1671,
+     "to": 1753,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1760,
+     "to": 1892,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "donjizagon",
@@ -17382,6 +19263,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -17411,21 +19293,265 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1903",
+         "wp": "M6KH-YTL:323440801,323739901,323590402",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1904-1906",
+         "wp": "M6KH-YPD:323440801,323739901,323475601",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1906",
+         "wp": "M6KH-BWL:323440801,323739901,323479701",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1896",
+         "wp": "M6KH-BZ9:323440801,323739901,323481601",
+         "from": 1895,
+         "to": 1896,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1896-1900",
+         "wp": "M6KH-BM9:323440801,323739901,323750801",
+         "from": 1896,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901-1904",
+         "wp": "M6KH-B3D:323440801,323739901,323482901",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1907-1909",
+         "wp": "M6KH-BP8:323440801,323739901,323772201",
+         "from": 1907,
+         "to": 1909,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 2,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
     }
    },
-   "volumes": 2,
+   "volumes": 9,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1895-1896",
+     "from": 1895,
+     "to": 1896,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1896-1900",
+     "from": 1896,
+     "to": 1900,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1901-1904",
+     "from": 1901,
+     "to": 1904,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1907-1909",
+     "from": 1907,
+     "to": 1909,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1895-1903",
+     "from": 1895,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1904-1906",
+     "from": 1904,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1895-1906",
+     "from": 1895,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1790-1878 Marriages (Vjenčani) 1790-1845 Deaths (Umrli) 1789-1820",
+     "from": 1789,
+     "to": 1878,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Deaths (Umrli) 1819-1844 Births (Rođeni) 1844-1857 Marriages (Vjenčani) 1844-1857 Deaths (Umrli) 1844-1857",
+     "from": 1819,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1790-1878 Marriages (Vjenčani) 1790-1845 Deaths (Umrli) 1789-1820",
+     "from": 1789,
+     "to": 1878,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1819-1844 Births (Rođeni) 1844-1857 Marriages (Vjenčani) 1844-1857 Deaths (Umrli) 1844-1857",
+     "from": 1819,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1790-1878 Marriages (Vjenčani) 1790-1845 Deaths (Umrli) 1789-1820",
+     "from": 1789,
+     "to": 1878,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Deaths (Umrli) 1819-1844 Births (Rođeni) 1844-1857 Marriages (Vjenčani) 1844-1857 Deaths (Umrli) 1844-1857",
+     "from": 1819,
+     "to": 1857,
+     "digitised": true
+    }
+   ],
+   "ngaps": 13,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1895,
+     "to": 1904,
+     "n": 3
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1907,
+     "to": 1909,
+     "n": 1
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1895,
+     "to": 1906,
+     "n": 2
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1895,
+     "to": 1906,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1789,
+     "to": 1878,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1789,
+     "to": 1878,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1789,
+     "to": 1878,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "drasnice",
@@ -21429,6 +23555,85 @@
    "gapSpans": []
   },
   {
+   "key": "gardinovec",
+   "name": "Gardinovec",
+   "alt": [
+    "Gyertyámos"
+   ],
+   "older": [],
+   "lat": 46.42694,
+   "lon": 16.5575,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KC-92S:323440801,323830901,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1902",
+         "wp": "M6KC-923:323440801,323830901,323833001",
+         "from": 1902,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KC-9NL:323440801,323830901,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1918",
+         "wp": "M6KC-96D:323440801,323830901,323496801",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1907",
+         "wp": "M6KC-9TL:323440801,323830901,323467401",
+         "from": 1907,
+         "to": 1907,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 5,
+     "walked": true
+    }
+   },
+   "volumes": 5,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "gardun",
    "name": "Gardun",
    "alt": [],
@@ -22627,7 +24832,9 @@
   {
    "key": "gorican",
    "name": "Goričan",
-   "alt": [],
+   "alt": [
+    "Goricsán"
+   ],
    "older": [
     "Muracsany"
    ],
@@ -22636,6 +24843,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -22692,21 +24900,252 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1899",
+         "wp": "M6KH-123:323440801,323800001,323530502",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1900-1904",
+         "wp": "M6KC-M38:323440801,323800001,323618001",
+         "from": 1900,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1905-1906",
+         "wp": "M6KC-MWL:323440801,323800001,323490801",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1915",
+         "wp": "M6KC-MM9:323440801,323800001,323807901",
+         "from": 1907,
+         "to": 1915,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1916-1917",
+         "wp": "M6KC-MZ9:323440801,323800001,323789201",
+         "from": 1916,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KC-MTL:323440801,323800001,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-M29:323440801,323800001,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KC-MNL:323440801,323800001,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1897-1899",
+         "wp": "M6KC-MP8:323440801,323800001,323459001",
+         "from": 1897,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900",
+         "wp": "M6KC-9M9:323440801,323800001,323585301",
+         "from": 1900,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1903",
+         "wp": "M6KC-938:323440801,323800001,323461501",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1904-1906",
+         "wp": "M6KC-9MS:323440801,323800001,323465101",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1912-1917",
+         "wp": "M6KC-929:323440801,323800001,323829901",
+         "from": 1912,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 5,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 13,
+     "walked": true
     }
    },
-   "volumes": 5,
+   "volumes": 18,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1912-1917",
+     "from": 1912,
+     "to": 1917,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1916-1917",
+     "from": 1916,
+     "to": 1917,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1789-1857",
+     "from": 1789,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1879 Marriages (Vjenčani) 1858-1881",
+     "from": 1858,
+     "to": 1881,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1844-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1858-1881",
+     "from": 1858,
+     "to": 1881,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1844-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1858-1879 Marriages (Vjenčani) 1858-1881",
+     "from": 1858,
+     "to": 1881,
+     "digitised": true
+    }
+   ],
+   "ngaps": 8,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1912,
+     "to": 1917,
+     "n": 1
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1916,
+     "to": 1917,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1789,
+     "to": 1881,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1790,
+     "to": 1881,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1790,
+     "to": 1881,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "gornjajelenska",
@@ -23585,6 +26024,72 @@
    "gapSpans": []
   },
   {
+   "key": "gornjihrascan",
+   "name": "Gornji Hrašćan",
+   "alt": [
+    "Felsőhrascsán"
+   ],
+   "older": [
+    "G. Hrascan",
+    "Hrascan"
+   ],
+   "lat": 46.37806,
+   "lon": 16.34861,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1906",
+         "wp": "M6KH-BNG:323440801,323774301,323619402",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1896-1906",
+         "wp": "M6KH-B29:323440801,323774301,323780001",
+         "from": 1896,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1896-1906",
+         "wp": "M6KH-1M9:323440801,323774301,323782801",
+         "from": 1896,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 3,
+     "walked": true
+    }
+   },
+   "volumes": 3,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "gornjihumac",
    "name": "Gornji Humac",
    "alt": [],
@@ -23813,7 +26318,9 @@
   {
    "key": "gornjimihaljevec",
    "name": "Gornji Mihaljevec",
-   "alt": [],
+   "alt": [
+    "Felsőmihályovecz"
+   ],
    "older": [
     "G. Mihaljevec",
     "Gorji Mihalovec"
@@ -23823,6 +26330,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -23924,21 +26432,181 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1906",
+         "wp": "M6KH-1WG:323440801,323790001,323619402",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1906",
+         "wp": "M6KH-168:323440801,323790001,323479701",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KH-1NG:323440801,323790001,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1902",
+         "wp": "M6KH-1P8:323440801,323790001,323797001",
+         "from": 1899,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 10,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 4,
+     "walked": true
     }
    },
-   "volumes": 10,
+   "volumes": 14,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1899-1902",
+     "from": 1899,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1790-1819 Deaths (Umrli) 1790-1831",
+     "from": 1790,
+     "to": 1831,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1819-1857",
+     "from": 1819,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1886",
+     "from": 1858,
+     "to": 1886,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1887-1893",
+     "from": 1887,
+     "to": 1893,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1790-1819 Deaths (Umrli) 1790-1831",
+     "from": 1790,
+     "to": 1831,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1832-1857",
+     "from": 1832,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1858-1872",
+     "from": 1858,
+     "to": 1872,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1790-1857",
+     "from": 1790,
+     "to": 1857,
+     "digitised": true
+    }
+   ],
+   "ngaps": 9,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1899,
+     "to": 1902,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1790,
+     "to": 1893,
+     "n": 4
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1790,
+     "to": 1872,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1790,
+     "to": 1857,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "gornjimiholjac",
@@ -24036,6 +26704,104 @@
     }
    },
    "volumes": 2,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "gornjipetrovci",
+   "name": "Gornji Petrovci",
+   "alt": [
+    "Felsőpetrócz"
+   ],
+   "older": [
+    "Peterhegy",
+    "Petrovci"
+   ],
+   "lat": 46.80362,
+   "lon": 16.21898,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1901",
+         "wp": "M6KH-J23:323440701,323503901,323470102",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1901-1917",
+         "wp": "M6KH-JTL:323440701,323503901,323505601",
+         "from": 1901,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1905",
+         "wp": "M6KH-V38:323440701,323503901,323508901",
+         "from": 1895,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1905-1917",
+         "wp": "M6KH-V2S:323440701,323503901,323513201",
+         "from": 1905,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1896-1902",
+         "wp": "M6KH-VNL:323440701,323503901,323518101",
+         "from": 1896,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1902-1903",
+         "wp": "M6KH-KWL:323440701,323503901,323526201",
+         "from": 1902,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904",
+         "wp": "M6KH-K38:323440701,323503901,323506301",
+         "from": 1904,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
+    }
+   },
+   "volumes": 7,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -24443,6 +27209,125 @@
     }
    },
    "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "grad",
+   "name": "Grad",
+   "alt": [
+    "Felsőlendva"
+   ],
+   "older": [],
+   "lat": 43.51778,
+   "lon": 16.70306,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1901",
+         "wp": "M6KH-XTP:323440701,323470101,323470102",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1901-1903",
+         "wp": "M6KH-F29:323440701,323470101,323476001",
+         "from": 1901,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1904-1915",
+         "wp": "M6KH-NM9:323440701,323470101,323478301",
+         "from": 1904,
+         "to": 1915,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1915-1917",
+         "wp": "M6KH-FTL:323440701,323470101,323450101",
+         "from": 1915,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1901-1918",
+         "wp": "M6KH-N68:323440701,323470101,323483801",
+         "from": 1901,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KH-NNL:323440701,323470101,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1897-1899",
+         "wp": "M6KH-JM9:323440701,323470101,323459001",
+         "from": 1897,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1900-1903",
+         "wp": "M6KH-NTL:323440701,323470101,323461501",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1903-1904",
+         "wp": "M6KH-J68:323440701,323470101,323498601",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1905-1911",
+         "wp": "M6KH-JNL:323440701,323470101,323500001",
+         "from": 1905,
+         "to": 1911,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 10,
+     "walked": true
+    }
+   },
+   "volumes": 10,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -26305,6 +29190,104 @@
    "gapSpans": []
   },
   {
+   "key": "hodos",
+   "name": "Hodoš",
+   "alt": [
+    "Vashedigkut-Tót",
+    "Vendhedigkut"
+   ],
+   "older": [
+    "Občina Hodoš",
+    "Orihodos"
+   ],
+   "lat": 46.82178,
+   "lon": 16.32592,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Születtek 1918",
+         "wp": "M6KH-B6D:323440701,323754901,323754902",
+         "from": 1918,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "hodosan",
+   "name": "Hodošan",
+   "alt": [],
+   "older": [
+    "Khodoshan"
+   ],
+   "lat": 46.39528,
+   "lon": 16.64389,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KC-9WG:323440801,323835701,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "hrastovac",
    "name": "Hrastovac",
    "alt": [],
@@ -27917,6 +30900,137 @@
     }
    },
    "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "izola",
+   "name": "Izola",
+   "alt": [
+    "Isola d'Istria"
+   ],
+   "older": [
+    "Isola",
+    "Isola d'Istria",
+    "Občina Izola"
+   ],
+   "lat": 45.53661,
+   "lon": 13.66015,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "rc"
+   ],
+   "sources": {
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Mauro Martire — Battesimi 1834-1865",
+         "wp": "M7ZG-QZ9:369479401,369491201,369491202,369495101",
+         "from": 1834,
+         "to": 1865,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Battesimi 1834-1870",
+         "wp": "M7ZG-3Z3:369479401,369491201,369491202,369491203",
+         "from": 1834,
+         "to": 1870,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Battesimi 1865-1870",
+         "wp": "M7ZG-QNL:369479401,369491201,369491202,369496601",
+         "from": 1865,
+         "to": 1870,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Matrimoni 1677-1810",
+         "wp": "M7ZG-7M9:369479401,369491201,369491202,369502901",
+         "from": 1677,
+         "to": 1810,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Matrimoni 1785-1800",
+         "wp": "M7ZG-QNG:369479401,369491201,369491202,369496901",
+         "from": 1785,
+         "to": 1800,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Matrimoni 1816-1846",
+         "wp": "M7ZG-Q68:369479401,369491201,369491202,369497201",
+         "from": 1816,
+         "to": 1846,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Matrimoni 1835-1929",
+         "wp": "M7ZG-3NL:369479401,369491201,369491202,369492901",
+         "from": 1835,
+         "to": 1929,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Morti 1774-1810",
+         "wp": "M7ZG-QWL:369479401,369491201,369491202,369497701",
+         "from": 1774,
+         "to": 1810,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Morti 1815-1879",
+         "wp": "M7ZG-QP8:369479401,369491201,369491202,369498601",
+         "from": 1815,
+         "to": 1879,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Morti 1879-1902",
+         "wp": "M7ZG-QTL:369479401,369491201,369491202,369499901",
+         "from": 1879,
+         "to": 1902,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Mauro Martire — Morti 1902-1937",
+         "wp": "M7ZG-QPD:369479401,369491201,369491202,369501101",
+         "from": 1902,
+         "to": 1937,
+         "cc": "2152685",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-it-pola": {
+     "n": 11,
+     "walked": true
+    }
+   },
+   "volumes": 11,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -35684,13 +38798,16 @@
   {
    "key": "kotoriba",
    "name": "Kotoriba",
-   "alt": [],
+   "alt": [
+    "Kottori"
+   ],
    "older": [],
    "lat": 46.355,
    "lon": 16.81806,
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -35774,21 +38891,246 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1900",
+         "wp": "M6KC-9ZS:323440801,323839301,323486402",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1901-1904",
+         "wp": "M6KC-SZ9:323440801,323839301,323488301",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1904",
+         "wp": "M6KC-SZS:323440801,323839301,323844201",
+         "from": 1904,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KC-S38:323440801,323839301,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-SZ3:323440801,323839301,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1898",
+         "wp": "M6KC-S68:323440801,323839301,323498801",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1898",
+         "wp": "M6KC-SNL:323440801,323839301,323853201",
+         "from": 1898,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1902",
+         "wp": "M6KC-SWL:323440801,323839301,323797001",
+         "from": 1899,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903",
+         "wp": "M6KC-S29:323440801,323839301,323860201",
+         "from": 1903,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1906",
+         "wp": "M6KC-SP8:323440801,323839301,323463601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 8,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 10,
+     "walked": true
     }
    },
-   "volumes": 8,
+   "volumes": 18,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1903",
+     "from": 1903,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1903-1906",
+     "from": 1903,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1789-1857 Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1790-1857",
+     "from": 1789,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1885",
+     "from": 1858,
+     "to": 1885,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1789-1857 Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1790-1857",
+     "from": 1789,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1907-1919",
+     "from": 1907,
+     "to": 1919,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1789-1857 Marriages (Vjenčani) 1790-1857 Deaths (Umrli) 1790-1857",
+     "from": 1789,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    }
+   ],
+   "ngaps": 10,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1903,
+     "to": 1906,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1789,
+     "to": 1885,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1789,
+     "to": 1857,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1907,
+     "to": 1919,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1789,
+     "to": 1857,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "kozarac",
@@ -37378,7 +40720,9 @@
   {
    "key": "krizevci",
    "name": "Križevci",
-   "alt": [],
+   "alt": [
+    "Tótkeresztur"
+   ],
    "older": [
     "Crisium",
     "Koroes",
@@ -37392,6 +40736,7 @@
    "geo": "kml",
    "cat": "untouched",
    "layers": [
+    "civil",
     "gc",
     "rc"
    ],
@@ -37562,21 +40907,314 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1905",
+         "wp": "M6KH-R36:323440701,323669701,323669702",
+         "from": 1895,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1905-1917",
+         "wp": "M6KH-RPX:323440701,323669701,323677401",
+         "from": 1905,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KH-TM9:323440701,323669701,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1902-1917",
+         "wp": "M6KH-RNP:323440701,323669701,323629201",
+         "from": 1902,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1898-1902",
+         "wp": "M6KH-RTG:323440701,323669701,323692901",
+         "from": 1898,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1903-1905",
+         "wp": "M6KH-R2S:323440701,323669701,323665101",
+         "from": 1903,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 17,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 6,
+     "walked": true
     }
    },
-   "volumes": 17,
+   "volumes": 23,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1898-1902",
+     "from": 1898,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1903-1905",
+     "from": 1903,
+     "to": 1905,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1689-1735",
+     "from": 1689,
+     "to": 1735,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1735-1736 Marriages (Vjenčani) 1702-1748 Births (Rođeni) 1736-1802",
+     "from": 1702,
+     "to": 1802,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1735-1736 Marriages (Vjenčani) 1704-1748 Births (Rođeni) 1736-1803",
+     "from": 1704,
+     "to": 1803,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1802-1857 Marriages (Vjenčani) 1748-1794",
+     "from": 1748,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1803-1857",
+     "from": 1803,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1804-1857",
+     "from": 1804,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1843-1857",
+     "from": 1843,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1867",
+     "from": 1858,
+     "to": 1867,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1867-1897",
+     "from": 1867,
+     "to": 1897,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Marriages (Vjenčani) 1794-1809 Deaths (Umrli) 1752-1788 Marriages (Vjenčani) 1809-1857 Deaths (Umrli) 1788-1843",
+     "from": 1752,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1782-1788 Marriages (Vjenčani) 1809-1857 Deaths (Umrli) 1788-1853",
+     "from": 1782,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1803-1857",
+     "from": 1803,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1853-1857",
+     "from": 1853,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1858-1861",
+     "from": 1858,
+     "to": 1861,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1735-1736 Marriages (Vjenčani) 1702-1748 Births (Rođeni) 1736-1802",
+     "from": 1702,
+     "to": 1802,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1735-1736 Marriages (Vjenčani) 1704-1748 Births (Rođeni) 1736-1803",
+     "from": 1704,
+     "to": 1803,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1802-1857 Marriages (Vjenčani) 1748-1794",
+     "from": 1748,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1794-1809 Deaths (Umrli) 1752-1788 Marriages (Vjenčani) 1809-1857 Deaths (Umrli) 1788-1843",
+     "from": 1752,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Deaths (Umrli) 1782-1788 Marriages (Vjenčani) 1809-1857 Deaths (Umrli) 1788-1853",
+     "from": 1782,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1803-1857",
+     "from": 1803,
+     "to": 1857,
+     "digitised": true
+    }
+   ],
+   "ngaps": 22,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1898,
+     "to": 1905,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1689,
+     "to": 1897,
+     "n": 9
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1752,
+     "to": 1861,
+     "n": 5
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1702,
+     "to": 1857,
+     "n": 6
+    }
+   ]
   },
   {
    "key": "krizovljan",
@@ -39852,6 +43490,101 @@
    "gapSpans": []
   },
   {
+   "key": "lakos",
+   "name": "Lakoš",
+   "alt": [
+    "Lendva-Lakos"
+   ],
+   "older": [],
+   "lat": null,
+   "lon": null,
+   "geo": null,
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KC-32S:323440801,323886301,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1903-1906",
+         "wp": "M6KC-QM9:323440801,323886301,323570901",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KC-323:323440801,323886301,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1897-1900",
+         "wp": "M6KC-3NG:323440801,323886301,323894301",
+         "from": 1897,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1901-1904",
+         "wp": "M6KC-329:323440801,323886301,323482901",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904",
+         "wp": "M6KC-3P8:323440801,323886301,323506301",
+         "from": 1904,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-366:323440801,323886301,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
+    }
+   },
+   "volumes": 7,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "lanisce",
    "name": "Lanišće (Buzet)",
    "alt": [],
@@ -40304,6 +44037,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -40351,15 +44085,298 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KC-STG:323440801,323867201,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1905",
+         "wp": "M6KC-3Z9:323440801,323867201,323871501",
+         "from": 1903,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1906",
+         "wp": "M6KC-338:323440801,323867201,323479701",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1901",
+         "wp": "M6KC-3M9:323440801,323867201,323531001",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1902-1904",
+         "wp": "M6KC-3MS:323440801,323867201,323503701",
+         "from": 1902,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1904-1906",
+         "wp": "M6KC-3TL:323440801,323867201,323465101",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 4,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 6,
+     "walked": true
     }
    },
-   "volumes": 4,
+   "volumes": 10,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1895-1901",
+     "from": 1895,
+     "to": 1901,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1902-1904",
+     "from": 1902,
+     "to": 1904,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1904-1906",
+     "from": 1904,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1849",
+     "from": 1849,
+     "to": 1849,
+     "digitised": true
+    }
+   ],
+   "ngaps": 6,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1895,
+     "to": 1906,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1849,
+     "to": 1849,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1849,
+     "to": 1849,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1849,
+     "to": 1849,
+     "n": 1
+    }
+   ]
+  },
+  {
+   "key": "lendava",
+   "name": "Lendava",
+   "alt": [
+    "Alsólendva"
+   ],
+   "older": [
+    "Alsolendva",
+    "Dolnja Lendava",
+    "Donja Lendava",
+    "Donja Lendova",
+    "Lendva",
+    "Občina Lendava"
+   ],
+   "lat": 46.56494,
+   "lon": 16.45091,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1900",
+         "wp": "M6KH-NNP:323440801,323486401,323486402",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1901-1904",
+         "wp": "M6KH-NP8:323440801,323486401,323488301",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1905-1906",
+         "wp": "M6KH-JWL:323440801,323486401,323490801",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1907-1918",
+         "wp": "M6KH-NTG:323440801,323486401,323491701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1902-1906",
+         "wp": "M6KH-JMS:323440801,323486401,323494701",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1907-1918",
+         "wp": "M6KH-JZ9:323440801,323486401,323496801",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1898",
+         "wp": "M6KH-J6D:323440801,323486401,323498801",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1899-1901",
+         "wp": "M6KH-JP8:323440801,323486401,323501201",
+         "from": 1899,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1902-1904",
+         "wp": "M6KH-J29:323440801,323486401,323503701",
+         "from": 1902,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904",
+         "wp": "M6KH-VM3:323440801,323486401,323506301",
+         "from": 1904,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KH-VZ9:323440801,323486401,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 11,
+     "walked": true
+    }
+   },
+   "volumes": 11,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -46573,6 +50590,103 @@
    "gapSpans": []
   },
   {
+   "key": "martjanci",
+   "name": "Martjanci",
+   "alt": [
+    "Martyáncz"
+   ],
+   "older": [
+    "Martonhely"
+   ],
+   "lat": 46.68639,
+   "lon": 16.19778,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1899",
+         "wp": "M6KH-K3F:323440701,323530501,323530502",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1899-1918",
+         "wp": "M6KH-K3N:323440701,323530501,323533001",
+         "from": 1899,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1901",
+         "wp": "M6KH-KNG:323440701,323530501,323540201",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1902-1918",
+         "wp": "M6KH-K29:323440701,323530501,323542601",
+         "from": 1902,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KH-2Z9:323440701,323530501,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1897-1903",
+         "wp": "M6KH-2M9:323440701,323530501,323546301",
+         "from": 1897,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904-1909",
+         "wp": "M6KH-2MS:323440701,323530501,323551401",
+         "from": 1904,
+         "to": 1909,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
+    }
+   },
+   "volumes": 7,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "marusevec",
    "name": "Maruševec",
    "alt": [],
@@ -46911,21 +51025,94 @@
        ]
       }
      }
+    },
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Beata Vergine della Neve — Matrimoni 1835-1937",
+         "wp": "M7ZG-736:369479401,369504001,369504002,369481403",
+         "from": 1835,
+         "to": 1937,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Beata Vergine della Neve — Matrimoni 1835-1941",
+         "wp": "M7ZG-QP6:369479401,369504001,369504002,369504901",
+         "from": 1835,
+         "to": 1941,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Beata Vergine della Neve — Morti 1835-1936",
+         "wp": "M7ZG-7WG:369479401,369504001,369504002,369488701",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Beata Vergine della Neve — Morti 1835-1941",
+         "wp": "M7ZG-729:369479401,369504001,369504002,369505601",
+         "from": 1835,
+         "to": 1941,
+         "cc": "2152685",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 1,
      "walked": true
+    },
+    "fs-it-pola": {
+     "n": 4,
+     "walked": true
     }
    },
-   "volumes": 1,
+   "volumes": 5,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-it-pola",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Beata Vergine della Neve — Matrimoni 1835-1937",
+     "from": 1835,
+     "to": 1937,
+     "digitised": true
+    },
+    {
+     "have": "fs-it-pola",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Beata Vergine della Neve — Matrimoni 1835-1941",
+     "from": 1835,
+     "to": 1941,
+     "digitised": true
+    }
+   ],
+   "ngaps": 2,
+   "gapSpans": [
+    {
+     "have": "fs-it-pola",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1835,
+     "to": 1941,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "mace",
@@ -51126,6 +55313,55 @@
    "gapSpans": []
   },
   {
+   "key": "muggia",
+   "name": "Muggia",
+   "alt": [],
+   "older": [
+    "Milje",
+    "Mudha",
+    "Muggio"
+   ],
+   "lat": 45.60419,
+   "lon": 13.76754,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "rc"
+   ],
+   "sources": {
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Santi Giovanni e Paolo — Matrimoni 1915-1936",
+         "wp": "M7ZG-9PD:369479301,369479302,369479303,369479304",
+         "from": 1915,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "IT"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-it-pola": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "mundanije",
    "name": "Mundanije",
    "alt": [],
@@ -51219,9 +55455,145 @@
    "gapSpans": []
   },
   {
+   "key": "murskasobota",
+   "name": "Murska Sobota",
+   "alt": [
+    "Muraszombat"
+   ],
+   "older": [
+    "Mestna obcina Murska Sobota",
+    "Muraszombat",
+    "Murska Subota",
+    "Murskaja Sobota",
+    "Oisnitz",
+    "Olsnitz"
+   ],
+   "lat": 46.66264,
+   "lon": 16.16643,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1896",
+         "wp": "M6KH-L38:323440701,323554301,323440703",
+         "from": 1895,
+         "to": 1896,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1896-1903",
+         "wp": "M6KH-26D:323440701,323554301,323554801",
+         "from": 1896,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1903",
+         "wp": "M6KH-2TL:323440701,323554301,323561801",
+         "from": 1903,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1914-1917",
+         "wp": "M6KH-LM9:323440701,323554301,323562501",
+         "from": 1914,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1897, 1907-1918, Halottak 1918",
+         "wp": "M6KH-LWL:323440701,323554301,323563601",
+         "from": 1895,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KH-L6D:323440701,323554301,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1903-1906",
+         "wp": "M6KH-LP8:323440701,323554301,323570901",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1900",
+         "wp": "M6KH-GMS:323440701,323554301,323514501",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1900",
+         "wp": "M6KH-LTL:323440701,323554301,323585301",
+         "from": 1900,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1901-1903",
+         "wp": "M6KH-G3X:323440701,323554301,323587301",
+         "from": 1901,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1903-1906",
+         "wp": "M6KH-G38:323440701,323554301,323463601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 11,
+     "walked": true
+    }
+   },
+   "volumes": 11,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "murskosredisce",
    "name": "Mursko Središće",
-   "alt": [],
+   "alt": [
+    "Muraszerdahely"
+   ],
    "older": [
     "Muraszerdahely",
     "Mursko Sredishhe"
@@ -51231,6 +55603,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -51260,21 +55633,168 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KC-36D:323440801,323905901,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KC-QWL:323440801,323905901,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KC-QZS:323440801,323905901,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1903-1906",
+         "wp": "M6KC-QNL:323440801,323905901,323570901",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KC-Q68:323440801,323905901,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KC-QWG:323440801,323905901,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899",
+         "wp": "M6KC-Q38:323440801,323905901,323927401",
+         "from": 1899,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1902",
+         "wp": "M6KC-QZ9:323440801,323905901,323654001",
+         "from": 1900,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1906",
+         "wp": "M6KC-Q23:323440801,323905901,323463601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1906",
+         "wp": "M6KC-QTP:323440801,323905901,323673801",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 2,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 10,
+     "walked": true
     }
    },
-   "volumes": 2,
+   "volumes": 12,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1906",
+     "from": 1906,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1895-1902",
+     "from": 1895,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1903-1906",
+     "from": 1903,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1907-1917",
+     "from": 1907,
+     "to": 1917,
+     "digitised": true
+    }
+   ],
+   "ngaps": 4,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1906,
+     "to": 1906,
+     "n": 1
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1895,
+     "to": 1917,
+     "n": 3
+    }
+   ]
   },
   {
    "key": "murter",
@@ -51932,7 +56452,9 @@
   {
    "key": "nedelisce",
    "name": "Nedelišće",
-   "alt": [],
+   "alt": [
+    "Nedelicz"
+   ],
    "older": [
     "Dravavasarhely"
    ],
@@ -51941,6 +56463,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -52051,21 +56574,237 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1900",
+         "wp": "M6KC-QP8:323440801,323940201,323486402",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1901-1906",
+         "wp": "M6KC-7M9:323440801,323940201,323519002",
+         "from": 1901,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1906",
+         "wp": "M6KC-QTL:323440801,323940201,323447901",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1896-1898",
+         "wp": "M6KC-QTG:323440801,323940201,323947601",
+         "from": 1896,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1898-1903",
+         "wp": "M6KC-Q2S:323440801,323940201,323949801",
+         "from": 1898,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-7WL:323440801,323940201,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1898",
+         "wp": "M6KC-7Z9:323440801,323940201,323498801",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1901",
+         "wp": "M6KC-768:323440801,323940201,323501201",
+         "from": 1899,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1902-1904",
+         "wp": "M6KC-738:323440801,323940201,323503701",
+         "from": 1902,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905",
+         "wp": "M6KC-7WG:323440801,323940201,323969601",
+         "from": 1905,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-73D:323440801,323940201,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 11,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 11,
+     "walked": true
     }
    },
-   "volumes": 11,
+   "volumes": 22,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1905",
+     "from": 1905,
+     "to": 1905,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1905-1906",
+     "from": 1905,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1669-1737 Marriages (Vjenčani) 1677-1763",
+     "from": 1669,
+     "to": 1763,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1737-1824",
+     "from": 1737,
+     "to": 1824,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1824-1857",
+     "from": 1824,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1746-1747, 1741-1813, 1814-1857",
+     "from": 1741,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1669-1737 Marriages (Vjenčani) 1677-1763",
+     "from": 1669,
+     "to": 1763,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1764-1851",
+     "from": 1764,
+     "to": 1851,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1851-1857",
+     "from": 1851,
+     "to": 1857,
+     "digitised": true
+    }
+   ],
+   "ngaps": 9,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1905,
+     "to": 1906,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1669,
+     "to": 1857,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1741,
+     "to": 1857,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1669,
+     "to": 1857,
+     "n": 3
+    }
+   ]
   },
   {
    "key": "nedescina",
@@ -53630,7 +58369,9 @@
   {
    "key": "novigrad",
    "name": "Novigrad",
-   "alt": [],
+   "alt": [
+    "Cittanova d'Istria"
+   ],
    "older": [
     "Aemonia Nova",
     "Cittanova",
@@ -53772,21 +58513,243 @@
        ]
       }
      }
+    },
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Pelagio Martire — Battesimi 1848-1900",
+         "wp": "M7ZG-SNP:369479401,369485301,369485302,369485303",
+         "from": 1848,
+         "to": 1900,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "San Pelagio Martire — Matrimoni 1835-1936",
+         "wp": "M7ZG-SP8:369479401,369485301,369485302,369479404",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "San Pelagio Martire — Morti 1835-1887",
+         "wp": "M7ZG-3P8:369479401,369485301,369485302,369490301",
+         "from": 1835,
+         "to": 1887,
+         "cc": "2152685",
+         "filedIn": "HR"
+        },
+        {
+         "t": "San Pelagio Martire — Morti 1835-1936",
+         "wp": "M7ZG-S2Q:369479401,369485301,369485302,369488701",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 20,
      "walked": true
+    },
+    "fs-it-pola": {
+     "n": 4,
+     "walked": true
     }
    },
-   "volumes": 20,
+   "volumes": 24,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "t": "Births (Rođeni) 1662-1693 Births (Rođeni) 1662-1693",
+     "from": 1662,
+     "to": 1693,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "t": "Births (Rođeni) 1694-1719",
+     "from": 1694,
+     "to": 1719,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "t": "Births (Rođeni) 1720-1759",
+     "from": 1720,
+     "to": 1759,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "t": "Births (Rođeni) 1825-1830",
+     "from": 1825,
+     "to": 1830,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "t": "Births (Rođeni) 1830-1835",
+     "from": 1830,
+     "to": 1835,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "t": "Births (Rođeni) 1835-1843",
+     "from": 1835,
+     "to": 1843,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1825-1832",
+     "from": 1825,
+     "to": 1832,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1832-1835",
+     "from": 1832,
+     "to": 1835,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1835-1840",
+     "from": 1835,
+     "to": 1840,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1840-1848",
+     "from": 1840,
+     "to": 1848,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1848-1867",
+     "from": 1848,
+     "to": 1867,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1667-1692 Marriages (Vjenčani) 1667-1692",
+     "from": 1667,
+     "to": 1692,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1693-1719 Marriages (Vjenčani) 1693-1719",
+     "from": 1693,
+     "to": 1719,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1719-1809",
+     "from": 1719,
+     "to": 1809,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "m",
+     "t": "Marriages (Vjenčani) 1825-1830",
+     "from": 1825,
+     "to": 1830,
+     "digitised": true
+    }
+   ],
+   "ngaps": 15,
+   "gapSpans": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "from": 1662,
+     "to": 1759,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "b",
+     "from": 1825,
+     "to": 1843,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "from": 1825,
+     "to": 1867,
+     "n": 5
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "m",
+     "from": 1667,
+     "to": 1809,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "m",
+     "from": 1825,
+     "to": 1830,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "novigradpodravski",
@@ -54578,6 +59541,85 @@
    "gapSpans": []
   },
   {
+   "key": "okruglivrh",
+   "name": "Okrugli Vrh",
+   "alt": [
+    "Okrugli"
+   ],
+   "older": [],
+   "lat": 46.429,
+   "lon": 16.35142,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1903",
+         "wp": "M6KC-729:323440801,323974601,323590402",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1906",
+         "wp": "M6KC-7P8:323440801,323974601,323479701",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1900",
+         "wp": "M6KC-7NP:323440801,323974601,323514501",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901-1906",
+         "wp": "M6KC-7NG:323440801,323974601,323987701",
+         "from": 1901,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1906",
+         "wp": "M6KC-7TL:323440801,323974601,323673801",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 5,
+     "walked": true
+    }
+   },
+   "volumes": 5,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "okucani",
    "name": "Okučani",
    "alt": [],
@@ -55228,7 +60270,9 @@
   {
    "key": "oprtalj",
    "name": "Oprtalj",
-   "alt": [],
+   "alt": [
+    "Portole"
+   ],
    "older": [
     "Comuna Oprtalj",
     "Portole",
@@ -55256,21 +60300,61 @@
        ]
       }
      }
+    },
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Giorgio — Morti 1835-1936",
+         "wp": "M7ZG-7TP:369479401,369513401,369513402,369488701",
+         "from": 1835,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 1,
      "walked": true
+    },
+    "fs-it-pola": {
+     "n": 1,
+     "walked": true
     }
    },
-   "volumes": 1,
+   "volumes": 2,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1815-1856",
+     "from": 1815,
+     "to": 1856,
+     "digitised": true
+    }
+   ],
+   "ngaps": 1,
+   "gapSpans": [
+    {
+     "have": "fs-hr",
+     "missing": "fs-it-pola",
+     "kind": "d",
+     "from": 1815,
+     "to": 1856,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "opuzen",
@@ -61325,6 +66409,63 @@
    "gapSpans": []
   },
   {
+   "key": "pertoca",
+   "name": "Pertoča",
+   "alt": [
+    "Pertócsa"
+   ],
+   "older": [
+    "Peresto"
+   ],
+   "lat": 46.77944,
+   "lon": 16.02667,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Házasultak 1895-1897, 1907-1918, Halottak 1918",
+         "wp": "M6KH-LWP:323440701,323610101,323563601",
+         "from": 1895,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1907-1918 Házasultak 1907-1918 Halottak 1918",
+         "wp": "M6KH-GP8:323440701,323610101,323603701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 2,
+     "walked": true
+    }
+   },
+   "volumes": 2,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "perusic",
    "name": "Perušic",
    "alt": [],
@@ -62563,6 +67704,63 @@
    "gapSpans": []
   },
   {
+   "key": "pecarovci",
+   "name": "Pečarovci",
+   "alt": [
+    "Pecsarócz"
+   ],
+   "older": [
+    "Szentsebestyen"
+   ],
+   "lat": 46.74806,
+   "lon": 16.15194,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1897, 1907-1918",
+         "wp": "M6KH-GNP:323440701,323598201,323598202",
+         "from": 1895,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1907-1918 Házasultak 1907-1918 Halottak 1918",
+         "wp": "M6KH-GPD:323440701,323598201,323603701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 2,
+     "walked": true
+    }
+   },
+   "volumes": 2,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "pescenica",
    "name": "Pešćenica",
    "alt": [],
@@ -62774,6 +67972,85 @@
     }
    },
    "volumes": 3,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "piran",
+   "name": "Piran",
+   "alt": [],
+   "older": [
+    "Občina Piran"
+   ],
+   "lat": 45.52778,
+   "lon": 13.57056,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "rc"
+   ],
+   "sources": {
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Giorgio Martire — Matrimoni 1593-1611",
+         "wp": "M7ZG-7P8:369479401,369506501,369506502,369506503",
+         "from": 1593,
+         "to": 1611,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Giorgio Martire — Matrimoni 1835-1879",
+         "wp": "M7ZG-7ZQ:369479401,369506501,369506502,369506901",
+         "from": 1835,
+         "to": 1879,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Giorgio Martire — Matrimoni 1890-1913",
+         "wp": "M7ZG-7NL:369479401,369506501,369506502,369508501",
+         "from": 1890,
+         "to": 1913,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Giorgio Martire — Matrimoni 1914-1936",
+         "wp": "M7ZG-768:369479401,369506501,369506502,369510501",
+         "from": 1914,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "SI"
+        },
+        {
+         "t": "San Giorgio Martire — Morti 1835-1907",
+         "wp": "M7ZG-7Z3:369479401,369506501,369506502,369512001",
+         "from": 1835,
+         "to": 1907,
+         "cc": "2152685",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-it-pola": {
+     "n": 5,
+     "walked": true
+    }
+   },
+   "volumes": 5,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -64453,6 +69730,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -64494,21 +69772,213 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KC-WZS:323440801,324011401,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KC-WTL:323440801,324011401,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1898",
+         "wp": "M6KC-WNL:323440801,324011401,323522401",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1898-1903",
+         "wp": "M6KC-WZ3:323440801,324011401,323949801",
+         "from": 1898,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-4M9:323440801,324011401,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1900",
+         "wp": "M6KC-4Z9:323440801,324011401,323514501",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1901",
+         "wp": "M6KC-4WL:323440801,324011401,323517501",
+         "from": 1900,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1902-1906",
+         "wp": "M6KC-4NL:323440801,324011401,324019601",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 5,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 8,
+     "walked": true
     }
    },
-   "volumes": 5,
+   "volumes": 13,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1895-1898",
+     "from": 1895,
+     "to": 1898,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1898-1903",
+     "from": 1898,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1904-1906",
+     "from": 1904,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1770-1834",
+     "from": 1770,
+     "to": 1834,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1770-1834 Deaths (Umrli) 1777-1839 Marriages (Vjenčani) 1777-1839 Births (Rođeni) 1840-1857 Marriages (Vjenčani) 1840-1857 Deaths (Umrli) 1840-1857",
+     "from": 1770,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1891",
+     "from": 1858,
+     "to": 1891,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1770-1834 Deaths (Umrli) 1777-1839 Marriages (Vjenčani) 1777-1839 Births (Rođeni) 1840-1857 Marriages (Vjenčani) 1840-1857 Deaths (Umrli) 1840-1857",
+     "from": 1770,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1858-1894",
+     "from": 1858,
+     "to": 1894,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1770-1834 Deaths (Umrli) 1777-1839 Marriages (Vjenčani) 1777-1839 Births (Rođeni) 1840-1857 Marriages (Vjenčani) 1840-1857 Deaths (Umrli) 1840-1857",
+     "from": 1770,
+     "to": 1857,
+     "digitised": true
+    }
+   ],
+   "ngaps": 9,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1895,
+     "to": 1906,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1770,
+     "to": 1891,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1770,
+     "to": 1894,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1770,
+     "to": 1857,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "podvinje",
@@ -69071,7 +74541,9 @@
   {
    "key": "prelog",
    "name": "Prelog",
-   "alt": [],
+   "alt": [
+    "Perlak"
+   ],
    "older": [
     "Perlacum",
     "Perlak",
@@ -69083,6 +74555,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -69166,21 +74639,238 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1898",
+         "wp": "M6KC-WWL:323440801,323993201,323440803",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1898-1901",
+         "wp": "M6KC-W3D:323440801,323993201,323442401",
+         "from": 1898,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1902-1906",
+         "wp": "M6KC-WMQ:323440801,323993201,323444601",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1918",
+         "wp": "M6KC-WMS:323440801,323993201,323491701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KC-WM3:323440801,323993201,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1918",
+         "wp": "M6KC-W68:323440801,323993201,323496801",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KC-WP8:323440801,323993201,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1903",
+         "wp": "M6KC-W29:323440801,323993201,323461501",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 12,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 8,
+     "walked": true
     }
    },
-   "volumes": 12,
+   "volumes": 20,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1907-1918",
+     "from": 1907,
+     "to": 1918,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1674-1747 Marriages (Vjenčani) 1680-1749",
+     "from": 1674,
+     "to": 1749,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1738-1800",
+     "from": 1738,
+     "to": 1800,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1804-1819",
+     "from": 1804,
+     "to": 1819,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1819-1838",
+     "from": 1819,
+     "to": 1838,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1839-1874",
+     "from": 1839,
+     "to": 1874,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1874-1880 Marriages (Vjenčani) 1841-1868 Deaths (Umrli) 1849-1890",
+     "from": 1841,
+     "to": 1890,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1874-1880 Marriages (Vjenčani) 1841-1868 Deaths (Umrli) 1849-1890",
+     "from": 1841,
+     "to": 1890,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1674-1747 Marriages (Vjenčani) 1680-1749",
+     "from": 1674,
+     "to": 1749,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1874-1880 Marriages (Vjenčani) 1841-1868 Deaths (Umrli) 1849-1890",
+     "from": 1841,
+     "to": 1890,
+     "digitised": true
+    }
+   ],
+   "ngaps": 10,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1907,
+     "to": 1918,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1674,
+     "to": 1800,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1804,
+     "to": 1890,
+     "n": 4
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1841,
+     "to": 1890,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1674,
+     "to": 1749,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1841,
+     "to": 1890,
+     "n": 1
+    }
+   ]
   },
   {
    "key": "preloscica",
@@ -70810,6 +76500,89 @@
     }
    },
    "volumes": 7,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "puconci",
+   "name": "Puconci",
+   "alt": [
+    "Puczincz"
+   ],
+   "older": [
+    "Battyand",
+    "Pukonci",
+    "Pusonci"
+   ],
+   "lat": 46.70465,
+   "lon": 16.15726,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1906",
+         "wp": "M6KH-PZS:323440701,323619401,323619402",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1906-1918",
+         "wp": "M6KH-P2S:323440701,323619401,323626901",
+         "from": 1906,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1902-1917",
+         "wp": "M6KH-53D:323440701,323619401,323629201",
+         "from": 1902,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1900",
+         "wp": "M6KH-5MS:323440701,323619401,323514501",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1900-1905",
+         "wp": "M6KH-5Z9:323440701,323619401,323638601",
+         "from": 1900,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 5,
+     "walked": true
+    }
+   },
+   "volumes": 5,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -82730,6 +88503,143 @@
    "gapSpans": []
   },
   {
+   "key": "subotica",
+   "name": "Subotica",
+   "alt": [
+    "Szoboticza"
+   ],
+   "older": [
+    "Podravska Subotica"
+   ],
+   "lat": 46.1906,
+   "lon": 16.74075,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1900",
+         "wp": "M6KC-CTG:323440801,324107801,323486402",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1904-1906",
+         "wp": "M6KC-ZZ3:323440801,324107801,323475601",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1917",
+         "wp": "M6KC-Z68:323440801,324107801,323477301",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KC-Z29:323440801,324107801,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1903-1904",
+         "wp": "M6KC-ZWL:323440801,324107801,324118501",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-ZZ9:323440801,324107801,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1898",
+         "wp": "M6KC-ZZS:323440801,324107801,323498801",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1900",
+         "wp": "M6KC-ZWG:323440801,324107801,324099001",
+         "from": 1899,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1901",
+         "wp": "M6KC-ZNL:323440801,324107801,323517501",
+         "from": 1900,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1902-1903",
+         "wp": "M6KC-838:323440801,324107801,323526201",
+         "from": 1902,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1904",
+         "wp": "M6KC-8Z9:323440801,324107801,323498601",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-8WL:323440801,324107801,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 12,
+     "walked": true
+    }
+   },
+   "volumes": 12,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "suhodol",
    "name": "Suhodol",
    "alt": [],
@@ -84623,6 +90533,336 @@
     }
    },
    "volumes": 6,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "svetamarija",
+   "name": "Sveta Marija",
+   "alt": [
+    "Szent-Mária"
+   ],
+   "older": [
+    "Marija na Muri",
+    "Sv. Marija"
+   ],
+   "lat": 46.3322,
+   "lon": 16.74454,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1900",
+         "wp": "M6KC-HP8:323440801,324056701,323486402",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1901-1903",
+         "wp": "M6KC-HTG:323440801,324056701,323476001",
+         "from": 1901,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KC-HTL:323440801,324056701,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KC-H29:323440801,324056701,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-H6D:323440801,324056701,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1913",
+         "wp": "M6KC-HNG:323440801,324056701,324072001",
+         "from": 1907,
+         "to": 1913,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1913-1917",
+         "wp": "M6KC-CNL:323440801,324056701,323739102",
+         "from": 1913,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1900",
+         "wp": "M6KC-C38:323440801,324056701,323514501",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901-1903",
+         "wp": "M6KC-CM3:323440801,324056701,323587301",
+         "from": 1901,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1904",
+         "wp": "M6KC-C68:323440801,324056701,323498601",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-C29:323440801,324056701,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 11,
+     "walked": true
+    }
+   },
+   "volumes": 11,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "svetijurajutrnju",
+   "name": "Sveti Juraj u Trnju",
+   "alt": [
+    "Tüskeszentgyörgy"
+   ],
+   "older": [
+    "Sv. Juraj u Trnju",
+    "Sveti GJurg",
+    "Sveti Đurđ"
+   ],
+   "lat": 46.37659,
+   "lon": 16.60952,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1897-1899",
+         "wp": "M6KC-DZ9:323440801,324153101,324153102",
+         "from": 1897,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1905-1906",
+         "wp": "M6KC-D38:323440801,324153101,323490801",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KC-DMS:323440801,324153101,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KC-DWG:323440801,324153101,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1902",
+         "wp": "M6KC-DP8:323440801,324153101,323654001",
+         "from": 1900,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1905",
+         "wp": "M6KC-DPD:323440801,324153101,323665101",
+         "from": 1903,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1906",
+         "wp": "M6KC-DNL:323440801,324153101,323673801",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
+    }
+   },
+   "volumes": 7,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "svetimartinnamuri",
+   "name": "Sveti Martin na Muri",
+   "alt": [
+    "Szent-Márton"
+   ],
+   "older": [
+    "Martin na Muri",
+    "Muraszentmarton",
+    "Pomorje",
+    "Sankt Martin an der Mur",
+    "Sv. Martin na Muri"
+   ],
+   "lat": 46.52502,
+   "lon": 16.36267,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1902",
+         "wp": "M6KC-CMS:323440801,324085601,323470602",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KC-CZ9:323440801,324085601,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1896-1906",
+         "wp": "M6KC-CWL:323440801,324085601,323780001",
+         "from": 1896,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1899",
+         "wp": "M6KC-ZM9:323440801,324085601,323604401",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1900",
+         "wp": "M6KC-Z38:323440801,324085601,324099001",
+         "from": 1899,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901-1904",
+         "wp": "M6KC-CP8:323440801,324085601,323482901",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-CPD:323440801,324085601,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 7,
+     "walked": true
+    }
+   },
+   "volumes": 7,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -87156,6 +93396,79 @@
    "gapSpans": []
   },
   {
+   "key": "tisina",
+   "name": "Tišina",
+   "alt": [
+    "Tissina"
+   ],
+   "older": [
+    "Kaptolska Tisina"
+   ],
+   "lat": 45.52677,
+   "lon": 16.37577,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1906",
+         "wp": "M6KH-52S:323440701,323650801,323619402",
+         "from": 1895,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1907",
+         "wp": "M6KH-5TL:323440701,323650801,323658101",
+         "from": 1895,
+         "to": 1907,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KH-RZ9:323440701,323650801,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1901-1903",
+         "wp": "M6KH-RMS:323440701,323650801,323587301",
+         "from": 1901,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 4,
+     "walked": true
+    }
+   },
+   "volumes": 4,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "tkon",
    "name": "Tkon",
    "alt": [],
@@ -88155,6 +94468,101 @@
    },
    "volumes": 1,
    "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "trieste",
+   "name": "Trieste",
+   "alt": [
+    "Guardiella (Frazione di Trieste)",
+    "Prosecco (Frazione di Trieste)"
+   ],
+   "older": [
+    "Tergeste",
+    "Tergesti",
+    "Terst",
+    "Tit-li-nga-su-thit",
+    "Triestas",
+    "Triesti"
+   ],
+   "lat": 45.6508,
+   "lon": 13.7674,
+   "geo": "atlas",
+   "cat": "started",
+   "layers": [
+    "rc"
+   ],
+   "sources": {
+    "fs-it-pola": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "San Giusto Martire — Matrimoni 1848-1862",
+         "wp": "M7ZG-S23:369479301,369487601,369487602,369487603",
+         "from": 1848,
+         "to": 1862,
+         "cc": "2152685",
+         "filedIn": "IT"
+        },
+        {
+         "t": "Sant'Antonio Taumaturgo — Matrimoni 1835-1841",
+         "wp": "M7ZG-STG:369479301,369487601,369489301,369489302",
+         "from": 1835,
+         "to": 1841,
+         "cc": "2152685",
+         "filedIn": "IT"
+        },
+        {
+         "t": "Sant'Antonio Taumaturgo — Matrimoni 1847-1881",
+         "wp": "M7ZG-3ZQ:369479301,369487601,369489301,369491401",
+         "from": 1847,
+         "to": 1881,
+         "cc": "2152685",
+         "filedIn": "IT"
+        },
+        {
+         "t": "Sant'Antonio Taumaturgo — Matrimoni 1885-1910",
+         "wp": "M7ZG-329:369479301,369487601,369489301,369493101",
+         "from": 1885,
+         "to": 1910,
+         "cc": "2152685",
+         "filedIn": "IT"
+        },
+        {
+         "t": "Sant'Antonio Taumaturgo — Matrimoni 1911-1936",
+         "wp": "M7ZG-QWG:369479301,369487601,369489301,369495001",
+         "from": 1911,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "IT"
+        },
+        {
+         "t": "Sant'Antonio Taumaturgo — Matrimoni 1936",
+         "wp": "M7ZG-QM9:369479301,369487601,369489301,369491001",
+         "from": 1936,
+         "to": 1936,
+         "cc": "2152685",
+         "filedIn": "IT"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-it-pola": {
+     "n": 6,
+     "walked": true
+    }
+   },
+   "volumes": 6,
+   "reads": 3,
    "vread": 0,
    "vknown": false,
    "gaps": [],
@@ -89518,6 +95926,157 @@
     }
    },
    "volumes": 9,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "turnisce",
+   "name": "Turnišče",
+   "alt": [
+    "Turnischa"
+   ],
+   "older": [],
+   "lat": 46.06222,
+   "lon": 16.14861,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1896-1899",
+         "wp": "M6KC-ZTL:323440801,324131601,324131602",
+         "from": 1896,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1904-1905",
+         "wp": "M6KC-8M9:323440801,324131601,324133701",
+         "from": 1904,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1905-1906",
+         "wp": "M6KC-ZPD:323440801,324131601,323490801",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1907-1918",
+         "wp": "M6KC-ZP6:323440801,324131601,323491701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1901",
+         "wp": "M6KC-8NG:323440801,324131601,323540201",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1902-1906",
+         "wp": "M6KC-86D:323440801,324131601,323494701",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1907-1918",
+         "wp": "M6KC-829:323440801,324131601,323496801",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KC-82S:323440801,324131601,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1897-1898",
+         "wp": "M6KC-868:323440801,324131601,323702801",
+         "from": 1897,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1899-1900",
+         "wp": "M6KC-8NL:323440801,324131601,324099001",
+         "from": 1899,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1900-1901",
+         "wp": "M6KC-8P8:323440801,324131601,323517501",
+         "from": 1900,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1902-1903",
+         "wp": "M6KC-DWL:323440801,324131601,323526201",
+         "from": 1902,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1904",
+         "wp": "M6KC-D68:323440801,324131601,323506301",
+         "from": 1904,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-8TL:323440801,324131601,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 14,
+     "walked": true
+    }
+   },
+   "volumes": 14,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -93460,6 +100019,127 @@
     }
    },
    "volumes": 6,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "veceslavci",
+   "name": "Večeslavci",
+   "alt": [
+    "Vizlendva"
+   ],
+   "older": [
+    "Vasvecses"
+   ],
+   "lat": 46.78889,
+   "lon": 16.02667,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1900",
+         "wp": "M6KH-B3X:323440701,323755101,323486402",
+         "from": 1895,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1900-1903",
+         "wp": "M6KH-BNP:323440701,323755101,323550001",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1904-1916",
+         "wp": "M6KH-BTL:323440701,323755101,323780901",
+         "from": 1904,
+         "to": 1916,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1916-1917",
+         "wp": "M6KH-1Z9:323440701,323755101,323789201",
+         "from": 1916,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KH-138:323440701,323755101,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1902-1906",
+         "wp": "M6KH-1NL:323440701,323755101,323494701",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1898",
+         "wp": "M6KH-129:323440701,323755101,323498801",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1898-1899",
+         "wp": "M6KH-1TL:323440701,323755101,323650101",
+         "from": 1898,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1900-1901",
+         "wp": "M6KC-MWG:323440701,323755101,323517501",
+         "from": 1900,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1901-1905",
+         "wp": "M6KC-MMS:323440701,323755101,323808501",
+         "from": 1901,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 10,
+     "walked": true
+    }
+   },
+   "volumes": 10,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -98817,6 +105497,109 @@
     }
    },
    "volumes": 3,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "vratisinec",
+   "name": "Vratišinec",
+   "alt": [],
+   "older": [
+    "Murasiklos"
+   ],
+   "lat": 46.47806,
+   "lon": 16.45778,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1903",
+         "wp": "M6KC-D2S:323440801,324172001,323590402",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1904-1906",
+         "wp": "M6KC-6WG:323440801,324172001,323475601",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1903",
+         "wp": "M6KC-DTL:323440801,324172001,323565901",
+         "from": 1895,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1903-1906",
+         "wp": "M6KC-638:323440801,324172001,323570901",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1907-1917",
+         "wp": "M6KC-DTG:323440801,324172001,323454401",
+         "from": 1907,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1900",
+         "wp": "M6KC-63D:323440801,324172001,324099001",
+         "from": 1899,
+         "to": 1900,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901-1904",
+         "wp": "M6KC-6WL:323440801,324172001,323482901",
+         "from": 1901,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KC-6Z9:323440801,324172001,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 8,
+     "walked": true
+    }
+   },
+   "volumes": 8,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -104799,7 +111582,9 @@
   {
    "key": "cakovec",
    "name": "Čakovec",
-   "alt": [],
+   "alt": [
+    "Csáktornya"
+   ],
    "older": [
     "Aquama",
     "Cakovets",
@@ -104813,6 +111598,7 @@
    "geo": "kml",
    "cat": "untouched",
    "layers": [
+    "civil",
     "jew",
     "rc"
    ],
@@ -104875,21 +111661,576 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1897",
+         "wp": "M6KH-PWL:323440801,323608301,323608302",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1897-1898",
+         "wp": "M6KH-P36:323440801,323608301,323610701",
+         "from": 1897,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1899-1902",
+         "wp": "M6KH-PWG:323440801,323608301,323613801",
+         "from": 1899,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1900-1904",
+         "wp": "M6KH-P3D:323440801,323608301,323618001",
+         "from": 1900,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1903-1906",
+         "wp": "M6KH-PTL:323440801,323608301,323509601",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1905-1906",
+         "wp": "M6KH-PNL:323440801,323608301,323490801",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1909",
+         "wp": "M6KH-PP8:323440801,323608301,323623501",
+         "from": 1907,
+         "to": 1909,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1907-1918",
+         "wp": "M6KH-P29:323440801,323608301,323491701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1909-1917",
+         "wp": "M6KH-5WL:323440801,323608301,323627801",
+         "from": 1909,
+         "to": 1917,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1918",
+         "wp": "M6KH-5M3:323440801,323608301,323629901",
+         "from": 1918,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1895-1899",
+         "wp": "M6KH-538:323440801,323608301,323630101",
+         "from": 1895,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1900-1906",
+         "wp": "M6KH-5M9:323440801,323608301,323633301",
+         "from": 1900,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1906",
+         "wp": "M6KH-5NL:323440801,323608301,323642801",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KH-568:323440801,323608301,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1898-1899",
+         "wp": "M6KH-5P8:323440801,323608301,323650101",
+         "from": 1898,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1902",
+         "wp": "M6KH-523:323440801,323608301,323654001",
+         "from": 1900,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1900-1903",
+         "wp": "M6KH-5TG:323440801,323608301,323461501",
+         "from": 1900,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1905",
+         "wp": "M6KH-RM9:323440801,323608301,323665101",
+         "from": 1903,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1904-1905",
+         "wp": "M6KH-RWL:323440801,323608301,323669401",
+         "from": 1904,
+         "to": 1905,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1905-1906",
+         "wp": "M6KH-R38:323440801,323608301,323485401",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1906",
+         "wp": "M6KH-R68:323440801,323608301,323673801",
+         "from": 1906,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 7,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 21,
+     "walked": true
     }
    },
-   "volumes": 7,
+   "volumes": 28,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1895-1897",
+     "from": 1895,
+     "to": 1897,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1898-1899",
+     "from": 1898,
+     "to": 1899,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1900-1902",
+     "from": 1900,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1900-1903",
+     "from": 1900,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1903-1905",
+     "from": 1903,
+     "to": 1905,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1904-1905",
+     "from": 1904,
+     "to": 1905,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1905-1906",
+     "from": 1905,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1906",
+     "from": 1906,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1895-1897",
+     "from": 1895,
+     "to": 1897,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1897-1898",
+     "from": 1897,
+     "to": 1898,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1899-1902",
+     "from": 1899,
+     "to": 1902,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1900-1904",
+     "from": 1900,
+     "to": 1904,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1903-1906",
+     "from": 1903,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1905-1906",
+     "from": 1905,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1907-1909",
+     "from": 1907,
+     "to": 1909,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1907-1918",
+     "from": 1907,
+     "to": 1918,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1909-1917",
+     "from": 1909,
+     "to": 1917,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Halottak 1918",
+     "from": 1918,
+     "to": 1918,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1895-1899",
+     "from": 1895,
+     "to": 1899,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1900-1906",
+     "from": 1900,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Házasultak 1906",
+     "from": 1906,
+     "to": 1906,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1748-1789 Marriages (Vjenčani) 1748-1789 Deaths (Umrli) 1748-1787",
+     "from": 1748,
+     "to": 1789,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1782-1885 Marriages (Vjenčani) 1884-1885 Deaths (Umrli) 1796-1885",
+     "from": 1782,
+     "to": 1885,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Deaths (Umrli) 1787-1789 Births (Rođeni) 1789-1857 Marriages (Vjenčani) 1789-1857 Deaths (Umrli) 1789-1816",
+     "from": 1787,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1881",
+     "from": 1858,
+     "to": 1881,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1881-1890 Marriages (Vjenčani) 1858-1890 Deaths (Umrli) 1858-1870",
+     "from": 1858,
+     "to": 1890,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1748-1789 Marriages (Vjenčani) 1748-1789 Deaths (Umrli) 1748-1787",
+     "from": 1748,
+     "to": 1789,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1782-1885 Marriages (Vjenčani) 1884-1885 Deaths (Umrli) 1796-1885",
+     "from": 1782,
+     "to": 1885,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1787-1789 Births (Rođeni) 1789-1857 Marriages (Vjenčani) 1789-1857 Deaths (Umrli) 1789-1816",
+     "from": 1787,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1817-1857",
+     "from": 1817,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni) 1881-1890 Marriages (Vjenčani) 1858-1890 Deaths (Umrli) 1858-1870",
+     "from": 1858,
+     "to": 1890,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1870-1878",
+     "from": 1870,
+     "to": 1878,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1748-1789 Marriages (Vjenčani) 1748-1789 Deaths (Umrli) 1748-1787",
+     "from": 1748,
+     "to": 1789,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1782-1885 Marriages (Vjenčani) 1884-1885 Deaths (Umrli) 1796-1885",
+     "from": 1782,
+     "to": 1885,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Deaths (Umrli) 1787-1789 Births (Rođeni) 1789-1857 Marriages (Vjenčani) 1789-1857 Deaths (Umrli) 1789-1816",
+     "from": 1787,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1881-1890 Marriages (Vjenčani) 1858-1890 Deaths (Umrli) 1858-1870",
+     "from": 1858,
+     "to": 1890,
+     "digitised": true
+    }
+   ],
+   "ngaps": 36,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1895,
+     "to": 1906,
+     "n": 8
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1895,
+     "to": 1918,
+     "n": 10
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1895,
+     "to": 1906,
+     "n": 3
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1748,
+     "to": 1890,
+     "n": 5
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1748,
+     "to": 1890,
+     "n": 6
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1748,
+     "to": 1890,
+     "n": 4
+    }
+   ]
   },
   {
    "key": "canak",
@@ -105788,6 +113129,128 @@
     }
    },
    "volumes": 2,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "crensovci",
+   "name": "Črenšovci",
+   "alt": [
+    "Cserföld"
+   ],
+   "older": [
+    "Cserencsocz",
+    "Cserfold"
+   ],
+   "lat": 46.55794,
+   "lon": 16.3041,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1901",
+         "wp": "M6KH-RP6:323440801,323677001,323470102",
+         "from": 1895,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1902-1906",
+         "wp": "M6KH-TMS:323440801,323677001,323444601",
+         "from": 1902,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Halottak 1908-1918",
+         "wp": "M6KH-RNG:323440801,323677001,323687701",
+         "from": 1908,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1895-1902",
+         "wp": "M6KH-RTL:323440801,323677001,323681701",
+         "from": 1895,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1903-1906",
+         "wp": "M6KH-R29:323440801,323677001,323570901",
+         "from": 1903,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Házasultak 1907-1918",
+         "wp": "M6KH-R23:323440801,323677001,323496801",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1895-1897",
+         "wp": "M6KH-RPD:323440801,323677001,323456901",
+         "from": 1895,
+         "to": 1897,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1897-1898",
+         "wp": "M6KH-TWG:323440801,323677001,323702801",
+         "from": 1897,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1899-1901",
+         "wp": "M6KH-T3D:323440801,323677001,323501201",
+         "from": 1899,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "SI"
+        },
+        {
+         "t": "Születtek 1902-1904",
+         "wp": "M6KH-T68:323440801,323677001,323503701",
+         "from": 1902,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "SI"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 10,
+     "walked": true
+    }
+   },
+   "volumes": 10,
    "reads": 0,
    "vread": 0,
    "vknown": false,
@@ -107589,7 +115052,9 @@
   {
    "key": "strigova",
    "name": "Štrigova",
-   "alt": [],
+   "alt": [
+    "Stridó"
+   ],
    "older": [
     "Stridau",
     "Strido",
@@ -107601,6 +115066,7 @@
    "geo": "geonames",
    "cat": "untouched",
    "layers": [
+    "civil",
     "rc"
    ],
    "sources": {
@@ -107684,21 +115150,367 @@
        ]
       }
      }
+    },
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1895-1898",
+         "wp": "M6KC-4WG:323440801,324023501,323440803",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1898-1899",
+         "wp": "M6KC-436:323440801,324023501,324027301",
+         "from": 1898,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1901-1902",
+         "wp": "M6KC-468:323440801,324023501,324028501",
+         "from": 1901,
+         "to": 1902,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1902-1904",
+         "wp": "M6KC-43D:323440801,324023501,324030401",
+         "from": 1902,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Halottak 1905-1906",
+         "wp": "M6KC-H3D:323440801,324023501,323490801",
+         "from": 1905,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1896-1899",
+         "wp": "M6KC-HWL:323440801,324023501,324035001",
+         "from": 1896,
+         "to": 1899,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1899-1901",
+         "wp": "M6KC-4TG:323440801,324023501,324037401",
+         "from": 1899,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Házasultak 1904-1906",
+         "wp": "M6KC-HM9:323440801,324023501,323723001",
+         "from": 1904,
+         "to": 1906,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1895-1898",
+         "wp": "M6KC-4P8:323440801,324023501,323498801",
+         "from": 1895,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1898",
+         "wp": "M6KC-429:323440801,324023501,323853201",
+         "from": 1898,
+         "to": 1898,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1899-1901",
+         "wp": "M6KC-42S:323440801,324023501,323501201",
+         "from": 1899,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1901",
+         "wp": "M6KC-H38:323440801,324023501,323538001",
+         "from": 1901,
+         "to": 1901,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1902-1903",
+         "wp": "M6KC-4TL:323440801,324023501,323526201",
+         "from": 1902,
+         "to": 1903,
+         "cc": "1985107",
+         "filedIn": "HR"
+        },
+        {
+         "t": "Születtek 1903-1904",
+         "wp": "M6KC-HNL:323440801,324023501,323498601",
+         "from": 1903,
+         "to": 1904,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "fs-hr": {
      "n": 12,
      "walked": true
+    },
+    "fs-si-mj": {
+     "n": 14,
+     "walked": true
     }
    },
-   "volumes": 12,
+   "volumes": 26,
    "reads": 0,
    "vread": 0,
    "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "gaps": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1895-1898",
+     "from": 1895,
+     "to": 1898,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1898",
+     "from": 1898,
+     "to": 1898,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1899-1901",
+     "from": 1899,
+     "to": 1901,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1901",
+     "from": 1901,
+     "to": 1901,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1902-1903",
+     "from": 1902,
+     "to": 1903,
+     "digitised": true
+    },
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Születtek 1903-1904",
+     "from": 1903,
+     "to": 1904,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1685-1687",
+     "from": 1685,
+     "to": 1687,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1687-1739, 1786-1825",
+     "from": 1687,
+     "to": 1825,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Deaths (Umrli) 1730-1799 Births (Rođeni) 1740-1784",
+     "from": 1730,
+     "to": 1799,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1740-1785",
+     "from": 1740,
+     "to": 1785,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1826-1857 Marriages (Vjenčani) 1794-1857",
+     "from": 1794,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1848-1849",
+     "from": 1848,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "t": "Births (Rođeni) 1858-1881",
+     "from": 1858,
+     "to": 1881,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1730-1799",
+     "from": 1730,
+     "to": 1799,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1730-1799 Births (Rođeni) 1740-1784",
+     "from": 1730,
+     "to": 1799,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1848-1849",
+     "from": 1848,
+     "to": 1849,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "t": "Deaths (Umrli) 1858-1894",
+     "from": 1858,
+     "to": 1894,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni) 1826-1857 Marriages (Vjenčani) 1794-1857",
+     "from": 1794,
+     "to": 1857,
+     "digitised": true
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "t": "Births (Rođeni), Marriages (Vjenčani), Deaths (Umrli) 1848-1849",
+     "from": 1848,
+     "to": 1849,
+     "digitised": true
+    }
+   ],
+   "ngaps": 19,
+   "gapSpans": [
+    {
+     "have": "fs-si-mj",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1895,
+     "to": 1904,
+     "n": 6
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "b",
+     "from": 1685,
+     "to": 1881,
+     "n": 7
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1730,
+     "to": 1799,
+     "n": 2
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1848,
+     "to": 1849,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "d",
+     "from": 1858,
+     "to": 1894,
+     "n": 1
+    },
+    {
+     "have": "fs-hr",
+     "missing": "fs-si-mj",
+     "kind": "m",
+     "from": 1794,
+     "to": 1857,
+     "n": 2
+    }
+   ]
   },
   {
    "key": "sumber",
@@ -108592,6 +116404,53 @@
     }
    },
    "volumes": 7,
+   "reads": 0,
+   "vread": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "ziskovec",
+   "name": "Žiškovec",
+   "alt": [
+    "Zorkóháza"
+   ],
+   "older": [],
+   "lat": 46.44947,
+   "lon": 16.43205,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [
+    "civil"
+   ],
+   "sources": {
+    "fs-si-mj": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Halottak 1907-1918",
+         "wp": "M6KC-6MS:323440801,324180601,323491701",
+         "from": 1907,
+         "to": 1918,
+         "cc": "1985107",
+         "filedIn": "HR"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "fs-si-mj": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
    "reads": 0,
    "vread": 0,
    "vknown": false,

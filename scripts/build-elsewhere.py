@@ -74,12 +74,19 @@ def main(src):
             "cc": cc, "catalogue": catname, "today": today, "country": cc2, "books": []})
         p["books"].append({"t": title, "wp": wp})
 
+    # Two harvests produced these, one prefixing the place with its root and
+    # one not. Both shapes are accepted rather than re-running the walk.
+    def place_of(key):
+        return key.split("|", 1)[1] if "|" in key else key
+
     for key, title, wp in raw["pt"]:
-        add("2152685", key.split("|", 1)[1], title, wp)
+        add("2152685", place_of(key), title, wp)
     for key, title, wp in raw["mj"]:
-        add("1985107", key.split("|", 1)[1], title, wp)
-    for film, ark in raw["dl"]:
-        out["films"].append({"cc": "1875189", "film": film, "ark": ark})
+        add("1985107", place_of(key), title, wp)
+    for row in raw["dl"]:
+        film, images, ark = (row + ["", ""])[:3] if len(row) >= 3 else (row[0], "", row[1])
+        out["films"].append({"cc": "1875189", "film": film,
+                             "images": images, "ark": ark})
 
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     hr = sum(1 for p in out["places"].values() if p["country"] == "HR")
