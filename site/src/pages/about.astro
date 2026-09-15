@@ -1,18 +1,17 @@
 ---
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
-const sources=[
- ["State Archives in Pazin — register inventory","dapa.hr","The 407 registers in the Archive section"],
- ["Cadastre National de l'Istrie, Institut Adriatique, Sušak 1946","via istrianet.org","The 1945 village census of the surname"],
- ["Istria on the Internet — Prominent Istrians","istrianet.org","Biographies of Carlo and Camillo De Franceschi"],
- ["House of de Franceski","defranceski.com","The received account of the lines and the migrations"],
- ["Forebears — surname incidence","forebears.io","Worldwide distribution by spelling"],
- ["Acta Croatica","actacroatica.com","Surname distribution within Croatia"],
- ["Portale Antenati / Archivio di Stato di Udine","antenati.cultura.gov.it","Ovaro civil registration 1806–15 and 1871–1911"],
- ["FamilySearch","familysearch.org","Microfilmed registers; 770+ Croatian Catholic parishes"],
- ["Archivio Storico Diocesano, Udine","archiviodiocesano.it","Parish duplicates for Carnia"],
- ["State Archives in Rijeka","riarhiv.hr","Senj, Crikvenica and Vinodol — not yet inventoried"],
-];
+import allSources from "../data/sources.json";
+import searched from "../data/searched.json";
+import { u } from "../lib/url.js";
+
+/* This table was a hand-typed list of ten for months, while the archive went
+   on using a hundred and forty-eight more. It is now driven by the source
+   register itself, so it cannot fall behind again. */
+const byKind = {};
+for (const x of allSources) (byKind[x.kind || "Other"] ||= []).push(x);
+const kinds = Object.entries(byKind).sort((a, b) => b[1].length - a[1].length);
+const host = (url) => { try { return new URL(url).host.replace(/^www\./, ""); } catch { return ""; } };
 ---
 <Base title="About" eyebrow="Method, ethics and sources"
       dek="How this archive decides what it is willing to say.">
@@ -50,9 +49,27 @@ const sources=[
 <Rule name="helm" />
 <section class="blk">
   <h2>Sources</h2>
-  <div class="scroll" style="margin-top:22px">
-    <table><thead><tr><th>Source</th><th>Where</th><th>Used for</th></tr></thead>
-    <tbody>{sources.map(([s,w,u])=><tr><td>{s}</td><td class="m">{w}</td><td>{u}</td></tr>)}</tbody></table>
+  <p class="dek" style="margin-top:8px">
+    <strong>{allSources.length} sources</strong>, grouped by what kind of thing they are.
+    The <a href={u("/searched/")}>search register</a> records every one of the
+    <strong>{searched.rows.length} searches</strong> made against them, including the ones that found nothing.
+  </p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:22px">
+    {kinds.map(([kind, list]) => (
+      <div>
+        <div class="lab">{kind} — {list.length}</div>
+        <div class="scroll" style="margin-top:8px">
+          <table><thead><tr><th>Source</th><th>Where</th><th>Used for</th></tr></thead>
+          <tbody>{list.map(x => (
+            <tr>
+              <td>{x.url ? <a href={x.url} target="_blank" rel="noopener">{x.title}</a> : x.title}</td>
+              <td class="m">{host(x.url) || x.where || ""}</td>
+              <td>{(x.what || "").split(/(?<=\.)\s/)[0]}</td>
+            </tr>
+          ))}</tbody></table>
+        </div>
+      </div>
+    ))}
   </div>
   <div class="note" style="margin-top:26px">Nothing here yet establishes descent. The register holdings are documented; the lines above them are not. That is the work.</div>
 </section>

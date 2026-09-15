@@ -47,6 +47,7 @@ KML  = os.path.join(ROOT, "data", "genealogy-resources-croatia.kml")
 FSC  = os.path.join(ROOT, "data", "fs-catalogue.json")
 ANT  = os.path.join(DATA, "antenati-catalogue.json")
 ELS  = os.path.join(DATA, "fs-elsewhere.json")
+CAT  = os.path.join(DATA, "sweep.json")
 
 STOP = {"zupa", "jaksic", "velika", "sveti", "grad", "novi", "stari"}
 LAYERS = {"Roman Catholic": "rc", "Orthodox": "orth", "Greek Catholic": "gc",
@@ -66,6 +67,8 @@ SOURCES = [
      "Slovenia, Prekmurje and Međimurje, Civil Registers 1895–1918 (collection 1985107) — Croatian towns under Hungarian county names"),
     ("fs-hr-delnice", "FamilySearch — Delnice",
      "Croatia, Delnice Deanery Catholic Church Books 1571–1926 (collection 1875189) — browsable only by film"),
+    ("fs-cat",     "FamilySearch catalogue",
+     "The library catalogue rather than the image collections — printed editions, microfilms and transcriptions, swept by place-authority id across 75 places"),
 ]
 DAPA_TYPE = {"MKR": "Births", "MKV": "Marriages", "MKU": "Deaths", "SD": "Church Census"}
 
@@ -195,7 +198,7 @@ def span(title):
 # into «Other» and the coverage timeline for a whole Croatian county said
 # nothing at all.
 KIND = [
-    ("b", r"birth|rodjen|rođen|batti|battesim|nati|nascit|taufe|szulett|születt|MKR"),
+    ("b", r"birth|rodjen|rođen|kr[sš]ten|batti|battesim|nati|nascit|taufe|szulett|születt|MKR"),
     ("m", r"marri|vjenc|vjenč|matrimon|trauung|hazasult|házasult|MKV"),
     ("d", r"death|umrl|morti|sterbe|halottak|MKU"),
 ]
@@ -232,7 +235,11 @@ def timeline_label(b):
     list, so the page can recognise that they are the same book and show it
     once. Years are stripped from the title because the row already carries
     them in its own column."""
-    t = re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") or b["t"]
+    # A register's title is «Births (Rođeni) 1716-1816» and the years belong in
+    # their own column. A catalogue entry's title is a book's title, and
+    # cutting years out of it mangles the name of the book.
+    t = (b["t"] if b.get("catalogue")
+         else re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") or b["t"])
     if b.get("how") == "read":
         t += " — READ"
     if not b.get("digitised", True):
@@ -471,6 +478,36 @@ def main():
                 {"t": f"Film {f['film']} — {f.get('images', '')} images".strip(),
                  "ark": f["ark"], "cc": "1875189", "from": 1571, "to": 1926}
                 for f in els["films"]], "wp": None}}}
+
+    # ---- 4d. the FamilySearch CATALOGUE, as distinct from its film -------
+    # The image collections are one thing; the library catalogue is another,
+    # and it holds printed editions, transcriptions and microfilms that no
+    # collection walk will ever surface. This archive swept it by
+    # place-authority id across seventy-five places and the result sat in its
+    # own file for weeks without ever reaching the map.
+    #
+    # Its «no holdings» list is the more valuable half: fourteen places where
+    # somebody looked and found nothing. A negative that has been checked is
+    # worth more than a blank.
+    if os.path.exists(CAT):
+        cat = json.load(open(CAT, encoding="utf-8"))
+        byplace = collections.defaultdict(list)
+        for it in cat.get("items", []):
+            byplace[it["place"]].append(it)
+        for nm, items in byplace.items():
+            p = P(nm)
+            if items and items[0].get("fsPlace"):
+                p["alt"].add(items[0]["fsPlace"].split(",")[0])
+            vols = []
+            for it in items:
+                lo, hi = span(it["title"])
+                vols.append({"t": it["title"][:120], "from": it.get("start") or lo,
+                             "to": hi or it.get("start"), "catalogue": True})
+            p["src"]["fs-cat"] = {"shelves": {"all": {"wp": None, "books": vols}}}
+        for nm in cat.get("noHoldings", []):
+            p = P(nm)
+            # Walked and empty — not «unknown». The distinction is the point.
+            p["src"].setdefault("fs-cat", {"shelves": {"all": {"wp": None, "books": []}}})
 
     # ---- 5. what has actually been read
     rows = load("searched.json")["rows"]

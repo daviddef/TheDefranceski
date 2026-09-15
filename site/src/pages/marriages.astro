@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
-import InlawNetwork from "../components/InlawNetwork.astro";
 import MarriageTimeline from "../components/MarriageTimeline.astro";
 import Marriages from "@daviddef/archive-kit/components/Marriages.astro";
 import { u } from "../lib/url.js";
@@ -34,6 +33,18 @@ const md = (x) => String(x ?? "")
 const byRoute = {};
 for (const r of mi.rows) (byRoute[r.route] = byRoute[r.route] || []).push(r);
 const ORD = ["hungarian-littoral", "istria-austrian", "dalmatia", "carnia", "venice"];
+const ORIGIN = {
+  venetian: "--r-venice", slavic: "--accent", carnia: "--terra",
+  austrian: "--r-habsburg", maritime: "--r-italy", uskok: "--r-yugo",
+};
+const ORIGIN_KEY = [
+  { label: "Venetian & Istrian Romance", col: "--r-venice" },
+  { label: "Slavic Istria", col: "--accent" },
+  { label: "Friuli & Carnia", col: "--terra" },
+  { label: "Austrian", col: "--r-habsburg" },
+  { label: "Kvarner shipping", col: "--r-italy" },
+  { label: "Uskok", col: "--r-yugo" },
+];
 
 const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
   const R = mi.routes[k], fams = (byRoute[k] || []).sort((a, b) => b.c - a.c);
@@ -48,6 +59,10 @@ const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
     ],
     chips: fams.map((f) => ({
       name: f.name,
+      /* The colour is the family's ORIGIN while its place on the ring is the
+         empire that held its town. Two readings of the same 74 names, which is
+         why this archive used to carry a second chart drawing the other one. */
+      accent: ORIGIN[f.origin] || "",
       count: f.notindexed ? "—" : f.c,
       aside: f.fb ? (f.fb.total === "0" ? "none alive" : f.fb.total + " alive") : "",
       asideTitle: f.fb ? f.fb.top : "",
@@ -57,6 +72,7 @@ const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
   };
 });
 const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
+const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) + "00s" : "Undated");
 ---
 <Base title="The Marriages" eyebrow={`${nFam} families \u00b7 ${nMarr} indexed marriages \u00b7 three worlds`}
       dek="A surname is one thread. The family is the weave. Every generation this name entered a house that was not its own — and this page now carries both halves of that: who they married, and which empire still holds the records of the family they married into.">
@@ -67,7 +83,6 @@ const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
     <p>Two thousand two hundred indexed records for this surname survive in the Croatian church books. Strip out the men who carried the name and what is left is a list of the families who let them in: seventy-one distinct in-law surnames, from a Venetian patrician house to a Carnian weaving family to the descendants of refugee raiders.</p>
     <p>Grouped by where those names come from, the pattern is not subtle. <strong>The family married the whole of Istria.</strong></p>
   </div>
-  <div style="margin-top:32px"><InlawNetwork /></div>
   <p class="cap">{m.caveat} Counts are occurrences across the indexed records, so a large node means a name that recurs — a family married more than once, across generations, in the way village families do.</p>
 </section>
 <Rule name="arrows" />
@@ -135,7 +150,16 @@ const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
   <h2>{mi.heading}</h2>
   <div class="prose"><p set:html={md(mi.lead)} /><p set:html={md(mi.why)} /></div>
 
-  <Marriages u={u} groups={GROUPED}>
+  <Marriages u={u} groups={GROUPED} subject="Defranceschi"
+    metrics={[{ n: nFam, label: "families joined" }, { n: nMarr, label: "indexed marriages" },
+              { n: m.couples.length + m.undated.length, label: "couples recovered" },
+              { n: ORD.filter((k) => mi.routes[k]).length, label: "jurisdictions" },
+              { n: mi.rows.filter((r) => r.ours).length, label: "in the direct line" }]} memberKey={ORIGIN_KEY}
+    couples={[...m.couples.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: c.y })),
+              ...m.undated.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: "" }))]}
+    couplesTitle="Everyone, as the registers name them"
+    couplesNote={`Forty-nine couples recovered so far. Spelling is the clerk's, not ours. Source: ${m.source}.`}
+    couplesGroupBy={band}>
     <div slot="missing">
       <Rule name="arrows" label={mi.fbnote.heading} />
       <div class="prose">{mi.fbnote.text.split("\n\n").map((p) => <p set:html={md(p)} />)}</div>
@@ -150,20 +174,7 @@ const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
   </Marriages>
 </section>
 <Rule name="tablet" />
-<section class="blk">
-  <h2>Everyone, as the registers name them</h2>
-  <p class="dek">Forty-nine couples recovered so far. Spelling is the clerk's, not ours.</p>
-  <div class="scroll" style="margin-top:20px">
-    <table>
-      <thead><tr><th class="m">Year</th><th>Of this family</th><th>Married, or recorded with</th></tr></thead>
-      <tbody>
-        {m.couples.map(c=><tr><td class="m">{c.y}</td><td>{c.a}</td><td style="color:var(--ink)">{c.b}</td></tr>)}
-        {m.undated.map(c=><tr><td class="m" style="color:var(--ink-3)">undated</td><td>{c.a}</td><td style="color:var(--ink)">{c.b}</td></tr>)}
-      </tbody>
-    </table>
-  </div>
-  <p class="cap">Source: {m.source}. Some entries are parent-of relationships the index records alongside a burial rather than marriages proper; both are kept, because both name a family this one was joined to.</p>
-</section>
+
   <Sources ids={["familysearch", "dapa"]} />
 </Base>
 

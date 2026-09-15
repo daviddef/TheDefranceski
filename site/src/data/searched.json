@@ -6778,6 +6778,30 @@
     "research map",
     "negative"
    ]
+  },
+  {
+   "src": "This archive's own data files, audited against the research map",
+   "what": "Whether every place-based source the archive has used actually reaches the map",
+   "when": "15 Sept 2026",
+   "outcome": "correction",
+   "got": "**One did not, and it was the archive's own work.**\n\n`sweep.json` holds a sweep of the **FamilySearch library catalogue** — not the image collections, but the printed editions, transcriptions and microfilms — **by place-authority id across 75 places**, made weeks ago and never wired to anything. **189 items across 61 places, plus 14 places where somebody looked and found nothing.**\n\nIt is now the map's seventh provider. Two things changed immediately:\n\n**The «in no catalogue at all» colour went from 3 places to 8**, and five of the new ones — **Grožnjan, Lindar, Motovun, Višnjan, Villa Santina** — are *checked* negatives rather than blanks. A place somebody looked at and found nothing for is worth more than a place nobody opened.\n\n**Cross-checked places went from 27 to 83**, which is what makes gap detection possible at all — a gap can only be seen where two catalogues describe the same place.\n\n*And a language fix fell out of it*: the catalogue's titles are Croatian — «Matična knjiga **krštenih**» — which matched none of the record-type patterns, so Umag's baptisms were filed under «Other».\n\n**What is deliberately not on the map**: the person-level indexes (FamilySearch record hits, the Austrian index), the newspapers, the DNA, the books, and the 50 diaspora cemeteries in `graves.json`. Those are not record-book holdings and a map of shelves is the wrong shape for them.",
+   "url": "",
+   "dest": "This archive's own data files",
+   "ev": [
+    [
+     "/research-map/",
+     "The map, with seven providers"
+    ],
+    [
+     "/about/",
+     "The 83 sources, now driven by the register"
+    ]
+   ],
+   "tags": [
+    "method",
+    "research map",
+    "providers"
+   ]
   }
  ]
 }

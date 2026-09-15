@@ -121,7 +121,7 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
 
 **And the map cannot see what is filed abroad.** A Croatian town's registers sit wherever the state that kept them filed them: **Čakovec is under «Csáktornya», in a Hungarian county, inside a collection named for Slovenia**; five Croatian Istrian parishes are inside an Italian one. [Croatia, filed under other countries](/elsewhere/) lists what the walk of all 3,488 FamilySearch collections turned up.
 
-**Grey is «in no catalogue at all», and there are only three.** Two are *Evangelical*, grey because **this archive never found the Evangelical root in FamilySearch's waypoint tree** — the shelf was not walked, not proved empty. Saying «nothing is filmed here» would blame the collection for a hole of our own making, and the panel on those markers says so.
+**Grey is «in no catalogue at all», and it now means two different things.** Five of the eight are places this archive **walked the FamilySearch catalogue for and found nothing** — Grožnjan, Lindar, Motovun, Višnjan and Villa Santina. Those are checked negatives and worth more than a blank. **Two are *Evangelical***, grey because **this archive never found the Evangelical root in FamilySearch's waypoint tree** — the shelf was not walked, not proved empty, and the panel on those two markers says so.
 
 *The first cut of this map used three colours — not walked, catalogued, read.* It worked for about a day, and then the cataloguing finished and **1,219 of 1,239 places went gold**. A map where everything is one colour is not a map, so the shading was re-cut to carry something that still varies.
 
@@ -133,7 +133,7 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
       <div class="prose" style="margin-top:8px" set:html={link(mdp(
 `**${s.read} of ${s.places}.** That is how many places on this map have had *anything at all* read out of them — ${pct(s.read)} per cent. The other ${s.byProgress.untouched} are catalogued down to the volume and untouched.
 
-**Four providers, and they are not the same kind of thing.** ${r.sources.map(x => `**${x.label}** — ${st.bySource[x.key].walked} of ${st.bySource[x.key].places} places walked, ${st.bySource[x.key].volumes} volumes`).join(" · ")}.
+**Seven providers, and they are not the same kind of thing.** ${r.sources.map(x => `**${x.label}** — ${st.bySource[x.key].walked} of ${st.bySource[x.key].places} places walked, ${st.bySource[x.key].volumes} volumes`).join(" · ")}.
 
 FamilySearch is broad and shallow: a title, a year span, and **nothing name-indexed**. [Antenati](/antenati/) is the opposite shape again — two comuni, fifty-nine volumes, and every one of them a book to be turned by hand, because the Italian portal publishes no index of names at all. Its arks sit on a different host from everything else here, so the map sends you to [the archive's own list](/antenati/) rather than dressing them up as FamilySearch links. Pazin is narrow and deep, and it is the only one that admits what it has *not* done — **${st.notDigitised} of its volumes are marked «not digitised»**. *That column means «not digitised by Pazin» and nothing more*: checked against the films, **${st.notDigitisedButFilmed} of the ${st.notDigitised} have been photographed by FamilySearch anyway**, and only **${st.notDigitisedAnywhere}** are books that two catalogues agree nobody has filmed. **${st.fsPending} FamilySearch parishes are still outstanding**, stopped by its rate limiter rather than by anything missing.
 
