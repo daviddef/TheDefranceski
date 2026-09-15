@@ -45,6 +45,7 @@ DATA = os.path.join(ROOT, "site", "src", "data")
 PUB  = os.path.join(ROOT, "site", "public")
 KML  = os.path.join(ROOT, "data", "genealogy-resources-croatia.kml")
 FSC  = os.path.join(ROOT, "data", "fs-catalogue.json")
+ANT  = os.path.join(DATA, "antenati-catalogue.json")
 
 STOP = {"zupa", "jaksic", "velika", "sveti", "grad", "novi", "stari"}
 LAYERS = {"Roman Catholic": "rc", "Orthodox": "orth", "Greek Catholic": "gc",
@@ -57,6 +58,7 @@ SOURCES = [
     ("fs-hr",    "FamilySearch — Croatia",  "Croatia, Church Books 1516–1994 (collection 2040054)"),
     ("fs-it",    "FamilySearch — Udine",    "Italy, Udine civil registration (collection 1939238)"),
     ("dapa",     "Pazin State Archive",     "Državni arhiv u Pazinu, its own register list"),
+    ("antenati", "Antenati",                "Portale Antenati, Archivio di Stato di Udine — the Carnia civil registers"),
 ]
 DAPA_TYPE = {"MKR": "Births", "MKV": "Marriages", "MKU": "Deaths", "SD": "Church Census"}
 
@@ -193,6 +195,28 @@ def main():
         p["src"]["dapa"] = {"shelves": {"all": {"wp": None, "books": vols}},
                             "notDigitised": sum(1 for v in vols if not v["digitised"])}
 
+    # ---- 4b. Antenati — the Carnia comuni, in the Italian state archive's own portal
+    # Antenati has no name index at all, so a volume here is a book to be turned
+    # page by page. The ark is the whole address: it opens the register at image one.
+    if os.path.exists(ANT):
+        ant = json.load(open(ANT, encoding="utf-8"))
+        for com in ant["comuni"]:
+            p = P(com["name"])
+            for a in com.get("alt", []):
+                p["alt"].add(a)
+            if com.get("lat") and not p["c"]:
+                p["c"] = [com["lat"], com["lon"]]
+            vols = []
+            for ser in com["series"]:
+                yrs, n = ser.get("years", {}), len(ser["arks"])
+                for i, ark in enumerate(ser["arks"]):
+                    y = yrs.get(ark)
+                    t = (f"{ser['series']} {y}" if y else
+                         f"{ser['series']} {ser['from']}–{ser['to']} — volume {i + 1} of {n}")
+                    vols.append({"t": t, "ark": ark, "antenati": True,
+                                 "from": y or ser["from"], "to": y or ser["to"]})
+            p["src"]["antenati"] = {"shelves": {"civil": {"wp": None, "books": vols}}}
+
     # ---- 5. what has actually been read
     rows = load("searched.json")["rows"]
     where = [" ".join(str(r.get(x, "")) for x in ("src", "dest")) for r in rows]
@@ -299,7 +323,7 @@ def main():
                               else (str(b.get("from")) if b.get("from") else "—"))
                         tag = "" if s == "fs-hr" else f" [{dict((k,l) for k,l,_ in SOURCES)[s]}]"
                         note = "" if b.get("digitised", True) else "  — NOT DIGITISED"
-                        if b.get("ark"):
+                        if b.get("ark") and not b.get("antenati"):
                             films.append({"t": b["t"], "ark": b["ark"],
                                           "cc": b.get("cc"), "wc": b.get("wc")})
                         else:
@@ -307,7 +331,13 @@ def main():
                                                   b["t"]).strip(" ,-–") + tag + note])
             pubs.append({"name": o["name"], "lat": o["lat"], "lon": o["lon"], "cat": state,
                          "n": 0, "also": o["alt"], "what": what,
-                         "when": None, "href": "/searched/" if o["reads"] else None,
+                         "when": None,
+                         # Antenati's arks live on a different host, and the Atlas panel
+                         # builds FamilySearch addresses. Rather than reach into the shared
+                         # component, these places point at the archive's own page, where
+                         # all 59 volumes are listed and every one of them is a link.
+                         "href": ("/antenati/" if "antenati" in got
+                                  else ("/searched/" if o["reads"] else None)),
                          "events": ev[:60], "films": films, "nfilms": len(films)})
         json.dump({"places": pubs, "stats": stats}, open(path, "w", encoding="utf-8"),
                   ensure_ascii=False)

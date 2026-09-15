@@ -1,0 +1,66 @@
+---
+/* Antenati's Carnia registers, every volume a link.
+
+   The research map's panel builds FamilySearch addresses, because that is what
+   nearly every volume on it is. Antenati's arks live on a different host and in
+   a different scheme, and the panel is a shared component this session does not
+   own — so the map sends a reader here instead, and here the links are real. */
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import cat from "../data/antenati-catalogue.json";
+
+const n = cat.comuni.reduce(
+  (a, c) => a + c.series.reduce((b, s) => b + s.arks.length, 0), 0);
+const url = (ark) => cat.base + ark;
+---
+<Base
+  title="Antenati — the Carnia registers"
+  eyebrow={`${cat.comuni.length} comuni · ${n} volumes · no name index on any of them`}
+  dek="The Napoleonic and Austrian civil registers for Mione and Ovaro, held by the Archivio di Stato di Udine and photographed by the Portale Antenati. Every line below opens the book at its first image.">
+
+  <p class="dek" style="margin-top:8px" set:html={md(cat.note)}></p>
+
+  <div class="one" style="margin-top:26px">
+    <div class="lab">Why this page exists at all</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+      "Antenati publishes no index of names. There is no search box that will find a " +
+      "De Franceschi in these books; there is only the book, and the reader, and the " +
+      "hand. **A volume here is a thing to be turned page by page**, which is why the " +
+      "archive counts a register as *read* only when someone has gone through it, and " +
+      "why so few of them are.\n\n" +
+      "The years are given exactly where an act read off the page fixes them. Where they " +
+      "are not, the volume is numbered within its series and the series span is given — " +
+      "which is what the inventory itself supports, and no more."
+    )}></div>
+  </div>
+
+  {cat.comuni.map(c => (
+    <section style="margin-top:44px">
+      <h2 id={c.name.toLowerCase()} style="font-size:26px">{c.name}</h2>
+      {c.series.map(s => (
+        <div style="margin-top:22px">
+          <div class="lab">{s.series} · {s.from === s.to ? s.from : `${s.from}–${s.to}`} · {s.arks.length} volume{s.arks.length === 1 ? "" : "s"}</div>
+          {s.note && <p class="cap" style="margin-top:6px">{s.note}</p>}
+          <ul style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:5px;font-size:14px">
+            {s.arks.map((a, i) => (
+              <li>
+                <a href={url(a)} target="_blank" rel="noopener">
+                  {(s.years && s.years[a])
+                    ? `${s.series} ${s.years[a]}`
+                    : `${s.series} — volume ${i + 1} of ${s.arks.length}`} ↗
+                </a>
+                <span class="cap" style="margin-left:8px">{a}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+  ))}
+
+  <p class="cap" style="margin-top:44px">
+    <a href={u("/research-map/antenati/")}>Antenati on the research map →</a> ·
+    <a href={u("/carnia/")}>What has been read out of these books →</a>
+  </p>
+</Base>

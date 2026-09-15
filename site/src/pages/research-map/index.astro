@@ -29,6 +29,14 @@ const cats = [
 const LAB = { rc: "Roman Catholic", orth: "Orthodox", gc: "Greek Catholic",
               jew: "Jewish", mil: "Military", ref: "Reformed", civil: "Civil",
               ev: "Evangelical" };
+/* md.js deliberately has no link syntax — the archive's data files are written
+   in a markup that renders bold and italic and nothing else. This paragraph had
+   two links written in it anyway, and both were printing as literal brackets on
+   the live page. Rather than teach the shared renderer a new syntax that every
+   other page would inherit, the links are resolved here, where they are used,
+   and put through the same base-path helper as every other internal link. */
+const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
+  (_, t, href) => `<a href="${u(href)}">${t}</a>`);
 const layers = Object.entries(s.byLayer).sort((a, b) => b[1] - a[1]);
 const pct = (n) => ((100 * n) / s.places).toFixed(1);
 ---
@@ -88,14 +96,14 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
 
     <div class="one">
       <div class="lab">The number this page exists to show</div>
-      <div class="prose" style="margin-top:8px" set:html={mdp(
+      <div class="prose" style="margin-top:8px" set:html={link(mdp(
 `**${s.read + s.listed} of ${s.places}.** Nine per cent of the record-book places on this map have been walked far enough to know what volumes sit in them, and **${s.read}** have had anything actually read.
 
-**Three providers, and they are not the same kind of thing.** ${r.sources.map(x => `**${x.label}** — ${st.bySource[x.key].walked} of ${st.bySource[x.key].places} places walked, ${st.bySource[x.key].volumes} volumes`).join(" · ")}.
+**Four providers, and they are not the same kind of thing.** ${r.sources.map(x => `**${x.label}** — ${st.bySource[x.key].walked} of ${st.bySource[x.key].places} places walked, ${st.bySource[x.key].volumes} volumes`).join(" · ")}.
 
-FamilySearch is broad and shallow: a title, a year span, and **nothing name-indexed**. Pazin is narrow and deep, and it is the only one that admits what is *not* online — **${st.notDigitised} of its volumes are marked «not digitised»**, books that sit on a shelf in Istria and nowhere else. **${st.fsPending} FamilySearch parishes are still outstanding**, stopped by its rate limiter rather than by anything missing.
+FamilySearch is broad and shallow: a title, a year span, and **nothing name-indexed**. [Antenati](/antenati/) is the opposite shape again — two comuni, fifty-nine volumes, and every one of them a book to be turned by hand, because the Italian portal publishes no index of names at all. Its arks sit on a different host from everything else here, so the map sends you to [the archive's own list](/antenati/) rather than dressing them up as FamilySearch links. Pazin is narrow and deep, and it is the only one that admits what is *not* online — **${st.notDigitised} of its volumes are marked «not digitised»**, books that sit on a shelf in Istria and nowhere else. **${st.fsPending} FamilySearch parishes are still outstanding**, stopped by its rate limiter rather than by anything missing.
 
-*This paragraph said something else for about an hour.* It reported that thirty-four of the forty Kvarner parishes had never been walked — **and they had been**. The builder was reading the wrong field: Kvarner keeps its volumes under a field called **films**, like Dalmatia, and carries a stale **books** title-list on six of its forty parishes. Reading **books** invented a gap that did not exist and under-counted the archive by thirty-four parishes and 201 volumes. [Logged as a correction](/corrections/).`)}></div>
+*This paragraph said something else for about an hour.* It reported that thirty-four of the forty Kvarner parishes had never been walked — **and they had been**. The builder was reading the wrong field: Kvarner keeps its volumes under a field called **films**, like Dalmatia, and carries a stale **books** title-list on six of its forty parishes. Reading **books** invented a gap that did not exist and under-counted the archive by thirty-four parishes and 201 volumes. [Logged as a correction](/corrections/).`))}></div>
     </div>
 
     <div class="one">

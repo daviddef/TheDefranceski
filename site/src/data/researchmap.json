@@ -15,14 +15,19 @@
    "key": "dapa",
    "label": "Pazin State Archive",
    "what": "Državni arhiv u Pazinu, its own register list"
+  },
+  {
+   "key": "antenati",
+   "label": "Antenati",
+   "what": "Portale Antenati, Archivio di Stato di Udine — the Carnia civil registers"
   }
  ],
  "kml": "data/genealogy-resources-croatia.kml",
  "stats": {
-  "places": 1239,
-  "placed": 1187,
-  "volumes": 7085,
-  "read": 17,
+  "places": 1241,
+  "placed": 1189,
+  "volumes": 7144,
+  "read": 19,
   "listed": 1219,
   "untouched": 3,
   "byDepth": {
@@ -30,7 +35,7 @@
    "thin": 514,
    "some": 599,
    "deep": 106,
-   "read": 17
+   "read": 19
   },
   "researchers": 372,
   "bySource": {
@@ -48,6 +53,11 @@
     "places": 14,
     "volumes": 1151,
     "walked": 14
+   },
+   "antenati": {
+    "places": 2,
+    "volumes": 59,
+    "walked": 2
    }
   },
   "byLayer": {
@@ -62,7 +72,7 @@
   },
   "notDigitised": 154,
   "fsPending": 0,
-  "linked": 37
+  "linked": 77
  },
  "places": [
   {
@@ -37014,6 +37024,388 @@
    "reads": 0
   },
   {
+   "key": "mione",
+   "name": "Mione",
+   "alt": [
+    "Mione di Ovaro",
+    "Ovaro"
+   ],
+   "lat": 46.4256,
+   "lon": 12.8797,
+   "geo": "kml",
+   "cat": "read",
+   "layers": [],
+   "sources": {
+    "antenati": {
+     "shelves": {
+      "civil": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Matrimoni 1806–1815 — volume 1 of 9",
+         "ark": "an_ua667516",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 2 of 9",
+         "ark": "an_ua667517",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 3 of 9",
+         "ark": "an_ua667518",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 4 of 9",
+         "ark": "an_ua667519",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 5 of 9",
+         "ark": "an_ua667520",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 6 of 9",
+         "ark": "an_ua667521",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 7 of 9",
+         "ark": "an_ua667522",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 8 of 9",
+         "ark": "an_ua667523",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1806–1815 — volume 9 of 9",
+         "ark": "an_ua667524",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 1 of 13",
+         "ark": "an_ua667526",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 2 of 13",
+         "ark": "an_ua667527",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 3 of 13",
+         "ark": "an_ua667528",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 4 of 13",
+         "ark": "an_ua667529",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 5 of 13",
+         "ark": "an_ua667530",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 6 of 13",
+         "ark": "an_ua667531",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 7 of 13",
+         "ark": "an_ua667532",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 8 of 13",
+         "ark": "an_ua667533",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 9 of 13",
+         "ark": "an_ua667534",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 10 of 13",
+         "ark": "an_ua667535",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 11 of 13",
+         "ark": "an_ua667536",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 12 of 13",
+         "ark": "an_ua667537",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806–1815 — volume 13 of 13",
+         "ark": "an_ua667538",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, indici 1806–1815 — volume 1 of 3",
+         "ark": "an_ua667540",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, indici 1806–1815 — volume 2 of 3",
+         "ark": "an_ua667541",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, indici 1806–1815 — volume 3 of 3",
+         "ark": "an_ua667542",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 1 of 9",
+         "ark": "an_ua667544",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 2 of 9",
+         "ark": "an_ua667545",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 3 of 9",
+         "ark": "an_ua667546",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 4 of 9",
+         "ark": "an_ua667547",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 5 of 9",
+         "ark": "an_ua667548",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 6 of 9",
+         "ark": "an_ua667549",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 7 of 9",
+         "ark": "an_ua667550",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 8 of 9",
+         "ark": "an_ua667551",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Pubblicazioni 1806–1815 — volume 9 of 9",
+         "ark": "an_ua667552",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 1 of 9",
+         "ark": "an_ua667554",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 2 of 9",
+         "ark": "an_ua667555",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 3 of 9",
+         "ark": "an_ua667556",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 4 of 9",
+         "ark": "an_ua667557",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 5 of 9",
+         "ark": "an_ua667558",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 6 of 9",
+         "ark": "an_ua667559",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 7 of 9",
+         "ark": "an_ua667560",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 8 of 9",
+         "ark": "an_ua667561",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806–1815 — volume 9 of 9",
+         "ark": "an_ua667562",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti, indici 1806–1815 — volume 1 of 3",
+         "ark": "an_ua667566",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti, indici 1806–1815 — volume 2 of 3",
+         "ark": "an_ua667567",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Morti, indici 1806–1815 — volume 3 of 3",
+         "ark": "an_ua667568",
+         "antenati": true,
+         "from": 1806,
+         "to": 1815
+        },
+        {
+         "t": "Nati 1806",
+         "ark": "an_ua667570",
+         "antenati": true,
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Nati 1808",
+         "ark": "an_ua667571",
+         "antenati": true,
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Nati 1809",
+         "ark": "an_ua667572",
+         "antenati": true,
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Nati 1810",
+         "ark": "an_ua667573",
+         "antenati": true,
+         "from": 1810,
+         "to": 1810
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "antenati": {
+     "n": 50,
+     "walked": true
+    }
+   },
+   "volumes": 50,
+   "reads": 30
+  },
+  {
    "key": "mirca",
    "name": "Mirca",
    "alt": [
@@ -44142,6 +44534,100 @@
    },
    "volumes": 3,
    "reads": 0
+  },
+  {
+   "key": "ovaro",
+   "name": "Ovaro",
+   "alt": [
+    "Ovaro (Udine)"
+   ],
+   "lat": 46.4386,
+   "lon": 12.8983,
+   "geo": "kml",
+   "cat": "read",
+   "layers": [],
+   "sources": {
+    "antenati": {
+     "shelves": {
+      "civil": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Matrimoni 1807",
+         "ark": "an_ua679993",
+         "antenati": true,
+         "from": 1807,
+         "to": 1807
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 2 of 9",
+         "ark": "an_ua679984",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 3 of 9",
+         "ark": "an_ua679985",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 4 of 9",
+         "ark": "an_ua679986",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 5 of 9",
+         "ark": "an_ua679987",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 6 of 9",
+         "ark": "an_ua679988",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 7 of 9",
+         "ark": "an_ua679989",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1807–1815 — volume 8 of 9",
+         "ark": "an_ua679990",
+         "antenati": true,
+         "from": 1807,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni 1815",
+         "ark": "an_ua679991",
+         "antenati": true,
+         "from": 1815,
+         "to": 1815
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "antenati": {
+     "n": 9,
+     "walked": true
+    }
+   },
+   "volumes": 9,
+   "reads": 5
   },
   {
    "key": "oslje",
@@ -55217,7 +55703,10 @@
          "t": "Deaths (Umrli) 1870-1885",
          "wp": "9R28-FMH:391644001,391661301,391661302",
          "from": 1870,
-         "to": 1885
+         "to": 1885,
+         "ark": "3:1:3QSQ-G99X-RVF6",
+         "cc": "2040054",
+         "wc": "9R28-FMH:391644001,391661301,391661302"
         }
        ]
       },
@@ -55228,235 +55717,352 @@
          "t": "Baptisms (Krsteni) 1787-1824",
          "wp": "9R2D-BZ3:391644501,391661301,391675301",
          "from": 1787,
-         "to": 1824
+         "to": 1824,
+         "ark": "3:1:3QS7-899F-M9BS",
+         "cc": "2040054",
+         "wc": "9R2D-BZ3:391644501,391661301,391675301"
         },
         {
          "t": "Baptisms (Krsteni) 1802-1830",
          "wp": "9R2Z-ZJ9:391644501,391661301,391675601",
          "from": 1802,
-         "to": 1830
+         "to": 1830,
+         "ark": "3:1:3QSQ-G99X-PXD3",
+         "cc": "2040054",
+         "wc": "9R2Z-ZJ9:391644501,391661301,391675601"
         },
         {
          "t": "Baptisms (Krsteni) 1819-1821",
          "wp": "9R2Z-C6Y:391644501,391661301,391675801",
          "from": 1819,
-         "to": 1821
+         "to": 1821,
+         "ark": "3:1:3QS7-L99X-PXHQ",
+         "cc": "2040054",
+         "wc": "9R2Z-C6Y:391644501,391661301,391675801"
         },
         {
          "t": "Baptisms (Krsteni) 1820-1850",
          "wp": "9R2Z-C6X:391644501,391661301,391676101",
          "from": 1820,
-         "to": 1850
+         "to": 1850,
+         "ark": "3:1:3QSQ-G99X-P6WN",
+         "cc": "2040054",
+         "wc": "9R2Z-C6X:391644501,391661301,391676101"
         },
         {
          "t": "Baptisms (Krsteni) 1821-1849",
          "wp": "9R2Z-ZJ7:391644501,391661301,391676701",
          "from": 1821,
-         "to": 1849
+         "to": 1849,
+         "ark": "3:1:3QSQ-G99X-P61Y",
+         "cc": "2040054",
+         "wc": "9R2Z-ZJ7:391644501,391661301,391676701"
         },
         {
          "t": "Baptisms (Krsteni) 1821-1850",
          "wp": "9R2Z-ZN5:391644501,391661301,391676301",
          "from": 1821,
-         "to": 1850
+         "to": 1850,
+         "ark": "3:1:3QS7-L99X-PD4N",
+         "cc": "2040054",
+         "wc": "9R2Z-ZN5:391644501,391661301,391676301"
         },
         {
          "t": "Baptisms (Krsteni) 1845-1867",
          "wp": "9R2C-928:391644501,391661301,391677401",
          "from": 1845,
-         "to": 1867
+         "to": 1867,
+         "ark": "3:1:3QS7-L99X-2ZNS",
+         "cc": "2040054",
+         "wc": "9R2C-928:391644501,391661301,391677401"
         },
         {
          "t": "Baptisms (Krsteni) 1848-1851",
          "wp": "9R2C-S5H:391644501,391661301,391678101",
          "from": 1848,
-         "to": 1851
+         "to": 1851,
+         "ark": "3:1:3QS7-L99X-28T3",
+         "cc": "2040054",
+         "wc": "9R2C-S5H:391644501,391661301,391678101"
         },
         {
          "t": "Baptisms (Krsteni) 1848-1881",
          "wp": "9R2C-VZ7:391644501,391661301,391678001",
          "from": 1848,
-         "to": 1881
+         "to": 1881,
+         "ark": "3:1:3QS7-L99X-2HLL",
+         "cc": "2040054",
+         "wc": "9R2C-VZ7:391644501,391661301,391678001"
         },
         {
          "t": "Baptisms (Krsteni) 1849-1851",
          "wp": "9R2C-S53:391644501,391661301,391677001",
          "from": 1849,
-         "to": 1851
+         "to": 1851,
+         "ark": "3:1:3QSQ-G99X-28NN",
+         "cc": "2040054",
+         "wc": "9R2C-S53:391644501,391661301,391677001"
         },
         {
          "t": "Baptisms (Krsteni) 1849-1863",
          "wp": "9R2C-926:391644501,391661301,391677201",
          "from": 1849,
-         "to": 1863
+         "to": 1863,
+         "ark": "3:1:3QS7-899X-2ZM6",
+         "cc": "2040054",
+         "wc": "9R2C-926:391644501,391661301,391677201"
         },
         {
          "t": "Baptisms (Krsteni) 1856-1866",
          "wp": "9R2Z-KX7:391644501,391661301,391679101",
          "from": 1856,
-         "to": 1866
+         "to": 1866,
+         "ark": "3:1:3QSQ-G99X-P4MP",
+         "cc": "2040054",
+         "wc": "9R2Z-KX7:391644501,391661301,391679101"
         },
         {
          "t": "Baptisms (Krsteni) 1863-1876",
          "wp": "9R2C-K68:391644501,391661301,391677501",
          "from": 1863,
-         "to": 1876
+         "to": 1876,
+         "ark": "3:1:3QSQ-G99X-2ZGW",
+         "cc": "2040054",
+         "wc": "9R2C-K68:391644501,391661301,391677501"
         },
         {
          "t": "Baptisms (Krsteni) 1866-1871",
          "wp": "9R2Z-K6P:391644501,391661301,391679701",
          "from": 1866,
-         "to": 1871
+         "to": 1871,
+         "ark": "3:1:3QS7-899X-P78R",
+         "cc": "2040054",
+         "wc": "9R2Z-K6P:391644501,391661301,391679701"
         },
         {
          "t": "Baptisms (Krsteni) 1874, 1883",
          "wp": "9R28-WQM:391644501,391661301,391680601",
          "from": 1874,
-         "to": 1883
+         "to": 1883,
+         "ark": "3:1:3QS7-L99X-54KL",
+         "cc": "2040054",
+         "wc": "9R28-WQM:391644501,391661301,391680601"
         },
         {
          "t": "Baptisms (Krsteni) 1876-1884",
          "wp": "9R2Z-K6L:391644501,391661301,391679401",
          "from": 1876,
-         "to": 1884
+         "to": 1884,
+         "ark": "3:1:3QS7-L99X-PWL6",
+         "cc": "2040054",
+         "wc": "9R2Z-K6L:391644501,391661301,391679401"
         },
         {
          "t": "Baptisms (Krsteni) 1877-1888",
          "wp": "9R2C-SPR:391644501,391661301,391678501",
          "from": 1877,
-         "to": 1888
+         "to": 1888,
+         "ark": "3:1:3QS7-L99X-28FP",
+         "cc": "2040054",
+         "wc": "9R2C-SPR:391644501,391661301,391678501"
         },
         {
          "t": "Baptisms (Krsteni) 1888-1892",
          "wp": "9R2Z-2NB:391644501,391661301,391678801",
          "from": 1888,
-         "to": 1892
+         "to": 1892,
+         "ark": "3:1:3QS7-L99X-PQHR",
+         "cc": "2040054",
+         "wc": "9R2Z-2NB:391644501,391661301,391678801"
         },
         {
          "t": "Baptisms (Krsteni) 1889-1894",
          "wp": "9R2Z-VZ8:391644501,391661301,391679901",
          "from": 1889,
-         "to": 1894
+         "to": 1894,
+         "ark": "3:1:3QSQ-G99X-P7HY",
+         "cc": "2040054",
+         "wc": "9R2Z-VZ8:391644501,391661301,391679901"
         },
         {
          "t": "Baptisms (Krsteni) 1894-1898",
          "wp": "9R28-4WL:391644501,391661301,391680101",
          "from": 1894,
-         "to": 1898
+         "to": 1898,
+         "ark": "3:1:3QSQ-G99X-5HV4",
+         "cc": "2040054",
+         "wc": "9R28-4WL:391644501,391661301,391680101"
         },
         {
          "t": "Deaths (Umrli) 1833-1852",
          "wp": "9R28-6Y8:391644501,391661301,391687001",
          "from": 1833,
-         "to": 1852
+         "to": 1852,
+         "ark": "3:1:3QS7-899X-RNV2",
+         "cc": "2040054",
+         "wc": "9R28-6Y8:391644501,391661301,391687001"
         },
         {
          "t": "Deaths (Umrli) 1848-1864",
          "wp": "9R28-6TL:391644501,391661301,391687101",
          "from": 1848,
-         "to": 1864
+         "to": 1864,
+         "ark": "3:1:3QS7-899X-RNZB",
+         "cc": "2040054",
+         "wc": "9R28-6TL:391644501,391661301,391687101"
         },
         {
          "t": "Deaths (Umrli) 1848-1866",
          "wp": "9R28-DP5:391644501,391661301,391687401",
          "from": 1848,
-         "to": 1866
+         "to": 1866,
+         "ark": "3:1:3QSQ-G99X-RFGC",
+         "cc": "2040054",
+         "wc": "9R28-DP5:391644501,391661301,391687401"
         },
         {
          "t": "Deaths (Umrli) 1848-1868",
          "wp": "9R28-DPP:391644501,391661301,391687501",
          "from": 1848,
-         "to": 1868
+         "to": 1868,
+         "ark": "3:1:3QSQ-G99X-RFRK",
+         "cc": "2040054",
+         "wc": "9R28-DPP:391644501,391661301,391687501"
         },
         {
          "t": "Deaths (Umrli) 1850-1857",
          "wp": "9R2C-3YS:391644501,391661301,391687801",
          "from": 1850,
-         "to": 1857
+         "to": 1857,
+         "ark": "3:1:3QS7-899X-28HN",
+         "cc": "2040054",
+         "wc": "9R2C-3YS:391644501,391661301,391687801"
         },
         {
          "t": "Deaths (Umrli) 1856-1866",
          "wp": "9R2C-S54:391644501,391661301,391688001",
          "from": 1856,
-         "to": 1866
+         "to": 1866,
+         "ark": "3:1:3QSQ-G99X-2DCP",
+         "cc": "2040054",
+         "wc": "9R2C-S54:391644501,391661301,391688001"
         },
         {
          "t": "Deaths (Umrli) 1864-1879",
          "wp": "9R2C-7MW:391644501,391661301,391688101",
          "from": 1864,
-         "to": 1879
+         "to": 1879,
+         "ark": "3:1:3QS7-L99X-2XZS",
+         "cc": "2040054",
+         "wc": "9R2C-7MW:391644501,391661301,391688101"
         },
         {
          "t": "Deaths (Umrli) 1866-1913",
          "wp": "9R28-FMD:391644501,391661301,391688701",
          "from": 1866,
-         "to": 1913
+         "to": 1913,
+         "ark": "3:1:3QS7-899X-RVBH",
+         "cc": "2040054",
+         "wc": "9R28-FMD:391644501,391661301,391688701"
         },
         {
          "t": "Deaths (Umrli) 1867-1871",
          "wp": "9R28-FMZ:391644501,391661301,391688901",
          "from": 1867,
-         "to": 1871
+         "to": 1871,
+         "ark": "3:1:3QS7-L99X-RN57",
+         "cc": "2040054",
+         "wc": "9R28-FMZ:391644501,391661301,391688901"
         },
         {
          "t": "Deaths (Umrli) 1874-1891",
          "wp": "9R28-FMQ:391644501,391661301,391689001",
          "from": 1874,
-         "to": 1891
+         "to": 1891,
+         "ark": "3:1:3QS7-899X-RVHM",
+         "cc": "2040054",
+         "wc": "9R28-FMQ:391644501,391661301,391689001"
         },
         {
          "t": "Deaths (Umrli) 1879-1886",
          "wp": "9R28-6YS:391644501,391661301,391689101",
          "from": 1879,
-         "to": 1886
+         "to": 1886,
+         "ark": "3:1:3QS7-899X-RN1B",
+         "cc": "2040054",
+         "wc": "9R28-6YS:391644501,391661301,391689101"
         },
         {
          "t": "Deaths (Umrli) 1886-1895",
          "wp": "9R28-N35:391644501,391661301,391689501",
          "from": 1886,
-         "to": 1895
+         "to": 1895,
+         "ark": "3:1:3QS7-899X-RKBV",
+         "cc": "2040054",
+         "wc": "9R28-N35:391644501,391661301,391689501"
         },
         {
          "t": "Deaths (Umrli) 1895-1900",
          "wp": "9R2F-7MQ:391644501,391661301,391689801",
          "from": 1895,
-         "to": 1900
+         "to": 1900,
+         "ark": "3:1:3QSQ-G99F-F89",
+         "cc": "2040054",
+         "wc": "9R2F-7MQ:391644501,391661301,391689801"
         },
         {
          "t": "Deaths (Umrli) 1915-1916",
          "wp": "9R2F-927:391644501,391661301,391689901",
          "from": 1915,
-         "to": 1916
+         "to": 1916,
+         "ark": "3:1:3QSQ-G99F-X63G",
+         "cc": "2040054",
+         "wc": "9R2F-927:391644501,391661301,391689901"
         },
         {
          "t": "Marriages (Vjenčani) 1799-1821",
          "wp": "9R2C-S5C:391644501,391661301,391682601",
          "from": 1799,
-         "to": 1821
+         "to": 1821,
+         "ark": "3:1:3QS7-899X-28SL",
+         "cc": "2040054",
+         "wc": "9R2C-S5C:391644501,391661301,391682601"
         },
         {
          "t": "Marriages (Vjenčani) 1802-1835",
          "wp": "9R2C-S5W:391644501,391661301,391682801",
          "from": 1802,
-         "to": 1835
+         "to": 1835,
+         "ark": "3:1:3QS7-L99X-282P",
+         "cc": "2040054",
+         "wc": "9R2C-S5W:391644501,391661301,391682801"
         },
         {
          "t": "Marriages (Vjenčani) 1818-1821",
          "wp": "9R2C-S57:391644501,391661301,391683001",
          "from": 1818,
-         "to": 1821
+         "to": 1821,
+         "ark": "3:1:3QS7-L99X-286L",
+         "cc": "2040054",
+         "wc": "9R2C-S57:391644501,391661301,391683001"
         },
         {
          "t": "Marriages (Vjenčani) 1821-1850",
          "wp": "9R2C-SPP:391644501,391661301,391680701",
          "from": 1821,
-         "to": 1850
+         "to": 1850,
+         "ark": "3:1:3QSQ-G99X-54PF",
+         "cc": "2040054",
+         "wc": "9R2C-SPP:391644501,391661301,391680701"
         },
         {
          "t": "Marriages (Vjenčani) 1822-1850",
          "wp": "9R28-W3G:391644501,391661301,391681301",
          "from": 1822,
-         "to": 1850
+         "to": 1850,
+         "ark": "3:1:3QS7-899X-5WY7",
+         "cc": "2040054",
+         "wc": "9R28-W3G:391644501,391661301,391681301"
         },
         {
          "t": "Marriages (Vjenčani) 1848-1851",
