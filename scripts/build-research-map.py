@@ -689,8 +689,21 @@ def main():
         # has no marriage film touching those years: that book exists, on paper,
         # and nobody has photographed it. The reverse happens too, and matters
         # less — but it is the same test run the other way.
+        # ---- who is allowed to accuse whom of a hole ----------------------
+        # The cross-provider test compares SHELVES: one holder says a register
+        # for these years exists, another has not filmed it. «fs-cat» is not a
+        # shelf. It is the library catalogue, and one of its records is a
+        # bibliographic line that can span three centuries — «Matična knjiga,
+        # 1568-1917» is one row covering a parish's whole holdings. Letting it
+        # into the comparison turned a test of 460 volumes across six places
+        # into 1,572 across seventy-eight, and almost all of the difference was
+        # a catalogue record being read as a statement about a particular year.
+        CROSS = {"fs-hr", "fs-it", "dapa", "antenati", "fs-it-pola", "fs-si-mj",
+                 "fs-hr-delnice"}
         shelf = {}
         for sname, blk in p["src"].items():
+            if sname not in CROSS:
+                continue
             rows = []
             for sh in blk["shelves"].values():
                 for b in (sh["books"] or []):
@@ -794,7 +807,10 @@ def main():
                  for b in (sh["books"] or [])
                  if not b.get("digitised", True) and b.get("alsoFilmed")),
              "fsPending": len(fsc.get("f", [])),
-             "crossChecked": sum(1 for o in out if len(o["counts"]) > 1),
+             # Places two real shelves both describe — the only places a hole
+             # can be seen at all. The library catalogue is not a shelf.
+             "crossChecked": sum(1 for o in out if len(
+                 [x for x in o["counts"] if x != "fs-cat"]) > 1),
              "timelineGaps": None,   # filled once the blobs are built
              "gaps": sum(o["ngaps"] for o in out),
              "gapsBy": dict(collections.Counter(
