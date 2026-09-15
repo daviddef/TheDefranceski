@@ -26,6 +26,7 @@ import r from "../../data/researchmap.json";
 import mp from "../../data/map.json";
 import a from "../../data/atlas.json";
 import g from "../../data/gravesmap.json";
+import ros from "../../data/roster.json";
 
 const s = r.stats;
 const st = r.stats;
@@ -80,6 +81,12 @@ const schemes = [
   ["graves", "The ground", "Where the family is actually buried"],
 ];
 const m = mp.stats;
+/* The living, counted off the roster rather than typed into a sentence that
+   will be wrong the next time David tells us where somebody is. */
+const living = ros.rows.filter(r => r.living && (r.places || []).length);
+const liv = living.length;
+const at = (t) => living.filter(r => (r.places || []).some(p => p.startsWith(t))).length;
+const jhb = at("Johannesburg"), bne = at("Brisbane");
 const LAB = { rc: "Roman Catholic", orth: "Orthodox", gc: "Greek Catholic",
               jew: "Jewish", mil: "Military", ref: "Reformed", civil: "Civil",
               ev: "Evangelical" };
@@ -318,7 +325,9 @@ It is kept in the data, unpublished, and the useful question it answers is narro
 
 **${m.peoplePlaced} placements across ${m.people} towns**, and **${a.stats.withPeople}** of those towns carry at least one named person.
 
-**Living people are on this map by name and by town, and by nothing else.** The rule until 15 September 2026 was *no place of residence*, which kept every living relative off the map entirely; it is now **name and town, never a date**. Six living people are placed so far — the household this archive is compiled in, at Brisbane, and two of them also at Johannesburg. **The aunt, uncle and cousins are named in the roster and have no town yet**, because the archive has never been told one. [On the work list](/worklist/).`))}></div>
+**Living people are on this map by name and by town, and by nothing else.** The rule until 15 September 2026 was *no place of residence*, which kept every living relative off the map entirely. It is now **name and town, never a date** — and **all ${liv} living people this archive names are placed**.
+
+**${jhb} of them are at Johannesburg and ${bne} at Brisbane**, and two are at both. That is the shape of it: the family left Senj for the Rand, and **one household of the three went on to Australia** — the aunt and her husband, the uncle's widow and his daughters, and the cousins are all still in South Africa. **Not one of them has a date on this map**, and none ever will.`))}></div>
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">The ground: the third question, and the finding in it</h2>
