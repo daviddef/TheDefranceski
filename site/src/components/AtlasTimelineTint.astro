@@ -1,0 +1,74 @@
+---
+/* Colour the gap rows in the Atlas panel's coverage timeline.
+
+   The panel is the shared kit component and this session does not own it, so
+   nothing here reaches into the kit: the rows are tagged from outside, after
+   the panel renders, by reading the text the builder already puts in them.
+   «GAP — no births register filmed, 15 years» is the row that matters and it
+   was reading as one grey line among twenty.
+
+   The panel is rebuilt with innerHTML on every marker click, so a one-shot
+   pass would only ever paint the first place a reader opened. A
+   MutationObserver re-tags on each rebuild. */
+---
+<style is:global>
+  /* A hole in the record, which is the thing somebody came to this map to find. */
+  .at-ev li.at-gap {
+    background: rgba(176, 74, 22, 0.13);
+    border-left: 2.5px solid #B04A16;
+    padding: 4px 8px 4px 9px;
+    margin-left: -9px;
+    border-radius: 0 2px 2px 0;
+  }
+  .at-ev li.at-gap .at-ed { color: #8E3A11; font-weight: 600; }
+  :root:not([data-theme="light"]) .at-ev li.at-gap { background: rgba(214, 106, 48, 0.17); }
+  :root:not([data-theme="light"]) .at-ev li.at-gap .at-ed { color: #E2894F; }
+  :root[data-theme="dark"] .at-ev li.at-gap { background: rgba(214, 106, 48, 0.17); }
+  :root[data-theme="dark"] .at-ev li.at-gap .at-ed { color: #E2894F; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .at-ev li.at-gap { background: rgba(214, 106, 48, 0.17); }
+    :root:not([data-theme="light"]) .at-ev li.at-gap .at-ed { color: #E2894F; }
+  }
+
+  /* A year uncovered by any title but almost certainly not a missing book.
+     Marked, because it is still a hole on paper — but not cried over. */
+  .at-ev li.at-soft {
+    background: rgba(140, 140, 140, 0.10);
+    border-left: 2.5px dotted var(--rule, #dcd6cc);
+    padding: 4px 8px 4px 9px;
+    margin-left: -9px;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* Births / Marriages / Deaths — the block each timeline hangs under. */
+  .at-ev li.at-kind { margin-top: 12px; }
+  .at-ev li.at-kind .at-ed {
+    font-family: inherit; font-size: 11px; letter-spacing: .09em;
+    text-transform: uppercase; font-weight: 700; color: var(--ink-2);
+  }
+  .at-ev li.at-kind:first-child { margin-top: 2px; }
+</style>
+
+<script is:inline>
+  (function () {
+    var body = document.getElementById("at-body");
+    if (!body) return;
+    /* The builder indents every row that belongs under a record-type heading
+       with two spaces, so the heading rows are the ones whose date cell does
+       not start with whitespace. */
+    function tag() {
+      var rows = body.querySelectorAll(".at-ev li");
+      for (var i = 0; i < rows.length; i++) {
+        var li = rows[i];
+        var ed = li.querySelector(".at-ed");
+        var when = ed ? (ed.textContent || "") : "";
+        var text = (li.textContent || "").slice(when.length);
+        li.classList.toggle("at-gap", /^\s*GAP\b/.test(text));
+        li.classList.toggle("at-soft", /^\s*not covered by any title/.test(text));
+        li.classList.toggle("at-kind", !/^\s/.test(when) && /volumes?,\s*covering/.test(text));
+      }
+    }
+    new MutationObserver(tag).observe(body, { childList: true, subtree: true });
+    tag();
+  })();
+</script>

@@ -5,6 +5,7 @@
    is already carrying coverage. */
 import Base from "../../layouts/Base.astro";
 import Atlas from "@daviddef/archive-kit/components/Atlas.astro";
+import AtlasTimelineTint from "../../components/AtlasTimelineTint.astro";
 import { u } from "../../lib/url.js";
 import { mdp } from "../../lib/md.js";
 import r from "../../data/researchmap.json";
@@ -36,6 +37,8 @@ const others = r.sources.filter(x => x.key !== s.key);
     placeholder="Find a parish"
     hint={`${mine.walked} of ${mine.places} places on this provider have been walked to volume level.`}
   />
+
+  <AtlasTimelineTint />
 
   <div class="one" style="border-left-color:var(--accent);margin-top:26px">
     <div class="lab">What this provider is, and what it is not</div>
