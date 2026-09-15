@@ -17,6 +17,8 @@ which is itself the shape of the emigration.
     python3 scripts/build-graves-map.py --gaz <dir with cities500.txt + HR.txt …>
 """
 import sys, os, re, json, collections, unicodedata
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import gazcheck
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "site", "src", "data")
@@ -104,7 +106,9 @@ def resolve(place, country, gaz):
 
 def main():
     gdir = sys.argv[sys.argv.index("--gaz") + 1] if "--gaz" in sys.argv else None
-    gaz = gazetteer(gdir) if gdir else {}
+    # cities500 alone is 235,808 places; under a hundred thousand keys means
+    # the file was not found and every «unplaced» below would be a lie.
+    gaz = gazcheck.require(gazetteer(gdir) if gdir else {}, gdir, 100000)
     atlas = {norm(p["name"]): p for p in load("atlas.json")["places"]}
 
     places = {}
@@ -163,6 +167,8 @@ def main():
              "earliest": min([o["first"] for o in out if o["first"]] or [None]),
              "latest": max([o["last"] for o in out if o["last"]] or [None])}
 
+    gazcheck.guard(os.path.join(DATA, "gravesmap.json"), "stats.placed",
+                   stats["placed"], "placed burial-grounds")
     json.dump({"note": "Where this family is buried — headstones photographed, and burial registers read.",
                "stats": stats, "places": out, "unplaced": unplaced},
               open(os.path.join(DATA, "gravesmap.json"), "w", encoding="utf-8"),

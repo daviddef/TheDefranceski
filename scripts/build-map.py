@@ -25,7 +25,9 @@ for merging them.
 Writes site/public/map-data.json and site/src/data/map.json (the stats and
 the merge report, for the page to quote).
 """
-import json, io, os, re, math, unicodedata, collections
+import json, io, os, re, sys, math, unicodedata, collections
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import gazcheck
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "site", "src", "data")
@@ -205,6 +207,7 @@ mm = load(os.path.join(DATA, "mymap.json"))
 areas = [{"n": x.get("n") or L["name"], "layer": L["name"], "ring": x["ring"]}
          for L in mm["layers"] for x in L["areas"]]
 
+gazcheck.guard(os.path.join(DATA, "map.json"), "stats.places", stats["places"], "merged places")
 json.dump({"places": places, "stats": stats, "moves": mv["moves"],
            "spine": mv.get("spine"), "areas": areas,
            "mnote": mv.get("note"), "mcaution": mv.get("caution")},

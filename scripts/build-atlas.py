@@ -30,7 +30,26 @@ prows    = places if isinstance(places, list) else places.get("rows", [])
 # bad label breed. The pristine seed is kept beside it and never written to.
 _seed = load("atlas-seed.json") or load("atlas.json")
 oldatlas = _seed["places"]
-geo      = json.load(io.open("/tmp/harvest-geo.json", encoding="utf-8"))
+# Coordinates come from the repository now. This line used to read
+# «/tmp/harvest-geo.json» — a hundred and seven places on a path the operating
+# system is entitled to empty between one build and the next, and the same
+# class of dependency that quietly cost the graves map forty-one of its
+# sixty-four places on 15 September. data/gazetteer.json is distilled from the
+# GeoNames dumps by scripts/build-gazetteer.py and committed.
+_gz = os.path.join(ROOT, "data", "gazetteer.json")
+geo = {k: {"lat": v["lat"], "lon": v["lon"], "full": v["name"]}
+       for k, v in json.load(io.open(_gz, encoding="utf-8"))["places"].items()}
+if len(geo) < 1000:
+    raise SystemExit("data/gazetteer.json holds only %d places — rebuild it with "
+                     "scripts/build-gazetteer.py --gaz <dir>" % len(geo))
+# The old harvest file is still read when it happens to be there, because it
+# carries a few hand-checked places the dumps do not, but it is no longer
+# required and nothing breaks when it is gone.
+_old = "/tmp/harvest-geo.json"
+if os.path.exists(_old):
+    for k, v in json.load(io.open(_old, encoding="utf-8")).items():
+        if v.get("lat") is not None:
+            geo.setdefault(k, v)
 
 pb  = load("parishbooks.json")  or {}
 dal = load("dalmatia-books.json") or {}

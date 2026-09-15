@@ -445,6 +445,13 @@
   .at-scheme button.on b { color: var(--accent, #7A5CA8); }
   .at-cat[data-cat="_none"] { display: none !important; }
   .at-cat[data-scheme-off] { display: none !important; }
+  /* On a phone the three questions sit one above the other, and buttons that
+     size to their own text make a ragged left edge out of what is meant to
+     read as one control. */
+  @media (max-width: 640px) {
+    .at-scheme .at-sc-row { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .at-scheme button { width: 100%; }
+  }
 </style>
 
 <script is:inline define:vars={{ hitsUrl: Astro.props.dataUrl || "",

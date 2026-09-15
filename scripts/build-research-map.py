@@ -38,6 +38,8 @@ Writes site/src/data/researchmap.json and one Atlas blob per source view.
 """
 import sys, os, re, json, collections, itertools, unicodedata, urllib.parse
 import xml.etree.ElementTree as ET
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import gazcheck
 
 NS   = {"k": "http://www.opengis.net/kml/2.2"}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -393,7 +395,9 @@ def timeline(books):
 
 def main():
     gdir = sys.argv[sys.argv.index("--gaz") + 1] if "--gaz" in sys.argv else None
-    gaz  = gazetteer(gdir) if gdir else {}
+    # Eight country dumps hold well over a hundred thousand names between
+    # them. Anything under fifty thousand means the path is wrong.
+    gaz  = gazcheck.require(gazetteer(gdir) if gdir else {}, gdir, 50000)
     prev = {}
     out_path = os.path.join(DATA, "researchmap.json")
     if os.path.exists(out_path):
@@ -970,6 +974,7 @@ def main():
     _all["stats"] = stats
     json.dump(_all, open(os.path.join(PUB, "research-map-data.json"), "w",
                          encoding="utf-8"), ensure_ascii=False)
+    gazcheck.guard(out_path, "stats.placed", stats["placed"], "placed record-book places")
     json.dump({"note": researchmap_note, "sources": [{"key": k, "label": l, "what": w}
                                                      for k, l, w in SOURCES],
                "kml": "data/genealogy-resources-croatia.kml",
