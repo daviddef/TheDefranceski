@@ -6476,6 +6476,35 @@
     "Antenati",
     "research map"
    ]
+  },
+  {
+   "src": "Portale Antenati — the Mione inventory, walked ark by ark (Archivio di Stato di Udine)",
+   "what": "Forty-six catalogue pages fetched one at a time, to fix which comune, series and year each ark actually is",
+   "when": "15 Sept 2026",
+   "outcome": "found",
+   "got": "**The inference held, and the assumption behind it did not.**\n\nMione's marriages, allegati, indices and banns came back exactly as this archive had predicted from the ranges: **Matrimoni 1806, 1808–1815 (9) · Pubblicazioni, the same nine years · Matrimoni allegati, 13 across those years with two apiece for 1808–1811 · Matrimoni indici, three only — 1806–1810, 1811, 1812, and then nothing.** Every series missing 1807.\n\n**But the very first ark fetched was not Mione.** `an_ua667510` is **Mieli, in the Comune di Comeglians** — Morti 1807 — and 667512 and 667513 are Mieli's Nati for 1806 and 1807. The portal does not number one comune per block, and an Ovaro range this archive had claimed on that assumption is withdrawn.\n\n**Antenati stops answering after about forty-six pages.** Every request after that returns **HTTP 400**, including arks already fetched successfully — a rate limit wearing an error code, not a bad address.\n\n*The catalogue now records how each volume's identity is known* — walked, read, or unconfirmed — and five arks inside Mione's range are left unconfirmed rather than given a year they might not have.",
+   "url": "https://antenati.cultura.gov.it/ark:/12657/an_ua667516",
+   "dest": "Mione and Mieli, Antenati inventory",
+   "ev": [
+    [
+     "/antenati/",
+     "The catalogue, every ark a link"
+    ],
+    [
+     "/carnia/#gap1807",
+     "What 1807 and 1811–1815 cost"
+    ],
+    [
+     "/corrections/",
+     "The assumption that was wrong"
+    ]
+   ],
+   "tags": [
+    "Carnia",
+    "registers",
+    "Antenati",
+    "research map"
+   ]
   }
  ]
 }
