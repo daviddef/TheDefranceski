@@ -480,34 +480,34 @@
   {
    "n": 59,
    "what": "Audit every roster row flagged «mine» against the direct line",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Two rows for **Mario Defranceschi of Brisbane** carried the `mine` flag and he is not this family. The flag decides who stands on the family's own markers and who is counted as kin, and **nothing checks it**. Walk all of them against the eight generations and the known households, and write down the test that was applied."
+   "note": "**Run, and twelve rows failed it.** The test is written down for the first time: *«mine» means this archive can NAME the path from this person to David* — a place on the direct line, a named relationship, or a household the archive has drawn. A shared surname on a gravestone is not a path. Twelve Find a Grave memorials came off the flag — Millbrook, the Bronx, East Farmingdale, Middle Village, Hartsdale, and the Lilydale, Fawkner and Parkville Italians the diaspora page had already filed under a different migration. **187 rows keep it.** [Correction 80](/corrections/)."
   },
   {
    "n": 60,
    "what": "Put the live tree in the sources table and mark the 2018 GEDCOM superseded",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "[About](/about/) still lists **«MyHeritage family tree export, July 2018 — 8,286 individuals»** as a live source with no warning on it. It is retired. The source row should say so, name the live tree as the thing that replaced it, and give the date the archive last read it."
+   "note": "**Done.** [About](/about/) now carries the live tree as a source in its own right — 15,643 people, tree 4, read 7 and 15 September — and the July 2018 export is marked **SUPERSEDED** in its own title, with the reason on it."
   },
   {
    "n": 61,
    "what": "Make every builder fail loudly when its gazetteer is missing",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "`build-graves-map.py --gaz <wrong path>` produced a map with **23 of 64 places** instead of 64 and said nothing — the gazetteer loader returns an empty dict when the file is not there, and everything downstream treats «cannot place» as a fact about the place. Same trap in `build-research-map.py`. **A missing gazetteer is a broken run, not an empty one.**"
+   "note": "**Done: `scripts/gazcheck.py`.** Every map builder now dies with a message naming the path it was given when its gazetteer comes back short. Tested with a wrong directory: exit 2, nothing written."
   },
   {
    "n": 62,
    "what": "A regression guard: a builder that places fewer places than last time must say so",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Nothing in the build noticed that the graves map had lost forty-one coordinates. The page rendered, the links resolved, the audit passed. Each builder already reads its own previous output for cached coordinates; have it **compare the counts and shout** when a number goes backwards."
+   "note": "**Done, in the same file.** A builder that places fewer places than its own last output refuses to write and says by how many. `--allow-shrink` is there for a fall that is real and intended."
   },
   {
    "n": 63,
@@ -641,18 +641,18 @@
   {
    "n": 78,
    "what": "Populate the per-volume read ledger from the search register",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "`site/src/data/reads.json` exists and is **empty**. Two hundred and seventy-six rows of the search register describe readings; some of them name a volume closely enough to pin. Go through them and write down every one that can honestly be tied to a book, so the map's «not written down» marks start turning into «read»."
+   "note": "**Done — four volumes pinned, and six places now have a book of their own opened instead of two.** Gračišće's baptism book 1667–1745 and Donji Proložac's deaths 1837–1859 are **read right through**; Svetvinčenat's 1663–1708 and Vodnjan's 1815–1884 reel are **read in part**. «Part read» now counts as started."
   },
   {
    "n": 79,
    "what": "Say in one line what was read at each of the twenty teal places",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Twenty places are now **researched with their own books unopened**, and the panel says so in the general — *«5 things ABOUT this place»*. It should name them. The search register already holds the rows; the map should quote the titles rather than count them."
+   "note": "**Done.** A teal marker prints the rows themselves under a heading that says not one of them is a volume from the shelf above. Žminj shows *«Libri žminjski, libar drugi (Žminj 2008) — partial»*; a place with more than twelve says how many more."
   },
   {
    "n": 80,
@@ -665,26 +665,26 @@
   {
    "n": 81,
    "what": "/map/ at phone width",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "The merged map page is long, carries a Leaflet map, a scheme switcher, fifteen filter pills and two tables. **It has never been looked at below 400px.** The archive's own rule is that nothing may push the page sideways."
+   "note": "**Checked at 375px and it holds** — scrollWidth equals clientWidth, so nothing pushes the page sideways. One fix made: the three question buttons size to their own text, which made a ragged left edge on a phone, so below 640px they go full width."
   },
   {
    "n": 82,
    "what": "Retire the hand-kept coordinates in atlas-seed.json",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "**Adelaide had to be typed in by hand today** because the atlas resolves places from `places.json`, the seed, and a `/tmp` harvest file — and none of them had it. The graves map already reads `cities500`, which has every town on earth over five hundred people. The atlas should read it too, and the seed should keep only the places a gazetteer genuinely cannot resolve."
+   "note": "**Done by building `data/gazetteer.json`** — 2,456 places distilled from the GeoNames dumps by `scripts/build-gazetteer.py` and committed, so no builder needs the seventy-seven megabytes of dumps to run. The atlas gained six places by it. The seed keeps only what a gazetteer genuinely cannot resolve, and says so."
   },
   {
    "n": 83,
    "what": "The `/tmp/harvest-geo.json` dependency",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "`build-atlas.py` reads **`/tmp/harvest-geo.json`** — 107 places, outside the repository, on a path the operating system is entitled to empty. If it disappears the atlas silently loses coordinates, which is the same failure the graves map had today. **Move it into the repo or into the gazetteer.**"
+   "note": "**Gone.** `build-atlas.py` reads the committed gazetteer; the seventeen hand-checked places the old file carried have been folded in and marked as hand-checked. The file is read if it happens to be there and nothing breaks when it is not."
   },
   {
    "n": 84,
