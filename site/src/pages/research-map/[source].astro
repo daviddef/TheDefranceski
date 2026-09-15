@@ -38,7 +38,7 @@ const others = r.sources.filter(x => x.key !== s.key);
     hint={`${mine.walked} of ${mine.places} places on this provider have been walked to volume level.`}
   />
 
-  <AtlasTimelineTint />
+  <AtlasTimelineTint dataUrl={u(`/research-map-${s.key}.json`)} />
 
   <div class="one" style="border-left-color:var(--accent);margin-top:26px">
     <div class="lab">What this provider is, and what it is not</div>

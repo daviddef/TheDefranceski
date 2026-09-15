@@ -254,3 +254,138 @@
     tag();
   })();
 </script>
+
+<style is:global>
+  /* The find box filters the map but only opens a place when the query happens
+     to match exactly one. Typing «Senj» leaves Senj, Senja and Senjska Draga on
+     the map and the panel still saying «pick a place», which is not what a
+     search box promises. These are the matches, listed, so one can be chosen. */
+  .at-find { position: relative; }
+  .at-hits {
+    position: absolute; z-index: 1200; left: 0; right: 0; top: 100%;
+    margin: 4px 0 0; padding: 4px; list-style: none;
+    background: var(--panel, #fff); border: 1px solid var(--rule, #dcd6cc);
+    border-radius: 3px; box-shadow: 0 6px 18px rgba(0,0,0,.10);
+    max-height: 280px; overflow-y: auto;
+  }
+  .at-hits[hidden] { display: none !important; }
+  .at-hits li {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 6px 8px; cursor: pointer; border-radius: 2px; font-size: 13.5px;
+  }
+  .at-hits li:hover, .at-hits li.on { background: var(--card, #f3efe7); }
+  .at-hits i { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
+  .at-hits .n { font-weight: 600; }
+  .at-hits .a { font-size: 11.5px; opacity: .62; font-style: italic; }
+  .at-hits .v { margin-left: auto; font-size: 11px; opacity: .6; white-space: nowrap; }
+  .at-hits .none { cursor: default; opacity: .6; font-style: italic; }
+</style>
+
+<script is:inline define:vars={{ hitsUrl: Astro.props.dataUrl || "" }}>
+  (function () {
+    var q = document.getElementById("at-q");
+    var box = q && q.closest(".at-find");
+    var count = document.getElementById("at-count");
+    if (!q || !box || !hitsUrl) return;
+
+    var COLOURS = {};
+    document.querySelectorAll(".at-cat[data-cat] i").forEach(function (i) {
+      COLOURS[i.parentNode.getAttribute("data-cat")] = i.style.background;
+    });
+
+    var list = document.createElement("ul");
+    list.className = "at-hits";
+    list.hidden = true;
+    box.appendChild(list);
+
+    var places = [], cur = -1;
+    fetch(hitsUrl).then(function (r) { return r.json(); }).then(function (d) {
+      places = (d.places || []).map(function (p) {
+        return { name: p.name, also: p.also || [], cat: p.cat,
+                 vols: (String(p.what).match(/(\d+)\s+volumes?\s+catalogued/) || [])[1] || null };
+      });
+    });
+
+    function matches(t) {
+      t = t.toLowerCase().trim();
+      if (!t) return [];
+      var out = [];
+      for (var i = 0; i < places.length && out.length < 40; i++) {
+        var p = places[i];
+        var hay = (p.name + " " + p.also.join(" ")).toLowerCase();
+        if (hay.indexOf(t) > -1) out.push(p);
+      }
+      /* A place whose own name starts with what was typed is what the typist
+         meant; «Senj» should not rank below «Senjska Draga». */
+      out.sort(function (a, b) {
+        var an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+        return (bn.indexOf(t) === 0) - (an.indexOf(t) === 0) || an.length - bn.length;
+      });
+      return out.slice(0, 8);
+    }
+
+    function draw() {
+      var hits = matches(q.value);
+      cur = -1;
+      if (!q.value.trim()) { list.hidden = true; list.innerHTML = ""; return; }
+      if (!hits.length) {
+        list.innerHTML = '<li class="none">Nothing on this map is called that.</li>';
+        list.hidden = false;
+        return;
+      }
+      list.innerHTML = "";
+      hits.forEach(function (p) {
+        var li = document.createElement("li");
+        var dot = document.createElement("i");
+        dot.style.background = COLOURS[p.cat] || "#999";
+        var n = document.createElement("span"); n.className = "n"; n.textContent = p.name;
+        li.appendChild(dot); li.appendChild(n);
+        if (p.also.length) {
+          var a = document.createElement("span"); a.className = "a";
+          a.textContent = p.also.slice(0, 2).join(" · ");
+          li.appendChild(a);
+        }
+        var v = document.createElement("span"); v.className = "v";
+        v.textContent = p.vols ? p.vols + (p.vols === "1" ? " volume" : " volumes") : "no catalogue";
+        li.appendChild(v);
+        li.addEventListener("mousedown", function (e) { e.preventDefault(); pick(p); });
+        list.appendChild(li);
+      });
+      list.hidden = false;
+    }
+
+    /* Choosing a place means making the kit's own filter resolve to exactly
+       one marker, because that is the moment the kit pans the map and opens
+       the panel. The place's own name is tried first; if it is a prefix of a
+       neighbour's — Senj inside Senjska Draga — an older name usually is not. */
+    function pick(p) {
+      var tries = [p.name].concat(p.also);
+      for (var i = 0; i < tries.length; i++) {
+        q.value = tries[i];
+        q.dispatchEvent(new Event("input", { bubbles: true }));
+        if (count && /^1 of\b/.test(count.textContent || "")) break;
+      }
+      q.value = p.name;
+      list.hidden = true;
+      q.blur();
+    }
+
+    q.addEventListener("input", draw);
+    q.addEventListener("focus", draw);
+    q.addEventListener("blur", function () { setTimeout(function () { list.hidden = true; }, 120); });
+    q.addEventListener("keydown", function (e) {
+      var items = list.querySelectorAll("li:not(.none)");
+      if (!items.length || list.hidden) return;
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+        cur = (cur + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length;
+        items.forEach(function (x, i) { x.classList.toggle("on", i === cur); });
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        items[cur > -1 ? cur : 0].dispatchEvent(new MouseEvent("mousedown"));
+      } else if (e.key === "Escape") {
+        list.hidden = true;
+      }
+    });
+  })();
+</script>

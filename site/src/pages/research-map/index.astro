@@ -76,7 +76,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
     hint={`${s.placed} of the ${s.places} places can be put on the map. ${s.read} of them — ${pct(s.read)}% — have had anything read at all.`}
   />
 
-  <AtlasTimelineTint />
+  <AtlasTimelineTint dataUrl={u("/research-map-data.json")} />
 
   <div class="one" style="margin-top:26px">
     <div class="lab">One provider at a time</div>
