@@ -4,8 +4,27 @@
     {
       "name": "site-dist",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4317", "--directory", "site/dist"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4317",
+        "--directory",
+        "site/dist"
+      ],
       "port": 4317
+    },
+    {
+      "name": "site-based",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4318",
+        "--directory",
+        "/tmp/claude-501/serve"
+      ],
+      "port": 4318,
+      "url": "http://localhost:4318"
     }
   ]
 }

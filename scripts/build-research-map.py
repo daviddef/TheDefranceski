@@ -263,10 +263,10 @@ def main():
             elif n == 0:
                 what = f"{who}. Walked, and the shelf is empty."
             else:
-                what = f"{who}. **{n}** volume{'' if n == 1 else 's'} catalogued, from {prov}."
+                what = f"{who}. {n} volume{'' if n == 1 else 's'} catalogued, from {prov}."
             nd = sum(b.get("notDigitised", 0) for b in got.values())
             if nd:
-                what += f" **{nd}** of them are not digitised anywhere."
+                what += f" {nd} of them are not digitised anywhere."
             ev, films = [], []
             for s, blk in sorted(got.items()):
                 for sh in blk["shelves"].values():
