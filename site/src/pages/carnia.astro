@@ -664,6 +664,30 @@ const cmdp = (x) => cmd(x).replace(/\n\n+/g, "</p><p>");
     ))}
   </div>
 
+  <h3 id="allegati1806" style="font-size:24px;margin-top:44px">{c.allegati1806.heading}</h3>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.allegati1806.lead)}></p>
+  <div class="one" style="border-left-color:var(--accent);margin-top:22px">
+    <div class="lab">The file, and the chain of hands on it</div>
+    <dl style="margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;line-height:1.6">
+      <dt class="lab" style="white-space:nowrap">Where</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.when)}></dd>
+      <dt class="lab" style="white-space:nowrap">The bride</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.who)}></dd>
+      <dt class="lab" style="white-space:nowrap">The groom</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.child)}></dd>
+      <dt class="lab" style="white-space:nowrap">Her father</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.brought)}></dd>
+      <dt class="lab" style="white-space:nowrap">His mother</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.witnesses)}></dd>
+      <dt class="lab" style="white-space:nowrap">Certified</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.signed)}></dd>
+      <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={cmd(c.allegati1806.act.ref)}></dd>
+    </dl>
+    <p class="cap" style="margin-top:12px">{c.allegati1806.grade}</p>
+  </div>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {c.allegati1806.why.map(x => (
+      <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{x.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={cmdp(x.text)}></div>
+      </div>
+    ))}
+  </div>
+
   <h3 id="ovaro1807" style="font-size:24px;margin-top:44px">{c.ovaro1807.heading}</h3>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.ovaro1807.lead)}></p>
   <div class="one" style="border-left-color:var(--accent);margin-top:22px">
