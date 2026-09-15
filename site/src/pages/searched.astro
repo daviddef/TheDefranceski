@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Searched from "@daviddef/archive-kit/components/Searched.astro";
 import { md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -51,64 +52,18 @@ const hay = (r) => [r.src, r.what, r.when, label[kind(r)], r.got, r.dest,
 <Rule name="arrows" label="Search the register" />
 
 <section class="blk">
-  <form class="sr-bar" role="search" onsubmit="return false">
-    <label class="sr-f">
-      <span class="sr-lb">Search every row</span>
-      <input id="sr-q" type="search" autocomplete="off" spellcheck="false"
-             placeholder="world war · Vodnjan · blocked · Findmypast · 1914" />
-    </label>
-    <div class="sr-chips" id="sr-chips">
-      <button class="sr-c on" data-k="all">All <span class="sr-n">{d.rows.length}</span></button>
-      {order.concat(n("other") ? ["other"] : []).map(k => (
-        <button class="sr-c" data-k={k}>{label[k]} <span class="sr-n">{n(k)}</span></button>
-      ))}
-    </div>
-    <p class="sr-count" id="sr-count" aria-live="polite">{d.rows.length} of {d.rows.length} sources</p>
-  </form>
+  <Searched u={u} nil={["nothing", "blocked"]} unit="sources"
+    rows={rows.map((r) => ({
+      when: r.when,
+      src: r.src,
+      what: based(_md(r.what)).replace(/<[^>]+>/g, ""),
+      got: r.got,
+      outcome: label[kind(r)],
+      href: r.url,
+      tags: r.tags || [],
+      extra: r.dest ? `· ${r.dest}` : "",
+    }))} />
 
-  <div class="scroll" style="margin-top:18px">
-    <table class="sr-t">
-      <thead><tr>
-        <th style="width:21%">Source</th>
-        <th style="width:15%">What was searched</th>
-        <th class="m" style="width:8%">When</th>
-        <th style="width:13%">Outcome</th>
-        <th>What it gave, or did not</th>
-      </tr></thead>
-      <tbody id="sr-body">{rows.map(r => (
-        <tr data-k={kind(r)} data-h={hay(r)}>
-          <td>
-            {r.url
-              ? <a class="sr-src" href={r.url.startsWith("/") ? u(r.url) : r.url}
-                   rel={r.url.startsWith("/") ? null : "noopener"}
-                   target={r.url.startsWith("/") ? null : "_blank"}>{r.src}</a>
-              : <strong>{r.src}</strong>}
-            {r.url && <span class="sr-dest">{host(r.url) || "on this site"}{host(r.url) ? " ↗" : " →"}</span>}
-          </td>
-          <td set:html={based(_md(r.what))}></td>
-          <td class="m">{r.when}</td>
-          <td>
-            <span class={`sr-o o-${kind(r)}`}>{label[kind(r)]}</span>
-            {r.tags && r.tags.length > 0 && (
-              <span class="sr-tags">{r.tags.map(t => (
-                <button class="sr-tag" data-t={t} type="button">{t}</button>
-              ))}</span>
-            )}
-          </td>
-          <td>
-            <div set:html={based(_md(r.got).replace(/\n\n+/g, "<br><br>"))}></div>
-            {r.ev && r.ev.length > 0 && (
-              <p class="sr-ev">
-                <span class="sr-evl">What it produced on this site</span>
-                {r.ev.map(([href, lab]) => <a href={u(href)}>{lab}</a>)}
-              </p>
-            )}
-          </td>
-        </tr>
-      ))}</tbody>
-    </table>
-    <p class="sr-none" id="sr-none" hidden>Nothing in the register matches that. Try a place, a portal, a year, or an outcome.</p>
-  </div>
 </section>
 
 <Rule name="pomegranate" />
@@ -127,67 +82,7 @@ const hay = (r) => [r.src, r.what, r.when, label[kind(r)], r.got, r.dest,
 
   <Sources ids={["openstarts", "hrcak", "archiveorg", "siasp", "dapa"]} />
 
-<script is:inline>
-  (function () {
-    var q = document.getElementById("sr-q");
-    var body = document.getElementById("sr-body");
-    var count = document.getElementById("sr-count");
-    var none = document.getElementById("sr-none");
-    var chips = document.getElementById("sr-chips");
-    if (!q || !body) return;
-    var rows = Array.prototype.slice.call(body.querySelectorAll("tr"));
-    var total = rows.length;
-    var kind = "all";
 
-    function apply() {
-      var terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
-      var shown = 0;
-      for (var i = 0; i < rows.length; i++) {
-        var r = rows[i];
-        var ok = (kind === "all" || r.getAttribute("data-k") === kind);
-        if (ok && terms.length) {
-          var h = r.getAttribute("data-h");
-          for (var t = 0; t < terms.length; t++) {
-            if (h.indexOf(terms[t]) === -1) { ok = false; break; }
-          }
-        }
-        r.hidden = !ok;
-        if (ok) shown++;
-      }
-      count.textContent = shown === total
-        ? total + " of " + total + " sources"
-        : shown + " of " + total + " sources";
-      none.hidden = shown > 0;
-    }
-
-    q.addEventListener("input", apply);
-    body.addEventListener("click", function (e) {
-      var t = e.target.closest(".sr-tag");
-      if (!t) return;
-      q.value = t.getAttribute("data-t");
-      apply();
-      q.scrollIntoView({ block: "center" });
-    });
-    chips.addEventListener("click", function (e) {
-      var b = e.target.closest("button[data-k]");
-      if (!b) return;
-      kind = b.getAttribute("data-k");
-      Array.prototype.forEach.call(chips.querySelectorAll("button"), function (x) {
-        x.classList.toggle("on", x === b);
-      });
-      apply();
-    });
-
-    // deep link: /searched/?q=world+war  or  #blocked
-    var p = new URLSearchParams(location.search).get("q");
-    if (p) { q.value = p; }
-    var h = location.hash.replace("#", "");
-    if (h && chips.querySelector('button[data-k="' + h + '"]')) {
-      chips.querySelector('button[data-k="' + h + '"]').click();
-    }
-    if (p) apply();
-  })();
-</script>
 
 <style>
   .sr-bar { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
