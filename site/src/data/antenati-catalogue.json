@@ -1,11 +1,10 @@
 {
- "note": "Antenati (Portale Antenati, Archivio di Stato di Udine) — the Napoleonic and Austrian civil registers for the Carnia comuni this family came out of. Every volume here is an ark that opens the book at page one; the portal has no name index for any of them.",
+ "note": "Antenati (Portale Antenati, Archivio di Stato di Udine) — the Napoleonic and Austrian civil registers for the Carnia comuni this family came out of. Every volume here is an ark that opens the book at page one; the portal has no name index for any of them. **Every entry below was fetched one at a time from its own catalogue page.**",
  "collection": "Archivio di Stato di Udine, Stato civile napoleonico e restaurazione",
  "base": "https://antenati.cultura.gov.it/ark:/12657/",
  "how": {
   "walked": "Its own catalogue page was fetched and read — comune, series and year are the portal's",
-  "read": "Opened and read act by act in this archive; its identity is fixed by what is inside it",
-  "unconfirmed": "Inside the inventory's ark range, but neither walked nor read. Nothing is claimed about it"
+  "read": "Opened and read act by act in this archive; its identity is fixed by what is inside it"
  },
  "comuni": [
   {
@@ -62,7 +61,7 @@
      "year": "1812",
      "from": 1812,
      "to": 1812,
-     "how": "walked"
+     "how": "read"
     },
     {
      "ark": "an_ua667522",
@@ -86,7 +85,7 @@
      "year": "1815",
      "from": 1815,
      "to": 1815,
-     "how": "walked"
+     "how": "read"
     },
     {
      "ark": "an_ua667526",
@@ -222,7 +221,7 @@
      "year": "1806",
      "from": 1806,
      "to": 1806,
-     "how": "walked"
+     "how": "read"
     },
     {
      "ark": "an_ua667545",
@@ -230,7 +229,7 @@
      "year": "1808",
      "from": 1808,
      "to": 1808,
-     "how": "walked"
+     "how": "read"
     },
     {
      "ark": "an_ua667546",
@@ -262,7 +261,7 @@
      "year": "1812",
      "from": 1812,
      "to": 1812,
-     "how": "walked"
+     "how": "read"
     },
     {
      "ark": "an_ua667550",
@@ -286,7 +285,7 @@
      "year": "1815",
      "from": 1815,
      "to": 1815,
-     "how": "walked"
+     "how": "read"
     },
     {
      "ark": "an_ua667554",
@@ -311,6 +310,22 @@
      "from": 1809,
      "to": 1809,
      "how": "read"
+    },
+    {
+     "ark": "an_ua667557",
+     "series": "Morti",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667558",
+     "series": "Morti",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
     },
     {
      "ark": "an_ua667559",
@@ -345,6 +360,38 @@
      "how": "read"
     },
     {
+     "ark": "an_ua667564",
+     "series": "Morti, allegati",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667566",
+     "series": "Morti, indice",
+     "year": "1806-1810",
+     "from": 1806,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667567",
+     "series": "Morti, indice",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667568",
+     "series": "Morti, indice",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
      "ark": "an_ua667570",
      "series": "Nati",
      "year": "1806",
@@ -375,49 +422,9 @@
      "from": 1810,
      "to": 1810,
      "how": "read"
-    },
-    {
-     "ark": "an_ua667557",
-     "series": null,
-     "year": null,
-     "from": null,
-     "to": null,
-     "how": "unconfirmed"
-    },
-    {
-     "ark": "an_ua667558",
-     "series": null,
-     "year": null,
-     "from": null,
-     "to": null,
-     "how": "unconfirmed"
-    },
-    {
-     "ark": "an_ua667566",
-     "series": null,
-     "year": null,
-     "from": null,
-     "to": null,
-     "how": "unconfirmed"
-    },
-    {
-     "ark": "an_ua667567",
-     "series": null,
-     "year": null,
-     "from": null,
-     "to": null,
-     "how": "unconfirmed"
-    },
-    {
-     "ark": "an_ua667568",
-     "series": null,
-     "year": null,
-     "from": null,
-     "to": null,
-     "how": "unconfirmed"
     }
    ],
-   "note": "**The marriages and the banns each run nine volumes — 1806, then 1808 to 1815 — and the marriage indices stop at 1812.** Seven of the nine deaths are confirmed and two arks in that stretch are not yet checked. **The births run four and stop at 1810.** And 1807 is absent from every series in the comune."
+   "note": "Six series. **The marriages, the banns and the deaths each run nine volumes — 1806, then 1808 to 1815. The births run four and stop at 1810. Both sets of indices stop at 1812, and only one volume of death allegati survives, for 1809.** **1807 is absent from every Mione series.**"
   },
   {
    "name": "Ovaro",
@@ -428,12 +435,76 @@
    "lon": 12.8983,
    "volumes": [
     {
-     "ark": "an_ua679993",
+     "ark": "an_ua679982",
+     "series": "Matrimoni",
+     "year": "1806",
+     "from": 1806,
+     "to": 1806,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679983",
      "series": "Matrimoni",
      "year": "1807",
      "from": 1807,
      "to": 1807,
-     "how": "read"
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679984",
+     "series": "Matrimoni",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679985",
+     "series": "Matrimoni",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679986",
+     "series": "Matrimoni",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679987",
+     "series": "Matrimoni",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679988",
+     "series": "Matrimoni",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679989",
+     "series": "Matrimoni",
+     "year": "1813",
+     "from": 1813,
+     "to": 1813,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679990",
+     "series": "Matrimoni",
+     "year": "1814",
+     "from": 1814,
+     "to": 1814,
+     "how": "walked"
     },
     {
      "ark": "an_ua679991",
@@ -442,9 +513,89 @@
      "from": 1815,
      "to": 1815,
      "how": "read"
+    },
+    {
+     "ark": "an_ua679993",
+     "series": "Matrimoni, allegati",
+     "year": "1807",
+     "from": 1807,
+     "to": 1807,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679994",
+     "series": "Matrimoni, allegati",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679995",
+     "series": "Matrimoni, allegati",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679996",
+     "series": "Matrimoni, allegati",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679997",
+     "series": "Matrimoni, allegati",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679998",
+     "series": "Matrimoni, allegati",
+     "year": "1813",
+     "from": 1813,
+     "to": 1813,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua679999",
+     "series": "Matrimoni, allegati",
+     "year": "1814",
+     "from": 1814,
+     "to": 1814,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua680000",
+     "series": "Matrimoni, allegati",
+     "year": "1815",
+     "from": 1815,
+     "to": 1815,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua680002",
+     "series": "Matrimoni, indice",
+     "year": "1806-1810",
+     "from": 1806,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua680003",
+     "series": "Matrimoni, indice",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
     }
    ],
-   "note": "Only the two volumes this archive has opened. The rest of Ovaro's inventory is not yet walked."
+   "note": "Only the marriages are digitised — but **they run 1806 to 1815 without a gap, and that includes 1807.** The allegati are missing 1806 and 1809, and the indices stop at 1811. **Ovaro having 1807 while Mione does not is the single most useful thing on this page**: it means the year survives in the comune system, and Mione's volume is lost rather than never kept."
   },
   {
    "name": "Mieli",

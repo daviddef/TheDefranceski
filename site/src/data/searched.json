@@ -6505,6 +6505,35 @@
     "Antenati",
     "research map"
    ]
+  },
+  {
+   "src": "Portale Antenati — the Ovaro inventory, walked ark by ark (Archivio di Stato di Udine)",
+   "what": "Whether Ovaro's civil registers have the 1807 that Mione is missing",
+   "when": "15 Sept 2026",
+   "outcome": "found",
+   "got": "**They do. Ovaro's marriages run 1806 to 1815 without a single gap** — ark an_ua679982 through an_ua679991, ten volumes, and **1807 is an_ua679983**.\n\n**Only the marriages are digitised at Ovaro**: no births, no deaths, no banns. The **allegati** run eight volumes (an_ua679993–680000) and are missing 1806 and 1809; the **indices** are two, 1806–1810 and 1811.\n\n**This is the correction that matters.** This archive had written, twice, that 1807 was absent from both comuni. It is absent from **Mione**. The next comune up the valley kept it — so 1807 is not a year the system failed, it is **one lost Mione volume**, and that is a question an archivist can answer.\n\n**And it points at a cheaper route than a letter.** The Mione index says Osvaldo Defranceschi married Valentina Prencis on 6 August 1807. The Ovaro 1807 allegati exist and cost nothing to open.\n\n*The 400 errors that stopped the first Antenati walk were never a rate limit.* The portal writes a «recently viewed» entry into the cookie for every register opened; at about 8 KB the Cookie header exceeds Apache's limit and the server answers *«Size of a request header field exceeds server limit»*. **Fetching with credentials omitted returns 200 immediately.** Forty-six pages of throttling that was not throttling.",
+   "url": "https://antenati.cultura.gov.it/ark:/12657/an_ua679983",
+   "dest": "Ovaro, Antenati inventory",
+   "ev": [
+    [
+     "/antenati/",
+     "All seventy-four volumes, every one a link"
+    ],
+    [
+     "/carnia/#gap1807",
+     "What survives and what does not"
+    ],
+    [
+     "/corrections/",
+     "The sentence this replaced"
+    ]
+   ],
+   "tags": [
+    "Carnia",
+    "registers",
+    "Antenati",
+    "method"
+   ]
   }
  ]
 }

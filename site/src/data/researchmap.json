@@ -26,7 +26,7 @@
  "stats": {
   "places": 1242,
   "placed": 1190,
-  "volumes": 7140,
+  "volumes": 7159,
   "read": 20,
   "listed": 1219,
   "untouched": 3,
@@ -56,7 +56,7 @@
    },
    "antenati": {
     "places": 3,
-    "volumes": 55,
+    "volumes": 74,
     "walked": 3
    }
   },
@@ -40854,10 +40854,10 @@
          "to": 1811
         },
         {
-         "t": "Matrimoni 1812",
+         "t": "Matrimoni 1812 — read",
          "ark": "an_ua667521",
          "antenati": true,
-         "how": "walked",
+         "how": "read",
          "from": 1812,
          "to": 1812
         },
@@ -40878,10 +40878,10 @@
          "to": 1814
         },
         {
-         "t": "Matrimoni 1815",
+         "t": "Matrimoni 1815 — read",
          "ark": "an_ua667524",
          "antenati": true,
-         "how": "walked",
+         "how": "read",
          "from": 1815,
          "to": 1815
         },
@@ -41014,18 +41014,18 @@
          "to": 1812
         },
         {
-         "t": "Matrimoni, pubblicazioni ed opposizioni 1806",
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1806 — read",
          "ark": "an_ua667544",
          "antenati": true,
-         "how": "walked",
+         "how": "read",
          "from": 1806,
          "to": 1806
         },
         {
-         "t": "Matrimoni, pubblicazioni ed opposizioni 1808",
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1808 — read",
          "ark": "an_ua667545",
          "antenati": true,
-         "how": "walked",
+         "how": "read",
          "from": 1808,
          "to": 1808
         },
@@ -41054,10 +41054,10 @@
          "to": 1811
         },
         {
-         "t": "Matrimoni, pubblicazioni ed opposizioni 1812",
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1812 — read",
          "ark": "an_ua667549",
          "antenati": true,
-         "how": "walked",
+         "how": "read",
          "from": 1812,
          "to": 1812
         },
@@ -41078,10 +41078,10 @@
          "to": 1814
         },
         {
-         "t": "Matrimoni, pubblicazioni ed opposizioni 1815",
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1815 — read",
          "ark": "an_ua667552",
          "antenati": true,
-         "how": "walked",
+         "how": "read",
          "from": 1815,
          "to": 1815
         },
@@ -41108,6 +41108,22 @@
          "how": "read",
          "from": 1809,
          "to": 1809
+        },
+        {
+         "t": "Morti 1810",
+         "ark": "an_ua667557",
+         "antenati": true,
+         "how": "walked",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Morti 1811",
+         "ark": "an_ua667558",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
         },
         {
          "t": "Morti 1812 — read",
@@ -41142,6 +41158,38 @@
          "to": 1815
         },
         {
+         "t": "Morti, allegati 1809",
+         "ark": "an_ua667564",
+         "antenati": true,
+         "how": "walked",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Morti, indice 1806-1810",
+         "ark": "an_ua667566",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1810
+        },
+        {
+         "t": "Morti, indice 1811",
+         "ark": "an_ua667567",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Morti, indice 1812",
+         "ark": "an_ua667568",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
          "t": "Nati 1806 — read",
          "ark": "an_ua667570",
          "antenati": true,
@@ -41172,46 +41220,6 @@
          "how": "read",
          "from": 1810,
          "to": 1810
-        },
-        {
-         "t": "Listed in the range, identity unconfirmed",
-         "ark": "an_ua667557",
-         "antenati": true,
-         "how": "unconfirmed",
-         "from": null,
-         "to": null
-        },
-        {
-         "t": "Listed in the range, identity unconfirmed",
-         "ark": "an_ua667558",
-         "antenati": true,
-         "how": "unconfirmed",
-         "from": null,
-         "to": null
-        },
-        {
-         "t": "Listed in the range, identity unconfirmed",
-         "ark": "an_ua667566",
-         "antenati": true,
-         "how": "unconfirmed",
-         "from": null,
-         "to": null
-        },
-        {
-         "t": "Listed in the range, identity unconfirmed",
-         "ark": "an_ua667567",
-         "antenati": true,
-         "how": "unconfirmed",
-         "from": null,
-         "to": null
-        },
-        {
-         "t": "Listed in the range, identity unconfirmed",
-         "ark": "an_ua667568",
-         "antenati": true,
-         "how": "unconfirmed",
-         "from": null,
-         "to": null
         }
        ]
       }
@@ -41220,11 +41228,11 @@
    },
    "counts": {
     "antenati": {
-     "n": 50,
+     "n": 51,
      "walked": true
     }
    },
-   "volumes": 50,
+   "volumes": 51,
    "reads": 32,
    "gaps": [],
    "ngaps": 0,
@@ -48783,12 +48791,76 @@
        "wp": null,
        "books": [
         {
-         "t": "Matrimoni 1807 — read",
-         "ark": "an_ua679993",
+         "t": "Matrimoni 1806",
+         "ark": "an_ua679982",
          "antenati": true,
-         "how": "read",
+         "how": "walked",
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Matrimoni 1807",
+         "ark": "an_ua679983",
+         "antenati": true,
+         "how": "walked",
          "from": 1807,
          "to": 1807
+        },
+        {
+         "t": "Matrimoni 1808",
+         "ark": "an_ua679984",
+         "antenati": true,
+         "how": "walked",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Matrimoni 1809",
+         "ark": "an_ua679985",
+         "antenati": true,
+         "how": "walked",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Matrimoni 1810",
+         "ark": "an_ua679986",
+         "antenati": true,
+         "how": "walked",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni 1811",
+         "ark": "an_ua679987",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni 1812",
+         "ark": "an_ua679988",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Matrimoni 1813",
+         "ark": "an_ua679989",
+         "antenati": true,
+         "how": "walked",
+         "from": 1813,
+         "to": 1813
+        },
+        {
+         "t": "Matrimoni 1814",
+         "ark": "an_ua679990",
+         "antenati": true,
+         "how": "walked",
+         "from": 1814,
+         "to": 1814
         },
         {
          "t": "Matrimoni 1815 — read",
@@ -48797,6 +48869,86 @@
          "how": "read",
          "from": 1815,
          "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1807",
+         "ark": "an_ua679993",
+         "antenati": true,
+         "how": "walked",
+         "from": 1807,
+         "to": 1807
+        },
+        {
+         "t": "Matrimoni, allegati 1808",
+         "ark": "an_ua679994",
+         "antenati": true,
+         "how": "walked",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Matrimoni, allegati 1810",
+         "ark": "an_ua679995",
+         "antenati": true,
+         "how": "walked",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni, allegati 1811",
+         "ark": "an_ua679996",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni, allegati 1812",
+         "ark": "an_ua679997",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Matrimoni, allegati 1813",
+         "ark": "an_ua679998",
+         "antenati": true,
+         "how": "walked",
+         "from": 1813,
+         "to": 1813
+        },
+        {
+         "t": "Matrimoni, allegati 1814",
+         "ark": "an_ua679999",
+         "antenati": true,
+         "how": "walked",
+         "from": 1814,
+         "to": 1814
+        },
+        {
+         "t": "Matrimoni, allegati 1815",
+         "ark": "an_ua680000",
+         "antenati": true,
+         "how": "walked",
+         "from": 1815,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, indice 1806-1810",
+         "ark": "an_ua680002",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni, indice 1811",
+         "ark": "an_ua680003",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
         }
        ]
       }
@@ -48805,11 +48957,11 @@
    },
    "counts": {
     "antenati": {
-     "n": 2,
+     "n": 20,
      "walked": true
     }
    },
-   "volumes": 2,
+   "volumes": 20,
    "reads": 6,
    "gaps": [],
    "ngaps": 0,
