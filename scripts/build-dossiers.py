@@ -263,14 +263,27 @@ def _dates(row, child=None):
     if d: return f"d. {d}"
     return ""
 
+# Read from a register page · read off an index · off the family tree.
+# The band under every name on a person page says which, and it used to say
+# «the archive's own line» for anybody flagged as the compiler's kin — which is
+# a statement about KINSHIP and was being printed in the place where the reader
+# looks for PROVENANCE. Ninety-four rows whose only source is David's family
+# tree were wearing the strongest band on the page, including every person the
+# Australian and Crikvenica branches brought in on 15 and 16 September.
+#
+# The evidence now wins, and «line» is kept for the drawn descent and for the
+# kin who have no other source at all:
+READ_SRC = {"read", "golo", "eleven"}      # all three came off register pages
+
 def _via(row, hh=None, child=None):
     if hh and hh.get("src") == "read": return "read"
     if child and child.get("id"): return "index"
     if row:
-        if row.get("direct") or row.get("mine"): return "line"
-        if row.get("src") == "read": return "read"
+        if row.get("direct"): return "line"
+        if row.get("src") in READ_SRC: return "read"
         if row.get("ark"): return "index"
         if row.get("mh"): return "tree"
+        if row.get("mine"): return "line"
         if hh: return "index" if hh.get("src") == "index" else ""
     if hh and hh.get("src") == "index": return "index"
     return ""
@@ -282,6 +295,13 @@ def node(name, hh=None, child=None, small=False):
     n = {"n": name, "dt": _dates(row, child), "via": _via(row, hh, child)}
     if sl: n["slug"] = sl
     if small: n["small"] = True
+    # Does this person head a household of their own? A sister listed as a bare
+    # name looks like the end of a line, and Petrica Defranceski is not: she
+    # married and had two daughters. Say so on the box rather than making the
+    # reader click to find out.
+    own = PARENT_OF.get(_nm(name)) or []
+    kids = max((len(h.get("children") or []) for h in own), default=0)
+    if kids: n["own"] = kids
     return n
 
 VIA_WORD = {"line": "the archive's own line", "read": "a register this archive has read",

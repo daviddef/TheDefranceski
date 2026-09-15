@@ -194,8 +194,8 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
         <div class="prow">{p.ptree.children.map(x => (
           x.slug
             ? <a class={`pnode via-${x.via || "none"}`} href={u(`/who/${x.slug}/`)} title={`Known from: ${VIAW[x.via] || "no source recorded"}`}>
-                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></a>
-            : <span class={`pnode via-${x.via || "none"}`}><span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></span>
+                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}{x.own && <span class="own">{x.own} {x.own === 1 ? "child" : "children"} of their own</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></a>
+            : <span class={`pnode via-${x.via || "none"}`}><span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}{x.own && <span class="own">{x.own} {x.own === 1 ? "child" : "children"} of their own</span>}<span class="via">{VIAW[x.via] || "no source recorded"}</span></span>
         ))}</div>
       </div>
     )}
@@ -205,8 +205,8 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
         <div class="prow">{p.ptree.siblings.map(x => (
           x.slug
             ? <a class={`pnode small via-${x.via || "none"}`} href={u(`/who/${x.slug}/`)} title={`Known from: ${VIAW[x.via] || "no source recorded"}`}>
-                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}</a>
-            : <span class={`pnode small via-${x.via || "none"}`}><span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}</span>
+                <span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}{x.own && <span class="own">{x.own} {x.own === 1 ? "child" : "children"} of their own</span>}</a>
+            : <span class={`pnode small via-${x.via || "none"}`}><span class="nm">{x.n}</span>{x.dt && <span class="dt">{x.dt}</span>}{x.own && <span class="own">{x.own} {x.own === 1 ? "child" : "children"} of their own</span>}</span>
         ))}</div>
       </div>
     )}
@@ -421,6 +421,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   .fact:last-child { border-right: 0; }
   .fk { display: block; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; opacity: .62; }
   .fv { display: block; margin-top: 4px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; }
+  .pnode .own { display: block; font: 400 10.5px/1.5 var(--mono); color: var(--accent, #8a5a3b); margin-top: 2px; }
   .known { margin-top: 18px; padding: 16px 18px; border-left: 3px solid var(--accent, #8a5a3b); background: color-mix(in srgb, var(--accent, #8a5a3b) 5%, transparent); border-radius: 0 3px 3px 0; }
   .known p { margin: 0; font-size: 15.5px; line-height: 1.68; }
   @media (max-width: 620px) { .fact { flex: 1 1 100%; border-right: 0; border-bottom: 1px solid var(--rule, #dcd6cc); } .fact:last-child { border-bottom: 0; } }
