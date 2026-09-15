@@ -180,7 +180,7 @@ def older_names(name, alts):
         out.append(a)
     return out[:6]
 
-def progress(n, reads, vread, vknown):
+def progress(n, reads, vread, vknown, vpart=0):
     """How far this archive has got, which is the only question worth a colour.
 
     The first cut of this map coloured by coverage state and saturated. The
@@ -219,7 +219,7 @@ def progress(n, reads, vread, vknown):
         return "none"
     if vknown and vread >= n:
         return "done"
-    if vread:
+    if vread or vpart:
         return "started"
     if reads:
         return "worked"
@@ -571,11 +571,21 @@ def main():
     rows = load("searched.json")["rows"]
     where = [" ".join(str(r.get(x, "")) for x in ("src", "dest")) for r in rows]
     reads = collections.Counter()
+    # «Researched, books unopened» was a count and nothing else: five things
+    # read about Žminj, and the reader had to go and look for themselves what
+    # the five were. The titles are right here; the map should say them.
+    readrows = collections.defaultdict(list)
     for k, p in places.items():
         if k in STOP or len(p["name"]) < 4:
             continue
         pat = re.compile(r"\b" + re.escape(p["name"]) + r"\b", re.I)
-        reads[k] = sum(1 for t in where if pat.search(t))
+        for t, r in zip(where, rows):
+            if not pat.search(t):
+                continue
+            reads[k] += 1
+            readrows[k].append({"t": (r.get("src") or "").strip(),
+                                "w": (r.get("when") or "").strip(),
+                                "o": (r.get("outcome") or "").strip()})
 
     # ---- 6. coordinates
     atlas = {norm(p["name"]): p for p in load("atlas.json")["places"]}
@@ -664,9 +674,14 @@ def main():
         # recorded against the place, not the book.
         vread = sum(1 for blk in p["src"].values() for sh in blk["shelves"].values()
                     for b in (sh["books"] or []) if b.get("how") == "read")
+        # A volume somebody has read part of is a volume somebody has opened,
+        # which is the whole distinction «started» exists to draw. It is not
+        # counted as read — that is what «done» is for — but it is not nothing.
+        vpart = sum(1 for blk in p["src"].values() for sh in blk["shelves"].values()
+                    for b in (sh["books"] or []) if b.get("how") == "part")
         vknown = any(b.get("how") for blk in p["src"].values()
                      for sh in blk["shelves"].values() for b in (sh["books"] or []))
-        state = progress(total, reads.get(k), vread, vknown)
+        state = progress(total, reads.get(k), vread, vknown, vpart)
 
         # ---- 6b. where the providers disagree ---------------------------
         # A place catalogued by two providers is the only place a gap can be
@@ -738,7 +753,8 @@ def main():
                     "lat": c[0] if c else None, "lon": c[1] if c else None, "geo": how,
                     "cat": state, "layers": sorted(p["layers"]),
                     "sources": p["src"], "counts": vols, "volumes": total,
-                    "reads": reads.get(k, 0), "vread": vread, "vknown": vknown,
+                    "reads": reads.get(k, 0), "readrows": readrows.get(k, [])[:12],
+                    "vread": vread, "vpart": vpart, "vknown": vknown,
                     "gaps": gaps, "ngaps": len(gaps), "gapSpans": spans})
 
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
@@ -811,7 +827,7 @@ def main():
                 continue
             n = sum(o["counts"][s]["n"] for s in got)
             walked = any(o["counts"][s]["walked"] for s in got)
-            state = progress(n, o["reads"], o["vread"], o["vknown"])
+            state = progress(n, o["reads"], o["vread"], o["vknown"], o.get("vpart", 0))
             who = " · ".join(LABEL.get(l, l) for l in o["layers"]) or "Civil"
             prov = " · ".join(dict((k, l) for k, l, _ in SOURCES)[s] for s in got)
             if not got:
@@ -837,17 +853,20 @@ def main():
                 if o["vknown"] and o["vread"] >= n:
                     tail = (f"All {n} have been read. This is the only state on the map that "
                             f"means the work here is finished.")
-                elif o["vread"]:
-                    tail = (f"{o['vread']} of the {n} have been read, one volume at a time. "
-                            f"{n - o['vread']} have never been opened.")
+                elif o["vread"] or o.get("vpart"):
+                    bits = []
+                    if o["vread"]: bits.append(f"{o['vread']} read right through")
+                    if o.get("vpart"): bits.append(f"{o['vpart']} read in part")
+                    rest = n - o["vread"] - o.get("vpart", 0)
+                    tail = ("Of the %d: %s%s." % (n, " and ".join(bits),
+                            f", and {rest} never opened" if rest > 0 else ""))
                 elif o["reads"]:
                     # The Atlas panel escapes its text — it renders no markup at
                     # all — so this sentence carries its weight in words.
                     tail = (f"Not one of them has been opened. What has been read here is "
                             f"{o['reads']} thing{'' if o['reads'] == 1 else 's'} ABOUT this "
-                            f"place — a printed history, an index, a paper, a letter — which "
-                            f"the search register lists. That is research and it is not the "
-                            f"same as reading the parish's own books.")
+                            f"place — named below — which is research, and is not the same as "
+                            f"reading the parish's own books.")
                 else:
                     tail = ("Nobody has opened any of it. The number of volumes is the size of "
                             "the shelf, not a measure of what has been done.")
@@ -882,6 +901,21 @@ def main():
                             if set(got) == {"dapa"} else
                             "no image address has been harvested for any of them yet."))
             ev = timeline(allb)
+            # Name them. A reader who is told «five things about this place»
+            # and not which five has been given a number, not a finding.
+            if o.get("readrows") and not o["vread"]:
+                one = o["reads"] == 1
+                ev.append(["Read about it",
+                           f"{o['reads']} row{'' if one else 's'} of the search register "
+                           f"{'names' if one else 'name'} this place as a source or a "
+                           f"destination. Not one of them is a volume from the shelf above."])
+                for rr in o["readrows"]:
+                    ev.append(["    " + (rr["w"] or "—"),
+                               rr["t"] + (f" — {rr['o']}" if rr["o"] else "")])
+                if o["reads"] > len(o["readrows"]):
+                    ev.append(["    and more",
+                               f"{o['reads'] - len(o['readrows'])} further rows, listed in full "
+                               f"on the search register."])
             if len(allb) > 2 and ev and not any(t.startswith(("GAP", "not covered"))
                                                 for _, t in ev):
                 ev.append(["No gaps", "Every year between the first volume and the last is "

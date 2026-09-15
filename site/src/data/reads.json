@@ -5,5 +5,42 @@
   "part": "Opened, and some of it read — a stretch of years, a series of pages, an index checked. Say which in `what`."
  },
  "how": "place is the parish as the map names it; volume is the volume's own title as the panel prints it, years and all — matching folds punctuation and word order, so «Births (Rođeni) 1716-1884» and «1716–1884 · Births (Rođeni)» are the same book. provider is the source key. when is the date it was read.",
- "reads": []
+ "reads": [
+  {
+   "place": "Gračišće",
+   "provider": "dapa",
+   "volume": "Births 1667-1745",
+   "state": "read",
+   "when": "Sept 2026",
+   "what": "The Gallignana baptism book, read image by image off Pazin's microfilm ZM34K-215. Five occurrences of the surname in seventy-eight years and a systematic negative for the rest — the most labour-intensive single piece of work in this archive, and the one that answered the central question.",
+   "src": "Državni arhiv u Pazinu, microfilm ZM34K-215"
+  },
+  {
+   "place": "Donji Proložac",
+   "provider": "fs-hr",
+   "volume": "Deaths (Umrli) 1837-1859",
+   "state": "read",
+   "when": "Sept 2026",
+   "what": "Swept page by page — twenty-two years of that parish's dead, read by composing the Deep Zoom tiles of each page's name column at full resolution. No Franceschi and no Frančeski in any of it, which is what the reading was for.",
+   "src": "FamilySearch film 005494056, item 2, images 61–111, unindexed"
+  },
+  {
+   "place": "Svetvinčenat",
+   "provider": "fs-hr",
+   "volume": "Births (Rođeni) 1663-1708, 1696-1698",
+   "state": "part",
+   "when": "Sept 2026",
+   "what": "Nineteen openings — every image the index pointed at, read band by band across 1666–1707. Twenty occurrences the index does not have, sixteen of them godparent roles, and one duplicate inside the register itself. The indexed run is complete; the unindexed images either side of it are not.",
+   "src": "FamilySearch DGS 005497884"
+  },
+  {
+   "place": "Vodnjan",
+   "provider": "fs-hr",
+   "volume": "Births (Rođeni) 1867-1878 Marriages (Vjenčani) 1815-1884 Deaths (Umrli) 1815-1833",
+   "state": "part",
+   "when": "13 Sept 2026",
+   "what": "Two runs through one reel. The Liber Copulatorum at images 172–195, opening by opening, testing Michiela De Franceschi against the marriage register; and the Liber Defunctorum at images 561–572. Everything between and after is unread.",
+   "src": "FamilySearch DGS 005497894"
+  }
+ ]
 }
