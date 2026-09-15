@@ -121,6 +121,25 @@ import d from "../data/diaspora.json";
     ))}
   </div>
   <p class="prose note" style="margin-top:18px" set:html={_md(d.placeholders.close)}></p>
+  <h3 style="margin-top:32px">{d.placeholders.table.heading}</h3>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.placeholders.table.lead)}></p>
+  <div class="scroll" style="margin-top:14px">
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+      <thead><tr>
+        <th style="text-align:left;padding:6px 10px 6px 0">Pen</th>
+        <th style="text-align:right;padding:6px 0 6px 10px">People hanging in it</th>
+      </tr></thead>
+      <tbody>
+        {d.placeholders.table.rows.map(([c, n]) => (
+          <tr style="border-top:1px solid var(--rule)">
+            <td style="padding:7px 10px 7px 0"><strong>{c}</strong></td>
+            <td style="padding:7px 0 7px 10px;text-align:right;font-variant-numeric:tabular-nums">{n}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:16px" set:html={_md(d.placeholders.table.close)}></p>
   <p class="cap" style="margin-top:12px">Read from David's live MyHeritage tree, family tree 4, on 16 September 2026. <strong>Nobody in these pens is claimed as a relative</strong>; they are recorded because the sorting is itself a finding.</p>
 </section>
 

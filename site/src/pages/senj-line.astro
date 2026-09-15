@@ -153,5 +153,20 @@ import Lightbox from "../components/Lightbox.astro";
 </section>
 <Lightbox />
 
+<Rule name="arrows" label={d.handover.heading} />
+<section class="blk">
+  <p class="dek" set:html={d.handover.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+    {d.handover.rows.map(([lab, t]) => (
+      <div class="one">
+        <div class="lab">{lab}</div>
+        <p style="margin-top:8px" set:html={t.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={d.handover.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+  <p class="cap" style="margin-top:12px">Read from David's live MyHeritage tree, family tree 4, 16 September 2026. <a href="https://daviddef.github.io/TheBlazevic/">The Blažević Archive →</a></p>
+</section>
+
   <Sources ids={["maticne", "myheritage", "familysearch", "mftpkg", "gologorica2026"]} />
 </Base>
