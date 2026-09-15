@@ -1,10 +1,28 @@
 ---
-/* A horizontal scrolling band: the family above the line, the world below it. */
+/* A horizontal scrolling band: the family above the line, the world below it.
+
+   The labels used to be staggered into four fixed rows, forty-odd pixels
+   apart, and told to take the first row whose last label ended two hundred
+   pixels back. Two things were wrong with that. Four rows is not enough for
+   the years around 1800, where this family's history is thickest, and a label
+   that overflowed them was simply dropped back on top of another. And the row
+   pitch was a guess: a three-line label is about fifty-five pixels tall and
+   was given forty-four, so even labels that did NOT collide horizontally ran
+   into the one below.
+
+   So the lanes are now packed properly — first lane whose last label has
+   actually ended, a new lane opened when none has — and each lane is given
+   the height of the tallest label in it. The band's own height, and the
+   position of the axis in it, follow from that rather than being fixed in the
+   stylesheet. Nothing can overlap, and nothing has to be thrown away. */
 import fam from "../data/ribbon.json";
+
 /* Piecewise scale: the four centuries before 1600 are thin, the four
-   after are where everything happens, so give them the room. */
-const W = 3200;
-const BREAK = 1600, FRAC = 0.14;       // share of the width given to pre-1600
+   after are where everything happens, so give them the room. The band is
+   wider than it was, which is the cheapest half of the fix — 1788, 1797 and
+   1817 were fifty pixels apart and carrying a hundred and eighty of text. */
+const W = 4200;
+const BREAK = 1600, FRAC = 0.12;       // share of the width given to pre-1600
 const x = (y) => {
   const inner = W - 200;
   const p = y <= BREAK
@@ -13,35 +31,62 @@ const x = (y) => {
   return Math.round(p * inner) + 100;
 };
 const ticks = [1350, 1450, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000];
-/* Stagger vertically so labels never collide. */
-const lay = (arr, dir) => {
-  const rows = [0, 0, 0, 0];
-  return arr.map(e => {
-    const px = x(e.y);
-    let r = 0;
-    for (let i = 0; i < rows.length; i++) { if (px - rows[i] > 200) { r = i; break; } r = i; }
-    rows[r] = px;
-    return { ...e, px, row: r, dir };
+
+/* A label is 180px wide with 15px of gutter, so it owns 195px of the band
+   and needs a little air after it. Its height has to be estimated because
+   the server cannot measure text: the title sets in 12px semibold and the
+   body in 11.5px, both at 1.35, across about 165px of usable width. */
+const LANE_W = 195, AIR = 14;
+const lines = (s, per) => Math.max(1, Math.ceil((String(s || "").length || 1) / per));
+const height = (e) =>
+  Math.round(lines(`${e.y} · ${e.t}`, 26) * 16.5 + lines(e.w, 31) * 15.6 + 4);
+
+/* Greedy first-fit. Lanes are kept in order, so an event sits as close to the
+   axis as it can: a lane is available when the last label put in it has
+   finished well before this one starts. */
+function pack(arr) {
+  const ends = [], lanes = [];
+  const evs = arr.slice().sort((a, b) => a.y - b.y).map(e => {
+    const px = x(e.y), h = height(e);
+    let lane = ends.findIndex(end => px >= end);
+    if (lane < 0) { lane = ends.length; ends.push(0); lanes.push(0); }
+    ends[lane] = px + LANE_W + AIR;
+    lanes[lane] = Math.max(lanes[lane], h);
+    return { ...e, px, h, lane };
   });
-};
-const up = lay(fam.family, "up");
-const dn = lay(fam.world, "dn");
+  /* Each lane is as tall as the tallest label in it, and the offsets are the
+     running total — so a lane of one-line labels costs one line. */
+  const off = [];
+  let run = 0;
+  lanes.forEach((tall, i) => { off[i] = run; run += tall + 10; });
+  return { evs: evs.map(e => ({ ...e, off: off[e.lane] })), total: run };
+}
+
+const up = pack(fam.family);
+const dn = pack(fam.world);
+/* The axis sits below everything above it, and the band is as tall as both
+   sides plus the tick labels. */
+const AX = up.total + 34;
+/* The tick years are printed BELOW the axis, so the lower side has to start
+   clear of them or 1374 reads as «Istria to the Ha1450sburgs». */
+const DN = 36;
+const H  = AX + DN + 28 + dn.total;
 ---
 <div class="ribbon">
-  <div class="ribbon-in" style={`width:${W}px`}>
-    <div class="rb-axis"></div>
+  <div class="ribbon-in" style={`width:${W}px;height:${H}px`}>
+    <div class="rb-axis" style={`top:${AX}px`}></div>
     {ticks.map(t => (
-      <div class="rb-tick" style={`left:${x(t)}px`}><span>{t}</span></div>
+      <div class="rb-tick" style={`left:${x(t)}px;top:${AX - 8}px`}><span>{t}</span></div>
     ))}
-    {up.map(e => (
-      <div class="rb-ev up" style={`left:${e.px}px;bottom:${180 + e.row * 46}px`}>
-        <span class="d" style={`bottom:${-24 - e.row * 46}px`}></span>
+    {up.evs.map(e => (
+      <div class="rb-ev up" style={`left:${e.px}px;top:${AX - 16 - e.off - e.h}px;bottom:auto`}>
+        <span class="d" style={`top:${e.h + e.off + 11}px;bottom:auto`}></span>
         <b>{e.y} · {e.t}</b><span>{e.w}</span>
       </div>
     ))}
-    {dn.map(e => (
-      <div class="rb-ev dn" style={`left:${e.px}px;top:${180 + e.row * 44}px`}>
-        <span class="d" style={`top:${-19 - e.row * 44}px`}></span>
+    {dn.evs.map(e => (
+      <div class="rb-ev dn" style={`left:${e.px}px;top:${AX + DN + e.off}px`}>
+        <span class="d" style={`top:${-(e.off + DN + 4)}px`}></span>
         <b>{e.y} · {e.t}</b><span>{e.w}</span>
       </div>
     ))}

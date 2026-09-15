@@ -16,9 +16,52 @@ const marks=[
  [1848,"Carlo elected for Pisino"],[1854,"Carlo expelled from the bench"],
  [1866,"Austria loses Venetia"],[1880,"Phylloxera reaches Istria"],
 ];
-const rows=m.couples.filter(c=>+c.y>=FROM&&+c.y<=TO);
-const LANES=9, TOP=112, LH=27;
-const placed=rows.map((c,i)=>({...c, lane:i%LANES}));
+const rows=m.couples.filter(c=>+c.y>=FROM&&+c.y<=TO).sort((a,b)=>+a.y-+b.y);
+
+/* NOTHING HERE MAY BE PLACED WITHOUT ASKING WHETHER IT FITS.
+ *
+ * Both halves of this drawing overlapped, and for the same reason twice: a
+ * position was chosen from the INDEX rather than from the width of the thing
+ * being drawn. The eight political marks all wrote their label on one line at
+ * y=68, so "Treaty of Campo Formio", "Illyrian Provinces" and "The year
+ * without a summer" — 1797, 1809 and 1816, a few pixels apart — printed on top
+ * of each other. The couples were dealt to lanes round-robin, `i % LANES`,
+ * which takes no account of the year, so two names in the same lane a year
+ * apart collided as well.
+ *
+ * Both are now placed greedily into the first row or lane where the label
+ * actually clears what is already there. A label that cannot be placed pushes
+ * the drawing taller rather than being written over something.
+ */
+const wide = (t, px) => t.length * px * 0.55 + 10;
+
+const fit = (items, gap) => {
+  const rowEnds = [];
+  return items.map((it) => {
+    let r = 0;
+    while (rowEnds[r] != null && rowEnds[r] > it.x - gap) r++;
+    rowEnds[r] = it.x + it.w;
+    return { ...it, row: r };
+  });
+};
+
+const markItems = fit(marks.map(([y, l]) => ({
+  y, l, x: x(y) + 4, w: wide(`${y} ${l}`, 9.5),
+})), 4).map((m) => ({ ...m, flip: m.x + m.w > 930 }));
+const MARKROWS = Math.max(1, ...markItems.map((m) => m.row + 1));
+const MARKY = 66, MARKLH = 12;
+
+const TOP = MARKY + MARKROWS * MARKLH + 22, LH = 22;
+const placedItems = fit(rows.map((c) => ({
+  c, x: x(+c.y) + 8, w: wide(`${c.b} · ${c.y}`, 11),
+})), 10);
+/* A label that would run off the right edge is written to the LEFT of its dot
+   instead of past the frame. Four of these were being clipped mid-name. */
+const RIGHT = 930;
+const placed = placedItems.map((p) => ({
+  ...p.c, lane: p.row, px: x(+p.c.y), flip: p.x + p.w > RIGHT,
+}));
+const LANES = Math.max(1, ...placed.map((p) => p.lane + 1));
 const H=TOP+LANES*LH+66;
 ---
 <div class="scroll">
@@ -28,13 +71,16 @@ const H=TOP+LANES*LH+66;
     <rect x={x(a)} y="30" width={x(b)-x(a)} height="22" style={`fill:var(${c});opacity:.85`}/>
     {x(b)-x(a)>70 && <text x={x(a)+7} y="45" font-size="10" style="fill:var(--band-label);font-family:var(--sans)">{l}</text>}
   </g>)}
-  {marks.map(([y,l])=><g>
+  {markItems.map(({y,l,row,flip})=><g>
     <line x1={x(y)} y1="52" x2={x(y)} y2={TOP+LANES*LH} style="stroke:var(--ochre);opacity:.45" stroke-width="1" stroke-dasharray="2 4"/>
-    <text x={x(y)+4} y="68" font-size="9.5" style="fill:var(--ochre);font-family:var(--mono)">{y} {l}</text>
+    <text x={x(y)+(flip?-4:4)} y={MARKY + row*MARKLH} font-size="9.5"
+          text-anchor={flip?"end":"start"}
+          style="fill:var(--ochre);font-family:var(--mono)">{y} {l}</text>
   </g>)}
   {placed.map(c=><g>
     <circle cx={x(+c.y)} cy={TOP+c.lane*LH} r="3.6" style="fill:var(--terra)"/>
-    <text x={x(+c.y)+8} y={TOP+c.lane*LH+4} font-size="11"
+    <text x={x(+c.y)+(c.flip?-8:8)} y={TOP+c.lane*LH+4} font-size="11"
+          text-anchor={c.flip?"end":"start"}
           style="fill:var(--ink);font-family:var(--sans)">{c.b}<tspan style="fill:var(--ink-3)"> · {c.y}</tspan></text>
   </g>)}
   <line x1={X0} y1={H-42} x2={X1} y2={H-42} style="stroke:var(--rule-strong)" stroke-width="1"/>

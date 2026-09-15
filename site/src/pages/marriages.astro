@@ -69,6 +69,36 @@ const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) 
 <Base title="The Marriages" eyebrow={`${nFam} families \u00b7 ${nMarr} indexed marriages \u00b7 three worlds`}
       dek="A surname is one thread. The family is the weave. Every generation this name entered a house that was not its own — and this page now carries both halves of that: who they married, and which empire still holds the records of the family they married into.">
 
+<Rule name="arrows" label="Five jurisdictions, five sets of records" />
+
+<section class="blk">
+  <h2>{mi.heading}</h2>
+  <div class="prose"><p set:html={md(mi.lead)} /><p set:html={md(mi.why)} /></div>
+
+  <Marriages u={u} groups={GROUPED} subject="Defranceschi"
+    metrics={[{ n: nFam, label: "families joined" }, { n: nMarr, label: "indexed marriages" },
+              { n: m.couples.length + m.undated.length, label: "couples recovered" },
+              { n: ORD.filter((k) => mi.routes[k]).length, label: "jurisdictions" },
+              { n: mi.rows.filter((r) => r.ours).length, label: "in the direct line" }]} chartUnit="indexed marriages"
+    couples={[...m.couples.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: c.y })),
+              ...m.undated.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: "" }))]}
+    couplesTitle="Everyone, as the registers name them"
+    couplesNote={`Forty-nine couples recovered so far. Spelling is the clerk's, not ours. Source: ${m.source}.`}
+    couplesGroupBy={band}>
+    <div slot="missing">
+      <Rule name="arrows" label={mi.fbnote.heading} />
+      <div class="prose">{mi.fbnote.text.split("\n\n").map((p) => <p set:html={md(p)} />)}</div>
+      <p class="prose note" style="margin-top:26px" set:html={md(mi.close)}></p>
+      <p class="cap" style="margin-top:22px">Counts are of indexed marriages, from FamilySearch's
+      Croatia Church Books. The grouping by origin is the archive's existing reading from surname
+      morphology and the Carnian emigration literature — <strong>a reading, not a finding</strong> —
+      and the routing here inherits that uncertainty. Families with a page of their own are linked;
+      the rest carry their count and nothing more, because that is all this archive knows about them.
+      Names in <span class="ink">this colour</span> married into our own direct line.</p>
+    </div>
+  </Marriages>
+</section>
+
 
 <section class="blk">
   <div class="prose">
@@ -136,35 +166,7 @@ const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) 
 <Rule name="tablet" />
 
 
-<Rule name="arrows" label="Five jurisdictions, five sets of records" />
 
-<section class="blk">
-  <h2>{mi.heading}</h2>
-  <div class="prose"><p set:html={md(mi.lead)} /><p set:html={md(mi.why)} /></div>
-
-  <Marriages u={u} groups={GROUPED} subject="Defranceschi"
-    metrics={[{ n: nFam, label: "families joined" }, { n: nMarr, label: "indexed marriages" },
-              { n: m.couples.length + m.undated.length, label: "couples recovered" },
-              { n: ORD.filter((k) => mi.routes[k]).length, label: "jurisdictions" },
-              { n: mi.rows.filter((r) => r.ours).length, label: "in the direct line" }]} chartUnit="indexed marriages"
-    couples={[...m.couples.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: c.y })),
-              ...m.undated.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: "" }))]}
-    couplesTitle="Everyone, as the registers name them"
-    couplesNote={`Forty-nine couples recovered so far. Spelling is the clerk's, not ours. Source: ${m.source}.`}
-    couplesGroupBy={band}>
-    <div slot="missing">
-      <Rule name="arrows" label={mi.fbnote.heading} />
-      <div class="prose">{mi.fbnote.text.split("\n\n").map((p) => <p set:html={md(p)} />)}</div>
-      <p class="prose note" style="margin-top:26px" set:html={md(mi.close)}></p>
-      <p class="cap" style="margin-top:22px">Counts are of indexed marriages, from FamilySearch's
-      Croatia Church Books. The grouping by origin is the archive's existing reading from surname
-      morphology and the Carnian emigration literature — <strong>a reading, not a finding</strong> —
-      and the routing here inherits that uncertainty. Families with a page of their own are linked;
-      the rest carry their count and nothing more, because that is all this archive knows about them.
-      Names in <span class="ink">this colour</span> married into our own direct line.</p>
-    </div>
-  </Marriages>
-</section>
 <Rule name="tablet" />
 
   <Sources ids={["familysearch", "dapa"]} />
