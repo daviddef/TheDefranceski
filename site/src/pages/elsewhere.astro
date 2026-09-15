@@ -1,0 +1,60 @@
+---
+/* Croatia, filed under other countries.
+   The research map is built from a collection named for a country, so it shows
+   what that country's archives filmed and nothing else. The borders moved five
+   times in a century; the paperwork did not follow. */
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import e from "../data/elsewhere.json";
+
+const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
+  (_, t, href) => `<a href="${u(href)}">${t}</a>`);
+const STATE = {
+  missing:  ["Not in the map", "#B04A16"],
+  untested: ["Not yet opened", "#E9A020"],
+  checked:  ["Opened, nothing for us", "#7A7A7A"],
+  "in the map": ["Already a provider here", "#12703F"],
+};
+const n = (k) => e.found.filter(x => x.state === k).length;
+const fsUrl = (cc) => `https://www.familysearch.org/search/collection/${cc}`;
+---
+<Base
+  title={e.title}
+  eyebrow={`${e.found.length} collections examined · ${n("missing")} hold Croatian places and are not on our map`}
+  dek={e.dek}>
+
+  <div class="prose" style="margin-top:8px" set:html={link(mdp(e.lead))}></div>
+
+  <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:8px">
+    {Object.entries(STATE).map(([k, [label, c]]) => n(k) > 0 && (
+      <span class="at-cat on" style={`--c:${c};text-decoration:none`}>
+        <b style={`color:${c}`}>{label}</b> {n(k)}
+      </span>
+    ))}
+  </div>
+
+  <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+    {e.found.map(c => (
+      <div class="one" style={`border-left-color:${STATE[c.state][1]}`}>
+        <div class="lab">{STATE[c.state][0]} · collection {c.cc}</div>
+        <p style="margin:8px 0 0;font-size:17px;font-weight:600">
+          <a href={fsUrl(c.cc)} target="_blank" rel="noopener">{c.title} ↗</a>
+        </p>
+        <div class="prose" style="margin-top:6px" set:html={md(c.what)}></div>
+        <div class="prose" style="margin-top:8px" set:html={link(mdp(c.note))}></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="margin-top:34px;border-left-color:var(--accent)">
+    <div class="lab">What this page is, and is not</div>
+    <div class="prose" style="margin-top:8px" set:html={link(mdp(e.close))}></div>
+  </div>
+
+  <p class="cap" style="margin-top:36px">
+    Walked from FamilySearch's own list of {`3,488`} historical record collections on 15 September 2026, filtered to anything naming Croatia, Istria, Dalmatia, Fiume, Trieste, Austria, Hungary, Slovenia or Italy, then opened one by one through <code>/platform/records/collections/&lt;cc&gt;/waypoints</code>.
+    <a href={u("/research-map/")}>The research map →</a> ·
+    <a href={u("/worklist/")}>What is being done about it →</a>
+  </p>
+</Base>
