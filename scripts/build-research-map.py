@@ -321,6 +321,7 @@ def timeline(books):
         return ["    " + vol_years(b), timeline_label(b)]
 
     rows, other, undated = [], [], 0
+    place_tracked = any(b.get("how") for b in books)
     for kind, label in KIND_LABEL:
         mine = [b for b in books if kind in kinds(b["t"]) and b.get("from")]
         got = [(b["from"], b["to"] or b["from"]) for b in mine]
@@ -344,12 +345,22 @@ def timeline(books):
         # all, the honest word is that nobody has written it down yet.
         nread = sum(1 for b in mine if b.get("how") == "read")
         npart = sum(1 for b in mine if b.get("how") == "part")
-        tracked = [b for b in mine if b.get("how")]
-        done = (" · not tracked per volume" if not tracked
+        # Tracking is a property of the PLACE, not of one record type in it.
+        # This asked whether any volume OF THIS KIND carried a read flag, so
+        # Gračišće — where the 1667–1745 baptism book is recorded as read right
+        # through — announced «not tracked per volume» over its marriages. The
+        # marks beside those same rows said «never opened», because the panel
+        # script has always asked the question of the place. Heading and marks
+        # contradicted each other on one screen.
+        #
+        # They ask the same question now: if this archive keeps a per-volume
+        # record for this parish at all, then a volume with no flag has not
+        # been opened, and the panel says so.
+        done = (" · not tracked per volume" if not place_tracked
                 else " · ALL READ" if nread >= n
                 else f" · {nread} read, {npart} part read, {n - nread - npart} unopened"
                 if nread or npart
-                else " · none read")
+                else f" · none read, {n} never opened")
         rows.append([label, (f"{n} volumes, covering {head}"
                              + ("" if len(runs) == 1 else f", in {len(runs)} stretches")
                              if n > 1 else "1 volume") + done])
