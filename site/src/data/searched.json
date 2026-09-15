@@ -6699,6 +6699,31 @@
     "Istria",
     "method"
    ]
+  },
+  {
+   "src": "FamilySearch — «Austria, Catholic Church Records, 1565–2007» (collection 5000002)",
+   "what": "Whether the Austrian Littoral is in it — the most promising place Gračišće, Gologorica and Pićan could be hiding",
+   "when": "15 Sept 2026",
+   "outcome": "nil",
+   "got": "**It is not. The Littoral is not in this collection, and the hole stays open.**\n\nThe collection holds **6.85 million records and 17.4 million persons** and has **no browse tree at all** — `/platform/records/collections/5000002/waypoints` returns 404, because it is a name index rather than a filmed set. So it was searched instead.\n\n**289 Defranceschi records inside it**, pulled in full. Every named place among the 393 fact-rows is Tyrolean or Upper Austrian: **Bozen, Salorno (Tirolo), Tyrol, St. Florian bei Linz**. **Not one in Istria, Gorizia, Trieste or Fiume.** Three Istrian surnames tested beside it fall the same way — **Sestan** at Zwettl, Longomosso and Feldkirch; **Kostesich** at Bozen; **Miškulin** at Bozen.\n\n*The filter was verified rather than trusted.* Defranceschi returns **303,320** with no collection filter, **289** with `f.collectionId=5000002`, **3,550** with the Croatian collection, and **0** with a made-up collection id. The control says the filter bites.\n\n**Two things worth keeping.**\n\n**There is a Tyrolean Defranceschi population** — 289 records clustered on **Bozen and Salorno**, South Tyrol. A separate family of the same surname, several hundred kilometres from Carnia, and a standing argument against ever reasoning from the name alone.\n\n**And Slavonia does appear**: one record reads *«Vukovar, Sriem, Croatia, Austria»*. So the collection reaches into Croatia-Slavonia even though it does not reach the coast.",
+   "url": "https://www.familysearch.org/search/collection/5000002",
+   "dest": "FamilySearch collection 5000002",
+   "ev": [
+    [
+     "/elsewhere/",
+     "The ten collections, and what each holds"
+    ],
+    [
+     "/research-map/",
+     "The three parishes still filmed nowhere"
+    ]
+   ],
+   "tags": [
+    "providers",
+    "Istria",
+    "negative",
+    "method"
+   ]
   }
  ]
 }
