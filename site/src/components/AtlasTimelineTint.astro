@@ -461,6 +461,16 @@
     border-width: 0 2px 2px 0; transform: rotate(42deg);
   }
   .at-sc-t { min-width: 0; }
+
+  /* Which family a colour belongs to, said once, because three legends on one
+     map is three legends. */
+  .at-sc-key {
+    display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 9px 0 0;
+    font: 400 11.5px/1.6 var(--mono); color: var(--ink-3);
+  }
+  .at-sc-key span { display: inline-flex; align-items: center; gap: 6px; }
+  .at-sc-key i { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
+  .at-sc-key b { font-weight: 600; color: var(--ink-2); }
   .at-cat[data-cat="_none"] { display: none !important; }
   .at-cat[data-scheme-off] { display: none !important; }
   /* On a phone the three questions sit one above the other, and buttons that
@@ -670,6 +680,7 @@
          The panel does not change either way — it says all three whatever the
          dot is coloured for. */
       var ORDER = ["graves", "people", "shelf"];
+      var RING = { shelf: "#ffffff", people: "#2E1147", graves: "#062B42" };
       var on = {};
 
       function paint() {
@@ -681,7 +692,17 @@
           }
           p.cat = k ? p.cats[k] : "_none";
           p.n = (k && p.ns && p.ns[k]) || 0;
-          if (k) m.setStyle({ fillColor: COLOURS[p.cats[k]] || "#666" });
+          /* Hue says which category. The RING says which layer — a second
+             channel, because three legends on one map is three legends, and a
+             reader looking at one dot should not have to work out which of
+             them it is being coloured from. The shelf keeps the kit's thin
+             white outline; our people take a deep violet ring and the ground
+             a navy one, each matching its own family. */
+          if (k) m.setStyle({
+            fillColor: COLOURS[p.cats[k]] || "#666",
+            color: RING[k] || "#ffffff",
+            weight: k === "shelf" ? (p.order ? 2.2 : 1.2) : 2.2
+          });
           m.setRadius(radius(p, p.n));
         });
         document.querySelectorAll(".at-cat[data-of]").forEach(function (b) {

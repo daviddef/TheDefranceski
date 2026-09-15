@@ -43,26 +43,26 @@ const st = r.stats;
    — it is in the panel, in words, where "114 volumes catalogued" can sit next
    to "nobody has opened any of it" without either pretending to be the other. */
 const shelfCats = [
-  ["none",      "In no catalogue at all",     "#9AA7B2"],
-  ["untouched", "Catalogued, never opened",   "#C9B79A"],
-  ["worked",    "Researched, books unopened", "#2F7A8C"],
-  ["started",   "A volume of its own read",   "#E9A020"],
-  ["done",      "Every volume read",          "#12703F"],
+  ["none",       "In no catalogue at all",      "#8A8F96"],
+  ["untouched",  "Catalogued, never opened",    "#C0392B"],
+  ["worked",     "Researched, books unopened",  "#E8792B"],
+  ["started",    "A volume of its own read",    "#EFC03B"],
+  ["done",       "Every volume read",           "#1E8449"],
 ];
 /* The atlas's own six, which are not coverage states at all — they say HOW we
    know a place, not how far through it we are. */
 const peopleCats = [
-  ["spine",    "The documented line",         "#A8442B"],
-  ["carnia",   "Carnia — where it may start", "#9A6B18"],
-  ["sweep",    "Istria, where the name is",   "#1F5C6B"],
-  ["other",    "Other families of the name",  "#6E6A86"],
-  ["senj",     "The Senj and Karlobag side",  "#4E7A55"],
-  ["diaspora", "Where they went",             "#2E7C8C"],
+  ["spine",     "The documented line",          "#4A1D7A"],
+  ["carnia",    "Carnia — where it may start",  "#8E44AD"],
+  ["sweep",     "Istria, where the name is",    "#B07CD9"],
+  ["other",     "Other families of the name",   "#C9B6DC"],
+  ["senj",      "The Senj and Karlobag side",   "#6C5CE0"],
+  ["diaspora",  "Where they went",              "#D64FA0"],
 ];
 const gravesCats = [
-  ["stone",    "A headstone, photographed",   "#B04A16"],
-  ["register", "A line in a burial register", "#1E5F8C"],
-  ["both",     "Both, at one place",          "#12703F"],
+  ["stone",     "A headstone, photographed",    "#2E86C1"],
+  ["register",  "A line in a burial register",  "#0B3D5C"],
+  ["both",      "Both, at one place",           "#17A2B8"],
 ];
 /* Every colour the map can use, in one list, because the kit colours a marker
    by looking its category up in the set it was given. «_none» is the category
@@ -131,6 +131,11 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
   <div class="at-scheme">
     <div class="lab">Three layers — switch any of them on or off</div>
     <div class="at-sc-row"></div>
+    <p class="at-sc-key">
+      <span><i style="background:#C0392B"></i>Red through amber to green is <b>the shelf</b>, and red means nobody has opened it</span>
+      <span><i style="background:#8E44AD"></i>Violet and pink is <b>our people</b></span>
+      <span><i style="background:#2E86C1"></i>Blue is <b>the ground</b></span>
+    </p>
   </div>
 
   <Atlas
