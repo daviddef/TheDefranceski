@@ -108,7 +108,22 @@ def main():
         by = YEAR.search(bd)
         dy = YEAR.search(dd)
         living = (not dd) and (not d) and (by is None or int(by.group()) > 1926)
+        # The citations David types by hand are NOTES, not SOUR records.
+        # SOUR here is MyHeritage's own Smart-Match plumbing — «Meyer Family
+        # Site», «Geni World Family Tree» — and reading only those found 272
+        # citations and two arks in a file that contains **3,746 of them**.
+        # The hand-written ones hang off the events: a full FamilySearch
+        # citation with the ark, the image number and the date read.
         cites = []
+        for n in allsub(r, "NOTE"):
+            if n["val"].strip():
+                cites.append(n["val"].strip()[:600])
+        for tag in ("BIRT", "DEAT", "BAPM", "BURI", "MARR", "RESI", "IMMI",
+                    "OCCU", "CHR", "CENS", "EVEN"):
+            for ev in allsub(r, tag):
+                for n in allsub(ev, "NOTE"):
+                    if n["val"].strip():
+                        cites.append(tag + ": " + n["val"].strip()[:600])
         for s in allsub(r, "SOUR"):
             t = " ".join(x for x in (s["val"], val(s, "PAGE"), val(s, "DATA", "TEXT")) if x)
             if t.strip():
