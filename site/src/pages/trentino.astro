@@ -49,6 +49,21 @@ const P = (s) => `<p>${md(s)}</p>`;
   <p class="prose note" style="margin-top:18px" set:html={md(d.alps.close)}></p>
 </section>
 
+<Rule name="arrows" label={d.austria.heading} />
+<section class="blk">
+  <p class="dek" set:html={md(d.austria.lead)}></p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+    {d.austria.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={P(r.text)}></div>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={md(d.austria.close)}></p>
+  <p class="cap" style="margin-top:12px">FamilySearch, <em>Austria, Catholic Church Records 1565–2007</em>, swept for every spelling of the surname in September 2026. Indexed entries, not read pages.</p>
+</section>
+
 <Rule name="pomegranate" label={d.next.heading} />
 <section class="blk">
   <ol class="plan">{d.next.rows.map(([n, t]) => (

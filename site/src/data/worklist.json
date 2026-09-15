@@ -77,10 +77,10 @@
   {
    "n": 9,
    "what": "Bring in the rest of the living family, name only",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Ten were added on 15 September — David's father's brother and sister, three first cousins, his wife, his two sons. **That is his immediate family and not the whole of it.** The MyHeritage tree holds 15,643 people and every harvest this archive has run was built to find the dead, so the living branch has never been walked.\n\n**Name only: no date of birth, no place of residence, no photograph.** The build gate enforces it. What is missing now is second cousins, the Blažević side's living kin, and the Apker descendants."
+   "note": "**Done, and the rule changed under it.** All eleven living people the archive names are placed — eight at Johannesburg, five at Brisbane, two in both — and eight more came in from the tree on 15–16 September: **Lidija, Peter, Renata and Ursula** of the Crikvenica and German households, and the Australian branch. **Twenty-six living people, and the build gate confirms zero dates reach any page.**"
   },
   {
    "n": 10,
@@ -141,10 +141,10 @@
   {
    "n": 17,
    "what": "Track which volumes have been read, not just which places",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "The map can only say **«read right through»** where the catalogue carries a per-volume flag, and today that is **Antenati alone** — 16 volumes of 7,159. Everywhere else a reading is recorded against the place, so Svetvinčenat with 114 volumes and one act read counts the same as a parish half-finished. **Until this exists, «finished» is unprovable for 1,222 of 1,242 places.**"
+   "note": "**Done: `site/src/data/reads.json`.** A row names a place, a volume in the words the panel prints, a state — **read** or **part** — and what was read. The builder stamps it onto the volume and **reports any row that matches no volume** rather than dropping it, which is how the Vodnjan title was caught wrong on the first run. Four volumes pinned so far; six places now have a book of their own opened."
   },
   {
    "n": 18,
@@ -349,10 +349,11 @@
   {
    "n": 43,
    "what": "The Tyrolean Defranceschi — a second population of the surname",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Searching the Austrian collection turned up **289 Defranceschi records clustered on Bozen and Salorno in South Tyrol** — several hundred kilometres from Carnia and with no known connection to this family.\n\n**It is worth a page of its own**, not because they are relatives but because they are the clearest demonstration this archive has of why a surname proves nothing. The [Mione households](/carnia/) already show the name was a population rather than a family in one valley; Tyrol shows it was a population in another."
+   "note": "**It had a page already — [Trentino](/trentino/) — and what it was missing was the registers.** That page opened by saying every one of these people arrived through the family tree and **no register had ever been opened for any of them**. The Austrian collection walk had found **147 indexed entries, 1608 to 1915**, and nobody had put the two together.\n\n**146 of the 147 are baptisms. 132 name both parents and 126 name a spouse** — more filiation than this archive holds for most of its own Istrian century. They are on the page now.\n\n**And they sharpen the argument rather than softening it.** Nineteen in Carinthia and sixteen in South Tyrol is a scatter, not a cluster, and the surnames run *Franceschini* and *Franzeschini* — Italian names that reached Austria by a different road from the Istrian one. **A hundred and seven of the 147 carry no town at all**, which is the same index failure this archive already solved for Croatia by resolving the image ark to its film; that resolution has not been run here.",
+   "covers": []
   },
   {
    "n": 44,
@@ -396,11 +397,11 @@
   },
   {
    "n": 49,
-   "what": "David's father stands twice in the roster",
-   "state": "next",
+   "what": "The Brisbane Mario stood twice in the roster",
+   "state": "done",
    "owner": "this session",
    "since": "2026-09-15",
-   "note": "**Mario De Franceschi 1938–2013** (Find a Grave, Centenary Memorial Gardens) and **Mario Defranceschi 1938–2013** (MyHeritage 4507883) are one man, with two slugs under `/who/` and two rows in the roster. The map folds them now — surname spellings are normalised before people are counted — but **`/who/` still has two pages for him**. Fixing it properly means reconciling roster rows across sources, which touches every page that reads the roster."
+   "note": "**Folded into one row.** He was **Mario De Franceschi 1938–2013** off a Find a Grave memorial and **Mario Defranceschi 1938–2013** out of MyHeritage 4507883 — two slugs under `/who/`, two dots in Brisbane, one man. The surviving row carries both spellings and both sources.\n\n**The heading on this row was wrong twice over.** It said «David's father», which is what the mis-flagged rows had made this archive believe; his father is **Ivan Anton Defranceski, 1951–2026**. [Correction 79](/corrections/)."
   },
   {
    "n": 50,
@@ -660,7 +661,7 @@
    "state": "next",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "**Thirty-six «Croatia, parish not named» and four «not stated»** — read out of indexes that record a death without recording where. They are a quarter of everything this archive knows about the family's graves and they are not on the map. Each one came from a register; **the register knows which parish it is**, even when the index does not."
+   "note": "**Attempted, and the route is now written down.** They cannot be placed from anything in this repository. The burial rows carry a name, a year and a place-string that is only ever «Croazia, Austria», «Hrvatska, Österreich», «Regnum Croatiae» or «Kraljevina Hrvatska» — **and no ark**. Joining them to `register.json` on name and year matches seventeen of the forty and gains nothing, because that file carries the same raw index place.\n\n**The resolution already exists as a method** and this archive has run it on all 954 indexed records: every persona carries the ark of the image it was read from, the ark resolves to a **DGS film number**, and the catalogue names the film's parish. It is what turned eighteen known parishes into [ninety-three](/istria-sweep/). **But only the aggregate survived** — 93 rows of parish, count and span. The per-record output was never written to disk.\n\n**So the job is: re-harvest those forty personas with their arks, and resolve each one.** Half a day, and it would put a quarter of everything this archive knows about its dead onto the map."
   },
   {
    "n": 81,
