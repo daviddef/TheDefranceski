@@ -6411,6 +6411,71 @@
     "registers",
     "Antenati"
    ]
+  },
+  {
+   "src": "Matricula Online (data.matricula-online.eu) — the whole portal",
+   "what": "Whether Senj and Karlobag, and any Croatian parish at all, are on Matricula — the plan said they were",
+   "when": "15 Sept 2026",
+   "outcome": "nil",
+   "got": "**Croatia is not on Matricula. Not Senj, not Karlobag, not one parish.**\n\nThe portal's own fonds index lists exactly twelve countries — **Germany, Austria, Poland, Serbia, Luxembourg, Bosnia-Herzegovina, Slovenia, Italy, Switzerland** and three private collections. There is no Croatian section. Its place search returns **nothing** for *Senj*, *Karlobag*, *Rijeka* or *Fiume*.\n\n**This archive's own plan said otherwise.** Matricula was written down as a fifth provider *«(Senj, Karlobag)«* and scheduled for building into the research map. That was an assumption never checked, and it was wrong. It is struck from the plan rather than quietly dropped.\n\n**One thing there is worth keeping**: searching *Trieste* returns two Austrian Protestant congregations — **Triest AB** and **Triest HB** — under the Evangelical section. Not Croatian, not Catholic, and no De Franceschi is known in either; but Trieste Evangelical registers are a shelf this archive has never looked at, and the family was in the Littoral.",
+   "url": "https://data.matricula-online.eu/en/bestande/",
+   "dest": "Matricula Online — fonds index and place search",
+   "ev": [
+    [
+     "/research-map/",
+     "The research map, which now has four providers and not five"
+    ]
+   ],
+   "tags": [
+    "providers",
+    "research map",
+    "negative"
+   ]
+  },
+  {
+   "src": "ARHiNET (arhinet.arhiv.hr), the Croatian state archives' own network",
+   "what": "Retried as a possible provider for the research map",
+   "when": "15 Sept 2026",
+   "outcome": "nil",
+   "got": "**Still does not resolve.** Neither `https://arhinet.arhiv.hr/` nor the plain-HTTP form answers at all — not a 403, not a redirect, no connection. `ara.arhiv.hr` is the same.\n\nThis is the second time this archive has tried ARHiNET and the second time it has recorded nothing. **Pazin's own list stays the only Croatian archive catalogue in the research map**, and it is the only source in it that admits which volumes are not digitised anywhere.",
+   "url": "https://arhinet.arhiv.hr/",
+   "dest": "ARHiNET",
+   "ev": [
+    [
+     "/research-map/dapa/",
+     "Pazin, which does answer"
+    ]
+   ],
+   "tags": [
+    "providers",
+    "research map",
+    "negative"
+   ]
+  },
+  {
+   "src": "Portale Antenati — the Udine inventory for Mione and Ovaro, catalogued rather than read",
+   "what": "Every civil-register volume for the two comuni, turned into an addressable list",
+   "when": "15 Sept 2026",
+   "outcome": "found",
+   "got": "**Fifty-nine volumes, each one openable, none of them indexed by name.**\n\nMione's Napoleonic and Austrian civil registration runs in seven series — **Matrimoni** (9 volumes), **Matrimoni allegati** (13), **Matrimoni indici** (3), **Pubblicazioni** (9), **Morti** (9), **Morti indici** (3) and **Nati** (4). Ovaro adds a **Matrimoni** run of nine.\n\n**The shape of that list is itself the finding.** Deaths and marriages run nine volumes; births run four. The civil births stop at 1810 while everything else carries on to 1815 — and 1807 is absent from every series. Anyone born into these households between 1811 and 1815 is in the **Pieve di Gorto** or nowhere.\n\n**Years are given only where an act fixes them.** Four of the Nati are dated exactly, and two Ovaro Matrimoni are; the rest are numbered within their series and given the series span, because that is what the inventory supports.",
+   "url": "https://antenati.cultura.gov.it/ark:/12657/an_ua667570",
+   "dest": "Antenati, Archivio di Stato di Udine",
+   "ev": [
+    [
+     "/antenati/",
+     "All fifty-nine, every one a link"
+    ],
+    [
+     "/research-map/antenati/",
+     "Antenati on the research map"
+    ]
+   ],
+   "tags": [
+    "Carnia",
+    "registers",
+    "Antenati",
+    "research map"
+   ]
   }
  ]
 }

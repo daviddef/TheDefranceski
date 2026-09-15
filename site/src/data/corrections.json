@@ -543,6 +543,22 @@
    "where": "/research-map/",
    "said": "Published on the Research Map's first build: that **thirty-four of the forty Kvarner parishes carry only a browse link and no volume list at all**, that the rebuild was what made this visible, and that those thirty-four were first in the queue for enumeration. The page's coverage figure was given as **111 of 1,196 places and 590 volumes**.",
    "true": "**They had all been walked, and the fault was in my own builder.**\n\nKvarner keeps its volume lists under a field called **`films`** — the same as Dalmatia — and carries a stale `books` title-list on **six** of its forty parishes. The build script read `books` for Kvarner and `films` for Dalmatia, so thirty-four parishes with full inventories came through as empty.\n\n**Corrected figures: 140 of 1,196 places walked, and 777 volumes inventoried** — not 111 and 590. Kvarner's 255 volumes are on the map, with links that open each book at its first image.\n\nThis was caught within the hour, and only because David asked me to start work on the thirty-four. *The instruction was sound; the premise I had given him was not.*"
+  },
+  {
+   "when": "15 Sept 2026",
+   "what": "Two links on the Research Map printed as literal square brackets",
+   "sev": "fixed",
+   "where": "/research-map/",
+   "said": "The page's main paragraph carried two internal links written in markdown — **[Logged as a correction](/corrections/)** among them. Both rendered on the live site exactly as typed, brackets, parentheses and all.",
+   "true": "**The archive's markup renderer has no link syntax and never had one.** `md.js` handles bold, italic and «quotes», deliberately, so that data files stay plain. Writing a markdown link into one of those strings does not fail loudly — it just prints.\n\nFixed on the page rather than in the shared renderer: the two links are resolved locally and put through the same base-path helper as every other internal link, so no other page inherits a syntax it was not written for. **The correction that this page pointed at was unreachable for as long as the link was broken**, which is the part that actually mattered."
+  },
+  {
+   "when": "15 Sept 2026",
+   "what": "Matricula Online listed in the plan as a source for Senj and Karlobag",
+   "sev": "struck",
+   "where": "/research-map/",
+   "said": "The research map's plan named **Matricula Online** as a fifth provider to be built in, *«(Senj, Karlobag)»*.",
+   "true": "**Matricula holds no Croatian parish at all.** Its fonds index lists Germany, Austria, Poland, Serbia, Luxembourg, Bosnia-Herzegovina, Slovenia, Italy and Switzerland, and its place search returns nothing for Senj, Karlobag, Rijeka or Fiume.\n\nThat line was written from memory and never checked before it went into the plan. **The map has four providers, not five**, and the item is struck rather than left to look like outstanding work."
   }
  ]
 }
