@@ -835,11 +835,11 @@
   },
   {
    "n": 97,
-   "what": "The map has a full-screen mode; the rest of the estate's maps do not",
+   "what": "Full screen and shareable views are page-local; the estate's other maps have neither",
    "state": "next",
    "owner": "this archive",
    "since": "2026-09-16",
-   "note": "`/map/` lifts its whole instrument — the three layer switches, the find box, the filters, the map and the panel — into one fixed layer and asks for native fullscreen on top of it. **It is page-local**, written in `AtlasTimelineTint.astro`, which is this archive's own component and not the kit.\n\n**The per-provider maps under `/map/<source>/` do not have it**, and neither does any other archive on the estate that uses the kit's Atlas. If it earns its keep here it belongs in the kit, where the other six get it — that is a conversation with whoever owns the shared UI, not a change to make quietly."
+   "note": "`/map/` lifts its whole instrument into one fixed layer and asks for native fullscreen on top of it, **and carries its entire view in the address bar** — layers, basemap, find box, which filters are off, and where the map is looking. Both are written in `AtlasTimelineTint.astro`, which is this archive's own component and not the kit.\n\n**The per-provider maps under `/map/<source>/` have neither, and neither does any other archive on the estate.** A shareable map view is worth more to six archives than to one. If it earns its keep here it belongs in the kit — that is a conversation with whoever owns the shared UI, not a change to make quietly."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
