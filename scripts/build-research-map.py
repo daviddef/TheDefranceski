@@ -46,6 +46,7 @@ PUB  = os.path.join(ROOT, "site", "public")
 KML  = os.path.join(ROOT, "data", "genealogy-resources-croatia.kml")
 FSC  = os.path.join(ROOT, "data", "fs-catalogue.json")
 ANT  = os.path.join(DATA, "antenati-catalogue.json")
+ELS  = os.path.join(DATA, "fs-elsewhere.json")
 
 STOP = {"zupa", "jaksic", "velika", "sveti", "grad", "novi", "stari"}
 LAYERS = {"Roman Catholic": "rc", "Orthodox": "orth", "Greek Catholic": "gc",
@@ -59,6 +60,12 @@ SOURCES = [
     ("fs-it",    "FamilySearch — Udine",    "Italy, Udine civil registration (collection 1939238)"),
     ("dapa",     "Pazin State Archive",     "Državni arhiv u Pazinu, its own register list"),
     ("antenati", "Antenati",                "Portale Antenati, Archivio di Stato di Udine — the Carnia civil registers"),
+    ("fs-it-pola", "FamilySearch — Pola & Trieste",
+     "Italy, Pola and Trieste, Catholic Church Records 1593–1941 (collection 2152685) — Croatian Istrian parishes filed by Italy"),
+    ("fs-si-mj",  "FamilySearch — Međimurje",
+     "Slovenia, Prekmurje and Međimurje, Civil Registers 1895–1918 (collection 1985107) — Croatian towns under Hungarian county names"),
+    ("fs-hr-delnice", "FamilySearch — Delnice",
+     "Croatia, Delnice Deanery Catholic Church Books 1571–1926 (collection 1875189) — browsable only by film"),
 ]
 DAPA_TYPE = {"MKR": "Births", "MKV": "Marriages", "MKU": "Deaths", "SD": "Church Census"}
 
@@ -425,6 +432,40 @@ def main():
                 vols.append({"t": t, "ark": v["ark"], "antenati": True,
                              "how": v["how"], "from": v["from"], "to": v["to"]})
             p["src"]["antenati"] = {"shelves": {"civil": {"wp": None, "books": vols}}}
+
+    # ---- 4c. the collections that file Croatia under another country ----
+    # A town's registers are filed by whichever state kept them, under the name
+    # that state used. Čakovec is «Csáktornya», in a Hungarian county, inside a
+    # collection named for Slovenia; Buje is «Buie», filed by Italy. None of it
+    # can be found by walking a collection named for Croatia — which is exactly
+    # why the map could not see any of it until 15 September 2026.
+    if os.path.exists(ELS):
+        els = json.load(open(ELS, encoding="utf-8"))
+        for rec in els["places"].values():
+            key = els["collections"][rec["cc"]]["key"]
+            p = P(rec["today"])
+            # The catalogue's own spelling goes into «also written», because it
+            # is the name the book is filed under and the one a reader has to
+            # search for.
+            if norm(rec["catalogue"]) != norm(rec["today"]):
+                p["alt"].add(rec["catalogue"])
+            p["layers"].add("rc" if rec["cc"] == "2152685" else "civil")
+            vols = []
+            for b in rec["books"]:
+                lo, hi = span(b["t"])
+                vols.append({"t": b["t"], "wp": b["wp"], "from": lo, "to": hi,
+                             "cc": rec["cc"], "filedIn": rec["country"]})
+            p["src"][key] = {"shelves": {"all": {"wp": None, "books": vols}}}
+        # Delnice browses by film, not by parish: six reels and no place tree,
+        # so they hang on the deanery town itself rather than pretending to a
+        # precision the collection does not have.
+        if els.get("films"):
+            p = P("Delnice")
+            p["layers"].add("rc")
+            p["src"]["fs-hr-delnice"] = {"shelves": {"all": {"books": [
+                {"t": f"Film {f['film']} — {f.get('images', '')} images".strip(),
+                 "ark": f["ark"], "cc": "1875189", "from": 1571, "to": 1926}
+                for f in els["films"]], "wp": None}}}
 
     # ---- 5. what has actually been read
     rows = load("searched.json")["rows"]

@@ -11,6 +11,7 @@ import e from "../data/elsewhere.json";
 const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
   (_, t, href) => `<a href="${u(href)}">${t}</a>`);
 const STATE = {
+  harvesting: ["Being harvested now", "#1E5F8C"],
   missing:  ["Not in the map", "#B04A16"],
   untested: ["Not yet opened", "#E9A020"],
   checked:  ["Opened, nothing for us", "#7A7A7A"],

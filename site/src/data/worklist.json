@@ -309,7 +309,7 @@
   {
    "n": 38,
    "what": "Harvest «Croatia, Delnice Deanery Catholic Church Books, 1571–1926»",
-   "state": "next",
+   "state": "running",
    "owner": "this archive",
    "since": "2026-09-15",
    "note": "A **second Croatian church-book collection** (cc 1875189) this archive did not know existed — the Gorski kotar deanery **directly inland from Crikvenica and Bribir**, which is this family's Kvarner ground.\n\n**It browses by film number, not by parish**, so the place-walk that built the research map could never have found it. Six film roots to open."
@@ -333,10 +333,18 @@
   {
    "n": 41,
    "what": "Add the Međimurje and Istrian places that are filed abroad to the map",
+   "state": "running",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**33 Croatian towns in Međimurje** sit in a Slovenian-titled collection under Hungarian names, and **five Croatian Istrian parishes** sit in an Italian one. None is on the research map.\n\nAdding them means teaching the builder that a place's name in a catalogue is not its name — **Csáktornya, Perlak, Nedelicz, Stridó, Kottori** have to resolve to Čakovec, Prelog, Nedelišće, Štrigova, Kotoriba. The GeoNames alternate-names column already loaded for the «also written» line is the tool for it.\n\n**Harvesting started 15 September.** *Pola and Trieste* is walked: **11 places, 12 parish churches, 38 volumes**, of which five places are in Croatia today. Međimurje and Delnice are in flight."
+  },
+  {
+   "n": 42,
+   "what": "Walk the FamilySearch collection list again for the rest of Europe",
    "state": "next",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "**33 Croatian towns in Međimurje** sit in a Slovenian-titled collection under Hungarian names, and **five Croatian Istrian parishes** sit in an Italian one. None is on the research map.\n\nAdding them means teaching the builder that a place's name in a catalogue is not its name — **Csáktornya, Perlak, Nedelicz, Stridó, Kottori** have to resolve to Čakovec, Prelog, Nedelišće, Štrigova, Kotoriba. The GeoNames alternate-names column already loaded for the «also written» line is the tool for it."
+   "note": "The walk that found [Croatia filed abroad](/elsewhere/) filtered on a handful of country words. **It was not exhaustive.** Collections named for a diocese, a province or an archive — *«Diocesi di Trieste»*, *«Küstenland»*, *«Archivio di Stato di…»* — would not have matched, and neither would anything filed under Serbia, Bosnia or Montenegro for the Dalmatian hinterland.\n\n**The method is now cheap**: `/platform/records/collections/<cc>/waypoints` opens any collection's browse tree, so a candidate can be tested in one call."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight."
