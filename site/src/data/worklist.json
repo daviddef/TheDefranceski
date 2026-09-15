@@ -164,11 +164,11 @@
   },
   {
    "n": 20,
-   "what": "Trieste AB and HB on Matricula — a shelf nobody on this estate has opened",
-   "state": "next",
+   "what": "Matricula's Altösterreich fonds — and Pola, which the row had missed",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Looking for Croatia on Matricula found none, but it found **two Austrian Protestant congregations at Trieste**. Not this family's confession and no De Franceschi is known in either — but the Littoral archives overlap, and if another archive on the estate works Trieste this belongs to them."
+   "note": "**Walked, and there are four congregations on this archive's ground, not two.** **Pola — Taufbuch 1873–1913**; **Görz — Taufbuch 1860–1913**; **Triest AB — four registers 1848–1918**; **Triest HB — three, 1900–1918**. Nine volumes, free and online.\n\n**Pola is the one that matters** and the row had not heard of it: this family's southern-Istrian cluster is Pula, Ližnjan, Fažana and Medulin, and Pola in 1873 was the imperial naval base filling with incomers.\n\nThe family is Roman Catholic and an Evangelical baptism book is unlikely to hold it — but *unlikely is not checked*, and this map already carries six Evangelical parishes walked on exactly that argument. [On the search register](/searched/)."
   },
   {
    "n": 21,
@@ -816,6 +816,14 @@
    "owner": "this archive",
    "since": "2026-09-16",
    "note": "Searching Arolsen for Anka Nera turned up the number sideways: **79 person records under DEFRANCESKI**, and this archive has read **one file** — the family's own, ITS D-1.505, and that only because the family held copies.\n\n**Four of the visible names are Anton and one is Lujza**, which is Luise Salzer; the rest are unexamined. Arolsen's online collections are free and indexed by name. **This is one of the cheapest bodies of unread material the archive has**, and the reason it was never opened is that nobody counted it."
+  },
+  {
+   "n": 95,
+   "what": "Put Matricula's nine Littoral volumes on the map",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-16",
+   "note": "**Pola, Görz, Triest AB and Triest HB** — nine registers, 1848 to 1918, free and online at Matricula and on no map this archive keeps. Adding them is a ninth provider in `build-research-map.py`, with the same shape as the others: a place, a volume list, a linkable address per volume.\n\n**Trieste and Görz are not this family's parishes and Pola is**, so the honest way to draw them is as a provider whose places mostly do not overlap the map at all — which is exactly what the Antenati and Delnice providers already look like."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
