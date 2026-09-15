@@ -1,456 +1,480 @@
 {
-  "title": "The work list",
-  "eyebrow": "What is being worked on, what is finished, and what is waiting on somebody",
-  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
-  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
-  "cols": [
-    "#",
-    "What",
-    "State",
-    "Where it stands"
-  ],
-  "rows": [
-    {
-      "n": 1,
-      "what": "Finish the ark harvest — 4,000 volumes still not clickable",
-      "state": "running",
-      "owner": "a machine",
-      "since": "2026-09-15",
-      "note": "Grinding in David's Chrome. **3,123 of 5,482 volumes are linkable.** **Stalled on 15 September** — the harvester's tab stopped responding, so it needs restarting against the 2,359 volumes still outstanding. The queue is regenerated and the local receiver is still up; nothing is lost. **This is the whole reason a parish can show a shelf and no links**: Senj is the worked example — three parishes, fifteen volumes catalogued, not one ark harvested, and the panel says so in words rather than showing an empty list."
-    },
-    {
-      "n": 2,
-      "what": "Ovaro «Matrimoni, allegati» 1807 — the cheapest thing on this list",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Read. No De Franceschi — and a better finding than the one it was opened for.** The file came up from **Capodistria**: banns published in Istria, a mother's consent notarised there, and the folded letter from one civil office to the other. [What it means](/carnia/#ovaro1807) is that **Istrian paper sits inside Carnian marriage files** — which is why the thirteen unread Mione allegati just became the most valuable shelf in the archive."
-    },
-    {
-      "n": 3,
-      "what": "Read the Mione and Ovaro «Matrimoni, allegati» — the best shelf in the archive",
-      "state": "running",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Three read, nineteen to go.** Each of the three has given up something the registers alone could not:\n\n**Mione 1806** — [Gio: Batta and Osvaldo De' Franceschi](/carnia/#allegati1806), two generations in one sheet, with the Pieve's seal still on it.\n**Mione 1815** — [Pietro De Franceschi](/carnia/#allegati1815), Felice Santo's grandfather.\n**Ovaro 1807** — [a file that came up from Capodistria](/carnia/#ovaro1807), proving the series also carries Istrian paper.\n\n**An allegato is the only place the lost Pieve di Gorto register speaks.** Twelve Mione volumes and seven Ovaro ones remain."
-    },
-    {
-      "n": 4,
-      "what": "The eight remaining Mione «Morti», 1806–1815",
-      "state": "running",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "[Morti 1810 is read](/carnia/#morti1810) and gave four deaths of the surname, a son in minor orders, and «Erman De Franceschi» in a man's own signature. Eight volumes left. **A Pietro De Franceschi dying in his seventies settles the question the 1792 extract opened**, and from 1813 each volume ends with a «Tavola Alfabetica» that makes it a page rather than a book."
-    },
-    {
-      "n": 5,
-      "what": "The nine Mione «Pubblicazioni», 1806–1815",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Banns name **both sets of parents** and the villages they live in, which is more genealogy per page than a marriage act. Two have been read. Seven have not."
-    },
-    {
-      "n": 6,
-      "what": "The Mione and Ovaro indices — six volumes, all of them alphabetical tables",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Matrimoni indici 1806–1810, 1811, 1812 · Morti indici the same three years · Ovaro's two. **An index is the fastest way to find out whether a volume is worth opening at all**, and these are the cheapest six things on the shelf."
-    },
-    {
-      "n": 7,
-      "what": "Ovaro's ten «Matrimoni», 1806–1815, read through",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Catalogued and linked; **two read**. 1806 and 1807 are the years Mione does not have."
-    },
-    {
-      "n": 8,
-      "what": "Walk Mieli and the rest of the Carnia comuni on Antenati",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Mieli turned up by accident** — its arks sit immediately before Mione's, which is how the one-comune-per-block assumption was caught. The Val di Gorto has a dozen comuni and this archive has catalogued three. A De Franceschi who left Mione did not necessarily leave the valley."
-    },
-    {
-      "n": 9,
-      "what": "Bring in the rest of the living family, name only",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Ten were added on 15 September — David's father's brother and sister, three first cousins, his wife, his two sons. **That is his immediate family and not the whole of it.** The MyHeritage tree holds 15,643 people and every harvest this archive has run was built to find the dead, so the living branch has never been walked.\n\n**Name only: no date of birth, no place of residence, no photograph.** The build gate enforces it. What is missing now is second cousins, the Blažević side's living kin, and the Apker descendants."
-    },
-    {
-      "n": 10,
-      "what": "Settle whether «Erman» is a by-name on a De Franceschi house",
-      "state": "struck",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Struck the day it was raised.** The question was whether *Erman* is a by-name on a De Franceschi house. It is not: his **1809 marriage act**, already in this archive, gives him as son of the late **Pietro Erman** and **Maddalena née de Franceschi**. The compound is his two parents. [Logged](/corrections/)."
-    },
-    {
-      "n": 11,
-      "what": "Valentina or Cattarina — one wife renamed, or two wives in turn?",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "The marriage index calls Osvaldo's wife **Valentina Prencis** on 6 August 1807. The birth act calls her **Cattarina nata Crencis** on 15 October 1810. Both readings are held open. The Mione «Morti» would settle it if the first one died."
-    },
-    {
-      "n": 12,
-      "what": "Daniele «del fu Osvaldo» de Canova — brother of the bride, or a second Osvaldo?",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "He witnesses Lucia Santa's wedding in 1815 and the act calls all four witnesses *«non parenti, né affini»*. Her father was **Osvaldo Antonio de Caneva**; Daniele, forty-nine, was born about 1766. **Either two Osvaldos at Liariis, or the formula is boilerplate.**"
-    },
-    {
-      "n": 13,
-      "what": "Send the Pieve di Santa Maria di Gorto enquiry",
-      "state": "blocked",
-      "owner": "David",
-      "since": "2026-09-15",
-      "note": "**The single most valuable letter this archive has ever drafted.** Mione's civil births stop at 1810 and there is no civil registration at all before 1806 — so Paolo, Osvaldo, Francesco, Matteo, Felice Santo **and now Pietro** were all baptised in a book only Gorto holds. [The draft is written, in Italian, and ready to send](/errands/)."
-    },
-    {
-      "n": 14,
-      "what": "The three archive request forms that need David's own data",
-      "state": "blocked",
-      "owner": "David",
-      "since": "2026-09-14",
-      "note": "DAPA has answered twice — for **Svetvinčenat** and **Pićan** — and both times asked for the same completed form: applicant's details, delivery address, billing details including an OIB. A third sits with **DAZD**. **This archive does not hold that data and will not invent it.**"
-    },
-    {
-      "n": 15,
-      "what": "One Y-DNA reading from a male-line De Franceschi who is not Ivan's descendant",
-      "state": "blocked",
-      "owner": "David",
-      "since": "2026-09-14",
-      "note": "**L-M27 rests on a father and a son, which is the same opinion asked twice.** One cousin reading his paternal haplogroup off an account he already has settles it either way. [The message is drafted](/dna/#settle); the Gračišće reunion families are the first ask."
-    },
-    {
-      "n": 16,
-      "what": "Turn the volumes nobody has filmed into named requests",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "[The cross-provider check](/map/) found **147 volumes listed at Pazin, from before 1890, that FamilySearch has not filmed**, and Pazin marks **49** of its own as digitised by nobody at all.\n\n**That second figure was 154 until this evening.** Pazin's «not digitised» column means «not digitised *by Pazin*», and 105 of the 154 turn out to be on FamilySearch film already. [Logged](/corrections/). [The short list](/undigitised/) is what goes in the letter."
-    },
-    {
-      "n": 17,
-      "what": "Track which volumes have been read, not just which places",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "The map can only say **«read right through»** where the catalogue carries a per-volume flag, and today that is **Antenati alone** — 16 volumes of 7,159. Everywhere else a reading is recorded against the place, so Svetvinčenat with 114 volumes and one act read counts the same as a parish half-finished. **Until this exists, «finished» is unprovable for 1,222 of 1,242 places.**"
-    },
-    {
-      "n": 18,
-      "what": "Find the Evangelical root in FamilySearch's waypoint tree",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Seven confession roots are known and walked. **The Evangelical one was never found**, so its parishes sit on the map in no catalogue at all — and the map says the fault is ours rather than pretending the shelf is empty."
-    },
-    {
-      "n": 19,
-      "what": "Widen the cross-provider check beyond six places",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "A gap can only be SEEN where two providers describe the same place, and today that is **six**, because Pazin's place names and FamilySearch's only match on six. **Better name matching turns one finding into forty.**"
-    },
-    {
-      "n": 20,
-      "what": "Trieste AB and HB on Matricula — a shelf nobody on this estate has opened",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Looking for Croatia on Matricula found none, but it found **two Austrian Protestant congregations at Trieste**. Not this family's confession and no De Franceschi is known in either — but the Littoral archives overlap, and if another archive on the estate works Trieste this belongs to them."
-    },
-    {
-      "n": 21,
-      "what": "The 404 page that stops every publish",
-      "state": "blocked",
-      "owner": "another session",
-      "since": "2026-09-14",
-      "note": "`./scripts/publish.sh` builds and audits clean — **1,231 pages, every link and anchor** — then fails on **`MISSING OUTPUT: /404/`** and refuses to push. An untracked `404.astro` builds to `404.html` rather than `404/index.html`. It belongs to the session that owns the cross-site UI. **Everything here is being committed and pushed by hand around it.**"
-    },
-    {
-      "n": 22,
-      "what": "The priority arks — clickable registers for our own parishes",
-      "state": "done",
-      "note": "425 volumes in the Istrian and Kvarner parishes this family is documented in, each now opening at page one from the [research map](/map/).",
-      "owner": "this archive",
-      "since": "2026-09-15"
-    },
-    {
-      "n": 23,
-      "what": "Re-cut the research map's colour scale to depth",
-      "state": "struck",
-      "note": "**Struck: it answered a question nobody was asking.** Shading by how many volumes sit on a shelf looked better than the saturated three-state scale it replaced, and said less — **a parish with forty volumes nobody has opened and a parish with two nobody has opened are in the same state.** The colour now says *how far we have got*: never opened, started, read right through. Depth moved into the panel, in words, where it can sit next to «nobody has read any of it» without pretending to be it.",
-      "owner": "this archive",
-      "since": "2026-09-14"
-    },
-    {
-      "n": 24,
-      "what": "Antenati as a fourth provider",
-      "state": "done",
-      "note": "[Seventy-four volumes](/antenati/) for Mione, Ovaro and Mieli, every one verified by fetching its own catalogue page. Its arks sit on a different host from everything else, so the map sends a reader to the archive's own list rather than dressing them as FamilySearch links.",
-      "owner": "this archive",
-      "since": "2026-09-15"
-    },
-    {
-      "n": 25,
-      "what": "Matricula Online as a fifth provider — Senj and Karlobag",
-      "state": "struck",
-      "note": "**Matricula holds no Croatian parish at all.** Twelve countries in its fonds index and Croatia is not one of them; its place search returns nothing for Senj, Karlobag, Rijeka or Fiume. The line was written from memory and never checked. [Logged as a correction](/corrections/).",
-      "owner": "this archive",
-      "since": "2026-09-15"
-    },
-    {
-      "n": 26,
-      "what": "Cross-provider gap detection",
-      "state": "done",
-      "note": "Six places are described by more than one provider, and they are the only places a gap can be seen. **147 volumes are listed at Pazin, from before 1890, that FamilySearch has not filmed** — and 313 more after 1890 that are the privacy cut-off and not a gap at all.",
-      "owner": "this archive",
-      "since": "2026-09-15"
-    },
-    {
-      "n": 27,
-      "what": "The Ovaro marriage allegati for 1815",
-      "state": "done",
-      "note": "**The best single hour of the day.** Felice Santo's baptismal extract of 2 November 1792 names *«Pauli filii Petri De Franceschi mionensis»* — [a grandfather this archive did not have](/carnia/#allegati1815) — copied out of the Pieve di Gorto's own register and certified at Luincis.",
-      "owner": "this archive",
-      "since": "2026-09-14"
-    },
-    {
-      "n": 28,
-      "what": "Document the 1807 gap; draft the Pieve di Gorto enquiry",
-      "state": "done",
-      "note": "Both. And [the gap turned out to be narrower than published](/carnia/#gap1807): Ovaro kept 1807, so it is one lost Mione volume rather than a hole in the system.",
-      "owner": "this archive",
-      "since": "2026-09-14"
-    },
-    {
-      "n": 29,
-      "what": "The new people onto the roster",
-      "state": "done",
-      "note": "Seventeen — from Felice Santo the weaver and Lucia Santa de Canova down to the two Luint tradesmen who witnessed a birth in 1810, and the priests who certified the extracts.",
-      "owner": "this archive",
-      "since": "2026-09-15"
-    },
-    {
-      "n": 30,
-      "what": "Reconcile Brenci / Prencis / Crencis / Brenis / Brunis / Brencis",
-      "state": "done",
-      "note": "[Six spellings, three women, one Friulian house-name](/carnia/#prences) — *«in cjasa da Prences»*. And a 1792 priest's Latin writes it **Prencis**, with a P, which is the earliest and most careful hand of the lot.",
-      "owner": "this archive",
-      "since": "2026-09-13"
-    },
-    {
-      "n": 31,
-      "what": "Pazin's undigitised volumes as a letter list",
-      "state": "done",
-      "note": "[The hundred and fifty-four](/undigitised/) — by place, by holder, with the DAPA shelf numbers and a draft in Croatian. **34 of them are in parishes on our own line.**",
-      "owner": "this archive",
-      "since": "2026-09-15"
-    },
-    {
-      "n": 32,
-      "what": "Decided against: inferring Antenati volumes from ark ranges",
-      "state": "struck",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "The first Antenati catalogue named fifty-nine volumes from contiguous ark ranges, assuming the portal numbers one comune at a time. **It does not** — an_ua667510 to 667513 are **Mieli**, a different comune, sitting immediately before Mione. Every volume is now fetched individually or it is not claimed. [Logged as a correction](/corrections/)."
-    },
-    {
-      "n": 33,
-      "what": "The panel now groups the shelf by record type and names the gaps",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "A marker used to list its volumes in whatever order the providers were walked. It now shows a coverage timeline — Births, Marriages, Deaths — with every hole named and measured. **277 real gaps across 160 places**; 1,002 places have none.\n\nA one- or two-year hole is called a labelling artefact rather than a loss, **except where every volume covers a single year** — the Napoleonic comuni — where a missing year is a missing book. That exception is what makes [Mione's lost 1807](/carnia/#gap1807) show as three gaps and not three shrugs."
-    },
-    {
-      "n": 34,
-      "what": "Each place shown under its older and other names",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "The «also written» line used to carry nothing but the catalogue's own noise — *«Fažana, Croatia»*. It now carries what the place was called when the register was written: **Rijeka as Fiume and Sankt Veit am Flaum, Pazin as Pisino, Gračišće as Gallignana, Svetvinčenat as Sanvincenti**. 609 of the 1,190 mapped places have one.\n\nTaken from the GeoNames alternate-names column already held offline, with the airport codes, the Mandarin and Cyrillic romanisations, and the modern administrative wrappers («Grad Vodnjan») filtered out — and with spellings that are the same name without hačeks (*Fazhana*, *Svetvinchenat*) folded away rather than listed as identities."
-    },
-    {
-      "n": 35,
-      "what": "The three Pazin-hinterland parishes are absent from FamilySearch entirely",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Checked against the full 1,333-parish walk of Croatia Church Books 2040054: **Gračišće, Gologorica and Pićan are not in it under any spelling** — nor Lindar, Beram, Trviž, Cerovlje, Zarečje, Grdoselo or Kašćerga. Boljun, Kršan and Kozljak are. **It is a patterned hole across the whole Pazin hinterland**, which is the ground this family comes off.\n\nThat is why Gračišće's marker hands you nothing to open: its 32 volumes are **Pazin catalogue entries**, and Pazin publishes a catalogue, not images. The panel now says so instead of showing an empty space. **Whether those registers are filmed in some other FamilySearch collection is the open question.**"
-    },
-    {
-      "n": 36,
-      "what": "The panel now colours the shelf by how far it has been read",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Green on what is done, red on the gaps, amber on what is part-done** — David's correction, applied to the panel as well as the marker.\n\nA record-type heading turns **green** when every volume of that kind has been read, **amber** when some have, and stays plain when none have. Individual volumes go green when they have been read, in the collapsed list and in the clickable «open at page one» list alike. Gaps keep their red.\n\nMione now reads at a glance: **BIRTHS · ALL READ** in green, **MARRIAGES · 6 of 18 read** in amber, and **1807** in red three times over. All of it done from outside the shared Atlas component, which this session does not own."
-    },
-    {
-      "n": 37,
-      "what": "One volume shown four times in the panel — collapsed to one line",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Meljani has a single register and the panel was showing it **four times**: as a record-type heading, as a coverage span, as a volume row, and again in the kit's own «open at page one» list.\n\n**It is now one line**, with the link moved into the row it belongs to and the leftover list removed. The span row only appears where there is a gap to show; the fold only appears where there are more than four volumes. Done from outside the shared component, by matching the two lists on a label the builder deliberately makes identical."
-    },
-    {
-      "n": 38,
-      "what": "Harvest «Croatia, Delnice Deanery Catholic Church Books, 1571–1926»",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Walked. Six reels, ~3,485 images, and no parish structure at all** — the collection browses by film number only. They hang on Delnice itself rather than pretending to a precision the collection does not have. **Which parishes each reel covers is a question for the catalogue record, not the browse tree.**"
-    },
-    {
-      "n": 39,
-      "what": "Open «Austria, Catholic Church Records, 1565–2007» for the Austrian Littoral",
-      "state": "struck",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Struck: it does not cover the Littoral.** The collection has no browse tree — it is a name index of 6.85 million records — so it was searched instead. **289 Defranceschi inside it, every named place Tyrolean**: Bozen, Salorno, St. Florian. Three Istrian surnames tested beside it fall the same way.\n\n**Gračišće, Gologorica and Pićan are not here**, and this was the best remaining candidate. [The negative is recorded in full](/searched/)."
-    },
-    {
-      "n": 40,
-      "what": "Open «Hungary, Civil Registration, 1895–1980» for Fiume and the littoral",
-      "state": "struck",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Struck: Croatia-Slavonia never had Hungarian civil registration.** The collection browses by **33 Hungarian counties and not one Croatian one**, and there is no Fiume in it.\n\nHungary introduced civil registration in 1895; **Croatia-Slavonia kept the parish registers as the legal civil record until 1946**. So there is no Croatian civil registration to find — it was never created. [The negative, and why it explains Međimurje](/searched/)."
-    },
-    {
-      "n": 41,
-      "what": "Put the places filed abroad on the map, under both names",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Done. 58 places, 409 volumes, 32 of them Croatian**, across three collections filed by Italy, Slovenia and Croatia-by-film.\n\nAn exonym table puts each on the same dot as its modern name — **Csáktornya→Čakovec, Perlak→Prelog, Buie→Buje** — with the catalogue's spelling kept in «also written», because that is the name you must search for.\n\n**It found a gap on day one**: Čakovec is missing 1891–1894 in all three record types, the interval between the parish books closing and Hungarian civil registration opening. [Neither catalogue could show that alone](/elsewhere/)."
-    },
-    {
-      "n": 42,
-      "what": "Walk every FamilySearch collection that could hold this family's ground",
-      "state": "done",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "**Done, and it is exhaustive.** All **3,488** collections listed, every title read, and **44 opened** — every Croatian, Austrian, Hungarian and Slovenian one, plus the Italian collections for Gorizia, Trieste, Udine, Venezia, Belluno, Treviso, Padova, Verona and Vicenza.\n\n**Five hold places on our ground and all five are now on the map. Thirty-nine hold nothing**, and each is [recorded as a negative](/collections-walk/) so nobody opens it twice.\n\n**There is no Serbian, Bosnian, Montenegrin or Yugoslav collection at all**, and Croatia has exactly two."
-    },
-    {
-      "n": 43,
-      "what": "The Tyrolean Defranceschi — a second population of the surname",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Searching the Austrian collection turned up **289 Defranceschi records clustered on Bozen and Salorno in South Tyrol** — several hundred kilometres from Carnia and with no known connection to this family.\n\n**It is worth a page of its own**, not because they are relatives but because they are the clearest demonstration this archive has of why a surname proves nothing. The [Mione households](/carnia/) already show the name was a population rather than a family in one valley; Tyrol shows it was a population in another."
-    },
-    {
-      "n": 44,
-      "what": "Write up why Croatia has no civil registration before 1946",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "Two collection walks in one evening produced the same structural fact from opposite ends: **Hungary registered civilly from 1895 and Croatia-Slavonia did not**, keeping the parish books as the legal record until **1946**.\n\n**It explains a great deal at once** — why FamilySearch's Croatian collection is *church books*; why Pazin's list is parish registers; why Međimurje has civil registers from 1895 (it was governed as part of Zala county, i.e. as Hungary); and why searching for Croatian civil registration has been a waste of everyone's time.\n\n**It belongs on the method page**, not buried in a search log."
-    },
-    {
-      "n": 45,
-      "what": "Decide whether the 250 other Italian collections are worth walking",
-      "state": "next",
-      "owner": "this archive",
-      "since": "2026-09-15",
-      "note": "FamilySearch has **257 Italian collections**; the walk opened the nine that touch the Adriatic and the Veneto. The rest are Naples, Sicily, Piedmont, Puglia — **irrelevant to this family's ground, and squarely the business of the Falco and Mazza archives**.\n\n**The call to make is whose job they are**, not whether they matter. This archive should probably hand the list over rather than walk it."
-    },
-    {
-      "n": 46,
-      "what": "The towns of our people, as a switch on the research map",
-      "state": "done",
-      "owner": "this session",
-      "since": "2026-09-15",
-      "note": "A second layer on the research map that is not about books at all: **160 towns, 956 placements of documented people, 106 of the towns outside Croatia** — Torrington, Memphis, Pfullingen, Broken Hill, Brisbane. Lifted whole out of `atlas.json` rather than geocoded a second time, stripped of its film lists so no register is offered twice, and **switched off by default** with a violet filter button that turns it on. 43 towns carry both a people marker and a shelf marker."
-    },
-    {
-      "n": 47,
-      "what": "Three maps merged into one, at /map/",
-      "state": "done",
-      "owner": "this session",
-      "since": "2026-09-15",
-      "note": "The research map, the atlas and the graves map were three maps of the same ground with three geocoders and three legends. **1,235 + 160 + 64 markers are 1,358 places**; 84 answer more than one of the three questions and **12 answer all three**. The colour switches between the questions; the panel never does. `/research-map/`, `/atlas/` and `/graves-map/` redirect."
-    },
-    {
-      "n": 48,
-      "what": "Towns for the living relatives",
-      "state": "done",
-      "owner": "David",
-      "since": "2026-09-15",
-      "note": "The living rule changed on 15 September: **name and town, never a date**. **All eleven living people the archive names are now placed** — David and Cheryl at Johannesburg and Brisbane; Cristina, Alessio and Mateo at Brisbane; **Ada, Horst, Mark, Gayle, Nicole and Kirsten at Johannesburg**, on David's word of the same day. Robbie — deceased, no date held — is placed at Johannesburg too, marked **inferred**: his wife and both his daughters are there and nothing in the archive names a town for him."
-    },
-    {
-      "n": 49,
-      "what": "David's father stands twice in the roster",
-      "state": "next",
-      "owner": "this session",
-      "since": "2026-09-15",
-      "note": "**Mario De Franceschi 1938–2013** (Find a Grave, Centenary Memorial Gardens) and **Mario Defranceschi 1938–2013** (MyHeritage 4507883) are one man, with two slugs under `/who/` and two rows in the roster. The map folds them now — surname spellings are normalised before people are counted — but **`/who/` still has two pages for him**. Fixing it properly means reconciling roster rows across sources, which touches every page that reads the roster."
-    },
-    {
-      "n": 50,
-      "what": "Antony De Franceski of Willowbank — is he the Horsham family?",
-      "state": "done",
-      "owner": "this session",
-      "since": "2026-09-15",
-      "note": "**Answered: yes.** He is **Anton Mario De Franceski**, born 21 August 1944 at Reutlingen — Zdravko and Ruža's only child, four years old on the *General M B Stewart*. Eight NAA items say so, including **A11534, 58–60**, which carries all three dates of birth in one line, and **D4881**, his own arrival card, which gives the middle name and the Australian spelling. Two corrections came out of it: he was four on the ship and not nine, and «Zorafko» at Horsham is Zdravko, so that is one burial and not two."
-    },
-    {
-      "n": 51,
-      "what": "Order NAA D4881 — Anton Mario De Franceski's arrival card, and run Ryerson",
-      "state": "next",
-      "owner": "this session",
-      "since": "2026-09-15",
-      "note": "The card runs **13 April 1949 to 31 December 1976** and is held at Adelaide; it should carry addresses, and it is the cheapest route to how a Horsham boy ended up at Ipswich. **Ryerson Index** — free, covers Australian death notices for 1999 — was returning «Server Overloaded» on 15 September and needs another run; a funeral notice would name a wife and children, and would settle the two-year gap between the cemetery's age and four documents."
-    }
-  ],
-  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
-  "accounts": [
-    {
-      "prefix": "src",
-      "noun": "pending searches",
-      "file": "site/src/data/searched.json",
-      "rows": "rows",
-      "when": {
-        "outcome": "pending"
-      },
-      "key": "key",
-      "label": "src"
-    },
-    {
-      "prefix": "err",
-      "noun": "errands not yet sent",
-      "file": "site/src/data/errands.json",
-      "rows": "rows",
-      "when": {
-        "sent": ""
-      },
-      "key": "key",
-      "label": "what"
-    },
-    {
-      "prefix": "letter",
-      "noun": "letters drafted",
-      "dir": "requests",
-      "ignore": [
-        "README.md"
-      ]
-    }
-  ],
-  "unreconciled": 31
+ "title": "The work list",
+ "eyebrow": "What is being worked on, what is finished, and what is waiting on somebody",
+ "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
+ "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
+ "cols": [
+  "#",
+  "What",
+  "State",
+  "Where it stands"
+ ],
+ "rows": [
+  {
+   "n": 1,
+   "what": "Finish the ark harvest — 4,000 volumes still not clickable",
+   "state": "running",
+   "owner": "a machine",
+   "since": "2026-09-15",
+   "note": "Grinding in David's Chrome. **3,123 of 5,482 volumes are linkable.** **Stalled on 15 September** — the harvester's tab stopped responding, so it needs restarting against the 2,359 volumes still outstanding. The queue is regenerated and the local receiver is still up; nothing is lost. **This is the whole reason a parish can show a shelf and no links**: Senj is the worked example — three parishes, fifteen volumes catalogued, not one ark harvested, and the panel says so in words rather than showing an empty list."
+  },
+  {
+   "n": 2,
+   "what": "Ovaro «Matrimoni, allegati» 1807 — the cheapest thing on this list",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Read. No De Franceschi — and a better finding than the one it was opened for.** The file came up from **Capodistria**: banns published in Istria, a mother's consent notarised there, and the folded letter from one civil office to the other. [What it means](/carnia/#ovaro1807) is that **Istrian paper sits inside Carnian marriage files** — which is why the thirteen unread Mione allegati just became the most valuable shelf in the archive."
+  },
+  {
+   "n": 3,
+   "what": "Read the Mione and Ovaro «Matrimoni, allegati» — the best shelf in the archive",
+   "state": "running",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Three read, nineteen to go.** Each of the three has given up something the registers alone could not:\n\n**Mione 1806** — [Gio: Batta and Osvaldo De' Franceschi](/carnia/#allegati1806), two generations in one sheet, with the Pieve's seal still on it.\n**Mione 1815** — [Pietro De Franceschi](/carnia/#allegati1815), Felice Santo's grandfather.\n**Ovaro 1807** — [a file that came up from Capodistria](/carnia/#ovaro1807), proving the series also carries Istrian paper.\n\n**An allegato is the only place the lost Pieve di Gorto register speaks.** Twelve Mione volumes and seven Ovaro ones remain."
+  },
+  {
+   "n": 4,
+   "what": "The eight remaining Mione «Morti», 1806–1815",
+   "state": "running",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "[Morti 1810 is read](/carnia/#morti1810) and gave four deaths of the surname, a son in minor orders, and «Erman De Franceschi» in a man's own signature. Eight volumes left. **A Pietro De Franceschi dying in his seventies settles the question the 1792 extract opened**, and from 1813 each volume ends with a «Tavola Alfabetica» that makes it a page rather than a book."
+  },
+  {
+   "n": 5,
+   "what": "The nine Mione «Pubblicazioni», 1806–1815",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Banns name **both sets of parents** and the villages they live in, which is more genealogy per page than a marriage act. Two have been read. Seven have not."
+  },
+  {
+   "n": 6,
+   "what": "The Mione and Ovaro indices — six volumes, all of them alphabetical tables",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Matrimoni indici 1806–1810, 1811, 1812 · Morti indici the same three years · Ovaro's two. **An index is the fastest way to find out whether a volume is worth opening at all**, and these are the cheapest six things on the shelf."
+  },
+  {
+   "n": 7,
+   "what": "Ovaro's ten «Matrimoni», 1806–1815, read through",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Catalogued and linked; **two read**. 1806 and 1807 are the years Mione does not have."
+  },
+  {
+   "n": 8,
+   "what": "Walk Mieli and the rest of the Carnia comuni on Antenati",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Mieli turned up by accident** — its arks sit immediately before Mione's, which is how the one-comune-per-block assumption was caught. The Val di Gorto has a dozen comuni and this archive has catalogued three. A De Franceschi who left Mione did not necessarily leave the valley."
+  },
+  {
+   "n": 9,
+   "what": "Bring in the rest of the living family, name only",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Ten were added on 15 September — David's father's brother and sister, three first cousins, his wife, his two sons. **That is his immediate family and not the whole of it.** The MyHeritage tree holds 15,643 people and every harvest this archive has run was built to find the dead, so the living branch has never been walked.\n\n**Name only: no date of birth, no place of residence, no photograph.** The build gate enforces it. What is missing now is second cousins, the Blažević side's living kin, and the Apker descendants."
+  },
+  {
+   "n": 10,
+   "what": "Settle whether «Erman» is a by-name on a De Franceschi house",
+   "state": "struck",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Struck the day it was raised.** The question was whether *Erman* is a by-name on a De Franceschi house. It is not: his **1809 marriage act**, already in this archive, gives him as son of the late **Pietro Erman** and **Maddalena née de Franceschi**. The compound is his two parents. [Logged](/corrections/)."
+  },
+  {
+   "n": 11,
+   "what": "Valentina or Cattarina — one wife renamed, or two wives in turn?",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The marriage index calls Osvaldo's wife **Valentina Prencis** on 6 August 1807. The birth act calls her **Cattarina nata Crencis** on 15 October 1810. Both readings are held open. The Mione «Morti» would settle it if the first one died."
+  },
+  {
+   "n": 12,
+   "what": "Daniele «del fu Osvaldo» de Canova — brother of the bride, or a second Osvaldo?",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "He witnesses Lucia Santa's wedding in 1815 and the act calls all four witnesses *«non parenti, né affini»*. Her father was **Osvaldo Antonio de Caneva**; Daniele, forty-nine, was born about 1766. **Either two Osvaldos at Liariis, or the formula is boilerplate.**"
+  },
+  {
+   "n": 13,
+   "what": "Send the Pieve di Santa Maria di Gorto enquiry",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "**The single most valuable letter this archive has ever drafted.** Mione's civil births stop at 1810 and there is no civil registration at all before 1806 — so Paolo, Osvaldo, Francesco, Matteo, Felice Santo **and now Pietro** were all baptised in a book only Gorto holds. [The draft is written, in Italian, and ready to send](/errands/)."
+  },
+  {
+   "n": 14,
+   "what": "The three archive request forms that need David's own data",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-14",
+   "note": "DAPA has answered twice — for **Svetvinčenat** and **Pićan** — and both times asked for the same completed form: applicant's details, delivery address, billing details including an OIB. A third sits with **DAZD**. **This archive does not hold that data and will not invent it.**"
+  },
+  {
+   "n": 15,
+   "what": "One Y-DNA reading from a male-line De Franceschi who is not Ivan's descendant",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-14",
+   "note": "**L-M27 rests on a father and a son, which is the same opinion asked twice.** One cousin reading his paternal haplogroup off an account he already has settles it either way. [The message is drafted](/dna/#settle); the Gračišće reunion families are the first ask."
+  },
+  {
+   "n": 16,
+   "what": "Turn the volumes nobody has filmed into named requests",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "[The cross-provider check](/map/) found **147 volumes listed at Pazin, from before 1890, that FamilySearch has not filmed**, and Pazin marks **49** of its own as digitised by nobody at all.\n\n**That second figure was 154 until this evening.** Pazin's «not digitised» column means «not digitised *by Pazin*», and 105 of the 154 turn out to be on FamilySearch film already. [Logged](/corrections/). [The short list](/undigitised/) is what goes in the letter."
+  },
+  {
+   "n": 17,
+   "what": "Track which volumes have been read, not just which places",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The map can only say **«read right through»** where the catalogue carries a per-volume flag, and today that is **Antenati alone** — 16 volumes of 7,159. Everywhere else a reading is recorded against the place, so Svetvinčenat with 114 volumes and one act read counts the same as a parish half-finished. **Until this exists, «finished» is unprovable for 1,222 of 1,242 places.**"
+  },
+  {
+   "n": 18,
+   "what": "Find the Evangelical root in FamilySearch's waypoint tree",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Seven confession roots are known and walked. **The Evangelical one was never found**, so its parishes sit on the map in no catalogue at all — and the map says the fault is ours rather than pretending the shelf is empty."
+  },
+  {
+   "n": 19,
+   "what": "Widen the cross-provider check beyond six places",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "A gap can only be SEEN where two providers describe the same place, and today that is **six**, because Pazin's place names and FamilySearch's only match on six. **Better name matching turns one finding into forty.**"
+  },
+  {
+   "n": 20,
+   "what": "Trieste AB and HB on Matricula — a shelf nobody on this estate has opened",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Looking for Croatia on Matricula found none, but it found **two Austrian Protestant congregations at Trieste**. Not this family's confession and no De Franceschi is known in either — but the Littoral archives overlap, and if another archive on the estate works Trieste this belongs to them."
+  },
+  {
+   "n": 21,
+   "what": "The 404 page that stops every publish",
+   "state": "blocked",
+   "owner": "another session",
+   "since": "2026-09-14",
+   "note": "`./scripts/publish.sh` builds and audits clean — **1,231 pages, every link and anchor** — then fails on **`MISSING OUTPUT: /404/`** and refuses to push. An untracked `404.astro` builds to `404.html` rather than `404/index.html`. It belongs to the session that owns the cross-site UI. **Everything here is being committed and pushed by hand around it.**"
+  },
+  {
+   "n": 22,
+   "what": "The priority arks — clickable registers for our own parishes",
+   "state": "done",
+   "note": "425 volumes in the Istrian and Kvarner parishes this family is documented in, each now opening at page one from the [research map](/map/).",
+   "owner": "this archive",
+   "since": "2026-09-15"
+  },
+  {
+   "n": 23,
+   "what": "Re-cut the research map's colour scale to depth",
+   "state": "struck",
+   "note": "**Struck: it answered a question nobody was asking.** Shading by how many volumes sit on a shelf looked better than the saturated three-state scale it replaced, and said less — **a parish with forty volumes nobody has opened and a parish with two nobody has opened are in the same state.** The colour now says *how far we have got*: never opened, started, read right through. Depth moved into the panel, in words, where it can sit next to «nobody has read any of it» without pretending to be it.",
+   "owner": "this archive",
+   "since": "2026-09-14"
+  },
+  {
+   "n": 24,
+   "what": "Antenati as a fourth provider",
+   "state": "done",
+   "note": "[Seventy-four volumes](/antenati/) for Mione, Ovaro and Mieli, every one verified by fetching its own catalogue page. Its arks sit on a different host from everything else, so the map sends a reader to the archive's own list rather than dressing them as FamilySearch links.",
+   "owner": "this archive",
+   "since": "2026-09-15"
+  },
+  {
+   "n": 25,
+   "what": "Matricula Online as a fifth provider — Senj and Karlobag",
+   "state": "struck",
+   "note": "**Matricula holds no Croatian parish at all.** Twelve countries in its fonds index and Croatia is not one of them; its place search returns nothing for Senj, Karlobag, Rijeka or Fiume. The line was written from memory and never checked. [Logged as a correction](/corrections/).",
+   "owner": "this archive",
+   "since": "2026-09-15"
+  },
+  {
+   "n": 26,
+   "what": "Cross-provider gap detection",
+   "state": "done",
+   "note": "Six places are described by more than one provider, and they are the only places a gap can be seen. **147 volumes are listed at Pazin, from before 1890, that FamilySearch has not filmed** — and 313 more after 1890 that are the privacy cut-off and not a gap at all.",
+   "owner": "this archive",
+   "since": "2026-09-15"
+  },
+  {
+   "n": 27,
+   "what": "The Ovaro marriage allegati for 1815",
+   "state": "done",
+   "note": "**The best single hour of the day.** Felice Santo's baptismal extract of 2 November 1792 names *«Pauli filii Petri De Franceschi mionensis»* — [a grandfather this archive did not have](/carnia/#allegati1815) — copied out of the Pieve di Gorto's own register and certified at Luincis.",
+   "owner": "this archive",
+   "since": "2026-09-14"
+  },
+  {
+   "n": 28,
+   "what": "Document the 1807 gap; draft the Pieve di Gorto enquiry",
+   "state": "done",
+   "note": "Both. And [the gap turned out to be narrower than published](/carnia/#gap1807): Ovaro kept 1807, so it is one lost Mione volume rather than a hole in the system.",
+   "owner": "this archive",
+   "since": "2026-09-14"
+  },
+  {
+   "n": 29,
+   "what": "The new people onto the roster",
+   "state": "done",
+   "note": "Seventeen — from Felice Santo the weaver and Lucia Santa de Canova down to the two Luint tradesmen who witnessed a birth in 1810, and the priests who certified the extracts.",
+   "owner": "this archive",
+   "since": "2026-09-15"
+  },
+  {
+   "n": 30,
+   "what": "Reconcile Brenci / Prencis / Crencis / Brenis / Brunis / Brencis",
+   "state": "done",
+   "note": "[Six spellings, three women, one Friulian house-name](/carnia/#prences) — *«in cjasa da Prences»*. And a 1792 priest's Latin writes it **Prencis**, with a P, which is the earliest and most careful hand of the lot.",
+   "owner": "this archive",
+   "since": "2026-09-13"
+  },
+  {
+   "n": 31,
+   "what": "Pazin's undigitised volumes as a letter list",
+   "state": "done",
+   "note": "[The hundred and fifty-four](/undigitised/) — by place, by holder, with the DAPA shelf numbers and a draft in Croatian. **34 of them are in parishes on our own line.**",
+   "owner": "this archive",
+   "since": "2026-09-15"
+  },
+  {
+   "n": 32,
+   "what": "Decided against: inferring Antenati volumes from ark ranges",
+   "state": "struck",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The first Antenati catalogue named fifty-nine volumes from contiguous ark ranges, assuming the portal numbers one comune at a time. **It does not** — an_ua667510 to 667513 are **Mieli**, a different comune, sitting immediately before Mione. Every volume is now fetched individually or it is not claimed. [Logged as a correction](/corrections/)."
+  },
+  {
+   "n": 33,
+   "what": "The panel now groups the shelf by record type and names the gaps",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "A marker used to list its volumes in whatever order the providers were walked. It now shows a coverage timeline — Births, Marriages, Deaths — with every hole named and measured. **277 real gaps across 160 places**; 1,002 places have none.\n\nA one- or two-year hole is called a labelling artefact rather than a loss, **except where every volume covers a single year** — the Napoleonic comuni — where a missing year is a missing book. That exception is what makes [Mione's lost 1807](/carnia/#gap1807) show as three gaps and not three shrugs."
+  },
+  {
+   "n": 34,
+   "what": "Each place shown under its older and other names",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The «also written» line used to carry nothing but the catalogue's own noise — *«Fažana, Croatia»*. It now carries what the place was called when the register was written: **Rijeka as Fiume and Sankt Veit am Flaum, Pazin as Pisino, Gračišće as Gallignana, Svetvinčenat as Sanvincenti**. 609 of the 1,190 mapped places have one.\n\nTaken from the GeoNames alternate-names column already held offline, with the airport codes, the Mandarin and Cyrillic romanisations, and the modern administrative wrappers («Grad Vodnjan») filtered out — and with spellings that are the same name without hačeks (*Fazhana*, *Svetvinchenat*) folded away rather than listed as identities."
+  },
+  {
+   "n": 35,
+   "what": "The three Pazin-hinterland parishes are absent from FamilySearch entirely",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Checked against the full 1,333-parish walk of Croatia Church Books 2040054: **Gračišće, Gologorica and Pićan are not in it under any spelling** — nor Lindar, Beram, Trviž, Cerovlje, Zarečje, Grdoselo or Kašćerga. Boljun, Kršan and Kozljak are. **It is a patterned hole across the whole Pazin hinterland**, which is the ground this family comes off.\n\nThat is why Gračišće's marker hands you nothing to open: its 32 volumes are **Pazin catalogue entries**, and Pazin publishes a catalogue, not images. The panel now says so instead of showing an empty space. **Whether those registers are filmed in some other FamilySearch collection is the open question.**"
+  },
+  {
+   "n": 36,
+   "what": "The panel now colours the shelf by how far it has been read",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Green on what is done, red on the gaps, amber on what is part-done** — David's correction, applied to the panel as well as the marker.\n\nA record-type heading turns **green** when every volume of that kind has been read, **amber** when some have, and stays plain when none have. Individual volumes go green when they have been read, in the collapsed list and in the clickable «open at page one» list alike. Gaps keep their red.\n\nMione now reads at a glance: **BIRTHS · ALL READ** in green, **MARRIAGES · 6 of 18 read** in amber, and **1807** in red three times over. All of it done from outside the shared Atlas component, which this session does not own."
+  },
+  {
+   "n": 37,
+   "what": "One volume shown four times in the panel — collapsed to one line",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Meljani has a single register and the panel was showing it **four times**: as a record-type heading, as a coverage span, as a volume row, and again in the kit's own «open at page one» list.\n\n**It is now one line**, with the link moved into the row it belongs to and the leftover list removed. The span row only appears where there is a gap to show; the fold only appears where there are more than four volumes. Done from outside the shared component, by matching the two lists on a label the builder deliberately makes identical."
+  },
+  {
+   "n": 38,
+   "what": "Harvest «Croatia, Delnice Deanery Catholic Church Books, 1571–1926»",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Walked. Six reels, ~3,485 images, and no parish structure at all** — the collection browses by film number only. They hang on Delnice itself rather than pretending to a precision the collection does not have. **Which parishes each reel covers is a question for the catalogue record, not the browse tree.**"
+  },
+  {
+   "n": 39,
+   "what": "Open «Austria, Catholic Church Records, 1565–2007» for the Austrian Littoral",
+   "state": "struck",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Struck: it does not cover the Littoral.** The collection has no browse tree — it is a name index of 6.85 million records — so it was searched instead. **289 Defranceschi inside it, every named place Tyrolean**: Bozen, Salorno, St. Florian. Three Istrian surnames tested beside it fall the same way.\n\n**Gračišće, Gologorica and Pićan are not here**, and this was the best remaining candidate. [The negative is recorded in full](/searched/)."
+  },
+  {
+   "n": 40,
+   "what": "Open «Hungary, Civil Registration, 1895–1980» for Fiume and the littoral",
+   "state": "struck",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Struck: Croatia-Slavonia never had Hungarian civil registration.** The collection browses by **33 Hungarian counties and not one Croatian one**, and there is no Fiume in it.\n\nHungary introduced civil registration in 1895; **Croatia-Slavonia kept the parish registers as the legal civil record until 1946**. So there is no Croatian civil registration to find — it was never created. [The negative, and why it explains Međimurje](/searched/)."
+  },
+  {
+   "n": 41,
+   "what": "Put the places filed abroad on the map, under both names",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Done. 58 places, 409 volumes, 32 of them Croatian**, across three collections filed by Italy, Slovenia and Croatia-by-film.\n\nAn exonym table puts each on the same dot as its modern name — **Csáktornya→Čakovec, Perlak→Prelog, Buie→Buje** — with the catalogue's spelling kept in «also written», because that is the name you must search for.\n\n**It found a gap on day one**: Čakovec is missing 1891–1894 in all three record types, the interval between the parish books closing and Hungarian civil registration opening. [Neither catalogue could show that alone](/elsewhere/)."
+  },
+  {
+   "n": 42,
+   "what": "Walk every FamilySearch collection that could hold this family's ground",
+   "state": "done",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Done, and it is exhaustive.** All **3,488** collections listed, every title read, and **44 opened** — every Croatian, Austrian, Hungarian and Slovenian one, plus the Italian collections for Gorizia, Trieste, Udine, Venezia, Belluno, Treviso, Padova, Verona and Vicenza.\n\n**Five hold places on our ground and all five are now on the map. Thirty-nine hold nothing**, and each is [recorded as a negative](/collections-walk/) so nobody opens it twice.\n\n**There is no Serbian, Bosnian, Montenegrin or Yugoslav collection at all**, and Croatia has exactly two."
+  },
+  {
+   "n": 43,
+   "what": "The Tyrolean Defranceschi — a second population of the surname",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Searching the Austrian collection turned up **289 Defranceschi records clustered on Bozen and Salorno in South Tyrol** — several hundred kilometres from Carnia and with no known connection to this family.\n\n**It is worth a page of its own**, not because they are relatives but because they are the clearest demonstration this archive has of why a surname proves nothing. The [Mione households](/carnia/) already show the name was a population rather than a family in one valley; Tyrol shows it was a population in another."
+  },
+  {
+   "n": 44,
+   "what": "Write up why Croatia has no civil registration before 1946",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Two collection walks in one evening produced the same structural fact from opposite ends: **Hungary registered civilly from 1895 and Croatia-Slavonia did not**, keeping the parish books as the legal record until **1946**.\n\n**It explains a great deal at once** — why FamilySearch's Croatian collection is *church books*; why Pazin's list is parish registers; why Međimurje has civil registers from 1895 (it was governed as part of Zala county, i.e. as Hungary); and why searching for Croatian civil registration has been a waste of everyone's time.\n\n**It belongs on the method page**, not buried in a search log."
+  },
+  {
+   "n": 45,
+   "what": "Decide whether the 250 other Italian collections are worth walking",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "FamilySearch has **257 Italian collections**; the walk opened the nine that touch the Adriatic and the Veneto. The rest are Naples, Sicily, Piedmont, Puglia — **irrelevant to this family's ground, and squarely the business of the Falco and Mazza archives**.\n\n**The call to make is whose job they are**, not whether they matter. This archive should probably hand the list over rather than walk it."
+  },
+  {
+   "n": 46,
+   "what": "The towns of our people, as a switch on the research map",
+   "state": "done",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "A second layer on the research map that is not about books at all: **160 towns, 956 placements of documented people, 106 of the towns outside Croatia** — Torrington, Memphis, Pfullingen, Broken Hill, Brisbane. Lifted whole out of `atlas.json` rather than geocoded a second time, stripped of its film lists so no register is offered twice, and **switched off by default** with a violet filter button that turns it on. 43 towns carry both a people marker and a shelf marker."
+  },
+  {
+   "n": 47,
+   "what": "Three maps merged into one, at /map/",
+   "state": "done",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "The research map, the atlas and the graves map were three maps of the same ground with three geocoders and three legends. **1,235 + 160 + 64 markers are 1,358 places**; 84 answer more than one of the three questions and **12 answer all three**. The colour switches between the questions; the panel never does. `/research-map/`, `/atlas/` and `/graves-map/` redirect."
+  },
+  {
+   "n": 48,
+   "what": "Towns for the living relatives",
+   "state": "done",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "The living rule changed on 15 September: **name and town, never a date**. **All eleven living people the archive names are now placed** — David and Cheryl at Johannesburg and Brisbane; Cristina, Alessio and Mateo at Brisbane; **Ada, Horst, Mark, Gayle, Nicole and Kirsten at Johannesburg**, on David's word of the same day. Robbie — deceased, no date held — is placed at Johannesburg too, marked **inferred**: his wife and both his daughters are there and nothing in the archive names a town for him."
+  },
+  {
+   "n": 49,
+   "what": "David's father stands twice in the roster",
+   "state": "next",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "**Mario De Franceschi 1938–2013** (Find a Grave, Centenary Memorial Gardens) and **Mario Defranceschi 1938–2013** (MyHeritage 4507883) are one man, with two slugs under `/who/` and two rows in the roster. The map folds them now — surname spellings are normalised before people are counted — but **`/who/` still has two pages for him**. Fixing it properly means reconciling roster rows across sources, which touches every page that reads the roster."
+  },
+  {
+   "n": 50,
+   "what": "Antony De Franceski of Willowbank — is he the Horsham family?",
+   "state": "done",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "**Answered: yes.** He is **Anton Mario De Franceski**, born 21 August 1944 at Reutlingen — Zdravko and Ruža's only child, four years old on the *General M B Stewart*. Eight NAA items say so, including **A11534, 58–60**, which carries all three dates of birth in one line, and **D4881**, his own arrival card, which gives the middle name and the Australian spelling. Two corrections came out of it: he was four on the ship and not nine, and «Zorafko» at Horsham is Zdravko, so that is one burial and not two."
+  },
+  {
+   "n": 51,
+   "what": "Order NAA D4881 — Anton Mario De Franceski's arrival card, and run Ryerson",
+   "state": "next",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "The card runs **13 April 1949 to 31 December 1976** and is held at Adelaide; it should carry addresses, and it is the cheapest route to how a Horsham boy ended up at Ipswich. **Ryerson Index** — free, covers Australian death notices for 1999 — was returning «Server Overloaded» on 15 September and needs another run; a funeral notice would name a wife and children, and would settle the two-year gap between the cemetery's age and four documents."
+  },
+  {
+   "n": 52,
+   "what": "Rebuild the roster from the live MyHeritage tree, not the 2018 GEDCOM",
+   "state": "running",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "**The roster's family-file source is a GEDCOM of July 2018 — 8,286 people. The live tree has 15,643.** A note of 7 September already said the export was retired and read 459 individuals of the surname out of the live tree; **that reading was never imported**. The Australian branch went in on 15 September — fifteen people — because David asked why his cousin's sister at Horsham was missing. **The rest of the tree is still outstanding**, and every one of the 513 roster rows carrying a 2018 identifier needs checking against it."
+  },
+  {
+   "n": 53,
+   "what": "Anka Nera Defranceski, dead at Belgrade in 1944, aged twenty-nine",
+   "state": "next",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "Born at Crikvenica in 1915, married name **Oreščanin**, died at **Belgrade in 1944**. That is the whole of it. A Croatian woman of twenty-nine dying in occupied Belgrade in 1944 is a question, not a fact — and this archive has never asked it. Arolsen, the Belgrade city registry and the Yugoslav victims' census are the places to start."
+  },
+  {
+   "n": 54,
+   "what": "David's call: the children on the map",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "Three living children of the Australian branch are now named on the map with no dates and a town — **Charlotte Rita Baviello, Louis Hendy and Lewis Rose**, alongside Alessio and Mateo. That follows the rule as David set it: name and town, never a date. **They are other people's children rather than David's**, and if he would rather they were not named at all, it is one line to take them off."
+  }
+ ],
+ "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
+ "accounts": [
+  {
+   "prefix": "src",
+   "noun": "pending searches",
+   "file": "site/src/data/searched.json",
+   "rows": "rows",
+   "when": {
+    "outcome": "pending"
+   },
+   "key": "key",
+   "label": "src"
+  },
+  {
+   "prefix": "err",
+   "noun": "errands not yet sent",
+   "file": "site/src/data/errands.json",
+   "rows": "rows",
+   "when": {
+    "sent": ""
+   },
+   "key": "key",
+   "label": "what"
+  },
+  {
+   "prefix": "letter",
+   "noun": "letters drafted",
+   "dir": "requests",
+   "ignore": [
+    "README.md"
+   ]
+  }
+ ],
+ "unreconciled": 31
 }

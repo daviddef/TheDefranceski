@@ -163,6 +163,21 @@ import d from "../data/pfullingen.json";
   <p class="cap" style="margin-top:14px">National Archives of Australia, RecordSearch — searched on <em>Defranceski</em>, <em>Franceski</em> and <em>De Franceski</em>, 15 September 2026. Eight items. None has been ordered as a copy yet.</p>
 </section>
 
+<section class="blk">
+  <h2 id="australia">{d.australia.heading}</h2>
+  <p class="dek" style="margin-top:10px">{d.australia.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+    {d.australia.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={mdp(r.text)}></div>
+      </div>
+    ))}
+  </div>
+  <div class="prose note" style="margin-top:18px" set:html={mdp(d.australia.close)}></div>
+  <p class="cap" style="margin-top:12px">Read from David's live MyHeritage tree, family tree 4, on 15 September 2026. <strong>Living people are named and placed and never dated</strong>, as this archive's rule requires.</p>
+</section>
+
   <Lightbox />
 <Rule name="arrows" />
 
