@@ -471,6 +471,61 @@
   .at-sc-key span { display: inline-flex; align-items: center; gap: 6px; }
   .at-sc-key i { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
   .at-sc-key b { font-weight: 600; color: var(--ink-2); }
+
+  /* ---- the panel follows the map ----------------------------------------
+     The kit sizes both at a flat 560px. This archive's own stylesheet then
+     gives the map `#atlas { height: min(70vh, 620px) }` — responsive, and
+     right — and the panel never got the message, so on a normal screen the
+     map ran sixty pixels past the bottom of the column beside it.
+     Nothing here restates a number: the map sets the row, the panel takes it. */
+  .at-wrap > .at-panel { height: auto; align-self: stretch; }
+
+  /* ---- full screen ------------------------------------------------------
+     1,367 markers in a 475-pixel column is a thumbnail of a map. The switch
+     row, the find box, the filters, the map and the panel all move into one
+     fixed layer, the native fullscreen API is asked for on top of that where
+     the browser allows it, and Escape or the button brings them home. */
+  .at-stage {
+    position: fixed; inset: 0; z-index: 2000; background: var(--ground);
+    padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 8px;
+    overflow: hidden;
+  }
+  .at-stage .at-wrap { flex: 1 1 auto; min-height: 0; margin-top: 0; }
+  .at-stage #atlas, .at-stage .at-panel { height: 100% !important; }
+  .at-stage .at-scheme { margin-top: 0; }
+  .at-stage .at-tools { margin-top: 2px; }
+
+  /* In full screen the controls are a header, not a section. Left as they are
+     they took 485 pixels of a 1,029-pixel window and left the map 468 — which
+     is smaller than the map the reader pressed the button to escape. The
+     switches keep their names and lose their sentences; the find box loses its
+     label; the pills tighten. Nothing is removed that is not said elsewhere on
+     the page the reader just came from. */
+  .at-stage .at-scheme .lab { display: none; }
+  .at-stage .at-scheme button i { display: none; }
+  .at-stage .at-scheme button { padding: 7px 11px; }
+  .at-stage .at-sc-row { gap: 8px; }
+  .at-stage .at-sc-key { margin-top: 6px; font-size: 11px; gap: 3px 16px; }
+  .at-stage .at-tools { align-items: center; gap: 8px 16px; }
+  .at-stage .at-find { flex: 0 1 280px; }
+  .at-stage .at-find .lab { display: none; }
+  .at-stage #at-q { margin-top: 0; padding: 7px 11px; font-size: 14px; }
+  .at-stage .atlas-key { gap: 5px; }
+  .at-stage .at-cat { padding: 4px 9px; font-size: 11px; }
+  .at-stage #at-count { margin: 0; }
+  .at-fs-btn {
+    font: 500 12px/1 var(--sans, system-ui); padding: 8px 12px; cursor: pointer;
+    background: var(--card); color: var(--ink-2);
+    border: 1px solid var(--rule); border-radius: 3px; white-space: nowrap;
+  }
+  .at-fs-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .at-stage .at-fs-btn { border-color: var(--accent); color: var(--accent); margin-left: auto; }
+  @media (max-width: 640px) {
+    .at-stage { padding: 8px 10px 10px; }
+    .at-stage .at-wrap { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+    .at-stage .at-panel { height: 34vh !important; }
+    .at-stage #atlas { height: 100% !important; }
+  }
   .at-cat[data-cat="_none"] { display: none !important; }
   .at-cat[data-scheme-off] { display: none !important; }
   /* On a phone the three questions sit one above the other, and buttons that
@@ -752,6 +807,73 @@
       paint();
     }
 
+    /* ---- full screen ------------------------------------------------------
+       A map of 1,367 places in a 475-pixel column is a thumbnail. This lifts
+       the whole instrument — the three layer switches, the find box, the
+       filters, the map and the panel — into one fixed layer over the page,
+       and asks the browser for real fullscreen on top of that where it is
+       allowed. Nothing is re-rendered and nothing is cloned: the same nodes
+       move, and move back, so every listener the kit attached still holds.
+       Escape leaves, because a reader who cannot find the way out of a
+       fullscreen map will use the back button and lose the page. */
+    function fullscreen(map) {
+      var wrap = document.querySelector(".at-wrap");
+      var tools = document.querySelector(".at-tools");
+      var scheme = document.querySelector(".at-scheme");
+      var count = document.getElementById("at-count");
+      if (!wrap || !tools || !wrap.parentNode) return;
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "at-fs-btn";
+      btn.setAttribute("aria-pressed", "false");
+      btn.textContent = "Full screen";
+      tools.appendChild(btn);
+
+      var stage = null, mark = null, open = false;
+
+      function enter() {
+        if (open) return;
+        mark = document.createComment("at-stage");
+        wrap.parentNode.insertBefore(mark, scheme || tools);
+        stage = document.createElement("div");
+        stage.className = "at-stage";
+        document.body.appendChild(stage);
+        [scheme, tools, count, wrap].forEach(function (n) { if (n) stage.appendChild(n); });
+        btn.textContent = "Leave full screen";
+        btn.setAttribute("aria-pressed", "true");
+        open = true;
+        if (stage.requestFullscreen) { try { stage.requestFullscreen(); } catch (e) {} }
+        setTimeout(function () { map.invalidateSize(); }, 60);
+      }
+
+      function leave() {
+        if (!open) return;
+        if (document.fullscreenElement && document.exitFullscreen) {
+          try { document.exitFullscreen(); } catch (e) {}
+        }
+        [scheme, tools, count, wrap].forEach(function (n) {
+          if (n && mark && mark.parentNode) mark.parentNode.insertBefore(n, mark);
+        });
+        if (mark && mark.parentNode) mark.parentNode.removeChild(mark);
+        if (stage && stage.parentNode) stage.parentNode.removeChild(stage);
+        stage = null; mark = null; open = false;
+        btn.textContent = "Full screen";
+        btn.setAttribute("aria-pressed", "false");
+        setTimeout(function () { map.invalidateSize(); }, 60);
+      }
+
+      btn.addEventListener("click", function () { open ? leave() : enter(); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && open) leave();
+      });
+      /* Leaving through the browser's own fullscreen exit must bring the page
+         back too, or the reader is left with a fixed layer and no way out. */
+      document.addEventListener("fullscreenchange", function () {
+        if (!document.fullscreenElement && open) leave();
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       if (typeof L === "undefined" || !L.Map || !L.Map.addInitHook) return;
       /* Every circle marker the kit makes, kept as it is made — the kit's own
@@ -772,6 +894,7 @@
           setTimeout(function () {
             baseControl(self); pulse(self);
             if (SCHEMES) schemes(self, all);
+            fullscreen(self);
           }, 0);
         });
       });
