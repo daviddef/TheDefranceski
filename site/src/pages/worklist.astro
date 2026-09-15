@@ -1,0 +1,67 @@
+---
+/* The work list.
+
+   Every other register on this site answers "what do we know". None of them
+   answered "what is being done", because that was living in a chat window —
+   which is the one place that does not survive the session. This is the fix. */
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import w from "../data/worklist.json";
+
+const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
+  (_, t, href) => `<a href="${u(href)}">${t}</a>`);
+
+const STATE = {
+  done:    ["Done",    "#12703F", "finished and published"],
+  running: ["Running", "#1E5F8C", "a machine is grinding at it now"],
+  next:    ["Next",    "#E9A020", "ready to start"],
+  blocked: ["Blocked", "#B04A16", "waiting on a person or an institution"],
+  struck:  ["Struck",  "#7A7A7A", "founded on a mistake, kept rather than deleted"],
+};
+const order = ["running", "next", "blocked", "done", "struck"];
+const count = (k) => w.rows.filter(r => r.state === k).length;
+---
+<Base
+  title={w.title}
+  eyebrow={`${w.rows.length} items · ${count("done")} done · ${count("running")} running · ${count("next")} ready to start · ${count("blocked")} waiting on somebody`}
+  dek={w.dek}>
+
+  <div class="prose" style="margin-top:8px" set:html={link(mdp(w.lead))}></div>
+
+  <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:8px">
+    {order.map(k => (
+      <span class="at-cat on" style={`--c:${STATE[k][1]};text-decoration:none`}>
+        <b style={`color:${STATE[k][1]}`}>{STATE[k][0]}</b> {count(k)}
+      </span>
+    ))}
+  </div>
+
+  <div style="margin-top:26px;display:flex;flex-direction:column;gap:14px">
+    {w.rows.map(r => (
+      <div class="one" style={`border-left-color:${STATE[r.state][1]}`}>
+        <div class="lab">
+          {r.n}. {STATE[r.state][0]} — {STATE[r.state][2]}
+        </div>
+        <p style="margin:8px 0 0;font-size:17px;font-weight:600"
+           style-decoration={r.state === "struck" ? "line-through" : ""}>
+          {r.state === "struck" ? <s>{r.what}</s> : r.what}
+        </p>
+        <div class="prose" style="margin-top:6px" set:html={link(mdp(r.note))}></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="margin-top:34px;border-left-color:var(--accent)">
+    <div class="lab">What is left</div>
+    <div class="prose" style="margin-top:8px" set:html={link(mdp(w.close))}></div>
+  </div>
+
+  <p class="cap" style="margin-top:36px">
+    The other registers: <a href={u("/searched/")}>what has been searched</a> ·
+    <a href={u("/open-questions/")}>what is unanswered</a> ·
+    <a href={u("/gaps/")}>who is missing</a> ·
+    <a href={u("/errands/")}>what has to be asked for</a> ·
+    <a href={u("/corrections/")}>what this archive got wrong</a>.
+  </p>
+</Base>
