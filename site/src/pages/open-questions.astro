@@ -7,6 +7,7 @@
    next step is a job somebody can pick up, and a question without one is just
    a sigh. */
 import Base from "../layouts/Base.astro";
+import Questions from "@daviddef/archive-kit/components/Questions.astro";
 import Rule from "../components/Rule.astro";
 import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import { u } from "../lib/url.js";
@@ -67,42 +68,18 @@ const total = open.length + blocked.length;
     <div class="scroll" style="margin-top:20px">
       <table>
         <tbody>
-          {byKind.map(g => (
-            <tr>
-              <td><a href={`#${g.c}`}>{g.label}</a></td>
-              <td class="mono">{g.rows.length}</td>
-            </tr>
-          ))}
-          <tr><td><strong>Unanswered, all told</strong></td><td class="mono"><strong>{total}</strong></td></tr>
-        </tbody>
-      </table>
-    </div>
+          <section class="blk">
+    <h2>Every open question, and what would answer it</h2>
+    <p class="dek">The kinds above are the filter. Each one carries what is already known and the
+    record that would settle it — a question without that is a regret, not a queue.</p>
+    <Questions u={u} rows={questions.open.map((o, i) => ({
+      n: i + 1,
+      q: o.q,
+      state: o.status === "blocked" ? "Blocked" : "Open",
+      known: o.known,
+      settles: o.needed,
+    }))} />
   </section>
-
-  <Rule name="arrows" />
-
-  {byKind.map(g => (
-    <section class="blk" id={g.c}>
-      <h2>{g.label} <span class="dim mono">{g.rows.length}</span></h2>
-      {g.note && <p class="dek">{g.note}</p>}
-      <div class="stack" style="margin-top:22px">
-        {g.rows.map(o => (
-          <article class="qrow">
-            <div>
-              <h3 class="qq">{o.q}</h3>
-              <Evidence level={o.status === "blocked" ? "disputed" : "inferred"}>
-                {o.status === "blocked" ? "Blocked" : "Open"}
-              </Evidence>
-            </div>
-            <div>
-              <p class="qw">{o.known}</p>
-              <p class="qn"><b>What would answer it:</b> {o.needed}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  ))}
 
   {answered.length > 0 && (
     <>
