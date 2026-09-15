@@ -37,14 +37,6 @@ const ORIGIN = {
   venetian: "--r-venice", slavic: "--accent", carnia: "--terra",
   austrian: "--r-habsburg", maritime: "--r-italy", uskok: "--r-yugo",
 };
-const ORIGIN_KEY = [
-  { label: "Venetian & Istrian Romance", col: "--r-venice" },
-  { label: "Slavic Istria", col: "--accent" },
-  { label: "Friuli & Carnia", col: "--terra" },
-  { label: "Austrian", col: "--r-habsburg" },
-  { label: "Kvarner shipping", col: "--r-italy" },
-  { label: "Uskok", col: "--r-yugo" },
-];
 
 const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
   const R = mi.routes[k], fams = (byRoute[k] || []).sort((a, b) => b.c - a.c);
@@ -154,7 +146,7 @@ const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) 
     metrics={[{ n: nFam, label: "families joined" }, { n: nMarr, label: "indexed marriages" },
               { n: m.couples.length + m.undated.length, label: "couples recovered" },
               { n: ORD.filter((k) => mi.routes[k]).length, label: "jurisdictions" },
-              { n: mi.rows.filter((r) => r.ours).length, label: "in the direct line" }]} memberKey={ORIGIN_KEY}
+              { n: mi.rows.filter((r) => r.ours).length, label: "in the direct line" }]} chartUnit="indexed marriages"
     couples={[...m.couples.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: c.y })),
               ...m.undated.map((c) => ({ a: { name: c.a }, b: { name: c.b }, when: "" }))]}
     couplesTitle="Everyone, as the registers name them"
