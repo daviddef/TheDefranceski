@@ -19,8 +19,12 @@ const mine = st.bySource[s.key];
 const cats = [
   ["none",      "In no catalogue at all",   "#9AA7B2"],
   ["untouched", "Catalogued, never opened", "#C9B79A"],
-  ["started",   "Something here read",      "#E9A020"],
-  ["done",      "Read right through",       "#12703F"],
+  /* Researched from print, index or correspondence — and its own registers
+     never opened. Twenty places were amber for this and it was the wrong
+     colour: reading a history OF Žminj is not reading Žminj's books. */
+  ["worked",    "Researched, books unopened", "#2F7A8C"],
+  ["started",   "A volume of its own read",   "#E9A020"],
+  ["done",      "Every volume read",        "#12703F"],
 ];
 const others = r.sources.filter(x => x.key !== s.key);
 ---

@@ -5,6 +5,8 @@ import Base from "../layouts/Base.astro";
 import WaysIn from "@daviddef/archive-kit/components/WaysIn.astro";
 import Numbers from "@daviddef/archive-kit/components/Numbers.astro";
 import PlaceSpark from "@daviddef/archive-kit/components/PlaceSpark.astro";
+import MarriageChart from "@daviddef/archive-kit/components/MarriageChart.astro";
+import { chartGroups } from "../lib/marriedin.js";
 import placesRaw from "../data/places.json";
 /* This archive stores a place as coords:[lat,lon] and a `lane` for its region;
    PlaceSpark wants lat, lon and cat. Mapped here rather than in the component,
@@ -151,6 +153,14 @@ const finds = [
     <PlaceSpark places={sparkPlaces} href={u("/atlas/")}
                 label={`${sparkPlaces.length} places across Istria, the Kvarner and Carnia`} />
   </section>
+</section>
+
+
+<section class="blk">
+  <h2>The families who married in</h2>
+  <p class="dek">Seventy-four surnames married into this one, each routed to the empire that held its town.
+  <a href={u("/marriages/")}>The marriages, in full →</a></p>
+  <MarriageChart groups={chartGroups} subject="Defranceschi" unit="indexed marriages" />
 </section>
 
 <section class="blk">

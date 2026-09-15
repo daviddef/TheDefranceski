@@ -28,8 +28,12 @@ const st = r.stats;
 const cats = [
   ["none",      "In no catalogue at all",   "#9AA7B2"],
   ["untouched", "Catalogued, never opened", "#C9B79A"],
-  ["started",   "Something here read",      "#E9A020"],
-  ["done",      "Read right through",       "#12703F"],
+  /* Researched from print, index or correspondence — and its own registers
+     never opened. Twenty places were amber for this and it was the wrong
+     colour: reading a history OF Žminj is not reading Žminj's books. */
+  ["worked",    "Researched, books unopened", "#2F7A8C"],
+  ["started",   "A volume of its own read",   "#E9A020"],
+  ["done",      "Every volume read",        "#12703F"],
   /* And one that is not a coverage state at all. The four above shade SHELVES;
      this shades PEOPLE, and it is a different question on the same ground —
      which is precisely why it is a switch rather than a fifth colour in the
@@ -128,11 +132,13 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     <div class="one">
-      <div class="lab">What the three colours mean — and what they do not</div>
+      <div class="lab">What the colours mean — and what they do not</div>
       <div class="prose" style="margin-top:8px" set:html={mdp(
-`**The colour says how far we have got, and nothing else.** Sand is *catalogued and never opened* — we know what books are on the shelf and not one of them has been read. Gold is *started*. Green is *read right through*, and **there is not a single green marker on this map**.
+`**The colour says how far we have got with the SHELF, and nothing else.** Sand is *catalogued and never opened*. Teal is *researched and its own books never opened* — real work, done from print and index rather than from the registers. Gold means **a volume of this parish's own registers has been read**. Green is every volume, and **there is not a single green marker on this map**.
 
-**That is the honest picture and it is meant to be uncomfortable.** ${st.byProgress.untouched} places catalogued and untouched · ${st.byProgress.started} started · **${st.byProgress.done} finished** · ${st.volumesRead} volumes of ${s.volumes} read one by one.
+**That is the honest picture and it is meant to be uncomfortable.** ${st.byProgress.untouched} places catalogued and untouched · ${st.byProgress.worked} researched without their registers being opened · **${st.byProgress.started}** with a volume of their own read · **${st.byProgress.done} finished** · ${st.volumesRead} volumes of ${s.volumes} read one by one.
+
+*Teal is new, and it exists because gold was lying.* Twenty-two markers were gold and **twenty of them had never had a single register volume opened**. They were gold because the search register NAMES them — a local history of Žminj; a migration paper that lists Žminj among the towns the Carni settled at. Reading a book **about** a parish and reading the parish's **own registers** are two different acts, and a scale whose legend says «how far we have got with the shelf» must not paint the first in the colour of the second. [Logged as a correction](/corrections/).
 
 *This is the third scale this map has worn.* It carried three coverage states until the cataloguing finished and turned 1,219 of them the same colour; then it shaded by **depth** — one or two volumes against ten or more — which looked better and said less. **A parish with forty volumes nobody has opened and a parish with two nobody has opened are in the same state.** Depth now lives in the panel, in words, next to the sentence that says whether anybody has read it.
 
@@ -144,7 +150,7 @@ His map still supplies what the tree does not: the **confessions**, drawn as he 
 
 *The first cut of this map used three colours — not walked, catalogued, read.* It worked for about a day, and then the cataloguing finished and **1,219 of 1,239 places went gold**. A map where everything is one colour is not a map, so the shading was re-cut to carry something that still varies.
 
-**Something here has been read** means a row in the [search register](${"/searched/"}) names the place as a source. That flag is **derived by matching place names against the register's own source and destination fields** — never against its prose, which mentions places for all sorts of reasons. A handful of names that are also ordinary Croatian words or surnames are excluded by hand. **It is approximate, and it will be wrong in both directions until every row is tagged properly.**`)}></div>
+**Researched, books unopened** means a row in the [search register](${"/searched/"}) names the place as a source or a destination — and no volume of its registers has been read. That flag is **derived by matching place names against the register's own source and destination fields** — never against its prose, which mentions places for all sorts of reasons. A handful of names that are also ordinary Croatian words or surnames are excluded by hand. **It is approximate, and it will be wrong in both directions until every row is tagged properly.**`)}></div>
     </div>
 
     <div class="one">

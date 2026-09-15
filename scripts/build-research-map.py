@@ -197,13 +197,30 @@ def progress(n, reads, vread, vknown):
     volumes were read, which today is Antenati alone. Everywhere else a read
     is recorded against the PLACE, not the book, so the best that can be
     honestly said is «started».
+
+    And «started» used to say two different things in the same colour, which
+    is the fault this docstring exists to record. Twenty-two places were amber
+    and twenty of them had not had a single register volume opened: they were
+    amber because the search register NAMES them — a local history of Žminj, a
+    migration paper that lists Žminj among the places the Carni settled. That
+    is real work and it is not the same work. Reading a book about a parish
+    and reading the parish's own registers are two different acts, and a map
+    whose legend says «how far we have got with the shelf» must not colour the
+    first as though it were the second.
+
+    So they are separated. «Worked» is a place this archive has researched
+    from print, index or correspondence without opening its registers;
+    «started» now means what it says — a volume of this parish's own books has
+    been read.
     """
     if n == 0:
         return "none"
     if vknown and vread >= n:
         return "done"
-    if vread or reads:
+    if vread:
         return "started"
+    if reads:
+        return "worked"
     return "untouched"
 
 YEARS = re.compile(r"\b(1[5-9]\d\d)\b")
@@ -722,11 +739,16 @@ def main():
 
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
              "volumes": sum(o["volumes"] for o in out),
+             # «Read» now means a register volume of this parish's own books has
+             # been opened. Places we have only researched from print are
+             # counted separately, because conflating the two is what made
+             # twenty places amber that had never had a book opened.
              "read": sum(1 for o in out if o["cat"] in ("started", "done")),
+             "worked": sum(1 for o in out if o["cat"] == "worked"),
              "listed": sum(1 for o in out if o["cat"] == "untouched"),
              "untouched": sum(1 for o in out if o["cat"] == "untouched"),
              "byProgress": {x: sum(1 for o in out if o["cat"] == x)
-                            for x in ("none", "untouched", "started", "done")},
+                            for x in ("none", "untouched", "worked", "started", "done")},
              "volumesRead": sum(o["vread"] for o in out),
              "researchers": len(researchers),
              "bySource": {s: {"places": src_count[s],
@@ -815,9 +837,13 @@ def main():
                     tail = (f"{o['vread']} of the {n} have been read, one volume at a time. "
                             f"{n - o['vread']} have never been opened.")
                 elif o["reads"]:
-                    tail = ("Something here has been read — the search register says what. "
-                            "This archive does not yet track WHICH of these volumes, so this "
-                            "place counts as started and not as finished.")
+                    # The Atlas panel escapes its text — it renders no markup at
+                    # all — so this sentence carries its weight in words.
+                    tail = (f"Not one of them has been opened. What has been read here is "
+                            f"{o['reads']} thing{'' if o['reads'] == 1 else 's'} ABOUT this "
+                            f"place — a printed history, an index, a paper, a letter — which "
+                            f"the search register lists. That is research and it is not the "
+                            f"same as reading the parish's own books.")
                 else:
                     tail = ("Nobody has opened any of it. The number of volumes is the size of "
                             "the shelf, not a measure of what has been done.")
