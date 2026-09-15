@@ -1,0 +1,134 @@
+---
+/* The hundred and fifty-four.
+
+   Pazin's own register list is the only source in this archive that records
+   whether a volume has been photographed. A hundred and fifty-four of its
+   entries say no — and those are not a gap in anybody's website, they are books
+   on a shelf that exist and cannot be read from here. This page turns that
+   column into something that can be posted. */
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import registers from "../data/registers.json";
+
+const TYPE = { MKR: "Births", MKV: "Marriages", MKU: "Deaths", SD: "Church census" };
+const rows = registers.filter(r => r.digitised !== "yes");
+
+/* Grouped by who holds the paper, because that is who gets the letter. One
+   request to DAPA covers a hundred and eighteen volumes; a parish office
+   holding four is a different letter and a different tone. */
+const byHolder = {};
+for (const r of rows) (byHolder[r.held_at || "unrecorded"] ||= []).push(r);
+const holders = Object.entries(byHolder).sort((a, b) => b[1].length - a[1].length);
+
+const byPlace = {};
+for (const r of rows) (byPlace[r.place] ||= []).push(r);
+const places = Object.entries(byPlace).sort((a, b) => b[1].length - a[1].length);
+
+const ours = new Set(["Gologorica", "Gračišće", "Pićan", "Pazin", "Svetvinčenat"]);
+const mine = rows.filter(r => ours.has(r.place));
+const HOLDER = {
+  DAPA: "Državni arhiv u Pazinu — the state archive itself",
+  ZMP: "Zavičajni muzej Poreštine, Poreč",
+  "MU Pula": "Matični ured Pula — the civil registry office",
+  "BA Poreč": "Biskupijski arhiv Poreč — the diocesan archive",
+};
+const holderName = (h) =>
+  HOLDER[h] || (h.startsWith("ŽU ") ? `Župni ured ${h.slice(3)} — the parish office itself` : h);
+---
+<Base
+  title="The hundred and fifty-four"
+  eyebrow={`${rows.length} volumes · ${places.length} places · ${holders.length} holders · none of them photographed`}
+  dek="Every register in Pazin's own list that is marked «not digitised». These are not books missing from a website — they are books that exist, on a shelf in Istria, and cannot be read from anywhere else. This page says exactly which, and who to ask.">
+
+  <div class="one" style="border-left-color:var(--accent)">
+    <div class="lab">Why this list is different from everything else here</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+`Every other source this archive uses says what it *has*. **Pazin is the only one that says what it hasn't.** Its register list carries a digitised column, and ${rows.length} of its entries say no.
+
+That single column is worth more than the rest of the catalogue put together, because it converts an absence into an address. **FamilySearch not holding a book tells you nothing** — it might be at Pazin, it might be lost, it might never have existed. Pazin saying «not digitised» tells you the book is real, where it is, and what it is called.
+
+**${mine.length} of the ${rows.length} are in parishes on our own line** — ${[...new Set(mine.map(r => r.place))].sort().join(", ")}. Those are the ones to ask for first.`)}></div>
+  </div>
+
+  <h2 id="ours" style="font-size:26px;margin-top:44px">Ours first</h2>
+  <p class="dek" style="margin-top:8px">The {mine.length} volumes in parishes this family is actually documented in.</p>
+  <div class="scroll" style="margin-top:14px">
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+      <thead><tr>
+        <th style="text-align:left;padding:6px 10px 6px 0">Place</th>
+        <th style="text-align:left;padding:6px 10px">Register</th>
+        <th style="text-align:left;padding:6px 10px">Years</th>
+        <th style="text-align:left;padding:6px 10px">Held by</th>
+        <th style="text-align:left;padding:6px 0 6px 10px">DAPA no.</th>
+      </tr></thead>
+      <tbody>
+        {mine.map(r => (
+          <tr style="border-top:1px solid var(--rule)">
+            <td style="padding:7px 10px 7px 0;white-space:nowrap"><strong>{r.place}</strong></td>
+            <td style="padding:7px 10px">{TYPE[r.type] || r.type}</td>
+            <td style="padding:7px 10px;white-space:nowrap">{r.period}</td>
+            <td style="padding:7px 10px">{r.held_at}</td>
+            <td style="padding:7px 0 7px 10px;color:var(--dim)">{r.dapa_no}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="holders" style="font-size:26px;margin-top:50px">Who to write to, and for how many</h2>
+  <p class="dek" style="margin-top:8px">One letter per holder, not one per book. The archive holds most of them; the rest are scattered across parish offices that hold two, three or four each.</p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {holders.map(([h, list]) => (
+      <div class="one" style={list.length > 20 ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{holderName(h)} — {list.length} volume{list.length === 1 ? "" : "s"}</div>
+        <p class="cap" style="margin-top:8px">
+          {[...new Set(list.map(r => r.place))].sort().join(" · ")}
+        </p>
+        <ul style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:3px;font-size:13px">
+          {list.slice(0, 12).map(r => (
+            <li>{r.place} — {TYPE[r.type] || r.type} {r.period} <span class="cap">({r.dapa_no})</span></li>
+          ))}
+        </ul>
+        {list.length > 12 && <p class="cap" style="margin-top:8px">and {list.length - 12} more, listed by place below.</p>}
+      </div>
+    ))}
+  </div>
+
+  <h2 id="places" style="font-size:26px;margin-top:50px">All {rows.length}, by place</h2>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:20px">
+    {places.map(([place, list]) => (
+      <div>
+        <div class="lab">{place} — {list.length}</div>
+        <div class="scroll" style="margin-top:8px">
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <tbody>
+              {list.map(r => (
+                <tr style="border-top:1px solid var(--rule)">
+                  <td style="padding:5px 10px 5px 0;white-space:nowrap">{TYPE[r.type] || r.type}</td>
+                  <td style="padding:5px 10px;white-space:nowrap">{r.period}</td>
+                  <td style="padding:5px 10px">{r.held_at}</td>
+                  <td style="padding:5px 0 5px 10px;color:var(--dim);white-space:nowrap">{r.dapa_no}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="margin-top:44px">
+    <div class="lab">The draft, in Croatian</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+`*Poštovani, u Vašem popisu matičnih knjiga navedeno je da sljedeće knjige nisu digitalizirane: ____. Molim Vas obavijest o mogućnosti uvida ili naručivanja preslika upisa za prezime **De Franceschi / Defranceschi**, uz signaturu knjige. Unaprijed zahvaljujem.*
+
+**Fill the blank from the tables above** — the DAPA number and the years are what the office works from. The archive's [errands page](/errands/) carries the ones already sent and what came back; DAPA has answered before and asks for a completed request form, which needs personal data this archive does not hold.`)}></div>
+  </div>
+
+  <p class="cap" style="margin-top:36px">
+    Source: Državni arhiv u Pazinu's own register list, held at <code>site/src/data/registers.json</code> — {registers.length} entries, of which {rows.length} are marked not digitised.
+    <a href={u("/research-map/dapa/")}>Pazin on the research map →</a> ·
+    <a href={u("/parish-books/")}>The parish books →</a>
+  </p>
+</Base>
