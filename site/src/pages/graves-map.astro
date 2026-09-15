@@ -1,0 +1,96 @@
+---
+/* The other map. The research map is a map of shelves; this is a map of
+   ground — where the family is actually buried, and how each burial is known.
+   The kit's Atlas again, pointed at a different blob. Nothing in the kit is
+   touched. */
+import Base from "../layouts/Base.astro";
+import Atlas from "@daviddef/archive-kit/components/Atlas.astro";
+import AtlasTimelineTint from "../components/AtlasTimelineTint.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import g from "../data/gravesmap.json";
+
+const s = g.stats;
+const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
+  (_, t, href) => `<a href="${u(href)}">${t}</a>`);
+
+/* Two ways of knowing a burial, and they turn out never to coincide. */
+const cats = [
+  ["stone",    "A headstone, photographed",   "#B04A16"],
+  ["register", "A line in a burial register", "#1E5F8C"],
+  ["both",     "Both, at one place",          "#12703F"],
+];
+const countries = Object.entries(s.byCountry).sort((a, b) => b[1] - a[1]);
+const top = g.places.filter(p => p.lat).sort((a, b) => b.n - a.n).slice(0, 12);
+---
+<Base
+  title="Where they are buried"
+  eyebrow={`${s.people} burials · ${s.stones} headstones and ${s.register} register entries · ${s.cemeteries} cemeteries · ${s.earliest}–${s.latest}`}
+  dek="The other map. Not which registers exist, but where this family is actually in the ground — and whether what is known is a stone somebody photographed or a sentence a clerk wrote.">
+
+  <Atlas
+    dataUrl={u("/graves-map-data.json")}
+    cats={cats}
+    bounds={[[35, -80], [52, 20]]}
+    homeLabel="Back to the Adriatic"
+    placeholder="Rijeka · Torrington · Ližnjan · Broken Hill"
+    hint={`${s.placed} of the ${s.places} places are on the map. Bigger markers hold more people.`}
+  />
+
+  <AtlasTimelineTint dataUrl={u("/graves-map-data.json")} />
+
+  <div class="one" style="margin-top:26px;border-left-color:var(--accent)">
+    <div class="lab">The two colours never meet, and that is the finding</div>
+    <div class="prose" style="margin-top:8px" set:html={link(mdp(
+`**Fifty places have a photographed headstone. Fourteen have a burial register entry. Not one place has both.**
+
+That is not a quirk of the data. It is the emigration, drawn: **the people who stayed are in parish books and have no findable grave; the people who left are under stones and were never in a Croatian register.** The register entries run **${s.earliest} to 1997** and are almost all Istrian and Kvarner — Rijeka, Ližnjan, Poreč, Pula, Kaštelir. The headstones run **1844 to ${s.latest}** and are almost all somewhere else — Connecticut, Rome, Queens, Broken Hill, Ticino.
+
+**The green colour in the legend has no members.** It is left there because the day a place turns green — a grave found in a parish this archive has read — is the day one of these two halves joins the other.`))}></div>
+  </div>
+
+  <div class="two" style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+    <div class="one">
+      <div class="lab">Where the ground is</div>
+      <div class="prose" style="margin-top:8px" set:html={mdp(
+        countries.map(([c, n]) => `**${c}** — ${n} place${n === 1 ? "" : "s"}`).join(" · ") +
+        `\n\n**${s.cemeteries} named cemeteries** across ${s.placed} places.`
+      )}></div>
+    </div>
+    <div class="one">
+      <div class="lab">And what cannot be put on it</div>
+      <div class="prose" style="margin-top:8px" set:html={link(mdp(
+`**${s.unplacedRegister} burials have no place to pin.** Thirty-six of them are entered as *«Croatia, parish not named»* and four as *«not stated»* — read out of indexes that record a death without recording where it happened.
+
+They are counted in [the burials page](/burials/) and deliberately absent here. **A map that guesses at a parish would be worse than a map with a hole in it.**`))}></div>
+    </div>
+  </div>
+
+  <h2 id="biggest" style="font-size:26px;margin-top:44px">The twelve heaviest places</h2>
+  <p class="dek" style="margin-top:8px">Where most of the family lies, by how many burials this archive can name there.</p>
+  <div class="scroll" style="margin-top:14px">
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+      <thead><tr>
+        <th style="text-align:left;padding:6px 10px 6px 0">Place</th>
+        <th style="text-align:left;padding:6px 10px">Known from</th>
+        <th style="text-align:right;padding:6px 10px">Burials</th>
+        <th style="text-align:left;padding:6px 0 6px 10px">Years</th>
+      </tr></thead>
+      <tbody>
+        {top.map(p => (
+          <tr style="border-top:1px solid var(--rule)">
+            <td style="padding:7px 10px 7px 0"><strong>{p.name}</strong></td>
+            <td style="padding:7px 10px">{p.stones ? `${p.stones} headstone${p.stones === 1 ? "" : "s"}` : ""}{p.stones && p.register ? " · " : ""}{p.register ? `${p.register} register` : ""}</td>
+            <td style="padding:7px 10px;text-align:right;font-variant-numeric:tabular-nums">{p.n}</td>
+            <td style="padding:7px 0 7px 10px;white-space:nowrap">{p.first === p.last ? p.first : `${p.first}–${p.last}`}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="cap" style="margin-top:36px">
+    Headstones from <a href="https://www.findagrave.com/" target="_blank" rel="noopener">Find a Grave</a>, read into <a href={u("/graves/")}>the graves page</a>; register entries read off parish burial books and listed on <a href={u("/burials/")}>the burials page</a>. Coordinates from the GeoNames <code>cities500</code> gazetteer, held offline.
+    <a href={u("/research-map/")}>The research map — a map of shelves rather than ground →</a>
+  </p>
+</Base>

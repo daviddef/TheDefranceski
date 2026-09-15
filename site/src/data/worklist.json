@@ -16,7 +16,7 @@
    "state": "running",
    "owner": "a machine",
    "since": "2026-09-15",
-   "note": "Grinding in David's Chrome. **3,123 of 5,482 volumes are linkable.** **Stalled on 15 September** — the harvester's tab stopped responding and the Chrome extension dropped its connection, so it needs restarting in a fresh tab against the 2,359 volumes still outstanding. The queue is regenerated and the local receiver is still up; nothing is lost."
+   "note": "Grinding in David's Chrome. **3,123 of 5,482 volumes are linkable.** **Stalled on 15 September** — the harvester's tab stopped responding, so it needs restarting against the 2,359 volumes still outstanding. The queue is regenerated and the local receiver is still up; nothing is lost. **This is the whole reason a parish can show a shelf and no links**: Senj is the worked example — three parishes, fifteen volumes catalogued, not one ark harvested, and the panel says so in words rather than showing an empty list."
   },
   {
    "n": 2,
@@ -369,6 +369,14 @@
    "owner": "this archive",
    "since": "2026-09-15",
    "note": "FamilySearch has **257 Italian collections**; the walk opened the nine that touch the Adriatic and the Veneto. The rest are Naples, Sicily, Piedmont, Puglia — **irrelevant to this family's ground, and squarely the business of the Falco and Mazza archives**.\n\n**The call to make is whose job they are**, not whether they matter. This archive should probably hand the list over rather than walk it."
+  },
+  {
+   "n": 46,
+   "what": "The towns of our people, as a switch on the research map",
+   "state": "done",
+   "owner": "this session",
+   "since": "2026-09-15",
+   "note": "A second layer on the research map that is not about books at all: **160 towns, 956 placements of documented people, 106 of the towns outside Croatia** — Torrington, Memphis, Pfullingen, Broken Hill, Brisbane. Lifted whole out of `atlas.json` rather than geocoded a second time, stripped of its film lists so no register is offered twice, and **switched off by default** with a violet filter button that turns it on. 43 towns carry both a people marker and a shelf marker."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight."

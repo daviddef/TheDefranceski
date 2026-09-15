@@ -30,6 +30,11 @@ const cats = [
   ["untouched", "Catalogued, never opened", "#C9B79A"],
   ["started",   "Something here read",      "#E9A020"],
   ["done",      "Read right through",       "#12703F"],
+  /* And one that is not a coverage state at all. The four above shade SHELVES;
+     this shades PEOPLE, and it is a different question on the same ground —
+     which is precisely why it is a switch rather than a fifth colour in the
+     same scale. It starts off. */
+  ["people",    "Towns of our people",      "#7A5CA8"],
 ];
 const LAB = { rc: "Roman Catholic", orth: "Orthodox", gc: "Greek Catholic",
               jew: "Jewish", mil: "Military", ref: "Reformed", civil: "Civil",
@@ -76,7 +81,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
     hint={`${s.placed} of the ${s.places} places can be put on the map. ${s.read} of them — ${pct(s.read)}% — have had anything read at all.`}
   />
 
-  <AtlasTimelineTint dataUrl={u("/research-map-data.json")} />
+  <AtlasTimelineTint dataUrl={u("/research-map-data.json")} startOff={["people"]} />
 
   <div class="one" style="margin-top:26px">
     <div class="lab">One provider at a time</div>
@@ -89,6 +94,20 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
         </a>
       ))}
     </div>
+  </div>
+
+  <div class="one" style="border-left-color:#7A5CA8;margin-top:26px">
+    <div class="lab">The violet switch: the towns of our people</div>
+    <div class="prose" style="margin-top:8px" set:html={link(mdp(
+`Every other marker on this map is a **shelf**. The violet one is a **town somebody lived in** — ${st.people.places} of them, holding **${st.people.named} placements of named, documented people**, and **${st.people.abroad} of the ${st.people.places} are outside Croatia altogether**: Mione and Gologorica, but also Torrington, Memphis, Pfullingen, Broken Hill and Brisbane. Use the **Whole world** button at the top right of the map to see them.
+
+**It starts switched off**, and the button marked *Towns of our people* turns it on. That is deliberate. Coverage and kinship are two different questions about the same ground, and a hundred and sixty violet dots laid over a map about shelf coverage is simply a different map. Off by default, on in one click.
+
+**${st.people.onShelfToo} of those towns also carry a record-book marker**, so they will appear twice when both layers are on — once for the people, once for the shelf. The two markers are not duplicates of each other: *the shelf marker is what exists and how far we have got; the people marker is who we can put there.* The volumes stay on the shelf marker only, because the last thing this map needs is the same register offered twice.
+
+**Nothing here is geocoded twice.** [The atlas](/atlas/) already places every documented person this archive holds, and it is lifted whole rather than rebuilt — a second geocoder against the same names would have drifted from the first inside a week.
+
+**Living people are not on it.** The layer is built from documented individuals with a year attached, which is the archive's rule doing its own work rather than a filter bolted on afterwards.`))}></div>
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">Where this map comes from, and what it is worth</h2>

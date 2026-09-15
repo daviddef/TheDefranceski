@@ -260,6 +260,14 @@
      to match exactly one. Typing «Senj» leaves Senj, Senja and Senjska Draga on
      the map and the panel still saying «pick a place», which is not what a
      search box promises. These are the matches, listed, so one can be chosen. */
+  /* The find box and the filters ship below the map. They are controls for
+     the map, so they belong above it — moved by node rather than by CSS
+     order, because their parent is the page's own content column and turning
+     that into a flex container to reorder two children would be a large
+     change for a small reason. */
+  .at-tools.at-top { margin: 4px 0 14px; }
+  .at-count-top { margin: -6px 0 14px; }
+
   .at-find { position: relative; }
   .at-hits {
     position: absolute; z-index: 1200; left: 0; right: 0; top: 100%;
@@ -281,12 +289,46 @@
   .at-hits .none { cursor: default; opacity: .6; font-style: italic; }
 </style>
 
-<script is:inline define:vars={{ hitsUrl: Astro.props.dataUrl || "" }}>
+<script is:inline define:vars={{ hitsUrl: Astro.props.dataUrl || "",
+                                 startOff: Astro.props.startOff || [] }}>
   (function () {
     var q = document.getElementById("at-q");
     var box = q && q.closest(".at-find");
     var count = document.getElementById("at-count");
+
+    /* A category the page wants switched off when the map opens. The kit
+       renders every button on and keeps its own `off` map in a closure, so
+       the only honest way in from outside is the button itself: click it
+       once, after the kit has bound its listener and run its first apply().
+       #at-count gets its text at the end of that apply(), which is the
+       cheapest signal that the map is live. */
+    if (startOff.length) {
+      var tries = 0;
+      var arm = setInterval(function () {
+        if (++tries > 80) return clearInterval(arm);
+        if (!count || !count.textContent) return;
+        clearInterval(arm);
+        startOff.forEach(function (k) {
+          var b = document.querySelector('.at-cat[data-cat="' + k + '"]');
+          if (b && b.classList.contains("on")) b.click();
+        });
+      }, 120);
+    }
+
     if (!q || !box || !hitsUrl) return;
+
+    /* Controls above the thing they control. */
+    (function () {
+      var wrap = document.querySelector(".at-wrap");
+      var tools = document.querySelector(".at-tools");
+      if (!wrap || !tools || !wrap.parentNode) return;
+      wrap.parentNode.insertBefore(tools, wrap);
+      tools.classList.add("at-top");
+      if (count && count.parentNode) {
+        wrap.parentNode.insertBefore(count, wrap);
+        count.classList.add("at-count-top");
+      }
+    })();
 
     var COLOURS = {};
     document.querySelectorAll(".at-cat[data-cat] i").forEach(function (i) {
@@ -301,7 +343,7 @@
     var places = [], cur = -1;
     fetch(hitsUrl).then(function (r) { return r.json(); }).then(function (d) {
       places = (d.places || []).map(function (p) {
-        return { name: p.name, also: p.also || [], cat: p.cat,
+        return { name: p.name, also: p.also || [], cat: p.cat, n: p.n || 0,
                  vols: (String(p.what).match(/(\d+)\s+volumes?\s+catalogued/) || [])[1] || null };
       });
     });
@@ -346,7 +388,11 @@
           li.appendChild(a);
         }
         var v = document.createElement("span"); v.className = "v";
-        v.textContent = p.vols ? p.vols + (p.vols === "1" ? " volume" : " volumes") : "no catalogue";
+        /* A people marker holds no shelf, and «no catalogue» would be a
+           true sentence about the wrong thing. */
+        v.textContent = p.cat === "people"
+          ? (p.n ? p.n + (p.n === 1 ? " person" : " people") : "our people")
+          : p.vols ? p.vols + (p.vols === "1" ? " volume" : " volumes") : "no catalogue";
         li.appendChild(v);
         li.addEventListener("mousedown", function (e) { e.preventDefault(); pick(p); });
         list.appendChild(li);
