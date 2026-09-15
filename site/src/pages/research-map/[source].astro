@@ -16,9 +16,11 @@ const { s } = Astro.props;
 const st = r.stats;
 const mine = st.bySource[s.key];
 const cats = [
-  ["untouched", "Not walked — waypoint only",   "#93A1AD"],
-  ["listed",    "Volumes catalogued",           "#E9A020"],
-  ["read",      "Something here has been read", "#12703F"],
+  ["none", "Nothing filmed here",        "#9AA7B2"],
+  ["thin", "One or two volumes",         "#E8C46A"],
+  ["some", "Three to nine",              "#E9A020"],
+  ["deep", "Ten or more",                "#B04A16"],
+  ["read", "Something here has been read","#12703F"],
 ];
 const others = r.sources.filter(x => x.key !== s.key);
 ---

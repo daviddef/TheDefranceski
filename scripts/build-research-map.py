@@ -18,11 +18,16 @@ Sources, and where each comes from:
               registers.json. Fourteen places, and the only source that says
               «digitised: no».
 
-Coverage is three states, and a place takes its best one:
+Coverage was three states until the cataloguing finished and made them useless:
+1,219 places gold against three grey is not a picture, it is a wash. So the
+shading now carries DEPTH — how much is actually on the shelf — and keeps one
+colour for the only number that matters:
 
-    untouched  we know the shelf exists and have opened nothing
-    listed     we hold the volume list
-    read       the search register names the place as a source
+    none   nothing catalogued here at all
+    thin   one or two volumes
+    some   three to nine
+    deep   ten or more
+    read   the search register names the place as a source, whatever its size
 
     for c in HR BA SI RS HU IT AT ME; do
       curl -sO https://download.geonames.org/export/dump/$c.zip && unzip -o $c.zip $c.txt
@@ -85,6 +90,14 @@ def gazetteer(d):
                 if len(k) > 2 and (k not in g or rank > g[k][0]):
                     g[k] = (rank, round(lat, 5), round(lon, 5), cc)
     return {k: v[1:] for k, v in g.items()}
+
+def depth(n, read):
+    """Read beats everything; below that, colour by how deep the shelf is."""
+    if read:   return "read"
+    if n == 0: return "none"
+    if n <= 2: return "thin"
+    if n <= 9: return "some"
+    return "deep"
 
 YEARS = re.compile(r"\b(1[5-9]\d\d)\b")
 def span(title):
@@ -222,7 +235,7 @@ def main():
             walked = any(sh["books"] is not None for sh in blk["shelves"].values())
             vols[s] = {"n": n, "walked": walked}
         total = sum(v["n"] for v in vols.values())
-        state = "read" if reads.get(k) else ("listed" if total else "untouched")
+        state = depth(total, reads.get(k))
         for s in p["src"]: src_count[s] += 1
         out.append({"key": k, "name": p["name"],
                     "alt": sorted(x for x in p["alt"] if x != p["name"]),
@@ -234,8 +247,10 @@ def main():
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
              "volumes": sum(o["volumes"] for o in out),
              "read": sum(1 for o in out if o["cat"] == "read"),
-             "listed": sum(1 for o in out if o["cat"] == "listed"),
-             "untouched": sum(1 for o in out if o["cat"] == "untouched"),
+             "listed": sum(1 for o in out if o["cat"] in ("thin", "some", "deep")),
+             "untouched": sum(1 for o in out if o["cat"] == "none"),
+             "byDepth": {x: sum(1 for o in out if o["cat"] == x)
+                         for x in ("none", "thin", "some", "deep", "read")},
              "researchers": len(researchers),
              "bySource": {s: {"places": src_count[s],
                               "volumes": sum(o["counts"].get(s, {}).get("n", 0) for o in out),
@@ -264,13 +279,13 @@ def main():
                 continue
             n = sum(o["counts"][s]["n"] for s in got)
             walked = any(o["counts"][s]["walked"] for s in got)
-            state = "read" if o["reads"] else ("listed" if n else "untouched")
+            state = depth(n, o["reads"])
             who = " · ".join(LABEL.get(l, l) for l in o["layers"]) or "Civil"
             prov = " · ".join(dict((k, l) for k, l, _ in SOURCES)[s] for s in got)
             if not walked:
                 what = f"{who}. Not walked yet — we hold the waypoint and nothing more."
             elif n == 0:
-                what = f"{who}. Walked, and the shelf is empty."
+                what = f"{who}. Walked, and the shelf is empty — this collection films nothing here."
             else:
                 what = f"{who}. {n} volume{'' if n == 1 else 's'} catalogued, from {prov}."
             nd = sum(b.get("notDigitised", 0) for b in got.values())
