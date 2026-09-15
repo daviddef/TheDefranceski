@@ -145,10 +145,17 @@ def main():
         vols = None
         if books is not None:
             vols = []
-            for t, bid, extra in books:
+            for rec in books:
+                t, bid, extra = rec[0], rec[1], rec[2]
+                ark = rec[3] if len(rec) > 3 else None
                 lo, hi = span(t)
-                vols.append({"t": t, "wp": f"{bid}:{tail},{extra}" if extra else f"{bid}:{tail}",
-                             "from": lo, "to": hi})
+                wpf = f"{bid}:{tail},{extra}" if extra else f"{bid}:{tail}"
+                v = {"t": t, "wp": wpf, "from": lo, "to": hi}
+                if ark:
+                    # the ark is what makes a title clickable: the Atlas builds
+                    # familysearch.org/ark:/61903/<ark>?cc=<cc>&wc=<waypoint>
+                    v.update({"ark": ark, "cc": "2040054", "wc": wpf})
+                vols.append(v)
         sh["shelves"][lay] = {"wp": wp, "books": vols}   # None = not walked yet
 
     # ---- 3. FamilySearch Udine — the Carnia comuni
@@ -236,7 +243,9 @@ def main():
                           for s, _, _ in SOURCES},
              "byLayer": dict(collections.Counter(l for o in out for l in o["layers"])),
              "notDigitised": sum(o["sources"].get("dapa", {}).get("notDigitised", 0) for o in out),
-             "fsPending": len(fsc.get("f", []))}
+             "fsPending": len(fsc.get("f", [])),
+             "linked": sum(1 for o in out for b in o.get("sources", {}).get("fs-hr", {}).get("shelves", {}).values()
+                           for b in (b["books"] or []) if b.get("ark"))}
 
     json.dump({"note": "Every record book this archive can name, by place and by provider.",
                "sources": [{"key": k, "label": l, "what": w} for k, l, w in SOURCES],
@@ -275,9 +284,12 @@ def main():
                               else (str(b.get("from")) if b.get("from") else "—"))
                         tag = "" if s == "fs-hr" else f" [{dict((k,l) for k,l,_ in SOURCES)[s]}]"
                         note = "" if b.get("digitised", True) else "  — NOT DIGITISED"
-                        ev.append([yr, re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") + tag + note])
                         if b.get("ark"):
-                            films.append({"t": b["t"], "ark": b["ark"], "cc": b.get("cc"), "wc": b.get("wc")})
+                            films.append({"t": b["t"], "ark": b["ark"],
+                                          "cc": b.get("cc"), "wc": b.get("wc")})
+                        else:
+                            ev.append([yr, re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ",
+                                                  b["t"]).strip(" ,-–") + tag + note])
             pubs.append({"name": o["name"], "lat": o["lat"], "lon": o["lon"], "cat": state,
                          "n": 0, "also": o["alt"], "what": what,
                          "when": None, "href": "/searched/" if o["reads"] else None,
