@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
-import MarriageTimeline from "../components/MarriageTimeline.astro";
+import EraTimeline from "@daviddef/archive-kit/components/EraTimeline.astro";
 import Marriages from "@daviddef/archive-kit/components/Marriages.astro";
 import { u } from "../lib/url.js";
 import m from "../data/marriages.json";
@@ -65,6 +65,14 @@ const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
 });
 const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
 const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) + "00s" : "Undated");
+
+/* In the frontmatter, not inline in the attribute: a regex literal inside an
+   Astro attribute expression ends the expression at the first slash, and the
+   error it reports is "unterminated regular expression" pointing at a column
+   several thousand characters along. */
+const timelinePoints = m.couples
+  .filter((c) => /^\d{4}$/.test(String(c.y)))
+  .map((c) => ({ label: c.b, year: c.y }));
 ---
 <Base title="The Marriages" eyebrow={`${nFam} families \u00b7 ${nMarr} indexed marriages \u00b7 three worlds`}
       dek="A surname is one thread. The family is the weave. Every generation this name entered a house that was not its own — and this page now carries both halves of that: who they married, and which empire still holds the records of the family they married into.">
@@ -131,7 +139,17 @@ const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) 
 <section class="blk">
   <h2>The marriages, against the century they happened in</h2>
   <p class="dek">Thirty-one dated marriages between 1776 and 1891, laid over who was in charge and what the weather did.</p>
-  <div style="margin-top:26px"><MarriageTimeline /></div>
+  <div style="margin-top:26px"><EraTimeline
+    points={timelinePoints}
+    from={1770} to={1900}
+    eras={[[1770,1790,"Josephine reforms","--r-habsburg"],[1797,1805,"Venice falls","--r-venice"],
+           [1805,1813,"Napoleonic Illyria","--r-napo"],[1813,1848,"Austrian restoration","--r-habsburg"],
+           [1848,1866,"Revolution & reaction","--r-italy"],[1866,1900,"Austria–Hungary","--r-habsburg"]]}
+    marks={[[1797,"Treaty of Campo Formio"],[1809,"Illyrian Provinces"],
+            [1816,"The year without a summer"],[1817,"Europe's last famine"],
+            [1848,"Carlo elected for Pisino"],[1854,"Carlo expelled from the bench"],
+            [1866,"Austria loses Venetia"],[1880,"Phylloxera reaches Istria"]]}
+    what="Each dot is a woman — or, where the record runs the other way, a husband — marrying into the family, placed at the year of the record. Names as the register spells them." /></div>
   <div class="prose" style="margin-top:30px">
     <p>Read it left to right and the politics change under the same families. <strong>Domenica Filipich</strong> marries a Francesco De Franceschi in 1776, under Maria Theresa, in a county the Habsburgs had held for four hundred years. <strong>Elisabetta Dalino</strong> marries in 1793, with Venice four years from extinction. <strong>Natalia Ivancić</strong> marries in 1806, when the Habsburgs had just lost the province to Napoleon; by 1809 these parishes were in the <a href="https://en.wikipedia.org/wiki/Illyrian_Provinces">Illyrian Provinces</a> and the priest's register was, briefly, a French administrative document.</p>
     <p>Then the sky closed. Tambora erupted in April 1815, and 1816 became <a href="https://en.wikipedia.org/wiki/Year_Without_a_Summer">the year without a summer</a> — cold, sunless, endlessly wet across Europe, followed by the harvest failure of 1817 and the last great famine the continent has had. Grain convoys were attacked; hundreds of thousands were left destitute. The Fasana records show a De Franceschi child in 1816 and another in 1819. Whatever else those families were doing, they were doing it hungry.</p>
