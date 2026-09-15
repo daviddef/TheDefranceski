@@ -4,10 +4,63 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import InlawNetwork from "../components/InlawNetwork.astro";
 import MarriageTimeline from "../components/MarriageTimeline.astro";
+import Marriages from "@daviddef/archive-kit/components/Marriages.astro";
+import { u } from "../lib/url.js";
 import m from "../data/marriages.json";
+import mi from "../data/marriedin.json";
+
+/* Two pages until now — the essay on who this family married, and the index
+   routing each of those families to the empire that held its town. They are one
+   page because they are one argument: a surname is in this archive because a
+   person married a person, and the essay could not point at the index while
+   they were apart.
+
+   This archive groups by ORIGIN, not by descent, and that is correct here for a
+   reason that does not travel: its subject IS the name. It says outright that
+   there is no single Defranceschi family and that the name was coined
+   independently many times over, so a Bergamo who married one is not thereby
+   related to a Bergamo who married another. Falco had to replace exactly this
+   kind of rule with a descent test, because Falco is a family and this is a
+   name. Both are right about themselves.
+
+   The grouping is also, in this archive's own words, a reading and not a
+   finding — it comes from surname morphology and the Carnian emigration
+   literature. The caveat below is kept where a reader meets it. */
+const md = (x) => String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+
+const byRoute = {};
+for (const r of mi.rows) (byRoute[r.route] = byRoute[r.route] || []).push(r);
+const ORD = ["hungarian-littoral", "istria-austrian", "dalmatia", "carnia", "venice"];
+
+const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
+  const R = mi.routes[k], fams = (byRoute[k] || []).sort((a, b) => b.c - a.c);
+  return {
+    key: k, label: R.label, places: R.places, badge: R.proved ? "already paid off" : "",
+    count: fams.length,
+    detail: [
+      ["Who held it", md(R.held)],
+      ["The registers", md(R.registers)],
+      ["Beyond the registers", md(R.beyond)],
+      ["Where this archive stands", md(R.gap)],
+    ],
+    chips: fams.map((f) => ({
+      name: f.name,
+      count: f.notindexed ? "—" : f.c,
+      aside: f.fb ? (f.fb.total === "0" ? "none alive" : f.fb.total + " alive") : "",
+      asideTitle: f.fb ? f.fb.top : "",
+      href: f.detail ? `/married-in/${f.slug}/` : "",
+      mark: !!f.ours,
+    })),
+  };
+});
+const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
 ---
-<Base title="The People They Married" eyebrow="Seventy-one families, three worlds"
-      dek="A surname is one thread. The family is the weave. Every generation this name entered a house that was not its own — and the names of those houses say more about who these people were than the surname ever does.">
+<Base title="The Marriages" eyebrow={`${nFam} families \u00b7 ${nMarr} indexed marriages \u00b7 three worlds`}
+      dek="A surname is one thread. The family is the weave. Every generation this name entered a house that was not its own — and this page now carries both halves of that: who they married, and which empire still holds the records of the family they married into.">
+
 
 <section class="blk">
   <div class="prose">
@@ -75,6 +128,28 @@ import m from "../data/marriages.json";
 </section>
 <Rule name="tablet" />
 
+
+<Rule name="arrows" label="Five jurisdictions, five sets of records" />
+
+<section class="blk">
+  <h2>{mi.heading}</h2>
+  <div class="prose"><p set:html={md(mi.lead)} /><p set:html={md(mi.why)} /></div>
+
+  <Marriages u={u} groups={GROUPED}>
+    <div slot="missing">
+      <Rule name="arrows" label={mi.fbnote.heading} />
+      <div class="prose">{mi.fbnote.text.split("\n\n").map((p) => <p set:html={md(p)} />)}</div>
+      <p class="prose note" style="margin-top:26px" set:html={md(mi.close)}></p>
+      <p class="cap" style="margin-top:22px">Counts are of indexed marriages, from FamilySearch's
+      Croatia Church Books. The grouping by origin is the archive's existing reading from surname
+      morphology and the Carnian emigration literature — <strong>a reading, not a finding</strong> —
+      and the routing here inherits that uncertainty. Families with a page of their own are linked;
+      the rest carry their count and nothing more, because that is all this archive knows about them.
+      Names in <span class="ink">this colour</span> married into our own direct line.</p>
+    </div>
+  </Marriages>
+</section>
+<Rule name="tablet" />
 <section class="blk">
   <h2>Everyone, as the registers name them</h2>
   <p class="dek">Forty-nine couples recovered so far. Spelling is the clerk's, not ours.</p>
@@ -91,3 +166,7 @@ import m from "../data/marriages.json";
 </section>
   <Sources ids={["familysearch", "dapa"]} />
 </Base>
+
+<style>
+.ink{color:var(--accent)}
+</style>
