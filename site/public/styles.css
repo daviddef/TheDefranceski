@@ -293,6 +293,11 @@ dialog.lb::backdrop{background:rgba(10,14,18,.88)}
   border-radius:2px;padding:5px 10px;color:var(--ink-2)}
 .kid.line{border-color:var(--accent);color:var(--accent);background:var(--accent-wash);font-weight:600}
 .kid i{font-style:normal;color:var(--ink-3);font-size:11px;margin-left:6px}
+/* a child identified to a dossier by record id, not by name — the only ones
+   that open the blood chart, so they are the only ones that look clickable */
+a.kid.named{text-decoration:none;color:inherit;border-style:solid;
+  border-bottom-width:2px;border-bottom-color:var(--accent);cursor:pointer}
+a.kid.named:hover,a.kid.named:focus-visible{background:var(--accent-wash);border-color:var(--accent)}
 .kid.line i{color:var(--accent)}
 
 /* ---- filter bar ---- */

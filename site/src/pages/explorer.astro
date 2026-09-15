@@ -2,7 +2,60 @@
 import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
 import ex from "../data/explorer.json";
-const nodes = ex.nodes;
+import { u } from "../lib/url.js";
+import dossiers from "../data/dossiers.json";
+import { graph } from "../lib/bloodline.js";
+
+/* A household is a set of baptisms naming the same two parents. The blood graph
+   is a set of people with edges between them. Nothing joined the two, so opening
+   a household was the end of the road for forty-three of the fifty-two — and the
+   obvious join, the father's name, is the one this archive refuses to make. The
+   key it was already carrying is a forename: "giovanni antonio", "francesco",
+   "bartolo". Matching on that is how one Pietro once ended up with five mothers.
+
+   What DOES join them is an identifier. A child recorded here carries the
+   FamilySearch id of the record they came from, and so does the dossier of the
+   person that record is about. Where one id belongs to exactly one dossier, the
+   two are the same person and the link is a fact rather than a guess.
+
+   Where an id appears on more than one dossier — 42 of them do — nothing is
+   drawn. That is the same rule the chart above uses for ambiguous candidates,
+   and it is the rule that makes the rest of the links worth anything. */
+const FSID = /"([A-Z0-9]{4}-[A-Z0-9]{4})"/g;
+const byId = new Map();
+for (const [slug, person] of Object.entries(dossiers.people)) {
+  const blob = JSON.stringify(person);
+  for (const m of blob.matchAll(FSID)) {
+    const set = byId.get(m[1]) || new Set();
+    set.add(slug);
+    byId.set(m[1], set);
+  }
+}
+/* the chart only opens on somebody who has an edge — the same filter the
+   bloodline page applies before drawing. Linking to anyone else would look
+   like a link and do nothing. */
+const drawn = new Set(Object.entries(graph())
+  .filter(([, q]) => q.parents.length || q.children.length || q.siblings.length)
+  .map(([slug]) => slug));
+const slugOf = (id) => {
+  const set = id && byId.get(id);
+  if (!set || set.size !== 1) return null;          // ambiguous, or unknown
+  const slug = [...set][0];
+  return drawn.has(slug) ? slug : null;             // only where the chart can open
+};
+
+const nodes = ex.nodes.map((n) => ({
+  ...n,
+  children: n.children.map((c) => {
+    const slug = slugOf(c.id);
+    return slug ? { ...c, href: u("/bloodline/?p=" + slug) } : c;
+  }),
+}));
+const joined = nodes.reduce((t, n) => t + n.children.filter((c) => c.href).length, 0);
+const openable = nodes.filter((n) => n.children.some((c) => c.href)).length;
+const floating = ex.nodes.filter((n) => !n.up.length && !n.down.length);
+const rescued = floating.filter((n) =>
+  n.children.some((c) => slugOf(c.id))).length;
 const years = nodes.map(n => n.from).filter(Boolean);
 const minY = Math.min(...years), maxY = Math.max(...years);
 const regions = [...new Set(nodes.map(n => n.region).filter(Boolean))].sort();
@@ -62,12 +115,25 @@ const kids = nodes.reduce((s, n) => s + n.children.length, 0);
 
     <aside class="detail" id="detail" aria-live="polite">
       <div class="lab">Open a household</div>
-      <p class="sub">Pick any card. You will get the parents as the register spells them, the children in birth order, and any household this one links up or down to.</p>
+      <p class="sub">Pick any card. You will get the parents as the register spells them, the children in birth order, and any household this one links up or down to. <b>A child whose name is a link</b> has been identified to a person this archive holds a dossier for — open it and you get everyone they can be joined to by blood.</p>
     </aside>
   </div>
 
   <section class="prose" style="margin-top:44px">
     <h3>How the links were made</h3>
+    <p><b>Two households are joined by the chart above. A child is joined to the rest of the archive
+    by an identifier.</b> {joined} of the {kids} children here carry the FamilySearch id of the record
+    they came from, and so does the dossier of the person that record is about — where one id belongs
+    to exactly one dossier, they are the same person and the name becomes a link into the blood
+    relatives chart. That covers {openable} of the {nodes.length} households, and gives {rescued} of
+    the households that stand in no chain at all a way through to the rest of the archive.</p>
+
+    <p><b>Where an id belongs to more than one dossier, nothing is drawn.</b> Forty-two do. The
+    tempting join here was the father's name — and the key this data already carries is a forename,
+    «giovanni antonio», «francesco», «bartolo». Matching on that would connect almost every household
+    to almost every other, and it is precisely how one Pietro in this archive once acquired five
+    mothers. An identifier is a fact about a record; a forename is a coincidence waiting to happen.</p>
+
     <p>A link is drawn only when a child in one household carries the surname, appears as the parent heading another household in the same region, the parishes are compatible, and the gap between the two households falls between 17 and 48 years. Where more than one candidate fits, the link is not drawn at all — those cases are listed as ambiguous rather than resolved by preference. Confidence is <em>strong</em> when the candidate is unique, the parish is the same, and the gap sits between 20 and 45.</p>
     <h3>What the colours mean</h3>
     <p>The stripe down the left of each card is the region: Kvarner, Istria, Dalmatia, Tyrol. The word <em>linked</em> appears on any household that stands in a chain.</p>
@@ -117,8 +183,12 @@ const kids = nodes.reduce((s, n) => s + n.children.length, 0);
       const n = by[id];
       if (!n) return;
       btns.forEach(b => b.setAttribute("aria-current", String(b.dataset.id === id)));
-      const kid = (c) =>
-        `<span class="kid${c.ours ? " line" : ""}">${esc(c.name)}${c.y ? `<i>${c.y}</i>` : ""}</span>`;
+      /* a child whose record carries an identifier this archive also holds a
+         dossier for opens their blood relatives; the rest are plain text */
+      const kid = (c) => c.href
+        ? `<a class="kid named${c.ours ? " line" : ""}" href="${c.href}"
+             title="Everyone this archive can join them to by blood">${esc(c.name)}${c.y ? `<i>${c.y}</i>` : ""}</a>`
+        : `<span class="kid${c.ours ? " line" : ""}">${esc(c.name)}${c.y ? `<i>${c.y}</i>` : ""}</span>`;
       const rel = (l, dir) => {
         const o = by[l.id];
         return `<button class="linkbtn" data-go="${l.id}">
