@@ -48,6 +48,7 @@ FSC  = os.path.join(ROOT, "data", "fs-catalogue.json")
 ANT  = os.path.join(DATA, "antenati-catalogue.json")
 ELS  = os.path.join(DATA, "fs-elsewhere.json")
 CAT  = os.path.join(DATA, "sweep.json")
+RDS  = os.path.join(DATA, "reads.json")
 
 STOP = {"zupa", "jaksic", "velika", "sveti", "grad", "novi", "stari"}
 LAYERS = {"Roman Catholic": "rc", "Orthodox": "orth", "Greek Catholic": "gc",
@@ -77,6 +78,32 @@ def norm(s):
     s = "".join(c for c in s if not unicodedata.combining(c)).lower()
     s = re.sub(r"\(.*?\)", " ", s).split(",")[0]
     return re.sub(r"[^a-z0-9]+", "", s)
+
+def volkey(t):
+    """Years and letters only, order-insensitive — the same key the map panel
+    uses to recognise that «Births (Rođeni) 1716-1884» and «1716–1884 · Births
+    (Rođeni)» are one book. It is what lets the read ledger name a volume in
+    the words a reader sees rather than by an ark nobody can check."""
+    t = unicodedata.normalize("NFKD", t or "")
+    years = "".join(sorted(re.findall(r"1[5-9]\d\d", t)))
+    word = re.sub(r"[^a-z]+", "", t.lower())
+    return years + "|" + word
+
+def ledger():
+    """site/src/data/reads.json — one row per volume somebody has actually
+    opened. Empty is the honest starting state: before this file there was no
+    place in the archive to record that a particular book had been read, and
+    the map said «none read» under a parish it knew had been worked."""
+    if not os.path.exists(RDS):
+        return {}
+    d = json.load(open(RDS, encoding="utf-8"))
+    out = {}
+    for r in d.get("reads", []):
+        st = r.get("state", "read")
+        if st not in ("read", "part"):
+            continue
+        out[(norm(r["place"]), volkey(r["volume"]))] = r
+    return out
 
 def load(name):
     with open(os.path.join(DATA, name), encoding="utf-8") as fh:
@@ -242,6 +269,8 @@ def timeline_label(b):
          else re.sub(r"\s*\b1[5-9]\d\d\b[,\s\-–]*", " ", b["t"]).strip(" ,-–") or b["t"])
     if b.get("how") == "read":
         t += " — READ"
+    elif b.get("how") == "part":
+        t += " — PART READ" + (f": {b['readWhat']}" if b.get("readWhat") else "")
     if not b.get("digitised", True):
         t += (" — Pazin holds the paper; filmed elsewhere" if b.get("alsoFilmed")
               else " — NOT FILMED ANYWHERE")
@@ -290,9 +319,17 @@ def timeline(books):
         # How much of THIS record type has been read. The panel colours the
         # heading on it: green when the kind is finished, amber when it is
         # started, nothing when nobody has opened a page of it.
+        # «None read» is a statement about the LEDGER, and under a parish the
+        # search register says has been worked it reads as a statement about
+        # the work. Where not one volume of this kind carries a read flag at
+        # all, the honest word is that nobody has written it down yet.
         nread = sum(1 for b in mine if b.get("how") == "read")
-        done = (" · ALL READ" if nread and nread >= n
-                else f" · {nread} of {n} read" if nread
+        npart = sum(1 for b in mine if b.get("how") == "part")
+        tracked = [b for b in mine if b.get("how")]
+        done = (" · not tracked per volume" if not tracked
+                else " · ALL READ" if nread >= n
+                else f" · {nread} read, {npart} part read, {n - nread - npart} unopened"
+                if nread or npart
                 else " · none read")
         rows.append([label, (f"{n} volumes, covering {head}"
                              + ("" if len(runs) == 1 else f", in {len(runs)} stretches")
@@ -564,6 +601,30 @@ def main():
             if len(kk) > 2 and kk in gaz:
                 return list(gaz[kk][:2]), "geonames-part"
         return None, None
+
+    # ---- the read ledger, stamped onto the books it names ------------------
+    # Antenati's own catalogue already carries a per-volume flag and needs
+    # nothing from here. Every other provider hands over a shelf with no
+    # notion of whether anybody has opened it, and this is where that is
+    # supplied — by place and volume title, in the words the panel prints,
+    # so the row can be written by a person reading the map.
+    LEDG = ledger()
+    ledg_hit, ledg_miss = 0, set(LEDG)
+    for k, p in places.items():
+        for blk in p["src"].values():
+            for sh in blk["shelves"].values():
+                for b in (sh["books"] or []):
+                    r = LEDG.get((k, volkey(b["t"])))
+                    if not r:
+                        continue
+                    b["how"] = r.get("state", "read")
+                    if r.get("what"):
+                        b["readWhat"] = r["what"]
+                    ledg_hit += 1
+                    ledg_miss.discard((k, volkey(b["t"])))
+    if ledg_miss:
+        sys.stderr.write("read ledger: %d row(s) match no volume: %s\n"
+                         % (len(ledg_miss), sorted(ledg_miss)[:6]))
 
     out, src_count = [], collections.Counter()
     for k, p in sorted(places.items(), key=lambda kv: kv[1]["name"]):

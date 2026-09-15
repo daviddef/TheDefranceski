@@ -127,13 +127,89 @@
         var text = (li.textContent || "").slice(when.length);
         li.classList.toggle("at-gap", /^\s*GAP\b/.test(text));
         li.classList.toggle("at-soft", /^\s*not covered by any title/.test(text));
-        var kind = !/^\s/.test(when) && /volumes?,\s*covering/.test(text);
+        /* A record-type heading is one of exactly three words in the date
+           cell, with no indent. The old test looked for «volumes, covering»,
+           which a parish holding ONE book of a kind never says — so every
+           single-volume heading on the map went untagged and unmarked. */
+        var kind = /^(Births|Marriages|Deaths)$/.test(when);
         li.classList.toggle("at-kind", kind);
         li.classList.toggle("at-all", kind && /ALL READ/.test(text));
         li.classList.toggle("at-part", kind && /\d+ of \d+ read/.test(text));
       }
       films();
       fold();
+      marks();
+    }
+
+    /* A mark on every volume row and every record-type heading, saying how far
+       through it anybody has got. Four states, and the fourth is the one this
+       map mostly needs: «nobody has written it down». Drawing an empty circle
+       on an untracked volume would claim we had checked and found it unopened,
+       which is a different and untrue thing.
+
+       Runs last, after films() has rewritten the rows it moves links into and
+       after fold() has put them inside their details element. */
+    var MARK = {
+      read: ["\u25CF", "at-mk-read", "Read right through."],
+      part: ["\u25D0", "at-mk-part", "Opened, and part of it read."],
+      shut: ["\u25CB", "at-mk-shut", "Never opened. This parish does track its volumes one by one, so this is a checked negative."],
+      nil:  ["\u00B7",  "at-mk-nil",  "Not tracked. Nobody has recorded whether this volume has been opened — it is not the same as knowing it has not been."]
+    };
+    function mark(li, st) {
+      var ed = li.querySelector(".at-ed");
+      if (!ed || li.querySelector(".at-mk")) return;
+      var m = MARK[st]; if (!m) return;
+      var i = document.createElement("i");
+      i.className = "at-mk " + m[1];
+      i.textContent = m[0];
+      i.setAttribute("title", m[2]);
+      i.setAttribute("aria-hidden", "true");
+      ed.parentNode.insertBefore(i, ed.nextSibling);
+    }
+    function marks() {
+      var rows = body.querySelectorAll(".at-ev li");
+      /* Whether this PLACE tracks its volumes at all decides between «never
+         opened» and «not written down», so it is read once off the headings
+         rather than guessed row by row. */
+      var tracks = false;
+      for (var t = 0; t < rows.length; t++) {
+        if (rows[t].classList.contains("at-kind") &&
+            !/not tracked per volume/.test(rows[t].textContent || "")) { tracks = true; break; }
+      }
+      for (var i = 0; i < rows.length; i++) {
+        var li = rows[i], txt = li.textContent || "";
+        /* The folded «N volumes, one by one» row is a lid, not a book: its
+           textContent is every volume underneath it, so testing it for READ
+           marks the lid green the moment any one book below is. */
+        if (li.classList.contains("at-vols")) continue;
+        if (li.classList.contains("at-kind")) {
+          mark(li, /ALL READ/.test(txt) ? "read"
+                 : /\bread,\s*\d+ part read/.test(txt) ? "part"
+                 : /not tracked per volume/.test(txt) ? "nil" : "shut");
+          continue;
+        }
+        var ed = li.querySelector(".at-ed");
+        if (!ed || !/^ {4}/.test(ed.textContent || "")) continue;   /* volume rows only */
+        mark(li, /\u2014\s*READ/.test(txt) ? "read"
+               : /\u2014\s*PART READ/.test(txt) ? "part"
+               : tracks ? "shut" : "nil");
+      }
+      /* One line of legend, under the section's own heading, because four
+         marks with no key is a puzzle rather than a finding. */
+      var sec = body.querySelector(".at-ev");
+      sec = sec && sec.closest(".at-sec");
+      if (sec && !sec.querySelector(".at-legend")) {
+        var p = document.createElement("p");
+        p.className = "at-legend";
+        p.innerHTML =
+          '<span><i class="at-mk at-mk-read">\u25CF</i><b>read</b></span>' +
+          '<span><i class="at-mk at-mk-part">\u25D0</i><b>part read</b></span>' +
+          '<span><i class="at-mk at-mk-shut">\u25CB</i><b>never opened</b></span>' +
+          '<span><i class="at-mk at-mk-nil">\u00B7</i><b>not written down</b></span>';
+        var lab = sec.querySelector(".lab");
+        if (lab && lab.nextSibling) sec.insertBefore(p, lab.nextSibling);
+        else sec.appendChild(p);
+      }
     }
 
     /* ONE list, not two.
@@ -287,6 +363,63 @@
   .at-hits .a { font-size: 11.5px; opacity: .62; font-style: italic; }
   .at-hits .v { margin-left: auto; font-size: 11px; opacity: .6; white-space: nowrap; }
   .at-hits .none { cursor: default; opacity: .6; font-style: italic; }
+
+  /* ---- the read marks ----------------------------------------------------
+     A parish could say «something here has been read» while every volume
+     under it said «none read», and both were true: a reading was recorded
+     against the PLACE and never against the BOOK. The marks say which, one
+     volume at a time, and there is a mark for «nobody has written it down»
+     because that is the state most of this map is actually in. */
+  .at-mk {
+    display: inline-block; width: 1.05em; margin-right: 4px;
+    font: 600 11px/1 var(--mono); text-align: center; vertical-align: 1px;
+  }
+  .at-mk-read { color: #0E5730; }
+  .at-mk-part { color: #8A5A08; }
+  .at-mk-shut { color: var(--ink-3); opacity: .55; }
+  .at-mk-nil  { color: var(--ink-3); opacity: .3; }
+  :root:not([data-theme="light"]) .at-mk-read { color: #6FD3A0; }
+  :root:not([data-theme="light"]) .at-mk-part { color: #E0B457; }
+  :root[data-theme="dark"] .at-mk-read { color: #6FD3A0; }
+  :root[data-theme="dark"] .at-mk-part { color: #E0B457; }
+
+  .at-legend {
+    font: 400 10.5px/1.7 var(--mono); color: var(--ink-3);
+    margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 2px 14px;
+  }
+  .at-legend b { font-weight: 600; }
+
+  /* ---- the pulse ---------------------------------------------------------
+     The people layer is off when the map opens, so the one thing that could
+     not be seen was that it exists. The pill breathes until it is switched
+     on, and the markers breathe while it is. */
+  @keyframes at-breathe {
+    0%, 100% { fill-opacity: .92; stroke-width: 1.2; }
+    50%      { fill-opacity: .38; stroke-width: 3.4; }
+  }
+  @keyframes at-pill {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(122, 92, 168, .55); }
+    50%      { box-shadow: 0 0 0 5px rgba(122, 92, 168, 0); }
+  }
+  #atlas path.at-pulse { animation: at-breathe 2.6s ease-in-out infinite; }
+  .at-cat.at-pulse-pill { animation: at-pill 2.2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    #atlas path.at-pulse, .at-cat.at-pulse-pill { animation: none; }
+  }
+
+  /* ---- the basemap picker ------------------------------------------------ */
+  .at-base { background: none !important; border: none !important; }
+  .at-base .at-base-in {
+    display: flex; gap: 0; background: var(--card, #fff);
+    border: 1px solid rgba(0, 0, 0, .28); border-radius: 3px; overflow: hidden;
+  }
+  .at-base button {
+    font: 500 11px/1 system-ui, sans-serif; padding: 6px 8px;
+    background: var(--card, #fff); color: var(--ink-2, #333);
+    border: 0; border-left: 1px solid var(--rule, #ddd); cursor: pointer;
+  }
+  .at-base button:first-child { border-left: 0; }
+  .at-base button.on { background: #7A5CA8; color: #fff; }
 </style>
 
 <script is:inline define:vars={{ hitsUrl: Astro.props.dataUrl || "",
@@ -333,6 +466,122 @@
     var COLOURS = {};
     document.querySelectorAll(".at-cat[data-cat] i").forEach(function (i) {
       COLOURS[i.parentNode.getAttribute("data-cat")] = i.style.background;
+    });
+
+    /* ---- the basemap, and the map object the kit keeps to itself ----------
+       Leaflet's own init hook hands every map to whoever registered before it
+       was built. The kit builds its map on window «load»; deferred scripts —
+       Leaflet included — have run by DOMContentLoaded, which is strictly
+       earlier. So this is the one hook into the shared component that does not
+       touch the shared component. */
+    var BASES = [
+      ["Street", "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+       "&copy; OpenStreetMap contributors", 18],
+      ["Terrain", "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+       "&copy; OpenStreetMap contributors · SRTM | &copy; OpenTopoMap (CC-BY-SA)", 16],
+      ["Satellite",
+       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+       "Imagery &copy; Esri, Maxar, Earthstar Geographics", 18],
+      ["Plain", "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+       "&copy; OpenStreetMap contributors &copy; CARTO", 19]
+    ];
+    var KEY = "at-base";
+
+    function baseControl(map) {
+      var want = 0;
+      try { want = Math.max(0, BASES.findIndex(function (b) {
+        return b[0] === localStorage.getItem(KEY); })); } catch (e) { want = 0; }
+
+      var layers = BASES.map(function (b) {
+        return L.tileLayer(b[1], { attribution: b[2], maxZoom: b[3] });
+      });
+      /* The kit put its own street layer on at construction. Take it off
+         rather than stack a second one under it. */
+      var old = [];
+      map.eachLayer(function (l) { if (l instanceof L.TileLayer) old.push(l); });
+      old.forEach(function (l) { try { map.removeLayer(l); } catch (e) {} });
+      layers[want].addTo(map);
+      var cur = want;
+
+      var ctl = L.control({ position: "topright" });
+      ctl.onAdd = function () {
+        var box = L.DomUtil.create("div", "at-base");
+        var inner = L.DomUtil.create("div", "at-base-in", box);
+        BASES.forEach(function (b, i) {
+          var btn = L.DomUtil.create("button", i === cur ? "on" : "", inner);
+          btn.type = "button";
+          btn.textContent = b[0];
+          /* Terrain and satellite are somebody else's tiles on somebody else's
+             bandwidth; the title says so where a reader can see it. */
+          btn.title = b[0] === "Terrain" ? "OpenTopoMap — contours and relief"
+                    : b[0] === "Satellite" ? "Esri world imagery"
+                    : b[0] === "Plain" ? "CARTO Positron — quiet, so the markers carry the page"
+                    : "OpenStreetMap";
+          L.DomEvent.on(btn, "click", function (e) {
+            L.DomEvent.stop(e);
+            if (i === cur) return;
+            map.removeLayer(layers[cur]);
+            layers[i].addTo(map);
+            layers[i].bringToBack();
+            cur = i;
+            inner.querySelectorAll("button").forEach(function (x, j) {
+              x.classList.toggle("on", j === i);
+            });
+            try { localStorage.setItem(KEY, BASES[i][0]); } catch (e2) {}
+          });
+        });
+        L.DomEvent.disableClickPropagation(box);
+        L.DomEvent.disableScrollPropagation(box);
+        return box;
+      };
+      ctl.addTo(map);
+    }
+
+    /* ---- the pulse --------------------------------------------------------
+       The kit draws its markers with no class on them, so they are found the
+       only way they can be from outside: by the fill colour the page itself
+       declared for that category. Markers come and go as the filters change,
+       so the tagging is redone whenever the map's SVG does. */
+    function pulse(map) {
+      var col = COLOURS.people;
+      if (!col) return;
+      var hex = (function (c) {
+        var m = String(c).match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (!m) return String(c).toLowerCase();
+        return "#" + [1, 2, 3].map(function (i) {
+          return ("0" + Number(m[i]).toString(16)).slice(-2); }).join("");
+      })(col);
+      var host = document.getElementById("atlas");
+      var btn = document.querySelector('.at-cat[data-cat="people"]');
+      function paint() {
+        host.querySelectorAll("path").forEach(function (pa) {
+          var f = (pa.getAttribute("fill") || "").toLowerCase();
+          pa.classList.toggle("at-pulse", f === hex);
+        });
+        /* The pill breathes only while the layer is off — an invitation, and
+           it stops the moment it has been taken. */
+        if (btn) btn.classList.toggle("at-pulse-pill", !btn.classList.contains("on"));
+      }
+      paint();
+      new MutationObserver(function () { clearTimeout(host._pt);
+        host._pt = setTimeout(paint, 60); })
+        .observe(host, { childList: true, subtree: true });
+      if (btn) btn.addEventListener("click", function () { setTimeout(paint, 30); });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof L === "undefined" || !L.Map || !L.Map.addInitHook) return;
+      L.Map.addInitHook(function () {
+        var self = this;
+        if (self.getContainer && self.getContainer().id !== "atlas") return;
+        /* One tick after the map says it is ready. «Ready» fires inside the
+           first setView, at which point the kit's tile layer is registered
+           but has no DOM container yet — removing it there throws inside
+           Leaflet's own reset. A tick later it is a layer like any other. */
+        self.whenReady(function () {
+          setTimeout(function () { baseControl(self); pulse(self); }, 0);
+        });
+      });
     });
 
     var list = document.createElement("ul");

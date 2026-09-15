@@ -1,0 +1,9 @@
+{
+ "note": "The per-volume read ledger. Until this file existed, a reading was recorded against a PLACE and never against a BOOK, which is why a parish could say «something here has been read» while every volume under it said «none read» — both true, and together useless. A row here names one volume and says how far through it we got. The builder stamps it onto the volume wherever the place and the label match, and the map panel then marks the row: a filled mark for read right through, a half mark for part of it, an empty one for a book nobody has opened. Antenati is not listed here — its own catalogue carries the flag per volume already and the builder reads it there. Add a row the day a volume is read, not the week after.",
+ "states": {
+  "read": "Opened and gone through end to end. Every entry in it has been looked at.",
+  "part": "Opened, and some of it read — a stretch of years, a series of pages, an index checked. Say which in `what`."
+ },
+ "how": "place is the parish as the map names it; volume is the volume's own title as the panel prints it, years and all — matching folds punctuation and word order, so «Births (Rođeni) 1716-1884» and «1716–1884 · Births (Rođeni)» are the same book. provider is the source key. when is the date it was read.",
+ "reads": []
+}
