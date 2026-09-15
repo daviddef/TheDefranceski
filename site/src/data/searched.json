@@ -6749,6 +6749,35 @@
     "method",
     "Kvarner"
    ]
+  },
+  {
+   "src": "FamilySearch — all 3,488 historical record collections, walked to exhaustion",
+   "what": "Every collection that could hold a record for this family's ground, opened through its browse tree or searched inside",
+   "when": "15 Sept 2026",
+   "outcome": "found",
+   "got": "**Forty-four opened. Five hold our ground. Thirty-nine hold nothing, and that is now written down so nobody opens them again.**\n\n**The five**: *Croatia, Church Books* · *Croatia, Delnice Deanery* · *Italy, Pola and Trieste* · *Slovenia, Prekmurje and Međimurje* · *Italy, Udine*. **All five are on the map.**\n\n**What is not there at all: no Serbian, Bosnian, Montenegrin or Yugoslav collection exists** — not one in 3,488 — so the Dalmatian hinterland has no coverage from that direction. **And Croatia itself has exactly two collections.**\n\n**Austria and Hungary both came back empty, and between them they explain why.** Hungary registered civilly from 1895 and Croatia-Slavonia did not, keeping the parish books as the legal record until 1946; Austria's collection is a name index of the Alpine dioceses, not of a Littoral that stopped being Austrian in 1918. **Gračišće, Gologorica and Pićan are filmed nowhere at all.**\n\n**One near-miss checked and closed**: *Italy, Venezia, Civil Registration 1806–1817* has a root called **Gorizia** — but its children are **Belvedere, Grado and Isola Morosini**, the Friulian lagoon, not Istria.\n\n**And a warning handed over free.** Defranceschi is a **Veneto** name: **9,626** records at Padova, **6,546** at Venice, **2,076** at Verona, **1,285** at Treviso, **289** in Tyrol. None of them is this family and none can be excluded without a document.\n\n*Method, for whoever does this next:* `/platform/records/collections/<cc>/waypoints` opens the browse tree of **any** collection and `f.collectionId` counts names inside one — two calls per candidate. The filter was verified with a control: the same surname returns **303,320** unfiltered, **289** in Austria, **3,550** in Croatia, **0** against a made-up id.",
+   "url": "https://www.familysearch.org/search/collection/list",
+   "dest": "FamilySearch historical record collections",
+   "ev": [
+    [
+     "/collections-walk/",
+     "All forty-four, one by one"
+    ],
+    [
+     "/elsewhere/",
+     "The five that hold Croatian places"
+    ],
+    [
+     "/method/",
+     "Why Croatia has no civil registration before 1946"
+    ]
+   ],
+   "tags": [
+    "providers",
+    "method",
+    "research map",
+    "negative"
+   ]
   }
  ]
 }

@@ -1,0 +1,56 @@
+---
+/* The complete walk of FamilySearch's 3,488 collections, including everything that held nothing.
+   A negative is recorded as carefully as a find: the point of it is that
+   nobody has to open that collection again. */
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import s from "../data/collections-walk.json";
+
+const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
+  (_, t, href) => `<a href="${u(href)}">${t}</a>`);
+const COLOUR = { "in the map": "#12703F", "nothing for us": "#9AA7B2" };
+const fs = (cc) => `https://www.familysearch.org/search/collection/${cc}`;
+---
+<Base title={s.title} eyebrow={s.eyebrow} dek={s.dek}>
+
+  <div class="prose" style="margin-top:8px" set:html={link(mdp(s.lead))}></div>
+
+  <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+    {s.findings.map(f => (
+      <div class="one" style={f.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{f.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={link(mdp(f.text))}></div>
+      </div>
+    ))}
+  </div>
+
+  <h2 id="all" style="font-size:26px;margin-top:50px">All {s.rows.length}, one by one</h2>
+  <p class="dek" style="margin-top:8px">
+    <strong style="color:#12703F">{s.counts["in the map"]} hold places on this family's ground.</strong>
+    The other {s.counts["nothing for us"]} were opened and hold nothing — recorded so that nobody opens them again.
+  </p>
+
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px">
+    {s.rows.map(r => (
+      <div class="one" style={`border-left-color:${COLOUR[r.verdict]}`}>
+        <div class="lab">{r.verdict} · collection {r.cc}</div>
+        <p style="margin:7px 0 0;font-size:16px;font-weight:600">
+          <a href={fs(r.cc)} target="_blank" rel="noopener">{r.title} ↗</a>
+        </p>
+        <div class="prose" style="margin-top:5px;font-size:14px" set:html={link(mdp(r.note))}></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="margin-top:34px;border-left-color:var(--accent)">
+    <div class="lab">How it was done, and how to do it again</div>
+    <div class="prose" style="margin-top:8px" set:html={link(mdp(s.close))}></div>
+  </div>
+
+  <p class="cap" style="margin-top:36px">
+    <a href={u("/elsewhere/")}>Croatia, filed under other countries →</a> ·
+    <a href={u("/research-map/")}>The research map →</a> ·
+    <a href={u("/method/")}>Why Croatia has no civil registration before 1946 →</a>
+  </p>
+</Base>
