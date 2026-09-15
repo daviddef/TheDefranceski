@@ -5,15 +5,16 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --port 4321",
-    "build": "npm run publish:index && astro build && npm run sitemap && npm run check:living && npm run check:kit",
+    "build": "npm run publish:index && astro build && npm run sitemap && npm run check:living && npm run check:kit && npm run check:worklist",
     "preview": "astro preview --port 4321",
     "sitemap": "python3 node_modules/@daviddef/archive-kit/kit/tools/sitemap.py",
     "publish:index": "node -e \"const f=require('fs');f.copyFileSync('src/data/searchindex.json','public/searchindex.json');const a=JSON.parse(f.readFileSync('src/data/atlas.json','utf8'));const m=JSON.parse(f.readFileSync('src/data/movements.json','utf8'));const g=JSON.parse(f.readFileSync('src/data/mymap.json','utf8'));const areas=[];g.layers.forEach(L=>L.areas.forEach(x=>areas.push({n:x.n||L.name,layer:L.name,ring:x.ring})));f.writeFileSync('public/atlas-data.json',JSON.stringify({places:a.places,stats:a.stats,moves:m.moves,spine:m.spine,areas:areas,mnote:m.note,mcaution:m.caution}));\"",
     "check:kit": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkarchive.py --dist dist",
-    "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data --policy named-bare"
+    "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data --policy named-bare",
+    "check:worklist": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkworklist.py --root ."
   },
   "dependencies": {
-    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#2c3eef3b56afdbc5c02f8d0f5421483968b63391",
+    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#60aad580fdde1a26e2f7780e36bcbf11b931b020",
     "astro": "^5.18.2"
   }
 }

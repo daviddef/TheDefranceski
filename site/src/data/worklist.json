@@ -2,7 +2,7 @@
  "title": "The work list",
  "eyebrow": "What is being worked on, what is finished, and what is waiting on somebody",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
- "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**Four states.** *Done* means finished and published. *Running* means a machine is grinding at it now and will finish on its own. *Next* means it is ready to start. *Blocked* means it is waiting on a person or an institution, and the [errands](/errands/) carry the letter.\n\n**Items are struck rather than deleted when they turn out to be founded on a mistake**, the same way corrections are kept rather than edited away.",
+ "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it is waiting on a person or an institution — and the **owner** column says which. *Done* is finished and published. *Struck* is an item founded on a mistake, kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**The dates are there so that something blocked for five weeks does not read like something raised this morning.** The shape is the kit's, shared across the estate, so eight archives keep one list in one form rather than eight people each inventing one.",
  "cols": [
   "#",
   "What",
@@ -14,92 +14,162 @@
    "n": 1,
    "what": "The priority arks — clickable registers for our own parishes",
    "state": "done",
-   "note": "425 volumes in the Istrian and Kvarner parishes this family is documented in, each now opening at page one from the [research map](/research-map/)."
+   "note": "425 volumes in the Istrian and Kvarner parishes this family is documented in, each now opening at page one from the [research map](/research-map/).",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 2,
    "what": "The remaining 5,000 arks, in slow background bursts",
    "state": "running",
-   "note": "Grinding in David's Chrome at about one call a second, with an exponential back-off when FamilySearch's rate limiter bites. **723 of 5,482 volumes are linkable so far**, across 163 places. Nothing needs doing; it finishes on its own."
+   "note": "Grinding in David's Chrome at about one call a second, with an exponential back-off when FamilySearch's rate limiter bites. **723 of 5,482 volumes are linkable so far**, across 163 places. Nothing needs doing; it finishes on its own.",
+   "owner": "a machine",
+   "since": "2026-09-15"
   },
   {
    "n": 3,
    "what": "Re-cut the research map's colour scale",
    "state": "done",
-   "note": "The three states had saturated — 1,219 of 1,239 places the same gold. The map now shades by **depth** (how many volumes sit on the shelf) and keeps green for «something here has been read», which is the number that should stay embarrassing."
+   "note": "The three states had saturated — 1,219 of 1,239 places the same gold. The map now shades by **depth** (how many volumes sit on the shelf) and keeps green for «something here has been read», which is the number that should stay embarrassing.",
+   "owner": "this archive",
+   "since": "2026-09-14"
   },
   {
    "n": 4,
    "what": "Antenati as a fourth provider",
    "state": "done",
-   "note": "[Seventy-four volumes](/antenati/) for Mione, Ovaro and Mieli, every one verified by fetching its own catalogue page. Its arks sit on a different host from everything else, so the map sends a reader to the archive's own list rather than dressing them as FamilySearch links."
+   "note": "[Seventy-four volumes](/antenati/) for Mione, Ovaro and Mieli, every one verified by fetching its own catalogue page. Its arks sit on a different host from everything else, so the map sends a reader to the archive's own list rather than dressing them as FamilySearch links.",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 5,
    "what": "Matricula Online as a fifth provider — Senj and Karlobag",
    "state": "struck",
-   "note": "**Matricula holds no Croatian parish at all.** Twelve countries in its fonds index and Croatia is not one of them; its place search returns nothing for Senj, Karlobag, Rijeka or Fiume. The line was written from memory and never checked. [Logged as a correction](/corrections/)."
+   "note": "**Matricula holds no Croatian parish at all.** Twelve countries in its fonds index and Croatia is not one of them; its place search returns nothing for Senj, Karlobag, Rijeka or Fiume. The line was written from memory and never checked. [Logged as a correction](/corrections/).",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 6,
    "what": "Cross-provider gap detection",
    "state": "done",
-   "note": "Six places are described by more than one provider, and they are the only places a gap can be seen. **147 volumes are listed at Pazin, from before 1890, that FamilySearch has not filmed** — and 313 more after 1890 that are the privacy cut-off and not a gap at all."
+   "note": "Six places are described by more than one provider, and they are the only places a gap can be seen. **147 volumes are listed at Pazin, from before 1890, that FamilySearch has not filmed** — and 313 more after 1890 that are the privacy cut-off and not a gap at all.",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 7,
    "what": "The Ovaro marriage allegati for 1815",
    "state": "done",
-   "note": "**The best single hour of the day.** Felice Santo's baptismal extract of 2 November 1792 names *«Pauli filii Petri De Franceschi mionensis»* — [a grandfather this archive did not have](/carnia/#allegati1815) — copied out of the Pieve di Gorto's own register and certified at Luincis."
+   "note": "**The best single hour of the day.** Felice Santo's baptismal extract of 2 November 1792 names *«Pauli filii Petri De Franceschi mionensis»* — [a grandfather this archive did not have](/carnia/#allegati1815) — copied out of the Pieve di Gorto's own register and certified at Luincis.",
+   "owner": "this archive",
+   "since": "2026-09-14"
   },
   {
    "n": 8,
    "what": "Ovaro's Matrimoni, 1806–1815",
    "state": "next",
-   "note": "Ten volumes, catalogued and linked, **none of them read**. 1806, and 1807 — the year Mione is missing. The 1807 allegati (an_ua679993) are the cheapest thing on this list."
+   "note": "Ten volumes, catalogued and linked, **none of them read**. 1806, and 1807 — the year Mione is missing. The 1807 allegati (an_ua679993) are the cheapest thing on this list.",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 9,
    "what": "Ovaro's own births, deaths and banns",
    "state": "blocked",
-   "note": "**Not digitised.** Only Ovaro's marriages are on Antenati. This is a letter, not a search."
+   "note": "**Not digitised.** Only Ovaro's marriages are on Antenati. This is a letter, not a search.",
+   "owner": "Archivio di Stato di Udine",
+   "since": "2026-09-15"
   },
   {
    "n": 10,
    "what": "Mione's Morti 1806–1815, and the rest of the Nati",
    "state": "next",
-   "note": "Nine death volumes, all catalogued, all linked, **one of them read**. A Pietro De Franceschi dying in his seventies would settle item 7's open question."
+   "note": "Nine death volumes, all catalogued, all linked, **one of them read**. A Pietro De Franceschi dying in his seventies would settle item 7's open question.",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 11,
    "what": "Document the 1807 gap; draft the Pieve di Gorto enquiry",
    "state": "done",
-   "note": "Both. And [the gap turned out to be narrower than published](/carnia/#gap1807): Ovaro kept 1807, so it is one lost Mione volume rather than a hole in the system."
+   "note": "Both. And [the gap turned out to be narrower than published](/carnia/#gap1807): Ovaro kept 1807, so it is one lost Mione volume rather than a hole in the system.",
+   "owner": "this archive",
+   "since": "2026-09-14"
   },
   {
    "n": 12,
    "what": "The new people onto the roster",
    "state": "done",
-   "note": "Seventeen — from Felice Santo the weaver and Lucia Santa de Canova down to the two Luint tradesmen who witnessed a birth in 1810, and the priests who certified the extracts."
+   "note": "Seventeen — from Felice Santo the weaver and Lucia Santa de Canova down to the two Luint tradesmen who witnessed a birth in 1810, and the priests who certified the extracts.",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 13,
    "what": "Reconcile Brenci / Prencis / Crencis / Brenis / Brunis / Brencis",
    "state": "done",
-   "note": "[Six spellings, three women, one Friulian house-name](/carnia/#prences) — *«in cjasa da Prences»*. And a 1792 priest's Latin writes it **Prencis**, with a P, which is the earliest and most careful hand of the lot."
+   "note": "[Six spellings, three women, one Friulian house-name](/carnia/#prences) — *«in cjasa da Prences»*. And a 1792 priest's Latin writes it **Prencis**, with a P, which is the earliest and most careful hand of the lot.",
+   "owner": "this archive",
+   "since": "2026-09-13"
   },
   {
    "n": 14,
    "what": "Pazin's undigitised volumes as a letter list",
    "state": "done",
-   "note": "[The hundred and fifty-four](/undigitised/) — by place, by holder, with the DAPA shelf numbers and a draft in Croatian. **34 of them are in parishes on our own line.**"
+   "note": "[The hundred and fifty-four](/undigitised/) — by place, by holder, with the DAPA shelf numbers and a draft in Croatian. **34 of them are in parishes on our own line.**",
+   "owner": "this archive",
+   "since": "2026-09-15"
   },
   {
    "n": 15,
    "what": "The father's side — one Y-DNA test on a second male line",
    "state": "blocked",
-   "note": "L-M27 rests on a father and a son, which is the same opinion asked twice. [What one more test would settle, and who to ask](/dna/#settle). The message is drafted; it needs a cousin to answer it."
+   "note": "L-M27 rests on a father and a son, which is the same opinion asked twice. [What one more test would settle, and who to ask](/dna/#settle). The message is drafted; it needs a cousin to answer it.",
+   "owner": "David",
+   "since": "2026-09-14"
+  },
+  {
+   "n": 16,
+   "what": "Three archive request forms that need David's own personal data",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-14",
+   "note": "Državni arhiv u Pazinu has answered twice — for **Svetvinčenat** and for **Pićan** — and both times asked for the same completed request form: applicant's details, delivery address, and billing details including an OIB. A third sits with **DAZD**. **This archive does not hold that data and will not invent it.** The references are checked and the drafts are written; they need a person to sign them. See [the errands](/errands/)."
+  },
+  {
+   "n": 17,
+   "what": "Decided against: inferring Antenati volumes from ark ranges",
+   "state": "struck",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "The first Antenati catalogue named fifty-nine volumes from contiguous ark ranges, assuming the portal numbers one comune at a time. **It does not** — an_ua667510 to 667513 are **Mieli**, a different comune, sitting immediately before Mione. Every volume is now fetched individually or it is not claimed. [Logged as a correction](/corrections/)."
+  },
+  {
+   "n": 18,
+   "what": "Belongs to another archive: Trieste's two Protestant congregations on Matricula",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Looking for Croatia on Matricula turned up **Triest AB** and **Triest HB** under the Austrian Evangelical section. No De Franceschi is known in either and it is not this family's confession — but the Littoral archives all overlap, and **if another archive on this estate works Trieste, this is a shelf none of us has opened.**"
+  },
+  {
+   "n": 19,
+   "what": "The 404 page that stops every publish",
+   "state": "blocked",
+   "owner": "another session",
+   "since": "2026-09-14",
+   "note": "`./scripts/publish.sh` builds and audits cleanly — 1,226 pages, every link and anchor — and then fails on **`MISSING OUTPUT: /404/`** and refuses to push. The cause is an untracked `404.astro` that builds to `404.html` rather than `404/index.html`. It belongs to the session that owns the cross-site UI. **Everything in this archive is being committed and pushed by hand around it**, which works and is not how it should stay."
+  },
+  {
+   "n": 20,
+   "what": "Read the Mione Pubblicazioni and Morti that are catalogued but unopened",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Eighteen volumes — nine banns, nine deaths — all on Antenati, all linked from [the Antenati page](/antenati/), **seven of them read**. From 1813 each one ends with a «Tavola Alfabetica» that turns seventeen screenfuls into three. This is the largest body of readable, unread material this archive can reach without asking anybody."
   }
  ],
- "close": "**Three things are waiting on people, not on searching**: Ovaro's undigitised registers, the Y-DNA test, and the three archive request forms that need David's own personal data. Everything else on this list is either finished or is a book that can be opened tonight."
+ "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight."
 }
