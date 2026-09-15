@@ -235,14 +235,13 @@ def main():
             if com.get("lat") and not p["c"]:
                 p["c"] = [com["lat"], com["lon"]]
             vols = []
-            for ser in com["series"]:
-                yrs, n = ser.get("years", {}), len(ser["arks"])
-                for i, ark in enumerate(ser["arks"]):
-                    y = yrs.get(ark)
-                    t = (f"{ser['series']} {y}" if y else
-                         f"{ser['series']} {ser['from']}–{ser['to']} — volume {i + 1} of {n}")
-                    vols.append({"t": t, "ark": ark, "antenati": True,
-                                 "from": y or ser["from"], "to": y or ser["to"]})
+            for v in com["volumes"]:
+                t = (f"{v['series']} {v['year']}" if v["series"]
+                     else "Listed in the range, identity unconfirmed")
+                if v["how"] == "read":
+                    t += " — read"
+                vols.append({"t": t, "ark": v["ark"], "antenati": True,
+                             "how": v["how"], "from": v["from"], "to": v["to"]})
             p["src"]["antenati"] = {"shelves": {"civil": {"wp": None, "books": vols}}}
 
     # ---- 5. what has actually been read

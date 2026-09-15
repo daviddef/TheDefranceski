@@ -2,123 +2,422 @@
  "note": "Antenati (Portale Antenati, Archivio di Stato di Udine) — the Napoleonic and Austrian civil registers for the Carnia comuni this family came out of. Every volume here is an ark that opens the book at page one; the portal has no name index for any of them.",
  "collection": "Archivio di Stato di Udine, Stato civile napoleonico e restaurazione",
  "base": "https://antenati.cultura.gov.it/ark:/12657/",
+ "how": {
+  "walked": "Its own catalogue page was fetched and read — comune, series and year are the portal's",
+  "read": "Opened and read act by act in this archive; its identity is fixed by what is inside it",
+  "unconfirmed": "Inside the inventory's ark range, but neither walked nor read. Nothing is claimed about it"
+ },
  "comuni": [
   {
    "name": "Mione",
    "alt": [
-    "Mione di Ovaro",
-    "Ovaro"
+    "Mione di Ovaro"
    ],
    "lat": 46.4256,
    "lon": 12.8797,
-   "series": [
+   "volumes": [
     {
+     "ark": "an_ua667516",
      "series": "Matrimoni",
+     "year": "1806",
      "from": 1806,
-     "to": 1815,
-     "arks": [
-      "an_ua667516",
-      "an_ua667517",
-      "an_ua667518",
-      "an_ua667519",
-      "an_ua667520",
-      "an_ua667521",
-      "an_ua667522",
-      "an_ua667523",
-      "an_ua667524"
-     ]
+     "to": 1806,
+     "how": "walked"
     },
     {
+     "ark": "an_ua667517",
+     "series": "Matrimoni",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667518",
+     "series": "Matrimoni",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667519",
+     "series": "Matrimoni",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667520",
+     "series": "Matrimoni",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667521",
+     "series": "Matrimoni",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667522",
+     "series": "Matrimoni",
+     "year": "1813",
+     "from": 1813,
+     "to": 1813,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667523",
+     "series": "Matrimoni",
+     "year": "1814",
+     "from": 1814,
+     "to": 1814,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667524",
+     "series": "Matrimoni",
+     "year": "1815",
+     "from": 1815,
+     "to": 1815,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667526",
      "series": "Matrimoni, allegati",
+     "year": "1806",
      "from": 1806,
-     "to": 1815,
-     "arks": [
-      "an_ua667526",
-      "an_ua667527",
-      "an_ua667528",
-      "an_ua667529",
-      "an_ua667530",
-      "an_ua667531",
-      "an_ua667532",
-      "an_ua667533",
-      "an_ua667534",
-      "an_ua667535",
-      "an_ua667536",
-      "an_ua667537",
-      "an_ua667538"
-     ]
+     "to": 1806,
+     "how": "walked"
     },
     {
-     "series": "Matrimoni, indici",
-     "from": 1806,
-     "to": 1815,
-     "arks": [
-      "an_ua667540",
-      "an_ua667541",
-      "an_ua667542"
-     ]
+     "ark": "an_ua667527",
+     "series": "Matrimoni, allegati",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
     },
     {
-     "series": "Pubblicazioni",
-     "from": 1806,
-     "to": 1815,
-     "arks": [
-      "an_ua667544",
-      "an_ua667545",
-      "an_ua667546",
-      "an_ua667547",
-      "an_ua667548",
-      "an_ua667549",
-      "an_ua667550",
-      "an_ua667551",
-      "an_ua667552"
-     ]
+     "ark": "an_ua667528",
+     "series": "Matrimoni, allegati",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
     },
     {
-     "series": "Morti",
-     "from": 1806,
-     "to": 1815,
-     "arks": [
-      "an_ua667554",
-      "an_ua667555",
-      "an_ua667556",
-      "an_ua667557",
-      "an_ua667558",
-      "an_ua667559",
-      "an_ua667560",
-      "an_ua667561",
-      "an_ua667562"
-     ]
+     "ark": "an_ua667529",
+     "series": "Matrimoni, allegati",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "walked"
     },
     {
-     "series": "Morti, indici",
-     "from": 1806,
-     "to": 1815,
-     "arks": [
-      "an_ua667566",
-      "an_ua667567",
-      "an_ua667568"
-     ]
+     "ark": "an_ua667530",
+     "series": "Matrimoni, allegati",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "walked"
     },
     {
-     "series": "Nati",
+     "ark": "an_ua667531",
+     "series": "Matrimoni, allegati",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667532",
+     "series": "Matrimoni, allegati",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667533",
+     "series": "Matrimoni, allegati",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667534",
+     "series": "Matrimoni, allegati",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667535",
+     "series": "Matrimoni, allegati",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667536",
+     "series": "Matrimoni, allegati",
+     "year": "1813",
+     "from": 1813,
+     "to": 1813,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667537",
+     "series": "Matrimoni, allegati",
+     "year": "1814",
+     "from": 1814,
+     "to": 1814,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667538",
+     "series": "Matrimoni, allegati",
+     "year": "1815",
+     "from": 1815,
+     "to": 1815,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667540",
+     "series": "Matrimoni, indice",
+     "year": "1806-1810",
      "from": 1806,
      "to": 1810,
-     "arks": [
-      "an_ua667570",
-      "an_ua667571",
-      "an_ua667572",
-      "an_ua667573"
-     ],
-     "years": {
-      "an_ua667570": 1806,
-      "an_ua667571": 1808,
-      "an_ua667572": 1809,
-      "an_ua667573": 1810
-     },
-     "note": "Four volumes and no more. The births stop at 1810; the deaths and marriages run to 1815."
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667541",
+     "series": "Matrimoni, indice",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667542",
+     "series": "Matrimoni, indice",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667544",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1806",
+     "from": 1806,
+     "to": 1806,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667545",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667546",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667547",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667548",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1811",
+     "from": 1811,
+     "to": 1811,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667549",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667550",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1813",
+     "from": 1813,
+     "to": 1813,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667551",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1814",
+     "from": 1814,
+     "to": 1814,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667552",
+     "series": "Matrimoni, pubblicazioni ed opposizioni",
+     "year": "1815",
+     "from": 1815,
+     "to": 1815,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667554",
+     "series": "Morti",
+     "year": "1806",
+     "from": 1806,
+     "to": 1806,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667555",
+     "series": "Morti",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667556",
+     "series": "Morti",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667559",
+     "series": "Morti",
+     "year": "1812",
+     "from": 1812,
+     "to": 1812,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667560",
+     "series": "Morti",
+     "year": "1813",
+     "from": 1813,
+     "to": 1813,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667561",
+     "series": "Morti",
+     "year": "1814",
+     "from": 1814,
+     "to": 1814,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667562",
+     "series": "Morti",
+     "year": "1815",
+     "from": 1815,
+     "to": 1815,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667570",
+     "series": "Nati",
+     "year": "1806",
+     "from": 1806,
+     "to": 1806,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667571",
+     "series": "Nati",
+     "year": "1808",
+     "from": 1808,
+     "to": 1808,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667572",
+     "series": "Nati",
+     "year": "1809",
+     "from": 1809,
+     "to": 1809,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667573",
+     "series": "Nati",
+     "year": "1810",
+     "from": 1810,
+     "to": 1810,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua667557",
+     "series": null,
+     "year": null,
+     "from": null,
+     "to": null,
+     "how": "unconfirmed"
+    },
+    {
+     "ark": "an_ua667558",
+     "series": null,
+     "year": null,
+     "from": null,
+     "to": null,
+     "how": "unconfirmed"
+    },
+    {
+     "ark": "an_ua667566",
+     "series": null,
+     "year": null,
+     "from": null,
+     "to": null,
+     "how": "unconfirmed"
+    },
+    {
+     "ark": "an_ua667567",
+     "series": null,
+     "year": null,
+     "from": null,
+     "to": null,
+     "how": "unconfirmed"
+    },
+    {
+     "ark": "an_ua667568",
+     "series": null,
+     "year": null,
+     "from": null,
+     "to": null,
+     "how": "unconfirmed"
     }
-   ]
+   ],
+   "note": "**The marriages and the banns each run nine volumes — 1806, then 1808 to 1815 — and the marriage indices stop at 1812.** Seven of the nine deaths are confirmed and two arks in that stretch are not yet checked. **The births run four and stop at 1810.** And 1807 is absent from every series in the comune."
   },
   {
    "name": "Ovaro",
@@ -127,29 +426,61 @@
    ],
    "lat": 46.4386,
    "lon": 12.8983,
-   "series": [
+   "volumes": [
     {
+     "ark": "an_ua679993",
      "series": "Matrimoni",
+     "year": "1807",
      "from": 1807,
+     "to": 1807,
+     "how": "read"
+    },
+    {
+     "ark": "an_ua679991",
+     "series": "Matrimoni",
+     "year": "1815",
+     "from": 1815,
      "to": 1815,
-     "arks": [
-      "an_ua679993",
-      "an_ua679984",
-      "an_ua679985",
-      "an_ua679986",
-      "an_ua679987",
-      "an_ua679988",
-      "an_ua679989",
-      "an_ua679990",
-      "an_ua679991"
-     ],
-     "years": {
-      "an_ua679993": 1807,
-      "an_ua679991": 1815
-     },
-     "note": "1815 and 1807 are fixed by acts read on the page. The seven between them are in the range but their years are not yet confirmed one by one."
+     "how": "read"
     }
-   ]
+   ],
+   "note": "Only the two volumes this archive has opened. The rest of Ovaro's inventory is not yet walked."
+  },
+  {
+   "name": "Mieli",
+   "alt": [
+    "Mieli di Comeglians",
+    "Comeglians"
+   ],
+   "lat": 46.4972,
+   "lon": 12.8544,
+   "volumes": [
+    {
+     "ark": "an_ua667510",
+     "series": "Morti",
+     "year": "1807",
+     "from": 1807,
+     "to": 1807,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667512",
+     "series": "Nati",
+     "year": "1806",
+     "from": 1806,
+     "to": 1806,
+     "how": "walked"
+    },
+    {
+     "ark": "an_ua667513",
+     "series": "Nati",
+     "year": "1807",
+     "from": 1807,
+     "to": 1807,
+     "how": "walked"
+    }
+   ],
+   "note": "Not a family place — it turned up because its arks sit immediately before Mione's in the portal's numbering, and finding it there is what proved the numbering is not one comune per block."
   }
  ]
 }

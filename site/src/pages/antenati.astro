@@ -10,14 +10,26 @@ import { u } from "../lib/url.js";
 import { md, mdp } from "../lib/md.js";
 import cat from "../data/antenati-catalogue.json";
 
-const n = cat.comuni.reduce(
-  (a, c) => a + c.series.reduce((b, s) => b + s.arks.length, 0), 0);
+const n = cat.comuni.reduce((a, c) => a + c.volumes.length, 0);
+const nread = cat.comuni.reduce(
+  (a, c) => a + c.volumes.filter(v => v.how === "read").length, 0);
+/* Group a comune's volumes by series, keeping the portal's own order. */
+const bySeries = (c) => {
+  const g = [];
+  for (const v of c.volumes) {
+    const key = v.series || "Unconfirmed";
+    let last = g.find(x => x.key === key);
+    if (!last) g.push(last = { key, rows: [] });
+    last.rows.push(v);
+  }
+  return g;
+};
 const url = (ark) => cat.base + ark;
 ---
 <Base
   title="Antenati — the Carnia registers"
-  eyebrow={`${cat.comuni.length} comuni · ${n} volumes · no name index on any of them`}
-  dek="The Napoleonic and Austrian civil registers for Mione and Ovaro, held by the Archivio di Stato di Udine and photographed by the Portale Antenati. Every line below opens the book at its first image.">
+  eyebrow={`${cat.comuni.length} comuni · ${n} volumes · ${nread} of them read · no name index on any of them`}
+  dek="The Napoleonic and Austrian civil registers for Mione and Ovaro, held by the Archivio di Stato di Udine and photographed by the Portale Antenati, with Mieli next door where the numbering put it. Every line below opens the book at its first image.">
 
   <p class="dek" style="margin-top:8px" set:html={md(cat.note)}></p>
 
@@ -29,28 +41,28 @@ const url = (ark) => cat.base + ark;
       "hand. **A volume here is a thing to be turned page by page**, which is why the " +
       "archive counts a register as *read* only when someone has gone through it, and " +
       "why so few of them are.\n\n" +
-      "The years are given exactly where an act read off the page fixes them. Where they " +
-      "are not, the volume is numbered within its series and the series span is given — " +
-      "which is what the inventory itself supports, and no more."
+      "**Every volume below was checked one by one.** An earlier version of this page " +
+      "assumed the portal numbers its arks one comune per block, and named series spans " +
+      "from that assumption. It does not: **an_ua667510 to 667513 are Mieli, in a different " +
+      "comune altogether**, sitting immediately before Mione in the numbering. Each ark here " +
+      "now carries how its identity is known."
     )}></div>
   </div>
 
   {cat.comuni.map(c => (
     <section style="margin-top:44px">
       <h2 id={c.name.toLowerCase()} style="font-size:26px">{c.name}</h2>
-      {c.series.map(s => (
+      {c.note && <p class="dek" style="margin-top:8px" set:html={md(c.note)}></p>}
+      {bySeries(c).map(g => (
         <div style="margin-top:22px">
-          <div class="lab">{s.series} · {s.from === s.to ? s.from : `${s.from}–${s.to}`} · {s.arks.length} volume{s.arks.length === 1 ? "" : "s"}</div>
-          {s.note && <p class="cap" style="margin-top:6px">{s.note}</p>}
+          <div class="lab">{g.key} · {g.rows.length} volume{g.rows.length === 1 ? "" : "s"}</div>
           <ul style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:5px;font-size:14px">
-            {s.arks.map((a, i) => (
+            {g.rows.map(v => (
               <li>
-                <a href={url(a)} target="_blank" rel="noopener">
-                  {(s.years && s.years[a])
-                    ? `${s.series} ${s.years[a]}`
-                    : `${s.series} — volume ${i + 1} of ${s.arks.length}`} ↗
+                <a href={url(v.ark)} target="_blank" rel="noopener">
+                  {v.series ? `${v.series} ${v.year}` : v.ark} ↗
                 </a>
-                <span class="cap" style="margin-left:8px">{a}</span>
+                <span class="cap" style="margin-left:8px">{v.ark} · {cat.how[v.how].split(" — ")[0].split(".")[0]}</span>
               </li>
             ))}
           </ul>
@@ -58,6 +70,18 @@ const url = (ark) => cat.base + ark;
       ))}
     </section>
   ))}
+
+  <div class="one" style="margin-top:40px">
+    <div class="lab">What each of those three words means</div>
+    <dl style="margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;line-height:1.6">
+      {Object.entries(cat.how).map(([k, v]) => (
+        <>
+          <dt class="lab" style="white-space:nowrap">{k}</dt>
+          <dd style="margin:0">{v}</dd>
+        </>
+      ))}
+    </dl>
+  </div>
 
   <p class="cap" style="margin-top:44px">
     <a href={u("/research-map/antenati/")}>Antenati on the research map →</a> ·

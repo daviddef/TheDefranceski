@@ -24,16 +24,16 @@
  ],
  "kml": "data/genealogy-resources-croatia.kml",
  "stats": {
-  "places": 1241,
-  "placed": 1189,
-  "volumes": 7144,
+  "places": 1242,
+  "placed": 1190,
+  "volumes": 7140,
   "read": 19,
-  "listed": 1219,
+  "listed": 1220,
   "untouched": 3,
   "byDepth": {
    "none": 3,
    "thin": 514,
-   "some": 599,
+   "some": 600,
    "deep": 106,
    "read": 19
   },
@@ -55,9 +55,9 @@
     "walked": 14
    },
    "antenati": {
-    "places": 2,
-    "volumes": 59,
-    "walked": 2
+    "places": 3,
+    "volumes": 55,
+    "walked": 3
    }
   },
   "byLayer": {
@@ -39481,6 +39481,65 @@
    "gapSpans": []
   },
   {
+   "key": "mieli",
+   "name": "Mieli",
+   "alt": [
+    "Comeglians",
+    "Mieli di Comeglians"
+   ],
+   "lat": 46.4972,
+   "lon": 12.8544,
+   "geo": "kml",
+   "cat": "some",
+   "layers": [],
+   "sources": {
+    "antenati": {
+     "shelves": {
+      "civil": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Morti 1807",
+         "ark": "an_ua667510",
+         "antenati": true,
+         "how": "walked",
+         "from": 1807,
+         "to": 1807
+        },
+        {
+         "t": "Nati 1806",
+         "ark": "an_ua667512",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Nati 1807",
+         "ark": "an_ua667513",
+         "antenati": true,
+         "how": "walked",
+         "from": 1807,
+         "to": 1807
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "antenati": {
+     "n": 3,
+     "walked": true
+    }
+   },
+   "volumes": 3,
+   "reads": 0,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
    "key": "miholec",
    "name": "Miholec",
    "alt": [
@@ -39850,8 +39909,7 @@
    "key": "mione",
    "name": "Mione",
    "alt": [
-    "Mione di Ovaro",
-    "Ovaro"
+    "Mione di Ovaro"
    ],
    "lat": 46.4256,
    "lon": 12.8797,
@@ -39865,354 +39923,404 @@
        "wp": null,
        "books": [
         {
-         "t": "Matrimoni 1806–1815 — volume 1 of 9",
+         "t": "Matrimoni 1806",
          "ark": "an_ua667516",
          "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 2 of 9",
-         "ark": "an_ua667517",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 3 of 9",
-         "ark": "an_ua667518",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 4 of 9",
-         "ark": "an_ua667519",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 5 of 9",
-         "ark": "an_ua667520",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 6 of 9",
-         "ark": "an_ua667521",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 7 of 9",
-         "ark": "an_ua667522",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 8 of 9",
-         "ark": "an_ua667523",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1806–1815 — volume 9 of 9",
-         "ark": "an_ua667524",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 1 of 13",
-         "ark": "an_ua667526",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 2 of 13",
-         "ark": "an_ua667527",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 3 of 13",
-         "ark": "an_ua667528",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 4 of 13",
-         "ark": "an_ua667529",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 5 of 13",
-         "ark": "an_ua667530",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 6 of 13",
-         "ark": "an_ua667531",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 7 of 13",
-         "ark": "an_ua667532",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 8 of 13",
-         "ark": "an_ua667533",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 9 of 13",
-         "ark": "an_ua667534",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 10 of 13",
-         "ark": "an_ua667535",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 11 of 13",
-         "ark": "an_ua667536",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 12 of 13",
-         "ark": "an_ua667537",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, allegati 1806–1815 — volume 13 of 13",
-         "ark": "an_ua667538",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, indici 1806–1815 — volume 1 of 3",
-         "ark": "an_ua667540",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, indici 1806–1815 — volume 2 of 3",
-         "ark": "an_ua667541",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni, indici 1806–1815 — volume 3 of 3",
-         "ark": "an_ua667542",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 1 of 9",
-         "ark": "an_ua667544",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 2 of 9",
-         "ark": "an_ua667545",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 3 of 9",
-         "ark": "an_ua667546",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 4 of 9",
-         "ark": "an_ua667547",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 5 of 9",
-         "ark": "an_ua667548",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 6 of 9",
-         "ark": "an_ua667549",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 7 of 9",
-         "ark": "an_ua667550",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 8 of 9",
-         "ark": "an_ua667551",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Pubblicazioni 1806–1815 — volume 9 of 9",
-         "ark": "an_ua667552",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 1 of 9",
-         "ark": "an_ua667554",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 2 of 9",
-         "ark": "an_ua667555",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 3 of 9",
-         "ark": "an_ua667556",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 4 of 9",
-         "ark": "an_ua667557",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 5 of 9",
-         "ark": "an_ua667558",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 6 of 9",
-         "ark": "an_ua667559",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 7 of 9",
-         "ark": "an_ua667560",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 8 of 9",
-         "ark": "an_ua667561",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti 1806–1815 — volume 9 of 9",
-         "ark": "an_ua667562",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti, indici 1806–1815 — volume 1 of 3",
-         "ark": "an_ua667566",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti, indici 1806–1815 — volume 2 of 3",
-         "ark": "an_ua667567",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Morti, indici 1806–1815 — volume 3 of 3",
-         "ark": "an_ua667568",
-         "antenati": true,
-         "from": 1806,
-         "to": 1815
-        },
-        {
-         "t": "Nati 1806",
-         "ark": "an_ua667570",
-         "antenati": true,
+         "how": "walked",
          "from": 1806,
          "to": 1806
         },
         {
-         "t": "Nati 1808",
-         "ark": "an_ua667571",
+         "t": "Matrimoni 1808",
+         "ark": "an_ua667517",
          "antenati": true,
+         "how": "walked",
          "from": 1808,
          "to": 1808
         },
         {
-         "t": "Nati 1809",
-         "ark": "an_ua667572",
+         "t": "Matrimoni 1809",
+         "ark": "an_ua667518",
          "antenati": true,
+         "how": "walked",
          "from": 1809,
          "to": 1809
         },
         {
-         "t": "Nati 1810",
-         "ark": "an_ua667573",
+         "t": "Matrimoni 1810",
+         "ark": "an_ua667519",
          "antenati": true,
+         "how": "walked",
          "from": 1810,
          "to": 1810
+        },
+        {
+         "t": "Matrimoni 1811",
+         "ark": "an_ua667520",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni 1812",
+         "ark": "an_ua667521",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Matrimoni 1813",
+         "ark": "an_ua667522",
+         "antenati": true,
+         "how": "walked",
+         "from": 1813,
+         "to": 1813
+        },
+        {
+         "t": "Matrimoni 1814",
+         "ark": "an_ua667523",
+         "antenati": true,
+         "how": "walked",
+         "from": 1814,
+         "to": 1814
+        },
+        {
+         "t": "Matrimoni 1815",
+         "ark": "an_ua667524",
+         "antenati": true,
+         "how": "walked",
+         "from": 1815,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, allegati 1806",
+         "ark": "an_ua667526",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Matrimoni, allegati 1808",
+         "ark": "an_ua667527",
+         "antenati": true,
+         "how": "walked",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Matrimoni, allegati 1808",
+         "ark": "an_ua667528",
+         "antenati": true,
+         "how": "walked",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Matrimoni, allegati 1809",
+         "ark": "an_ua667529",
+         "antenati": true,
+         "how": "walked",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Matrimoni, allegati 1809",
+         "ark": "an_ua667530",
+         "antenati": true,
+         "how": "walked",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Matrimoni, allegati 1810",
+         "ark": "an_ua667531",
+         "antenati": true,
+         "how": "walked",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni, allegati 1810",
+         "ark": "an_ua667532",
+         "antenati": true,
+         "how": "walked",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni, allegati 1811",
+         "ark": "an_ua667533",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni, allegati 1811",
+         "ark": "an_ua667534",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni, allegati 1812",
+         "ark": "an_ua667535",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Matrimoni, allegati 1813",
+         "ark": "an_ua667536",
+         "antenati": true,
+         "how": "walked",
+         "from": 1813,
+         "to": 1813
+        },
+        {
+         "t": "Matrimoni, allegati 1814",
+         "ark": "an_ua667537",
+         "antenati": true,
+         "how": "walked",
+         "from": 1814,
+         "to": 1814
+        },
+        {
+         "t": "Matrimoni, allegati 1815",
+         "ark": "an_ua667538",
+         "antenati": true,
+         "how": "walked",
+         "from": 1815,
+         "to": 1815
+        },
+        {
+         "t": "Matrimoni, indice 1806-1810",
+         "ark": "an_ua667540",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni, indice 1811",
+         "ark": "an_ua667541",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni, indice 1812",
+         "ark": "an_ua667542",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1806",
+         "ark": "an_ua667544",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1808",
+         "ark": "an_ua667545",
+         "antenati": true,
+         "how": "walked",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1809",
+         "ark": "an_ua667546",
+         "antenati": true,
+         "how": "walked",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1810",
+         "ark": "an_ua667547",
+         "antenati": true,
+         "how": "walked",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1811",
+         "ark": "an_ua667548",
+         "antenati": true,
+         "how": "walked",
+         "from": 1811,
+         "to": 1811
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1812",
+         "ark": "an_ua667549",
+         "antenati": true,
+         "how": "walked",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1813",
+         "ark": "an_ua667550",
+         "antenati": true,
+         "how": "walked",
+         "from": 1813,
+         "to": 1813
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1814",
+         "ark": "an_ua667551",
+         "antenati": true,
+         "how": "walked",
+         "from": 1814,
+         "to": 1814
+        },
+        {
+         "t": "Matrimoni, pubblicazioni ed opposizioni 1815",
+         "ark": "an_ua667552",
+         "antenati": true,
+         "how": "walked",
+         "from": 1815,
+         "to": 1815
+        },
+        {
+         "t": "Morti 1806",
+         "ark": "an_ua667554",
+         "antenati": true,
+         "how": "walked",
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Morti 1808",
+         "ark": "an_ua667555",
+         "antenati": true,
+         "how": "walked",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Morti 1809 — read",
+         "ark": "an_ua667556",
+         "antenati": true,
+         "how": "read",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Morti 1812 — read",
+         "ark": "an_ua667559",
+         "antenati": true,
+         "how": "read",
+         "from": 1812,
+         "to": 1812
+        },
+        {
+         "t": "Morti 1813 — read",
+         "ark": "an_ua667560",
+         "antenati": true,
+         "how": "read",
+         "from": 1813,
+         "to": 1813
+        },
+        {
+         "t": "Morti 1814 — read",
+         "ark": "an_ua667561",
+         "antenati": true,
+         "how": "read",
+         "from": 1814,
+         "to": 1814
+        },
+        {
+         "t": "Morti 1815 — read",
+         "ark": "an_ua667562",
+         "antenati": true,
+         "how": "read",
+         "from": 1815,
+         "to": 1815
+        },
+        {
+         "t": "Nati 1806 — read",
+         "ark": "an_ua667570",
+         "antenati": true,
+         "how": "read",
+         "from": 1806,
+         "to": 1806
+        },
+        {
+         "t": "Nati 1808 — read",
+         "ark": "an_ua667571",
+         "antenati": true,
+         "how": "read",
+         "from": 1808,
+         "to": 1808
+        },
+        {
+         "t": "Nati 1809 — read",
+         "ark": "an_ua667572",
+         "antenati": true,
+         "how": "read",
+         "from": 1809,
+         "to": 1809
+        },
+        {
+         "t": "Nati 1810 — read",
+         "ark": "an_ua667573",
+         "antenati": true,
+         "how": "read",
+         "from": 1810,
+         "to": 1810
+        },
+        {
+         "t": "Listed in the range, identity unconfirmed",
+         "ark": "an_ua667557",
+         "antenati": true,
+         "how": "unconfirmed",
+         "from": null,
+         "to": null
+        },
+        {
+         "t": "Listed in the range, identity unconfirmed",
+         "ark": "an_ua667558",
+         "antenati": true,
+         "how": "unconfirmed",
+         "from": null,
+         "to": null
+        },
+        {
+         "t": "Listed in the range, identity unconfirmed",
+         "ark": "an_ua667566",
+         "antenati": true,
+         "how": "unconfirmed",
+         "from": null,
+         "to": null
+        },
+        {
+         "t": "Listed in the range, identity unconfirmed",
+         "ark": "an_ua667567",
+         "antenati": true,
+         "how": "unconfirmed",
+         "from": null,
+         "to": null
+        },
+        {
+         "t": "Listed in the range, identity unconfirmed",
+         "ark": "an_ua667568",
+         "antenati": true,
+         "how": "unconfirmed",
+         "from": null,
+         "to": null
         }
        ]
       }
@@ -47679,65 +47787,18 @@
        "wp": null,
        "books": [
         {
-         "t": "Matrimoni 1807",
+         "t": "Matrimoni 1807 — read",
          "ark": "an_ua679993",
          "antenati": true,
+         "how": "read",
          "from": 1807,
          "to": 1807
         },
         {
-         "t": "Matrimoni 1807–1815 — volume 2 of 9",
-         "ark": "an_ua679984",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1807–1815 — volume 3 of 9",
-         "ark": "an_ua679985",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1807–1815 — volume 4 of 9",
-         "ark": "an_ua679986",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1807–1815 — volume 5 of 9",
-         "ark": "an_ua679987",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1807–1815 — volume 6 of 9",
-         "ark": "an_ua679988",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1807–1815 — volume 7 of 9",
-         "ark": "an_ua679989",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1807–1815 — volume 8 of 9",
-         "ark": "an_ua679990",
-         "antenati": true,
-         "from": 1807,
-         "to": 1815
-        },
-        {
-         "t": "Matrimoni 1815",
+         "t": "Matrimoni 1815 — read",
          "ark": "an_ua679991",
          "antenati": true,
+         "how": "read",
          "from": 1815,
          "to": 1815
         }
@@ -47748,11 +47809,11 @@
    },
    "counts": {
     "antenati": {
-     "n": 9,
+     "n": 2,
      "walked": true
     }
    },
-   "volumes": 9,
+   "volumes": 2,
    "reads": 6,
    "gaps": [],
    "ngaps": 0,
