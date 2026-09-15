@@ -4,13 +4,14 @@
    done with it. The map, the panel and the filters are the kit's Atlas — the
    same component the Atlas page uses, pointed at a different blob. Nothing in
    the kit is touched. */
-import Base from "../layouts/Base.astro";
+import Base from "../../layouts/Base.astro";
 import Atlas from "@daviddef/archive-kit/components/Atlas.astro";
-import { u } from "../lib/url.js";
-import { md, mdp } from "../lib/md.js";
-import r from "../data/researchmap.json";
+import { u } from "../../lib/url.js";
+import { md, mdp } from "../../lib/md.js";
+import r from "../../data/researchmap.json";
 
 const s = r.stats;
+const st = r.stats;
 /* Three states have to be told apart at four pixels across, on a pale map,
    in a wash of a thousand markers. The archive's own palette is all mid-tone
    and they vanished into each other, so these are pulled apart on BOTH hue
@@ -41,6 +42,19 @@ const pct = (n) => ((100 * n) / s.places).toFixed(1);
     hint={`${s.placed} of the ${s.places} places can be put on the map. ${s.read + s.listed} of them — ${pct(s.read + s.listed)}% — have been walked to volume level.`}
   />
 
+  <div class="one" style="margin-top:26px">
+    <div class="lab">One provider at a time</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+`The map above is every provider at once. **These show one each**, with the colours meaning exactly what they mean here — a parish that is gold on the FamilySearch view and grey on Pazin's is a parish whose books are filmed but whose originals nobody has listed.`)}></div>
+    <div class="atlas-key" style="margin-top:14px">
+      {r.sources.map(s => (
+        <a class="at-cat on" href={u(`/research-map/${s.key}/`)} style="text-decoration:none">
+          {s.label} — {st.bySource[s.key].places} places, {st.bySource[s.key].volumes} volumes
+        </a>
+      ))}
+    </div>
+  </div>
+
   <h2 style="font-size:30px;margin-top:50px">Where this map comes from, and what it is worth</h2>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:22px">
@@ -48,9 +62,11 @@ const pct = (n) => ((100 * n) / s.places).toFixed(1);
     <div class="prose" style="margin-top:8px" set:html={mdp(
 `David built a **Google My Map** of the Croatian record books over several years — FamilySearch first, then the other confessions — and drew in a second layer of Croatian genealogists working their own parishes. **A My Map dies with the account**, and it cannot be crawled.
 
-So it was exported and rebuilt here. **That export is where the trouble starts.** The KML holds **1,709 placemarks**, but only **247 of them carry coordinates** — and of the 1,196 record-book places, only **ninety** do. The rest are *address pins*, which Google geocodes when it draws the map and not before. **As a backup, the export is about eight per cent of a map.**
+So it was exported and rebuilt here. **That export is where the trouble starts.** The KML holds **1,709 placemarks**, but only **247 of them carry coordinates** — and of its 1,196 record-book places, only **ninety** do. The rest are *address pins*, which Google geocodes when it draws the map and not before. **As a backup, the export is about eight per cent of a map.**
 
-What every pin does carry is a **FamilySearch browse waypoint**: \`owc=9R2S-MJ7:391644801,392042201\` and so on, **1,194 of them**. That is the part that matters, because a waypoint is the key that opens a parish's shelf. The coordinates were rebuilt instead from the **GeoNames** country dumps for Croatia and its seven neighbours, which put **${s.placed} of the ${s.places}** places back on the map without a single geocoding call.
+What every pin does carry is a **FamilySearch browse waypoint** — **1,194 of them** — and a waypoint is the key that opens a parish's shelf. **That turned out to be the last thing his map was needed for.** Each confession root in the collection lists its own parishes, so the list is now walked from **FamilySearch's own tree** instead: 1,333 shelves, against his 1,288, and *Ždala* through *Zvoneće* that his export never had because the root returns exactly one thousand and stops.
+
+His map still supplies what the tree does not: the **confessions**, drawn as he separated them, and **ninety coordinates**. The rest of the coordinates came from the **GeoNames** country dumps for Croatia and its seven neighbours — **${s.placed} of ${s.places}** places placed, without a single geocoding call.
 
 **${s.places - s.placed} places are still unplaced** — they are mostly compound parish names like *Split-Lučac* or *Sv. Jakov-Šiljevica* that no gazetteer carries as one string.`)}></div>
   </div>
@@ -71,7 +87,9 @@ What every pin does carry is a **FamilySearch browse waypoint**: \`owc=9R2S-MJ7:
       <div class="prose" style="margin-top:8px" set:html={mdp(
 `**${s.read + s.listed} of ${s.places}.** Nine per cent of the record-book places on this map have been walked far enough to know what volumes sit in them, and **${s.read}** have had anything actually read.
 
-The walked part is the ground this family actually stands on, and all three regions are done: **Istria**, forty-three parishes and 263 volumes · **Kvarner**, forty parishes and 255 volumes · **Dalmatia**, sixty parishes and 343 volumes.
+**Three providers, and they are not the same kind of thing.** ${r.sources.map(x => `**${x.label}** — ${st.bySource[x.key].walked} of ${st.bySource[x.key].places} places walked, ${st.bySource[x.key].volumes} volumes`).join(" · ")}.
+
+FamilySearch is broad and shallow: a title, a year span, and **nothing name-indexed**. Pazin is narrow and deep, and it is the only one that admits what is *not* online — **${st.notDigitised} of its volumes are marked «not digitised»**, books that sit on a shelf in Istria and nowhere else. **${st.fsPending} FamilySearch parishes are still outstanding**, stopped by its rate limiter rather than by anything missing.
 
 *This paragraph said something else for about an hour.* It reported that thirty-four of the forty Kvarner parishes had never been walked — **and they had been**. The builder was reading the wrong field: Kvarner keeps its volumes under a field called **films**, like Dalmatia, and carries a stale **books** title-list on six of its forty parishes. Reading **books** invented a gap that did not exist and under-counted the archive by thirty-four parishes and 201 volumes. [Logged as a correction](/corrections/).`)}></div>
     </div>
