@@ -241,7 +241,10 @@ def timeline(books):
             t += " — READ"
         if not b.get("digitised", True):
             t += " — not digitised anywhere"
-        elif b.get("ark"):
+        elif b.get("ark") and not b.get("antenati"):
+            # «openable» means openable FROM THIS PANEL. Antenati's arks are on
+            # another host and the panel cannot build them, so saying so here
+            # would be a promise the marker does not keep.
             t += " — openable"
         return ["    " + yr, t]
 
@@ -260,8 +263,16 @@ def timeline(books):
         single = all(lo == hi for lo, hi in got)
         first, last = runs[0][0], runs[-1][1]
         head = f"{first}–{last}" if first != last else f"{first}"
+        # How much of THIS record type has been read. The panel colours the
+        # heading on it: green when the kind is finished, amber when it is
+        # started, nothing when nobody has opened a page of it.
+        nread = sum(1 for b in mine if b.get("how") == "read")
+        done = (" · ALL READ" if nread and nread >= n
+                else f" · {nread} of {n} read" if nread
+                else " · none read")
         rows.append([label, f"{n} volume{'' if n == 1 else 's'}, covering {head}"
-                            + ("" if len(runs) == 1 else f", in {len(runs)} stretches")])
+                            + ("" if len(runs) == 1 else f", in {len(runs)} stretches")
+                            + done])
         if len(runs) == 1:
             rows.append(["  " + head, "unbroken"])
             rows += [vol_row(b) for b in sorted(mine, key=lambda b: (b["from"], b["t"]))]
@@ -403,8 +414,6 @@ def main():
             for v in com["volumes"]:
                 t = (f"{v['series']} {v['year']}" if v["series"]
                      else "Listed in the range, identity unconfirmed")
-                if v["how"] == "read":
-                    t += " — read"
                 vols.append({"t": t, "ark": v["ark"], "antenati": True,
                              "how": v["how"], "from": v["from"], "to": v["to"]})
             p["src"]["antenati"] = {"shelves": {"civil": {"wp": None, "books": vols}}}
@@ -643,7 +652,8 @@ def main():
                     for b in (sh["books"] or []):
                         allb.append(b)
                         if b.get("ark") and not b.get("antenati"):
-                            films.append({"t": b["t"], "ark": b["ark"],
+                            films.append({"t": b["t"] + (" — READ" if b.get("how") == "read" else ""),
+                                          "ark": b["ark"],
                                           "cc": b.get("cc"), "wc": b.get("wc")})
             # Why the «open at page one» list is missing, when it is missing.
             # Silence there reads as an oversight; for Gračišće it is a fact

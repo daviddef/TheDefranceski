@@ -61,8 +61,44 @@
   .at-ev li.at-vols ul li .at-ed {
     display: inline; margin-right: 8px; font-size: 10.5px;
   }
-  .at-ev li.at-vols ul li.at-read { color: #12703F; }
+  /* A volume somebody has actually opened and read, page by page. This is the
+     rarest state in the archive — 16 of 7,159 — and the one the whole map
+     exists to grow, so it gets the strongest mark on the panel. */
+  .at-ev li.at-vols ul li.at-read,
+  .at-films li.at-read {
+    background: rgba(18, 112, 63, 0.14);
+    border-left: 2.5px solid #12703F;
+    padding: 3px 8px 3px 8px;
+    margin-left: -10px;
+    border-radius: 0 2px 2px 0;
+    color: #0E5730;
+  }
+  .at-films li.at-read a { color: #0E5730; }
   .at-ev li.at-vols ul li.at-paper { color: #8E3A11; }
+
+  /* The record-type heading, coloured by how far that type has got:
+     green when every volume of it has been read, amber when some have. */
+  .at-ev li.at-kind.at-all {
+    background: rgba(18, 112, 63, 0.13);
+    border-left: 2.5px solid #12703F;
+    padding: 4px 8px; margin-left: -10px; border-radius: 0 2px 2px 0;
+  }
+  .at-ev li.at-kind.at-part {
+    background: rgba(233, 160, 32, 0.16);
+    border-left: 2.5px solid #C9820F;
+    padding: 4px 8px; margin-left: -10px; border-radius: 0 2px 2px 0;
+  }
+  .at-ev li.at-kind.at-all .at-ed { color: #0E5730; }
+  .at-ev li.at-kind.at-part .at-ed { color: #8A5A08; }
+
+  :root:not([data-theme="light"]) .at-ev li.at-vols ul li.at-read,
+  :root:not([data-theme="light"]) .at-films li.at-read,
+  :root[data-theme="dark"] .at-ev li.at-vols ul li.at-read,
+  :root[data-theme="dark"] .at-films li.at-read {
+    background: rgba(46, 168, 104, 0.18); color: #6FD3A0;
+  }
+  :root:not([data-theme="light"]) .at-films li.at-read a,
+  :root[data-theme="dark"] .at-films li.at-read a { color: #6FD3A0; }
 
   /* Births / Marriages / Deaths — the block each timeline hangs under. */
   .at-ev li.at-kind { margin-top: 12px; }
@@ -89,9 +125,22 @@
         var text = (li.textContent || "").slice(when.length);
         li.classList.toggle("at-gap", /^\s*GAP\b/.test(text));
         li.classList.toggle("at-soft", /^\s*not covered by any title/.test(text));
-        li.classList.toggle("at-kind", !/^\s/.test(when) && /volumes?,\s*covering/.test(text));
+        var kind = !/^\s/.test(when) && /volumes?,\s*covering/.test(text);
+        li.classList.toggle("at-kind", kind);
+        li.classList.toggle("at-all", kind && /ALL READ/.test(text));
+        li.classList.toggle("at-part", kind && /\d+ of \d+ read/.test(text));
       }
+      films();
       fold();
+    }
+
+    /* The clickable list is the kit's own markup and carries no state, so the
+       read ones are found by the marker the builder puts in their title. */
+    function films() {
+      var rows = body.querySelectorAll(".at-films li");
+      for (var i = 0; i < rows.length; i++) {
+        rows[i].classList.toggle("at-read", /—\s*READ/.test(rows[i].textContent || ""));
+      }
     }
 
     /* The builder marks a per-volume row by indenting its date by four
