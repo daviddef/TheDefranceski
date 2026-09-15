@@ -355,6 +355,18 @@
    "draft": "",
    "key": "err/births-deaths-and-marriages-vi-d28001",
    "sent": ""
+  },
+  {
+   "n": 31,
+   "pri": "high",
+   "who": "David — MyHeritage, family tree 4",
+   "what": "A fresh GEDCOM export of family tree 4",
+   "key": "err/david-myheritage-family-tree-4-91115c",
+   "ref": "Family site OYYV7AGVV4FMSGNWXC6TO74JQDUMOYA, tree 4 of six — «My Family Tree (Defranceski, Lerena, Taylor, Barry, Blazevic, Booyzen)»",
+   "why": "**This is the cheapest single thing anybody can do for this archive.** The roster's family file is the export of **July 2018 — 8,286 people**. The live tree holds **15,643**, and a structural walk of it on 15 September found **798 individuals of the surname where name queries had found 459**, with **313 of them carrying source citations David typed in by hand** — FamilySearch arks, film numbers, archive names. None of that is in the archive.\n\n**It cannot be crawled out.** MyHeritage blocks a POST to a local receiver and the browser tool channel truncates at about a thousand characters, which is ten people per call — eighty calls for the names alone and more for the citations. **A GEDCOM is one click and one file.**\n\nIt is also what caught the Horsham branch missing in the first place: David looked at his own tree and asked why the archive did not have his cousin's sister.",
+   "ask": "Export family tree 4 as GEDCOM from MyHeritage (Family tree → Export to GEDCOM) and drop the file in the repository. Tree 4 only — the other five trees on the site are unrelated lines.",
+   "draft": "",
+   "sent": ""
   }
  ],
  "close": "When one of these comes back, it goes on the page it belongs to and a row goes into the Search Register — including if it comes back empty, because a negative answer from a named archive is a finding and this archive keeps those too."

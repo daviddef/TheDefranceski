@@ -444,19 +444,22 @@
   },
   {
    "n": 55,
-   "what": "Pull all 459 live-tree individuals of the surname to disk",
-   "state": "next",
-   "owner": "this archive",
+   "what": "Pull the live tree — 798 of the surname, not 459",
+   "state": "blocked",
+   "owner": "David",
    "since": "2026-09-15",
-   "note": "The 7 September note stops at *«pull the full 459 with their arks to disk»* and nothing was pulled. One pass of `individual-lookup.php` per given name, then the panel endpoint per id, written to `data/myheritage-live.json` — ids, names, dates, places, arks, relationship. **Until that file exists every reconciliation is done by eye**, which is how the Horsham branch stayed invisible for a week after somebody had already read it."
+   "note": "**Walked, counted, and then blocked on the pipe.** Following the tree's own family links outward instead of querying given names found **798 individuals of the surname — 339 more than the name queries did — and 313 of them carry a citation David typed in by hand.**\n\n**The crawl cannot deliver them.** MyHeritage blocks a POST to a local receiver and the browser tool channel truncates at about a thousand characters, which is ten people a call. **A GEDCOM export of tree 4 is one click**, and it is exactly what the retired 2018 file was. [Written up as an errand](/errands/).\n\nWhat the walk did deliver on the way past is on [the search register](/searched/): Ursula dying at Belgrade, Robbie born at Senj, and four more places the archive had wrong or missing.",
+   "covers": [
+    "err:err/david-myheritage-family-tree-4-91115c"
+   ]
   },
   {
    "n": 56,
    "what": "Walk every live-tree person's Facts panel for the citation text David typed by hand",
-   "state": "next",
-   "owner": "this archive",
+   "state": "blocked",
+   "owner": "David",
    "since": "2026-09-15",
-   "note": "`facts[].additionalContent` carries the **full source citation** — FamilySearch ark URLs, film and image numbers, archive names — entered by David himself. **211 of 459 people carry one.** It is the most sourced material in this whole estate and none of it is on the site."
+   "note": "`facts[].additionalContent` carries the **full source citation** — FamilySearch ark URLs, film and image numbers, archive names — entered by David himself. **211 of 459 people carry one.** It is the most sourced material in this whole estate and none of it is on the site.\n\n**Counted on 15 September: 313 of the 798 carry one.** They come out of the same GEDCOM as everything else, so this waits on the same one click."
   },
   {
    "n": 57,
@@ -703,15 +706,15 @@
    "note": "Nine printed titles stand pending on [the search register](/searched/) and they are the **secondary literature of this family's own historian**: Camillo's *Storia documentata della Contea di Pisino* and *Povijest Pazinske knežije*, Carlo's *Uspomene*, Bertoša's two, Jelinčić, Gentileo's bibliography, the 1788 visitation and the *Atti e memorie* obituary. **Four of them are one order from the Pula university library.** They are the cheapest unexploited body of material the archive has.",
    "covers": [
     "err:err/sveu-ili-na-knji-nica-u-puli-58ce29",
-    "src:src/camillo-de-franceschi-storia-75fac3",
-    "src:src/camillo-de-franceschi-povije-ed91fe",
-    "src:src/carlo-de-franceschi-uspomene-078bb3",
+    "src:src/atti-e-memorie-della-societ--9eabef",
     "src:src/berto-a-etos-i-etnos-zavi-aj-62ba19",
     "src:src/berto-a-pisma-carla-de-franc-98cf07",
-    "src:src/jelin-i-jadranski-zbornik-xi-5ddc0b",
+    "src:src/camillo-de-franceschi-povije-ed91fe",
+    "src:src/camillo-de-franceschi-storia-75fac3",
+    "src:src/carlo-de-franceschi-uspomene-078bb3",
     "src:src/gentileo-bibliografia-degli--350515",
-    "src:src/orbani-ed-visita-spirituale--1c85ec",
-    "src:src/atti-e-memorie-della-societ--9eabef"
+    "src:src/jelin-i-jadranski-zbornik-xi-5ddc0b",
+    "src:src/orbani-ed-visita-spirituale--1c85ec"
    ]
   },
   {
@@ -771,14 +774,14 @@
    "since": "2026-09-15",
    "note": "Rijeka **HR-DARI-382 kut. 1**; Zadar's **Prijamni ured**; **Bakar's parish registers**; the **Stemmi della nobiltà di Buccari**; **Stare hrvatske novine** at dnc.nsk.hr; the **Arolsen online collections**; and the **Museu da Imigração** at São Paulo. Seven rows on the search register that say *pending* and have said it for a week. Several are free and online and simply have not been opened.",
    "covers": [
+    "src:src/arolsen-archives-online-coll-d1b13a",
+    "src:src/bakar-parish-registers-17ba49",
+    "src:src/dr-avni-arhiv-u-pazinu-dapa--c50d8f",
     "src:src/dr-avni-arhiv-u-rijeci-hr-da-f53ae7",
     "src:src/dr-avni-arhiv-u-zadru-dazd-p-fd65fd",
-    "src:src/bakar-parish-registers-17ba49",
-    "src:src/stemmi-della-nobilt-di-bucca-caf7bb",
-    "src:src/stare-hrvatske-novine-dnc-ns-fb0971",
-    "src:src/arolsen-archives-online-coll-d1b13a",
     "src:src/museu-da-imigra-o-hospedaria-b94b0e",
-    "src:src/dr-avni-arhiv-u-pazinu-dapa--c50d8f"
+    "src:src/stare-hrvatske-novine-dnc-ns-fb0971",
+    "src:src/stemmi-della-nobilt-di-bucca-caf7bb"
    ]
   }
  ],
