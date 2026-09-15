@@ -357,18 +357,18 @@
   {
    "n": 44,
    "what": "Write up why Croatia has no civil registration before 1946",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "Two collection walks in one evening produced the same structural fact from opposite ends: **Hungary registered civilly from 1895 and Croatia-Slavonia did not**, keeping the parish books as the legal record until **1946**.\n\n**It explains a great deal at once** — why FamilySearch's Croatian collection is *church books*; why Pazin's list is parish registers; why Međimurje has civil registers from 1895 (it was governed as part of Zala county, i.e. as Hungary); and why searching for Croatian civil registration has been a waste of everyone's time.\n\n**It belongs on the method page**, not buried in a search log."
+   "note": "Two collection walks in one evening produced the same structural fact from opposite ends: **Hungary registered civilly from 1895 and Croatia-Slavonia did not**, keeping the parish books as the legal record until **1946**.\n\n**Written and published on [the method page](/method/)**, where it belongs: the Nagodba of 1868 left Croatia-Slavonia its own administration, so Hungary's 1895 civil registration did not reach it and **the parish books stayed the legal civil record until 1946**. It explains why FamilySearch's Croatian collection is church books, why Pazin's list is parish registers, and why Međimurje is the exception — it was governed as part of Zala county, which is Hungary proper."
   },
   {
    "n": 45,
    "what": "Decide whether the 250 other Italian collections are worth walking",
-   "state": "next",
+   "state": "struck",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "FamilySearch has **257 Italian collections**; the walk opened the nine that touch the Adriatic and the Veneto. The rest are Naples, Sicily, Piedmont, Puglia — **irrelevant to this family's ground, and squarely the business of the Falco and Mazza archives**.\n\n**The call to make is whose job they are**, not whether they matter. This archive should probably hand the list over rather than walk it."
+   "note": "FamilySearch has **257 Italian collections**; the walk opened the nine that touch the Adriatic and the Veneto. The rest are Naples, Sicily, Piedmont, Puglia — **irrelevant to this family's ground, and squarely the business of the Falco and Mazza archives**.\n\n**Decided against, and the reason is scope rather than effort.** Naples, Sicily, Piedmont and Puglia are not this family's ground in any century the archive can reach, and walking them would fill this map with a quarter of Italy to no purpose. The nine Adriatic and Veneto collections that could hold Istrian or Carnian material **have** been walked and are [on the collections walk](/collections-walk/).\n\n**The list is worth handing over rather than working**: the Falco and Mazza archives sit on southern Italian ground and the same walk would be their whole first week. Recorded here as a decision so that the next session does not re-open it."
   },
   {
    "n": 46,
@@ -549,10 +549,14 @@
   {
    "n": 68,
    "what": "Victorian death registrations for Zdravko 1979 and Ruža 1996",
-   "state": "next",
-   "owner": "this archive",
+   "state": "blocked",
+   "owner": "David",
    "since": "2026-09-15",
-   "note": "Victoria's historical index is open for deaths to 1988, so **Zdravko's 1979 registration is available now**. A Victorian death entry names **the parents of the deceased** — which would give Anton Rudolf and Ursula Kovačina in an Australian record, and tie the two halves of this family together in a document rather than by inference."
+   "note": "**Turned into an errand rather than a search, because it was never a search.** The free Victorian index returns a name, a year and a registration number; **the parents are on the certificate**, which has to be applied and paid for. Zdravko's 1979 death is inside the open window and is [written up as an errand](/errands/); **Ruža's 1996 death is not** — Victoria releases deaths at thirty years.\n\nSeparately: the BDM search form could not be driven from either browser here. Its Angular model ignores values set programmatically, and real typing needs a browser pane this session does not have. One minute of David's own browser.",
+   "covers": [
+    "err:err/births-deaths-and-marriages-vi-d28001",
+    "err:err/registry-of-births-deaths-an-5769a0"
+   ]
   },
   {
    "n": 69,
@@ -592,7 +596,12 @@
    "state": "blocked",
    "owner": "David",
    "since": "2026-09-15",
-   "note": "**Answered, and it is an order rather than a search.** FamilySearch's Crikvenica films are cut at **Rođeni 1896** — the hundred-year line as it stood when they were made — so all five children of Anton Rudolf and Ursula were born after the end of the only collection this archive can reach for free.\n\n**They are all on one reel.** HR-HDA-1448, **R 1909–1926, roll ZM-34J/362, mark M-6957**, Matični ured Crikvenica, digitised: Josip Petar 1911, Petar Vid 1913, Anka Nera 1915, Zdravko 1921 and Ivan Anton 1925. Written up as [an errand](/errands/) with the Status animarum and the 1909–1947 marriages, which come off the same collection and should go in one request.\n\n**Crikvenica births 1897–1908 are in neither collection** — that stretch holds Ruža Jarmacki born 1903 and the POLD… of the monument, and it needs the parish office or the Rijeka archdiocesan archive."
+   "note": "**Answered, and it is an order rather than a search.** FamilySearch's Crikvenica films are cut at **Rođeni 1896** — the hundred-year line as it stood when they were made — so all five children of Anton Rudolf and Ursula were born after the end of the only collection this archive can reach for free.\n\n**They are all on one reel.** HR-HDA-1448, **R 1909–1926, roll ZM-34J/362, mark M-6957**, Matični ured Crikvenica, digitised: Josip Petar 1911, Petar Vid 1913, Anka Nera 1915, Zdravko 1921 and Ivan Anton 1925. Written up as [an errand](/errands/) with the Status animarum and the 1909–1947 marriages, which come off the same collection and should go in one request.\n\n**Crikvenica births 1897–1908 are in neither collection** — that stretch holds Ruža Jarmacki born 1903 and the POLD… of the monument, and it needs the parish office or the Rijeka archdiocesan archive.",
+   "covers": [
+    "err:err/hrvatski-drzavni-arhiv-zagreb-566d52",
+    "err:err/mati-ni-ured-crikvenica-upni-25f0ae",
+    "src:src/mati-ni-ured-crikvenica-deat-1c4ed6"
+   ]
   },
   {
    "n": 74,
@@ -673,6 +682,104 @@
    "owner": "this archive",
    "since": "2026-09-15",
    "note": "`build-atlas.py` reads **`/tmp/harvest-geo.json`** — 107 places, outside the repository, on a path the operating system is entitled to empty. If it disappears the atlas silently loses coordinates, which is the same failure the graves map had today. **Move it into the repo or into the gazetteer.**"
+  },
+  {
+   "n": 84,
+   "what": "Senj, 1926 and 1948 — Hedviga's birth and the marriage",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "**Hedviga «Seka» Blažević was born at Senj in 1926 and married Ivan Anton there**; both registers are with the Matični ured, past the end of every film. [The errand is drafted](/errands/) and waits on David's own details, like the DAPA forms. The live tree carries her as **«Blažević (Codron)»**, which implies a marriage this archive has never heard of — the same register would settle that too.",
+   "covers": [
+    "err:err/mati-ni-ured-senj-registry-o-1042bf"
+   ]
+  },
+  {
+   "n": 85,
+   "what": "Camillo's own books, and the Istrian bundle",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Nine printed titles stand pending on [the search register](/searched/) and they are the **secondary literature of this family's own historian**: Camillo's *Storia documentata della Contea di Pisino* and *Povijest Pazinske knežije*, Carlo's *Uspomene*, Bertoša's two, Jelinčić, Gentileo's bibliography, the 1788 visitation and the *Atti e memorie* obituary. **Four of them are one order from the Pula university library.** They are the cheapest unexploited body of material the archive has.",
+   "covers": [
+    "err:err/sveu-ili-na-knji-nica-u-puli-58ce29",
+    "src:src/camillo-de-franceschi-storia-75fac3",
+    "src:src/camillo-de-franceschi-povije-ed91fe",
+    "src:src/carlo-de-franceschi-uspomene-078bb3",
+    "src:src/berto-a-etos-i-etnos-zavi-aj-62ba19",
+    "src:src/berto-a-pisma-carla-de-franc-98cf07",
+    "src:src/jelin-i-jadranski-zbornik-xi-5ddc0b",
+    "src:src/gentileo-bibliografia-degli--350515",
+    "src:src/orbani-ed-visita-spirituale--1c85ec",
+    "src:src/atti-e-memorie-della-societ--9eabef"
+   ]
+  },
+  {
+   "n": 86,
+   "what": "Corsica — is Tomino's Defranceschi household in Vergé-Franceschi?",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "**Vergé-Franceschi's «Le cap Corse: généalogies et destins» (2006)** is the reference work for Cap Corse families, and the archive holds four Corsican graves at **Tomino and Mandolacce**. It would settle in one afternoon whether that household is a fourth population of the surname or a branch with a route to it. Not yet obtained.",
+   "covers": [
+    "src:src/verg-franceschi-le-cap-corse-a3d3cd"
+   ]
+  },
+  {
+   "n": 87,
+   "what": "Test FamilySearch's full-text search — it has never been tried",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Listed as **«untested»** on the search register and left there. FamilySearch's full-text search reads the **handwriting of unindexed images**, which is precisely the state of every Croatian register this archive has catalogued: 5,489 volumes, none of them name-indexed. **If it works on Istrian parish hands it changes the shape of this whole archive.** One afternoon to find out.",
+   "covers": [
+    "src:src/familysearch-full-text-searc-9d5358"
+   ]
+  },
+  {
+   "n": 88,
+   "what": "The two letters drafted and never sent",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "**`requests/arolsen-td-349822.md`** — the Arolsen tracing case that stood open on Petar for thirty years, eight documents withheld online. **`requests/nsk-de-franceschi-archive.md`** — the De Franceschi archive at the National and University Library. Both are written and waiting on a signature.",
+   "covers": [
+    "letter:arolsen-td-349822.md",
+    "letter:nsk-de-franceschi-archive.md"
+   ]
+  },
+  {
+   "n": 89,
+   "what": "The four Adriatic archive enquiries that are written and unsent",
+   "state": "blocked",
+   "owner": "David",
+   "since": "2026-09-15",
+   "note": "Udine's **Notarile antico B. 2979**; the **Veritas register** for the *Aquilone*; the **«Famiglia Franceschi»** notice in *Il Rammentatore zaratino* 1859; and the Vienna **Haus-, Hof- und Staatsarchiv** correspondence of December 1918 naming a «Dr Defranceschi». Each is drafted on [the errands page](/errands/) and each needs the same thing: a name and an address on the form.",
+   "covers": [
+    "err:err/archivio-di-stato-di-udine-a67aa3",
+    "err:err/biblioteca-archivio-di-stato-6f60c2",
+    "err:err/biblioteca-civica-archivio-z-cd539c",
+    "err:err/haus-hof-und-staatsarchiv-vi-3fbbe1",
+    "src:src/archivio-di-stato-di-udine-n-397b3e"
+   ]
+  },
+  {
+   "n": 90,
+   "what": "The five Croatian and Brazilian archives with a search standing open",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-15",
+   "note": "Rijeka **HR-DARI-382 kut. 1**; Zadar's **Prijamni ured**; **Bakar's parish registers**; the **Stemmi della nobiltà di Buccari**; **Stare hrvatske novine** at dnc.nsk.hr; the **Arolsen online collections**; and the **Museu da Imigração** at São Paulo. Seven rows on the search register that say *pending* and have said it for a week. Several are free and online and simply have not been opened.",
+   "covers": [
+    "src:src/dr-avni-arhiv-u-rijeci-hr-da-f53ae7",
+    "src:src/dr-avni-arhiv-u-zadru-dazd-p-fd65fd",
+    "src:src/bakar-parish-registers-17ba49",
+    "src:src/stemmi-della-nobilt-di-bucca-caf7bb",
+    "src:src/stare-hrvatske-novine-dnc-ns-fb0971",
+    "src:src/arolsen-archives-online-coll-d1b13a",
+    "src:src/museu-da-imigra-o-hospedaria-b94b0e",
+    "src:src/dr-avni-arhiv-u-pazinu-dapa--c50d8f"
+   ]
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
@@ -708,5 +815,5 @@
    ]
   }
  ],
- "unreconciled": 31
+ "unreconciled": 0
 }
