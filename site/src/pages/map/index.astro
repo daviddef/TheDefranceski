@@ -81,6 +81,7 @@ const schemes = [
   ["graves", "The ground", "Where the family is actually buried"],
 ];
 const m = mp.stats;
+const abroad = m.peopleAbroad;
 /* The living, counted off the roster rather than typed into a sentence that
    will be wrong the next time David tells us where somebody is. */
 const living = ros.rows.filter(r => r.living && (r.places || []).length);
@@ -167,17 +168,17 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
   </div>
 
   <div class="one" style="border-left-color:#7A5CA8;margin-top:26px">
-    <div class="lab">The violet switch: the towns of our people</div>
+    <div class="lab">The second question: the towns of our people</div>
     <div class="prose" style="margin-top:8px" set:html={link(mdp(
-`Every other marker on this map is a **shelf**. The violet one is a **town somebody lived in** — ${st.people.places} of them, holding **${st.people.named} placements of named, documented people**, and **${st.people.abroad} of the ${st.people.places} are outside Croatia altogether**: Mione and Gologorica, but also Torrington, Memphis, Pfullingen, Broken Hill and Brisbane. Use the **Whole world** button at the top right of the map to see them.
+`Ask the map about **our people** and every marker re-colours. **${m.people} towns**, holding **${m.peoplePlaced} placements of named people**, and **${abroad} of the ${m.people} are outside Croatia altogether** — Mione and Gologorica, but also Torrington, Memphis, Pfullingen, Broken Hill, Adelaide, Horsham and Brisbane. Use the **Whole world** button at the top right of the map to see them.
 
-**It starts switched off**, and the button marked *Towns of our people* turns it on. That is deliberate. Coverage and kinship are two different questions about the same ground, and a hundred and sixty violet dots laid over a map about shelf coverage is simply a different map. Off by default, on in one click.
+**The six colours here are not coverage states.** They say *how the archive knows a place* — the documented line, Carnia, the Istrian sweep, the Senj and Karlobag side, the diaspora, and other families of the name. Weight on this map is not kinship: a parish can hold forty people of the surname and be connected to this family by nothing whatever.
 
-**${st.people.onShelfToo} of those towns also carry a record-book marker**, so they will appear twice when both layers are on — once for the people, once for the shelf. The two markers are not duplicates of each other: *the shelf marker is what exists and how far we have got; the people marker is who we can put there.* The volumes stay on the shelf marker only, because the last thing this map needs is the same register offered twice.
+**${m.bySchemes["people + shelf"] || 0} of these towns also carry a shelf**, and **${m.allThree} carry all three questions at once**. They are one marker, not two: click it and it tells you the registers, the people and the graves together.
 
-**Nothing here is geocoded twice.** [The atlas](/atlas/) already places every documented person this archive holds, and it is lifted whole rather than rebuilt — a second geocoder against the same names would have drifted from the first inside a week.
+**Nothing here is geocoded twice.** The three maps this page replaced each resolved their own place names; they now share one set of places, and the coordinates come from a single gazetteer committed to the repository rather than from three different files in three different states.
 
-**Living people are not on it.** The layer is built from documented individuals with a year attached, which is the archive's rule doing its own work rather than a filter bolted on afterwards.`))}></div>
+**Living people are on this map by name and by town, and by nothing else.**`))}></div>
   </div>
 
   <h2 style="font-size:30px;margin-top:50px">Where this map comes from, and what it is worth</h2>

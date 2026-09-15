@@ -962,49 +962,11 @@ def main():
                       if any(t.startswith("GAP") for _, t in p["events"])),
         "clean": sum(1 for p in _all["places"]
                      if any(w == "No gaps" for w, _ in p["events"]))}
-    # ---- the towns of the people ------------------------------------------
-    # A second layer on the same map, and the only one that is not about books.
-    # Every marker so far is a shelf; these are the places the archive can put
-    # a named, documented person in — Mione and Gologorica, and also Torrington,
-    # Memphis, Pfullingen, Broken Hill and Brisbane.
-    #
-    # It is not geocoded again here. /atlas/ already does exactly this work and
-    # a second geocoder would drift from the first inside a week, so the places
-    # are lifted whole out of atlas.json. What is deliberately NOT lifted is
-    # each place's film and record lists: those are the register layer's job,
-    # and a reader who met the same volume twice on one map has already told us
-    # what that feels like.
-    #
-    # The layer is a category like any other, which is what makes it a filter
-    # button; the page starts it switched off, because 160 violet dots over a
-    # map about shelf coverage is a different map.
-    _atlas = json.load(open(os.path.join(DATA, "atlas.json"), encoding="utf-8"))
-    _ppl = []
-    for a in _atlas["places"]:
-        if a.get("lat") is None or a.get("lon") is None:
-            continue
-        _ppl.append({
-            "name": a["name"], "lat": a["lat"], "lon": a["lon"], "cat": "people",
-            "n": a.get("n") or 0,
-            "also": a.get("also") or [],
-            "what": a.get("what") or "",
-            "when": a.get("when"),
-            "href": a.get("href"),
-            "people": a.get("people") or [],
-            "more": a.get("more") or 0,
-            "events": [],
-            "films": [], "nfilms": 0,
-        })
-    _all["places"] = _all["places"] + _ppl
-    stats["people"] = {"places": len(_ppl),
-                       "named": sum(x["n"] for x in _ppl),
-                       "listed": sum(len(x["people"]) for x in _ppl),
-                       "abroad": sum(1 for x in _ppl
-                                     if not (42.2 <= x["lat"] <= 46.8
-                                             and 13.2 <= x["lon"] <= 19.6)),
-                       "onShelfToo": len({x["name"] for x in _ppl}
-                                         & {x["name"] for x in _all["places"]
-                                            if x["cat"] != "people"})}
+    # The towns of the people were injected here for one afternoon, while the
+    # research map, the atlas and the graves map were still three pages. They
+    # are merged properly now in scripts/build-map.py, which folds all three
+    # onto one set of places and keeps each question's category separately.
+    # Doing it twice put a second Fužine on the all-providers blob.
     _all["stats"] = stats
     json.dump(_all, open(os.path.join(PUB, "research-map-data.json"), "w",
                          encoding="utf-8"), ensure_ascii=False)

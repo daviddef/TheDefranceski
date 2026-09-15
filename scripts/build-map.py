@@ -191,6 +191,10 @@ stats = {
     "merged": sum(1 for p in places if len(p["cats"]) > 1),
     "allThree": sum(1 for p in places if len(p["cats"]) == 3),
     "peoplePlaced": sum(p["ns"].get("people", 0) for p in places),
+    # Outside the box the map opens in — the single number that says this is
+    # not a Croatian family any more.
+    "peopleAbroad": sum(1 for p in places if "people" in p["cats"]
+                        and not (42.2 <= p["lat"] <= 46.8 and 13.2 <= p["lon"] <= 19.6)),
     "burials": sum(p["ns"].get("graves", 0) for p in places),
     "volumes": sum(p["nfilms"] for p in places),
     "byShelf": collections.Counter(p["cats"]["shelf"] for p in places if "shelf" in p["cats"]),
