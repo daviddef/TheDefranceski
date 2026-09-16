@@ -164,6 +164,21 @@ import d from "../data/pfullingen.json";
 </section>
 
 <section class="blk">
+  <h2 id="gazette">{d.gazette.heading}</h2>
+  <p class="dek" style="margin-top:10px">{d.gazette.lead}</p>
+  <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+    {d.gazette.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <div class="prose" style="margin-top:8px" set:html={mdp(r.text)}></div>
+      </div>
+    ))}
+  </div>
+  <div class="prose note" style="margin-top:18px" set:html={mdp(d.gazette.close)}></div>
+  <p class="cap" style="margin-top:14px">Trove, National Library of Australia — <em>Commonwealth of Australia Gazette. Periodic</em>, No. P8 of 25 October 1978 and No. P2 of 16 February 1979, read from Trove's corrected text. Searched 17 September 2026 on four spellings across every digitised gazette.</p>
+</section>
+
+<section class="blk">
   <h2 id="australia">{d.australia.heading}</h2>
   <p class="dek" style="margin-top:10px">{d.australia.lead}</p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
