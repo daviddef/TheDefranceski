@@ -186,7 +186,8 @@ const colls = rec.colls.filter((c) => c.c > 0);
 
 <section class="blk">
   <p class="prose" set:html={mdp(
-    "And the other direction, which is the one worth being pleased about. " + n(s.onlyRoster) + " people in this archive's roster are not in the tree under any spelling. They came out of the registers, the headstones and the indexes, one at a time, and they are this archive's own return on a year of reading.")}></p>
+    "And the other direction, which is the one worth being pleased about. " + n(s.onlyRoster) + " people in this archive's roster are not in the tree under any spelling. They came out of the registers, the headstones and the indexes, one at a time, and they are this archive's own return on a year of reading.\n\n" +
+    "**494 of them are now written as a GEDCOM** — `data/to-the-tree.ged` in this repository — so they can go back into the tree as a file David reads before importing and can undo after, rather than as an edit somebody made to his data. It is stricter than the count above: anybody whose given names already appear in the tree **at all** is left out, because pushing those in makes duplicates rather than fixing anything. **No living person is in it.**")}></p>
   <ul class="pls wide" style="margin-top:18px">
     {rec.rosterOnlyBySrc.map(([k, v]) => (<li><span>{SRC[k] || k}</span><b>{v}</b></li>))}
   </ul>
