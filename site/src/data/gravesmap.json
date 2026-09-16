@@ -1,19 +1,19 @@
 {
  "note": "Where this family is buried — headstones photographed, and burial registers read.",
  "stats": {
-  "places": 64,
-  "placed": 64,
-  "people": 158,
+  "places": 69,
+  "placed": 69,
+  "people": 194,
   "stones": 96,
-  "register": 62,
+  "register": 98,
   "cemeteries": 53,
   "byCat": {
    "stone": 50,
-   "register": 14
+   "register": 19
   },
   "byCountry": {
    "USA": 25,
-   "Croatia": 15,
+   "Croatia": 20,
    "Australia": 11,
    "Italy": 8,
    "Germany": 1,
@@ -22,8 +22,8 @@
    "Canada": 2
   },
   "unplacedStone": 0,
-  "unplacedRegister": 40,
-  "earliest": 1645,
+  "unplacedRegister": 4,
+  "earliest": 1619,
   "latest": 2024
  },
  "places": [
@@ -373,6 +373,64 @@
      "w": "Cimitero di Dolo",
      "u": "https://www.findagrave.com/memorial/277040468",
      "k": "stone"
+    }
+   ]
+  },
+  {
+   "key": "draguc",
+   "name": "Draguč",
+   "country": "Croatia",
+   "lat": 45.3489,
+   "lon": 14.0053,
+   "cat": "register",
+   "stones": 0,
+   "register": 6,
+   "n": 6,
+   "cems": [],
+   "first": 1819,
+   "last": 1855,
+   "people": [
+    {
+     "n": "Giuseppe Defranceschi",
+     "y": 1819,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Stella Appolonia Defranceschi",
+     "y": 1841,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Damiano Defranceschi",
+     "y": 1846,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Natale Defranceschi",
+     "y": 1855,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Petrina Tamburin Or Defranceschi",
+     "y": 1855,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Stella Defranceschi",
+     "y": 1855,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
     }
    ]
   },
@@ -1281,12 +1339,19 @@
    "lon": 13.84806,
    "cat": "register",
    "stones": 0,
-   "register": 5,
-   "n": 5,
+   "register": 13,
+   "n": 13,
    "cems": [],
-   "first": 1819,
+   "first": 1659,
    "last": 1997,
    "people": [
+    {
+     "n": "Antonia De Franceschi",
+     "y": 1659,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
     {
      "n": "Mattio De Franceschi",
      "y": 1819,
@@ -1295,8 +1360,57 @@
      "k": "register"
     },
     {
+     "n": "Michiel De Franceschi",
+     "y": 1821,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Francesco De Franceschi",
+     "y": 1827,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
      "n": "Giulio Defranceschi",
      "y": 1854,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Francisca Defranceschi",
+     "y": 1877,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Euphemia Defranceschi",
+     "y": 1890,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Joannes Defranceschi",
+     "y": 1890,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Josephus Defranceschi",
+     "y": 1892,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Antonius Defranceschi",
+     "y": 1893,
      "w": "parish burial register",
      "u": "",
      "k": "register"
@@ -1658,12 +1772,33 @@
    "lon": 13.63457,
    "cat": "register",
    "stones": 0,
-   "register": 2,
-   "n": 2,
+   "register": 5,
+   "n": 5,
    "cems": [],
-   "first": 1854,
+   "first": 1619,
    "last": 1864,
    "people": [
+    {
+     "n": "Pietro De Franceschi",
+     "y": 1619,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Matto De Franceschi",
+     "y": 1728,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Petrus Defranceschi",
+     "y": 1829,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
     {
      "n": "Julius Defranceschi",
      "y": 1854,
@@ -1899,6 +2034,120 @@
    ]
   },
   {
+   "key": "svetvincenat",
+   "name": "Svetvinčenat",
+   "country": "Croatia",
+   "lat": 45.08806,
+   "lon": 13.88361,
+   "cat": "register",
+   "stones": 0,
+   "register": 14,
+   "n": 14,
+   "cems": [],
+   "first": 1808,
+   "last": 1897,
+   "people": [
+    {
+     "n": "Antonia De Franceschi",
+     "y": 1808,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Giovanni Pietro Defranceschi",
+     "y": 1809,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Antonio Defranceschi",
+     "y": 1811,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Agostino Defranceschi",
+     "y": 1812,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Vitorio Defranceschi",
+     "y": 1812,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Gioanni Maria Defranceschi",
+     "y": 1813,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Vitnio Defranceschi",
+     "y": 1815,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Domenica Defranceschi",
+     "y": 1831,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Magdalena Defranceschi",
+     "y": 1831,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Dominicus Defranceschi",
+     "y": 1832,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Maria Defranceschi",
+     "y": 1840,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Jacobina Defranceschi",
+     "y": 1882,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Francisca Defranceschi",
+     "y": 1887,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Victorius Defranceschi",
+     "y": 1897,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    }
+   ]
+  },
+  {
    "key": "tar",
    "name": "Tar",
    "country": "Croatia",
@@ -2122,6 +2371,59 @@
    ]
   },
   {
+   "key": "vizinada",
+   "name": "Vižinada",
+   "country": "Croatia",
+   "lat": 45.32944,
+   "lon": 13.75861,
+   "cat": "register",
+   "stones": 0,
+   "register": 1,
+   "n": 1,
+   "cems": [],
+   "first": 1819,
+   "last": 1819,
+   "people": [
+    {
+     "n": "Mathęius De Franceschi",
+     "y": 1819,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    }
+   ]
+  },
+  {
+   "key": "vrsar",
+   "name": "Vrsar",
+   "country": "Croatia",
+   "lat": 45.14917,
+   "lon": 13.60528,
+   "cat": "register",
+   "stones": 0,
+   "register": 2,
+   "n": 2,
+   "cems": [],
+   "first": 1683,
+   "last": 1686,
+   "people": [
+    {
+     "n": "Giacoma De Franceschi",
+     "y": 1683,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Francesco De Franceschi",
+     "y": 1686,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    }
+   ]
+  },
+  {
    "key": "washingtondistrictofcolumbiausa",
    "name": "Washington, District of Columbia, USA",
    "country": "USA",
@@ -2259,51 +2561,45 @@
      "k": "stone"
     }
    ]
+  },
+  {
+   "key": "sterna",
+   "name": "Šterna",
+   "country": "Croatia",
+   "lat": 45.41306,
+   "lon": 13.79361,
+   "cat": "register",
+   "stones": 0,
+   "register": 2,
+   "n": 2,
+   "cems": [],
+   "first": 1812,
+   "last": 1819,
+   "people": [
+    {
+     "n": "Bortolo De Franceschi",
+     "y": 1812,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    },
+    {
+     "n": "Bartolo De Franceschi",
+     "y": 1819,
+     "w": "parish burial register",
+     "u": "",
+     "k": "register"
+    }
+   ]
   }
  ],
  "unplaced": {
   "stone": [],
   "register": [
-   "Pietro De Franceschi",
-   "Antonia De Franceschi",
-   "Giacoma De Franceschi",
-   "Francesco De Franceschi",
-   "Matto De Franceschi",
-   "Antonia De Franceschi",
-   "Giovanni Pietro Defranceschi",
-   "Antonio Defranceschi",
-   "Agostino Defranceschi",
-   "Bortolo De Franceschi",
-   "Vitorio Defranceschi",
-   "Gioanni Maria Defranceschi",
-   "Vitnio Defranceschi",
-   "Bartolo De Franceschi",
-   "Giuseppe Defranceschi",
-   "Mathęius De Franceschi",
-   "Michiel De Franceschi",
-   "Francesco De Franceschi",
-   "Petrus Defranceschi",
-   "Domenica Defranceschi",
-   "Magdalena Defranceschi",
-   "Dominicus Defranceschi",
    "Cattarina Defranceschi",
    "Giulio Defranceschi",
-   "Maria Defranceschi",
-   "Stella Appolonia Defranceschi",
-   "Damiano Defranceschi",
-   "Natale Defranceschi",
-   "Petrina Tamburin Or Defranceschi",
-   "Stella Defranceschi",
    "Filomena Defranceschi Or Alacevich",
-   "Ermenegildo Defranceschi",
-   "Francisca Defranceschi",
-   "Jacobina Defranceschi",
-   "Francisca Defranceschi",
-   "Euphemia Defranceschi",
-   "Joannes Defranceschi",
-   "Josephus Defranceschi",
-   "Antonius Defranceschi",
-   "Victorius Defranceschi"
+   "Ermenegildo Defranceschi"
   ]
  }
 }

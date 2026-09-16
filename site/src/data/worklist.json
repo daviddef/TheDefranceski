@@ -1,6 +1,6 @@
 {
  "title": "The work list",
- "eyebrow": "125 items · 46 open · 24 waiting on somebody else",
+ "eyebrow": "125 items · 45 open · 24 waiting on somebody else",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
  "cols": [
@@ -658,10 +658,10 @@
   {
    "n": 80,
    "what": "The forty burials with no parish named",
-   "state": "next",
+   "state": "done",
    "owner": "this archive",
    "since": "2026-09-15",
-   "note": "**Attempted, and the route is now written down.** They cannot be placed from anything in this repository. The burial rows carry a name, a year and a place-string that is only ever «Croazia, Austria», «Hrvatska, Österreich», «Regnum Croatiae» or «Kraljevina Hrvatska» — **and no ark**. Joining them to `register.json` on name and year matches seventeen of the forty and gains nothing, because that file carries the same raw index place.\n\n**The resolution already exists as a method** and this archive has run it on all 954 indexed records: every persona carries the ark of the image it was read from, the ark resolves to a **DGS film number**, and the catalogue names the film's parish. It is what turned eighteen known parishes into [ninety-three](/istria-sweep/). **But only the aggregate survived** — 93 rows of parish, count and span. The per-record output was never written to disk.\n\n**So the job is: re-harvest those forty personas with their arks, and resolve each one.** Half a day, and it would put a quarter of everything this archive knows about its dead onto the map."
+   "note": "**Done, 17 September 2026, and this row was wrong twice.** They *could* be placed from this repository: `data/parish-by-record-2026-09.txt` holds the sweep's per-record output — ninety-three parishes, 952 persona ids — and had done since 8 September. **All thirty-six placed with no FamilySearch search at all**: twenty-five on the id already held, **eleven on the twin rule** — the same burial indexed twice under ids differing in the last character only.\n\n**Svetvinčenat 14 · Pula 8 · Draguč 6 · Rovinj 3 · Vrsar 2 · Šterna 2 · Vižinada 1**, four of them parishes new to [the register of the dead](/burials/). A bad pin fell out on the way: Šterna had been resolving to **Greece**. [The correction](/corrections/)."
   },
   {
    "n": 81,

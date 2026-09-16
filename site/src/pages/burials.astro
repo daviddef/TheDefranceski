@@ -4,6 +4,7 @@ import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
 import data from "../data/burials.json";
 const rows = data.rows, S = data.summary;
 
@@ -107,6 +108,21 @@ const places = S.places.filter(([p]) => p !== "not stated");
     ))}
   </div>
 
+  <h2 style="font-size:30px;margin-top:52px">{S.placed.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={md(S.placed.lead)}></p>
+  <div class="prose" style="margin-top:20px">
+    {S.placed.body.map(t => <div style="margin-top:14px" set:html={mdp(t)}></div>)}
+  </div>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Parish it turned out to be</th><th class="m">Burials placed</th></tr></thead>
+      <tbody>{S.placed.counts.map(([p, n]) => (
+        <tr><td>{p}</td><td class="m">{n}</td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:12px">Resolved {S.placed.when} by <code>scripts/place-burials.py</code> — {S.placed.index} on the persona id the sweep already held, {S.placed.twin} on its twin. No new search was made of FamilySearch, and none was needed.</p>
+
   <h2 style="font-size:30px;margin-top:52px">Where they are buried</h2>
   <div class="scroll" style="margin-top:16px">
     <table>
@@ -118,6 +134,9 @@ const places = S.places.filter(([p]) => p !== "not stated");
             : p === "Poreč" ? "Carlo's town after Rovinj, and where Camillo was born."
             : p === "Croatia, parish not named" ? "Indexed with a country but no parish. Each of these is a page in a book somewhere that could be found."
             : p === "Pazin" ? "The county town. One burial, an infant of 1792, son of a Vincentius — the Pisino family that bore the half-castle."
+            : p === "Svetvinčenat" ? "Savicenta, in central Istria — fourteen burials, all of them placed on 17 September out of the «no parish named» pile."
+            : p === "Draguč" ? "Draguccio, above the Butoniga. Six burials, every one of them recovered from a place-string that said only «Regnum Croatiae»."
+            : p === "Vrsar" || p === "Šterna" || p === "Vižinada" ? "New to this register on 17 September, out of the «no parish named» pile."
             : p === "Split" || p === "Omiš" ? "The Dalmatian branch."
             : "—"}</td></tr>
       ))}</tbody>

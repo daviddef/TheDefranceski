@@ -81,6 +81,11 @@ FIX = {
     "centenarymemorialgardens":            (-27.5800, 152.9200),
     "concesiobrescia":                     (45.6040, 10.2170),
     "sandanieledelfriuli":                 (46.1580, 13.0090),
+    # cities500 stops at five hundred people and Sterna in Grozjnan has
+    # seventy, so the bare name fell through to Sterna in Evros, GREECE,
+    # and put two Istrian burials on the Turkish border. GeoNames HR.txt:
+    # 3189889 Sterna 45.41306 13.79361 P PPL HR.
+    "sterna":                              (45.41306, 13.79361),
 }
 
 def resolve(place, country, gaz):
