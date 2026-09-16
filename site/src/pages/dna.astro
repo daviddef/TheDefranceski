@@ -3,7 +3,13 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import d from "../data/dna.json";
+/* This page's renderer does not escape, because nine fields in dna.json carry
+   deliberate HTML. It did not link either, so an internal [text](/path/) in the
+   data printed as literal brackets — the same hole md.js had until it was
+   patched. Absolute internal paths only, through the same helper as every
+   other link on the site. */
 const md = (s) => String(s ?? "")
+  .replace(/\[([^\]\n]+)\]\((\/[^)\s]*)\)/g, (_, t, h) => `<a href="${u(h)}">${t}</a>`)
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>")
@@ -234,6 +240,31 @@ const HUE = {
   <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.ydna23.source23))}></span></p>
 </section>
 
+<Rule name="loom" label={d.autoclusters.heading} />
+<section class="blk" id="autoclusters">
+  <div class="prose" set:html={based(P(d.autoclusters.lead))}></div>
+  <div class="tw" style="margin-top:22px">
+    <table class="ac">
+      <thead><tr>{d.autoclusters.cols.map(c => <th>{c}</th>)}</tr></thead>
+      <tbody>{d.autoclusters.rows.map(([k, n, cm, sh, read]) => (
+        <tr class={"r-" + read}>
+          <td class="k">{k}</td>
+          <td class="n">{n}</td>
+          <td class="n">{cm.toLocaleString("en-GB")}</td>
+          <td class="n">{sh || "none"}</td>
+          <td class="rd"><span class={"pill p-" + read}>{read === "croatian" ? "Croatian — his father's side" : read === "maternal" ? "his mother's side" : "unplaced"}</span><i>{d.autoclusters.reads[read]}</i></td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:26px" set:html={based(P(d.autoclusters.body))}></div>
+  <div class="one" style="margin-top:28px;border-left-color:var(--terra,#a5442c)">
+    <div class="lab">Why there are no names here</div>
+    <div class="prose" style="margin-top:8px" set:html={based(P(d.autoclusters.privacy))}></div>
+  </div>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.autoclusters.source))}></span></p>
+</section>
+
 <Rule name="pomegranate" label={d.settle.heading} />
 <section class="blk" id="settle">
   <div class="prose hi" set:html={based(P(d.settle.lead))}></div>
@@ -305,6 +336,22 @@ const HUE = {
 </section>
 
 <style>
+  table.ac { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.ac th { text-align: left; font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+                opacity: .55; font-weight: 600; padding: 0 12px 7px 0; border-bottom: 1px solid var(--rule, #dcd6cc); }
+  table.ac td { padding: 10px 12px 10px 0; vertical-align: top;
+                border-bottom: 1px solid color-mix(in srgb, var(--rule, #dcd6cc) 55%, transparent); }
+  table.ac .k, table.ac .n { font-variant-numeric: tabular-nums; }
+  table.ac .n { text-align: right; width: 6em; }
+  table.ac .rd i { display: block; font-style: normal; font-size: 12px; opacity: .55; margin-top: 4px; }
+  .pill { font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; padding: 3px 8px;
+          border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; }
+  .p-croatian { color: var(--terra, #a5442c); }
+  .p-maternal { opacity: .6; }
+  .p-unplaced { opacity: .45; font-style: italic; }
+  tr.r-croatian td { background: color-mix(in srgb, var(--terra, #a5442c) 6%, transparent); }
+  @media (max-width: 640px) { table.ac .rd i { display: none; } }
+
   .ycall { display: grid; gap: 16px; margin-top: 20px;
            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
   .yk { border: 1px solid var(--rule, #dcd6cc); border-radius: 3px; padding: 16px 18px; }
