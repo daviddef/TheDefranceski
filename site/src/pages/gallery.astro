@@ -20,7 +20,11 @@ const counts = Object.fromEntries(groups.map(([k]) => [k, all.filter(p => p.grou
    are the shared component's now, and the six groups become its filter. */
 const LABEL = Object.fromEntries(groups);
 const sheet = all.map((p) => ({
-  src: p.src, thumb: p.thumb, w: p.w, h: p.h,
+  /* Based here. This archive stores plate paths unbased and its own Plates
+     component added the prefix; the shared gallery passes a path through
+     untouched, because the four archives store them four ways and a component
+     that guessed would base one of them twice. */
+  src: u(p.src), thumb: u(p.thumb), w: p.w, h: p.h,
   title: p.title, what: p.caption, holder: p.holder,
   kind: LABEL[p.group] || p.group,
 }));
