@@ -258,6 +258,10 @@ const HUE = {
     </table>
   </div>
   <div class="prose" style="margin-top:26px" set:html={based(P(d.autoclusters.body))}></div>
+  <h3 class="sub" style="margin-top:34px">{d.autoclusters.ground.heading}</h3>
+  <div class="prose" set:html={based(P(d.autoclusters.ground.text))}></div>
+  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.ground.note))}></p>
+
   <div class="one" style="margin-top:28px;border-left-color:var(--terra,#a5442c)">
     <div class="lab">Why there are no names here</div>
     <div class="prose" style="margin-top:8px" set:html={based(P(d.autoclusters.privacy))}></div>
