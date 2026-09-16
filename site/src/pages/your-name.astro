@@ -15,7 +15,7 @@ const rows = gn.rows.map(r => ({ ...r, slips: (slipOf[r.canon] || []).join(", ")
 // One flat lookup: every recorded form points back to its row.
 const index = {};
 rows.forEach((r, i) => {
-  ["latin", "italian", "venetian", "croatian", "german", "english", "slips"].forEach(k => {
+  ["latin", "italian", "venetian", "croatian", "german", "hungarian", "english", "slips"].forEach(k => {
     (r[k] || "").split(",").map(s => s.trim()).filter(s => s && s !== "—")
       .forEach(form => { index[form.toLowerCase()] = i; });
   });
@@ -28,27 +28,32 @@ const langs = [
   ["venetian", "Venetian", "Not a dialect of Italian but the language of the Republic. It gives Zuane for Giovanni, and it is why a Zane in a photograph caption is a Giovanni."],
   ["croatian", "Croatian", "The language of the villages, of the Vinodol and the Kvarner coast, and of every Yugoslav and Croatian document after 1945."],
   ["german", "German", "The language of the Habsburg bureaucracy, of the Pazin gymnasium, and of the wartime sickness-fund cards at Reutlingen."],
+  ["hungarian", "Hungarian", "Fiume was Hungarian — a corpus separatum of the Crown of St Stephen — and this archive's own place-strings say so: «Vitipolis, Modrus-Fiume, Magyarország». From the civil registration of 1895 the clerk there wrote in Hungarian."],
   ["english", "English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane. Usually the last change a name makes."],
   ["slips", "A clerk's slip", "Not a form of the name at all — one hand, once, getting it wrong. These are the spellings a search will never find, and they are listed with the document each came out of below."],
 ];
 const slips = gn.slips || [];
+const seen = gn.seen || {};
 ---
 <Base
   title="Say Your Name"
-  eyebrow={`${rows.length} names, ${totalForms} recorded forms`}
+  eyebrow={`${rows.length} names · ${gn.attested} forms met in the records, ${gn.totalForms - gn.attested} more as lookup aids`}
   dek="One person, written down six different ways by six different clerks. Type a given name and see every form the same human being would have been entered under across four centuries of registers.">
 
   <section class="prose">
     <p>This archive's owner puts it best: <em>my own father can be Ivan or Giovanni or John.</em> One man, three registers, three languages, no change of person.</p>
-    <p>That is not a curiosity, it is the central difficulty of the work. A Josip in a Croatian register, a Giuseppe in an Italian one and a Josephus in a Latin one are the same name, and an index that treats them as three people will never join a family up. Every name below was reconciled by hand from the forms that actually appear in these registers — not from a dictionary.</p>
+    <p><strong>A name you have looked up is a link you can send.</strong> The address bar follows the search — <span class="mono" style="font-size:13px">?n=Gregorio</span> — so a card can go to a cousin, an archivist or a mailing list and open on exactly what you were looking at. There is a <em>Copy link</em> button above every result.</p>
+    <p>That is not a curiosity, it is the central difficulty of the work. A Josip in a Croatian register, a Giuseppe in an Italian one and a Josephus in a Latin one are the same name, and an index that treats them as three people will never join a family up.</p>
+    <p><strong>Seven columns, and two kinds of cell.</strong> A form printed plainly is one this archive has actually met in one of its own records. A form marked <span class="aid">like this<sup>°</sup></span> is a <strong>lookup aid</strong> — the correct form in that language, and the right thing to type into a Hungarian or a German index tomorrow, but not something this archive has yet seen written down. <strong>{gn.attested} of the {gn.totalForms} forms below are attested; {gn.totalForms - gn.attested} are aids.</strong> Nothing here decides that by hand: <a href={u("/method/")}>a script looks every form up in the records</a> and the build refuses if the marking drifts.</p>
+    <p>This page said, until 17 September 2026, that every form on it came «from the forms that actually appear in these registers — not from a dictionary». <a href={u("/corrections/")}>Thirty-one per cent of them did not</a>, there was no Hungarian column at all, and dozens sat under the wrong language — <em>Antal</em> and <em>Ilona</em> filed as Italian when they are Hungarian, <em>Božo</em> and <em>Tomislav</em> filed as Italian when they are Croatian.</p>
   </section>
 
   <div class="namebox" style="margin-top:30px">
     <input type="search" id="n" placeholder="Josephus · Ivan · Zuane · JVAN · Frank · Antun" autocomplete="off"
-           data-index={JSON.stringify(index)} data-rows={JSON.stringify(rows)} />
+           data-index={JSON.stringify(index)} data-rows={JSON.stringify(rows)} data-seen={JSON.stringify(seen)} />
   </div>
   <div class="suggest" id="sug">
-    {["Giovanni", "JVAN", "Zuane", "Josephus", "ZORAFKO", "Frane", "Antun", "Franz", "Nicolaus", "Orsola"]
+    {["Giovanni", "JVAN", "Zuane", "Gergely", "Gregor", "ZORAFKO", "Juraj", "Ilona", "Franz", "Orsola"]
       .filter(x => index[x.toLowerCase()] !== undefined).map(x => (
       <button type="button" data-n={x}>{x}</button>
     ))}
@@ -95,20 +100,34 @@ const slips = gn.slips || [];
   if (box && out) {
     const index = JSON.parse(box.getAttribute("data-index"));
     const rows = JSON.parse(box.getAttribute("data-rows"));
+    const seen = JSON.parse(box.getAttribute("data-seen"));
     const langs = {
       latin: ["Latin", "The language of every Catholic register here until the 1820s, and of many for decades after. This is how the priest actually wrote it."],
       italian: ["Italian", "Venetian Istria, the Austrian administration's Italian towns, and the family's own letters."],
       venetian: ["Venetian", "The language of the Republic, not a dialect of Italian. It gives Zuane for Giovanni."],
       croatian: ["Croatian", "The villages, the Vinodol, the Kvarner coast, and every document after 1945."],
       german: ["German", "The Habsburg bureaucracy, the Pazin gymnasium, the sickness-fund cards at Reutlingen."],
+      hungarian: ["Hungarian", "Fiume was a corpus separatum of the Crown of St Stephen, and the registers there went over to Hungarian in 1895."],
       english: ["English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane."],
       slips: ["A clerk's slip", "Not a form of the name — one hand, once, getting it wrong. Cited below."],
     };
     const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
+    // A name you have looked up is a thing worth sending to somebody, and until
+    // now the address bar said the same thing whatever you had typed. It now
+    // carries ?n=, written with replaceState so that typing does not fill the
+    // back button with every keystroke on the way to a name.
+    const shareUrl = (q) => {
+      try { const x = new URL(location.href); x.hash = ""; x.searchParams.set("n", q); return x.toString(); }
+      catch (e) { return location.href; }
+    };
+    const setUrl = (q) => {
+      try { history.replaceState(null, "", q ? shareUrl(q) : location.pathname); } catch (e) {}
+    };
+
     const render = (q) => {
       const t = q.trim().toLowerCase();
-      if (!t) { out.innerHTML = ""; return; }
+      if (!t) { out.innerHTML = ""; setUrl(""); return; }
       let i = index[t];
       if (i === undefined) {
         // fall back to a prefix match across every recorded form
@@ -122,22 +141,55 @@ const slips = gn.slips || [];
         return;
       }
       const r = rows[i];
+      setUrl(r.canon[0].toUpperCase() + r.canon.slice(1));
       const cards = Object.entries(langs).map(([k, [label, note]]) => {
         const v = (r[k] || "—").trim();
         const empty = !v || v === "—";
+        // A form this archive has met is printed plainly; one it has not is an
+        // aid, marked, because the difference is the difference between
+        // evidence and a dictionary and this page once blurred it.
+        const parts = empty ? "" : v.split(",").map(x => x.trim()).filter(Boolean).map(x =>
+          seen[x] ? `<span class="att" title="${seen[x]} record${seen[x] === 1 ? "" : "s"} here use this form">${esc(x)}</span>`
+                  : `<span class="aid" title="the correct form in this language — not yet met in any record here">${esc(x)}<sup>\u00b0</sup></span>`
+        ).join("<span class=\"sep\">, </span>");
         return `<div class="form ${k}">
           <div class="lang">${label}</div>
-          <div class="val${empty ? " none" : ""}">${empty ? "not recorded" : esc(v)}</div>
+          <div class="val${empty ? " none" : ""}">${empty ? "not recorded" : parts}</div>
           <div class="when">${note}</div>
         </div>`;
       }).join("");
       out.innerHTML = `
-        <p class="dek" style="margin-top:26px;max-width:62ch">
+        <div class="shareline">
+          <button class="copyl" type="button" title="Copy a link to this name">Copy link</button>
+          <span class="shareurl">${esc(shareUrl(r.canon[0].toUpperCase() + r.canon.slice(1)))}</span>
+        </div>
+        <p class="dek" style="margin-top:14px;max-width:62ch">
           <strong style="color:var(--ink);font-size:16px">${esc(r.canon[0].toUpperCase() + r.canon.slice(1))}</strong>
-          — ${r.forms} distinct spellings of this one name appear in the records gathered here.
-          Every form below is the same person.</p>
+          — ${r.forms} forms of this one name, of which
+          ${Object.keys(langs).reduce((n, k) => n + (r[k] || "").split(",").map(x => x.trim()).filter(x => x && x !== "—" && seen[x]).length, 0)}
+          are attested in the records gathered here. Every form below is the same person.</p>
         <div class="forms">${cards}</div>`;
     };
+
+    out.addEventListener("click", async (e) => {
+      const b = e.target.closest("button.copyl");
+      if (!b) return;
+      const url = location.href;
+      let done = false;
+      try { await navigator.clipboard.writeText(url); done = true; } catch (err) {
+        // clipboard permission, or an insecure origin: fall back to a selection
+        const ta = document.createElement("textarea");
+        ta.value = url; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { done = document.execCommand("copy"); } catch (e2) {}
+        ta.remove();
+      }
+      b.textContent = done ? "Link copied" : "Press \u2318C to copy";
+      if (!done) { const sp = b.parentElement.querySelector(".shareurl");
+                   if (sp) { const rg = document.createRange(); rg.selectNodeContents(sp);
+                             const sel = getSelection(); sel.removeAllRanges(); sel.addRange(rg); } }
+      setTimeout(() => { b.textContent = "Copy link"; }, 2200);
+    });
 
     box.addEventListener("input", () => render(box.value));
     document.getElementById("sug").addEventListener("click", (e) => {
@@ -145,7 +197,34 @@ const slips = gn.slips || [];
       if (!b) return;
       box.value = b.dataset.n; render(box.value); box.focus();
     });
-    render("Giovanni");
-    box.value = "Giovanni";
+    let start = "Giovanni";
+    try { start = new URL(location.href).searchParams.get("n") || start; } catch (e) {}
+    box.value = start;
+    render(start);
   }
 </script>
+
+<style is:global>
+  /* The cards are written into the page by the script above, so these rules
+     cannot be component-scoped — Astro stamps its scope on the template, not
+     on innerHTML. They live here rather than in the shared stylesheet because
+     they belong to this page and to nothing else. */
+  .form.hungarian { border-top-color: var(--terra); }
+  .form .val .att { color: var(--ink); }
+  .form .val .aid { color: var(--ink-3); font-style: italic; }
+  .form .val .aid sup { font-size: .5em; vertical-align: super; font-style: normal;
+                        color: var(--terra); padding-left: 1px; }
+  .form .val .sep { color: var(--ink-3); }
+  p .aid { color: var(--ink-3); font-style: italic; }
+  p .aid sup { color: var(--terra); font-style: normal; }
+
+  /* the share line above a result */
+  .shareline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 26px; }
+  .shareline .copyl { font-family: var(--sans); font-size: 11.5px; letter-spacing: .04em;
+    padding: 5px 12px; border: 1px solid var(--rule-strong); background: var(--panel);
+    color: var(--ink-2); border-radius: 2px; cursor: pointer; white-space: nowrap; }
+  .shareline .copyl:hover { border-color: var(--accent); color: var(--accent); }
+  .shareline .shareurl { font-family: var(--mono, var(--sans)); font-size: 11.5px;
+    color: var(--ink-3); overflow-wrap: anywhere; min-width: 0; }
+  @media (max-width: 620px) { .shareline .shareurl { display: none; } }
+</style>
