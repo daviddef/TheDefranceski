@@ -61,7 +61,10 @@ const nt = (x) => String(x ?? "")
         options: PLACES.map(([k, n]) => ({ v: k.toLowerCase(), label: `${k} — ${n}` })) },
     ]}
     rows={roster.rows.map((r) => ({
-      hay: (r.name + " " + r.place + " " + (r.b || "") + " " + (r.d || "") + " " + (r.note || "")).toLowerCase(),
+      /* No hay. The name, the dates, the place-or-parish and the note are every
+         one of them a cell below, and the shared script reads the row. Measured
+         rather than assumed: of 1,206 rows there is exactly one word in the old
+         haystack that is not on screen, and it is a stray href inside a note. */
       facets: { l: r.line, star: r.notable ? "1" : "0", mine: r.mine ? "1" : "0",
                 rel: r.rel ? "1" : "0", direct: r.direct ? "1" : "0",
                 place: (r.place || "").split(",")[0].trim().toLowerCase() },
