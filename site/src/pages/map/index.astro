@@ -26,6 +26,7 @@ import r from "../../data/researchmap.json";
 import mp from "../../data/map.json";
 import a from "../../data/atlas.json";
 import g from "../../data/gravesmap.json";
+import mat from "../../data/matricula.json";
 import ros from "../../data/roster.json";
 
 const s = r.stats;
@@ -317,6 +318,23 @@ FamilySearch is broad and shallow: a title, a year span, and **nothing name-inde
 **The difference between the last two is the difference between a negative and a silence**, and it is the whole reason there are four marks rather than three.
 
 *And the honest limit of «never opened».* It is only as good as [the ledger](/searched/) behind it. A volume somebody read before that ledger existed, and never wrote down, would show as never opened — so the state means **«not recorded as read»**, and the archive's answer to that is to record readings the day they happen rather than the week after.`))}></div>
+    </div>
+
+    <div class="one">
+      <div class="lab">Matricula — the nine Littoral volumes, and where each one opens</div>
+      <div class="prose" style="margin-top:8px" set:html={link(mdp(
+`**Matricula Online publishes the Austrian Protestant registers of the Küstenland**, free and without an account, and until 17 September no map this archive keeps had them. **Nine volumes, four congregations, 1848 to 1918.**
+
+**Pola is this family's ground and Trieste and Gorizia are not**, so the provider is drawn as what it is — a shelf that mostly overlaps nothing else, in the way [Antenati](/antenati/) and the Delnice films already do. They do not open from a marker, because the panel builds FamilySearch addresses and these are not FamilySearch; they open from here.`))}></div>
+      <ul class="matlist">
+        {mat.places.map((pl) => (
+          <li>
+            <b>{pl.name}{pl.also && pl.also.length ? ` · ${pl.also[0]}` : ""}</b>
+            <ol>{pl.books.map(([sig, t, lo, hi]) => (
+              <li><a href={`${mat.base}${pl.matricula}/${sig}/`} target="_blank" rel="noopener">{t} ↗</a></li>))}
+            </ol>
+          </li>))}
+      </ul>
     </div>
 
     <div class="one">

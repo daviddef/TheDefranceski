@@ -66,6 +66,9 @@ SOURCES = [
     ("antenati", "Antenati",                "Portale Antenati, Archivio di Stato di Udine — the Carnia civil registers"),
     ("fs-it-pola", "FamilySearch — Pola & Trieste",
      "Italy, Pola and Trieste, Catholic Church Records 1593–1941 (collection 2152685) — Croatian Istrian parishes filed by Italy"),
+    ("matricula", "Matricula — the Littoral",
+     "Matricula Online, Altösterreich (evangelisch) — the Austrian Protestant registers of Pola, "
+     "Trieste and Gorizia, free and without an account"),
     ("fs-si-mj",  "FamilySearch — Međimurje",
      "Slovenia, Prekmurje and Međimurje, Civil Registers 1895–1918 (collection 1985107) — Croatian towns under Hungarian county names"),
     ("fs-hr-delnice", "FamilySearch — Delnice",
@@ -313,9 +316,9 @@ def span(title):
 # into «Other» and the coverage timeline for a whole Croatian county said
 # nothing at all.
 KIND = [
-    ("b", r"birth|rodjen|rođen|kr[sš]ten|batti|battesim|\bnati\b|nascit|taufe|szulett|születt|MKR"),
+    ("b", r"birth|rodjen|rođen|kr[sš]ten|batti|battesim|\bnati\b|nascit|\btauf\w*|szulett|születt|MKR"),
     ("m", r"marri|vjenc|vjenč|matrimon|trauung|hazasult|házasult|MKV"),
-    ("d", r"death|umrl|\bmorti\b|sterbe|halottak|MKU"),
+    ("d", r"death|umrl|\bmorti\b|sterbe|\btote\b|totenbuch|halottak|MKU"),
 ]
 SKIP = re.compile(r"index|indic|kazalo|allegat|status animarum|confirmation|"
                   r"krizman|census|popis|SD\b", re.I)
@@ -563,6 +566,23 @@ def main():
         vols = [{"t": f["t"], "ark": f["ark"], "wc": f.get("wc"), "cc": "1939238",
                  "from": span(f["t"])[0], "to": span(f["t"])[1]} for f in r.get("films", [])]
         p["src"]["fs-it"] = {"shelves": {"civil": {"wp": None, "books": vols}}}
+
+    # ---- 3b. Matricula — the Austrian Protestant registers of the Littoral
+    # Free, no account, and on no map this archive kept. Pola is this family's
+    # ground; Trieste and Gorizia are not, so this provider looks like Antenati
+    # and Delnice do — a shelf that mostly overlaps nothing else.
+    mat = load("matricula.json") or {}
+    for r in mat.get("places", []):
+        p = P(r["name"])
+        for a in (r.get("also") or []):
+            p["alt"].add(a)
+        vols = [{"t": t, "from": lo, "to": hi,
+                 "url": mat["base"] + r["matricula"] + "/" + sig + "/",
+                 "matricula": True}
+                for sig, t, lo, hi in r["books"]]
+        sh = p["src"].setdefault("matricula", {"shelves": {}})
+        shelf = sh["shelves"].setdefault("ev", {"wp": None, "books": []})
+        shelf["books"] = (shelf["books"] or []) + vols
 
     # ---- 4. Pazin's own list — the only source that admits what is not digitised
     dapa = collections.defaultdict(list)
@@ -1077,7 +1097,10 @@ def main():
                 # they live on a different host and open in the portal's own
                 # viewer — so a comune with nothing but Antenati volumes is not
                 # unlinked, it is linked from a different page.
-                if with_books and with_books <= {"antenati", "fs-cat"}:
+                if with_books and with_books <= {"matricula", "fs-cat"}:
+                    why = ("they are Matricula's, and every one of them opens on Matricula's own "
+                           "site without an account — the nine addresses are listed under the map.")
+                elif with_books and with_books <= {"antenati", "fs-cat"}:
                     why = ("they are Antenati's, and Antenati is opened from "
                            "its own page rather than from this panel.")
                 elif with_books and with_books <= paperonly:

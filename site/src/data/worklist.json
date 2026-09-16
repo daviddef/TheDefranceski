@@ -1,6 +1,6 @@
 {
  "title": "The work list",
- "eyebrow": "123 items · 48 open · 23 waiting on somebody else",
+ "eyebrow": "123 items · 47 open · 23 waiting on somebody else",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
  "cols": [
@@ -819,11 +819,11 @@
   },
   {
    "n": 95,
-   "what": "Put Matricula's nine Littoral volumes on the map",
-   "state": "next",
+   "what": "Matricula's nine Littoral volumes — on the map, as a ninth provider",
+   "state": "done",
    "owner": "this archive",
-   "since": "2026-09-16",
-   "note": "**Pola, Görz, Triest AB and Triest HB** — nine registers, 1848 to 1918, free and online at Matricula and on no map this archive keeps. Adding them is a ninth provider in `build-research-map.py`, with the same shape as the others: a place, a volume list, a linkable address per volume.\n\n**Trieste and Görz are not this family's parishes and Pola is**, so the honest way to draw them is as a provider whose places mostly do not overlap the map at all — which is exactly what the Antenati and Delnice providers already look like."
+   "since": "2026-09-17",
+   "note": "**Done. Walked volume by volume from the fonds page on 17 September**: **Pola** 1 · **Triest AB** 4 · **Triest HB** 3 · **Görz** 1, from 1848 to 1918, and every one of them opens without an account. They are a ninth provider in the builder and [listed under the map](/map/) with an address each — not on the markers, because the panel builds FamilySearch addresses and these are not FamilySearch, which is the same reason Antenati opens from its own page.\n\n**Two things had to be fixed to receive them.** The record-type classifier knew five languages and not German, so *Taufbuch*, *Taufen* and *Tote* all fell into «Other» — it now reads them, and Gorizia's one volume is filed as a birth register rather than as something unclassifiable. And the «why is there no link» sentence had two branches and needed a third: **a Matricula volume is not an unharvested address, it is an address somewhere else.**"
   },
   {
    "n": 96,

@@ -1,11 +1,11 @@
 {
  "note": "The archive had grown three maps off the same ground. The research map\ncarried 1,235 record-book places and asked «how far have we got with the\nshelf». The atlas carried 160 places and asked «where can we put a person».\nThe graves map carried 64 and asked «where is this family in the ground».\nForty-three of the atlas's places were already on the research map, eleven of\nthe graves map's were, and after the people layer was added to the research\nmap in September 2026 one map was a strict superset of another. Three pages,\nthree geocoders, three legends, and a reader holding all of it in their head.",
  "stats": {
-  "places": 1398,
+  "places": 1399,
   "bySchemes": {
    "people": 74,
    "people + shelf": 36,
-   "shelf": 1196,
+   "shelf": 1197,
    "graves + people": 36,
    "graves": 13,
    "graves + people + shelf": 12,
@@ -13,7 +13,7 @@
    "people + records": 4,
    "graves + people + records": 3
   },
-  "shelf": 1244,
+  "shelf": 1245,
   "people": 165,
   "graves": 64,
   "records": 31,
@@ -26,7 +26,7 @@
   "burials": 158,
   "volumes": 6268,
   "byShelf": {
-   "untouched": 1210,
+   "untouched": 1211,
    "worked": 23,
    "started": 6,
    "none": 5
@@ -44,7 +44,7 @@
    "register": 14
   },
   "sums": {
-   "research": 1244,
+   "research": 1245,
    "atlas": 165,
    "graves": 64,
    "records": 48
@@ -52,16 +52,16 @@
   "saved": 123
  },
  "researchStats": {
-  "places": 1285,
-  "placed": 1244,
-  "volumes": 7762,
+  "places": 1286,
+  "placed": 1245,
+  "volumes": 7771,
   "read": 6,
   "worked": 23,
-  "listed": 1251,
-  "untouched": 1251,
+  "listed": 1252,
+  "untouched": 1252,
   "byProgress": {
    "none": 5,
-   "untouched": 1251,
+   "untouched": 1252,
    "worked": 23,
    "started": 6,
    "done": 0
@@ -93,6 +93,11 @@
     "places": 9,
     "volumes": 36,
     "walked": 9
+   },
+   "matricula": {
+    "places": 3,
+    "volumes": 9,
+    "walked": 3
    },
    "fs-si-mj": {
     "places": 46,
@@ -242,7 +247,7 @@
   ],
   "notDigitisedButFilmed": 116,
   "fsPending": 0,
-  "crossChecked": 28,
+  "crossChecked": 30,
   "timelineGaps": {
    "rows": 308,
    "places": 176,

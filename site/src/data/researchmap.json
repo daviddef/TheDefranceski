@@ -27,6 +27,11 @@
    "what": "Italy, Pola and Trieste, Catholic Church Records 1593–1941 (collection 2152685) — Croatian Istrian parishes filed by Italy"
   },
   {
+   "key": "matricula",
+   "label": "Matricula — the Littoral",
+   "what": "Matricula Online, Altösterreich (evangelisch) — the Austrian Protestant registers of Pola, Trieste and Gorizia, free and without an account"
+  },
+  {
    "key": "fs-si-mj",
    "label": "FamilySearch — Međimurje",
    "what": "Slovenia, Prekmurje and Međimurje, Civil Registers 1895–1918 (collection 1985107) — Croatian towns under Hungarian county names"
@@ -44,16 +49,16 @@
  ],
  "kml": "data/genealogy-resources-croatia.kml",
  "stats": {
-  "places": 1285,
-  "placed": 1244,
-  "volumes": 7762,
+  "places": 1286,
+  "placed": 1245,
+  "volumes": 7771,
   "read": 6,
   "worked": 23,
-  "listed": 1251,
-  "untouched": 1251,
+  "listed": 1252,
+  "untouched": 1252,
   "byProgress": {
    "none": 5,
-   "untouched": 1251,
+   "untouched": 1252,
    "worked": 23,
    "started": 6,
    "done": 0
@@ -85,6 +90,11 @@
     "places": 9,
     "volumes": 36,
     "walked": 9
+   },
+   "matricula": {
+    "places": 3,
+    "volumes": 9,
+    "walked": 3
    },
    "fs-si-mj": {
     "places": 46,
@@ -234,7 +244,7 @@
   ],
   "notDigitisedButFilmed": 116,
   "fsPending": 0,
-  "crossChecked": 28,
+  "crossChecked": 30,
   "timelineGaps": {
    "rows": 308,
    "places": 176,
@@ -26068,6 +26078,58 @@
     }
    },
    "volumes": 6,
+   "reads": 0,
+   "readrows": [],
+   "vread": 0,
+   "vpart": 0,
+   "vknown": false,
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
+  },
+  {
+   "key": "gorizia",
+   "name": "Gorizia",
+   "alt": [
+    "Gorica",
+    "Görz"
+   ],
+   "older": [
+    "Goerz",
+    "Gorica",
+    "Goricija",
+    "Gurize"
+   ],
+   "lat": 45.94088,
+   "lon": 13.62167,
+   "geo": "geonames",
+   "cat": "untouched",
+   "layers": [],
+   "sources": {
+    "matricula": {
+     "shelves": {
+      "ev": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Taufbuch 1860-1913",
+         "from": 1860,
+         "to": 1913,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/goerz/01-01D/",
+         "matricula": true
+        }
+       ]
+      }
+     }
+    }
+   },
+   "counts": {
+    "matricula": {
+     "n": 1,
+     "walked": true
+    }
+   },
+   "volumes": 1,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -82685,7 +82747,9 @@
   {
    "key": "pula",
    "name": "Pula",
-   "alt": [],
+   "alt": [
+    "Pola"
+   ],
    "older": [
     "Pietas Iulia",
     "Poula",
@@ -83422,6 +83486,22 @@
       }
      }
     },
+    "matricula": {
+     "shelves": {
+      "ev": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Taufbuch 1873-1913",
+         "from": 1873,
+         "to": 1913,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/pola/01-01D/",
+         "matricula": true
+        }
+       ]
+      }
+     }
+    },
     "fs-cat": {
      "shelves": {
       "all": {
@@ -83485,12 +83565,16 @@
      "n": 78,
      "walked": true
     },
+    "matricula": {
+     "n": 1,
+     "walked": true
+    },
     "fs-cat": {
      "n": 8,
      "walked": true
     }
    },
-   "volumes": 86,
+   "volumes": 87,
    "reads": 2,
    "readrows": [
     {
@@ -103864,7 +103948,9 @@
    "name": "Trieste",
    "alt": [
     "Guardiella (Frazione di Trieste)",
-    "Prosecco (Frazione di Trieste)"
+    "Prosecco (Frazione di Trieste)",
+    "Triest",
+    "Trst"
    ],
    "older": [
     "Tergeste",
@@ -103882,6 +103968,64 @@
     "rc"
    ],
    "sources": {
+    "matricula": {
+     "shelves": {
+      "ev": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Taufen 1848-1901",
+         "from": 1848,
+         "to": 1901,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestAB/01-01/",
+         "matricula": true
+        },
+        {
+         "t": "Taufbuch 1890-1913",
+         "from": 1890,
+         "to": 1913,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestAB/01-02/",
+         "matricula": true
+        },
+        {
+         "t": "Trauung 1902-1918",
+         "from": 1902,
+         "to": 1918,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestAB/02-02/",
+         "matricula": true
+        },
+        {
+         "t": "Tote 1848-1918",
+         "from": 1848,
+         "to": 1918,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestAB/03-01/",
+         "matricula": true
+        },
+        {
+         "t": "Taufe 1900-1913",
+         "from": 1900,
+         "to": 1913,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestHB/01-03/",
+         "matricula": true
+        },
+        {
+         "t": "Trauung 1900-1918",
+         "from": 1900,
+         "to": 1918,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestHB/02-03/",
+         "matricula": true
+        },
+        {
+         "t": "Tote 1900-1909",
+         "from": 1900,
+         "to": 1909,
+         "url": "https://data.matricula-online.eu/en/oesterreich/alt-ev/triestHB/03-03/",
+         "matricula": true
+        }
+       ]
+      }
+     }
+    },
     "fs-it-pola": {
      "shelves": {
       "all": {
@@ -103953,12 +104097,16 @@
     }
    },
    "counts": {
+    "matricula": {
+     "n": 7,
+     "walked": true
+    },
     "fs-it-pola": {
      "n": 6,
      "walked": true
     }
    },
-   "volumes": 6,
+   "volumes": 13,
    "reads": 4,
    "readrows": [
     {
