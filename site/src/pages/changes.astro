@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Changes from "@daviddef/archive-kit/components/Changes.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
@@ -28,29 +29,15 @@ const K = {
 ---
 <Base title={c.title} eyebrow={c.eyebrow} dek={c.dek}>
 <section class="blk"><p class="prose" set:html={md(c.lead)}></p></section>
-{c.days.map(d => (
-<>
-<Rule name="arrows" label={d.when} />
-<section class="blk">
-  <h2>{d.when}</h2>
-  <div class="feed">
-    {d.rows.map(r => (
-      <article class={"ev " + (K[r.kind] || K.search)[1]}>
-        <div class="eh">
-          <span class="tag">{(K[r.kind] || K.search)[0]}</span>
-          <h3>{r.what}</h3>
-          <div class="src">{r.src}</div>
-        </div>
-        <p set:html={md(r.text)}></p>
-        <p class="cap" style="margin-top:10px">Where this lives: {linkParts(r.href).map((x, i) => (
-          <>{i > 0 ? " · " : ""}{x.href ? <a href={u(x.href)}>{x.text}</a> : <span>{x.text}</span>}</>
-        ))}</p>
-      </article>
-    ))}
-  </div>
-</section>
-</>
-))}
+<Changes u={u} days={c.days.map(d => ({
+  when: d.when,
+  entries: d.rows.map(r => ({
+    title: r.what,
+    kind: (K[r.kind] || K.search)[0],
+    did: md(r.text),
+    found: r.src ? `<span class="src">${r.src}</span>` : "",
+  })),
+}))} />
 <Rule name="pomegranate" />
 <section class="blk"><p class="prose note" set:html={md(c.close)}></p>
   <p class="cap" style="margin-top:12px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/corrections/")}>Corrections →</a> · <a href={u("/method/")}>Method →</a></p>
