@@ -127,10 +127,15 @@ for _k in REG:
     _bare = re.sub(r"\s*\(.*?\)\s*", " ", _k).strip()
     if _bare and _bare != _k: REGHEAD.setdefault(_bare, _k)
 
-def filmsFor(h):
-    """Every volume filmed for this pin, gathered across all its spellings."""
+def filmsFor(h, also=()):
+    """Every volume filmed for this pin, gathered across all its spellings.
+
+    `also` carries the other heads folded into this pin. Without it a merge
+    loses the exonym's shelf: Ragusa's twenty-one volumes vanished the moment
+    Ragusa became Dubrovnik, because the films are keyed by the head the
+    register names and the merged pin only asked about its own."""
     out, seen = [], set()
-    keys = {h}
+    keys = {h} | {x for x in also}
     if h in REGHEAD: keys.add(REGHEAD[h])
     keys |= {x for x in coord if x in REG and coord.get(x) == coord.get(h)}
     # The register names a parish the way the film does. head() has already
@@ -157,6 +162,27 @@ def km(a, b):
     h = math.sin(dp/2)**2 + math.cos(p1)*math.cos(p2)*math.sin(dl/2)**2
     return 2 * 6371 * math.asin(math.sqrt(h))
 
+# Two names for ONE town, written down rather than inferred. Nothing here is
+# merged for standing close: proximity alone folded Gologorica into Gračišće
+# once — 2.4 km apart, and the first and second steps of the documented
+# descent — and that is why the test below asks for agreeing names. These
+# agree; it is the same ground under a different empire's word for it. Ragusa
+# is what every Venetian document calls Dubrovnik, and the archive holds
+# people under both.
+# and the table is the archive's own: every row of places.json carries the
+# names the other empires used for it — Gallignana for Gračišće, Pisino and
+# Mitterburg for Pazin, Dignano for Vodnjan, Ragusa for Dubrovnik. Forty-nine
+# towns, curated by hand, already written down. Nothing is invented here.
+EXONYM = {}
+for _p in prows:
+    if not isinstance(_p, dict) or not _p.get("alt"):
+        continue
+    for _a in _p["alt"].values():
+        _a = str(_a or "").strip()
+        if len(_a) > 2 and _a != "—":
+            EXONYM.setdefault(head(_a), head(_p["name"]))
+EXONYM.pop("", None)
+
 def samePlace(h1, h2):
     """One town under two names — never two towns that merely stand close.
 
@@ -164,7 +190,13 @@ def samePlace(h1, h2):
     are the first and second steps of the documented descent. Proximity alone
     merged them once; it will not again. Names must agree, or one must be the
     other with a qualifier («Mione» and «Mione di Ovaro»)."""
-    n1, n2 = norm(label.get(h1, h1)), norm(label.get(h2, h2))
+    # An exonym is resolved to the town's own name BEFORE the comparison, so
+    # every rule below applies to it unchanged — including the one that lets
+    # «Dubrovnik» and «Dubrovnik-Grad» be one place. It is still a name test:
+    # nothing is merged here for standing close.
+    def canon(h):
+        return norm(EXONYM.get(norm(h)) or label.get(h, h))
+    n1, n2 = canon(h1), canon(h2)
     if not n1 or not n2: return False
     d = km(coord[h1], coord[h2])
     if n1 == n2: return d < 30
@@ -178,10 +210,14 @@ for h in list(people):
     hit = next((r for r in reps if samePlace(r, h)), None)
     if hit is None: reps.append(h); hit = h
     groups[hit].append(h)
-merged_people, merged_alias, canon = {}, {}, {}
+merged_people, merged_alias, canon, merged_heads = {}, {}, {}, {}
 for _k, hs in groups.items():
     # the head that the atlas or the gazetteer already names is the canonical one
-    hs.sort(key=lambda x: (x not in {head(a["name"]) for a in oldatlas}, len(x)))
+    # The modern name wins the pin when an exonym is in the group, whichever
+    # of the two the grouping happened to meet first.
+    _targets = set(EXONYM.values())
+    hs.sort(key=lambda x: (norm(x) not in _targets,
+                           x not in {head(a["name"]) for a in oldatlas}, len(x)))
     c = hs[0]
     canon[_k] = c
     seen, ppl = set(), []
@@ -191,6 +227,7 @@ for _k, hs in groups.items():
             if sig in seen: continue
             seen.add(sig); ppl.append(q)
     merged_people[c] = ppl
+    merged_heads[c] = list(hs)
     ac = collections.Counter()
     for h in hs: ac.update(aliases[h])
     merged_alias[c] = ac
@@ -215,8 +252,8 @@ for h, ppl in people.items():
         "also": [a for a, _ in aliases[h].most_common(4) if norm(a) != h],
         "people": [{"n": p["n"], "y": p["b"], "d": p["d"], "w": p["who"]} for p in ppl[:60]],
         "more": max(0, len(ppl) - 60),
-        "films": filmsFor(h)[:80],
-        "nfilms": len(filmsFor(h)),
+        "films": filmsFor(h, merged_heads.get(h, ()))[:80],
+        "nfilms": len(filmsFor(h, merged_heads.get(h, ()))),
     })
 # places the archive names in the atlas but where no roster person sits —
 # skipped when a pin already stands on that ground
@@ -225,9 +262,13 @@ for h, ppl in people.items():
 # order number that makes it part of the documented descent.
 def standingOn(a):
     an = norm(a["name"]); aw = set(an.split())
+    # The seed names both Ragusa and Dubrovnik. Without this the merged pin is
+    # built correctly and then the seed puts the other name back beside it as
+    # a second dot, which is how the two survived their own merge once.
+    ax = EXONYM.get(an, an)
     for p in out:
         pn = norm(p["name"]); d = km((a["lat"], a["lon"]), (p["lat"], p["lon"]))
-        if an == pn and d < 30: return p
+        if (an == pn or ax == pn or an == EXONYM.get(pn, pn)) and d < 30: return p
         pw = set(pn.split())
         if (aw < pw or pw < aw) and d < 12: return p
     return None

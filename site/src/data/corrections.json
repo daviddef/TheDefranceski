@@ -785,6 +785,14 @@
    "where": "/map/",
    "said": "**Ledenice** — where **Anton Defranceschi was born in 1890** — was pinned at 48.93 N, 14.62 E: **Ledenice in South Bohemia**, eight hundred kilometres from the Vinodol. **Ragusa**, which is what every Venetian document calls Dubrovnik, was pinned in **Sicily**.",
    "true": "The gazetteer keeps the most populous bearer of a name, which is right almost always and wrong exactly here: Czech Ledenice has 2,000 people to the Vinodol village's 164, and Ragusa in Sicily has 69,000. **Population cannot tell a namesake from a home town.**\n\nBoth are now forced to the country the archive means, written down in the builder with the reason beside them rather than left to a count of inhabitants. Ledenice is at 45.14, 14.84; Ragusa resolves to Dubrovnik.\n\n*Found while checking the Istrian panels after the Carnia ones.*"
+  },
+  {
+   "when": "16 Sept 2026",
+   "what": "Ragusa and Dubrovnik were two pins on the same ground, and the Dubrovnik city parish was labelled Ragusa",
+   "sev": "minor",
+   "where": "/map/",
+   "said": "**Ragusa** and **Dubrovnik** stood as two markers forty-five metres apart, four people and twenty-four volumes divided between them. Worse, the parish **Dubrovnik-Grad** — the city parish itself — carried the display name **«Ragusa»**, left behind by a hand-checked entry in an old place harvest.",
+   "true": "One pin, four people, 24 volumes, and *Ragusa* among the names it is also written under.\n\nThe merge is made on a **written-down identity, never on proximity**: places.json already records what the other empires called each of these towns — Gallignana for Gračišće, Pisino and Mitterburg for Pazin, Dignano for Vodnjan, Ragusa for Dubrovnik — **forty-nine of them, curated by hand.** That table is now what folds two names into one pin, and the distance test still has to agree. *Gologorica and Gračišće are 2.4 km apart and stay two places, which is the rule this had to be built around.*\n\nOne more thing the merge exposed: a folded pin was taking only its own shelf, so Ragusa's twenty-one volumes vanished at the moment Ragusa became Dubrovnik. A merged pin now gathers the volumes of every name it swallowed."
   }
  ]
 }
