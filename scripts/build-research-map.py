@@ -528,10 +528,23 @@ def main():
 
     # ---- 4. Pazin's own list — the only source that admits what is not digitised
     dapa = collections.defaultdict(list)
+    # Pazin's list writes a town under both its names at once — «Vodnjan /
+    # Dignano», «Umag / Umago», «Motovun / Montona». Keyed on the whole string
+    # that is a THIRD place, so Vodnjan stood on this map twice: one dot with
+    # nine volumes and, a few pixels away, another with a hundred and
+    # thirty-three. Three towns and 383 volumes were split that way. The town
+    # is the first name; the second is what it is also written as, which is a
+    # thing this panel already knows how to say.
     for r in load("registers.json"):
-        dapa[norm(r["place"])].append(r)
+        nm = r["place"]
+        head = nm.split("/")[0].strip() if "/" in nm else nm
+        dapa[norm(head)].append(r)
     for k, rows in dapa.items():
-        p = P(rows[0]["place"], key=k)
+        nm = rows[0]["place"]
+        head = nm.split("/")[0].strip() if "/" in nm else nm
+        p = P(head, key=k)
+        for other in [x.strip() for x in nm.split("/")[1:] if x.strip()]:
+            p["alt"].add(other)
         vols = []
         for r in rows:
             lo, hi = span((r.get("period") or "").replace("/", " "))

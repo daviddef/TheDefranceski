@@ -57,6 +57,18 @@ def wanted():
     w.pop("", None)
     return {k: v for k, v in w.items() if len(k) > 2}
 
+# A name the archive uses that belongs to a bigger town somewhere else. The
+# lookup below keeps the most populous bearer of a name, which is right almost
+# always and catastrophic twice: Ledenice — where Anton Defranceschi was born
+# in 1890 — went to Ledenice in South Bohemia, and Ragusa, which is what every
+# Venetian document calls Dubrovnik, went to Ragusa in Sicily, a town of
+# sixty-nine thousand people seven hundred kilometres away. Population cannot
+# tell them apart; only knowing which country the archive means can.
+PREFER = {
+    "ledenice": ("HR", None),          # the Vinodol village, not South Bohemia
+    "ragusa":   ("HR", "Dubrovnik"),   # the Republic, not Sicily
+}
+
 def scan(gdir, want):
     """One pass per dump, keeping only the names the archive asked for and,
     where a name is ambiguous, the most populous bearer of it."""
@@ -71,7 +83,19 @@ def scan(gdir, want):
             names = {f[1], f[2]} | {x.strip() for x in (f[3] or "").split(",") if x.strip()}
             for nme in names:
                 k = norm(nme)
-                if k in want and (k not in got or pop > got[k][2]):
+                if k not in want:
+                    continue
+                pref = PREFER.get(k)
+                if pref:
+                    # A forced name takes only the country it was forced to,
+                    # and the named town when one is named — otherwise the
+                    # whole point is lost to whichever hotel or hill shares
+                    # the word.
+                    if f[8] != pref[0]:
+                        continue
+                    if pref[1] and f[1] != pref[1]:
+                        continue
+                if k not in got or pop > got[k][2]:
                     got[k] = (round(lat, 5), round(lon, 5), pop, f[1], f[8])
     return got
 

@@ -44,16 +44,16 @@
  ],
  "kml": "data/genealogy-resources-croatia.kml",
  "stats": {
-  "places": 1288,
-  "placed": 1242,
+  "places": 1285,
+  "placed": 1239,
   "volumes": 7762,
   "read": 6,
   "worked": 23,
-  "listed": 1253,
-  "untouched": 1253,
+  "listed": 1251,
+  "untouched": 1251,
   "byProgress": {
-   "none": 6,
-   "untouched": 1253,
+   "none": 5,
+   "untouched": 1251,
    "worked": 23,
    "started": 6,
    "done": 0
@@ -113,7 +113,7 @@
    "ref": 11
   },
   "notDigitised": 154,
-  "notDigitisedAnywhere": 49,
+  "notDigitisedAnywhere": 38,
   "filmedElsewhere": [
    "142",
    "143",
@@ -219,19 +219,30 @@
    "5541",
    "5542",
    "5570",
-   "5571"
+   "5571",
+   "5614",
+   "5615",
+   "5616",
+   "5617",
+   "5651",
+   "5652",
+   "5653",
+   "5697",
+   "5698",
+   "5699",
+   "5700"
   ],
-  "notDigitisedButFilmed": 105,
+  "notDigitisedButFilmed": 116,
   "fsPending": 0,
-  "crossChecked": 27,
+  "crossChecked": 28,
   "timelineGaps": {
    "rows": 308,
    "places": 176,
-   "clean": 555
+   "clean": 554
   },
-  "gaps": 684,
+  "gaps": 787,
   "gapsBy": {
-   "dapa>fs-hr": 460,
+   "dapa>fs-hr": 563,
    "fs-hr>fs-si-mj": 128,
    "fs-si-mj>fs-hr": 78,
    "fs-hr>fs-hr-delnice": 3,
@@ -56624,7 +56635,9 @@
   {
    "key": "motovun",
    "name": "Motovun",
-   "alt": [],
+   "alt": [
+    "Montona"
+   ],
    "older": [
     "Montana",
     "Montona"
@@ -56632,42 +56645,6 @@
    "lat": 45.34,
    "lon": 13.83,
    "geo": "atlas",
-   "cat": "none",
-   "layers": [],
-   "sources": {
-    "fs-cat": {
-     "shelves": {
-      "all": {
-       "wp": null,
-       "books": []
-      }
-     }
-    }
-   },
-   "counts": {
-    "fs-cat": {
-     "n": 0,
-     "walked": true
-    }
-   },
-   "volumes": 0,
-   "reads": 0,
-   "readrows": [],
-   "vread": 0,
-   "vpart": 0,
-   "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
-  },
-  {
-   "key": "motovunmontona",
-   "name": "Motovun / Montona",
-   "alt": [],
-   "older": [],
-   "lat": 45.33633,
-   "lon": 13.82977,
-   "geo": "geonames",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -57657,11 +57634,23 @@
       }
      },
      "notDigitised": 1
+    },
+    "fs-cat": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": []
+      }
+     }
     }
    },
    "counts": {
     "dapa": {
      "n": 122,
+     "walked": true
+    },
+    "fs-cat": {
+     "n": 0,
      "walked": true
     }
    },
@@ -106236,60 +106225,6 @@
    "cat": "untouched",
    "layers": [],
    "sources": {
-    "fs-cat": {
-     "shelves": {
-      "all": {
-       "wp": null,
-       "books": [
-        {
-         "t": "Matična knjiga krštenih Župe Umag (1483.-1643.)/ priredile Danijela Doblanović Šuran, Marija Mogorović Crljenko",
-         "from": 1483,
-         "to": 1643,
-         "catalogue": true
-        },
-        {
-         "t": "Registri ecclesiastici di Umago (Trieste), 1835-1900",
-         "from": 1835,
-         "to": 1900,
-         "catalogue": true
-        }
-       ]
-      }
-     }
-    }
-   },
-   "counts": {
-    "fs-cat": {
-     "n": 2,
-     "walked": true
-    }
-   },
-   "volumes": 2,
-   "reads": 0,
-   "readrows": [],
-   "vread": 0,
-   "vpart": 0,
-   "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
-  },
-  {
-   "key": "umagumago",
-   "name": "Umag / Umago",
-   "alt": [],
-   "older": [
-    "Humacum",
-    "Oumank",
-    "Umag Komunela",
-    "Umago"
-   ],
-   "lat": 45.43139,
-   "lon": 13.52389,
-   "geo": "geonames",
-   "cat": "untouched",
-   "layers": [],
-   "sources": {
     "dapa": {
      "shelves": {
       "all": {
@@ -107323,15 +107258,40 @@
       }
      },
      "notDigitised": 0
+    },
+    "fs-cat": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Matična knjiga krštenih Župe Umag (1483.-1643.)/ priredile Danijela Doblanović Šuran, Marija Mogorović Crljenko",
+         "from": 1483,
+         "to": 1643,
+         "catalogue": true
+        },
+        {
+         "t": "Registri ecclesiastici di Umago (Trieste), 1835-1900",
+         "from": 1835,
+         "to": 1900,
+         "catalogue": true
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
     "dapa": {
      "n": 128,
      "walked": true
+    },
+    "fs-cat": {
+     "n": 2,
+     "walked": true
     }
    },
-   "volumes": 128,
+   "volumes": 130,
    "reads": 0,
    "readrows": [],
    "vread": 0,
@@ -114458,7 +114418,9 @@
   {
    "key": "vodnjan",
    "name": "Vodnjan",
-   "alt": [],
+   "alt": [
+    "Dignano"
+   ],
    "older": [
     "Adinianum",
     "Dignano",
@@ -114544,128 +114506,6 @@
       }
      }
     },
-    "fs-cat": {
-     "shelves": {
-      "all": {
-       "wp": null,
-       "books": [
-        {
-         "t": "Matična knjiga, 1815-1893",
-         "from": 1815,
-         "to": 1893,
-         "catalogue": true
-        },
-        {
-         "t": "Kirchenbuch, 1850-1894",
-         "from": 1850,
-         "to": 1894,
-         "catalogue": true
-        },
-        {
-         "t": "Kirchenbuch, 1858-1894",
-         "from": 1858,
-         "to": 1894,
-         "catalogue": true
-        }
-       ]
-      }
-     }
-    }
-   },
-   "counts": {
-    "fs-hr": {
-     "n": 6,
-     "walked": true
-    },
-    "fs-cat": {
-     "n": 3,
-     "walked": true
-    }
-   },
-   "volumes": 9,
-   "reads": 40,
-   "readrows": [
-    {
-     "t": "Vodnjan, Liber Copulatorum — DGS 005497894, images 172–174",
-     "w": "13 Sept 2026",
-     "o": "partial"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 572 (book pages 174–175)",
-     "w": "13 Sept 2026",
-     "o": "miss"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 571 (book pages 172–173)",
-     "w": "13 Sept 2026",
-     "o": "hit"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 571",
-     "w": "13 Sept 2026",
-     "o": "hit"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 569–570 (book pages 168–171)",
-     "w": "13 Sept 2026",
-     "o": "miss"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 566–568 (book pages 164–167)",
-     "w": "13 Sept 2026",
-     "o": "miss"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 567",
-     "w": "13 Sept 2026",
-     "o": "note"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 561–564, left-hand pages (book pages 156, 158, 160)",
-     "w": "13 Sept 2026",
-     "o": "miss"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 561",
-     "w": "13 Sept 2026",
-     "o": "hit"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 564–565 (book pages 161, 162, 163)",
-     "w": "13 Sept 2026",
-     "o": "miss"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 563",
-     "w": "13 Sept 2026",
-     "o": "hit"
-    },
-    {
-     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 562",
-     "w": "13 Sept 2026",
-     "o": "hit"
-    }
-   ],
-   "vread": 0,
-   "vpart": 1,
-   "vknown": true,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
-  },
-  {
-   "key": "vodnjandignano",
-   "name": "Vodnjan / Dignano",
-   "alt": [],
-   "older": [
-    "Dignano"
-   ],
-   "lat": 44.96187,
-   "lon": 13.85041,
-   "geo": "geonames",
-   "cat": "untouched",
-   "layers": [],
-   "sources": {
     "dapa": {
      "shelves": {
       "all": {
@@ -114718,7 +114558,7 @@
          "no": "5614",
          "from": 1815,
          "to": 1827,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Births 1827-1846",
@@ -114727,7 +114567,7 @@
          "no": "5615",
          "from": 1827,
          "to": 1846,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Births 1847-1866",
@@ -114736,7 +114576,7 @@
          "no": "5616",
          "from": 1847,
          "to": 1866,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Births 1867-1878",
@@ -114745,7 +114585,7 @@
          "no": "5617",
          "from": 1867,
          "to": 1878,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Births 1879-1898",
@@ -115020,7 +114860,7 @@
          "no": "5651",
          "from": 1815,
          "to": 1847,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1848-1867",
@@ -115029,7 +114869,7 @@
          "no": "5652",
          "from": 1848,
          "to": 1867,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1867-1884",
@@ -115038,7 +114878,7 @@
          "no": "5653",
          "from": 1867,
          "to": 1884,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Marriages 1885-1913",
@@ -115392,7 +115232,7 @@
          "no": "5697",
          "from": 1815,
          "to": 1833,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1834-1849",
@@ -115401,7 +115241,7 @@
          "no": "5698",
          "from": 1834,
          "to": 1849,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1850-1859",
@@ -115410,7 +115250,7 @@
          "no": "5699",
          "from": 1850,
          "to": 1859,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1860-1893",
@@ -115419,7 +115259,7 @@
          "no": "5700",
          "from": 1860,
          "to": 1893,
-         "alsoFilmed": false
+         "alsoFilmed": true
         },
         {
          "t": "Deaths 1894-1923",
@@ -115754,23 +115594,1112 @@
       }
      },
      "notDigitised": 15
+    },
+    "fs-cat": {
+     "shelves": {
+      "all": {
+       "wp": null,
+       "books": [
+        {
+         "t": "Matična knjiga, 1815-1893",
+         "from": 1815,
+         "to": 1893,
+         "catalogue": true
+        },
+        {
+         "t": "Kirchenbuch, 1850-1894",
+         "from": 1850,
+         "to": 1894,
+         "catalogue": true
+        },
+        {
+         "t": "Kirchenbuch, 1858-1894",
+         "from": 1858,
+         "to": 1894,
+         "catalogue": true
+        }
+       ]
+      }
+     }
     }
    },
    "counts": {
+    "fs-hr": {
+     "n": 6,
+     "walked": true
+    },
     "dapa": {
      "n": 133,
      "walked": true
+    },
+    "fs-cat": {
+     "n": 3,
+     "walked": true
     }
    },
-   "volumes": 133,
-   "reads": 0,
-   "readrows": [],
+   "volumes": 142,
+   "reads": 40,
+   "readrows": [
+    {
+     "t": "Vodnjan, Liber Copulatorum — DGS 005497894, images 172–174",
+     "w": "13 Sept 2026",
+     "o": "partial"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 572 (book pages 174–175)",
+     "w": "13 Sept 2026",
+     "o": "miss"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 571 (book pages 172–173)",
+     "w": "13 Sept 2026",
+     "o": "hit"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 571",
+     "w": "13 Sept 2026",
+     "o": "hit"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 569–570 (book pages 168–171)",
+     "w": "13 Sept 2026",
+     "o": "miss"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 566–568 (book pages 164–167)",
+     "w": "13 Sept 2026",
+     "o": "miss"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 567",
+     "w": "13 Sept 2026",
+     "o": "note"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 561–564, left-hand pages (book pages 156, 158, 160)",
+     "w": "13 Sept 2026",
+     "o": "miss"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 561",
+     "w": "13 Sept 2026",
+     "o": "hit"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, images 564–565 (book pages 161, 162, 163)",
+     "w": "13 Sept 2026",
+     "o": "miss"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 563",
+     "w": "13 Sept 2026",
+     "o": "hit"
+    },
+    {
+     "t": "Vodnjan, Liber Defunctorum — DGS 005497894, image 562",
+     "w": "13 Sept 2026",
+     "o": "hit"
+    }
+   ],
    "vread": 0,
-   "vpart": 0,
-   "vknown": false,
-   "gaps": [],
-   "ngaps": 0,
-   "gapSpans": []
+   "vpart": 1,
+   "vknown": true,
+   "gaps": [
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1559-1641",
+     "from": 1559,
+     "to": 1641,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1641-1689",
+     "from": 1641,
+     "to": 1689,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1690-1723",
+     "from": 1690,
+     "to": 1723,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1723-1759",
+     "from": 1723,
+     "to": 1759,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1899-1910",
+     "from": 1899,
+     "to": 1910,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1910-1926",
+     "from": 1910,
+     "to": 1926,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1924",
+     "from": 1924,
+     "to": 1924,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1925",
+     "from": 1925,
+     "to": 1925,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1926",
+     "from": 1926,
+     "to": 1926,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1927",
+     "from": 1927,
+     "to": 1927,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1927-1944",
+     "from": 1927,
+     "to": 1944,
+     "digitised": false
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1928",
+     "from": 1928,
+     "to": 1928,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1929",
+     "from": 1929,
+     "to": 1929,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1930",
+     "from": 1930,
+     "to": 1930,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1931",
+     "from": 1931,
+     "to": 1931,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1932",
+     "from": 1932,
+     "to": 1932,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1933",
+     "from": 1933,
+     "to": 1933,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1934",
+     "from": 1934,
+     "to": 1934,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1935",
+     "from": 1935,
+     "to": 1935,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1936",
+     "from": 1936,
+     "to": 1936,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1937",
+     "from": 1937,
+     "to": 1937,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1938",
+     "from": 1938,
+     "to": 1938,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1939",
+     "from": 1939,
+     "to": 1939,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1940",
+     "from": 1940,
+     "to": 1940,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1941",
+     "from": 1941,
+     "to": 1941,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1942",
+     "from": 1942,
+     "to": 1942,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1943",
+     "from": 1943,
+     "to": 1943,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1944",
+     "from": 1944,
+     "to": 1944,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1945-1975",
+     "from": 1945,
+     "to": 1975,
+     "digitised": false
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1946-1947",
+     "from": 1946,
+     "to": 1947,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1947-1958",
+     "from": 1947,
+     "to": 1958,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "t": "Births 1959-1969",
+     "from": 1959,
+     "to": 1969,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1573-1704",
+     "from": 1573,
+     "to": 1704,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1714-1762",
+     "from": 1714,
+     "to": 1762,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1762-1802",
+     "from": 1762,
+     "to": 1802,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1802-1812",
+     "from": 1802,
+     "to": 1812,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1923-1949",
+     "from": 1923,
+     "to": 1949,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1924",
+     "from": 1924,
+     "to": 1924,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1925",
+     "from": 1925,
+     "to": 1925,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1926",
+     "from": 1926,
+     "to": 1926,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1927",
+     "from": 1927,
+     "to": 1927,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1928",
+     "from": 1928,
+     "to": 1928,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1929",
+     "from": 1929,
+     "to": 1929,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1930",
+     "from": 1930,
+     "to": 1930,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1931",
+     "from": 1931,
+     "to": 1931,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1932",
+     "from": 1932,
+     "to": 1932,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1933",
+     "from": 1933,
+     "to": 1933,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1934",
+     "from": 1934,
+     "to": 1934,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1935",
+     "from": 1935,
+     "to": 1935,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1936",
+     "from": 1936,
+     "to": 1936,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1937",
+     "from": 1937,
+     "to": 1937,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1938",
+     "from": 1938,
+     "to": 1938,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1939",
+     "from": 1939,
+     "to": 1939,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1940",
+     "from": 1940,
+     "to": 1940,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1941",
+     "from": 1941,
+     "to": 1941,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1942",
+     "from": 1942,
+     "to": 1942,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1943",
+     "from": 1943,
+     "to": 1943,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1944",
+     "from": 1944,
+     "to": 1944,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1945-",
+     "from": 1945,
+     "to": 1945,
+     "digitised": false
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1945",
+     "from": 1945,
+     "to": 1945,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1946-1947",
+     "from": 1946,
+     "to": 1947,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1947-1956",
+     "from": 1947,
+     "to": 1956,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Deaths 1959-1969",
+     "from": 1959,
+     "to": 1969,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1559-1813",
+     "from": 1559,
+     "to": 1813,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1596-1703",
+     "from": 1596,
+     "to": 1703,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1703-1809",
+     "from": 1703,
+     "to": 1809,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1885-1913",
+     "from": 1885,
+     "to": 1913,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1914-1949",
+     "from": 1914,
+     "to": 1949,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1924",
+     "from": 1924,
+     "to": 1924,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1925",
+     "from": 1925,
+     "to": 1925,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1926",
+     "from": 1926,
+     "to": 1926,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1927",
+     "from": 1927,
+     "to": 1927,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1928",
+     "from": 1928,
+     "to": 1928,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1929",
+     "from": 1929,
+     "to": 1929,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1929",
+     "from": 1929,
+     "to": 1929,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1929",
+     "from": 1929,
+     "to": 1929,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1930",
+     "from": 1930,
+     "to": 1930,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1931-1939",
+     "from": 1931,
+     "to": 1939,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1932",
+     "from": 1932,
+     "to": 1932,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1933",
+     "from": 1933,
+     "to": 1933,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1934",
+     "from": 1934,
+     "to": 1934,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1935",
+     "from": 1935,
+     "to": 1935,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1936",
+     "from": 1936,
+     "to": 1936,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1937",
+     "from": 1937,
+     "to": 1937,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1937",
+     "from": 1937,
+     "to": 1937,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1937",
+     "from": 1937,
+     "to": 1937,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1938",
+     "from": 1938,
+     "to": 1938,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1939",
+     "from": 1939,
+     "to": 1939,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1939",
+     "from": 1939,
+     "to": 1939,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1940",
+     "from": 1940,
+     "to": 1940,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1940-1949",
+     "from": 1940,
+     "to": 1949,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1941",
+     "from": 1941,
+     "to": 1941,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1942",
+     "from": 1942,
+     "to": 1942,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1943",
+     "from": 1943,
+     "to": 1943,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1944",
+     "from": 1944,
+     "to": 1944,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1944",
+     "from": 1944,
+     "to": 1944,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1945",
+     "from": 1945,
+     "to": 1945,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1945",
+     "from": 1945,
+     "to": 1945,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1946-1947",
+     "from": 1946,
+     "to": 1947,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1947-1953",
+     "from": 1947,
+     "to": 1953,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1950-",
+     "from": 1950,
+     "to": 1950,
+     "digitised": false
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1953-1958",
+     "from": 1953,
+     "to": 1958,
+     "digitised": true
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "t": "Marriages 1959-1969",
+     "from": 1959,
+     "to": 1969,
+     "digitised": true
+    }
+   ],
+   "ngaps": 103,
+   "gapSpans": [
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1559,
+     "to": 1759,
+     "n": 4
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "b",
+     "from": 1899,
+     "to": 1975,
+     "n": 28
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1573,
+     "to": 1704,
+     "n": 1
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1714,
+     "to": 1812,
+     "n": 3
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1923,
+     "to": 1956,
+     "n": 26
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1959,
+     "to": 1969,
+     "n": 1
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1559,
+     "to": 1813,
+     "n": 3
+    },
+    {
+     "have": "dapa",
+     "missing": "fs-hr",
+     "kind": "m",
+     "from": 1885,
+     "to": 1969,
+     "n": 37
+    }
+   ]
   },
   {
    "key": "vodotec",

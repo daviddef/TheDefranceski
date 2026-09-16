@@ -2033,6 +2033,13 @@
 "cc": "HR",
 "pop": 9665
 },
+"cerane gornje": {
+"lat": 43.98333,
+"lon": 15.61667,
+"name": "Gornje Ceranje",
+"cc": "HR",
+"pop": 62
+},
 "ceranje": {
 "lat": 43.96667,
 "lon": 15.63333,
@@ -4793,6 +4800,13 @@
 "cc": "HR",
 "pop": 366
 },
+"gornje ceranje": {
+"lat": 43.98333,
+"lon": 15.61667,
+"name": "Gornje Ceranje",
+"cc": "HR",
+"pop": 62
+},
 "gornje pazariste": {
 "lat": 44.63333,
 "lon": 15.3,
@@ -7434,11 +7448,11 @@
 "pop": 164
 },
 "ledenice": {
-"lat": 48.93329,
-"lon": 14.61886,
+"lat": 45.13866,
+"lon": 14.84202,
 "name": "Ledenice",
-"cc": "CZ",
-"pop": 2544
+"cc": "HR",
+"pop": 164
 },
 "ledenice klenovica 22": {
 "lat": 45.13864,
@@ -8155,6 +8169,13 @@
 "name": "Mali Ston",
 "cc": "HR",
 "pop": 125
+},
+"malinska dubasnica": {
+"lat": 45.12277,
+"lon": 14.52873,
+"name": "Malinska-Dubašnica",
+"cc": "HR",
+"pop": 3212
 },
 "mandalina": {
 "lat": 43.72007,
@@ -9348,6 +9369,13 @@
 "name": "Novi Jankovci",
 "cc": "HR",
 "pop": 693
+},
+"neuhausen": {
+"lat": 54.77323,
+"lon": 20.60521,
+"name": "Gur’yevsk",
+"cc": "RU",
+"pop": 11474
 },
 "nevest": {
 "lat": 43.72639,
@@ -11730,11 +11758,11 @@
 "pop": 73
 },
 "ragusa": {
-"lat": 36.91667,
-"lon": 14.6,
-"name": "Ragusa",
-"cc": "IT",
-"pop": 320893
+"lat": 42.64125,
+"lon": 18.10909,
+"name": "Dubrovnik",
+"cc": "HR",
+"pop": 26922
 },
 "ragusavecchia": {
 "lat": 42.58111,
@@ -17211,6 +17239,5 @@
 "cc": "HR",
 "pop": 244
 }
-},
-"hand": "Some entries are hand-checked rather than taken from a dump: a compound parish name like «Gračišće (Gallignana)» or «Ledenice / Klenovica 22» is not a gazetteer entry anywhere, and a coordinate for it is a decision somebody made and should be visible as one. Those carry a «by» field."
+}
 }
