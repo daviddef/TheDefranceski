@@ -91,6 +91,20 @@ def main():
                             (p["dy"] and p["dy"] == r.get("d")))
                 if not anchored:
                     continue
+                # An infant and an adult are never the same person, however
+                # many years they share. A child born and buried in the same
+                # year gives a register row where b == d, and 20 of this
+                # archive's burial rows look like that — so an anchor on ONE
+                # year paired Antonius of Gologorica, who died in 1893 aged
+                # seventy-nine, with an Antonius buried at Pula as an infant
+                # in 1893. Three of the fourteen «disagreements» were that.
+                def span(b, d):
+                    return (d - b) if (b and d) else None
+                s1, s2 = span(p["by"], p["dy"]), span(r.get("b"), r.get("d"))
+                if s1 is not None and s2 is not None:
+                    short, long_ = min(s1, s2), max(s1, s2)
+                    if short <= 5 and long_ >= 30:
+                        continue
                 if (p["by"] and r.get("b") and p["by"] != r["b"]) or \
                    (p["dy"] and r.get("d") and p["dy"] != r["d"]):
                     disagree.append({

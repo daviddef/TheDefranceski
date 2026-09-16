@@ -85,6 +85,18 @@ const colls = rec.colls.filter((c) => c.c > 0);
     </tbody>
   </table>
 
+  <div class="one" style="margin-top:26px">
+    <div class="lab">And what kind of disagreement each one is</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(
+`Set the twelve side by side and they are not twelve of the same thing. **Three kinds, and only one of them needs a register.**
+
+**Seven are a year's worth of arithmetic.** *Josephus* 1886 against 1887, *Cattarina* 1825 against 1826, *Jacobus* 1762 against 1761, *Valentinus* 1776 against 1775, *Davide* 1876 against 1875 — **the death year agreed in every case, the birth year out by one.** That is what a record which gives an **age** rather than a date does: a man who dies in March aged sixty-four was born in one year if his birthday had passed and the year before if it had not. A headstone and a burial register will disagree for ever about which. *Albino* is out by two and *Maria* by three, which is the same fault with a rounder age.
+
+**Two are out by more than arithmetic can explain.** *Mario De Franceski*, 1919 against 1924 — five years, on a man who died in 2012, which means somebody has a document. *Girolamo of Omiš*, 1632 against 1622 — ten years, and this archive's side rests on the published Omiš chart while the tree's rests on a MyHeritage profile.
+
+**Three are a disputed death, which is the serious kind.** *Clementina Maria of Gologorica*, dead in 1840 here and 1870 in the tree — **thirty years**. *Josephus Lambertus*, the same parish, 1857 against 1878 — **twenty-one**. *Lina Defranceschi* of Torrington, 1923 against 1925. **A death year is the one thing a parish register states outright**, and this archive's Gologorica dates were read off the register itself. [The Gologorica books](/gologorica-line/) settle two of the three in an afternoon.`)}></div>
+  </div>
+
   {mirror.length > 0 && (
     <div class="one" style="margin-top:26px">
       <div class="lab">And {mirror.length * 2} rows that are not disagreements at all</div>
