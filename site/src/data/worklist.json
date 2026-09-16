@@ -1,6 +1,6 @@
 {
  "title": "The work list",
- "eyebrow": "122 items · 53 open · 22 waiting on somebody else",
+ "eyebrow": "122 items · 53 open · 23 waiting on somebody else",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
  "cols": [
@@ -899,11 +899,11 @@
   },
   {
    "n": 105,
-   "what": "Read the 328 FamilySearch arks the tree cites and this archive has never opened",
-   "state": "next",
-   "owner": "a machine",
+   "what": "The 328 FamilySearch arks — counted and sorted, and waiting on one sign-in",
+   "state": "blocked",
+   "owner": "David",
    "since": "2026-09-16",
-   "note": "The GEDCOM's citations name **405 distinct FamilySearch arks — 311 indexed records and 94 film images — and 328 of them appear nowhere in this repository**. That is the largest unread pile the archive has ever been handed, and David typed every one of them himself.\n\n**The 94 image arks come first.** An image ark is a page somebody looked at with their own eyes; an indexed record is a row in a database. Open each, read what is actually on the page, and record the volume in [the read ledger](/map/) the day it is read rather than the week after."
+   "note": "**The list is made and the door is half open.** Of the 405 arks David's own citations name, **328 appear nowhere in this repository**: **234 indexed records** and **94 film images**.\n\n**The session is signed out where it matters.** Tested on 16 September: the waypoint API still answers **200** — which is why [the Međimurje and Pola harvest](/map/) ran this morning — but every route to a record returns **401 Unauthorized**: the persona endpoint, the ark URL itself, and the search service in its place. A waypoint is public; a record is not.\n\n**This archive does not sign in on David's behalf**, so the row is his: sign in to FamilySearch in the in-app browser, and a machine can read all 234 indexed records in one pass at the spacing that has never drawn a throttle.\n\n**The 94 image arks are a different job again** — an image is a page, and a page is read by eye. Those are the ones worth doing first whatever happens: each is a register page David has already looked at."
   },
   {
    "n": 106,
