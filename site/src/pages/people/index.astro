@@ -2,6 +2,7 @@
 import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
+import NameLists from "@daviddef/archive-kit/components/NameLists.astro";
 import FilterTable from "@daviddef/archive-kit/components/FilterTable.astro";
 import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import people from "../../data/people.json";
@@ -31,6 +32,10 @@ const nt = (x) => String(x ?? "")
 ---
 <Base title="The People" eyebrow={`${S.total} people of the name, from every record set in this archive`}
       dek="The whole roster, in one list. Start with ★ My line if you only want the people this archive can attach to David\u2019s own descent — the rest are of the name, not of the family.">
+
+<NameLists here="people" u={u} />
+
+
 
 <section class="blk">
   <p class="dek" set:html={roster.note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>

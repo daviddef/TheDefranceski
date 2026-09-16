@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import NameLists from "@daviddef/archive-kit/components/NameLists.astro";
 import lw from "../data/leads.json";
 import { md as _mdl } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
@@ -43,6 +44,10 @@ const regRows = r.rows.map((x) => ({
 }));
 ---
 <Base title={r.title} eyebrow={r.eyebrow} dek={r.dek}>
+
+<NameLists here="register" u={u} />
+
+
 
 <section class="blk">
   <p class="prose lede">
