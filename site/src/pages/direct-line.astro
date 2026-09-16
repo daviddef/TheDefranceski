@@ -8,9 +8,40 @@ import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import SalamonPalace from "../components/SalamonPalace.astro";
 import { u } from "../lib/url.js";
+import Spine from "@daviddef/archive-kit/components/Spine.astro";
 import dl from "../data/directline.json";
 const gens = dl.generations;
 const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart"], living: ["lore", "Living — withheld"] };
+
+/* The confidence word travels; the class it used to carry does not, because the
+   shared spine marks the joint that will not bear weight by drawing it, not by
+   colouring a chip. A generation the family chart asserts and no register names
+   is exactly that joint. */
+const rows = gens.map((g) => ({
+  gen: g.n, name: g.name, latin: g.latin, href: g.dossier ? `/who/${g.dossier}/` : null,
+  born: g.bornExact || (g.born != null ? String(g.born) : ""),
+  died: g.diedExact || (g.died != null ? String(g.died) : ""),
+  bornPlace: "", diedPlace: "", trade: g.occupation,
+  spouse: g.spouse ? g.spouse.name : "",
+  living: g.confidence === "living",
+  confidence: conf[g.confidence] ? conf[g.confidence][1] : g.confidence,
+  weak: g.confidence === "family",
+  weakNote: g.confidence === "family"
+    ? "Carried on the family's own descent chart. No register page names this generation yet."
+    : "",
+  household: g.children && g.children.length
+    ? { label: `Children in the house at ${g.place}`,
+        members: g.children.map((c) => ({ name: c.name, dates: c.born, line: c.line, note: c.note })) }
+    : (g.spouse ? { label: "Wife", members: [{ name: g.spouse.name,
+        dates: g.spouse.born.startsWith("dates") ? g.spouse.born : "b. " + g.spouse.born }] } : null),
+  note: [g.married ? `<b>Married</b> ${g.married}. ` : "",
+         g.place ? `<b>Where</b> ${g.place}. ` : "",
+         _md(g.evidence),
+         g.flag ? `<span class="note" style="display:block;margin-top:12px">${_md(g.flag)}</span>` : ""]
+        .filter(Boolean).join(" "),
+  sources: g.sources || [],
+  plates: g.plates || (g.plate ? [g.plate] : []),
+}));
 ---
 <Base
   title="The Spine"
@@ -22,55 +53,7 @@ const conf = { documented: ["doc", "Documented"], family: ["lore", "Family chart
     <p>The turning point was a pair of pages from the <em>Status Animarum</em>, the parish book of souls, obtained from the Državni arhiv u Pazinu in June 2021 and unread until now. A book of souls is not a register of events; it is a register of <em>households</em>. One ruled row holds a man, his condition, his birth, his marriage, his death — and beneath him his wife and every child, each with a date. Two such rows, house 5 and house 19 of Gallignana, contain four generations between them, and the second is tied to the first by three Latin words: <span class="mono">q. Joannis</span> — son of the late Giovanni.</p>
   </section>
 
-  <div class="spine">
-    {gens.map((g) => (
-      <article class={`gen ${g.confidence}`} id={`gen-${g.n}`}>
-        <div class="rail"><span class="dot"></span></div>
-        <div class="body">
-          <div class="lab">Generation {g.n}</div>
-          <h3>{g.name}</h3>
-          {g.latin && <div class="lat">{g.latin}</div>}
-
-          <div class="facts">
-            {g.bornExact ? <span><b>Born</b>{g.bornExact}</span> : g.born ? <span><b>Born</b>{g.born}</span> : null}
-            {g.married && <span><b>Married</b>{g.married}</span>}
-            {g.diedExact ? <span><b>Died</b>{g.diedExact}</span> : g.died ? <span><b>Died</b>{g.died}</span> : null}
-            {g.occupation && <span><b>Trade</b>{g.occupation}</span>}
-            <span><b>Where</b>{g.place}</span>
-            <span class={`chip ${conf[g.confidence][0]}`}>{conf[g.confidence][1]}</span>
-          </div>
-
-          {g.spouse && (
-            <div class="house">
-              <div class="hl">Wife</div>
-              <div class="kids"><span class="kid">{g.spouse.name}<i>{g.spouse.born.startsWith("dates") ? g.spouse.born : "b. " + g.spouse.born}</i></span></div>
-              {g.children && g.children.length > 0 && <>
-                <div class="hl" style="margin-top:16px">Children in the house</div>
-                <div class="kids">{g.children.map((c) => (
-                  <span class={`kid${c.line ? " line" : ""}`} title={c.note || undefined}>{c.name}<i>{c.born}</i></span>
-                ))}</div>
-              </>}
-            </div>
-          )}
-
-          <p class="cap" style="max-width:62ch" set:html={_md(g.evidence)}></p>
-          {g.flag && <p class="note" style="margin-top:12px" set:html={_md(g.flag)}></p>}
-
-          {g.sources && g.sources.length > 0 && (
-            <p class="mono" style="margin-top:10px;color:var(--ink-3)">
-              {g.sources.map((s, i) => <>{i > 0 && " · "}{s.label}</>)}
-            </p>
-          )}
-
-          {(g.plates || (g.plate ? [g.plate] : [])).length > 0 && (
-            <div style="margin-top:16px;max-width:700px">
-              <Plates ids={g.plates || [g.plate]} cols={(g.plates || [g.plate]).length} />
-            </div>
-          )}
-        </div>
-      </article>
-    ))}
-  </div>
+  <Spine rows={rows} u={u} Plate={Plates} />
 
   <section style="margin-top:48px">
     <h2 style="font-size:28px">What the two rows say, side by side</h2>
