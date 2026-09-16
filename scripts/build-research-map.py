@@ -119,13 +119,28 @@ def gazetteer(d):
             continue
         for line in open(p, encoding="utf-8"):
             f = line.rstrip("\n").split("\t")
-            if len(f) < 15 or f[6] not in ("P", "A"):
+            # A village too small for GeoNames to call it a populated place is
+            # often in the file anyway, as its CHURCH or its railway stop —
+            # and a parish church is exactly the thing this map wants to put a
+            # dot on. Forty-five parishes with a hundred and fifty volumes
+            # between them had no coordinate because only classes P and A were
+            # read: Mađarevo is filed as a railway stop, Glogovnica as a
+            # church. They rank below any real settlement of the same name.
+            if len(f) < 15 or f[6] not in ("P", "A", "S", "L"):
+                continue
+            if f[6] == "S" and f[7] not in ("CH", "CHZ", "MSTY", "RSTP", "RSTN", "HSP", "HSPC"):
+                continue
+            # A «locality» is a named piece of inhabited ground without its own
+            # settlement record, which is what half of these parishes are. A
+            # stream or a hill of the same name is not, and is left out: the
+            # Glogovnica in the dumps is a river, not the village.
+            if f[6] == "L" and f[7] not in ("LCTY", "AREA", "RGN"):
                 continue
             try:
                 lat, lon, pop = float(f[4]), float(f[5]), int(f[14] or 0)
             except ValueError:
                 continue
-            rank = (cc == "HR", f[6] == "P", pop)
+            rank = (cc == "HR", {"P": 3, "A": 2, "L": 1}.get(f[6], 0), pop)
             alts = [x.strip() for x in (f[3] or "").split(",") if x.strip()]
             names = {f[1], f[2]} | set(alts)
             # GeoNames files a hamlet too small to have its own entry under a
