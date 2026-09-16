@@ -262,6 +262,21 @@ const HUE = {
   <div class="prose" set:html={based(P(d.autoclusters.ground.text))}></div>
   <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.ground.note))}></p>
 
+  <h3 class="sub" style="margin-top:34px">{d.autoclusters.father.heading}</h3>
+  <div class="prose" set:html={based(P(d.autoclusters.father.text))}></div>
+  <div class="tw" style="margin-top:20px">
+    <table class="ac">
+      <thead><tr>{d.autoclusters.father.cols.map(c => <th>{c}</th>)}</tr></thead>
+      <tbody>{d.autoclusters.father.rows.map(([k, n, cm, vi, vc, what]) => (
+        <tr class={what === "paternal" ? "r-croatian" : ""}>
+          <td class="k">{k}</td><td class="n">{n}</td><td class="n">{cm.toLocaleString("en-GB")}</td>
+          <td class="n">{vi || "none"}</td><td class="n">{vc || "none"}</td>
+          <td class="rd"><span class={"pill " + (what === "paternal" ? "p-croatian" : what === "maternal" ? "p-maternal" : "p-unplaced")}>{what}</span></td>
+        </tr>))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.father.note))}></p>
+
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.third.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.third.text))}></div>
   <div class="tw" style="margin-top:20px">
