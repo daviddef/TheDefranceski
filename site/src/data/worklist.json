@@ -1,6 +1,6 @@
 {
  "title": "The work list",
- "eyebrow": "123 items · 51 open · 23 waiting on somebody else",
+ "eyebrow": "123 items · 48 open · 23 waiting on somebody else",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
  "cols": [
@@ -979,19 +979,19 @@
   },
   {
    "n": 115,
-   "what": "Fifty-three places with no coordinates, and 249 volumes behind them",
-   "state": "next",
+   "what": "Places with no coordinates — four rescued, forty-one named as undrawable",
+   "state": "done",
    "owner": "a machine",
    "since": "2026-09-16",
-   "note": "The research map holds **1,285 places and can draw 1,239**. The other **53 have no coordinates at all**, and between them they carry about **250 catalogued volumes** that no reader can find on a map — Mađarevo, Prvić Šepurina, Sobotica, Trojstvo, Viduševac, Dubašnica, Glogovnica, Ludina, Taborsko and forty-four more.\n\nMost are small Croatian parishes below the gazetteer's populated-place threshold; some are hospitals and foundling houses (*Bolnica Dubrovnik*, *Nahodište Dubrovnik*) that are institutions rather than settlements and should probably hang on the town. **The fix is the same one that rescued Pesariis**: index the compound and hyphenated GeoNames names, and give the rest a hand-checked coordinate with the reason beside it."
+   "note": "**Done, and the residue is published rather than hidden.** GeoNames files a village too small for its own settlement record under its **church** or its **railway stop**, and this builder was reading only populated places. Reading churches, monasteries, hospitals, stations and localities — and nothing else — put four more on the ground: Mađarevo is a railway stop, Mandalina a halt, Ludina a station, Komarevo a locality.\n\n**A stream or a hill of the same name is not the village and is deliberately left out.** The Glogovnica in the dumps is a river; taking it would have been a wrong dot rather than a missing one.\n\n**Forty-one places carrying 130 volumes still cannot be drawn**, and [the map page now names them](/map/) instead of letting them be invisible. Three are not settlements at all — *Bolnica Dubrovnik*, *Nahodište Dubrovnik* and *Nahodište Split* are a hospital and two foundling houses, and should in the end hang on their towns. The rest need a Croatian source and a person, not another pass of the same script."
   },
   {
    "n": 116,
-   "what": "Sweep every place for the Prato fault, not only the two valleys that were checked",
-   "state": "next",
+   "what": "The Prato fault, swept across every place — six more found, and now zero",
+   "state": "done",
    "owner": "a machine",
    "since": "2026-09-16",
-   "note": "Checking Carnia turned up **six wrong or missing dots in thirty places**; checking Istria turned up **three more**. Prato Carnico was sitting on Prato in Tuscany, Priola in Piedmont, Ledenice in South Bohemia, Ragusa in Sicily. Each was found **by eye, because David asked**.\n\n**Nobody has looked at the other 1,200.** The test is mechanical and already written: a place catalogued only by a provider that works one region cannot be outside that region, and a place whose own string names a country cannot be in another one. Run it over every place on the map and print the failures.\n\nThe provider ranges say where to start: the Prekmurje collection has a place at **43.5°N**, four hundred kilometres south of Međimurje, and the Croatian collection has one at **48.6°N** — which is Slovakia."
+   "note": "**Done. `scripts/place-audit.py` applies the two tests the builders already had** — a place catalogued only by a provider that works one region cannot be outside it, and a place whose own name carries a country cannot be in another one.\n\n**It found six.** *Senja, Sv. Juraj* — the Senj deanery's coastal parish, eight kilometres from the town Hedviga Blažević was born in — was **outside Belgrade**. *Sv. Jakov-Šiljevica*, the old name of Jadranovo four kilometres from Crikvenica, was in **Šumadija**, and so was *Klasnić* of the Banovina. *Krug* was in **Lower Austria**. *Grad* and *Tišina*, both Prekmurje parishes, were in **Dalmatia**.\n\n**Three faults underneath them**: the region box covered only the two Udine providers and now covers all seven; «Sv.» was stripped and never expanded, so GeoNames' *Sveti Jakov Šiljevica* and the catalogue's *Sv. Jakov-Šiljevica* never met; and this builder had never read `data/gazetteer.json`, where a hand-checked coordinate lives with its reason beside it — so a hand fix could not reach the research map at all.\n\n**The audit reports zero.** It changes nothing itself and should be run whenever a place is added. [Correction 91](/corrections/)."
   },
   {
    "n": 117,
@@ -1003,11 +1003,11 @@
   },
   {
    "n": 118,
-   "what": "Audit every living person on the site against the name-and-town rule",
-   "state": "next",
+   "what": "The living rule, audited against the built site — no violations in 1,280 pages",
+   "state": "done",
    "owner": "a machine",
    "since": "2026-09-16",
-   "note": "The rule is **name and town for the living, never a date** — and it now has to hold across a site that has grown a GEDCOM reconciliation, a DNA page, a Findmypast sweep and a fourth map layer in one day.\n\nThe tree holds **117 living people of the surname**. The builders apply the rule themselves rather than trusting the pages — [the reconciliation](/live-tree/) writes an empty year for a living person, the [Findmypast](/findmypast/) builder drops the electoral registers and the death indexes entirely. **Nobody has checked that every page agrees.** One pass over the built HTML, looking for a four-digit year beside a name the roster marks living, and the answer is either «none» or a list."
+   "note": "**Done, and it found none.** `scripts/living-audit.py` reads the **built HTML** rather than the sources, because the built HTML is the only thing a reader ever sees: **37 people the archive holds as living, against 1,280 pages**, looking for a four-digit year standing in the same run of text as a name.\n\n**Getting to none took three narrowings, and each is a lesson.** The menu lists every page title on every page and one of those titles is a person's name, so the audit reads only what follows the first heading. **No tag may stand between the name and the year** — without that a households row hands the next person's birth year to the one before. And **no sentence may end between them**, because «David Defranceschi. The 1584 plaque…» is prose about a plaque.\n\nWhat is left is the search index, where the page title *«1948»* sits beside a name in a lowercased string. [On the method page](/method/): a rule enforced at the door should be checked at the window."
   },
   {
    "n": 119,
