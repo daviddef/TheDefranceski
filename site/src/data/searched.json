@@ -7608,6 +7608,14 @@
    "outcome": "hit",
    "got": "**All thirty-six of them, and not one needed a search.** The work-list row said the per-record output of the [Istrian sweep](/istria-sweep/) «was never written to disk». **It is on disk** — ninety-three parishes with the 952 FamilySearch persona ids read under each, and only the summary had ever been published.\n\n**Twenty-five joined on name and date. Eleven needed the twin rule**: FamilySearch mints a persona per *role*, so the same burial carries two ids differing **in the last character only** — *6B47-SK44* and *6B47-SK4W* — with every other field identical. Same record, other id, same parish.\n\n**Svetvinčenat 14 · Pula 8 · Draguč 6 · Rovinj 3 · Vrsar 2 · Šterna 2 · Vižinada 1.** Four of those parishes are new to [the register of the dead](/burials/) and to [the map of ground](/graves-map/). Šterna was also sitting on the **Turkish border** — the gazetteer stops at five hundred people and had matched a Sterna in Evros, Greece.",
    "key": "src/this-repository-itself-data-pa-726422"
+  },
+  {
+   "src": "This repository itself — an audit of every person-keyed evidence file",
+   "what": "Whether any file attaching evidence to a person is read by no build script",
+   "when": "17 Sept 2026",
+   "outcome": "hit",
+   "got": "**One: `site/src/data/valentino.json`.** Written 6 September with the fourteen children of Valentino Defranceschi out of the Fiume register; read by **no script and no page** for eleven days. It was the only file in `site/src/data` that nothing at all referenced.\n\n**Nine people were harmed by it** — five whose pages estimated a birth «about 1749» over an exact date on disk, four who had no page in this archive at all. Chasing it found **eighty-three more** told *«no record stands behind it»* on a page printing their own headstone.\n\nEvery other person-keyed file — `burials`, `graves`, `fsrecords`, `register`, `households`, `roster`, `notes/myheritage-key-rows.md` — is read. The three raw harvests `familysearch-inlaws/-migration/-austria.csv` are read by no script, but their people **do** reach the site by name through the register, so nothing is lost there. [The correction](/corrections/) · [the fourteen children](/fiume-1626/#valentino).",
+   "key": "src/this-repository-itself-an-audi-c6664c"
   }
  ]
 }

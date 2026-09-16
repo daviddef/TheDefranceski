@@ -5,6 +5,7 @@ import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import f from "../data/fiume.json";
+import v from "../data/valentino.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -53,6 +54,26 @@ const md = (s) => String(s ?? "")
     </li>
   ))}</ol>
   <p class="prose note" style="margin-top:24px" set:html={md(f.more.close)}></p>
+
+<Rule name="arrows" label="Valentino's household, 1737–1757" />
+
+  <h2 id="valentino" style="font-size:31px">{v.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={_md(v.lead)}></p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Child</th><th>What the register says</th><th class="m">Sex</th><th>On this site</th></tr></thead>
+      <tbody>{v.children.map(c => (
+        <tr>
+          <td>{c.name}</td>
+          <td class="m">{c.says}</td>
+          <td class="m">{c.sex}</td>
+          <td><a href={u(`/who/${c.who}/`)}>their page →</a></td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={_md(v.note)}></p>
+  <p class="cap" style="margin-top:12px" set:html={_md(v.source)}></p>
 
 <Rule name="arrows" label="Rovinj, 1619" />
 

@@ -121,6 +121,48 @@ for r in _load("graves"):
     _add(r.get("name"), "Headstone", bits, "/graves/", r.get("url"))
 
 
+# ---- evidence files keyed to a person by SLUG -------------------------------
+# Everything above is matched on the name, which only works where the evidence
+# file and the roster spell a person the same way. valentino.json does not: it
+# writes the fourteen children of Fiume in the nominative — «Josepha Catharina»
+# — while the archive has them in the accusative the register clerk used,
+# «Josepham Catharinam Defranceschi». No name match was ever going to join
+# those, and none did. The file sat in site/src/data for eleven days and was
+# read by no script and no page, while five of the people in it had /who/ pages
+# saying «born about 1749 — estimated, not recorded» and four had no page at
+# all. The dates were on disk the whole time.
+#
+# So a person-keyed evidence file now declares its own slug and is loaded here.
+# BY_SLUG carries the record card; YEAR_FROM carries the recorded date, which
+# overrides the roster's estimate in the facts strip. Neither touches the
+# household chart: that still draws households.json exactly as it stands, and
+# says so.
+BY_SLUG, YEAR_FROM = {}, {}
+
+def _slug_evidence(file, kind, href, label):
+    d = _raw_early(file)
+    of = d.get("of") or {}
+    for c in d.get("children") or []:
+        slug, says = c.get("who"), c.get("says")
+        if not slug or not says: continue
+        if c.get("covered") and c["covered"] != file:
+            continue                      # already reaches the page another way
+        bits = [says, of.get("place"), "child of " + of.get("father", "") if of.get("father") else ""]
+        BY_SLUG.setdefault(slug, []).append(
+            {"kind": kind, "text": " \u00b7 ".join([b for b in bits if b]), "href": href, "url": None})
+        if c.get("year"):
+            YEAR_FROM[slug] = {"says": says, "href": href, "src": label}
+
+def _raw_early(name):
+    fp = os.path.join(DATA, name + ".json")
+    if not os.path.exists(fp): return {}
+    try: return json.load(open(fp, encoding="utf-8"))
+    except Exception: return {}
+
+_slug_evidence("valentino", "Parish baptism, Fiume", "/fiume-1626/#valentino",
+               "Liber Baptizatorum, St Vitus, Fiume")
+
+
 # ---- MyHeritage key rows, and provenance for tree-only people ----
 MH = {}
 kr = os.path.join(ROOT, "notes", "myheritage-key-rows.md")
@@ -511,6 +553,12 @@ for slug, rows in by_slug.items():
     if r0.get("place"):
         facts.append(["Place", r0["place"]] + ([f"/places/{r0['placeSlug']}/"] if r0.get("placeSlug") else []))
     if yrs: facts.append(["Years", yrs + (f" \u00b7 from {r0['yfrom']}" if r0.get("yfrom") else "")])
+    elif YEAR_FROM.get(slug):
+        # the roster has no year, but a register this archive read does. The
+        # page said «estimated, not recorded» over the top of a date that was
+        # sitting in the repository. It says the date now.
+        _y = YEAR_FROM[slug]
+        facts.append(["Years", f"{_y['says']} \u2014 read in the register, not estimated"])
     elif r0.get("bEst"):
         _rg = r0.get("bEstRange") or []
         facts.append(["Years", f"born about {r0['bEst']}" + (f" (somewhere {_rg[0]}\u2013{_rg[1]})" if len(_rg) == 2 else "") + " \u2014 estimated, not recorded"])
@@ -530,12 +578,13 @@ for slug, rows in by_slug.items():
         "facts": facts,
         "known": notes[0] if notes else "",
         "more": notes[1:],
-        "records": (RECORDS.get(" ".join(_key(name)), [])[:12]
-                    or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
+        "records": (BY_SLUG.get(slug, []) + RECORDS.get(" ".join(_key(name)), []))[:12]
+                    or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2],
         "tree": mini_tree(name),
         "ptree": ptree(name),
         "rec": record_strip(rows),
         "chain": chain_tree(name),
+        "recyear": YEAR_FROM.get(slug),
         "roster": True,
     }
 
@@ -543,7 +592,14 @@ for slug, rows in by_slug.items():
 kept = 0
 for slug, p in old.get("people", {}).items():
     if slug not in people:
-        p.setdefault("facts", []); p.setdefault("known", ""); p.setdefault("more", []); p.setdefault("records", []); p.setdefault("tree", mini_tree(p.get("name"))); p.setdefault("chain", chain_tree(p.get("name")))
+        # A page carried over from an earlier build is still a person, and the
+        # record files still have records for them. This branch used to
+        # setdefault("records", []) and stop, so Nicolaa De Franceschi's page
+        # said nothing had been read while fsrecords.json held her birth.
+        p.setdefault("facts", []); p.setdefault("known", ""); p.setdefault("more", [])
+        p["records"] = (p.get("records") or []) or (BY_SLUG.get(slug, []) + RECORDS.get(" ".join(_key(p.get("name"))), []))[:12]
+        if BY_SLUG.get(slug) and not p.get("recyear"): p["recyear"] = YEAR_FROM.get(slug)
+        p.setdefault("tree", mini_tree(p.get("name"))); p.setdefault("chain", chain_tree(p.get("name")))
         p["roster"] = False
         people[slug] = p
         kept += 1

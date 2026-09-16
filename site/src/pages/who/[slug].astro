@@ -133,7 +133,20 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
-{(!p.ptree && !p.rec) && (
+{/* This block used to test p.ptree and p.rec only, and p.rec is the FamilySearch
+    index strip — so a person with a headstone or a parish burial and nothing
+    else was told «no record stands behind it» two sections above their own
+    record. Eighty-three people were in that state. p.records counts. */}
+{(!p.ptree && !p.rec && p.records && p.records.length > 0) && (
+<section class="blk">
+  <div class="mt-warn drops"><strong>No family is drawn for this name</strong> — this archive has not placed it in a
+  household and holds no indexed entry that names it beside anybody else. <strong>A record does stand behind it</strong>:
+  {p.records.length === 1 ? " the one below" : ` the ${p.records.length} below`}, not joined to any household.
+  <a href={u(`/register/?q=${encodeURIComponent(p.name)}`)}>The Register</a> is where an index entry would appear if one turned up.</div>
+</section>
+)}
+
+{(!p.ptree && !p.rec && !(p.records && p.records.length > 0)) && (
 <section class="blk">
   <div class="mt-warn drops"><strong>No family is drawn for this name, and no record stands behind it.</strong> This archive
   has not placed it in a household and holds no indexed entry for it — the name reached this project through a chart, a
@@ -284,7 +297,13 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
         {" "}{p.ptree.dropped.map((g, i) => (<>{i > 0 ? " · " : ""}<em>{g[1]}{g[2] ? ` × ${g[2]}` : ""}</em>{g[3] ? ` (${g[3]})` : ""}</>))}.
       </p>
     )}
-    {p.ptree.est && (
+    {(p.ptree.est && p.recyear) && (
+      <p><strong>A register does give this person a date — {p.recyear.says}</strong>, in the <a href={u(p.recyear.href)}>{p.recyear.src}</a>.
+        The chart above was drawn from a household built out of index entries that carry <em>no</em> date for this child, so it was
+        tested against an estimate of <strong>about {p.ptree.est[0]}</strong> instead. <strong>The chart is not redrawn here and the
+        estimate is not hidden</strong> — the record is simply no longer missing from the page.</p>
+    )}
+    {(p.ptree.est && !p.recyear) && (
       <p><strong>This person has no recorded year.</strong> The archive estimates a birth <strong>about {p.ptree.est[0]}</strong>
         {p.ptree.est[1] && <> — somewhere between {p.ptree.est[1][0]} and {p.ptree.est[1][1]}</>}, {p.ptree.est[2]}.
         The households above were tested against that estimate rather than a date, on a deliberately loose window.
