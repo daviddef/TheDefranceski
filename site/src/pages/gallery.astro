@@ -2,7 +2,8 @@
 import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
-import Lightbox from "../components/Lightbox.astro";
+import { u } from "../lib/url.js";
+import Gallery from "@daviddef/archive-kit/components/Gallery.astro";
 import all from "../data/plates.json";
 const groups = [
   ["photographs", "Photographs"],
@@ -13,19 +14,23 @@ const groups = [
   ["places", "Places"],
 ];
 const counts = Object.fromEntries(groups.map(([k]) => [k, all.filter(p => p.group === k).length]));
+
+/* The local Plates component stays: the direct line draws its register pages
+   with it, one household at a time. This page's own filter row and lightbox
+   are the shared component's now, and the six groups become its filter. */
+const LABEL = Object.fromEntries(groups);
+const sheet = all.map((p) => ({
+  src: p.src, thumb: p.thumb, w: p.w, h: p.h,
+  title: p.title, what: p.caption, holder: p.holder,
+  kind: LABEL[p.group] || p.group,
+}));
 ---
 <Base
   title="The Plate Room"
   eyebrow={`${all.length} images from the family's own holdings`}
   dek="Every image here comes from the family's own papers or from an archive that sent them on request. Click any plate to read what it shows; arrow keys move through the set.">
 
-  <div class="filters" role="group" aria-label="Filter plates">
-    <button type="button" data-g="all" aria-pressed="true">All</button>
-    {groups.map(([k, l]) => <button type="button" data-g={k} aria-pressed="false">{l} <span style="opacity:.6">{counts[k]}</span></button>)}
-    <span class="count" id="pcount"></span>
-  </div>
-
-  <Plates />
+  <Gallery rows={sheet} u={u} unit="images" />
 
   <section class="prose" style="margin-top:48px">
     <h3>What is here and what is not</h3>
@@ -35,7 +40,6 @@ const counts = Object.fromEntries(groups.map(([k]) => [k, all.filter(p => p.grou
     <p>A photograph with a name and a decade attached is worth more than a chart. Studio marks on the back of a print name the town; a uniform names the army; a dress names the decade to within about five years. Send what you have.</p>
   </section>
 
-  <Lightbox />
   <Sources ids={["mftpkg", "arolsen", "dapa", "omisphotos"]} />
 </Base>
 
