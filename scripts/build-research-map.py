@@ -540,8 +540,15 @@ def main():
             vols = []
             for b in rec["books"]:
                 lo, hi = span(b["t"])
-                vols.append({"t": b["t"], "wp": b["wp"], "from": lo, "to": hi,
-                             "cc": rec["cc"], "filedIn": rec["country"]})
+                v = {"t": b["t"], "wp": b["wp"], "from": lo, "to": hi,
+                     "cc": rec["cc"], "filedIn": rec["country"]}
+                # The walk that found these recorded the waypoint and stopped,
+                # so for a year they were filmed volumes with no address. The
+                # ark is fetched separately, one call a book, and it is what
+                # turns the title into a link: ark + collection + waypoint.
+                if b.get("ark"):
+                    v.update({"ark": b["ark"], "wc": b["wp"]})
+                vols.append(v)
             p["src"][key] = {"shelves": {"all": {"wp": None, "books": vols}}}
         # Delnice browses by film, not by parish: six reels and no place tree,
         # so they hang on the deanery town itself rather than pretending to a
@@ -941,13 +948,21 @@ def main():
                 with_books = {s for s, blk in got.items()
                               if any(sh.get("books") for sh in blk["shelves"].values())}
                 paperonly = {"dapa", "fs-cat"}
-                what += (" Not one of them is openable from here — "
-                         + ("every volume above is a catalogue entry: Pazin publishes a "
-                            "register list, not images, and FamilySearch's Croatian "
-                            "collection does not hold this parish. They are read on "
-                            "microfilm at Pazin, or by ordering a copy."
-                            if with_books and with_books <= paperonly else
-                            "no image address has been harvested for any of them yet."))
+                # Antenati's arks are deliberately kept out of the films list —
+                # they live on a different host and open in the portal's own
+                # viewer — so a comune with nothing but Antenati volumes is not
+                # unlinked, it is linked from a different page.
+                if with_books and with_books <= {"antenati", "fs-cat"}:
+                    why = ("they are Antenati's, and Antenati is opened from "
+                           "its own page rather than from this panel.")
+                elif with_books and with_books <= paperonly:
+                    why = ("every volume above is a catalogue entry: Pazin publishes a "
+                           "register list, not images, and FamilySearch's Croatian "
+                           "collection does not hold this parish. They are read on "
+                           "microfilm at Pazin, or by ordering a copy.")
+                else:
+                    why = "no image address has been harvested for any of them yet."
+                what += " Not one of them is openable from here — " + why
             ev = timeline(allb)
             # Name them. A reader who is told «five things about this place»
             # and not which five has been given a number, not a finding.

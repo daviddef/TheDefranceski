@@ -859,11 +859,11 @@
   },
   {
    "n": 100,
-   "what": "Harvest the arks for Međimurje and for Pola & Trieste — 33 places with no link",
-   "state": "next",
+   "what": "Harvest the arks for Međimurje and for Pola & Trieste — done, 409 of 409",
+   "state": "done",
    "owner": "a machine",
    "since": "2026-09-16",
-   "note": "Sorting out why Gračišće had no links turned up the places where the answer really is «nobody has fetched the address yet». **Thirty-seven places on the map carry filmed volumes and not one clickable row**, and they are almost all two collections: **28 in Prekmurje and Međimurje** («fs-si-mj») and **5 in Pola and Trieste** («fs-it-pola»). The Croatia Church Books harvest ran to 5,489 of 5,489; these two were never walked.\n\nThe other 14 places with no links are a different thing and are now labelled as one: every volume is a catalogue entry, Pazin publishes no images, and there is nothing to harvest. [How the map says which is which](/map/)."
+   "note": "**Done the same day. 409 waypoints called, 409 arks, not one error.**\n\nEvery volume in both collections is clickable now — 38 in **Pola and Trieste** across eleven Istrian and Triestine parishes, and 371 in **Prekmurje and Međimurje** across forty-seven towns filed under their Hungarian names. Čakovec as *Csáktornya*, Buje as *Buie*, Lendava as *Alsólendva*.\n\nThe trick that made it cheap: a FamilySearch waypoint id is «PREFIX:ancestor,ancestor,…» and the API answers on the **prefix alone**, so the whole job rode on a four-kilobyte list instead of a thirty-four kilobyte one. Paced at 2.2 seconds a call, which is the spacing that has never once drawn a throttle.\n\n**Four waypoints returned an ark another had already returned** — not a fault. Muraszombat's district register covered several villages, was filmed once, and hangs under each of them.\n\n**No place on the map is now unlinked for want of an errand.** The ones that still have no link have a reason: eight are Pazin catalogue entries with no images anywhere, nine are Antenati's and open from [their own page](/antenati/)."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",

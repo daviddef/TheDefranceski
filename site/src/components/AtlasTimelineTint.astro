@@ -260,7 +260,13 @@
           if (sec) sec.hidden = true;
         }
       }
+      /* Only a VOLUME row can be read. A folded lid holds every volume
+         underneath it, so its textContent carries the word READ the moment
+         one of ten books below is marked — which painted the whole block
+         green and made nine unopened volumes look finished. The lid is
+         skipped here for the same reason it is skipped in mark(). */
       for (var m = 0; m < rows.length; m++) {
+        if (rows[m].classList.contains("at-vols")) continue;
         rows[m].classList.toggle("at-read", /\u2014\s*READ/.test(rows[m].textContent || ""));
       }
     }
