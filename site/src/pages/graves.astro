@@ -4,9 +4,28 @@ import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
+import Graves from "@daviddef/archive-kit/components/Graves.astro";
 import g from "../data/graves.json";
 const rows = g.rows, S = g.summary;
 const max = Math.max(...S.countries.map(([, n]) => n));
+
+/* Grouped by cemetery, which this page has never been able to do. A row per
+   grave cannot say which ground holds more than one of them, and that is the
+   thing worth knowing: a shared cemetery is a family that stayed. */
+const byPlace = new Map();
+for (const r of rows) {
+  const key = `${r.cem}|${r.place}`;
+  if (!byPlace.has(key)) byPlace.set(key, {
+    place: r.cem, where: r.place, country: r.country || "", people: [],
+  });
+  byPlace.get(key).people.push({
+    name: r.name, href: r.url,
+    life: [r.span, r.plot ? `plot ${r.plot}` : "", r.age ? `aged ${r.age}` : ""]
+      .filter(Boolean).join(" \u00b7 "),
+  });
+}
+const graves = [...byPlace.values()].sort((a, b) =>
+  b.people.length - a.people.length || a.place.localeCompare(b.place));
 const hr = S.rows;
 const croatia = S.croatia[0];
 const horsham = rows.filter(r => r.cem === "Horsham Cemetery");
@@ -96,19 +115,7 @@ const millbrook = rows.filter(r => /Nine Partners/.test(r.cem));
   <p class="prose" style="margin-top:20px">New Saint Francis at Torrington holds nine, and the neighbouring Saint Peter and Hillside cemeteries hold four more between them — a single Connecticut brass-and-clock town with thirteen graves of this name. Two of the Torrington graves are children who died in the same year, <strong>Lina</strong>, eleven, and <strong>Mario</strong>, seven, both in <strong>1925</strong>. Campo Verano in Rome holds eight; Santa Maria di Sala in the Veneto six, of whom three are men who died in 1942, 1944 and 1945.</p>
 
   <h2 style="font-size:30px;margin-top:52px">The whole gazetteer</h2>
-  <div class="scroll" style="margin-top:16px">
-    <table>
-      <thead><tr><th>Name</th><th class="m">Dates</th><th class="m">Age</th><th>Cemetery</th><th>Where</th><th>Plot</th></tr></thead>
-      <tbody>{rows.map(r => (
-        <tr>
-          <td><a href={r.url} rel="noopener">{r.name}</a></td>
-          <td class="m">{r.span}</td>
-          <td class="m">{r.age ?? "—"}</td>
-          <td>{r.cem}</td><td>{r.place}</td><td class="m">{r.plot || "—"}</td>
-        </tr>
-      ))}</tbody>
-    </table>
-  </div>
+  <Graves rows={graves} u={u} unit="cemeteries" />
 
   <section class="prose" style="margin-top:46px">
     <h3>Two graves this archive knows of and cannot find</h3>
