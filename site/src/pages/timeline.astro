@@ -3,10 +3,23 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import SovereigntyTimeline from "@daviddef/archive-kit/components/SovereigntyTimeline.astro";
-import sov from "../data/sovereignty.json";
+import Timeline from "@daviddef/archive-kit/components/Timeline.astro";
+import { u } from "../lib/url.js";
 import sov from "../data/sovereignty.json";
 import pressures from "../data/pressures.json";
 import Ribbon from "../components/Ribbon.astro";
+
+/* Blazevic sets both halves down together and it reads better than either
+   alone: what this family did, among what was being done to it. World entries
+   are stored as [year, text] pairs here as elsewhere in the estate. */
+const world = (sov.world || [])
+  .map((w) => (Array.isArray(w) ? { year: w[0], text: w[1] } : w));
+const rows = [
+  ...sov.events.map((e) => ({ year: e.year, when: String(e.year), title: e.text,
+                              kind: "this family", big: true })),
+  ...world.map((e) => ({ year: e.year, when: String(e.year), title: e.text,
+                         kind: "the world around them" })),
+];
 ---
 <Base title="The Timeline" eyebrow="Lives against history"
       dek="Sovereignty, pressure and family event on one scale. The point is not when people were born — it is what was happening to them when they were.">
@@ -21,9 +34,7 @@ import Ribbon from "../components/Ribbon.astro";
 
 <section class="blk">
   <SovereigntyTimeline sov={sov} events={true} />
-  <div class="evlist">
-    {sov.events.map(e=><span><b>{e.year}</b>{e.text}</span>)}
-  </div>
+  <Timeline events={rows} u={u} />
 </section>
 <Rule name="pomegranate" />
 
