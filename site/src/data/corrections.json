@@ -809,6 +809,14 @@
    "where": "/map/",
    "said": "Carnia and Istria were checked because David asked about a panel, and nine places came back wrong. **Nobody had looked at the other twelve hundred.**",
    "true": "A script now applies the two tests the builders already had. **A place catalogued only by a provider that works one region cannot be outside that region**, and **a place whose own name carries a country cannot be in a different one.** It found six more.\n\n**Senja, Sv. Juraj** — the Senj deanery's coastal parish, eight kilometres from the town this family's grandmother was born in — was **outside Belgrade**. **Sv. Jakov-Šiljevica**, which is the old name of Jadranovo four kilometres from [Crikvenica](/crikvenica-house/), was **in Šumadija**. **Klasnić** of the Banovina was in Šumadija too. **Krug** was in **Lower Austria**. And **Grad** and **Tišina**, both Prekmurje parishes, were in **Dalmatia**.\n\nThree things were wrong underneath them. The region box existed only for the two Udine providers and now covers all seven. **«Sv.» was being stripped and never expanded** — GeoNames writes the patron out in full, so *Sveti Jakov Šiljevica* and *Sv. Jakov-Šiljevica* never met. And **this builder had never read data/gazetteer.json at all**, which is where a coordinate checked by hand lives with its reason beside it, so a hand fix could not reach the research map however carefully it was written.\n\nThe audit now reports **zero**. It is [scripts/place-audit.py], it changes nothing itself, and it should be run whenever a place is added."
+  },
+  {
+   "when": "16 Sept 2026",
+   "sev": "minor",
+   "what": "Maria Defranceschi of Gologorica was in this archive twice",
+   "where": "/who/maria-defranceschi/ · /register/",
+   "said": "Two roster rows, **born 1786** and **born 1789**, dying in the same year at the same parish, under two MyHeritage identifiers — 4509439 and 4510756.",
+   "true": "**One woman.** [The reconciliation against the live tree](/live-tree/) returned the pair **mirrored**: our 1786 against the tree's 1789 and our 1789 against the tree's 1786, which is the shape a duplicate makes when both sides hold it. Merged, with both identifiers kept on the surviving row.\n\n**The birth year is still not settled.** 1786 is kept because it is the row that carries the parish, and the Gologorica baptisms will decide between them.\n\n*Petrus Defranceschi came back mirrored in the same pass and has NOT been merged*: his two rows disagree on the parish — a Petrus of Rovinj resting on a burial register with an ark, against a Petrus of Gologorica resting on the 2018 family file — and a burial entry outranks a tree entry. Both now carry a note saying so."
   }
  ]
 }
