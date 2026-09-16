@@ -244,9 +244,9 @@ def span(title):
 # into «Other» and the coverage timeline for a whole Croatian county said
 # nothing at all.
 KIND = [
-    ("b", r"birth|rodjen|rođen|kr[sš]ten|batti|battesim|nati|nascit|taufe|szulett|születt|MKR"),
+    ("b", r"birth|rodjen|rođen|kr[sš]ten|batti|battesim|\bnati\b|nascit|taufe|szulett|születt|MKR"),
     ("m", r"marri|vjenc|vjenč|matrimon|trauung|hazasult|házasult|MKV"),
-    ("d", r"death|umrl|morti|sterbe|halottak|MKU"),
+    ("d", r"death|umrl|\bmorti\b|sterbe|halottak|MKU"),
 ]
 SKIP = re.compile(r"index|indic|kazalo|allegat|status animarum|confirmation|"
                   r"krizman|census|popis|SD\b", re.I)

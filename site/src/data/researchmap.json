@@ -225,18 +225,18 @@
   "fsPending": 0,
   "crossChecked": 27,
   "timelineGaps": {
-   "rows": 304,
+   "rows": 307,
    "places": 175,
    "clean": 550
   },
-  "gaps": 687,
+  "gaps": 684,
   "gapsBy": {
    "dapa>fs-hr": 460,
    "fs-hr>fs-si-mj": 128,
    "fs-si-mj>fs-hr": 78,
    "fs-hr>fs-hr-delnice": 3,
-   "fs-it-pola>fs-hr": 2,
-   "fs-hr>fs-it-pola": 16
+   "fs-it-pola>fs-hr": 4,
+   "fs-hr>fs-it-pola": 11
   },
   "linked": 5299
  },
@@ -53719,6 +53719,24 @@
     {
      "have": "fs-it-pola",
      "missing": "fs-hr",
+     "kind": "d",
+     "t": "Beata Vergine della Neve — Morti 1835-1936",
+     "from": 1835,
+     "to": 1936,
+     "digitised": true
+    },
+    {
+     "have": "fs-it-pola",
+     "missing": "fs-hr",
+     "kind": "d",
+     "t": "Beata Vergine della Neve — Morti 1835-1941",
+     "from": 1835,
+     "to": 1941,
+     "digitised": true
+    },
+    {
+     "have": "fs-it-pola",
+     "missing": "fs-hr",
      "kind": "m",
      "t": "Beata Vergine della Neve — Matrimoni 1835-1937",
      "from": 1835,
@@ -53735,8 +53753,16 @@
      "digitised": true
     }
    ],
-   "ngaps": 2,
+   "ngaps": 4,
    "gapSpans": [
+    {
+     "have": "fs-it-pola",
+     "missing": "fs-hr",
+     "kind": "d",
+     "from": 1835,
+     "to": 1941,
+     "n": 2
+    },
     {
      "have": "fs-it-pola",
      "missing": "fs-hr",
@@ -61934,42 +61960,6 @@
     {
      "have": "fs-hr",
      "missing": "fs-it-pola",
-     "kind": "d",
-     "t": "Deaths (Umrli) 1832-1835",
-     "from": 1832,
-     "to": 1835,
-     "digitised": true
-    },
-    {
-     "have": "fs-hr",
-     "missing": "fs-it-pola",
-     "kind": "d",
-     "t": "Deaths (Umrli) 1835-1840",
-     "from": 1835,
-     "to": 1840,
-     "digitised": true
-    },
-    {
-     "have": "fs-hr",
-     "missing": "fs-it-pola",
-     "kind": "d",
-     "t": "Deaths (Umrli) 1840-1848",
-     "from": 1840,
-     "to": 1848,
-     "digitised": true
-    },
-    {
-     "have": "fs-hr",
-     "missing": "fs-it-pola",
-     "kind": "d",
-     "t": "Deaths (Umrli) 1848-1867",
-     "from": 1848,
-     "to": 1867,
-     "digitised": true
-    },
-    {
-     "have": "fs-hr",
-     "missing": "fs-it-pola",
      "kind": "m",
      "t": "Marriages (Vjenčani) 1667-1692 Marriages (Vjenčani) 1667-1692",
      "from": 1667,
@@ -62004,7 +61994,7 @@
      "digitised": true
     }
    ],
-   "ngaps": 15,
+   "ngaps": 11,
    "gapSpans": [
     {
      "have": "fs-hr",
@@ -62027,8 +62017,8 @@
      "missing": "fs-it-pola",
      "kind": "d",
      "from": 1825,
-     "to": 1867,
-     "n": 5
+     "to": 1832,
+     "n": 1
     },
     {
      "have": "fs-hr",
@@ -63944,28 +63934,9 @@
    "vread": 0,
    "vpart": 0,
    "vknown": false,
-   "gaps": [
-    {
-     "have": "fs-hr",
-     "missing": "fs-it-pola",
-     "kind": "d",
-     "t": "Deaths (Umrli) 1815-1856",
-     "from": 1815,
-     "to": 1856,
-     "digitised": true
-    }
-   ],
-   "ngaps": 1,
-   "gapSpans": [
-    {
-     "have": "fs-hr",
-     "missing": "fs-it-pola",
-     "kind": "d",
-     "from": 1815,
-     "to": 1856,
-     "n": 1
-    }
-   ]
+   "gaps": [],
+   "ngaps": 0,
+   "gapSpans": []
   },
   {
    "key": "opuzen",

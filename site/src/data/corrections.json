@@ -737,6 +737,22 @@
    "where": "/map/",
    "said": "Two days of work went into the research map, the collection walk, the undigitised list and the Antenati catalogue. **None of them was in the navigation.** The map could be reached only by a link inside another page.",
    "true": "**Five pages were orphaned** — the research map, «Croatia filed abroad», «Every collection walked», «The undigitised» and the Antenati registers. All five are now in the **Evidence** menu beside Parish Books.\n\n*Found because David asked which menu the map was in.* It was in none, and the build's «nothing links to it» warning had been satisfied by a single in-page link each time — which is not the same as being findable."
+  },
+  {
+   "when": "16 Sept 2026",
+   "what": "A backspace character in a regular expression hid every Italian birth and death register",
+   "sev": "serious",
+   "where": "/map/ · /carnia/",
+   "said": "Mione's panel showed **one record type — Marriages**, and thirty-three volumes filed under «Other: titles this archive cannot classify». Twenty-three other Carnian and Istrian comuni said the same. The map could not draw a births or deaths timeline for **the parish this whole family comes out of**, and could not show that Mione's civil births stop in 1810 — a finding the archive had already published in words on [the Carnia page](/carnia/).",
+   "true": "**«Nati» and «Morti» were unmatchable.** The patch of 15 September that taught the classifier its Hungarian words wrote the word boundaries into a **non-raw Python string**, so «\\\\b» was stored as an actual backspace character. The pattern became «nati⌫» and «morti⌫» — two alternatives that can never match anything, in a file where nothing looks wrong, because a terminal prints a backspace by moving the cursor.\n\n**248 volumes across 24 places** were in «Other» because of it, sixteen of them already read. Mione now shows **Births 1806–1810, ALL READ**, Marriages and Deaths, each with 1807 named as a gap.\n\n*Found because David asked whether the green on one Gračišće row meant the same as the green on the block around it.* It did not — that was a second bug, fixed the same hour — but checking the same thing on Mione and Ovaro is what turned this one up."
+  },
+  {
+   "when": "16 Sept 2026",
+   "what": "No record-type heading on the map had been amber since the read ledger changed shape",
+   "sev": "minor",
+   "where": "/map/",
+   "said": "A heading was to turn **green when every volume of its kind had been read and amber when some had**. Green worked. Amber never appeared — a parish six volumes into eighteen looked exactly like one nobody had opened.",
+   "true": "The tint was keyed to the words **«N of M read»**, which is what the builder printed until the per-volume ledger arrived and changed the sentence to «6 read, 0 part read, 12 unopened». The test stopped matching and nothing said so. The ◐ mark beside the heading was right the whole time; the colour behind it was missing."
   }
  ]
 }

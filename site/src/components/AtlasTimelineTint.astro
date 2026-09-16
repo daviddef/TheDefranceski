@@ -134,7 +134,15 @@
         var kind = /^(Births|Marriages|Deaths)$/.test(when);
         li.classList.toggle("at-kind", kind);
         li.classList.toggle("at-all", kind && /ALL READ/.test(text));
-        li.classList.toggle("at-part", kind && /\d+ of \d+ read/.test(text));
+        /* «N of M read» is what the builder used to print. It now prints
+           «6 read, 0 part read, 12 unopened», so this test had quietly stopped
+           matching anything and no heading on the map has been amber since —
+           a kind six volumes into eighteen looked exactly like one nobody had
+           touched. The mark was right; the tint behind it was missing. */
+        var done = /·\s*(\d+) read/.exec(text);
+        var part = /(\d+) part read/.exec(text);
+        li.classList.toggle("at-part", !!kind && !/ALL READ/.test(text) &&
+          ((done && +done[1] > 0) || (part && +part[1] > 0)));
       }
       films();
       fold();
