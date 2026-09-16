@@ -801,6 +801,14 @@
    "where": "/findmypast/",
    "said": "The Findmypast sweep was published with a finding headed **«A Puerto Rican cluster of the name»** — fifty-two records across eleven towns, offered as a lead on the surname this archive is built on.",
    "true": "**Every one of the fifty-two is a woman**, and reading the names in Spanish says why. *Filomena Franceschi Dávila de Padilla. Carmen Callejo y Ferrer de Franceschi.* **«de» is the marital particle there, not the Italian nobiliary one.** A woman who marries a Franceschi is indexed *de Franceschi*; the men of the family are filed under plain **Franceschi** and a search for «de Franceschi» never sees them.\n\nThe cluster is real. It is a **Franceschi** family, seen through a keyhole, and the surname in it is not this archive's surname. Corrected on the page in place, with what the right search would be.\n\n*Found within the hour, while building the map layer from the same 644 records — the place data made the pattern visible in a way the summary count never could.*"
+  },
+  {
+   "when": "16 Sept 2026",
+   "what": "Six more parishes in the wrong country, found by a test instead of by eye",
+   "sev": "serious",
+   "where": "/map/",
+   "said": "Carnia and Istria were checked because David asked about a panel, and nine places came back wrong. **Nobody had looked at the other twelve hundred.**",
+   "true": "A script now applies the two tests the builders already had. **A place catalogued only by a provider that works one region cannot be outside that region**, and **a place whose own name carries a country cannot be in a different one.** It found six more.\n\n**Senja, Sv. Juraj** — the Senj deanery's coastal parish, eight kilometres from the town this family's grandmother was born in — was **outside Belgrade**. **Sv. Jakov-Šiljevica**, which is the old name of Jadranovo four kilometres from [Crikvenica](/crikvenica-house/), was **in Šumadija**. **Klasnić** of the Banovina was in Šumadija too. **Krug** was in **Lower Austria**. And **Grad** and **Tišina**, both Prekmurje parishes, were in **Dalmatia**.\n\nThree things were wrong underneath them. The region box existed only for the two Udine providers and now covers all seven. **«Sv.» was being stripped and never expanded** — GeoNames writes the patron out in full, so *Sveti Jakov Šiljevica* and *Sv. Jakov-Šiljevica* never met. And **this builder had never read data/gazetteer.json at all**, which is where a coordinate checked by hand lives with its reason beside it, so a hand fix could not reach the research map however carefully it was written.\n\nThe audit now reports **zero**. It is [scripts/place-audit.py], it changes nothing itself, and it should be run whenever a place is added."
   }
  ]
 }

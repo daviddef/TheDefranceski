@@ -98,6 +98,16 @@ def wanted():
     for p in (load("researchmap.json") or {}).get("places", []):
         w[head(p["name"])] += 1
         for a in (p.get("alt") or []) + (p.get("older") or []): w[head(a)] += 1
+        # A parish is often named for two villages at once — «Sv. Jakov-
+        # Šiljevica», «Bast i Baška Voda» — and GeoNames files the pair under
+        # one of them. Šiljevica is an alternate name of Jadranovo, on the
+        # Kvarner beside Crikvenica; without the parts it was never asked for,
+        # and the parish stood in Serbia.
+        for part in re.split(r"[-–/]", p["name"]):
+            k = norm(part)
+            if len(k) > 2:
+                w[k] += 1
+                HINTS.setdefault(k, set()).add(("HR", None))
     # A record's place can be a church, a census enumeration district or a
     # ward — «St Anthony of Padua, Manhattan, New York», «19-Wd Memphis,
     # Shelby, Tennessee». None of those is in a gazetteer and all of them say

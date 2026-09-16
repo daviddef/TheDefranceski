@@ -153,11 +153,27 @@ def gazetteer(d):
 # Prato has a hundred and ninety thousand people in it.
 ALL = {}
 
+# Coordinates checked by hand, read from data/gazetteer.json at start-up.
+HAND = {}
+
 # The provinces this archive actually reads, as boxes. A place catalogued only
 # by a provider that works one valley cannot be in another country.
+# The box is a PREFERENCE, not a fence: resolve() takes a candidate inside it
+# when there is one and falls through to the ordinary lookup when there is
+# not, which is why Zemun and Stara Pazova — genuinely Serbian parishes in a
+# Croatian collection — still land where they belong.
 HINT = {
-    "fs-it":    (45.85, 46.75, 12.30, 13.75),   # Friuli — Udine province
-    "antenati": (45.85, 46.75, 12.30, 13.75),   # the same registers, other portal
+    "fs-it":        (45.85, 46.75, 12.30, 13.75),   # Friuli — Udine province
+    "antenati":     (45.85, 46.75, 12.30, 13.75),   # the same registers, other portal
+    "dapa":         (44.40, 45.80, 13.20, 14.60),   # Istria — the Pazin state archive
+    "fs-it-pola":   (44.60, 46.00, 13.20, 14.60),   # Istria, Pola and Trieste
+    "fs-si-mj":     (46.00, 47.10, 15.80, 16.90),   # Prekmurje and Međimurje
+    "fs-hr-delnice": (45.00, 45.80, 14.20, 15.20),  # the Delnice deanery
+    # And Croatia itself. Six parishes of the Croatian collection were standing
+    # in SERBIA and one in AUSTRIA because the gazetteer keeps the most
+    # populous bearer of a name: Senja Sv. Juraj outside Belgrade, Klasnić in
+    # Šumadija, Krug in Lower Austria.
+    "fs-hr":        (41.80, 46.80, 13.20, 19.60),
 }
 
 def in_box(lat, lon, box):
@@ -453,6 +469,13 @@ def main():
     # Eight country dumps hold well over a hundred thousand names between
     # them. Anything under fifty thousand means the path is wrong.
     gaz  = gazcheck.require(gazetteer(gdir) if gdir else {}, gdir, 50000)
+    # Only the entries somebody checked by hand and wrote a reason for; the
+    # rest of that file is a distillation of the same dumps read above.
+    _hp = os.path.join(ROOT, "data", "gazetteer.json")
+    if os.path.exists(_hp):
+        HAND.update({k: v for k, v in
+                     (json.load(open(_hp, encoding="utf-8")).get("places") or {}).items()
+                     if v.get("by")})
     prev = {}
     out_path = os.path.join(DATA, "researchmap.json")
     if os.path.exists(out_path):
@@ -703,6 +726,12 @@ def main():
     def resolve(p):
         k = p["key"]
         if p["c"]:   return p["c"], "kml"
+        # data/gazetteer.json is where a coordinate checked BY HAND lives, with
+        # the reason written beside it, and it beats every automatic method
+        # below — including the region box, which moved «Senja, Sv. Juraj» out
+        # of Serbia and into Lika, the wrong side of the Velebit from Senj.
+        if k in HAND:
+            return [HAND[k]["lat"], HAND[k]["lon"]], "hand-checked"
         box = box_for(p)
         if box:
             # Name first, region second: take the candidate that is where the
@@ -713,6 +742,12 @@ def main():
             # archive has written down beats one a lookup guessed at.
             tries = (list(p["alt"]) + [p["name"]]
                      + [y.strip() for y in re.split(r"[-–/]", p["name"]) if y.strip()])
+            # GeoNames writes the patron out — «Sveti Jakov Šiljevica» — and
+            # the catalogues abbreviate him. Stripping «Sv.» was already tried;
+            # EXPANDING it never was, and it is the whole difference between
+            # Jadranovo on the Kvarner and a Siljevica in Šumadija.
+            tries += [re.sub(r"^sv\.?\s+", "Sveti ", x, flags=re.I).replace("-", " ")
+                      for x in list(tries) if re.match(r"^sv\.?\s+", x, flags=re.I)]
             for x in tries:
                 for cand in ALL.get(norm(x), []):
                     if in_box(cand[0], cand[1], box):
