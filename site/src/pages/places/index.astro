@@ -2,28 +2,30 @@
 import { u } from "../../lib/url.js";
 import Base from "../../layouts/Base.astro";
 import Sources from "../../components/Sources.astro";
+import Places from "@daviddef/archive-kit/components/Places.astro";
 import places from "../../data/places.json";
+/* The alternate names are the argument this page makes - which name a document
+   uses tells you who was keeping it - so they stay on every row. The register
+   inventory goes into the note beside the lead, where "not yet inventoried" is
+   as much a fact as a count. */
 const alt=(p)=>Object.entries(p.alt||{}).map(([k,v])=>`${k}. ${v}`).join(" · ");
 const groups=[["istria","Central & southern Istria"],["kvarner","Kvarner — Rijeka, Bakar, Senj & Vinodol"],["carnia","Carnia, Friuli"],["dalmatia","Dalmatia — Omiš, Imotski, Split, Brač"],["trentino","Trentino & South Tyrol — same name, no proven descent"],["diaspora","Where they went — America, Germany, the Veneto"]];
+const byLane = Object.fromEntries(groups);
+const rows = places.map((p) => ({
+  name: p.name,
+  href: `/places/${p.slug}/`,
+  where: byLane[p.lane] || p.lane,
+  variants: Object.values(p.alt || {}),
+  note: [p.lead, p.registers
+    ? (p.registers.books
+        ? `<em>${p.registers.books} registers, ${p.registers.digitised} digitised.</em>`
+        : "<em>Registers not yet inventoried.</em>")
+    : ""].filter(Boolean).join(" "),
+}));
 ---
 <Base title="Places" eyebrow={`${places.length} settlements, six regions`}
       dek="Every place carries all of its names, because which name a document uses tells you who was keeping it.">
-{groups.map(([g,label])=>(
-  <section class="blk">
-    <h2>{label}</h2>
-    <div class="grid g2" style="margin-top:22px">
-      {places.filter(p=>p.lane===g).map(p=>(
-        <a class="cardlink" href={u(`/places/${p.slug}/`)}>
-          <div class="nm">{p.name}</div>
-          <div class="alt">{alt(p)}</div>
-          <div class="txt">{p.lead}</div>
-          {p.registers && <div class="alt" style="margin-top:10px;color:var(--terra)">
-            {p.registers.books ? `${p.registers.books} registers · ${p.registers.digitised} digitised` : "registers not yet inventoried"}
-          </div>}
-        </a>
-      ))}
-    </div>
-  </section>
-))}
+<Places rows={rows} u={u} />
+
   <Sources ids={["familysearch", "steiner", "carlo1879"]} />
 </Base>
