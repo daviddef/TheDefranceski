@@ -7,6 +7,8 @@ import Arms from "../components/Arms.astro";
 import FamilyArms from "../components/FamilyArms.astro";
 import PazinArms from "../components/PazinArms.astro";
 import Flags from "../components/Flags.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 ---
 <Base title="Arms & Flags" eyebrow="Evidence, not a badge"
       dek="This is the part of family history where the internet lies to people. Here is the honest position.">
@@ -63,7 +65,15 @@ import Flags from "../components/Flags.astro";
         <p style="margin-top:12px">So the carved shield is attested three times, from three directions and across a hundred and forty years: by Carlo in a private letter of about 1873, describing what his family used; by an architectural historian in 1979, recording what is on the building; and by the American branch in 2012, describing what they could still make out on it. The three descriptions differ in exactly the way you would expect three people to differ about a weathered stone.</p>
       </div>
 
-      <p><strong>Somebody should photograph that lintel.</strong> It has been on this archive's list of things to look for since the beginning, and it has just gone from a guess to a target. <a href={u("/the-eleven/")}>The album, and the family who wrote it →</a></p>
+      <p><strong>And somebody did photograph it.</strong> This paragraph said, until 17 September 2026, that the stone had never been photographed and that somebody should go and do it — while <strong>five photographs of it were already in this archive</strong>, taken by the family in the field and published on the <a href={u("/gallery/")}>gallery</a>. They are below. <a href={u("/corrections/")}>The correction →</a></p>
+    </div>
+
+    <div style="margin-top:24px"><Plates ids={["field-golo-arms-madonna", "field-golo-tablet", "field-golo-shield", "field-golo-oval", "field-golo-house"]} /></div>
+
+    <div class="prose" style="margin-top:22px">
+      <p><strong>What the photographs settle, and what they do not.</strong> They settle that the carving is there and that it is what Matejčić and the 2012 album describe: an oval cartouche in high relief, with mantling and a plumed helm, and the Madonna in her aedicule beneath it. On the tomb in the same village the shield is cut again, harder and later — <em>a cross rising the height of the field, crossed diagonally by two straight shafts</em> — and once more on an older stone where the oval has weathered nearly smooth and something round survives below the shafts.</p>
+      <p><strong>What none of them settles is the fruit</strong>, and the fruit is the whole argument. Carlo blazons a pomegranate; the American cousins in 1970-something saw what they took for a turnip; a weathered pomegranate looks like both. Every frame the archive holds was taken in flat light from where a person happens to stand. <a href={u("/photograph-these/")}>The shot list</a> has asked since it was written for the one picture that would decide it: <strong>the cartouche straight on, filling the frame, in raking light, morning or late afternoon</strong> — and the tablet the same way, because this archive has that stone in a wide frame and has never read it word for word.</p>
+      <p><a href={u("/the-eleven/")}>The album, and the family who wrote it →</a></p>
     </div>
 
     <div class="note" style="margin-top:26px">The armorial lists <strong>four</strong> families of the name in the region, and the differences matter more than the similarities. The first bears a stork standing on a mount of three peaks (Gianantonio, 1724); the second bears a lion; the third is the one above; the fourth, at Pisino, bears a half-castle and a pale charged with a pomegranate (Giacomo, 1788). Two of the four carry a pomegranate. None of them is a licence for anyone sharing the surname to use any of them.</div>
@@ -94,5 +104,6 @@ import Flags from "../components/Flags.astro";
     <p>And if a modern emblem is wanted anyway: commission one. Neither Italy nor Croatia regulates private assumption of arms, so a new emblem for the living family is legitimate — provided the site says plainly that it was made in the 2020s and inherits nothing. Designed from real material — the pine of the Carnian slopes, the Vinodol wave, a Glagolitic letter from the Gračišće graffiti — it would be honest and genuinely yours.</p>
   </div>
 </section>
-  <Sources ids={["kobler", "blasonario", "album2012", "attirovigno", "voce", "dfcom"]} />
+  <Lightbox />
+<Sources ids={["kobler", "blasonario", "album2012", "attirovigno", "voce", "dfcom"]} />
 </Base>
