@@ -127,11 +127,49 @@ def gazetteer(d):
                 continue
             rank = (cc == "HR", f[6] == "P", pop)
             alts = [x.strip() for x in (f[3] or "").split(",") if x.strip()]
-            for n in {f[1], f[2]} | set(alts):
+            names = {f[1], f[2]} | set(alts)
+            # GeoNames files a hamlet too small to have its own entry under a
+            # COMPOUND name — «Osais-Pesariis», «Tartinis-Colza», «Pieria-Prato
+            # Carnico». Four Carnian villages with seventy-five volumes between
+            # them had no dot on this map because only the whole string was
+            # indexed. The parts go in too, but always at a lower rank than a
+            # place that carries the name on its own.
+            parts = set()
+            for n in list(names):
+                if "-" in n:
+                    parts |= {x.strip() for x in n.split("-") if len(x.strip()) > 2}
+            for n, r in [(x, rank) for x in names] + [(x, (False, False, -1)) for x in parts]:
                 k = norm(n)
-                if len(k) > 2 and (k not in g or rank > g[k][0]):
-                    g[k] = (rank, round(lat, 5), round(lon, 5), cc, f[1], alts)
+                if len(k) > 2 and (k not in g or r > g[k][0]):
+                    g[k] = (r, round(lat, 5), round(lon, 5), cc, f[1], alts)
+                if len(k) > 2:
+                    ALL.setdefault(k, []).append((round(lat, 5), round(lon, 5), cc, f[1]))
     return {k: v[1:] for k, v in g.items()}
+
+
+# Every candidate for an ambiguous name, so a place whose region is known can
+# be given the right one of them. Prato Carnico sat on Prato in Tuscany for a
+# day — three hundred kilometres away, and the winner purely because Tuscany's
+# Prato has a hundred and ninety thousand people in it.
+ALL = {}
+
+# The provinces this archive actually reads, as boxes. A place catalogued only
+# by a provider that works one valley cannot be in another country.
+HINT = {
+    "fs-it":    (45.85, 46.75, 12.30, 13.75),   # Friuli — Udine province
+    "antenati": (45.85, 46.75, 12.30, 13.75),   # the same registers, other portal
+}
+
+def in_box(lat, lon, box):
+    return box[0] <= lat <= box[1] and box[2] <= lon <= box[3]
+
+# FamilySearch labels its Udine comuni with the short name the register clerk
+# used. «Prato» is ambiguous even inside Friuli — there is a Prato di Resia —
+# and the one this collection means is PRATO CARNICO, the Val Pesarina comune
+# whose own frazioni (Pesariis, Osais, Pieria) are listed beside it in the same
+# collection. Written down here rather than left to a coordinate lookup to
+# guess, because it moved a dot three hundred kilometres once already.
+FS_IT_ALIAS = {"Prato": "Prato Carnico"}
 
 # ---- what a place was called before ------------------------------------
 # GeoNames ships every name a place has ever been indexed under in one
@@ -482,6 +520,8 @@ def main():
     # ---- 3. FamilySearch Udine — the Carnia comuni
     for r in load("carnia-books.json")["comuni"]:
         p = P(r["name"])
+        if r["name"] in FS_IT_ALIAS:
+            p["alt"].add(FS_IT_ALIAS[r["name"]])
         vols = [{"t": f["t"], "ark": f["ark"], "wc": f.get("wc"), "cc": "1939238",
                  "from": span(f["t"])[0], "to": span(f["t"])[1]} for f in r.get("films", [])]
         p["src"]["fs-it"] = {"shelves": {"civil": {"wp": None, "books": vols}}}
@@ -639,9 +679,31 @@ def main():
                 return gaz[kk]
         return None
 
+    def box_for(p):
+        """Where a place can possibly be, if only one provider knows it.
+        A comune catalogued by nobody but the Udine sources is in Friuli."""
+        srcs = {sn for sn, blk in p["src"].items()
+                if any(sh.get("books") for sh in blk["shelves"].values())}
+        boxes = {HINT[sn] for sn in srcs if sn in HINT}
+        return boxes.pop() if len(boxes) == 1 and srcs <= set(HINT) else None
+
     def resolve(p):
         k = p["key"]
         if p["c"]:   return p["c"], "kml"
+        box = box_for(p)
+        if box:
+            # Name first, region second: take the candidate that is where the
+            # provider works. Without this, Prato Carnico is Prato in Tuscany
+            # and Priola in the Val Pesarina is Priola in Piedmont, because
+            # both of those are bigger and the index keeps one row per name.
+            # The alias first, then the name, then its parts: a name this
+            # archive has written down beats one a lookup guessed at.
+            tries = (list(p["alt"]) + [p["name"]]
+                     + [y.strip() for y in re.split(r"[-–/]", p["name"]) if y.strip()])
+            for x in tries:
+                for cand in ALL.get(norm(x), []):
+                    if in_box(cand[0], cand[1], box):
+                        return [cand[0], cand[1]], "geonames-region"
         if k in prev: return list(prev[k][:2]), prev[k][2]
         if k in atlas and atlas[k].get("lat"):
             return [atlas[k]["lat"], atlas[k]["lon"]], "atlas"
@@ -919,7 +981,7 @@ def main():
             # every provider — because coverage is a fact about the shelf, not
             # about which of its books happen to have an ark yet. The films list
             # below is the separate question of what you can click.
-            allb, films = [], []
+            allb, films, nolink = [], [], None
             for s, blk in sorted(got.items()):
                 for sh in blk["shelves"].values():
                     for b in (sh["books"] or []):
@@ -963,6 +1025,12 @@ def main():
                 else:
                     why = "no image address has been harvested for any of them yet."
                 what += " Not one of them is openable from here — " + why
+                # And say it AGAIN at the foot of the volume list. The sentence
+                # above sits at the top of a panel that can run seventeen
+                # hundred pixels; by the time a reader is looking at a row with
+                # no link on it, the explanation is off the screen, and the
+                # only thing visible is thirty-two titles that do not click.
+                nolink = why
             ev = timeline(allb)
             # Name them. A reader who is told «five things about this place»
             # and not which five has been given a number, not a finding.
@@ -983,6 +1051,8 @@ def main():
                                                 for _, t in ev):
                 ev.append(["No gaps", "Every year between the first volume and the last is "
                                       "covered by some register, for each kind above."])
+            if nolink:
+                ev.append(["No links", "Nothing above opens from this panel — " + nolink])
             nd = [b for b in allb if not b.get("digitised", True)]
             if nd:
                 ev.append(["Not digitised",

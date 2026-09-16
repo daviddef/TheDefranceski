@@ -45,7 +45,7 @@
  "kml": "data/genealogy-resources-croatia.kml",
  "stats": {
   "places": 1288,
-  "placed": 1235,
+  "placed": 1242,
   "volumes": 7762,
   "read": 6,
   "worked": 23,
@@ -225,9 +225,9 @@
   "fsPending": 0,
   "crossChecked": 27,
   "timelineGaps": {
-   "rows": 307,
-   "places": 175,
-   "clean": 550
+   "rows": 308,
+   "places": 176,
+   "clean": 555
   },
   "gaps": 684,
   "gapsBy": {
@@ -11948,7 +11948,7 @@
    ],
    "lat": 46.36793,
    "lon": 13.04075,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -12062,10 +12062,13 @@
    "key": "ceranje",
    "name": "Ceranje",
    "alt": [],
-   "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "older": [
+    "Cerane-Gornje",
+    "Gornje Ceranje"
+   ],
+   "lat": 43.98333,
+   "lon": 15.61667,
+   "geo": "geonames",
    "cat": "untouched",
    "layers": [
     "orth"
@@ -13156,9 +13159,9 @@
    "name": "Colza",
    "alt": [],
    "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "lat": 46.42166,
+   "lon": 12.87002,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -21302,10 +21305,12 @@
    "key": "dubasnica",
    "name": "Dubašnica",
    "alt": [],
-   "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "older": [
+    "Malinska-Dubasnica"
+   ],
+   "lat": 45.12277,
+   "lon": 14.52873,
+   "geo": "geonames",
    "cat": "untouched",
    "layers": [
     "rc"
@@ -23853,7 +23858,7 @@
    ],
    "lat": 46.58615,
    "lon": 12.7751,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -23916,7 +23921,7 @@
    ],
    "lat": 46.39379,
    "lon": 12.6721,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -32828,10 +32833,16 @@
    "key": "jakov",
    "name": "Jakov",
    "alt": [],
-   "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "older": [
+    "Filipjakov",
+    "Santi Filippo e Giacomo",
+    "Santo Filippo-Giacomo",
+    "Sv. Filipi i Jakov",
+    "Sveti Filip Jakov"
+   ],
+   "lat": 43.96472,
+   "lon": 15.43,
+   "geo": "geonames",
    "cat": "untouched",
    "layers": [
     "rc"
@@ -63184,7 +63195,7 @@
    "older": [],
    "lat": 46.42331,
    "lon": 12.79548,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -64767,9 +64778,9 @@
    "name": "Osais",
    "alt": [],
    "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "lat": 46.52167,
+   "lon": 12.77167,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -67624,9 +67635,9 @@
    "older": [
     "Paluce"
    ],
-   "lat": 46.5297,
-   "lon": 12.9967,
-   "geo": "atlas",
+   "lat": 46.53202,
+   "lon": 13.01586,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -68111,7 +68122,7 @@
    "older": [],
    "lat": 46.53101,
    "lon": 13.11886,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -71058,9 +71069,9 @@
    "name": "Pesariis",
    "alt": [],
    "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "lat": 46.52167,
+   "lon": 12.77167,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -72480,9 +72491,9 @@
    "name": "Pieria",
    "alt": [],
    "older": [],
-   "lat": null,
-   "lon": null,
-   "geo": null,
+   "lat": 46.52037,
+   "lon": 12.80328,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -79229,9 +79240,9 @@
    "older": [
     "Pratu"
    ],
-   "lat": 43.8805,
-   "lon": 11.09699,
-   "geo": "geonames",
+   "lat": 46.52049,
+   "lon": 12.80886,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -80859,7 +80870,7 @@
    "older": [],
    "lat": 46.39411,
    "lon": 12.86645,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -81694,9 +81705,9 @@
    "name": "Priola",
    "alt": [],
    "older": [],
-   "lat": 44.24478,
-   "lon": 8.02149,
-   "geo": "geonames",
+   "lat": 46.50387,
+   "lon": 12.98848,
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -85225,7 +85236,7 @@
    "older": [],
    "lat": 46.52504,
    "lon": 12.92138,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -89732,7 +89743,7 @@
    ],
    "lat": 46.46624,
    "lon": 12.70852,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -98157,7 +98168,7 @@
    ],
    "lat": 46.51206,
    "lon": 12.99325,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -110093,7 +110104,7 @@
    "older": [],
    "lat": 46.38883,
    "lon": 12.99082,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -121617,7 +121628,7 @@
    "older": [],
    "lat": 46.5292,
    "lon": 12.94937,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {
@@ -122107,7 +122118,7 @@
    "older": [],
    "lat": 46.4583,
    "lon": 13.02589,
-   "geo": "geonames",
+   "geo": "geonames-region",
    "cat": "untouched",
    "layers": [],
    "sources": {

@@ -753,6 +753,22 @@
    "where": "/map/",
    "said": "A heading was to turn **green when every volume of its kind had been read and amber when some had**. Green worked. Amber never appeared — a parish six volumes into eighteen looked exactly like one nobody had opened.",
    "true": "The tint was keyed to the words **«N of M read»**, which is what the builder printed until the per-volume ledger arrived and changed the sentence to «6 read, 0 part read, 12 unopened». The test stopped matching and nothing said so. The ◐ mark beside the heading was right the whole time; the colour behind it was missing."
+  },
+  {
+   "when": "16 Sept 2026",
+   "what": "Prato Carnico was on the map as Prato in Tuscany, and four Carnian villages were on it not at all",
+   "sev": "serious",
+   "where": "/map/ · /carnia/",
+   "said": "**Prato** — sixty-two volumes of the Val Pesarina — sat on the map at **43.88 N, 11.10 E**: Prato in Tuscany, three hundred kilometres from Carnia. **Priola** sat in Piedmont. And **Pesariis (32 volumes), Colza (25), Pieria (10) and Osais (8)** had no dot at all, so their panels could not be opened and 75 volumes of the origin valley were invisible.",
+   "true": "Three faults, one family of causes — a name looked up without a region.\n\n**The four missing villages** are in GeoNames under compound names: *Osais-Pesariis*, *Tartinis-Colza*, *Pieria-Prato Carnico*. Only whole strings were indexed. The parts are indexed now, always below a place that carries the name on its own.\n\n**Prato and Priola** are real names in more than one province, and the index keeps one row per name, ranked by population — so Tuscany's Prato, with 190,000 people, beat Prato Carnico's 1,065. A place catalogued only by a provider that works one valley is now resolved **inside that valley**: the Udine sources get a Friuli box, and the candidate in the box wins.\n\n**«Prato» is written down as Prato Carnico** rather than left to a lookup to guess again. It is what the collection means — its own frazioni, Pesariis, Osais and Pieria, are listed beside it in the same collection.\n\n*Found because David asked to check the rest of the Carnia panels after the «Nati» and «Morti» fix.* Six of the thirty were wrong or missing."
+  },
+  {
+   "when": "16 Sept 2026",
+   "what": "Why a volume has no link was explained at the top of a panel a reader was reading the bottom of",
+   "sev": "process",
+   "where": "/map/",
+   "said": "Gračišće's panel explained in its opening paragraph that Pazin publishes a register list and no images. Then it printed thirty-two titles that do not click, over seventeen hundred pixels, with the explanation long off the screen.",
+   "true": "The reason is now repeated as a **«No links»** row at the foot of the volume list, beside «Not digitised» and «No gaps» — where the eye is when the question occurs to it. *Asked twice by David, which is the measure of an answer in the wrong place.*"
   }
  ]
 }
