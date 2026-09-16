@@ -292,7 +292,7 @@ def timeline_label(b):
         t += " — PART READ" + (f": {b['readWhat']}" if b.get("readWhat") else "")
     if not b.get("digitised", True):
         t += (" — Pazin holds the paper; filmed elsewhere" if b.get("alsoFilmed")
-              else " — NOT FILMED ANYWHERE")
+              else " — NOT FILMED ANYWHERE: the book exists, nobody has photographed it")
     return t
 
 
@@ -386,7 +386,13 @@ def timeline(books):
                     rows.append([when, f"not covered by any title — probably how the "
                                        f"volumes were labelled, not a missing book"])
                 else:
-                    rows.append([when, f"GAP — no {label.lower()} register filmed, "
+                    # «filmed» was the wrong word and it made a GAP look like
+                    # the same thing as a volume marked NOT FILMED ANYWHERE.
+                    # They are opposites: a gap is a stretch with no book of
+                    # this kind in ANY provider's list, filmed or not; a book
+                    # marked not filmed is one that exists and has not been
+                    # photographed.
+                    rows.append([when, f"GAP — no {label.lower()} register listed anywhere, "
                                        f"{yrs} year{'' if yrs == 1 else 's'}"])
         rows += [vol_row(b) for b in sorted(mine, key=lambda b: (b["from"], b["t"]))]
     for b in books:
@@ -922,10 +928,25 @@ def main():
             # Silence there reads as an oversight; for Gračišće it is a fact
             # about the record, and the reader should be told which.
             if n and not films:
+                # Which providers actually PUT A BOOK on this shelf. Asking
+                # set(got) counted providers that catalogued the place and
+                # contributed nothing, so Gračišće — thirty-two volumes, every
+                # one of them Pazin's, and an empty FamilySearch-catalogue
+                # shelf beside them — was told «no image address has been
+                # harvested yet», which reads as an errand nobody has run. It
+                # is not. Pazin publishes a register list and no images, and
+                # FamilySearch's Croatian collection does not hold the parish.
+                # There is nothing to harvest, and the panel should say which
+                # of the two kinds of silence this is.
+                with_books = {s for s, blk in got.items()
+                              if any(sh.get("books") for sh in blk["shelves"].values())}
+                paperonly = {"dapa", "fs-cat"}
                 what += (" Not one of them is openable from here — "
-                         + ("Pazin publishes a catalogue, not images, and FamilySearch's "
-                            "Croatian collection does not hold this parish at all."
-                            if set(got) == {"dapa"} else
+                         + ("every volume above is a catalogue entry: Pazin publishes a "
+                            "register list, not images, and FamilySearch's Croatian "
+                            "collection does not hold this parish. They are read on "
+                            "microfilm at Pazin, or by ordering a copy."
+                            if with_books and with_books <= paperonly else
                             "no image address has been harvested for any of them yet."))
             ev = timeline(allb)
             # Name them. A reader who is told «five things about this place»
