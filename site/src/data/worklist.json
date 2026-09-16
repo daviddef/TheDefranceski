@@ -1,6 +1,6 @@
 {
  "title": "The work list",
- "eyebrow": "What is being worked on, what is finished, and what is waiting on somebody",
+ "eyebrow": "99 items · 39 open · 20 waiting on somebody else",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The twenty open items are at the top, in the order a reader should take them.** Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.",
  "cols": [
@@ -424,8 +424,8 @@
    "what": "Rebuild the roster from the live MyHeritage tree, not the 2018 GEDCOM",
    "state": "running",
    "owner": "this session",
-   "since": "2026-09-15",
-   "note": "**The roster's family-file source is a GEDCOM of July 2018 — 8,286 people. The live tree has 15,643.** A note of 7 September already said the export was retired and read 459 individuals of the surname out of the live tree; **that reading was never imported**. The Australian branch went in on 15 September — fifteen people — because David asked why his cousin's sister at Horsham was missing. **The rest of the tree is still outstanding**, and every one of the 513 roster rows carrying a 2018 identifier needs checking against it."
+   "since": "2026-09-16",
+   "note": "**The roster's family-file source is a GEDCOM of July 2018 — 8,286 people. The live tree has 15,643.** A note of 7 September already said the export was retired and read 459 individuals of the surname out of the live tree; **that reading was never imported**. The Australian branch went in on 15 September — fifteen people — because David asked why his cousin's sister at Horsham was missing. **The rest of the tree is still outstanding**, and every one of the 513 roster rows carrying a 2018 identifier needs checking against it.\n\n**16 September: the live tree is finally readable.** [The reconciliation is published](/live-tree/) and names the 668 people the roster does not have and the 14 dates the two sides disagree on. Importing them is the next pass, and it is a judgement call each time — a tree absorbs other people's Smart Matches, and this archive does not publish somebody else's guess as a fact."
   },
   {
    "n": 53,
@@ -446,10 +446,10 @@
   {
    "n": 55,
    "what": "Pull the live tree — 798 of the surname, not 459",
-   "state": "blocked",
+   "state": "done",
    "owner": "David",
-   "since": "2026-09-15",
-   "note": "**Walked, counted, and then blocked on the pipe.** Following the tree's own family links outward instead of querying given names found **798 individuals of the surname — 339 more than the name queries did — and 313 of them carry a citation David typed in by hand.**\n\n**The crawl cannot deliver them.** MyHeritage blocks a POST to a local receiver and the browser tool channel truncates at about a thousand characters, which is ten people a call. **A GEDCOM export of tree 4 is one click**, and it is exactly what the retired 2018 file was. [Written up as an errand](/errands/).\n\nWhat the walk did deliver on the way past is on [the search register](/searched/): Ursula dying at Belgrade, Robbie born at Senj, and four more places the archive had wrong or missing.",
+   "since": "2026-09-16",
+   "note": "**David exported it on 16 September, and the one click did what a fortnight of crawling could not.** 15,643 people, 4,777 families, **1,413 of the surname** — not 798, and not 459. The walk's count was an undercount too, because following family links only reaches people the tree has joined up.\n\n[The whole reconciliation is published](/live-tree/): 415 agree, 14 disagree, 668 are new here and 780 are ours alone. **The GEDCOM itself is not committed and will not be** — it carries dates of birth for 117 living people of the name, and this site is public.",
    "covers": [
     "err:err/david-myheritage-family-tree-4-91115c"
    ]
@@ -457,10 +457,10 @@
   {
    "n": 56,
    "what": "Walk every live-tree person's Facts panel for the citation text David typed by hand",
-   "state": "blocked",
-   "owner": "David",
-   "since": "2026-09-15",
-   "note": "`facts[].additionalContent` carries the **full source citation** — FamilySearch ark URLs, film and image numbers, archive names — entered by David himself. **211 of 459 people carry one.** It is the most sourced material in this whole estate and none of it is on the site.\n\n**Counted on 15 September: 313 of the 798 carry one.** They come out of the same GEDCOM as everything else, so this waits on the same one click."
+   "state": "done",
+   "owner": "a machine",
+   "since": "2026-09-16",
+   "note": "**689 of the 1,413 carry a citation, not 313.** They are not where the crawl was looking: MyHeritage files its own Smart-Match plumbing under «SOUR», and the citations David typed by hand sit in «NOTE» records. Reading the wrong tag found 272. Reading the right one found 689.\n\nBetween them they name **405 distinct FamilySearch arks — 311 indexed records and 94 film images — and 328 of those arks appear nowhere in this repository.** [What they cite, and which of it is new](/live-tree/)."
   },
   {
    "n": 57,
@@ -840,6 +840,22 @@
    "owner": "this archive",
    "since": "2026-09-16",
    "note": "`/map/` lifts its whole instrument into one fixed layer and asks for native fullscreen on top of it, **and carries its entire view in the address bar** — layers, basemap, find box, which filters are off, and where the map is looking. Both are written in `AtlasTimelineTint.astro`, which is this archive's own component and not the kit.\n\n**The per-provider maps under `/map/<source>/` have neither, and neither does any other archive on the estate.** A shareable map view is worth more to six archives than to one. If it earns its keep here it belongs in the kit — that is a conversation with whoever owns the shared UI, not a change to make quietly."
+  },
+  {
+   "n": 98,
+   "what": "Read Carnia on FamilySearch instead of waiting for Antenati",
+   "state": "next",
+   "owner": "a machine",
+   "since": "2026-09-16",
+   "note": "**Eight rows on this list are stalled on Antenati returning 403 Forbidden**, and they do not have to be. The tree cites **Italia, Udine, Stato Civile (Archivio di Stato), 1806-1815** twenty-six times — Mione, Paluzza, Illegio, Naunina — and **22 of those 26 people are already in this archive's roster**, read off Antenati's images of the same registers. Two sources worked apart, agreeing.\n\nWhich means **FamilySearch has indexed the volumes Antenati will not serve.** Collection 1939238 is already a provider here («fs-it»). Searching its index for the surname, comune by comune, reaches the entries without reaching the images — and the four Udine-cited people who are **not** in the roster say there is more in it than we have taken. [Where the numbers come from](/live-tree/)."
+  },
+  {
+   "n": 99,
+   "what": "The Santa Fe branch — seven births in Argentina nobody here has written about",
+   "state": "next",
+   "owner": "a machine",
+   "since": "2026-09-16",
+   "note": "Seven people in the tree, born **1899 to 1917** at San Lorenzo Mártir and the cathedral in Santa Fe, cited to *Argentina, Santa Fe, registros parroquiales, 1634-1975*. **Six of the seven are new here.** They carry two surnames each in the Spanish manner — de Franceschi Bono, Defranceschi Gallucci, de Franceschi Marti — which is exactly the shape that makes a name-query miss them.\n\n[Where the name went](/diaspora/) has nothing on Argentina. It should."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
