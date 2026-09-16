@@ -36,6 +36,50 @@ def load(n):
     p = os.path.join(DATA, n)
     return json.load(io.open(p, encoding="utf-8")) if os.path.exists(p) else None
 
+# A place string names its own region, and throwing that away is how Prato
+# Carnico ended up in Tuscany. «Memphis, Shelby, Tennessee, United States» and
+# «Isabela, Puerto Rico, United States» are unambiguous the moment the tail is
+# read: GeoNames files a US state or territory in the admin1 column under
+# exactly these codes.
+US_ADMIN = {
+    "alabama":"AL","alaska":"AK","arizona":"AZ","arkansas":"AR","california":"CA","colorado":"CO",
+    "connecticut":"CT","delaware":"DE","district of columbia":"DC","florida":"FL","georgia":"GA",
+    "hawaii":"HI","idaho":"ID","illinois":"IL","indiana":"IN","iowa":"IA","kansas":"KS","kentucky":"KY",
+    "louisiana":"LA","maine":"ME","maryland":"MD","massachusetts":"MA","michigan":"MI","minnesota":"MN",
+    "mississippi":"MS","missouri":"MO","montana":"MT","nebraska":"NE","nevada":"NV","new hampshire":"NH",
+    "new jersey":"NJ","new mexico":"NM","new york":"NY","north carolina":"NC","north dakota":"ND",
+    "ohio":"OH","oklahoma":"OK","oregon":"OR","pennsylvania":"PA","rhode island":"RI",
+    "south carolina":"SC","south dakota":"SD","tennessee":"TN","texas":"TX","utah":"UT","vermont":"VT",
+    "virginia":"VA","washington":"WA","west virginia":"WV","wisconsin":"WI","wyoming":"WY",
+}
+# Puerto Rico is its own country code in GeoNames, not a US admin1.
+COUNTRY = {
+    "united states":"US","usa":"US","puerto rico":"PR","australia":"AU","canada":"CA","england":"GB",
+    "wales":"GB","scotland":"GB","ireland":"IE","turkey":"TR","argentina":"AR","panama":"PA",
+    "italy":"IT","italia":"IT","croatia":"HR","hrvatska":"HR","slovenia":"SI","austria":"AT",
+    "hungary":"HU","serbia":"RS","brazil":"BR","brasil":"BR","uruguay":"UY","venezuela":"VE",
+    "south africa":"ZA","new zealand":"NZ","france":"FR","germany":"DE",
+}
+
+def hint(full):
+    """(country code, admin1 code) implied by a place string's own tail."""
+    parts = [norm(x) for x in str(full or "").split(",")]
+    # Puerto Rico is a country code of its own in GeoNames while the string
+    # calls it part of the United States, and the plain reading — last part
+    # wins — put San Lorenzo, Puerto Rico in California. The territory is
+    # tested first for that reason.
+    if "puerto rico" in parts:
+        return "PR", None
+    cc = adm = None
+    for x in reversed(parts):
+        if not cc and x in COUNTRY:
+            cc = COUNTRY[x]
+            continue
+        if cc == "US" and not adm and x in US_ADMIN:
+            adm = US_ADMIN[x]
+    return cc, adm
+
+
 # ---- every place string the archive names ------------------------------
 def wanted():
     w = collections.Counter()
@@ -54,8 +98,29 @@ def wanted():
     for p in (load("researchmap.json") or {}).get("places", []):
         w[head(p["name"])] += 1
         for a in (p.get("alt") or []) + (p.get("older") or []): w[head(a)] += 1
+    # A record's place can be a church, a census enumeration district or a
+    # ward — «St Anthony of Padua, Manhattan, New York», «19-Wd Memphis,
+    # Shelby, Tennessee». None of those is in a gazetteer and all of them say
+    # plainly what town they are in, one comma along. Every part is offered,
+    # and the map takes the first that resolves.
+    for p in (load("findmypast-map.json") or {}).get("places", []):
+        h = hint(p["loc"])
+        for part in str(p["loc"]).split(","):
+            k = norm(re.sub(r"^\s*\d+[-\s]?\w{0,3}\s+", "", part))
+            # Never fall back onto the country or the state itself. «St Peter,
+            # Roath, Glamorganshire, Wales» walked all the way to the last part
+            # and found Wales — a village in South Yorkshire. A country name is
+            # the tail of the string, not a place in it.
+            if k in COUNTRY or k in US_ADMIN:
+                continue
+            if len(k) > 2:
+                w[k] += p.get("n", 1)
+                HINTS.setdefault(k, set()).add(h)
     w.pop("", None)
     return {k: v for k, v in w.items() if len(k) > 2}
+
+# head -> the (country, admin1) pairs the archive's own strings imply for it.
+HINTS = {}
 
 # A name the archive uses that belongs to a bigger town somewhere else. The
 # lookup below keeps the most populous bearer of a name, which is right almost
@@ -85,6 +150,13 @@ def scan(gdir, want):
                 k = norm(nme)
                 if k not in want:
                     continue
+                hs = {h for h in HINTS.get(k, set()) if h[0]}
+                if hs:
+                    # The archive's own string said where this is. Take only a
+                    # candidate that agrees with it.
+                    if not any(f[8] == c and (not a or (len(f) > 10 and f[10] == a))
+                               for c, a in hs):
+                        continue
                 pref = PREFER.get(k)
                 if pref:
                     # A forced name takes only the country it was forced to,

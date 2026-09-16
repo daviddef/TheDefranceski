@@ -147,6 +147,45 @@
       films();
       fold();
       marks();
+      records();
+    }
+
+    /* A records place borrows the people list to draw its names, because the
+       kit has one name list and it is the right shape. What it must not
+       borrow is the people WORDING: «Who the archive puts here» is a claim
+       about residence, and a 1920 census line or a 1913 landing is a claim
+       about one day. Isabela said «11 people» and meant «11 records». */
+    function records() {
+      /* Read off the panel's own words rather than reaching for the data:
+         the «what» line is built by the map builder and says which of the
+         four things this place is. */
+      var w = body.querySelector(".at-what");
+      var t = w ? (w.textContent || "") : "";
+      if (t.indexOf("Recorded here \u2014") < 0) return;
+      var both = t.indexOf("Our people here \u2014") > -1;
+      var m = t.match(/(\d+) records? on Findmypast/);
+      var k = t.match(/Our people here \u2014 (?:(\d+) named here|(one) named here)/);
+      var chip = body.querySelector(".at-n");
+      /* Memphis holds three people this archive can name and twenty-one
+         census lines, and the chip called all twenty-one «people». The guard
+         is the word «record»: once it is in the chip this has already run,
+         and the observer that watches this panel does not go round again. */
+      if (m && chip && (chip.textContent || "").indexOf("record") < 0) {
+        var recs = m[1] + (m[1] === "1" ? " record" : " records");
+        var ppl = k ? (k[1] || "1") : null;
+        chip.textContent = ppl ? (ppl + " named \u00b7 " + recs) : recs;
+      }
+      var labs = body.querySelectorAll(".at-sec .lab, .at-panel .lab");
+      for (var i = 0; i < labs.length; i++) {
+        /* The test has to be EXACT. «Who the archive puts here, and who a
+           record names» still contains the old label, so a prefix match
+           rewrote its own output on the next mutation and the observer went
+           round for ever with the page frozen. */
+        if ((labs[i].textContent || "").trim().toLowerCase() === "who the archive puts here") {
+          labs[i].textContent = both ? "Who the archive puts here, and who a record names"
+                                     : "Named in a record here";
+        }
+      }
     }
 
     /* A mark on every volume row and every record-type heading, saying how far
@@ -801,8 +840,12 @@
          thing worth seeing, and the common thing is the ground it sits on.
          The panel does not change either way — it says all three whatever the
          dot is coloured for. */
-      var ORDER = ["graves", "people", "shelf"];
-      var RING = { shelf: "#ffffff", people: "#2E1147", graves: "#062B42" };
+      /* Rarest first: 31 places carry a Findmypast record, 61 a burial, 165
+         our people, 1,239 a shelf. A dot wears the colour of the rarest
+         question it answers among the layers that are on. */
+      var ORDER = ["records", "graves", "people", "shelf"];
+      var RING = { shelf: "#ffffff", people: "#2E1147", graves: "#062B42",
+                   records: "#5A3A00" };
       var on = {};
 
       function paint() {
@@ -1130,6 +1173,7 @@
         v.textContent =
             sc === "people" ? (cnt ? cnt + (cnt === 1 ? " person" : " people") : "—")
           : sc === "graves" ? (cnt ? cnt + (cnt === 1 ? " burial" : " burials") : "—")
+          : sc === "records" ? (cnt ? cnt + (cnt === 1 ? " record" : " records") : "—")
           : p.vols ? p.vols + (p.vols === "1" ? " volume" : " volumes")
           : "no catalogue";
         li.appendChild(v);

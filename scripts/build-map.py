@@ -163,13 +163,80 @@ for r in graves["places"]:
     add(r, "graves", r["cat"], r.get("n") or 0, r.get("what"), r.get("when"),
         r.get("href"), r.get("events"), None, None, 0, None)
 
-# ---- the panel says all three things, whichever colour is showing -------
-TAG = {"shelf": "", "people": "Our people here — ", "graves": "In the ground here — "}
+# ---- 4. the records ----------------------------------------------------
+# Findmypast is none of the first three. It is not a register a reader can
+# open and it is not where the family lived: it is A RECORD OF A PERSON AT A
+# PLACE ON A DATE — a census sheet, a landing, a marriage, a grave index. It
+# gets a layer of its own for exactly that reason, so a 1913 arrival at Ellis
+# Island can never be mistaken for a home.
+fmp = load(os.path.join(DATA, "findmypast-map.json"))
+gaz = load(os.path.join(ROOT, "data", "gazetteer.json"))["places"]
+# A country or a state is the tail of a place string, not a place in it; a
+# record whose only place is «Vermont» gets no dot rather than a wrong one.
+TAIL = {"united states", "usa", "australia", "england", "wales", "scotland", "ireland",
+        "turkey", "argentina", "panama", "italy", "puerto rico", "canada"}
+# The gazetteer is keyed the way build-gazetteer.py writes it — accents
+# stripped, runs of punctuation folded to ONE SPACE. loose() is a different
+# key altogether: it removes the spaces and folds digraphs, so «New York»
+# arrives as «nevior» and matches nothing.
+def gnorm(x):
+    return re.sub(r"[^a-z0-9]+", " ", strip(x).lower()).strip()
+
+def gazfind(locstr):
+    for part in str(locstr).split(","):
+        k = gnorm(re.sub(r"^\s*\d+[-\s]?\w{0,3}\s+", "", part))
+        if k in TAIL or len(k) <= 2:
+            continue
+        if k in gaz:
+            return gaz[k]
+    return None
+
+# Several of Findmypast's place strings resolve to ONE town — Manhattan, the
+# Bronx, Brooklyn and «New York City No 27» are all New York City, and four
+# wards of Washington are Washington. They are folded here, before the merge,
+# because the merge itself refuses to join two places of the same scheme: that
+# refusal is what keeps Gologorica and Gračišće apart and it is not going to be
+# relaxed for a census ward.
+fmp_unplaced, byPoint = [], {}
+for rec in fmp["places"]:
+    g = gazfind(rec["loc"])
+    if not g:
+        fmp_unplaced.append(rec)
+        continue
+    k = (round(g["lat"], 4), round(g["lon"], 4))
+    b = byPoint.setdefault(k, {"name": g["name"], "lat": g["lat"], "lon": g["lon"],
+                               "locs": [], "rows": []})
+    b["locs"].append(rec["loc"])
+    b["rows"] += rec["rows"]
+
+for b in byPoint.values():
+    by = collections.Counter(r["set"] for r in b["rows"])
+    yrs = sorted({r["y"] for r in b["rows"]})
+    n = len(b["rows"])
+    what = ("%d record%s on Findmypast, %s.  %s.  Filed as: %s" % (
+        n, "" if n == 1 else "s",
+        (yrs[0] if len(yrs) == 1 else "%s to %s" % (yrs[0], yrs[-1])),
+        " · ".join("%s (%d)" % (k, v) if v > 1 else k for k, v in by.most_common()),
+        " · ".join(sorted(set(b["locs"])))))
+    add({"name": b["name"], "lat": b["lat"], "lon": b["lon"], "also": []},
+        "records", "record", n, what, None, None, None, None,
+        [{"n": (r["fn"] + " " + r["ln"]).strip(), "y": r["y"]} for r in b["rows"]],
+        0, None)
+
+# ---- the panel says all four things, whichever colour is showing --------
+TAG = {"shelf": "", "people": "Our people here — ", "graves": "In the ground here — ",
+       "records": "Recorded here — "}
 for p in places:
     bits = []
-    for sc in ("shelf", "people", "graves"):
+    for sc in ("shelf", "people", "graves", "records"):
         if p["blocks"].get(sc):
             bits.append(TAG[sc] + p["blocks"][sc])
+        elif sc == "people" and p["ns"].get("people"):
+            # A people place whose atlas entry carries no prose said nothing
+            # at all about its people — and once the records layer existed, a
+            # town with both read as though the records were all it had.
+            k = p["ns"]["people"]
+            bits.append(TAG[sc] + ("%d named here" % k if k != 1 else "one named here"))
     p["what"] = "  ".join(bits)
     p["nfilms"] = len(p["films"])
     p["n"] = p["ns"].get("shelf", 0)
@@ -188,6 +255,9 @@ stats = {
     "shelf":  sum(1 for p in places if "shelf" in p["cats"]),
     "people": sum(1 for p in places if "people" in p["cats"]),
     "graves": sum(1 for p in places if "graves" in p["cats"]),
+    "records": sum(1 for p in places if "records" in p["cats"]),
+    "recordsN": sum(p["ns"].get("records", 0) for p in places),
+    "recordsUnplaced": sum(r["n"] for r in fmp_unplaced),
     "merged": sum(1 for p in places if len(p["cats"]) > 1),
     "allThree": sum(1 for p in places if len(p["cats"]) == 3),
     "peoplePlaced": sum(p["ns"].get("people", 0) for p in places),
@@ -202,7 +272,8 @@ stats = {
     "byGraves": collections.Counter(p["cats"]["graves"] for p in places if "graves" in p["cats"]),
     "sums": {"research": len([r for r in shelf["places"] if r["cat"] != "people"]),
              "atlas": len([r for r in atlas["places"] if r.get("lat") is not None]),
-             "graves": len([r for r in graves["places"] if r.get("lat") is not None])},
+             "graves": len([r for r in graves["places"] if r.get("lat") is not None]),
+             "records": len(fmp["places"]) - len(fmp_unplaced)},
 }
 stats["saved"] = sum(stats["sums"].values()) - stats["places"]
 

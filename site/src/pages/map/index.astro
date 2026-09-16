@@ -69,12 +69,20 @@ const gravesCats = [
    a marker takes when the question being asked is not one it can answer; its
    pill is hidden and switched off once, and the kit's own filter does the
    rest. */
-const cats = [...shelfCats, ...peopleCats, ...gravesCats, ["_none", "", "#000"]];
+/* The records layer. Findmypast is not a register anyone can open and it is
+   not where the family lived — it is a record of a person at a place on a
+   date. One colour, because the question it answers has one answer. */
+const recordCats = [
+  ["record",    "A record names somebody here", "#C77F0A"],
+];
+const cats = [...shelfCats, ...peopleCats, ...gravesCats, ...recordCats, ["_none", "", "#000"]];
 const catOf = Object.fromEntries([
   ...shelfCats.map(c => [c[0], "shelf"]),
   ...peopleCats.map(c => [c[0], "people"]),
   ...gravesCats.map(c => [c[0], "graves"]),
+  ...recordCats.map(c => [c[0], "records"]),
 ]);
+const m0 = mp.stats;
 /* Layers, not views. A place that answers two questions is still one dot —
    drawing it twice is exactly what merging the three maps was for — so it
    takes the colour of the rarest question it answers: the ground before our
@@ -83,6 +91,7 @@ const schemes = [
   ["shelf",  "The shelf",  "1,235 parishes · how far we have got with the registers"],
   ["people", "Our people", "167 towns · where a named person can be put"],
   ["graves", "The ground", "61 places · where the family is actually buried"],
+  ["records", "The records", `${m0.records} places · ${m0.recordsN} Findmypast records of somebody of the name`],
 ];
 const m = mp.stats;
 const abroad = m.peopleAbroad;
@@ -126,7 +135,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 <Base
   title="The Map"
   eyebrow={`${m.places} places · ${s.volumes} register volumes catalogued · ${m.peoplePlaced} people placed · ${m.burials} burials`}
-  dek="One map and three layers. Where are the record books and how far have we got with them; where can this archive put a named person; and where is the family actually in the ground. Switch any of them on or off. A place that answers more than one question is still one dot, and it wears the colour of the rarest answer it has — so with everything on, the graves and the people stand out of the shelf rather than hiding under it.">
+  dek="One map and four layers. Where are the record books and how far have we got with them; where can this archive put a named person; where is the family actually in the ground; and where does a record merely name somebody of the name on one day. Switch any of them on or off. A place that answers more than one question is still one dot, and it wears the colour of the rarest answer it has — so with everything on, the records, the graves and the people stand out of the shelf rather than hiding under it.">
 
   <div class="at-scheme">
     <div class="lab">Three layers — switch any of them on or off</div>
@@ -144,7 +153,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
     bounds={[[42.2, 13.2], [46.8, 19.6]]}
     homeLabel="Back to Croatia"
     placeholder="Brinje · Torrington · Otočac · Broken Hill"
-    hint={`${m.places} places, merged out of ${m.sums.research + m.sums.atlas + m.sums.graves} markers across three maps. ${m.merged} answer more than one of the three questions and ${m.allThree} answer all three — and with every layer on, those are the ones wearing the rarer colour.`}
+    hint={`${m.places} places, merged out of ${m.sums.research + m.sums.atlas + m.sums.graves + m.sums.records} markers across four sources. ${m.merged} answer more than one of the three questions and ${m.allThree} answer all three — and with every layer on, those are the ones wearing the rarer colour.`}
   />
 
   <AtlasTimelineTint dataUrl={u("/map-data.json")} schemes={schemes} catOf={catOf} />
@@ -158,7 +167,9 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 
 **Rijeka is the case for merging.** On one page it now says: sixty-nine register volumes catalogued and *not one of them opened*; ninety-six people the archive can put here; and **twenty-three burials**. Those were three separate facts on three separate pages, and the third of them — that we have twenty-three burials in a town whose registers we have never read — is only visible when they sit together.
 
-**The layers change the colour. They never change the panel.** Click any marker, with any combination switched on, and it tells you everything it has: the registers, the people and the graves together.
+**The layers change the colour. They never change the panel.** Click any marker, with any combination switched on, and it tells you everything it has: the registers, the people, the graves and the records together.
+
+**The fourth layer is a different kind of claim, and it is drawn that way.** The shelf, our people and the ground are all statements about *where this family is*. [Findmypast](/findmypast/) is not: a census line, a landing, a marriage licence is **a record of somebody of the name at a place on one day**. ${m.recordsN} such records stand on ${m.records} places, in amber, and the panel calls them what they are — *named in a record here*, not *who the archive puts here*. A 1913 arrival at Ellis Island must never be allowed to look like a home. A further ${m.recordsUnplaced} records name only a state or a country and get no dot at all, for the same reason.
 
 **A place that answers two questions is still one dot.** Drawing it twice is exactly what merging the three maps was for. It takes the colour of the **rarest question it answers** among the layers that are on — the ground before our people, our people before the shelf. There are 1,235 shelf places, 167 with people and 61 with graves, so the rare thing is the thing worth seeing and the common thing is the ground it sits on. **Rijeka answers all three and wears the burial colour; Gologorica answers two and wears the line's; Senjska Draga answers one and is sand.**
 
