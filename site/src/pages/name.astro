@@ -146,8 +146,9 @@ import gn from "../data/givennames.json";
     </table>
   </div>
   <div class="prose" style="margin-top:26px">
-    <p>This is not a curiosity — it decides whether a family can be reconstructed at all. Grouping records by parents only works if the machine knows that <em>Valentini</em>, <em>Valentino</em> and <em>Valentinus</em> are one man, and that <em>Ursula</em>, <em>Ursulæ</em> and <em>Orsola</em> are one woman. The normaliser behind the household pages now carries <strong>{gn.names} canonical names across {gn.forms} recorded forms</strong>, in Latin, Italian, Venetian, Croatian, German and English, and it peels Latin case endings and drops the <em>de</em> of a surname before comparing.</p>
+    <p>This is not a curiosity — it decides whether a family can be reconstructed at all. Grouping records by parents only works if the machine knows that <em>Valentini</em>, <em>Valentino</em> and <em>Valentinus</em> are one man, and that <em>Ursula</em>, <em>Ursulæ</em> and <em>Orsola</em> are one woman. The normaliser behind the household pages now carries <strong>{gn.rows.length} canonical names across {gn.totalForms} recorded forms</strong>, in Latin, Italian, Venetian, Croatian, German and English, and it peels Latin case endings and drops the <em>de</em> of a surname before comparing.</p>
     <p>Adding the Slavic and English forms alone merged three separate Rijeka households of the 1620s into one — <strong>Gioannis Antonÿ De Franceschi and Lutia</strong>, six children between 1626 and 1632 — which had been split three ways purely because the index wrote his name differently on different pages.</p>
+    <p><strong>A seventh column is not a language.</strong> {gn.slips.length} spellings here are nobody's form of the name — they are one hand, once, getting it wrong: <em>JVAN</em> for Ivan on a German wartime card, <em>ZORAFKO</em> for Zdravko on an Australian shipping list, <em>Vitnio</em> for Vitorio in a burial entry. A language form can be looked up; a slip can only be recognised. <a href={u("/your-name/#slips")}>The slips, with the document each came out of →</a></p>
   </div>
 </section>
 <Rule name="arrows" />

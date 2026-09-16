@@ -3,12 +3,19 @@ import Base from "../layouts/Base.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import gn from "../data/givennames.json";
-const rows = gn.rows;
+// A slip is not a language's form of a name, so it gets its own column rather
+// than being filed under whichever language the mistake happened to look like.
+// It still has to be searchable: JVAN is the only spelling of Ivan Defranceski
+// that the Arolsen card file will answer to, and a reader who has that card in
+// front of them has nothing else to type.
+const slipOf = {};
+(gn.slips || []).forEach(s => { (slipOf[s.canon] ||= []).push(s.form); });
+const rows = gn.rows.map(r => ({ ...r, slips: (slipOf[r.canon] || []).join(", ") || "—" }));
 
 // One flat lookup: every recorded form points back to its row.
 const index = {};
 rows.forEach((r, i) => {
-  ["latin", "italian", "venetian", "croatian", "german", "english"].forEach(k => {
+  ["latin", "italian", "venetian", "croatian", "german", "english", "slips"].forEach(k => {
     (r[k] || "").split(",").map(s => s.trim()).filter(s => s && s !== "—")
       .forEach(form => { index[form.toLowerCase()] = i; });
   });
@@ -22,7 +29,9 @@ const langs = [
   ["croatian", "Croatian", "The language of the villages, of the Vinodol and the Kvarner coast, and of every Yugoslav and Croatian document after 1945."],
   ["german", "German", "The language of the Habsburg bureaucracy, of the Pazin gymnasium, and of the wartime sickness-fund cards at Reutlingen."],
   ["english", "English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane. Usually the last change a name makes."],
+  ["slips", "A clerk's slip", "Not a form of the name at all — one hand, once, getting it wrong. These are the spellings a search will never find, and they are listed with the document each came out of below."],
 ];
+const slips = gn.slips || [];
 ---
 <Base
   title="Say Your Name"
@@ -35,17 +44,39 @@ const langs = [
   </section>
 
   <div class="namebox" style="margin-top:30px">
-    <input type="search" id="n" placeholder="Josephus · Ivan · Zuane · Frank · Antun" autocomplete="off"
+    <input type="search" id="n" placeholder="Josephus · Ivan · Zuane · JVAN · Frank · Antun" autocomplete="off"
            data-index={JSON.stringify(index)} data-rows={JSON.stringify(rows)} />
   </div>
   <div class="suggest" id="sug">
-    {["Giovanni", "Josephus", "Zuane", "Frane", "Antun", "Jakov", "Franz", "Nicolaus", "Orsola", "Mathæus"]
+    {["Giovanni", "JVAN", "Zuane", "Josephus", "ZORAFKO", "Frane", "Antun", "Franz", "Nicolaus", "Orsola"]
       .filter(x => index[x.toLowerCase()] !== undefined).map(x => (
       <button type="button" data-n={x}>{x}</button>
     ))}
   </div>
 
   <div id="out"></div>
+
+  <h2 id="slips" style="font-size:30px;margin-top:52px">And then there are the slips</h2>
+  <p class="dek" style="margin-top:8px;max-width:74ch" set:html={gn.slipnote.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Written</th><th>Meant</th><th>Who</th><th>Where it is written</th></tr></thead>
+      <tbody>{slips.map(x => (
+        <tr>
+          <td><strong>{x.form}</strong></td>
+          <td class="m">{x.canon[0].toUpperCase() + x.canon.slice(1)}</td>
+          <td>{x.who}</td>
+          <td>{x.where}<span style="display:block;opacity:.7;margin-top:3px">{x.why}</span></td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="prose note" style="margin-top:18px"><strong>Four of the ten are one man.</strong> Zdravko Defranceski
+  was written <em>ZORAFKO</em> by the Australian shipping clerk who took him off the <em>General Stewart</em> in 1949,
+  <em>Zdrafko</em> by the office that registered him as an alien, and <em>KDRAVKO</em> and <em>ZDRACKO</em> by the two
+  German hands that indexed the same wartime card. <a href={u("/pfullingen/#gazette")}>The Gazette that naturalised him
+  in 1978</a> got it right. The cost was real: the shipping spelling put a second memorial on him at Horsham, and it
+  took a <a href={u("/corrections/")}>correction</a> to take it off again.</p>
 
   <section class="prose" style="margin-top:48px">
     <h3>Why it matters, in one example</h3>
@@ -71,6 +102,7 @@ const langs = [
       croatian: ["Croatian", "The villages, the Vinodol, the Kvarner coast, and every document after 1945."],
       german: ["German", "The Habsburg bureaucracy, the Pazin gymnasium, the sickness-fund cards at Reutlingen."],
       english: ["English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane."],
+      slips: ["A clerk's slip", "Not a form of the name — one hand, once, getting it wrong. Cited below."],
     };
     const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 

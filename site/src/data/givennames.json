@@ -18,7 +18,7 @@
    "venetian": "Anto, Toni",
    "croatian": "Ante, Antun",
    "german": "Anton",
-   "english": "Anthony, Antony, Antonÿ"
+   "english": "Anthony, Antony"
   },
   {
    "canon": "matteo",
@@ -154,7 +154,7 @@
    "canon": "vittorio",
    "forms": 8,
    "latin": "Victorius",
-   "italian": "Vittorio, Vitorio, Victorii, Vitorii, Vitnio, Viktor",
+   "italian": "Vittorio, Vitorio, Victorii, Vitorii, Viktor",
    "venetian": "—",
    "croatian": "—",
    "german": "—",
@@ -194,7 +194,7 @@
    "canon": "valentino",
    "forms": 7,
    "latin": "Valentinus, Valentini, Valentinum",
-   "italian": "Valentino, Valentio, Valentine",
+   "italian": "Valentino, Valentine",
    "venetian": "—",
    "croatian": "—",
    "german": "Valentin",
@@ -543,10 +543,10 @@
   {
    "canon": "felice",
    "forms": 4,
-   "latin": "—",
-   "italian": "Felice, Felix, Srecko, Srećko",
+   "latin": "Felix",
+   "italian": "Felice",
    "venetian": "—",
-   "croatian": "—",
+   "croatian": "Srecko, Srećko",
    "german": "—",
    "english": "—"
   },
@@ -599,8 +599,91 @@
    "croatian": "—",
    "german": "—",
    "english": "—"
+  },
+  {
+   "canon": "zdravko",
+   "forms": 1,
+   "latin": "—",
+   "italian": "—",
+   "venetian": "—",
+   "croatian": "Zdravko",
+   "german": "—",
+   "english": "—"
   }
  ],
- "note": "Reconciled by hand from the forms that actually occur in these registers.",
- "totalForms": 418
+ "note": "Reconciled by hand from the forms that actually occur in these registers. **The six language columns are forms of a name; the slips below them are mistakes**, and the two were being kept in one bucket until 17 September 2026.",
+ "totalForms": 419,
+ "slips": [
+  {
+   "form": "JVAN",
+   "canon": "giovanni",
+   "who": "Ivan Defranceski, born 24 or 25 June 1925 at Crikvenica — David's grandfather",
+   "where": "Arolsen Archives, the War Time Card File 2.2.2.1",
+   "why": "A German clerk's J for a Croatian I, on the card that says where he was made to work."
+  },
+  {
+   "form": "KDRAVKO",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "Arolsen Archives, the War Time Card File 2.2.2.1",
+   "why": "A K read off a handwritten Z."
+  },
+  {
+   "form": "ZDRACKO",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "Arolsen Archives, the same card file",
+   "why": "The same man, indexed twice, wrong both times and differently."
+  },
+  {
+   "form": "ZORAFKO",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "NAA B78 — «YUGOSLAVIAN/DEFRANCESKI ZORAFKO», arrived Melbourne per General M. B. Stewart, 13 April 1949",
+   "why": "How Australian officialdom wrote him from the day he landed. It put a second memorial on him at Horsham."
+  },
+  {
+   "form": "Zdrafko",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "NAA A2571, alien registration 76418",
+   "why": "A fourth spelling, in a fourth office, of a man who was naturalised as Zdravko."
+  },
+  {
+   "form": "Roza",
+   "canon": "rosa",
+   "who": "Ruža Defranceski, born 13 February 1922 at Fužine",
+   "where": "Commonwealth of Australia Gazette. Periodic, No. P2, 16 February 1979, page 66",
+   "why": "The list that made her an Australian. Arolsen had already written her Rose; the register at Fužine will say Ruža."
+  },
+  {
+   "form": "Helenả",
+   "canon": "elena",
+   "who": "Helena Defranceschi, wife of Valentino of Fiume",
+   "where": "the FamilySearch index of the Fiume baptisms, XQMQ-HGYH and its fellows",
+   "why": "Not a clerk at all — an indexing artefact, a stray hook on the final a. It is why a name search misses her."
+  },
+  {
+   "form": "Vitnio",
+   "canon": "vittorio",
+   "who": "an infant son of Domenico Defranceschi, buried at Svetvinčenat 24 April 1815",
+   "where": "FamilySearch 6B47-9H9Q, read from the burial register",
+   "why": "Vitorio, with the r read as n. This table used to call it an Italian form of the name."
+  },
+  {
+   "form": "Valentio",
+   "canon": "valentino",
+   "who": "Valentino Defranceschi of Fiume, as father",
+   "where": "FamilySearch X9D5-3CK4, the 1757 entry for his daughter Maria",
+   "why": "A dropped n. The same man is Valentini, Valentinus and Valentino on his other children's entries."
+  },
+  {
+   "form": "Antonÿ",
+   "canon": "antonio",
+   "who": "«Gioannis Antonÿ» in the Rijeka registers",
+   "where": "the Rijeka baptisms, read on DGS 004679931",
+   "why": "The ÿ is the clerk's ligature for a double i — Antonii, the genitive. It is a letterform, not an English spelling, and it was filed here as English."
+  }
+ ],
+ "slipnote": "A form in the six columns above is a **language's** form of a name: a different people saying the same thing. A slip is not. **A slip is one clerk, once** — a J read for an I, an r read for an n, a Z heard as a K — and it matters more, because a language form can be looked up and a slip can only be recognised. Every one below is a spelling this archive actually met in a document, with the document named."
 }
