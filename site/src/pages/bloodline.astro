@@ -3,11 +3,10 @@
    evidence that produced it. Derived from the dossiers — see lib/bloodline.js
    for why there is no data file of its own. */
 import Base from "../layouts/Base.astro";
+import Bloodline from "@daviddef/archive-kit/components/Bloodline.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import { graph, components } from "../lib/bloodline.js";
-import fs from "node:fs";
-import path from "node:path";
 import "@daviddef/archive-kit/styles/bloodline.css";
 
 /* The renderer comes from the kit, inlined, rather than from this archive's own
@@ -17,9 +16,7 @@ import "@daviddef/archive-kit/styles/bloodline.css";
    broke the layout, and this page alone kept drawing the old way. Reading it
    out of node_modules means there is one renderer again and no version to
    hash, because the script is part of the page. */
-const client = fs.readFileSync(
-  path.join(process.cwd(), "node_modules/@daviddef/archive-kit/kit/lib/bloodline.client.js"),
-  "utf8");
+
 
 const people = graph();
 const comps = components(people);
@@ -86,48 +83,13 @@ const S = linked[start];
       <b>Franceschi</b> finds every one of them.</p>
   </div>
 
-  <p id="bl-summary" class="cap bl-sum"></p>
-  <div id="bl-stage" class="bl-stage"><svg id="bl-svg" role="img" aria-label="Blood relatives chart"></svg></div>
+  <Bloodline people={people} start={start} total={Object.keys(linked).length} />
 
-  <p class="cap bl-key">
-    <span><i class="k-line"></i>the direct line through this person</span>
-    <span><i class="k-read"></i>a register was read</span>
-    <span><i class="k-index"></i>an index says so</span>
-    <span><i class="k-tree"></i>the tree says so, nothing read</span>
-  </p>
-
-  <noscript>
-    <section class="blk">
-      <h2>{S.name}</h2>
-      <p class="dek">The chart needs JavaScript. The links themselves do not — here they are.</p>
-      {S.parents.length > 0 && <p><strong>Parents:</strong> {S.parents.map((p) => p.name).join(" · ")}</p>}
-      {S.siblings.length > 0 && <p><strong>Brothers and sisters:</strong> {S.siblings.map((p) => p.name).join(" · ")}</p>}
-      {S.children.length > 0 && <p><strong>Children:</strong> {S.children.map((p) => p.name).join(" · ")}</p>}
-    </section>
-  </noscript>
-
-  <section class="blk">
-    <h2>What the lines are made of</h2>
-    <p class="dek">Every link on this page, counted by the kind of record behind it. The archive has
-    far more links taken from an index than read out of a register, and the chart does not hide it.</p>
-    <div class="scroll" style="margin-top:14px">
-      <table>
-        <thead><tr><th style="width:14rem">How the link was made</th><th class="m" style="width:8rem">Links</th><th>What it means</th></tr></thead>
-        <tbody>
-          <tr><td><b>Read</b></td><td class="m">{viaCount.read || 0}</td><td>a baptism, marriage or burial act was read and it names the relationship.</td></tr>
-          <tr><td><b>Index</b></td><td class="m">{viaCount.index || 0}</td><td>an index entry gives the relationship; the act behind it has not been opened.</td></tr>
-          <tr><td><b>Direct line</b></td><td class="m">{viaCount.line || 0}</td><td>carried on the archive's own spine, where the joins are argued page by page.</td></tr>
-          <tr><td><b>Tree</b></td><td class="m">{viaCount.tree || 0}</td><td>the family tree asserts it and no record has been read. Drawn dashed.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
 
   {/* the links drawn above come out of the register readings and the indexes
       behind them, which is exactly what these three are */}
   <Sources ids={["familysearch", "matricula", "dapa"]} />
 
-  <script is:inline set:html={`window.__BLOOD = ${JSON.stringify(linked)}; window.__START = ${JSON.stringify(start)};`} />
-  <script is:inline set:html={client} />
+
 
 </Base>
