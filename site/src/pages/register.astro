@@ -4,6 +4,7 @@ import lw from "../data/leads.json";
 import { md as _mdl } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
+import Register from "@daviddef/archive-kit/components/Register.astro";
 import r from "../data/register.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -17,6 +18,29 @@ const groups = r.spellings.map(([name, n]) => ({
 }));
 const ark = (id) => `https://www.familysearch.org/ark:/61903/1:1:${id}`;
 const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" };
+
+/* The state chips this page built are the shared register's "Known from" facet,
+   and the seventy-seven spelling headings are its surname facet - so a reader
+   after one spelling gets it in a click instead of scrolling past seventy-six
+   others, and the search still runs across all of them at once.
+   The state stays visible on the row as well as filterable: 1,153 of these
+   1,508 are leads, and a reader should see that on the row they are reading
+   and not only in the control above it. */
+const regRows = r.rows.map((x) => ({
+  name: x.n,
+  surname: x.sp,
+  kind: LAB[x.st] || x.st,
+  chip: LAB[x.st] || x.st,
+  detail: [
+    x.says ? based(md(x.says)) : '<span class="none">no dated event indexed</span>',
+    x.p ? `<span class="pl">${x.p}${x.pl && x.pl !== String(x.p).split(",")[0].trim() ? `<b class="res"> = ${x.pl}</b>` : ""}</span>` : "",
+    x.o.length ? `<span class="rel">with ${x.o.join(", ")}</span>` : "",
+    x.note ? `<span class="rnote">${based(md(x.note))}</span>` : "",
+  ].filter(Boolean).join(" "),
+  source: x.id,
+  sourceHref: ark(x.id),
+  sourceLabel: "FamilySearch",
+}));
 ---
 <Base title={r.title} eyebrow={r.eyebrow} dek={r.dek}>
 
@@ -25,12 +49,6 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
     <strong>{nf(S.entries)} entries for {nf(S.names)} distinct names</strong>, {S.span[0]}–{S.span[1]},
     <strong>{nf(S.linked)} of them with a link</strong> to the record they came from.
   </p>
-  <div class="chips">
-    <button class="ch on" data-st="all">All <b>{nf(S.entries)}</b></button>
-    <button class="ch" data-st="in">In the archive <b>{nf(S.in)}</b></button>
-    <button class="ch" data-st="cand">Same name, not joined <b>{nf(S.cand)}</b></button>
-    <button class="ch" data-st="lead">Lead <b>{nf(S.lead)}</b></button>
-  </div>
   <div class="filt">
     <input id="q" type="search" placeholder="Filter by name, place, year or what the source says…" autocomplete="off" />
     <span id="cnt" class="cap"></span>
@@ -88,33 +106,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
 <Rule name="pomegranate" label="The list" />
 
 <section class="blk">
-  {groups.map(g => (
-    <div class="grp" data-grp={g.name}>
-      <h2 class="gh">{g.name} <span class="gn">{nf(g.n)}</span></h2>
-      <div class="tw">
-        <table class="reg">
-          <thead><tr><th>Name</th><th>What the source says</th><th>Source</th></tr></thead>
-          <tbody>
-            {g.rows.map(x => (
-              <tr data-st={x.st} data-k={[x.n, x.says, x.p, x.pl || "", x.y, x.o.join(" ")].join(" ").toLowerCase()}>
-                <td class="nm">
-                  <span class="pn">{x.n}</span>
-                  <span class={"st st-" + x.st}>{LAB[x.st]}</span>
-                  {x.o.length > 0 && <span class="rel">with {x.o.join(", ")}</span>}
-                  {x.note && <span class="rnote" set:html={based(md(x.note))}></span>}
-                </td>
-                <td class="sy">
-                  {x.says ? <span set:html={based(md(x.says))}></span> : <span class="none">no dated event indexed</span>}
-                  {x.p && <span class="pl">{x.p}{x.pl && x.pl !== x.p.split(",")[0].trim() && <b class="res"> = {x.pl}</b>}</span>}
-                </td>
-                <td class="sr"><a href={ark(x.id)} rel="noopener">FamilySearch <span class="id">{x.id}</span></a></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  ))}
+  <Register rows={regRows} u={u} unit="entries" />
 </section>
 
 <Rule name="pomegranate" />
@@ -128,42 +120,7 @@ const LAB = { in: "In the archive", cand: "Same name, not joined", lead: "Lead" 
   </p>
 </section>
 
-<script is:inline>
-(function(){
-  var q=document.getElementById('q'), cnt=document.getElementById('cnt');
-  var rows=[].slice.call(document.querySelectorAll('tr[data-k]'));
-  var grps=[].slice.call(document.querySelectorAll('.grp'));
-  // Each row's group, resolved once. The group loop used to ask the DOM to
-  // collect every unhidden row again, per group, per keystroke — which is
-  // the tally the row loop above already has.
-  var at=new Map(); grps.forEach(function(g,i){at.set(g,i)});
-  var owner=rows.map(function(tr){return at.get(tr.closest('.grp'))});
-  var st='all';
-  function run(){
-    var t=(q.value||'').trim().toLowerCase(), n=0;
-    var live=grps.map(function(){return 0});
-    rows.forEach(function(tr,i){
-      var ok=(st==='all'||tr.dataset.st===st)&&(!t||tr.dataset.k.indexOf(t)>-1);
-      tr.hidden=!ok; if(ok){n++;live[owner[i]]++}
-    });
-    grps.forEach(function(g,i){
-      var vis=live[i];
-      g.hidden=vis===0;
-      var b=g.querySelector('.gn'); if(b) b.textContent=vis.toLocaleString('en-GB');
-    });
-    cnt.textContent=n.toLocaleString('en-GB')+(n===1?' entry':' entries')+' shown';
-  }
-  try{var qp=new URLSearchParams(location.search).get('q');if(qp){q.value=qp;}}catch(e){}
-  q.addEventListener('input',run);
-  [].slice.call(document.querySelectorAll('.ch')).forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('.ch').forEach(function(o){o.classList.remove('on')});
-      b.classList.add('on'); st=b.dataset.st; run();
-    });
-  });
-  run();
-})();
-</script>
+
 
 <style>
   table.lost { width:100%; border-collapse:collapse; font-size:14px; }
