@@ -25,7 +25,13 @@ import sys, os, io, json, re, unicodedata, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "site", "src", "data")
 SURNAME = re.compile(r"de\s*franc?es+c?h?i|de\s*francesk|defrancesk|defraneski|defrancesch", re.I)
-ARK = re.compile(r"ark:/\d+/[\w:-]+|\bDGS\s*\d+|\bfilm\s*\d+|\b\d{9}\b", re.I)
+# A real FamilySearch ark, and nothing else. The first draft of this also
+# matched any nine-digit run, which is the shape of a MyHeritage record number
+# too, so it counted six people as carrying film references who carry none.
+ARK  = re.compile(r"ark:/\d+/([13]:1:[\w-]+)")
+# FamilySearch's own citation names the collection in quotes before the word
+# FamilySearch. That title is the useful thing: it says which BOOK was read.
+COLL = re.compile(r'"([^"]{12,95})",\s*,?\s*FamilySearch')
 
 def strip(s):
     s = unicodedata.normalize("NFD", str(s or ""))
@@ -97,6 +103,17 @@ def main():
         k = (d["name"], d["rosterName"], tuple(d["tree"]), tuple(d["archive"]))
         if k in seen: continue
         seen.add(k); dis.append(d)
+    # Two of these are not disagreements. When the reverse pair is also in the
+    # list — tree 1786 against archive 1789, and tree 1789 against archive 1786
+    # — both sides are holding the same person twice under two years, and each
+    # copy is being matched to the other side's other copy. That is a duplicate
+    # to merge, not a date to decide, and the page should not call it one.
+    pairs = {(d["name"].lower(), tuple(d["tree"]), tuple(d["archive"])) for d in dis}
+    for d in dis:
+        d["kind"] = ("mirror"
+                     if (d["name"].lower(), tuple(d["archive"]), tuple(d["tree"])) in pairs
+                     else "date")
+
     def gap(d):
         pairs = [(a, b) for a, b in zip(d["tree"], d["archive"]) if a and b and a != b]
         return max((abs(a - b) for a, b in pairs), default=0)
@@ -114,6 +131,55 @@ def main():
     cites = [p for p in tree if p["cites"]]
     arks  = [p for p in tree if any(ARK.search(c) for c in p["cites"])]
 
+    # --- what the tree cites that this archive has never read ---------------
+    # Every ark already written down anywhere in this repository, so the page
+    # can say which of David's own citations are news to the archive.
+    seen_arks = set()
+    for base, _dirs, files in os.walk(os.path.join(ROOT, "site", "src")):
+        for fn in files:
+            if fn == "reconcile.json" or not fn.endswith((".json", ".astro", ".md", ".js")):
+                continue
+            try:
+                txt = io.open(os.path.join(base, fn), encoding="utf-8").read()
+            except Exception:
+                continue
+            seen_arks |= set(ARK.findall(txt))
+    tree_arks = collections.Counter()
+    for p in tree:
+        for c in p["cites"]:
+            for a in ARK.findall(c):
+                tree_arks[a] += 1
+    unseen = [a for a in tree_arks if a not in seen_arks]
+
+    # The collections, and whether this archive has ever named them.
+    colls, coll_people = collections.Counter(), collections.defaultdict(set)
+    for p in tree:
+        for c in p["cites"]:
+            for t in COLL.findall(c):
+                colls[t] += 1
+                coll_people[t].add(p["id"])
+    byid = {p["id"]: p for p in tree}
+    colrows = []
+    for t, n in colls.most_common():
+        ppl = [byid[i] for i in coll_people[t]]
+        colrows.append({"t": t, "c": n, "p": len(ppl),
+                        "n": sum(1 for q in ppl if given(q["name"]) not in Rg)})
+
+    # Where the tree goes that the archive does not, and when.
+    newplaces = collections.Counter(
+        (p["bp"] or p["dp"] or "").split(",")[0].strip() for p in newp)
+    newplaces.pop("", None)
+    cent = collections.Counter()
+    for p in newp:
+        y = p["by"] or p["dy"]
+        if y: cent[(y // 100) * 100] += 1
+
+    # And what the archive has that the tree does not, by where it came from.
+    bysrc = collections.Counter()
+    for k in only_ros:
+        for r in R[k]:
+            bysrc[r.get("src") or "?"] += 1
+
     out = {
       "note": __doc__.strip().split("\n\n")[1],
       "when": "16 September 2026",
@@ -122,11 +188,21 @@ def main():
         "treeSurname": len(tree), "rosterRows": len(roster),
         "onlyTree": len(newp), "onlyRoster": sum(len(R[k]) for k in only_ros),
         "exactBoth": sum(len(T[k]) for k in both),
-        "disagree": len(dis),
+        "disagree": sum(1 for d in dis if d["kind"] == "date"),
+        "mirrored": sum(1 for d in dis if d["kind"] == "mirror"),
         "treeLiving": sum(1 for p in tree if p["living"]),
         "withCitations": len(cites), "withArks": len(arks),
+        "arksDistinct": len(tree_arks), "arksUnseen": len(unseen),
+        "arksImage": sum(1 for a in tree_arks if a.startswith("3:1")),
+        "arksRecord": sum(1 for a in tree_arks if a.startswith("1:1")),
+        "collections": len(colrows),
+        "collectionsNewPeople": sum(c["n"] for c in colrows),
         "gedcom2018": 254,
       },
+      "colls": colrows,
+      "newPlaces": newplaces.most_common(28),
+      "newCentury": sorted(cent.items()),
+      "rosterOnlyBySrc": bysrc.most_common(),
       # Living people: name and place, never a date. The rule is applied here
       # rather than trusted to the page.
       "new": [{"n": p["name"],
@@ -140,6 +216,9 @@ def main():
     json.dump(out, io.open(os.path.join(DATA, "reconcile.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print(json.dumps(out["stats"], ensure_ascii=False, indent=1))
+    print("\ncollections, and how many of their people are new here:")
+    for c in colrows:
+        print("  %3d cites / %3d people / %3d new  %s" % (c["c"], c["p"], c["n"], c["t"]))
     print("\nfirst disagreements:")
     for d in dis[:10]:
         print("  %-36s tree %s  archive %s" % (d["name"][:36], d["tree"], d["archive"]))

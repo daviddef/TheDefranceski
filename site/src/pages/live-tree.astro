@@ -1,0 +1,250 @@
+---
+/* The live MyHeritage tree, read against this archive.
+   Everything here is derived from site/src/data/reconcile.json, which is
+   written by scripts/reconcile-gedcom.py. The GEDCOM itself is never
+   committed: it carries dates of birth for living people, and this archive
+   publishes a living person's name and town and nothing else. The rule is
+   applied in the builder, not trusted to this page — a living person arrives
+   here with an empty year field. */
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import rec from "../data/reconcile.json";
+
+const s = rec.stats;
+const n = (x) => x.toLocaleString("en-GB");
+
+const SRC = {
+  myheritage: "the 2018 family file",
+  household: "households read out of the registers",
+  record: "an indexed record",
+  burial: "a burial register",
+  read: "a book read page by page",
+  grave: "a headstone",
+  golo: "the Gologorica registers",
+  index: "a name index",
+  namesake: "a namesake, not yet joined",
+  life: "a life written up here",
+  line: "a line drawn on this site",
+  chart: "the Omiš chart",
+  eleven: "the Gračišće eleven",
+  paper: "a newspaper",
+};
+
+const dis = rec.disagree.filter((d) => d.kind !== "mirror");
+/* A mirrored pair arrives twice, once from each side. The two rows carry the
+   same four years between them, so the set of years is the pair's identity. */
+const mkey = (d) => d.name.toLowerCase() + "|" + [...d.tree, ...d.archive].sort().join(",");
+const mirror = rec.disagree.filter((d) => d.kind === "mirror")
+  .filter((d, i, a) => a.findIndex((e) => mkey(e) === mkey(d)) === i);
+const yrs = (a) => (a[0] || "?") + "–" + (a[1] || "?");
+const colls = rec.colls.filter((c) => c.c > 0);
+---
+<Base
+  title="The live tree, read against this archive"
+  eyebrow={`${n(s.treeTotal)} people · ${n(s.treeSurname)} of the name · exported 16 September 2026`}
+  dek="What David's own tree holds that this archive has never read, and what this archive holds that the tree has not.">
+
+<section class="blk">
+  <p class="prose" set:html={mdp(
+    "This archive and David's MyHeritage tree have been growing beside each other for a year without either reading the other. The roster's family file was the export of **July 2018** — 8,286 people, 254 of them of this surname. The tree exported on **16 September 2026** holds " + n(s.treeTotal) + " people in " + n(s.treeFamilies) + " families, " + n(s.treeSurname) + " of them of the name.\n\n" +
+    "Reading one against the other is not a merge. It is four separate questions, and they have four different answers: who is in both and agrees, who is in both and does not, who only the tree knows about, and who only this archive has found. The fourth is the one people forget — a year of register reading here has turned up " + n(s.onlyRoster) + " people the tree still does not have.")}></p>
+</section>
+
+<Rule name="tablet" label="The four answers" />
+
+<section class="blk">
+  <div class="fig">
+    <div class="f"><b>{n(s.exactBoth)}</b><span>in both, agreeing<i>same name, same years</i></span></div>
+    <div class="f"><b>{dis.length}</b><span>in both, disagreeing<i>one year apart, one year shared</i></span></div>
+    <div class="f"><b>{n(s.onlyTree)}</b><span>only in the tree<i>this archive has never heard of them</i></span></div>
+    <div class="f"><b>{n(s.onlyRoster)}</b><span>only in this archive<i>found here, not yet in the tree</i></span></div>
+  </div>
+  <p class="cap" style="margin-top:14px">Matching folds the nine spellings of this surname together and compares given names and years, so De Franceschi, Defranceschi and Defranceski are one family and not three. {n(s.treeLiving)} of the {n(s.treeSurname)} are living; they are counted here and appear below by name and town, never by a date.</p>
+</section>
+
+<Rule name="arrows" label="Where the two disagree" />
+
+<section class="blk">
+  <p class="prose" set:html={mdp(
+    "A disagreement is the same person written down twice with one field wrong. The first pass at this called **2,414** of them disagreements, which was a cross-join wearing a finding's clothes: it paired every Francesco in the tree with every Francesco in the roster and reported the difference. The test that survives needs an **anchor** — the two must agree on one year exactly and differ on the other. Two people of one name and no shared year are two people, which is the thing this archive keeps having to say out loud.\n\n" +
+    "That leaves " + dis.length + ", and they are worth a morning each.")}></p>
+
+  <table class="dis">
+    <thead><tr><th>Name</th><th>The tree says</th><th>This archive says</th><th>Where, and on whose word</th></tr></thead>
+    <tbody>
+      {dis.map((d) => (
+        <tr>
+          <td class="nm">{d.name}{d.rosterName !== d.name && <em> · here as {d.rosterName}</em>}</td>
+          <td class="yr">{yrs(d.tree)}</td>
+          <td class="yr">{yrs(d.archive)}</td>
+          <td class="wh">{d.treePlace ? d.treePlace.split(",").slice(0, 2).join(", ") : "—"}<i>{SRC[d.src] || d.src}</i></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  {mirror.length > 0 && (
+    <div class="one" style="margin-top:26px">
+      <div class="lab">And {mirror.length * 2} rows that are not disagreements at all</div>
+      <p class="prose" style="margin-top:8px" set:html={md(
+        "These came back in mirrored pairs — the tree's 1786 against the archive's 1789, and then the tree's 1789 against the archive's 1786. That shape means **both sides are holding the same person twice**, under two years, and each copy is being matched to the other side's other copy. It is a duplicate to merge, not a date to decide, and this page will not pretend otherwise.")}></p>
+      <ul class="mir">
+        {mirror.map((d) => (
+          <li>{d.name} — held as {yrs(d.tree)} and as {yrs(d.archive)}{d.treePlace && <span>, {d.treePlace.split(",")[0]}</span>}</li>
+        ))}
+      </ul>
+    </div>
+  )}
+</section>
+
+<Rule name="loom" label="What the tree cites that we have never read" />
+
+<section class="blk">
+  <p class="prose" set:html={mdp(
+    "**" + n(s.withCitations) + "** of the " + n(s.treeSurname) + " carry a citation David typed by hand. They are not where a reader would look for them: MyHeritage keeps its own Smart Match plumbing under SOUR, and the citations a person actually wrote are filed as NOTE records. Reading the wrong tag found 272 of them. Reading the right one found " + n(s.withCitations) + ".\n\n" +
+    "Between them they name **" + n(s.arksDistinct) + "** distinct FamilySearch arks — " + s.arksRecord + " indexed records and " + s.arksImage + " film images, which is to say " + s.arksImage + " pages of a register that David has looked at with his own eyes. **" + n(s.arksUnseen) + " of them appear nowhere in this repository.** That is the single largest unread pile this archive has ever been handed, and it was sitting in the family tree the whole time.")}></p>
+
+  <div class="fig sm" style="margin-top:22px">
+    <div class="f"><b>{n(s.withCitations)}</b><span>people with a citation</span></div>
+    <div class="f"><b>{n(s.arksDistinct)}</b><span>distinct arks cited</span></div>
+    <div class="f"><b>{n(s.arksUnseen)}</b><span>arks new to this archive</span></div>
+    <div class="f"><b>{s.collections}</b><span>collections cited<i>{s.collectionsNewPeople} of their people new here</i></span></div>
+  </div>
+</section>
+
+<section class="blk">
+  <h3 class="sh">The collections the tree cites, and how many of their people are new here</h3>
+  <table class="coll">
+    <thead><tr><th>Collection</th><th>Cited</th><th>People</th><th>New here</th></tr></thead>
+    <tbody>
+      {colls.map((c) => (
+        <tr class={c.n ? "new" : ""}>
+          <td>{c.t}</td>
+          <td class="num">{c.c}</td>
+          <td class="num">{c.p}</td>
+          <td class="num flag">{c.n || "—"}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="prose note" style="margin-top:18px" set:html={mdp(
+    "Two rows in that table are worth stopping on, and they say opposite things.\n\n" +
+    "**Italia, Udine, Stato Civile (Archivio di Stato), 1806-1815** — twenty-six citations, almost all of them at **Mione**, with Paluzza, Illegio and Naunina beside them. Twenty-two of the twenty-six people are already in this archive's roster, read off [Antenati's images of the same registers](/carnia/). Two sources, worked apart, agreeing. That is the most reassuring number on this page — and it carries a practical consequence, because **FamilySearch has indexed the Carnia volumes that Antenati is currently refusing to serve.** Eight rows on [the work list](/worklist/) are stalled on that refusal. They do not have to be.\n\n" +
+    "**Argentina, Santa Fe, registros parroquiales, 1634-1975** — seven people, born 1899 to 1917 at San Lorenzo Mártir and at the cathedral in Santa Fe, carrying two surnames each in the Spanish manner: de Franceschi Bono, Defranceschi Gallucci, de Franceschi Marti. Six of the seven are new here. An emigrant branch this archive has never written a line about, and the tree has had the parish registers for it all along.")}></p>
+</section>
+
+<Rule name="helm" label="The six hundred and sixty-eight" />
+
+<section class="blk">
+  <p class="prose" set:html={mdp(
+    "These are people in the tree whose names, under any spelling and with the years set aside, match nobody in this archive's roster. Not all of them are findings — a tree absorbs Smart Matches from other people's trees, and some of these will be somebody else's guess. But they are where the next month of work is.")}></p>
+
+  <div class="two" style="margin-top:20px">
+    <div>
+      <h3 class="sh">By century</h3>
+      <ul class="bars">
+        {rec.newCentury.map(([c, k]) => (
+          <li><span class="cl">{c}s</span><span class="bar" style={`width:${Math.round((k / Math.max(...rec.newCentury.map((x) => x[1]))) * 100)}%`}></span><span class="ct">{k}</span></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h3 class="sh">Where they are</h3>
+      <ul class="pls">
+        {rec.newPlaces.slice(0, 20).map(([p, k]) => (<li><span>{p}</span><b>{k}</b></li>))}
+      </ul>
+    </div>
+  </div>
+
+  <p class="cap" style="margin-top:22px">The first {rec.new.length} by date, oldest first. A living person appears by name and town with no year, which is this archive's rule everywhere.</p>
+  <ol class="names">
+    {rec.new.map((p) => (
+      <li>
+        <span class="pn">{p.n}</span>
+        {p.y ? <span class="py">{p.y}</span> : <span class="py liv">living</span>}
+        {p.p && <span class="pp">{p.p}</span>}
+      </li>
+    ))}
+  </ol>
+</section>
+
+<Rule name="arcade" label="The seven hundred and eighty" />
+
+<section class="blk">
+  <p class="prose" set:html={mdp(
+    "And the other direction, which is the one worth being pleased about. " + n(s.onlyRoster) + " people in this archive's roster are not in the tree under any spelling. They came out of the registers, the headstones and the indexes, one at a time, and they are this archive's own return on a year of reading.")}></p>
+  <ul class="pls wide" style="margin-top:18px">
+    {rec.rosterOnlyBySrc.map(([k, v]) => (<li><span>{SRC[k] || k}</span><b>{v}</b></li>))}
+  </ul>
+  <p class="cap" style="margin-top:16px">The 205 filed under the 2018 family file are the sharpest of these: they were in the tree eight years ago and are not in it now, which usually means a merge tidied them away.</p>
+</section>
+
+<Rule name="pomegranate" />
+
+<section class="blk">
+  <p class="prose note" set:html={mdp(
+    "**The GEDCOM is not in this repository and will not be.** It carries dates of birth for 117 living people of the name and several thousand more besides, and this site is public. What is committed is the reconciliation above, built by a script that applies the living rule before it writes anything down.")}></p>
+  <p class="cap" style="margin-top:14px">
+    <a href={u("/who/")}>Every name →</a> ·
+    <a href={u("/register/")}>The Register →</a> ·
+    <a href={u("/worklist/")}>The work list →</a> ·
+    <a href={u("/searched/")}>What has been read →</a> ·
+    <a href={u("/corrections/")}>Corrections →</a>
+  </p>
+</section>
+
+<style>
+  .fig { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%,190px), 1fr)); margin-top: 6px; }
+  .f { border: 1px solid var(--rule, #dcd6cc); border-top-width: 3px; border-radius: 3px; padding: 14px 16px 16px; }
+  .f b { display: block; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .f span { display: block; margin-top: 8px; font-size: 13px; line-height: 1.45; opacity: .78; }
+  .f i { display: block; font-style: normal; font-size: 11.5px; opacity: .62; margin-top: 3px; }
+  .fig.sm .f b { font-size: 24px; }
+
+  .sh { font-size: 13px; letter-spacing: .09em; text-transform: uppercase; opacity: .6; margin: 0 0 12px; font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 18px; }
+  th { text-align: left; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; opacity: .55;
+       font-weight: 600; padding: 0 12px 7px 0; border-bottom: 1px solid var(--rule, #dcd6cc); }
+  td { padding: 9px 12px 9px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule, #dcd6cc) 55%, transparent);
+       vertical-align: top; line-height: 1.45; }
+  .nm em { font-style: normal; opacity: .55; font-size: 12.5px; }
+  .yr { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .wh i { display: block; font-style: normal; font-size: 12px; opacity: .55; }
+  .num { font-variant-numeric: tabular-nums; text-align: right; width: 4.5em; }
+  .coll tr.new td { background: color-mix(in srgb, var(--terra, #a5442c) 7%, transparent); }
+  .flag { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--terra, #a5442c); white-space: nowrap; }
+
+  .mir { margin: 12px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.7; opacity: .82; }
+
+  .two { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(min(100%,270px), 1fr)); }
+  .bars { list-style: none; margin: 0; padding: 0; }
+  .bars li { display: grid; grid-template-columns: 4.2em 1fr 3em; align-items: center; gap: 10px; padding: 4px 0; }
+  .cl { font-size: 13px; opacity: .7; font-variant-numeric: tabular-nums; }
+  .bar { height: 9px; background: var(--accent, #8a7f5c); border-radius: 2px; min-width: 2px; }
+  .ct { font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; opacity: .7; }
+
+  .pls { list-style: none; margin: 0; padding: 0; columns: 1; }
+  .pls.wide { columns: 2; column-gap: 30px; }
+  .pls li { display: flex; justify-content: space-between; gap: 12px; font-size: 14px;
+            padding: 4px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule, #dcd6cc) 45%, transparent);
+            break-inside: avoid; }
+  .pls b { font-variant-numeric: tabular-nums; opacity: .7; font-weight: 600; }
+
+  .names { list-style: none; margin: 14px 0 0; padding: 0; columns: 2; column-gap: 34px; font-size: 13.5px; }
+  .names li { break-inside: avoid; padding: 5px 0; line-height: 1.4;
+              border-bottom: 1px solid color-mix(in srgb, var(--rule, #dcd6cc) 40%, transparent); }
+  .pn { display: block; }
+  .py { font-variant-numeric: tabular-nums; font-size: 12px; opacity: .62; }
+  .py.liv { font-variant-numeric: normal; }
+  .pp { font-size: 12px; opacity: .5; }
+  .pp::before { content: " · "; }
+
+  @media (max-width: 720px) {
+    .names, .pls.wide { columns: 1; }
+    .coll td:nth-child(4), .coll th:nth-child(4) { display: none; }
+  }
+</style>
+</Base>
