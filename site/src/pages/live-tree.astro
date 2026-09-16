@@ -58,7 +58,7 @@ const colls = rec.colls.filter((c) => c.c > 0);
   <div class="fig">
     <div class="f"><b>{n(s.exactBoth)}</b><span>in both, agreeing<i>same name, same years</i></span></div>
     <div class="f"><b>{dis.length}</b><span>in both, disagreeing<i>one year apart, one year shared</i></span></div>
-    <div class="f"><b>{n(s.onlyTree)}</b><span>only in the tree<i>this archive has never heard of them</i></span></div>
+    <div class="f"><b>{n(s.onlyTree)}</b><span>only in the tree<i>and {n(s.onlyTreePenned)} more that David has already parked</i></span></div>
     <div class="f"><b>{n(s.onlyRoster)}</b><span>only in this archive<i>found here, not yet in the tree</i></span></div>
   </div>
   <p class="cap" style="margin-top:14px">Matching folds the nine spellings of this surname together and compares given names and years, so De Franceschi, Defranceschi and Defranceski are one family and not three. {n(s.treeLiving)} of the {n(s.treeSurname)} are living; they are counted here and appear below by name and town, never by a date.</p>
@@ -151,9 +151,9 @@ const colls = rec.colls.filter((c) => c.c > 0);
 
 <section class="blk">
   <p class="prose" set:html={mdp(
-    "These are people in the tree whose names, under any spelling and with the years set aside, match nobody in this archive's roster. **Five hundred and fifty-five of them are inside David's own placeholder pens** — the scaffold of country and town folders he keeps under a node labelled *«for Investigation (not real)»* — which means he has already parked them as unproven. Counting those as work waiting to be done was this page's mistake on the day it was published.\n\n" +
-    "**The number that matters is 113.** Those are in the tree proper, and they stand in this archive's own parishes: **Crikvenica 11, Gračišće 10, Ližnjan 10, Gologorica 7**, and five in **Brooklyn**. Twenty-five are living and appear here by name and town only.\n\n" +
-    "The first of the 113, by date, is **Johannes Giovanni Gian Battista de Franceschi, 1750–1829, of Gologorica** — who is [the top of David's own male line](/direct-line/) and is not in this archive's roster at all. That is not a namesake to be tested. **It is a hole.**")}></p>
+    "These are people in the tree whose names match nobody in this archive's roster — not the same set of given names, and not one name in common with a year in common either.\n\n" +
+    "**" + n(s.onlyTreePenned) + " more would have been on this list and are not**, because they are inside David's own **placeholder pens**: the scaffold of twenty-three country folders, each with town folders beneath it, that he keeps under a node labelled *«for Investigation (not real)»*. He has already tested them and parked them, which is the opposite of untouched work. This page counted them as work on the day it was published, and it was wrong to.\n\n" +
+    "**What is left is " + n(s.onlyTree) + ", and they stand on this archive's own ground**: Ližnjan, Crikvenica, Gračišće and Gologorica, with a handful in **Brooklyn** — which is [the branch the DNA confirmed](/dna/#autoclusters) — and two at Metzingen and Urach, beside [Pfullingen](/pfullingen/). Those are the ones worth a morning each.")}></p>
 
   <div class="two" style="margin-top:20px">
     <div>

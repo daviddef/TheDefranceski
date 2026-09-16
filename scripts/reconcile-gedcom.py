@@ -134,12 +134,53 @@ def main():
     dis.sort(key=lambda d: -gap(d))
 
     # --- what only the tree has, and whether it is worth having --------------
-    newp = []
-    for k in only_tree:
-        for p in T[k]:
-            if given(p["name"]) in Rg:      # the soft join caught it; it is a disagreement
-                continue
-            newp.append(p)
+    # The join was SET EQUALITY on given names, and the live tree stacks every
+    # variant it has ever seen into one string. «Johannes Giovanni Gian
+    # Battista de Franceschi» against this archive's «Giovanni Defranceschi»
+    # is one set of four names against a set of one, so the top of David's own
+    # male line was reported as somebody the archive had never heard of. The
+    # test is now: the same set of given names, OR one name in common and a
+    # year in common.
+    tok = lambda n: set(given(n).split())
+    byyear = collections.defaultdict(list)
+    for r in roster:
+        for y in (r.get("b"), r.get("d")):
+            if y:
+                for dy in (-1, 0, 1):
+                    byyear[y + dy].append(r)
+    def in_roster(p):
+        t = tok(p["name"])
+        if not t or given(p["name"]) in Rg:
+            return True
+        for y in (p["by"], p["dy"]):
+            for r in byyear.get(y or 0, []):
+                if t & tok(r["name"]):
+                    return True
+        return False
+
+    # And David's own placeholder pens — a node called «PLACEHOLDERS
+    # Defranceschi's for Investigation (not real)», twenty-three country
+    # folders with town folders under them. Everybody inside is somebody he
+    # has already tested and parked, which is the opposite of untouched work.
+    fams = g["families"]
+    def childs(pid):
+        out = []
+        for f in fams.values():
+            if f.get("husb") == pid or f.get("wife") == pid:
+                out += (f.get("chil") or [])
+        return out
+    penned, stack = set(), [q["id"] for q in g["people"].values()
+                            if re.search(r"PLACEHOLDER", q["name"] or "", re.I)]
+    while stack:
+        x = stack.pop()
+        if x in penned:
+            continue
+        penned.add(x)
+        stack += childs(x)
+
+    newp = [p for p in tree if not in_roster(p)]
+    pennedp = [p for p in newp if p["id"] in penned]
+    newp = [p for p in newp if p["id"] not in penned]
     newp.sort(key=lambda p: (p["by"] or p["dy"] or 9999))
 
     cites = [p for p in tree if p["cites"]]
@@ -200,7 +241,7 @@ def main():
       "stats": {
         "treeTotal": len(g["people"]), "treeFamilies": len(g["families"]),
         "treeSurname": len(tree), "rosterRows": len(roster),
-        "onlyTree": len(newp), "onlyRoster": sum(len(R[k]) for k in only_ros),
+        "onlyTree": len(newp), "onlyTreePenned": len(pennedp), "onlyRoster": sum(len(R[k]) for k in only_ros),
         "exactBoth": sum(len(T[k]) for k in both),
         "disagree": sum(1 for d in dis if d["kind"] == "date"),
         "mirrored": sum(1 for d in dis if d["kind"] == "mirror"),
