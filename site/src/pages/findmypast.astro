@@ -1,0 +1,143 @@
+---
+/* The Findmypast sweep of 16 September 2026. Everything here is in
+   site/src/data/findmypast.json. Living people: the excluded record sets are
+   named in the rule below rather than filtered silently, because a reader
+   should be able to see what was withheld as well as what was kept. */
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import { md, mdp } from "../lib/md.js";
+import d from "../data/findmypast.json";
+
+const n = (x) => x.toLocaleString("en-GB");
+const maxDec = Math.max(...d.byDecade.map((r) => r[1]));
+const maxCty = Math.max(...d.byCountry.map((r) => r[1]));
+const GRADE = { doc: "documented", inf: "inferred", lore: "family lore" };
+---
+<Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+
+<section class="blk"><div class="prose" set:html={mdp(d.lead)}></div></section>
+
+<Rule name="tablet" label="The four spellings" />
+<section class="blk">
+  <table class="sp">
+    <thead><tr><th>Searched as</th><th>Results</th><th>What it turned out to be</th></tr></thead>
+    <tbody>{d.spellings.map(([s, c, note]) => (
+      <tr class={c ? "" : "nil"}>
+        <td class="mono">{s}</td>
+        <td class="num">{c ? n(c) : "none"}</td>
+        <td set:html={md(note)}></td>
+      </tr>))}</tbody>
+  </table>
+  <p class="cap" style="margin-top:14px">{n(d.counts.records)} distinct records between them, in {d.counts.sets} record sets.</p>
+</section>
+
+<Rule name="arrows" label="What is published, and what is not" />
+<section class="blk">
+  <div class="fig">
+    <div class="f"><b>{n(d.counts.records)}</b><span>records found</span></div>
+    <div class="f"><b>{n(d.counts.publishable)}</b><span>published here</span></div>
+    <div class="f"><b>{n(d.counts.withheld)}</b><span>counted, not published<i>{d.counts.electoral} electoral · {d.counts.ssdi} SSDI · {d.counts.obits} obituaries · {d.counts.divorce} divorce · {d.counts.noAnchor} no anchor before 1930</i></span></div>
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={mdp(d.rule)}></p>
+</section>
+
+<Rule name="loom" label="Where and when" />
+<section class="blk">
+  <div class="two">
+    <div>
+      <h3 class="sh">By country</h3>
+      <ul class="bars">{d.byCountry.map(([k, v]) => (
+        <li><span class="cl">{k}</span><span class="bar" style={`width:${Math.round(v / maxCty * 100)}%`}></span><span class="ct">{v}</span></li>))}</ul>
+    </div>
+    <div>
+      <h3 class="sh">By decade</h3>
+      <ul class="bars">{d.byDecade.map(([k, v]) => (
+        <li><span class="cl">{k}s</span><span class="bar" style={`width:${Math.round(v / maxDec * 100)}%`}></span><span class="ct">{v}</span></li>))}</ul>
+    </div>
+  </div>
+  <p class="cap" style="margin-top:16px">«Americas» is Findmypast's own label for a passenger record whose port it does not state. It is 280 of the 644, and it is why the map layer these records are going to feed has to draw a crossing rather than a home.</p>
+</section>
+
+<Rule name="pomegranate" label="What it found" />
+<section class="blk">
+  <div class="finds">{d.findings.map((f) => (
+    <article class="find">
+      <div class="fh"><h3>{f.h}</h3><span class={"gr gr-" + f.grade}>{GRADE[f.grade] || f.grade}</span></div>
+      <div class="prose" set:html={mdp(f.t)}></div>
+      <p class="cap" style="margin-top:12px"><span class="lab">Next</span> {f.next}</p>
+    </article>))}
+  </div>
+</section>
+
+<Rule name="arcade" label="And in passing" />
+<section class="blk">
+  <ul class="also">{d.also.map((x) => (<li set:html={md(x)}></li>))}</ul>
+</section>
+
+<Rule name="arrows" label="The forty-four record sets" />
+<section class="blk">
+  <ul class="pls">{d.sets.map(([s, c]) => (<li><span>{s}</span><b>{c}</b></li>))}</ul>
+</section>
+
+<Rule name="helm" label="How it was read, and what is left" />
+<section class="blk">
+  <p class="prose" set:html={mdp(d.how)}></p>
+  <div class="one" style="margin-top:22px;border-left-color:var(--accent)">
+    <div class="lab">What is left</div>
+    <div class="prose" style="margin-top:8px" set:html={mdp(d.next)}></div>
+  </div>
+  <p class="cap" style="margin-top:20px">
+    <a href={u("/searched/")}>What has been read →</a> ·
+    <a href={u("/emigration/")}>Leaving →</a> ·
+    <a href={u("/at-sea/")}>At sea →</a> ·
+    <a href={u("/diaspora/")}>Where the name went →</a> ·
+    <a href={u("/live-tree/")}>The live tree →</a>
+  </p>
+</section>
+
+<style>
+  table.sp { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.sp th { text-align: left; font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+                opacity: .55; font-weight: 600; padding: 0 12px 7px 0; border-bottom: 1px solid var(--rule, #dcd6cc); }
+  table.sp td { padding: 10px 12px 10px 0; vertical-align: top; line-height: 1.5;
+                border-bottom: 1px solid color-mix(in srgb, var(--rule, #dcd6cc) 55%, transparent); }
+  .mono { font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  .num { font-variant-numeric: tabular-nums; text-align: right; width: 5em; }
+  tr.nil td { opacity: .62; }
+
+  .fig { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%,200px), 1fr)); }
+  .f { border: 1px solid var(--rule, #dcd6cc); border-top-width: 3px; border-radius: 3px; padding: 14px 16px 16px; }
+  .f b { display: block; font-size: 29px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .f span { display: block; margin-top: 8px; font-size: 13px; line-height: 1.45; opacity: .78; }
+  .f i { display: block; font-style: normal; font-size: 11.5px; opacity: .6; margin-top: 4px; line-height: 1.5; }
+
+  .sh { font-size: 13px; letter-spacing: .09em; text-transform: uppercase; opacity: .6; margin: 0 0 12px; font-weight: 600; }
+  .two { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(min(100%,280px), 1fr)); }
+  .bars { list-style: none; margin: 0; padding: 0; }
+  .bars li { display: grid; grid-template-columns: 11em 1fr 3em; align-items: center; gap: 10px; padding: 4px 0; }
+  .cl { font-size: 12.5px; opacity: .72; }
+  .bar { height: 9px; background: var(--accent, #8a7f5c); border-radius: 2px; min-width: 2px; }
+  .ct { font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; opacity: .7; }
+
+  .finds { display: grid; gap: 18px; }
+  .find { border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-left-color: var(--terra, #a5442c);
+          border-radius: 3px; padding: 18px 20px; }
+  .fh { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .fh h3 { margin: 0; font-size: 20px; line-height: 1.25; flex: 1 1 auto; }
+  .gr { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px;
+        border: 1px solid currentColor; border-radius: 2px; opacity: .7; white-space: nowrap; }
+  .gr-inf { font-style: italic; }
+  .find .prose { margin-top: 10px; }
+
+  .also { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .also li { font-size: 14.5px; line-height: 1.6; padding-left: 16px; position: relative; }
+  .also li::before { content: "·"; position: absolute; left: 0; opacity: .5; }
+
+  .pls { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 34px; }
+  .pls li { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; padding: 4px 0;
+            border-bottom: 1px solid color-mix(in srgb, var(--rule, #dcd6cc) 45%, transparent); break-inside: avoid; }
+  .pls b { font-variant-numeric: tabular-nums; opacity: .7; font-weight: 600; }
+  @media (max-width: 720px) { .pls { columns: 1; } .bars li { grid-template-columns: 8em 1fr 2.6em; } }
+</style>
+</Base>
