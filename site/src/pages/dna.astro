@@ -262,6 +262,21 @@ const HUE = {
   <div class="prose" set:html={based(P(d.autoclusters.ground.text))}></div>
   <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.ground.note))}></p>
 
+  <h3 class="sub" style="margin-top:34px">{d.autoclusters.third.heading}</h3>
+  <div class="prose" set:html={based(P(d.autoclusters.third.text))}></div>
+  <div class="tw" style="margin-top:20px">
+    <table class="ac">
+      <thead><tr>{d.autoclusters.third.cols.map(c => <th>{c}</th>)}</tr></thead>
+      <tbody>{d.autoclusters.third.rows.map(([k, n, cm, sh, read]) => (
+        <tr class={sh ? "" : "r-croatian"}>
+          <td class="k">{k}</td><td class="n">{n}</td><td class="n">{cm.toLocaleString("en-GB")}</td>
+          <td class="n">{sh || "none"}</td>
+          <td class="rd"><span class={"pill " + (sh ? "p-maternal" : "p-croatian")}>{read}</span></td>
+        </tr>))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.third.note))}></p>
+
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.walked.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.walked.text))}></div>
   <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.walked.note))}></p>
