@@ -61,10 +61,23 @@ EVIDENCE = [
 # Phrases the page prints when it believes it has nothing. Each is quoted from
 # who/[slug].astro; if one is reworded there it must be reworded here, and the
 # gate failing loudly is the right way to find that out.
+#
+# THEY ARE LOOKED FOR ONLY WHERE THE PAGE ITSELF SPEAKS. A /who/ page also
+# quotes every mention of the person from every data file, and on 17 September
+# the correction retracting the «no record stands behind it» banner quoted both
+# the banner AND a person's name — so her own page carried the sentence as a
+# quotation of a thing the archive had stopped saying, and this gate failed her
+# for it. A gate that cannot tell a claim from a quotation of a claim will be
+# switched off within the week.
 NO_RECORD = "no record stands behind it"
 NO_YEAR   = "This person has no recorded year"
 NO_YEAR_2 = "estimated, not recorded"
 HAS_RECORD = ('class="rk"', 'class="recstrip"')
+SAYS_IT = re.compile(r'class="(?:mt-warn[^"]*|prov|facts)"(.*?)(?=<section|</section)', re.S)
+
+def claims(html_text):
+    """Only the parts of the page that state the archive's own position."""
+    return " ".join(SAYS_IT.findall(html_text))
 
 
 def slugify(s):
@@ -137,11 +150,12 @@ def main():
                 fails.append((ev["file"], who,
                               f"/who/{slug}/ carries neither a record nor a correction"))
                 continue
-            if NO_RECORD in h and not named_in_correction:
+            own = claims(h)
+            if NO_RECORD in own and not named_in_correction:
                 fails.append((ev["file"], who, f"/who/{slug}/ says «{NO_RECORD}»"))
                 continue
             if ev["date"] and (r.get(ev["date"]) or "").strip():
-                if NO_YEAR in h or NO_YEAR_2 in h:
+                if NO_YEAR in own or NO_YEAR_2 in own:
                     fails.append((ev["file"], who,
                                   f"/who/{slug}/ claims no recorded year, and {ev['file']}.json gives "
                                   f"«{r[ev['date']]}»"))

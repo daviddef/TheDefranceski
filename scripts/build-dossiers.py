@@ -474,6 +474,37 @@ def ptree(name):
     return t
 
 
+# ---- the same name, written in another language ------------------------
+# /your-name/ reconciles 645 forms of 73 given names across seven languages,
+# and until 17 September 2026 NOTHING read it. Both normalisers in this
+# archive — _nm here and norm() in lib/people.js — fold the SURNAME and stop,
+# so «Josephus», «Giuseppe» and «Josip» were three strangers to every join on
+# the site, and /name/ said in as many words that a normaliser carried the
+# whole table. It did not.
+#
+# This does NOT merge them. Identity here is by name, deliberately, and
+# collapsing Ivan into Giovanni by machine would be the same mistake this
+# archive keeps correcting other people for. It cross-references: a page now
+# says which other pages hold its own name in another language, and the reader
+# decides. 327 of 1,122 pages turn out to be in such a group.
+_gn = _raw_early("givennames")
+CANON = {}
+for _r in _gn.get("rows", []):
+    for _k in _gn.get("langs", []):
+        for _f in (_r.get(_k) or "").split(","):
+            _f = _f.strip()
+            if _f and _f != "\u2014":
+                CANON.setdefault(_nm(_f), _r["canon"])
+for _sl in _gn.get("slips", []):
+    CANON.setdefault(_nm(_sl["form"]), _sl["canon"])
+
+def fold_given(name):
+    """The name with every given name replaced by its canonical form."""
+    out = []
+    for w in _nm(name).split():
+        out.append(w if w in ("de", "franceschi") else CANON.get(w, w))
+    return " ".join(out)
+
 # ---- linear pedigrees: the Omis chart and the direct line, as chains ----
 CHAINS = []
 def _raw(name):
@@ -587,6 +618,18 @@ for slug, rows in by_slug.items():
         "recyear": YEAR_FROM.get(slug),
         "roster": True,
     }
+
+# group the pages that are one name in more than one language, and say so on
+# each of them — sorted, and capped, because a page is a page and not a list.
+_by_fold = {}
+for _slug, _p in people.items():
+    _by_fold.setdefault(fold_given(_p["name"]), []).append(_slug)
+for _fk, _slugs in _by_fold.items():
+    if len(_slugs) < 2: continue
+    for _slug in _slugs:
+        people[_slug]["alsoWritten"] = sorted(
+            ({"slug": s2, "name": people[s2]["name"]} for s2 in _slugs if s2 != _slug),
+            key=lambda x: x["name"])[:24]
 
 # keep anything that already had a page and is not a roster person
 kept = 0

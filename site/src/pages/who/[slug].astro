@@ -327,6 +327,23 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
+{(p.alsoWritten && p.alsoWritten.length > 0) && (
+<section class="blk">
+  <div class="one" style="border-left-color:var(--ochre)">
+    <div class="lab">The same name, written another way</div>
+    <p style="margin-top:8px">This archive holds <strong>{p.alsoWritten.length}</strong> other page{p.alsoWritten.length === 1 ? "" : "s"} under
+      what <a href={u("/your-name/")}>Say Your Name</a> reconciles as the same given name in another language —
+      a Latin register, a Venetian clerk, a Croatian village, a Hungarian office.
+      <strong>They are not merged and none of them is claimed to be this person</strong>: a shared name is not a
+      shared identity, and the archive will not join one to the other by machine. It is here so that a reader
+      looking for a man the records called <em>Josephus</em> can see where they wrote him <em>Josip</em>.</p>
+    <p class="mono" style="margin-top:10px;font-size:13px;line-height:1.9">
+      {p.alsoWritten.map((x, i) => (<>{i > 0 ? " · " : ""}<a href={u(`/who/${x.slug}/`)}>{x.name}</a></>))}
+    </p>
+  </div>
+</section>
+)}
+
 <section class="blk">
   <div class="note">
     Identity here is by <strong>name</strong>, not by resolved individual. Where two people of one name appear
