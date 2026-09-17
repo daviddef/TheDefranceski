@@ -1092,12 +1092,12 @@
   },
   {
    "n": 128,
-   "what": "Kew's merchant-shipping series for the Aquilone and for Emerico, which a name search cannot reach",
+   "what": "BT 99 and BT 400 at Kew — the crew lists ARE indexed by person, so search them for the name",
    "state": "next",
    "owner": "this archive",
    "since": "2026-09-17",
    "covers": [],
-   "note": "[The Discovery sweep](/research-log/) found nothing of this family under nine spellings — **and the ship is the reason to keep going rather than to stop**. Searching *Aquilone* returns **501 records and every one is an Admiralty muster for HMS *Aquilon***, a Royal Navy ship of the line. The Cardiff barque of December 1877 is not in the index because for merchant shipping Discovery is catalogued by ship and year at piece level, not by master.\n\n**So the route is the series, not the name.** The agreements and crew lists of British-registered vessels, and the registers of certificates of competency for masters and mates, are the two places a Lussino master out of the Bute Docks would appear. Both need to be identified by reference and then read.\n\n**Not done today because the API began answering HTTP 202 with an empty body** — it throttles, and this archive backs off rather than hammering a free service. An hour's pause and three queries will settle which series to ask for."
+   "note": "[The Discovery sweep](/research-log/) found seven records of the name in Britain and none in the shipping series — **and the first explanation for that was wrong.** This archive was about to write down that merchant shipping is catalogued by ship and year rather than by master. **BT 99 and BT 400 are catalogued to the individual**: *«Ship: Belgravian; Official number: 98611. William G S Nash; rank/rating, Master; age, 57; place…»* — name, rank, age, place of birth.\n\nSo the question is not whether the index reaches people. It is **which years Kew holds**, because the great mass of nineteenth-century crew agreements went to the Maritime History Archive at Memorial University, Newfoundland, with samples retained at Kew. **Emerico married at Cardiff in 1876 and the *Aquilone* cleared the Bute Docks in December 1877**; if Kew's sample covers those years the search is a few minutes' work, and if it does not, the address is in Newfoundland.\n\n**Not finished today because the API throttles** — it starts answering HTTP 202 with an empty body — and this archive backs off rather than hammering a free service."
   },
   {
    "n": 129,

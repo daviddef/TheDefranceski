@@ -17,7 +17,7 @@ import d from "../data/diaspora.json";
   </section>
 
   {d.clusters.map(c => (
-    <article class="cluster">
+    <article class="cluster" id={c.place.toLowerCase().replace(/[^a-z0-9]+/g, "-")}>
       <h3>{c.place}</h3>
       <div class="hdr">
         <b>{c.size}</b>
