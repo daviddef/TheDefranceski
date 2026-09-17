@@ -6,6 +6,14 @@ import { md as _mdl } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import Register from "@daviddef/archive-kit/components/Register.astro";
+import nf from "../data/namefold.json";
+/* THE SEARCH BOX FOLDS THE NAME TABLE THIS ARCHIVE ALREADY WROTE.
+   /your-name/ has held 73 names across seven languages - 645 forms, 419 of
+   them attested in these very records - since it was built, and the register
+   search had no way of reaching it. A reader who typed the form on a birth
+   certificate did not find the form the priest wrote in Latin ten years
+   earlier, in an archive whose whole point is that they are the same person.
+   Folding is a search rule; it merges nothing. */
 import r from "../data/register.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -111,7 +119,7 @@ const regRows = r.rows.map((x) => ({
 <Rule name="pomegranate" label="The list" />
 
 <section class="blk">
-  <Register rows={regRows} u={u} unit="entries" />
+  <Register rows={regRows} u={u} unit="entries" fold={nf.fold} />
 </section>
 
 <Rule name="pomegranate" />
