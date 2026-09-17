@@ -1043,5 +1043,19 @@
   "what": "**15,643 people**, of whom 459 carry this surname, compiled and sourced by David himself over many years and still growing. **It is the archive's family file now**, in place of the July 2018 export. Its best part is not the pedigree but the citations: 211 of the 459 carry a source David typed in by hand — FamilySearch ark URLs, film and image numbers, archive names. Read 7 and 15 September 2026. Only tree 4: the other five trees on the site are unrelated lines.",
   "cites": [],
   "note": ""
+ },
+ {
+  "id": "tna",
+  "kind": "Archive",
+  "title": "The National Archives, Kew — Discovery",
+  "where": "Bessborough Road, Kew, Richmond TW9 4DU, United Kingdom",
+  "url": "https://discovery.nationalarchives.gov.uk/",
+  "what": "The catalogue of the British national archive, and of some 2,500 other British archives besides. **It answers JSON to anybody, with no key and no account**: `discovery.nationalarchives.gov.uk/API/search/records?sps.searchQuery=<term>&sps.resultsPageSize=<n>`, returning `count` and a `records` list carrying `reference`, `title`, `coveringDates`, `heldBy` and a description. It throttles: sustained querying starts answering **HTTP 202 with an empty body**, and the polite response is to back off, which this archive did.\n\n**Searched for the first time on 17 September 2026** and it holds nothing of this family — [the sweep and what it means](/research-log/). Its limit matters as much as its reach: Discovery indexes what has been catalogued down to the item, and for merchant shipping that is largely the ship and the year, so a master's name is not findable there even when his certificate is at Kew.",
+  "cites": [
+   "Discovery API, sps.searchQuery — nine spellings of the surname, 17 September 2026",
+   "Aquilone: 501 records, all Admiralty musters for HMS Aquilon",
+   "«De Franceschi» 3 · «Dei Franceschi» 4 · Franceschi 19 · Francesch* 42 — none of this family"
+  ],
+  "note": "First queried 17 September 2026, after David asked whether this archive had ever looked at Kew. It had not — in a year of work, not once."
  }
 ]
