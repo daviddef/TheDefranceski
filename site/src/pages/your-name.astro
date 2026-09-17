@@ -1,5 +1,21 @@
 ---
 import Base from "../layouts/Base.astro";
+import SayYourName from "@daviddef/archive-kit/components/SayYourName.astro";
+import N from "../data/givennames-forms.json";
+/* ONE OBJECT, BUILT TWICE. This page and the Blazevic one were written
+   separately, about 230 lines each, and hold the same thing: a box you type a
+   name into, chips, a shareable ?n= address, and a card per language. They
+   disagreed about the menu and about the data shape and agreed about
+   everything that mattered. The interactive half is the kit's now; the
+   argument around it is still this archive's.
+
+   The data moved to the shared shape, which is Blazevic's, because it is the
+   only one that could hold what both archives knew: a form carries the number
+   of times THIS ARCHIVE HAS MET IT, so the difference between a record and a
+   lead sits in the data instead of being recomputed by a page. Converted
+   mechanically and checked against this archive's own gate - 645 forms, 419
+   attested, 226 aids, all three exact. The first pass got 752 because it
+   counted the em dash as a form; the gate had always skipped it. */
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import gn from "../data/givennames.json";
@@ -48,18 +64,9 @@ const seen = gn.seen || {};
     <p>This page said, until 17 September 2026, that every form on it came «from the forms that actually appear in these registers — not from a dictionary». <a href={u("/corrections/")}>Thirty-one per cent of them did not</a>, there was no Hungarian column at all, and dozens sat under the wrong language — <em>Antal</em> and <em>Ilona</em> filed as Italian when they are Hungarian, <em>Božo</em> and <em>Tomislav</em> filed as Italian when they are Croatian.</p>
   </section>
 
-  <div class="namebox" style="margin-top:30px">
-    <input type="search" id="n" placeholder="Josephus · Ivan · Zuane · JVAN · Frank · Antun" autocomplete="off"
-           data-index={JSON.stringify(index)} data-rows={JSON.stringify(rows)} data-seen={JSON.stringify(seen)} />
-  </div>
-  <div class="suggest" id="sug">
-    {["Giovanni", "JVAN", "Zuane", "Gergely", "Gregor", "ZORAFKO", "Juraj", "Ilona", "Franz", "Orsola"]
-      .filter(x => index[x.toLowerCase()] !== undefined).map(x => (
-      <button type="button" data-n={x}>{x}</button>
-    ))}
-  </div>
-
-  <div id="out"></div>
+  <SayYourName rows={N.rows} u={u}
+    langs={langs.map(([key, label, note]) => ({ key, label, note }))}
+    chips={["Giovanni", "JVAN", "Zuane", "Gergely", "Gregor", "ZORAFKO", "Juraj", "Ilona", "Franz", "Orsola"]} />
 
   <h2 id="slips" style="font-size:30px;margin-top:52px">And then there are the slips</h2>
   <p class="dek" style="margin-top:8px;max-width:74ch" set:html={gn.slipnote.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
@@ -94,115 +101,7 @@ const seen = gn.seen || {};
   <Sources ids={["familysearch", "dapa"]} />
 </Base>
 
-<script>
-  const box = document.getElementById("n");
-  const out = document.getElementById("out");
-  if (box && out) {
-    const index = JSON.parse(box.getAttribute("data-index"));
-    const rows = JSON.parse(box.getAttribute("data-rows"));
-    const seen = JSON.parse(box.getAttribute("data-seen"));
-    const langs = {
-      latin: ["Latin", "The language of every Catholic register here until the 1820s, and of many for decades after. This is how the priest actually wrote it."],
-      italian: ["Italian", "Venetian Istria, the Austrian administration's Italian towns, and the family's own letters."],
-      venetian: ["Venetian", "The language of the Republic, not a dialect of Italian. It gives Zuane for Giovanni."],
-      croatian: ["Croatian", "The villages, the Vinodol, the Kvarner coast, and every document after 1945."],
-      german: ["German", "The Habsburg bureaucracy, the Pazin gymnasium, the sickness-fund cards at Reutlingen."],
-      hungarian: ["Hungarian", "Fiume was a corpus separatum of the Crown of St Stephen, and the registers there went over to Hungarian in 1895."],
-      english: ["English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane."],
-      slips: ["A clerk's slip", "Not a form of the name — one hand, once, getting it wrong. Cited below."],
-    };
-    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-    // A name you have looked up is a thing worth sending to somebody, and until
-    // now the address bar said the same thing whatever you had typed. It now
-    // carries ?n=, written with replaceState so that typing does not fill the
-    // back button with every keystroke on the way to a name.
-    const shareUrl = (q) => {
-      try { const x = new URL(location.href); x.hash = ""; x.searchParams.set("n", q); return x.toString(); }
-      catch (e) { return location.href; }
-    };
-    const setUrl = (q) => {
-      try { history.replaceState(null, "", q ? shareUrl(q) : location.pathname); } catch (e) {}
-    };
-
-    const render = (q) => {
-      const t = q.trim().toLowerCase();
-      if (!t) { out.innerHTML = ""; setUrl(""); return; }
-      let i = index[t];
-      if (i === undefined) {
-        // fall back to a prefix match across every recorded form
-        const key = Object.keys(index).find(k => k.startsWith(t) || t.startsWith(k));
-        if (key !== undefined) i = index[key];
-      }
-      if (i === undefined) {
-        out.innerHTML = `<div class="nomatch"><strong>${esc(q)}</strong> is not among the ${rows.length} names reconciled here.
-          That does not mean it is not in the registers — it means no two spellings of it have yet needed joining up.
-          If you have it in a document, it belongs in this table.</div>`;
-        return;
-      }
-      const r = rows[i];
-      setUrl(r.canon[0].toUpperCase() + r.canon.slice(1));
-      const cards = Object.entries(langs).map(([k, [label, note]]) => {
-        const v = (r[k] || "—").trim();
-        const empty = !v || v === "—";
-        // A form this archive has met is printed plainly; one it has not is an
-        // aid, marked, because the difference is the difference between
-        // evidence and a dictionary and this page once blurred it.
-        const parts = empty ? "" : v.split(",").map(x => x.trim()).filter(Boolean).map(x =>
-          seen[x] ? `<span class="att" title="${seen[x]} record${seen[x] === 1 ? "" : "s"} here use this form">${esc(x)}</span>`
-                  : `<span class="aid" title="the correct form in this language — not yet met in any record here">${esc(x)}<sup>\u00b0</sup></span>`
-        ).join("<span class=\"sep\">, </span>");
-        return `<div class="form ${k}">
-          <div class="lang">${label}</div>
-          <div class="val${empty ? " none" : ""}">${empty ? "not recorded" : parts}</div>
-          <div class="when">${note}</div>
-        </div>`;
-      }).join("");
-      out.innerHTML = `
-        <div class="shareline">
-          <button class="copyl" type="button" title="Copy a link to this name">Copy link</button>
-          <span class="shareurl">${esc(shareUrl(r.canon[0].toUpperCase() + r.canon.slice(1)))}</span>
-        </div>
-        <p class="dek" style="margin-top:14px;max-width:62ch">
-          <strong style="color:var(--ink);font-size:16px">${esc(r.canon[0].toUpperCase() + r.canon.slice(1))}</strong>
-          — ${r.forms} forms of this one name, of which
-          ${Object.keys(langs).reduce((n, k) => n + (r[k] || "").split(",").map(x => x.trim()).filter(x => x && x !== "—" && seen[x]).length, 0)}
-          are attested in the records gathered here. Every form below is the same person.</p>
-        <div class="forms">${cards}</div>`;
-    };
-
-    out.addEventListener("click", async (e) => {
-      const b = e.target.closest("button.copyl");
-      if (!b) return;
-      const url = location.href;
-      let done = false;
-      try { await navigator.clipboard.writeText(url); done = true; } catch (err) {
-        // clipboard permission, or an insecure origin: fall back to a selection
-        const ta = document.createElement("textarea");
-        ta.value = url; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
-        document.body.appendChild(ta); ta.select();
-        try { done = document.execCommand("copy"); } catch (e2) {}
-        ta.remove();
-      }
-      b.textContent = done ? "Link copied" : "Press \u2318C to copy";
-      if (!done) { const sp = b.parentElement.querySelector(".shareurl");
-                   if (sp) { const rg = document.createRange(); rg.selectNodeContents(sp);
-                             const sel = getSelection(); sel.removeAllRanges(); sel.addRange(rg); } }
-      setTimeout(() => { b.textContent = "Copy link"; }, 2200);
-    });
-
-    box.addEventListener("input", () => render(box.value));
-    document.getElementById("sug").addEventListener("click", (e) => {
-      const b = e.target.closest("button[data-n]");
-      if (!b) return;
-      box.value = b.dataset.n; render(box.value); box.focus();
-    });
-    let start = "Giovanni";
-    try { start = new URL(location.href).searchParams.get("n") || start; } catch (e) {}
-    box.value = start;
-    render(start);
-  }
-</script>
 
 <style is:global>
   /* The cards are written into the page by the script above, so these rules

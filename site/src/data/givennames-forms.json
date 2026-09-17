@@ -1,0 +1,5283 @@
+{
+ "note": "**Seven columns, and two kinds of cell.** A form this archive has actually met in one of its records is evidence. A form it has not met is a **lookup aid** — the right thing to type into a Hungarian or a German index tomorrow, and nothing more — and it is marked. The split is not decided by hand: `scripts/name-forms-audit.py` looks every form up in the roster, the register, the households, the burials, the headstones and the four FamilySearch harvests, and the build refuses if the marking drifts from what the records say.",
+ "languages": [
+  "latin",
+  "italian",
+  "venetian",
+  "croatian",
+  "german",
+  "hungarian",
+  "english",
+  "slips"
+ ],
+ "totalForms": 645,
+ "attested": 419,
+ "aids": 226,
+ "rows": [
+  {
+   "canon": "giovanni",
+   "langs": {
+    "latin": [
+     {
+      "form": "Joannes",
+      "seen": 188,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joannem",
+      "seen": 51,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joanni",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joannis",
+      "seen": 88,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gioannes",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gioannis",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ioannes",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giovanni",
+      "seen": 438,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Giovan",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gio",
+      "seen": 153,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gioanni",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joan",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Zuane",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Zuanne",
+      "seen": 65,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nane",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Zanne",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Zan",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ivan",
+      "seen": 30,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ivo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ive",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Johann",
+      "seen": 25,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Johannes",
+      "seen": 47,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Hans",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "János",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jancsi",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "John",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "JVAN",
+      "seen": 1,
+      "note": "Ivan Defranceski, born 24 or 25 June 1925 at Crikvenica — David's grandfather — Arolsen Archives, the War Time Card File 2.2.2.1",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 26
+  },
+  {
+   "canon": "giovanna",
+   "langs": {
+    "latin": [
+     {
+      "form": "Joanna",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joannam",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giovanna",
+      "seen": 89,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Giovana",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Johanna",
+      "seen": 26,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Zuanna",
+      "seen": 25,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Zuana",
+      "seen": 13,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ivana",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jovana",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Johanna",
+      "seen": 26,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Janka",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Jane",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joan",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 13
+  },
+  {
+   "canon": "antonio",
+   "langs": {
+    "latin": [
+     {
+      "form": "Antonius",
+      "seen": 202,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Antonium",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Antonii",
+      "seen": 61,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Antonio",
+      "seen": 394,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Anto",
+      "seen": 95,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Toni",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ante",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Antun",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Anton",
+      "seen": 44,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Antal",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Anthony",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Antony",
+      "seen": 44,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "Antonÿ",
+      "seen": 1,
+      "note": "«Gioannis Antonÿ» in the Rijeka registers — the Rijeka baptisms, read on DGS 004679931",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 12
+  },
+  {
+   "canon": "antonia",
+   "langs": {
+    "latin": [
+     {
+      "form": "Antoniae",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Antoniæ",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Antonia",
+      "seen": 151,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Anta",
+      "seen": 14,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Antonietta",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Antonija",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Antonie",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Antónia",
+      "seen": 151,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "matteo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Mattheus",
+      "seen": 9,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mathaeus",
+      "seen": 56,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mathæus",
+      "seen": 56,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mathæi",
+      "seen": 55,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Matheus",
+      "seen": 26,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mathias",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Matteo",
+      "seen": 140,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mattio",
+      "seen": 132,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Matio",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mattia",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Mate",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Matij",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Matija",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Matthias",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Matthäus",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Máté",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mátyás",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Matthew",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 18
+  },
+  {
+   "canon": "mattea",
+   "langs": {
+    "latin": [
+     {
+      "form": "Matthaea",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Mattea",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Mateja",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 3
+  },
+  {
+   "canon": "francesco",
+   "langs": {
+    "latin": [
+     {
+      "form": "Franciscus",
+      "seen": 114,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Francisci",
+      "seen": 60,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franciscum",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Francesco",
+      "seen": 330,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franco",
+      "seen": 53,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Francescho",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Checo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Frane",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franjo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Frano",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Franz",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Ferenc",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Feri",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Frank",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Francis",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 15
+  },
+  {
+   "canon": "francesca",
+   "langs": {
+    "latin": [
+     {
+      "form": "Franciscae",
+      "seen": 27,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franciscæ",
+      "seen": 27,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franciscam",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Francesca",
+      "seen": 78,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Francisca",
+      "seen": 86,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franca",
+      "seen": 25,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Franka",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Franica",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Franziska",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Franciska",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Frances",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 11
+  },
+  {
+   "canon": "giuseppe",
+   "langs": {
+    "latin": [
+     {
+      "form": "Josephus",
+      "seen": 97,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Josephi",
+      "seen": 71,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Josephum",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giuseppe",
+      "seen": 194,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bepo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pepi",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Bepi",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Josip",
+      "seen": 39,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jozo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Joso",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Josef",
+      "seen": 47,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "József",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jóska",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Joseph",
+      "seen": 69,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 14
+  },
+  {
+   "canon": "giuseppa",
+   "langs": {
+    "latin": [
+     {
+      "form": "Josephae",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Josepha",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Josepham",
+      "seen": 43,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giuseppa",
+      "seen": 11,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Giuseppina",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Josipa",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Josefa",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Jozefa",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Josephine",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "nicolo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Nicolaus",
+      "seen": 24,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nicolai",
+      "seen": 24,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Nicolo",
+      "seen": 61,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Niccolo",
+      "seen": 71,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nicolaa",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nicoló",
+      "seen": 61,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nicolò",
+      "seen": 61,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Nikola",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mikula",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Miko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Nikolaus",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Miklós",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Nicholas",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 13
+  },
+  {
+   "canon": "caterina",
+   "langs": {
+    "latin": [
+     {
+      "form": "Catharina",
+      "seen": 75,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Catharinæ",
+      "seen": 45,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Catharinam",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Caterina",
+      "seen": 13,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Cattarina",
+      "seen": 97,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Catterina",
+      "seen": 53,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Katarina",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Kata",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Katharina",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Katalin",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Kata",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Catherine",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Kate",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 13
+  },
+  {
+   "canon": "pietro",
+   "langs": {
+    "latin": [
+     {
+      "form": "Petrus",
+      "seen": 53,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Petrum",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Petri",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Pietro",
+      "seen": 276,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pier",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pieto",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Piero",
+      "seen": 49,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Petar",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pere",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pero",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Peter",
+      "seen": 14,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Péter",
+      "seen": 14,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Peter",
+      "seen": 14,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 13
+  },
+  {
+   "canon": "maria",
+   "langs": {
+    "latin": [
+     {
+      "form": "Mariæ",
+      "seen": 83,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mariae",
+      "seen": 83,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mariam",
+      "seen": 84,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Maria",
+      "seen": 1280,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Marie",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Marietta",
+      "seen": 36,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mare",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Marija",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mara",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Maria",
+      "seen": 1280,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Mária",
+      "seen": 1280,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mari",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Mary",
+      "seen": 14,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 13
+  },
+  {
+   "canon": "elena",
+   "langs": {
+    "latin": [
+     {
+      "form": "Helena",
+      "seen": 53,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Helenæ",
+      "seen": 35,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Elena",
+      "seen": 96,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ellena",
+      "seen": 40,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Elenam",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ellenam",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Jelena",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jela",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Helene",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Ilona",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Helen",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "Helenả",
+      "seen": 1,
+      "note": "Helena Defranceschi, wife of Valentino of Fiume — the FamilySearch index of the Fiume baptisms, XQMQ-HGYH and its fellows",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 11
+  },
+  {
+   "canon": "elisabetta",
+   "langs": {
+    "latin": [
+     {
+      "form": "Elisabetha",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Elisabet",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Elisabetę",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Elisabetta",
+      "seen": 64,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Elisabettha",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Elizabeta",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jelisava",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Elisabeth",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Erzsébet",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Erzsi",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Elizabeth",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 11
+  },
+  {
+   "canon": "stefano",
+   "langs": {
+    "latin": [
+     {
+      "form": "Stephanus",
+      "seen": 32,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Stefano",
+      "seen": 73,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Steffano",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Stjepan",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Stipe",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Stipan",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Stefan",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "István",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pista",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Stephen",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Steven",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 11
+  },
+  {
+   "canon": "michele",
+   "langs": {
+    "latin": [
+     {
+      "form": "Michaelis",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Michele",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Michiel",
+      "seen": 9,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Michiele",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Michiela",
+      "seen": 39,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Mihovil",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mijo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Miho",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Mihael",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Michael",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Mihály",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Michael",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 12
+  },
+  {
+   "canon": "battista",
+   "langs": {
+    "latin": [
+     {
+      "form": "Baptae",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Baptista",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Battista",
+      "seen": 57,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Batta",
+      "seen": 95,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bapt",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Batista",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bata",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Krstitelj",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Baptist",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "domenica",
+   "langs": {
+    "latin": [
+     {
+      "form": "Domenicae",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Dominicae",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Domenica",
+      "seen": 158,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Dominica",
+      "seen": 61,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Domca",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Doma",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Domča",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Dominika",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "domenico",
+   "langs": {
+    "latin": [
+     {
+      "form": "Dominicus",
+      "seen": 59,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Domenico",
+      "seen": 189,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Domco",
+      "seen": 41,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Menego",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Dominik",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Dominik",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Domonkos",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Dominic",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "vittorio",
+   "langs": {
+    "latin": [
+     {
+      "form": "Victorius",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Victorii",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Vittorio",
+      "seen": 119,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Vitorio",
+      "seen": 56,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Vitorii",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Viktor",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Viktor",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Viktor",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Victor",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "Vitnio",
+      "seen": 1,
+      "note": "an infant son of Domenico Defranceschi, buried at Svetvinčenat 24 April 1815 — FamilySearch 6B47-9H9Q, read from the burial register",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "vittoria",
+   "langs": {
+    "latin": [
+     {
+      "form": "Victoria",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Vittoriam",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Vittoria",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Viktorija",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Viktoria",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Viktória",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Victoria",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "bartolo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Bartholomaeus",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bartholomaei",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Bartolo",
+      "seen": 9,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Barthol",
+      "seen": 9,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bartolomeo",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Bortolo",
+      "seen": 63,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Bartol",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Bartholomäus",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Bertalan",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Bartholomew",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 10
+  },
+  {
+   "canon": "anna",
+   "langs": {
+    "latin": [
+     {
+      "form": "Annæ",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Anna",
+      "seen": 190,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Anna",
+      "seen": 190,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Annam",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Anzoletta",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ana",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ane",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Anna",
+      "seen": 190,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Anna",
+      "seen": 190,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Annuska",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Ann",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Anne",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 12
+  },
+  {
+   "canon": "andrea",
+   "langs": {
+    "latin": [
+     {
+      "form": "Andreæ",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andreas",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andrae",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Andrea",
+      "seen": 68,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andra",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andre",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Andrija",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andro",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Andreas",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "András",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andor",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Andrew",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 12
+  },
+  {
+   "canon": "angelo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Angelus",
+      "seen": 34,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Angeli",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Angelo",
+      "seen": 31,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Anđelo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Andjelo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Angel",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "angela",
+   "langs": {
+    "latin": [
+     {
+      "form": "Angela",
+      "seen": 49,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Angele",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Angela",
+      "seen": 49,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Angelica",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Angelina",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Anđela",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Angelika",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Angéla",
+      "seen": 49,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Angela",
+      "seen": 49,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "valentino",
+   "langs": {
+    "latin": [
+     {
+      "form": "Valentinus",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Valentini",
+      "seen": 143,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Valentinum",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Valentino",
+      "seen": 130,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Valentin",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Valentin",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Bálint",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Valentine",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "Valentio",
+      "seen": 1,
+      "note": "Valentino Defranceschi of Fiume, as father — FamilySearch X9D5-3CK4, the 1757 entry for his daughter Maria",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "orsola",
+   "langs": {
+    "latin": [
+     {
+      "form": "Ursulæ",
+      "seen": 56,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ursulae",
+      "seen": 56,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ursulam",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Orsola",
+      "seen": 48,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ursa",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Uršula",
+      "seen": 38,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Ursula",
+      "seen": 38,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Orsolya",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "gasparo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Gasparus",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Gasparo",
+      "seen": 26,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gaspero",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gaspo",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gaspar",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gaspare",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Gašpar",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Kaspar",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Gáspár",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Jasper",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 10
+  },
+  {
+   "canon": "gasparina",
+   "langs": {
+    "italian": [
+     {
+      "form": "Gasparina",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gasperina",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 2
+  },
+  {
+   "canon": "lucia",
+   "langs": {
+    "latin": [
+     {
+      "form": "Luciae",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Luciæ",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Lucia",
+      "seen": 123,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Lutia",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Luce",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Lucija",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Luzia",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Lúcia",
+      "seen": 123,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Lucy",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "natale",
+   "langs": {
+    "latin": [
+     {
+      "form": "Natalis",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nataliem",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Natale",
+      "seen": 89,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Nadal",
+      "seen": 24,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Božo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bozo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Noel",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "eufemia",
+   "langs": {
+    "latin": [
+     {
+      "form": "Euphemiae",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Euphemia",
+      "seen": 24,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Euphemię",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Eufemia",
+      "seen": 25,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Fuma",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Fumia",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Fumija",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "giacomo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Jacobus",
+      "seen": 16,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giacomo",
+      "seen": 83,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jacomo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Jakov",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Jakob",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Jakab",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "James",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jacob",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "giacoma",
+   "langs": {
+    "latin": [
+     {
+      "form": "Jacoba",
+      "seen": 14,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giacoma",
+      "seen": 28,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jacobina",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Jakovina",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 4
+  },
+  {
+   "canon": "carlo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Carolus",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Caroli",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Carlo",
+      "seen": 77,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Karlo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Karl",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Károly",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Charles",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Carl",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "lorenzo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Laurentius",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Laurentii",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Lorenzo",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Lovro",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Lovre",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Lorenz",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Lőrinc",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Lawrence",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "luigi",
+   "langs": {
+    "latin": [
+     {
+      "form": "Aloysius",
+      "seen": 29,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Aloysium",
+      "seen": 25,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Luigi",
+      "seen": 51,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Aloisio",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Alojz",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Alois",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Alajos",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Louis",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Lewis",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "paolo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Paulus",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pauli",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Paolo",
+      "seen": 76,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Paoli",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Pavao",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pavle",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Paul",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Pál",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Paul",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "teresa",
+   "langs": {
+    "latin": [
+     {
+      "form": "Theresia",
+      "seen": 39,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Theresiam",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Teresa",
+      "seen": 47,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Teresia",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Terezija",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Theresia",
+      "seen": 39,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Therese",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Teréz",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Teresa",
+      "seen": 47,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Theresa",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 10
+  },
+  {
+   "canon": "vincenzo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Vincentius",
+      "seen": 33,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Vincentii",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Vincenzo",
+      "seen": 31,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Vinko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Vinzenz",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Vince",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Vincent",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "tomaso",
+   "langs": {
+    "latin": [
+     {
+      "form": "Thomas",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Tomaso",
+      "seen": 13,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Tommaso",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Toma",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Tomo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Tomislav",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Thomas",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Tamás",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Thomas",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "girolamo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Hieronymus",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Girolamo",
+      "seen": 33,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Momolo",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Jerolim",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jere",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Hieronymus",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Jeromos",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Jerome",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "margarita",
+   "langs": {
+    "latin": [
+     {
+      "form": "Margarita",
+      "seen": 60,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Margaritae",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Margaritæ",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Margarita",
+      "seen": 60,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Margherita",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Margareta",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Margaretha",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Margarete",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Margit",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Margaret",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 10
+  },
+  {
+   "canon": "marta",
+   "langs": {
+    "latin": [
+     {
+      "form": "Martha",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Marta",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Marta",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Martha",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Márta",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Martha",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "madalena",
+   "langs": {
+    "latin": [
+     {
+      "form": "Magdalena",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Magdalenae",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Madalena",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Maddalena",
+      "seen": 75,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Mande",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Manda",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Magdalena",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Magdolna",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Magdalene",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "stella",
+   "langs": {
+    "latin": [
+     {
+      "form": "Stella",
+      "seen": 46,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Stella",
+      "seen": 46,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Stela",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Steffa",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Etella",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Zvijezda",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "gregorio",
+   "langs": {
+    "latin": [
+     {
+      "form": "Gregorius",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gregorii",
+      "seen": 34,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Gregorio",
+      "seen": 74,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Grgur",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Grga",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Gregor",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Gergely",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gergő",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Gregory",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "simone",
+   "langs": {
+    "latin": [
+     {
+      "form": "Simon",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Simeon",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Simone",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Sime",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Šime",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Šimun",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Simon",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Simon",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Simon",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "rosa",
+   "langs": {
+    "latin": [
+     {
+      "form": "Rosa",
+      "seen": 36,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Rosa",
+      "seen": 36,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Rosina",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ruza",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ruža",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Rosa",
+      "seen": 36,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Rózsa",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Rose",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "Roza",
+      "seen": 1,
+      "note": "Ruža Defranceski, born 13 February 1922 at Fužine — Commonwealth of Australia Gazette. Periodic, No. P2, 16 February 1979, page 66",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "pasqua",
+   "langs": {
+    "latin": [
+     {
+      "form": "Paschalis",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Paschalem",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Pasqua",
+      "seen": 33,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pasqualina",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Pasko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Paško",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "pasquale",
+   "langs": {
+    "latin": [
+     {
+      "form": "Paschalis",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Paschalus",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Paschalem",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Pasquale",
+      "seen": 19,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Pasqualino",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Paško",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Paschalis",
+      "seen": 18,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Paskál",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Pascal",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "agata",
+   "langs": {
+    "latin": [
+     {
+      "form": "Agathæ",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Agatha",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Agata",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Agata",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Agathe",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Ágota",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Agatha",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "luca",
+   "langs": {
+    "latin": [
+     {
+      "form": "Lucas",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Luca",
+      "seen": 36,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Luka",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Lukas",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Lukács",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Luke",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "marco",
+   "langs": {
+    "latin": [
+     {
+      "form": "Marcus",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Marco",
+      "seen": 16,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Marko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Markus",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Márk",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Mark",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "filippo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Philippus",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Filippo",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Filip",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Philipp",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Fülöp",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Philip",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "benedetto",
+   "langs": {
+    "latin": [
+     {
+      "form": "Benedictus",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Benedetto",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Benko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Benedikt",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Benedikt",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Benedek",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Benedict",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "ignazio",
+   "langs": {
+    "latin": [
+     {
+      "form": "Ignatius",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ignatium",
+      "seen": 4,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Ignazio",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Ignac",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Ignatz",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Ignaz",
+      "seen": 8,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Ignác",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "felice",
+   "langs": {
+    "latin": [
+     {
+      "form": "Felix",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Felice",
+      "seen": 26,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Srecko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Srećko",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Felix",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Félix",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Felix",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "martino",
+   "langs": {
+    "latin": [
+     {
+      "form": "Martinus",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Martini",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Martinum",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Martino",
+      "seen": 15,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Martina",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Martin",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Martin",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Márton",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Martin",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 9
+  },
+  {
+   "canon": "filomena",
+   "langs": {
+    "latin": [
+     {
+      "form": "Philomena",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Filomena",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Fila",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Philomena",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Philomena",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 5
+  },
+  {
+   "canon": "urbano",
+   "langs": {
+    "latin": [
+     {
+      "form": "Urbanus",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Urbano",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Urban",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Urban",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Orbán",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Urban",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "veneranda",
+   "langs": {
+    "latin": [
+     {
+      "form": "Veneranda",
+      "seen": 32,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Veneranda",
+      "seen": 32,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Venera",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 3
+  },
+  {
+   "canon": "giorgio",
+   "langs": {
+    "latin": [
+     {
+      "form": "Georgius",
+      "seen": 23,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Georgii",
+      "seen": 17,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Georgium",
+      "seen": 12,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Georgio",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Georgü",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giorgio",
+      "seen": 57,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Zorzi",
+      "seen": 7,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Juraj",
+      "seen": 25,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Jure",
+      "seen": 10,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Georg",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "György",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Gyuri",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "George",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 13
+  },
+  {
+   "canon": "giulio",
+   "langs": {
+    "latin": [
+     {
+      "form": "Julius",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Julium",
+      "seen": 9,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Julii",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Juliam",
+      "seen": 13,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Giulio",
+      "seen": 50,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Giulia",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Julije",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Julius",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Gyula",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Julius",
+      "seen": 37,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Julian",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 11
+  },
+  {
+   "canon": "sebastiano",
+   "langs": {
+    "latin": [
+     {
+      "form": "Sebastianus",
+      "seen": 3,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Sebastiani",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Sebastiano",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "venetian": [
+     {
+      "form": "Bastian",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Sebastijan",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Sebastian",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Sebestyén",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Sebastian",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 8
+  },
+  {
+   "canon": "bernardo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Bernardus",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Bernardi",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Bernardo",
+      "seen": 24,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Bernard",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Bernhard",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Bernát",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Bernard",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "leonardo",
+   "langs": {
+    "latin": [
+     {
+      "form": "Leonardus",
+      "seen": 6,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Leonardi",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Leonardo",
+      "seen": 21,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Leonard",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "german": [
+     {
+      "form": "Leonhard",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Lénárd",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Leonard",
+      "seen": 2,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 7
+  },
+  {
+   "canon": "mario",
+   "langs": {
+    "latin": [
+     {
+      "form": "Marius",
+      "seen": 1,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Mario",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Mario",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Márió",
+      "seen": 22,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 4
+  },
+  {
+   "canon": "oliva",
+   "langs": {
+    "latin": [
+     {
+      "form": "Oliva",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "italian": [
+     {
+      "form": "Oliva",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     },
+     {
+      "form": "Olivia",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "croatian": [
+     {
+      "form": "Oliva",
+      "seen": 20,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "hungarian": [
+     {
+      "form": "Olívia",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "english": [
+     {
+      "form": "Olive",
+      "seen": 0,
+      "note": "",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 6
+  },
+  {
+   "canon": "zdravko",
+   "langs": {
+    "croatian": [
+     {
+      "form": "Zdravko",
+      "seen": 5,
+      "note": "",
+      "case": ""
+     }
+    ],
+    "slips": [
+     {
+      "form": "KDRAVKO",
+      "seen": 1,
+      "note": "Zdravko Defranceski, born 1921 — Arolsen Archives, the War Time Card File 2.2.2.1",
+      "case": ""
+     },
+     {
+      "form": "ZDRACKO",
+      "seen": 1,
+      "note": "Zdravko Defranceski, born 1921 — Arolsen Archives, the same card file",
+      "case": ""
+     },
+     {
+      "form": "ZORAFKO",
+      "seen": 1,
+      "note": "Zdravko Defranceski, born 1921 — NAA B78 — «YUGOSLAVIAN/DEFRANCESKI ZORAFKO», arrived Melbourne per General M. B. Stewart, 13 April 1949",
+      "case": ""
+     },
+     {
+      "form": "Zdrafko",
+      "seen": 1,
+      "note": "Zdravko Defranceski, born 1921 — NAA A2571, alien registration 76418",
+      "case": ""
+     }
+    ]
+   },
+   "forms": 1
+  }
+ ],
+ "slips": [
+  {
+   "form": "JVAN",
+   "canon": "giovanni",
+   "who": "Ivan Defranceski, born 24 or 25 June 1925 at Crikvenica — David's grandfather",
+   "where": "Arolsen Archives, the War Time Card File 2.2.2.1",
+   "why": "A German clerk's J for a Croatian I, on the card that says where he was made to work."
+  },
+  {
+   "form": "KDRAVKO",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "Arolsen Archives, the War Time Card File 2.2.2.1",
+   "why": "A K read off a handwritten Z."
+  },
+  {
+   "form": "ZDRACKO",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "Arolsen Archives, the same card file",
+   "why": "The same man, indexed twice, wrong both times and differently."
+  },
+  {
+   "form": "ZORAFKO",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "NAA B78 — «YUGOSLAVIAN/DEFRANCESKI ZORAFKO», arrived Melbourne per General M. B. Stewart, 13 April 1949",
+   "why": "How Australian officialdom wrote him from the day he landed. It put a second memorial on him at Horsham."
+  },
+  {
+   "form": "Zdrafko",
+   "canon": "zdravko",
+   "who": "Zdravko Defranceski, born 1921",
+   "where": "NAA A2571, alien registration 76418",
+   "why": "A fourth spelling, in a fourth office, of a man who was naturalised as Zdravko."
+  },
+  {
+   "form": "Roza",
+   "canon": "rosa",
+   "who": "Ruža Defranceski, born 13 February 1922 at Fužine",
+   "where": "Commonwealth of Australia Gazette. Periodic, No. P2, 16 February 1979, page 66",
+   "why": "The list that made her an Australian. Arolsen had already written her Rose; the register at Fužine will say Ruža."
+  },
+  {
+   "form": "Helenả",
+   "canon": "elena",
+   "who": "Helena Defranceschi, wife of Valentino of Fiume",
+   "where": "the FamilySearch index of the Fiume baptisms, XQMQ-HGYH and its fellows",
+   "why": "Not a clerk at all — an indexing artefact, a stray hook on the final a. It is why a name search misses her."
+  },
+  {
+   "form": "Vitnio",
+   "canon": "vittorio",
+   "who": "an infant son of Domenico Defranceschi, buried at Svetvinčenat 24 April 1815",
+   "where": "FamilySearch 6B47-9H9Q, read from the burial register",
+   "why": "Vitorio, with the r read as n. This table used to call it an Italian form of the name."
+  },
+  {
+   "form": "Valentio",
+   "canon": "valentino",
+   "who": "Valentino Defranceschi of Fiume, as father",
+   "where": "FamilySearch X9D5-3CK4, the 1757 entry for his daughter Maria",
+   "why": "A dropped n. The same man is Valentini, Valentinus and Valentino on his other children's entries."
+  },
+  {
+   "form": "Antonÿ",
+   "canon": "antonio",
+   "who": "«Gioannis Antonÿ» in the Rijeka registers",
+   "where": "the Rijeka baptisms, read on DGS 004679931",
+   "why": "The ÿ is the clerk's ligature for a double i — Antonii, the genitive. It is a letterform, not an English spelling, and it was filed here as English."
+  }
+ ],
+ "slipnote": "A form in the six columns above is a **language's** form of a name: a different people saying the same thing. A slip is not. **A slip is one clerk, once** — a J read for an I, an r read for an n, a Z heard as a K — and it matters more, because a language form can be looked up and a slip can only be recognised. Every one below is a spelling this archive actually met in a document, with the document named.",
+ "shape": "THE ESTATE'S SHARED GIVEN-NAME SHAPE, adopted 17 September 2026 and taken from the Blazevic archive, which is the only one of the two that could hold what both knew. This archive held the same knowledge as seven comma-separated strings per row, which can carry a form and nothing about it. Here each form carries the number of times this archive has MET it, so the difference between a record and a lead is in the data rather than recomputed by a page. Converted mechanically from givennames.json and checked against this archive's own gate: 645 forms, 419 attested, 226 aids, all three exact. A SLIP IS NOT A LANGUAGE'S FORM OF A NAME and keeps its own key, as it always did here.",
+ "filename": "It is givennames-forms.json and not names.json, because names.json in this archive is the SURNAME file - variants, distribution, the 1945 census - and a first pass at this overwrote it. Caught by the build, in a component two pages away."
+}
