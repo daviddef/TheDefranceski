@@ -90,6 +90,18 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 </section>
 )}
 
+{p.adjacent && (
+<div class="adjwrap">
+  <div class="adjband">
+    <span class="adj-k">Adjacent to this name, and not it</span>
+    <span class="adj-t">This surname is <strong>{p.adjacent}</strong> — a diminutive of <em>Francesco</em>, formed in its own
+      right, and not a spelling of <em>De Franceschi</em>, which is a genitive plural. This archive studies the name and
+      collects what collides with it, so the page stays; <strong>nothing on it counts toward this name</strong>.
+      <a href={u("/name/#scope")}>Where the name stops →</a></span>
+  </div>
+</div>
+)}
+
 {(p.facts && p.facts.length > 0) && (
 <section class="blk">
   <div class="facts">
@@ -446,6 +458,12 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
     display: block; margin: 0 0 20px; padding: 11px 14px; text-decoration: none;
     border-left: 3px solid var(--accent); background: var(--panel);
   }
+  .adjwrap { margin: 0 0 20px; }
+  .adjband { display: block; padding: 11px 14px; border-left: 3px solid var(--ochre, #8a7f5c);
+             background: color-mix(in srgb, var(--ochre, #8a7f5c) 7%, transparent); }
+  .adj-k { display: block; font-family: var(--sans); font-size: 10.5px; letter-spacing: .12em;
+           text-transform: uppercase; color: var(--ochre, #8a7f5c); }
+  .adj-t { display: block; margin-top: 4px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
   .ot-k { display: block; font-family: var(--sans); font-size: 10.5px; letter-spacing: .12em;
           text-transform: uppercase; color: var(--accent); }
   .ot-t { display: block; margin-top: 4px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }

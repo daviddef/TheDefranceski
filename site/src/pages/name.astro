@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdp } from "../lib/md.js";
 import OneName from "../components/OneName.astro";
 import on from "../data/onename.json";
 import Rule from "../components/Rule.astro";
@@ -26,13 +26,35 @@ import gn from "../data/givennames.json";
     <table>
       <thead><tr><th>Form</th><th class="m">Era</th><th>Where</th><th>What produced it</th></tr></thead>
       <tbody>{names.variants.map(v=>(
-        <tr><td>{v.form}</td><td class="m">{v.era}</td><td>{v.where}</td><td set:html={_md(v.why)}></td></tr>
+        <tr style={v.scope === "adjacent" ? "opacity:.72" : ""}>
+          <td>{v.form}{v.scope === "adjacent" && <span class="mono" style="display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ochre)">adjacent, not this name</span>}</td>
+          <td class="m">{v.era}</td><td>{v.where}</td><td set:html={_md(v.why)}></td></tr>
       ))}</tbody>
     </table>
   </div>
   <div class="note" style="margin-top:26px">Two political events force name changes rather than merely allowing them. Between 1918 and 1943 Italian authorities in Istria Italianised Slavic surnames wholesale — by translating the meaning where there was one, otherwise by clipping and re-suffixing. After 1945 the pressure ran the other way, and some families who changed back in 1956 kept the Italianised spelling anyway. A Defranceschi in Istria may therefore appear under a name that is not etymologically this name at all — and a family of entirely different origin may appear under yours.</div>
 </section>
 <Rule name="pomegranate" />
+
+<section class="blk">
+  <h2 id="scope">{names.scope.heading}</h2>
+  <div class="prose" style="margin-top:14px" set:html={mdp(names.scope.lead)}></div>
+  <div class="grid two" style="margin-top:22px">
+    <div class="card">
+      <h3>This name — {names.scope.inScope.length} spellings</h3>
+      <p class="mono" style="font-size:13px;line-height:1.9">{names.scope.inScope.join(" · ")}</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--ochre)">
+      <h3>Adjacent — collected, marked, and not counted</h3>
+      <ul style="margin-top:8px">{names.scope.adjacent.map(a => (
+        <li><strong>{a.form}</strong> — {a.why}</li>
+      ))}</ul>
+    </div>
+  </div>
+  <p class="prose note" style="margin-top:18px" set:html={_md(names.scope.held)}></p>
+  <p class="cap" style="margin-top:10px">{names.scope.ruled}</p>
+</section>
+<Rule name="arrows" />
 
 <section class="blk">
   <h2>What the spelling does and does not show</h2>

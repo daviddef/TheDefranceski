@@ -474,6 +474,32 @@ def ptree(name):
     return t
 
 
+# ---- the name, and what only collides with it ---------------------------
+# This archive studies a NAME, so it collects on the name rather than on the
+# bloodline. A study of a name still has to say where the name stops, and on
+# 17 September 2026 David ruled that it stops before the diminutive:
+# De Franceschi is a genitive plural, «of the Franceschi»; Franceschini and
+# its kin are diminutives of Francesco, formed separately. They are held —
+# thirty-five of them have pages here, swept up by an Austrian harvest — and
+# they are marked, because deleting a person over a surname ruling would be
+# its own dishonesty and the next researcher needs to see they were set aside.
+#
+# The test is on the SURNAME. «Franceschina De Franceschi» is a Franceschina
+# whose surname is ours, and must not be caught by it.
+_nms = _raw_early("names").get("scope") or {}
+ADJACENT = [a["form"] for a in _nms.get("adjacent") or []]
+_adj_re = re.compile("|".join(re.escape(a) for a in ADJACENT), re.I) if ADJACENT else None
+_ours_re = re.compile(r"\bde\s*franceschi|defranceschi|defranceski|de\s*franceski|franceschich", re.I)
+
+def adjacent_name(name):
+    """A surname that collides with this one and is not it."""
+    if not _adj_re: return None
+    n = str(name or "")
+    if _ours_re.search(n): return None          # the surname here is ours
+    m = _adj_re.search(n)
+    return m.group(0) if m else None
+
+
 # ---- the same name, written in another language ------------------------
 # /your-name/ reconciles 645 forms of 73 given names across seven languages,
 # and until 17 September 2026 NOTHING read it. Both normalisers in this
@@ -616,6 +642,7 @@ for slug, rows in by_slug.items():
         "rec": record_strip(rows),
         "chain": chain_tree(name),
         "recyear": YEAR_FROM.get(slug),
+        "adjacent": adjacent_name(name),
         "roster": True,
     }
 
@@ -643,6 +670,7 @@ for slug, p in old.get("people", {}).items():
         p["records"] = (p.get("records") or []) or (BY_SLUG.get(slug, []) + RECORDS.get(" ".join(_key(p.get("name"))), []))[:12]
         if BY_SLUG.get(slug) and not p.get("recyear"): p["recyear"] = YEAR_FROM.get(slug)
         p.setdefault("tree", mini_tree(p.get("name"))); p.setdefault("chain", chain_tree(p.get("name")))
+        p["adjacent"] = adjacent_name(p.get("name"))
         p["roster"] = False
         people[slug] = p
         kept += 1
