@@ -11506,9 +11506,10 @@
     ],
     "parentsPlace": "Rijeka",
     "siblings": [
-     "Valentino Defranceschi",
      "Valentinus Franciscus Xaverius Defranceschi",
-     "Hellena Margaritha Maria Defranceschi"
+     "Hellena Margaritha Maria Defranceschi",
+     "Valentinus Josephus Gregorius Defranceschi",
+     "Hellena Ludovica Defranceschi"
     ],
     "asChild": "1775",
     "upN": 1,
@@ -15080,7 +15081,7 @@
   "giuseppe-defranceschi": {
    "name": "Giuseppe Defranceschi",
    "slug": "giuseppe-defranceschi",
-   "n": 12,
+   "n": 13,
    "pages": [
     {
      "h": "/map/",
@@ -15093,6 +15094,10 @@
     {
      "h": "/omis-line/",
      "t": "The Omiš Line"
+    },
+    {
+     "h": "/",
+     "t": "The Defranceschi Archive"
     },
     {
      "h": "/explorer/",
@@ -15113,10 +15118,6 @@
     {
      "h": "/households/",
      "t": "Households"
-    },
-    {
-     "h": "/",
-     "t": "The Defranceschi Archive"
     },
     {
      "h": "/open-questions/",
@@ -15140,6 +15141,11 @@
      "page": "/omis-line/",
      "title": "The Omiš Line",
      "text": "in 1742 the index holds no Defranceschi at Rijeka at all. Whether these are one family across four unrecorded generations or two arrivals a century apart, nothing here can say. ours href cta 1772–1775 Giuseppe Defranceschi Francesca Defranceschi Rijeka n buried 1772 Valentino Defranceschi d. 22 Aug 1775 1772 Valentinus Franciscus Xaverius Defranceschi"
+    },
+    {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "ran backwards. 20 Sept 2026 serious Giuseppe's household was carrying one boy as two children and missing two more, and its own note said no register had been read /households/ The Rijeka household Giuseppe Defranceschi × Francesca was published with four children, 1772–1775, built «from index entries only — this archive has not seen the page», and listed both «Valentino Defranceschi, b. 1772, bur. 22 Aug 1775» and «Valentinus Franciscus Xaverius"
     },
     {
      "page": "/map/",
@@ -15241,10 +15247,6 @@
     "spouse": "Francesca Defranceschi",
     "children": [
      {
-      "n": "Valentino Defranceschi",
-      "d": "1772"
-     },
-     {
       "n": "Valentinus Franciscus Xaverius Defranceschi",
       "d": "22 Nov 1772"
      },
@@ -15255,9 +15257,17 @@
      {
       "n": "Ellena Defranceschi",
       "d": "1775"
+     },
+     {
+      "n": "Valentinus Josephus Gregorius Defranceschi",
+      "d": "11 Mar 1776"
+     },
+     {
+      "n": "Hellena Ludovica Defranceschi",
+      "d": "8 Feb 1778"
      }
     ],
-    "span": "1772–1775",
+    "span": "1772–1778",
     "childrenPlace": "Rijeka",
     "upN": 0,
     "downN": 2
@@ -15276,15 +15286,8 @@
     },
     "children": [
      {
-      "n": "Valentino Defranceschi",
-      "dt": "1772 – 22 Aug 1775",
-      "via": "index",
-      "slug": "valentino-defranceschi",
-      "own": 10
-     },
-     {
       "n": "Valentinus Franciscus Xaverius Defranceschi",
-      "dt": "b. 22 Nov 1772",
+      "dt": "22 Nov 1772 – 22 Aug 1775",
       "via": "index",
       "slug": "valentinus-franciscus-xaverius-defranceschi"
      },
@@ -15299,9 +15302,19 @@
       "dt": "1775 – 2 Mar 1776",
       "via": "index",
       "slug": "ellena-defranceschi"
+     },
+     {
+      "n": "Valentinus Josephus Gregorius Defranceschi",
+      "dt": "b. 11 Mar 1776",
+      "via": "index"
+     },
+     {
+      "n": "Hellena Ludovica Defranceschi",
+      "dt": "b. 8 Feb 1778",
+      "via": "index"
      }
     ],
-    "span": "1772–1775",
+    "span": "1772–1778",
     "childrenPlace": "Rijeka",
     "upN": 0,
     "downN": 2,
@@ -15311,10 +15324,10 @@
     "tally": [
      [
       "index",
-      5
+      6
      ]
     ],
-    "nrel": 5,
+    "nrel": 6,
     "nread": 0,
     "dupNames": []
    },
@@ -16299,10 +16312,29 @@
      "url": null
     }
    ],
-   "tree": null,
+   "tree": {
+    "ambiguous": false,
+    "spouse": "Magdalena",
+    "children": [
+     {
+      "n": "Josephus Aloysius de Franceschi",
+      "d": "24 May 1748"
+     }
+    ],
+    "span": "1748–1748",
+    "childrenPlace": "Rijeka",
+    "upN": 0,
+    "downN": 1
+   },
    "ptree": {
     "none": true,
     "dropped": [
+     [
+      "dropped",
+      "Joannes Baptista de Franceschi",
+      "Magdalena",
+      "1748–1748"
+     ],
      [
       "dropped",
       "Franciscus Defranceschi",
@@ -17903,6 +17935,11 @@
      "text": "Sept 2026 modest Valentino had fifteen children, not fourteen — and the fifteenth makes the family's count of ten sons come out exactly /valentino/ This archive has carried fourteen children of Valentino Defranceschi and Helena/Elena since 6 September 2026, and set that against «a family account of ten sons and four» — noting that the register gave only nine sons, one short. There are fifteen, and the missing son is Jacobus Vincentius. Under «Die"
     },
     {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "had been read /households/ The Rijeka household Giuseppe Defranceschi × Francesca was published with four children, 1772–1775, built «from index entries only — this archive has not seen the page», and listed both «Valentino Defranceschi, b. 1772, bur. 22 Aug 1775» and «Valentinus Franciscus Xaverius Defranceschi, b. 22 Nov 1772» as separate children. Five children, not four, and one of the four was the same boy twice. All of this household's baptisms were read on"
+    },
+    {
      "page": "/fiume-1626/",
      "title": "Fiume 1626",
      "text": "Rijeka· a household a hundred and thirteen years too early Giovanni Kobler went through the civic records of Fiume in the 1870s and wrote out for Carlo De Franceschi every household of this surname he could find. His earliest is «Valentino Defranceschi, venuto dalla Carnia, fu fatto Cittadino nel 1739» — come from Carnia, made a citizen in 1739. The parish register of Fiume has a De Franceschi household baptising children in the city in 1626. This was not found by looking for it. It came out"
@@ -17983,11 +18020,6 @@
      "text": "in 1761 in the family article and dated 1764 by its inscription, and he transcribes the inscription twice with different wording — «Sacellum B. Mariæ Virgini erectum a D. Valentino Defranceschi a. 1764» in the chapter on the chapels, and «Sacellum a D. Valentino Defranceschi erectum a. 1764» in the family article. And Ignazio's wife is «Giuseppa Donegalli» here, where this archive had «Giuseppa Danezello» from the earlier reading. The stone, if it survives, settles the first two; the marriage register at Rijeka settles the"
     },
     {
-     "page": "/carlos-letter/",
-     "title": "Carlo's Letter",
-     "text": "this archive already had on disk — and let them answer. The lead was worth having. It was not evidence. And it turns out to bear on this family directly. Kobler's own article on the three Fiume stocks of the surname records that Valentino Defranceschi, civic engineer and steward of Fiume, «ammogliatosi nel 1793 con Orsola de Benzoni», married an Orsola de Benzoni in 1793 and had eight children by her. So the Defranceschi married into the Benzoni — the Fiume house that had produced, two generations"
-    },
-    {
      "page": "/people/",
      "title": "The People",
      "text": "his own son Carlo. He had died in Venice in 1953, an exile from the province he spent his life documenting. Storia documentata della Contea di Pisino Venice, published posthumously 1964 valentino-defranceschi Valentino Defranceschi born died mione carnia-fiume Citizen of Fiume Landowner documented Came from Carnia and was made a citizen of Fiume in 1739 — the same year he baptised a son there."
@@ -18059,17 +18091,6 @@
    ],
    "tree": {
     "ambiguous": false,
-    "parents": [
-     "Giuseppe Defranceschi",
-     "Francesca Defranceschi"
-    ],
-    "parentsPlace": "Rijeka",
-    "siblings": [
-     "Valentinus Franciscus Xaverius Defranceschi",
-     "Hellena Margaritha Maria Defranceschi",
-     "Ellena Defranceschi"
-    ],
-    "asChild": "1772",
     "spouse": "Elena Defranceschi",
     "children": [
      {
@@ -18115,7 +18136,7 @@
     ],
     "span": "1742–1757",
     "childrenPlace": "Rijeka",
-    "upN": 1,
+    "upN": 0,
     "downN": 1
    },
    "ptree": {
@@ -18124,47 +18145,7 @@
      "dt": "1772 – 1775",
      "via": "index"
     },
-    "parents": [
-     {
-      "n": "Giuseppe Defranceschi",
-      "dt": "1748 – 1778",
-      "via": "index",
-      "slug": "giuseppe-defranceschi",
-      "own": 4
-     },
-     {
-      "n": "Francesca Defranceschi",
-      "dt": "",
-      "via": "index",
-      "own": 7
-     }
-    ],
-    "parentsPlace": "Rijeka",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Valentinus Franciscus Xaverius Defranceschi",
-      "dt": "b. 22 Nov 1772",
-      "via": "index",
-      "slug": "valentinus-franciscus-xaverius-defranceschi",
-      "small": true
-     },
-     {
-      "n": "Hellena Margaritha Maria Defranceschi",
-      "dt": "b. 11 Jul 1774",
-      "via": "index",
-      "slug": "hellena-margaritha-maria-defranceschi",
-      "small": true
-     },
-     {
-      "n": "Ellena Defranceschi",
-      "dt": "1775 – 2 Mar 1776",
-      "via": "index",
-      "slug": "ellena-defranceschi",
-      "small": true
-     }
-    ],
-    "upN": 1,
+    "upN": 0,
     "downN": 0,
     "dropped": [
      [
@@ -18176,13 +18157,32 @@
     ],
     "unchecked": [],
     "estRej": [],
+    "parents": [
+     {
+      "n": "Giuseppe Defranceschi",
+      "dt": "1748 – 1778",
+      "via": "index",
+      "slug": "giuseppe-defranceschi",
+      "own": 5
+     },
+     {
+      "n": "Francesca Defranceschi",
+      "dt": "",
+      "via": "index",
+      "own": 7
+     }
+    ],
+    "parentsPlace": "Rijeka",
+    "parentsHref": "/register/",
+    "parentsFromRow": true,
+    "parentsCaveat": "Drawn from the one indexed entry that names this person, not from a household this archive has built. The entry names these people together; it does not prove the relationship it implies.",
     "tally": [
      [
       "index",
-      5
+      2
      ]
     ],
-    "nrel": 5,
+    "nrel": 2,
     "nread": 0,
     "dupNames": []
    },
@@ -18228,7 +18228,7 @@
   "valentinus-franciscus-xaverius-defranceschi": {
    "name": "Valentinus Franciscus Xaverius Defranceschi",
    "slug": "valentinus-franciscus-xaverius-defranceschi",
-   "n": 2,
+   "n": 3,
    "pages": [
     {
      "h": "/map/",
@@ -18237,6 +18237,10 @@
     {
      "h": "/omis-line/",
      "t": "The Omiš Line"
+    },
+    {
+     "h": "/",
+     "t": "The Defranceschi Archive"
     },
     {
      "h": "/explorer/",
@@ -18264,6 +18268,11 @@
      "page": "/omis-line/",
      "title": "The Omiš Line",
      "text": "1772–1775 Giuseppe Defranceschi Francesca Defranceschi Rijeka n buried 1772 Valentino Defranceschi d. 22 Aug 1775 1772 Valentinus Franciscus Xaverius Defranceschi 1774 Hellena Margaritha Maria Defranceschi 1775 Ellena Defranceschi d. 2 Mar 1776 Four children, and the index has entered the eldest twice — once from his baptism on"
+    },
+    {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "household Giuseppe Defranceschi × Francesca was published with four children, 1772–1775, built «from index entries only — this archive has not seen the page», and listed both «Valentino Defranceschi, b. 1772, bur. 22 Aug 1775» and «Valentinus Franciscus Xaverius Defranceschi, b. 22 Nov 1772» as separate children. Five children, not four, and one of the four was the same boy twice. All of this household's baptisms were read on film 005497925 on 20 September 2026. The duplicate. Valentino and"
     },
     {
      "page": "/register/",
@@ -18318,9 +18327,10 @@
     ],
     "parentsPlace": "Rijeka",
     "siblings": [
-     "Valentino Defranceschi",
      "Hellena Margaritha Maria Defranceschi",
-     "Ellena Defranceschi"
+     "Ellena Defranceschi",
+     "Valentinus Josephus Gregorius Defranceschi",
+     "Hellena Ludovica Defranceschi"
     ],
     "asChild": "22 Nov 1772",
     "upN": 1,
@@ -18338,7 +18348,7 @@
       "dt": "1748 – 1778",
       "via": "index",
       "slug": "giuseppe-defranceschi",
-      "own": 4
+      "own": 5
      },
      {
       "n": "Francesca Defranceschi",
@@ -18350,14 +18360,6 @@
     "parentsPlace": "Rijeka",
     "parentsHref": "/households/",
     "siblings": [
-     {
-      "n": "Valentino Defranceschi",
-      "dt": "1772 – 22 Aug 1775",
-      "via": "index",
-      "slug": "valentino-defranceschi",
-      "small": true,
-      "own": 10
-     },
      {
       "n": "Hellena Margaritha Maria Defranceschi",
       "dt": "b. 11 Jul 1774",
@@ -18371,6 +18373,18 @@
       "via": "index",
       "slug": "ellena-defranceschi",
       "small": true
+     },
+     {
+      "n": "Valentinus Josephus Gregorius Defranceschi",
+      "dt": "b. 11 Mar 1776",
+      "via": "index",
+      "small": true
+     },
+     {
+      "n": "Hellena Ludovica Defranceschi",
+      "dt": "b. 8 Feb 1778",
+      "via": "index",
+      "small": true
      }
     ],
     "upN": 1,
@@ -18381,10 +18395,10 @@
     "tally": [
      [
       "index",
-      5
+      6
      ]
     ],
-    "nrel": 5,
+    "nrel": 6,
     "nread": 0,
     "dupNames": []
    },
@@ -18620,9 +18634,10 @@
     ],
     "parentsPlace": "Rijeka",
     "siblings": [
-     "Valentino Defranceschi",
      "Valentinus Franciscus Xaverius Defranceschi",
-     "Ellena Defranceschi"
+     "Ellena Defranceschi",
+     "Valentinus Josephus Gregorius Defranceschi",
+     "Hellena Ludovica Defranceschi"
     ],
     "asChild": "11 Jul 1774",
     "upN": 1,
@@ -18640,7 +18655,7 @@
       "dt": "1748 – 1778",
       "via": "index",
       "slug": "giuseppe-defranceschi",
-      "own": 4
+      "own": 5
      },
      {
       "n": "Francesca Defranceschi",
@@ -18653,16 +18668,8 @@
     "parentsHref": "/households/",
     "siblings": [
      {
-      "n": "Valentino Defranceschi",
-      "dt": "1772 – 22 Aug 1775",
-      "via": "index",
-      "slug": "valentino-defranceschi",
-      "small": true,
-      "own": 10
-     },
-     {
       "n": "Valentinus Franciscus Xaverius Defranceschi",
-      "dt": "b. 22 Nov 1772",
+      "dt": "22 Nov 1772 – 22 Aug 1775",
       "via": "index",
       "slug": "valentinus-franciscus-xaverius-defranceschi",
       "small": true
@@ -18672,6 +18679,18 @@
       "dt": "1775 – 2 Mar 1776",
       "via": "index",
       "slug": "ellena-defranceschi",
+      "small": true
+     },
+     {
+      "n": "Valentinus Josephus Gregorius Defranceschi",
+      "dt": "b. 11 Mar 1776",
+      "via": "index",
+      "small": true
+     },
+     {
+      "n": "Hellena Ludovica Defranceschi",
+      "dt": "b. 8 Feb 1778",
+      "via": "index",
       "small": true
      }
     ],
@@ -18683,10 +18702,10 @@
     "tally": [
      [
       "index",
-      5
+      6
      ]
     ],
-    "nrel": 5,
+    "nrel": 6,
     "nread": 0,
     "dupNames": []
    },
@@ -31822,7 +31841,8 @@
      {
       "n": "Magdalena",
       "dt": "",
-      "via": "index"
+      "via": "index",
+      "own": 1
      }
     ],
     "span": "1870–1873",
@@ -37228,7 +37248,8 @@
      {
       "n": "Magdalena",
       "dt": "b. 5 Feb 1853",
-      "via": "index"
+      "via": "index",
+      "own": 1
      },
      {
       "n": "Maria",
@@ -42249,7 +42270,8 @@
      {
       "n": "Magdalena",
       "dt": "b. 5 Feb 1853",
-      "via": "index"
+      "via": "index",
+      "own": 1
      },
      {
       "n": "Maria",
@@ -52226,7 +52248,8 @@
      {
       "n": "Magdalena",
       "dt": "b. 5 Feb 1853",
-      "via": "index"
+      "via": "index",
+      "own": 1
      },
      {
       "n": "Maria",
@@ -86627,7 +86650,8 @@
      {
       "n": "Magdalena",
       "dt": "b. 5 Feb 1853",
-      "via": "index"
+      "via": "index",
+      "own": 1
      },
      {
       "n": "Maria",
@@ -90304,7 +90328,8 @@
      {
       "n": "Magdalena",
       "dt": "",
-      "via": "index"
+      "via": "index",
+      "own": 1
      }
     ],
     "span": "1870–1873",
@@ -97336,10 +97361,6 @@
     "spouse": "Francesca Defranceschi",
     "children": [
      {
-      "n": "Valentino Defranceschi",
-      "d": "1772"
-     },
-     {
       "n": "Valentinus Franciscus Xaverius Defranceschi",
       "d": "22 Nov 1772"
      },
@@ -97350,9 +97371,17 @@
      {
       "n": "Ellena Defranceschi",
       "d": "1775"
+     },
+     {
+      "n": "Valentinus Josephus Gregorius Defranceschi",
+      "d": "11 Mar 1776"
+     },
+     {
+      "n": "Hellena Ludovica Defranceschi",
+      "d": "8 Feb 1778"
      }
     ],
-    "span": "1772–1775",
+    "span": "1772–1778",
     "childrenPlace": "Rijeka",
     "upN": 0,
     "downN": 2
@@ -97371,15 +97400,8 @@
     },
     "children": [
      {
-      "n": "Valentino Defranceschi",
-      "dt": "1772 – 22 Aug 1775",
-      "via": "index",
-      "slug": "valentino-defranceschi",
-      "own": 10
-     },
-     {
       "n": "Valentinus Franciscus Xaverius Defranceschi",
-      "dt": "b. 22 Nov 1772",
+      "dt": "22 Nov 1772 – 22 Aug 1775",
       "via": "index",
       "slug": "valentinus-franciscus-xaverius-defranceschi"
      },
@@ -97394,9 +97416,19 @@
       "dt": "1775 – 2 Mar 1776",
       "via": "index",
       "slug": "ellena-defranceschi"
+     },
+     {
+      "n": "Valentinus Josephus Gregorius Defranceschi",
+      "dt": "b. 11 Mar 1776",
+      "via": "index"
+     },
+     {
+      "n": "Hellena Ludovica Defranceschi",
+      "dt": "b. 8 Feb 1778",
+      "via": "index"
      }
     ],
-    "span": "1772–1775",
+    "span": "1772–1778",
     "childrenPlace": "Rijeka",
     "upN": 0,
     "downN": 2,
@@ -97406,10 +97438,10 @@
     "tally": [
      [
       "index",
-      5
+      6
      ]
     ],
-    "nrel": 5,
+    "nrel": 6,
     "nread": 0,
     "dupNames": []
    },
@@ -97606,7 +97638,7 @@
       "dt": "1748 – 1778",
       "via": "read",
       "slug": "giuseppe-defranceschi",
-      "own": 4
+      "own": 5
      },
      {
       "n": "Lucia Tromba",
@@ -99156,7 +99188,7 @@
      "dt": "1748 – 1778",
      "via": "read",
      "slug": "giuseppe-defranceschi",
-     "own": 4
+     "own": 5
     },
     "children": [
      {
@@ -99295,7 +99327,7 @@
       "dt": "1748 – 1778",
       "via": "read",
       "slug": "giuseppe-defranceschi",
-      "own": 4
+      "own": 5
      },
      {
       "n": "Lucia Tromba",
@@ -105271,7 +105303,8 @@
      {
       "n": "Magdalena",
       "dt": "b. 5 Feb 1853",
-      "via": "index"
+      "via": "index",
+      "own": 1
      },
      {
       "n": "Maria",
@@ -116634,6 +116667,10 @@
    "n": 1,
    "pages": [
     {
+     "h": "/tree/",
+     "t": "Our line, drawn"
+    },
+    {
      "h": "/map/",
      "t": "The Map"
     }
@@ -116669,8 +116706,57 @@
    "known": "**Born 24 May 1748, baptised 29 May**, son of **D.nus Joannes Baptista de Franceschi** and **D.na Magdalena**, on **image 150 of film 005497925** (`3:1:3QS7-L99F-W4CK`). **In no index anywhere.** He is **almost certainly the Giuseppe Defranceschi b. 1748, d. 1778** the MyHeritage tree already carries at Rijeka without a source — the **Giuseppe × Francesca** who baptised four children at Fiume between 1772 and 1778 and whose son Valentino heads the Rijeka chain. *(inf — no entry names his father in 1772.)* His parents put him in a **second Fiume Defranceschi household**, not Valentino the Carnian's.",
    "more": [],
    "records": [],
-   "tree": null,
-   "ptree": null,
+   "tree": {
+    "ambiguous": false,
+    "parents": [
+     "Joannes Baptista de Franceschi",
+     "Magdalena"
+    ],
+    "parentsPlace": "Rijeka",
+    "siblings": [],
+    "asChild": "24 May 1748",
+    "upN": 1,
+    "downN": 0
+   },
+   "ptree": {
+    "self": {
+     "n": "Josephus Aloysius de Franceschi",
+     "dt": "b. 1748",
+     "via": "read"
+    },
+    "parents": [
+     {
+      "n": "Joannes Baptista de Franceschi",
+      "dt": "1752 – 1813",
+      "via": "read",
+      "slug": "joannes-baptista-defranceschi",
+      "own": 1
+     },
+     {
+      "n": "Magdalena",
+      "dt": "",
+      "via": "read",
+      "own": 1
+     }
+    ],
+    "parentsPlace": "Rijeka",
+    "parentsHref": "/households/",
+    "siblings": [],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [],
+    "estRej": [],
+    "tally": [
+     [
+      "read",
+      2
+     ]
+    ],
+    "nrel": 2,
+    "nread": 2,
+    "dupNames": []
+   },
    "rec": null,
    "chain": null,
    "recyear": null,
@@ -116688,6 +116774,10 @@
    "slug": "joannes-baptista-de-franceschi",
    "n": 2,
    "pages": [
+    {
+     "h": "/tree/",
+     "t": "Our line, drawn"
+    },
     {
      "h": "/fiume-1626/",
      "t": "Fiume 1626"
@@ -116746,10 +116836,29 @@
      "url": null
     }
    ],
-   "tree": null,
+   "tree": {
+    "ambiguous": false,
+    "spouse": "Magdalena",
+    "children": [
+     {
+      "n": "Josephus Aloysius de Franceschi",
+      "d": "24 May 1748"
+     }
+    ],
+    "span": "1748–1748",
+    "childrenPlace": "Rijeka",
+    "upN": 0,
+    "downN": 1
+   },
    "ptree": {
     "none": true,
     "dropped": [
+     [
+      "dropped",
+      "Joannes Baptista de Franceschi",
+      "Magdalena",
+      "1748–1748"
+     ],
      [
       "dropped",
       "Franciscus Defranceschi",

@@ -771,34 +771,23 @@
   "region": "kvarner",
   "line": "male",
   "from": 1772,
-  "to": 1775,
-  "n": 4,
+  "to": 1778,
+  "n": 5,
   "children": [
-   {
-    "name": "Valentino Defranceschi",
-    "sex": "Male",
-    "birth": "1772",
-    "death": "22 Aug 1775",
-    "place": "Fiume, Modrus-Fiume, Ungheria",
-    "y": 1772,
-    "id": "6YBR-GND2",
-    "key": "valentino",
-    "ours": true,
-    "by": 1772,
-    "dy": 1775
-   },
    {
     "name": "Valentinus Franciscus Xaverius Defranceschi",
     "sex": "Male",
     "birth": "22 Nov 1772",
-    "death": "",
+    "death": "22 Aug 1775",
     "place": "Vitipolis, Modrus-Fiume, Magyarország",
     "y": 1772,
     "id": "XQMQ-ZQKM",
     "key": "valentino francesco",
     "ours": true,
     "by": 1772,
-    "dy": null
+    "dy": 1775,
+    "alsoId": "6YBR-GND2",
+    "note": "Baptised **23 November 1772**, *«heri natum»* — born the 22nd. **Buried 22 August 1775, aged two.** This archive carried the baptism and the burial as **two different boys**; they are one. *(inf, and the register settles it: when the next son is baptised in March 1776 he is christened **Valentinus** Josephus Gregorius — the name given again after the first died.)*"
    },
    {
     "name": "Hellena Margaritha Maria Defranceschi",
@@ -825,12 +814,42 @@
     "ours": true,
     "by": 1775,
     "dy": 1776
+   },
+   {
+    "name": "Valentinus Josephus Gregorius Defranceschi",
+    "sex": "Male",
+    "birth": "11 Mar 1776",
+    "death": "",
+    "place": "Vitipolis, Modrus-Fiume, Magyarország",
+    "y": 1776,
+    "id": "",
+    "key": "valentino giuseppe",
+    "ours": true,
+    "by": 1776,
+    "dy": null,
+    "img": "005497925 · baptisms img, ark 3:1:3QS7-899F-WC34",
+    "note": "Born 11 March, baptised 12 March 1776. **The second Valentino** — named again after his brother's death in August 1775. Godparents **D.no Carolo Müller** and **D.na Josepha Callinesi**: no Defranceschi."
+   },
+   {
+    "name": "Hellena Ludovica Defranceschi",
+    "sex": "Female",
+    "birth": "8 Feb 1778",
+    "death": "",
+    "place": "Vitipolis, Modrus-Fiume, Magyarország",
+    "y": 1778,
+    "id": "",
+    "key": "hellena ludovica",
+    "ours": true,
+    "by": 1778,
+    "dy": null,
+    "img": "005497925 · baptisms img, ark 3:1:3QSQ-G99F-WHGT",
+    "note": "Baptised 8 February 1778 by C.us Lumaga. Godparents **D.no Ludovico Henrich** and **D.na Hellena Carina** — no Defranceschi. **The last child of this household**, and the family tree's death year for Giuseppe is the same year."
    }
   ],
   "id": "h010",
   "src": "index",
-  "confirmed": "4 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "confirmed": "All five baptisms read on the film, 20 September 2026, and one duplicate removed.",
+  "read": "**The register has now been read** — film 005497925, 20 September 2026 — and it changed this household in three ways. **The 1776 and 1778 baptisms were missing entirely.** **Valentino and Valentinus Franciscus Xaverius were one boy**, baptised 23 November 1772 and buried 22 August 1775. And the father is no longer anonymous: **Giuseppe is almost certainly the Josephus Aloysius born 24 May 1748** to **Joannes Baptista de Franceschi and Magdalena** — [the second Fiume household](/fiume-1626/#jbaptista). *The note that said «no register has been read» stood for as long as that was true.*"
  },
  {
   "key": "giustina + matteo",
@@ -7590,5 +7609,39 @@
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
   "confirmed": "**Generation nine**, and the end of the drawn line. Every person in this household is living: named, placed, and never dated."
+ },
+ {
+  "key": "magdalena + joannes baptista",
+  "fatherKey": "joannes baptista",
+  "motherKey": "magdalena",
+  "father": "Joannes Baptista de Franceschi",
+  "mother": "Magdalena",
+  "place": "Rijeka",
+  "region": "kvarner",
+  "line": "male",
+  "from": 1748,
+  "to": 1748,
+  "n": 1,
+  "children": [
+   {
+    "name": "Josephus Aloysius de Franceschi",
+    "sex": "Male",
+    "birth": "24 May 1748",
+    "death": "",
+    "place": "Vitipolis, Modrus-Fiume, Magyarország",
+    "y": 1748,
+    "id": "",
+    "key": "josephus aloysius",
+    "ours": true,
+    "by": 1748,
+    "dy": null,
+    "img": "005497925 · baptisms img 150, ark 3:1:3QS7-L99F-W4CK",
+    "note": "**In no index anywhere.** Almost certainly the **Giuseppe × Francesca** who heads the Rijeka chain — right forename, right town, and **twenty-four** at his first child's baptism in November 1772."
+   }
+  ],
+  "id": "h105",
+  "src": "read",
+  "confirmed": "One baptism, read on the page. The household is documented; its extent is not.",
+  "read": "**Found by reading, not by searching** — film 005497925, image 150, 20 September 2026, during a frame-by-frame sweep of the 1746–1750 gap. **This is the second Defranceschi household at Fiume**, beside Valentino the Carnian's, and this archive did not know it existed.\n\n**Only one child is known**, because only one page has been read. **Magdalena was dead by December 1771**, when Joannes Baptista remarries as a widower to **Catharina de Benzoni**; he has indexed children by her in 1773 and 1776. **No marriage of his stands in the Fiume register between 1736 and 1748**, all of which has been read — so he married elsewhere, and **Magdalena's maiden name is the open question**. See [the second household](/fiume-1626/#jbaptista)."
  }
 ]
