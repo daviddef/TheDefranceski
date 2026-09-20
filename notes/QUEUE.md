@@ -200,3 +200,106 @@ A **DSpace 7 repository with an open REST API** — harvests cleanly, no bot che
 **3. Two countries nobody here has knocked on.** Of the seventeen **Defranceski** in the world, one is in **Serbia** and one in **Slovenia** — neither appears on this site's map, register or chart. A third is in **Argentina**, where this archive has an open question about Rotilio and Buenos Aires; there are also **37 Argentine Defranceschi**.
 
 **4. A figure to resolve.** The site says twice that the surname is «down to about ten people in Croatia». Forebears gives **50 Defranceschi in Croatia** and calls Croatia the country of highest density for the spelling. Not necessarily a contradiction — «about ten» may mean a line or a village — but the archive does not say which, and should.
+
+---
+
+# Handed over from the Blažević archive — 20 September 2026
+
+*Row 35 of that archive's work list was «Gologorica — twenty-four Šestani, and
+not one direct ancestor». It was worked for two sittings before somebody asked
+the obvious question: why is a Šestan row in a Blažević archive at all? It is
+not. It is yours. Everything below was found there and is more use here.*
+
+## Why it is yours and not theirs
+
+**Twenty-five of the fifty-five Šestani in the shared tree have a DEFRANCESCHI
+mother** — Joanna (10 children), Sancta-Alexandra (9), Rosa (6).
+
+**No Šestan connects to Hedviga Blažević through any published person at all.**
+In the full 15,643-person tree the nearest is ten steps away, and the chain is:
+
+    Hedviga → married Ivan Anton Defranceski → up five Defranceschi generations
+    → (unnamed) → «Grah's for Investigation (not real)» → «Gologorica Grah»
+    → Josephus Grah 1864 → married Rosa Sestan 1872
+
+Two of those links are sorting buckets. **And your own queue already has the
+corroboration**: Forebears gives Gračišće's surnames as *Jugovac 489, **Šestan
+316**, Pauro 234, Marfan 132…* — Šestan is the **second commonest surname in
+Gračišće**.
+
+## 1. Gologorica is not a catalogued parish. Tested, not assumed.
+
+Searched as **Gologorica**, **Gollogorizza**, **Gologorizza** and as the modern
+municipality **Cerovlje**. All empty.
+
+**The FamilySearch catalogue API pads every result with a constant filler list**
+— a Staffordshire map, a Wagler family history, a Hungarian church in Hamilton.
+Thirty rows come back whatever you ask it. So a zero has to be controlled:
+
+    q.keywords=Karlobag          koha:655222 «Matična knjiga, 1691-1861», then filler
+    q.keywords=Gologorica        filler only
+    q.keywords=zzzzqqqnotaplace  filler only — BYTE-IDENTICAL to Gologorica
+
+The working endpoint is
+`/service/search/catalog/search?q.keywords=…` — note **`q.keywords`** or
+**`q.place`**; `q.text` and `q.anyPlace` are rejected outright.
+
+## 2. Pazin's book reaches 1582 — koha:725172
+
+    Births      1582, 1614-1624, 1645, 1643-1685, 1685-1847, 1847-1882
+    Marriages   1597-1635, 1656-1852, 1812-1847
+    Deaths      1655-1691, 1692-1847
+
+Films 2099882/dgs 5494799, 2099899/dgs 5497824, 2099900/dgs 5497825,
+2099901/dgs 5497826. And **koha:725059** adds births 1656-1722, 1744-1822
+(film 2099881/dgs 5494798).
+
+**The catalogue note is the sovereignty problem in one sentence:**
+
+> *Metrical books for **Mitterburg, Küstenland, Austria**; later **Pisino,
+> Istria, Italy**; now **Pazin, Croatia**. Text in Italian and Latin.*
+
+## 3. THE IMPORTANT ONE: the index is filed under the AUSTRIAN name
+
+Šestan baptisms at Pazin are in *Austria, Küstenland, Births, from 1536* and
+are returned by **`q.anyPlace=Pisino`**. **Searched as «Pazin» they do not
+appear at all.**
+
+    13 Apr 1795   Catharina Sestan             Josephus × Joanna
+    10 May 1804   Antonius Sestan              Josephus × Joanna
+    14 Sep 1807   Josephus Sestan              Josephus × Joanna
+    11 Jun 1826   Anna Geminiana Rosa Sestan   Franciscus Joannes × Sancta Alfieri
+    20 May 1827   Rosa Josepha Susana Sestan   Franciscus × Sancta Alfieri
+     8 Dec 1834   Josephus Sestan              Antonius × Francisca Callaz
+
+with deaths back to **Joannes Sestan, born 1659, died 23 April 1709**, and
+marriages from **1787**. **A searcher who knows only the Croatian name finds a
+third of this parish.**
+
+**Sancta Alfieri is worth your attention** — the mother of the 1826 and 1827
+children, and «Sancta-Alexandra Defranceschi» is one of the three Defranceschi
+mothers above. Whether they are the same woman is not established here.
+
+## 4. What is NOT established, so nobody loses a day to it
+
+**Nothing places the 23 Gologorica Šestani (born 1843-1877) in the Pazin book.**
+Searched in that window the index returns Šestani at **Poreč, Rovinj, Pola,
+Ližnjan and Vrsar** — and none at Gologorica or Pazin. Šestan is a
+peninsula-wide surname, the way Prpić is in Lika.
+
+**So the Pazin film is available and is not yet proved worth a sitting.** The
+eighteenth-century Pisino Šestani are a Pisino household; nothing yet joins them
+to Gologorica sixty years on.
+
+## 5. Two people, free
+
+**Elisabetha Sestan** (`elisabetha-sestan-3` in the Blažević publish), born
+**11 July 1912** at *«Gologorica I\*, Yugoslavia»*, of *Natalis Joannes Sestan ×
+Antonia Ancic*. The tree gives her **no death and no husband**. The US Social
+Security index gives both: **«Elisabetta Sestan RABAR», died 20 April 2005,
+Staten Island, Richmond, New York.** Index, not a certificate.
+
+**«Gologorica Grah»** is a sorting bucket that no detector catches — a **village
+name sitting in the given-name field**. It is on the Defranceschi line, between
+Teresa Grach (1753) and Josephus Grah (1864). Worth a look while you are in
+that part of the tree.
