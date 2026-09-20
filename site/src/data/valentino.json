@@ -1,8 +1,8 @@
 {
-  "note": "The children of Valentino Defranceschi and Helena/Elena, read out of the Liber Baptizatorum and the burial register of Fiume on 6 September 2026 and re-checked against the FamilySearch index on 20 September 2026. **Every child carries a `who` slug**, because an evidence file with no key to a person is an evidence file the build will drop — and this one was dropped for eleven days. The list stood at fourteen until the index turned up a fifteenth, **Jacobus Vincentius, baptised 21 July 1757**, whose entry was then read on the page. Eleven of the fifteen now carry the ark of the image they were read from.",
+  "note": "The fifteen children of Valentino Defranceschi and Helena/Elena, read out of the Liber Baptizatorum and the burial register of Fiume on 6 September 2026, re-checked against the FamilySearch index on 20 September and then **read back on the film, page by page, the same day**. **Every child now cites the image it stands on.** The list stood at fourteen until the index turned up a fifteenth, **Jacobus Vincentius, baptised 21 July 1757** — the tenth son, and the one that makes the family's own count come out.",
   "heading": "Valentino's fifteen children, out of the Fiume register",
-  "lead": "Kobler's earliest Fiume household is «Valentino Defranceschi, venuto dalla Carnia, fu fatto Cittadino nel 1739». The register says what that citizenship was for: **he had been baptising children there since 1737**, and he went on doing it for twenty years. **Ten sons and five daughters** — and the tenth son only appeared on 20 September 2026. The family account has always said *ten sons*, and for as long as this archive had fourteen children it could only count nine. **With Jacobus Vincentius the sons come out at ten exactly.** Five of the fifteen are known only from the burial register.",
-  "source": "Liber Baptizatorum and the burial register of the collegiate church of St Vitus, Fiume, read 6 September 2026; index arks recovered and three entries re-read on the page 20 September 2026. **Eleven of the fifteen now cite the image they stand on.** **The remaining four are exactly the four this archive had already named as being in no index** — *Ignatius Francus Mattheus 1745, Vitus Joannes Baptista 1751, Aloysius Rochus 1754 and Rosalia Francisca 1755* — which is a small vindication of the 6 September reading: everything it recorded that could be checked, checked out. Those four still exist only because the register itself was read, and need the film at their dates. *(doc for the eleven that cite an ark; doc — uncited for the four.)*",
+  "lead": "Kobler's earliest Fiume household is «Valentino Defranceschi, venuto dalla Carnia, fu fatto Cittadino nel 1739». The register says what that citizenship was for: **he had been baptising children there since 1737**, and he went on doing it for twenty years. **Ten sons and five daughters.** The family account has always said *ten sons*, and for as long as this archive had fourteen children it could only count nine; **with Jacobus Vincentius the sons come out at ten exactly.** Five of the fifteen are known only from the burial register. And the register does one more thing the index cannot: by the 1750s it calls the father **D.nus Valentinus** and stands *Illustrissimi* over the font — a Carnian immigrant's children sponsored by Fiume patricians, and in 1754 by a **free baroness**.",
+  "source": "Liber Baptizatorum and the burial register of the collegiate church of St Vitus, Fiume — read 6 September 2026, and every entry re-found on the film on 20 September 2026. Baptisms are **film 005497925**, burials **film 005497941**. **All fifteen children cite the image they stand on**; eleven also carry a FamilySearch index entry, and the four that appear in no index — *Ignatius Francus Mattheus 1745, Vitus Joannes Baptista 1751, Aloysius Rochus 1754, Rosalia Francisca 1755* — were found by interpolating between dated frames and reading the pages. **All four were exactly where the 6 September reading said they were**, and three of them gave up a birth date the first reading had not recorded. *(doc — every row cites an image.)*",
   "of": {
     "father": "Valentino Defranceschi",
     "mother": "Helena / Elena Defranceschi",
@@ -79,12 +79,14 @@
     },
     {
       "name": "Ignatius Francus Mattheus",
-      "says": "bapt. 29 July 1745",
+      "says": "born 28 July 1745 «heri natum», bapt. 29 July",
       "year": 1745,
       "sex": "M",
       "who": "ignatius-francus-mattheus-defranceschi",
       "kind": "baptism",
-      "covered": "valentino"
+      "covered": "valentino",
+      "ark": "3:1:3QS7-899F-W4R5",
+      "frame": 126
     },
     {
       "name": "Vitus Joannes Baptista",
@@ -93,7 +95,9 @@
       "sex": "M",
       "who": "vitus-joannes-baptista-defranceschi",
       "kind": "baptism",
-      "covered": "valentino"
+      "covered": "valentino",
+      "ark": "3:1:3QS7-899F-W4ZG",
+      "frame": 228
     },
     {
       "name": "Aloysius Joannes Petrus",
@@ -119,21 +123,25 @@
     },
     {
       "name": "Aloysius Rochus",
-      "says": "bapt. 18 August 1754",
+      "says": "born 16 August 1754, bapt. 18 August",
       "year": 1754,
       "sex": "M",
       "who": "aloysius-rochus-defranceschi",
       "kind": "baptism",
-      "covered": "valentino"
+      "covered": "valentino",
+      "ark": "3:1:3QS7-L99F-WWTN",
+      "frame": 257
     },
     {
       "name": "Rosalia Francisca",
-      "says": "bapt. 8 October 1755",
+      "says": "born 3 October 1755, bapt. 8 October",
       "year": 1755,
       "sex": "F",
       "who": "rosalia-francisca-defranceschi",
       "kind": "baptism",
-      "covered": "valentino"
+      "covered": "valentino",
+      "ark": "3:1:3QS7-899F-W48P",
+      "frame": 272
     },
     {
       "name": "Jacobus Vincentius",
