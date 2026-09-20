@@ -6,6 +6,7 @@ import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import f from "../data/fiume.json";
 import v from "../data/valentino.json";
+import jb from "../data/jbaptista.json";
 const md = (s) => String(s ?? "")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -74,6 +75,36 @@ const md = (s) => String(s ?? "")
   </div>
   <p class="prose note" style="margin-top:18px" set:html={_md(v.note)}></p>
   <p class="cap" style="margin-top:12px" set:html={_md(v.source)}></p>
+
+<Rule name="arrows" label="The second household, 1748–1776" />
+
+  <h2 id="jbaptista" style="font-size:31px">{jb.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={_md(jb.lead)}></p>
+
+  <ol class="ents" style="margin-top:24px">{jb.rows.map(r => (
+    <li class={"ent" + (r.key ? " is-key" : "")}>
+      <div class="lab">{r.lab}</div>
+      {r.q && <blockquote set:html={md(r.q)} />}
+      {r.en && <p class="tr" set:html={_md(r.en)}></p>}
+      <p class={r.q ? "wh" : "wh nb"} style="white-space:pre-line" set:html={_md(r.why)} />
+    </li>
+  ))}</ol>
+
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th>Who</th><th>What is known</th><th>On this site</th></tr></thead>
+      <tbody>{jb.people.map(([name, what, who]) => (
+        <tr>
+          <td>{name}</td>
+          <td class="m" set:html={md(what)}></td>
+          <td>{who ? <a href={u(`/who/${who}/`)}>their page →</a> : <span class="m">no page — named only in the register</span>}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <p class="prose note" style="margin-top:18px" set:html={_md(jb.note)}></p>
+  <p class="cap" style="margin-top:12px" set:html={_md(jb.source)}></p>
 
 <Rule name="arrows" label="Rovinj, 1619" />
 
