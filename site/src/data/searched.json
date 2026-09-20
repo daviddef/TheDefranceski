@@ -8235,6 +8235,47 @@
       ],
       "key": "src/the-route-into-a-subscription--dda4d7",
       "got": "**A Findmypast transcript id for these collections is a FamilySearch film and frame, written out in full.**\n\n    /transcript?id=US%2FUS_PASSPORT_APPLICATIONS%2F007572652%2F00658%2F001670911\n                                              ^^^^^^^^^ film   ^^^^^ frame\n\nFrom there the images are ordinary FamilySearch images and none of the viewer is needed:\n\n1. `https://www.familysearch.org/search/film/<film>?i=<frame-1>` — **the ark is in the document title**, `…/ark:/61903/3:1:<ARK>?cc=2185145&wc=… – Film # <film>`.\n2. `https://sg30p0.familysearch.org/service/records/storage/dascloud/das/v2/3:1:<ARK>/dist.jpg` — the full plate, 3,600 × 3,000 or so, which a canvas crop reads comfortably.\n\n**That turns «eighteen images inside a viewer» into eighteen ordinary image loads** — no filmstrip, no paging, no zoom controls, and the crop recipe already used for the parish registers works unchanged. The transcription on these sets is credited *«used by permission of FamilySearch»*, which is the tell that the plate will be there."
+    },
+    {
+      "src": "The Chicago Soundex card — read off the plate, not the index",
+      "what": "What the naturalisation index card actually carries for Giovanni of Chicago",
+      "when": "21 Sept 2026",
+      "outcome": "hit",
+      "url": "https://www.familysearch.org/search/film/004640985?i=96",
+      "dest": "Chicago",
+      "tags": [
+        "emigration",
+        "indexes",
+        "United States",
+        "hit"
+      ],
+      "ev": [
+        [
+          "/errands/",
+          "Errands"
+        ],
+        [
+          "/america/",
+          "America"
+        ]
+      ],
+      "key": "src/the-chicago-soundex-card-read--040c89",
+      "got": "**The card is open, and it does not give the comune — but it gives the number that will.**\n\nFilm **004640985**, frame **97**, reached from the Findmypast record id `US/NATUR/004640985/00097` by the [film-and-frame route](/searched/). A U.S. Department of Labor **Form No. I-1 P**, Soundex code **D 165**:\n\n> Family name **DeFranceschi** · Given name **Giovanni**\n> Address **2336 W. Superior St., Chgo.**\n> Certificate no. **P. 151190  CN. 4249300**\n> Title and location of court **U.S. Dist. Ct., Chgo.**\n> Country of birth or allegiance **Italy**\n> When born **Jan. 16, 1895**\n> Date and port of arrival in U.S. *(blank)*\n> Date of naturalization **May 5, 1937**\n\n**Three things this archive did not have.** An **exact birth date** where it carried only a year; a **Chicago street address**; and — the one that matters — a **petition number, P. 151190**.\n\n**The errand was already written down; now it has a citation.** This archive already said *«the petition behind the Soundex index names the comune and is an errand»*. **It is the same errand, but it is now a request for a numbered document from a named court** rather than a search: *Petition for Naturalization 151190, U.S. District Court, Northern District of Illinois, Chicago, 5 May 1937.*\n\n**And the form settles the question for this record type.** The card asks *«Country of birth or allegiance»* and nothing finer. **No amount of reading the index images will ever produce a town**, because the index does not have a field for one. *(doc.)*"
+    },
+    {
+      "src": "Which of the 307 American records can answer «is this one ours» — counted",
+      "what": "Where the birthplace actually lives, dataset by dataset",
+      "when": "21 Sept 2026",
+      "outcome": "yield",
+      "url": "https://www.findmypast.co.uk/search/results?sourcecategory=travel+%26+migration&lastname=de+franceschi&sourcecountry=united+states",
+      "dest": "Findmypast",
+      "tags": [
+        "indexes",
+        "emigration",
+        "method"
+      ],
+      "key": "src/which-of-the-307-american-reco-01f5db",
+      "got": "**Three hundred and seven American travel-and-migration records carry this surname, and they are not one kind of thing.** Counted on 21 September, all sixteen pages:\n\n| record set | rows |\n|---|---:|\n| United States, Passenger and Crew Lists | **270** |\n| United States Naturalization Petitions | 13 |\n| Italians to America | 11 |\n| United States, Canadian Border Crossings | 6 |\n| Illinois, Northern District, Naturalization Index | 2 |\n| United States Passport Applications | 2 |\n| British & Irish Roots Collection | 2 |\n| Passenger Lists Leaving UK 1890–1960 | 1 |\n\n**And the order of work is the opposite of what was assumed.** The work list said to start with the 277 passenger records because their transcripts name the town of last residence. **The naturalisation petitions carry a «Birth place as transcribed» field in the transcript itself** — no image, no order, one navigation — and that field is the whole question. **Thirteen records answer «is this one ours» outright; two hundred and seventy need a plate each.**\n\n**What the thirteen say.** *Joseph Defranceschi*, **«Gallignana, Austria»**, Brooklyn 1912 — already held here, and he is [the first of the Eleven to go](/the-eleven/). *Peter De Franceschi*, **«Basel, Switzerland»**, 12 January 1902, New York 1931. *Bruno De Franceschi*, 12 August 1907, with **Gerda** (15 January 1913) and **Richard** (2 December 1932) at Brooklyn in 1939, and recorded in 1942 under the alias **«de Franceschi or Seedorf»**. **All three households were already in this archive.** *(doc.)*"
     }
   ]
 }
