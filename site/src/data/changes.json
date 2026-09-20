@@ -9,6 +9,20 @@
    "rows": [
     {
      "when": "20 Sept 2026",
+     "kind": "yield",
+     "what": "The eighty-four people who were in David's tree and not in this roster are now in it",
+     "src": "The live MyHeritage tree, reconciled against the roster",
+     "text": "**82 new rows; the roster goes 1,225 → 1,307.** Two of the eighty-four were already here under the same name and were skipped rather than duplicated.\n\n**Twenty-five of them are living**, and they appear **by name and by town and by nothing else** — no birth year, no death year, no photograph — exactly as the rule has stood since 15 September. The living gate passes on all of them.\n\nLižnjan 7, Gračišće 6, Crikvenica 5, Brooklyn 5, Gologorica 4, Allentown 2, and singles at Trieste, Venice, Varaždin, Gallignana, Mercedes, Ellis Island, Urach, Metzingen, Horsham, Johannesburg and Castelgomberto. **Thirty-nine have no place at all.**\n\n**Every row says what it is**: *«Tree-derived: no register has been read for this person here»*, marked `inf`. **These were never strangers** — 486 of the 668 tree-only people were already inside David's own pens, tested and parked. The eighty-four were the remainder, and they are the good list."
+    },
+    {
+     "when": "20 Sept 2026",
+     "kind": "fix",
+     "what": "Fourteen places where the tree and this archive disagree now say so on the person's own page",
+     "src": "reconcile.json, written onto the roster",
+     "text": "Seven are **age arithmetic** — death agreed, birth out by one to three — and now say plainly that *an age produces this* and that the archive keeps the register's figure. Two are **too big for arithmetic** (*Mario*, 1919 against 1924; *Girolamo of Omiš*, 1632 against 1622) and say **one side has the wrong man**. Three dispute the **death year** — *Clementina Maria* by thirty years, *Josephus Lambertus* by twenty-one, *Lina* by two — and say **this needs the burial register, not a judgement**. And the mirrored *Petrus Defranceschi* pair says it is **one man on the roster twice**, 1768 and 1765, same death year 1829.\n\n**A first attempt put these notes on 56 rows instead of 14**, because it matched on name alone and this roster is record-level: *Maria Defranceschi* is twenty-four rows, and twenty-three of them would have been accused of a disagreement belonging to one. Stripped and redone against **name and source**."
+    },
+    {
+     "when": "20 Sept 2026",
      "kind": "correction",
      "what": "Helena Defranceschi is a parish godmother, not a grandmother — an earlier reading withdrawn",
      "src": "Fiume baptisms, images 127–150 tallied",
