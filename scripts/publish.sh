@@ -30,7 +30,9 @@ while IFS= read -r page; do
   [[ "$slug" == *"["* ]] && continue
   slug="${slug%/index}"; [[ "$slug" == "index" ]] && slug=""
   [[ -z "$slug" ]] && out="site/dist/index.html" || out="site/dist/$slug/index.html"
-  [[ -f "$out" ]] || { echo "MISSING OUTPUT: /$slug/"; missing=1; }
+  # Astro emits 404.astro as dist/404.html, not dist/404/index.html. Accept both
+  # spellings rather than block every publish on a page that is present.
+  [[ -f "$out" || -f "site/dist/$slug.html" ]] || { echo "MISSING OUTPUT: /$slug/"; missing=1; }
 done < <(find site/src/pages -name '*.astro')
 [[ $missing -eq 0 ]] || { echo "Pages missing from dist — nothing pushed."; exit 1; }
 

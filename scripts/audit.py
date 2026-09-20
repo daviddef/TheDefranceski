@@ -40,8 +40,11 @@ def norm(s):
 def main(md=False):
     ros = load("roster")["rows"]; hh = load("households"); reg = load("register")["rows"]
     dos = load("dossiers")["people"]
+    # The rivers diagram moved into the shared kit and its town names moved with
+    # the data, into site/src/data/rivers.json. Scrape the data, not the component:
+    # the component is now generic and holds no place names at all.
     src = (pathlib.Path(__file__).resolve().parent.parent /
-           "site/src/components/BranchRivers.astro").read_text(encoding="utf-8")
+           "site/src/data/rivers.json").read_text(encoding="utf-8")
     chart = set()
     for x in re.findall(r'"([A-ZŠŽČĆĐ][^"\\]{2,60})"', src):
         for part in re.split(r"[—·,/]| - | and ", x):   # "Kaštelir and Tar" is two towns
