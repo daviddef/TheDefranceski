@@ -8,6 +8,23 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# ALWAYS say how we ended. Adopted 21 Sept 2026 from the D'Arcy session, after
+# an afternoon in which three publishes were each misdiagnosed:
+#   - two died silently because they were launched `nohup ... &` inside a tool
+#     call and were reaped with the calling shell;
+#   - one did not die at all. It was piped through `tail -12` from OUTSIDE this
+#     script, which buffers until the pipeline ends, so a healthy ten-minute
+#     gate chain looked like a vanished process with an empty log. It was
+#     declared dead, relaunched, and had already pushed.
+# Note the header above: this script refuses to pipe its own build for exactly
+# that reason, and the mistake was then made one level up.
+#
+# A SIGTERM'd build inside a gate chain also exits non-zero AFTER earlier gates
+# have printed `ok`, so a killed run reads like a data fault. One line fixes
+# all of it: the last line of the log now always states the exit status.
+trap 'rc=$?; if [ "$rc" -eq 0 ]; then echo "PUBLISH_EXIT=0"; \
+  else echo "PUBLISH_EXIT=$rc  (128+n means a signal: 143=TERM, 137=KILL)"; fi' EXIT
+
 # The dist/TheDefranceski self-symlink (recreated at the end of every publish so
 # the local preview serves the base path) makes Astro's own build recurse into
 # itself and fail with a module-resolution error. Remove it before building.
