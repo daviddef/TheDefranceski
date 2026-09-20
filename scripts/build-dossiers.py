@@ -658,6 +658,49 @@ for _fk, _slugs in _by_fold.items():
             ({"slug": s2, "name": people[s2]["name"]} for s2 in _slugs if s2 != _slug),
             key=lambda x: x["name"])[:24]
 
+# The fold above keeps the WHOLE name, so it never joins a long baptismal name
+# to its own short form. Fiume christened children «Franciscum Josephum
+# Aloysium Joannem Nepomuc» and the index then carried that at four different
+# lengths — four pages, one boy, and not a link between them. Camillo Romano
+# never reached Camillo either.
+#
+# So: a second pass on FIRST given name plus BIRTH YEAR, which is specific
+# enough to mean something and is exactly the case the first pass misses.
+# It only ever adds to alsoWritten; it never replaces what the fold found.
+_born = {}
+for _r in roster["rows"]:
+    if _r.get("b"):
+        _born.setdefault(slugify(_r["name"]), _r["b"])
+
+def _first_given(n):
+    _t = re.sub(r"\(.*?\)", " ", n or "")
+    _t = re.sub(r"(?i)\b(de\s*)?fran[czs]{1,2}[eh]?sch?i\w*|defranceski\w*|franceschich\w*|franceschin\w*", " ", _t)
+    _t = unicodedata.normalize("NFD", _t)
+    _t = "".join(c for c in _t if unicodedata.category(c) != "Mn")
+    _t = re.sub(r"[^A-Za-z ]", " ", _t).lower()
+    for _w in _t.split():
+        if _w in ("de", "di", "del", "della", "dei", "da", "von", "van", "in", "croatian", "the", "or"):
+            continue
+        return CANON.get(_w, _w)
+    return ""
+
+_by_year = {}
+for _slug, _p in people.items():
+    _b = _born.get(_slug)
+    _fg = _first_given(_p["name"])
+    if _b and _fg:
+        _by_year.setdefault((_fg, _b), []).append(_slug)
+for _k, _slugs in _by_year.items():
+    if len(_slugs) < 2: continue
+    for _slug in _slugs:
+        _have = {x["slug"] for x in (people[_slug].get("alsoWritten") or [])}
+        _add = [{"slug": s2, "name": people[s2]["name"]}
+                for s2 in _slugs if s2 != _slug and s2 not in _have]
+        if not _add: continue
+        people[_slug]["alsoWritten"] = sorted(
+            (people[_slug].get("alsoWritten") or []) + _add,
+            key=lambda x: x["name"])[:24]
+
 # keep anything that already had a page and is not a roster person
 kept = 0
 for slug, p in old.get("people", {}).items():
