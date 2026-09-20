@@ -8,7 +8,6 @@ const rows=[
  {id:"bare", label:"Franceschi",      from:1600,to:2026,lang:"it", note:"prefix dropped — absent from Istria in 1945"},
  {id:"fus",  label:"Defranceschi",    from:1740,to:2026,lang:"de", note:"Habsburg fusion · Pazin county, Trentino"},
  {id:"franz",label:"Franzeschi",      from:1750,to:1900,lang:"de", note:"German orthography"},
- {id:"ich",  label:"Franceschich",    from:1850,to:1918,lang:"de", note:"Slavic -ić written the Austrian way"},
  {id:"ski",  label:"Defranceski",     from:1900,to:2026,lang:"en", note:"heard, not read · South Africa, Australia"},
  {id:"deski",label:"de Franceski",    from:1950,to:2026,lang:"en", note:"prefix deliberately restored"},
 ];
@@ -16,7 +15,7 @@ const H=42, TOP=46;
 const y=(i)=>TOP+i*H;
 const idx=Object.fromEntries(rows.map((r,i)=>[r.id,i]));
 const links=[["root","lat",1550],["root","sp",1600],["root","bare",1600],
-             ["sp","fus",1740],["sp","franz",1750],["sp","ich",1850],
+             ["sp","fus",1740],["sp","franz",1750],
              ["fus","ski",1900],["ski","deski",1950]];
 const col={it:"--accent",la:"--ochre",de:"--r-habsburg",en:"--terra"};
 const TH=22;
