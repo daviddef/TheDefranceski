@@ -62,7 +62,11 @@ fi
 # every row in the list data must actually reach its page — see /corrections/,
 # 13 Sept 2026, when the Search Register was found drawing 112 of 197 rows
 if [[ -f scripts/verify-rendered.py ]]; then
-  python3 scripts/verify-rendered.py | tail -n 3
+  # Show every line that is NOT an `ok`, plus the summary. `tail -n 3` used to
+  # cut this to the last three lines, which on a failing run is the blank line
+  # and the summary — the `!!` line naming the file, and the rows it had lost,
+  # scrolled off the one report that exists to show them.
+  python3 scripts/verify-rendered.py | grep -v '^  OK ' || true
 fi
 
 ( cd site/dist && ln -sfn . TheDefranceski )
