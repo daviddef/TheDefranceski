@@ -1,29 +1,29 @@
 {
  "note": "The archive had grown three maps off the same ground. The research map\ncarried 1,235 record-book places and asked «how far have we got with the\nshelf». The atlas carried 160 places and asked «where can we put a person».\nThe graves map carried 64 and asked «where is this family in the ground».\nForty-three of the atlas's places were already on the research map, eleven of\nthe graves map's were, and after the people layer was added to the research\nmap in September 2026 one map was a strict superset of another. Three pages,\nthree geocoders, three legends, and a reader holding all of it in their head.",
  "stats": {
-  "places": 1399,
+  "places": 1398,
   "bySchemes": {
-   "people": 74,
-   "people + shelf": 36,
-   "shelf": 1197,
+   "people": 73,
+   "people + shelf": 32,
+   "shelf": 1196,
    "graves + people": 36,
    "graves": 13,
-   "graves + people + shelf": 12,
+   "graves + people + shelf": 17,
    "records": 24,
    "people + records": 4,
    "graves + people + records": 3
   },
   "shelf": 1245,
   "people": 165,
-  "graves": 64,
+  "graves": 69,
   "records": 31,
   "recordsN": 156,
   "recordsUnplaced": 21,
-  "merged": 91,
-  "allThree": 15,
-  "peoplePlaced": 1008,
-  "peopleAbroad": 115,
-  "burials": 158,
+  "merged": 92,
+  "allThree": 20,
+  "peoplePlaced": 1031,
+  "peopleAbroad": 113,
+  "burials": 194,
   "volumes": 6268,
   "byShelf": {
    "untouched": 1211,
@@ -41,15 +41,15 @@
   },
   "byGraves": {
    "stone": 50,
-   "register": 14
+   "register": 19
   },
   "sums": {
    "research": 1245,
    "atlas": 165,
-   "graves": 64,
+   "graves": 69,
    "records": 48
   },
-  "saved": 123
+  "saved": 129
  },
  "researchStats": {
   "places": 1286,
@@ -267,24 +267,24 @@
  "atlasStats": {
   "places": 165,
   "withPeople": 143,
-  "people": 1008,
+  "people": 1031,
   "withFilms": 35,
   "films": 422
  },
  "gravesStats": {
-  "places": 64,
-  "placed": 64,
-  "people": 158,
+  "places": 69,
+  "placed": 69,
+  "people": 194,
   "stones": 96,
-  "register": 62,
+  "register": 98,
   "cemeteries": 53,
   "byCat": {
    "stone": 50,
-   "register": 14
+   "register": 19
   },
   "byCountry": {
    "USA": 25,
-   "Croatia": 15,
+   "Croatia": 20,
    "Australia": 11,
    "Italy": 8,
    "Germany": 1,
@@ -293,8 +293,8 @@
    "Canada": 2
   },
   "unplacedStone": 0,
-  "unplacedRegister": 40,
-  "earliest": 1645,
+  "unplacedRegister": 4,
+  "earliest": 1619,
   "latest": 2024
  }
 }
