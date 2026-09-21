@@ -8841,6 +8841,32 @@
       ],
       "key": "src/what-full-text-search-can-and-046e84",
       "got": "**Full-text search answered [item 125](/worklist/) on its first query, so the next question is how much else it can answer. The boundary turns out to be sharp, and it is geographic.**\n\n**Sampling its own results.** The query *Defranceschi* returns **3,967** documents. Reading the collection line off 97 of them:\n\n| region | collections |\n|---|---|\n| Emilia-Romagna | 70 |\n| Friuli Venezia Giulia · Lombardy | 12 |\n| Sardinia · Veneto · Marche | 11 |\n| Piedmont · Sicily · West Virginia | 3 |\n| **Croatia, Hrvatska, Istria, Rijeka** | **0** |\n\n**Not one Croatian collection.** The service reads **Italian civil registration** — births, marriages, deaths, proclamations, banns supplements — and some American sets. **It does not read the Croatia Church Books**, which is where almost all of this family's record lies.\n\n**So why did it find Rotilio?** Because his marriage was proclaimed at **Trieste** in **1928**, when Istria was Italian and the relevant office kept Italian civil registers. The document that settled a Croatian question was an *Italian* one. That is the shape of what this service can do here: **it reaches the family during the Italian period and on the Italian mainland, and nowhere else.**\n\n### What this opens and what it closes\n\n**Reachable** — anything in Italian civil registration: the Istrian communes 1918–1943, Trieste, Pisino, Fiume as *Fiume* the Italian province, and the mainland households at Castelgomberto and elsewhere. **Albina Cincopan had lived at Trieste**, which the proclamation says in as many words, and Trieste's registers are inside this boundary.\n\n**Not reachable, and no amount of querying will change it** — [the Fiume households of the 1740s](/worklist/) (item 143), the Gračišće registers before 1918 (item 75), Klenovica and Ledenice (items 76, 141), Svetvinčenat, Crikvenica, Senj, Bakar. **These are church books in Croatian collections and full-text does not index them.** They stay archive questions, and item 141's letter to Rijeka remains the route.\n\n### The query syntax, which cost a wasted search\n\n**Unquoted terms are OR-ed and the results are worthless.** *Defranceschi Valentino Fiume* returns **1,079,220** documents, with *Fiume* matching **Fiume Veneto in Friuli** — a different town in a different country. **Quoted, `\"Valentino Defranceschi\"` returns 4**, all of them Italian mainland and none at Rijeka. **Always quote the phrase.** *(doc, on measurement.)*"
+    },
+    {
+      "src": "The Trieste trail run to its end — the original Pisino request, and a surname the two copies disagree on",
+      "what": "FamilySearch full-text — «Cincopan» run out, and the Pisino request form behind the Trieste proclamation",
+      "when": "21 Sept 2026",
+      "outcome": "partial",
+      "url": "https://www.familysearch.org/ark:/61903/3:1:33SQ-GRC1-CX7?view=fullText",
+      "dest": "Trieste · Pisino (Pazin) · Gračišće",
+      "tags": [
+        "FamilySearch",
+        "full-text",
+        "Istria",
+        "partial"
+      ],
+      "ev": [
+        [
+          "/who/albina-cincopan-defranceschi/",
+          "Albina Cincopan"
+        ],
+        [
+          "/worklist/",
+          "The list"
+        ]
+      ],
+      "key": "src/the-trieste-trail-run-to-its-e-9880fe",
+      "got": "**Following [Rotilio's marriage](/searched/) into Trieste, because the proclamation said the bride had lived there.**\n\n**What the trail gave.** The Trieste banns supplements hold **the original request form** that the Trieste register was copying from:\n\n> *«PROVINCIA DELL'ISTRIA · CIRCONDARIO DI PISINO · COMUNE DI PISINO · UFFICIO DELLO STATO CIVILE · **RICHIESTA DI PUBBLICAZIONI DI MATRIMONIO No. 46**»*, dated **27 April 1928**, stamped as presented **28.4.28**.\n\nSo the marriage was **Pisino's** — Pazin — and Trieste appears only because *«la sposa ha avuto la residenza»* there. Two offices, two documents, one wedding.\n\n**And a discrepancy that matters to anyone who searches for her mother.**\n\n| copy | the bride's mother |\n|---|---|\n| Trieste proclamation | «e di **Trompich Maria**» |\n| Pisino request no. 46 | «e di **Fumpich Maria**» |\n\n**One act, copied twice, one letter apart.** *Trompich* is a known Istrian surname and *Fumpich* is not one this archive has met — which is a reason to lean, not to decide. **Both readings are AI-generated transcripts of handwriting**, so the error may be the machine's rather than the clerk's. **Neither plate has been magnified**, and until one is, she is recorded as *Trompich or Fumpich*. *(open, and cheap — both images are online.)*\n\n**What the trail did not give.** No Trieste address, no Argentine record, and no further Cincopan. The surname returns **51** documents in full-text and all but the two Trieste ones are OCR noise — Spanish notarial text where *«cincopan»* is a fragment of *«cinco pan…»*. **Buenos Aires remains the one part of the reunion album with no document behind it.**"
     }
   ]
 }

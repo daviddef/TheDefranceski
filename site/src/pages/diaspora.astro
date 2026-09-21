@@ -146,7 +146,12 @@ import d from "../data/diaspora.json";
 <Rule name="arrows" label="Argentina" />
 
 <section class="blk">
-  <h2 id="argentina">{d.argentina.heading}</h2>
+  {/* NOT id="argentina". The Argentina *cluster* above already takes that id
+      from its place name, exactly as Britain's does, and two anchors of one
+      name on one page means every /diaspora/#argentina link in the archive can
+      only ever reach the first of them. The cluster is the one those links
+      mean, so this section gets its own. */}
+  <h2 id="argentine-pen">{d.argentina.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(d.argentina.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
     {d.argentina.rows.map(r => (
