@@ -37,9 +37,11 @@ colour for the only number that matters:
 Writes site/src/data/researchmap.json and one Atlas blob per source view.
 """
 import sys, os, re, json, collections, itertools, unicodedata, urllib.parse
+import math
 import xml.etree.ElementTree as ET
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gazcheck
+import mark_inherited_pins
 
 NS   = {"k": "http://www.opengis.net/kml/2.2"}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -939,7 +941,15 @@ def main():
                     "vread": vread, "vpart": vpart, "vknown": vknown,
                     "gaps": gaps, "ngaps": len(gaps), "gapSpans": spans})
 
+    # ---- inherited pins -------------------------------------------------
+    # A place whose dot sits on a containing place's dot is showing the parent,
+    # not itself. The rule and the reasoning live in mark_inherited_pins.py so
+    # that the same test can be run against the shipped file without a rebuild
+    # — this generator needs the GeoNames dumps, and an audit should not.
+    inherited = mark_inherited_pins.mark(out)
+
     stats = {"places": len(out), "placed": sum(1 for o in out if o["lat"]),
+             "inheritedPins": inherited,
              "volumes": sum(o["volumes"] for o in out),
              # «Read» now means a register volume of this parish's own books has
              # been opened. Places we have only researched from print are
