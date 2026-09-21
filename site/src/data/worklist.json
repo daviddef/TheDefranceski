@@ -732,10 +732,10 @@
     {
       "n": 87,
       "what": "Test FamilySearch's full-text search — it has never been tried",
-      "state": "blocked",
+      "state": "done",
       "owner": "David",
       "since": "2026-09-15",
-      "note": "Listed as **«untested»** on the search register and left there. FamilySearch's full-text search reads the **handwriting of unindexed images**, which is precisely the state of every Croatian register this archive has catalogued: 5,489 volumes, none of them name-indexed. **If it works on Istrian parish hands it changes the shape of this whole archive.** One afternoon to find out.\n\n**Blocked on 16 September: the FamilySearch session is signed out.** Full-text search redirects to the login page and the persona API stopped answering at the same time. **This archive does not enter credentials.** One sign-in from David and this runs.",
+      "note": "Listed as **«untested»** on the search register and left there. FamilySearch's full-text search reads the **handwriting of unindexed images**, which is precisely the state of every Croatian register this archive has catalogued: 5,489 volumes, none of them name-indexed. **If it works on Istrian parish hands it changes the shape of this whole archive.** One afternoon to find out.\n\n**Blocked on 16 September: the FamilySearch session is signed out.** Full-text search redirects to the login page and the persona API stopped answering at the same time. **This archive does not enter credentials.** One sign-in from David and this runs.\n\n---\n\n**21 September 2026 — it has now been tried, and it worked on the first query.** Full-text search runs from a signed-in in-app browser without difficulty: *Defranceschi* returns **3,967** documents, and the plain query *Rotilio Defranceschi* produced the Trieste marriage proclamation that settled [item 125](/worklist/) — a document no name index holds. **This item is closed as answered, and the service should now be run against the rest of this list.**",
       "covers": [
         "src:src/familysearch-full-text-searc-9d5358"
       ]
@@ -1066,11 +1066,11 @@
     {
       "n": 125,
       "what": "The Gračišće marriage register for 16 May 1928 — the name of the woman Rotilio actually married",
-      "state": "next",
+      "state": "done",
       "owner": "this archive",
       "since": "2026-09-17",
       "covers": [],
-      "note": "The register already read gives *«Rutilius 3-11-1902, married 16-5-1928»* and this archive took the **wife's name from the 2012 reunion album** — which [turned out to be his sister's husband's surname](/the-eleven/). David's tree still carries an *«Albine Chinkopan, born Italy, died Buenos Aires»* against that same date.\n\n**The register itself names the bride.** One entry, one date, one parish, and it settles a question two pages are currently hedging. Croatian registers of 1928 fall inside the hundred-year closure, so this may be an errand rather than a click."
+      "note": "The register already read gives *«Rutilius 3-11-1902, married 16-5-1928»* and this archive took the **wife's name from the 2012 reunion album** — which [turned out to be his sister's husband's surname](/the-eleven/). David's tree still carries an *«Albine Chinkopan, born Italy, died Buenos Aires»* against that same date.\n\n**The register itself names the bride.** One entry, one date, one parish, and it settles a question two pages are currently hedging. Croatian registers of 1928 fall inside the hundred-year closure, so this may be an errand rather than a click.\n\n---\n\n**21 September 2026 — ANSWERED, and the answer reverses this archive's own reading.** FamilySearch full-text, query *Rotilio Defranceschi*, reached **Trieste, Marriage Proclamation Records 1928, Parte II Serie A n. 132**: *«Defranceschi Rotilo … figlio di fu Antonio … e di Valhart Maria»* marrying *«**Cincopan Albina** … figlia di Giuseppe … e di Trompich Maria»*. **He did marry an Albina Cincopan.** The album was right; the correction published here was wrong. Three people added, a trade recorded, and **Trieste added as a place the bride had lived**. See [/corrections/](/corrections/)."
     },
     {
       "n": 126,
