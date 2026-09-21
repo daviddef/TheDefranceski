@@ -9,7 +9,27 @@ import hs from "../data/households.json";
 import Lineage from "../components/Lineage.astro";
 import lin from "../data/lineages.json";
 import dl from "../data/directline.json";
+import roster from "../data/roster.json";
 import { norm } from "../lib/people.js";
+
+/* THE LIVING, ON THIS PAGE.
+   The archive's rule is that a living person is named and nothing more. The
+   build's check:living enforces it — but only for dates the DATA attaches to
+   that person, and the roster deliberately carries `b: null` for everyone it
+   flags living. A birth year sitting in households.json is therefore invisible
+   to the checker: it never learns the year belongs to them. Two of these were
+   already reaching the page through the exactly-three bucket.
+   So the suppression is done here, on the same two tests the kit itself uses:
+   the data's own living flag, and its PRESUME_DEAD_AFTER = 80. */
+const NOW = new Date().getFullYear();
+const PRESUME_DEAD_AFTER = 80;
+const flaggedLiving = new Set(
+  roster.rows.filter(r => r.living || r.presumedLiving || r.alive || r.isLiving
+                     || String(r.conf || "").toLowerCase() === "living")
+             .map(r => norm(r.name)));
+const maybeLiving = (c) =>
+  flaggedLiving.has(norm(c.name)) ||
+  (c.by && !c.dy && (NOW - c.by) < PRESUME_DEAD_AFTER);
 /* Which of these households is a generation of the direct line? The tree shows
    those eight as couples; this page should say which of its 112 they are. */
 const onTree = new Map();
@@ -24,6 +44,12 @@ const male = hs.filter(h => h.line !== 'female');
 const female = hs.filter(h => h.line === 'female');
 const big = male.filter(h => h.n >= 4);
 const rest = male.filter(h => h.n === 3);
+/* Households of one or two children. These were built, counted in every total
+   on this page, and then rendered by nothing: `big` took four and up, `rest`
+   took exactly three, and sixty-five fell through the gap between the two.
+   They are the weakest form of this reconstruction and the most numerous, so
+   they get their own section rather than being folded in with the threes. */
+const pairs = male.filter(h => h.n <= 2);
 const byPlace = {};
 for (const h of hs) { const p = h.place || "not localised"; byPlace[p] = (byPlace[p]||0) + 1; }
 const infant = hs.reduce((s,h) => s + h.children.filter(c => {
@@ -37,7 +63,16 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
    handed over rather than re-derived from a printed string. */
 const shape = (h) => ({
   head: h.father, spouse: h.mother, where: h.place,
-  born: h.from && h.to ? `${h.from}\u2013${h.to}` : (h.from || ""),
+  /* The card's year range is the span of the children's births, so it leaks
+     exactly the dates the rule above withholds. Derive it from the children
+     whose dates are actually shown; a household of only living children
+     carries no range at all. */
+  born: (() => {
+    const ys = (h.children || []).filter(c => !maybeLiving(c) && c.by).map(c => c.by);
+    if (!ys.length) return "";
+    const lo = Math.min(...ys), hi = Math.max(...ys);
+    return lo === hi ? String(lo) : `${lo}\u2013${hi}`;
+  })(),
   /* `confirmed` and `read` are both PROSE, present on every household - the
      first says what makes the couple a couple, the second what has been read
      under it. Treating either as a boolean puts "confirmed by a marriage
@@ -50,11 +85,15 @@ const shape = (h) => ({
     h.confirmed ? _md(h.confirmed) : "",
     h.read ? `<span style="display:block;margin-top:6px">${_md(h.read)}</span>` : "",
   ].filter(Boolean).join(" "),
-  children: (h.children || []).map((c) => ({
-    name: c.name,
-    dates: c.by && c.dy ? `${c.by}\u2013${c.dy}` : (c.by ? String(c.by) : ""),
-    short: !!(c.by && c.dy && c.dy - c.by <= 5),
-  })),
+  children: (h.children || []).map((c) => {
+    const hide = maybeLiving(c);
+    return {
+      name: c.name,
+      /* Name and nothing more, for anyone who may still be alive. */
+      dates: hide ? "" : (c.by && c.dy ? `${c.by}\u2013${c.dy}` : (c.by ? String(c.by) : "")),
+      short: !hide && !!(c.by && c.dy && c.dy - c.by <= 5),
+    };
+  }),
 });
 ---
 <Base title="Households" eyebrow={`${hs.length} families reconstructed from the registers`}
@@ -62,7 +101,7 @@ const shape = (h) => ({
 
 <section class="blk">
   <div class="grid g4">
-    <div class="stat"><div class="n">{hs.length}</div><div class="l">households with two or more recorded children</div></div>
+    <div class="stat"><div class="n">{hs.length}</div><div class="l">households reconstructed from the registers</div></div>
     <div class="stat"><div class="n">{kids}</div><div class="l">children placed with their parents</div></div>
     <div class="stat"><div class="n">{infant}</div><div class="l">who did not reach five years old</div></div>
     <div class="stat"><div class="n">1645</div><div class="l">earliest reconstructed household</div></div>
@@ -104,6 +143,16 @@ const shape = (h) => ({
   <p class="dek">Three recorded children — often a household whose register years are only partly indexed.</p>
   <div class="grid g2" style="margin-top:24px">
     <Households rows={rest.map(shape)} u={u} sort="given" caveat={false} />
+  </div>
+</section>
+<Rule name="tablet" />
+
+<section class="blk">
+  <h2>One or two children</h2>
+  <p class="dek">{pairs.length} households — the largest group on this page, and the weakest. A pair of siblings naming the same parents is the thinnest thing this method will call a household.</p>
+  <div class="note" style="margin-top:20px"><strong>These were built and then shown nowhere.</strong> Until now the page rendered four-or-more, exactly-three, and the daughters' households — and everything with one or two children fell through the gap between those buckets. They were counted in every total at the top of this page while being impossible to read. That is fixed here rather than by quietly dropping them from the counts: they are real groupings from real records, and a reader is owed the chance to judge how thin they are.</div>
+  <div class="grid g2" style="margin-top:24px">
+    <Households rows={pairs.map(shape)} u={u} sort="given" caveat={false} />
   </div>
 </section>
 <Rule name="tablet" />
