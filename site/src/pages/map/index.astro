@@ -149,6 +149,8 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
   </div>
 
   <Atlas
+    recordAtlas="https://daviddef.github.io/TheMap/place"
+    years
     dataUrl={u("/map-data.json")}
     cats={cats}
     bounds={[[42.2, 13.2], [46.8, 19.6]]}
