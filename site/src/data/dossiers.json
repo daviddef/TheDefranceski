@@ -18952,7 +18952,7 @@
     {
      "page": "/method/",
      "title": "Method",
-     "text": "the phrase, or full-text ORs your words and buries you. Defranceschi Valentino Fiume returns 1,079,220 documents and the top hits are Fiume Veneto, in Friuli — a different town in a different country, matched on one word. The same query as Valentino Defranceschi returns 4. A result count in the millions is not a rich seam; it is a broken query. None of this is a complaint about the sources. FamilySearch's films are the reason any of this was possible at all, and the volunteers who indexed"
+     "text": "the phrase, or full-text ORs your words and buries you. Defranceschi Valentino Fiume returns 1,079,220 documents and the top hits are Fiume Veneto, in Friuli — a different town in a different country, matched on one word. The same query as Valentino Defranceschi returns 4. A result count in the millions is not a rich seam; it is a broken query. Coverage dossiers-are-additive Renaming a person leaves their old page standing, because the dossier builder only ever adds."
     },
     {
      "page": "/people/",
@@ -136147,14 +136147,33 @@
   "maria-trompich-or-fumpich-cincopan": {
    "name": "Maria Trompich or Fumpich (Cincopan)",
    "slug": "maria-trompich-or-fumpich-cincopan",
-   "n": 1,
+   "n": 2,
    "pages": [
+    {
+     "h": "/",
+     "t": "The Defranceschi Archive"
+    },
+    {
+     "h": "/method/",
+     "t": "Method"
+    },
     {
      "h": "/households/",
      "t": "Households"
     }
    ],
-   "hits": [],
+   "hits": [
+    {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "Nothing, in the sense that no page linked to it — but it stayed live and published the single spelling Trompich as settled, after the archive had established that the two copies of the act disagree. The row was renamed to Maria Trompich or Fumpich (Cincopan) and the new page built, but build-dossiers.py never prunes, so the old dossier survived every rebuild. Deleted by hand. A rename is not a move; it is a copy unless the old one is"
+    },
+    {
+     "page": "/method/",
+     "title": "Method",
+     "text": "is not a rich seam; it is a broken query. Coverage dossiers-are-additive Renaming a person leaves their old page standing, because the dossier builder only ever adds. Maria Trompich (Cincopan) was renamed to Maria Trompich or Fumpich (Cincopan) when the two copies of her daughter's marriage act turned out to disagree. The new page appeared; the old one kept answering 200 on the live site, with the superseded single spelling on it. build-dossiers.py writes a dossier for every"
+    }
+   ],
    "facts": [
     [
      "Place",
