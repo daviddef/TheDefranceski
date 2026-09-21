@@ -332,6 +332,11 @@
       "lab": "Reading",
       "key": "measure-the-plate-not-the-guess",
       "text": "**Stop guessing crops as fractions; measure the plate.** Four attempts to isolate one Fiume entry failed because the crop window was being estimated by eye from a shrunken screenshot — and the estimate was badly wrong, putting the book in the plate's top-left quadrant when it actually fills **x 0.034–0.964, y 0.044–0.951**.\n\n**The reliable method is local.** Fetch the plate once (`sg30p0` refuses a bare request, but the browser's redirect yields a signed S3 URL that serves it without a session), then find the page edges from column and row means, the gutter from the darkest interior column, and **the text lines from row STANDARD DEVIATION at full resolution**.\n\n**Brightness thresholding finds nothing on these films** — the ink is too fine, and any downscale averages it into the paper; a 1/4-scale pass returned *zero* text lines on a page carrying dozens. **Variance found 35 lines on one page and 38 on the other.** That converts «somewhere on this plate» into «the fourth entry, lines 10 to 12»."
+    },
+    {
+      "lab": "Sources",
+      "key": "bare-year-is-a-burial-estimate",
+      "text": "**In the Croatia collection, a bare year in an ingested «birth» column is usually a burial's arithmetic.** Four records were caught this way in one day — *Vitorio 1758*, *Mathęius 1750*, *Mattio 1742*, *Antonio 1753* — and **every one is a burial**, whose record page says *Birth Year (Estimated)* and whose year is the clerk's stated age subtracted from the date of death.\n\n**Ingest flattens that label away and leaves a number that reads exactly like a baptism.** Treat any bare year in this collection as an estimate until the record page has been opened. Reading them as births does not merely misdate people — **it invents them**, because the same person then appears once as a birth and once as a death."
     }
   ],
   "close": "None of this is a complaint about the sources. FamilySearch's films are the reason any of this was possible at all, and the volunteers who indexed the baptisms saved months. The point is narrower: **these tools answer the question you actually asked**, which is often not the question you meant — and the only defence is to open the image.",
