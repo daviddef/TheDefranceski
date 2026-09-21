@@ -272,6 +272,36 @@
       "lab": "An ingested index has columns nobody read",
       "key": "read-every-column-of-what-you-ingested",
       "text": "`fsrecords.json` has been in this repository for weeks. It was ingested for **names, dates and places**, which is what the pages built from it show. It also has a **parents** column, and until today nobody had looked at it.\n\nIn that column: *Franca De Franceschi, 8 Dec 1769, **parents Ano De Franceschi & Mattia***; *Pasqua Vitoria, 16 Dec 1773, **parents Giacomo De Franceschi & Nicoletta***; *Maria Matthia, 3 Sep 1784, **parents Victorii De Franceschi & Euphemię***. **Three generations, two of the archive's open questions answered, and a bridge from the marriage register to the baptism index** — all of it sitting in a file the site already reads from.\n\n**This is the second time in one day.** The morning's version was `burials.json`, ingested for dates and places, carrying a `kin` column that named Vittorio's father. **The pattern is not «we missed a file». It is «we ingested a source for the fields we wanted and never audited the fields we got».** The remedy is cheap and should be routine: for every ingested dataset, print the full key set and the distinct values of every column before deciding what the file is for."
+    },
+    {
+      "lab": "Reading",
+      "key": "line-break-surnames",
+      "text": "**A hyphenated surname at a line break is the most dangerous place on the page.** Of five false readings killed by magnification in one sweep of the Svetvinčenat baptisms, **four sat in the godparent or parent slot and three broke the surname across a line** — *«An-/tonij Bergamo»* read as *Defranczo*, *«Domi-/nici»* read hopefully. The eye finishes the word from expectation, and the expectation is the surname you are hunting. **The rule: never write down a name that begins on one line and ends on the next until you have magnified it.**\n\n**And the trap is not always the surname.** One of the five was *«Joanna filia q.m **Francisci** Zabrza»* — a **forename** that looks like the beginning of *Franceschi*."
+    },
+    {
+      "lab": "Reading",
+      "key": "common-forenames",
+      "text": "**A common forename identifies nobody.** *«Fosca uxor Dominici Defranceschi»* appears seven times in the Svetvinčenat baptisms and is a real, single woman. But the same volume also carries *«Fosca uxor Martini Merklem»* — a different Fosca, four entries away on the same leaf. **Before treating a forename as a person, check whether the parish used it once or used it constantly.** The full form is the evidence; the forename alone is a coincidence waiting to be published."
+    },
+    {
+      "lab": "Reading",
+      "key": "surprise-is-a-warning",
+      "text": "**A reading that would overturn an established fact is a warning, not a discovery.** Twice in one sweep of the Svetvinčenat baptisms a spread-scale glance produced something startling — a second wife for a man whose wife was already documented, and a baptism of the surname where none should be. **Both were false, and both died at magnification.** The ordinary readings held; the exciting ones did not.\n\n**Excitement is a signal to slow down.** A finding that would rewrite the tree deserves *more* scrutiny than one that merely adds to it, not less — and the temptation runs precisely the other way."
+    },
+    {
+      "lab": "Coverage",
+      "key": "complete-volume-negatives",
+      "text": "**A negative from a volume read frame by frame is evidence. A negative from a volume searched by index is nothing.** The Svetvinčenat baptism register 1764–1791 has now been read at every one of its 127 openings. That is what lets this archive say, and mean, that **no child of Vittorio and Euphemia was baptised in it** — even though an index entry names one in 1784. **The index and the volume disagree, and only a complete read makes that disagreement visible** rather than invisible."
+    },
+    {
+      "lab": "Coverage",
+      "key": "index-audits-the-read",
+      "text": "**An index and a complete read are not rivals; each catches what the other drops.** This archive read all 127 openings of the Svetvinčenat baptism register 1764–1791 and **missed the 1784 baptism of Vittorio's daughter** — which the FamilySearch index had, and whose image ark pointed straight back at a frame already read and passed over.\n\n**The reverse is equally true**: the index gives no godparents, no honorifics, no *«ex hac Parochia»*, and none of the sixty-odd godparent appearances that show where this family actually stood. **Run both, and check each against the other.** An index entry with an image ark is a free audit of your own reading — resolve it and go back to the frame."
+    },
+    {
+      "lab": "Sources",
+      "key": "estimated-years-lose-their-label",
+      "text": "**An ingested index's «birth» column may hold ages worked backwards from a burial, not baptisms.** `fsrecords.json` lists *«Vitorio Defranceschi, **1758**, parent Antonio»*, which reads exactly like a baptism record and was very nearly chased as one. The underlying entry is his **burial** — 8 November 1812, *aged 54* — and 1758 is FamilySearch's arithmetic, flagged on their own page as **«Birth Year (Estimated)»** and flattened to a bare number on ingest.\n\n**A second one checked the same day behaves identically**: *«Mathęius De Franceschi, **1750**, parent Anton»* is a burial of 7 August 1819, *aged 69*. Both sit in the `6B47-` id range, and on this evidence that range is burials. *(Two records verified, not the whole range — stated as what was checked.)*\n\n**An estimate that loses its label becomes a fact.** Check the event type on the record page before treating any ingested year as an act."
     }
   ],
   "close": "None of this is a complaint about the sources. FamilySearch's films are the reason any of this was possible at all, and the volunteers who indexed the baptisms saved months. The point is narrower: **these tools answer the question you actually asked**, which is often not the question you meant — and the only defence is to open the image.",

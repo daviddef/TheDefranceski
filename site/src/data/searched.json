@@ -8675,6 +8675,97 @@
       ],
       "key": "src/sixty-frames-of-the-1764-91-vo-d21922",
       "got": "**Sixty of the volume's 134 eighteenth-century frames have now been read opening by opening.** Three of them carry acts; the rest carry the name standing at other people's fonts, which is how a parish records a family that is present but not reproducing.\n\n**A second child for Antonio and Mattea.** Waypoint 58, 21 January 1776:\n\n> *«**Dom[enic]a filia legit[i]ma et natu[rali]s D[omi]ni Antonij Defranceschi, Matthæque ejus** [conjugis], **nata gemina** hac nocte elapsa. Baptizata a me Archip[res]b[yter]um Antonium Massalini.»*\n\n**Domenica, daughter of Antonio Defranceschi and Mattea, baptised 21 January 1776 — and born a twin.** The word *gemina* is squeezed in above the line. Magnified and read letter by letter; her father is styled **D.ni**, Dominus, as he is in Franca's entry seven years earlier. **The second baby of that birth has not been located** and is the obvious next thing to look for. *(doc.)*\n\n**And the 1772 wedding is joined to its first child, on the page.** Waypoint 48, carta 47:\n\n> *«Adi 22 Xbre 1773. **Pasqua e Vitoria figlia di Giacomo de Franceschi, e di Nicoletta** jugali, **nata li 16** a ore dodici del corrente … Battezata da me D. Pietro Can.co Fabris.»*\n\nThe marriage register has *«Giacobus filius Giacobi de Franceschi et **Nicolina** filia Nicolai Teserati»* marrying on **10 June 1772**. Nicolina and Nicoletta are one name, and the child arrives **eighteen months later**. **This archive has joined the marriage register to the baptism register at this parish for the first time from two read acts rather than an index line.** *(doc.)*\n\n**Gasparo's window closes.** He is godfather in 1768 — *«Domi.o **Gasparo di Franceschi**»*, magnified — and his wife **Maria** is named as godmother repeatedly through 1770, 1771 and into April 1772. The marriage register then has *«**Maria relicta q.m Gasparis de Franceschi**»* remarrying on **30 March 1773**. Same forename, same parish, eleven months later. **The Gasparo who died is this Gasparo — Giacomo's son, baptised 26 December 1737 — and the widow is the same Maria.** *(inf, and about as tight as this evidence gets.)*\n\n**Antonio is on these pages throughout**: godfather on 4 March 1769 alongside Gasparo, on 25 December 1774, and his wife **Maria**— no, **Mattea** — as godmother in October 1775. **Domenico de Franceschi and a wife appear from 1775.**\n\n**Two cautions this sweep produced, both now written into the method.**\n\n**The volume has two decoys that a spread-scale scan cannot separate from this surname**: the officiating priest **«D. Anto Stancovich»**, who signs most entries, and the local gentry **«Sig. Francesco Fabris»**. Waypoint 7 produced a false positive that magnification killed. Every candidate needs a second, narrow look.\n\n**And a render fault was silently eating frames.** A fixed two-second wait after loading a plate is not always enough: the crop fires before the JPEG finishes and the screenshot comes back black. Three frames were lost that way before it was noticed. The fix is to poll `img.complete && naturalWidth > 100` rather than sleep — the same lesson this archive already learned on Findmypast and had not carried across.\n\n**Domenico's wife will not settle**: *Victoria* in 1775 and 1776, *Fosca* in 1780, *Jusca* in 1782. Either remarriages or the clerk's ear, and it is recorded as open rather than reconciled.\n\n**Still unread: waypoints 61–80, 85–92 and 96–134 — about sixty-seven frames.**"
+    },
+    {
+      "src": "Frames 90-107 of the Svetvincenat baptism volume -- Vittorio named his father's son a second time, and five decoys caught",
+      "what": "Svetvinčenat baptisms 1764–1791, film 005497885 — frames 90–107 read opening by opening",
+      "when": "21 Sept 2026",
+      "outcome": "hit",
+      "url": "https://www.familysearch.org/search/film/005497885",
+      "dest": "Svetvinčenat (San Vincenti)",
+      "tags": [
+        "parish registers",
+        "Istria",
+        "read",
+        "hit"
+      ],
+      "ev": [
+        [
+          "/who/vittorio-de-franceschi-son-of-antonio/",
+          "Vittorio"
+        ],
+        [
+          "/who/fosca-de-franceschi/",
+          "Fosca"
+        ],
+        [
+          "/corrections/",
+          "The five decoys"
+        ]
+      ],
+      "key": "src/frames-90-107-of-the-svetvince-14d5b3",
+      "got": "**Eighteen more openings read one by one.** Every candidate below was magnified before it was written down, and **five were killed at magnification** — which is the more useful half of this entry.\n\n**Vittorio is called his father's son a second time, nine years after the first.** Frame 98, **20 September 1782**:\n\n> *«Patrini qui susceperunt fuere **Victorius filius Antonii de Franceschi**, et **Fosca Vxor Dominici Defranceschi**.»*\n\nThe February 1773 marriage-witness line said *«Victorio de Franceschi filio Antonij»*. The 1812 burial says `kin: Antonio`. **Three independent records, thirty-nine years apart, give the same man the same father.** *(doc.)* And by frame 103, **8 May 1784**, he needs no father at all: *«Patrini fuere **Victorivs de Franceschi**, et Constantia Vxor Antonij Fabri»*.\n\n**Mattea gains two years of life.** Frame 98, **18 August 1782**: *«Martinus Merklem, et **Matthea Vxor Antonij Defranceschi**»*. She was last seen on 1 May 1780. *(doc.)*\n\n**Two of the name stand at one font, and the clerk says so in one word.** Frame 101, **10 September 1783**: *«Patrini fuere **Antonivs de Franceschi, et Evphemia pariter de Franceschi**»*. ***Pariter*** — likewise, the same surname. Vittorio's wife was a Euphemia, which would make this Antonio beside his own daughter-in-law; **that is inference and is not written down as fact.** *(doc for the entry; inf for who she is.)*\n\n**Domenico appears in the baptisms under his own name for the first time.** Frame 106, **13 October 1784**: *«Patrini fuere **Dnvs Dominicvs de Franceschi**, et Maria q.m Defuncti Antonii Bergamo»* — styled ***Dnvs***, the courtesy the register gives Antonio and withholds from most of the parish. Until now he was only ever «Fosca's husband». *(doc.)*\n\n**And one man can now be struck off the list of who he might be.** Antonio's son Domenico was born **25 December 1777**. He is five years old when Fosca is already «uxor Dominici» in September 1782. **They are different men.** *(doc for the elimination.)*\n\n**Fosca, wife of Domenico, is now attested seven times** across 1780–1784 — 9 September 1781, 20 September 1782, 10 December 1782, 16 December 1783 and 3 January 1784 are new here, all magnified. She is one of the parish's standing godmothers.\n\n### The five that died at magnification\n\n| frame | at spread scale it looked like | magnified, it reads |\n|---|---|---|\n| 86 | «Dominici **Defranceschi** et Euffemiæ» | «Dominici **Brasich**» |\n| 91 | «Maria, Vxor Antonij **Defranczo**» | «Maria, Vxor Antonij **Bergamo**» |\n| 99 | a de Franceschi godmother | «Joanna filia q.m **Francisci Zabrza**» |\n| 104 | «Catharina filia Dominici **de Fra[nceschi]**» | «Catharina filia Dominici **de Paz ex Rubino**» |\n| 98 | «**Fosca** …» (a bare forename) | a different Fosca — «**Fosca Vxor Martini Merklem**» |\n\n**Frame 104 was the most valuable candidate of the day and it was false.** A daughter of Domenico would have been the best find of the sweep; the page instead says *de Paz*, a Rovinj family — three letters where the eye supplied eleven.\n\n**The pattern in the failures is worth more than any one of them.** Four of the five sit in the **godparent or parent slot**, and three break the surname **across a line**, where the reader's eye finishes the word from expectation. **A hyphenated surname at a line break is the single most dangerous place on the page.** The fifth failure is different and nastier: frame 99's trap was the **forename** *Francisci*, not the surname at all.\n\n**Still unread: frames 108–134 of this volume, and images 1–154 of the 1709–1764 volume.**"
+    },
+    {
+      "src": "Frames 108-112: the register names Euphemia as Vittorio's wife, and Antonio turns out to have a daughter Maria",
+      "what": "Svetvinčenat baptisms 1764–1791, film 005497885 — frames 108–112",
+      "when": "21 Sept 2026",
+      "outcome": "hit",
+      "url": "https://www.familysearch.org/search/film/005497885",
+      "dest": "Svetvinčenat (San Vincenti)",
+      "tags": [
+        "parish registers",
+        "Istria",
+        "read",
+        "hit"
+      ],
+      "ev": [
+        [
+          "/who/maria-de-franceschi-daughter-of-antonio/",
+          "Maria"
+        ],
+        [
+          "/who/euphemia-de-franceschi-1783/",
+          "Euphemia"
+        ],
+        [
+          "/who/vittorio-de-franceschi-son-of-antonio/",
+          "Vittorio"
+        ]
+      ],
+      "key": "src/frames-108-112-the-register-na-55c296",
+      "got": "**Two findings here are worth more than the eighteen frames that produced them.**\n\n**The first moves a marriage from an index to a read act.** Frame 110, **22 August 1785**:\n\n> *«Patrini fuere Antonius Radocovich, et **Evphemia Vxor Victoris de Franceschi**.»*\n\n**«Vittorio × Euphemia» had rested entirely on one FamilySearch index line** — the 1784 baptism of their daughter Maria Matthia, *«parents Victorii De Franceschi & Euphemię»*. An index is a transcription of a page somebody else read. **This is the page.** *(doc.)*\n\nIt also resolves frame 101's *«Antonivs de Franceschi, et Evphemia **pariter** de Franceschi»*: the same parish, the same two years, the same woman. **Antonio stood at that font beside his own daughter-in-law.** *(inf — but the alternative needs two Euphemias married into one small family in one small parish.)*\n\n**The second adds a person to the family.** Frame 112, **18 January 1786**:\n\n> *«Antonius filius legitimus ac naturalis Thomae, et Catharinae jugalium Bercan natus heri … **Patrini fuere Matthaeus Doblanovich, et Maria filia Antonii de Franceschi**.»*\n\n**Maria, daughter of Antonio** — a fifth child beside Vittorio, Franca, Domenica and Domenico, and **in none of this archive's files before this line.** *(doc.)*\n\n**Her baptism is not where it ought to be.** A girl asked to stand godmother in January 1786 is rarely under fifteen, which would put her birth at or before about 1771 — **and frames 5–60, covering 1764 to 1775, have been read opening by opening with no Maria of Antonio in them.** Either she was born before 1764, in the volume whose first 154 images are still unread, or the sweep missed her. **No birth year is recorded for her**, because an age reasoned backwards from a godmother's minimum age is a guess wearing arithmetic's clothes.\n\n**Antonio's children have taken over his office.** Through the 1770s it was Antonio the bell-ringer in the godparent line. By 1785–86 it is **Vittorio** (30 July 1785, 13 December 1785), **Euphemia his wife** (22 August 1785) and **Maria his daughter** (18 January 1786).\n\n### A sixth decoy, and it is the forename again\n\nFrame 112, 20 January 1786, two entries from our own: *«Antonius Zambiasio, et **Euphemia Vxor Matthei Bullesich**»*. **A second Euphemia on the same leaf** — exactly the trap that *«Fosca uxor Martini Merklem»* set on frame 98. **In this parish both Fosca and Euphemia are common forenames.** Only the full *«uxor + the husband's whole name»* form identifies anybody; the forename alone identifies a coincidence.\n\n**One reading corrected inside this sweep.** Frame 112's 13 December 1785 godfather was read at spread scale as *Antonius* de Franceschi. Magnified, it is **Victorius**. Father and son have similar-length names in this hand.\n\n**Still unread: frames 113–134 of this volume, and images 1–154 of the 1709–1764 volume.**"
+    },
+    {
+      "src": "The Svetvincenat baptism volume 1764-1791 read to its last leaf -- and what a complete volume is worth",
+      "what": "Svetvinčenat baptisms 1764–1791, film 005497885 — frames 113–131, completing the volume",
+      "when": "21 Sept 2026",
+      "outcome": "hit",
+      "url": "https://www.familysearch.org/search/film/005497885",
+      "dest": "Svetvinčenat (San Vincenti)",
+      "tags": [
+        "parish registers",
+        "Istria",
+        "read",
+        "hit",
+        "complete"
+      ],
+      "ev": [
+        [
+          "/who/vittorio-de-franceschi-son-of-antonio/",
+          "Vittorio"
+        ],
+        [
+          "/who/euphemia-de-franceschi-1783/",
+          "Euphemia"
+        ],
+        [
+          "/who/antonio-de-franceschi-witness-1773/",
+          "Antonio"
+        ]
+      ],
+      "key": "src/the-svetvincenat-baptism-volum-182932",
+      "got": "**Every opening of this volume has now been read — frames 5 to 131, the whole of 1764 to 1791.** The register closes on 28 May 1791 with the archpriest's own tally; frames 132–134 are the microfilm's target boards, not pages.\n\n**The completeness is the finding.** A negative from a volume read frame by frame is evidence. A negative from a volume searched by index is nothing at all.\n\n### What the name does in this book\n\n**It stands at other people's fonts, constantly, and it almost never appears as a parent.** In twenty-seven years there are **six baptisms** of the surname — Franca (1769), Pasqua Vittoria (1773), Domenica (1776), Domenico (1777), Giovanni (1778) and Maria Matthia (1784) — and well over **sixty** appearances as godparent. That shape is what a settled, respectable, and *small* family looks like in a parish register.\n\n### The people this volume establishes\n\n- **Antonio**, the bell-ringer, *Dnus*, alive from before 1769 to **12 October 1788** (magnified) — about fifty-eight at the last sighting.\n- **Mattea**, his wife, 1 May 1780 to **18 August 1782** (magnified).\n- **Vittorio, his son**, called *«filius Antonii»* in **1773, 1782 and 1787** — three independent entries, plus the 1812 burial's `kin: Antonio`. The most-named man of the surname in the book.\n- **Euphemia, Vittorio's wife**, named in full — *«uxor Victorii de Franceschi»* — on 22 August 1785, four times in six weeks in early 1787, and last on **15 January 1791**.\n- **Maria, Antonio's daughter**, 18 January 1786 and 30 September 1787, the second adding *«ex hac Parochia»*.\n- **Domenico**, *Dnus*, and his wife **Fosca** — she is the parish's standing godmother, in eight-plus entries across 1780–1789.\n\n### The act this sweep missed, and how it was recovered\n\n**Reading all 127 openings, I did not see the one baptism that mattered most — and the index did.** The FamilySearch index entry for *Maria Matthia De Franceschi* carries the image ark **3:1:3QS7-L99X-K3FV**, which is **frame 106 — a frame this sweep had already read and passed over.** Going back to it with a narrow crop:\n\n> *«**Anno Dni 1784 Die 4 Septembris.** Maria Matthia filia legitima, ac naturalis **Victorii, et Euphemiæ jugalium De Franceschi**, nata 3 currentis, hodie per me subscriptum baptizata. Patrini fuere Stephanus Dubglich a Dimino, et Dna Antonia Fachinetti.»*\n\n**Maria Matthia, daughter of Vittorio and Euphemia De Franceschi, born 3 September 1784, baptised the next day.** *(doc — the act itself, not the index of it.)*\n\n**This is the only baptism of Vittorio's line on these leaves**, and it makes the couple a documented marriage rather than an inferred one. The godmother, *Dna Antonia Fachinetti*, is of the parish gentry; the godfather comes from Dvigrad.\n\n**The honest account of how it was found is the useful part.** A frame-by-frame sweep is not a guarantee. Eleven consecutive entries in one column at spread scale is exactly where attention fails, and this act sat in the eleventh. **The index caught what the reading missed; the reading then proved what the index only asserted.** Neither method was sufficient alone. See [/corrections/](/corrections/).\n\n### What this volume genuinely does not contain\n\n**There is no baptism for Maria, Antonio's daughter.** Frames 5–60 cover 1764–1775 continuously and she is not in them. She was likely born before 1764, in the earlier volume — **whose first 154 images remain unread.** *(open.)*\n\n### The clerk's ear\n\nDomenico's wife is written **Fosca, Fusca, Jusca, Justa** and **Julia** across ten years. One woman, one household. A reader in a hurry would make three of her.\n\n### Eight decoys, and the pattern in them\n\n| frame | looked like | reads |\n|---|---|---|\n| 86 | Dominici **Defranceschi** | Dominici **Brasich** |\n| 91 | Antonij **Defranczo** | Antonij **Bergamo** |\n| 99 | a de Franceschi | filia q.m **Francisci Zabrza** |\n| 104 | Catharina filia Dominici **de Fra…** | **de Paz ex Rubino** |\n| 98 | «Fosca» | Fosca **uxor Martini Merklem** |\n| 112 | «Euphemia» | Euphemia **uxor Matthei Bullesich** |\n| 112 | **Antonius** de Franceschi | **Victorius** de Franceschi |\n| 122 | **Dominici et Euphemiae jugalium Franceschi** | jugalium **BROZINA** |\n\n**Frame 122 is the one to remember.** At spread scale it read as a baptism of a child to *Dominicus and Euphemia* — the two exact forenames this family uses — which would have been a genuine act, the first in two hundred frames. The surname is **Brozina**. **The forenames did all the persuading; the eye supplied the rest.**\n\n**And frame 120 taught the sharpest lesson of the sweep.** It appeared to read *«Dna Helena uxor Dni Dominici Franceschi»* — which would have **overturned** Fosca and implied a remarriage. Magnified, it is *«Dnus Sebastianus Defilipo, et Dna Aglaes uxor Dni Benedicti Fiorenci»*. Neither name is ours. **A reading that would overturn an established fact is not a discovery until it is magnified. It is a warning.**\n\n**Still unread: images 1–154 of the 1709–1764 volume.**"
     }
   ]
 }

@@ -1099,6 +1099,86 @@
       "where": "/who/vittorio-de-franceschi-son-of-antonio/",
       "said": "Published this afternoon on finding *«Victorio de Franceschi filio Antonij»* in the 1773 marriage register: *«A probable identification, left open. This archive carries a Vittorio Defranceschi, 1758–1812, the only Vittorio at the castle, known from his burial. He would have been fifteen in February 1773 — young for a witness … The two are not merged.»*",
       "true": "**The burial does not merely give a Vittorio of the right age. It gives his father's name, and the name is Antonio.** The row in `burials.json` reads: *Vitorio Defranceschi, born 1758, died and buried 8 November 1812, aged 54, Svetvinčenat, **kin: Antonio**.* It has been in this archive since the graves work went in.\n\n**So the caution was not caution; it was not having read our own file.** Leaving an identification open is the right default when the evidence is a forename and a decade. It is the wrong default when a second independent record names the same father — and the cost of finding that out was one grep, against data already published on this site.\n\n**A third support turned up in the same row-set.** Vittorio's own children are there too, and the son of 1811 is called **Antonio** — the paternal grandfather's name, in a parish that uses that habit. The two Vittorios are now treated as one man and the note says so.\n\n**The rule this leaves behind: search the archive before searching the film.** An afternoon of frames was spent looking for a baptism to establish a fact that a file in this repository already carried."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "minor",
+      "what": "A child read as Domenico Defranceschi's was a Brasich",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 86",
+      "said": "«Matthea filia legitima ac naturalis **Dominici Defranceschi** et Euffemiæ ejus uxoris», reported as a child of Domenico Defranceschi.",
+      "true": "Magnified, the surname is **«Dominici Bras[ich]»**. Not this family. Caught and corrected in the same turn it was written."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "minor",
+      "what": "A godmother read as Antonio's wife was a Bergamo",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 91",
+      "said": "«Maria, Vxor Antonij **Defranczo**», at 2 September 1781.",
+      "true": "Magnified: **«Maria, Vxor Antonij Bergamo»**. The surname is hyphenated across a line break — «An-/tonij Bergamo» — and the eye finished it wrongly."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "minor",
+      "what": "A godmother read as a de Franceschi was a Zabrza",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 99",
+      "said": "A de Franceschi godmother at 5 January 1783.",
+      "true": "Magnified: **«Joanna filia q.m Francisci Zabrza»**. The trap here was the **forename** *Francisci*, not the surname."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "major",
+      "what": "A daughter of Domenico Defranceschi who does not exist",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 104",
+      "said": "«Catharina **filia Dominici de Fra[nceschi]**», 18 June 1784 — which would have been the first documented daughter of the adult Domenico.",
+      "true": "Magnified: **«Catharina filia Dominici de Paz ex Rubino»** — a Rovinj family. Three letters where the eye supplied eleven. **It was the most valuable candidate of the sweep and it was false**, which is precisely why the magnification rule exists."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "minor",
+      "what": "A godfather read as Antonio was his son Vittorio",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 112 (13 December 1785)",
+      "said": "«Patrini fuere **Antonius** de Franceschi, et Fusca Vxor Dominici de Franceschi».",
+      "true": "Magnified: **«Victorivs de Franceschi»**. Father and son have similar-length names in this clerk's hand, and at spread scale the wrong one fits."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "minor",
+      "what": "A second Euphemia on the same leaf",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 112 (20 January 1786)",
+      "said": "A «Euphemia» in the godparent line, two entries from Vittorio's wife.",
+      "true": "She is **«Euphemia Vxor Matthei Bullesich»** — a different woman. The same trap as «Fosca uxor Martini Merklem» on frame 98. **Fosca and Euphemia are both common forenames in this parish.**"
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "major",
+      "what": "A whole household filed at the wrong parish, seventy kilometres away",
+      "where": "Bortolo De Franceschi's household — Felice Anto (1778), Zannetta, Bortolo",
+      "said": "Three rows placed this family at **Svetvinčenat**, duplicating rows the archive already carried correctly at Šterna.",
+      "true": "The index entry's image ark resolves to **film 005497887, frame 627** — not Svetvinčenat's 005497885. The act reads *«Adì 27 9bre 1778. **Copich**. Felice Ant.o figlio legitimo e naturale di M.ro **Bortolo De Franceschi**»*, and the sister record of 1786 is indexed at **«Sterna, Litorale Austriaco»**. **Šterna is in north-western Istria, about seventy kilometres from the castle-town.** Corrected."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "major",
+      "what": "A frame-by-frame sweep missed the one act that mattered most",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 106 (4 September 1784)",
+      "said": "After reading all 127 openings of the volume, this archive was about to state that **no baptism of any child of Vittorio and Euphemia appears in it**, and that the 1784 index entry must therefore come from some other register.",
+      "true": "**The act is on frame 106 — a frame the sweep had already read and passed over.** The index entry's own image ark points straight at it. Magnified, it reads «Maria Matthia filia legitima, ac naturalis **Victorii, et Euphemiæ jugalium De Franceschi**, nata 3 currentis». **A complete frame-by-frame read is not a guarantee**, and this claim was caught before publication only because the index was checked against it."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "major",
+      "what": "A baptism of a Defranceschi child that was a Brozina",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 122 (27 July 1788)",
+      "said": "«Joanna filia legitima et naturalis **Dominici et Euphemiae jugalium Franceschi**» — read as an actual baptism of the name, the first in two hundred frames.",
+      "true": "Magnified: **«…jugalium BROZINA»**. **Both forenames were right** — Dominicus and Euphemia are the two this family uses — which is exactly why it nearly landed. The forenames did the persuading and the eye supplied the surname."
+    },
+    {
+      "when": "21 Sept 2026",
+      "sev": "major",
+      "what": "A second wife for Domenico who never existed",
+      "where": "Svetvinčenat baptisms 1764–1791, frame 120 (22 September 1787)",
+      "said": "«Dna **Helena** uxor Dni **Dominici Franceschi**» — which would have contradicted Fosca and implied a remarriage.",
+      "true": "Magnified: **«Dnus Sebastianus Defilipo, et Dna Aglaes uxor Dni Benedicti Fiorenci»**. Neither name is ours. **The reading that would have overturned an established fact was the false one.**"
     }
   ]
 }
