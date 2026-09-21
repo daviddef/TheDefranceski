@@ -302,6 +302,16 @@
       "lab": "Sources",
       "key": "estimated-years-lose-their-label",
       "text": "**An ingested index's «birth» column may hold ages worked backwards from a burial, not baptisms.** `fsrecords.json` lists *«Vitorio Defranceschi, **1758**, parent Antonio»*, which reads exactly like a baptism record and was very nearly chased as one. The underlying entry is his **burial** — 8 November 1812, *aged 54* — and 1758 is FamilySearch's arithmetic, flagged on their own page as **«Birth Year (Estimated)»** and flattened to a bare number on ingest.\n\n**A second one checked the same day behaves identically**: *«Mathęius De Franceschi, **1750**, parent Anton»* is a burial of 7 August 1819, *aged 69*. Both sit in the `6B47-` id range, and on this evidence that range is burials. *(Two records verified, not the whole range — stated as what was checked.)*\n\n**An estimate that loses its label becomes a fact.** Check the event type on the record page before treating any ingested year as an act."
+    },
+    {
+      "lab": "Sources",
+      "key": "fulltext-covers-italy-not-croatia",
+      "text": "**Full-text search reads Italian civil registration, not the Croatia Church Books — so it reaches this family only during the Italian period.** Measured on 21 September 2026 by sampling the collection line of 97 of the 3,967 documents it returns for *Defranceschi*: Emilia-Romagna 70, Friuli and Lombardy 12, Sardinia, Veneto and Marche 11, the rest scattered, and **zero** from Croatia, Istria or Rijeka.\n\n**That is why Rotilio's marriage was findable and Fiume's 1740s households are not.** His banns were posted at **Trieste in 1928**, in an Italian civil register. The Fiume baptisms of the 1740s are a Croatian church book. **Before querying, ask which archive the record would physically sit in** — the service's reach is geographic and administrative, not linguistic."
+    },
+    {
+      "lab": "Reading",
+      "key": "fulltext-quote-the-phrase",
+      "text": "**Quote the phrase, or full-text ORs your words and buries you.** *Defranceschi Valentino Fiume* returns **1,079,220** documents and the top hits are **Fiume Veneto, in Friuli** — a different town in a different country, matched on one word. The same query as `\"Valentino Defranceschi\"` returns **4**. **A result count in the millions is not a rich seam; it is a broken query.**"
     }
   ],
   "close": "None of this is a complaint about the sources. FamilySearch's films are the reason any of this was possible at all, and the volunteers who indexed the baptisms saved months. The point is narrower: **these tools answer the question you actually asked**, which is often not the question you meant — and the only defence is to open the image.",
