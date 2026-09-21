@@ -17,7 +17,7 @@
     "check:names": "python3 ../scripts/name-forms-audit.py --check",
     "check:places": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkplaces.py --data public/atlas-data.json",
     "check:templates": "python3 node_modules/@daviddef/archive-kit/kit/tools/checktemplates.py --root .",
-    "check:pages": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkpages.py --root . --estate ../.. --max-bespoke 6",
+    "check:pages": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkpages.py --root . --estate ../.. --max-bespoke 5",
     "check:pin": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkpin.py --root ."
   },
   "dependencies": {
