@@ -25,6 +25,22 @@ while [ "$WAITED" -lt "$LIMIT" ]; do
       if [ "$CONC" = "success" ]; then
         echo "verify-deploy: DEPLOYED  $SHORT  (run $ID)"; exit 0
       fi
+      if [ "$CONC" = "cancelled" ]; then
+        # GitHub cancels an in-flight run when a newer push lands. That is not a
+        # failure of OUR commit: if a LATER run succeeded and our commit is an
+        # ancestor of what it built, our work shipped inside somebody else's run.
+        git fetch -q origin 2>/dev/null
+        NEWER="$(gh run list --limit 20 --json headSha,status,conclusion,databaseId \
+                 --jq '.[] | select(.status=="completed" and .conclusion=="success") | "\(.headSha)\t\(.databaseId)"' 2>/dev/null | head -5)"
+        while IFS=$'\t' read -r NSHA NID; do
+          [ -z "${NSHA:-}" ] && continue
+          if git merge-base --is-ancestor "$SHA" "$NSHA" 2>/dev/null; then
+            echo "verify-deploy: SUPERSEDED but SHIPPED  $SHORT  (carried by run $NID on ${NSHA:0:7})"; exit 0
+          fi
+        done <<< "$NEWER"
+        echo "verify-deploy: run for $SHORT was cancelled and no later successful run carries it yet — waiting"
+        sleep 20; WAITED=$((WAITED+20)); continue
+      fi
       echo "verify-deploy: DEPLOY FAILED  $SHORT  (run $ID, $CONC)"
       echo "--- failing step ---"
       gh run view "$ID" --log-failed 2>/dev/null | grep -vE '^\s*$' | tail -12
