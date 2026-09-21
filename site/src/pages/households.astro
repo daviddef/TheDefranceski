@@ -27,9 +27,14 @@ const flaggedLiving = new Set(
   roster.rows.filter(r => r.living || r.presumedLiving || r.alive || r.isLiving
                      || String(r.conf || "").toLowerCase() === "living")
              .map(r => norm(r.name)));
+/* `dead` is for someone known to have died whose year this archive does not
+   have. Without it the age rule below would keep withholding their dates for
+   another few decades on the strength of a death it has already been told
+   about. A recorded death — with or without a year — ends the question. */
 const maybeLiving = (c) =>
-  flaggedLiving.has(norm(c.name)) ||
-  (c.by && !c.dy && (NOW - c.by) < PRESUME_DEAD_AFTER);
+  !c.dy && !c.dead && (
+    flaggedLiving.has(norm(c.name)) ||
+    (c.by && (NOW - c.by) < PRESUME_DEAD_AFTER));
 /* Which of these households is a generation of the direct line? The tree shows
    those eight as couples; this page should say which of its 112 they are. */
 const onTree = new Map();
