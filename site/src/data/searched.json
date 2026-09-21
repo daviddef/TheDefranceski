@@ -8889,6 +8889,33 @@
       ],
       "key": "src/one-of-the-two-fiume-household-9d88ab",
       "got": "**Work list item 143 asks how *Joannes Baptista × Magdalena* of Fiume relates to *Valentino × Helena*. The first thing the film says is that the question may be built on a misreading.**\n\n**The archive's claim.** [Item 143](/worklist/) records a household *«Joannes Baptista × Magdalena — styled D.nus, baptising **Josephus Aloysius** on 29 May 1748 (film 005497925, image 150)»*, and counts it as a second Defranceschi house at Fiume beside Valentino's sixteen children.\n\n**What FamilySearch's own index of that image says.** Image 150 carries **nineteen households**, and the thirteenth reads:\n\n> **Josephum Aloysium MANCOSCHI** · Vital Records · **29 May 1748**\n> Parent: **Joannis Bapte Mancoschi** · Parent: **Magdalená Mancoschi**\n\n**Same date. Same two forenames for the child. Same two forenames for the parents. A different surname.** This is not a near-match that might be a different family — it is the *same entry*, read differently.\n\n**So one of two things is true, and this archive cannot yet say which.**\n\n- The index misread **de Franceschi** as **Mancoschi** — the kind of error a cursive *fr* and a long *s* invite.\n- Or the household was never ours, and **item 143's premise dissolves**: there would be one Defranceschi house at Fiume, Valentino's, and nothing to relate it to.\n\n**The plate has not been magnified, and that is the only thing that settles it.** Several attempts were made and the geometry of this film defeated them: unlike the Svetvinčenat plates, image 150's page content does not sit where a proportional crop expects, and the entry was not isolated before this was written. **It is recorded as an open doubt rather than resolved in either direction**, because the choice between them changes whether a household exists.\n\n**Nothing has been altered on the strength of it.** The Fiume pages still say what they said; this entry is the flag.\n\n### A find that will pay for itself many times over\n\n**Every image in this collection carries a structured transcript panel**, reachable at `/ark:/61903/3:1:<ark>?view=fullText`, listing **every household on the page with its date and both parents** — nineteen of them on this one plate. That is an index at *image* level, and it does not require reading the handwriting at all.\n\n**It is not a substitute for the plate** — this very entry shows the index can be wrong about a surname — **but it is a far better way to find which frames are worth magnifying** than cropping blind. Every previous sweep in this archive has walked frames by eye. *(method.)*"
+    },
+    {
+      "src": "The Fiume household is ours after all — the plate says «de Franceschi» and the index was wrong",
+      "what": "Fiume film 005497925 image 150 — the 29 May 1748 entry read off the plate",
+      "when": "21 Sept 2026",
+      "outcome": "hit",
+      "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-L99F-W4CK",
+      "dest": "Fiume (Rijeka)",
+      "tags": [
+        "FamilySearch",
+        "Kvarner",
+        "read",
+        "hit",
+        "correction"
+      ],
+      "ev": [
+        [
+          "/worklist/",
+          "Work list item 143"
+        ],
+        [
+          "/corrections/",
+          "The index's error"
+        ]
+      ],
+      "key": "src/the-fiume-household-is-ours-af-44e906",
+      "got": "**Two hours ago this archive flagged a doubt against its own Fiume household. The plate has now been read, and the doubt was misplaced — but it was right to raise it.**\n\n**The entry, magnified from the plate itself** (film 005497925, image 150, right page, fourth entry):\n\n> ***Die 29 Maij 1748.*** *«**Josephum Aloysium filium legitimum D[omi]ni Joannis Bapt[ist]æ et D[omi]næ Magdalenæ jugalium DE FRANCESCHI**, natus 28 hujus, baptisavit D[omi]nus Can[onicu]s Baches Eustachius … **Patrini fuere D[omi]nus Josephus Voxila et D[omi]na Eleonora Frauel**.»*\n\n**The surname is «de Franceschi», written plainly.** FamilySearch's household index for this image reads it **«Mancoschi»** — for the parents too. **The index is wrong and this archive was right.** [Item 143](/worklist/) keeps its premise: there really are two Defranceschi households at Fiume in the 1740s.\n\n### What the plate adds that the index never had\n\n- **The child was born 28 May and baptised on the 29th** — *«natus 28 hujus»*. The index gives only the baptism.\n- **Both parents carry honorifics** — *D.ni* Joannis Baptistæ and *D.næ* Magdalenæ. This is a household the parish addressed as gentry, which squares with the *D.nus* already recorded for the father.\n- **The godparents are new to this archive**: *Dominus **Josephus Voxila*** and *Domina **Eleonora Frauel***. **Neither is a Defranceschi** — so this entry does not, by itself, link the two Fiume houses. Item 143's question stands; only its premise is secured.\n- The celebrant was a **Canonicus**, not the parish priest.\n\n### The part that will change how this archive reads plates\n\n**The frames were being fought, not read.** Four attempts at this one entry failed because crops were being guessed as fractions of the image — and the guesses were badly wrong: the book was assumed to sit in the top-left quadrant when it fills **x 0.034–0.964, y 0.044–0.951** of the plate.\n\n**The fix is to stop guessing and measure.** The plate is fetched once — the `sg30p0` URL 401s to a bare request, but the browser's redirect yields a signed S3 URL that serves it without a session — and then analysed locally:\n\n| step | how |\n|---|---|\n| page edges | column and row means; paper is bright, surround is not |\n| the gutter | darkest column between 35% and 65% of the page |\n| **text lines** | **row standard deviation, at full resolution** |\n\n**Brightness thresholding finds nothing** on this film — the ink is too fine and any downscale averages it into the paper. **Variance works**: it found **35 text lines on the left page and 38 on the right**, which turns \"somewhere on this plate\" into \"the fourth entry, lines 10 to 12\". *(method.)*"
     }
   ]
 }
