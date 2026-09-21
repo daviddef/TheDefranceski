@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sources from "@daviddef/archive-kit/components/Sources.astro";
 import { md as _md } from "../lib/md.js";
 import { u } from "../lib/url.js";
 import all from "../data/sources.json";
@@ -22,6 +23,41 @@ const order = ["Archive", "Portal", "Database", "Index", "Publication", "Transcr
 const present = [...new Set(all.map(s => s.kind))];
 const kinds = [...order.filter(k => present.includes(k)),
                ...present.filter(k => !order.includes(k))];
+
+/* 21 September 2026. This archive's row IS the kit's row — the component was
+   built from this page in the first place, because of the one measurement
+   that settled it: of 208 sources across the estate, 58 linked to the thing
+   itself and all 58 were here. So this is not an adaptation, it is the
+   original going back to where it was promoted to, and the page keeps only
+   what is its own: the `kind` vocabulary, its order, and the sentence under
+   each heading saying what that kind of thing is.
+
+   The facets are the component's now too. They were this page's idea. */
+const groups = kinds.map(k => ({
+  label: k,
+  note: blurb[k] || "Other material this archive rests on.",
+  rows: all.filter(s => s.kind === k).map(s => ({
+    id: s.id, title: s.title, url: s.url, where: s.where,
+    what: _md(s.what), cites: s.cites, note: s.note ? _md(s.note) : null,
+    held: s.held,
+  })),
+}));
+const reach = all.filter(s => s.url).length;
+
+/* THE KIND VOCABULARY IS DRIFTING AND THE FACET BAR NOW SHOWS IT. Ten kinds
+   were intended and `blurb` above still defines exactly those ten. The data
+   holds twenty-two, because one-offs have been typed straight into rows —
+   "article", "book", "chapter", "Printed, 1845", "Archive, Trieste" — and
+   one pair differs only in case, `Archive` and `archive`, which no reader
+   can tell apart and no filter can join.
+   Counted rather than folded. Folding them is a decision about what each
+   source IS, and that belongs in the data with somebody who knows, not in a
+   template quietly merging two labels because they look similar. */
+const defined = Object.keys(blurb);
+const undefined_ = kinds.filter(k => !defined.includes(k));
+const caseDupes = kinds.filter(k =>
+  kinds.some(o => o !== k && o.toLowerCase() === k.toLowerCase()));
+const held = all.filter(s => !s.url && s.held).length;
 ---
 <Base
   title="Sources"
@@ -33,32 +69,26 @@ const kinds = [...order.filter(k => present.includes(k)),
     <p>Three of these sources conflict with others on points of fact. In every case this archive prefers the contemporaneous register over the later family memory, says so on the page where the conflict appears, and leaves the question open rather than quietly picking a winner.</p>
   </section>
 
-  <div class="filters" role="group" aria-label="Filter sources" style="margin-top:28px">
-    <button type="button" data-k="all" aria-pressed="true">All {all.length}</button>
-    {kinds.map(k => <button type="button" data-k={k} aria-pressed="false">{k} <span style="opacity:.6">{all.filter(s => s.kind === k).length}</span></button>)}
-  </div>
+  <p class="dek" style="margin-top:22px"><strong>{reach} of the {all.length} link to the thing
+  itself</strong>, {held} are paper this family holds and say where, and {all.length - reach - held}
+  carry neither — scholarly books and articles where choosing the right edition is research and a
+  wrong link is worse than none.</p>
+  {undefined_.length > 0 && (
+    <p class="cap"><strong>{kinds.length} kinds, and {defined.length} of them were the vocabulary.</strong>
+    {" "}{undefined_.length} have been typed straight into a row and have no definition on this page:
+    <em>{undefined_.join(", ")}</em>.
+    {caseDupes.length > 0 && <> Two differ only in case — <em>{caseDupes.join(" and ")}</em> — which
+    no reader can tell apart and no filter can join.</>}
+    {" "}They are counted here rather than quietly merged, because folding them is a decision about
+    what each source <em>is</em>.</p>
+  )}
 
-  {kinds.map(k => (
-    <section class="kindsec" data-kind={k} style="margin-top:38px">
-      <h2 style="font-size:28px">{k}</h2>
-      <p class="dek" style="margin-top:6px">{blurb[k] || "Other material this archive rests on."}</p>
-      <div class="srcfull" style="margin-top:14px">
-        {all.filter(s => s.kind === k).map(s => (
-          <article class="srcrow" id={s.id}>
-            <h3>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}</h3>
-            <div class="meta">
-              {s.where && <span>{s.where}</span>}
-              {s.url && <span class="mono">{s.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>}
-            </div>
-            <p set:html={_md(s.what)}></p>
-            {s.cites.length > 0 && <div class="refs">{s.cites.map(c => <code>{c}</code>)}</div>}
-            {s.note && <p class="cav" set:html={_md(s.note)}></p>}
-            {s.held && <p class="cap" style="margin-top:8px"><strong>Held.</strong> A copy is in this project's source library: <span class="mono">{s.held}</span></p>}
-          </article>
-        ))}
-      </div>
-    </section>
-  ))}
+  {/* `u` is deliberately NOT passed. The component prefixes the site base onto
+      hrefs written into source data by hand, which is right for the archives
+      that hold raw HTML — but this archive's md() already bases every link it
+      renders, so passing it produced /TheDefranceski/TheDefranceski/research-log/.
+      Caught by the link checker, which is exactly the fault it exists for. */}
+  <div style="margin-top:20px"><Sources groups={groups} /></div>
 
   <section class="prose" style="margin-top:48px">
     <h3>What was deliberately not done</h3>
@@ -68,15 +98,9 @@ const kinds = [...order.filter(k => present.includes(k)),
   </section>
 </Base>
 
-<script>
-  const bar = document.querySelector(".filters");
-  if (bar) {
-    const secs = [...document.querySelectorAll(".kindsec")];
-    bar.addEventListener("click", (e) => {
-      const b = e.target.closest("button[data-k]");
-      if (!b) return;
-      bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-      secs.forEach(s => { s.hidden = b.dataset.k !== "all" && s.dataset.kind !== b.dataset.k; });
-    });
-  }
-</script>
+<!-- The filter script that used to live here is gone with the markup it
+     drove. It queried .filters and .kindsec, which this page no longer has;
+     the kit component carries the same behaviour, having taken the idea from
+     this page when it was promoted. A listener bound to selectors that no
+     longer exist is not harmless — it is a dead thing that looks alive. -->
+
