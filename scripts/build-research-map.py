@@ -61,6 +61,24 @@ LAYERS = {"Roman Catholic": "rc", "Orthodox": "orth", "Greek Catholic": "gc",
 LABEL  = {"rc": "Roman Catholic", "orth": "Orthodox", "gc": "Greek Catholic",
           "jew": "Jewish", "mil": "Military", "ref": "Reformed",
           "civil": "Civil", "ev": "Evangelical"}
+# The provenance stamp on a coordinate. «geonames-disambiguated» was called
+# «geonames-region» until 21 September 2026, and the old name was a trap: it
+# reads as «pinned on the region's centroid» and means the exact opposite —
+# the place's OWN GeoNames coordinate, chosen from several same-named
+# candidates by which one falls inside the expected bounding box. The region
+# does the choosing, never the placing. The name was believed by the session
+# that wrote it, three weeks later, for about a minute; renamed on the
+# principle that a field whose meaning has to be checked against the code is
+# a claim nobody can read.
+GEO = {"kml":                    "FamilySearch's own collection file",
+       "hand-checked":           "read off a map by hand, with a note saying by whom",
+       "geonames-disambiguated": "the place's own GeoNames point, picked from "
+                                 "same-named candidates by bounding box",
+       "geonames":               "the place's own GeoNames point, unambiguous",
+       "geonames-part":          "matched on one part of a compound name",
+       "atlas":                  "carried over from the atlas"}
+GEO_RENAME = {"geonames-region": "geonames-disambiguated"}
+
 SOURCES = [
     ("fs-hr",    "FamilySearch — Croatia",  "Croatia, Church Books 1516–1994 (collection 2040054)"),
     ("fs-it",    "FamilySearch — Udine",    "Italy, Udine civil registration (collection 1939238)"),
@@ -501,7 +519,7 @@ def main():
     if os.path.exists(out_path):
         for p in load("researchmap.json")["places"]:
             if p.get("lat"):
-                prev[p["key"]] = (p["lat"], p["lon"], p.get("geo"))
+                prev[p["key"]] = (p["lat"], p["lon"], GEO_RENAME.get(p.get("geo"), p.get("geo")))
 
     places = {}
     def P(name, key=None):
@@ -788,7 +806,7 @@ def main():
             for x in tries:
                 for cand in ALL.get(norm(x), []):
                     if in_box(cand[0], cand[1], box):
-                        return [cand[0], cand[1]], "geonames-region"
+                        return [cand[0], cand[1]], "geonames-disambiguated"
         if k in prev: return list(prev[k][:2]), prev[k][2]
         if k in atlas and atlas[k].get("lat"):
             return [atlas[k]["lat"], atlas[k]["lon"]], "atlas"
