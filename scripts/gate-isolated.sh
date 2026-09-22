@@ -51,7 +51,7 @@ run() { # name, command...
     echo "  ok    $n"
   fi
 }
-run living    python3 "$KIT/checkliving.py"   --dist "$OUT" --data src/data --policy named-bare
+run living    ../scripts/kit-living.sh          --dist "$OUT" --data src/data --policy named-bare
 run templates python3 "$KIT/checktemplates.py" --root .
 run kit       python3 "$KIT/checkarchive.py"  --dist "$OUT"
 run worklist  python3 "$KIT/checkworklist.py" --root .
