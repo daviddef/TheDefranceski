@@ -9133,6 +9133,31 @@
    ],
    "key": "src/the-households-tested-against-1e460b",
    "got": "**Nothing new was searched for. The 127 households already here were tested against themselves, and four things fell out.**\n\n**The daughters' section was showing eight of thirty-five.** A household belongs there when the mother carries the name and the father does not; that is a one-line test and it had never been run, because the section had been built by hand from a deliberate in-law sweep and everything the ordinary baptism sweep found stayed where it landed. **The split moves from 119 / 8 to 92 / 35.**\n\n**Three households listed the wife as the father**, which is how a woman ends up recorded as the father of her own children and her household counted as male-line.\n\n**One man is removed from the name.** *Guglielmo Defranceschi*, husband of Andrina, is **Guglielmo Lazzer** — his four children are all Lazzer and a second record names him so.\n\n**Four pairs are one household each**, including **generation 4 of the direct line** (Josip × Ana Kalanj at Ledenice and then Crikvenica) and a pair separated only by whether the clerk was writing Italian or Latin.\n\n**And a latent bug is closed.** The household key was *given name + given name*, so **eight keys covered sixteen households**. It is the map key for «which of these is a generation of the direct line». Only one collision ever touched the line, and there the two records really were one couple — *so the page was right by luck, and is now right by construction.*"
+  },
+  {
+   "src": "Every place string in the archive tested against the province it claims",
+   "what": "households.json, roster.json and fsrecords.json — place strings audited by province, not country",
+   "when": "22 Sept 2026",
+   "outcome": "hit",
+   "url": "",
+   "dest": "Fažana",
+   "tags": [
+    "audit",
+    "places",
+    "hit"
+   ],
+   "ev": [
+    [
+     "/corrections/",
+     "The eight at Fažana"
+    ],
+    [
+     "/method/",
+     "The province test"
+    ]
+   ],
+   "key": "src/every-place-string-in-the-arch-4a95d1",
+   "got": "**One error, eight people, and a whole class of error that nothing here was looking for.**\n\nThe households audit had turned up a single child record placed at *«Fasana, Pont Canavese, Torino, Piemonte, Italia»*. Testing every place string in the archive the same way found **eight**: three Moscarda children, two Tamborin children, two Defranceschi and Irene De Franceschi of 1816 — **all of them baptised at Fažana, four kilometres from Pula, and all of them printed as born in the Alps north of Turin.**\n\n**Nothing else in the archive is wrong this way.** The other far-Italian place strings on the roster — Rome, Milan, Tignale, Rivolta d'Adda, Molinella — belong to people who really are in Italy.\n\n**The atlas had it right all along**, which is why no map ever showed a dot in Piedmont and why nobody noticed: the error lived only in the printed record line, and the two existing place tests both ask about the **country**. *«Italia»* is not false of Fažana — it was Italian from 1918 to 1947.\n\n**A third test now asks about the province**, and it was verified against the data as it stood this morning: **eight before, none after.**"
   }
  ]
 }

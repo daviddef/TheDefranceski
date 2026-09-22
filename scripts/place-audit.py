@@ -60,6 +60,42 @@ def norm(s): return re.sub(r"[^a-z0-9]+", " ", strip(s).lower()).strip()
 def inbox(la, lo, b):
     return b[0] <= la <= b[1] and b[2] <= lo <= b[3]
 
+# ---------------------------------------------------------------- province
+# The two tests above catch a place in the wrong COUNTRY. They do not catch a
+# place in the right country and the wrong PROVINCE, which is the commoner
+# failure and the harder one to see: FamilySearch resolves Istrian «Fasana» to
+# «Fasana, Pont Canavese, Torino, Piemonte, Italia» - a hamlet in the Alps,
+# five hundred kilometres from Fazana, and still in Italy, which Fazana itself
+# was between 1918 and 1947. Eight people were shown as born there.
+#
+# So: a record whose own parish this archive places on the eastern Adriatic
+# cannot carry a place string naming a province of the far side of Italy.
+FAR_IT = re.compile(
+    r"\b(Piemonte|Torino|Pont Canavese|Lombardia|Milano|Brescia|Cremona|Toscana|Firenze|"
+    r"Sicilia|Palermo|Calabria|Campania|Napoli|Puglia|Bari|Sardegna|Cagliari|Lazio|Roma|"
+    r"Umbria|Marche|Abruzzo|Molise|Basilicata|Liguria|Genova|Emilia|Bologna)\b", re.I)
+EAST_REGION = {"istria", "kvarner", "dalmatia", "unplaced"}
+
+def province_test():
+    """Place strings naming the wrong end of Italy for the parish they sit in."""
+    out = []
+    for h in (load("households.json") or []):
+        if (h.get("region") or "") not in EAST_REGION:
+            continue
+        for c in h.get("children", []):
+            p = c.get("place") or ""
+            if FAR_IT.search(p):
+                out.append(("%s / %s" % (h.get("id") or "-", c.get("name") or "?"),
+                            h.get("place") or "-", p))
+    for r in (load("roster.json") or {}).get("rows", []):
+        p = r.get("place") or ""
+        par = (r.get("parish") or "") + " " + (r.get("placeSlug") or "")
+        if FAR_IT.search(p) and re.search(r"istr|fazan|fa\u017ean|pula|pola|rijeka|fiume|"
+                                          r"crikvenica|omis|omi\u0161|zadar", par, re.I):
+            out.append((r.get("name") or "?", par.strip() or "-", p))
+    return out
+
+
 def main():
     rm = load("researchmap.json", {"places": []})
     bad, nocoord = [], []
@@ -106,6 +142,14 @@ def main():
     print()
     for nm, n, s in sorted(nocoord, key=lambda x: -x[1])[:20]:
         print("   %-26s %3d  %s" % (nm[:26], n, ",".join(s)))
+
+    bad = province_test()
+    print("\nPLACES IN THE RIGHT COUNTRY AND THE WRONG PROVINCE: %d" % len(bad))
+    for who, parish, p in bad:
+        print("   %-38s parish %-18s %s" % (who[:38], parish[:18], p))
+    if not bad:
+        print("   none.")
+
 
 if __name__ == "__main__":
     main()

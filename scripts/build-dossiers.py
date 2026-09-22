@@ -106,7 +106,15 @@ for r in _load("fsrecords"):
     bits = []
     for lab in ("birth", "christening", "marriage", "death", "burial"):
         if r.get(lab): bits.append(f"{lab.capitalize()} {r[lab]}")
-    if r.get("place"): bits.append(r["place"])
+    # An indexer's place string can carry the right country and the wrong
+    # province: FamilySearch geocodes Istrian «Fasana» to Pont Canavese in
+    # Piedmont, five hundred kilometres away, and eight people were being
+    # shown as born there. Where this archive has resolved one, show the
+    # resolution and keep the index's own words beside it - the string is the
+    # provenance and the correction is the finding.
+    if r.get("place"):
+        bits.append("%s - indexed as \u00ab%s\u00bb" % (r["placeFixed"], r["place"])
+                    if r.get("placeFixed") else r["place"])
     if r.get("parents"): bits.append("parents: " + r["parents"])
     if r.get("spouses"): bits.append("spouse: " + r["spouses"])
     _add(r.get("name"), "FamilySearch record", bits, "/archive/")
