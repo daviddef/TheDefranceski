@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# What is staged, and whose is it?
+#
+# Several Claude sessions build out of this one checkout. Twice on 22 September
+# 2026 a commit made here carried a file written by another session, because it
+# was staged with a DIRECTORY pattern — `git add -A site/src site/public` — and
+# the directory contained somebody else's unstaged work. Once it was a kit pin
+# bump; once it was 51 lines of the shared stylesheet.
+#
+# Neither was wrong to have. Both were wrong to publish without knowing.
+#
+# This prints the staged set split in two and exits non-zero when anything in
+# the second half is staged, unless --allow-shared says it was meant.
+#
+#     scripts/whose.sh              # before every commit
+#     scripts/whose.sh --allow-shared
+#
+# MINE is this archive's own content and tooling. SHARED is ground another
+# session owns: the estate stylesheet, the layouts, components, the nav, the
+# kit pin, and anything at the repository root.
+set -u
+allow=0
+[ "${1:-}" = "--allow-shared" ] && allow=1
+
+staged=$(git diff --cached --name-only)
+[ -z "$staged" ] && { echo "whose: nothing staged"; exit 0; }
+
+mine=""; shared=""
+while IFS= read -r f; do
+  case "$f" in
+    site/src/data/*|site/src/pages/*|scripts/*|data/*)
+        mine="$mine$f"$'\n' ;;
+    site/public/searchindex.json)
+        mine="$mine$f"$'\n' ;;
+    site/public/*|site/src/layouts/*|site/src/components/*|site/package.json|site/package-lock.json|*/kit/*|.gitignore|*.md)
+        shared="$shared$f"$'\n' ;;
+    *)  shared="$shared$f"$'\n' ;;
+  esac
+done <<< "$staged"
+
+[ -n "$mine" ]   && { echo "MINE:";   printf '%s' "$mine"   | sed 's/^/  /'; }
+[ -n "$shared" ] && { echo "SHARED GROUND:"; printf '%s' "$shared" | sed 's/^/  /'; }
+
+if [ -n "$shared" ] && [ "$allow" -eq 0 ]; then
+  echo
+  echo "whose: shared ground is staged and --allow-shared was not given."
+  echo "       Unstage it, or say so in the commit message and re-run with --allow-shared."
+  exit 1
+fi
+exit 0
