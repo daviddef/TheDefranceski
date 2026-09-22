@@ -51,10 +51,43 @@ def living_names():
     out.pop("", None)
     return out
 
+# The flag is set by hand, so it only ever caught the relatives David knew to
+# name. It cannot express «this person may still be alive» about a stranger
+# found in a record — only the arithmetic can. On 22 September 2026 this test
+# found eight people born 1931-1946 printed with their birth years and no
+# death recorded anywhere, three of them with a full birth date out of a 1947
+# refugee file. A hand-set flag will not find the ninth either.
+PRESUME_ALIVE_WITHIN = 95
+
+def unflagged_possibly_living(this_year=None):
+    """Roster rows young enough to be alive, with no death and no flag."""
+    import datetime
+    y = this_year or datetime.date.today().year
+    out = []
+    for r in (load("roster.json") or {}).get("rows", []):
+        if r.get("living") or r.get("deceased") or r.get("d"):
+            continue
+        b = r.get("b") if isinstance(r.get("b"), int) else r.get("bEst")
+        if isinstance(b, int) and y - b <= PRESUME_ALIVE_WITHIN:
+            out.append((b, r["name"], r.get("src") or "", r.get("place") or ""))
+    return sorted(out, reverse=True)
+
+
 def main():
     dist = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "site", "dist")
     names = living_names()
     print("%d people held as living\n" % len(names))
+
+    # Test the dates, not the flag.
+    loose = unflagged_possibly_living()
+    print("NOT FLAGGED BUT MAY BE ALIVE: %d\n" % len(loose))
+    for b, n, src, place in loose:
+        print("  %s  b. %d  %s%s" % (n, b, src, (" - " + place) if place else ""))
+    if not loose:
+        print("  none - every roster row born within %d years carries a death "
+              "or a living flag." % PRESUME_ALIVE_WITHIN)
+    print()
+
     # A name is looked for as its own run of words, and a year has to be
     # within a short distance of it — far enough to catch «Name, 1979» and a
     # table cell, near enough not to flag the century in the next paragraph.
