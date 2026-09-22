@@ -1307,6 +1307,14 @@
    "where": "/worklist/ — the kit-pin row, and site/package.json",
    "said": "That the source check could not run because the installed kit predated the tool, and that restoring it meant a **pin bump carrying 23 other kit commits** that would need testing first.",
    "true": "**The pin had already been bumped, and `checksources.py` is sitting in `node_modules`.** The bump was in the working tree uncommitted — so the repository named one version of the kit and the installed kit was another, which is the state most likely to produce exactly the confusion recorded here.\n\n**The check was never blocked; it was simply not wired into the build.** Run against the site it passes: **66 of 85 sources reachable**, 9 held as paper and saying so, 10 with no way to reach them. It is now part of `npm run build`, so it runs on every deploy.\n\n**And it immediately found something.** *73 hosts are linked to from this archive's data and named nowhere in its bibliography* — CEMLA, the Arolsen collections, arhinet.arhiv.hr, the Corsican and Meurthe-et-Moselle archives among them. **The site cites them and never says what they are.** [Logged as work](/worklist/)."
+  },
+  {
+   "when": "22 Sept 2026",
+   "sev": "minor",
+   "what": "A commit message said a kit pin bump landed in the wrong commit — and the bump was never this archive's to carry",
+   "where": "The repository history — commits ea5b1c6 and 0229387",
+   "said": "That commit **0229387** carried the archive-kit pin bump *«with the change that needed it»*.",
+   "true": "**It did not. The bump went in two commits earlier, in ea5b1c6, and it went in without being noticed.** That commit was meant to carry a Svetvinčenat reading and it also swept up `site/package.json`, `site/package-lock.json` and `.gitignore` — **work belonging to another session sitting unstaged in a shared working tree.**\n\n**The peer session said so itself**, unprompted: *«Your commit ea5b1c6 swept up a site/package.json pin bump of mine that was sitting unstaged in the shared tree. It was correct and it is the pin you want, but you committed it without knowing what it was.»* **That is exactly right, and it is worth recording rather than leaving in a blame.**\n\n**The lesson is about the working tree, not the pin.** Several sessions build out of one checkout. A commit here is made with explicit paths for that reason — and an explicit path list is only as good as its narrowest entry. *A file you did not write, staged by a pattern you did write, is still a file you published.*"
   }
  ]
 }

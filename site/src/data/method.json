@@ -372,6 +372,11 @@
    "lab": "Never date a frame from its year heading alone",
    "key": true,
    "text": "**A page headed *1759* whose entries are all dated *1739* is not a contradiction; it is one clerk's 3.** On images 123 and 126 of the Svetvinčenat births the heading reads five and the entries beneath it read three, and the page numbers run straight on from the frame before.\n\n**Three cheap cross-checks, in order of reliability.** The **page number** in the outer corner, which cannot lie about sequence; the **entry dates** inside the page, which the clerk wrote more carefully than the heading; and only then the **heading**.\n\n*This nearly put a household twenty years out of place.* A baptism read as 1759 and published as such would have been attached to the wrong generation, and nothing downstream would ever have questioned it."
+  },
+  {
+   "lab": "Point a check at the build you just made, by name",
+   "key": true,
+   "text": "**A gate that reads `dist` in a shared working tree is not reading your work.** Several sessions build out of one checkout here, so `dist` routinely holds a half-written build or another session's data — and a check pointed at it passes or fails on somebody else's page.\n\n**This archive's gate builds into `dist-gate-$$` and passes `--dist` to every check explicitly**, which is why a kit bug reported on 22 September — four tools ignoring the `ARCHIVE_OUT` variable because a command-line flag overrode it — **could not reach it**. The flag was already pointing at the right place.\n\n**Verified rather than assumed, the same day.** A fresh 1,475-page build was made by hand and the living check run against it by name: *«no living person reaches the build — 52 living, 0 dates guarded»*. **That is the sentence the living rule needs, and it is worth nothing unless the directory in it is the one you just built.**"
   }
  ],
  "close": "None of this is a complaint about the sources. FamilySearch's films are the reason any of this was possible at all, and the volunteers who indexed the baptisms saved months. The point is narrower: **these tools answer the question you actually asked**, which is often not the question you meant — and the only defence is to open the image.",
