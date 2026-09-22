@@ -13,3 +13,7 @@ notes/myheritage-media.md
 notes/myheritage-reconciliation.md
 private/
 data/gaz/
+
+# A private build directory, so a check never reads a dist another session is
+# halfway through writing. ARCHIVE_OUT=dist-verify points the gates at it.
+site/dist-verify/
