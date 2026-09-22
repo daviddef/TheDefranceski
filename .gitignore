@@ -16,4 +16,12 @@ data/gaz/
 
 # A private build directory, so a check never reads a dist another session is
 # halfway through writing. ARCHIVE_OUT=dist-verify points the gates at it.
-site/dist-verify/
+
+# A PRIVATE BUILD DIRECTORY, AND EVERY NAME ONE MIGHT TAKE.
+# `dist` is shared by the sessions working in this tree, so a check is pointed
+# at a build of its own with ARCHIVE_OUT. `dist-verify` was that name until two
+# sessions collided in it; the kit now suggests a per-session one, so the glob
+# has to cover whatever it composes. Untracked build output here is also how a
+# scoped `git add` picks up another session's work, which has happened in this
+# estate more than once tonight.
+site/dist-*/
