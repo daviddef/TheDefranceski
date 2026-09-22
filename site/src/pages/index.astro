@@ -67,12 +67,24 @@ const finds = [
    dossier: the full spine links dossiers and can, because it has one per
    generation, but a compact ladder is the wrong place to assert identity and
    five of the estate's seven spines carry a repeating forename. */
+/* THE LADDER WAS SHOWING A THIRD OF WHAT THIS FILE HOLDS. directline.json
+   carries a spouse for six of the eight generations, an occupation for
+   three and a marriage date for two, and the first version of this map
+   passed none of them. `spouse` is an object here — {name, born} — and
+   only the name belongs on a one-line ladder; the wife's own dates are the
+   full spine's business. Generation seven's spouse reads "living, dates
+   withheld", which is the right way round and is also why only her name is
+   taken. */
 const spineRows = dline.generations.map((g) => ({
   gen: g.n,
   name: g.name,
+  spouse: (g.spouse && (g.spouse.name || g.spouse)) || "",
   born: g.bornExact || (g.born != null ? String(g.born) : ""),
   died: g.diedExact || (g.died != null ? String(g.died) : ""),
   bornPlace: g.place || "",
+  trade: g.occupation || "",
+  married: g.married || "",
+  confidence: g.confidence === "living" ? "" : g.confidence,
   living: g.confidence === "living",
   weak: g.confidence === "family",
   weakNote: "Carried on the family's own descent chart; no register page names this generation yet.",
