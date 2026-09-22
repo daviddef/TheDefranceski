@@ -63,14 +63,22 @@ def unflagged_possibly_living(this_year=None):
     """Roster rows young enough to be alive, with no death and no flag."""
     import datetime
     y = this_year or datetime.date.today().year
-    out = []
+    out, allowed = [], []
     for r in (load("roster.json") or {}).get("rows", []):
         if r.get("living") or r.get("deceased") or r.get("d"):
+            continue
+        # A row may carry an explicit decision to publish the dates anyway.
+        # David, 22 September 2026: the rule is about relatives, and somebody
+        # already published by a public index is not made more private by this
+        # site withholding what the index prints. Those rows say so, by name,
+        # so that the exception is a record and not a silence.
+        if r.get("datesAllowed"):
+            allowed.append(r["name"])
             continue
         b = r.get("b") if isinstance(r.get("b"), int) else r.get("bEst")
         if isinstance(b, int) and y - b <= PRESUME_ALIVE_WITHIN:
             out.append((b, r["name"], r.get("src") or "", r.get("place") or ""))
-    return sorted(out, reverse=True)
+    return sorted(out, reverse=True), sorted(allowed)
 
 
 def main():
@@ -79,13 +87,16 @@ def main():
     print("%d people held as living\n" % len(names))
 
     # Test the dates, not the flag.
-    loose = unflagged_possibly_living()
+    loose, allowed = unflagged_possibly_living()
     print("NOT FLAGGED BUT MAY BE ALIVE: %d\n" % len(loose))
     for b, n, src, place in loose:
         print("  %s  b. %d  %s%s" % (n, b, src, (" - " + place) if place else ""))
     if not loose:
-        print("  none - every roster row born within %d years carries a death "
-              "or a living flag." % PRESUME_ALIVE_WITHIN)
+        print("  none - every roster row born within %d years carries a death, "
+              "a living flag, or a recorded decision." % PRESUME_ALIVE_WITHIN)
+    if allowed:
+        print("\n  (%d dated by explicit decision: %s)"
+              % (len(allowed), ", ".join(allowed)))
     print()
 
     # A name is looked for as its own run of words, and a year has to be
