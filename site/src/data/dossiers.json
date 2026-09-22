@@ -6459,7 +6459,7 @@
   "mattio-de-franceschi": {
    "name": "Mattio De Franceschi",
    "slug": "mattio-de-franceschi",
-   "n": 19,
+   "n": 20,
    "pages": [
     {
      "h": "/",
@@ -6512,6 +6512,10 @@
     {
      "h": "/about/",
      "t": "About"
+    },
+    {
+     "h": "/worklist/",
+     "t": "Worklist"
     }
    ],
    "hits": [
@@ -6609,6 +6613,11 @@
      "page": "/register/",
      "title": "Register",
      "text": "Maria Martini Dorcich lead 6B47-3X7M Mattio Anto Francetich Francetich y Maria lead 6BKK-NVW4 Mattio De Franceschi Franceschi y Elisabetta in 6BKV-PQ8T Mattio Frannecich Surname not indexed y Zuanne Frannecich Antonia"
+    },
+    {
+     "page": "/worklist/",
+     "title": "Worklist",
+     "text": "now renders the whole record — name, sex, birth date, event type, event date, event place, both parents and the citation. «Antonio De Franceschi· Birth Aug 1704· Baptism Nov 1704· Croazia, Austria· Father Mattio De Franceschi· Mother Zuanna.» One caveat that changes the method. The JSON routes are still shut — /platform/records/personas/<ark and the ark with ?format=json both return 401, because they want an OAuth bearer token and a cookie is not one. The"
     }
    ],
    "facts": [
@@ -100148,9 +100157,23 @@
     {
      "h": "/households/",
      "t": "Households"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    },
+    {
+     "h": "/worklist/",
+     "t": "Worklist"
     }
    ],
-   "hits": [],
+   "hits": [
+    {
+     "page": "/worklist/",
+     "title": "Worklist",
+     "text": "them missing when they are already here. And data/fs-catalogue.json holds 5,451 arks which are first images of catalogue volumes, not citations at all; counting those turns ten into thousands. What the ten gave. Three are indexed records: Vittoria Defranceschi, born 29 April 1894 at Telve, daughter of Antonio and Rosa Mattivi; Estefania Defranceschi, married at Dallas on 24 July 2004 to Lance C Thomas; and one that is restricted to certain accounts and cannot be opened. A fourth, Marina De Franceschi"
+    }
+   ],
    "facts": [
     [
      "Place",
@@ -100180,6 +100203,10 @@
     {
      "slug": "vittoria-de-franceschi",
      "name": "Vittoria De Franceschi"
+    },
+    {
+     "slug": "vittoria-defranceschi-of-telve-1894",
+     "name": "Vittoria Defranceschi (of Telve, 1894)"
     }
    ]
   },
@@ -129745,12 +129772,27 @@
      "Read off the register"
     ]
    ],
-   "known": "\n\n**This row and the index row are the same child.** The index entry that first put her here (*«Marina di Piero Defranceschi, 21 Febraro 1710 — c. 6»*) and the leaf are merged: the leaf wins on the carta and adds the mother.",
+   "known": "\n\n**This row and the index row are the same child.** The index entry that first put her here (*«Marina di Piero Defranceschi, 21 Febraro 1710 — c. 6»*) and the leaf are merged: the leaf wins on the carta and adds the mother.*22 September 2026 — the index entry behind this reading is now attached: **`1:1:X9DP-3HTQ`**, *«Marina De Franceschi · Baptism 1710 · Croazia, Austria · Father **Piero De Franceschi** · Mother **Vittoria**»*. **The mother's name is new** — the page gave the father and not her. The eye-read and the index agree on everything else, which is worth having said.*",
    "more": [],
    "records": [],
    "tree": null,
    "ptree": null,
-   "rec": null,
+   "rec": {
+    "id": "X9DP-3HTQ",
+    "says": "b. 1710",
+    "place": "",
+    "sp": "Franceschi",
+    "others": [
+     {
+      "n": "Piero De Franceschi",
+      "slug": "piero-de-franceschi"
+     },
+     {
+      "n": "Vittoria"
+     }
+    ],
+    "url": "https://www.familysearch.org/ark:/61903/1:1:X9DP-3HTQ"
+   },
    "chain": null,
    "recyear": null,
    "adjacent": null,
@@ -131818,7 +131860,7 @@
   "marina-de-franceschi": {
    "name": "Marina De Franceschi",
    "slug": "marina-de-franceschi",
-   "n": 2,
+   "n": 3,
    "pages": [
     {
      "h": "/",
@@ -131847,6 +131889,14 @@
     {
      "h": "/households/",
      "t": "Households"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    },
+    {
+     "h": "/worklist/",
+     "t": "Worklist"
     }
    ],
    "hits": [
@@ -131859,6 +131909,11 @@
      "page": "/register/",
      "title": "Register",
      "text": "Antonia Francetich Francetich F y bur. 1710 Fiume, Modrus-Fiume, Ungheria Fiume, Modrus-Fiume, Ungheria Mathio Francetich lead Rijeka X9DP-3HTQ Marina De Franceschi Franceschi F y b. 1710 Piero De Franceschi Vittoria in X9D5-9XZW Elena Francetich Francetich y b. 1711· bur. 14 Mar 1751 Fiume,"
+    },
+    {
+     "page": "/worklist/",
+     "title": "Worklist",
+     "text": "Defranceschi, born 29 April 1894 at Telve, daughter of Antonio and Rosa Mattivi; Estefania Defranceschi, married at Dallas on 24 July 2004 to Lance C Thomas; and one that is restricted to certain accounts and cannot be opened. A fourth, Marina De Franceschi 1710, turned out to be here already under a reading — and the index adds her mother, Vittoria, whom the page did not name. Seven are film images and are a read rather than a fetch. The original figure was honestly arrived at and is honestly"
     }
    ],
    "facts": [
@@ -131884,7 +131939,7 @@
      "Read off the register"
     ]
    ],
-   "known": "**«Marina figlia legitima di Piero de Franceschi et di Vittoria jugali, nata questa matina»** — born and baptised **21 February 1710**, **carta 16**. Godparents **Sime Percovich** and **Zuana**. The volume's index cites this entry at *«c. 6»*; carta 6 is in 1706 and the entry is on carta 16. The Svetvinčenat leaves, read 21 September 2026 — film 005497885, the volume's own register text rather than its index. *(doc)*",
+   "known": "**«Marina figlia legitima di Piero de Franceschi et di Vittoria jugali, nata questa matina»** — born and baptised **21 February 1710**, **carta 16**. Godparents **Sime Percovich** and **Zuana**. The volume's index cites this entry at *«c. 6»*; carta 6 is in 1706 and the entry is on carta 16. The Svetvinčenat leaves, read 21 September 2026 — film 005497885, the volume's own register text rather than its index. *(doc)**22 September 2026 — the index entry behind this reading is now attached: **`1:1:X9DP-3HTQ`**, *«Marina De Franceschi · Baptism 1710 · Croazia, Austria · Father **Piero De Franceschi** · Mother **Vittoria**»*. **The mother's name is new** — the page gave the father and not her. The eye-read and the index agree on everything else, which is worth having said.*",
    "more": [],
    "records": [
     {
@@ -131964,7 +132019,22 @@
     "nread": 0,
     "dupNames": []
    },
-   "rec": null,
+   "rec": {
+    "id": "X9DP-3HTQ",
+    "says": "b. 1710",
+    "place": "",
+    "sp": "Franceschi",
+    "others": [
+     {
+      "n": "Piero De Franceschi",
+      "slug": "piero-de-franceschi"
+     },
+     {
+      "n": "Vittoria"
+     }
+    ],
+    "url": "https://www.familysearch.org/ark:/61903/1:1:X9DP-3HTQ"
+   },
    "chain": null,
    "recyear": null,
    "adjacent": null,
@@ -132020,6 +132090,10 @@
     {
      "slug": "vittoria-defranceschi",
      "name": "Vittoria Defranceschi"
+    },
+    {
+     "slug": "vittoria-defranceschi-of-telve-1894",
+     "name": "Vittoria Defranceschi (of Telve, 1894)"
     }
    ]
   },
@@ -140778,6 +140852,128 @@
      "name": "Johannes Baptista Defranceschi"
     }
    ]
+  },
+  "vittoria-defranceschi-of-telve-1894": {
+   "name": "Vittoria Defranceschi (of Telve, 1894)",
+   "slug": "vittoria-defranceschi-of-telve-1894",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/",
+     "t": "The Defranceschi Archive"
+    },
+    {
+     "h": "/households/",
+     "t": "Households"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    },
+    {
+     "h": "/worklist/",
+     "t": "Worklist"
+    }
+   ],
+   "hits": [
+    {
+     "page": "/worklist/",
+     "title": "Worklist",
+     "text": "them missing when they are already here. And data/fs-catalogue.json holds 5,451 arks which are first images of catalogue volumes, not citations at all; counting those turns ten into thousands. What the ten gave. Three are indexed records: Vittoria Defranceschi, born 29 April 1894 at Telve, daughter of Antonio and Rosa Mattivi; Estefania Defranceschi, married at Dallas on 24 July 2004 to Lance C Thomas; and one that is restricted to certain accounts and cannot be opened. A fourth, Marina De Franceschi"
+    }
+   ],
+   "facts": [
+    [
+     "Place",
+     "Telve, Trento"
+    ],
+    [
+     "Years",
+     "1894"
+    ],
+    [
+     "Parish",
+     "Assunzione di Maria Santissima, Telve"
+    ],
+    [
+     "Line",
+     "Trentino and South Tyrol"
+    ],
+    [
+     "Found in",
+     "Record index"
+    ]
+   ],
+   "known": "**Baptised at Telve in the Valsugana, born 29 April 1894**, daughter of **Antonio Defranceschi** and **Rosa Mattivi** — *Italia, Trento, Diocesi di Trento, Registri Parrocchiali*, page 251, microfilm 001388687.\n\n**One of David's own citations that had never been read into this archive.** She belongs to the **Trentino** stock, which is in this study because the surname is the same and for no other reason. *(doc.)*",
+   "more": [],
+   "records": [],
+   "tree": null,
+   "ptree": null,
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true,
+   "alsoWritten": [
+    {
+     "slug": "vittoria-de-franceschi",
+     "name": "Vittoria De Franceschi"
+    },
+    {
+     "slug": "vittoria-defranceschi",
+     "name": "Vittoria Defranceschi"
+    }
+   ]
+  },
+  "estefania-defranceschi-dallas-2004": {
+   "name": "Estefania Defranceschi (Dallas, 2004)",
+   "slug": "estefania-defranceschi-dallas-2004",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/households/",
+     "t": "Households"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    },
+    {
+     "h": "/worklist/",
+     "t": "Worklist"
+    }
+   ],
+   "hits": [
+    {
+     "page": "/worklist/",
+     "title": "Worklist",
+     "text": "are first images of catalogue volumes, not citations at all; counting those turns ten into thousands. What the ten gave. Three are indexed records: Vittoria Defranceschi, born 29 April 1894 at Telve, daughter of Antonio and Rosa Mattivi; Estefania Defranceschi, married at Dallas on 24 July 2004 to Lance C Thomas; and one that is restricted to certain accounts and cannot be opened. A fourth, Marina De Franceschi 1710, turned out to be here already under a reading — and the index adds her mother,"
+    }
+   ],
+   "facts": [
+    [
+     "Place",
+     "Dallas, Texas"
+    ],
+    [
+     "Line",
+     "Abroad, and the line not established"
+    ],
+    [
+     "Found in",
+     "Record index"
+    ]
+   ],
+   "known": "**Married at Dallas, Texas on 24 July 2004**, aged twenty-seven, to **Lance C Thomas**, aged twenty-eight — *Texas, Marriages, 1966–2010*, file number 110220.\n\n**The latest-dated record of the name in this archive**, and one of David's own citations that had never been read in. *No birth year is recorded here: the index gives an age and not a date, and that is all this page needs.* *(doc for the marriage.)*",
+   "more": [],
+   "records": [],
+   "tree": null,
+   "ptree": null,
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true
   },
   "jacobo-defranceschi-of-svetvincenat-fl-1752": {
    "name": "Jacobo Defranceschi (of Svetvinčenat, fl. 1752)",

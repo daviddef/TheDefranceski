@@ -1283,6 +1283,14 @@
    "where": "/searched/ and /worklist/ item 136 — the coverage note on the Svetvinčenat sweep",
    "said": "That **image 121's left page carries a loose slip of paper laid on the book when it was filmed**, hiding part of two entries, and that the page is therefore **«not a clean nil»** — with image 120 listed as unread.",
    "true": "**Image 120 is a second exposure of the very same opening — book page 107 — and the slips sit in different places on the two frames.** What one hides the other shows, so the opening reads **complete**, and the caveat is withdrawn.\n\n**And the slips are not the photographer's paper.** They are **the priest's own loose memoranda, with baptisms written on them in Italian**, kept inside the register and photographed where they lay: *«15 Febraro 1739 — Mattia figlia d' D. Zuane Pubich…»*, *«…Mattie fig.lo D. Sime Bulcich… Patrini al sacro fonte D. Giacomo Zanca e Catharina Lanich»*. **They are records in their own right**, and neither names this family.\n\n*The lesson is about film rather than about this parish: a duplicate frame is not redundant when something is lying on the page. Read both exposures before recording what an opening does not contain.*"
+  },
+  {
+   "when": "22 Sept 2026",
+   "sev": "minor",
+   "what": "«328 arks appear nowhere in this repository». It is ten",
+   "where": "/worklist/ item 105 — the FamilySearch arks waiting on a sign-in",
+   "said": "That of the **405 arks David's own citations name, 328 appear nowhere in this repository** — 234 indexed records and 94 film images — and that a machine could read all 234 in one pass once he signed in.",
+   "true": "**Ten.** Rebuilt from the two files that actually hold his citations — `myheritage-surname-2026-09.tsv` and `to-the-tree.ged`, **351 arks** — and diffed against every ark the site carries, the gap is **three indexed records and seven film images**.\n\n**Two things inflate the count, and both were in the original.** The repository stores some arks **bare**, without the `1:1:` prefix, in an `arks` array beside the primary one — a search for the prefix reports those missing when they are sitting on the row. And **`data/fs-catalogue.json` holds 5,451 arks** that are the **first images of catalogue volumes**, not citations; sweep them in and the answer becomes thousands.\n\n**The row was right that the door was shut and right that it mattered** — one of the ten is a burial at Fiume in 1804 naming **Valentino and Orsola** as parents, which is the Rijeka chain. *It was wrong about the size of the room behind it.*\n\n*Withdrawn with the method that produced it, because the same mistake is available to anyone who counts what is missing against one of the ways a thing is stored rather than all of them.*"
   }
  ]
 }
