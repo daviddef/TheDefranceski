@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --port 4321",
-    "build": "npm run check:pin && npm run publish:index && astro build && npm run sitemap && npm run check:living && npm run check:templates && npm run check:kit && npm run check:worklist && npm run check:covers && npm run check:evidence && npm run check:names && npm run check:places && npm run check:pages && npm run check:inline",
+    "build": "npm run check:pin && npm run publish:index && astro build && npm run sitemap && npm run check:living && npm run check:templates && npm run check:kit && npm run check:worklist && npm run check:covers && npm run check:evidence && npm run check:names && npm run check:places && npm run check:pages && npm run check:inline && npm run check:rows",
     "preview": "astro preview --port 4321",
     "sitemap": "python3 node_modules/@daviddef/archive-kit/kit/tools/sitemap.py",
     "publish:index": "node -e \"const f=require('fs');f.copyFileSync('src/data/searchindex.json','public/searchindex.json');const a=JSON.parse(f.readFileSync('src/data/atlas.json','utf8'));const m=JSON.parse(f.readFileSync('src/data/movements.json','utf8'));const g=JSON.parse(f.readFileSync('src/data/mymap.json','utf8'));const areas=[];g.layers.forEach(L=>L.areas.forEach(x=>areas.push({n:x.n||L.name,layer:L.name,ring:x.ring})));f.writeFileSync('public/atlas-data.json',JSON.stringify({places:a.places,stats:a.stats,moves:m.moves,spine:m.spine,areas:areas,mnote:m.note,mcaution:m.caution}));\"",
@@ -19,10 +19,11 @@
     "check:templates": "python3 node_modules/@daviddef/archive-kit/kit/tools/checktemplates.py --root .",
     "check:pages": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkpages.py --root . --estate ../.. --max-bespoke 0",
     "check:pin": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkpin.py --root .",
-    "check:inline": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkinline.py --root . --max-inline 2"
+    "check:inline": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkinline.py --root . --max-inline 2",
+    "check:rows": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkrows.py --root ."
   },
   "dependencies": {
-    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#06b289c46d99c0cbd4b8c4026888c9f6bc5d720e",
+    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#09027a4cecfbccc4a79410ff4042de5347937c78",
     "astro": "^5.18.2"
   },
   "devDependencies": {
