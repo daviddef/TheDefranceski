@@ -17,6 +17,8 @@ const sparkPlaces = (Array.isArray(placesRaw) ? placesRaw : placesRaw.rows || []
 import SovereigntyTimeline from "@daviddef/archive-kit/components/SovereigntyTimeline.astro";
 import sov from "../data/sovereignty.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
+import Spine from "@daviddef/archive-kit/components/Spine.astro";
+import dline from "../data/directline.json";
 import rivers from "../data/rivers.json";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
@@ -54,6 +56,27 @@ const finds = [
   ["Sept 2026", "What they actually were at Gologorica", "Not tenants. They held the lease on the bishop of Pedena's «affitto fermo» and collected it, renewed by every bishop, until the see was suppressed in 1788.", "/carlos-letter/"],
   ["Sept 2026", "The day they sailed", "Anton's index card reads «Emigré Australie le 8.3.49», stamped CM/1 destroyed. That is the morning Zdravko, Ruža and the child left Germany for good.", "/pfullingen/"],
 ];
+
+/* 22 September 2026. The homepage drew the RIVERS — five families arriving in
+   Istria from five directions — and never drew this archive's own LINE. They
+   answer different questions and a front page wants both: where the name came
+   from, and how far back this particular descent runs.
+
+   Compact Spine, mirroring the field mapping direct-line.astro already uses.
+   It links each row to that page's generation anchor rather than to a
+   dossier: the full spine links dossiers and can, because it has one per
+   generation, but a compact ladder is the wrong place to assert identity and
+   five of the estate's seven spines carry a repeating forename. */
+const spineRows = dline.generations.map((g) => ({
+  gen: g.n,
+  name: g.name,
+  born: g.bornExact || (g.born != null ? String(g.born) : ""),
+  died: g.diedExact || (g.died != null ? String(g.died) : ""),
+  bornPlace: g.place || "",
+  living: g.confidence === "living",
+  weak: g.confidence === "family",
+  weakNote: "Carried on the family's own descent chart; no register page names this generation yet.",
+}));
 ---
 <Base title="The Defranceschi Archive" eyebrow="Istria · Kvarner · Carnia · and the diaspora"
       dek="Not one family — a surname, and every line that carries it. Written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing."
@@ -157,6 +180,16 @@ const finds = [
 
 
 <section class="blk">
+  <section class="blk">
+    <h2>The line itself, eight generations</h2>
+    <p class="dek">The rivers above are five families arriving in Istria. This is the one this
+    archive descends from — Gologorica to Gračišće and out — with the generation the family chart
+    asserts and no register names marked where it falls.</p>
+    <Spine rows={spineRows} u={u} compact={true} full="/direct-line/" />
+    <p class="cap" style="margin-top:14px"><a href={u("/direct-line/")}>The full spine, with the
+    register page under each generation →</a></p>
+  </section>
+
   <h2>The families who married in</h2>
   <p class="dek">Seventy-four surnames married into this one, each routed to the empire that held its town.
   <a href={u("/marriages/")}>The marriages, in full →</a></p>
