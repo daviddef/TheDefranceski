@@ -1259,6 +1259,22 @@
    "where": "/who/ — eight dossier pages, and the records behind them",
    "said": "That **Irene, Vittorio Giovanni, Giovanni Eliseo, Matteo Giovanni, Maria, Natale Mattio and two Angelos** were born at **«Fasana, Pont Canavese, Torino, Piemonte, Italia»** — the place string FamilySearch attaches to their baptisms, printed here as given, on their own pages and on the pages of the Moscarda and Tamborin children beside them.",
    "true": "**Fasana is Fažana, four kilometres from Pula.** *Pont Canavese* is a comune in the Alps north of **Turin**, five hundred kilometres away, and the index has simply resolved the name to the wrong one of two Italian places called Fasana.\n\n**The map was never wrong** — the atlas had already tied *Fažana-Fasana* to 44.928 N, 13.805 E and kept the index's string as an alias. **Only the printed pages were**, which is the half a reader actually reads.\n\n**Why no audit caught it.** `place-audit.py` has two tests and both look for a place in the wrong **country**. This string names the **right country and the wrong province** — and Fažana genuinely *was* in Italy between 1918 and 1947, so nothing about *«Italia»* is false. **A third test now looks for exactly that**: a record whose parish this archive puts on the eastern Adriatic cannot carry a place string naming a province of the far side of Italy. Run against the data as it stood this morning it returns **eight**; against the data now, none.\n\n**The index's words are kept.** Each record still carries `placeAsIndexed`, and a dossier prints *«Fažana (Fasana), Istria — indexed as «Fasana, Pont Canavese, Torino, Piemonte, Italia»»*. *The string is the provenance; the resolution is the finding; a reader is owed both.*"
+  },
+  {
+   "when": "22 Sept 2026",
+   "sev": "major",
+   "what": "The research register promised a trail to the findings and rendered none of it",
+   "where": "/searched/ — «What it produced on this site», and every row that carries one",
+   "said": "That **«every row now carries a way out of the table»**, and that *««What it produced on this site» is the other direction: from a search to the pages its findings ended up on»*. The paragraph has been on the page since it was written.",
+   "true": "**The trail was in the data and on no page.** **312 of the 413 rows carry it — 666 links** — and the row template passed the field to nothing. The stylesheet even had rules written for it, `.sr-ev` and `.sr-evl`, which had **never matched an element on the site**.\n\n**It renders now.** The rows are drawn by a component in the shared kit, which this archive does not own and did not change; the trail is appended to each row's own HTML instead, which it does own.\n\n**And nine of the links were dead.** `/married-in/` is a dynamic route with no index page, `/atsea/` was a typo for `/at-sea/`, and `/america/`, `/listria/` and `/families/` are pages that do not exist. They now point at **/marriages/**, **/at-sea/**, **/diaspora/**, **/istria-sweep/** and **/households/**. *The site's own link check never saw them, because a link that is never rendered cannot be checked — and it catches them now that they are.*\n\n*Found by asking whether the pages had kept up with the research rather than whether the research was right.*"
+  },
+  {
+   "when": "22 Sept 2026",
+   "sev": "minor",
+   "what": "Four figures on the front page, typed once and left behind",
+   "where": "/ — the tree blurb and the card headed «Every number here is a link»",
+   "said": "That the search covers **594 people, places, records and plates**, and that **160 places, 956 people placed and 408 register volumes** are reachable from the map.",
+   "true": "**2,288 · 165 · 1,031 · 422.** Every one of the four was stale, and three of them sat in a card headed ***«Every number here is a link»***.\n\n**The page already knew better.** The six tiles beside them are counted at build time, under a comment that says so in as many words — *«counted at build time, so they stay true as the work grows instead of being re-typed and quietly going stale»*. **The discipline was applied to the tiles and not to the prose around them.**\n\n**All four are computed now**, from `searchindex.json` and the atlas's own stats, so they move when the work does. *A number typed into a sentence is a claim with no source, and this archive's whole argument is that claims need sources.*"
   }
  ]
 }

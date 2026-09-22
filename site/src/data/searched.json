@@ -5519,7 +5519,7 @@
      "Six Names at Pfullingen"
     ],
     [
-     "/listria/",
+     "/istria-sweep/",
      "Istria"
     ],
     [
@@ -8159,7 +8159,7 @@
      "The index reading of the same volume"
     ],
     [
-     "/families/",
+     "/households/",
      "Families"
     ]
    ],
@@ -8181,11 +8181,11 @@
    ],
    "ev": [
     [
-     "/atsea/",
+     "/at-sea/",
      "At sea"
     ],
     [
-     "/married-in/",
+     "/marriages/",
      "Who married in"
     ],
     [
@@ -8211,7 +8211,7 @@
    ],
    "ev": [
     [
-     "/america/",
+     "/diaspora/",
      "America"
     ],
     [
@@ -8255,7 +8255,7 @@
      "Errands"
     ],
     [
-     "/america/",
+     "/diaspora/",
      "America"
     ]
    ],
@@ -8320,7 +8320,7 @@
      "Findmypast"
     ],
     [
-     "/married-in/",
+     "/marriages/",
      "Who married in"
     ]
    ],
@@ -8434,7 +8434,7 @@
      "The births of the same parish"
     ],
     [
-     "/married-in/",
+     "/marriages/",
      "Who married in"
     ]
    ],
@@ -8487,7 +8487,7 @@
      "The rest of the volume"
     ],
     [
-     "/married-in/",
+     "/marriages/",
      "Who married in"
     ]
    ],
@@ -9236,6 +9236,32 @@
    ],
    "key": "src/a-third-household-at-svetvince-4cf521",
    "got": "**A third household, and a warning about how to read the other two.**\n\n**27 July 1738:** *«baptizavit unam infantulam **natam 25 currentis a Petro de Franceschi, et Jacoba ejus legitima uxore ambobus ex hac Parochia**, cui positum fuit nomen **Anna Euphemia**»*. Godparents **Blasius Marsoni, smith**, and **D.na Margarita**. **In no index.** So inside the unread fifteen years there are now **three households of the name** — Jacobo's, Pietro's and Matteo's — in a parish of a few hundred souls.\n\n**And then the register contradicts itself.** In ten months it gives *«uxor Jacobi de Franceschi»* **three different women**: **Anzola** at the twins' baptism in December 1737, **Agata** on 10 August 1738, **Jacoba** on 7 September 1738 — and then **Angela**, who is Anzola, on 1 March 1739. *Angela is alive on both sides of the other two.* **One man did not have three wives in ten months.**\n\n**Either more than one Jacobo de Franceschi was living in the parish at once, or the godparent formula is unreliable about husbands.** There is a specific reason to suspect the second: ***Jacoba* is Pietro's wife six weeks before she is Jacobo's**, in an entry where she is a parent and the clerk was being exact. A hand writing *«Jacoba uxor Jacobi»* was probably pulled by her own name.\n\n**Neither reading is preferred.** [The rule that came out of it](/method/) is that a *«wife of X»* in a godparent line shows a household existed and must never be used to decide which household somebody was in.\n\n**Coverage, said plainly.** Images **115–119 and 121** are read. **Image 120 is not** — its signed link expired before it was fetched. And **image 121's left page carries a loose slip of paper laid on the book when it was filmed**, which hides part of two entries; neither is a Defranceschi entry, but the page is **not** a clean nil and is not recorded as one."
+  },
+  {
+   "src": "The Vienna catalogue searched again under the spellings the stem cannot reach",
+   "what": "ÖStA Archivinformationssystem — the -ski and -zeschi spellings, which «contains Franceschi» cannot match",
+   "when": "22 Sept 2026",
+   "outcome": "hit",
+   "url": "https://www.archivinformationssystem.at/feldsuche.aspx",
+   "dest": "Vienna",
+   "tags": [
+    "ÖStA",
+    "Austria",
+    "catalogue",
+    "hit"
+   ],
+   "ev": [
+    [
+     "/who/humbert-defranceski/",
+     "Humbert, of Pola"
+    ],
+    [
+     "/corrections/",
+     "The operator that started this"
+    ]
+   ],
+   "key": "src/the-vienna-catalogue-searched-e6dbbd",
+   "got": "**Yesterday's rule was «search the stem». The stem has a hole in it.**\n\n*«Contains **Franceschi**»* catches *Defranceschi*, *De Franceschi* and the *-ini* diminutives in one pass — but **it cannot match a spelling with a k or a z**, and this family has both. Three records fall out of the spellings it misses:\n\n· **Defranceski, Humbert** — ***«Geburtsort: Pola · Beruf: Schiffbauer»***, a **Landsturminfanterist** in a **military court case at Belluno, 1918** (`KA MGA GS B Belluno Gerichtsfälle GEx Innichen K 887/18`). **A shipwright out of Pula, in front of a military court in the Dolomites in the last year of the war** — and a birthplace that lands on this archive's southern-Istrian line.\n· **Defranzeschi, Heinrich, born 9 July 1912** — a wartime card, `AdR MilEv ZSK 11.6`.\n· **Franzeschi**, 1814 — `AVA Inneres PHSt 374.1814`, a police-directorate file with no forename.\n\n**So the working rule is corrected rather than repeated.** Searching one stem is right for *-schi*; **the surname needs three**: *Franceschi*, *Franceski*, *Franzeschi*. *One query found 99 records and missed a man whose birthplace is in this archive's own gazetteer.*\n\n*Still untried: the **đ** spelling (Defranđeski) and Franzeski. Neither is likely in a Vienna catalogue, but neither has been run.*"
   }
  ]
 }

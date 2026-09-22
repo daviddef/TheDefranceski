@@ -35,6 +35,20 @@ const host = (url) => (url || "").startsWith("/")
 const hay = (r) => [r.src, r.what, r.when, label[kind(r)], r.got, r.dest,
                     ...(r.tags || []), ...(r.ev || []).map(e => e[1])]
   .join(" ").replace(/[*«»]/g, "").toLowerCase();
+
+/* 22 September 2026. This page has promised «what it produced on this site»
+   since it was written, and the data has carried it all along: 312 of the rows
+   hold that trail, 666 links in total, and not one of them was rendered. The
+   CSS for it (.sr-ev, .sr-evl) was written at the same time and had never
+   matched an element.
+
+   The kit's row component takes no such field, and the kit is not this
+   archive's to change, so the trail is appended to the row's own HTML here,
+   which is. */
+const evHtml = (r) => !(r.ev || []).length ? "" :
+  `<p class="sr-ev"><span class="sr-evl">What it produced on this site</span>`
+  + r.ev.map(([href, label]) => `<a href="${u(href)}">${label}</a>`).join(" · ")
+  + `</p>`;
 ---
 <Base title="The Search Register" eyebrow={`${d.rows.length} sources examined · every one of them linked`}
       dek="Everything looked at, whether or not it found anything — because a search that returns nothing is a result, and the next person should not have to repeat it. Search it, filter it, and follow any row back to the source or forward to what it produced.">
@@ -57,7 +71,7 @@ const hay = (r) => [r.src, r.what, r.when, label[kind(r)], r.got, r.dest,
       when: r.when,
       src: r.src,
       what: based(_md(r.what)),
-      got: based(_md(r.got)),
+      got: based(_md(r.got)) + evHtml(r),
       outcome: label[kind(r)],
       href: r.url,
       tags: r.tags || [],
