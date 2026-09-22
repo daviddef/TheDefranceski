@@ -17,7 +17,7 @@ const sparkPlaces = (Array.isArray(placesRaw) ? placesRaw : placesRaw.rows || []
 import SovereigntyTimeline from "@daviddef/archive-kit/components/SovereigntyTimeline.astro";
 import sov from "../data/sovereignty.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
-import Spine from "@daviddef/archive-kit/components/Spine.astro";
+import Descent from "@daviddef/archive-kit/components/Descent.astro";
 import dline from "../data/directline.json";
 import rivers from "../data/rivers.json";
 import Chip from "../components/Chip.astro";
@@ -26,6 +26,8 @@ import dossiers from "../data/dossiers.json";
 import reg from "../data/register.json";
 import searched from "../data/searched.json";
 import corrections from "../data/corrections.json";
+import atlas from "../data/atlas.json";
+import searchindex from "../data/searchindex.json";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -42,6 +44,15 @@ const hasBanner = fs.existsSync(path.join(path.dirname(fileURLToPath(import.meta
    Counted at build time, so they stay true as the work grows instead of being
    re-typed and quietly going stale. */
 const nothing = searched.rows.filter((r) => ["nothing", "miss"].includes(r.outcome)).length;
+/* The tiles below have been counted at build time since they were written. The
+   PROSE beside them was not, and on 22 September 2026 every hand-typed figure
+   on this page was stale: 594 searchable things against 2,286, 160 places
+   against 165, 956 people placed against 1,031, 408 register volumes against
+   422. They sat in a card headed "Every number here is a link". Counted now. */
+const nSearch  = searchindex.length;
+const nPlaces  = atlas.stats.places;
+const nPlaced  = atlas.stats.people;
+const nVolumes = atlas.stats.films;
 const stats = [
   [Object.keys(dossiers.people).length.toLocaleString(), "people published, each carrying what is known of them and how well", "/people/"],
   ["18,840", "records read to build the census of where the name actually was", "/istria-sweep/"],
@@ -75,20 +86,64 @@ const finds = [
    full spine's business. Generation seven's spouse reads "living, dates
    withheld", which is the right way round and is also why only her name is
    taken. */
-const spineRows = dline.generations.map((g) => ({
-  gen: g.n,
-  name: g.name,
-  spouse: (g.spouse && (g.spouse.name || g.spouse)) || "",
-  born: g.bornExact || (g.born != null ? String(g.born) : ""),
-  died: g.diedExact || (g.died != null ? String(g.died) : ""),
-  bornPlace: g.place || "",
-  trade: g.occupation || "",
-  married: g.married || "",
-  confidence: g.confidence === "living" ? "" : g.confidence,
-  living: g.confidence === "living",
-  weak: g.confidence === "family",
-  weakNote: "Carried on the family's own descent chart; no register page names this generation yet.",
-}));
+/* THE DESCENT, not a ladder of men.
+   Asked for on 22 September: a union of Lerena's «One tree, and the joint
+   that is missing» and this archive's own /tree/ — «places wives as equals
+   alongside husbands, shows siblings», collapsed until opened. The kit's
+   Descent component draws it; this maps directline.json onto its row.
+
+   SIBLINGS ARE DERIVED, AND ONLY FROM THIS ARCHIVE'S OWN WORDS. No file
+   here records a person's brothers and sisters. But every generation lists
+   its children and marks the one that carried the line, so the OTHER
+   children of the generation above are exactly this generation's siblings.
+   That is arithmetic on what the archive already asserts, not a new claim —
+   and it is done by position in the line, never by matching a name, because
+   this estate has two Raffaele Falcos and thirty Maria Defranceschis.
+
+   HER SIBLINGS ARE EMPTY AND THE ROW SAYS SO. None of the wives here has a
+   family this archive has read. The component prints the reason rather than
+   dropping the column, which is the difference between a gap and an
+   oversight. */
+const gens = dline.generations;
+const kidsOf = (n) => (gens.find((x) => x.n === n) || {}).children || [];
+const spineRows = gens.map((g, i) => {
+  const above = kidsOf(g.n - 1);
+  const carrier = above.find((c) => c.line);
+  return {
+    gen: g.n,
+    era: [g.born, g.died].filter((x) => x != null).join(" \u2192 ") || undefined,
+    name: g.name,
+    alt: g.latin || "",
+    /* /who/<dossier>/, which is what direct-line.astro has always used.
+       I guessed /<dossier>/ and the link checker caught eight of them. */
+    href: g.dossier ? `/who/${g.dossier}/` : "",
+    born: g.bornExact || (g.born != null ? String(g.born) : ""),
+    died: g.diedExact || (g.died != null ? String(g.died) : ""),
+    trade: g.occupation || "",
+    place: g.place || "",
+    married: g.married || "",
+    confidence: g.confidence === "living" ? "" : g.confidence,
+    living: g.confidence === "living",
+    weak: g.confidence === "family",
+    weakNote: "Carried on the family's own descent chart; no register page names this generation yet.",
+    spouse: (g.spouse && (g.spouse.name || g.spouse)) || "",
+    /* Her own dates, which the one-line ladder had no room for and this row
+       does. Withheld where the archive withholds them. */
+    spouseBorn: (g.spouse && g.spouse.born && !/living/i.test(g.spouse.born)) ? g.spouse.born : "",
+    spouseAlt: (g.spouse && /living/i.test(String(g.spouse.born || ""))) ? "dates withheld" : "no archive of her own line yet",
+    children: (g.children || []).map((c) => ({
+      name: c.name, dates: c.born || "", line: !!c.line, note: c.note || "",
+    })),
+    hisSiblings: above
+      .filter((c) => !(carrier && c.name === carrier.name && c.born === carrier.born))
+      .map((c) => ({ name: c.name, dates: c.born || "" })),
+    herSiblings: [],
+    hisLabel: String(g.name).split(" ")[0] + "\u2019s",
+    herLabel: g.spouse ? String(g.spouse.name || g.spouse).split(" ")[0] + "\u2019s" : "Hers",
+    note: g.evidence || "",
+    sources: g.sources || [],
+  };
+});
 ---
 <Base title="The Defranceschi Archive" eyebrow="Istria · Kvarner · Carnia · and the diaspora"
       dek="Not one family — a surname, and every line that carries it. Written down under eight sovereigns, in four languages, and spelled at least nine different ways. This is the evidence, and what is still missing."
@@ -125,7 +180,7 @@ const spineRows = dline.generations.map((g) => ({
 
   <WaysIn doors={[
     { href: u("/story/"), name: "Read the main story", blurb: "Nine chapters, 1679 to Brisbane — the line this archive descends from, told once, in order, with the document behind every claim. The other three families have pages of their own.", cta: "Start at Mione →" },
-    { href: u("/tree/"), name: "Look up a person", blurb: "The family tree, openable generation by generation — or search 594 people, places, records and plates at once.", cta: "Open the tree →" },
+    { href: u("/tree/"), name: "Look up a person", blurb: `The family tree, openable generation by generation — or search ${nSearch.toLocaleString()} people, places, records and plates at once.`, cta: "Open the tree →" },
     { href: u("/map/"), name: "See where it happened", blurb: "Every place the archive can put a document in, on one map — from the Gorto valley to the Wimmera.", cta: "Open the atlas →" },
   ]} />
 </section>
@@ -197,7 +252,7 @@ const spineRows = dline.generations.map((g) => ({
     <p class="dek">The rivers above are five families arriving in Istria. This is the one this
     archive descends from — Gologorica to Gračišće and out — with the generation the family chart
     asserts and no register names marked where it falls.</p>
-    <Spine rows={spineRows} u={u} compact={true} full="/direct-line/" archiveKey="defranceski" />
+    <Descent rows={spineRows} u={u} archiveKey="defranceski" />
     <p class="cap" style="margin-top:14px"><a href={u("/direct-line/")}>The full spine, with the
     register page under each generation →</a></p>
   </section>
@@ -231,7 +286,7 @@ const spineRows = dline.generations.map((g) => ({
       </div>
       <div class="card">
         <h3>Every number here is a link</h3>
-        <p>160 places, 956 people placed and 408 register volumes are reachable from the map, and
+        <p>{nPlaces} places, {nPlaced.toLocaleString()} people placed and {nVolumes} register volumes are reachable from the map, and
         each figure on this page opens the page that earns it. <a href={u("/map/")}>The atlas →</a></p>
       </div>
     </div>
