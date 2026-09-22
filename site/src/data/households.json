@@ -4728,7 +4728,8 @@
   ],
   "nearDup": [
    "h069"
-  ]
+  ],
+  "dupNote": "**A Defranceschi married to a Bellinich at Fiume, thirteen years apart, and the wife has two forenames.** *Franciscus Defranceschi × **Catharina** Bellinich* in 1836; *Francisci Defranceschi **Regii** × **Carolinæ** Bellinich* in 1849. **Same surname pair, same town, same man's forename** — and *Regii* is an epithet rather than a name.\n\n*Two wives who were sisters, or one woman the index read twice: the archive cannot tell from these entries and does not guess.* **One oddity worth flagging:** two of h064's children are entered in the **genitive** — *«Carolinam Iginiam…», «Franciscam Juliam Georgiam»* — and carry no year, which is what an index does when it lifts a name from inside a sentence rather than from a name field."
  },
  {
   "key": "domenica + domenico",
@@ -5035,7 +5036,8 @@
   ],
   "nearDup": [
    "h064"
-  ]
+  ],
+  "dupNote": "**A Defranceschi married to a Bellinich at Fiume, thirteen years apart, and the wife has two forenames.** *Franciscus Defranceschi × **Catharina** Bellinich* in 1836; *Francisci Defranceschi **Regii** × **Carolinæ** Bellinich* in 1849. **Same surname pair, same town, same man's forename** — and *Regii* is an epithet rather than a name.\n\n*Two wives who were sisters, or one woman the index read twice: the archive cannot tell from these entries and does not guess.* **One oddity worth flagging:** two of h064's children are entered in the **genitive** — *«Carolinam Iginiam…», «Franciscam Juliam Georgiam»* — and carry no year, which is what an index does when it lifts a name from inside a sentence rather than from a name field."
  },
  {
   "key": "veneranda + antonio",
@@ -5638,7 +5640,8 @@
   ],
   "nearDup": [
    "h080"
-  ]
+  ],
+  "dupNote": "**One household, almost certainly, under two readings of the wife's name.** **Paschalis Zanghirella** is the husband in both, and both record a son **Petrus** — 1855 in one, 1856 in the other. The wife is **Michaela** in one and **Theresia Dominica** in the other. *A compound name split by the index, or two records of one woman: either way the husband, the surname and a son called Petrus are the same.* **Not merged**, because the archive's rule is that identity is by record and it does not yet know which name she used."
  },
  {
   "key": "francesco + maria",
@@ -5754,13 +5757,13 @@
  },
  {
   "key": "theresia + paschalis",
-  "fatherKey": "theresia",
-  "motherKey": "paschalis",
-  "father": "Theresia Dominica De Franceschi",
-  "mother": "Paschalis Zanghirella",
+  "fatherKey": "paschalis",
+  "motherKey": "theresia",
+  "father": "Paschalis Zanghirella",
+  "mother": "Theresia Dominica De Franceschi",
   "place": "—",
   "region": "unplaced",
-  "line": "male",
+  "line": "female",
   "from": 1856,
   "to": 1856,
   "n": 2,
@@ -5798,7 +5801,9 @@
   ],
   "nearDup": [
    "h078"
-  ]
+  ],
+  "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot.",
+  "dupNote": "**One household, almost certainly, under two readings of the wife's name.** **Paschalis Zanghirella** is the husband in both, and both record a son **Petrus** — 1855 in one, 1856 in the other. The wife is **Michaela** in one and **Theresia Dominica** in the other. *A compound name split by the index, or two records of one woman: either way the husband, the surname and a son called Petrus are the same.* **Not merged**, because the archive's rule is that identity is by record and it does not yet know which name she used."
  },
  {
   "key": "anna + giovanni",
@@ -6367,7 +6372,6 @@
    }
   ],
   "nearDup": [
-   "h091",
    "h087"
   ],
   "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot.",
@@ -6565,9 +6569,8 @@
     "dy": null
    }
   ],
-  "nearDup": [
-   "h088"
-  ]
+  "nearDup": null,
+  "dupNote": "**Not a duplicate of h088, and the link between them is withdrawn.** *Matheus Lazaro × **Lucia** Defranceschi*, six children **1870–1884**, is a different couple from *Gulielmus Lazzer × **Andrina** Defranceschi*, two children 1859–1862. **Different husband, different wife, eleven years apart** — what they share is a surname the index spells **Lazzer** and **Lazaro**. *Two men of one in-law family married two women of this one, which is the ordinary thing in a small parish and the opposite of a duplicate.*"
  },
  {
   "key": "caterina + giuseppe",

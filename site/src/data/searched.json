@@ -9366,6 +9366,31 @@
    ],
    "key": "src/a-fourth-svetvincenat-househol-c1b29f",
    "got": "**A fourth household of the name inside the unread years.**\n\n**«Die 4 8bris 1739** … natam die 1ma currentis **a Batta Defranceschi et Jacoba ejus legitima uxore ambobus ex hac Parochia**, cui positum fuit nomen **Euphemia»** — godparents **D.nus Aloysius Spinotti** and **Ursula, wife of Francesco Marzoni**. ***Batta* is Battista**, and a Joannes Baptista de Franceschi was standing godfather in this same register five months earlier: *very probably his household.*\n\n**And then the register does something it cannot explain.** On **27 July 1738** *«**Petro** de Franceschi et **Jacoba** ejus legitima uxore»* baptise **Anna Euphemia**. Fourteen months later *«**Batta** Defranceschi et **Jacoba** ejus legitima uxore»* baptise **Euphemia**. **Same mother's name, same daughter's name, two different fathers.** *Either two households were doing the same thing at once, or the first child died and the name was given again and one of the two fathers is misread. Both entries were magnified and both read as written; the tangle is published rather than tidied.*\n\n**Angela settles down.** *«Angela uxor Jacobi Defranceschi»* stands godmother again in October 1739 — so Angela is Jacobo's wife in **1737, 1739 and 1739**, which makes the *Agata* and *Jacoba* of 1738 the odd ones rather than her.\n\n**Petrus is at the font too**, godfather to a foundling on 10 June 1740.\n\n**One reading hazard, caught before it was published.** The year headings on images 123 and 126 first read as **1759**; the entries beneath them are dated **1739**, and the page numbers run straight on from image 122. *In this hand a 3 and a 5 are the same stroke with a different lean — anchor a frame on an entry date and a page number, never on the heading.*"
+  },
+  {
+   "src": "The Austrian catalogue's last two spellings, and the near-duplicate households resolved",
+   "what": "ÖStA under Franzeski and the đ form; households.json near-duplicates read one by one",
+   "when": "22 Sept 2026",
+   "outcome": "nil",
+   "url": "https://www.archivinformationssystem.at/feldsuche.aspx",
+   "dest": "Vienna",
+   "tags": [
+    "ÖStA",
+    "audit",
+    "nil"
+   ],
+   "ev": [
+    [
+     "/households/",
+     "The households"
+    ],
+    [
+     "/corrections/",
+     "What was wrong"
+    ]
+   ],
+   "key": "src/the-austrian-catalogue-s-last-280414",
+   "got": "**The Vienna spelling sweep is finished and the last two stems are empty.** *Franzeski* — **no entries found**. *ranđesk*, for the Croatian **đ** form — **no entries found**. With *Franceschi* (99), *Franceski* (1) and *Franzeschi* (2), **five stems now cover every spelling this archive uses**, and the catalogue holds nothing else.\n\n**And the near-duplicate households were read rather than left flagged.** Three pairs had carried a `nearDup` marker for days with nothing said about them:\n\n· **h088 / h091 are not duplicates at all.** *Gulielmus **Lazzer** × Andrina Defranceschi* against *Matheus **Lazaro** × Lucia Defranceschi* — different husband, different wife, eleven years apart, and an in-law surname the index spells two ways. **Two men of one family married two women of this one.** The link is withdrawn.\n· **h078 / h080** — one husband, *Paschalis Zanghirella*, a son *Petrus* in both, and a wife who is **Michaela** in one record and **Theresia Dominica** in the other.\n· **h064 / h069** — a Defranceschi married to a **Bellinich** at Fiume in 1836 and again in 1849, the wife **Catharina** then **Carolina**. *Two sisters or one woman read twice; the entries do not say.*\n\n**A fourth swapped household fell out of it** — *«Theresia Dominica De Franceschi × Paschalis Zanghirella»*, the wife in the father's slot, [missed that morning](/corrections/) because the forename list had *Paulus* and not *Paschalis*."
   }
  ]
 }
