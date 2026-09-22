@@ -36,7 +36,7 @@ const maybeLiving = (c) =>
     flaggedLiving.has(norm(c.name)) ||
     (c.by && (NOW - c.by) < PRESUME_DEAD_AFTER));
 /* Which of these households is a generation of the direct line? The tree shows
-   those eight as couples; this page should say which of its 112 they are. */
+   those eight as couples; this page should say which of them they are. */
 const onTree = new Map();
 for (const g of dl.generations) {
   if (!g.spouse) continue;
@@ -135,7 +135,8 @@ const shape = (h) => ({
 
 <section class="blk">
   <h2>The daughters' households</h2>
-  <p class="dek">Found by searching the in-law families rather than our own: {female.length} households where a Defranceschi woman is the mother. This is the half of the family the surname loses.</p>
+  <p class="dek">{female.length} households where a Defranceschi woman is the mother. This is the half of the family the surname loses.</p>
+  <div class="note" style="margin-top:14px"><strong>This section showed eight of them until 22 September 2026.</strong> Eight were built on purpose, by sweeping 33 in-law surnames through the index and keeping only records that name our family. The other twenty-seven arrived through the ordinary baptism sweep and were never re-read: they sat among the households <em>of</em> the name, counted as though the surname had carried on through them. <strong>A household belongs here whenever the mother carries the name and the father does not</strong>, and that is now decided by the data rather than by which sweep found it. Three more were listing the wife in the father's slot. <a href={u("/corrections/")}>What was wrong →</a></div>
   <div class="stack" style="margin-top:26px">
     <Households rows={female.map(shape)} u={u} sort="given" caveat={false} />
   </div>

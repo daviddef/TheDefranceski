@@ -9108,6 +9108,31 @@
    ],
    "key": "src/the-austrian-state-archives-re-0cd81c",
    "got": "**The September sweep wrote a good paragraph and put nobody on the roster. Twenty people are now on it.**\n\n**The trap first, because it is the reusable part.** The field search offers four operators and defaults to ***starts with***. Left alone, a query on *Franceschi* returns **43 records** and **not one Defranceschi** — the surname this archive is actually named for. Setting the operator to ***contains*** returns **99**. *A default that silently drops the main spelling is worse than an error, because the 43 look like a complete answer.*\n\n**Fifty of the ninety-nine are this name** (the rest are *Franceschini*, *Polfranceschi*, *Zanfranceschi* and the like). **All fifty detail pages were read**, and the catalogue gives rank, posting and often **birthplace** without anything being ordered.\n\n**Two birthplaces that land on this archive's own map.**\n· **Josef Franceschi, Korporal — «Geburtsort: Almissa, Dalmatien».** Almissa is **Omiš**, one of the six lines. He is the first man here documented as *born* at Omiš by a state record rather than a parish index.\n· **Giovanni Pietro de Franceschi — «Geburtsort: Rovigno».** The file was found in September but only its signature kept; **the town was in the catalogue all along**.\n\n**And the accountants were undercounted by more than half.** September reported *«a family of Habsburg accountants nobody had counted»* and named **four**. There are **nine**: **Vicenzo** (Kassa 46, 1847) and **Filippo** (Kassa 75, 1828), **Anton** and **Johann** at the *Dalmatinische Provinzial-Staatsbuchhaltung in Zara*, and **Johann Baptist, Valentin, Nikolaus, Antonio and Luigi** — **five of the name in the one central accounting office at Venice**.\n\n**Three more men entirely new:** **Francesco**, reserve chaplain of the navy (QL 1390); **Walter**, a *Seekadett* (QL 1391); and **Oskar, born 25 September 1900**, with a Wehrstammbuch of 1938–1945.\n\n**Johann of Gallignana gains a detail worth keeping**: his three files spell the birthplace three ways — *Gallignano, Istrien* · *Gallignana, Küstenland* · *Gallignana, Istrien, Illyrien*. **One man, one village, three clerks**, which is a small lesson in why a place-name search fails where a name search does not.\n\n*Every file is public and permission-free. None has been ordered; this is the catalogue only.*"
+  },
+  {
+   "src": "The households tested against their own data — the daughters, the swapped parents and the colliding keys",
+   "what": "households.json, all 127 rows, audited mechanically rather than read",
+   "when": "22 Sept 2026",
+   "outcome": "hit",
+   "url": "",
+   "dest": "—",
+   "tags": [
+    "audit",
+    "households",
+    "hit"
+   ],
+   "ev": [
+    [
+     "/households/",
+     "The page"
+    ],
+    [
+     "/corrections/",
+     "Two corrections"
+    ]
+   ],
+   "key": "src/the-households-tested-against-1e460b",
+   "got": "**Nothing new was searched for. The 127 households already here were tested against themselves, and four things fell out.**\n\n**The daughters' section was showing eight of thirty-five.** A household belongs there when the mother carries the name and the father does not; that is a one-line test and it had never been run, because the section had been built by hand from a deliberate in-law sweep and everything the ordinary baptism sweep found stayed where it landed. **The split moves from 119 / 8 to 92 / 35.**\n\n**Three households listed the wife as the father**, which is how a woman ends up recorded as the father of her own children and her household counted as male-line.\n\n**One man is removed from the name.** *Guglielmo Defranceschi*, husband of Andrina, is **Guglielmo Lazzer** — his four children are all Lazzer and a second record names him so.\n\n**Four pairs are one household each**, including **generation 4 of the direct line** (Josip × Ana Kalanj at Ledenice and then Crikvenica) and a pair separated only by whether the clerk was writing Italian or Latin.\n\n**And a latent bug is closed.** The household key was *given name + given name*, so **eight keys covered sixteen households**. It is the map key for «which of these is a generation of the direct line». Only one collision ever touched the line, and there the two records really were one couple — *so the page was right by luck, and is now right by construction.*"
   }
  ]
 }
