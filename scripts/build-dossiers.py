@@ -734,3 +734,38 @@ out["note"] = ("A dossier is every mention of a name anywhere in this archive's 
   "has a page — including the ones read straight off a register that no index anywhere contains.")
 json.dump(out, open(os.path.join(DATA, "dossiers.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"roster people {len(by_slug)} · pages written {len(people)} · non-roster kept {kept}")
+
+_orph = orphan_report(ROOT, set(by_slug), set(people)) if "orphan_report" in dir() else []
+if _orph:
+    print("ORPHANED BY A RENAME: %d — %s" % (len(_orph), ", ".join(_orph)))
+    print("  (a page whose slug was a roster row in a recent commit and is not one now)")
+
+# --- orphan check (renames) ---
+# This builder is additive and never prunes, which is right for the 200-odd
+# pages that come from somewhere other than the roster. It is wrong for a page
+# left behind when a roster row is RENAMED: the old slug keeps its page, the
+# page keeps whatever the person used to be called, and nothing ever notices.
+# One was found on 22 September 2026, an hour after the rename that made it.
+#
+# A rename orphan is distinguishable from a legitimate non-roster page by its
+# history: it was a roster slug in a recent commit and is not one now. This
+# prints them; it does not delete, because deciding what a stale page should
+# become is a person's job.
+def orphan_report(root, current_slugs, page_slugs, depth=12):
+    import subprocess, json as _json
+    try:
+        heads = subprocess.run(["git", "log", "--format=%H", "-%d" % depth, "--",
+                                "site/src/data/roster.json"],
+                               cwd=root, capture_output=True, text=True).stdout.split()
+    except Exception:
+        return []
+    ever = set()
+    for h in heads:
+        try:
+            t = subprocess.run(["git", "show", h + ":site/src/data/roster.json"],
+                               cwd=root, capture_output=True, text=True).stdout
+            for r in _json.loads(t)["rows"]:
+                ever.add(slugify(r["name"]))
+        except Exception:
+            pass
+    return sorted((ever - current_slugs) & page_slugs)

@@ -1291,6 +1291,22 @@
    "where": "/worklist/ item 105 — the FamilySearch arks waiting on a sign-in",
    "said": "That of the **405 arks David's own citations name, 328 appear nowhere in this repository** — 234 indexed records and 94 film images — and that a machine could read all 234 in one pass once he signed in.",
    "true": "**Ten.** Rebuilt from the two files that actually hold his citations — `myheritage-surname-2026-09.tsv` and `to-the-tree.ged`, **351 arks** — and diffed against every ark the site carries, the gap is **three indexed records and seven film images**.\n\n**Two things inflate the count, and both were in the original.** The repository stores some arks **bare**, without the `1:1:` prefix, in an `arks` array beside the primary one — a search for the prefix reports those missing when they are sitting on the row. And **`data/fs-catalogue.json` holds 5,451 arks** that are the **first images of catalogue volumes**, not citations; sweep them in and the answer becomes thousands.\n\n**The row was right that the door was shut and right that it mattered** — one of the ten is a burial at Fiume in 1804 naming **Valentino and Orsola** as parents, which is the Rijeka chain. *It was wrong about the size of the room behind it.*\n\n*Withdrawn with the method that produced it, because the same mistake is available to anyone who counts what is missing against one of the ways a thing is stored rather than all of them.*"
+  },
+  {
+   "when": "22 Sept 2026",
+   "sev": "minor",
+   "what": "A page left behind by a rename, an hour after the rename made it",
+   "where": "/who/jacobo-defranceschi-of-svetvincenat-fl-1752/",
+   "said": "Nothing — and that was the problem. The page went on existing at its old address, describing a man under a name this archive had stopped using, with no row behind it and nothing linking to it.",
+   "true": "**`build-dossiers.py` is additive and never prunes, which is right for the two hundred pages that come from somewhere other than the roster and wrong for a page orphaned by a rename.** This morning *«Jacobo Defranceschi (of Svetvinčenat, fl. 1752)»* became *«Jacobo de Franceschi (of Svetvinčenat, fl. 1737–1752)»* when the register showed him fifteen years earlier than the archive knew. **The new page was built; the old one stayed.**\n\n**The page is retired, and the builder now says when it happens again.** A rename orphan is distinguishable from a legitimate non-roster page by its history — *it was a roster slug in a recent commit and is not one now* — and `build-dossiers.py` prints exactly that, checked both ways before it was committed: silent with the page gone, and naming it with the page put back.\n\n*It reports rather than deletes. What a stale page should become is a judgement, and the builder does not have one.*"
+  },
+  {
+   "when": "22 Sept 2026",
+   "sev": "minor",
+   "what": "«check:sources» was recorded as blocked on a kit pin. The tool was already installed",
+   "where": "/worklist/ — the kit-pin row, and site/package.json",
+   "said": "That the source check could not run because the installed kit predated the tool, and that restoring it meant a **pin bump carrying 23 other kit commits** that would need testing first.",
+   "true": "**The pin had already been bumped, and `checksources.py` is sitting in `node_modules`.** The bump was in the working tree uncommitted — so the repository named one version of the kit and the installed kit was another, which is the state most likely to produce exactly the confusion recorded here.\n\n**The check was never blocked; it was simply not wired into the build.** Run against the site it passes: **66 of 85 sources reachable**, 9 held as paper and saying so, 10 with no way to reach them. It is now part of `npm run build`, so it runs on every deploy.\n\n**And it immediately found something.** *73 hosts are linked to from this archive's data and named nowhere in its bibliography* — CEMLA, the Arolsen collections, arhinet.arhiv.hr, the Corsican and Meurthe-et-Moselle archives among them. **The site cites them and never says what they are.** [Logged as work](/worklist/)."
   }
  ]
 }
