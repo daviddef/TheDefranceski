@@ -91,3 +91,24 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
 
 <Lightbox />
 </Base>
+
+<style>
+  /* The gallery and record styles are Astro-SCOPED inside who/[slug].astro, so
+     they do not reach this page. Repeated here rather than promoted to the
+     estate stylesheet, which another session owns. Without them the plates
+     stack and overlap — which is exactly what the deployed page did until
+     someone looked at it. */
+  .pgal{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .pgal .plate{padding:0;border:1px solid var(--rule);background:var(--panel);
+    border-radius:3px;cursor:zoom-in;line-height:0;overflow:hidden}
+  .pgal .plate img{height:230px;width:auto;display:block;aspect-ratio:auto;object-fit:contain}
+  .pcap{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2);
+    margin-top:14px;max-width:74ch;border-left:2px solid var(--ochre);padding-left:12px}
+  .pcap .lab{display:block;color:var(--ochre);margin-bottom:3px}
+  .rec{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;align-items:baseline}
+  .rec .k{font-family:var(--sans);font-size:10.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-3)}
+  .rec .v{font-size:15.5px;line-height:1.5}
+  .rec .w{grid-column:1/-1;font-family:var(--sans);font-size:12px;color:var(--ink-3)}
+  .rec .w:empty{display:none}
+</style>
