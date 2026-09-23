@@ -8,6 +8,8 @@ import { makeResolver } from "../../lib/people.js";
 import d from "../../data/dossiers.json";
 import artsrc from "../../data/art-src.json";
 import port from "../../data/portraits.json";
+import fam from "../../data/famphotos.json";
+import allplates from "../../data/plates.json";
 import Lightbox from "../../components/Lightbox.astro";
 export function getStaticPaths() {
   return Object.values(d.people).map(p => ({ params: { slug: p.slug }, props: { p } }));
@@ -55,6 +57,11 @@ const md = (x) => String(x ?? "")
 const pt = port.map[p.slug];
 const VIAW = { line: "the archive\u2019s own line", read: "a register read here", index: "a FamilySearch index entry", tree: "the family tree, unverified" };
 const pics = pt ? pt.ids.map(i => art[i]).filter(Boolean) : [];
+const fm = fam.map[p.slug];
+const plateRows = (allplates.rows || allplates);
+const fdata = fm ? fm.ids.map(i => plateRows.find(r => r.id === i)).filter(Boolean)
+  .map(r => ({ id: r.id, title: r.title, caption: r.caption, holder: r.holder,
+               w: r.w, h: r.h, src: u(r.src), thumb: u(r.thumb) })) : [];
 const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:/, ""),
   caption: [a.artist, a.date && a.date.slice(0,10), a.licence].filter(Boolean).join(" · "),
   holder: a.licence, w: a.w, h: a.h, src: u(a.src), thumb: u(a.thumb) }));
@@ -71,6 +78,23 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
       </a>
     ))}
   </div>
+)}
+
+{fdata.length > 0 && (
+<section class="blk">
+  <div class="pgal" data-plates={JSON.stringify(fdata)}>
+    {fdata.map((a, i) => (
+      <button class="plate" type="button" data-i={i}>
+        <img class="shot" src={a.thumb} alt={a.title} width={a.w} height={a.h} loading="lazy" decoding="async" />
+      </button>
+    ))}
+  </div>
+  <p class="pcap">
+    <span class="lab">Photographs the family holds</span>
+    <span set:html={_md(fm.whose)} />
+    {fm.note && <> <span set:html={_md(fm.note)} /></>}
+  </p>
+</section>
 )}
 
 {pics.length > 0 && (
