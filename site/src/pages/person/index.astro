@@ -1,0 +1,119 @@
+---
+// The door to the person pages.
+//
+// Built 23 September 2026, hours after the person pages themselves, because
+// `check:kit` said what should have been obvious: «1,443 pages built under
+// /person, and /person does not link to any of them». They were reachable
+// only from a name page. A page nothing links to is a page nobody finds.
+//
+// Living people appear here by name and by town and by nothing else, which is
+// the same rule the person pages keep. The list is rendered whole and filtered
+// in the browser: at this size a search box beats letter headings, and it
+// searches all of them at once instead of one letter at a time.
+import Base from "../../layouts/Base.astro";
+import { u } from "../../lib/url.js";
+import roster from "../../data/roster.json";
+
+const rows = roster.rows.filter(r => r.pid).map(r => ({
+  pid: r.pid,
+  name: r.name,
+  living: !!r.living,
+  span: r.living ? "" :
+    ([r.b || (r.bEst ? `about ${r.bEst}` : null), r.d].filter(Boolean).join(" – ")
+      || (r.d ? `died ${r.d}` : "")),
+  place: r.place || "",
+})).sort((a, b) => a.name.localeCompare(b.name) || (a.span > b.span ? 1 : -1));
+
+const nLiving = rows.filter(r => r.living).length;
+const nDated  = rows.filter(r => r.span).length;
+---
+<Base title="Every Person" eyebrow={`${rows.length} people · one page each`}
+      dek="One page per person — not per name. A name page gathers everyone who shares a name and is an index; this is the list of individuals, and each row is one human being with a page of their own that nobody else appears on.">
+
+<section class="blk">
+  <p class="prose">
+    Until 23 September 2026 this archive had no page for a person. It had a page
+    per <em>name</em>, and <a href={u("/who/maria-defranceschi/")}>one of them</a>
+    held twenty-five different women born between 1733 and 1888, from Svetvinčenat
+    to Puerto Rico, under a single heading with one set of dates at the top. As an
+    index that is right. As a person's page it states something false.
+  </p>
+  <p class="prose note" style="margin-top:14px">
+    <strong>{nLiving} living people are on this list.</strong> They appear by name
+    and by town and by nothing else — no date of birth, here or on their own page.
+    {nDated} of the rest carry dates. Where a person's years are unknown the row is
+    simply blank rather than guessed.
+  </p>
+</section>
+
+<section class="blk">
+  <label class="pfind">
+    <span class="lab">Find a person</span>
+    <input id="pq" type="search" placeholder="a name, a year, a town…" autocomplete="off" />
+  </label>
+  <p class="pcount" id="pcount">{rows.length} people</p>
+  <ul class="plist" id="plist">
+    {rows.map(p => (
+      <li data-k={`${p.name} ${p.span} ${p.place}`.toLowerCase()}>
+        <a href={u(`/person/${p.pid}/`)}>{p.name}</a>
+        {p.span && <span class="yr">{p.span}</span>}
+        {p.living && <span class="lv">living — named only</span>}
+        {p.place && <span class="pl">{p.place}</span>}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<script is:inline>
+  (function () {
+    var q = document.getElementById("pq"),
+        list = document.getElementById("plist"),
+        count = document.getElementById("pcount");
+    if (!q || !list) return;
+    var items = Array.prototype.slice.call(list.children);
+    var total = items.length;
+    function run() {
+      var t = q.value.trim().toLowerCase();
+      if (!t) {
+        items.forEach(function (li) { li.hidden = false; });
+        count.textContent = total + " people";
+        return;
+      }
+      var n = 0;
+      items.forEach(function (li) {
+        var hit = li.getAttribute("data-k").indexOf(t) !== -1;
+        li.hidden = !hit;
+        if (hit) n++;
+      });
+      count.textContent = n === total ? total + " people"
+        : n + (n === 1 ? " person" : " people") + " matching “" + q.value.trim() + "”";
+    }
+    q.addEventListener("input", run);
+    run();
+  })();
+</script>
+
+<style>
+  .pfind { display: block; max-width: 30rem; }
+  .pfind .lab { display: block; font-family: var(--sans); font-size: 10.5px;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--ochre);
+    margin-bottom: 6px; }
+  .pfind input { width: 100%; padding: 9px 12px; font: inherit; font-size: 15px;
+    color: var(--ink); background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 3px; }
+  .pfind input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .pcount { font-family: var(--sans); font-size: 12px; color: var(--ink-3);
+    margin: 12px 0 4px; }
+  .plist { list-style: none; margin: 0; padding: 0; }
+  .plist li { padding: 7px 0; border-top: 1px solid var(--rule);
+    display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+  .plist li[hidden] { display: none; }
+  .plist a { font-size: 15.5px; }
+  .plist .yr { font-family: var(--sans); font-size: 12.5px; color: var(--ink-2);
+    font-variant-numeric: tabular-nums; }
+  .plist .lv { font-family: var(--sans); font-size: 11px; color: var(--ochre);
+    letter-spacing: .04em; }
+  .plist .pl { font-family: var(--sans); font-size: 12px; color: var(--ink-3);
+    margin-left: auto; text-align: right; }
+</style>
+</Base>
