@@ -1,0 +1,93 @@
+---
+// A page for ONE PERSON.
+//
+// Until 23 September 2026 this archive had no such thing. It had /who/<name>/,
+// which gathers every row sharing a name — and /who/maria-defranceschi/ held
+// twenty-five different women born between 1733 and 1888, from Svetvinčenat to
+// Puerto Rico. That is a good index and a useless biography. The name pages
+// stay, as indexes and disambiguation; this is where a person lives.
+import Base from "../../layouts/Base.astro";
+import { md as _md } from "../../lib/md.js";
+import { u } from "../../lib/url.js";
+import Lightbox from "../../components/Lightbox.astro";
+import roster from "../../data/roster.json";
+import fam from "../../data/famphotos.json";
+import allplates from "../../data/plates.json";
+
+export function getStaticPaths() {
+  const rows = roster.rows.filter(r => r.pid);
+  const byName = {};
+  rows.forEach(r => { const k = r.who || r.name; (byName[k] = byName[k] || []).push(r); });
+  return rows.map(r => ({
+    params: { pid: r.pid },
+    props: { r, kin: (byName[r.who || r.name] || []).filter(x => x.pid !== r.pid) },
+  }));
+}
+const { r, kin } = Astro.props;
+const SRC = roster.srclabel || {};
+const span = [r.b || (r.bEst ? `about ${r.bEst}` : null), r.d].filter(Boolean).join(" – ")
+  || (r.d ? `died ${r.d}` : "dates unknown");
+const plateRows = allplates.rows || allplates;
+const fm = fam.map[r.pid];
+const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boolean)
+  .map(p => ({ id: p.id, title: p.title, caption: p.caption, holder: p.holder,
+               w: p.w, h: p.h, src: u(p.src), thumb: u(p.thumb) })) : [];
+---
+<Base title={r.name} eyebrow={span} dek={`One person. ${r.place ? r.place + ". " : ""}Everything this archive holds for this individual, kept apart from everyone else who shares the name.`}>
+
+{fdata.length > 0 && (
+<section class="blk">
+  <div class="pgal" data-plates={JSON.stringify(fdata)}>
+    {fdata.map((a, i) => (
+      <button class="plate" type="button" data-i={i}>
+        <img class="shot" src={a.thumb} alt={a.title} width={a.w} height={a.h} loading="lazy" decoding="async" />
+      </button>
+    ))}
+  </div>
+  <p class="pcap">
+    <span class="lab">Photographs the family holds</span>
+    <span set:html={_md(fm.whose)} />
+    {fm.note && <> <span set:html={_md(fm.note)} /></>}
+  </p>
+</section>
+)}
+
+<section class="blk">
+  <div class="rec">
+    <div class="k">Name</div><div class="v">{r.name}</div><div class="w"></div>
+    <div class="k">Years</div><div class="v">{span}</div>
+    <div class="w">{r.bEst && !r.b ? "estimated from the record, not read off a register" : ""}</div>
+    {r.place && (<><div class="k">Place</div><div class="v">{r.place}</div><div class="w"></div></>)}
+    {r.line && (<><div class="k">Line</div><div class="v">{r.line}</div><div class="w"></div></>)}
+    <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
+  </div>
+</section>
+
+{r.note && (
+<section class="blk">
+  <h2>What the archive knows</h2>
+  <div class="prose" style="margin-top:20px" set:html={_md(r.note)}></div>
+</section>
+)}
+
+<section class="blk">
+  <p class="cap">
+    {kin.length > 0
+      ? `${kin.length} other ${kin.length === 1 ? "person" : "people"} in this archive carry this name. They are different individuals and are not this person.`
+      : "No one else in this archive carries this name."}
+    {" "}
+    {r.who && <a href={u(r.who)}>See the name index →</a>}
+  </p>
+  {kin.length > 0 && (
+    <ul style="margin-top:14px">
+      {kin.map(k => (
+        <li><a href={u(`/person/${k.pid}/`)}>{k.name}</a>{" — "}
+          {[k.b || (k.bEst ? `about ${k.bEst}` : null), k.d].filter(Boolean).join(" – ") || "dates unknown"}
+          {k.place ? `, ${k.place}` : ""}</li>
+      ))}
+    </ul>
+  )}
+</section>
+
+<Lightbox />
+</Base>

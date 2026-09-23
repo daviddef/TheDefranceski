@@ -1,13 +1,13 @@
 {
- "note": "Family photographs attached to a person's /who/ page. Keyed by the who-page slug; ids point into plates.json. Kept separate from portraits.json, which maps the same pages to Wikimedia Commons artwork of namesakes under licence — these are the family's own prints and are not licensed to anybody.",
+ "note": "Family photographs attached to a PERSON, keyed by the roster's stable `pid` — not by name. Keying these by name was the bug that prompted the whole /person/ build on 23 September 2026: three photographs of Ivan Defranceski (1951–2026) hung on /who/ivan-defranceski/, a page that also carries an Ivan of 1925–1995 and an Ivan who died at two in 1945. Kept separate from portraits.json, which maps pages to Wikimedia Commons artwork of namesakes under licence; these are the family's own prints and are licensed to nobody.",
  "map": {
-  "ivan-defranceski": {
+  "ivan-defranceski-1951": {
    "ids": [
     "ivan-1951-infant",
     "ivan-1951-studio",
     "ivan-1951-portrait-2012"
    ],
-   "whose": "**Three men on this page carry this name, and every photograph here is of the youngest of them** — **Ivan Defranceski, born Senj 17 December 1951, died 2026**, generation 7 of the direct line and the compiler's father. *Not* the **Ivan of 1925–1995** whose band sits directly above these pictures, and *not* the **Ivan of 1943–1945** who died at two. **No photograph of either of those men is held here.**",
+   "whose": "**Ivan Defranceski, born Senj 17 December 1951, died 2026** — generation 7 of the direct line, and the compiler's father.",
    "note": "Three photographs across sixty years: the shore at about a year old, a studio sitting as a young man, and a portrait made on **12 April 2012**. **Only the last is dated by anything better than a face** — its date is the camera's own. *Each caption says what its date rests on, and one of the three has a file date this archive rejects outright.*"
   }
  }
