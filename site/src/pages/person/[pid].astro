@@ -17,6 +17,7 @@ import PersonTree from "@daviddef/archive-kit/components/PersonTree.astro";
 import "@daviddef/archive-kit/styles/persontree.css";
 import dlp from "../../data/directline-pids.json";
 import dline from "../../data/directline.json";
+import doss from "../../data/dossiers.json";
 
 export function getStaticPaths() {
   const rows = roster.rows.filter(r => r.pid);
@@ -59,45 +60,47 @@ const _gen = _i >= 0 ? dline.generations[_i] : null;
 const _pidOf = (i) => (i >= 0 && i < DLG.length ? DLG[i].pid : null);
 const _spouseName = (g) =>
   g && (typeof g.spouse === "string" ? g.spouse : (g.spouse || {}).name);
-const _dates = (g) => [g && g.born, g && g.died].filter(Boolean).join(" – ");
-/* A node's dates come from the ROSTER ROW when there is one, for the same
-   reason the self does: generation 7 carries no `born` in directline.json, so
-   reading it there drew David's father on David's page as «Ivan Defranceski
-   2026» — a death year with nothing in front of it. And a living person is
-   named and nothing more, which is the roster's own flag to answer. */
-const _roster = Object.fromEntries((roster.rows || []).filter((x) => x.pid).map((x) => [x.pid, x]));
-const node = (i) => {
-  const g = dline.generations[i];
-  if (!g) return null;
-  const pid = _pidOf(i);
-  const rr = pid ? _roster[pid] : null;
-  const dates = rr && rr.living ? ""
-    : rr ? [rr.b || (rr.bEst ? `about ${rr.bEst}` : null), rr.d].filter(Boolean).join(" – ") || _dates(g)
-    : _dates(g);
-  return { name: g.name, dates, href: pid ? u(`/person/${pid}/`) : undefined,
-           cls: "via-line", mark: rr && rr.living ? "living — named only" : "the direct line" };
-};
-const tree = _i < 0 ? null : {
-  /* The ROSTER ROW is the authority for this person's own dates, not the
-     direct-line row. Generation 7 carries no `born` in directline.json, so
-     reading it there printed Ivan Defranceski as «2026» — a death year alone,
-     on his own page. The roster has b 1951 and d 2026. A living person's row
-     withholds both, and this prints what the row allows and nothing else. */
-  self: { name: _gen.name,
-          dates: r.living ? "" : (span === "dates unknown" ? _dates(_gen) : span),
+
+/* THE FAMILY, FOR THIS PERSON AND NOT FOR THIS NAME.
+ *
+ * dossiers.json now carries `persons`, keyed on pid: each tree computed
+ * against that person's own roster row rather than against the first row
+ * that happened to share their name. That was the fault — `ROW_BY_NAME`
+ * keeps the FIRST row of a name, so /who/ivan-defranceski/ drew «Ivan
+ * Defranceski, 1829 – 1895» with Cheryl Lerena as his wife and David as his
+ * son: one man's dates, another man's wife, a third man's child.
+ *
+ * A node links only when it knows WHICH person it is. Where a household
+ * cannot tell two people of a name apart the node is drawn with no dates and
+ * no link and says so, because the failure to avoid is not a broken link but
+ * a working link to the wrong man.
+ */
+const _p = doss.persons ? doss.persons[r.pid] : null;
+const _t = _p && _p.ptree;
+const _node = (n, small) => n && ({
+  name: n.n,
+  dates: n.dt || "",
+  href: n.pid ? u(`/person/${n.pid}/`) : undefined,
+  cls: n.via === "line" ? "via-line" : n.via === "read" ? "via-read" : n.via ? "via-tree" : "via-none",
+  mark: n.ambiguous
+    ? `${n.ambiguous} people of this name — not linked`
+    : (n.via === "line" ? "the direct line" : n.via === "read" ? "a register read here"
+       : n.via ? "from the tree" : "named here only"),
+  small: !!small,
+});
+const tree = _t ? {
+  self: { name: r.name,
+          dates: r.living ? "" : span === "dates unknown" ? (_t.self || {}).dt || "" : span,
           note: r.living ? "living — named only" : "",
           noteCls: r.living ? "living" : "",
-          gen: `generation ${_i + 1} of the direct line` },
-  parents: [node(_i - 1)].filter(Boolean),
-  /* A spouse is named in the generation's own row, so she is this person's
-     and not a namesake's. No link: she has no person page here. */
-  spouses: _spouseName(_gen)
-    ? [{ name: _spouseName(_gen), dates: ((_gen.spouse || {}).born || ""), cls: "via-line",
-         mark: "named in the direct line", mar: "married" }]
+          gen: _i >= 0 ? `generation ${_i + 1} of the direct line` : "" },
+  parents: (_t.parents || []).map((n) => _node(n)).filter(Boolean),
+  spouses: _t.spouse && _t.spouse !== "\u2014"
+    ? [_node(typeof _t.spouse === "string" ? { n: _t.spouse } : _t.spouse)].filter(Boolean)
     : [],
-  children: [node(_i + 1)].filter(Boolean),
-  siblings: [],
-};
+  children: (_t.children || []).map((c) => _node({ n: c.n, dt: c.d || "", via: "", pid: c.pid })).filter(Boolean),
+  siblings: (_t.siblings || []).map((n) => _node(n, true)).filter(Boolean),
+} : null;
 const plateRows = allplates.rows || allplates;
 const fm = fam.map[r.pid];
 const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boolean)

@@ -297,9 +297,110 @@ def record_strip(rows):
 VIA_RANK = {"line": 0, "read": 1, "index": 2, "tree": 3, "": 4}
 
 ROW_BY_NAME = {}
+# AND EVERY ROW OF THAT NAME, NOT ONLY THE FIRST. `setdefault` below means the
+# first roster row of a name wins, which is what put «Ivan Defranceski, 1829 –
+# 1895» on his great-great-grandson's page as his father. A node inside a
+# household can be resolved against the household's own dates instead.
+ROWS_BY_NAME = {}
 for _r in roster["rows"]:
     ROW_BY_NAME.setdefault(_nm(_r["name"]), _r)
     ROW_BY_NAME.setdefault(_nm(re.sub(r"\s*\(.*?\)\s*", "", _r["name"])), _r)
+    for _kk in {_nm(_r["name"]), _nm(re.sub(r"\s*\(.*?\)\s*", "", _r["name"]))}:
+        if _kk: ROWS_BY_NAME.setdefault(_kk, []).append(_r)
+
+
+# THE DIRECT LINE KNOWS EXACTLY WHO ITS PEOPLE ARE, so it is asked first.
+# A household whose father and mother are a direct-line generation and that
+# generation's own spouse identifies the father beyond doubt — which is how
+# David's father stops being «ambiguous, 6 of this name» on David's page.
+try:
+    _DL = json.load(open(os.path.join(DATA, "directline.json"), encoding="utf-8"))["generations"]
+    _DLP = json.load(open(os.path.join(DATA, "directline-pids.json"), encoding="utf-8"))["generations"]
+except Exception:
+    _DL, _DLP = [], []
+_FILLER = {"born", "nee", "n", "the", "of", "and"}
+
+
+def _wifekey(x):
+    """A wife's name reduced to the words that identify her.
+
+    The two files write her differently and both are right. The household
+    says «Hedviga Blažević (Defranceski)»; the direct line says «Hedviga,
+    born Blažević». The married surname, the maiden surname and the word
+    «born» all move about, so the comparison is on the set of real words and
+    a match is one set containing the other — «cheryl lerena» inside «cheryl
+    anne defranceski nee lerena».
+    """
+    return frozenset(w for w in _nm(x or "").split() if w and w not in _FILLER)
+
+
+_DL_BY_HUSBAND = {}
+for _g, _gp in zip(_DL, _DLP):
+    _sp = _g.get("spouse")
+    _spn = _sp.get("name") if isinstance(_sp, dict) else _sp
+    if _spn and _gp.get("pid"):
+        _DL_BY_HUSBAND.setdefault(_nm(_g["name"]), []).append((_wifekey(_spn), _gp["pid"]))
+_ROW_BY_PID = {r["pid"]: r for r in roster["rows"] if r.get("pid")}
+
+
+def _direct_line_row(name, hh):
+    """The roster row this name is, when the household is a direct-line one."""
+    if not hh: return None
+    f = _nm(hh.get("father") or "")
+    k = _nm(name)
+    if k != f: return None
+    wife = _wifekey(hh.get("mother"))
+    if not wife: return None
+    hits = [pid for wk, pid in _DL_BY_HUSBAND.get(f, [])
+            if wk and (wk <= wife or wife <= wk)]
+    return _ROW_BY_PID.get(hits[0]) if len(hits) == 1 else None
+
+
+def _row_fitting(name, hh=None, child=None):
+    """The roster row of this name that fits where the name is standing.
+
+    A parent in a household begun in `from` was born twelve to sixty years
+    before it and had not died before it. A child has its own birth year in
+    the household record. Where the candidates cannot be told apart the first
+    is returned, exactly as before — this narrows the guess, it does not
+    invent certainty.
+    """
+    k = _nm(name)
+    cands = ROWS_BY_NAME.get(k) or []
+    if len(cands) <= 1:
+        return ROW_BY_NAME.get(k)
+    _dl = _direct_line_row(name, hh)
+    if _dl is not None: return _dl
+    if child and (_yr(child.get("birth")) or _yr(child.get("death"))):
+        cy = _yr(child.get("birth")) or _yr(child.get("death"))
+        fit = [r for r in cands
+               if (isinstance(r.get("b"), int) and abs(r["b"] - cy) <= 6)
+               or (isinstance(r.get("d"), int) and abs(r["d"] - cy) <= 6)]
+        if len(fit) == 1: return fit[0]
+    f = hh.get("from") if hh else None
+    if isinstance(f, int):
+        fit = []
+        for r in cands:
+            b, d = r.get("b"), r.get("d")
+            if not isinstance(b, int): continue
+            if not (12 <= f - b <= 60): continue
+            if isinstance(d, int) and d < f: continue
+            fit.append(r)
+        if len(fit) == 1: return fit[0]
+        if len(fit) > 1:
+            # TWO PEOPLE OF THIS NAME BOTH FIT, so this node does not know who
+            # it is. Returning the first — which is what `ROW_BY_NAME` does —
+            # is how «Ivan Defranceski, 1829 – 1895» came to be printed as the
+            # father of a man born in 1951: both the 1894 and the 1925 Ivan fit
+            # a household begun in 1948, and the fallback reached past them
+            # both to the oldest man of the name.
+            #
+            # NOT A BROKEN LINK, A WORKING LINK TO THE WRONG MAN, which is the
+            # failure this estate found twice tonight and the harder one to
+            # notice. So the name is drawn with no dates and no link, and the
+            # reader is sent to the name index to choose.
+            return None
+    return ROW_BY_NAME.get(k) if len(cands) <= 1 else None
 
 def _dates(row, child=None):
     if row and row.get("living"): return ""
@@ -340,10 +441,19 @@ def _via(row, hh=None, child=None):
 
 def node(name, hh=None, child=None, small=False):
     if not name or name == "—": return None
-    row = ROW_BY_NAME.get(_nm(name))
+    row = _row_fitting(name, hh, child)
     sl = slugify(row["name"]) if row else None
     n = {"n": name, "dt": _dates(row, child), "via": _via(row, hh, child)}
     if sl: n["slug"] = sl
+    # AND THE PID, so a person page can link person-to-person. `slug` is the
+    # NAME page and stays, because /who/ needs it; this is the address of the
+    # individual the node resolved to, and it is only ever set when the node
+    # knows which individual that is.
+    if row and row.get("pid"): n["pid"] = row["pid"]
+    elif len(ROWS_BY_NAME.get(_nm(name)) or []) > 1:
+        # Several people of this archive carry this name and the household
+        # cannot say which one this is. Said out loud rather than guessed.
+        n["ambiguous"] = len(ROWS_BY_NAME[_nm(name)])
     if small: n["small"] = True
     # Does this person head a household of their own? A sister listed as a bare
     # name looks like the end of a line, and Petrica Defranceski is not: she
@@ -377,9 +487,22 @@ def _fits_child(myY, me, hh, t, estY=None):
     t["gate"].append(["dropped", hh.get("father") or "", hh.get("mother") or "", f"{cY}"])
     return False
 
-def _fits_parent(myY, hh, t, estY=None):
-    """Is the person plausibly a PARENT in this household?"""
+def _fits_parent(myY, hh, t, estY=None, dieY=None):
+    """Is the person plausibly a PARENT in this household?
+
+    A DEATH YEAR ENDS THE QUESTION and this did not ask for one. Ivan
+    Defranceski of 1943 died in 1945, aged two, and was handed Cheryl Lerena
+    as a wife and David as a son — because the only test was that the
+    household began between twelve and sixty years after his birth, and a
+    household of 1980 does sit in that window for a boy born in 1943. He was
+    thirty-five years dead. Nothing but a death date can refuse that, so a
+    death date is now asked for.
+    """
     f, to = hh.get("from"), hh.get("to")
+    if dieY is not None and isinstance(f, int) and f > dieY:
+        t["gate"].append(["dead", hh.get("father") or "", hh.get("mother") or "",
+                          f"died {dieY}, household from {f}"])
+        return False
     if myY is None and estY is not None and isinstance(f, int):
         if 5 <= f - estY <= 75: return True
         t["gate"].append(["estimate", hh.get("father") or "", hh.get("mother") or "", str(f)])
@@ -393,13 +516,31 @@ def _fits_parent(myY, hh, t, estY=None):
                       f"{f}\u2013{to}" if to else str(f)])
     return False
 
-def ptree(name):
+def ptree(name, row=None):
+    """The family, for ONE PERSON.
+
+    `row` is that person's roster row. Pass it and the year gates below —
+    `_fits_child`, `_fits_parent` — test the households against THIS person's
+    dates. Leave it out and the function falls back to ROW_BY_NAME, which
+    keeps a name page working and is the reason this needed fixing:
+    `ROW_BY_NAME.setdefault` means THE FIRST ROSTER ROW OF A NAME WINS, so
+    every later person of that name was gated against a stranger's year.
+
+    /who/ivan-defranceski/ is what that produces. Three Ivan Defranceski
+    share the name-slug — 1925, 1943, 1951 — the first row is the one who
+    died in 1895, and the tree came out as «Ivan Defranceski, 1829 – 1895»
+    with CHERYL LERENA as his wife and DAVID as his son. One man's dates,
+    another man's wife, a third man's child, on one page.
+
+    Nothing new is asserted here. The gates were always person-level; they
+    were simply handed the wrong person.
+    """
     k = _nm(name)
     if not k: return None
     up, down = CHILD_IN.get(k, []), PARENT_OF.get(k, [])
     # no household either way — but one register row may still name this person's parents
     if not up and not down and len(REG_BY_NAME.get(k, [])) != 1: return None
-    row = ROW_BY_NAME.get(k)
+    if row is None: row = ROW_BY_NAME.get(k)
     t = {"self": {"n": name, "dt": _dates(row), "via": _via(row)}}
     myY = estY = None
     if row:
@@ -412,7 +553,19 @@ def ptree(name):
     if row and row.get("rel"): t["self"]["rel"] = row["rel"]
     if row and row.get("me"): t["self"]["me"] = True
     up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t, estY)]
-    down = [hh for hh in down if _fits_parent(myY, hh, t, estY)]
+    _dieY = _yr(row.get("d")) if row and row.get("d") else None
+    # A CHILD WHO DIED A CHILD IS NOBODY'S PARENT, and the household gates
+    # cannot say so on their own: a household with no `from` year falls
+    # through `_fits_parent` as «unchecked», which is the right default for a
+    # grown man and the wrong one for Ivan Defranceski of 1943, who died in
+    # 1945 aged two and was given Cheryl Lerena as a wife and David as a son.
+    # Fifteen is deliberately generous; this refuses infants, not marriages.
+    if myY is not None and _dieY is not None and _dieY - myY < 15:
+        for _hh in down:
+            t["gate"].append(["died a child", _hh.get("father") or "",
+                              _hh.get("mother") or "", f"{myY}\u2013{_dieY}"])
+        down = []
+    down = [hh for hh in down if _fits_parent(myY, hh, t, estY, _dieY)]
     if up:
         hh, me = up[0]
         par = [node(hh.get("father"), hh), node(hh.get("mother"), hh)]
@@ -654,6 +807,22 @@ for slug, rows in by_slug.items():
         "roster": True,
     }
 
+# ONE ENTRY PER PERSON, keyed on the pid, beside the name-keyed `people`.
+#
+# The name map stays exactly as it was: /who/ is an index of everybody sharing
+# a name and needs it. This is what a PERSON page reads, and the only
+# difference is that each person's tree is computed against their own roster
+# row rather than against the first row that happened to carry their name.
+persons = {}
+for _r in roster["rows"]:
+    _pid = _r.get("pid")
+    if not _pid: continue
+    _t = ptree(_r["name"], _r)
+    if not _t: continue
+    persons[_pid] = {"pid": _pid, "name": _r["name"], "ptree": _t}
+print(f"  persons with a tree of their own: {len(persons)} of "
+      f"{sum(1 for r in roster['rows'] if r.get('pid'))}")
+
 # group the pages that are one name in more than one language, and say so on
 # each of them — sorted, and capped, because a page is a page and not a list.
 _by_fold = {}
@@ -732,6 +901,7 @@ out["note"] = ("A dossier is every mention of a name anywhere in this archive's 
   "**Identity here is by NAME, not by resolved individual**: where two people share a name they share a dossier, "
   "and the archive says so rather than guessing. Rebuilt from the roster, so every person the archive can name "
   "has a page — including the ones read straight off a register that no index anywhere contains.")
+out["persons"] = dict(sorted(persons.items()))
 json.dump(out, open(os.path.join(DATA, "dossiers.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"roster people {len(by_slug)} · pages written {len(people)} · non-roster kept {kept}")
 
