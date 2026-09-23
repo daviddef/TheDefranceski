@@ -13,6 +13,10 @@ import Lightbox from "../../components/Lightbox.astro";
 import roster from "../../data/roster.json";
 import fam from "../../data/famphotos.json";
 import allplates from "../../data/plates.json";
+import PersonTree from "@daviddef/archive-kit/components/PersonTree.astro";
+import "@daviddef/archive-kit/styles/persontree.css";
+import dlp from "../../data/directline-pids.json";
+import dline from "../../data/directline.json";
 
 export function getStaticPaths() {
   const rows = roster.rows.filter(r => r.pid);
@@ -27,6 +31,73 @@ const { r, kin } = Astro.props;
 const SRC = roster.srclabel || {};
 const span = [r.b || (r.bEst ? `about ${r.bEst}` : null), r.d].filter(Boolean).join(" – ")
   || (r.d ? `died ${r.d}` : "dates unknown");
+
+/* THE FAMILY, AND WHY IT IS DRAWN FOR EIGHT PEOPLE AND NOT FOR 1,440.
+ *
+ * This archive's kin lives in dossiers.json's `people`, KEYED BY NAME-SLUG.
+ * roster.json carries every pid and no kin at all. So when the name page was
+ * split into a name index and a person page, the photographs came here and
+ * the family tree stayed on the name — on the page that now says «This is a
+ * NAME, not a person».
+ *
+ * The name-keyed trees cannot simply be moved across. /who/ivan-defranceski/
+ * holds a `ptree` whose self reads «Ivan Defranceski, 1829 – 1895», whose
+ * spouse is CHERYL LERENA and whose child is DAVID: one man's dates, another
+ * man's wife, a third man's son, on one page. Three Ivan Defranceski share
+ * that name-slug. Of 456 name-page trees only 44 state a birth year that
+ * identifies them, and 324 state no year at all.
+ *
+ * directline.json IS person-level and ordered, so the eight generations of
+ * the direct line get a real chart: the generation above as parents, their
+ * own spouse beside them, the generation below as children. Everybody else
+ * is told plainly where their family is recorded, and no family is invented
+ * for them.
+ */
+const DLG = dlp.generations;
+const _i = DLG.findIndex((g) => g.pid === r.pid);
+const _gen = _i >= 0 ? dline.generations[_i] : null;
+const _pidOf = (i) => (i >= 0 && i < DLG.length ? DLG[i].pid : null);
+const _spouseName = (g) =>
+  g && (typeof g.spouse === "string" ? g.spouse : (g.spouse || {}).name);
+const _dates = (g) => [g && g.born, g && g.died].filter(Boolean).join(" – ");
+/* A node's dates come from the ROSTER ROW when there is one, for the same
+   reason the self does: generation 7 carries no `born` in directline.json, so
+   reading it there drew David's father on David's page as «Ivan Defranceski
+   2026» — a death year with nothing in front of it. And a living person is
+   named and nothing more, which is the roster's own flag to answer. */
+const _roster = Object.fromEntries((roster.rows || []).filter((x) => x.pid).map((x) => [x.pid, x]));
+const node = (i) => {
+  const g = dline.generations[i];
+  if (!g) return null;
+  const pid = _pidOf(i);
+  const rr = pid ? _roster[pid] : null;
+  const dates = rr && rr.living ? ""
+    : rr ? [rr.b || (rr.bEst ? `about ${rr.bEst}` : null), rr.d].filter(Boolean).join(" – ") || _dates(g)
+    : _dates(g);
+  return { name: g.name, dates, href: pid ? u(`/person/${pid}/`) : undefined,
+           cls: "via-line", mark: rr && rr.living ? "living — named only" : "the direct line" };
+};
+const tree = _i < 0 ? null : {
+  /* The ROSTER ROW is the authority for this person's own dates, not the
+     direct-line row. Generation 7 carries no `born` in directline.json, so
+     reading it there printed Ivan Defranceski as «2026» — a death year alone,
+     on his own page. The roster has b 1951 and d 2026. A living person's row
+     withholds both, and this prints what the row allows and nothing else. */
+  self: { name: _gen.name,
+          dates: r.living ? "" : (span === "dates unknown" ? _dates(_gen) : span),
+          note: r.living ? "living — named only" : "",
+          noteCls: r.living ? "living" : "",
+          gen: `generation ${_i + 1} of the direct line` },
+  parents: [node(_i - 1)].filter(Boolean),
+  /* A spouse is named in the generation's own row, so she is this person's
+     and not a namesake's. No link: she has no person page here. */
+  spouses: _spouseName(_gen)
+    ? [{ name: _spouseName(_gen), dates: ((_gen.spouse || {}).born || ""), cls: "via-line",
+         mark: "named in the direct line", mar: "married" }]
+    : [],
+  children: [node(_i + 1)].filter(Boolean),
+  siblings: [],
+};
 const plateRows = allplates.rows || allplates;
 const fm = fam.map[r.pid];
 const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boolean)
@@ -62,6 +133,40 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
   </div>
 </section>
+
+{tree && (
+<section class="blk">
+  <h2>The family</h2>
+  <PersonTree self={tree.self} parents={tree.parents} spouses={tree.spouses}
+              children={tree.children} siblings={tree.siblings}
+              labels={{ parents: "The generation above" }}>
+    <Fragment slot="keys">
+      <span class="key"><i class="sw line"></i> the direct line, argued on <a href={u("/direct-line/")}>the line</a></span>
+    </Fragment>
+    <Fragment slot="notes">
+      <p class="warn"><strong>This chart is the direct line and nothing else.</strong>
+      Brothers and sisters are not drawn here: this archive records kin against a
+      NAME rather than against a person, so the family on
+      <a href={u("/who/")}>a name page</a> may belong to several different people
+      of that name. Where it is drawn it is read from
+      <a href={u("/direct-line/")}>the direct line</a>, person by person.</p>
+    </Fragment>
+  </PersonTree>
+</section>
+)}
+
+{!tree && (
+<section class="blk">
+  <h2>The family</h2>
+  <p class="dek"><strong>No family chart is drawn for this person, and that is
+  a statement about the data rather than about them.</strong> This archive records
+  kin against a <em>name</em> — the tree on <a href={u("/who/")}>a name page</a>
+  gathers everyone who shares it, so it may hold one person's dates beside
+  another's wife. Rather than hand a reader a family that might not be this
+  person's, the chart is drawn only where the relationship is recorded person by
+  person, which today means <a href={u("/direct-line/")}>the direct line</a>.</p>
+</section>
+)}
 
 {r.note && (
 <section class="blk">

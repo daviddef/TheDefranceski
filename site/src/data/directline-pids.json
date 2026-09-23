@@ -1,0 +1,92 @@
+{
+ "_why": [
+  "WHICH PERSON EACH DIRECT-LINE GENERATION IS, so a person page can draw its",
+  "own family instead of the family filed under its name.",
+  "",
+  "WHY THIS IS NEEDED AND WHY IT IS ONLY EIGHT ROWS. The kin in this archive",
+  "is attached to a NAME, in dossiers.json's `people`, keyed by name-slug.",
+  "roster.json carries the 1,440 pids and no kin at all. So when the name",
+  "page was split into a name index and a person page, the photographs went",
+  "to the person and the family tree stayed on the name — on the page that",
+  "now says «This is a NAME, not a person».",
+  "",
+  "AND THE NAME-KEYED TREES CANNOT SIMPLY BE MOVED. /who/ivan-defranceski/",
+  "holds a `ptree` whose `self` reads «Ivan Defranceski, 1829 – 1895» and",
+  "whose spouse is CHERYL LERENA and whose child is DAVID — one man's dates,",
+  "another man's wife, a third man's son, on one page. Three Ivan",
+  "Defranceski share that name-slug: 1925, 1943 and 1951. Attaching that",
+  "tree to a person page would publish the composite as a person's family.",
+  "",
+  "Of 456 name-page trees, only 44 identify themselves well enough to be",
+  "matched to one person — their own `self` states a birth year that one",
+  "roster row shares. 324 state no year at all. That is the measure of how",
+  "far the kin is from being person-level.",
+  "",
+  "directline.json IS person-level and ordered, so the eight generations of",
+  "the direct line can be drawn correctly and are. Everyone else's person",
+  "page says plainly that this archive records kin by name, and links to the",
+  "name index rather than inventing a family for them.",
+  "",
+  "Built 23 September 2026. Rebuild it by matching each generation's name and",
+  "birth year against roster.json; it is not derived at page-render time on",
+  "purpose, so a reader can see which person each generation is."
+ ],
+ "generations": [
+  {
+   "gen": 1,
+   "pid": "giovanni-defranceschi-1750",
+   "name": "Giovanni Defranceschi",
+   "born": 1750,
+   "spouse": null
+  },
+  {
+   "gen": 2,
+   "pid": "giovanni-battista-defranceschi-1787",
+   "name": "Giovanni Battista Defranceschi",
+   "born": 1787,
+   "spouse": "Francisca Salomon"
+  },
+  {
+   "gen": 3,
+   "pid": "antonio-defranceschi-1825",
+   "name": "Antonio Defranceschi",
+   "born": 1825,
+   "spouse": "Maria née Fernasar"
+  },
+  {
+   "gen": 4,
+   "pid": "josip-defranceschi-1863",
+   "name": "Josip Defranceschi",
+   "born": 1863,
+   "spouse": "Anna Kalanj"
+  },
+  {
+   "gen": 5,
+   "pid": "anton-rudolf-defranceski-1890",
+   "name": "Anton Rudolf Defranceski",
+   "born": 1890,
+   "spouse": "Ursula, born Kovačina"
+  },
+  {
+   "gen": 6,
+   "pid": "ivan-defranceski-1925",
+   "name": "Ivan Defranceski",
+   "born": 1925,
+   "spouse": "Hedviga, born Blažević"
+  },
+  {
+   "gen": 7,
+   "pid": "ivan-defranceski-1951",
+   "name": "Ivan Defranceski",
+   "born": null,
+   "spouse": "Cheryl Anne Defranceski, née Lerena"
+  },
+  {
+   "gen": 8,
+   "pid": "david-defranceski-johannesburg-brisbane",
+   "name": "David Defranceski",
+   "born": null,
+   "spouse": null
+  }
+ ]
+}
