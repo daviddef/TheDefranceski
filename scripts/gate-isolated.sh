@@ -60,6 +60,7 @@ run evidence  python3 ../scripts/check-evidence.py --dist "$OUT"
 run names     python3 ../scripts/name-forms-audit.py --check
 run places    python3 "$KIT/checkplaces.py"   --data public/atlas-data.json
 run licences ../scripts/check-licences.py --dist "$OUT"
+run livingdata ../scripts/check-living-data.py
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail
