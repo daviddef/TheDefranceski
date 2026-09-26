@@ -24,6 +24,26 @@ import json, io, re, sys, unicodedata, collections
 
 ROSTER = "site/src/data/roster.json"
 
+def _fold_surname(n):
+    """Collision detection must fold the name; ID minting must not.
+
+    Grouping on the exact string reported 33 collisions and 16 candidates.
+    «Antonio De Franceschi» and «Antonio Defranceschi», both 1704, both
+    Svetvincenat, one from a record and one from the tree, were counted as two
+    people because of ONE SPACE. Folding the way namefold does gives 93 groups
+    and 36 candidates — more than twice as many. The pid itself is never
+    folded: it is frozen, and two rows that turn out to be one person are
+    merged by a human, not renamed by this script.
+    """
+    s = unicodedata.normalize("NFD", n or "")
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn").lower()
+    s = re.sub(r"\(.*?\)", "", s)
+    s = re.sub(r"[^a-z ]", "", s)
+    s = re.sub(r"\b(de|di|del)\s+", "", s)
+    s = re.sub(r"\b(defranceschi|franceschi|defranceski|franceski|defrancheschi)\b", "X", s)
+    return " ".join(s.split())
+
+
 def slug(s):
     s = unicodedata.normalize("NFD", s or "")
     s = "".join(c for c in s if unicodedata.category(c) != "Mn")
