@@ -106,6 +106,25 @@ const tree = _t ? {
      entry — and never the named person's own, so it is reported as the reason
      and never as their dates. Three call sites, one reason: the years do not
      fit, by more than six for a child or outside 12-60 for a parent. */
+  /* A RELATIONSHIP NOTHING TESTED IS NOT THE SAME AS ONE THAT PASSED.
+     `_fits_child` and `_fits_parent` both end with
+
+         if myY is None or cY is None:
+             t["gate"].append(["unchecked", ...]);  return True
+
+     — so when either side has no year, the date gate cannot run and the
+     relative is drawn ANYWAY, on a name match alone, inside a function whose
+     own docstring says «A name is not enough». 196 of 693 trees on this site
+     carry at least one such link; 440 in all.
+
+     They are not removed. Most of this archive's early register people have
+     no year at all, and refusing every undated relative would empty the
+     charts of exactly the centuries the archive exists to show. But a drawn
+     line with no gate behind it is a claim, and the page now says how many
+     of its lines are of that kind. Reported by the landing session, whose
+     own fix showed the refused relatives; this is the other half of the
+     same silence. */
+  untested: (_t.unchecked || []).length,
   dropped: (() => {
     const out = [], seen = new Set();
     for (const g of (_t.dropped || [])) {
@@ -176,6 +195,18 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
       <a href={u("/who/")}>a name page</a> may belong to several different people
       of that name. Where it is drawn it is read from
       <a href={u("/direct-line/")}>the direct line</a>, person by person.</p>
+      {tree.untested > 0 && (
+        <p class="warn"><strong>{tree.untested === 1
+          ? "One relationship on this chart was never date-tested."
+          : `${tree.untested} relationships on this chart were never date-tested.`}</strong>
+        {" "}This archive refuses a relative whose years do not fit — more than six
+        out for a child, outside twelve to sixty for a parent. Where one side has
+        no year at all that test cannot run, and the link is drawn on the name.
+        It is shown because most people in the early registers carry no year, and
+        refusing them would empty the chart of the centuries this archive exists
+        to show. <em>It is counted here because a line nothing tested is a weaker
+        claim than a line that passed, and the chart cannot tell them apart.</em></p>
+      )}
     </Fragment>
   </PersonTree>
 </section>

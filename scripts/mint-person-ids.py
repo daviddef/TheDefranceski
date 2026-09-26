@@ -55,9 +55,16 @@ def main():
             dis = ""
         pid = ("%s-%s" % (base, dis)).strip("-") if dis else base
         if pid in taken:
-            # Same name, same birth, same death is a duplicate far more often
-            # than it is two people. Flag it rather than quietly numbering it.
-            suspect.append((pid, r.get("name"), r.get("b"), r.get("d")))
+            # Same name, same birth, same death is NOT a duplicate by itself,
+            # and this script said so for four days before anyone checked. Of
+            # the 33 groups it found, 17 sit in different parishes — a Pietro
+            # of 1734 at Svetvincenat and another at Bale are two men, and a
+            # one-name study that did not produce them would be hiding
+            # something. Only a collision inside ONE PLACE is a candidate.
+            same_place = any((o.get("place") or "").strip().lower()
+                             == (r.get("place") or "").strip().lower()
+                             for o in rows if o.get("pid") == pid)
+            suspect.append((pid, r.get("name"), r.get("b"), r.get("d"), same_place))
             n = 2
             while "%s-%d" % (pid, n) in taken:
                 n += 1
@@ -71,9 +78,14 @@ def main():
     print("pids minted        %d" % minted)
     print("total distinct     %d" % len(taken))
     if suspect:
-        print("\ncollisions on name+dates (%d) — check these for duplicate rows:" % len(suspect))
-        for pid, nm, b, d in suspect[:20]:
-            print("   %-46s b=%-6s d=%s" % (pid, b, d))
+        print("\ncollisions on name+dates (%d):" % len(suspect))
+        cand = [x for x in suspect if x[4]]
+        print("   %d of them share a PLACE as well — those are the candidates;"
+              % len(cand))
+        print("   the rest are the same name in different parishes, which is not a duplicate.")
+        for pid, nm, b, d, sp in suspect[:20]:
+            print("   %-44s b=%-6s d=%-6s %s" % (pid, b, d,
+                  "<- same place" if sp else ""))
     if write:
         json.dump(R, io.open(ROSTER, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print("\nwritten to %s" % ROSTER)
