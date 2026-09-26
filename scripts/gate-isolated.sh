@@ -19,6 +19,17 @@ KIT="node_modules/@daviddef/archive-kit/kit/tools"
 cleanup() { rm -rf "$OUT"; }
 trap cleanup EXIT
 
+# THE OBJECT STORE FIRST, because a green build proves nothing about it.
+# On 27 September this archive built 2,940 pages and passed twelve checks with
+# 32 objects missing and 30 links broken. Every check in the suite read FILES;
+# none read git. It costs 93ms, and if it fails there is no point building.
+# NB: this runs AFTER the cd into site/, so the path is ../scripts, exactly as
+# the other archive-owned checks below are invoked. $(dirname "$0") is relative
+# to the ORIGINAL cwd and resolved to site/./scripts on the first attempt.
+if ! python3 ../scripts/check-repo.py; then
+  echo "gate: REPOSITORY DAMAGED — not building"; exit 2
+fi
+
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=2048}"
 echo "gate: building into $OUT (dist left alone)"
 npm run publish:index >/dev/null 2>&1 || { echo "gate: publish:index failed"; exit 2; }
