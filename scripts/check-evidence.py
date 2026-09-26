@@ -101,11 +101,37 @@ def load(name):
     with open(fp, encoding="utf-8") as fh: return json.load(fh)
 
 
+# ARCHIVE_OUT must beat the flag, exactly as every kit tool does.
+#
+# The D'Arcy session found this class on 27 September 2026: its own tool wired
+# the override in as an ARGPARSE DEFAULT, and a default is consulted only when
+# the flag is ABSENT — while package.json passes `--dist dist` explicitly, so
+# it never was. With ARCHIVE_OUT set, the kit's gates read the new build and
+# its own gate read a four-day-old directory: six fewer pages, fourteen fewer
+# names scanned for living-person leakage, none found, «ok».
+#
+# Neither of this archive's own --dist tools knew ARCHIVE_OUT existed at all,
+# which is the same split seen from the other side. It was harmless only
+# because gate-isolated.sh never sets the variable — and commit 5c03578 has
+# just made the hatch work, so the latent bug became reachable as the fix
+# landed.
+def _resolve_dist(dist):
+    out = os.environ.get("ARCHIVE_OUT")
+    if not out:
+        return dist
+    d = (dist or "").rstrip("/\\")
+    parent = os.path.dirname(d)
+    return os.path.join(parent, out) if parent else out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", default=os.path.join(ROOT, "site", "dist"))
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
+    a.dist = _resolve_dist(a.dist)
+    if os.environ.get("ARCHIVE_OUT"):
+        print("  ..    reading %s (ARCHIVE_OUT)" % a.dist)
 
     dossiers = (load("dossiers") or {}).get("people", {})
     by_name = {}
