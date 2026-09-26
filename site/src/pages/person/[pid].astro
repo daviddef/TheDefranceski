@@ -100,6 +100,28 @@ const tree = _t ? {
     : [],
   children: (_t.children || []).map((c) => _node({ n: c.n, dt: c.d || "", via: "", pid: c.pid })).filter(Boolean),
   siblings: (_t.siblings || []).map((n) => _node(n, true)).filter(Boolean),
+  /* build-dossiers records every relative its DATE GATE refused, as
+     ["dropped", father, mother, year]. The fourth cell is the year of the
+     REFUSED RECORD — a child's year, a household's first birth, a register
+     entry — and never the named person's own, so it is reported as the reason
+     and never as their dates. Three call sites, one reason: the years do not
+     fit, by more than six for a child or outside 12-60 for a parent. */
+  dropped: (() => {
+    const out = [], seen = new Set();
+    for (const g of (_t.dropped || [])) {
+      const y = String(g[3] || "").trim();
+      const why = y ? `the dates do not fit a record of ${y}` : "the dates could not be checked";
+      for (const [rel, nm] of [["father", g[1]], ["mother", g[2]]]) {
+        const name = String(nm || "").trim();
+        if (!name || name === "\u2014") continue;
+        const k = rel + "|" + name + "|" + why;
+        if (seen.has(k)) continue;
+        seen.add(k);
+        out.push({ rel, name, why });
+      }
+    }
+    return out;
+  })(),
 } : null;
 const plateRows = allplates.rows || allplates;
 const fm = fam.map[r.pid];
@@ -142,6 +164,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
   <h2>The family</h2>
   <PersonTree self={tree.self} parents={tree.parents} spouses={tree.spouses}
               children={tree.children} siblings={tree.siblings}
+              dropped={tree.dropped}
               labels={{ parents: "The generation above" }}>
     <Fragment slot="keys">
       <span class="key"><i class="sw line"></i> the direct line, argued on <a href={u("/direct-line/")}>the line</a></span>
