@@ -47,6 +47,18 @@ It ignores what the local store claims to have, re-downloads, and writes a NEW
 pack. It deletes nothing. It passed the permission classifiers of three
 sessions where a plain `git reset` was refused as destructive.
 
+**A FRESH CLONE IS OFTEN THE BETTER ANSWER, and the Falco session's reasoning
+for why generalises.** A refetch repairs the object store and leaves
+`node_modules` exactly as it was — so if `.bin` is also empty you still need an
+install afterwards, and that install is the step that is dangerous when the
+manifest is itself reverted: `npm ci` then faithfully installs the wrong pinned
+kit, with no error at all. **A clone fixes both at once and CANNOT install from
+a reverted lockfile, because a clone has no reverted lockfile in it.** The
+trade is uncommitted work: a refetch keeps it, a clone does not. So — refetch
+when you have local changes worth keeping and the object store is the only
+fault; clone when `.bin` is empty too, or when you are not certain what else
+came back stale.
+
 **ITS PRECONDITION IS LOAD-BEARING AND THE COMMAND LOOKS ADDITIVE WITHOUT IT.**
 It only works if the REMOTE holds the missing objects. A repository with
 unpushed commits may be missing objects that exist nowhere else, and then
@@ -94,7 +106,10 @@ def main():
         print("check-repo: FAIL — the object store is damaged")
         for f in fails:
             print("  FAIL  %s" % f)
-        print("  repair: git -c gc.auto=0 -c maintenance.auto=0 fetch --refetch origin main")
+        print("  repair (keeps uncommitted work, object store only):")
+        print("    git -c gc.auto=0 -c maintenance.auto=0 fetch --refetch origin main")
+        print("  repair (also fixes a broken node_modules, discards uncommitted work):")
+        print("    fresh clone — and it cannot install from a reverted lockfile")
         if ahead not in ("0", "?"):
             print("  ⚠ THIS REPO IS %s COMMIT(S) AHEAD OF origin/main. A refetch cannot" % ahead)
             print("    recover objects the remote never had. Get a person, not a command.")
