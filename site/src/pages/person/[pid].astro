@@ -210,6 +210,12 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     <div class="k">Years</div><div class="v">{span}</div>
     <div class="w">{r.bEst && !r.b ? "estimated from the record, not read off a register" : ""}</div>
     {r.place && (<><div class="k">Place</div><div class="v">{r.place}</div><div class="w"></div></>)}
+    {/* A spouse is only ever written here from a source that names the couple
+        TOGETHER. It is never inferred by matching a name against a household,
+        because that is the mechanism that gave five women called Maria
+        Defranceschi the dates of one infant's burial — see worklist 152. */}
+    {r.spouse && (<><div class="k">Spouse</div><div class="v">{r.spouse.name}</div>
+      <div class="w">{r.spouse.how || ""}</div></>)}
     {r.line && (<><div class="k">Line</div><div class="v">{r.line}</div><div class="w"></div></>)}
     <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
   </div>
