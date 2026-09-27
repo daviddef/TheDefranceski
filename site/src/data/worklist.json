@@ -1276,10 +1276,19 @@
    "n": 148,
    "state": "done",
    "owner": "this session",
-   "since": "27 Sept 2026",
+   "since": "2026-09-27",
    "what": "Audited every value this archive feeds the shared Evidence component, against the kit's new Ungraded default",
    "covers": [],
    "note": "The landing-site session shipped kit **a35acb9**: `no` and `open` are out of the Evidence alias table, and an unrecognised level now renders **«Ungraded»** instead of resolving to «Family». *That changes published text wherever an archive was feeding it a value it did not recognise, so every feed here was checked rather than assumed.*\n\n**Four feeds, and all four are clean.** *`l.status` on the lines page takes documented, inferred and lore. `p.confidence` on the people pages takes documented, inferred and lore. `d.conf` in the destinations table takes doc, inf and lore. `n.conn` took `no` six times — and no longer reaches the component at all, since it renders «No link shown».* **Nothing in this archive would come out as «Ungraded», and the kit can be updated without changing a word on any page.**\n\n**The audit found a trap of this archive's own making, which is the part worth keeping.** *The destinations table mapped `conf` with a ternary: doc → documented, inf → inferred, **anything else → lore**, and lore renders as «Family».* **The `conf` field across this archive's data also takes `neg`, `strong` and `living`** — *and `neg` is the archive saying a thing is **not** this family.* **A negative finding would have been published under a badge reading «Family».** *No destination carries those values today, so nothing was wrong on the page; it was wrong in the same way the notables column was wrong before anyone looked.* **The mapping is now total and an unrecognised value renders «Ungraded» rather than the most credulous answer in the set.**\n\n*Still outstanding: the kit here is **1.0.0** and updating it touches `site/package*.json`, which is shared ground. **David's call, or the kit owner's.** Until then the new living summary line — which states rows and names separately instead of printing either as «people» — will not appear in this build.*"
+  },
+  {
+   "n": 149,
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-09-27",
+   "what": "Split the overloaded `conf` field — it is a grade, a negation and a person marker under one key",
+   "covers": [],
+   "note": "**`conf` means three things in this archive's data and that is why the credulous defaults were dangerous.** *A grade of a claim in `families.json` and `explorer.json` (doc, inf, lore, probable, strong); a **negative finding** in `gists.json` (`neg` — «nothing yet joins the Gologorica house to the Gallignana line»); a **living person** in `ancestors.json` (`living`).*\n\n**Every renderer that touches it has to guess which meaning it has**, and three of them guessed in the credulous direction before this was noticed. *The fallbacks are now loud and neutral, which is the right answer while the field is ambiguous — but it is a patch on the symptom.*\n\n**The fix is to split the key:** *`grade` for the five evidence levels, and separate fields for a negation and for living status, which are not grades and should never reach a grading component.* *Not started. It touches four data files and five pages, and the loud defaults make it safe to do slowly.*"
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",

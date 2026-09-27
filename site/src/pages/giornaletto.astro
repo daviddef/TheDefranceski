@@ -9,7 +9,21 @@ import { md, mdp } from "../lib/md.js";
 import g from "../data/giornaletto.json";
 import gists from "../data/gists.json";
 const anno = (d) => `https://anno.onb.ac.at/cgi-content/anno?aid=gdp&datum=${d}`;
-const CONF = { doc: ["Documented", "var(--accent)"], inf: ["Inferred", "var(--ochre)"] };
+/* An unknown grade must not resolve to a grade. This map knew doc and inf and
+   fell back to INFERRED, so a `conf` this archive uses elsewhere — `neg`, which
+   is the archive saying a thing is NOT so — would have published as an
+   inference. All four rows here are `doc` today, so nothing was wrong on the
+   page; it was wrong the way the notables column was wrong before anyone
+   looked. Unknown now lands on neutral grey and says «Ungraded», which is the
+   rule the kit's own AncChart already follows and Evidence did not. */
+const CONF = {
+  doc:      ["Documented", "var(--accent)"],
+  inf:      ["Inferred",   "var(--ochre)"],
+  probable: ["Probable",   "var(--ochre)"],
+  lore:     ["Family",     "var(--ochre)"],
+  neg:      ["A negative finding", "var(--ink-3)"],
+};
+const UNGRADED = ["Ungraded", "var(--ink-3)"];
 const dateLabel = (s) => {
   const M = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   return `${+s.slice(8,10)} ${M[+s.slice(5,7) - 1]} ${s.slice(0,4)}`;
@@ -40,7 +54,7 @@ const dateLabel = (s) => {
 
   <div class="gd-people">
     {g.people.map((p) => {
-      const [lab, col] = CONF[p.conf] || CONF.inf;
+      const [lab, col] = CONF[p.conf] || UNGRADED;
       return (
         <article class="gd-p" id={p.datum}>
           <header class="gd-h">

@@ -113,7 +113,13 @@ const md = (x) => String(x ?? "")
 
   <div class="t-spine">
   {gens.map((g, i) => {
-    const [chip, confLabel, colour] = CONF[g.confidence] || CONF.documented;
+    /* The three values directline.json uses are all in CONF, so this fallback
+       is unreachable today. It pointed at DOCUMENTED — the strongest grade in
+       the set — which is the wrong direction for a default: if the field ever
+       takes a fourth value, the page would assert the best evidence for the
+       one case nobody had considered. Unknown lands on neutral grey instead. */
+    const [chip, confLabel, colour] =
+      CONF[g.confidence] || ["", "Ungraded", "var(--ink-3)"];
     const sp = g.spouse;
     const spArch = sp ? archOf(sp.name) : null;
     const who = whoOf(g.name, `${g.born || ""} ${g.died || ""}`);
