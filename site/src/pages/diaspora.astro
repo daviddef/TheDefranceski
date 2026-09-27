@@ -36,7 +36,7 @@ import d from "../data/diaspora.json";
     <h3>The three best loose threads</h3>
     <p><strong>The Philadelphia family of 1954.</strong> Bosiljka, Brank, Jela and Mojuil Defranceski — Croatian names, arriving nine years after the war, in no Croatian register searched here.</p>
     <p><strong>Rotilio in Buenos Aires.</strong> Named in the 2012 reunion album as the eighth of eleven children of Antonio DeFranceschi of Gallignana, married to Albina Chinkopan, with two daughters. <a href={u("/the-eleven/")}>The eleven</a> showed the album gave him his sister's husband's surname; David's tree nevertheless carries the two daughters, and one of them has an Argentine baptism ark attached — <a href="#argentina">read below</a>, because its citation names a father who is not a de Franceschi. Argentina's arrival records are held by <a href="https://cemla.com/buscador/" rel="noopener">CEMLA</a> and are free to search — but the search sits behind a CAPTCHA, which this archive does not bypass. It is a twenty-minute job for a human being.</p>
-    <p><strong>Broken Hill.</strong> Three Defranceschi graves in the New South Wales silver field and almost nothing else. <a href="https://trove.nla.gov.au/" rel="noopener">Trove</a> needs <em>no key at all</em> to search from a browser — this page said it did, and that was wrong — and searching it on 17 September turned up one line: <strong>«DeFranceschi Bros, 716 Chappie Lane, Broken Hill»</strong>, in the New South Wales Government Gazette of 17 June 1966. A business, at an address, in the right town. The newspaper columns are still unread.</p>
+    <p><strong>Broken Hill.</strong> Three Defranceschi graves in the New South Wales silver field and almost nothing else. <a href="https://trove.nla.gov.au/" rel="noopener">Trove</a> needs <em>no key at all</em> to search from a browser — this page said it did, and that was wrong — and searching it on 17 September turned up one line: <strong>«DeFranceschi Bros, 716 Chappie Lane, Broken Hill»</strong>, in the New South Wales Government Gazette of 17 June 1966. A business, at an address, in the right town. The newspaper columns <em>have</em> now been read — 170 articles across every spelling, harvested 27 September — and what they hold is <strong>not yet published here</strong>: the Trove key was issued on a written undertaking that the request would be metadata only, and whether this archive may quote an article is a question standing with David on <a href="/TheDefranceski/worklist/">work list item 156</a>. The finding that the columns are read, and the finding that they must not yet be quoted, are both recorded there.</p>
   </section>
 <section class="blk">
   <h2>{d.american_vitals.heading}</h2>
@@ -79,6 +79,17 @@ import d from "../data/diaspora.json";
 <Rule name="pomegranate" label="The village sweep" />
 
 <section class="blk">
+  <h2>{d.naturalisations.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.naturalisations.lead)}></p>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <tbody>{d.naturalisations.rows.map(([k, v]) => (
+        <tr><th style="min-width:15rem" set:html={_md(k)}></th><td set:html={_md(v)}></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:14px" set:html={_md(d.naturalisations.source)}></p>
+
   <h2>{d.tacoma.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={d.tacoma.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
