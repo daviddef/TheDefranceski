@@ -14,7 +14,11 @@ import Base from "../../layouts/Base.astro";
 import { u } from "../../lib/url.js";
 import roster from "../../data/roster.json";
 
-const rows = roster.rows.filter(r => r.pid).map(r => ({
+// `sameAs` rows are duplicates proved by a shared ark on 27 September. They keep
+// their pages, because their addresses were published; they do not keep a line in
+// this list, because a list of individuals that counts one child twice is wrong
+// about the only thing it claims to say.
+const rows = roster.rows.filter(r => r.pid && !r.sameAs).map(r => ({
   pid: r.pid,
   name: r.name,
   living: !!r.living,

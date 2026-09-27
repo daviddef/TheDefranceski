@@ -29,6 +29,26 @@ export function getStaticPaths() {
   }));
 }
 const { r, kin } = Astro.props;
+
+/* A DUPLICATE KEEPS ITS URL.
+ *
+ * On 27 September eighteen pairs of rows were proved to be one person: each
+ * pair carries the SAME FamilySearch ark, so both rows came from one record,
+ * read twice by two passes that spelled the name differently. The right fix
+ * is not to delete the second row. These pages have been published and linked
+ * since 23 September, and deleting a row deletes a URL that someone may have
+ * written down — the whole reason the pids are frozen and never derived.
+ *
+ * So the duplicate keeps its page, and the page says what it is: a pointer to
+ * the person. Everything the duplicate knew was folded into the canonical row
+ * before this was set, so nothing is only here.
+ *
+ * What is NOT done: a <link rel=canonical>, which is what would stop a search
+ * engine indexing both pages. Base.astro has no head slot and belongs to the
+ * session that owns the cross-site layout, so this one says it in prose and in
+ * the eyebrow instead. Worklist 147 carries the request.
+ */
+const dupOf = r.sameAs ? roster.rows.find((x) => x.pid === r.sameAs) : null;
 const SRC = roster.srclabel || {};
 const span = [r.b || (r.bEst ? `about ${r.bEst}` : null), r.d].filter(Boolean).join(" – ")
   || (r.d ? `died ${r.d}` : "dates unknown");
@@ -148,7 +168,24 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
   .map(p => ({ id: p.id, title: p.title, caption: p.caption, holder: p.holder,
                w: p.w, h: p.h, src: u(p.src), thumb: u(p.thumb) })) : [];
 ---
-<Base title={r.name} eyebrow={span} dek={`One person. ${r.place ? r.place + ". " : ""}Everything this archive holds for this individual, kept apart from everyone else who shares the name.`}>
+<Base title={r.name} eyebrow={dupOf ? "the same person as another page" : span} dek={dupOf
+        ? `A duplicate entry, kept at its published address. The person is recorded under ${dupOf.name}.`
+        : `One person. ${r.place ? r.place + ". " : ""}Everything this archive holds for this individual, kept apart from everyone else who shares the name.`}>
+
+{dupOf && (
+<section class="blk">
+  <p class="warn"><strong>This page and <a href={u(`/person/${dupOf.pid}/`)}>{dupOf.name}</a> are the same person.</strong></p>
+  <p class="prose">
+    Both rows were built from one record — FamilySearch <code>{r.ark}</code> — by two
+    passes of this archive that spelled the name differently, one from the register
+    and one from the family tree. The register's spelling is
+    kept as the person's page, and everything this row held was folded into it before
+    this notice was written. The page stays here because its address was published, and
+    an archive that moves its own addresses is not much of an archive.
+  </p>
+  <p class="prose"><a href={u(`/person/${dupOf.pid}/`)}>Go to {dupOf.name}</a>.</p>
+</section>
+)}
 
 {fdata.length > 0 && (
 <section class="blk">
