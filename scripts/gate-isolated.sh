@@ -73,6 +73,16 @@ run places    python3 "$KIT/checkplaces.py"   --data public/atlas-data.json
 run licences ../scripts/check-licences.py --dist "$OUT"
 run livingdata ../scripts/check-living-data.py
 run dates      ../scripts/check-dates-everywhere.py
+# Last, and it reports on the others: every line above is a steady number
+# restated identically each build, and a line beginning "ok" does not get read.
+# This one speaks only when a number MOVES. See scripts/check-witness.py.
+#
+# NOT through run(). run() prints the check's own output only when it FAILS,
+# so the witness wired through it was silent in exactly the case it exists
+# for: a living count moving 99 -> 59 printed "ok witness" and nothing else.
+# The gate was hiding the one line meant to be read, which is the fault the
+# witness was written to catch, reproduced in the harness around it.
+if ! ../scripts/check-witness.py; then fail=1; fi
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail
