@@ -7,6 +7,24 @@ import FilterTable from "@daviddef/archive-kit/components/FilterTable.astro";
 import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import people from "../../data/people.json";
 import notables from "../../data/notables.json";
+
+/* WHY conn === "no" DOES NOT GO THROUGH <Evidence>.
+ *
+ * The shared Evidence component grades HOW WELL A CLAIM IS EVIDENCED, on five
+ * levels — documented, probable, inferred, family, disputed. Its alias table
+ * folds unknown values, and `no` and `open` among them, down to «family».
+ *
+ * `conn` is not that question. It asks WHETHER THERE IS A LINK to this family
+ * at all, and «no» is an answer, not a weak grade. Passed through Evidence it
+ * rendered a badge reading «Family» — in a column headed «Link to this family»
+ * — against six people this archive says are NOT related, Piero della
+ * Francesca among them. The dek two lines above says a shared patronymic is
+ * not a shared ancestor and that saying otherwise is how family myths start.
+ * The table was saying otherwise, in one word, since the component was adopted.
+ *
+ * The component is shared and correct for its own question, so it is not
+ * touched. The misuse was here, and «no» is now rendered as what it means.
+ */
 import roster from "../../data/roster.json";
 const S = roster.stats;
 const LINEN = { carnia: "Carnia", venice: "Venice", crete: "Crete", south: "S. Istria",
@@ -127,7 +145,9 @@ const nt = (x) => String(x ?? "")
       <thead><tr><th>Name</th><th class="m">Dates</th><th>What</th><th>Where</th><th>Link to this family</th></tr></thead>
       <tbody>{notables.map(n=>(
         <tr><td>{n.name}</td><td class="m">{n.dates}</td><td>{n.what}</td><td>{n.where}</td>
-        <td><Evidence level={n.conn} />{n.link && <div style="margin-top:6px;font-size:12px">{n.link}</div>}</td></tr>
+        <td>{n.conn === "no"
+              ? <span class="nolink" title="No link to this family has been shown">No link shown</span>
+              : <Evidence level={n.conn} />}{n.link && <div style="margin-top:6px;font-size:12px">{n.link}</div>}</td></tr>
       ))}</tbody>
     </table>
   </div>
@@ -136,6 +156,10 @@ const nt = (x) => String(x ?? "")
 
 
 <style>
+  .nolink{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;
+          border:1px solid var(--ink-3);color:var(--ink-2);background:transparent;
+          white-space:nowrap}
+
   .rcount{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
   .rc{flex:1 1 110px;padding:12px 14px;border-radius:10px;background:var(--panel-2);
     border-left:3px solid var(--ink-3)}
