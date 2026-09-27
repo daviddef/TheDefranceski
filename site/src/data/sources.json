@@ -82,13 +82,13 @@
   "id": "familysearch",
   "kind": "Database",
   "title": "FamilySearch",
-  "where": "",
+  "where": "familysearch.org · sg30p0.familysearch.org",
   "url": "https://www.familysearch.org/",
   "what": "The single largest source in this archive. Its collection «Croatia, Church Books, 1516–1994» (cc 2040054) supplied the burial and baptism entries; its persona search supplied the household reconstructions, the emigrant records and the four children of Josip and Ana Kalanj; its catalogue supplied the parish-book inventory.",
   "cites": [
    "Croatia, Church Books, 1516–1994 (cc 2040054)"
   ],
-  "note": "Free with an account. Only about a quarter of that collection is name-indexed; the rest is images to be read. Nothing was bulk-downloaded."
+  "note": "Free with an account. Only about a quarter of that collection is name-indexed; the rest is images to be read. Nothing was bulk-downloaded. \n\n**On `sg30p0.familysearch.org`:** *that host is FamilySearch's own image-delivery server, not a separate body.* **An ark resolves to an apid, the apid is fetched from `sg30p0`, and what comes back is a signed S3 URL whose credential scope must be derived from `X-Amz-Date` rather than hardcoded.** *It appears in the data as a link to a film frame and is named here so that it is not mistaken for an archive of its own.*"
  },
  {
   "id": "findagrave",
@@ -104,11 +104,11 @@
   "id": "commons",
   "kind": "Database",
   "title": "Wikimedia Commons",
-  "where": "",
+  "where": "commons.wikimedia.org · and the credit lines it carries",
   "url": "https://commons.wikimedia.org/",
   "what": "Four public-domain works reproduced on the namesakes page: Titian's portrait of Andrea de' Franceschi (Detroit Institute of Arts); the Vasari woodcut of Piero della Francesca from the 1648 Vite; Piero's Urbino diptych; and Mariano de Franceschi's Camel Caravan at Rest.",
   "cites": [],
-  "note": "Each file is credited and linked on the namesakes page itself."
+  "note": "Each file is credited and linked on the namesakes page itself. \n\n**Three hosts in this archive's data belong to Commons rather than to this archive:** *`artgallery.yale.edu`, `www.armchairgeneral.com` and `purl.org` appear only inside the `credit` field of a Commons image record* — Yale for *Francesco de' Franceschi, Saint Mamas before Aurelian* (1450), the other two on the Dien engraving after Riesener of **général Jean-Marie-Antoine Defrance**. **They are the licence's attribution chain, not bodies this archive consulted**, and they are reproduced because a public-domain credit must travel with the image."
  },
  {
   "id": "steiner",
@@ -1551,6 +1551,83 @@
   "note": "**Not blocked — broken.** *The enrolment-register search lives at `/acervo/registro-de-matricula`, a plain GET form taking nome, sobrenome, nacionalidade, vapor and ano, and **every query returns HTTP 500**.* **That is not a bot check and not an empty result**, and it is worth retrying, because nothing about the Brazilian arrivals has been read.",
   "cites": [
    "Museu da Imigração / Hospedaria de Imigrantes, São Paulo, 21 September 2026"
+  ]
+ },
+ {
+  "id": "ppmhp",
+  "kind": "Archive",
+  "title": "Pomorski i povijesni muzej Hrvatskog primorja, Rijeka",
+  "where": "ppmhp.hr",
+  "url": "https://ppmhp.hr/",
+  "what": "The Maritime and History Museum of the Croatian Littoral at Rijeka — the obvious holder for anything on the Fiume shipmasters of this name.",
+  "note": "**The public search returns nothing for any spelling, and this is not a negative worth trusting.** *The interface is script-driven rather than searchable from here, and the museum holds **75,000 objects in 48 collections** of which the digital fundus is a fraction.* **The museum should be written to.**",
+  "cites": [
+   "Pomorski i povijesni muzej Hrvatskog primorja, Rijeka"
+  ]
+ },
+ {
+  "id": "naa-recordsearch",
+  "kind": "Archive",
+  "title": "National Archives of Australia — RecordSearch",
+  "where": "recordsearch.naa.gov.au",
+  "url": "https://recordsearch.naa.gov.au/",
+  "what": "The free Australian federal archives catalogue, and the source that closed the question David asked about the child on the *General M B Stewart*: he is **Anton Mario De Franceski, born 21 August 1944 at Reutlingen**, Zdravko and Ruža's only child. Eight items of the name are catalogued, among them **A11534, 58–60** (1948), the household file carrying all three dates of birth, and **B44, V1978/151 and V1978/152**, Zdravko and Ruža's naturalisations.",
+  "note": "**Free to search, and none of the eight is digitised.** *All eight have to be ordered, and two are still marked «not yet examined», which means an access decision before a copy.* **Catalogue-level certainty, file-level nothing** — the distinction this archive keeps insisting on, in its clearest form.",
+  "cites": [
+   "National Archives of Australia — RecordSearch, NameSearch",
+   "National Archives of Australia — are any of the eight items digitised?"
+  ]
+ },
+ {
+  "id": "google-scholar",
+  "kind": "Bibliography",
+  "title": "Google Scholar",
+  "where": "scholar.google.com",
+  "url": "https://scholar.google.com/",
+  "what": "Used to run down two scholarly works whose titles looked as though they might touch this family.",
+  "note": "**Both are different families, and that is why they are recorded.** *Benedetti, «From Venice to Cairo» (2022), concerns **Andrea de' Franceschi**, Venetian grand chancellor, of Cividale di Belluno; Bruni, «Peace at the Lily» (2018), concerns **Francesco De Franceschi**, a printer «born in Siena around 1530».* **Three unrelated houses carry this name in the scholarship alone, which is the standing caution of a one-name study.**",
+  "cites": [
+   "Benedetti, «From Venice to Cairo» (2022)",
+   "Bruni, «Peace at the Lily» (2018)"
+  ]
+ },
+ {
+  "id": "stadtarchiv-reutlingen",
+  "kind": "Archive",
+  "title": "Stadtarchiv Reutlingen — photograph database",
+  "where": "stadtarchiv.reutlingen.de",
+  "url": "https://stadtarchiv.reutlingen.de/",
+  "what": "Reutlingen's city archive and its photograph database, worked for the German years. It identified **Hermann Sauer** as a motor-vehicle firm at the Südbahnhof / Eninger Landstraße 79, holding the MAN agency and running a filling station in the Marktstraße, and photographed **the Sauer brothers' Autohaus in the Tübinger Straße in 1935**.",
+  "note": "Free, and it answers about places and firms rather than people. *This is the kind of source that turns a line on a form — an employer, a street — into somewhere that can be seen.*",
+  "cites": [
+   "Stadtarchiv Reutlingen — photograph database"
+  ]
+ },
+ {
+  "id": "trove",
+  "kind": "Newspapers",
+  "title": "Trove — National Library of Australia",
+  "where": "trove.nla.gov.au",
+  "url": "https://trove.nla.gov.au/",
+  "what": "The free Australian newspaper and gazette portal. It gave **the last sighting of Zdravko alive** — *Commonwealth of Australia Gazette*, Periodic, No. P2, **16 February 1979, page 66**, under VICTORIA: «Defranceski, Roza, 19 Anderson St, Horsham 3400» — and one story: *The Age*, Melbourne, **25 January 1954**, «Girl Saw Friend Drown», naming **Giordano Defranceschi, laborer**.",
+  "note": "**Free, and it must be worked by spelling and by zone.** *The first pass ran newspapers only and only the fused spellings, reporting «Defranceski» 2 and «Defranceschi» 13; this archive's own rule — that each spelling returns a different, non-overlapping set — had not been applied to it.* **A Trove nil is usually weak:** *newspaper digitisation mostly stops in 1954, and whether the «Wimmera Mail-Times» is digitised for 1949–54 has never been established* — so the Horsham silence of the 1940s and 1950s proves much less than it appears to.",
+  "cites": [
+   "Trove — Australian newspapers, 1940–1959",
+   "Trove, National Library of Australia — newspapers and gazettes",
+   "Trove — the zones and the spelling the first pass missed",
+   "Commonwealth Gazette, 16 Feb 1979, p. 66"
+  ]
+ },
+ {
+  "id": "wayback",
+  "kind": "Archive",
+  "title": "The Internet Archive — Wayback Machine",
+  "where": "web.archive.org",
+  "url": "https://web.archive.org/",
+  "what": "Used for one job: to save the family's own Google Site at **defranceski.com** before it is switched off. A CDX query for every URL under that host returned **two successful captures** — the site root of 1 January 2022 and the home page of 11 July 2025.",
+  "note": "**Nearly empty, and now filled.** *Family Trees, The People, The Places, The Map and The Name were never captured by any crawler.* **The lesson generalises: a site nobody links to is a site the Wayback Machine has not got**, and waiting for it to have done the job is not a preservation plan.",
+  "cites": [
+   "The Wayback Machine — everything under sites.google.com/defranceski.com"
   ]
  }
 ]
