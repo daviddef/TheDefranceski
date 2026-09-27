@@ -1163,5 +1163,206 @@
    "/map/",
    "/sources/"
   ]
+ },
+ {
+  "id": "isula-corsica",
+  "kind": "Archive",
+  "title": "Archivi di Corsica — Collectivité de Corse",
+  "where": "archives.isula.corsica",
+  "url": "https://archives.isula.corsica/",
+  "what": "The online reading room of the Corsican archives: état civil, Corsica christiana, the decennial tables and the notarial series, free and without an account. Six Cap Corse communes in scope for this archive — Tomino, Rogliano, Ersa, Centuri, Morsiglia and Barrettali — with registers of naissances, mariages, décès, baptêmes, sépultures and publications de mariage.",
+  "note": "**Free, and unsearchable by name.** *No module on the platform has a surname field*; the registers are browsed by commune and year, image by image, and the viewer draws each page without a plain URL to fetch. **It refuses a command-line client and opens normally in a browser** — the door is open and the first page reads; turning the page is the unsolved part.",
+  "cites": [
+   "Archives de Corse — archives.isula.corsica, 10 September 2026",
+   "12 NUM 4186, Tomino 1802–1812",
+   "12 NUM 4187, Tomino 1813–1822"
+  ]
+ },
+ {
+  "id": "ad54",
+  "kind": "Archive",
+  "title": "Archives départementales de Meurthe-et-Moselle — archives en ligne",
+  "where": "archivesenligne.meurthe-et-moselle.fr",
+  "url": "https://archivesenligne.meurthe-et-moselle.fr/",
+  "what": "Free digitised civil registration and census for the Lorraine département. It carried the only French line this archive has followed to a birth act: the censuses of Bénaménil (1936) and Thiébauménil (1911), the Thiébauménil decennial table 1873–1932, and the 1910 birth register.",
+  "note": "**Free and open.** *It is also where the spelling changed:* a succession table naming **Marie DEFRANCESKI** was worked backwards through two censuses and a decennial table until the birth act itself appeared — **spelling the name differently from the document that started the chase.**",
+  "cites": [
+   "Marie Defranceschi in Lorraine — the succession table run back to the birth act, 21 September 2026"
+  ]
+ },
+ {
+  "id": "oesta-ais",
+  "kind": "Archive",
+  "title": "Österreichisches Staatsarchiv — Archivinformationssystem",
+  "where": "archivinformationssystem.at",
+  "url": "https://www.archivinformationssystem.at/",
+  "what": "The catalogue of the whole Austrian State Archives — Kriegsarchiv, Marine, Adelsarchiv, Hofkammer, Justiz — searchable by a free field search across every department, with no account. It is the single largest supplier of catalogue-level records to this archive: ninety-nine records, fifty-three of them the name, and twenty people now on the roster because of it.",
+  "note": "**Free, public, and it defaults to an operator that hides this family.** *The field search offers four operators and starts on «starts with», which returns 43 records for «Franceschi» and none of the De- or Defranceschi.* **«Contains» is the setting that works** — and it still cannot match a spelling with a **k** or a **z**, so five stems are needed to cover the family: *Franceschi, Franceski, Franzeschi, Franzeski, ranđesk*. The last two are empty. **Catalogue only — no file has been ordered, and the Kriegsarchiv's EUR 45 search fee buys what this catalogue already names to the item.**",
+  "cites": [
+   "Archivinformationssystem — the whole Austrian State Archives, searched by name for the first time, 20 September 2026",
+   "The Austrian State Archives re-run, and the default operator that hides every Defranceschi",
+   "The Vienna catalogue searched again under the spellings the stem cannot reach",
+   "The Austrian catalogue's last two spellings"
+  ]
+ },
+ {
+  "id": "arhinet",
+  "kind": "Archive",
+  "title": "ARHiNET — the Croatian State Archives' network",
+  "where": "arhinet.arhiv.hr",
+  "url": "https://arhinet.arhiv.hr/",
+  "what": "The national descriptive network of the Croatian archives, and on paper the catalogue that would cover every state archive in the country at once.",
+  "note": "**It does not resolve, and has not on either attempt.** *Neither `https://arhinet.arhiv.hr/` nor the plain-HTTP form answers at all — not a 403, not a redirect, no connection; `ara.arhiv.hr` is the same.* **Twice tried, twice nothing recorded.** Pazin's own list stays the only Croatian archive catalogue in the research map, and it is the only one that admits which volumes are not digitised anywhere.",
+  "cites": [
+   "ARHiNET (arhinet.arhiv.hr), retried as a provider for the research map, 15 September 2026"
+  ]
+ },
+ {
+  "id": "asudine",
+  "kind": "Archive",
+  "title": "Archivio di Stato di Udine",
+  "where": "asudine.beniculturali.it",
+  "url": "https://www.asudine.beniculturali.it/",
+  "what": "The state archive for Friuli, and the holder of the Carnic notarial series. **Notarile antico B. 2979 — Franceschi Gio. Batta, notary at Mione, protocols 1737–1783** — is the single most promising unread body of paper for the Carnic question, because a village notary's protocols name the households a register only baptises.",
+  "note": "**Not yet requested.** *It needs a letter, not a search box.*",
+  "cites": [
+   "Archivio di Stato di Udine, Notarile antico B. 2979"
+  ]
+ },
+ {
+  "id": "grad-bakar",
+  "kind": "Online source",
+  "title": "Grad Bakar",
+  "where": "bakar.hr",
+  "url": "https://www.bakar.hr/",
+  "what": "The town of Bakar's own site, cited here for **«Stemmi della nobiltà di Buccari», Bakarski zbornik 2 (1996)** — fifty-seven pages on the arms of Bakar's patrician houses, which bears on the arms page and on the Bakar question.",
+  "note": "**Not yet obtained.** *The volume is a local publication and has not been found online.*",
+  "cites": [
+   "«Stemmi della nobiltà di Buccari», Bakarski zbornik 2 (1996)"
+  ]
+ },
+ {
+  "id": "cairn",
+  "kind": "Bibliography",
+  "title": "Cairn.info",
+  "where": "cairn.info",
+  "url": "https://www.cairn.info/",
+  "what": "The French humanities journal platform, approached for French scholarship and for surname distribution alongside Filae and Geopatronyme.",
+  "note": "**Blocked. HTTP 403 to direct requests, not circumvented.** *The figures it would have given were obtained by other means where that was possible.*",
+  "cites": [
+   "Cairn.info, Filae, Geopatronyme"
+  ]
+ },
+ {
+  "id": "cemla",
+  "kind": "Index",
+  "title": "CEMLA — Centro de Estudios Migratorios Latinoamericanos",
+  "where": "cemla.com",
+  "url": "https://cemla.com/buscador/",
+  "what": "The index of arrivals at Buenos Aires, and the obvious first door for the Argentine branch of the diaspora.",
+  "note": "**Blocked by a bot check, which has not been circumvented and will not be.** *The link is kept because the body is real and the block is itself the finding:* the Argentine arrivals remain unsearched, not searched and empty.",
+  "cites": [
+   "CEMLA (Argentine immigration) — passenger records"
+  ]
+ },
+ {
+  "id": "cisei",
+  "kind": "Index",
+  "title": "CISEI — Centro Internazionale Studi Emigrazione Italiana",
+  "where": "ciseionline.it",
+  "url": "http://www.ciseionline.it/",
+  "what": "The Genoa emigration database, cited across the literature as the route into Italian departures for Argentina, Brazil, the United States, Canada and Australia.",
+  "note": "**Gone.** *`cisei.it` is now a parked domain serving an ad redirect; the database is off the open web and every citation to it in the literature is stale.* **Recorded so that nobody follows those citations again.**",
+  "cites": [
+   "CISEI — Centro Internazionale Studi Emigrazione Italiana"
+  ]
+ },
+ {
+  "id": "arolsen-collections",
+  "kind": "Archive",
+  "title": "Arolsen Archives — online collections",
+  "where": "collections.arolsen-archives.org",
+  "url": "https://collections.arolsen-archives.org/",
+  "what": "The online collections of the International Center on Nazi Persecution at Bad Arolsen — displaced-persons files, registrations and transport lists, free and without an account. It produced the Dignano and Bolzano documents, **the 1949 sailing and the word «apatride»**, and, under the spelling this archive had not tried, a further body of records.",
+  "note": "**Free, and spelling-sensitive.** *It timed out on 10 September and answered on 21 September.* Seventy-nine records stand under **DEFRANCESKI**; the **-schi** spelling is a different search again. **A negative here is worth recording:** *Anka Nera returns nothing at all under Defranceski, and neither the Oreščanin nor the Geiger searches match her* — seventeen Oreščanin records, fifty-five Geiger, none hers.",
+  "cites": [
+   "Arolsen Archives online — Anka Nera, and the 79 Defranceski records",
+   "Arolsen Archives — the 1949 sailing and the word «apatride»",
+   "Arolsen Archives online collections, 21 September 2026"
+  ]
+ },
+ {
+  "id": "corsicagenealogie",
+  "kind": "Index",
+  "title": "Corsica Généalogie",
+  "where": "corsicagenealogie.com",
+  "url": "https://www.corsicagenealogie.com/",
+  "what": "A Corsican genealogical society's index to the registers of 226 communes, used to test whether the Corsican Defranceschi are connected to this family.",
+  "note": "**They are not, and that is the finding.** *Four Defranceschi baptisms at Tomino in Cap Corse 1843–56, a second cluster at Levie and Sartène in the far south, and 132 Defranceschi births in the whole of France 1891–1990.* **Nothing whatever connects them to this family, and the honest position is that these are unrelated houses sharing a patronymic.**",
+  "cites": [
+   "Corsican records — RHFC register index, 226 communes"
+  ]
+ },
+ {
+  "id": "maticni-crikvenica",
+  "kind": "Archive",
+  "title": "Matični ured Crikvenica — the civil registry office",
+  "where": "crikvenica.hr",
+  "url": "https://www.crikvenica.hr/",
+  "what": "The registry office holding the Crikvenica death register for 1943, which is the document that would settle one of this archive's open deaths.",
+  "note": "**Closed under the hundred-year rule and not public until the 2040s — but open to a direct descendant on request.** *A **prijepis**, the full transcript, must be asked for by name; the ordinary **izvadak** gives only date and place and would not answer the question.* **Letter drafted.** Two further routes to the same fact: the parish death book, and the 1964 census of war victims at the Croatian State Archives.",
+  "cites": [
+   "Matični ured Crikvenica — death register 1943"
+  ]
+ },
+ {
+  "id": "dazd",
+  "kind": "Archive",
+  "title": "Državni arhiv u Zadru (DAZD)",
+  "where": "dazd.hr",
+  "url": "https://www.dazd.hr/",
+  "what": "The state archive at Zadar, approached through its Prijamni ured (reception office) for the Dalmatian files.",
+  "note": "**Not refused — a form is required, as at the other Croatian archives.** *«Molimo Vas da popunite zahtjev za traženu dokumentaciju. Već poslani mail ćemo priložiti zajedno s popunjenim zahtjevom.»* — they will attach the original enquiry to the completed form, so the description of the file does not have to be written twice.",
+  "cites": [
+   "Državni arhiv u Zadru (DAZD) — Prijamni ured"
+  ]
+ },
+ {
+  "id": "nsk-digitalna",
+  "kind": "Bibliography",
+  "title": "Digitalne zbirke Nacionalne i sveučilišne knjižnice",
+  "where": "digitalna.nsk.hr",
+  "url": "https://digitalna.nsk.hr/",
+  "what": "The digital collections of the Croatian National and University Library, searched in full text under both spellings. It gave the Svetvinčenat sentence this archive had not had from any register: *Atti* 48 (2018), of the Centro di ricerche storiche at Rovigno, on **Defranceschi** as the one surname that stayed in the village.",
+  "note": "**Free full-text search, and it reaches scholarship no register index does.** *An inscription nobody here knew about came out of the same pass.*",
+  "cites": [
+   "NSK digitalna — the National and University Library's full text, both spellings"
+  ]
+ },
+ {
+  "id": "dizbi-hazu",
+  "kind": "Bibliography",
+  "title": "DiZbi.HAZU — the Croatian Academy's digital collection",
+  "where": "dizbi.hazu.hr",
+  "url": "https://dizbi.hazu.hr/",
+  "what": "The digital repository of the Croatian Academy of Sciences and Arts, which supplied Danilo Klen's **«Urbar Petre Pilose iz 1425. godine»**, *Starine* 58 (1980), and — unprompted — a second Klen article that this family had a title for but no journal.",
+  "note": "**Free, and the librarians went further than asked.** *Jelena Prekratić of the Knjižnica HAZU identified and scanned the second article as well.* **The urbar itself is a negative worth recording so nobody chases it twice:** *it surveys Zrenj, Čepić, Šalež, Nugla and Grimalda — not this family's villages.*",
+  "cites": [
+   "Knjižnica HAZU, Zagreb — Jelena Prekratić",
+   "Danilo Klen, «Urbar Petre Pilose iz 1425. godine», Starine 58 (1980), pp. 85–124"
+  ]
+ },
+ {
+  "id": "dnc-nsk",
+  "kind": "Newspapers",
+  "title": "Stare hrvatske novine — the NSK newspaper portal",
+  "where": "dnc.nsk.hr",
+  "url": "https://dnc.nsk.hr/newspapers/",
+  "what": "The National and University Library's digitised Croatian newspapers. It gave **Zora Defranceschi nursing at Crikvenica in March 1915**, **Antun and Viktor Defranceschi in the Gologorica riot trial of 1894**, the *«stancija Defranceschi (Zamporovica)»*, and Carlo's son in the documentary record — 68 hits for «franceschi», 46 for «defranceschi», 4 for «defranceski», 3 for «defrančeski» and 70 for «Gologorica».",
+  "note": "**Free, and it has to be driven like a person** — an ASP.NET search that will not answer a plain command-line request. *It carries the two Bakar newspapers, which is the sharpest reason to work it, and both are empty:* **«Galeb» and «Kvarner» return zero in every spelling across two complete runs, with the controls passing** (107 for «Bakar» in *Galeb*, 102 for «narod» in *Kvarner*). **A genuine absence, not a scanning failure.**",
+  "cites": [
+   "Stare hrvatske novine (dnc.nsk.hr)",
+   "«Galeb» and «Kvarner», the two Bakar newspapers"
+  ]
  }
 ]
