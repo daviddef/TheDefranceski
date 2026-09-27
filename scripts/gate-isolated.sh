@@ -82,6 +82,11 @@ run dates      ../scripts/check-dates-everywhere.py
 # for: a living count moving 99 -> 59 printed "ok witness" and nothing else.
 # The gate was hiding the one line meant to be read, which is the fault the
 # witness was written to catch, reproduced in the harness around it.
+# Decisions before the witness: a decision changing is a refusal, a count
+# moving is only news. Both run outside run() because run() prints a check's
+# own output only on failure, and both of these have something to say while
+# passing.
+if ! ../scripts/check-decisions.py; then fail=1; fi
 if ! ../scripts/check-witness.py; then fail=1; fi
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"

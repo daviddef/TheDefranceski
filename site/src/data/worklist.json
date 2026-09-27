@@ -1289,6 +1289,15 @@
    "what": "Split the overloaded `conf` field — it is a grade, a negation and a person marker under one key",
    "covers": [],
    "note": "**`conf` means three things in this archive's data and that is why the credulous defaults were dangerous.** *A grade of a claim in `families.json` and `explorer.json` (doc, inf, lore, probable, strong); a **negative finding** in `gists.json` (`neg` — «nothing yet joins the Gologorica house to the Gallignana line»); a **living person** in `ancestors.json` (`living`).*\n\n**Every renderer that touches it has to guess which meaning it has**, and three of them guessed in the credulous direction before this was noticed. *The fallbacks are now loud and neutral, which is the right answer while the field is ambiguous — but it is a patch on the symptom.*\n\n**The fix is to split the key:** *`grade` for the five evidence levels, and separate fields for a negation and for living status, which are not grades and should never reach a grading component.* *Not started. It touches four data files and five pages, and the loud defaults make it safe to do slowly.*"
+  },
+  {
+   "n": 150,
+   "state": "done",
+   "owner": "this session",
+   "since": "2026-09-27",
+   "covers": [],
+   "what": "Declare the decisions — the kit pin, the living policy, and 1,446 frozen person ids",
+   "note": "**`data/decisions.json` holds the values that must not change quietly, and the gate refuses when one does.** *Not counts — `check-witness.py` does counts and only reports. These are judgements, and changing one should cost a deliberate edit in the same commit.*\n\n**The pids are the reason this exists.** *A person id is minted once and never derived, because a derived id moves when a birth year is corrected and a moved id is a dead URL. The witness counts 1,446 of them and that number is identical whether or not one now addresses a different person — **a count cannot see a substitution**.* *The mapping is declared instead: adding is free, changing or removing refuses and names the person.*\n\n*Also declared: the **kit pin**, and the **living policy** `named-bare` — which every other check reads rather than decides, so weakening it would widen what may publish while every gate still passed.* **All five refusals were provoked deliberately before the check was wired in.**"
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
