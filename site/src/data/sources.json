@@ -462,7 +462,7 @@
   "id": "anno",
   "kind": "Portal",
   "title": "ANNO — Historische Zeitungen und Zeitschriften, Österreichische Nationalbibliothek",
-  "where": "anno.onb.ac.at",
+  "where": "anno.onb.ac.at · data.onb.ac.at",
   "url": "https://anno.onb.ac.at/anno-suche",
   "what": "Full-text searchable historic Austrian newspapers, free and without registration. Istria was Austrian until 1918, so the Istrian press is in it. A search for «Defranceschi» returns 722 issues. Narrowing works: «\"De Franceschi\" Gallignana» returns eight, «\"De Franceschi\" Moncalvo» six, «\"De Franceschi\" Gologorica» three, and «\"de Franceschi\" Pisino» a hundred and thirteen. Worked through in September 2026 for the Gallignana, Moncalvo and Gologorica sets; the Pisino set is unread.",
   "cites": [
@@ -474,7 +474,7 @@
    "«Il Popolo Istriano», January 1895 — the riot at Gallignana",
    "«Naša Sloga», 13 April 1900 and 25 March 1909 — the Croatian paper on Gologorica"
   ],
-  "note": "The search interface is an Angular application, but it is backed by a plain JSON endpoint, and page images come from the library's own IIIF service without a bot check — so issues can be read at full resolution. The legacy page viewer sits behind a Cloudflare challenge and was left alone. Reading is by OCR run on the page images. The engine available here has no Italian model, so it is being run in English on Italian type: it locates a passage reliably and transcribes it imperfectly. Quotations taken from ANNO on this site are marked as OCR readings, and any word the scan broke is bracketed rather than guessed. Still to do: «\"de Franceschi\" Pisino», 113 issues. The «Naša Sloga» issues that matter have now been read: where the presentation manifest returns 404 the IIIF image endpoint still serves the pages, which is how 25 March 1909 was recovered."
+  "note": "The search interface is an Angular application, but it is backed by a plain JSON endpoint, and page images come from the library's own IIIF service without a bot check — so issues can be read at full resolution. The legacy page viewer sits behind a Cloudflare challenge and was left alone. Reading is by OCR run on the page images. The engine available here has no Italian model, so it is being run in English on Italian type: it locates a passage reliably and transcribes it imperfectly. Quotations taken from ANNO on this site are marked as OCR readings, and any word the scan broke is bracketed rather than guessed. Still to do: «\"de Franceschi\" Pisino», 113 issues. The «Naša Sloga» issues that matter have now been read: where the presentation manifest returns 404 the IIIF image endpoint still serves the pages, which is how 25 March 1909 was recovered. \n\n**`data.onb.ac.at` is ANNO's permalink host, not a second body.** *An issue opens at `http://data.onb.ac.at/ANNO/<id>` — `edp18870903` is L'Eco di Pola of 3 September 1887, `igp18960111` Il giovine Pensiero of 11 January 1896.* **The Il giovine Pensiero hits cluster in January across 1893, 1894, 1895 and 1896, which looks like an annual notice rather than four stories** — the kind of pattern a hit count hides and a date list shows."
  },
  {
   "id": "fvgarchives",
@@ -1628,6 +1628,320 @@
   "note": "**Nearly empty, and now filled.** *Family Trees, The People, The Places, The Map and The Name were never captured by any crawler.* **The lesson generalises: a site nobody links to is a site the Wayback Machine has not got**, and waiting for it to have done the job is not a preservation plan.",
   "cites": [
    "The Wayback Machine — everything under sites.google.com/defranceski.com"
+  ]
+ },
+ {
+  "id": "wikipedia",
+  "kind": "Encyclopedia",
+  "title": "Wikipedia",
+  "where": "en.wikipedia.org · hr.wikipedia.org · cs.wikipedia.org",
+  "url": "https://en.wikipedia.org/",
+  "what": "Cited in three languages, and in every case for a public figure rather than for this family's own people: **Carlo De Franceschi** on the Croatian and Czech Wikipedias, and **Piero della Francesca** at Sansepolcro and Monterchi on the English.",
+  "note": "**Used as a pointer, never as evidence.** *Where a Wikipedia article states something this archive relies on, the article's own source is chased and cited instead.* The Carlo articles agree that he was born in 1809 at Moncalvo di Pisino, now Gologorica, into a family of small landowners — which the registers and the Istrian encyclopedia independently support.",
+  "cites": [
+   "Carlo De Franceschi (hr, cs)",
+   "Piero della Francesca (en)"
+  ]
+ },
+ {
+  "id": "commercial-heraldry",
+  "kind": "Commercial",
+  "title": "The commercial heraldry sites — Heraldry's Institute, House of Names, COADB",
+  "where": "heraldrysinstitute.com · houseofnames.com · coadb.com",
+  "url": "https://www.heraldrysinstitute.com/",
+  "what": "Three businesses that sell coats of arms by surname. All three were linked from the family's old Google Site, which is the only reason they are in this archive's data at all.",
+  "note": "**Recorded because the old site used them; this archive does not.** *They sell a crest to anyone who shares a surname, which is the opposite of what an arms attribution is.* **The arms page here rests on a lintel and a stone**, and the paper that would settle it is in the Adelsarchiv at Vienna, not on a shop.",
+  "cites": [
+   "Blasonario Giuliano and the old site's heraldry list"
+  ]
+ },
+ {
+  "id": "academia-edu",
+  "kind": "Bibliography",
+  "title": "Academia.edu",
+  "where": "academia.edu",
+  "url": "https://www.academia.edu/",
+  "what": "Cited for a paper on **Titian's portraits of Andrea de Franceschi** — a Venetian grand chancellor of a different family, and part of the standing evidence that several unrelated houses carry this name.",
+  "note": "**Behind a Cloudflare wall from here; not circumvented, and still owed.**",
+  "cites": [
+   "Academia.edu — Titian's portraits of Andrea de Franceschi"
+  ]
+ },
+ {
+  "id": "poskok",
+  "kind": "Online source",
+  "title": "Poskok — «Obitelj De Franceschi u Imotskom od 1717. do danas»",
+  "where": "poskok.info",
+  "url": "https://poskok.info/",
+  "what": "A Croatian news site carrying a long article on **the De Franceschi at Imotski from 1717 to the present**, which is **now the backbone of this archive's Imotski page**.",
+  "note": "**Journalism, not a register, and treated as such.** *It is the fullest account of the Imotski branch anyone has published, and this archive has not yet tested it against a parish book.*",
+  "cites": [
+   "Poskok — the De Franceschi at Imotski, 1717 to today"
+  ]
+ },
+ {
+  "id": "catholic-hierarchy",
+  "kind": "Reference",
+  "title": "Catholic-Hierarchy",
+  "where": "catholic-hierarchy.org",
+  "url": "https://www.catholic-hierarchy.org/",
+  "what": "A reference database of Catholic bishops, cited for **a Franceschi bishop of Forlì, died 1601**.",
+  "note": "*One man, no connection established to this family, and kept because the old site listed him.*",
+  "cites": [
+   "Catholic-Hierarchy — a Franceschi bishop, Forlì, d. 1601"
+  ]
+ },
+ {
+  "id": "chan-an",
+  "kind": "Archive",
+  "title": "Archives nationales (France) — BB/29, letters patent of the First Empire",
+  "where": "chan.archivesnationales.culture.gouv.fr",
+  "url": "http://chan.archivesnationales.culture.gouv.fr/",
+  "what": "The series in which **the Napoleonic titles of Defrance and of Franceschi-Delonne are registered** — the French ennoblements that the old site pointed at and that bear on the arms question.",
+  "note": "**Named, not read.** *The old catalogue host is superseded by the Salle des inventaires virtuelle and the link is kept as the citation the old site gave.*",
+  "cites": [
+   "Archives nationales — BB/29, First Empire letters patent"
+  ]
+ },
+ {
+  "id": "istra-istria",
+  "kind": "Online source",
+  "title": "Istarska županija — istra-istria.hr",
+  "where": "istra-istria.hr",
+  "url": "https://www.istra-istria.hr/",
+  "what": "The Istrian County's official site, linked from the old Google Site under «Regional and community».",
+  "note": "**Linked without a comment on the old site, and nothing in this archive rests on it.** *Recorded so that the link has an owner rather than sitting in a table as a bare domain.*",
+  "cites": [
+   "Istra County (old site link list)"
+  ]
+ },
+ {
+  "id": "istria-fiume-dalmatia",
+  "kind": "Online source",
+  "title": "Istria–Fiume–Dalmatia — Italian biographies",
+  "where": "istria-fiume-dalmatia.blogspot.com",
+  "url": "http://istria-fiume-dalmatia.blogspot.com/",
+  "what": "A blog collecting Italian biographies of the Istrian, Fiuman and Dalmatian exile communities.",
+  "note": "**Linked without a comment on the old site.** *Secondary and unfootnoted; useful for names to chase, not for statements to cite.*",
+  "cites": [
+   "Istria–Fiume–Dalmatia, Italian biographies (old site link list)"
+  ]
+ },
+ {
+  "id": "croatian-roots",
+  "kind": "Commercial",
+  "title": "Croatian Roots",
+  "where": "croatianroots.com",
+  "url": "https://croatianroots.com/",
+  "what": "A commercial genealogical research service for Croatia.",
+  "note": "**Commercial, and not engaged.** *Recorded because the old site listed it. Where this archive has needed a Croatian archive it has written to the archive.*",
+  "cites": [
+   "Croatian Roots — services (old site link list)"
+  ]
+ },
+ {
+  "id": "feefhs",
+  "kind": "Online source",
+  "title": "FEEFHS — Federation of East European Family History Societies",
+  "where": "feefhs.org",
+  "url": "https://feefhs.org/",
+  "what": "A long-running gateway of East European genealogical resources, linked for its Croatia page.",
+  "note": "**Linked without a comment on the old site.** *A directory rather than a source; nothing here rests on it.*",
+  "cites": [
+   "FEEFHS — Croatia (old site link list)"
+  ]
+ },
+ {
+  "id": "dvhh",
+  "kind": "Online source",
+  "title": "DVHH — Danube Swabian Heritage",
+  "where": "dvhh.org",
+  "url": "https://dvhh.org/",
+  "what": "The Danube Swabian heritage portal, linked from the old site.",
+  "note": "**Linked without a comment, and off this family's ground** — *the Danube Swabian settlements are not where any line here runs.* Kept for completeness of the old site's record.",
+  "cites": [
+   "DVHH — Danube Swabian Heritage (old site link list)"
+  ]
+ },
+ {
+  "id": "smrikve",
+  "kind": "Online source",
+  "title": "Smrikve — the Istrian local-history library",
+  "where": "smrikve.com",
+  "url": "https://www.smrikve.com/",
+  "what": "A large privately built library of west-Istrian local history. Linked here **on the other family's house at Seget** — the Rome-and-Candia line that left Crete when the Turks took it in 1669, and which is not this family.",
+  "note": "**Substantial and useful, and about a different house.** *Recorded partly to keep that distinction visible: a Seget De Franceschi is not a Gračišće one.*",
+  "cites": [
+   "Smrikve — Seget"
+  ]
+ },
+ {
+  "id": "min-kulture-hr",
+  "kind": "Bibliography",
+  "title": "Ministarstvo kulture i medija — Mala biblioteka Godišnjaka zaštite spomenika kulture",
+  "where": "min-kulture.gov.hr",
+  "url": "https://min-kulture.gov.hr/",
+  "what": "The Croatian culture ministry's publication series on monument protection; volume 20 (2019) is cited alongside Smrikve for the west-Istrian house at Seget.",
+  "note": "**Free PDF, and about buildings rather than people.** *Cited for the fabric of a house, not for a family.*",
+  "cites": [
+   "Mala biblioteka Godišnjaka zaštite spomenika kulture, sv. 20 (2019)"
+  ]
+ },
+ {
+  "id": "istrapedia",
+  "kind": "Encyclopedia",
+  "title": "Istrapedia",
+  "where": "istrapedia.hr",
+  "url": "https://www.istrapedia.hr/",
+  "what": "The Istrian online encyclopedia, carrying a **«de Franceschi»** entry, cited here for Pićan — the Pedena where Antonio lived.",
+  "note": "Free. *An encyclopedia entry is a pointer to the scholarship behind it, and this archive prefers Bertoša's Istarska enciklopedija article where the two overlap.*",
+  "cites": [
+   "Istrapedia — «de Franceschi» (natuknica 628)"
+  ]
+ },
+ {
+  "id": "ipd-ssi",
+  "kind": "Bibliography",
+  "title": "Istarsko povijesno društvo — članak br. 34",
+  "where": "ipd-ssi.hr",
+  "url": "https://ipd-ssi.hr/",
+  "what": "The Istrian Historical Society's PDF of article no. 34, linked from David's map against **Ližnjan**.",
+  "note": "**Free PDF, carried over from the map and not yet read against this archive's Ližnjan people.** *Listed so that the reading is owed rather than forgotten.*",
+  "cites": [
+   "Istarsko povijesno društvo, članak br. 34"
+  ]
+ },
+ {
+  "id": "italian-parish-records",
+  "kind": "Online source",
+  "title": "Italian Parish Records",
+  "where": "italianparishrecords.org",
+  "url": "https://www.italianparishrecords.org/",
+  "what": "A guide to what Italian parish registers exist and where, linked from the map beside Antenati as the second door into Italy.",
+  "note": "**A finding aid, not a record set.** *Free, and worth keeping for the Carnic parish question, where the Napoleonic civil registers stop in 1815 and the parish books are the only thing that reaches 1742.*",
+  "cites": [
+   "Italian Parish Records (map link list)"
+  ]
+ },
+ {
+  "id": "unibo",
+  "kind": "Bibliography",
+  "title": "Università di Bologna — staff pages",
+  "where": "unibo.it",
+  "url": "https://www.unibo.it/",
+  "what": "Read in full for **Zelda Alice Franceschi**, a Bologna anthropologist of the Argentine Gran Chaco, because the surname and the Argentine subject together looked like a lead.",
+  "note": "**No connection to this family.** *The surname is the author's own.* Recorded so the same coincidence is not chased twice.",
+  "cites": [
+   "Zelda Alice Franceschi, curriculum vitae"
+  ]
+ },
+ {
+  "id": "wikitree",
+  "kind": "Index",
+  "title": "WikiTree",
+  "where": "wikitree.com",
+  "url": "https://www.wikitree.com/",
+  "what": "A collaborative single-tree site, approached for profiles under this surname.",
+  "note": "**Blocked by a bot check, not circumvented.**",
+  "cites": [
+   "WikiTree — profile search"
+  ]
+ },
+ {
+  "id": "worldcat",
+  "kind": "Bibliography",
+  "title": "WorldCat",
+  "where": "worldcat.org",
+  "url": "https://www.worldcat.org/",
+  "what": "Used to locate two books this archive needs and does not have: **Vergé-Franceschi, «Le cap Corse: généalogies et destins» (2006)**, the reference work for Cap Corse families, which would settle whether the Tomino Defranceschi are in it; and **Bertoša, «Etos i etnos zavičaja» (Pula–Rijeka 1985)**, which contains «Gologorički De Franceschi: između etosa i etnosa», the footnoted original behind the encyclopedia entry.",
+  "note": "**A catalogue, not a text.** *Both books are located and neither is obtained.*",
+  "cites": [
+   "Vergé-Franceschi, «Le cap Corse» (2006)",
+   "Bertoša, «Etos i etnos zavičaja» (1985)"
+  ]
+ },
+ {
+  "id": "patrimonio-fvg",
+  "kind": "Archive",
+  "title": "Patrimonio culturale — Regione Friuli Venezia Giulia",
+  "where": "patrimonioculturale.regione.fvg.it",
+  "url": "https://www.patrimonioculturale.regione.fvg.it/",
+  "what": "The regional cultural-heritage catalogue for Friuli Venezia Giulia. It holds drawings connected to this family's historians — illustrations for **«L'Istria nobilissima»**, material around Caprin's «Il Trecento a Trieste» (1897), and **a headpiece drawn for Camillo's Arcadia essay of 1929–30**.",
+  "note": "**Free, and only half read.** *The individual sheet records remain unread.*",
+  "cites": [
+   "Patrimonio culturale FVG — the drawings"
+  ]
+ },
+ {
+  "id": "zminj",
+  "kind": "Online source",
+  "title": "Općina Žminj",
+  "where": "zminj.hr",
+  "url": "https://www.zminj.hr/",
+  "what": "The municipality of Žminj, whose local history carries the **«Carnielli» of Istria** — men described as *«...ra u Karniji»*, many still spending part of each year back at **Agrons near Ovaro**, and marrying only girls from there, who stayed in Carnia while the men wintered in Istria.",
+  "note": "**This is the clearest local statement of the pattern this whole archive is trying to document** — *a seasonal Carnic presence in Istria that becomes a settled one.* Secondary, and it points straight at Ovaro, which the Antenati survey independently reached.",
+  "cites": [
+   "Općina Žminj — the Carnielli of Istria"
+  ]
+ },
+ {
+  "id": "nati-in-trentino",
+  "kind": "Index",
+  "title": "Nati in Trentino",
+  "where": "natiintrentino.it",
+  "url": "http://www.natiintrentino.it/",
+  "what": "The Trentino provincial index of parish baptisms, which would cover the Trentino spellings of the name.",
+  "note": "**Behind an operator login — «accesso dell'operatore» — and the public site search returns «Nessun risultato».** *Not circumvented.* **A written request to the Servizio coesione territoriale at Trento is the route.**",
+  "cites": [
+   "Nati in Trentino"
+  ]
+ },
+ {
+  "id": "nsw-state-archives",
+  "kind": "Archive",
+  "title": "NSW State Archives — passenger lists",
+  "where": "records.nsw.gov.au",
+  "url": "https://www.records.nsw.gov.au/",
+  "what": "The New South Wales passenger indexes, free to search. They gave the earliest Australian appearance of the name: an arrival on **6 January 1893** — **a sailor passing through, not an emigrant**.",
+  "note": "**Free, and it fixes a date this archive had wrong by two generations.** *The surname reaches Australia in 1893 at sea, and does not settle there for another fifty-seven years.*",
+  "cites": [
+   "NSW State Archives — passenger lists"
+  ]
+ },
+ {
+  "id": "villa-ruzic",
+  "kind": "Archive",
+  "title": "Villa Ružić, Rijeka — the de Canziani Jakšić collection",
+  "where": "villaruzic.hr",
+  "url": "https://www.villaruzic.hr/",
+  "what": "A private Rijeka archive and house museum, approached over the Hotel Therapia at Crikvenica — where Hedviga Blažević is said to have sung, and to have met Ivan Defranceski.",
+  "note": "**A full and generous answer, and the answer is that the paper is gone.** *Martina Riedl of the Kvarner Palace — the former Therapia, Austrian-owned since 2004 — replies that almost nothing survives from the period asked about.* **The story stands where it stood: as testimony, uncorroborated, and now with the hotel's own archive formally eliminated as a route to it.**",
+  "cites": [
+   "Hotel Kvarner Palace, Crikvenica — the former Hotel Therapia"
+  ]
+ },
+ {
+  "id": "istria-outside-my-window",
+  "kind": "Online source",
+  "title": "Istria Outside My Window",
+  "where": "istriaoutsidemywindow.com",
+  "url": "https://www.istriaoutsidemywindow.com/",
+  "what": "Isabel Putinja's Istrian blog, carrying **«A peek inside Gračišće's Salamon Palace» (2018)** — photographs of the interior, and **the only published look inside that this archive knows of**.",
+  "note": "*Photographs, credited to their author and not reproduced here.* **The house on Gračišće's square is the one drawn on the direct line, which makes this the nearest thing to a view of it.**",
+  "cites": [
+   "Istria Outside My Window — «A peek inside Gračišće's Salamon Palace» (2018)"
+  ]
+ },
+ {
+  "id": "istra-hr",
+  "kind": "Online source",
+  "title": "Istra.hr — the Istrian tourist board",
+  "where": "istra.hr",
+  "url": "https://www.istra.hr/",
+  "what": "Cited for **«Istrian building heritage of the Venetian era»**, which supplies the architectural description quoted on the direct line — **and the point that Gračišće was never Venetian**.",
+  "note": "*A tourist-board page used for one architectural statement, which is checked against Huić's «Urbanistički razvoj Gračišća u Istri», Prostor 23 (2015) 2.*",
+  "cites": [
+   "Istra.hr — «Istrian building heritage of the Venetian era»"
   ]
  }
 ]
