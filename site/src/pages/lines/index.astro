@@ -14,6 +14,26 @@ import arr from "../../data/arrivals.json";
 import reg from "../../data/regions.json";
 import Plates from "../../components/Plates.astro";
 import Lightbox from "../../components/Lightbox.astro";
+
+/* THE TERNARY THAT USED TO SIT WHERE CONF IS MAPPED.
+ *
+ * It read: doc -> documented, inf -> inferred, ANYTHING ELSE -> lore. And
+ * «lore» renders as «Family». That is fine for the three values this table
+ * actually holds, and it is a trap for the ones this archive uses elsewhere:
+ * `conf` across the data also takes `neg`, `strong` and `living`. A NEGATIVE
+ * finding — conf: "neg", the archive saying this is NOT the family — would
+ * have been published under a badge reading «Family».
+ *
+ * Nothing was wrong on the page, because no dest carries those values today.
+ * It was wrong in the same way the notables column was wrong before anyone
+ * looked: an else-branch that resolves every unknown input to the most
+ * credulous answer in the set cannot report that it did not understand you.
+ *
+ * So the mapping is total and an unrecognised value is loud.
+ */
+const CONF = { doc: "documented", documented: "documented", inf: "inferred",
+               inferred: "inferred", probable: "probable", lore: "lore",
+               disputed: "disputed" };
 ---
 <Base title="The Lines" eyebrow="Six families · four unplaced clusters · one very common name"
       dek="Separating three things this site had been adding together: a family is an origin, a station is a stop on one family's road, and a namesake is somebody who happens to share the commonest patronymic in Italy.">
@@ -68,7 +88,9 @@ import Lightbox from "../../components/Lightbox.astro";
           <td style="white-space:nowrap">{d.fam === "none"
             ? <span style="color:var(--ink-3)">not this family</span>
             : <span style="color:var(--accent);font-weight:600">{d.fam}</span>}</td>
-          <td><Evidence level={d.conf === "doc" ? "documented" : d.conf === "inf" ? "inferred" : "lore"} /></td>
+          <td>{CONF[d.conf]
+                ? <Evidence level={CONF[d.conf]} />
+                : <span class="nolink" title={`"${d.conf}" is not one of this archive's graded levels`}>Ungraded</span>}</td>
           <td set:html={d.what.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></td>
         </tr>
       ))}</tbody>
@@ -214,6 +236,9 @@ import Lightbox from "../../components/Lightbox.astro";
 </section>
   <Sources ids={["kobler", "dfcom", "familysearch"]} />
 <style>
+  .nolink{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;
+          border:1px solid var(--ink-3);color:var(--ink-2);background:transparent;white-space:nowrap}
+
   .arrgrid{margin-top:26px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .arrcard{border:1px solid var(--rule);border-top:3px solid var(--accent);padding:20px 20px 22px;background:var(--panel);display:flex;flex-direction:column}
   .arrwhen{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
