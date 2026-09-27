@@ -1548,7 +1548,7 @@
   "where": "museudaimigracao.org.br",
   "url": "https://museudaimigracao.org.br/",
   "what": "The Hospedaria de Imigrantes enrolment registers at São Paulo — the arrival record for the Brazilian cluster, and the natural companion to the Veneto departure region the My Maps gave.",
-  "note": "**Not blocked — broken.** *The enrolment-register search lives at `/acervo/registro-de-matricula`, a plain GET form taking nome, sobrenome, nacionalidade, vapor and ano, and **every query returns HTTP 500**.* **That is not a bot check and not an empty result**, and it is worth retrying, because nothing about the Brazilian arrivals has been read.",
+  "note": "**It was broken, and on 27 September 2026 it answers.** *Every query returned HTTP 500 on 21 September; six days later the same form returns **184 records** for the surname stem.* **The rows are substantial**, not an index stub: *Nome, Sobrenome, Nacionalidade, Idade, **Chegada** (the arrival date), **Parentesco** (CHEFE for a household head, SOZINHA for a woman travelling alone), **Família** (a family number that groups a household across the register) and **Livro**.* **The family number is the valuable field** — it is what turns a list of arrivals into households. *Nothing has been harvested yet, and the 184 include Franceschini and other names the stem catches, which are a different surname and must be separated before anything is counted.*",
   "cites": [
    "Museu da Imigração / Hospedaria de Imigrantes, São Paulo, 21 September 2026"
   ]
