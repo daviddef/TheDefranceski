@@ -385,7 +385,7 @@
    "place": "Rijeka, Primorsko-goranska, Hrvatska",
    "src": "household",
    "href": "/households/",
-   "note": "",
+   "note": "**One baptism, indexed twice in two different FamilySearch collections.** *Both `1:1:QLYD-H7YJ` and `1:1:QKMD-LKFC` are the baptism of **Mariam de Franceschi at Rijeka on 9 September 1632** — the first in «Croatia, Delnice Deanery Catholic Church Books, 1571–1926», the second in «Croatia, Church Books, 1516–1994».* **Two different arks are not two different records when the collections overlap**, which is the case the ark test does not cover. *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:QLYD-H7YJ",
    "mh": "",
@@ -1922,7 +1922,7 @@
    "place": "Šterna",
    "src": "burial",
    "href": "/burials/",
-   "note": "",
+   "note": "**One man, two events, and the father's name proves it.** *`1:1:X9DP-3DVT` is his **burial in 1812, aged 56**, son of **Gio Battista**. `1:1:X9DP-9QSQ` is his **marriage in 1777** to **Zanetta Granisi** daughter of Nazario, son of **Gio Batta De Franceschi**. Same father, and a man who marries at about twenty-one is fifty-six in 1812.* *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:X9DP-3DVT",
    "mh": "",
@@ -1933,7 +1933,12 @@
    "who": "/who/bortolo-de-franceschi/",
    "parish": "Šterna",
    "placeSlug": "sterna",
-   "pid": "bortolo-de-franceschi-1756"
+   "pid": "bortolo-de-franceschi-1756",
+   "spouse": {
+    "name": "Zanetta Granisi",
+    "from": "record",
+    "how": "named as his wife at their marriage of 1777, FamilySearch 1:1:X9DP-9QSQ"
+   }
   },
   {
    "name": "Cattarina Defranceschi",
@@ -4404,7 +4409,7 @@
    "place": "Rijeka",
    "src": "burial",
    "href": "/burials/",
-   "note": "",
+   "note": "**Not the same child as [the other Elisabetta of 1810](/person/elisabetta-defranceschi-1810-2/), and the fathers say so.** *This row is the **burial of 26 September 1810** at Fiume, aged 0, father **Franco**. The other is a **baptism of 2 April 1810** at Fiume, parents **Anna and Andrea**.* **Two infants of one name, born and buried in one town in one year, to two different households.** *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:6YBR-G4DM",
    "mh": "4510923",
@@ -5780,7 +5785,7 @@
    "place": "Ližnjan, Istria, Italia",
    "src": "record",
    "href": "/archive/",
-   "note": "",
+   "note": "**One man, baptised and married.** *`1:1:XQM3-P8CX` is his **baptism at Ližnjan in 1822**, son of **Mattio De Franceschi** and **Madalena Peuc…**. `1:1:XQM3-1DFT` is his **marriage in 1845, aged 23**, to **Agata Schiffich**, also 23 — and 1845 less 23 is 1822.* *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:XQM3-P8CX",
    "mh": "",
@@ -5788,7 +5793,12 @@
    "who": "/who/gregorio-de-franceschi/",
    "parish": "Ližnjan",
    "placeSlug": "liznjan",
-   "pid": "gregorio-de-franceschi-1822"
+   "pid": "gregorio-de-franceschi-1822",
+   "spouse": {
+    "name": "Agata Schiffich",
+    "from": "record",
+    "how": "named as his wife at their marriage of 1845, FamilySearch 1:1:XQM3-1DFT"
+   }
   },
   {
    "name": "Gregorio Defranceschi",
@@ -5797,7 +5807,7 @@
    "place": "Ližnjan",
    "src": "record",
    "href": "/archive/",
-   "note": "",
+   "note": "**The same man as [Gregorio De Franceschi](/person/gregorio-de-franceschi-1822/).** *This row is his marriage of 1845; that one is his baptism at Ližnjan in 1822, and his stated age of 23 fits it exactly.* *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:XQM3-1DFT",
    "mh": "",
@@ -5805,7 +5815,8 @@
    "who": "/who/gregorio-defranceschi/",
    "parish": "Ližnjan",
    "placeSlug": "liznjan",
-   "pid": "gregorio-defranceschi-1822"
+   "pid": "gregorio-defranceschi-1822",
+   "sameAs": "gregorio-de-franceschi-1822"
   },
   {
    "name": "Helena Defranceschi (Weber)",
@@ -6943,7 +6954,7 @@
    "place": "Rijeka",
    "src": "burial",
    "href": "/burials/",
-   "note": "",
+   "note": "**An infant, and not the Julius of the other row.** *`1:1:6YBT-Q1D8` is a **burial of 25 August 1833 at Vitipolis, aged 0**. The row it resembled belongs to **Julius the father**, who is naming a daughter at her baptism in 1829.* *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:6YBT-Q1D8",
    "mh": "",
@@ -14608,7 +14619,7 @@
    "place": "Šterna",
    "src": "record",
    "href": "/archive/",
-   "note": "**The dates on this row were copied from a burial, not read from its own record.** *`1:1:X9DP-9QSQ` is **a marriage of 1777** — Bortolo De Franceschi, son of **Gio Batta De Franceschi**, to **Zanetta Granisi**, daughter of Nazario.* *A man marrying in 1777 is not contradicted by a burial in 1812, so this may still be [Bortolo De Franceschi](/person/bortolo-de-franceschi-1756/) — but the marriage act gives neither a birth nor a death and the years must not be asserted from it.*",
+   "note": "**The same man as [Bortolo De Franceschi](/person/bortolo-de-franceschi-1756/).** *This row is his **marriage of 1777**; that one is his **burial of 1812**, and both name his father as Gio Batta. The dates on this row were copied from the burial and are withdrawn.* *Read on FamilySearch, 27 September 2026.*\n\n**The dates on this row were copied from a burial, not read from its own record.** *`1:1:X9DP-9QSQ` is **a marriage of 1777** — Bortolo De Franceschi, son of **Gio Batta De Franceschi**, to **Zanetta Granisi**, daughter of Nazario.* *A man marrying in 1777 is not contradicted by a burial in 1812, so this may still be [Bortolo De Franceschi](/person/bortolo-de-franceschi-1756/) — but the marriage act gives neither a birth nor a death and the years must not be asserted from it.*",
    "notable": false,
    "ark": "1:1:X9DP-9QSQ",
    "mh": "",
@@ -14620,7 +14631,8 @@
    "parish": "Šterna",
    "placeSlug": "sterna",
    "yfrom": "**withdrawn 27 September 2026** — the year was copied from another entry on a name match and the record does not support it",
-   "pid": "bortolo-de-franceschi-1756-2"
+   "pid": "bortolo-de-franceschi-1756-2",
+   "sameAs": "bortolo-de-franceschi-1756"
   },
   {
    "name": "Bortolo Defranceschi",
@@ -16972,7 +16984,7 @@
    "place": "Rijeka, Modrus-Fiume, Hungary",
    "src": "household",
    "href": "/households/",
-   "note": "",
+   "note": "**The same baptism as [Mariam de Franceschi](/person/mariam-de-franceschi-1632/)** — 9 September 1632 at Rijeka, indexed a second time under a different collection. *Read on FamilySearch, 27 September 2026.*",
    "notable": false,
    "ark": "1:1:QKMD-LKFC",
    "mh": "",
@@ -16984,7 +16996,8 @@
    "parish": "Rijeka",
    "placeSlug": "rijeka",
    "yfrom": "a household entry — Gioannis Antonÿ De Franceschi × Lutia",
-   "pid": "mariam-de-franceschi-1632-2"
+   "pid": "mariam-de-franceschi-1632-2",
+   "sameAs": "mariam-de-franceschi-1632"
   },
   {
    "name": "Mariam Dorothæam Defranceschi",
