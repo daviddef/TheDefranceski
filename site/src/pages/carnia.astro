@@ -209,6 +209,20 @@ const cmdp = (x) => cmd(x).replace(/\n\n+/g, "</p><p>");
   </div>
   <div class="prose" style="margin-top:22px" set:html={cmdp(c.istriaroad.close)}></div>
 
+  <h3 id="distribution" style="font-size:24px;margin-top:44px">{c.distribution.heading}</h3>
+  <p class="cap" style="margin-top:6px" set:html={cmd(c.distribution.grade)}></p>
+  <p class="dek" style="margin-top:8px" set:html={cmd(c.distribution.lead)}></p>
+  <div class="tw" style="margin-top:14px">
+    <table class="tbl">
+      <tbody>{c.distribution.rows.map(([k, v]) => (
+        <tr><th style="white-space:nowrap">{k}</th><td set:html={cmd(v)}></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:22px" set:html={cmdp(c.distribution.method)}></div>
+  <div class="prose" style="margin-top:14px" set:html={cmdp(c.distribution.careful)}></div>
+  <p class="cap" style="margin-top:16px" set:html={cmd(c.distribution.source_dist)}></p>
+
   <h3 id="villagefiles" style="font-size:24px;margin-top:44px">{c.villagefiles.heading}</h3>
   <p class="dek" style="margin-top:8px" set:html={cmd(c.villagefiles.lead)}></p>
   <div class="scroll" style="margin-top:18px">
