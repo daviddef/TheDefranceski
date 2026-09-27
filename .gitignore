@@ -25,3 +25,15 @@ data/gaz/
 # scoped `git add` picks up another session's work, which has happened in this
 # estate more than once tonight.
 site/dist-*/
+
+# CREDENTIALS. This repository is published to daviddef.github.io, so a key
+# committed here is a key published. `private/` already covers the Trove key
+# at private/trove.env; these are the names a future pass is most likely to
+# reach for without thinking, listed so the mistake cannot be made quietly.
+.env
+.env.*
+*.env
+.secrets
+secrets.json
+**/apikey*
+**/*api-key*
