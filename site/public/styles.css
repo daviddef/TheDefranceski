@@ -11,6 +11,7 @@
   --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --maxw:1080px;
+  --maxw-wide:1560px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --ground:#101820; --panel:#17212A; --panel-2:#1E2A34;
@@ -43,6 +44,17 @@ a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:.06em}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:2px}
 img{max-width:100%}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+/* Wide content may leave the reading column. Prose must not: 45–75 characters
+   is the readable measure and .prose is already at 80ch, so widening it would
+   cost legibility to buy density. What was actually wasting the screen was
+   TABLES and DIAGRAMS squeezed into 1080px while a wide monitor sat empty
+   either side. .bleed is opt-in anywhere; .scroll — the overflow-x container,
+   107 uses across 34 pages — takes it automatically above 1200px, which is the
+   width at which there is room to give. Below that nothing changes at all. */
+.bleed{width:min(var(--maxw-wide),calc(100vw - 56px));margin-left:50%;transform:translateX(-50%)}
+@media (min-width:1200px){
+  .scroll{width:min(var(--maxw-wide),calc(100vw - 56px));margin-left:50%;transform:translateX(-50%)}
+}
 .lab{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink-3)}
 .mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
