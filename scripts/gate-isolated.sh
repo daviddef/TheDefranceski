@@ -93,6 +93,11 @@ if ! ../scripts/check-witness.py; then fail=1; fi
 # a corrected name stayed live in households.json for five days and kept a
 # child filed under the wrong household. See scripts/check-propagation.py.
 if ! ../scripts/check-propagation.py; then fail=1; fi
+# Story last, and it SPEAKS rather than blocks: it counts findings that never
+# left the search log. Forty-four existed when it was written, so failing the
+# gate on them would only teach people to stop running the gate. The number is
+# printed on every build and should only ever go down. --strict to enforce.
+../scripts/check-story.py | head -2
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail
