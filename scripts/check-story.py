@@ -43,7 +43,15 @@ def main():
     S = json.load(open(os.path.join(DATA, "searched.json"), encoding="utf-8"))
     rows = S.get("rows", [])
 
-    hits = [r for r in rows if (r.get("outcome") or "").lower() == "hit"]
+    # A row marked `internal` is an audit of THIS ARCHIVE'S OWN DATA -- a place
+    # string tested against its province, an evidence file checked for orphans --
+    # not a finding about the family. Its honest home is /method/, which is a log
+    # by design, so demanding a story link would only teach people to fake one.
+    # The flag is explicit and carries `internalWhy`, so each exemption is
+    # somebody's stated decision rather than a silent hole in the count.
+    internal = [r for r in rows if r.get("internal")]
+    hits = [r for r in rows
+            if (r.get("outcome") or "").lower() == "hit" and not r.get("internal")]
     orphans = []
     for r in hits:
         ev = r.get("ev") or []
@@ -52,7 +60,8 @@ def main():
         if not story:
             orphans.append((r.get("when", "?"), (r.get("src") or "")[:66], len(hrefs)))
 
-    print("check-story: %d searches recorded, %d of them hits" % (len(rows), len(hits)))
+    print("check-story: %d searches recorded, %d of them hits (%d internal audits exempt)"
+          % (len(rows), len(hits), len(internal)))
     if not orphans:
         print("            every hit points at a page a reader reads")
         return 0
