@@ -49,6 +49,15 @@ RULES = [
      # worklist.json quotes the old count in the sentence that revises it
      {"corrections.json", "roster.json", "dossiers.json", "searchindex.json",
       "worklist.json"}),
+    ("Antonio asserted dead by November 1780 (the blotted «q.m» reading)",
+     r"Antonio (?:was |is )?dead by (?:\*\*)?November 1780",
+     # the corrections page and the pages that tell the story of the fix quote it
+     {"corrections.json", "worklist.json", "roster.json", "families.json",
+      "searched.json", "dossiers.json", "searchindex.json"}),
+    ("Gregorio still given the withdrawn patronymic in a display name",
+     r"Gregorio Defranceschi q\.m Antonio",
+     {"corrections.json", "worklist.json", "roster.json", "families.json",
+      "searched.json", "dossiers.json", "searchindex.json", "decisions.json"}),
 ]
 
 def main():

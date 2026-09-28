@@ -691,7 +691,7 @@
    "giuseppe-pietro-franceschi-1879": "Giuseppe Pietro Franceschi|1879|",
    "gregorio-de-franceschi-1822": "Gregorio De Franceschi|1822|",
    "gregorio-defranceschi-1822": "Gregorio Defranceschi|1822|",
-   "gregorio-defranceschi-q-m-antonio-fl-1780-c1750": "Gregorio Defranceschi q.m Antonio (fl. 1780)||",
+   "gregorio-defranceschi-q-m-antonio-fl-1780-c1750": "Gregorio Defranceschi (witness 1780)||",
    "gregorius-defranceschi-1862": "Gregorius Defranceschi|1862|",
    "guglielmo-defranceschi-c1832": "Guglielmo Defranceschi||",
    "guido-de-franceschi-1907": "Guido De Franceschi|1907|1945",
@@ -1495,5 +1495,5 @@
    "zuanne-franceschi-1646": "Zuanne Franceschi|1646|"
   }
  },
- "note": "Declared decisions. Changing one of these FAILS the gate on purpose: edit this file in the same commit, deliberately. Adding a pid is free; changing or removing one is not."
+ "note": "Declared decisions. Changing one of these FAILS the gate on purpose: edit this file in the same commit, deliberately. Adding a pid is free; changing or removing one is not.\n\n28 Sept 2026 — the display name behind pid 'gregorio-defranceschi-q-m-antonio-fl-1780-c1750' changed from 'Gregorio Defranceschi q.m Antonio (fl. 1780)' to 'Gregorio Defranceschi (witness 1780)'. The 'q.m Antonio' was withdrawn (see corrections): an ink blot sat on the glyph, and frames 93 shows Antonio alive and titled 'Capo' in 1783. THE PID ITSELF IS NOT MOVED, although it now carries a withdrawn claim in its slug, because a moved id is a dead URL. The page says so."
 }
