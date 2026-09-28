@@ -37,9 +37,10 @@ RULES = [
      {"corrections.json", "dossiers.json", "searchindex.json"}),
     ("the chancellor called Bosponi",
      r"Bosponi",
-     # searched.json names the old form in the sentence that corrects it
+     # searched.json and families.json name the old form in the sentence
+     # that corrects it; both are telling the story of the fix
      {"corrections.json", "worklist.json", "roster.json", "dossiers.json",
-      "searchindex.json", "searched.json"}),
+      "searchindex.json", "searched.json", "families.json"}),
     ("the chaplain called Zolonta",
      r"Zolonta",
      {"corrections.json", "worklist.json", "searchindex.json"}),
