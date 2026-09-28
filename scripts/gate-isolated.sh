@@ -88,6 +88,11 @@ run dates      ../scripts/check-dates-everywhere.py
 # passing.
 if ! ../scripts/check-decisions.py; then fail=1; fi
 if ! ../scripts/check-witness.py; then fail=1; fi
+# Propagation last of the three: a correction is not done when it is written,
+# only when the old claim is gone from every file that asserts it. Added after
+# a corrected name stayed live in households.json for five days and kept a
+# child filed under the wrong household. See scripts/check-propagation.py.
+if ! ../scripts/check-propagation.py; then fail=1; fi
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail
