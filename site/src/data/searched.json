@@ -10025,6 +10025,30 @@
     ]
    ],
    "got": "**Asked properly for the first time. The pier gained a construction file; the best candidate lost ground.**\n\n**Nil, with the exact terms named** *(on Hungaricana, where Fiume's officials actually live)*:\n\n| term | hits |\n|---|---|\n| `\"Defranceschi\" móló` | **0** |\n| `\"Defranceschi\" gát` | **0** |\n| `\"molo Defranceschi\"` | **0** |\n| `\"molo De Franceschi\"` | **0** |\n| `\"De Franceschi\" móló` | **0** |\n| *control* `Defranceschi révkapitány` | **5** |\n| *control* `Defranceschi kikötő` | **1** |\n\n**The controls pass in the same minutes**, so the zeros are real. *But they are **weak** evidence: this portal records pensions and salaries, not quaysides.*\n\n**What was gained.** *The City of Rijeka's own port history places the pier in a single building programme: «**nasipavanjem zapadne obale izgrađeno je Istarsko, Bečko, Budimpeštansko i Praško pristanište te De Francheschijev i Visinov gat**» — to the designs of **Antal Hajnal**, chief engineer of the Hungarian royal port office. **Four wharves named for places, two gats named for people.** Warehouse 17 on the Visinov gat dates the set in use: **1906–07, Ferenc Pfaff**. ⚠ **The page does not say who either man was.*** *(doc for the grouping.)*\n\n**⚠ What was lost.** *The **Budapesti utasító of 1848** (p. 70) shows the **Fiume harbour captaincy held by «Kapitány Sgardelli Alajos»**, while **«Főnök Defranceschi Ferencz»** ran the **quarantine institute at Martinšćica**. His «révkapitány» title appears only at his 1857 pensioning, filed under «**Fiumei tengerészeti hatóság**» — **the authority for the whole Hungarian Littoral, not a posting**.*\n\n**So «port captain of Fiume» is withdrawn as a description of him**, and the intuition that carried him as the pier's eponym — the port official on the spot when the port was built — is not available: **Hajnal's programme is decades after he retired.** *He is not eliminated. He is no longer the comfortable answer.* **(open.)**\n\n*Still unrun: Državni arhiv u Rijeci, the city's quay-renaming decrees, the Italian-era port plans 1924–45. The Lučka uprava chronology returned **HTTP 520** today.*"
+  },
+  {
+   "src": "The port authority's own chronology names no pier of that era",
+   "key": "src/the-port-authority-s-own-chronolog-4fe454",
+   "what": "Lučka uprava Rijeka — «Luka kroz povijest», the full chronology 1717–2025 (item 157, retried)",
+   "when": "28 Sept 2026",
+   "outcome": "nil",
+   "url": "https://www.portauthority.hr/kronologija/",
+   "dest": "Rijeka",
+   "tags": [
+    "Rijeka",
+    "port",
+    "namesakes",
+    "nil-with-terms",
+    "read",
+    "retry"
+   ],
+   "ev": [
+    [
+     "/namesakes/",
+     "The pier, and what the chronology does and does not give"
+    ]
+   ],
+   "got": "**Retried at David's word, and it is a nil — but a clean, exhausting one.**\n\n*The page returns **HTTP 520** to a fetcher, twice. **It loads normally in a browser**, which is how it was read: the whole chronology, **1717 to 2025**, is on one page.*\n\n**⚠ It names no pier of the Hungarian era at all.** *Searched the full text for `gat`, `pristani`, `Zichy`, `Franceschi`, `Francheschi`, `Hajnal`, `Visinov`, `molo`, `lukobran`, `obal`. **The first quay the chronology names is «Orlandov gat», in 2013.*** *So the port authority's own public history does not carry the pier's name, and this route is now **exhausted rather than untried**.*\n\n**What it gives instead is a frame, and one date that matters.**\n\n| year | verbatim |\n|---|---|\n| **1855** | *«Započinju prvi radovi na izgradnji suvremene riječke luke premještanjem ušća Rječine u novo korito»* |\n| **1867** | *the great basin begun; «Rijeka postaje glavna postaja za izlaz mađarskog gospodarstva u svijet»* |\n| **⚠ 1941–45** | *«Njemačka vojska je prilikom povlačenja iz riječke luke **porušila sve vezove za prihvat brodova**… i više od 50% skladišnih kapaciteta»* |\n\n**1867 opens the frame Hajnal's programme sits in — ten years after [Ferencz](/rijeka/) had already retired**, which is consistent with this morning's demotion of him.\n\n**⚠ And 1941–45 sharpens the naming question.** *Every berth in the port was destroyed on the German withdrawal, and reconstruction followed in 1950. **A port rebuilt from nothing is exactly when quays get renamed**, and «De Franceschi**jev**» is a Croatian possessive — the form a post-1945 naming would take.* **Against it**: *the City of Rijeka attributes the gat name to Hajnal's Hungarian-era programme.* **Both are doc; neither inference is drawn.** *(nil for the name; the dates are the gain.)*"
   }
  ]
 }
