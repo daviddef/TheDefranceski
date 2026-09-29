@@ -64,6 +64,31 @@ RULES = [
      r"Gologorica baptisms[^\"]{0,60}on film|on film[^\"]{0,40}Gologorica",
      {"corrections.json", "worklist.json", "roster.json", "searched.json",
       "dossiers.json", "searchindex.json"}),
+    # --- 29 September 2026. THREE IN ONE DAY, and all of the same shape.
+    #
+    # The rules above catch a WRONG CLAIM left standing. These catch the other
+    # failure, which turned out to be commoner: a question the archive has
+    # ANSWERED, still described somewhere as OPEN. Three times in one day a
+    # session went to run a search that was already done — Fernasar/Tornasar,
+    # the 1848 Reichstag roll, and the mobile sweep — because the finding was
+    # written into one file and the work list still called it pending. The
+    # third one was caught only because the first two had made it a habit to
+    # look. And writing THESE rules turned up a fourth: the withdrawn
+    # parliament claim was still the live note on Francisca Salomon in
+    # ancestors.json, which is the pedigree chart a reader actually sees.
+    ("the Fernasar/Tornasar reading still called unsettled",
+     r"(?:which is right )?has never been settled|first thing to settle|one search from settled",
+     # these quote the retired wording inside the sentence that retires it
+     {"corrections.json", "worklist.json", "marriedin.json", "maternal.json",
+      "dossiers.json", "searchindex.json", "searched.json"}),
+    ("a Salomon asserted in the 1848 parliament",
+     r"Salomon sat in the parliament",
+     # corrections.json and the maternal page quote it verbatim to withdraw it
+     {"corrections.json", "maternal.json", "dossiers.json", "searchindex.json",
+      "worklist.json"}),
+    ("pages still asserted to overflow on a phone",
+     r"[Ee]ight pages still scroll sideways",
+     {"corrections.json", "worklist.json", "dossiers.json", "searchindex.json"}),
     ("Gregorio still given the withdrawn patronymic in a display name",
      r"Gregorio Defranceschi q\.m Antonio",
      {"corrections.json", "worklist.json", "roster.json", "families.json",
