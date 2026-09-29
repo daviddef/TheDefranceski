@@ -20,6 +20,28 @@ const { d } = Astro.props;
 
   <Rule name="arrows" />
 
+  {/* Two shapes, deliberately. A line whose research has landed is written in
+      SECTIONS — the Kosina shape David asked for: a citation above the
+      headline, the headline saying what happened, corrections shown where the
+      claim was made, and the page closing on what is still unknown. A line
+      still waiting on a register keeps the older flat ROWS, because giving a
+      thin page the furniture of a full one is a way of looking finished. */}
+  {d.sections ? d.sections.map((s) => (
+    <section class={s.kind === "fix" ? "blk fix" : "blk"} style="margin-top:38px">
+      {s.lab && <div class="lab">{s.lab}</div>}
+      <h2 style="font-size:26px">{s.h2}</h2>
+      {(s.paras || []).map((t) => <p class="prose" set:html={mdp(t)} style="margin-top:14px" />)}
+      {s.asks && (
+        <div class="rec rec-bio" style="margin-top:20px">
+          {s.asks.map((a) => (<>
+            <div class="k">Open</div>
+            <div class="v">{a.q}</div>
+            <div class="w" set:html={mdp(a.a)} />
+          </>))}
+        </div>
+      )}
+    </section>
+  )) : (
   <section class="blk">
     <div class="stack" style="margin-top:8px">
       {d.rows.map((r) => (
@@ -30,6 +52,7 @@ const { d } = Astro.props;
       ))}
     </div>
   </section>
+  )}
 
   <section class="blk" style="margin-top:38px">
     <h2 style="font-size:26px">The other maternal lines</h2>
