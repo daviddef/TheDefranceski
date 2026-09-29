@@ -53,7 +53,15 @@ img{max-width:100%}
    width at which there is room to give. Below that nothing changes at all. */
 .bleed{width:min(var(--maxw-wide),calc(100vw - 56px));margin-left:50%;transform:translateX(-50%)}
 @media (min-width:1200px){
-  .scroll{width:min(var(--maxw-wide),calc(100vw - 56px));margin-left:50%;transform:translateX(-50%)}
+  /* FIX 29 Sept 2026. This said `width:min(...)`, which made EVERY .scroll
+     container 1560px whether its content needed it or not — so a 1000px
+     diagram sat pinned to the left of a 1560px band and hung 268px outside
+     the card it belongs to, labels in the margin. David caught it on the
+     sovereignty timeline. `width:fit-content` makes the band as wide as its
+     content and no wider, so a narrow diagram stays centred INSIDE the card
+     and only genuinely wide content breaks out and scrolls. */
+  .scroll{width:fit-content;max-width:min(var(--maxw-wide),calc(100vw - 56px));
+          margin-left:50%;transform:translateX(-50%)}
 }
 .lab{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink-3)}
