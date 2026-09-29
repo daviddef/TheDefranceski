@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md, mdp as _mdp } from "../lib/md.js";
+import { md as _md, mdp as _mdp, mdHtml } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
@@ -24,7 +24,7 @@ import d from "../data/diaspora.json";
         {c.when && <span>{c.when}</span>}
       </div>
       <p class="wh" set:html={_md(c.where)}></p>
-      <ul>{c.families.map(f => <li>{f}</li>)}</ul>
+      <ul>{c.families.map(f => <li set:html={mdHtml(f)} />)}</ul>
       <p class="read" set:html={_md(c.read)}></p>
     </article>
   ))}

@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
-import { md as _md, mdp } from "../lib/md.js";
+import { md as _md, mdp, mdHtml } from "../lib/md.js";
 import OneName from "../components/OneName.astro";
 import on from "../data/onename.json";
 import Rule from "../components/Rule.astro";
@@ -47,12 +47,12 @@ import gn from "../data/givennames.json";
     <div class="card" style="border-left:3px solid var(--ochre)">
       <h3>Adjacent — collected, marked, and not counted</h3>
       <ul style="margin-top:8px">{names.scope.adjacent.map(a => (
-        <li><strong>{a.form}</strong> — {a.why}</li>
+        <li><strong>{a.form}</strong> — <span set:html={mdHtml(a.why)} /></li>
       ))}</ul>
     </div>
   </div>
   <p class="prose note" style="margin-top:18px" set:html={_md(names.scope.held)}></p>
-  <p class="cap" style="margin-top:10px">{names.scope.ruled}</p>
+  <p class="cap" style="margin-top:10px" set:html={mdHtml(names.scope.ruled)}></p>
 </section>
 <Rule name="arrows" />
 

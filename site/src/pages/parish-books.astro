@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
-import { md as _mdx, mdp as _mdp } from "../lib/md.js";
+import { md as _mdx, mdp as _mdp, mdHtml } from "../lib/md.js";
 import { u } from "../lib/url.js";
 import kv from "../data/kvarner-books.json";
 import pb from "../data/parishbooks.json";
@@ -102,7 +102,7 @@ const linked = pb.linked || 0;
     </table>
   </div>
   <div class="note" style="margin-top:24px">{kv.gap}</div>
-  <p class="cap" style="margin-top:16px">{kv.note}</p>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(kv.note)}></p>
   <p class="cap" style="margin-top:8px"><strong>{kv.linked} volumes here open straight into the image viewer.</strong> {kv.harvested}</p>
 </section>
 
@@ -131,7 +131,7 @@ const linked = pb.linked || 0;
       ))}</tbody>
     </table>
   </div>
-  <p class="cap" style="margin-top:14px">{dal.note}</p>
+  <p class="cap" style="margin-top:14px" set:html={mdHtml(dal.note)}></p>
 </section>
 
 <Rule name="pomegranate" label="Carnia" />
@@ -164,7 +164,7 @@ const linked = pb.linked || 0;
       ))}</tbody>
     </table>
   </div>
-  <p class="cap" style="margin-top:14px">{car.note}</p>
+  <p class="cap" style="margin-top:14px" set:html={mdHtml(car.note)}></p>
 </section>
 
 <Rule name="tablet" label="HR-HDA-1448" />

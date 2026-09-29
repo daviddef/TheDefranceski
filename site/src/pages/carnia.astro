@@ -77,7 +77,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mione1806.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mione1806.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mione1806.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mione1806.grade)}></p>
   </div>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -109,7 +109,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Docket</dt><dd style="margin:0" set:html={mdHtml(c.mione1809.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mione1809.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mione1809.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mione1809.grade)}></p>
   </div>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -135,7 +135,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Why it is here</dt><dd style="margin:0" set:html={mdHtml(c.mione1811.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mione1811.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mione1811.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mione1811.grade)}></p>
   </div>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -161,7 +161,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Why it is here</dt><dd style="margin:0" set:html={mdHtml(c.mione1812.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mione1812.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mione1812.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mione1812.grade)}></p>
   </div>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -249,7 +249,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mione1809act.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mione1809act.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mione1809act.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mione1809act.grade)}></p>
   </div>
 
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -274,7 +274,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mione1806act.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mione1806act.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mione1806act.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mione1806act.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mione1806act.why.map(x => (
@@ -298,7 +298,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionedeaths1808.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionedeaths1808.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionedeaths1808.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionedeaths1808.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionedeaths1808.why.map(x => (
@@ -322,7 +322,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mionebrothers.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionebrothers.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionebrothers.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionebrothers.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionebrothers.why.map(x => (
@@ -346,7 +346,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionepaolo.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionepaolo.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionepaolo.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionepaolo.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionepaolo.why.map(x => (
@@ -370,7 +370,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionepaolo1812.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionepaolo1812.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionepaolo1812.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionepaolo1812.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionepaolo1812.why.map(x => (
@@ -394,7 +394,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionemuina1814.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionemuina1814.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionemuina1814.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionemuina1814.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionemuina1814.why.map(x => (
@@ -418,7 +418,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionebanns.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionebanns.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionebanns.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionebanns.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionebanns.why.map(x => (
@@ -442,7 +442,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mioneottavia.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mioneottavia.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mioneottavia.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mioneottavia.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mioneottavia.why.map(x => (
@@ -466,7 +466,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionebanns1808.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionebanns1808.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionebanns1808.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionebanns1808.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionebanns1808.why.map(x => (
@@ -519,7 +519,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Registrar</dt><dd style="margin:0" set:html={mdHtml(c.mionezanelli.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionezanelli.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionezanelli.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionezanelli.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionezanelli.why.map(x => (
@@ -543,7 +543,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mionemargherita.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionemargherita.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionemargherita.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionemargherita.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionemargherita.why.map(x => (
@@ -567,7 +567,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mioneerman1808.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mioneerman1808.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mioneerman1808.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mioneerman1808.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mioneerman1808.why.map(x => (
@@ -591,7 +591,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mionematteo.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionematteo.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionematteo.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionematteo.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionematteo.why.map(x => (
@@ -615,7 +615,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.mionenati1810.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.mionenati1810.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.mionenati1810.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.mionenati1810.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.mionenati1810.why.map(x => (
@@ -639,7 +639,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.ovaro1815.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.ovaro1815.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.ovaro1815.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.ovaro1815.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.ovaro1815.why.map(x => (
@@ -663,7 +663,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.morti1810.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.morti1810.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.morti1810.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.morti1810.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.morti1810.why.map(x => (
@@ -687,7 +687,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Certified</dt><dd style="margin:0" set:html={mdHtml(c.allegati1806.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.allegati1806.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.allegati1806.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.allegati1806.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.allegati1806.why.map(x => (
@@ -711,7 +711,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">And the cover</dt><dd style="margin:0" set:html={mdHtml(c.ovaro1807.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.ovaro1807.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.ovaro1807.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.ovaro1807.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.ovaro1807.why.map(x => (
@@ -735,7 +735,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.allegati1815.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.allegati1815.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.allegati1815.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.allegati1815.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.allegati1815.why.map(x => (
@@ -758,7 +758,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">And yet</dt><dd style="margin:0" set:html={mdHtml(c.gap1807.act.witnesses)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.gap1807.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.gap1807.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.gap1807.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.gap1807.why.map(x => (
@@ -781,7 +781,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <dt class="lab" style="white-space:nowrap">Signed</dt><dd style="margin:0" set:html={mdHtml(c.prences.act.signed)}></dd>
       <dt class="lab" style="white-space:nowrap">Reference</dt><dd style="margin:0" set:html={mdHtml(c.prences.act.ref)}></dd>
     </dl>
-    <p class="cap" style="margin-top:12px">{c.prences.grade}</p>
+    <p class="cap" style="margin-top:12px" set:html={mdHtml(c.prences.grade)}></p>
   </div>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {c.prences.why.map(x => (
