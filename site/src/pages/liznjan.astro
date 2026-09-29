@@ -7,7 +7,7 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/liznjan.json";
-const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+import { mdHtml } from "../lib/md.js";
 ---
 <Base title="Ližnjan" eyebrow="Third of eighteen towns, and no page until now" dek={d.note}>
 
@@ -29,7 +29,7 @@ const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     {d.grga.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={md(r.text)}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -43,7 +43,7 @@ const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     {d.monheim.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--ochre)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={md(r.text)}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -62,7 +62,7 @@ const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     {d.zagreb.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={md(r.text)}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -74,12 +74,12 @@ const md = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 
 <section class="blk">
   <h2>{d.southistria.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={md(d.southistria.lead)}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(d.southistria.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.southistria.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={md(r.text)}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

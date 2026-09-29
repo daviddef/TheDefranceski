@@ -13,6 +13,7 @@ import arch from "@daviddef/archive-kit/data/archives.json";
 import doss from "../data/dossiers.json";
 import hhs from "../data/households.json";
 import { makeResolver, norm } from "../lib/people.js";
+import { mdHtml } from "../lib/md.js";
 
 const gens = dl.generations;
 
@@ -71,10 +72,6 @@ const CONF = {
   family:     ["lore", "Family chart", "var(--ochre)"],
   living:     ["", "Living — name only", "var(--ink-3)"],
 };
-const md = (x) => String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 ---
 <Base
   title="Our line, drawn"
@@ -193,12 +190,12 @@ const md = (x) => String(x ?? "")
             </div>
           )}
 
-          {g.evidence && <p class="t-ev" set:html={md(g.evidence)}></p>}
+          {g.evidence && <p class="t-ev" set:html={mdHtml(g.evidence)}></p>}
 
           {g.flag && (
             <div class="t-flag">
               <div class="t-flab">Open question</div>
-              <p set:html={md(g.flag)}></p>
+              <p set:html={mdHtml(g.flag)}></p>
             </div>
           )}
 

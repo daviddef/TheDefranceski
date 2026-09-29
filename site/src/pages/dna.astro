@@ -3,18 +3,13 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import d from "../data/dna.json";
+import { mdpHtml } from "../lib/md.js";
 /* This page's renderer does not escape, because nine fields in dna.json carry
    deliberate HTML. It did not link either, so an internal [text](/path/) in the
    data printed as literal brackets — the same hole md.js had until it was
    patched. Absolute internal paths only, through the same helper as every
    other link on the site. */
-const md = (s) => String(s ?? "")
-  .replace(/\[([^\]\n]+)\]\((\/[^)\s]*)\)/g, (_, t, h) => `<a href="${u(h)}">${t}</a>`)
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\n\n/g, "</p><p>");
-const P = (s) => `<p>${md(s)}</p>`;
+const P = (s) => `<p>${mdpHtml(s)}</p>`;
 const MAXP = 65;
 const HUE = {
   "Balkan": "#c9a227", "East European": "#9bbf4f", "Greek and Albanian": "#d1517a",
@@ -132,7 +127,7 @@ const HUE = {
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:14px" set:html={based(md(d.ydna.call.note))}></p>
+  <p class="prose note" style="margin-top:14px" set:html={based(mdpHtml(d.ydna.call.note))}></p>
 </section>
 
 <Rule name="pomegranate" label={d.ydna.freq.heading} />
@@ -161,7 +156,7 @@ const HUE = {
 <Rule name="pomegranate" label={d.ydna.limits.heading} />
 <section class="blk">
   <div class="prose" set:html={based(P(d.ydna.limits.text))}></div>
-  <p class="ygrade" set:html={based(md(d.ydna.limits.grade))}></p>
+  <p class="ygrade" set:html={based(mdpHtml(d.ydna.limits.grade))}></p>
 </section>
 
 <Rule name="arrows" label={d.ydna.ancient.heading} />
@@ -174,10 +169,10 @@ const HUE = {
 <section class="blk">
   <div class="terms">
     {d.ydna.next.rows.map(([k, v]) => (
-      <div class="term"><div class="tk">{k}</div><p set:html={based(md(v))}></p></div>
+      <div class="term"><div class="tk">{k}</div><p set:html={based(mdpHtml(v))}></p></div>
     ))}
   </div>
-  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.ydna.ydnasource))}></span></p>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.ydna.ydnasource))}></span></p>
 </section>
 
 <Rule name="pomegranate" label={d.ydna23.heading} />
@@ -200,7 +195,7 @@ const HUE = {
 <Rule name="arrows" label={d.ydna23.arith.heading} />
 <section class="blk">
   <div class="prose hi" set:html={based(P(d.ydna23.arith.text))}></div>
-  <p class="ygrade" set:html={based(md(d.ydna23.arith.warn))}></p>
+  <p class="ygrade" set:html={based(mdpHtml(d.ydna23.arith.warn))}></p>
 </section>
 
 <Rule name="arrows" label={d.compare.heading} />
@@ -210,7 +205,7 @@ const HUE = {
     <table>
       <thead><tr>{d.compare.cols.map((h, i) => (<th style={i === 0 ? "text-align:left;width:16rem" : ""}>{h}</th>))}</tr></thead>
       <tbody>{d.compare.rows.map(r => (
-        <tr>{r.map((cell, i) => (<td class={i === 0 ? "pl" : ""} set:html={based(md(cell))}></td>))}</tr>
+        <tr>{r.map((cell, i) => (<td class={i === 0 ? "pl" : ""} set:html={based(mdpHtml(cell))}></td>))}</tr>
       ))}</tbody>
     </table>
   </div>
@@ -219,14 +214,14 @@ const HUE = {
       <div class="term"><div class="tk">{x.lab}</div><div class="prose" set:html={based(P(x.text))}></div></div>
     ))}
   </div>
-  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.compare.source))}></span></p>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.compare.source))}></span></p>
 </section>
 
 <Rule name="pomegranate" label={d.ydna23.next23.heading} />
 <section class="blk">
   <div class="terms">
     {d.ydna23.next23.rows.map(([k, v]) => (
-      <div class="term"><div class="tk">{k}</div><p set:html={based(md(v))}></p></div>
+      <div class="term"><div class="tk">{k}</div><p set:html={based(mdpHtml(v))}></p></div>
     ))}
   </div>
 </section>
@@ -237,7 +232,7 @@ const HUE = {
 <Rule name="pomegranate" label={d.ydna23.mat.heading} />
 <section class="blk">
   <div class="prose" set:html={based(P(d.ydna23.mat.text))}></div>
-  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.ydna23.source23))}></span></p>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.ydna23.source23))}></span></p>
 </section>
 
 <Rule name="loom" label={d.autoclusters.heading} />
@@ -260,11 +255,11 @@ const HUE = {
   <div class="prose" style="margin-top:26px" set:html={based(P(d.autoclusters.body))}></div>
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.ground.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.ground.text))}></div>
-  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.ground.note))}></p>
+  <p class="cap" style="margin-top:14px" set:html={based(mdpHtml(d.autoclusters.ground.note))}></p>
 
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.cousin.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.cousin.text))}></div>
-  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.cousin.note))}></p>
+  <p class="cap" style="margin-top:14px" set:html={based(mdpHtml(d.autoclusters.cousin.note))}></p>
 
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.father.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.father.text))}></div>
@@ -279,7 +274,7 @@ const HUE = {
         </tr>))}</tbody>
     </table>
   </div>
-  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.father.note))}></p>
+  <p class="cap" style="margin-top:14px" set:html={based(mdpHtml(d.autoclusters.father.note))}></p>
 
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.third.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.third.text))}></div>
@@ -294,17 +289,17 @@ const HUE = {
         </tr>))}</tbody>
     </table>
   </div>
-  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.third.note))}></p>
+  <p class="cap" style="margin-top:14px" set:html={based(mdpHtml(d.autoclusters.third.note))}></p>
 
   <h3 class="sub" style="margin-top:34px">{d.autoclusters.walked.heading}</h3>
   <div class="prose" set:html={based(P(d.autoclusters.walked.text))}></div>
-  <p class="cap" style="margin-top:14px" set:html={based(md(d.autoclusters.walked.note))}></p>
+  <p class="cap" style="margin-top:14px" set:html={based(mdpHtml(d.autoclusters.walked.note))}></p>
 
   <div class="one" style="margin-top:28px;border-left-color:var(--terra,#a5442c)">
     <div class="lab">Why there are no names here</div>
     <div class="prose" style="margin-top:8px" set:html={based(P(d.autoclusters.privacy))}></div>
   </div>
-  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(md(d.autoclusters.source))}></span></p>
+  <p class="cap src" style="margin-top:16px"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.autoclusters.source))}></span></p>
 </section>
 
 <Rule name="pomegranate" label={d.settle.heading} />
@@ -358,22 +353,22 @@ const HUE = {
 
 <Rule name="arrows" label={d.notable.resonance.heading} />
 <section class="blk"><div class="prose" set:html={based(P(d.notable.resonance.text))}></div>
-  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(md(d.notable.source))}></span></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.notable.source))}></span></p>
 </section>
 
 <Rule name="arrows" label={d.terms.heading} />
 <section class="blk" id="terms">
   <div class="terms">
     {d.terms.rows.map(([k, v]) => (
-      <div class="term"><div class="tk">{k}</div><p set:html={based(md(v))}></p></div>
+      <div class="term"><div class="tk">{k}</div><p set:html={based(mdpHtml(v))}></p></div>
     ))}
   </div>
 </section>
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="prose note" set:html={based(md(d.privacy))}></p>
-  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(md(d.source))}></span></p>
+  <p class="prose note" set:html={based(mdpHtml(d.privacy))}></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.source))}></span></p>
   <p class="cap" style="margin-top:12px"><a href={u("/method/")}>Method →</a> · <a href={u("/sources/")}>Sources →</a> · <a href={u("/people/")}>Everyone →</a></p>
 </section>
 

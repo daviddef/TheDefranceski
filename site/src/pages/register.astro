@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import NameLists from "@daviddef/archive-kit/components/NameLists.astro";
 import lw from "../data/leads.json";
-import { md as _mdl } from "../lib/md.js";
+import { md as _mdl, mdHtml} from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import Register from "@daviddef/archive-kit/components/Register.astro";
@@ -15,11 +15,7 @@ import nf from "../data/namefold.json";
    earlier, in an archive whose whole point is that they are the same person.
    Folding is a search rule; it merges nothing. */
 import r from "../data/register.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>");
-const P = (s) => "<p>" + md(s).replace(/\n\n/g, "</p><p>") + "</p>";
+const P = (s) => "<p>" + mdHtml(s).replace(/\n\n/g, "</p><p>") + "</p>";
 const S = r.stat;
 const nf = (n) => n.toLocaleString("en-GB");
 const groups = r.spellings.map(([name, n]) => ({
@@ -41,10 +37,10 @@ const regRows = r.rows.map((x) => ({
   kind: LAB[x.st] || x.st,
   chip: LAB[x.st] || x.st,
   detail: [
-    x.says ? based(md(x.says)) : '<span class="none">no dated event indexed</span>',
+    x.says ? based(mdHtml(x.says)) : '<span class="none">no dated event indexed</span>',
     x.p ? `<span class="pl">${x.p}${x.pl && x.pl !== String(x.p).split(",")[0].trim() ? `<b class="res"> = ${x.pl}</b>` : ""}</span>` : "",
     x.o.length ? `<span class="rel">with ${x.o.join(", ")}</span>` : "",
-    x.note ? `<span class="rnote">${based(md(x.note))}</span>` : "",
+    x.note ? `<span class="rnote">${based(mdHtml(x.note))}</span>` : "",
   ].filter(Boolean).join(" "),
   source: x.id,
   sourceHref: ark(x.id),
@@ -73,10 +69,10 @@ const regRows = r.rows.map((x) => ({
 <section class="blk">
   <div class="cav">
     {r.caveats.map(([h, b]) => (
-      <div class="cv"><h3>{h}</h3><p set:html={based(md(b))}></p></div>
+      <div class="cv"><h3>{h}</h3><p set:html={based(mdHtml(b))}></p></div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:18px" set:html={based(md(r.convention))}></p>
+  <p class="prose note" style="margin-top:18px" set:html={based(mdHtml(r.convention))}></p>
 </section>
 
 <Rule name="pomegranate" label={r.lost.heading} />
@@ -90,18 +86,18 @@ const regRows = r.rows.map((x) => ({
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:16px" set:html={based(md(r.lost.close))}></p>
-  {r.lost.close_krbune && <div class="one" style="margin-top:18px;border-left-color:var(--accent)"><div class="lab">Placed, 13 September 2026</div><p style="margin-top:8px" set:html={based(md(r.lost.close_krbune))}></p></div>}
+  <p class="prose note" style="margin-top:16px" set:html={based(mdHtml(r.lost.close))}></p>
+  {r.lost.close_krbune && <div class="one" style="margin-top:18px;border-left-color:var(--accent)"><div class="lab">Placed, 13 September 2026</div><p style="margin-top:8px" set:html={based(mdHtml(r.lost.close_krbune))}></p></div>}
 
 {r.lost.resolved && (
 <section class="blk" id="resolved" style="margin-top:44px">
   <h2 style="font-size:26px">{r.lost.resolved.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={based(md(r.lost.resolved.lead))}></p>
+  <p class="dek" style="margin-top:8px" set:html={based(mdHtml(r.lost.resolved.lead))}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {r.lost.resolved.rows.map(x => (
       <div class="one" style={x.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{x.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={based(md(x.text))}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={based(mdHtml(x.text))}></p>
       </div>
     ))}
   </div>
@@ -109,7 +105,7 @@ const regRows = r.rows.map((x) => ({
   <div class="scroll" style="margin-top:24px">
     <table><thead><tr><th>As the index spells her</th><th>Where her children were baptised</th><th></th></tr></thead>
     <tbody>{r.lost.resolved.table.map(([a,b,c]) => (
-      <tr><td>{a}</td><td class="m">{b}</td><td set:html={based(md(c))}></td></tr>
+      <tr><td>{a}</td><td class="m">{b}</td><td set:html={based(mdHtml(c))}></td></tr>
     ))}</tbody></table>
   </div>)}
   <p class="cap" style="margin-top:16px">{r.lost.resolved.source_res}</p>
@@ -124,7 +120,7 @@ const regRows = r.rows.map((x) => ({
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="prose note" set:html={based(md(r.close))}></p>
+  <p class="prose note" set:html={based(mdHtml(r.close))}></p>
   <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> {r.source}</p>
   <p class="cap" style="margin-top:12px">
     <a href={u("/people/")}>Everyone the archive knows →</a> ·

@@ -12,6 +12,7 @@ import Rule from "../components/Rule.astro";
 import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
 import { u } from "../lib/url.js";
 import questions from "../data/questions.json";
+import { md } from "../lib/md.js";
 
 const open = questions.open.filter(o => o.status === "open");
 const blocked = questions.open.filter(o => o.status === "blocked");
@@ -73,10 +74,10 @@ const total = open.length + blocked.length;
     record that would settle it — a question without that is a regret, not a queue.</p>
     <Questions u={u} rows={questions.open.map((o, i) => ({
       n: i + 1,
-      q: o.q,
+      q: md(o.q),
       state: o.status === "blocked" ? "Blocked" : "Open",
-      known: o.known,
-      settles: o.needed,
+      known: md(o.known),
+      settles: md(o.needed),
     }))} />
   </section>
 
@@ -90,8 +91,8 @@ const total = open.length + blocked.length;
         <div class="stack" style="margin-top:22px">
           {answered.map(o => (
             <article class="qrow">
-              <div><h3 class="qq">{o.q}</h3><Evidence level="documented">Answered</Evidence></div>
-              <div><p class="qw">{o.known}</p><p class="qn"><b>Next:</b> {o.needed}</p></div>
+              <div><h3 class="qq" set:html={md(o.q)}></h3><Evidence level="documented">Answered</Evidence></div>
+              <div><p class="qw" set:html={md(o.known)}></p><p class="qn"><b>Next:</b> <span set:html={md(o.needed)}></span></p></div>
             </article>
           ))}
         </div>

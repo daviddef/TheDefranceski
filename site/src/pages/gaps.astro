@@ -4,15 +4,11 @@ import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import g from "../data/gaps.json";
 import d from "../data/dossiers.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+import { mdpsHtml } from "../lib/md.js";
 const slugOf = (n) => Object.values(d.people).find(p => p.name === n)?.slug;
 ---
 <Base title={g.title} eyebrow={g.eyebrow} dek={g.dek}>
-<section class="blk"><p class="prose" set:html={md(g.lead)}></p></section>
+<section class="blk"><p class="prose" set:html={mdpsHtml(g.lead)}></p></section>
 <Rule name="arrows" label="Unfinished" />
 <section class="blk">
   <div class="gaps">
@@ -22,14 +18,14 @@ const slugOf = (n) => Object.values(d.people).find(p => p.name === n)?.slug;
           <h3>{slugOf(r.name) ? <a href={u(`/who/${slugOf(r.name)}/`)}>{r.name}</a> : r.name}</h3>
           {r.place && <span class="pl">{r.place}</span>}
         </div>
-        <p set:html={md(r.known)}></p>
+        <p set:html={mdpsHtml(r.known)}></p>
         <p class="cap" style="margin-top:8px"><span class="lab">Where the death should be</span> {r.where}</p>
       </article>
     ))}
   </div>
 </section>
 <Rule name="pomegranate" />
-<section class="blk"><p class="prose note" set:html={md(g.close)}></p>
+<section class="blk"><p class="prose note" set:html={mdpsHtml(g.close)}></p>
   <p class="cap" style="margin-top:12px"><a href={u("/vodnjan/")}>The Vodnjan lines →</a> · <a href={u("/method/")}>Method →</a> · <a href={u("/changes/")}>What changed →</a></p>
 </section>
 <style>

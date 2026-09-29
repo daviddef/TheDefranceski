@@ -4,6 +4,7 @@ import { u } from "../lib/url.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import questions from "../data/questions.json";
+import { md } from "../lib/md.js";
 const open = questions.open.map(o => ({ q:o.q, s:o.status, w:o.known, n:o.needed }));
 const closed = questions.closed.map(c => [c.q, c.answer]);
 
@@ -17,8 +18,8 @@ const closed = questions.closed.map(c => [c.q, c.answer]);
   <div class="stack" style="margin-top:26px">
     {open.map(o=>(
       <div class="qrow">
-        <div><h3 class="qq">{o.q}</h3><span class={`chip ${o.s==="blocked"?"lore":o.s==="answered"?"doc":"inf"}`}>{o.s==="blocked"?"Blocked":o.s==="answered"?"Answered":"Open"}</span></div>
-        <div><p class="qw">{o.w}</p><p class="qn"><b>Next:</b> {o.n}</p></div>
+        <div><h3 class="qq" set:html={md(o.q)}></h3><span class={`chip ${o.s==="blocked"?"lore":o.s==="answered"?"doc":"inf"}`}>{o.s==="blocked"?"Blocked":o.s==="answered"?"Answered":"Open"}</span></div>
+        <div><p class="qw" set:html={md(o.w)}></p><p class="qn"><b>Next:</b> <span set:html={md(o.n)}></span></p></div>
       </div>
     ))}
   </div>

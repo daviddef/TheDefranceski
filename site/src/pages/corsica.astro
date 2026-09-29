@@ -5,12 +5,8 @@ import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import d from "../data/corsica.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\n\n/g, "</p><p>");
-const P = (s) => `<p>${md(s)}</p>`;
+import { mdpHtml } from "../lib/md.js";
+const P = (s) => `<p>${mdpHtml(s)}</p>`;
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 
@@ -32,11 +28,11 @@ const P = (s) => `<p>${md(s)}</p>`;
     <table class="hold">
       <thead><tr><th>Who</th><th>Where</th><th>How this archive knows</th></tr></thead>
       <tbody>{d.hold.rows.map(([w, p, s]) => (
-        <tr><td class="g">{w}</td><td class="pl">{p}</td><td class="sr" set:html={based(md(s))}></td></tr>
+        <tr><td class="g">{w}</td><td class="pl">{p}</td><td class="sr" set:html={based(mdpHtml(s))}></td></tr>
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:18px" set:html={based(md(d.hold.close))}></p>
+  <p class="prose note" style="margin-top:18px" set:html={based(mdpHtml(d.hold.close))}></p>
 </section>
 
 <Rule name="arrows" label={d.route.heading} />
@@ -53,26 +49,26 @@ const P = (s) => `<p>${md(s)}</p>`;
       <tr><td class="g"><a href={r.url} rel="noopener">{r.cote}</a></td><td class="pl">{r.years}</td></tr>
     ))}</tbody>
   </table>
-  <p class="prose note" style="margin-top:18px" set:html={based(md(d.shelf.close))}></p>
+  <p class="prose note" style="margin-top:18px" set:html={based(mdpHtml(d.shelf.close))}></p>
 </section>
 
 <Rule name="pomegranate" label={d.plan.heading} />
 <section class="blk">
   <ol class="plan">{d.plan.rows.map(([n, t]) => (
-    <li><span class="pn">{n}</span><span set:html={based(md(t))}></span></li>
+    <li><span class="pn">{n}</span><span set:html={based(mdpHtml(t))}></span></li>
   ))}</ol>
 </section>
 
 <Rule name="arrows" label={d.open.heading} />
 <section class="blk">
   <div class="opens">{d.open.rows.map(([h, t]) => (
-    <div class="op"><h3>{h}</h3><p set:html={based(md(t))}></p></div>
+    <div class="op"><h3>{h}</h3><p set:html={based(mdpHtml(t))}></p></div>
   ))}</div>
 </section>
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="cap src"><span class="lab">Source</span> <span set:html={based(md(d.source))}></span></p>
+  <p class="cap src"><span class="lab">Source</span> <span set:html={based(mdpHtml(d.source))}></span></p>
   <p class="cap" style="margin-top:12px">
     <a href={u("/lines/")}>All the families →</a> · <a href={u("/namesakes/")}>Namesakes →</a> ·
     <a href={u("/diaspora/")}>Where the name went →</a> · <a href={u("/method/")}>Method →</a>

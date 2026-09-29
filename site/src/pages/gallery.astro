@@ -5,6 +5,7 @@ import Plates from "../components/Plates.astro";
 import { u } from "../lib/url.js";
 import Gallery from "@daviddef/archive-kit/components/Gallery.astro";
 import all from "../data/plates.json";
+import { md } from "../lib/md.js";
 const groups = [
   ["photographs", "Photographs"],
   ["graves", "Graves"],
@@ -25,7 +26,7 @@ const sheet = all.map((p) => ({
      untouched, because the four archives store them four ways and a component
      that guessed would base one of them twice. */
   src: u(p.src), thumb: u(p.thumb), w: p.w, h: p.h,
-  title: p.title, what: p.caption, holder: p.holder,
+  title: p.title, what: md(p.caption), holder: p.holder,
   kind: LABEL[p.group] || p.group,
 }));
 ---

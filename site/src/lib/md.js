@@ -1,7 +1,7 @@
 // The archive's light markup, in one place.
 // Data files are written with **bold**, *italic* and «quoted» — this renders it.
 // Anything passed here is escaped first, so it is safe on untrusted strings.
-import { u } from "./url.js";
+import { u, based } from "./url.js";
 
 const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
@@ -90,3 +90,24 @@ export const mdUnbased = (x) => tables(linkRaw(esc(String(x ?? ""))
 
 export const mdpsUnbased = (x, style = "margin-top:12px") =>
   mdUnbased(x).replace(/\n\n+/g, `</p><p style="${style}">`);
+
+/* The same renderer that does NOT escape, for data this archive wrote itself.
+ *
+ * Added 29 September 2026. Twenty data files carry deliberate HTML — the
+ * evidence chips, a handful of anchors, the odd <em> — and it renders because
+ * the pages showing it never escaped. That is why eleven pages could not move
+ * to md(): escaping would have turned their own markup into visible tag text.
+ *
+ * So the fork is made explicit instead of copied eleven times. md() escapes
+ * and is the right default for anything a stranger could have written;
+ * mdHtml() trusts the string and is for this archive's own data files, which
+ * are written by its own sessions and reviewed in git. Both get the links, the
+ * «quotes» and the tables, so a fix reaches every page either way. */
+export const mdHtml = (x) => based(tables(link(String(x ?? "")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>"))));
+
+export const mdpHtml = (x) => mdHtml(x).replace(/\n\n+/g, "</p><p>");
+export const mdpsHtml = (x, style = "margin-top:12px") =>
+  mdHtml(x).replace(/\n\n+/g, `</p><p style="${style}">`);

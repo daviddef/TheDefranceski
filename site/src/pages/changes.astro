@@ -5,22 +5,7 @@ import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
 import c from "../data/changes.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  // A markdown link in the prose has to go through u() like every other link.
-  // Without it the href ships as /gaps/ instead of /TheDefranceski/gaps/ and
-  // 404s on GitHub Pages — which is exactly what twenty-one of them were doing.
-  .replace(/\[([^\]]+)\]\(([^)]+)\)/g,
-           (_m, t, h) => `<a href="${/^(?:https?:|mailto:|tel:|#)/.test(h) ? h : u(h)}">${t}</a>`)
-  // Some rows carry raw <a href="/gaps/"> rather than a markdown link. Those
-  // bypass the rule above entirely and shipped without the base, so they 404
-  // on GitHub Pages. Base them here too, and leave anything already based,
-  // external, or an anchor alone.
-  .replace(/href="(\/(?!\/)[^"]*)"/g,
-           (m, h) => h.startsWith(u("/")) ? m : `href="${u(h)}"`)
-  .replace(/\n\n/g, "</p><p style='margin-top:10px'>");
+import { mdHtml } from "../lib/md.js";
 const K = {
   hit: ["Found", "k-hit"], yield: ["Yield", "k-hit"], correction: ["Correction", "k-corr"],
   nothing: ["Nothing", "k-none"], blocked: ["Blocked", "k-none"], pending: ["Pending", "k-none"],
@@ -28,18 +13,18 @@ const K = {
 };
 ---
 <Base title={c.title} eyebrow={c.eyebrow} dek={c.dek}>
-<section class="blk"><p class="prose" set:html={md(c.lead)}></p></section>
+<section class="blk"><p class="prose" set:html={mdHtml(c.lead)}></p></section>
 <Changes u={u} days={c.days.map(d => ({
   when: d.when,
   entries: d.rows.map(r => ({
     title: r.what,
     kind: (K[r.kind] || K.search)[0],
-    did: md(r.text),
+    did: mdHtml(r.text),
     found: r.src ? `<span class="src">${r.src}</span>` : "",
   })),
 }))} />
 <Rule name="pomegranate" />
-<section class="blk"><p class="prose note" set:html={md(c.close)}></p>
+<section class="blk"><p class="prose note" set:html={mdHtml(c.close)}></p>
   <p class="cap" style="margin-top:12px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/corrections/")}>Corrections →</a> · <a href={u("/method/")}>Method →</a></p>
 </section>
 <style>
