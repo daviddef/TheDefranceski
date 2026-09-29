@@ -17,7 +17,7 @@ const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died|
 <section class="blk">
   <div class="lab">The record</div>
   <div style="margin-top:6px"><Evidence level={p.confidence} /></div>
-  <div class="rec" style="margin-top:18px">
+  <div class="rec rec-bio" style="margin-top:18px">
     {p.record.map(([k,v,w])=>(<>
       <div class="k">{k}</div><div class="v">{v}</div><div class="w">{w}</div>
     </>))}

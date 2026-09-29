@@ -78,7 +78,10 @@ img{max-width:100%}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+/* minmax(0,1fr), not 1fr: a bare fr track has an implicit min of min-content,
+   so on /places/vizinada/ the single column sized itself to 362px inside a
+   324px box and took the page 5px sideways. */
+@media (max-width:600px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}}
 table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:13.5px}
 th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-3);padding:0 16px 9px 0;border-bottom:1px solid var(--rule-strong);white-space:nowrap}
@@ -204,6 +207,12 @@ section.blk > .dek{margin-top:10px}
 .rec .k{color:var(--ink-3);font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;padding-top:12px}
 .rec .v{color:var(--ink)}
 .rec .w{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);white-space:nowrap;text-align:right;padding-right:0}
+/* The /people/ biographies put whole sentences in that third cell, not the
+   short mono note it was built for — «Lamberta carries his own mother's name.»
+   is 642px of nowrap, and at tablet width it took /carlo-de-franceschi/ 122px
+   sideways. Prose wraps at every width; the mobile stack is separate, below. */
+.rec-bio .w{font-family:var(--sans);white-space:normal;text-align:left;
+  overflow-wrap:break-word;line-height:1.45}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-family:var(--sans);font-size:11.5px;color:var(--ink-2)}
 .legend i{display:inline-block;width:13px;height:13px;border-radius:2px;margin-right:7px;vertical-align:-2px}
 .evlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:7px 24px;margin-top:22px;
@@ -948,5 +957,32 @@ body.is-home #onthispage{display:none}
     overflow-wrap:anywhere !important;
     word-break:break-word !important;
     white-space:normal !important}
+  /* Long unbreakable tokens in ordinary prose. On /cheryl-lerena/ it is a
+     58-character «XOXOXOXO…» in one of the poems, 610px wide in a 324px
+     column — the poet's own text, not a fault, but it took the whole page
+     sideways. break-word only breaks a word that would otherwise overflow,
+     so normal prose is untouched. */
+  p,li,dd,dt,td,th,h1,h2,h3,figcaption{overflow-wrap:break-word}
+  /* Prose that lives in a bare div rather than a p — the worklist notes — and
+     the household chart's columns, which squeeze to 44px on a phone while
+     holding names like «Valentinus Franciscus Xaverius Defranceschi». */
+  .wl-note,.gp,.gkids,.via{overflow-wrap:anywhere}
   .prose strong,.prose em,strong{overflow-wrap:anywhere}
+  /* The three-column .rec grid on the /people/ biographies assumes its third
+     cell is a short mono note —
+     a date, a film number — and holds it on one line. The /people/ biography
+     pages put whole sentences there instead, and «Lamberta carries his own
+     mother's name.» is 642px of nowrap in a 324px column: /carlo-de-franceschi/
+     ran 505px over. On a phone the third column has nowhere to go, so drop it
+     onto its own row and let it wrap. Desktop is unaffected and stays as it is.
+     Scoped to .rec-bio, not .rec: the /who/ pages use the same class name for a
+     different two-column component, and the unscoped rule collapsed its second
+     track to 0px on six pages. */
+  .rec-bio{grid-template-columns:minmax(0,1fr)}
+  .rec-bio .k{padding-bottom:2px}
+  .rec-bio .k,.rec-bio .v{border-bottom:0}
+  .rec-bio .v{overflow-wrap:break-word}
+  .rec-bio .w{white-space:normal;text-align:left;
+    overflow-wrap:break-word;padding-top:4px;padding-bottom:10px}
+  .rec-bio .w:empty{display:none}
 }
