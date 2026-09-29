@@ -1,11 +1,35 @@
 ---
+/* Rebuilt 29 September 2026 to the shape David asked for, pointing at
+   /TheBlazevic/kosina/: each section carries a CITATION as its eyebrow — the
+   register, the date, the page, the entry — and a HEADLINE that says what
+   happened, rather than a category label. Corrections are shown in place, in
+   .fix blocks, where the claim they correct was made. The join is drawn, not
+   only described. The page ends on what is still unknown.
+
+   The previous version was six flat lab/text rows. Everything in them is
+   here; nothing was dropped. What changed is that a reader can now see where
+   each claim comes from without reading the paragraph first. */
 import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
 import Rule from "../components/Rule.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
-import { md, mdp } from "../lib/md.js";
+import PersonTree from "@daviddef/archive-kit/components/PersonTree.astro";
+import { mdp } from "../lib/md.js";
 import k from "../data/kalanj.json";
+
+/* The five children of Josip Defranceschi and Anna Kalanj, as directline.json
+   records that household. Anton Rudolf's baptism is entry 9 of the Klenovica
+   register for 1890 and is documented; the other four are the Crikvenica
+   entries that name the mother Ana Kalanj. */
+const KIDS = [
+  { name: "Anton Rudolf", dates: "b. 20 January 1890", cls: "via-line",
+    href: "/who/anton-rudolf-defranceski/", mark: "the direct line" },
+  { name: "Marija Stjepanka", dates: "8 Dec 1892 – 29 Sep 1905", cls: "via-register" },
+  { name: "Ivan", dates: "b. November 1894", cls: "via-register" },
+  { name: "Zorica", dates: "b. 14 December 1896", cls: "via-register" },
+  { name: "Marija", dates: "Oct 1905 – 4 Feb 1906", cls: "via-register" },
+];
 ---
 <Base title={k.title} eyebrow={k.eyebrow} dek={k.dek}>
 
@@ -15,34 +39,75 @@ import k from "../data/kalanj.json";
 
   <Rule name="arrows" />
 
-  <section class="blk">
-    <div class="stack" style="margin-top:8px">
-      {k.rows.map((r) => (
-        <div class={r.key ? "keyrow" : ""} style="margin-top:26px">
-          <h3 style="font-size:21px;margin-bottom:8px">{r.lab}</h3>
-          <p set:html={mdp(r.text)} />
+  {k.sections.map((s) => (
+    s.kind === "tree" ? (
+      <section class="blk" style="margin-top:38px">
+        <h2 style="font-size:26px">{s.h2}</h2>
+        <div style="margin-top:20px">
+          <PersonTree
+            self={{ name: "Anna Kalanj", dates: "b. 3 January 1864",
+                    gen: "generation four of the direct line",
+                    note: "no death date — see «the register against the stone» below",
+                    noteCls: "warn" }}
+            parents={[
+              { name: "Josip Kalanj", dates: "of Brinje parish", cls: "via-register",
+                mark: "named in the 1864 entry" },
+              { name: "Rosalia née Perković", dates: "of Brinje parish", cls: "via-register",
+                mark: "named in the 1864 entry" },
+            ]}
+            spouses={[
+              { name: "Josip Defranceschi", dates: "22 March 1863 – 1951", cls: "via-line",
+                href: u("/direct-line/"), mark: "the direct line", mar: "married" },
+            ]}
+            children={KIDS.map((c) => ({ ...c, href: c.href ? u(c.href) : undefined }))}
+            labels={{ parents: "Named in her baptism, and nowhere else yet" }}>
+            <Fragment slot="notes">
+              <p class="warn"><strong>Her parents are drawn from one document and one only.</strong>
+              Josip Kalanj and Rosalia née Perković are named in the Ledenice entry of 1864 and in
+              nothing else this archive has read. No Brinje page has been opened; no stone here
+              names a father. The four stones argued for above as her brother and sisters are
+              <strong>not drawn on this chart</strong>, because a chart that draws a guess is a
+              confident diagram telling a lie.</p>
+            </Fragment>
+          </PersonTree>
         </div>
-      ))}
-    </div>
-  </section>
+      </section>
+    ) : s.kind === "plates" ? (
+      <section class="blk" style="margin-top:38px">
+        <h2 style="font-size:26px">{s.h2}</h2>
+        <div style="margin-top:20px">
+          <Plates ids={["kalanj-mate-luka-kata", "kalanj-rozalija-anton", "kalanj-albert-ana",
+                        "kalanj-petar-vera-milan", "kalanj-vinko-paulina", "kalanj-josip-franjo-zora",
+                        "kalanj-tomislav-judita", "kalanj-judita-marijan", "kalanj-franjo",
+                        "kalanj-rebrovic"]} cols={2} />
+        </div>
+        <Lightbox />
+      </section>
+    ) : (
+      <section class={s.kind === "fix" ? "blk fix" : "blk"} style="margin-top:38px">
+        {s.lab && <div class="lab">{s.lab}</div>}
+        <h2 style="font-size:26px">{s.h2}</h2>
+        {(s.paras || []).map((p) => <p class="prose" set:html={mdp(p)} style="margin-top:14px" />)}
 
-  <section class="blk" style="margin-top:38px">
-    <h2 style="font-size:26px">The stones</h2>
-    <p class="dek" style="margin-top:8px">Photographed 29 September 2026 in the cemeteries of Crikvenica, Novi Vinodolski and Klenovica. Which of the three each stone stands in is not distinguished in the photographs and is not guessed.</p>
-    <div style="margin-top:20px">
-      <Plates ids={["kalanj-mate-luka-kata", "kalanj-rozalija-anton", "kalanj-albert-ana", "kalanj-petar-vera-milan", "kalanj-vinko-paulina", "kalanj-josip-franjo-zora", "kalanj-tomislav-judita", "kalanj-judita-marijan", "kalanj-franjo", "kalanj-rebrovic"]} cols={2} />
-    </div>
-    <Lightbox />
-  </section>
+        {(s.subs || []).map((sub) => (
+          <div class={sub.warn ? "keyrow" : ""} style="margin-top:26px">
+            <h3 style="font-size:20px;margin-bottom:8px">{sub.h3}</h3>
+            {sub.paras.map((p) => <p class="prose" set:html={mdp(p)} style="margin-top:10px" />)}
+          </div>
+        ))}
 
-  <section class="blk" style="margin-top:38px">
-    <h2 style="font-size:26px">Where the family itself is kept</h2>
-    <p class="dek" style="margin-top:8px">
-      The Kalanj genealogy — 215 published people, earliest birth 1734 — is held in
-      <a href="https://daviddef.github.io/TheBlazevic/kalanj/">The Blažević Archive</a>,
-      and is not rebuilt here. This page is the join and the evidence on this side of it.
-    </p>
-  </section>
+        {s.asks && (
+          <div class="rec rec-bio" style="margin-top:20px">
+            {s.asks.map((a) => (<>
+              <div class="k">Open</div>
+              <div class="v">{a.q}</div>
+              <div class="w" set:html={mdp(a.a)} />
+            </>))}
+          </div>
+        )}
+      </section>
+    )
+  ))}
 
   <p class="cap" style="margin-top:28px">{k.source_kalanj}</p>
 
