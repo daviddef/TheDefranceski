@@ -1,6 +1,11 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { md as _md } from "../../lib/md.js";
+/* Fourteen inline .replace() chains lived in this file — more than any other
+   page in the archive. Each handled bold, some also italics, one also
+   internal links, and NONE of them external links or tables. mdHtml is the
+   shared non-escaping renderer and does all four, so a fix now reaches this
+   page instead of stopping at its own private regex. */
+import { md as _md, mdHtml } from "../../lib/md.js";
 import Rule from "../../components/Rule.astro";
 import Sources from "../../components/Sources.astro";
 import Evidence from "@daviddef/archive-kit/components/Evidence.astro";
@@ -44,7 +49,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
     {fam.why.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -56,7 +61,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
         <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}{f.not_ours && <span style="color:var(--terra)"> · not this family</span>}</div>
         <h4>{f.name}</h4>
         <div class="fc-meta"><span><b>From</b> {f.from}</span><span><b>Here from</b> {f.when}</span></div>
-        <p class="fc-rest" set:html={f.rests.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p class="fc-rest" set:html={mdHtml(f.rests)}></p>
         <p class="fc-who" set:html={_md(f.who)}></p>
       </a>
     ))}
@@ -71,7 +76,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
         <tr>
           <td style="font-weight:600;white-space:nowrap">{c.where}</td>
           <td style="white-space:nowrap;color:var(--ink-3)">{c.n}</td>
-          <td set:html={c.what.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></td>
+          <td set:html={mdHtml(c.what)}></td>
         </tr>
       ))}</tbody>
     </table>
@@ -91,13 +96,13 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
           <td>{CONF[d.conf]
                 ? <Evidence level={CONF[d.conf]} />
                 : <span class="nolink" title={`"${d.conf}" is not one of this archive's graded levels`}>Ungraded</span>}</td>
-          <td set:html={d.what.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></td>
+          <td set:html={mdHtml(d.what)}></td>
         </tr>
       ))}</tbody>
     </table>
   </div>
 
-  <p class="prose note" style="margin-top:26px" set:html={fam.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="prose note" style="margin-top:26px" set:html={mdHtml(fam.close)}></p>
   <p class="cap" style="margin-top:14px" set:html={_md(fam.source_fam)}></p>
 </section>
 <Rule name="pomegranate" label="The pages themselves" />
@@ -129,12 +134,12 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
 
 <section class="blk" id="svetjoin">
   <h2>{fam.svetjoin.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={fam.svetjoin.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(fam.svetjoin.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {fam.svetjoin.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -145,12 +150,12 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
 
 <section class="blk" id="svetread">
   <h2>{fam.svetread.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={fam.svetread.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(fam.svetread.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {fam.svetread.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -161,7 +166,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
 
 <section class="blk" id="regions">
   <h2>{reg.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={reg.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(reg.lead)}></p>
 
   <div class="regkey">
     {reg.key.map(([k, v]) => (
@@ -181,7 +186,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
                 <td><strong>{place}</strong></td>
                 <td class="regline">{line}</td>
                 <td><span class={"vd vd-" + conf}>{conf === "doc" ? "on a line" : conf === "inf" ? "on a line · inferred" : conf === "lore" ? "lore only" : conf === "unplaced" ? "not placed" : conf === "none" ? "a different family" : conf === "allied" ? "allied, not ours" : "a place, not a family"}</span></td>
-                <td set:html={why.replace(/\[(.+?)\]\((\/.+?)\)/g, (m,t,h) => `<a href="${u(h)}">${t}</a>`).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></td>
+                <td set:html={mdHtml(why)}></td>
               </tr>
             ))}
           </tbody>
@@ -191,7 +196,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
   ))}
 
   <div class="one" style="margin-top:28px;border-left-color:var(--accent)">
-    <p set:html={reg.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+    <p set:html={mdHtml(reg.close)}></p>
   </div>
   <p class="cap" style="margin-top:16px" set:html={_md(reg.source_reg)}></p>
 </section>
@@ -209,7 +214,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
         <h3>{c.who}</h3>
         <div class="arrline">{c.line}</div>
         <div class="arrmeta"><span><b>Reason</b> {c.why}</span><span><b>Arms</b> {c.arms}</span></div>
-        <p set:html={c.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p set:html={mdHtml(c.text)}></p>
       </div>
     ))}
   </div>
@@ -220,7 +225,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
     {arr.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
