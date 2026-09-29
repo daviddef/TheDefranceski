@@ -10446,6 +10446,37 @@
     ]
    ],
    "got": "**The terms tried, in full, because a nil is only worth as much as the list behind it.**\n\n**Croatian Bureau of Statistics, «Imena i prezimena», 2011 census.** It suppresses any count below ten, so its nil reads *«manja je od 10 ili se ne pojavljuje»* — fewer than ten, **or none at all**, and it will not say which.\n\n| tried | result |\n|---|---|\n| **FERNASAR** | fewer than 10, or none |\n| **TORNASAR** | fewer than 10, or none |\n| **FERNAZAR** | fewer than 10, or none |\n| **FORNASAR** | fewer than 10, or none |\n| *POROPAT* (control) | **757** |\n\nThe control matters: an Istrian surname of ordinary frequency returns a number, so the four nils are the database answering, not the database failing.\n\n**Cognomix, «Mappe dei cognomi italiani» — about 180,000 surnames, over 90% of Italian families.**\n\n| tried | result |\n|---|---|\n| **FERNASAR** | *«La ricerca non ha fornito risultati»* |\n| **TORNASAR** | *«La ricerca non ha fornito risultati»* |\n| **FORNASAR** | **about 25 families** |\n| *DEFRANCESCHI* (control) | **about 93 families** |\n\n**And where the 25 Fornasar families are:** Piemonte 11, **Friuli-Venezia Giulia 8**, Veneto 4, Liguria 1, Puglia 1.\n\n**What this settles and what it does not.** It does **not** decide the letter the priest formed, and item 162's hope that it would was wrong: *neither* Fernasar *nor* Tornasar survives as a living surname in either country, so no atlas of the present can choose between them. What it does is take away Tornasar's last possible support — it exists nowhere, in either country, in any period these databases cover — while **Fornasar is real, and twelve of its twenty-five Italian families are in Friuli and the Veneto**, which is the corner of Europe whose dialect gives *fornasâr*, the man who works the kiln. That is the etymology this archive had already inferred from 49 issues of the Austrian press, and it now has a second, independent leg. *(The eleven in Piemonte are not explained here; north-western industrial migration is the obvious reading and is **inf**, not doc.)*\n\n**This is verification, not discovery.** The question was already answered on [the married-in page](/married-in/) by the Austrian press test, which found «Tornasar» in not one issue and «Fernasar» in three, two of them casualty lists placing a Josef Fernasar at **Gračišće** — Maria's own village. Today's work is a second road to the same place."
+  },
+  {
+   "src": "HDA — Zbirka dopunskih mikrofilmova matičnih knjiga (HR-HDA-1448), Brinje",
+   "key": "src/hda---zbirka-dopunskih-mikrofilmova-ma-26761c",
+   "what": "Item 161's first step: are the Brinje registers filmed? Brinje is the parish Anna Kalanj's parents came from, and neither this archive nor the Blažević had opened a page of it.",
+   "when": "29 Sept 2026",
+   "outcome": "yield",
+   "url": "http://www.arhiv.hr/Pretraga-matičnih-knjiga",
+   "dest": "Brinje",
+   "waypoint": "",
+   "film": "ZM-34C/681, ZM-34C/682",
+   "tags": [
+    "Brinje",
+    "Kalanj",
+    "Lika",
+    "maternal",
+    "HDA",
+    "microfilm",
+    "yield"
+   ],
+   "ev": [
+    [
+     "/kalanj/",
+     "The Kalanj page — the Brinje door, now measured"
+    ],
+    [
+     "/worklist/",
+     "Item 161"
+    ]
+   ],
+   "got": "**Brinje IS filmed, and it begins twenty-four years too late.**\n\nThe Croatian State Archives' own register search covers **HR-HDA-1448, «Zbirka dopunskih mikrofilmova matičnih knjiga i popisa obitelji»** — registers of **all confessions** from the mid-sixteenth to the first half of the twentieth century, filmed from originals held in state archives, church archives, parish offices and registry offices. **This archive already knew the collection**: it is the one [the Crikvenica page](/crikvenica-house/) names for the post-1909 books. It had never been asked about Brinje.\n\n**Place «BRINJE», confession «SVE KONFESIJE», all types. Five entries, and that is everything:**\n\n| Vrsta | Razdoblje | Napomena | Signatura svitka | Topografska | Digitalni oblik |\n|---|---|---|---|---|---|\n| **R** — births | **1888–1892** | PRIJEPIS | ZM-34C/681 | M-1278 | **Ne** |\n| **R** — births | **1893–1897** | PRIJEPIS | ZM-34C/681 | M-1278 | **Ne** |\n| **R** — births | **1897–1900** | PRIJEPIS | ZM-34C/681 | M-1278 | **Ne** |\n| **V** — marriages | **1888–1899** | PRIJEPIS | ZM-34C/681 | M-1278 | **Ne** |\n| **U** — deaths | **1888–1899** | ZM-34C/682 | M-1279 | | **Ne** |\n\nAll Roman Catholic, all filed under «RAZNE KNJIGE IZVAN POPISA HDA», and **all of them PRIJEPIS — transcripts, not the original books.**\n\n**What that means for the Kalanj.** [Anna Kalanj was born 3 January 1864](/kalanj/) and her parents, **Josip Kalanj and Rosalia née Perković**, were married before that — the 1864 entry calls them country people *of the parish of Brinje*. **The filmed Brinje registers start in 1888.** They cannot contain her baptism, her parents' marriage, or any of her brothers and sisters. *(**doc** for the holding and its dates; the negative for 1864 follows from them.)*\n\n**And none of it is digitised.** Every row reads *Digitalni oblik: **Ne***, so even the 1888–1900 books mean a microfilm reel in the reading room of the Hrvatski državni arhiv in Zagreb, or paid copies. The ordering route is specific and worth keeping: **info@arhiv.hr**, quoting the place, the type of register, the period, the **signatura svitka** and the **topografska oznaka** — all five of which are in the table above. Ten technical units a day, maximum.\n\n**⚠ AND A TRAP IN THE TOOL, WHICH NEARLY PUT NINE FALSE NILS IN THIS LOG.**\n\nThe search is a Telerik combo box on an ASP.NET page. **Setting it from script — `$find(id).findItemByText(x).select()` — changes what the box DISPLAYS and does not commit the value to the server.** The search then runs on an empty place and returns *«Nema zapisa za pregled»*, **which is exactly what a genuine nil looks like.**\n\nNine places were queried that way — Jezerane, Letinac, Stajnica, Prozor, Krivi Put, Vodoteč, Ogulin, Modruš and Crikvenica — and all nine came back empty. **Every one of those results is discarded and none is recorded as a nil**, because re-running **BRINJE** through the same code returned «Nema zapisa» too, when it demonstrably holds the five rows above. *The control is what caught it; without a known-positive re-run, nine invented negatives would have gone into this file and been believed.* **The neighbouring parishes of the Brinje area are therefore NOT tested, and are not claimed either way.**\n\nThe tool's own instructions also warn that a place may appear under several forms and that all of them must be checked — CRIKVENICA has four variants. **BRINJE has one**, so the table above is the whole of what that name holds."
   }
  ]
 }
