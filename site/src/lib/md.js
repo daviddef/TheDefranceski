@@ -111,3 +111,18 @@ export const mdHtml = (x) => based(tables(link(String(x ?? "")
 export const mdpHtml = (x) => mdHtml(x).replace(/\n\n+/g, "</p><p>");
 export const mdpsHtml = (x, style = "margin-top:12px") =>
   mdHtml(x).replace(/\n\n+/g, `</p><p style="${style}">`);
+
+/* And one more, for table cells. Added 29 September 2026.
+ *
+ * /people/ puts a truncated roster note inside a cell that ALREADY contains a
+ * link, and the note itself is full of markdown links — 477 of them were
+ * printing as [text](/who/x/) because that cell had its own bold-only
+ * renderer. Rendering them properly would nest an <a> inside an <a>, which is
+ * invalid. So here the link is FLATTENED to its own text: the words survive,
+ * the anchor does not. Use this wherever a rendered link would be illegal or
+ * merely noise. */
+export const mdFlat = (x) => based(String(x ?? "")
+  .replace(/\[([^\]\n]+)\]\(\/[^)\s]*\)/g, "$1")
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>"));

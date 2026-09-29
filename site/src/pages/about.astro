@@ -4,6 +4,7 @@ import Rule from "../components/Rule.astro";
 import allSources from "../data/sources.json";
 import searched from "../data/searched.json";
 import { u } from "../lib/url.js";
+import { mdFlat } from "../lib/md.js";
 
 /* This table was a hand-typed list of ten for months, while the archive went
    on using a hundred and forty-eight more. It is now driven by the source
@@ -62,9 +63,9 @@ const host = (url) => { try { return new URL(url).host.replace(/^www\./, ""); } 
           <table><thead><tr><th>Source</th><th>Where</th><th>Used for</th></tr></thead>
           <tbody>{list.map(x => (
             <tr>
-              <td>{x.url ? <a href={x.url} target="_blank" rel="noopener">{x.title}</a> : x.title}</td>
+              <td>{x.url ? <a href={x.url} target="_blank" rel="noopener" set:html={mdFlat(x.title)} /> : <span set:html={mdFlat(x.title)} />}</td>
               <td class="m">{host(x.url) || x.where || ""}</td>
-              <td>{(x.what || "").split(/(?<=\.)\s/)[0]}</td>
+              <td set:html={mdFlat((x.what || "").split(/(?<=\.)\s/)[0])}></td>
             </tr>
           ))}</tbody></table>
         </div>
