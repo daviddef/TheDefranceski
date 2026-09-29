@@ -314,6 +314,11 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
   .rec .k{font-family:var(--sans);font-size:10.5px;letter-spacing:.09em;
     text-transform:uppercase;color:var(--ink-3)}
   .rec .v{font-size:15.5px;line-height:1.5}
-  .rec .w{grid-column:1/-1;font-family:var(--sans);font-size:12px;color:var(--ink-3)}
+  /* white-space here overrides the global .rec .w, which is nowrap because on
+     other pages that cell holds a short mono date. Here it holds a sentence —
+     «named as her husband on declaration of intention» ran /person/gerda-
+     seedorf-de-franceschi-1913/ 52px off a 375px screen. */
+  .rec .w{grid-column:1/-1;font-family:var(--sans);font-size:12px;color:var(--ink-3);
+    white-space:normal;text-align:left;overflow-wrap:break-word}
   .rec .w:empty{display:none}
 </style>

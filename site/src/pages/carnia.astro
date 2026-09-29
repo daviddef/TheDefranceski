@@ -53,8 +53,8 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
       <thead><tr><th>Who</th><th>Where</th><th>Trade</th><th>The child</th><th class="m">Act</th></tr></thead>
       <tbody>{c.mione.registers.households.map(h => (
         <tr>
-          <td>{h.who}</td><td>{h.where}</td><td><em>{h.trade}</em></td>
-          <td>{h.child}<br /><span class="mono" style="font-size:11px;color:var(--ink-3)"><span set:html={mdFlat(h.note)} /></span></td>
+          <td set:html={mdFlat(h.who)}></td><td set:html={mdFlat(h.where)}></td><td><em set:html={mdFlat(h.trade)}></em></td>
+          <td><span set:html={mdFlat(h.child)}></span><br /><span class="mono" style="font-size:11px;color:var(--ink-3)"><span set:html={mdFlat(h.note)} /></span></td>
           <td class="m">{h.act}</td>
         </tr>
       ))}</tbody>
@@ -841,8 +841,14 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
   <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Household</th><th>Where</th><th>Trade</th><th>What names them</th></tr></thead>
+      {/* mdFlat, not plain interpolation: these four cells carry the same
+          markdown every other field on this page does, and printed it as
+          literal asterisks — 63 of the 70 came from this one row. mdFlat
+          renders the bold and flattens links, which a table cell needs
+          because a nested <a> inside a linked cell is invalid. */}
       <tbody>{c.households1806.rows.map(r => (
-        <tr><td>{r.who}</td><td>{r.where}</td><td><em>{r.trade}</em></td><td>{r.evidence}</td></tr>
+        <tr><td set:html={mdFlat(r.who)}></td><td set:html={mdFlat(r.where)}></td>
+          <td><em set:html={mdFlat(r.trade)}></em></td><td set:html={mdFlat(r.evidence)}></td></tr>
       ))}</tbody>
     </table>
   </div>

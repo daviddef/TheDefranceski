@@ -20,7 +20,7 @@ import { md } from "../lib/md.js";
   ))}</ol>
 
   <h2 style="font-size:31px;margin-top:52px">{d.voyages.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.voyages.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={md(d.voyages.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table>
       <thead><tr><th class="m">Date</th><th>Port</th><th>As printed</th></tr></thead>
@@ -75,7 +75,7 @@ import { md } from "../lib/md.js";
   <Rule name="pomegranate" label="Cardiff, 1896" />
 
   <h2 style="font-size:31px">{d.cardiff.heading}</h2>
-  <p class="dek" style="margin-top:8px">{d.cardiff.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={md(d.cardiff.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.cardiff.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>

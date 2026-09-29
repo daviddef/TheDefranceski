@@ -14,9 +14,18 @@ const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">":
 // that belongs here instead. Only ABSOLUTE INTERNAL paths are linked: the
 // base prefix is applied through the same helper every other link uses, and
 // anything that is not a /path/ is left as the brackets somebody typed.
+/* Internal AND external links. Until 29 September 2026 this regex required the
+ * href to start with "/", so every markdown link to another site printed as
+ * literal [text](https://…) on the page — 79 of them across the data, and
+ * three of them shipped on /kalanj/ within an hour of that page going live.
+ * It is the same hole the tables had, one layer down: the renderer quietly
+ * handled the common case and left the other one as visible punctuation.
+ * An external href is never passed through u(): it is already absolute. */
 const link = (s) => s.replace(
-  /\[([^\]\n]+)\]\((\/[^)\s]*)\)/g,
-  (_, t, href) => `<a href="${u(href)}">${t}</a>`);
+  /\[([^\]\n]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]*)\)/g,
+  (_, t, href) => href.startsWith("/")
+    ? `<a href="${u(href)}">${t}</a>`
+    : `<a href="${href}" rel="noopener">${t}</a>`);
 
 
 /* Markdown tables — added 29 September 2026.
@@ -83,8 +92,10 @@ export const mdps = (x, style = "margin-top:12px") =>
    renderer started basing its own links. Use this ONLY where a component
    downstream is going to do the basing. */
 const linkRaw = (s) => s.replace(
-  /\[([^\]\n]+)\]\((\/[^)\s]*)\)/g,
-  (_, t, href) => `<a href="${href}">${t}</a>`);
+  /\[([^\]\n]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]*)\)/g,
+  (_, t, href) => href.startsWith("/")
+    ? `<a href="${href}">${t}</a>`
+    : `<a href="${href}" rel="noopener">${t}</a>`);
 
 export const mdUnbased = (x) => tables(linkRaw(esc(String(x ?? ""))
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -125,7 +136,7 @@ export const mdpsHtml = (x, style = "margin-top:12px") =>
  * the anchor does not. Use this wherever a rendered link would be illegal or
  * merely noise. */
 export const mdFlat = (x) => based(String(x ?? "")
-  .replace(/\[([^\]\n]+)\]\(\/[^)\s]*\)/g, "$1")
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>")
   .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>"));

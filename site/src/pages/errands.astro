@@ -30,6 +30,34 @@ const groups = [{
     <p class="small">Filed under a priority this page has no label for: {unlabelled.join(", ")}.</p>
   )}
 </section>
+{/* What has come back. The kit's Errands component draws the REQUEST — who,
+    why, the ask, the draft, and a "Sent" tag — and it has no field for an
+    answer, so a reply recorded in the data would sit in a file no reader ever
+    opens. That is the one thing this archive's rules will not have: a finding
+    is done when it is told. The kit is another session's ground and is not
+    touched; the replies are rendered here instead, above the requests,
+    because an answer that has arrived outranks a letter still being drafted. */}
+{e.rows.some((r) => r.reply) && (
+  <>
+    <Rule name="arrows" label="What has come back" />
+    <section class="blk">
+      {e.rows.filter((r) => r.reply).map((r) => (
+        <div class="blk fix" style="margin-top:26px">
+          <div class="lab">Errand {r.n} · {r.who}</div>
+          <h2 style="font-size:24px">{r.what}</h2>
+          <p class="prose" set:html={mdps(r.reply)} style="margin-top:14px"></p>
+          {r.next && (
+            <p class="prose" style="margin-top:14px">
+              <span class="lab">Where it goes next</span>
+              <span set:html={mdps(r.next)}></span>
+            </p>
+          )}
+        </div>
+      ))}
+    </section>
+  </>
+)}
+
 <Rule name="arrows" label="The requests" />
 <section class="blk">
   <Errands groups={groups} u={u} />
