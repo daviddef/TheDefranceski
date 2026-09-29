@@ -4,11 +4,8 @@ import Rule from "../components/Rule.astro";
 import Cluster from "../components/Cluster.astro";
 import { u } from "../lib/url.js";
 import cl from "../data/clusters.json";
+import { md } from "../lib/md.js";
 const c = cl.clusters.kvarner;
-const md = (x) => String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 ---
 <Base
   title="The Kvarner households"

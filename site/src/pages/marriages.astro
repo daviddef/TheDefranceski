@@ -7,6 +7,7 @@ import Marriages from "@daviddef/archive-kit/components/Marriages.astro";
 import { u } from "../lib/url.js";
 import m from "../data/marriages.json";
 import mi from "../data/marriedin.json";
+import { md } from "../lib/md.js";
 
 /* Two pages until now — the essay on who this family married, and the index
    routing each of those families to the empire that held its town. They are one
@@ -25,10 +26,6 @@ import mi from "../data/marriedin.json";
    The grouping is also, in this archive's own words, a reading and not a
    finding — it comes from surname morphology and the Carnian emigration
    literature. The caveat below is kept where a reader meets it. */
-const md = (x) => String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
 
 const byRoute = {};
 for (const r of mi.rows) (byRoute[r.route] = byRoute[r.route] || []).push(r);

@@ -4,10 +4,8 @@
    Nothing is joined unless the register joins it; where a join is only
    likely, it is drawn as a broken rung and labelled as an inference. */
 import { u } from "../lib/url.js";
+import { md } from "../lib/md.js";
 const { c } = Astro.props;
-const md = (x) => String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>");
 const KIND = { doc: "documented", inf: "inferred", lore: "tradition", none: "no join shown" };
 ---
 <div class="cl">

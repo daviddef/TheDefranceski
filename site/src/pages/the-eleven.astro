@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md, md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
@@ -9,7 +9,6 @@ import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
 import e from "../data/eleven.json";
 import am from "../data/america.json";
-const md = (t) => t.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>");
 const kids = e.children;
 const dests = [...new Set(kids.map(k => k.where))].filter(w => w !== "unknown" && w !== "Gallignana");
 ---

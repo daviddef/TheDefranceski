@@ -3,10 +3,7 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import j from "../data/julius.json";
-const md = (x) => String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+import { md } from "../lib/md.js";
 ---
 <Base title={j.title} eyebrow={j.eyebrow} dek={j.dek}>
 

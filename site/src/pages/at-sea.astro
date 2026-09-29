@@ -3,10 +3,7 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import d from "../data/atsea.json";
-const md = (s) => s
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>");
+import { md } from "../lib/md.js";
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 

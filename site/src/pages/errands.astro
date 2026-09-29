@@ -4,11 +4,7 @@ import Errands from "@daviddef/archive-kit/components/Errands.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import e from "../data/errands.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
+import { md, mdps, mdpsUnbased } from "../lib/md.js";
 
 /* 21 September 2026. The card moved to the kit. The PRIORITY did not: `pri`
    ranks these by what the answer would buy, which is this archive's question
@@ -21,15 +17,15 @@ const unlabelled = [...new Set(e.rows.map((r) => r.pri).filter((k) => k && !PRI[
 
 const groups = [{
   rows: e.rows.map((r) => ({
-    n: r.n, who: r.who, what: md(r.what), ref: md(r.ref), why: md(r.why),
-    ask: md(r.ask), draft: md(r.draft), sent: r.sent,
+    n: r.n, who: r.who, what: mdpsUnbased(r.what), ref: mdpsUnbased(r.ref), why: mdpsUnbased(r.why),
+    ask: mdpsUnbased(r.ask), draft: mdpsUnbased(r.draft), sent: r.sent,
     stateLabel: (PRI[r.pri] || [r.pri])[0],
     colour: (PRI[r.pri] || [])[1],
   })),
 }];
 ---
 <Base title={e.title} eyebrow={e.eyebrow} dek={e.dek}>
-<section class="blk"><p class="prose" set:html={md(e.lead)}></p>
+<section class="blk"><p class="prose" set:html={mdps(e.lead)}></p>
   {unlabelled.length > 0 && (
     <p class="small">Filed under a priority this page has no label for: {unlabelled.join(", ")}.</p>
   )}
@@ -39,7 +35,7 @@ const groups = [{
   <Errands groups={groups} u={u} />
 </section>
 <Rule name="pomegranate" />
-<section class="blk"><p class="prose note" set:html={md(e.close)}></p>
+<section class="blk"><p class="prose note" set:html={mdps(e.close)}></p>
   <p class="cap" style="margin-top:14px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/parish-books/")}>Parish Books →</a> · <a href={u("/worklist/")}>The Work List →</a></p>
 </section>
 </Base>

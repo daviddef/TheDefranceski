@@ -63,3 +63,30 @@ export const md = (x) => tables(link(esc(String(x ?? ""))
 
 // Same, but turns blank lines into paragraph breaks.
 export const mdp = (x) => md(x).replace(/\n\n+/g, "</p><p>");
+
+/* Same again, but the paragraph break carries a style. Four pages — carlo,
+   vodnjan, errands, photograph-these — had their own renderer purely to get
+   `</p><p style='margin-top:12px'>`, and that was not worth a private copy of
+   the whole thing. Added 29 September 2026 while unifying twenty-five
+   renderers into one. */
+export const mdps = (x, style = "margin-top:12px") =>
+  md(x).replace(/\n\n+/g, `</p><p style="${style}">`);
+
+/* And the same renderer with links left EXACTLY as written, no base prefix.
+   Added 29 September 2026. Some kit components base the hrefs themselves —
+   Errands does it with an unguarded `href="/` → `href="/TheDefranceski/`
+   replace — so prose handed to them must arrive unbased or it comes out
+   doubled. Seven links on /errands/ broke this way the moment the shared
+   renderer started basing its own links. Use this ONLY where a component
+   downstream is going to do the basing. */
+const linkRaw = (s) => s.replace(
+  /\[([^\]\n]+)\]\((\/[^)\s]*)\)/g,
+  (_, t, href) => `<a href="${href}">${t}</a>`);
+
+export const mdUnbased = (x) => tables(linkRaw(esc(String(x ?? ""))
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/«(.+?)»/g, "<em>«$1»</em>")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")));
+
+export const mdpsUnbased = (x, style = "margin-top:12px") =>
+  mdUnbased(x).replace(/\n\n+/g, `</p><p style="${style}">`);

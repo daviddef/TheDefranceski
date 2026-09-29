@@ -1,18 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md, mdps, md as _md } from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import v from "../data/vodnjan.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\n\n/g, "</p><p style='margin-top:12px'>");
 ---
 <Base title={v.title} eyebrow={v.eyebrow} dek={v.dek}>
-<section class="blk"><p class="prose" set:html={md(v.lead)}></p></section>
+<section class="blk"><p class="prose" set:html={mdps(v.lead)}></p></section>
 
   <Locator place="Vodnjan" radius={14}
             note="Dignano. Forty-seven records, and the reel that had to be resolved by film number rather than by the place field." />
@@ -46,7 +41,7 @@ const md = (s) => String(s ?? "")
 <Rule name="pomegranate" label="The daughters" />
 <section class="blk">
   <h2>{v.women.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={md(v.women.lead)}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdps(v.women.lead)}></p>
   <div class="scroll" style="margin-top:22px">
     <table>
       <thead><tr><th>Name</th><th>When</th><th>How she was found</th></tr></thead>
@@ -58,31 +53,31 @@ const md = (s) => String(s ?? "")
 <Rule name="arrows" label="№ domus" />
 <section class="blk">
   <h2>{v.houses.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={md(v.houses.lead)}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdps(v.houses.lead)}></p>
   <div class="scroll" style="margin-top:22px">
     <table>
       <thead><tr><th>House</th><th>When</th><th>Kind</th><th>Whose</th></tr></thead>
       <tbody>{v.houses.rows.map(([h, w, k, who]) => (
-        <tr><td set:html={md(h)}></td><td class="m">{w}</td><td class="m">{k}</td><td set:html={md(who)}></td></tr>
+        <tr><td set:html={mdps(h)}></td><td class="m">{w}</td><td class="m">{k}</td><td set:html={mdps(who)}></td></tr>
       ))}</tbody>
     </table>
   </div>
   <div class="one" style="margin-top:22px;border-left-color:var(--terra)">
     <div class="lab">The one that repeats</div>
-    <p style="margin-top:8px;white-space:pre-line" set:html={md(v.houses.note)}></p>
+    <p style="margin-top:8px;white-space:pre-line" set:html={mdps(v.houses.note)}></p>
   </div>
 </section>
 
 <Rule name="arrows" label="Ninety days at house 456" />
 <section class="blk">
   <h2>{v.maddalena.heading}</h2>
-  <p class="prose" style="margin-top:18px" set:html={md(v.maddalena.text)}></p>
+  <p class="prose" style="margin-top:18px" set:html={mdps(v.maddalena.text)}></p>
 </section>
 
 <Rule name="pomegranate" label="A seventh woman" />
 <section class="blk">
   <h2>{v.michiela2.heading}</h2>
-  <p class="prose" style="margin-top:18px" set:html={md(v.michiela2.text)}></p>
+  <p class="prose" style="margin-top:18px" set:html={mdps(v.michiela2.text)}></p>
 </section>
 
 <Rule name="tablet" label="Open" />
@@ -90,7 +85,7 @@ const md = (s) => String(s ?? "")
   <h2>{v.open.heading}</h2>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {v.open.rows.map(([lab, txt]) => (
-      <div class="one"><div class="lab">{lab}</div><p style="margin-top:8px" set:html={md(txt)}></p></div>
+      <div class="one"><div class="lab">{lab}</div><p style="margin-top:8px" set:html={mdps(txt)}></p></div>
     ))}
   </div>
   <p class="cap" style="margin-top:22px" set:html={_md(v.source)}></p>

@@ -1,7 +1,18 @@
 // Prefix a site-root path with the deployment base, so the same links work at
 // https://daviddef.github.io/TheDefranceski/ and at https://defranceski.com/.
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
-export const u = (p = "/") => `${BASE}${p.startsWith("/") ? p : "/" + p}`;
+/* Idempotent since 29 September 2026. u() used to prefix unconditionally, so a
+   path that had already been based came back doubled —
+   /TheDefranceski/TheDefranceski/corrections/. That never bit while each page
+   based its links exactly once, but the moment the shared markdown renderer
+   started emitting based hrefs AND a kit component also based them, seven
+   links on /errands/ broke at once. A prefix function that cannot be applied
+   twice safely is a trap; this one can. */
+export const u = (p = "/") => {
+  const path = p.startsWith("/") ? p : "/" + p;
+  if (BASE && (path === BASE || path.startsWith(BASE + "/"))) return path;
+  return `${BASE}${path}`;
+};
 
 /* Some prose lives in the data files as raw HTML and reaches the page through
    set:html, which means u() never sees its links. Those shipped as href="/gaps/"

@@ -1,20 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md, mdp, md as _md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import d from "../data/cheryl.json";
-const md = (s) => String(s ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/\*(.+?)\*/g, "<em>$1</em>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/\n\n/g, "</p><p>");
-const P = (s) => `<p>${md(s)}</p>`;
+const P = (s) => `<p>${mdp(s)}</p>`;
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 
 <section class="blk">
-  <p class="prose note living" set:html={md(d.living)}></p>
+  <p class="prose note living" set:html={mdp(d.living)}></p>
   <div class="prose" style="margin-top:20px" set:html={P(d.lead)}></div>
 </section>
 
@@ -40,7 +35,7 @@ const P = (s) => `<p>${md(s)}</p>`;
         {i < d.tree.tiers.length - 1 && <div class="cdrop" aria-hidden="true"></div>}
       </div>
     ))}
-    <figcaption><p class="warn" set:html={md(d.tree.close)}></p></figcaption>
+    <figcaption><p class="warn" set:html={mdp(d.tree.close)}></p></figcaption>
   </figure>
 </section>
 
@@ -72,7 +67,7 @@ const P = (s) => `<p>${md(s)}</p>`;
               {x.title && <h3 class="ttl">{x.title}</h3>}
               <div class="verse">{x.l.map(l => (l === "" ? <br /> : <span class="ln">{l}</span>))}</div>
               {x.titlenote && <p class="ttlnote" set:html={_md(x.titlenote)}></p>}
-              {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={md(x.note)}></span></figcaption>}
+              {x.note && <figcaption class="tnote"><span class="lab">The archive</span><span set:html={mdp(x.note)}></span></figcaption>}
             </figure>
     ))}}
   </div>
@@ -99,7 +94,7 @@ const P = (s) => `<p>${md(s)}</p>`;
 <Rule name="arrows" label={d.dark.heading} />
 <section class="blk">
   <div class="prose" set:html={P(d.dark.text)}></div>
-  <p class="prose pnote" set:html={md(d.dark.note)}></p>
+  <p class="prose pnote" set:html={mdp(d.dark.note)}></p>
 </section>
 
 <Rule name="pomegranate" label={d.jar.heading} />
@@ -123,11 +118,11 @@ const P = (s) => `<p>${md(s)}</p>`;
   <div class="prose" set:html={P(d.jar.june.text)}></div>
   <div class="jrows">
     {d.jar.june.rows.map(([dt, tx]) => (
-      <div class="jr"><span class="jd">{dt}</span><span class="jt" set:html={md(tx)}></span></div>
+      <div class="jr"><span class="jd">{dt}</span><span class="jt" set:html={mdp(tx)}></span></div>
     ))}
   </div>
   <div class="prose hi" style="margin-top:22px" set:html={P(d.jar.june.close)}></div>
-  <p class="prose note" style="margin-top:24px" set:html={md(d.jar.quiet)}></p>
+  <p class="prose note" style="margin-top:24px" set:html={mdp(d.jar.quiet)}></p>
 </section>
 
 <Rule name="arrows" label={d.books.heading} />
@@ -138,14 +133,14 @@ const P = (s) => `<p>${md(s)}</p>`;
       <article class="bk">
         <header>
           <h3>{b.t}</h3>
-          <p class="bsub" set:html={md(b.sub)}></p>
+          <p class="bsub" set:html={mdp(b.sub)}></p>
           <p class="bmeta"><span>{b.w}</span>{b.y !== "\u2014" && <span class="by">{b.y}</span>}</p>
         </header>
         <div class="prose" set:html={P(b.d)}></div>
       </article>
     ))}
   </div>
-  <p class="prose note" style="margin-top:24px" set:html={md(d.books.close)}></p>
+  <p class="prose note" style="margin-top:24px" set:html={mdp(d.books.close)}></p>
 </section>
 
 <Rule name="arrows" label={d.excluded.heading} />
@@ -159,8 +154,8 @@ const P = (s) => `<p>${md(s)}</p>`;
 
 <Rule name="pomegranate" />
 <section class="blk">
-  <p class="prose note" set:html={md(d.art.note)}></p>
-  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={md(d.source)}></span></p>
+  <p class="prose note" set:html={mdp(d.art.note)}></p>
+  <p class="cap src" style="margin-top:14px"><span class="lab">Source</span> <span set:html={mdp(d.source)}></span></p>
 </section>
 
 <style>
