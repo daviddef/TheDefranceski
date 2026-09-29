@@ -54,6 +54,10 @@ RULES = [
      # the corrections page and the pages that tell the story of the fix quote it
      {"corrections.json", "worklist.json", "roster.json", "families.json",
       "searched.json", "dossiers.json", "searchindex.json"}),
+    ("Gologorica baptisms claimed to be on film",
+     r"Gologorica baptisms[^\"]{0,60}on film|on film[^\"]{0,40}Gologorica",
+     {"corrections.json", "worklist.json", "roster.json", "searched.json",
+      "dossiers.json", "searchindex.json"}),
     ("Gregorio still given the withdrawn patronymic in a display name",
      r"Gregorio Defranceschi q\.m Antonio",
      {"corrections.json", "worklist.json", "roster.json", "families.json",
