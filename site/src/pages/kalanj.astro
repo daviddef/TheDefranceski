@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import Rule from "../components/Rule.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { md, mdp } from "../lib/md.js";
+import k from "../data/kalanj.json";
+---
+<Base title={k.title} eyebrow={k.eyebrow} dek={k.dek}>
+
+  <section class="prose">
+    <p set:html={mdp(k.lead)} />
+  </section>
+
+  <Rule name="arrows" />
+
+  <section class="blk">
+    <div class="stack" style="margin-top:8px">
+      {k.rows.map((r) => (
+        <div class={r.key ? "keyrow" : ""} style="margin-top:26px">
+          <h3 style="font-size:21px;margin-bottom:8px">{r.lab}</h3>
+          <p set:html={mdp(r.text)} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="blk" style="margin-top:38px">
+    <h2 style="font-size:26px">The stones</h2>
+    <p class="dek" style="margin-top:8px">Photographed 29 September 2026 in the cemeteries of Crikvenica, Novi Vinodolski and Klenovica. Which of the three each stone stands in is not distinguished in the photographs and is not guessed.</p>
+    <div style="margin-top:20px">
+      <Plates ids={["kalanj-mate-luka-kata", "kalanj-albert-ana", "kalanj-petar-vera-milan", "kalanj-franjo", "kalanj-rebrovic"]} cols={2} />
+    </div>
+    <Lightbox />
+  </section>
+
+  <section class="blk" style="margin-top:38px">
+    <h2 style="font-size:26px">Where the family itself is kept</h2>
+    <p class="dek" style="margin-top:8px">
+      The Kalanj genealogy — 215 published people, earliest birth 1734 — is held in
+      <a href="https://daviddef.github.io/TheBlazevic/kalanj/">The Blažević Archive</a>,
+      and is not rebuilt here. This page is the join and the evidence on this side of it.
+    </p>
+  </section>
+
+  <p class="cap" style="margin-top:28px">{k.source_kalanj}</p>
+
+</Base>

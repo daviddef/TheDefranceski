@@ -54,6 +54,12 @@ RULES = [
      # the corrections page and the pages that tell the story of the fix quote it
      {"corrections.json", "worklist.json", "roster.json", "families.json",
       "searched.json", "dossiers.json", "searchindex.json"}),
+    ("Anna Kalanj's birthplace given as the non-existent «Rijenovica»",
+     r"Rijenovica",
+     # roster.json quotes the withdrawn spelling on Anna Kalanj's own page, which
+     # is where the story of the fix is told; kalanj.json does the same.
+     {"corrections.json", "searched.json", "dossiers.json", "searchindex.json",
+      "kalanj.json", "roster.json"}),
     ("Gologorica baptisms claimed to be on film",
      r"Gologorica baptisms[^\"]{0,60}on film|on film[^\"]{0,40}Gologorica",
      {"corrections.json", "worklist.json", "roster.json", "searched.json",
