@@ -10105,6 +10105,48 @@
    "walked": true,
    "film": "005497886",
    "waypointNote": "Waypoint NOT established. The film-number page defaults to wc=9R28-RMN, but the atlas shows that waypoint is «Marriages 1581-1589, 1622-1623» (ark …R99J-4) and these frames are 1777-1784. DGS 005497886 bundles three old films (391644801, 392404501, 392405401), so the page's wc describes only its first segment. Film number recorded instead, per the Record Atlas rule: never guess a waypoint from a similar volume."
+  },
+  {
+   "src": "A database named as a route two weeks ago, opened at last — and a man of Gologorica died at Dachau",
+   "key": "src/a-database-named-as-a-route-two-we-da2ba9",
+   "what": "Muzej žrtava genocida, Belgrade — the Yugoslav victims' census (baza.muzejgenocida.rs), every spelling of the name",
+   "when": "29 Sept 2026",
+   "outcome": "hit",
+   "url": "https://baza.muzejgenocida.rs/",
+   "dest": "Istria",
+   "tags": [
+    "Serbia",
+    "Belgrade",
+    "victims census",
+    "WWII",
+    "Gologorica",
+    "Vodnjan",
+    "read",
+    "hit"
+   ],
+   "ev": [
+    [
+     "/person/anton-defranceski-of-gologorica-1909-1944-1909/",
+     "Anton Defrančeški of Gologorica, died Dachau 1944"
+    ],
+    [
+     "/person/antonio-defranceschi-of-vodnjan-1925-1944-1925/",
+     "Antonio Defranceschi of Vodnjan, 1925–1944"
+    ],
+    [
+     "/person/armando-defranceschi-of-vodnjan-1928-1945-1928/",
+     "Armando Defranceschi of Vodnjan, 1928–1945"
+    ],
+    [
+     "/gologorica-line/",
+     "The Gologorica line"
+    ],
+    [
+     "/lines/",
+     "The Vodnjan line"
+    ]
+   ],
+   "got": "**David asked whether this archive had ever searched it. It had not — and it had already written down that it should.**\n\n*The [Arolsen search of 16 September](/searched/) for **Anka Nera Defranceski** ended by naming two remaining routes, «the Belgrade city registry and the **Yugoslav victims' census** at the Museum of Genocide Victims, **neither of which this archive has opened**». **It stayed unopened for a fortnight until the question was asked.*** *A route named in a search log is not a route run.*\n\n**659,122 records. Three of the name, all new to this archive.**\n\n| name | father | born | of | died | where | the register's «okolnost» |\n|---|---|---|---|---|---|---|\n| **Anton Defrančeški** | Anton | 1909 | **Gologorica** *(Pazin)* | **15.07.1944** | **Dachau** | **logor** — camp; perpetrator **nemci** |\n| **Antonio Defranceschi** | Domenico | 1925 | **Vodnjan** *(Pula)* | 05.05.1944 | Sv. Foška, Vodnjan | NOB i savezničke vojne formacije; perpetrator **unknown** |\n| **Armando Defranceschi** | Gonanni | 1928 | **Vodnjan** *(Pula)* | 05.05.1945 | Mune | NOB i savezničke vojne formacije; perpetrator **unknown** |\n\n**⚠ Anton was born in the parish this archive begins in**, and on **6 April 1941**, the day the Axis invaded Yugoslavia, he was still living there. *He was thirty-two; he was dead at Dachau three years and three months later.* **No descent is claimed** — his father was also Anton, and joining him to the Gologorica household the archive holds is work for the Gračišće and Gologorica registers, not for a victims' index.\n\n**⚠ The Vodnjan two are reported in the register's own words and not characterised further.** *«NOB i savezničke vojne formacije» is the compiling institution's classification, its perpetrator column says **unknown**, and the classification of Istrian deaths of 1943–45 is contested ground on which that institution is a party. **A one-name study records the entry and does not settle the argument.***\n\n**The nil that matters: [Anka Nera Defranceski](/worklist/) is not in this database.** *Seven spellings tried, none returns her.* **One of item 53's two remaining routes is now closed, with a negative.**\n\n**Terms tried, and the counts, on clean page loads:**\n\n| term | hits |\n|---|---|\n| `Defranceski` | **1** — Anton, and the base stores him as «Defrančeški» |\n| `Defranceschi` | **2** — Antonio, Armando |\n| `Defranćeski` | **1** — Anton again |\n| `De Franceschi` | 0 |\n| `Franceschi` | 0 |\n| `Franceski` | 0 |\n| `Defrančeski` | 0 |\n\n**⚠ Two traps in this database, both of which nearly produced a false result here.**\n\n**·** **The surname field is exact, not substring.** *`Franceschi` returns **0** while `Defranceschi` returns 2 — so a search on the bare stem finds nothing and every prefix must be tried on its own.*\n**·** **A query with Croatian diacritics silently returns the whole base.** *`Defrančeški` and `Franceški` both report **659,122** — the unfiltered total. **That is not a result, it is the query being ignored**, and read carelessly it looks like a spectacular hit. The base folds diacritics on its own side, so the ASCII form is the one to send.*\n**·** *And the React front end races: reset-and-refill in a loop renders a **previous query's rows** under a new query's count. One run showed «Ante Frančeskini» under `Defranceski`. **Every count above was re-taken one query per page load.***"
   }
  ]
 }
