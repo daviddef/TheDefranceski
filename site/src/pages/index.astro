@@ -142,6 +142,11 @@ const spineRows = gens.map((g, i) => {
     herLabel: g.spouse ? String(g.spouse.name || g.spouse).split(" ")[0] + "\u2019s" : "Hers",
     note: g.evidence || "",
     sources: g.sources || [],
+    /* Where this marriage leads out of the archive. The kit already derives a
+       door from the wife's surname, but it can only reach a sibling archive's
+       FRONT page; a maiden family with a page of its own deserves the page.
+       Anna Kalanj's is at the Blazevic Archive, and David asked for it. */
+    offpage: g.offpage || [],
   };
 });
 ---
