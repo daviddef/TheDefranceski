@@ -45,6 +45,21 @@ recorded as **done** under Sources while the worklist still called it
 source and the name *before* writing anything up, and if it is a re-run, **say
 so**. Verification is worth recording; it is not discovery.
 
+**And grep the SIBLING ARCHIVES too — `./scripts/whoelse.sh <term>`.**
+On 29 September 2026 this rule was obeyed to the letter and still failed. The
+logs of *this* archive were grepped, they were clean, and the "first step" that
+followed — are the Brinje registers filmed? — had been taken a fortnight earlier
+by the Blažević archive, which had located both films, measured that nothing is
+indexed, and was reading the marriage book that same day. The check could not
+see it because the work was in another repository. **David caught it, and no
+script did.** Three repeats the same day were caught by grepping this archive;
+the fourth was invisible to that.
+
+The estate is one body of research kept in several trees. **A question answered
+in any of them is answered.** `whoelse.sh` greps every sibling archive's data
+for a term and prints where it appears; a hit is not a verdict, it is an
+instruction to go and read that file.
+
 ## 4. Evidence discipline
 
 - **Every claim states its confidence**: `doc` / `inf` / `lore` / `dna`.
