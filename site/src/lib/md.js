@@ -45,11 +45,14 @@ const tables = (src) => {
       let j = i + 2;
       const body = [];
       while (isRow(lines[j]) && !isSep(lines[j])) body.push(cells(lines[j++]));
+      /* Wrapped in .scroll so a wide table scrolls inside its column instead of
+         pushing the page sideways. Without this the tables added on 29
+         September put fifteen pages into horizontal overflow at 375px. */
       out.push(
-        "<table><thead><tr>" + th.map((c) => `<th>${c}</th>`).join("") +
+        "<div class=\"scroll\"><table><thead><tr>" + th.map((c) => `<th>${c}</th>`).join("") +
         "</tr></thead><tbody>" +
         body.map((r) => "<tr>" + r.map((c) => `<td>${c}</td>`).join("") + "</tr>").join("") +
-        "</tbody></table>");
+        "</tbody></table></div>");
       i = j - 1;
     } else out.push(head);
   }
