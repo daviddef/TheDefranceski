@@ -25,6 +25,16 @@ on one person's page has not been told — nobody browses the roster to find it.
 `python3 scripts/check-story.py` counts findings that never reached a reader.
 **It must only ever go down.**
 
+## Record Atlas
+
+The shared map lives at `../Record Atlas`. Research done here is only
+useful to the next person if it gets there.
+
+Invoke the `record-atlas-feedback` skill whenever you finish a search,
+open a register, write to an archive, or find a source the atlas does
+not list — as you do it, not in a sweep at the end. Record the
+FamilySearch waypoint, not just the film number; the skill explains why.
+
 ## A correction is done when the old claim is gone from EVERY file
 
 Not when it is written. A name fixed on a person page and left standing in
