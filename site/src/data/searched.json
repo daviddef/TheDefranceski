@@ -11318,6 +11318,38 @@
     ]
    ],
    "got": "**✅ SETTLED, and the arithmetic is exact to the day.**\n\n> **«Maria Rosa=/lia Defrances=/chi ex Loco»**, *house* **36**, *baptised by* **a.R.D. Antonius Giacich ex abatia**; *father* **«Joh: Baptis[ta]»**; *mother* **«Catharina JOBLICH»**; *godmother* **«Rosalia Baxa uxor Petri, ex Lindar»**. *The child is named Rosalia after her godmother.*\n\n**30 September 1826 minus 37 years 2 months 10 days is 20 July 1789.** *So the woman who dies on page 3 of the 1826* status animarum *is this child, and she was thirty-seven.*\n\n**Four roster rows had grown around her** — *one from the tree with the birth three years out, one from the pedigree with no dates and the wrong mother, one raised that morning from the death entry and explicitly refusing to identify her, and this. **They are now joined with `sameAs`, not merged**: every pid is kept, because a moved id is a dead URL.*\n\n**⚠ And her mother is corrected.** *The pedigree had her as a daughter of **Mariana**. The register says **Catharina Joblich** — the same wife entered three years earlier as* «**Cath. ejus uxor nata Jablich ex Buccari**». ***Only this child is moved***; *the other five of casa 36 keep Mariana, because no register has been read for them and a man may have two wives.*\n\n**The images are published with it**: *[three plates](/gologorica-line/) cut from the family's own copy of the film — the entry, the parents' columns, and the 1786 Jablich entry — each captioned with its film and frame so a reader can go back to the page rather than trust the transcription.*"
+  },
+  {
+   "src": "INTERNAL AUDIT — how much of the two Pazin reels has actually been read",
+   "key": "src/audit-pazin-reels-coverage-30sept-9c14aa",
+   "internal": true,
+   "internalWhy": "An audit of this archive's own reading, not a search of a record set. Counted so the figure can be checked rather than felt.",
+   "what": "David, 30 September 2026: «have you finished all the other files before moving to other registers?»",
+   "when": "30 Sept 2026",
+   "outcome": "nothing",
+   "film": "ZM34K-214 and ZM34K-215 (DAPA)",
+   "pages": "counted across all 1,461 mapped frames",
+   "walked": false,
+   "dest": "Gologorica",
+   "tags": [
+    "audit",
+    "method",
+    "coverage",
+    "Gologorica",
+    "Gračišće",
+    "Cerovlje"
+   ],
+   "ev": [
+    [
+     "/method/",
+     "How this archive works, and where it slipped"
+    ],
+    [
+     "/gologorica-line/",
+     "The frame map the count is measured against"
+    ]
+   ],
+   "got": "**The answer is no, and the number is 4.0%.**\n\n*Counted by taking every frame number cited anywhere in this archive's data and testing it against [the frame map](/gologorica-line/):*\n\n| župa | book | frames | cited | |\n|---|---|---|---|---|\n| Cerovlje | Status Animarum | 139 | 2 | 1.4% |\n| Gologorica | MKR 1764–1788 | 38 | 3 | 7.9% |\n| Gologorica | MKR/MKU/MKV 1770s | 55 | 2 | 3.6% |\n| Gologorica | MKR 1784–1880 | 174 | 9 | 5.2% |\n| Gologorica | MKR 1940–1948 | 17 | 2 | 11.8% |\n| Gologorica | MKU 1646–1806 | 25 | 2 | 8.0% |\n| Gologorica | MKU 1784–1880 | 91 | 2 | 2.2% |\n| **Gologorica** | **Status Animarum 1826** | **121** | **13** | **10.7%** |\n| Gologorica | Status Animarum 1862 | 144 | 5 | 3.5% |\n| Gologorica | Status Animarum 1894 | 246 | 3 | 1.2% |\n| Gologorica | Status Animarum 1921 | 117 | 2 | 1.7% |\n| Gračišće | MKR 1667–1745 | 188 | 9 | 4.8% |\n| Gračišće | MKR 1746–1840 | 106 | 5 | 4.7% |\n| | **total** | **1,461** | **59** | **4.0%** |\n\n**And the 59 flatters it.** *A good many are title cards and book boundaries cited while building the frame map, not entries walked.*\n\n**⚠ What went wrong is method, not effort.** *Every find pointed somewhere else and the reading followed it: 1826 census → 1786 baptisms → 1780 baptisms → 1789 baptisms → Gračišće 1807. **Each step was justified on its own and the result is thirteen books opened and none finished** — which is the state that makes a corpus look worked when it is barely touched.*\n\n**The rule adopted in consequence: finish the book you opened before opening another.** *The 1826* status animarum *first — 119 written pages, the household census that names every soul in every house, and the one that answers the question about the wives' families.* **This figure is to be re-counted and published each time, so it cannot be felt instead of measured.**"
   }
  ]
 }

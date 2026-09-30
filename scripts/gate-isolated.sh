@@ -106,6 +106,12 @@ if ! ../scripts/check-absence.py --dist "site/$OUT"; then fail=1; fi
 # gate on them would only teach people to stop running the gate. The number is
 # printed on every build and should only ever go down. --strict to enforce.
 ../scripts/check-story.py | head -2
+# Coverage SPEAKS too, and for the same reason. On 30 September David asked
+# whether the registers already opened had been finished; nobody could say,
+# because it had never been counted. It was 4.0%. A coverage figure that is
+# felt is always higher than one that is counted, so it is printed on every
+# build. See scripts/check-coverage.py.
+../scripts/check-coverage.py | tail -4
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail
