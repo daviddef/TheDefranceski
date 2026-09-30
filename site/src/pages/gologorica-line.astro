@@ -130,6 +130,15 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
+  <h2>{g.carlohouse.heading}</h2>
+  <p class="prose" set:html={_md(g.carlohouse.lead)} style="margin-top:14px" />
+  {g.carlohouse.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.carlohouse.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
   <h2>The pedigree</h2>
   <p class="dek">Two branches, drawn from their earliest recorded couple down. The register knows them apart by house and byname long before it knows how they join.</p>
   {roots.map(r => (
