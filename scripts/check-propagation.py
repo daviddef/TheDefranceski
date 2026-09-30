@@ -89,6 +89,21 @@ RULES = [
     ("pages still asserted to overflow on a phone",
      r"[Ee]ight pages still scroll sideways",
      {"corrections.json", "worklist.json", "dossiers.json", "searchindex.json"}),
+    # --- 30 September 2026. The two Pazin reels were described for months as
+    # covering «Gologorica, Gračišće and Lindar». All 1,463 frames were then
+    # located against the films' OWN printed title cards: Lindar is not on
+    # them at all — it is on ZM34K-219 and 220 — and CEROVLJE, which is, had
+    # never been named anywhere in this archive. The wrong sentence was live
+    # in four places at once: the Gologorica page, sources.json,
+    # questions.json and the generated dossiers. Four copies of one claim is
+    # exactly the shape this check was written for.
+    ("the Pazin reels ZM34K-214/215 claimed to hold Lindar",
+     r"Gračišće and Lindar|Gračišće and Lindar",
+     # gologorica.json quotes the retired sentence verbatim inside the frame
+     # map's own lead — «the description it carried … was wrong in both
+     # directions» — which is where the fix is told, so it must contain it.
+     {"corrections.json", "worklist.json", "dossiers.json", "searchindex.json",
+      "gologorica.json"}),
     ("Gregorio still given the withdrawn patronymic in a display name",
      r"Gregorio Defranceschi q\.m Antonio",
      {"corrections.json", "worklist.json", "roster.json", "families.json",

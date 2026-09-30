@@ -21,7 +21,13 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 
   <Gist g={gists.gists["gologorica-line"]} />
 <section class="blk">
-  <div class="note">Everything on this page comes from two microfilm volumes, <span class="mono">ZM34K-214</span> and <span class="mono">ZM34K-215</span> — about 1,465 page images of the Roman Catholic registers for <strong>Gologorica, Gračišće and Lindar</strong>, baptisms, marriages, deaths, confirmations and household censuses. FamilySearch does not hold these films; they came from the Pazin Records Office directly. That is why this line exists and the rest of the archive's Istrian interior does not.</div>
+  {/* 30 September 2026. This sentence used to say the reels covered
+      «Gologorica, Gračišće and Lindar». They do not. All 1,463 frames have
+      now been located against the films' own printed title cards: LINDAR IS
+      NOT ON THEM — it sits on ZM34K-219 and 220 — and CEROVLJE, which is on
+      them, had never been named anywhere in this archive. The table further
+      down is the evidence; the correction is on /corrections/. */}
+  <div class="note">Everything on this page comes from two microfilm volumes, <span class="mono">ZM34K-214</span> and <span class="mono">ZM34K-215</span> — <strong>1,463 page images</strong> of the Roman Catholic registers for <strong>Gologorica, Gračišće and Cerovlje</strong>: baptisms, marriages, deaths, confirmations and household censuses. FamilySearch does not hold these films; they came from the Pazin Records Office directly. That is why this line exists and the rest of the archive's Istrian interior does not.</div>
   <div class="prose" style="margin-top:26px">
     <p>Two Defranceschi households sit in the 1780s baptism register, both headed by a <strong>Joannes Baptista</strong>, both with a wife called <strong>Mariana</strong>, living in different houses — <em>casa 31</em>, carrying the byname <em>“detti Leonardi”</em>, and <em>casa 36</em>, recorded as <em>son of the late Josephus</em>. By 1826 the household census shows three heads of that generation: <strong>Jacobus</strong> (b. 1761, a bachelor), <strong>Josephus</strong> (b. 1763) and <strong>Leonardus</strong> (b. 1766).</p>
     <p>Above them stands <strong>Dominus Josephus Defranceschi</strong> and his wife <strong>Helena</strong>, who appear through the 1760s and 1770s as godparents — the title <em>Dominus</em> marking the family's standing. And the parish priest of the 1780s was himself one of them: he signs <em>“Ego Joannes Mathias Franceschi Parochus.”</em></p>
@@ -30,6 +36,44 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 
   <Locator place="Gologorica" radius={10}
             note="The house with 1711 over the door. Gračišće is four kilometres south — the two villages of our first four generations." />
+
+<Rule name="arrows" />
+
+{/* THE FRAME MAP. This page had stood for months on «about 1,465 page images»
+    with no account of what was in them, which is how it came to name a parish
+    the reels do not hold and miss one they do. Published as a table because
+    the sizes are the argument: the household censuses are 43% of the run and
+    three of the four have never been opened. */}
+<section class="blk">
+  <h2>{g.framemap.heading}</h2>
+  <p class="prose" set:html={_md(g.framemap.lead)} style="margin-top:14px" />
+  <p class="prose" set:html={_md(g.framemap.method)} style="margin-top:14px" />
+
+  <div class="tbl-wrap" style="overflow-x:auto;margin-top:24px">
+    <table class="tbl">
+      <thead>
+        <tr><th>Frames</th><th>Župa</th><th>Register</th><th>Years</th><th>Sig.</th><th style="text-align:right">Frames</th></tr>
+      </thead>
+      <tbody>
+        {g.framemap.rows.map((r) => (
+          <tr>
+            <td class="mono" style="white-space:nowrap">{r[0]}</td>
+            <td set:html={_md(r[1])} />
+            <td set:html={_md(r[2])} />
+            <td set:html={_md(r[3])} />
+            <td class="mono">{r[4]}</td>
+            <td class="mono" style="text-align:right">{r[5]}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="prose" set:html={_md(g.framemap.whatitmeans)} style="margin-top:26px" />
+  <div class="keyrow" style="margin-top:24px">
+    <p class="prose" set:html={_md(g.framemap.honest)} />
+  </div>
+</section>
 
 <Rule name="arrows" />
 
