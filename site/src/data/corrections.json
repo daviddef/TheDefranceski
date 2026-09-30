@@ -1590,6 +1590,14 @@
    "where": "[The Gologorica line](/gologorica-line/)",
    "said": "*Published 1 October: «Where **Mathea Defranceschi uxor Leonardi** stands godmother in 1805, her **Conditio Patrini** is written **Rust.** — rustica. On the same pages the casa 31 and casa 36 Defranceschi are entered **Civ.** — cives. **So the register itself separates the two branches by class.**»*",
    "true": "**Reading on, the same woman is entered *Civis*.** *She stands godmother again in* **1810** *(M01069066) and* **1815** *(M01069078), and on both the Conditio column reads* **Civis**, *not* **Rust.**\n\n**So either the condition is being recorded for the other godparent on the row, or it varies with the scribe, or her household's standing changed.** *The column is a single cell serving two godparents, which makes it ambiguous by construction.*\n\n**The claim is withdrawn to a question.** *The distinction between a rustic and a civil Defranceschi line may still be right — it rests on the* Dominus *title and the byname independently — but **the conditio column does not prove it**, and yesterday's commit said it did. *Caught by reading five more folios.*"
+  },
+  {
+   "when": "1 Oct 2026",
+   "sev": "serious",
+   "what": "I marked three stretches of the baptism book `walked` when I had SAMPLED them, not walked them",
+   "where": "[The search register](/searched/) — three rows for the Gologorica baptism book",
+   "said": "*Three entries claimed* `walked: true` *over ranges of the 1784–1880 baptism book:* **M01069020–M01069036** *(17 frames),* **M01069037–M01069051** *(15 frames)* *and* **M01069052–M01069079** *(28 frames)* — *sixty frames in all.*",
+   "true": "**Twenty-seven of those sixty frames were opened. The rest were not.** *The reading proceeded at roughly every third frame, which is a **sample**, not a walk.*\n\n**Why it matters more than it looks.** *`walked` is the one field in this archive's search register that tells the next person a book is **finished**. The [Record Atlas](../Record%20Atlas) states it plainly: **«overstating it is the worst error available here, because it tells the next person a book is done when it is not»**. A sampled book marked walked is worse than an unread one, because nobody goes back to it.*\n\n**All three rows now carry `walked: false` and list the exact frames opened.** *The findings taken from those frames stand — Carlo's baptism, his brother's, the Jablich entries, the marginal death dates. **What is withdrawn is the claim that the frames between them were read.***\n\n**The 1826 *status animarum* claims are NOT affected**: *those 119 pages were read one at a time and reported page by page, and that book is genuinely finished.*\n\n*Found by auditing my own `walked` flags against the frames I had actually cited. Nobody raised it.*"
   }
  ]
 }

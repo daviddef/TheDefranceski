@@ -112,6 +112,12 @@ if ! ../scripts/check-absence.py --dist "site/$OUT"; then fail=1; fi
 # felt is always higher than one that is counted, so it is printed on every
 # build. See scripts/check-coverage.py.
 ../scripts/check-coverage.py | tail -4
+# And the walked check, which is coverage's sharper edge. On 1 October three
+# rows claimed a WALK over sixty frames of the baptism book; twenty-seven had
+# been opened. `walked` is the one field that tells the next person a book is
+# FINISHED, so a sampled book marked walked is worse than an unread one.
+# SPEAKS, because a page read and found empty leaves no citation behind it.
+../scripts/check-walked.py | head -12
 [ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail
