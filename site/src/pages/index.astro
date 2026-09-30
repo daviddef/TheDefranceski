@@ -106,6 +106,29 @@ const finds = [
    oversight. */
 const gens = dline.generations;
 const kidsOf = (n) => (gens.find((x) => x.n === n) || {}).children || [];
+
+/* HER OWN PAGE, WHERE SHE HAS ONE.
+   Until 30 September this row printed «no archive of her own line yet»
+   under EVERY wife, because `spouseAlt` was a blanket string with no test
+   behind it. The maternal pages were built on 29 September and the front
+   page went on announcing their absence anyway — the exact failure the
+   working rules name: a claim left standing after the thing it denies has
+   been made. David caught it on the front page; the archive did not.
+
+   The phrase is now the FALLBACK ONLY. The kit's Descent component has
+   accepted `spouseHref` all along; this site had simply never passed it.
+   Keyed on the wife's name EXACTLY as directline.json writes it — never on
+   a forename, because this estate has thirty Maria Defranceschis and loose
+   matching would eventually hang the wrong woman's line on a row. */
+const WIVES = {
+  "Francisca Salomon":      { href: "/maternal/salomon/",  alt: "the Salomon line" },
+  "Maria née Fernasar":     { href: "/maternal/fernasar/", alt: "the Fernasar line" },
+  "Anna Kalanj":            { href: "/kalanj/",            alt: "Anna’s people, and the parish nobody has opened" },
+  "Ursula, born Kovačina":  { href: "/maternal/kovacina/", alt: "the Kovačina line" },
+  "Hedviga, born Blažević": { href: "/senj-line/",         alt: "the Senj line — Papić · Prpić · Pilipić · Blažević" },
+};
+const wifeOf = (g) => WIVES[String((g.spouse && (g.spouse.name || g.spouse)) || "")] || null;
+
 const spineRows = gens.map((g, i) => {
   const above = kidsOf(g.n - 1);
   const carrier = above.find((c) => c.line);
@@ -130,7 +153,21 @@ const spineRows = gens.map((g, i) => {
     /* Her own dates, which the one-line ladder had no room for and this row
        does. Withheld where the archive withholds them. */
     spouseBorn: (g.spouse && g.spouse.born && !/living/i.test(g.spouse.born)) ? g.spouse.born : "",
-    spouseAlt: (g.spouse && /living/i.test(String(g.spouse.born || ""))) ? "dates withheld" : "no archive of her own line yet",
+    /* Living wives keep «dates withheld» and get no page: the living rule is
+       name only. A wife with a page gets her page. Only a wife with neither
+       still carries the sentence that says so. */
+    /* Generation one has NO WIFE RECORDED, and was being handed
+       «no archive of her own line yet» under a blank name — which asserts a
+       woman the archive has never named. Left empty, the component prints
+       its own «this generation's wife is in no source the archive holds»,
+       which is the true statement for that row. */
+    spouseAlt: !g.spouse
+      ? ""
+      : (/living/i.test(String(g.spouse.born || ""))
+          ? "dates withheld"
+          : (wifeOf(g) ? wifeOf(g).alt : "no archive of her own line yet")),
+    spouseHref: (g.spouse && /living/i.test(String(g.spouse.born || "")))
+      ? "" : (wifeOf(g) ? wifeOf(g).href : ""),
     children: (g.children || []).map((c) => ({
       name: c.name, dates: c.born || "", line: !!c.line, note: c.note || "",
     })),

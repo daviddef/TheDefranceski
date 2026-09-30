@@ -31,6 +31,22 @@ const archOf = (name) => {
   return null;
 };
 
+/* AND SOME OF THEM HAVE A PAGE ON THIS SITE, NOT IN A SIBLING ARCHIVE.
+   `archOf` only ever answered «is her family kept in another archive of the
+   estate», so every wife whose line is written up HERE fell through to
+   «No archive of her own line yet» — which the maternal pages of 29
+   September had already made untrue. Same blanket claim, same day, as the
+   front page. Kept in step with the WIVES map in index.astro, and keyed on
+   the exact name directline.json writes, never on a forename. */
+const HER_PAGE = {
+  "Francisca Salomon":      { href: "/maternal/salomon/",  label: "Her line, in this archive — the Salomon" },
+  "Maria née Fernasar":     { href: "/maternal/fernasar/", label: "Her line, in this archive — the Fernasar" },
+  "Anna Kalanj":            { href: "/kalanj/",            label: "Her line, in this archive — the Kalanj" },
+  "Ursula, born Kovačina":  { href: "/maternal/kovacina/", label: "Her line, in this archive — the Kovačina" },
+  "Hedviga, born Blažević": { href: "/senj-line/",         label: "Her line, in this archive — the Senj line" },
+};
+const pageOf = (name) => HER_PAGE[String(name || "")] || null;
+
 /* Link a name to its dossier page — via the shared resolver, which will not
    return a match it cannot confirm against dates. */
 const resolve = makeResolver(Object.values(doss.people));
@@ -119,6 +135,7 @@ const CONF = {
       CONF[g.confidence] || ["", "Ungraded", "var(--ink-3)"];
     const sp = g.spouse;
     const spArch = sp ? archOf(sp.name) : null;
+    const spPage = sp ? pageOf(sp.name) : null;
     const who = whoOf(g.name, `${g.born || ""} ${g.died || ""}`);
     const hh = hhOf(g);
     const spWho = sp ? whoOf(sp.name, sp.born) : null;
@@ -149,9 +166,15 @@ const CONF = {
                 <div class="t-person t-her">
                   <div class="t-nm">{spWho ? <a href={u(`/who/${spWho}/`)}>{sp.name}</a> : sp.name}</div>
                   {sp.born && <div class="t-meta"><span>b. {sp.born}</span></div>}
-                  {spArch
-                    ? <a class="t-xarch" href={spArch.url}>Her family has its own archive — {spArch.name} →</a>
-                    : <div class="t-alt">No archive of her own line yet</div>}
+                  {/* Both can be true at once, and for Anna Kalanj both are:
+                      her line is written up here AND her family is kept in
+                      the Blažević Archive. Showing one and swallowing the
+                      other is how the front page came to deny a page it had
+                      already built. Only a wife with neither gets the
+                      sentence that says there is nothing. */}
+                  {spPage && <a class="t-xarch" href={u(spPage.href)}>{spPage.label} →</a>}
+                  {spArch && <a class="t-xarch" href={spArch.url}>Her family has its own archive — {spArch.name} →</a>}
+                  {!spPage && !spArch && <div class="t-alt">No archive of her own line yet</div>}
                 </div>
               </>
             ) : (
