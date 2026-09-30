@@ -1606,6 +1606,14 @@
    "where": "[The Gologorica line](/gologorica-line/)",
    "said": "*This archive holds* **Maria Defranceschi, born 16 August 1811**, *and the 1826 census agrees.*",
    "true": "**Her baptism entry says the 14th.** *«Die 17ma Augusti 1811 · Maria Aloysia Defranceschi* **nata die 14ta hujus hora 8va mane**» — *born on the 14th at eight in the morning, baptised on the 17th.*\n\n**⚠ This is NOT the same thing that explained her brothers.** *For Carlo and Franciscus Xaverius the archive held the birth and the census recorded the baptism, and both were right. **Here the baptism register itself gives a birth date two days earlier than the census gives.** Two registers disagreeing about a birth is a different problem, and the primary one was written three days after the event.*\n\n**The date is flagged and not changed**, *because one reading of one entry does not move a date that two other sources agree on — but the better source now disagrees with them and that has to be visible.*\n\n*Also: her name is* **Maria Aloysia**. *This archive carried her as* «Maria». *(doc.)*"
+  },
+  {
+   "when": "1 Oct 2026",
+   "sev": "moderate",
+   "what": "«All thirty-three gaps closed» was published when thirty were — the second coverage overstatement in two days",
+   "where": "[The search register](/searched/), and the commit that announced it",
+   "said": "*«**✅ All thirty-three skipped frames are now read.** The three rows that overstated `walked` have been corrected, and this range has genuinely been covered.»*",
+   "true": "**Thirty had been read. M01069049, M01069055 and M01069062 had been listed as outstanding in the previous entry and were then not opened.**\n\n*They have since been read, so the claim is true now —* **it was not true when it was made**.\n\n**⚠ This is the second overstatement of coverage in two days.** *The first marked sixty frames `walked` when twenty-seven had been opened. **Both were caught by this archive auditing itself rather than by anyone raising them**, which is the system working; but a fault that recurs within a day is a habit, not an accident, and it is recorded as one.*\n\n*What the habit is: **writing the summary before checking the count**. The fix is mechanical — [scripts/check-walked.py](/method/) already exists for the `walked` flag, and the same discipline applies to any sentence beginning «all».*"
   }
  ]
 }
