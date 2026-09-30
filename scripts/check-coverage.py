@@ -63,8 +63,16 @@ def main():
     if tot:
         print("   %-55s %4d frames  %4d cited  %5.1f%%"
               % ("TOTAL", tot, read, 100 * read / tot))
-    print("   ⚠ a cited frame is not a walked page: title cards and book")
-    print("     boundaries count here too, so the true reading is lower.")
+    print("   ⚠ a cited FRAME is not a walked PAGE. Title cards and book")
+    print("     boundaries count here, so the true reading is lower. And the")
+    print("     film shoots some openings TWICE — page 68 of the 1826 census is")
+    print("     M01069386 AND M01069387, both read — so the frame count also")
+    print("     overstates the number of distinct pages by an unknown amount.")
+    print("     Two attempts to detect duplicates automatically FAILED: ink")
+    print("     coverage and pixel difference both put the confirmed duplicate")
+    print("     inside the range of ordinary consecutive pages, because two")
+    print("     exposures of one page differ in film position and lighting,")
+    print("     while two sparse pages of one register look alike.")
     return 0
 
 
