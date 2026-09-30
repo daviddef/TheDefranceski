@@ -70,6 +70,32 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   </div>
 
   <p class="prose" set:html={_md(g.framemap.whatitmeans)} style="margin-top:26px" />
+
+  {/* THE PRIESTS. House 1 of the 1826 census is the parish house, and it
+      carries the whole succession with birthplaces. Published because this
+      archive's central rule — a hand is only legible against itself — cannot
+      be applied to a book whose hands have no names. */}
+  <div style="margin-top:38px">
+    <h3 style="font-size:21px">{g.priests.heading}</h3>
+    <p class="prose" set:html={_md(g.priests.lead)} style="margin-top:12px" />
+    <div class="tbl-wrap" style="overflow-x:auto;margin-top:18px">
+      <table class="tbl">
+        <thead><tr><th>Priest</th><th>Office</th><th>Born</th><th>From</th><th>Died</th></tr></thead>
+        <tbody>
+          {g.priests.rows.map((r) => (
+            <tr>
+              <td set:html={_md(r[0])} />
+              <td>{r[1]}</td>
+              <td class="mono" style="white-space:nowrap">{r[2]}</td>
+              <td set:html={_md(r[3])} />
+              <td set:html={_md(r[4])} />
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="prose" set:html={_md(g.priests.note)} style="margin-top:16px" />
+  </div>
   <div class="keyrow" style="margin-top:24px">
     <p class="prose" set:html={_md(g.framemap.honest)} />
   </div>
