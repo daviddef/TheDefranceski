@@ -136,6 +136,14 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div style="margin-top:24px"><Plates ids={g.carlohouse.plates} cols={1} /></div>
 </section>
 
+<Rule name="pomegranate" />
+
+<section class="blk">
+  <h2>{g.book1826.heading}</h2>
+  <p class="prose" set:html={_md(g.book1826.lead)} style="margin-top:14px" />
+  {g.book1826.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
