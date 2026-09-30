@@ -93,6 +93,14 @@ if ! ../scripts/check-witness.py; then fail=1; fi
 # a corrected name stayed live in households.json for five days and kept a
 # child filed under the wrong household. See scripts/check-propagation.py.
 if ! ../scripts/check-propagation.py; then fail=1; fi
+# Absence next, and it is propagation's blind twin. check-propagation reads
+# site/src/data/*.json; on 30 September the stale claim was a hardcoded
+# fallback string in two .astro templates, so it was invisible to every check
+# in this gate — the link checkers all passed, because the missing link was
+# exactly what the sentence asserted. Runs against the BUILT site, which is
+# why it sits here and not with the data checks, and takes THIS gate's build
+# rather than site/dist, which may be older than what is being gated.
+if ! ../scripts/check-absence.py --dist "site/$OUT"; then fail=1; fi
 # Story last, and it SPEAKS rather than blocks: it counts findings that never
 # left the search log. Forty-four existed when it was written, so failing the
 # gate on them would only teach people to stop running the gate. The number is
