@@ -285,9 +285,12 @@
    "deathYear": null,
    "place": "Gologorica, Pazin, Istria",
    "notes": [
-    "Son of Leonardus (house 6); married Francisca and became head of the house"
+    "**Son of Usualdus and Apollonia**, not of Leonardus — corrected 30 September 2026 from the 1826 status animarum, M01069328, which names him «Antonius Defranceschi filius Usualdi et Apoloniæ».",
+    "**Adopted by his paternal uncle Leonardus** (*patruus*) into house 6, which he later headed. He entered the household from the **parish of Lindar** on his marriage of 29 January 1840; his wife Francisca came **from the parish of Gallignana (Gračišće), house 5**, on the same day. *(doc.)*"
    ],
-   "famc": [],
+   "famc": [
+    "@F20@"
+   ],
    "fams": []
   },
   {
@@ -301,7 +304,8 @@
    "deathYear": null,
    "place": "",
    "notes": [
-    "Wife of Antonius (house 6). Maiden surname not captured."
+    "Wife of Antonius (house 6). The register writes her **«Francisca uxor n. Defranceschi»** — *n.* for *nata*, so she was **born a Defranceschi** and this is a marriage inside the name. *Read once only; the abbreviation wants a second construction elsewhere in the same hand before it is relied on.* (inf.)",
+    "**She came from the parish of Gallignana (Gračišće), house 5**, on her marriage of 29 January 1840 — *«Ex Parochia Gallignana sub N.o 5»*, 1826 status animarum, M01069328. **This archive already holds the Gallignana status animarum for house 5** (DAPA ZM34K-217, M01072071, supplied 24 June 2021), so her own household is readable. *(doc.)*"
    ],
    "famc": [],
    "fams": []
@@ -1138,6 +1142,44 @@
    ],
    "famc": [],
    "fams": []
+  },
+  {
+   "gid": "@I200@",
+   "name": "Usualdus Defranceschi",
+   "sex": "M",
+   "title": "",
+   "birth": "",
+   "birthYear": null,
+   "death": "",
+   "deathYear": null,
+   "place": "Gologorica, Pazin, Istria",
+   "notes": [
+    "Father of Antonius (b. 1814) and BROTHER of Leonardus of house 6 — named three times on one page of the 1826 status animarum (M01069328): in the name column as «Antonius Defranceschi filius Usualdi et Apoloniæ», in the adnotatio which calls Leonardus the boy's PATRUUS (father's brother), and at the foot of the page as «Usualdus … pater Antonii», on a house marked «non habitata».",
+    "New to this archive on 30 September 2026. No dates; his own house at Gologorica stood empty when the census was drawn."
+   ],
+   "famc": [],
+   "fams": [
+    "@F20@"
+   ]
+  },
+  {
+   "gid": "@I201@",
+   "name": "Apollonia",
+   "sex": "F",
+   "title": "",
+   "birth": "",
+   "birthYear": null,
+   "death": "",
+   "deathYear": null,
+   "place": "",
+   "notes": [
+    "Mother of Antonius (b. 1814), named in the 1826 status animarum as «filius Usualdi et Apoloniæ» (M01069328). Maiden surname not given; the register names her once and only in the genitive.",
+    "New to this archive on 30 September 2026."
+   ],
+   "famc": [],
+   "fams": [
+    "@F20@"
+   ]
   }
  ],
  "families": [
@@ -1185,11 +1227,10 @@
    "gid": "@F3@",
    "husb": "@I20@",
    "wife": "@I21@",
-   "chil": [
-    "@I22@"
-   ],
+   "chil": [],
    "marriage": "23 NOV 1790",
-   "marriagePlace": ""
+   "marriagePlace": "",
+   "note": "⚠ **Corrected 30 September 2026. This couple had no children recorded here.** Antonius (b. 14 April 1814) was carried as their son; the 1826 status animarum makes him the son of **Usualdus and Apollonia**, and calls Leonardus his **patruus** — his father's brother — who *«hunc in filium adoptivum accepit»*, took him as an adopted son, «et locatus hic sub N.o 6». *That Leonardus and Matthea were themselves childless is the obvious reason and is **not** stated by the register.* (doc for the adoption; inf for the childlessness.)"
   },
   {
    "gid": "@F4@",
@@ -1292,12 +1333,22 @@
    ],
    "marriage": "10 OCT 1859",
    "marriagePlace": ""
+  },
+  {
+   "gid": "@F20@",
+   "husb": "@I200@",
+   "wife": "@I201@",
+   "chil": [
+    "@I22@"
+   ],
+   "marriage": "",
+   "marriagePlace": ""
   }
  ],
  "omittedLiving": 0,
  "counts": {
-  "individuals": 72,
-  "families": 11
+  "individuals": 74,
+  "families": 12
  },
  "chronicle": {
   "heading": "The village, as its priest saw it — 1892 to 1918",
