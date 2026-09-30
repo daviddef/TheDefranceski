@@ -1598,6 +1598,14 @@
    "where": "[The search register](/searched/) — three rows for the Gologorica baptism book",
    "said": "*Three entries claimed* `walked: true` *over ranges of the 1784–1880 baptism book:* **M01069020–M01069036** *(17 frames),* **M01069037–M01069051** *(15 frames)* *and* **M01069052–M01069079** *(28 frames)* — *sixty frames in all.*",
    "true": "**Twenty-seven of those sixty frames were opened. The rest were not.** *The reading proceeded at roughly every third frame, which is a **sample**, not a walk.*\n\n**Why it matters more than it looks.** *`walked` is the one field in this archive's search register that tells the next person a book is **finished**. The [Record Atlas](../Record%20Atlas) states it plainly: **«overstating it is the worst error available here, because it tells the next person a book is done when it is not»**. A sampled book marked walked is worse than an unread one, because nobody goes back to it.*\n\n**All three rows now carry `walked: false` and list the exact frames opened.** *The findings taken from those frames stand — Carlo's baptism, his brother's, the Jablich entries, the marginal death dates. **What is withdrawn is the claim that the frames between them were read.***\n\n**The 1826 *status animarum* claims are NOT affected**: *those 119 pages were read one at a time and reported page by page, and that book is genuinely finished.*\n\n*Found by auditing my own `walked` flags against the frames I had actually cited. Nobody raised it.*"
+  },
+  {
+   "when": "1 Oct 2026",
+   "sev": "moderate",
+   "what": "Two registers disagree about Maria Aloysia's birthday — and this one is not the birth/baptism gap",
+   "where": "[The Gologorica line](/gologorica-line/)",
+   "said": "*This archive holds* **Maria Defranceschi, born 16 August 1811**, *and the 1826 census agrees.*",
+   "true": "**Her baptism entry says the 14th.** *«Die 17ma Augusti 1811 · Maria Aloysia Defranceschi* **nata die 14ta hujus hora 8va mane**» — *born on the 14th at eight in the morning, baptised on the 17th.*\n\n**⚠ This is NOT the same thing that explained her brothers.** *For Carlo and Franciscus Xaverius the archive held the birth and the census recorded the baptism, and both were right. **Here the baptism register itself gives a birth date two days earlier than the census gives.** Two registers disagreeing about a birth is a different problem, and the primary one was written three days after the event.*\n\n**The date is flagged and not changed**, *because one reading of one entry does not move a date that two other sources agree on — but the better source now disagrees with them and that has to be visible.*\n\n*Also: her name is* **Maria Aloysia**. *This archive carried her as* «Maria». *(doc.)*"
   }
  ]
 }
