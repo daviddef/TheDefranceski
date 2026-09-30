@@ -2907,7 +2907,7 @@
    "place": "Gologorica, Istra",
    "src": "myheritage",
    "href": "/people/",
-   "note": "**Merged 16 September 2026.** This archive carried her twice — born 1786 and born 1789, dying in the same year at the same parish, under two MyHeritage identifiers (4509439 and 4510756). The reconciliation against the live tree returned the pair **mirrored**: our 1786 against the tree's 1789 and our 1789 against the tree's 1786, which is the shape a duplicate makes on both sides at once. **The birth year is not settled** — 1786 is kept because it is the row that carries the parish — and the Gologorica baptisms will decide it.\n\n**The tree and this archive disagree about the birth year by 3 years, and the death year agrees.** Tree **1789**, here **1786**. *That is what an age produces.* A record giving «aged N» rather than a date yields a birth year that depends on whether the birthday had passed, so the two are **one year of arithmetic apart, not one of evidence**. **This archive keeps its own figure**, which came off the register; the tree's is recorded so the difference is visible rather than silently resolved. *(20 Sept 2026.)*",
+   "note": "**Carried on David's MyHeritage tree as «Maria Defranceschi, born 1786, died 1826», with an empty note.** *The Gologorica register has **exactly one Maria Defranceschi dying in 1826** — on 30 September, aged 37y 2m 10d, which is a birth of **20 July 1789**. Same name, same death year, same parish, one candidate. **The tree's 1786 is three years out.***\n\n**Held as the same person as [Maria Rosalia Defranceschi, b. 20 July 1789](/gologorica-line/)** — *the register entry that documents her is cited on that row. **The pid is kept and not deleted**, because a moved id is a dead URL; `sameAs` is how this archive says two rows are one woman without breaking either link.*",
    "notable": false,
    "ark": "",
    "mh": "4509439 · 4510756",
@@ -2915,7 +2915,8 @@
    "who": "/who/maria-defranceschi/",
    "placeSlug": "gologorica",
    "mine": true,
-   "pid": "maria-defranceschi-1786"
+   "pid": "maria-defranceschi-1786",
+   "sameAs": "maria-rosalia-defranceschi-1789"
   },
   {
    "name": "Mariana De Franceschi",
@@ -3016,11 +3017,11 @@
   {
    "name": "Maria Rosalia Defranceschi",
    "b": 1789,
-   "d": null,
-   "place": "Gologorica, Istra",
-   "src": "myheritage",
-   "href": "/people/",
-   "note": "",
+   "d": 1826,
+   "place": "Gologorica",
+   "src": "read",
+   "href": "/gologorica-line/",
+   "note": "**Baptised 20 July 1789 at Gologorica, house 36 — and the register names her mother, who is not the woman this archive had given her.**\n\n> *«**Maria Rosa=/lia Defrances=/chi ex Loco**», house 36, baptised by* **a.R.D. Antonius Giacich ex abatia**; *father* **«Joh: Baptis[ta]»**; *mother's surname column* **«Catharina JOBLICH»**; *godmother* **«Rosalia Baxa uxor Petri, ex Lindar»**. **The child is named Rosalia after her godmother.** *(doc.)*\n\n**She is the Maria who dies in the 1826 household census.** *Page 3 of the* status animarum *records a **Maria Defranceschi, *civilitas*, died 30 September 1826, aged 37 years 2 months 10 days**. **That arithmetic lands on 20 July 1789 to the day.*** So her death is documented too, and she was **thirty-seven**.\n\n**⚠ Her mother is corrected.** *This archive had her as a daughter of Joannes Baptista and* **Mariana**; *the register says* **Catharina Joblich** — *the same woman who appears three years earlier as* «**Cath. ejus uxor nata Jablich ex Buccari**», *born a Jablich of Bakar. **Only this child is reassigned**; the other five of casa 36 are not, because no register has been read for them and Joannes Baptista may well have had two wives.*\n\n**Four roster rows had grown around this one woman** — *see the ones marked* `sameAs` *against this pid.* *(doc.)* Gologorica baptisms 1784–1880, Džavni arhiv u Pazinu microfilm **ZM34K-214**, image **M01069020**, entry of **20 July 1789**, house 36; and the *status animarum* of 1826, image **M01069321**, for her death.",
    "notable": false,
    "ark": "",
    "mh": "4509638",
@@ -3028,7 +3029,12 @@
    "who": "/who/maria-rosalia-defranceschi/",
    "placeSlug": "gologorica",
    "mine": true,
-   "pid": "maria-rosalia-defranceschi-1789"
+   "pid": "maria-rosalia-defranceschi-1789",
+   "also": [
+    "myheritage"
+   ],
+   "parish": "Gologorica",
+   "img": "ZM34K-214 · Gologorica baptisms, M01069020"
   },
   {
    "name": "Stella Defranceschi",
@@ -16920,7 +16926,7 @@
    "place": "Gologorica",
    "src": "golo",
    "href": "/gologorica-line/",
-   "note": "",
+   "note": "**The Gologorica pedigree's own entry for her** (`@I7@`), carrying no dates and the note «Daughter of Joannes Baptista (casa 36) and **Mariana**». *The register gives the mother as **Catharina Joblich** and the baptism as **20 July 1789**.*\n\n**Held as the same person as [Maria Rosalia Defranceschi, b. 20 July 1789](/gologorica-line/)** — *the register entry that documents her is cited on that row. **The pid is kept and not deleted**, because a moved id is a dead URL; `sameAs` is how this archive says two rows are one woman without breaking either link.*",
    "notable": false,
    "ark": "",
    "mh": "",
@@ -16928,7 +16934,8 @@
    "who": "/who/maria-rosalia-defranceschi/",
    "placeSlug": "gologorica",
    "mine": true,
-   "pid": "maria-rosalia-defranceschi-gologorica"
+   "pid": "maria-rosalia-defranceschi-gologorica",
+   "sameAs": "maria-rosalia-defranceschi-1789"
   },
   {
    "name": "Maria Sesalin (Defranceschi)",
@@ -27670,8 +27677,9 @@
    "notable": false,
    "ark": "",
    "mh": "",
-   "note": "Recorded *civilis* — of the civil class, not *rusticus* — on page 3 of the 1826 *status animarum*, in a household struck through, with four souls. **Died 30 October 1826, aged 37 years 2 months 10 days**, which puts her birth about **20 August 1789**. **⚠ Not identified with any Maria already on this roster.** *This estate holds some thirty Maria Defranceschis; a death date and an age will not pick one out, and joining her to another row on the strength of a shared forename is exactly the error this archive keeps catching.* *(doc.)* Gologorica *Status Animarum* 1826, DAPA microfilm **ZM34K-214**, image **M01069321**.",
-   "pid": "maria-defranceschi-d1826"
+   "note": "**Raised earlier on 30 September 2026 from the death entry alone**, explicitly *«not identified with any Maria already on this roster»* because a death date and an age will not pick one woman out of thirty. **Three hours later the baptism was found and it does pick her out**: the arithmetic from the age lands on 20 July 1789, and a Maria Rosalia Defranceschi was baptised at Gologorica on that day. *The caution was right and the identification is now documented.*\n\n**Held as the same person as [Maria Rosalia Defranceschi, b. 20 July 1789](/gologorica-line/)** — *the register entry that documents her is cited on that row. **The pid is kept and not deleted**, because a moved id is a dead URL; `sameAs` is how this archive says two rows are one woman without breaking either link.*",
+   "pid": "maria-defranceschi-d1826",
+   "sameAs": "maria-rosalia-defranceschi-1789"
   },
   {
    "name": "Hermenegildus Defranceschi",

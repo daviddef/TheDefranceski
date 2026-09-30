@@ -95,10 +95,36 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
       </table>
     </div>
     <p class="prose" set:html={_md(g.priests.note)} style="margin-top:16px" />
+    <div style="margin-top:20px"><Plates ids={["golo-1826-priests"]} cols={1} /></div>
   </div>
   <div class="keyrow" style="margin-top:24px">
     <p class="prose" set:html={_md(g.framemap.honest)} />
   </div>
+</section>
+
+<Rule name="pomegranate" />
+
+{/* 30 September 2026, at David's asking: the findings belong in the book with
+    the register images beside them, not only in the search log. The plates are
+    cut from the family's own copies of the film and carry the film and frame
+    in their captions, so a reader can go back to the exact page this archive
+    read — which is the whole point of publishing an image rather than a
+    transcription. */}
+<section class="blk">
+  <h2>{g.adoption.heading}</h2>
+  <p class="prose" set:html={_md(g.adoption.lead)} style="margin-top:14px" />
+  {g.adoption.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={["golo-1826-adoption"]} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2>{g.maria1789.heading}</h2>
+  <p class="prose" set:html={_md(g.maria1789.lead)} style="margin-top:14px" />
+  {g.maria1789.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.maria1789.plates} cols={1} /></div>
+  <Lightbox />
 </section>
 
 <Rule name="arrows" />
