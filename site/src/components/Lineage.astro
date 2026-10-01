@@ -8,7 +8,7 @@ const kids = (h.children || []).map(c => c.name);
 <div class="gen" style={`--d:${depth}`}>
   {l && (
     <div class="via">
-      <span class="chip {l.confidence === 'strong' ? 'doc' : 'inf'}">{l.confidence}</span>
+      <span class={"chip " + (l.confidence === 'strong' ? 'doc' : 'inf')}>{l.confidence}</span>
       <span>through <b>{l.via}</b>, {l.gap} years between his own baptism and his first recorded child</span>
     </div>
   )}
