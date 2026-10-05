@@ -1614,6 +1614,14 @@
    "where": "[The search register](/searched/), and the commit that announced it",
    "said": "*«**✅ All thirty-three skipped frames are now read.** The three rows that overstated `walked` have been corrected, and this range has genuinely been covered.»*",
    "true": "**Thirty had been read. M01069049, M01069055 and M01069062 had been listed as outstanding in the previous entry and were then not opened.**\n\n*They have since been read, so the claim is true now —* **it was not true when it was made**.\n\n**⚠ This is the second overstatement of coverage in two days.** *The first marked sixty frames `walked` when twenty-seven had been opened. **Both were caught by this archive auditing itself rather than by anyone raising them**, which is the system working; but a fault that recurs within a day is a habit, not an accident, and it is recorded as one.*\n\n*What the habit is: **writing the summary before checking the count**. The fix is mechanical — [scripts/check-walked.py](/method/) already exists for the `walked` flag, and the same discipline applies to any sentence beginning «all».*"
+  },
+  {
+   "when": "5 Oct 2026",
+   "sev": "moderate",
+   "what": "Maximilianus Antonius was born 8 January 1828, not the 9th — and his death date is disputed by his own baptism margin",
+   "where": "[The Gologorica line](/gologorica-line/)",
+   "said": "*«Maximilianus Antonius Josephus Defranceschi, **b. 9 January 1828**, d. **6 October 1910**».*",
+   "true": "**His baptism entry says «natus heri media nocte»** — *born the previous day at midnight.* **So the 9th is the baptism and the birth is 8 January 1828**, *which is the third time this pattern has explained a date in this household: Carlo, Franciscus Xaverius, and now Maximilianus. **The archive's dates for this family are baptisms wherever they came from the census.***\n\n**⚠ And a later hand has written «† 6/8 910» in the margin of that baptism.** *Read at seven times magnification. In Austrian and Croatian usage* **6/8 is 6 August**, *against the* **6 October 1910** *this archive holds.* **The date is NOT changed** — *one marginal note does not move a date held from another source, but the parish's own margin is well placed to know, and the disagreement is now visible rather than silently resolved.* *(doc for the birth; the death flagged.)*"
   }
  ]
 }
