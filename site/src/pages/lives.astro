@@ -1,0 +1,258 @@
+---
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import roster from "../data/roster.json";
+
+/* A scrollable chart of lifespans, one bar to a person.
+ *
+ * David asked on 6 October 2026 whether the births and deaths of a whole line
+ * could be shown on a scrollable timeline. /timeline/ already exists and is a
+ * different thing on purpose — its own dek says «the point is not when people
+ * were born» — so this is the one that is about the people.
+ *
+ * THE RULE THIS PAGE IS BUILT AROUND: it must not make the archive look better
+ * evidenced than it is. A chart of bars reads as certainty, and most of these
+ * dates came off a family tree. So a bar is drawn SOLID only when the roster
+ * says the date was read off a register or a stone; otherwise it is hollow.
+ * And a person with one date gets an open end rather than a guessed one.
+ *
+ * Living people are excluded outright. The rule here is name and town and
+ * nothing else, and a chart of dates is no place to make an exception.
+ */
+
+const LINES = roster.legend.map(([k, text]) => ({ k, text }));
+
+// src values that mean "this archive, or an index of record, read it"
+const DOCUMENTED = new Set([
+  "read", "burial", "grave", "record", "household", "index", "oesta",
+  "paper", "gazette", "press", "eleven",
+]);
+
+const isNum = (v) => typeof v === "number" && isFinite(v);
+
+/* `sameAs` is how this roster says «this row and that row are one person».
+ * Thirty-two rows carry it. A chart that drew both would show one life twice
+ * and inflate every count on the page, so the duplicate row is dropped and
+ * the primary keeps the bar. */
+const dupes = roster.rows.filter((p) => p.sameAs && !p.living
+                                   && (isNum(p.b) || isNum(p.d))).length;
+
+const people = roster.rows
+  .filter((p) => !p.living)                       // never, under any filter
+  .filter((p) => !p.sameAs)                       // one life, one bar
+  .filter((p) => isNum(p.b) || isNum(p.d))
+  .map((p) => ({
+    name: p.name,
+    who: p.who || null,
+    line: p.line || "unknown",
+    b: isNum(p.b) ? p.b : null,
+    d: isNum(p.d) ? p.d : null,
+    src: p.src || "",
+    doc: DOCUMENTED.has(p.src),
+    place: p.place || "",
+  }))
+  .sort((a, b) => (a.b ?? a.d) - (b.b ?? b.d) || a.name.localeCompare(b.name));
+
+const counts = {};
+for (const p of people) counts[p.line] = (counts[p.line] || 0) + 1;
+
+// the axis. Round outward to a decade so the ruler reads cleanly.
+const years = people.flatMap((p) => [p.b, p.d].filter(isNum));
+const MIN = Math.floor(Math.min(...years) / 10) * 10;
+const MAX = Math.ceil(Math.max(...years) / 10) * 10;
+const PX = 4;                                    // pixels per year
+const LBL = 250;                                 // room for the name beside the longest bar
+const W = (MAX - MIN) * PX + LBL;
+const x = (y) => (y - MIN) * PX;
+
+const ticks = [];
+for (let y = MIN; y <= MAX; y += 25) ticks.push(y);
+
+// what the chart is actually made of, said in numbers rather than implied
+const nBoth = people.filter((p) => p.b && p.d).length;
+const nDoc = people.filter((p) => p.doc).length;
+const nOpen = people.length - nBoth;
+const nLiving = roster.rows.filter((p) => p.living).length;
+const ordered = LINES.filter((l) => counts[l.k]).sort((a, b) => counts[b.k] - counts[a.k]);
+
+/* The figures in the prose are COMPUTED, not typed. A sentence like «half of
+ * them» goes stale the moment somebody reads another register, and a stale
+ * boast is the thing this archive spends its days correcting. */
+const carnia = people.filter((p) => p.line === "carnia");
+const cDoc = carnia.filter((p) => p.doc).length;
+const pc = (n, of) => Math.round((n / of) * 100);
+---
+
+<Base
+  title="Lives on one scale"
+  eyebrow={`${people.length} people, ${MIN}–${MAX}`}
+  dek="One bar to a person, birth to death, down the whole of a line. Scroll it sideways. A solid bar is a date read off a record; a hollow one came off a family tree. On our own line it is half and half.">
+
+  <section class="blk prose">
+    <p><a href={u("/timeline/")}>The Timeline</a> puts this family against the history that was happening to it, and says in its own dek that the point is not when people were born. This page is the other half: <strong>it is only about when people were born, and when they stopped.</strong></p>
+    <p><strong>Read the hollow bars first.</strong> A chart of neat bars reads as certainty, and that would be a lie about this archive. A bar is drawn solid only where the roster says the date was <em>read off a register, an index of record or a headstone</em>. Everything else came off a family tree and is drawn hollow. Across the whole roster that is {people.length - nDoc} of {people.length}; <strong>on our own Carnia line it is {carnia.length - cDoc} of {carnia.length} — almost exactly half.</strong> The hollow bars are the work still to do.</p>
+    <p><strong>And an open end is not a short life.</strong> {nOpen} of these {people.length} people — {pc(nOpen, people.length)} per cent, the majority — have one date and not the other. Their bar fades out rather than stopping square, because the archive does not know when they died and will not draw a guess. <strong>A faded end means «no burial register has been read for this person», and nothing more.</strong></p>
+    <p class="cap">{nLiving} living people are excluded entirely — the rule in this archive is name and town and nothing else, and a chart of dates is no place to make an exception. A further {dupes} rows are left out because the roster marks them <code>sameAs</code> another row: they are the same life entered twice, and one life gets one bar.</p>
+  </section>
+
+  <Rule name="arrows" />
+
+  <section class="blk">
+    <h2>Pick a line</h2>
+    <div class="linepick" style="margin-top:14px">
+      {ordered.map((l, i) => (
+        <label class="lp">
+          <input type="radio" name="line" value={l.k} checked={l.k === "carnia"} />
+          <span class="lpk">{l.k}</span><span class="lpn">{counts[l.k]}</span>
+        </label>
+      ))}
+      <label class="lp">
+        <input type="radio" name="line" value="*" />
+        <span class="lpk">all of them</span><span class="lpn">{people.length}</span>
+      </label>
+    </div>
+    <p class="cap" id="lineblurb" style="margin-top:12px"></p>
+  </section>
+
+  <section class="blk" style="margin-top:8px">
+    <div class="chartwrap">
+      <div class="chart" style={`width:${W}px`}>
+        <div class="ruler">
+          {ticks.map((t) => (
+            <span class="tick" style={`left:${x(t)}px`}><i></i><b>{t}</b></span>
+          ))}
+        </div>
+        <div class="rows">
+          {people.map((p) => {
+            const a = p.b ?? p.d, z = p.d ?? p.b;
+            const left = x(a), w = Math.max(2, x(z) - x(a));
+            const cls = ["lv", p.doc ? "doc" : "tree",
+                         p.b && p.d ? "full" : (p.b ? "openend" : "openstart")].join(" ");
+            return (
+              <div class="lvrow" data-line={p.line}>
+                <span class={cls} style={`left:${left}px;width:${w}px`}
+                      title={`${p.name} · ${p.b ?? "?"}–${p.d ?? "?"} · ${roster.srclabel[p.src] || p.src || "no source given"}`}>
+                  <span class="lbl">{p.name}{p.b && p.d ? ` ${p.b}–${p.d}` : p.b ? ` b. ${p.b}` : ` d. ${p.d}`}</span>
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        <div class="ruler foot">
+          {ticks.map((t) => (
+            <span class="tick" style={`left:${x(t)}px`}><i></i><b>{t}</b></span>
+          ))}
+        </div>
+      </div>
+    </div>
+    <p class="cap" style="margin-top:12px">Drag or scroll the band sideways. Each row is one person; hover or tap a bar for the source the date came from.</p>
+
+    <div class="key" style="margin-top:18px">
+      <span><i class="sw doc"></i> read off a register, an index of record or a headstone</span>
+      <span><i class="sw tree"></i> off a family tree, and not yet checked</span>
+      <span><i class="sw fade"></i> one date known, the other end left open</span>
+    </div>
+  </section>
+
+  <Rule name="pomegranate" />
+
+  <section class="blk prose">
+    <h2>What the shape of it says</h2>
+    <p><strong>The solid bars cluster.</strong> They sit where this archive has walked a register — Gologorica and Gračišće in the eighteenth and nineteenth centuries, Rijeka and Svetvinčenat in patches, the headstones at the end. Everywhere else the line is hollow, and that is not a judgement about the people: it is a map of which books have been opened.</p>
+    <p><strong>The open ends are the burial registers nobody has read.</strong> A person with a birth and no death is almost always a person whose parish death book is sitting unread on a reel. On 6 October 2026 this archive opened one of them — <a href={u("/gologorica-line/")}>the Gologorica deaths 1784–1880</a> — and the first two pages it looked at closed two open ends that had been argued over for a fortnight.</p>
+    <p class="cap">Built from <code>roster.json</code>, which is the archive's own list of people and is rebuilt whenever the roster changes. Nothing here is entered by hand, so the chart cannot drift from the roster; if a bar is wrong, the person's row is wrong, and that is the thing to fix.</p>
+  </section>
+
+<style>
+  .linepick { display:flex; flex-wrap:wrap; gap:8px }
+  .lp { display:inline-flex; align-items:baseline; gap:7px; padding:7px 12px;
+        border:1px solid var(--rule,#d8d2c6); border-radius:999px; cursor:pointer;
+        font-size:14px; line-height:1; background:var(--paper,#fff) }
+  .lp input { position:absolute; opacity:0; width:0; height:0 }
+  .lp:has(input:checked) { border-color:var(--ink,#241f1a); box-shadow:inset 0 0 0 1px var(--ink,#241f1a) }
+  .lpk { font-variant:small-caps; letter-spacing:.04em }
+  .lpn { font-family:var(--mono,ui-monospace,monospace); font-size:12px; opacity:.6 }
+
+  .chartwrap { overflow-x:auto; overflow-y:hidden; border:1px solid var(--rule,#d8d2c6);
+               border-radius:4px; background:var(--paper,#fff) }
+  .chart { position:relative; padding:0 0 10px }
+  .ruler { position:sticky; top:0; z-index:2; height:30px;
+           background:var(--paper,#fff); border-bottom:1px solid var(--rule,#d8d2c6) }
+  .ruler.foot { position:relative; border-bottom:0; border-top:1px solid var(--rule,#d8d2c6) }
+  .ruler.foot .tick i { top:0 }
+  .ruler.foot .tick b { top:14px }
+  .tick { position:absolute; top:0; height:30px }
+  .tick i { position:absolute; left:0; top:20px; width:1px; height:10px; background:var(--rule,#d8d2c6) }
+  .tick b { position:absolute; left:3px; top:6px; font-weight:400; font-size:11px;
+            font-family:var(--mono,ui-monospace,monospace); opacity:.65; white-space:nowrap }
+
+  .rows { position:relative }
+  .lvrow { position:relative; height:17px }
+  .lvrow:nth-child(5n) { background:rgba(0,0,0,.025) }
+  .lv { position:absolute; top:4px; height:9px; border-radius:2px; display:block }
+  .lv.doc  { background:var(--ink,#241f1a) }
+  .lv.tree { background:transparent; box-shadow:inset 0 0 0 1px var(--rule,#b9b0a0) }
+  .lv.openend   { -webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);
+                          mask-image:linear-gradient(90deg,#000 55%,transparent) }
+  .lv.openstart { -webkit-mask-image:linear-gradient(270deg,#000 55%,transparent);
+                          mask-image:linear-gradient(270deg,#000 55%,transparent) }
+  .lv .lbl { position:absolute; left:calc(100% + 6px); top:-3px; white-space:nowrap;
+             font-size:11px; opacity:.75 }
+
+  .key { display:flex; flex-wrap:wrap; gap:16px; font-size:13px; opacity:.85 }
+  .key i.sw { display:inline-block; width:26px; height:9px; border-radius:2px;
+              vertical-align:middle; margin-right:6px }
+  .key i.sw.doc  { background:var(--ink,#241f1a) }
+  .key i.sw.tree { box-shadow:inset 0 0 0 1px var(--rule,#b9b0a0) }
+  .key i.sw.fade { background:var(--ink,#241f1a);
+                   -webkit-mask-image:linear-gradient(90deg,#000 45%,transparent);
+                           mask-image:linear-gradient(90deg,#000 45%,transparent) }
+
+  @media (max-width:700px) { .lv .lbl { display:none } }
+</style>
+
+<script is:inline define:vars={{ LINES, MINY: MIN, PXY: PX }}>
+  (function () {
+    const rows = Array.from(document.querySelectorAll(".lvrow"));
+    const blurb = document.getElementById("lineblurb");
+    const byKey = Object.fromEntries(LINES.map((l) => [l.k, l.text]));
+    const wrap = document.querySelector(".chartwrap");
+    function apply(k) {
+      let shown = 0, first = Infinity, last = 0;
+      for (const r of rows) {
+        const on = k === "*" || r.dataset.line === k;
+        r.style.display = on ? "" : "none";
+        if (on) {
+          shown++;
+          const bar = r.firstElementChild;
+          if (bar) {
+            const l = parseFloat(bar.style.left) || 0;
+            const w = parseFloat(bar.style.width) || 0;
+            if (l < first) first = l;
+            if (l + w > last) last = l + w;
+          }
+        }
+      }
+      /* The axis is the whole roster's — 1410 to 2030, because Piero della
+         Francesca is in it — so pick a line and you can be staring at three empty
+         centuries. Put the first bar of the selection at the left edge instead.
+         The empty years are still there to scroll back into, which is honest:
+         they are the centuries this line has no record in. */
+      if (wrap && isFinite(first)) wrap.scrollLeft = Math.max(0, first - 24);
+      if (blurb) {
+        const span = isFinite(first) && last > first
+          ? ` The bars run from ${wrapYear(first)} to ${wrapYear(last)}; scroll left for the empty centuries before them.`
+          : "";
+        blurb.textContent =
+          (k === "*" ? `All ${shown} people in the roster who have a date and are not living.`
+                     : `${shown} people. ${byKey[k] || ""}`) + span;
+      }
+    }
+    function wrapYear(px) { return Math.round(MINY + px / PXY); }
+    document.querySelectorAll('input[name="line"]').forEach((el) =>
+      el.addEventListener("change", () => apply(el.value)));
+    apply("carnia");
+  })();
+</script>
+</Base>
