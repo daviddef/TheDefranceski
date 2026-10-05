@@ -14766,10 +14766,10 @@
     ],
     [
      "Found in",
-     "Family tree · Gologorica pedigree · Parish burial"
+     "Family tree · Gologorica pedigree · Parish burial · Read off the register"
     ]
    ],
-   "known": "",
+   "known": "**She lived eleven days, and she is the first of three this house buried in six years.**\n\n> «Idem · [domus] **36** · **12 Martij** [1786] · ***CATHAR[INA] DEFRANCESCHI ex loco*** · *dier[um]* **11** · *Debilitas*»\n\n*(doc — DAPA* **ZM34K-214**, *M01069229, page 3 of the Gologorica death register.)*\n\n***Eleven days old on 12 March 1786, so born about the 1st.*** *The book's index files her as* «Catharina, **Joanis Baptæ filia**» — *daughter of Joannes Baptista — and she died at* **house 36**, *which is [his household](/person/joannes-baptista-defranceschi-1752/).*\n\n**⚠ Her parents are inferred from the index and the house, not stated in the entry**, *which gives only* «ex loco». *Her mother would be [Catharina née Jablich of Buccari](/who/catharina-defranceschi-jablich/), who was about twenty that spring.*\n\n*The same house buried [Maria Antonia at six months in July 1791](/who/maria-antonia-defranceschi/) and [Catharina the mother at twenty-six in May 1792](/who/catharina-defranceschi-jablich/).* **[The sequence](/gologorica-line/).**",
    "more": [],
    "records": [
     {
@@ -36561,10 +36561,10 @@
     ],
     [
      "Found in",
-     "Family tree · Gologorica pedigree"
+     "Family tree · Gologorica pedigree · Read off the register"
     ]
    ],
-   "known": "",
+   "known": "**Ten years old, of dysentery — and she belongs to the other branch.**\n\n> «Idem · [domus] **31** · **4 8bris** [1786] · ***MARIANA DEFRANCESCHI*** · *annorum* **10** · *Dissenteria*»\n\n*(doc — DAPA* **ZM34K-214**, *M01069229, page 3 of the Gologorica death register.)*\n\n***Aged ten in October 1786, so born about 1776.***\n\n**⭐ She died at house 31, not 36** — *and the death book's index files her under* «Defranceschi Joanes Bapta **detti Leonardi · N.º 12**». ***So she is of the «detti Leonardi» branch, and her entry is the second independent confirmation that casa 31 and index number 12 are the same door*** — *after [the baptism book's index said so](/gologorica-line/). [Worklist 171](/worklist/).*\n\n**⚠ No parents are attached.** *The index gives the household, not a father, and this archive does not turn a filing decision into a descent.*",
    "more": [],
    "records": [
     {
@@ -175631,6 +175631,26 @@
     }
    }
   },
+  "catharina-defranceschi-d1786": {
+   "pid": "catharina-defranceschi-d1786",
+   "name": "Catharina Defranceschi",
+   "ptree": {
+    "none": true,
+    "dropped": [
+     [
+      "dropped",
+      "Bellinich",
+      "",
+      "1813"
+     ]
+    ],
+    "self": {
+     "n": "Catharina Defranceschi",
+     "dt": "d. 1786",
+     "via": "read"
+    }
+   }
+  },
   "catharina-defranceschi-d1790": {
    "pid": "catharina-defranceschi-d1790",
    "name": "Catharina Defranceschi",
@@ -207327,6 +207347,48 @@
      "dt": "b. 1813",
      "via": "index"
     }
+   }
+  },
+  "mariana-defranceschi-d1786": {
+   "pid": "mariana-defranceschi-d1786",
+   "name": "Mariana Defranceschi",
+   "ptree": {
+    "self": {
+     "n": "Mariana Defranceschi",
+     "dt": "d. 1786",
+     "via": "read"
+    },
+    "upN": 0,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Bortolo De Franceschi",
+      "dt": "",
+      "via": "index",
+      "ambiguous": 5
+     },
+     {
+      "n": "Giovana De Franceschi",
+      "dt": "",
+      "via": "index"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/register/",
+    "parentsFromRow": true,
+    "parentsCaveat": "Drawn from the one indexed entry that names this person, not from a household this archive has built. The entry names these people together; it does not prove the relationship it implies.",
+    "tally": [
+     [
+      "index",
+      2
+     ]
+    ],
+    "nrel": 2,
+    "nread": 0,
+    "dupNames": []
    }
   },
   "mariana-defranceschi-gologorica": {
