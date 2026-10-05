@@ -104,6 +104,16 @@ RULES = [
      # directions» — which is where the fix is told, so it must contain it.
      {"corrections.json", "worklist.json", "dossiers.json", "searchindex.json",
       "gologorica.json"}),
+    # --- 5 October 2026. The baptism register names the 1848 daughter of
+    # Antonius and Francisca ROSA, born 7 June; the family tree had her as
+    # «Joanna, born 9 June 1848» and this archive published that. One child,
+    # not two — a mother cannot bear children two days apart. The pid is kept
+    # (a moved id is a dead URL), so only the TEXT can carry the old claim.
+    ("the 1848 daughter still given the tree's birth date of 9 June",
+     r"9 JUN 1848|born 9 June 1848|9 June 1848",
+     # corrections.json and the pages that tell the story of the fix quote it
+     {"corrections.json", "worklist.json", "roster.json", "gologorica.json",
+      "searched.json", "dossiers.json", "searchindex.json"}),
     ("Gregorio still given the withdrawn patronymic in a display name",
      r"Gregorio Defranceschi q\.m Antonio",
      {"corrections.json", "worklist.json", "roster.json", "families.json",

@@ -183,6 +183,14 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
+  <h2>{g.rosa1848.heading}</h2>
+  <p class="prose" set:html={_md(g.rosa1848.lead)} style="margin-top:14px" />
+  {g.rosa1848.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
   <h2>{g.hands.heading}</h2>
   <p class="prose" set:html={_md(g.hands.lead)} style="margin-top:14px" />
   <div class="tbl-wrap" style="overflow-x:auto;margin-top:18px">
