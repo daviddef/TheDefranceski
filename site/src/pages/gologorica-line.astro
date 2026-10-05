@@ -152,7 +152,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose" set:html={_md(g.hands.lead)} style="margin-top:14px" />
   <div class="tbl-wrap" style="overflow-x:auto;margin-top:18px">
     <table class="tbl">
-      <thead><tr><th>Hand</th><th>Office</th><th>Signing</th><th>Where</th></tr></thead>
+      <thead><tr><th>Hand</th><th>Office</th><th>Signing</th><th>Writes in</th><th>Where</th></tr></thead>
       <tbody>
         {g.hands.rows.map((r) => (
           <tr>
@@ -160,6 +160,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
             <td set:html={_md(r[1])} />
             <td class="mono" style="white-space:nowrap">{r[2]}</td>
             <td set:html={_md(r[3])} />
+            <td set:html={_md(r[4])} />
           </tr>
         ))}
       </tbody>
