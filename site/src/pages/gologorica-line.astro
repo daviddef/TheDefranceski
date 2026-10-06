@@ -662,6 +662,22 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   {g.joannanil.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
 </section>
 
+<Rule name="arrows" label="Not born here" />
+
+<section class="blk">
+  <h2 id="bornelsewhere">{g.bornelsewhere.heading}</h2>
+  <p class="prose" set:html={_md(g.bornelsewhere.lead)} style="margin-top:14px" />
+  {g.bornelsewhere.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2>{g.godmother.heading}</h2>
+  <p class="prose" set:html={_md(g.godmother.lead)} style="margin-top:14px" />
+  {g.godmother.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
