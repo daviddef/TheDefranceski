@@ -3,6 +3,13 @@
  "lead": "Twenty things this archive got wrong.",
  "rows": [
   {
+   "when": "6 Oct 2026",
+   "what": "I overwrote a published finding by reusing its key",
+   "sev": "serious",
+   "where": "/gologorica-line/ · the block «A second set of these registers left the parish every year»",
+   "note": "**Writing up a new finding about duplicate FRAMES on the microfilm, I gave it the key** `duplicates` **in** `gologorica.json`. ***That key was already in use.*** *It held [the 1836 collation certificate](/gologorica-line/) — «Quae copiae collationatae anni 1835 concordant cum hoc originali libro… Petinae die 7 Maij 1836» — the finding that a* **second, certified set of these registers left the parish every year**, *which was itself only recovered after [the crop-truncation error](/corrections/) was caught.* **A `json.dump` of a dict with an existing key does not warn. The block was gone, with its six paragraphs and its plate.**\n\n**How it surfaced, and it was luck rather than a check.** *The next section I tried to add asserted that its anchor appeared* **exactly once** *in the page and the assertion* **failed** *— because the page now rendered* `g.duplicates` *twice, the original section and the one I had added.* ***An assertion written for a different purpose caught it.*** *Nothing in the gate would have: the data was valid JSON, the page built, every link resolved, and* `check-story` *counted the same number of findings, because the count does not know which finding.*\n\n**Fixed.** *The original block is restored* **byte-identical** *to its previous version (verified against git), every other key confirmed present, and the new finding moved to its own key* `dupframes`. *Both now render once each.*\n\n**⚠ The lesson, which is now in [method](/method/):** ***before writing a new key into a shared data file, check whether it is taken.*** *A one-line* `assert key not in data` *costs nothing. [This archive already knew that ids must be minted once and frozen](/method/) — it had not extended the thought from person ids to* ***section keys***, *which are just as published and just as easy to clobber.*"
+  },
+  {
    "when": "16 Sept 2026",
    "what": "A panel said «not tracked per volume» over rows whose own marks said «never opened».",
    "sev": "minor",

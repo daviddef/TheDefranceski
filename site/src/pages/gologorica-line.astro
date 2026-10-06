@@ -449,10 +449,19 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{g.duplicates.heading}</h2>
-  <p class="prose" set:html={_md(g.duplicates.lead)} style="margin-top:14px" />
-  {g.duplicates.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
-  <div style="margin-top:24px"><Plates ids={g.duplicates.plates} cols={1} /></div>
+  <h2>{g.dupframes.heading}</h2>
+  <p class="prose" set:html={_md(g.dupframes.lead)} style="margin-top:14px" />
+  {g.dupframes.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.dupframes.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2>{g.civis1848.heading}</h2>
+  <p class="prose" set:html={_md(g.civis1848.lead)} style="margin-top:14px" />
+  {g.civis1848.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.civis1848.plates} cols={1} /></div>
 </section>
 
 <Rule name="arrows" />
