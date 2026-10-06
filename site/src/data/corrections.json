@@ -4,6 +4,13 @@
  "rows": [
   {
    "when": "6 Oct 2026",
+   "what": "A death year was wrong by thirty years — and the row had said exactly how to find out",
+   "sev": "serious",
+   "where": "/gologorica-line/ · [Clementina Maria Defranceschi](/person/clementina-maria-defranceschi-1822/)",
+   "note": "**This archive published that Clementina Maria Defranceschi, born 3 October 1822, died on 10 March 1840. She died on 10 March 1870.** *The day and the month were right; the decade was not.*\n\n**⭐ The good part: the row had already said how to settle it.** *A note of* **20 September 2026** *recorded that the family tree said* **1870** *and this archive said* **1840**, *that* «a gap this wide means one side is describing a different person's death», *and that* ***«this needs the burial register, not a judgement»***. **The burial register was walked today and answers it:**\n\n> «**1870 Martii 10ma** · **7** · **Clementina Defranceschi, possidens**, munita SS Sacram. et sepulta **11. Martii** · **47** · **Phthisis**» *(M01069286, p. 114)*\n\n***Forty-seven on 10 March 1870 closes exactly on the declared birth of 3 October 1822.*** *At 10 March 1840 she would have been seventeen.* **The tree was right and this archive was wrong.**\n\n*And a second pointer had been sitting on the same row since 5 October: [a Clementina Defranceschi stands godmother in 1841](/gologorica-line/) — which a woman dead in 1840 cannot do.*\n\n**Fixed:** *death 1840 → 1870 on the roster row and on @I40@, [re-declared in `data/decisions.json`](/method/) in the same commit. The pid keeps* `1822` *because it encodes the* **birth** *year, which is unchanged.*\n\n**⚠ What this says about the practice.** *The error was* **flagged, dated, and assigned a specific remedy** *three weeks before it was fixed, and the remedy worked exactly as written.* ***That is the system behaving correctly*** *— but it also means the wrong year was live on the site for those three weeks, which is why [the worklist's open questions are worth working through rather than accumulating](/worklist/).*"
+  },
+  {
+   "when": "6 Oct 2026",
    "what": "I had the register's naming rule backwards, and built a family connection on it",
    "sev": "serious",
    "where": "/gologorica-line/ · «The two «De—» families may not be two families after all»",
