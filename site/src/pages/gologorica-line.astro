@@ -596,6 +596,31 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div style="margin-top:24px"><Plates ids={g.dobrila.plates} cols={1} /></div>
 </section>
 
+<Rule name="arrows" label="The census answers back" />
+
+<section class="blk">
+  <h2 id="sestanjoin">{g.sestanjoin.heading}</h2>
+  <p class="prose" set:html={_md(g.sestanjoin.lead)} style="margin-top:14px" />
+  {g.sestanjoin.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.sestanjoin.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2>{g.censusfront.heading}</h2>
+  <p class="prose" set:html={_md(g.censusfront.lead)} style="margin-top:14px" />
+  {g.censusfront.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2>{g.censusnumbers.heading}</h2>
+  <p class="prose" set:html={_md(g.censusnumbers.lead)} style="margin-top:14px" />
+  {g.censusnumbers.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
