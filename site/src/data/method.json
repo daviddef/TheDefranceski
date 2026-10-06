@@ -5,6 +5,16 @@
  "lead": "This page exists because most of what went wrong here went wrong in the same way: **a tool answered a question that was not the one being asked**, and answered it confidently. None of what follows is theory. Every item was found by getting something wrong and then finding out.",
  "rows": [
   {
+   "lab": "A column you logged as unread is a blank in the reading, not in the record",
+   "key": true,
+   "text": "**This walk read the left half of eight census openings, wrote in its own search log that the right half was** «**not read**», *and then built four findings and three work-list rows on the gap it had just declared — including* «there was a Defranceschi family within marrying distance that this archive cannot yet name». **The right half carried the printed column** «**Locus ex quo vel ad quem**» *and it named the parish and the house number outright.* ***Silence you created by not looking is not evidence of anything.*** *Before a conclusion rests on something a source does not say, check that the source was read — all of it, to the edge of the opening — and if the log says otherwise, go back first.*"
+  },
+  {
+   "lab": "Ask whether it is already here — and this is the second time",
+   "key": true,
+   "text": "**On 21 September this archive wrote a note saying that with thirteen hundred people on the books, the first question about a find is whether it is already here.** *On 6 October it announced a marriage inside the surname at Gologorica as new, and raised* **two work-list rows** *to find a woman's origin — when [her origin, her house number and her marriage date had been written into this archive on 30 September](/corrections/), sourced to the very frame the walk had open.* ***A method note that is not run as a check is decoration.*** **The check is three greps and it takes a minute:** *the person's name, the place name, and the source, in* `roster.json`, `searched.json` *and the line data —* **before** *the row is raised, not after it is published.*"
+  },
+  {
    "lab": "A married woman is in the Status Animarum twice",
    "key": true,
    "text": "**Maria, daughter of Joannes Gasparich, born 14 August 1827 and confirmed 9 July 1834, is in the 1826 census in her father's household — and again, twenty-two pages later and under a different house number, as** «**Maria uxor n. Gasparich**» *in the Petrus Rabar household, with the same birth date and the same confirmation date.* ***One woman, entered twice.*** **So a Status Animarum joins two households without needing a marriage register at all**: find the wife's dates in her husband's entry, then find the same dates on a daughter elsewhere in the book. *Birth date alone is a* **candidate**; *birth* **and** *confirmation is an identification. This is how a* «uxor nata X» *stops being a surname and becomes a parent.*"
