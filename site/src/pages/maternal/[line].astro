@@ -4,11 +4,42 @@ import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import { mdp } from "../../lib/md.js";
 import m from "../../data/maternal.json";
+import PersonTree from "@daviddef/archive-kit/components/PersonTree.astro";
+import "@daviddef/archive-kit/styles/persontree.css";
+import dline from "../../data/directline.json";
+import dlp from "../../data/directline-pids.json";
+
+/* THE HUSBAND'S GENERATION IN THE DIRECT LINE, by position in
+   directline.json. These women are named there as his spouse, so the couple
+   and their children are already on record at person level — the tree is
+   drawn from that file and from nothing else, and where it knows nothing (her
+   parents) it draws a dashed gap rather than a guess. */
+const HUSBAND_GEN = { salomon: 1, fernasar: 2, kovacina: 4 };
 
 export function getStaticPaths() {
   return Object.entries(m.lines).map(([line, d]) => ({ params: { line }, props: { d } }));
 }
 const { d } = Astro.props;
+const _gi = HUSBAND_GEN[Astro.params.line];
+const _g = _gi != null ? dline.generations[_gi] : null;
+const _pid = (i) => (dlp.generations[i] || {}).pid;
+const _yr = (g) => g.bornExact ? g.bornExact.replace(/, baptised.*/, "") : g.born;
+const tree = _g && _g.spouse ? {
+  self: { name: d.woman, dates: d.born ? `b. ${d.born}` : "",
+          gen: `married into the direct line, generation ${_gi + 1}` },
+  parents: [{ name: "her parents: not yet found", gap: true }],
+  spouses: [{ name: _g.name,
+              dates: `${_yr(_g)}${_g.died ? ` – ${_g.diedExact || _g.died}` : ""}`,
+              cls: "via-line", mark: "the direct line",
+              href: _pid(_gi) ? u(`/person/${_pid(_gi)}/`) : u("/direct-line/") }],
+  children: (_g.children || []).map((c) => ({
+    name: c.name,
+    dates: c.born && c.born !== "—" ? `b. ${c.born}` : "",
+    cls: c.line ? "via-line" : undefined,
+    mark: c.line ? "the direct line" : undefined,
+    href: c.line && _pid(_gi + 1) ? u(`/person/${_pid(_gi + 1)}/`) : undefined,
+  })),
+} : null;
 ---
 <Base title={d.name}
       eyebrow={`A maternal line — ${d.woman}`}
@@ -19,6 +50,21 @@ const { d } = Astro.props;
   </section>
 
   <Rule name="arrows" />
+
+  {tree && (
+    <section class="blk" style="margin-top:38px">
+      <h2 style="font-size:26px">Where she stands in the family</h2>
+      <div style="margin-top:20px">
+        <PersonTree self={tree.self} parents={tree.parents} spouses={tree.spouses}
+                    children={tree.children}
+                    labels={{ parents: "Her parents" }} />
+      </div>
+      <p class="cap" style="margin-top:14px">Drawn from the direct-line file, which
+      names her as his wife and lists the household's children. Her own parents
+      are not drawn because no document this archive holds names them — a chart
+      that draws a guess is a confident diagram telling a lie.</p>
+    </section>
+  )}
 
   {/* Two shapes, deliberately. A line whose research has landed is written in
       SECTIONS — the Kosina shape David asked for: a citation above the
