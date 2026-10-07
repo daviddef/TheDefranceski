@@ -711,6 +711,14 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div style="margin-top:24px"><Plates ids={g.house5.plates} cols={1} /></div>
 </section>
 
+<Rule name="arrows" label="Not in the book" />
+
+<section class="blk">
+  <h2 id="notbaptised">{g.notbaptised.heading}</h2>
+  <p class="prose" set:html={_md(g.notbaptised.lead)} style="margin-top:14px" />
+  {g.notbaptised.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
