@@ -4,6 +4,13 @@
  "rows": [
   {
    "when": "7 Oct 2026",
+   "what": "⚠⚠ «NASTAVLJA SE» was published as a discovery an hour after it was found — errand 35 had it already",
+   "sev": "serious",
+   "where": "/gologorica-line/ · /errands/",
+   "note": "**This afternoon this archive published** «⭐⭐ **NASTAVLJA SE — the Gračišće baptism book stops in May 1808, and the film says so itself**», *as the headline of a commit.*\n\n***[Errand 35](/errands/) already said it, in these words:***\n\n> «*Its last written page,* **M01070226**, *is headed* **«Annus 1807»**; *the next frame is a printed card reading* **«NASTAVLJA SE»** — *to be continued.* **Everything after 1807 is on ZM34K-216.**»\n\n*The errand also already carried the continuation's frame range (M01070239–M01070310), the fact that the family holds ZM34K-214 and 215 from the same series, a drafted letter in Croatian, and the finding that there is no online route — tested twice by two methods.*\n\n**⚠⚠ THIS IS THE FIFTH INSTANCE IN THREE DAYS**, *after [Francisca](/corrections/), [the priests' origins](/corrections/), [Joanna's house 4](/corrections/) and [the house 5 page](/corrections/). Four method notes have been written about it. **The notes are not the problem.***\n\n***The specific failure this time is nameable:*** *the grep that has been adopted runs on a* **person's name**. *This finding had no person in it — it was about a* **frame**. *So the habit did not fire.* **The rule is widened: before publishing anything found on a frame, grep the archive for the FRAME NUMBER too** — `M01070226` *would have returned errand 35 in one second.*\n\n**What survives from that commit, and it is most of it:** *the* Pater *column swept across thirty-six frames with no Defranceschi father; the frame-map correction; the «Fede di Nascita» certificate and its Trieste–Capodistria letterhead; the water-damage label on the prose half.* ***The headline was not new. The body largely was.***"
+  },
+  {
+   "when": "7 Oct 2026",
    "what": "⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September",
    "sev": "serious",
    "where": "/gologorica-line/ · [Joanna Defranceschi (Sestan)](/person/joanna-defranceschi-sestan-1818/) · /worklist/",
