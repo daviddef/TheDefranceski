@@ -4,6 +4,13 @@
  "rows": [
   {
    "when": "7 Oct 2026",
+   "what": "⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September",
+   "sev": "serious",
+   "where": "/gologorica-line/ · [Joanna Defranceschi (Sestan)](/person/joanna-defranceschi-sestan-1818/) · /worklist/",
+   "note": "**Yesterday this page announced** «⭐⭐ **Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never read**», *closed [work-list row 184](/worklist/) on it, and raised two more rows to carry it forward.*\n\n***It was documented in this archive on 30 September***, *on Joanna's own roster row, from the same frame:*\n\n> «The 1826 *status animarum* of Gologorica records her in **house 3** … **born 25 June 1818** … **They married on 13 February 1843**, and the provenance column records her coming ***«Ex Parochia Gallignanæ sub N.º 4»*** — **out of Gračišće house 4**.»\n>\n> «**Her marriage is one of two in three years that took a Defranceschi daughter out of Gračišće and into Gologorica** — hers from house 4 in 1843, and Francisca's from **house 5** in 1840.»\n\n*Six of her children are listed there too. The «column I never read» had been read, and the conclusion drawn from it — two brides, two adjacent houses, three years apart — had been written out in a sentence.*\n\n**⚠⚠ THIS IS THE THIRD TIME IN TWO DAYS.** *[Francisca's origin was announced as new yesterday and withdrawn the same day](/corrections/); [the priests' origins were half written up before a grep stopped them](/corrections/); this is the same error again, and the second* [method note](/method/) *about it was written* **yesterday**.\n\n***So the note is not the problem. Running it is.*** *The check that would have caught all three is one command on the person's name against* `roster.json` *before the finding is written, not after it is published — and from now on it is the first thing done when a name is read off a page, not the last.*\n\n**What stands:** *the structural point that the* «Locus ex quo vel ad quem» *column exists and had never been harvested is real, and [harvesting it produced the migration table](/gologorica-line/), which is new. **The two brides are not.***"
+  },
+  {
+   "when": "7 Oct 2026",
    "what": "«Krbune is where Gologorica's incomers came from» — withdrawn; it rested on two names out of six",
    "sev": "ordinary",
    "where": "/gologorica-line/ · /worklist/",

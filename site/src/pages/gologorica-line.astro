@@ -702,6 +702,15 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   {g.traffic.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
 </section>
 
+<Rule name="arrows" label="Gallignana, house 5" />
+
+<section class="blk">
+  <h2 id="house5">{g.house5.heading}</h2>
+  <p class="prose" set:html={_md(g.house5.lead)} style="margin-top:14px" />
+  {g.house5.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.house5.plates} cols={1} /></div>
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
