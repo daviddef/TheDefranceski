@@ -736,6 +736,14 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <div style="margin-top:24px"><Plates ids={g.fedenascita.plates} cols={1} /></div>
 </section>
 
+<Rule name="arrows" label="Gollagoriciensis" />
+
+<section class="blk">
+  <h2 id="gollagoriciensis">{g.gollagoriciensis.heading}</h2>
+  <p class="prose" set:html={_md(g.gollagoriciensis.lead)} style="margin-top:14px" />
+  {g.gollagoriciensis.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
