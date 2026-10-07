@@ -1,18 +1,134 @@
 {
-  "note": "Frame -> book map for DAPA microfilms ZM34K-214 and ZM34K-215, read from the FILMS' OWN PRINTED TITLE CARDS, not from the paper inventory page. 1463 contiguous frames, M01068774-M01070236, no gaps. Located by scanning every frame for ink coverage: a title card is an isolated frame with ink<0.012 and mean>222. 12 of 13 declared book boundaries were flagged; the one miss (M01069505) is a 'nastavak' continuation, which correctly has no fresh card.",
-  "books": [
-    {"from":"M01068776","to":"M01068914","zupa":"CEROVLJE","book":"Status Animarum","years":"XIX-XX st.","sig":"3.2","reel":"214"},
-    {"from":"M01068915","to":"M01068952","zupa":"GOLOGORICA","book":"MKR","years":"1764-1788","sig":"3.2","reel":"214"},
-    {"from":"M01068953","to":"M01069007","zupa":"GOLOGORICA","book":"MKR/MKU/MKV","years":"MKR 1770-1781, MKU 1770-1789, MKV 1770-1789","sig":null,"reel":"214"},
-    {"from":"M01069008","to":"M01069181","zupa":"GOLOGORICA","book":"MKR","years":"1784-1880","sig":"3.4","reel":"214"},
-    {"from":"M01069182","to":"M01069198","zupa":"GOLOGORICA","book":"MKR","years":"1940-1948","sig":"3.5","reel":"214"},
-    {"from":"M01069199","to":"M01069223","zupa":"GOLOGORICA","book":"MKU","years":"1646-1806","sig":"5.1","reel":"214"},
-    {"from":"M01069224","to":"M01069314","zupa":"GOLOGORICA","book":"MKU","years":"1784-1880","sig":"5.2","reel":"214"},
-    {"from":"M01069315","to":"M01069435","zupa":"GOLOGORICA","book":"Status Animarum","years":"1826","sig":"7.1","reel":"214"},
-    {"from":"M01069436","to":"M01069579","zupa":"GOLOGORICA","book":"Status Animarum","years":"1862","sig":"7.2","reel":"214/215","spans":"continues on reel 215 from M01069505"},
-    {"from":"M01069580","to":"M01069825","zupa":"GOLOGORICA","book":"Status Animarum","years":"1894","sig":"7.3","reel":"215"},
-    {"from":"M01069826","to":"M01069942","zupa":"GOLOGORICA","book":"Status Animarum","years":"1921","sig":"7.4","reel":"215"},
-    {"from":"M01069943","to":"M01070130","zupa":"GRACISCE","book":"MKR + MKK","years":"MKR 1667-1745, MKK 1690-1694","sig":"3.1","reel":"215"},
-    {"from":"M01070131","to":"M01070236","zupa":"GRACISCE","book":"MKR","years":"1746-1840","sig":"3.2","reel":"215"}
-  ]
+ "note": "Frame -> book map for DAPA microfilms ZM34K-214 and ZM34K-215, read from the FILMS' OWN PRINTED TITLE CARDS, not from the paper inventory page. 1463 contiguous frames, M01068774-M01070236, no gaps. Located by scanning every frame for ink coverage: a title card is an isolated frame with ink<0.012 and mean>222. 12 of 13 declared book boundaries were flagged; the one miss (M01069505) is a 'nastavak' continuation, which correctly has no fresh card. ⚠ 7 October 2026: the range for Gračišće MKR 1746–1840 (sig 3.2) was M01070131–M01070236 and is corrected to M01070131–M01070226. The ink-coverage scan that built this map finds title cards; it does not find a «NASTAVLJA SE / TO BE CONTINUED» target, which is what M01070227 is. The last ten frames of reel 215 are a trailer of cards, not pages, and THE BOOK DOES NOT REACH 1840 ON THESE REELS.",
+ "books": [
+  {
+   "from": "M01068776",
+   "to": "M01068914",
+   "zupa": "CEROVLJE",
+   "book": "Status Animarum",
+   "years": "XIX-XX st.",
+   "sig": "3.2",
+   "reel": "214"
+  },
+  {
+   "from": "M01068915",
+   "to": "M01068952",
+   "zupa": "GOLOGORICA",
+   "book": "MKR",
+   "years": "1764-1788",
+   "sig": "3.2",
+   "reel": "214"
+  },
+  {
+   "from": "M01068953",
+   "to": "M01069007",
+   "zupa": "GOLOGORICA",
+   "book": "MKR/MKU/MKV",
+   "years": "MKR 1770-1781, MKU 1770-1789, MKV 1770-1789",
+   "sig": null,
+   "reel": "214"
+  },
+  {
+   "from": "M01069008",
+   "to": "M01069181",
+   "zupa": "GOLOGORICA",
+   "book": "MKR",
+   "years": "1784-1880",
+   "sig": "3.4",
+   "reel": "214"
+  },
+  {
+   "from": "M01069182",
+   "to": "M01069198",
+   "zupa": "GOLOGORICA",
+   "book": "MKR",
+   "years": "1940-1948",
+   "sig": "3.5",
+   "reel": "214"
+  },
+  {
+   "from": "M01069199",
+   "to": "M01069223",
+   "zupa": "GOLOGORICA",
+   "book": "MKU",
+   "years": "1646-1806",
+   "sig": "5.1",
+   "reel": "214"
+  },
+  {
+   "from": "M01069224",
+   "to": "M01069314",
+   "zupa": "GOLOGORICA",
+   "book": "MKU",
+   "years": "1784-1880",
+   "sig": "5.2",
+   "reel": "214"
+  },
+  {
+   "from": "M01069315",
+   "to": "M01069435",
+   "zupa": "GOLOGORICA",
+   "book": "Status Animarum",
+   "years": "1826",
+   "sig": "7.1",
+   "reel": "214"
+  },
+  {
+   "from": "M01069436",
+   "to": "M01069579",
+   "zupa": "GOLOGORICA",
+   "book": "Status Animarum",
+   "years": "1862",
+   "sig": "7.2",
+   "reel": "214/215",
+   "spans": "continues on reel 215 from M01069505"
+  },
+  {
+   "from": "M01069580",
+   "to": "M01069825",
+   "zupa": "GOLOGORICA",
+   "book": "Status Animarum",
+   "years": "1894",
+   "sig": "7.3",
+   "reel": "215"
+  },
+  {
+   "from": "M01069826",
+   "to": "M01069942",
+   "zupa": "GOLOGORICA",
+   "book": "Status Animarum",
+   "years": "1921",
+   "sig": "7.4",
+   "reel": "215"
+  },
+  {
+   "from": "M01069943",
+   "to": "M01070130",
+   "zupa": "GRACISCE",
+   "book": "MKR + MKK",
+   "years": "MKR 1667-1745, MKK 1690-1694",
+   "sig": "3.1",
+   "reel": "215"
+  },
+  {
+   "from": "M01070131",
+   "to": "M01070226",
+   "zupa": "GRACISCE",
+   "book": "MKR",
+   "years": "1746-1840",
+   "sig": "3.2",
+   "reel": "215",
+   "ends": "The REGISTER PAGES stop at M01070226, in May 1808 — NOT in 1840 as the book's own title card says. M01070227 is a filmed target reading «NASTAVLJA SE · TO BE CONTINUED», so the rest of this book (1808–1840) is on a reel this archive does not hold. Read frame by frame, 7 October 2026."
+  },
+  {
+   "from": "M01070227",
+   "to": "M01070236",
+   "zupa": "—",
+   "book": "TRAILER — not register pages",
+   "years": "",
+   "sig": "",
+   "reel": "215",
+   "ends": "M01070227 «NASTAVLJA SE · TO BE CONTINUED»; M01070228 a laboratory production card; M01070229–233 title cards (Gologorica Status Animarum 1862 sig 7.2, 1894 sig 7.3, 1921 sig 7.4; Gračišće MKR 1667–1745 sig 3.1; Gračišće MKR 1746–1840 sig 3.2); M01070234–236 blank. Why the cards repeat at the reel's end was not established."
+  }
+ ]
 }
