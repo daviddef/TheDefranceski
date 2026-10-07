@@ -5,6 +5,11 @@
  "lead": "This page exists because most of what went wrong here went wrong in the same way: **a tool answered a question that was not the one being asked**, and answered it confidently. None of what follows is theory. Every item was found by getting something wrong and then finding out.",
  "rows": [
   {
+   "lab": "A sweep that steps by two is not a sweep",
+   "key": true,
+   "text": "**Opening the 1667–1745 Gračišće book, this archive read frames 944, 946, 948, 950 … and the pages looked continuous** — *1667, 1668, 1669, 1670, each opening following the last.* ***They were not continuous. Every frame is its own opening, and half the book was being skipped.*** *It was caught by stopping to ask why the page numbers rose by two per frame-step-of-two, and then reading one of the skipped frames: M01069955 is pages 14–15, sitting between M01069954 and M01069956 and belonging to neither.*\n\n**A sweep done this way reads plausibly and produces a NIL that is half a nil.** *Nothing looks wrong — the years run in order, the hands match, the entries flow. ***That is what makes it dangerous.*** **Before any sweep is trusted, read two adjacent frames and confirm they are adjacent** — *that the second begins where the first ends. One check at the start costs a minute; skipped without it, every absence the sweep reports is worthless.*"
+  },
+  {
    "lab": "Verify the edit landed before publishing the correction that describes it",
    "key": true,
    "text": "**A correction was written saying «the page now says so» — and the page did not.** *The script that was to amend it matched on* `\"THIS ARCHIVE HAS TREATED GRA\"` *against text that reads* `\"This archive has treated Gračišće\"`. ***Case. The loop ran, matched nothing, changed nothing, and exited 0.*** *The commit went out claiming a fix that was not in the file, and only a* `git show --stat` *showing one file where two were staged caught it.*\n\n**Two rules, both cheap.** *(1)* **Assert after writing**, *not before:* `assert NEW_TEXT in open(path).read()`. *(2)* ***A silent no-op is the dangerous kind of bug in a text archive***, *because the gate cannot see it — nothing is broken, the claim is simply false. Any script that edits prose must fail loudly when its anchor does not match.*"
