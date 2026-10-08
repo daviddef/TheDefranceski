@@ -5,6 +5,11 @@
  "lead": "This page exists because most of what went wrong here went wrong in the same way: **a tool answered a question that was not the one being asked**, and answered it confidently. None of what follows is theory. Every item was found by getting something wrong and then finding out.",
  "rows": [
   {
+   "lab": "Piping whose.sh into tail throws away the answer",
+   "key": true,
+   "text": "**This archive's rule for the gate is** «*capture ITS exit status — never grep for* ‘FAIL’», *because* `grep` *exits 0 on finding the word.* ***The same trap swallowed* `whose.sh`.** *The command was* `./scripts/whose.sh | tail -13 && git commit`, *and the exit status of a pipeline is the* **last** *command's —* `tail`, *which always succeeds.* «whose: shared ground is staged and --allow-shared was not given» *printed on screen, the chain continued, and the commit went out unflagged.*\n\n**Run it bare and let it fail:** `./scripts/whose.sh` *on its own line.* ***Any check worth running is worth not piping***, *and that goes for every script in* `scripts/` *whose verdict is its exit code rather than its text.*"
+  },
+  {
    "lab": "A sweep that steps by two is not a sweep",
    "key": true,
    "text": "**Opening the 1667–1745 Gračišće book, this archive read frames 944, 946, 948, 950 … and the pages looked continuous** — *1667, 1668, 1669, 1670, each opening following the last.* ***They were not continuous. Every frame is its own opening, and half the book was being skipped.*** *It was caught by stopping to ask why the page numbers rose by two per frame-step-of-two, and then reading one of the skipped frames: M01069955 is pages 14–15, sitting between M01069954 and M01069956 and belonging to neither.*\n\n**A sweep done this way reads plausibly and produces a NIL that is half a nil.** *Nothing looks wrong — the years run in order, the hands match, the entries flow. ***That is what makes it dangerous.*** **Before any sweep is trusted, read two adjacent frames and confirm they are adjacent** — *that the second begins where the first ends. One check at the start costs a minute; skipped without it, every absence the sweep reports is worthless.*"
