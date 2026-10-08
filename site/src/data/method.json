@@ -5,6 +5,11 @@
  "lead": "This page exists because most of what went wrong here went wrong in the same way: **a tool answered a question that was not the one being asked**, and answered it confidently. None of what follows is theory. Every item was found by getting something wrong and then finding out.",
  "rows": [
   {
+   "lab": "check-story cannot see work you never logged",
+   "key": true,
+   "text": "**Fifty-one frames of a register were read across a day, and the only record was a progress line in a work-list row.** *No* `searched.json` *row existed for it at all.* ***And `check-story.py` reported «every hit points at a page a reader reads» the whole time*** — *because it counts* **logged** *searches with hits, and an unlogged sweep is invisible to it.*\n\n**The green light meant «nothing is logged wrong», not «everything is told».** *A gate can only check what exists.* ***Log the search when it starts, not when it finishes***, *with* `outcome: pending` *and the frames read so far — then the counter has something to hold the work against, and a sweep abandoned halfway leaves a record instead of a silence.*"
+  },
+  {
    "lab": "Piping whose.sh into tail throws away the answer",
    "key": true,
    "text": "**This archive's rule for the gate is** «*capture ITS exit status — never grep for* ‘FAIL’», *because* `grep` *exits 0 on finding the word.* ***The same trap swallowed* `whose.sh`.** *The command was* `./scripts/whose.sh | tail -13 && git commit`, *and the exit status of a pipeline is the* **last** *command's —* `tail`, *which always succeeds.* «whose: shared ground is staged and --allow-shared was not given» *printed on screen, the chain continued, and the commit went out unflagged.*\n\n**Run it bare and let it fail:** `./scripts/whose.sh` *on its own line.* ***Any check worth running is worth not piping***, *and that goes for every script in* `scripts/` *whose verdict is its exit code rather than its text.*"
