@@ -8,6 +8,7 @@ import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
 import d from "../data/liznjan.json";
 import { mdHtml } from "../lib/md.js";
+import Plates from "../components/Plates.astro";
 ---
 <Base title="Ližnjan" eyebrow="Third of eighteen towns, and no page until now" dek={d.note}>
 
@@ -82,6 +83,7 @@ import { mdHtml } from "../lib/md.js";
       </div>
     ))}
   </div>
+  <div style="margin-top:24px"><Plates ids={d.smrtnilist.plates} cols={1} /></div>
   <p class="cap" style="margin-top:14px">{d.smrtnilist.source_s}</p>
 </section>
 
