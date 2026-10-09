@@ -45,7 +45,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     the sizes are the argument: the household censuses are 43% of the run and
     three of the four have never been opened. */}
 <section class="blk">
-  <h2>{g.framemap.heading}</h2>
+  <h2 id="framemap">{g.framemap.heading}</h2>
   <p class="prose" set:html={_md(g.framemap.lead)} style="margin-top:14px" />
   <p class="prose" set:html={_md(g.framemap.method)} style="margin-top:14px" />
 
@@ -792,6 +792,15 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose" set:html={_md(g.renumber.lead)} style="margin-top:14px" />
   {g.renumber.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
   <div style="margin-top:24px"><Plates ids={g.renumber.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2 id="marriage1774">{g.marriage1774.heading}</h2>
+  <p class="prose" set:html={_md(g.marriage1774.lead)} style="margin-top:14px" />
+  {g.marriage1774.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.marriage1774.plates} cols={1} /></div>
 </section>
 
 <Rule name="arrows" />
