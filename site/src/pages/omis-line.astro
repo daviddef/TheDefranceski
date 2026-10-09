@@ -1,4 +1,5 @@
 ---
+import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Locator from "../components/Locator.astro";
 import Spine from "@daviddef/archive-kit/components/Spine.astro";
@@ -42,7 +43,7 @@ import Lightbox from "../components/Lightbox.astro";
     {o.story.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -113,7 +114,7 @@ import Lightbox from "../components/Lightbox.astro";
     {o.gazzetta1840.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -124,12 +125,12 @@ import Lightbox from "../components/Lightbox.astro";
 
 <section class="blk">
   <h2>{o.zadarpalace.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={o.zadarpalace.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(o.zadarpalace.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {o.zadarpalace.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

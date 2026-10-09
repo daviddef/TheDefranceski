@@ -37,8 +37,14 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
        BUILT page for a correction's own text and getting nothing back. */
     why: r.note ? based(mdpHtml(r.note)) : "",
     extra: r.where
+      /* A «where» part is sometimes a bare path, sometimes a markdown link,
+         and sometimes a sentence with links and code spans inside it —
+         «[Households](/households/) — `households.json`, entries [h107]…».
+         linkParts resolves the first two; the rest has to go through the
+         renderer or it prints as punctuation, which is how 77 literal links
+         came to be sitting in this footer. */
       ? " · Corrected in place: " + linkParts(r.where).map(x =>
-          x.href ? `<a href="${u(x.href)}">${x.text}</a>` : x.text).join(" · ")
+          x.href ? `<a href="${u(x.href)}">${x.text}</a>` : mdHtml(x.text)).join(" · ")
       : "",
   }))} />
 </section>

@@ -1,4 +1,5 @@
 ---
+import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import SayYourName from "@daviddef/archive-kit/components/SayYourName.astro";
 import N from "../data/givennames-forms.json";
@@ -69,7 +70,7 @@ const seen = gn.seen || {};
     chips={["Giovanni", "JVAN", "Zuane", "Gergely", "Gregor", "ZORAFKO", "Juraj", "Ilona", "Franz", "Orsola"]} />
 
   <h2 id="slips" style="font-size:30px;margin-top:52px">And then there are the slips</h2>
-  <p class="dek" style="margin-top:8px;max-width:74ch" set:html={gn.slipnote.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px;max-width:74ch" set:html={mdHtml(gn.slipnote)}></p>
   <div class="scroll" style="margin-top:20px">
     <table>
       <thead><tr><th>Written</th><th>Meant</th><th>Who</th><th>Where it is written</th></tr></thead>

@@ -1,4 +1,5 @@
 ---
+import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -78,7 +79,7 @@ const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
 
 <section class="blk">
   <h2>{mig.fmp.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={mig.fmp.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(mig.fmp.lead)}></p>
 
   <ul class="setlist">{mig.fmp.sets.map(([n, w]) => (
     <li><span class="sn">{n}</span><span class="sw">{w}</span></li>
@@ -88,15 +89,12 @@ const dests = Object.entries(mig.counts).sort((a,b)=>b[1]-a[1]);
     {mig.fmp.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text
-          .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
-          .replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")
-          .replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
 
-  <p class="prose note" style="margin-top:24px" set:html={mig.fmp.honest.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="prose note" style="margin-top:24px" set:html={mdHtml(mig.fmp.honest)}></p>
   <p class="cap" style="margin-top:14px">{mig.fmp.source}</p>
 </section>
 

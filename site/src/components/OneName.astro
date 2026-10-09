@@ -1,4 +1,5 @@
 ---
+import { mdHtml } from "../lib/md.js";
 import d from "../data/onename.json";
 const STATE = {
   present: ["Carried", "s-on"],
@@ -25,7 +26,7 @@ const STATE = {
           </div>
           <div class="on-who">{r.who}<span class="on-years">{r.years}</span></div>
           <div class="on-rule">{r.rule}</div>
-          <p class="on-note" set:html={r.note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+          <p class="on-note" set:html={mdHtml(r.note)}></p>
         </div>
       </li>
     ))}

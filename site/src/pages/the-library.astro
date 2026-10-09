@@ -1,6 +1,6 @@
 ---
 import tri from "../data/triage.json";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdHtml} from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -162,12 +162,12 @@ import d from "../data/library.json";
 
 <section class="blk">
   <h2>{d.camillobib.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={d.camillobib.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(d.camillobib.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.camillobib.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -183,11 +183,11 @@ import d from "../data/library.json";
     {d.acquire.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}{r.p && <span style="float:right;font-family:var(--mono);color:var(--accent)">{r.p}</span>}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:22px" set:html={d.acquire.total.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="prose note" style="margin-top:22px" set:html={mdHtml(d.acquire.total)}></p>
   <p class="cap" style="margin-top:14px" set:html={_md(d.acquire.source_acq)}></p>
 </section>
 
@@ -200,7 +200,7 @@ import d from "../data/library.json";
     {d.trieste1869.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -218,7 +218,7 @@ import d from "../data/library.json";
       <div class="one" style="border-left-color:var(--accent)">
         <div class="lab">{r.t}</div>
         <div class="cap" style="margin-top:2px">{r.w} · {r.n}</div>
-        <p style="margin-top:9px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:9px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -234,7 +234,7 @@ import d from "../data/library.json";
   </div>
 
   <p class="prose note" style="margin-top:26px" set:html={_md(tri.none)}></p>
-  <p class="prose note" style="margin-top:16px" set:html={tri.ocr.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="prose note" style="margin-top:16px" set:html={mdHtml(tri.ocr)}></p>
   <p class="cap" style="margin-top:16px" set:html={_md(tri.source_tri)}></p>
 </section>
 
@@ -242,12 +242,12 @@ import d from "../data/library.json";
 
 <section class="blk" id="nsk">
   <h2>{d.nsk2022.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={d.nsk2022.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(d.nsk2022.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.nsk2022.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

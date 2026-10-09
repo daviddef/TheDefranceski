@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Gist from "../components/Gist.astro";
 import gists from "../data/gists.json";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdHtml} from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
@@ -1296,7 +1296,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     {g.fromtree.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -1327,7 +1327,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     {g.kasteli2012.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -1343,7 +1343,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     {g.orbanic2024.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -1359,7 +1359,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
     {g.krizman1979.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -1370,12 +1370,12 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 
 <section class="blk" id="hauptmann">
   <h2 id="hauptmann1945">{g.hauptmann1945.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={g.hauptmann1945.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(g.hauptmann1945.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.hauptmann1945.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -1386,12 +1386,12 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 
 <section class="blk">
   <h2 id="fond254">{g.fond254.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={g.fond254.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(g.fond254.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.fond254.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -1402,12 +1402,12 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 
 <section class="blk">
   <h2 id="cadastre1820">{g.cadastre1820.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={g.cadastre1820.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(g.cadastre1820.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {g.cadastre1820.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

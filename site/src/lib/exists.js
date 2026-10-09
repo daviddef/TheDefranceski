@@ -40,6 +40,16 @@ export function linkParts(value) {
     .split("·")
     .map(part => {
       const t = part.trim();
+      /* A «where» entry may be a bare path — /gologorica-line/ — or a markdown
+         link, [Joanna Defranceschi](/person/joanna-…/). Forty-nine correction
+         rows had drifted to the second shape and this function only knew the
+         first, so every one of them printed as literal square brackets in the
+         «Corrected in place» footer: 77 on /corrections/ alone, found 9 October
+         2026 by grepping the built page. A person page is a DYNAMIC route and
+         is not in staticRoutes, so the markdown form is trusted as written and
+         left to the gate's link checker to verify. */
+      const md = /^\[([^\]]+)\]\((\/[^)\s]*)\)$/.exec(t);
+      if (md) return { href: md[2], text: md[1] };
       const path = t.split("#")[0];
       const withSlash = path.endsWith("/") ? path : `${path}/`;
       return staticRoutes.has(withSlash) ? { href: t, text: t } : { text: t };

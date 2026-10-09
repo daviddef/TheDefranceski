@@ -116,16 +116,16 @@ import gn from "../data/givennames.json";
   {names.living && (
   <section class="blk" style="margin-top:38px">
     <h3 style="font-size:22px">{names.living.heading}</h3>
-    <p class="dek" style="margin-top:6px;white-space:pre-line" set:html={names.living.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+    <p class="dek" style="margin-top:6px;white-space:pre-line" set:html={mdHtml(names.living.lead)}></p>
     <div style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
       {names.living.rows.map(r => (
         <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
           <div class="lab">{r.lab}</div>
-          <p style="margin-top:7px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+          <p style="margin-top:7px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
         </div>
       ))}
     </div>
-    <p class="prose note" style="margin-top:16px" set:html={names.living.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+    <p class="prose note" style="margin-top:16px" set:html={mdHtml(names.living.close)}></p>
     <p class="cap" style="margin-top:12px" set:html={_md(names.living.source)}></p>
   </section>)}
 
@@ -137,7 +137,7 @@ import gn from "../data/givennames.json";
       {names.spellings_world.bycountry.rows.map(([sp,n,txt]) => (
         <div class="one">
           <div class="lab">{sp} · {n}</div>
-          <p style="margin-top:7px" set:html={txt.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+          <p style="margin-top:7px" set:html={mdHtml(txt)}></p>
         </div>
       ))}
     </div>
@@ -145,7 +145,7 @@ import gn from "../data/givennames.json";
       {names.spellings_world.bycountry.rows2.map(r => (
         <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
           <div class="lab">{r.lab}</div>
-          <p style="margin-top:7px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+          <p style="margin-top:7px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
         </div>
       ))}
     </div>
@@ -234,10 +234,10 @@ import gn from "../data/givennames.json";
 
 <section class="blk" id="onename">
   <h2>{on.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={on.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(on.lead)}></p>
   <OneName />
   <div class="one" style="margin-top:22px;border-left-color:var(--accent)">
-    <p set:html={on.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+    <p set:html={mdHtml(on.close)}></p>
   </div>
   <p class="cap" style="margin-top:14px" set:html={_md(on.source_on)}></p>
 </section>

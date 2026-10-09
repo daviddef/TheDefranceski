@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdHtml} from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Spine from "@daviddef/archive-kit/components/Spine.astro";
 import spines from "../data/spines.json";
@@ -114,7 +114,7 @@ import d from "../data/imotski.json";
     {d.story.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -128,7 +128,7 @@ import d from "../data/imotski.json";
     {d.jagul.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -152,7 +152,7 @@ import d from "../data/imotski.json";
     {d.deeper.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -168,7 +168,7 @@ import d from "../data/imotski.json";
     {d.entry17.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -202,7 +202,7 @@ import d from "../data/imotski.json";
     {d.registers.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -218,7 +218,7 @@ import d from "../data/imotski.json";
     {d.prolozac.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

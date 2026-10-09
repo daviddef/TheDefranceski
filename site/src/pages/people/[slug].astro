@@ -1,4 +1,5 @@
 ---
+import { mdHtml } from "../../lib/md.js";
 import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import Base from "../../layouts/Base.astro";
@@ -29,7 +30,7 @@ const world = p.born ? sov.events.filter(e=>e.year>=p.born-5 && e.year<=(p.died|
 
 <section class="blk">
   <h2>The life</h2>
-  <div class="prose" style="margin-top:22px">{p.life.map(t=><p set:html={t.replace(/\*(.+?)\*/g,"<em>$1</em>")} />)}</div>
+  <div class="prose" style="margin-top:22px">{p.life.map(t=><p set:html={mdHtml(t)} />)}</div>
 </section>
 
 {p.works && <section class="blk">

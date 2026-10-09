@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdHtml} from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Spine from "@daviddef/archive-kit/components/Spine.astro";
 import spines from "../data/spines.json";
@@ -447,7 +447,7 @@ import { u } from "../lib/url.js";
     {s.deeper.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -463,7 +463,7 @@ import { u } from "../lib/url.js";
     {s.umagbook.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

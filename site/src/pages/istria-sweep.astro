@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { md as _md } from "../lib/md.js";
+import { md as _md, mdHtml} from "../lib/md.js";
 import ParishBars from "../components/ParishBars.astro";
 import pm from "../data/parishmap.json";
 import Rule from "../components/Rule.astro";
@@ -20,7 +20,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
   </section>
 
   <h2 style="font-size:30px;margin-top:46px">Where the name is</h2>
-  {d.clusters_note && <p class="cap" style="margin-top:10px;padding:14px 16px;border-left:2px solid var(--terra);background:var(--rule-soft, transparent)" set:html={d.clusters_note.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>}
+  {d.clusters_note && <p class="cap" style="margin-top:10px;padding:14px 16px;border-left:2px solid var(--terra);background:var(--rule-soft, transparent)" set:html={mdHtml(d.clusters_note)}></p>}
   <div style="margin-top:20px">
     {d.clusters.map(c => (
       <div class="linerow" style={"padding:12px 0;border-bottom:1px solid var(--rule)" + (c.key ? ";border-left:2px solid var(--terra);padding-left:14px" : "")}>
@@ -31,7 +31,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
             <div style={`height:7px;width:${Math.max(4, Math.round(c.n / max * 100))}%;background:var(--accent)`}></div>
           </div>
           <span class="mono" style="font-size:11px;color:var(--ink-3)">{c.n} indexed entries</span>
-          {c.now && <div class="mono" style="font-size:11px;margin-top:7px;color:var(--ink-2)"><span style="color:var(--ink-3)">by image, 13 Sept:</span> <span set:html={c.now.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></span></div>}
+          {c.now && <div class="mono" style="font-size:11px;margin-top:7px;color:var(--ink-2)"><span style="color:var(--ink-3)">by image, 13 Sept:</span> <span set:html={mdHtml(c.now)}></span></div>}
         </div>
         <div>
           <p style="margin:0"><em>{c.who}</em></p>
@@ -99,7 +99,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
     {d.filter.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/`(.+?)`/g,"<code>$1</code>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -110,12 +110,12 @@ const max = Math.max(...d.clusters.map(c => c.n));
 
 <section class="blk" id="noplace">
   <h2>{d.noplace.heading}</h2>
-  <p class="dek" style="margin-top:8px;white-space:pre-line" set:html={d.noplace.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/`(.+?)`/g,"<code>$1</code>")}></p>
+  <p class="dek" style="margin-top:8px;white-space:pre-line" set:html={mdHtml(d.noplace.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.noplace.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>").replace(/`(.+?)`/g,"<code>$1</code>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -126,7 +126,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
 
 <section class="blk" id="byimage">
   <h2>{d.byimage.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={d.byimage.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(d.byimage.lead)}></p>
   <div class="scroll" style="margin-top:20px">
     <table><thead><tr><th>Parish</th><th>Ours</th><th>Indexed</th><th>Range</th><th></th></tr></thead>
     <tbody>{d.byimage.table.map(([p,o,t,r,w]) => (
@@ -137,7 +137,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
     {d.byimage.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -148,12 +148,12 @@ const max = Math.max(...d.clusters.map(c => c.n));
 
 <section class="blk" id="surnames">
   <h2>{d.surnames.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={d.surnames.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(d.surnames.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.surnames.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>").replace(/«(.+?)»/g,"<em>«$1»</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -164,12 +164,12 @@ const max = Math.max(...d.clusters.map(c => c.n));
 
 <section class="blk" id="parishmap">
   <h2>{pm.heading}</h2>
-  <p class="dek" style="margin-top:8px" set:html={pm.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(pm.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {pm.why.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+?)\*/g,"$1<em>$2</em>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>

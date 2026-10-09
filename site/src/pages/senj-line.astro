@@ -1,4 +1,5 @@
 ---
+import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
@@ -136,16 +137,16 @@ import Lightbox from "../components/Lightbox.astro";
     {d.senjgraves.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px;white-space:pre-line" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px;white-space:pre-line" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:20px" set:html={d.senjgraves.milka.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="prose note" style="margin-top:20px" set:html={mdHtml(d.senjgraves.milka)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {d.senjgraves.corrections.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
         <div class="lab">{r.lab}</div>
-        <p style="margin-top:8px" set:html={r.text.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
       </div>
     ))}
   </div>
@@ -155,16 +156,16 @@ import Lightbox from "../components/Lightbox.astro";
 
 <Rule name="arrows" label={d.handover.heading} />
 <section class="blk">
-  <p class="dek" set:html={d.handover.lead.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+  <p class="dek" set:html={mdHtml(d.handover.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
     {d.handover.rows.map(([lab, t]) => (
       <div class="one">
         <div class="lab">{lab}</div>
-        <p style="margin-top:8px" set:html={t.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}></p>
+        <p style="margin-top:8px" set:html={mdHtml(t)}></p>
       </div>
     ))}
   </div>
-  <p class="prose note" style="margin-top:18px" set:html={d.handover.close.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")}></p>
+  <p class="prose note" style="margin-top:18px" set:html={mdHtml(d.handover.close)}></p>
   <p class="cap" style="margin-top:12px">Read from David's live MyHeritage tree, family tree 4, 16 September 2026. <a href="https://daviddef.github.io/TheBlazevic/">The Blažević Archive →</a></p>
 </section>
 
