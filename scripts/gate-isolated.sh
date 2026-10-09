@@ -65,6 +65,7 @@ run() { # name, command...
 run living    ../scripts/kit-living.sh          --dist "$OUT" --data src/data --policy named-bare
 run templates python3 "$KIT/checktemplates.py" --root .
 run kit       python3 "$KIT/checkarchive.py"  --dist "$OUT"
+[ -f "$KIT/checknav.py" ] && run nav python3 "$KIT/checknav.py" --dist "$OUT" --strict
 run worklist  python3 "$KIT/checkworklist.py" --root .
 run covers    python3 "$KIT/checkcovers.py"   --root .
 run evidence  python3 ../scripts/check-evidence.py --dist "$OUT"
