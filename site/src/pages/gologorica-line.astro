@@ -314,7 +314,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
-  <h2>{g.french1812.heading}</h2>
+  <h2 id="french1812">{g.french1812.heading}</h2>
   <p class="prose" set:html={_md(g.french1812.lead)} style="margin-top:14px" />
   {g.french1812.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
   <div style="margin-top:24px"><Plates ids={g.french1812.plates} cols={1} /></div>
@@ -801,6 +801,14 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <p class="prose" set:html={_md(g.marriage1774.lead)} style="margin-top:14px" />
   {g.marriage1774.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
   <div style="margin-top:24px"><Plates ids={g.marriage1774.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
+  <h2 id="bookseries">{g.bookseries.heading}</h2>
+  <p class="prose" set:html={_md(g.bookseries.lead)} style="margin-top:14px" />
+  {g.bookseries.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
 </section>
 
 <Rule name="arrows" />
