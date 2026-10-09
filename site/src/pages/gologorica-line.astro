@@ -785,6 +785,15 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   {g.patrinisweep.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
 </section>
 
+<Rule name="tablet" label="The renumbering" />
+
+<section class="blk">
+  <h2 id="renumber">{g.renumber.heading}</h2>
+  <p class="prose" set:html={_md(g.renumber.lead)} style="margin-top:14px" />
+  {g.renumber.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.renumber.plates} cols={1} /></div>
+</section>
+
 <Rule name="arrows" />
 
 <section class="blk">
