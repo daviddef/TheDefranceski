@@ -5,7 +5,7 @@ import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
-import { mdHtml } from "../lib/md.js";
+import { mdHtml, mdpHtml } from "../lib/md.js";
 const sev = { serious: "Serious", minor: "Minor", process: "Process", note: "Not ours" };
 const order = ["serious", "process", "minor", "note"];
 const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
@@ -29,6 +29,13 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
     was: based(mdHtml(r.said)),
     now: based(mdHtml(r.true)),
     how: based(mdHtml(r.how)),
+    /* 231 rows, and the shape drifted: 205 are written said/true/how, but 26 —
+       every one added since late September — carry a single narrative `note`
+       instead, and this page rendered none of it. They published as a title
+       with an empty body. `why` is the component's only unlabelled prose slot,
+       which is what a narrative note is. Found 9 October 2026 by grepping the
+       BUILT page for a correction's own text and getting nothing back. */
+    why: r.note ? based(mdpHtml(r.note)) : "",
     extra: r.where
       ? " · Corrected in place: " + linkParts(r.where).map(x =>
           x.href ? `<a href="${u(x.href)}">${x.text}</a>` : x.text).join(" · ")
