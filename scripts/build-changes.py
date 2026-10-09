@@ -25,10 +25,13 @@ def key(when):
     return (int(m.group(3)), MON.get(m.group(2), 0), int(m.group(1) or 0))
 
 rows = []
+# The Search Register's entries link to the Search Register. They linked to /research-log/, a page
+# that was never the register under its own name (the register is /searched/, "The Search Register"),
+# and that has since folded into /open-questions/. Fixed 9 October 2026.
 for r in load("searched.json")["rows"]:
     rows.append({"when": r.get("when", ""), "kind": r.get("outcome", "search"),
                  "what": r.get("what", ""), "src": r.get("src", ""),
-                 "text": r.get("got", ""), "href": "/research-log/"})
+                 "text": r.get("got", ""), "href": "/searched/"})
 for r in load("corrections.json")["rows"]:
     rows.append({"when": r.get("when", ""), "kind": "correction",
                  "what": r.get("what", ""), "src": "A claim taken back",
