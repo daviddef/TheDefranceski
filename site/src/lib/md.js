@@ -68,10 +68,30 @@ const tables = (src) => {
   return out.join("\n");
 };
 
-export const md = (x) => tables(link(esc(String(x ?? ""))
+/* ─── One inline chain, instead of four copies of it ───────────────────────
+ *
+ * Added 9 October 2026. This file exists to be the archive's single renderer,
+ * and it had the same three lines written out FOUR times — in md(),
+ * mdUnbased(), mdHtml() and mdFlat(). Two faults therefore had to be fixed in
+ * four places, so they were fixed in none:
+ *
+ *   ***triple***  produced  <strong><em>x</strong></em>  — tags closed in the
+ *                 wrong order. 3,454 in the data, rendering as 1,391
+ *                 mis-nested pairs across 146 built pages.
+ *   `code`        had no rule at all. 887 in the data, every backtick
+ *                 printing as a backtick.
+ *
+ * Order is not arbitrary: code spans first, so a ** inside backticks stays
+ * literal; then *** before ** before *, or the shorter marker eats the longer
+ * one's delimiters and leaves a stray asterisk behind. */
+const inline = (s) => s
+  .replace(/`([^`\n]+)`/g, "<code>$1</code>")
+  .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
   .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")));
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+
+export const md = (x) => tables(link(inline(esc(String(x ?? "")))));
 
 // Same, but turns blank lines into paragraph breaks.
 export const mdp = (x) => md(x).replace(/\n\n+/g, "</p><p>");
@@ -97,10 +117,7 @@ const linkRaw = (s) => s.replace(
     ? `<a href="${href}">${t}</a>`
     : `<a href="${href}" rel="noopener">${t}</a>`);
 
-export const mdUnbased = (x) => tables(linkRaw(esc(String(x ?? ""))
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")));
+export const mdUnbased = (x) => tables(linkRaw(inline(esc(String(x ?? "")))));
 
 export const mdpsUnbased = (x, style = "margin-top:12px") =>
   mdUnbased(x).replace(/\n\n+/g, `</p><p style="${style}">`);
@@ -117,10 +134,7 @@ export const mdpsUnbased = (x, style = "margin-top:12px") =>
  * mdHtml() trusts the string and is for this archive's own data files, which
  * are written by its own sessions and reviewed in git. Both get the links, the
  * «quotes» and the tables, so a fix reaches every page either way. */
-export const mdHtml = (x) => based(tables(link(String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>"))));
+export const mdHtml = (x) => based(tables(link(inline(String(x ?? "")))));
 
 export const mdpHtml = (x) => mdHtml(x).replace(/\n\n+/g, "</p><p>");
 export const mdpsHtml = (x, style = "margin-top:12px") =>
@@ -135,8 +149,5 @@ export const mdpsHtml = (x, style = "margin-top:12px") =>
  * invalid. So here the link is FLATTENED to its own text: the words survive,
  * the anchor does not. Use this wherever a rendered link would be illegal or
  * merely noise. */
-export const mdFlat = (x) => based(String(x ?? "")
-  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>"));
+export const mdFlat = (x) => based(inline(String(x ?? "")
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")));
