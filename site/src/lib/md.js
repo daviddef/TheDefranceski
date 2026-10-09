@@ -149,5 +149,19 @@ export const mdpsHtml = (x, style = "margin-top:12px") =>
  * invalid. So here the link is FLATTENED to its own text: the words survive,
  * the anchor does not. Use this wherever a rendered link would be illegal or
  * merely noise. */
-export const mdFlat = (x) => based(inline(String(x ?? "")
+/* …and a pipe-table cannot live in a table cell either. A roster note carries
+   markdown tables, and /people/ and every /who/ page drop that note into a cell
+   as an excerpt — so 207 literal |---|---| separators were printing inside
+   table cells across 37 pages. A nested <table> would be illegal, so the
+   scaffolding is flattened to text: the separator row goes, and the cells of
+   each remaining row are joined with a middot. Found 9 October 2026. */
+const untable = (s) => s
+  .split("\n")
+  .filter((l) => !/^\s*\|[\s:|-]+\|\s*$/.test(l))
+  .map((l) => /^\s*\|.*\|\s*$/.test(l)
+    ? l.replace(/^\s*\|/, "").replace(/\|\s*$/, "").split("|").map((c) => c.trim()).filter(Boolean).join(" · ")
+    : l)
+  .join("\n");
+
+export const mdFlat = (x) => based(inline(untable(String(x ?? ""))
   .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")));

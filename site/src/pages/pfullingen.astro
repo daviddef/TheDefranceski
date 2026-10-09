@@ -7,7 +7,7 @@ import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { u } from "../lib/url.js";
-import { mdp, mdHtml } from "../lib/md.js";
+import { mdp, mdHtml, mdFlat } from "../lib/md.js";
 import d from "../data/pfullingen.json";
 ---
 <Base
@@ -31,8 +31,8 @@ import d from "../data/pfullingen.json";
       <thead><tr><th>Name</th><th class="m">Born</th><th>Birthplace</th><th>Trade</th><th>What the file says</th></tr></thead>
       <tbody>{d.people.map((p) => (
         <tr style={p.status === "withheld" ? "opacity:.72" : undefined}>
-          <td>{p.name}</td><td class="m">{p.born}</td><td>{p.birthplace}</td>
-          <td>{p.trade}</td><td>{p.role}</td>
+          <td set:html={mdFlat(p.name)} /><td class="m">{p.born}</td><td set:html={mdFlat(p.birthplace)} />
+          <td set:html={mdFlat(p.trade)} /><td set:html={mdFlat(p.role)} />
         </tr>
       ))}</tbody>
     </table>
@@ -47,7 +47,7 @@ import d from "../data/pfullingen.json";
     <table>
       <thead><tr><th class="m">When</th><th>What</th><th>Around it</th></tr></thead>
       <tbody>{d.chronology.map((c) => (
-        <tr><td class="m">{c.y}</td><td>{c.t}</td><td>{c.w}</td></tr>
+        <tr><td class="m">{c.y}</td><td set:html={mdFlat(c.t)} /><td set:html={mdFlat(c.w)} /></tr>
       ))}</tbody>
     </table>
   </div>
@@ -58,7 +58,7 @@ import d from "../data/pfullingen.json";
     <table>
       <thead><tr><th>Who</th><th class="m">Born</th><th class="m">Arrived</th><th class="m">Left</th></tr></thead>
       <tbody>{d.residence.rows.map(r => (
-        <tr><td>{r.who}</td><td class="m">{r.born}</td><td class="m">{r.from}</td><td class="m">{r.to}</td></tr>
+        <tr><td set:html={mdFlat(r.who)} /><td class="m">{r.born}</td><td class="m">{r.from}</td><td class="m">{r.to}</td></tr>
       ))}</tbody>
     </table>
   </div>
@@ -71,7 +71,7 @@ import d from "../data/pfullingen.json";
     <table>
       <thead><tr><th class="m">№</th><th>Name</th><th class="m">Born</th><th class="m">Present</th><th>Note</th></tr></thead>
       <tbody>{d.neuhausen.rows.map(r => (
-        <tr><td class="m">{r.n}</td><td>{r.who}</td><td class="m">{r.born}</td><td class="m">{r.present}</td><td>{r.note || "—"}</td></tr>
+        <tr><td class="m">{r.n}</td><td>{r.who}</td><td class="m">{r.born}</td><td class="m">{r.present}</td><td set:html={mdFlat(r.note || "—")} /></tr>
       ))}</tbody>
     </table>
   </div>
