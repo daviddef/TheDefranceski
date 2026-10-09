@@ -4,6 +4,8 @@ import Errands from "@daviddef/archive-kit/components/Errands.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import e from "../data/errands.json";
+import Shotlist from "@daviddef/archive-kit/components/Shotlist.astro";
+import p from "../data/shots.json";
 import { md, mdps, mdpsUnbased } from "../lib/md.js";
 
 /* 21 September 2026. The card moved to the kit. The PRIORITY did not: `pri`
@@ -15,6 +17,18 @@ const PRI = { high:   ["Send first",     "var(--terra)"],
               low:    ["When convenient", "var(--rule-strong)"] };
 const unlabelled = [...new Set(e.rows.map((r) => r.pri).filter((k) => k && !PRI[k]))];
 
+/* 9 October 2026. «Photograph these» folded in here. It is an errand in every field the
+   kit's Errands row has (a place, why the picture is worth the trip, what it would settle)
+   and nobody asked yet; the one real difference is that it is an ITINERARY, ordered by the
+   day you would be standing there, which is not a grade. A walk stays a walk, so it keeps
+   its own list under its own heading. /photograph-these/ redirects to #photographs. */
+const walks = [...new Set(p.rows.map(r => r.walk))];
+const rowsFor = (wk) => p.rows.filter(r => r.walk === wk).map(r => ({
+  tag: r.day === "\u2014" ? null : "Day " + r.day,
+  where: r.sub,
+  what: mdps(r.shot),
+}));
+
 const groups = [{
   rows: e.rows.map((r) => ({
     n: r.n, who: r.who, what: mdpsUnbased(r.what), ref: mdpsUnbased(r.ref), why: mdpsUnbased(r.why),
@@ -24,7 +38,7 @@ const groups = [{
   })),
 }];
 ---
-<Base title={e.title} eyebrow={e.eyebrow} dek={e.dek}>
+<Base title={e.title} eyebrow={`${e.eyebrow} · ${p.rows.length} shots on ${walks.length} walks`} dek={e.dek}>
 <section class="blk"><p class="prose" set:html={mdps(e.lead)}></p>
   {unlabelled.length > 0 && (
     <p class="small">Filed under a priority this page has no label for: {unlabelled.join(", ")}.</p>
@@ -62,8 +76,25 @@ const groups = [{
 <section class="blk">
   <Errands groups={groups} u={u} />
 </section>
+<Rule name="arrows" label="Photographs only someone there can take" />
+<section class="blk" id="photographs">
+  <h2>Photographs only someone there can take</h2>
+  <p class="prose" set:html={mdps(p.lead)}></p>
+</section>
+{walks.map(wk => (
+<>
+<section class="blk">
+  <h3>{wk}</h3>
+  <Shotlist groups={[{ rows: rowsFor(wk) }]} u={u} />
+  <p class="cap" style="margin-top:14px"><a href={u(p.rows.find(r => r.walk === wk).href)}>Where this belongs →</a></p>
+</section>
+</>
+))}
+<section class="blk"><p class="prose note" set:html={mdps(p.close)}></p>
+  <p class="cap" style="margin-top:14px"><a href={u("/walk/")}>The itineraries →</a></p>
+</section>
 <Rule name="pomegranate" />
 <section class="blk"><p class="prose note" set:html={mdps(e.close)}></p>
-  <p class="cap" style="margin-top:14px"><a href={u("/research-log/")}>The Search Register →</a> · <a href={u("/parish-books/")}>Parish Books →</a> · <a href={u("/worklist/")}>The Work List →</a></p>
+  <p class="cap" style="margin-top:14px"><a href={u("/searched/")}>The Search Register →</a> · <a href={u("/parish-books/")}>Parish Books →</a> · <a href={u("/worklist/")}>The Work List →</a></p>
 </section>
 </Base>

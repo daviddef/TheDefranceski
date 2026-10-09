@@ -35,5 +35,9 @@ export default defineConfig({
     '/research-map': '/TheDefranceski/map',
     '/atlas': '/TheDefranceski/map',
     '/graves-map': '/TheDefranceski/map',
+    /* 9 October 2026: three pages folded into pages that do the same job. */
+    '/research-log': '/TheDefranceski/open-questions/',
+    '/gaps': '/TheDefranceski/open-questions/#gaps',
+    '/photograph-these': '/TheDefranceski/errands/#photographs',
   },
 });
