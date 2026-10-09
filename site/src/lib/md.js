@@ -84,12 +84,26 @@ const tables = (src) => {
  * Order is not arbitrary: code spans first, so a ** inside backticks stays
  * literal; then *** before ** before *, or the shorter marker eats the longer
  * one's delimiters and leaves a stray asterisk behind. */
-const inline = (s) => s
-  .replace(/`([^`\n]+)`/g, "<code>$1</code>")
-  .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+/* ⚠ A code span's CONTENT must not be touched by the rules that follow it.
+ * Running them in order was not enough: `*.json` came out as a <code> with the
+ * asterisk eaten by the italic rule, and `\s*` as <code>\s<em></code>. Across
+ * the estate 85 code spans hold a * or a « », and every one of them is the
+ * kind of thing a code span is FOR — a glob, a flag, a file pattern.
+ * So they are lifted out, the markup runs on what is left, and they go back
+ * in untouched. The sentinel is NUL, which no data file contains. */
+const inline = (s) => {
+  const spans = [];
+  const held = String(s).replace(/`([^`\n]+)`/g, (_, c) => {
+    spans.push(c);
+    return `\u0000C${spans.length - 1}\u0000`;
+  });
+  return held
+    .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/«(.+?)»/g, "<em>«$1»</em>")
+    .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>")
+    .replace(/\u0000C(\d+)\u0000/g, (_, i) => `<code>${spans[+i]}</code>`);
+};
 
 export const md = (x) => tables(link(inline(esc(String(x ?? "")))));
 
