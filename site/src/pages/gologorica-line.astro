@@ -806,6 +806,15 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 <Rule name="arrows" />
 
 <section class="blk">
+  <h2 id="mercatordeath1787">{g.mercatordeath1787.heading}</h2>
+  <p class="prose" set:html={_md(g.mercatordeath1787.lead)} style="margin-top:14px" />
+  {g.mercatordeath1787.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.mercatordeath1787.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
   <h2 id="liberiiswept">{g.liberiiswept.heading}</h2>
   <p class="prose" set:html={_md(g.liberiiswept.lead)} style="margin-top:14px" />
   {g.liberiiswept.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
