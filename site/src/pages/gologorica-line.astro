@@ -11,9 +11,24 @@ import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import DescentTree from "../components/DescentTree.astro";
 import g from "../data/gologorica.json";
+import toc from "../data/gologorica-toc.json";
 import j from "../data/josip1863.json";
 import roots from "../data/gologorica_roots.json";
 const yrs = g.people.map(p => p.birthYear).filter(Boolean);
+/* The contents, added 11 October 2026.
+   This page reached 76 sections and 900 KB with no way into it: a reader who
+   landed on one finding's anchor could not see what else was here, and a
+   reader who landed at the top had no index. The headings were always in the
+   data; their ORDER lives only in the markup below, so scripts/build-golo-toc.py
+   reads the markup and check-golo-toc.py fails the gate when the two drift. */
+const plain = (x) => String(x ?? "")
+  .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+  .replace(/[*_`]/g, "")
+  .replace(/\s+/g, " ")
+  .trim();
+const mark = (h) => (plain(h).match(/^[\u2b50\u2714\u26a0\u2753\u2795\s]+/) || [""])[0].trim();
+const rest = (h) => plain(h).slice(mark(h).length).trim();
+const clip = (t, n = 96) => (t.length <= n ? t : t.slice(0, t.lastIndexOf(" ", n)) + "\u2026");
 ---
 <Base title="The Gologorica Line" eyebrow={`${g.counts.individuals} people · ${g.counts.families} families · ${Math.min(...yrs)}–${Math.max(...yrs)}`}
       dek="Read off the parish register itself, page by page, from microfilm of the Gologorica books held by the Pazin Records Office. This is the ancestral line, and it is the only part of this archive built from the pages rather than from an index.">
@@ -36,6 +51,23 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
 
   <Locator place="Gologorica" radius={10}
             note="The house with 1711 over the door. Gračišće is four kilometres south — the two villages of our first four generations." />
+
+<Rule name="tablet" label={`What is on this page — ${toc.rows.length} sections`} />
+
+<section class="blk" id="contents">
+  <p class="prose" style="margin-top:0">This page is the working face of the two Pazin reels, and it has grown a section
+    at a time as the books were read. <strong>Every finding below is told here in full</strong>, with the frame it came from and
+    the plate cut from it. The list is generated from the page itself, so it cannot fall out of step with it.</p>
+  <ol style="margin-top:22px;padding-left:0;list-style:none;display:grid;gap:9px">
+    {toc.rows.map((r, i) => (
+      <li style="display:grid;grid-template-columns:2.4em auto 1fr;gap:10px;align-items:baseline;line-height:1.45">
+        <span class="mono" style="opacity:.45;font-size:.82em;text-align:right">{i + 1}</span>
+        <span style="white-space:nowrap">{mark(r.heading)}</span>
+        <a href={`#${r.id}`}>{clip(rest(r.heading))}</a>
+      </li>
+    ))}
+  </ol>
+</section>
 
 <Rule name="arrows" />
 
@@ -836,6 +868,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <h2 id="josephusadjudicated">{g.josephusadjudicated.heading}</h2>
   <p class="prose" set:html={_md(g.josephusadjudicated.lead)} style="margin-top:14px" />
   {g.josephusadjudicated.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.josephusadjudicated.plates} cols={1} /></div>
 </section>
 
 <Rule name="arrows" />
@@ -853,6 +886,7 @@ const yrs = g.people.map(p => p.birthYear).filter(Boolean);
   <h2 id="liberiiswept">{g.liberiiswept.heading}</h2>
   <p class="prose" set:html={_md(g.liberiiswept.lead)} style="margin-top:14px" />
   {g.liberiiswept.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.liberiiswept.plates} cols={1} /></div>
 </section>
 
 <Rule name="arrows" />

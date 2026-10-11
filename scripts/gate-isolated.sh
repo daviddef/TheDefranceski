@@ -74,6 +74,7 @@ run places    python3 "$KIT/checkplaces.py"   --data public/atlas-data.json
 run licences ../scripts/check-licences.py --dist "$OUT"
 run livingdata ../scripts/check-living-data.py
 run dates      ../scripts/check-dates-everywhere.py
+run golotoc    python3 ../scripts/check-golo-toc.py
 # Last, and it reports on the others: every line above is a steady number
 # restated identically each build, and a line beginning "ok" does not get read.
 # This one speaks only when a number MOVES. See scripts/check-witness.py.
