@@ -76,6 +76,7 @@ run livingdata ../scripts/check-living-data.py
 run dates      ../scripts/check-dates-everywhere.py
 run golotoc    python3 ../scripts/check-golo-toc.py
 run atlasout   python3 ../scripts/check-atlas-outcomes.py
+run leads      python3 ../scripts/check-leads.py
 # Last, and it reports on the others: every line above is a steady number
 # restated identically each build, and a line beginning "ok" does not get read.
 # This one speaks only when a number MOVES. See scripts/check-witness.py.
