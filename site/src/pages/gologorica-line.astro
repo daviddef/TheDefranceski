@@ -847,6 +847,15 @@ const clip = (t, n = 96) => (t.length <= n ? t : t.slice(0, t.lastIndexOf(" ", n
 <Rule name="arrows" />
 
 <section class="blk">
+  <h2 id="twograhwives">{g.twograhwives.heading}</h2>
+  <p class="prose" set:html={_md(g.twograhwives.lead)} style="margin-top:14px" />
+  {g.twograhwives.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
+  <div style="margin-top:24px"><Plates ids={g.twograhwives.plates} cols={1} /></div>
+</section>
+
+<Rule name="arrows" />
+
+<section class="blk">
   <h2 id="rosasalamon">{g.rosasalamon.heading}</h2>
   <p class="prose" set:html={_md(g.rosasalamon.lead)} style="margin-top:14px" />
   {g.rosasalamon.paras.map((t) => <p class="prose" set:html={_md(t)} style="margin-top:14px" />)}
