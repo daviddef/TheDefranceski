@@ -4,6 +4,13 @@
  "rows": [
   {
    "when": "12 Oct 2026",
+   "what": "«The Ližnjan death register scouted END TO END» — the crop read the top 44% of every page and missed the rest",
+   "sev": "major",
+   "where": "/searched/ · /liznjan/ · /worklist/",
+   "note": "**⚠⚠ THE SCOUT OF THE DEATH REGISTER WAS CALLED «END TO END» AND IT WAS NOT. It read the top of every page and cut the bottom off.**\n\n*The crop was* `y 0.09–0.46` *of the frame. Measured against the book, the page itself runs from about* `0.12` *to* `0.92`. ***So roughly the top 44% of every page was read and the rest was never seen.*** *Eleven people of the name were found, and they were real — but the claim that the book had been covered end to end was false.*\n\n**[This is the crop-drift trap this archive has now hit five times](/method/)**, *and the previous four were all on the Pazin reels. It is the same failure: a crop that looks right on the frame you chose it with, and silently clips every frame after.*\n\n**How it was caught.** *David asked whether* «Medolino» *was Medulin, and noted that Defranceschi seem to cluster there. Checking that sent this session back to a lead it had never taken up —* `XQM3-21M6`, «**Mattio Francesch, d. 20 Dec 1839, Ližnjan**» — *and asked why the scout had not reported that death.* **Because the entry sits at 0.52 of the page height, below where the crop stopped.** *A question about a place name exposed a systematic hole in a sweep.*\n\n**The fix is one number.** *At the same magnification,* `y 0.09–0.95` *renders the whole page into a single 2048×2304 canvas that reads exactly as well as the old one. The deaths book is being re-scanned with it, and the marriage and birth helpers carried the same wrong y-range and are corrected before use.*\n\n**And the first thing the corrected crop found was the entry that exposed it:**\n\n**Ližnjan** «Liber Defunctorum», **page 93, 1839**:\n\n> «**Addì 20 Xbre 1839**» · **house 17** · «**Mattio Franceschi d.to Marulin, agr.**» · *Cattolico, Maschio,* «**ann. 40**»\n\n— ***the death of the man who married in 1815***, *with* «**d.to Marulin**» *written again, twenty-four years after the marriage did. [That settles the byname](/liznjan/): it is attached to him twice, in two books, in two hands.*"
+  },
+  {
+   "when": "12 Oct 2026",
    "what": "«The first spelled with the modern -ski» — said of an 1896 burial this morning, and the marriage register has it in 1861",
    "sev": "minor",
    "where": "/searched/ · /who/josephus-defranceski/ · /liznjan/",

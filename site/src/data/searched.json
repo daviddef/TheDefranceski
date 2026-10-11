@@ -9,6 +9,40 @@
  ],
  "rows": [
   {
+   "src": "⚠⭐ LIŽNJAN deaths 1839 — the 1815 groom's own burial, «d.to Marulin» a second time; AND the deaths scout's crop is found to have cut the bottom off every page",
+   "dest": "Ližnjan «Liber Defunctorum», waypoint 9R2Z-4WG",
+   "when": "12 Oct 2026",
+   "outcome": "correction",
+   "url": "https://www.familysearch.org/ark:/61903/3:1:3QSQ-G99X-GCQV?cc=2040054&wc=9R2Z-4WG",
+   "waypoint": "9R2Z-4WG",
+   "waypointNote": "Volume fixed by ark containment.",
+   "pages": "Frame 12, book page 93, the FULL page height read at last. ⚠ This row also records that frames 0–71 were previously scanned with a crop covering only y 0.09–0.46 — about the top 44% of each page — and the book is being re-scanned.",
+   "walked": false,
+   "what": "Why the scout had not reported the death the archive's own lead XQM3-21M6 points at",
+   "got": "**⭐⭐⭐ THE DEATH OF THE MAN WHO MARRIED IN 1815 — and the byname is on him twice.**\n\n**Ližnjan** «Liber Defunctorum», **page 93, 1839**:\n\n> «**Addì 20 Xbre 1839**» · **house 17** · «**Mattio Franceschi d.to Marulin, agr.**» · *Cattolico, Maschio,* «**ann. 40**»\n\n***Mattio Franceschi detto Marulin, agricola, of house 17, died 20 December 1839, aged forty.*** *House 17 is [the house he married into in 1815](/liznjan/) and the house his children were born in — Antonio 1819, Mattia 1821, Gregorio 1822.*\n\n**⭐ «d.to Marulin», again.** *[The 1815 marriage called him](/liznjan/)* «**Mario de Franceschi deto Marulin di Antonio**». *Here is the same byname at his burial, twenty-four years later, in a different book and a different hand.* ***Two independent witnesses to the name settle it:*** *it is a byname, not a place, and the reading that nearly made it* «Madolin» *is closed.*\n\n**⚠ The age does not agree with the marriage.** *1815 gave his Ætas as* **21** *(born about 1794); 1839 gives* **40** *(born about 1799). Five years apart. Both are the parish's own figures and neither is corrected here — register ages are frequently round numbers, and [this archive records the discrepancy rather than splitting it](/method/).*\n\n**⭐ And it closes a lead the archive had held and never taken up.** `register.json` *carried* `XQM3-21M6` — «**Mattio Francesch, b. 1799, d. 20 Dec 1839, Ližnjan**» — *uncited by any roster row. The date matches exactly and the derived birth year matches the age. [It was named as a candidate for Maddalena's «fu Matteo» yesterday](/who/maddalena-defranceschi-naskovic/) and left there because a date that fits is not a match.* **It is now read on the page.**\n\n---\n\n**⚠⚠ THE SCOUT OF THE DEATH REGISTER WAS CALLED «END TO END» AND IT WAS NOT. It read the top of every page and cut the bottom off.**\n\n*The crop was* `y 0.09–0.46` *of the frame. Measured against the book, the page itself runs from about* `0.12` *to* `0.92`. ***So roughly the top 44% of every page was read and the rest was never seen.*** *Eleven people of the name were found, and they were real — but the claim that the book had been covered end to end was false.*\n\n**[This is the crop-drift trap this archive has now hit five times](/method/)**, *and the previous four were all on the Pazin reels. It is the same failure: a crop that looks right on the frame you chose it with, and silently clips every frame after.*\n\n**How it was caught.** *David asked whether* «Medolino» *was Medulin, and noted that Defranceschi seem to cluster there. Checking that sent this session back to a lead it had never taken up —* `XQM3-21M6`, «**Mattio Francesch, d. 20 Dec 1839, Ližnjan**» — *and asked why the scout had not reported that death.* **Because the entry sits at 0.52 of the page height, below where the crop stopped.** *A question about a place name exposed a systematic hole in a sweep.*\n\n**The fix is one number.** *At the same magnification,* `y 0.09–0.95` *renders the whole page into a single 2048×2304 canvas that reads exactly as well as the old one. The deaths book is being re-scanned with it, and the marriage and birth helpers carried the same wrong y-range and are corrected before use.*",
+   "next": "Re-scan all 72 deaths frames at full page height; the marriage and birth helpers carried the same wrong y-range and are corrected before use.",
+   "tags": [
+    "Ližnjan",
+    "FamilySearch",
+    "parish registers",
+    "deaths",
+    "byname",
+    "crop drift",
+    "correction"
+   ],
+   "key": "src/liznjan-1839-marulin-death-and-crop",
+   "ev": [
+    [
+     "/liznjan/",
+     "Ližnjan"
+    ],
+    [
+     "/corrections/",
+     "Corrections"
+    ]
+   ]
+  },
+  {
    "src": "⭐⭐⭐ FamilySearch — LIŽNJAN MARRIAGES 1861: «nata e Medolino», the first plain ORIGIN in the scout — and the «-ski» spelling turns out to be 1861, not 1896",
    "dest": "Ližnjan «Liber Copulatorum», waypoint 9R2Z-44C",
    "when": "12 Oct 2026",
