@@ -27,8 +27,16 @@ on one person's page has not been told — nobody browses the roster to find it.
 
 ## Record Atlas
 
-The shared map lives at `../Record Atlas`. Research done here is only
-useful to the next person if it gets there.
+The shared map lives at `~/Projects/Family Projects/Record Atlas` — **not**
+`../Record Atlas`, which is where this file sent three sessions before one of
+them looked. Research done here is only useful to the next person if it gets
+there.
+
+**You are not the only session in that tree.** `git status` before you touch
+it; if files you did not change are modified, leave them and say so. To ask
+what of this archive reaches the map, run its importer **to a scratch file** —
+`scripts/import-research-sessions.py --out … --rejects …` — never over
+`record-atlas-research-import.json`, which another session may be mid-edit.
 
 Invoke the `record-atlas-feedback` skill whenever you finish a search,
 open a register, write to an archive, or find a source the atlas does
