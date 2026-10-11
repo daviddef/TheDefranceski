@@ -17188,7 +17188,7 @@
   "giovanni-defranceschi": {
    "name": "Giovanni Defranceschi",
    "slug": "giovanni-defranceschi",
-   "n": 20,
+   "n": 21,
    "pages": [
     {
      "h": "/tree/",
@@ -17229,6 +17229,10 @@
     {
      "h": "/register/",
      "t": "Register"
+    },
+    {
+     "h": "/liznjan/",
+     "t": "Ližnjan"
     },
     {
      "h": "/marriages/",
@@ -17299,6 +17303,11 @@
      "page": "/register/",
      "title": "Register",
      "text": "films Giacomo Giachin y Domenica Defranceschi Sebastiano Defranceschi XQMQ-Q9TL Split n films Antonio Gazzoni y Anna Defranceschi Giovanni Defranceschi X7N5-XGWF One hundred and forty-five rows carry both the parents and the parish, which is everything needed to open a book and look. That is the worklist. Forty-five of them are at Vodnjan — a parish with no film at all, so"
+    },
+    {
+     "page": "/liznjan/",
+     "title": "Ližnjan",
+     "text": "artefact and is said so here rather than counted as a gap. The rest are genuinely untaken, and most are children of Defranceschi daughters who married out — Ruman, Perković, Jelčić, Našković — plus «Mattio Franceschi, 1799 – 20 Dec 1839» and «Giovanni Defranceschi, 1845 – 11 Nov 1846», who are of the name outright. ⚠ The lesson is not that the index is good. It is that this archive kept finding things it already had. The register settles what the index garbles — «Antonii Defranceschi Or Lazarić»"
     },
     {
      "page": "/mymap/",
@@ -133491,6 +133500,10 @@
    "roster": true,
    "alsoWritten": [
     {
+     "slug": "fusca-defranceschi-lazaric",
+     "name": "Fusca Defranceschi (Lazarić)"
+    },
+    {
      "slug": "fusca-de-franceschi",
      "name": "Fusca de Franceschi"
     },
@@ -144913,6 +144926,10 @@
     {
      "slug": "fusca-defranceschi",
      "name": "Fusca Defranceschi"
+    },
+    {
+     "slug": "fusca-defranceschi-lazaric",
+     "name": "Fusca Defranceschi (Lazarić)"
     },
     {
      "slug": "fusca-de-franceschi-m-1773",
@@ -159071,6 +159088,10 @@
      "name": "Fusca Defranceschi"
     },
     {
+     "slug": "fusca-defranceschi-lazaric",
+     "name": "Fusca Defranceschi (Lazarić)"
+    },
+    {
      "slug": "fusca-de-franceschi",
      "name": "Fusca de Franceschi"
     }
@@ -166810,6 +166831,167 @@
    "recyear": null,
    "adjacent": null,
    "roster": true
+  },
+  "fusca-defranceschi-lazaric": {
+   "name": "Fusca Defranceschi (Lazarić)",
+   "slug": "fusca-defranceschi-lazaric",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/lives/",
+     "t": "Lives on one scale"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    }
+   ],
+   "hits": [],
+   "facts": [
+    [
+     "Place",
+     "Ližnjan",
+     "/places/liznjan/"
+    ],
+    [
+     "Years",
+     "1888"
+    ],
+    [
+     "Line",
+     "A documented Istrian or Kvarner household this archive will not attach to any line"
+    ],
+    [
+     "Found in",
+     "register"
+    ]
+   ],
+   "known": "**⭐⭐ A WIFE OF THE NAME THIS ARCHIVE DID NOT HOLD — read on the page, 12 October 2026.**\n\n**Ližnjan** «Liber Defunctorum», **page 101, entry 23 of 1888**, **house 75**:\n\n> «**Mort. 17 Augusti, Sep. 19 ejusdem, 1888**» — «**Fusca uxor Antonii Defranceschi nata Lazarić**»\n\n*—* ***Fusca, wife of Antonius Defranceschi, born Lazarić***, *died 17 August 1888, buried on the 19th.*\n\n**⚠ She was in this archive's own files the whole time, and nobody took her up.** `register.json` *holds her as lead* `XQM3-P992`, *which the index garbled into* «Antonii Defranceschi Or Lazarić» — *a flattened parent list that the page resolves at once into* ***uxor … nata***. *[She is the third Ližnjan person this week found sitting as an unused lead](/liznjan/).*\n\n**⚠ No birth year is asserted here.** *The index lead says* «1821», *which can only have come from an age at death that* ***this session did not read***. *The age column was not reached before the reading stopped, so the year is left empty rather than copied from an index. [A nil names the exact terms tried](/method/).*\n\n*Waypoint* `9R2Z-4WG`, *frame 54. (doc — the burial register of the parish, read at the page.)*",
+   "more": [],
+   "records": [],
+   "tree": {
+    "ambiguous": false,
+    "parents": [
+     "Matteo Defranceschi",
+     "Francesca"
+    ],
+    "parentsPlace": "Svetvinčenat",
+    "siblings": [
+     "Helena de Franceschi",
+     "Maria de Franceschi",
+     "Victoria de Franceschi",
+     "Irena de Franceschi"
+    ],
+    "asChild": "",
+    "upN": 1,
+    "downN": 0
+   },
+   "ptree": {
+    "self": {
+     "n": "Fusca Defranceschi (Lazarić)",
+     "dt": "1870 – 1870",
+     "via": "index"
+    },
+    "parents": [
+     {
+      "n": "Matteo Defranceschi",
+      "dt": "",
+      "via": "read",
+      "ambiguous": 6,
+      "own": 5
+     },
+     {
+      "n": "Francesca",
+      "dt": "",
+      "via": "read",
+      "own": 5
+     }
+    ],
+    "parentsPlace": "Svetvinčenat",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Helena de Franceschi",
+      "dt": "b. 5 Aug 1742",
+      "via": "read",
+      "slug": "helena-defranceschi",
+      "pid": "helena-defranceschi-1725",
+      "small": true
+     },
+     {
+      "n": "Maria de Franceschi",
+      "dt": "b. 15 Oct 1745",
+      "via": "read",
+      "slug": "maria-defranceschi",
+      "pid": "maria-defranceschi-1751",
+      "small": true,
+      "own": 5
+     },
+     {
+      "n": "Victoria de Franceschi",
+      "dt": "b. 19 Sep 1749",
+      "via": "read",
+      "small": true
+     },
+     {
+      "n": "Irena de Franceschi",
+      "dt": "b. 11 Feb 1752",
+      "via": "read",
+      "small": true
+     }
+    ],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [
+     [
+      "unchecked",
+      "Matteo Defranceschi",
+      "Francesca",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "tally": [
+     [
+      "read",
+      6
+     ]
+    ],
+    "nrel": 6,
+    "nread": 6,
+    "dupNames": []
+   },
+   "rec": {
+    "id": "XQM3-P992",
+    "says": "b. 1821 · d. 17 Aug 1888 · bur. 19 Aug 1888 Ližnjan, Istria, Italia",
+    "place": "Ližnjan, Istria, Italia",
+    "sp": "Surname not indexed",
+    "others": [
+     {
+      "n": "Antonii Defranceschi Or Lazarić"
+     }
+    ],
+    "url": "https://www.familysearch.org/ark:/61903/1:1:XQM3-P992"
+   },
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true,
+   "alsoWritten": [
+    {
+     "slug": "fusca-defranceschi",
+     "name": "Fusca Defranceschi"
+    },
+    {
+     "slug": "fusca-de-franceschi",
+     "name": "Fusca de Franceschi"
+    },
+    {
+     "slug": "fusca-de-franceschi-m-1773",
+     "name": "Fusca de Franceschi (m. 1773)"
+    }
+   ]
   },
   "justina-defranceschi": {
    "name": "Justina Defranceschi",
@@ -197993,6 +198175,86 @@
     "dupNames": []
    }
   },
+  "fusca-defranceschi-lazaric-1888": {
+   "pid": "fusca-defranceschi-lazaric-1888",
+   "name": "Fusca Defranceschi (Lazarić)",
+   "ptree": {
+    "self": {
+     "n": "Fusca Defranceschi (Lazarić)",
+     "dt": "d. 1888",
+     "via": "index"
+    },
+    "parents": [
+     {
+      "n": "Matteo Defranceschi",
+      "dt": "",
+      "via": "read",
+      "ambiguous": 6,
+      "own": 5
+     },
+     {
+      "n": "Francesca",
+      "dt": "",
+      "via": "read",
+      "own": 5
+     }
+    ],
+    "parentsPlace": "Svetvinčenat",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Helena de Franceschi",
+      "dt": "b. 5 Aug 1742",
+      "via": "read",
+      "slug": "helena-defranceschi",
+      "pid": "helena-defranceschi-1725",
+      "small": true
+     },
+     {
+      "n": "Maria de Franceschi",
+      "dt": "b. 15 Oct 1745",
+      "via": "read",
+      "slug": "maria-defranceschi",
+      "pid": "maria-defranceschi-1751",
+      "small": true,
+      "own": 5
+     },
+     {
+      "n": "Victoria de Franceschi",
+      "dt": "b. 19 Sep 1749",
+      "via": "read",
+      "small": true
+     },
+     {
+      "n": "Irena de Franceschi",
+      "dt": "b. 11 Feb 1752",
+      "via": "read",
+      "small": true
+     }
+    ],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [
+     [
+      "unchecked",
+      "Matteo Defranceschi",
+      "Francesca",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "tally": [
+     [
+      "read",
+      6
+     ]
+    ],
+    "nrel": 6,
+    "nread": 6,
+    "dupNames": []
+   }
+  },
   "gasparo-de-franceschi-1562": {
    "pid": "gasparo-de-franceschi-1562",
    "name": "Gasparo de Franceschi",
@@ -224811,7 +225073,7 @@
       "n": "Fusca de Franceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 3
+      "ambiguous": 4
      }
     ],
     "span": "1742–1773",
@@ -224892,7 +225154,7 @@
       "n": "Fusca de Franceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 3
+      "ambiguous": 4
      }
     ],
     "span": "1742–1773",
