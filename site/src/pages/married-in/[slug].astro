@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
+import { md as mdk } from "../../lib/md.js";
 import mi from "../../data/marriedin.json";
 import Cluster from "../../components/Cluster.astro";
 import cl from "../../data/clusters.json";
@@ -12,10 +13,11 @@ const { slug } = Astro.params;
 const d = mi.detail[slug];
 const row = mi.rows.find(r => r.slug === slug);
 const R = mi.routes[d.route];
-const md = (x) => String(x ?? "")
-  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-  .replace(/«(.+?)»/g, "<em>«$1»</em>")
-  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1<em>$2</em>");
+/* Was a private half-renderer: bold, «quotes» and italic only, so every
+ * markdown link in this file's data printed as literal square brackets and
+ * every pipe-table as literal pipes. The archive has ONE renderer that does
+ * links, external links and tables — use it. (worklist 163.) */
+const md = mdk;
 ---
 <Base title={row.name}
   eyebrow={`${row.c ? `${row.c} indexed marriage${row.c === 1 ? "" : "s"}` : "not in the marriage index"} · ${d.from}`}
