@@ -28,6 +28,16 @@ def slugify(s):
 def plain(s):
     s = str(s)
     s = s.replace("\\n", " ").replace("\\t", " ").replace('\\"', '"')
+    # Markdown tables. plain() exists to make PLAIN TEXT, and a pipe-table that
+    # keeps its scaffolding is not plain text: once the newlines above become
+    # spaces, «| a | b |\n|---|---|\n| c | d |» collapses to one line and the
+    # «|---|---|» prints literally. 86 hit snippets on 45 person pages were
+    # showing it, because /who/ renders h.text raw and Astro escapes it.
+    # Drop the separator row, then turn the remaining cell walls into «·»,
+    # which is the separator this archive already uses inline.
+    s = re.sub(r"\|?\s*:?-{2,}:?\s*(?:\|\s*:?-{2,}:?\s*)+\|?", " ", s)
+    s = re.sub(r"\s*\|\s*", " \u00b7 ", s)
+    s = re.sub(r"(?:\s*\u00b7\s*){2,}", " \u00b7 ", s)
     s = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", s)
     s = re.sub(r"[*_`#>]", "", s)
     # strip the JSON scaffolding a raw blob drags in
@@ -892,6 +902,13 @@ for slug, p in old.get("people", {}).items():
         p.setdefault("tree", mini_tree(p.get("name"))); p.setdefault("chain", chain_tree(p.get("name")))
         p["adjacent"] = adjacent_name(p.get("name"))
         p["roster"] = False
+        # A carried-over page keeps hit snippets built by an OLDER plain(),
+        # so a fix to plain() never reaches it. One of these 210 was still
+        # printing «|---|---|» on /who/catharina-defranceschi/ after the
+        # table scaffolding was stripped everywhere else. Re-clean on the
+        # way through: plain() is idempotent on text that is already plain.
+        for _h in (p.get("hits") or []):
+            if "|" in (_h.get("text") or ""): _h["text"] = plain(_h["text"])
         people[slug] = p
         kept += 1
 
