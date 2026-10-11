@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import Spine from "@daviddef/archive-kit/components/Spine.astro";
+import River from "../components/River.astro";
 import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
@@ -14,7 +14,7 @@ const P = (s) => `<p>${mdpHtml(s)}</p>`;
   <section class="blk">
     <div class="lab">The line as ground covered</div>
     <h2 style="font-size:30px;margin:6px 0 4px">Six generations that never once touch Istria</h2>
-    <Spine s={spines.spines.find(x => x.key === "corsica")} />
+    <River s={spines.spines.find(x => x.key === "corsica")} u={u} />
   </section>
 
 <section class="blk"><div class="prose" set:html={based(P(d.lead))}></div></section>

@@ -6,7 +6,7 @@ import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
 import anc from "../data/ancestors.json";
 import AncChart from "@daviddef/archive-kit/components/AncChart.astro";
-import Spine from "@daviddef/archive-kit/components/Spine.astro";
+import River from "../components/River.astro";
 import Kin from "../components/Kin.astro";
 import spines from "../data/spines.json";
 import arch from "@daviddef/archive-kit/data/archives.json";
@@ -98,7 +98,7 @@ const CONF = {
   <section class="blk">
     <div class="lab">The line as ground covered</div>
     <h2 style="font-size:30px;margin:6px 0 4px">Eight generations, and the seven places that hold them</h2>
-    <Spine s={spines.spines.find(x => x.key === "carnia")} />
+    <River s={spines.spines.find(x => x.key === "carnia")} u={u} />
   </section>
 
   <section class="t-anc-sec">

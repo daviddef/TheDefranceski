@@ -1,0 +1,218 @@
+---
+/* A LINE DRAWN AS A RIVER, not as a ladder.
+ *
+ * Why this exists. Five pages — /tree/, /seget/, /corsica/, /imotski/ and
+ * /omis-line/ — carried a heading that promised a diagram and rendered an
+ * empty body. Each passed `spines.json` to the kit's `Spine.astro`, which
+ * takes `rows`. Worklist 211 recorded the symptom and guessed the cause was
+ * the prop name. It is not: the two are different diagrams.
+ *
+ *   Spine.astro      a column of COUPLES, generation by generation, with a
+ *                    mark on the joint that cannot bear weight. /direct-line/
+ *                    uses it and it works.
+ *
+ *   spines.json      a CHANNEL. `stops` are places the line stood in, in
+ *                    order; `people` are positioned ON a stop by `at`;
+ *                    `joins` are the families that married in, entering the
+ *                    channel at a stop like tributaries; `strands` say which
+ *                    joints are proved, open, or not joined at all.
+ *
+ * Renaming the prop would have rendered a generation ladder out of a
+ * geography, which is why the item said it would not fix it. This draws what
+ * the data actually is.
+ *
+ * LIVING PEOPLE. The data already carries «living — named only» in a person's
+ * date field, and this component does not second-guess it: it prints the name
+ * and whatever the `d` field holds, and nothing else, for every person alike.
+ * It adds no birthplace, no household and no link of its own.
+ *
+ * NOTES ARE TRUSTED HTML. `note` on a person, a join or a strand is written by
+ * the archive in its own data file and carries <strong> and <em>; it is set
+ * with set:html for that reason and for no other.
+ */
+const { s, u = (p) => p } = Astro.props;
+const stops = (s && s.stops) || [];
+const people = (s && s.people) || [];
+const joins = (s && s.joins) || [];
+const strands = (s && s.strands) || [];
+const band = s && s.band;
+/* Everything is positioned on a stop index, so group once rather than filter
+   inside the loop — a stop with no people and no tributaries still draws,
+   because an empty stop is part of the shape of a line. */
+const atStop = (i) => ({
+  people: people.filter((p) => p.at === i),
+  joins: joins.filter((j) => j.at === i),
+});
+/* `i >= band.from && i <= band.to` inside the markup makes the Astro compiler
+   read `<=` as a tag open and fail the build. Compute the membership here. */
+const banded = new Set();
+if (band && typeof band.from === "number" && typeof band.to === "number") {
+  for (let i = band.from; i !== band.to + 1; i++) banded.add(i);
+}
+const KIND = {
+  origin: "where it starts",
+  anchor: "stood longest",
+  move: "a move",
+  stop: "a stop",
+  rupture: "a rupture",
+  end: "where it ends",
+};
+const STRAND = { proved: "proved", open: "inferred", "not-joined": "not joined" };
+---
+{s && (
+<div class="river">
+  {s.name && <p class="rv-name">{s.name}</p>}
+  {s.sub && <p class="rv-sub">{s.sub}</p>}
+  {s.lede && <p class="rv-lede">{s.lede}</p>}
+
+  <ol class="rv-channel">
+    {stops.map((st, i) => {
+      const here = atStop(i);
+      const inBand = banded.has(i);
+      return (
+        <li class={`rv-stop k-${st.kind || "stop"}${inBand ? " banded" : ""}`}>
+          <span class="rv-dot" aria-hidden="true"></span>
+          <div class="rv-head">
+            <span class="rv-place">{st.place}</span>
+            {st.years && <span class="rv-years">{st.years}</span>}
+            <span class="rv-kind">{KIND[st.kind] || st.kind || ""}</span>
+          </div>
+          {st.gloss && <p class="rv-gloss">{st.gloss}</p>}
+          {band && i === band.from && band.label && (
+            <p class="rv-band">{band.label}</p>
+          )}
+          {here.people.length > 0 && (
+            <ul class="rv-people">
+              {here.people.map((p) => (
+                <li>
+                  <span class="rv-gen">{p.gen}</span>
+                  <span class="rv-pname">{p.name}</span>
+                  {p.d && <span class="rv-dates">{p.d}</span>}
+                  {p.what && <span class="rv-what">{p.what}</span>}
+                  {p.note && <span class="rv-note" set:html={p.note} />}
+                </li>
+              ))}
+            </ul>
+          )}
+          {here.joins.length > 0 && (
+            <ul class="rv-joins">
+              {here.joins.map((j) => (
+                <li>
+                  <span class="rv-trib" aria-hidden="true">↳</span>
+                  <span class="rv-fam">{j.family}</span>
+                  {j.person && <span class="rv-person">{j.person}</span>}
+                  {j.from && <span class="rv-from">out of {j.from}</span>}
+                  {j.born && <span class="rv-born">{j.born}</span>}
+                  {j.note && <span class="rv-note" set:html={j.note} />}
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+
+  {strands.length > 0 && (
+    <div class="rv-strands">
+      <p class="rv-strands-h">What each joint will bear</p>
+      <ul>
+        {strands.map((t) => (
+          <li class={`st-${t.kind || "open"}`}>
+            <span class="rv-badge">{STRAND[t.kind] || t.kind}</span>
+            <span class="rv-slabel">{t.label}</span>
+            {t.gen && <span class="rv-sgen">{t.gen}</span>}
+            {t.note && <span class="rv-note" set:html={t.note} />}
+            {t.href && <a class="rv-more" href={u(t.href)}>Read it →</a>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {s.href && s.cta && <p class="rv-cta"><a href={u(s.href)}>{s.cta}</a></p>}
+</div>
+)}
+
+<style>
+  .river { margin-top: 18px; }
+  .rv-name { font-size: 20px; font-weight: 700; margin: 0; color: var(--ink); }
+  .rv-sub { font-family: var(--mono); font-size: 13px; color: var(--dim); margin: 4px 0 0; }
+  .rv-lede { font-size: 15px; line-height: 1.6; color: var(--ink); margin: 10px 0 0; max-width: 62ch; }
+
+  .rv-channel { list-style: none; margin: 22px 0 0; padding: 0 0 0 26px; position: relative; }
+  .rv-channel::before {
+    content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--accent-wash, #d8d2c4);
+  }
+  .rv-stop { position: relative; padding: 0 0 22px 10px; }
+  .rv-stop:last-child { padding-bottom: 0; }
+  .rv-dot {
+    position: absolute; left: -24px; top: 5px; width: 11px; height: 11px;
+    border-radius: 50%; background: var(--panel, #fff);
+    border: 2px solid var(--accent, #8a7a52);
+  }
+  .k-origin .rv-dot, .k-anchor .rv-dot { background: var(--accent, #8a7a52); }
+  .k-end .rv-dot { background: var(--ink, #222); border-color: var(--ink, #222); }
+  .k-rupture .rv-dot { border-color: #a6412f; background: #a6412f; }
+  .k-move .rv-dot { border-style: dashed; }
+
+  .rv-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+  .rv-place { font-weight: 700; font-size: 17px; color: var(--ink); }
+  .rv-years { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .rv-kind { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+  .rv-gloss { font-size: 13.5px; color: var(--dim); margin: 3px 0 0; line-height: 1.55; max-width: 60ch; }
+  .rv-band {
+    display: inline-block; margin: 8px 0 0; padding: 3px 9px; font-size: 12px;
+    border-radius: 999px; background: var(--accent-wash, #f0ebdd);
+    color: var(--band-label, var(--ink)); border: 1px solid var(--accent, #8a7a52);
+  }
+
+  .rv-people { list-style: none; margin: 10px 0 0; padding: 0; }
+  .rv-people li {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+    padding: 5px 0; border-top: 1px solid var(--accent-wash, #e8e2d4);
+  }
+  .rv-gen {
+    font-family: var(--mono); font-size: 11px; min-width: 1.6em; text-align: right;
+    color: var(--dim);
+  }
+  .rv-pname { font-weight: 600; font-size: 14.5px; color: var(--ink); }
+  .rv-dates { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .rv-what, .rv-note { flex-basis: 100%; font-size: 13px; color: var(--dim); line-height: 1.55; max-width: 62ch; }
+  .rv-note :global(strong) { color: var(--ink); }
+
+  .rv-joins { list-style: none; margin: 8px 0 0; padding: 0 0 0 14px; }
+  .rv-joins li {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px;
+    padding: 4px 0; font-size: 13.5px;
+  }
+  .rv-trib { color: var(--accent, #8a7a52); }
+  .rv-fam { font-weight: 600; color: var(--ink); }
+  .rv-person, .rv-from, .rv-born { color: var(--dim); font-size: 12.5px; }
+
+  .rv-strands { margin-top: 24px; border-top: 2px solid var(--accent-wash, #e8e2d4); padding-top: 14px; }
+  .rv-strands-h { font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); margin: 0 0 8px; }
+  .rv-strands ul { list-style: none; margin: 0; padding: 0; }
+  .rv-strands li {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+    padding: 8px 0; border-top: 1px solid var(--accent-wash, #e8e2d4);
+  }
+  .rv-badge {
+    font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor;
+  }
+  .st-proved .rv-badge { color: var(--ev-family, #3d6b4a); }
+  .st-open .rv-badge { color: var(--ev-inferred, #8a6a1e); }
+  .st-not-joined .rv-badge { color: #a6412f; }
+  .rv-slabel { font-weight: 600; color: var(--ink); font-size: 14.5px; }
+  .rv-sgen { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .rv-more { flex-basis: 100%; font-size: 13px; }
+  .rv-cta { margin-top: 18px; font-size: 15px; }
+
+  @media (max-width: 640px) {
+    .rv-channel { padding-left: 20px; }
+    .rv-dot { left: -20px; }
+    .rv-stop { padding-left: 6px; }
+  }
+</style>

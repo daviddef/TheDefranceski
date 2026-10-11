@@ -2,7 +2,8 @@
 import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Locator from "../components/Locator.astro";
-import Spine from "@daviddef/archive-kit/components/Spine.astro";
+import { u } from "../lib/url.js";
+import River from "../components/River.astro";
 import spines from "../data/spines.json";
 import Cluster from "../components/Cluster.astro";
 import cl from "../data/clusters.json";
@@ -23,7 +24,7 @@ import Lightbox from "../components/Lightbox.astro";
   <section class="blk">
     <div class="lab">The line as ground covered</div>
     <h2 style="font-size:30px;margin:6px 0 4px">Seventeen generations, banded by what can be tested</h2>
-    <Spine s={spines.spines.find(x => x.key === "venice")} />
+    <River s={spines.spines.find(x => x.key === "venice")} u={u} />
   </section>
 
   <Locator place="Omiš" radius={52}

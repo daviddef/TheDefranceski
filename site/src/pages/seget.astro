@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { md as _md, mdHtml} from "../lib/md.js";
 import Locator from "../components/Locator.astro";
-import Spine from "@daviddef/archive-kit/components/Spine.astro";
+import River from "../components/River.astro";
 import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -20,7 +20,7 @@ import { u } from "../lib/url.js";
   <section class="blk">
     <div class="lab">The line as ground covered</div>
     <h2 style="font-size:30px;margin:6px 0 4px">From Candia to Seget, and the pension that carries the join</h2>
-    <Spine s={spines.spines.find(x => x.key === "crete")} />
+    <River s={spines.spines.find(x => x.key === "crete")} u={u} />
   </section>
 
   <Locator place="Seget" radius={22}
