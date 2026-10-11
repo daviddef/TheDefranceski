@@ -28,6 +28,16 @@ DATA = os.path.join(ROOT, "site", "src", "data")
 
 # (label, regex, files permitted to contain it)
 RULES = [
+    (u"the Li\u017enjan child of 1870 still called \u00abTusca\u00bb (the register reads FUSCA, twice)",
+     # Her pid and her /who/ URL are FROZEN and legitimately keep the old
+     # spelling, so the pattern deliberately matches only the NAME form.
+     r"Tusca Defranceschi|\"name\": \"Tusca\"|\"n\": \"Tusca\"",
+     # Each of these quotes the old spelling inside the sentence that corrects
+     # it \u2014 the correction row, the story section, the log row, the worklist
+     # item \u2014 and register.json holds the indexed lead under its own id.
+     {"corrections.json", "liznjan.json", "searched.json", "worklist.json",
+      "register.json", "reconcile.json", "households.json", "explorer.json",
+      "dossiers.json", "searchindex.json"}),
     ("Amalia Peschle given as «ex Silesia» (the word reads «ex Volosca»)",
      r"(?:PESCHLE|Peschle|Amalia)[^\"]{0,40}(?:ex SILESIA|ex Silesia|«ex Silesia»)",
      # the corrections page, the worklist item that is withdrawn, the Peschle
