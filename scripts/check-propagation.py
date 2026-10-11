@@ -28,6 +28,16 @@ DATA = os.path.join(ROOT, "site", "src", "data")
 
 # (label, regex, files permitted to contain it)
 RULES = [
+    ("Amalia Peschle given as «ex Silesia» (the word reads «ex Volosca»)",
+     r"(?:PESCHLE|Peschle|Amalia)[^\"]{0,40}(?:ex SILESIA|ex Silesia|«ex Silesia»)",
+     # the corrections page, the worklist item that is withdrawn, the Peschle
+     # page, the line page and the log rows all quote the error in the sentence
+     # that corrects it; generated files mirror them
+     {"corrections.json", "worklist.json", "marriedin.json", "gologorica.json",
+      "searched.json", "dossiers.json", "searchindex.json"}),
+    ("the Peschle asserted to reach Silesia",
+     r"FAMILY REACHES SILESIA|a Peschle out of Silesia",
+     {"corrections.json", "dossiers.json", "searchindex.json"}),
     ("Casparus's mother given as Francisca",
      r"Casparus[^\"]{0,140}Francisca ejus",
      {"corrections.json", "worklist.json", "roster.json", "dossiers.json", "searched.json", "searchindex.json"}),
