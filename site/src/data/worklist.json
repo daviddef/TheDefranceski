@@ -1,6 +1,6 @@
 {
  "title": "The work list",
- "eyebrow": "223 items · 93 open · 21 waiting on somebody else",
+ "eyebrow": "224 items · 93 open · 21 waiting on somebody else",
  "dek": "The one register this archive did not have. Findings go to the searched log, errors to the corrections, unanswered questions to the open questions, missing people to the gaps, and letters to the errands — but what we are actually going to do next lived only in the conversation, which is the one place that does not survive.",
  "lead": "Every other register here answers *«what do we know?»*. This one answers *«what is being done?»*, and it exists because that question was being carried in a chat window.\n\n**The 93 open items are at the top, in the order a reader should take them** — 72 of them *running* or *next*, 21 *blocked* on a person or an institution. Below them is what is finished, and what was struck for being founded on a mistake — kept and struck through rather than deleted, the same way this archive treats a retracted claim.\n\n**Five states, and an owner on every row.** *Running* means somebody or something is at it now. *Next* means it is ready to start. *Blocked* means it waits on a person or an institution, and the **owner** says which. The dates are there so that something blocked for five weeks does not read like something raised this morning.\n\n**⚠ Standing instruction, 29 September 2026: «not sending letters yet.»** *Every enquiry to an archive — Poreč, DAPA, Rijeka, Vienna, Gorto, and the Trove disclosure — is **drafted and held**. **No session is to send one, or to press for one, until David lifts this.** What remains is the work that can be done from a desk.*",
  "cols": [
@@ -10,6 +10,14 @@
   "Where it stands"
  ],
  "rows": [
+  {
+   "n": 224,
+   "what": "✔ `site/public/atlas-data.json` is GENERATED — it was reverted as drift about a dozen times, and the revert was restoring a dead link",
+   "state": "done",
+   "owner": "Claude — found and fixed 11 October",
+   "since": "2026-10-11",
+   "note": "**⚠ A file that regenerates on every build was being treated as noise, and reverting it kept a wrong link published.**\n\n`site/public/atlas-data.json` *is not hand-written. It is built by* `npm run publish:index` *— the first step of* `npm run build` *— from* `src/data/atlas.json`, `src/data/movements.json` *and* `src/data/mymap.json`, *written as one line of minified JSON. Because it is one line,* `git diff` *shows the entire 400 KB file as changed when* ***one character*** *moves, which is exactly why session after session read it as meaningless build noise and ran* `git checkout` *on it.*\n\n**The whole of the drift, parsed and compared field by field, was one href:**\n\n| | Dachau pin |\n|---|---|\n| committed `public/atlas-data.json` | `/research-log/` |\n| `src/data/atlas.json`, and every fresh build | `/searched/` |\n\n**And** `/research-log/` **is not** `/searched/`. *It is a* **redirect stub**, *and it points at* `/open-questions/`. *So a reader who clicked the Dachau pin on the Atlas to see what had been searched was bounced to the open questions instead —* ***a silently wrong destination, not a broken link, which is why nothing caught it.*** *The href was corrected in* `src/data/atlas.json` *at some point and the published artifact never caught up, because the catch-up was reverted every time it appeared.*\n\n**Fixed by committing the regeneration.** ⚠ `site/public/*` *is* **shared ground**; *done with* `--allow-shared`.\n\n**⭐ For the next session, so this does not cost another dozen reverts: if** `git status` **shows `site/public/atlas-data.json` modified after a build, that is not drift — it is the artifact catching up with `src/data/`, and it should be committed.** *To see what actually changed, do not read the diff — parse both sides and compare:* `json.dumps(…, indent=1, sort_keys=True)` *on each, then* `difflib`. *That turned a 400 KB diff into two lines.*"
+  },
   {
    "n": 223,
    "what": "✔ DONE — two Josephus rows adjudicated: ONE man, joined with `sameAs`, and the 1782 death does not exist",
