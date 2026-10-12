@@ -30,7 +30,10 @@ import { mdHtml } from "../lib/md.js";
 /* Geometry for the attrition chart. Computed here because it is drawing, not
    evidence: the numbers themselves live in decrees.json. */
 const A = d.attrition;
-const AW = 720, AH = 250, AL = 58, AR = 28, AT = 26, AB = 52;
+/* AR is generous because the RIGHTMOST LABEL is the longest — "ON THE LAND",
+   centred on its point, ran off the viewBox at AR=28 and was clipped in the
+   browser. Checked on the live page, not in the markup. */
+const AW = 720, AH = 250, AL = 58, AR = 72, AT = 26, AB = 52;
 /* cx/cy, NOT x/y: the data's own `y` is the YEAR, and spreading `...p` beside a
    computed `y` silently overwrote it — the chart printed "26" under every point
    instead of 1672/1674/1675. Caught in the built HTML, not by reading. */
