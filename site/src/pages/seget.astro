@@ -128,13 +128,13 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
   <div class="lab" style="margin-top:30px">The same people, as the sources list them</div>
   <div class="scroll" style="margin-top:12px">
     <table><thead><tr><th>Name</th><th class="m">Dates</th><th>What the sources say</th></tr></thead>
-    <tbody>{s.people.map(([n,d,w])=>(<tr><td>{n}</td><td class="m">{d}</td><td>{w}</td></tr>))}</tbody></table>
+    <tbody>{s.people.map(([n,d,w],i)=>(<tr><td>{s.peoplePids[i] ? <a href={u(`/person/${s.peoplePids[i]}/`)}>{n}</a> : n}</td><td class="m">{d}</td><td>{w}</td></tr>))}</tbody></table>
   </div>
   <div class="grid g2" style="margin-top:24px">
     <div class="panel"><div class="lab">Marc'Antonio &amp; Crissulla's eleven children</div>
-      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-top:10px">{s.children_marcantonio.join(" · ")}</p></div>
+      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-top:10px">{s.children_marcantonio.map((n,i)=>(<>{i>0 && " · "}{s.tree.gens[2].sibs.pids[n] ? <a href={u(`/person/${s.tree.gens[2].sibs.pids[n]}/`)}>{n}</a> : n}</>))}</p></div>
     <div class="panel"><div class="lab">Alvise &amp; Francesca Borella's six</div>
-      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-top:10px">{s.children_alvise.join(" · ")}</p></div>
+      <p style="font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-top:10px">{s.children_alvise.map((n,i)=>(<>{i>0 && " · "}{s.tree.gens[3].sibs.pids[n] ? <a href={u(`/person/${s.tree.gens[3].sibs.pids[n]}/`)}>{n}</a> : n}</>))}</p></div>
   </div>
   <div class="prose" style="margin-top:26px">
     <p>Two details carry the Cretan origin without needing to argue it. Marc'Antonio's wife is <strong>Crissulla Marulli</strong> — Chrysoula Marouli, a Greek name, not an Istrian one. And his son <strong>Alvise</strong> is recorded in the family's own genealogy as <em>Dragomanno alla Porta ottomana</em>: dragoman, the interpreter-diplomat, at the Ottoman court. A family two generations out of Crete would have the Greek and the Turkish to do that work.</p>

@@ -1115,7 +1115,8 @@
       "name": "Giorgio de Franceschi",
       "d": "—",
       "w": "Father of the two brothers who bought Seget. The family's Venetian form of his name, Zorzi, is the one on the War of Candia pension of 1730.",
-      "key": true
+      "key": true,
+      "pid": "giorgio-de-franceschi"
      }
     ]
    },
@@ -1126,14 +1127,17 @@
      {
       "name": "Nicolò de Franceschi",
       "d": "—",
-      "w": "Bought Seget jointly with his brother in 1720."
+      "w": "Bought Seget jointly with his brother in 1720.",
+      "pid": "nicolo-de-franceschi-seget"
      },
      {
       "name": "Marc'Antonio de Franceschi",
       "spouse": "Crissulla Marulli",
       "d": "1671–1758 · married 1727",
       "w": "Civil and military physician. Born 1671, two years after Candia fell — a child of the flight, not of the island. His wife's name is Chrysoula Marouli, Greek and not Istrian.",
-      "key": true
+      "key": true,
+      "pid": "marc-antonio-de-franceschi-1671",
+      "spousePid": "crissulla-marulli"
      }
     ]
    },
@@ -1146,17 +1150,21 @@
       "spouse": "Francesca Borella",
       "d": "1727 – c. 1790",
       "w": "Lived at Seget. The family genealogy records him as «Dragomanno alla Porta ottomana» — dragoman at the Ottoman court. Six children.",
-      "key": true
+      "key": true,
+      "pid": "alvise-de-franceschi-1727",
+      "spousePid": "francesca-borella-seget"
      },
      {
       "name": "Nicolò",
       "d": "d. 1792",
-      "w": "Lawyer at Koper. Died without heirs."
+      "w": "Lawyer at Koper. Died without heirs.",
+      "pid": "nicolo-de-franceschi-d1792"
      },
      {
       "name": "Angelo",
       "d": "—",
-      "w": "His family settled at Brtonigla."
+      "w": "His family settled at Brtonigla.",
+      "pid": "angelo-de-franceschi-brtonigla"
      }
     ],
     "sibs": {
@@ -1179,7 +1187,20 @@
       "Nicolò",
       "Angelo"
      ],
-     "note": "The three in colour are the only ones the sources describe. The other eight are names in the family's own genealogy and nothing more — which is worth saying plainly rather than leaving them off the page."
+     "note": "The three in colour are the only ones the sources describe. The other eight are names in the family's own genealogy and nothing more — which is worth saying plainly rather than leaving them off the page.",
+     "pids": {
+      "Giorgio": "giorgio-de-franceschi-2",
+      "Nicolò": "nicolo-de-franceschi-d1792",
+      "Cristina": "cristina-de-franceschi",
+      "Giovanni Battista": "giovanni-battista-de-franceschi",
+      "Vittorio": "vittorio-de-franceschi",
+      "Palissena": "palissena-de-franceschi",
+      "Maria": "maria-de-franceschi",
+      "Lugrezia": "lugrezia-de-franceschi",
+      "Alvise": "alvise-de-franceschi-1727",
+      "Angelo": "angelo-de-franceschi-brtonigla",
+      "Caterina": "caterina-de-franceschi"
+     }
     }
    },
    {
@@ -1203,9 +1224,26 @@
       "Giovanni Battista",
       "Angelo"
      ],
-     "note": "The names repeat the generations above them — Nicolò, Marc'Antonio, Angelo, Giovanni Battista — which is how an Istrian family of this period named, and a reason to be careful with any match made on a name alone."
+     "note": "The names repeat the generations above them — Nicolò, Marc'Antonio, Angelo, Giovanni Battista — which is how an Istrian family of this period named, and a reason to be careful with any match made on a name alone.",
+     "pids": {
+      "Nicolò": "nicolo-de-franceschi-seget-2",
+      "Dorotea": "dorotea-de-franceschi-seget",
+      "Giacomo": "giacomo-de-franceschi-seget",
+      "Marc'Antonio": "marc-antonio-de-franceschi-seget",
+      "Giovanni Battista": "giovanni-battista-de-franceschi-seget",
+      "Angelo": "angelo-de-franceschi-seget"
+     }
     }
    }
   ]
- }
+ },
+ "peoplePids": [
+  "giorgio-de-franceschi",
+  "nicolo-de-franceschi-seget",
+  "marc-antonio-de-franceschi-1671",
+  "crissulla-marulli",
+  "nicolo-de-franceschi-d1792",
+  "angelo-de-franceschi-brtonigla",
+  "alvise-de-franceschi-1727"
+ ]
 }

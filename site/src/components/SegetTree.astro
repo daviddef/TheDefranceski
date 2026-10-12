@@ -18,6 +18,11 @@
  * carry the estate get the spine.
  */
 const { t } = Astro.props;
+import { u } from "../lib/url.js";
+/* A name links to its own page when the data gives it one. The pid is in
+   seget.json beside the name; nothing is looked up here, so a name that has no
+   page stays plain text instead of linking somewhere that 404s. */
+const link = (pid) => (pid ? u(`/person/${pid}/`) : null);
 ---
 <div class="stree">
   <ol class="st-channel">
@@ -33,7 +38,7 @@ const { t } = Astro.props;
           {g.people.map(p => (
             <li>
               <span class="st-gn">{g.n}</span>
-              <span class="st-pname">{p.name}</span>
+              <span class="st-pname">{link(p.pid) ? <a href={link(p.pid)}>{p.name}</a> : p.name}</span>
               {p.d && p.d !== "\u2014" && <span class="st-dates">{p.d}</span>}
               {p.w && <span class="st-what">{p.w}</span>}
             </li>
@@ -44,7 +49,7 @@ const { t } = Astro.props;
           <ul class="st-joins">
             <li>
               <span class="st-trib" aria-hidden="true">&#8627;</span>
-              <span class="st-fam">{p.spouse}</span>
+              <span class="st-fam">{link(p.spousePid) ? <a href={link(p.spousePid)}>{p.spouse}</a> : p.spouse}</span>
               <span class="st-person">married {p.name}</span>
             </li>
           </ul>
@@ -55,7 +60,7 @@ const { t } = Astro.props;
             <p class="st-sl">{g.sibs.label}</p>
             <ul>
               {g.sibs.names.map(n => (
-                <li class={g.sibs.carried && g.sibs.carried.includes(n) ? "carried" : ""}>{n}</li>
+                <li class={g.sibs.carried && g.sibs.carried.includes(n) ? "carried" : ""}>{link(g.sibs.pids && g.sibs.pids[n]) ? <a href={link(g.sibs.pids[n])}>{n}</a> : n}</li>
               ))}
             </ul>
             {g.sibs.note && <p class="st-sn">{g.sibs.note}</p>}
@@ -109,6 +114,9 @@ const { t } = Astro.props;
   .st-joins { list-style: none; margin: 8px 0 0; padding: 0 0 0 14px; }
   .st-joins li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px;
                  padding: 6px 0; font-size: 15px; }
+  .st-pname a, .st-fam a, .st-sibs li a { color: inherit; text-decoration: none;
+                                       border-bottom: 1px solid var(--accent-wash, #d8d2c4); }
+  .st-pname a:hover, .st-fam a:hover, .st-sibs li a:hover { border-bottom-color: var(--accent, #8a7a52); }
   .st-trib { color: var(--accent, #8a7a52); }
   .st-fam { font-weight: 600; color: var(--ink); }
   .st-person { color: var(--dim); font-size: 14px; }

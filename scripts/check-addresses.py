@@ -64,6 +64,14 @@ def load(rev, path):
         return None
 
 
+def load_disk(path):
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return None
+
+
 def roster_rows(o):
     return o.get("rows", []) if isinstance(o, dict) else (o or [])
 
@@ -133,7 +141,10 @@ def main():
             span = [f"{upto}..HEAD"] if upto else []
             rr = git("log", "--format=%h", *span, "--", p).stdout.split()
             allrevs += [(rv, p) for rv in rr]
-        now_files = [load("HEAD", p) for p in paths]
+        # "now" is the WORKING TREE, not HEAD: the gate runs before the commit, and
+        # a rename sitting uncommitted is exactly the thing to catch. Reading HEAD
+        # made this check one commit behind, passing on every rename it was for.
+        now_files = [load_disk(p) for p in paths]
         if any(f is None for f in now_files):
             summary.append(f"  ?     {fam:11} cannot read current data")
             continue
