@@ -1,0 +1,79 @@
+---
+/* THE CANDIA DECREES, PUBLISHED.
+ *
+ * David's instruction, 12 October 2026: «any decrees, etc that we can
+ * ourselves publish, we should, if they are now public so they arent
+ * impossible to find for general users.»
+ *
+ * He is right, and the case is unusually clean. The Seget page's whole
+ * account of the Cretan refugees at Poreč rests on a volume printed in
+ * Parenzo in 1904 — public domain by any measure — which is nevertheless
+ * effectively unfindable: you need to know the journal, that it has an old
+ * series and a new one, the volume number, and which of nineteen «parti»
+ * of the Senate regesti covers your years. This archive only found it by
+ * chasing the footnotes of a doctoral thesis.
+ *
+ * So the decrees are reproduced here in full, in the original and in
+ * translation, with the carta number of each, and a statement of exactly
+ * what was altered in transcription. That is the whole point of the page:
+ * nobody should have to take this archive's word for it.
+ */
+import Base from "../layouts/Base.astro";
+import Rule from "../components/Rule.astro";
+import { u } from "../lib/url.js";
+import d from "../data/decrees.json";
+import { mdHtml } from "../lib/md.js";
+---
+<Base title="The Candia decrees"
+      eyebrow="The Venetian Senate on the Cretan refugees at Poreč, 1671–1676"
+      dek={d.note}>
+
+  <section class="blk">
+    <p class="dek" set:html={mdHtml(d.lead)}></p>
+  </section>
+
+  <section class="blk">
+    <div class="lab">How to check every word of this</div>
+    <p class="prose" style="margin-top:8px" set:html={mdHtml(d.how)}></p>
+  </section>
+
+  {d.groups.map((g, gi) => (
+    <>
+      <Rule name={gi % 2 === 0 ? "tablet" : "helm"} label={`${gi + 1} of ${d.groups.length}`} />
+      <section class="blk">
+        <h2>{g.heading}</h2>
+        <p class="dek" style="margin-top:8px">{g.gloss}</p>
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:22px">
+          {g.rows.map(r => (
+            <div class="one" style="border-left-color:var(--accent)">
+              <div class="lab">{r.date} · <span style="font-family:var(--mono)">{r.carta}</span></div>
+              <blockquote style="margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid var(--accent-wash,#e8e2d4);font-style:italic;line-height:1.65;color:var(--ink)">
+                {r.it}
+              </blockquote>
+              <p style="margin-top:12px;line-height:1.65" set:html={mdHtml(r.en)}></p>
+              <p class="cap" style="margin-top:12px" set:html={mdHtml(r.why)}></p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  ))}
+
+  <Rule name="tablet" label="What is not in them" />
+  <section class="blk">
+    <h2>The nil, with its terms named</h2>
+    <p class="prose" style="margin-top:10px" set:html={mdHtml(d.nil)}></p>
+  </section>
+
+  <section class="blk">
+    <div class="lab">Copyright</div>
+    <p class="prose" style="margin-top:8px" set:html={mdHtml(d.rights)}></p>
+    <p class="cap" style="margin-top:16px">
+      What these decrees mean for this family is argued on
+      <a href={u("/seget/")}>the Seget page</a>. The hunt that found them —
+      and the 1952 paper that is still missing — is logged in
+      <a href={u("/searched/")}>what has been searched</a>.
+    </p>
+  </section>
+
+</Base>
