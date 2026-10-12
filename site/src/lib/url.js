@@ -1,5 +1,10 @@
-// Prefix a site-root path with the deployment base, so the same links work at
-// https://daviddef.github.io/TheDefranceski/ and at https://defranceski.com/.
+// Prefix a site-root path with the deployment base. Since 12 October 2026 this
+// archive is served at the ROOT of https://archive.defranceski.com/, so BASE is
+// the empty string and u() is a near no-op — but it stays, because it is what
+// made the move survivable and what would make the next one survivable.
+// NOTE the /TheDefranceski/ paths in the comments below: they describe bugs that
+// HAPPENED, and are deliberately left as they were. Do not "correct" them to the
+// new address — an archive's record of its own faults is evidence too.
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 /* Idempotent since 29 September 2026. u() used to prefix unconditionally, so a
    path that had already been based came back doubled —
