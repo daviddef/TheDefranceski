@@ -20,30 +20,45 @@
 const { t } = Astro.props;
 ---
 <div class="stree">
-  <ol class="sgen">
+  <ol class="st-channel">
     {t.gens.map((g, gi) => (
-      <li class={`sg ${gi === 0 ? "first" : ""}`}>
-        <p class="sgl"><span class="sgn">{g.n}</span>{g.label}</p>
-
-        <div class="srow">
-          {g.people.map(p => (
-            <div class={`sp ${p.key ? "key" : ""}`}>
-              <p class="spn">{p.name}{p.spouse && <span class="spm"> ═ {p.spouse}</span>}</p>
-              {p.d && <p class="spd">{p.d}</p>}
-              {p.w && <p class="spw">{p.w}</p>}
-            </div>
-          ))}
+      <li class={`st-gen ${gi === 0 ? "first" : ""}`}>
+        <span class="st-dot" aria-hidden="true"></span>
+        <div class="st-head">
+          <span class="st-place">Generation {g.n}</span>
+          <span class="st-kind">{g.label}</span>
         </div>
 
+        <ul class="st-people">
+          {g.people.map(p => (
+            <li>
+              <span class="st-gn">{g.n}</span>
+              <span class="st-pname">{p.name}</span>
+              {p.d && p.d !== "\u2014" && <span class="st-dates">{p.d}</span>}
+              {p.w && <span class="st-what">{p.w}</span>}
+            </li>
+          ))}
+        </ul>
+
+        {g.people.filter(p => p.spouse).map(p => (
+          <ul class="st-joins">
+            <li>
+              <span class="st-trib" aria-hidden="true">&#8627;</span>
+              <span class="st-fam">{p.spouse}</span>
+              <span class="st-person">married {p.name}</span>
+            </li>
+          </ul>
+        ))}
+
         {g.sibs && (
-          <div class="ssibs">
-            <p class="ssl">{g.sibs.label}</p>
+          <div class="st-sibs">
+            <p class="st-sl">{g.sibs.label}</p>
             <ul>
               {g.sibs.names.map(n => (
                 <li class={g.sibs.carried && g.sibs.carried.includes(n) ? "carried" : ""}>{n}</li>
               ))}
             </ul>
-            {g.sibs.note && <p class="ssn">{g.sibs.note}</p>}
+            {g.sibs.note && <p class="st-sn">{g.sibs.note}</p>}
           </div>
         )}
       </li>
@@ -52,46 +67,58 @@ const { t } = Astro.props;
 </div>
 
 <style>
-  .stree { margin: 22px 0 0; }
-  .sgen { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; }
-  .sgen::before {
-    content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px;
+  /* ALIGNED TO River.astro ON PURPOSE. David: "and this is a family tree? can
+     we align them to be consistent". The two drawings on this page cover the
+     SAME four generations — the river by route, Candia to Brtonigla; this one
+     by descent — and in two different visual languages they read as unrelated
+     widgets that happen to both count to four. Every measurement below is
+     River's: the 26px channel, the 2px spine at left 7, the 11px dot at
+     left -24, the same type scale, the same row rules and the same ↳ for a
+     family marrying in. If River's geometry changes, change this with it. */
+  .stree { margin: 20px 0 0; }
+  .st-channel { list-style: none; margin: 22px 0 0; padding: 0 0 0 26px; position: relative; }
+  .st-channel::before {
+    content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px;
     width: 2px; background: var(--accent-wash, #d8d2c4);
   }
-  .sg { position: relative; padding: 0 0 26px 12px; }
-  .sg:last-child { padding-bottom: 0; }
-  .sg::before {
-    content: ""; position: absolute; left: -25px; top: 4px; width: 12px; height: 12px;
+  .st-gen { position: relative; padding: 0 0 22px 10px; }
+  .st-gen:last-child { padding-bottom: 0; }
+  .st-dot {
+    position: absolute; left: -24px; top: 5px; width: 11px; height: 11px;
     border-radius: 50%; background: var(--panel, #fff);
     border: 2px solid var(--accent, #8a7a52);
   }
-  .sg.first::before { background: var(--accent, #8a7a52); }
+  .st-gen.first .st-dot { background: var(--accent, #8a7a52); }
 
-  .sgl { margin: 0; display: flex; align-items: baseline; gap: 9px;
-         font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); }
-  .sgn { font-family: var(--mono); color: var(--accent, #8a7a52); letter-spacing: 0; font-size: 13px; }
+  .st-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+  .st-place { font-weight: 700; font-size: 17px; color: var(--ink); }
+  .st-kind { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
 
-  .srow { display: grid; gap: 12px; margin-top: 10px;
-          grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-  .sp { border-left: 3px solid var(--accent-wash, #e8e2d4); padding: 2px 0 2px 12px; }
-  .sp.key { border-left-color: var(--accent, #8a7a52); }
-  .spn { margin: 0; font-weight: 700; font-size: 15.5px; color: var(--ink); line-height: 1.35; }
-  .spm { font-weight: 400; color: var(--ink-2, var(--dim)); }
-  .spd { margin: 2px 0 0; font-family: var(--mono); font-size: 12px; color: var(--dim); }
-  .spw { margin: 5px 0 0; font-size: 13px; line-height: 1.55; color: var(--dim); max-width: 48ch; }
-
-  .ssibs { margin-top: 14px; border-top: 1px solid var(--accent-wash, #e8e2d4); padding-top: 10px; }
-  .ssl { margin: 0 0 8px; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--dim); }
-  .ssibs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-  .ssibs li {
-    font-size: 13px; padding: 3px 10px; border-radius: 999px;
-    border: 1px solid var(--accent-wash, #d8d2c4); color: var(--dim);
+  .st-people { list-style: none; margin: 10px 0 0; padding: 0; }
+  .st-people li {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+    padding: 5px 0; border-top: 1px solid var(--accent-wash, #e8e2d4);
   }
-  .ssibs li.carried {
-    border-color: var(--accent, #8a7a52); color: var(--ink); font-weight: 600;
-    background: var(--accent-wash, #f0ebdd);
-  }
-  .ssn { margin: 9px 0 0; font-size: 12.5px; color: var(--dim); line-height: 1.55; max-width: 62ch; }
+  .st-gn { font-family: var(--mono); font-size: 12.5px; min-width: 1.6em;
+           text-align: right; color: var(--dim); }
+  .st-pname { font-weight: 600; font-size: 16px; color: var(--ink); }
+  .st-dates { font-family: var(--mono); font-size: 13.5px; color: var(--dim); }
+  .st-what { flex-basis: 100%; font-size: 14.5px; color: var(--dim);
+             line-height: 1.55; max-width: 62ch; }
 
-  @media (max-width: 640px) { .srow { grid-template-columns: 1fr; } }
+  .st-joins { list-style: none; margin: 8px 0 0; padding: 0 0 0 14px; }
+  .st-joins li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px;
+                 padding: 6px 0; font-size: 15px; }
+  .st-trib { color: var(--accent, #8a7a52); }
+  .st-fam { font-weight: 600; color: var(--ink); }
+  .st-person { color: var(--dim); font-size: 14px; }
+
+  .st-sibs { margin-top: 14px; border-top: 1px solid var(--accent-wash, #e8e2d4); padding-top: 10px; }
+  .st-sl { margin: 0 0 8px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+  .st-sibs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .st-sibs li { font-size: 13.5px; padding: 3px 11px; border-radius: 999px;
+                border: 1px solid var(--accent-wash, #d8d2c4); color: var(--dim); }
+  .st-sibs li.carried { border-color: var(--accent, #8a7a52); color: var(--ink);
+                        font-weight: 600; background: var(--accent-wash, #f0ebdd); }
+  .st-sn { margin: 9px 0 0; font-size: 13px; color: var(--dim); line-height: 1.55; max-width: 62ch; }
 </style>

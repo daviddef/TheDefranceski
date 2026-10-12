@@ -10,7 +10,7 @@
   --serif:"EB Garamond",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --maxw:1080px;
+  --maxw:1240px;
   --maxw-wide:1560px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -82,10 +82,10 @@ img{max-width:100%}
    so on /places/vizinada/ the single column sized itself to 362px inside a
    324px box and took the page 5px sideways. */
 @media (max-width:600px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}}
-table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:13.5px}
+table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:14.5px}
 th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-3);padding:0 16px 9px 0;border-bottom:1px solid var(--rule-strong);white-space:nowrap}
-td{padding:10px 16px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2);line-height:1.5}
+td{padding:11px 18px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2);line-height:1.6}
 
 /* Tables on a phone. Column widths on this site are written as inline rem
    values chosen for a desktop column — 14rem for a label, 8rem for a count —
@@ -98,7 +98,7 @@ td{padding:10px 16px 10px 0;border-bottom:1px solid var(--rule);vertical-align:t
   table td[style*="width"]{width:auto!important;min-width:0!important}
   th{padding-right:10px}
   td{padding:9px 10px 9px 0}
-  table{font-size:13px}
+  table{font-size:13.5px}
 }
 td:first-child{color:var(--ink);font-weight:500}
 td.m,th.m{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -985,4 +985,26 @@ body.is-home #onthispage{display:none}
   .rec-bio .w{white-space:normal;text-align:left;
     overflow-wrap:break-word;padding-top:4px;padding-bottom:10px}
   .rec-bio .w:empty{display:none}
+}
+
+/* ---------------------------------------------------------------------------
+   WIDE TABLES, 12 October 2026. David: "all over the site i see tables so
+   narrow they make long pages ... can you check the entire site and make sure
+   font sizes and widths are consistent". There are 138 tables over 48 pages
+   and two separate things were squeezing them: the 1080px measure, and — for
+   the worst offenders — sitting inside a `.one` or `.panel` card.
+
+   The measure is now 1240px (`.prose` is capped at 80ch, so no line of text
+   got longer). On top of that, a table that is a DIRECT child of a section
+   breaks out and centres on the viewport. The `> .scroll` is the whole point:
+   a table inside a card is meant to be card-width and is left alone, while a
+   standalone three-column table with a prose column in it gets the room that
+   turns its height into width. Collapses back below 1180px.
+   --------------------------------------------------------------------------- */
+@media (min-width:1180px){
+  .blk > .scroll, section > .scroll{
+    width:min(calc(100vw - 56px),1360px);
+    margin-left:50%;
+    transform:translateX(-50%);
+  }
 }

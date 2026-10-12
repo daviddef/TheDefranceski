@@ -113,7 +113,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
     </figcaption>
   </figure>
 
-  <div class="scroll wide" style="margin-top:26px">
+  <div class="scroll" style="margin-top:26px">
     <table><tbody>{s.timeline.map(([y,t])=>(
       <tr><td class="m" style="width:64px">{y}</td><td>{t}</td></tr>))}</tbody></table>
   </div>
@@ -126,7 +126,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
   <SegetTree t={s.tree} />
 
   <div class="lab" style="margin-top:30px">The same people, as the sources list them</div>
-  <div class="scroll wide" style="margin-top:12px">
+  <div class="scroll" style="margin-top:12px">
     <table><thead><tr><th>Name</th><th class="m">Dates</th><th>What the sources say</th></tr></thead>
     <tbody>{s.people.map(([n,d,w])=>(<tr><td>{n}</td><td class="m">{d}</td><td>{w}</td></tr>))}</tbody></table>
   </div>
@@ -146,7 +146,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 <section class="blk" id="archives">
   <h2>Two family archives, and two family trees</h2>
   <p class="dek">This is the most valuable thing on the page. Both branches deposited their papers, and both are catalogued.</p>
-  <div class="scroll wide" style="margin-top:22px">
+  <div class="scroll" style="margin-top:22px">
     <table><thead><tr><th class="m">Fond</th><th>Where</th><th>What it holds</th></tr></thead>
     <tbody>{s.archives.map(([f,w,h])=>(<tr><td class="m">{f}</td><td>{w}</td><td>{h}</td></tr>))}</tbody></table>
   </div>
@@ -157,7 +157,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 <section class="blk" id="carlobook">
   <h2>What Carlo's own book adds</h2>
   <p class="dek">Reading <em>L'Istria: note storiche</em> (1879) for the family rather than for the history turns up four things.</p>
-  <div class="scroll wide" style="margin-top:20px">
+  <div class="scroll" style="margin-top:20px">
     <table><tbody>{s.carlo.map(([y,t])=>(
       <tr><td class="m" style="width:64px">{y}</td><td>{t}</td></tr>))}</tbody></table>
   </div>
@@ -176,7 +176,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
     <p class="note" style="margin-top:14px" set:html={_md(v.wreck)}></p>
     <p>That is the sentence the Seget story turns on. The family did not simply relocate. They were evacuated by Morosini's galleys with the other Venetian families of Candia, and the fleet that carried them was wrecked in a storm on the way home. The people who bought the Umago estate fifty-one years later were the ones who got out of the water.</p>
   </div>
-  <div class="scroll wide" style="margin-top:24px">
+  <div class="scroll" style="margin-top:24px">
     <table>
       <thead><tr><th class="m">When</th><th>The honours, as the family records them</th></tr></thead>
       <tbody>{v.honours.map(([y, t]) => <tr><td class="m">{y}</td><td>{t}</td></tr>)}</tbody>
@@ -201,7 +201,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 
 <section class="blk" id="built">
   <h2>How the house was built, and what happened to the library</h2>
-  <div class="scroll wide" style="margin-top:18px">
+  <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th class="m">When</th><th>What</th></tr></thead>
       <tbody>{v.estate.map(([y, t]) => <tr><td class="m">{y}</td><td>{t}</td></tr>)}</tbody>
@@ -217,7 +217,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 <section class="blk" id="branches">
   <h2>The two branches, and what they did</h2>
   <p class="dek">The family split. One branch held the farms of Seghetto, Giubba and Spinel; the other, the Umago branch, held Rosazzo, Macalè — formerly Casoni — and Carsette.</p>
-  <div class="scroll wide" style="margin-top:18px">
+  <div class="scroll" style="margin-top:18px">
     <table>
       <thead><tr><th>Who</th><th class="m">When</th><th>What</th></tr></thead>
       <tbody>{v.offices.map(([n, y, t]) => <tr><td>{n}</td><td class="m">{y}</td><td>{t}</td></tr>)}</tbody>
@@ -231,7 +231,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
   <h2>{s.voce.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.voce.lead)}></p>
 
-  <div class="scroll wide" style="margin-top:22px">
+  <div class="scroll" style="margin-top:22px">
     <table>
       <thead><tr><th class="m">When</th><th>What</th><th>As the article gives it</th></tr></thead>
       <tbody>{s.voce.origins.map(o => (
@@ -261,7 +261,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 
   <h3 style="font-size:24px;margin-top:38px">{s.voce.public.heading}</h3>
   <p class="dek" style="margin-top:8px" set:html={_md(s.voce.public.branches)}></p>
-  <div class="scroll wide" style="margin-top:16px">
+  <div class="scroll" style="margin-top:16px">
     <table>
       <thead><tr><th>Who</th><th class="m">When</th><th>What</th></tr></thead>
       <tbody>{s.voce.public.rows.map(([who, when, what]) => (
@@ -317,7 +317,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 <section class="blk" id="umago">
   <h2>{s.umago.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.umago.lead)}></p>
-  <div class="scroll wide" style="margin-top:18px">
+  <div class="scroll" style="margin-top:18px">
     <table><tbody>{s.umago.mayors.map((m, i) => (
       <tr><td style="width:44px">{i + 1}</td><td><strong>{m.n}</strong></td><td>{m.note}</td></tr>
     ))}</tbody></table>
@@ -380,7 +380,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 <section class="blk" id="reichsrat">
   <h2>{s.reichsrat.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.reichsrat.lead)}></p>
-  <div class="scroll wide" style="margin-top:18px">
+  <div class="scroll" style="margin-top:18px">
     <table><tbody>{s.reichsrat.terms.map(([w, x]) => (
       <tr><td style="width:130px"><strong>{w}</strong></td><td>{x}</td></tr>
     ))}</tbody></table>
@@ -439,7 +439,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
   </div>
 
   <h3 style="font-size:22px;margin-top:40px">Five names on the tablet</h3>
-  <div class="scroll wide" style="margin-top:14px">
+  <div class="scroll" style="margin-top:14px">
     <table>
       <thead><tr><th style="width:250px">Name</th><th class="m" style="width:210px">As cut</th><th>What we know of them</th></tr></thead>
       <tbody>{s.umagtomb.burials.map(([n, dt, x]) => (
@@ -467,7 +467,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
   </div>
 
   <h3 style="font-size:22px;margin-top:40px">{s.puhmajer.tree.heading}</h3>
-  <div class="scroll wide" style="margin-top:14px">
+  <div class="scroll" style="margin-top:14px">
     <table>
       <thead><tr><th style="width:230px">Who</th><th class="m" style="width:190px">Married</th><th>What the book gives</th></tr></thead>
       <tbody>{s.puhmajer.tree.rows.map(([n, m, x]) => (
@@ -478,7 +478,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
   <p class="prose note" style="margin-top:16px" set:html={_md(s.puhmajer.tree.note)}></p>
 
   <h3 style="font-size:22px;margin-top:36px">Five corrections to the timeline at the top of this page</h3>
-  <div class="scroll wide" style="margin-top:14px">
+  <div class="scroll" style="margin-top:14px">
     <table><tbody>{s.puhmajer.corrections.map(([w, x]) => (
       <tr><td style="width:190px"><strong>{w}</strong></td><td>{x}</td></tr>
     ))}</tbody></table>
@@ -616,17 +616,6 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 
   section[id] { scroll-margin-top:18px; }
 
-  /* WIDE TABLES. David: "cant we give tables like this more real estate so they
-     are wide, not long?" The wrap is 1080px and a three-column table with a
-     long prose column in it wraps to five lines a row inside that. This breaks
-     the table out of the measure and centres it on the viewport instead, which
-     turns height into width. Capped so it never runs edge to edge, and it
-     collapses back to the column on anything narrow. */
-  .scroll.wide {
-    width: min(calc(100vw - 40px), 1340px);
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
   .scroll.wide table { font-size: 14.5px; }
   .scroll.wide td { padding: 12px 20px 12px 0; line-height: 1.6; }
   @media (max-width: 1120px) {
