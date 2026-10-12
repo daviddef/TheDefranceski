@@ -1,28 +1,49 @@
 ---
-/* THE CANDIA DECREES, PUBLISHED.
+/* THE CANDIA DECREES, PUBLISHED — and laid out so they can be read.
  *
- * David's instruction, 12 October 2026: «any decrees, etc that we can
- * ourselves publish, we should, if they are now public so they arent
- * impossible to find for general users.»
+ * David, 12 October 2026: «any decrees, etc that we can ourselves publish, we
+ * should, if they are now public so they arent impossible to find for general
+ * users.» Then, on seeing the first draft: «its so much text and needs
+ * visuals, diagrams, alignment».
  *
- * He is right, and the case is unusually clean. The Seget page's whole
- * account of the Cretan refugees at Poreč rests on a volume printed in
- * Parenzo in 1904 — public domain by any measure — which is nevertheless
- * effectively unfindable: you need to know the journal, that it has an old
- * series and a new one, the volume number, and which of nineteen «parti»
- * of the Senate regesti covers your years. This archive only found it by
- * chasing the footnotes of a doctoral thesis.
+ * He was right twice. Sixteen chancery regesti stacked as paragraphs is a wall
+ * nobody finishes. What this page does instead:
  *
- * So the decrees are reproduced here in full, in the original and in
- * translation, with the carta number of each, and a statement of exactly
- * what was altered in transcription. That is the whole point of the page:
- * nobody should have to take this archive's word for it.
+ *   - the ITALIAN and the ENGLISH sit side by side, so a reader checking the
+ *     translation does not have to hold a paragraph in their head;
+ *   - the commentary is a tinted footer, visibly NOT part of the document,
+ *     because the whole argument of the page is that you can check the source;
+ *   - two drawings carry what the prose was carrying badly — the attrition
+ *     curve that reconciles Jackson's thirty-five with Camillo's sixty, and
+ *     the two-lane flow that shows the Cretans were served before Medulin.
+ *
+ * Both drawings are built from decrees.json, not hard-coded, so a corrected
+ * number changes the picture. The only things declared here are vocabulary —
+ * geometry and the five section colours — which is what a template is for.
  */
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import d from "../data/decrees.json";
 import { mdHtml } from "../lib/md.js";
+
+/* Geometry for the attrition chart. Computed here because it is drawing, not
+   evidence: the numbers themselves live in decrees.json. */
+const A = d.attrition;
+const AW = 720, AH = 250, AL = 58, AR = 28, AT = 26, AB = 52;
+/* cx/cy, NOT x/y: the data's own `y` is the YEAR, and spreading `...p` beside a
+   computed `y` silently overwrote it — the chart printed "26" under every point
+   instead of 1672/1674/1675. Caught in the built HTML, not by reading. */
+const APTS = A.points.map((p, i) => {
+  const cx = AL + (i * (AW - AL - AR)) / (A.points.length - 1);
+  const cy = AT + (1 - p.v / 60) * (AH - AT - AB);
+  return { ...p, cx, cy };
+});
+const APATH = APTS.map((p, i) => `${i ? "L" : "M"}${p.cx},${p.cy}`).join(" ");
+/* Jackson's thirty-five, drawn as the band it is rather than a rival figure. */
+const JY = AT + (1 - 35 / 60) * (AH - AT - AB);
+
+const TONE = ["--accent", "--ochre", "--accent", "--ochre", "--accent"];
 ---
 <Base title="The Candia decrees"
       eyebrow="The Venetian Senate on the Cretan refugees at Poreč, 1671–1676"
@@ -32,34 +53,119 @@ import { mdHtml } from "../lib/md.js";
     <p class="dek" set:html={mdHtml(d.lead)}></p>
   </section>
 
+  <!-- the numbers, before any of the prose -->
   <section class="blk">
-    <div class="lab">How to check every word of this</div>
+    <ul class="figs">
+      {d.figures.map(f => (
+        <li>
+          <span class="fn">{f.n}</span>
+          <span class="fw">{f.w}</span>
+          <span class="fs">{f.s}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- jump index: sixteen decrees is a lot to scroll blind -->
+  <section class="blk">
+    <nav class="jump" aria-label="The five groups of decrees">
+      {d.groups.map((g, i) => (
+        <a href={`#${g.id}`} style={`--jt:var(${TONE[i % TONE.length]})`}>
+          <span class="jn">{i + 1}</span>
+          <span class="jh">{g.heading.replace(/^[⭐⚠\s]+/, "")}</span>
+          <span class="js">{g.spine}</span>
+          <span class="jc">{g.rows.length} decrees</span>
+        </a>
+      ))}
+    </nav>
+  </section>
+
+  <Rule name="tablet" label="Why the published numbers disagree" />
+
+  <!-- DRAWING 1 — the attrition curve -->
+  <section class="blk">
+    <h2>{A.heading}</h2>
+    <p class="dek" style="margin-top:8px" set:html={mdHtml(A.lead)}></p>
+    <figure class="dgm">
+      <svg viewBox={`0 0 ${AW} ${AH}`} role="img" aria-labelledby="attrttl">
+        <title id="attrttl">Cretan families at Parenzo: sixty granted in 1672, twenty-five resident in 1674, six working the land in 1675, with Jackson's thirty-five falling inside the curve.</title>
+        <line x1={AL} y1={AT} x2={AL} y2={AH - AB} class="ax" />
+        <line x1={AL} y1={AH - AB} x2={AW - AR} y2={AH - AB} class="ax" />
+        {[60, 35, 25, 6].map(v => (
+          <text x={AL - 10} y={AT + (1 - v / 60) * (AH - AT - AB) + 4} class="tick">{v}</text>
+        ))}
+        <line x1={AL} y1={JY} x2={AW - AR} y2={JY} class="jack" />
+        <text x={AW - AR} y={JY - 8} class="jacklab" text-anchor="end">Jackson, 1887 — «thirty-five families», over 1669–1692</text>
+        <path d={APATH} class="curve" />
+        {APTS.map(p => (
+          <g>
+            <line x1={p.cx} y1={p.cy} x2={p.cx} y2={AH - AB} class="drop" />
+            <circle cx={p.cx} cy={p.cy} r="7" class="dot" />
+            <text x={p.cx} y={p.cy - 15} class="val" text-anchor="middle">{p.v}</text>
+            <text x={p.cx} y={AH - AB + 20} class="yr" text-anchor="middle">{p.y}</text>
+            <text x={p.cx} y={AH - AB + 36} class="lab" text-anchor="middle">{p.lab}</text>
+          </g>
+        ))}
+      </svg>
+      <figcaption>
+        <ul>
+          {APTS.map(p => (<li><b>{p.y}</b> · {p.note}</li>))}
+        </ul>
+      </figcaption>
+    </figure>
+  </section>
+
+  <Rule name="helm" label="Two waves, and which came first" />
+
+  <!-- DRAWING 2 — the two lanes and the hinge between them -->
+  <section class="blk">
+    <h2>{d.flow.heading}</h2>
+    <p class="dek" style="margin-top:8px" set:html={mdHtml(d.flow.lead)}></p>
+    <div class="lanes">
+      {d.flow.lanes.map(l => (
+        <div class={`lane l-${l.k}`}>
+          <p class="lt">{l.t}</p>
+          <ol>
+            {l.steps.map(s => (<li>{s}</li>))}
+          </ol>
+        </div>
+      ))}
+    </div>
+    <p class="hinge" set:html={mdHtml(d.flow.hinge)}></p>
+  </section>
+
+  <Rule name="tablet" label="How to check every word" />
+
+  <section class="blk">
+    <div class="lab">Provenance, and what transcription changed</div>
     <p class="prose" style="margin-top:8px" set:html={mdHtml(d.how)}></p>
   </section>
 
   {d.groups.map((g, gi) => (
     <>
-      <Rule name={gi % 2 === 0 ? "tablet" : "helm"} label={`${gi + 1} of ${d.groups.length}`} />
-      <section class="blk">
+      <Rule name={gi % 2 === 0 ? "helm" : "tablet"} label={`${gi + 1} of ${d.groups.length}`} />
+      <section class="blk grp" id={g.id} style={`--gt:var(${TONE[gi % TONE.length]})`}>
         <h2>{g.heading}</h2>
         <p class="dek" style="margin-top:8px">{g.gloss}</p>
-        <div style="margin-top:22px;display:flex;flex-direction:column;gap:22px">
-          {g.rows.map(r => (
-            <div class="one" style="border-left-color:var(--accent)">
-              <div class="lab">{r.date} · <span style="font-family:var(--mono)">{r.carta}</span></div>
-              <blockquote style="margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid var(--accent-wash,#e8e2d4);font-style:italic;line-height:1.65;color:var(--ink)">
-                {r.it}
-              </blockquote>
-              <p style="margin-top:12px;line-height:1.65" set:html={mdHtml(r.en)}></p>
-              <p class="cap" style="margin-top:12px" set:html={mdHtml(r.why)}></p>
+
+        {g.rows.map(r => (
+          <article class="dec">
+            <header>
+              <span class="dd">{r.date}</span>
+              <span class="dc">{r.carta}</span>
+            </header>
+            <div class="dx">
+              <blockquote lang="it"><span class="dlab">As printed, 1904</span>{r.it}</blockquote>
+              <div class="den"><span class="dlab">In English</span><p set:html={mdHtml(r.en)}></p></div>
             </div>
-          ))}
-        </div>
+            <p class="dwhy" set:html={mdHtml(r.why)}></p>
+          </article>
+        ))}
       </section>
     </>
   ))}
 
-  <Rule name="tablet" label="What is not in them" />
+  <Rule name="helm" label="What is not in them" />
   <section class="blk">
     <h2>The nil, with its terms named</h2>
     <p class="prose" style="margin-top:10px" set:html={mdHtml(d.nil)}></p>
@@ -77,3 +183,79 @@ import { mdHtml } from "../lib/md.js";
   </section>
 
 </Base>
+
+<style>
+  /* ---- the numbers strip ---- */
+  .figs { list-style:none; margin:0; padding:0; display:grid; gap:12px;
+          grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); }
+  .figs li { border-top:3px solid var(--accent,#8a7a52); padding:10px 0 0;
+             display:flex; flex-direction:column; gap:3px; }
+  .fn { font-family:var(--mono); font-size:25px; font-weight:600; color:var(--ink); line-height:1.05; }
+  .fw { font-size:13.5px; color:var(--ink-2,var(--ink)); font-weight:600; }
+  .fs { font-size:12px; color:var(--dim); line-height:1.5; }
+
+  /* ---- jump index ---- */
+  .jump { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .jump a { display:grid; gap:3px; padding:12px 14px; text-decoration:none;
+            border:1px solid var(--accent-wash,#e8e2d4); border-left:4px solid var(--jt);
+            border-radius:3px; background:var(--panel,#fff); }
+  .jump a:hover { border-color:var(--jt); }
+  .jn { font-family:var(--mono); font-size:11px; color:var(--dim); }
+  .jh { font-weight:600; font-size:14.5px; color:var(--ink); line-height:1.35; }
+  .js { font-size:12.5px; color:var(--dim); line-height:1.5; }
+  .jc { font-family:var(--mono); font-size:11px; color:var(--jt); margin-top:2px; }
+
+  /* ---- drawings ---- */
+  .dgm { margin:20px 0 0; }
+  .dgm svg { width:100%; height:auto; display:block; }
+  .ax { stroke:var(--accent-wash,#d8d2c4); stroke-width:1.5; }
+  .tick { font-family:var(--mono); font-size:11px; fill:var(--dim); text-anchor:end; }
+  .jack { stroke:var(--ochre,#8a6a1e); stroke-width:1.5; stroke-dasharray:5 4; opacity:.75; }
+  .jacklab { font-size:11.5px; fill:var(--ochre,#8a6a1e); }
+  .curve { fill:none; stroke:var(--accent,#8a7a52); stroke-width:2.5;
+           stroke-linejoin:round; stroke-linecap:round; }
+  .drop { stroke:var(--accent-wash,#d8d2c4); stroke-width:1; }
+  .dot { fill:var(--panel,#fff); stroke:var(--accent,#8a7a52); stroke-width:2.5; }
+  .val { font-family:var(--mono); font-size:16px; font-weight:600; fill:var(--ink); }
+  .yr  { font-family:var(--mono); font-size:12px; fill:var(--ink); }
+  .lab { font-size:11px; fill:var(--dim); letter-spacing:.03em; }
+  .dgm figcaption ul { list-style:none; margin:12px 0 0; padding:0;
+                       display:grid; gap:5px; }
+  .dgm figcaption li { font-size:12.5px; color:var(--dim); line-height:1.55; }
+  .dgm figcaption b { font-family:var(--mono); color:var(--ink); font-weight:600; }
+
+  .lanes { display:grid; gap:14px; grid-template-columns:1fr 1fr; margin-top:20px; }
+  .lane { border:1px solid var(--accent-wash,#e8e2d4); border-radius:3px; padding:14px 16px;
+          background:var(--panel,#fff); }
+  .l-cretans { border-top:3px solid var(--accent,#8a7a52); }
+  .l-caiducci { border-top:3px solid var(--ochre,#8a6a1e); }
+  .lt { margin:0 0 8px; font-weight:700; font-size:15px; color:var(--ink); }
+  .lane ol { margin:0; padding-left:1.1em; display:grid; gap:6px; }
+  .lane li { font-size:13.5px; line-height:1.5; color:var(--ink-2,var(--ink)); }
+  .hinge { margin:14px 0 0; padding:12px 16px; border-left:4px solid var(--accent,#8a7a52);
+           background:var(--accent-wash,#f4f1e8); font-size:14px; line-height:1.65;
+           border-radius:0 3px 3px 0; }
+
+  /* ---- a decree ---- */
+  .grp { scroll-margin-top:20px; }
+  .dec { margin-top:22px; border-top:1px solid var(--accent-wash,#e8e2d4); padding-top:14px; }
+  .dec header { display:flex; flex-wrap:wrap; align-items:baseline; gap:10px;
+                margin-bottom:10px; }
+  .dd { font-weight:700; font-size:14.5px; color:var(--gt,var(--ink)); }
+  .dc { font-family:var(--mono); font-size:12px; color:var(--dim); }
+  .dx { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+  .dlab { display:block; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+          color:var(--dim); margin-bottom:6px; }
+  .dec blockquote { margin:0; padding:0 0 0 14px; border-left:2px solid var(--accent-wash,#e8e2d4);
+                    font-style:italic; font-size:14px; line-height:1.68; color:var(--ink-2,var(--ink)); }
+  .den p { margin:0; font-size:14.5px; line-height:1.68; color:var(--ink); }
+  .dwhy { margin:12px 0 0; padding:10px 14px; background:var(--accent-wash,#f4f1e8);
+          border-radius:3px; font-size:13px; line-height:1.6; color:var(--dim); }
+  .dwhy :global(strong) { color:var(--ink); }
+
+  @media (max-width:820px) {
+    .dx { grid-template-columns:1fr; gap:14px; }
+    .lanes { grid-template-columns:1fr; }
+    .dec blockquote { border-left-width:3px; }
+  }
+</style>
