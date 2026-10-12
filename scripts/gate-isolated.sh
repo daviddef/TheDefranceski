@@ -97,6 +97,14 @@ if ! ../scripts/check-witness.py; then fail=1; fi
 # a corrected name stayed live in households.json for five days and kept a
 # child filed under the wrong household. See scripts/check-propagation.py.
 if ! ../scripts/check-propagation.py; then fail=1; fi
+# Addresses: the blind twin of check-links. A rename updates every inbound
+# reference, so the old address has no link left to follow and the build is
+# internally consistent while a published page 404s. This reads GIT HISTORY
+# instead and requires every slug that ever built to still build or be named in
+# the redirect table. Incremental against data/published-addresses.json, so it
+# costs a third of a second. Found 12 October 2026: six addresses stranded, one
+# of them for three weeks. See scripts/check-addresses.py.
+if ! ../scripts/check-addresses.py; then fail=1; fi
 # Absence next, and it is propagation's blind twin. check-propagation reads
 # site/src/data/*.json; on 30 September the stale claim was a hardcoded
 # fallback string in two .astro templates, so it was invisible to every check
