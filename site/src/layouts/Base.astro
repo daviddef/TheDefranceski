@@ -33,10 +33,21 @@ const nav = [
 ];
 
 const here = Astro.url.pathname;
-/* which of the seven this is, worked out the same way the ring does */
-const thisArchive = ring.archives.find(
+/* WHICH OF THE SEVEN THIS IS — by ORIGIN, not by base. Every archive on its own domain has
+   base "", so `find(a => a.base === "")` returns the FIRST of them. This archive has been right
+   only because its entry happens to be first in archives.json; reorder the file, or insert an
+   entry ahead of this one, and the counter would have gone to the wrong archive with nothing
+   to say so — which is what happened to Lerena, D'Arcy and Blažević on 12 October 2026, to
+   THIS archive's cost (their readers were counted here). Found on this archive's own layout by
+   the Blažević session's read-only sweep of every sibling. Inlined from the kit's whoami():
+   lib/ring.js cannot be imported as a bare specifier from a layout. */
+const originOf = (x) => { try { return new URL(x).origin; } catch { return ""; } };
+const SITE_ORIGIN = originOf(import.meta.env.SITE || "");
+const onBase = ring.archives.filter(
   (a) => a.base === (import.meta.env.BASE_URL || "/").replace(/\/$/, "")
 );
+const thisArchive =
+  (SITE_ORIGIN && onBase.find((a) => originOf(a.url) === SITE_ORIGIN)) || onBase[0];
 ---
 <html lang="en" data-base={u("")}>
 <head>
