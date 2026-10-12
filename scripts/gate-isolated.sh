@@ -63,6 +63,11 @@ run() { # name, command...
   fi
 }
 run living    ../scripts/kit-living.sh          --dist "$OUT" --data src/data --policy named-bare
+# Whose readers is this archive counting? Reads the BUILT html and picks the archive by
+# ORIGIN. Written by the D'Arcy session on 12 October 2026, after Lerena, D'Arcy and Blazevic
+# logged hours of pageviews to THIS archive's counter: base became "" for every archive
+# that moved and find(a => a.base === base) returns the first, which is this one.
+run counter   env ARCHIVE_OUT="$OUT" python3 ../scripts/check_counter.py
 run templates python3 "$KIT/checktemplates.py" --root .
 run kit       python3 "$KIT/checkarchive.py"  --dist "$OUT"
 [ -f "$KIT/checknav.py" ] && run nav python3 "$KIT/checknav.py" --dist "$OUT" --strict
