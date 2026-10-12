@@ -137,6 +137,22 @@ import Plates from "../components/Plates.astro";
   <p class="cap" style="margin-top:16px">{d.medulin.source_m}</p>
 </section>
 
+<Rule name="arrows" label="Pomer · where she came from" />
+
+<section class="blk">
+  <h2 id="pomer">{d.pomer.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(d.pomer.lead)}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {d.pomer.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(d.pomer.source_p)}></p>
+</section>
+
 <Rule name="arrows" label="Who did the spelling" />
 
 <section class="blk">

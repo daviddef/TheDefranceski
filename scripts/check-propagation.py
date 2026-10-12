@@ -28,6 +28,14 @@ DATA = os.path.join(ROOT, "site", "src", "data")
 
 # (label, regex, files permitted to contain it)
 RULES = [
+    (u"Maria Defranceschi's mother called «Magdalena Davi\u0107» (every Pomer entry and the Medulin cell read BUI\u0106)",
+     # A single-cell misread of a capital this scribe makes two ways, carried for a month as a
+     # named person. The correction quotes the old name on purpose; so do the log row that
+     # records the old reading and the worklist's own narrative; generated files mirror them.
+     # liznjan.json tells the correction in its Pomer section and must name what it corrects.
+     r"Magdalena Davi[\u0107c]",
+     {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json",
+      "liznjan.json"}),
     (u"the Li\u017enjan child of 1870 still called \u00abTusca\u00bb (the register reads FUSCA, twice)",
      # Her pid and her /who/ URL are FROZEN and legitimately keep the old
      # spelling, so the pattern deliberately matches only the NAME form.
