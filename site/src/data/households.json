@@ -23,7 +23,9 @@
     "key": "giovanni antonio",
     "ours": true,
     "by": 1626,
-    "dy": null
+    "dy": null,
+    "pid": "joannem-anto-de-franceschi-1626",
+    "pidBasis": "fsid"
    },
    {
     "name": "Gioanna Victoriam de Franceschi",
@@ -36,7 +38,9 @@
     "key": "giovanni vittorio",
     "ours": true,
     "by": 1628,
-    "dy": null
+    "dy": null,
+    "pid": "gioanna-victoriam-de-franceschi-1628",
+    "pidBasis": "fsid"
    },
    {
     "name": "Mariam de Franceschi",
@@ -49,7 +53,9 @@
     "key": "maria",
     "ours": true,
     "by": 1632,
-    "dy": null
+    "dy": null,
+    "pid": "mariam-de-franceschi-1632",
+    "pidBasis": "fsid"
    },
    {
     "name": "Mariam De Franceschi",
@@ -62,7 +68,9 @@
     "key": "maria",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "mariam-de-franceschi-1632-2",
+    "pidBasis": "fsid"
    },
    {
     "name": "Zuane De Franceschi",
@@ -75,7 +83,9 @@
     "key": "giovanni",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "zuane-de-franceschi-c1629",
+    "pidBasis": "fsid"
    },
    {
     "name": "Gioanná Victoriam Franceschi",
@@ -88,13 +98,17 @@
     "key": "giovanni vittorio",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "gioanna-victoriam-franceschi-c1629",
+    "pidBasis": "name+place"
    }
   ],
   "id": "h000",
   "src": "index",
   "confirmed": "6 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "lutia-rijeka",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "elena + giovanni",
@@ -120,7 +134,9 @@
     "key": "margarita",
     "ours": true,
     "by": 1639,
-    "dy": null
+    "dy": null,
+    "pid": "margarita-franceschi-1639",
+    "pidBasis": "name+year"
    },
    {
     "name": "Nicolaa De Franceschi",
@@ -133,7 +149,9 @@
     "key": "nicolo",
     "ours": true,
     "by": 1644,
-    "dy": null
+    "dy": null,
+    "pid": "nicolo-de-franceschi-1644",
+    "pidBasis": "fsid"
    },
    {
     "name": "Johan-Antonius",
@@ -146,7 +164,9 @@
     "key": "johan-antonius",
     "ours": false,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "johan-antonius-de-franceschi-1858",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria",
@@ -159,7 +179,9 @@
     "key": "maria",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-1859",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Rosa",
@@ -172,7 +194,9 @@
     "key": "rosa",
     "ours": false,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "rosa-de-franceschi-1861",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Euphemia",
@@ -185,7 +209,9 @@
     "key": "eufemia",
     "ours": false,
     "by": 1863,
-    "dy": null
+    "dy": null,
+    "pid": "euphemia-defranceschi-1863",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Anna",
@@ -198,7 +224,9 @@
     "key": "anna",
     "ours": false,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "anna-de-franceschi-1865",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Victorius-Joseph",
@@ -211,7 +239,9 @@
     "key": "victorius-joseph",
     "ours": false,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "victorius-joseph-defranceschi-1867",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Mandalina De Franceschi",
@@ -224,13 +254,19 @@
     "key": "mandalina",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "mandalina-de-franceschi-c1753",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h001",
   "src": "index",
   "confirmed": "9 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "zuanne-de-franceschi-c1612",
+  "pidBasis_father": "exact+place",
+  "motherPid": "elena-omis",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesco + lucretia",
@@ -256,7 +292,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1646,
-    "dy": null
+    "dy": null,
+    "pid": "zuanne-franceschi-1646",
+    "pidBasis": "fsid"
    },
    {
     "name": "Margaritta Franceschi",
@@ -269,7 +307,9 @@
     "key": "margaritta",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "margaritta-franceschi-c1646",
+    "pidBasis": "name+place"
    },
    {
     "name": "Terenccia Franceschi",
@@ -282,13 +322,19 @@
     "key": "terenccia",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "terenccia-franceschi-c1646",
+    "pidBasis": "name+place"
    }
   ],
   "id": "h002",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "franco-franceschi-omis",
+  "pidBasis_father": "exact+place",
+  "motherPid": "lucretia-omis",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "bartolo + lucia gregorio",
@@ -314,7 +360,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1651,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-franceschi-1651",
+    "pidBasis": "name+year"
    },
    {
     "name": "Lucia Franceschi",
@@ -327,13 +375,19 @@
     "key": "lucia",
     "ours": true,
     "by": 1651,
-    "dy": null
+    "dy": null,
+    "pid": "lucia-franceschi-1651",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h003",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "barthol-franceschi-austria",
+  "pidBasis_father": "exact+place",
+  "motherPid": "luciae-de-gregorius-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "antonio + margarita",
@@ -359,7 +413,9 @@
     "key": "franceschina",
     "ours": true,
     "by": 1667,
-    "dy": null
+    "dy": null,
+    "pid": "franceschina-de-franceschi-1667",
+    "pidBasis": "fsid"
    },
    {
     "name": "Mattia De Franceschi",
@@ -385,7 +441,9 @@
     "key": "antonio",
     "ours": true,
     "by": 1671,
-    "dy": null
+    "dy": null,
+    "pid": "anto-de-franceschi-1671",
+    "pidBasis": "name+year"
    },
    {
     "name": "Mattio De Franceschi",
@@ -404,7 +462,9 @@
   "id": "h004",
   "src": "index",
   "confirmed": "4 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "marta-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "antonia + gasparo",
@@ -443,7 +503,9 @@
     "key": "veneranda",
     "ours": true,
     "by": 1701,
-    "dy": null
+    "dy": null,
+    "pid": "veneranda-de-franceschi-1701",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giacomo De Franceschi",
@@ -456,13 +518,17 @@
     "key": "giacomo",
     "ours": true,
     "by": 1706,
-    "dy": null
+    "dy": null,
+    "pid": "giacomo-de-franceschi-1706",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h005",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "antonia-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "pietro + vittoria",
@@ -488,7 +554,9 @@
     "key": "domenica",
     "ours": true,
     "by": 1703,
-    "dy": null
+    "dy": null,
+    "pid": "domenica-de-franceschi-1703",
+    "pidBasis": "fsid"
    },
    {
     "name": "Doma De Franceschi",
@@ -501,7 +569,9 @@
     "key": "domenica",
     "ours": true,
     "by": 1705,
-    "dy": null
+    "dy": null,
+    "pid": "doma-de-franceschi-1705",
+    "pidBasis": "fsid"
    },
    {
     "name": "Marina De Franceschi",
@@ -514,13 +584,17 @@
     "key": "marina",
     "ours": true,
     "by": 1710,
-    "dy": null
+    "dy": null,
+    "pid": "marina-de-franceschi-1710",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h006",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "vittoria-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "elisabetta + matteo",
@@ -546,7 +620,9 @@
     "key": "martino",
     "ours": true,
     "by": 1722,
-    "dy": null
+    "dy": null,
+    "pid": "martino-de-franceschi-1722",
+    "pidBasis": "fsid"
    },
    {
     "name": "Benedetto Franceschi",
@@ -559,13 +635,17 @@
     "key": "benedetto",
     "ours": true,
     "by": 1726,
-    "dy": null
+    "dy": null,
+    "pid": "benedetto-franceschi-1726",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h007",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "elisabetta-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "anna + natale",
@@ -591,7 +671,9 @@
     "key": "pietro",
     "ours": true,
     "by": 1734,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-de-franceschi-1734",
+    "pidBasis": "fsid"
    },
    {
     "name": "Bata De Franceschi",
@@ -604,13 +686,17 @@
     "key": "battista",
     "ours": true,
     "by": 1735,
-    "dy": null
+    "dy": null,
+    "pid": "bata-de-franceschi-1735",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h008",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "anta-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "elena + valentino",
@@ -636,7 +722,9 @@
     "key": "matteo",
     "ours": true,
     "by": null,
-    "dy": 1742
+    "dy": 1742,
+    "pid": "mattio-defranceschi-d1742",
+    "pidBasis": "fsid"
    },
    {
     "name": "Nicolo Defranceschi",
@@ -649,7 +737,9 @@
     "key": "nicolo",
     "ours": true,
     "by": null,
-    "dy": 1742
+    "dy": 1742,
+    "pid": "nicolo-defranceschi-d1742",
+    "pidBasis": "fsid"
    },
    {
     "name": "Antonio De Franceschi",
@@ -662,7 +752,9 @@
     "key": "antonio",
     "ours": true,
     "by": 1753,
-    "dy": 1753
+    "dy": 1753,
+    "pid": "antonio-de-franceschi-1753",
+    "pidBasis": "fsid"
    },
    {
     "name": "Aloysia Defranceschi",
@@ -675,7 +767,9 @@
     "key": "luigi",
     "ours": true,
     "by": 1757,
-    "dy": 1757
+    "dy": 1757,
+    "pid": "aloysia-defranceschi-1757",
+    "pidBasis": "fsid"
    },
    {
     "name": "Maria Defranceschi",
@@ -688,7 +782,9 @@
     "key": "maria",
     "ours": true,
     "by": 1757,
-    "dy": 1757
+    "dy": 1757,
+    "pid": "maria-defranceschi-1757",
+    "pidBasis": "fsid"
    },
    {
     "name": "Matheus Franciscus De Franceschi",
@@ -701,7 +797,9 @@
     "key": "matteo francesco",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "matheus-franciscus-de-franceschi-c1749",
+    "pidBasis": "fsid"
    },
    {
     "name": "Aloysium Joannes Petre Defranceschi",
@@ -714,7 +812,9 @@
     "key": "luigi giovanni",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "aloysium-joannes-petre-defranceschi-c1749",
+    "pidBasis": "fsid"
    },
    {
     "name": "Franciscam Joanne Theresiam Defranceschi",
@@ -727,7 +827,9 @@
     "key": "francesco giovanna",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "franciscam-joanne-theresiam-defranceschi-c1749",
+    "pidBasis": "fsid"
    },
    {
     "name": "Nicolaus Francus De Franceschi",
@@ -740,7 +842,9 @@
     "key": "nicolo francesco",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "nicolaus-francus-de-franceschi-c1749",
+    "pidBasis": "fsid"
    },
    {
     "name": "Josepham Catharinam Defranceschi",
@@ -753,13 +857,17 @@
     "key": "giuseppa caterina",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "josepham-catharinam-defranceschi-c1749",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h009",
   "src": "index",
   "confirmed": "10 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "valentino-defranceschi-d1785",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "francesca + giuseppe",
@@ -787,7 +895,9 @@
     "by": 1772,
     "dy": 1775,
     "alsoId": "6YBR-GND2",
-    "note": "Baptised **23 November 1772**, *«heri natum»* — born the 22nd. **Buried 22 August 1775, aged two.** This archive carried the baptism and the burial as **two different boys**; they are one. *(inf, and the register settles it: when the next son is baptised in March 1776 he is christened **Valentinus** Josephus Gregorius — the name given again after the first died.)*"
+    "note": "Baptised **23 November 1772**, *«heri natum»* — born the 22nd. **Buried 22 August 1775, aged two.** This archive carried the baptism and the burial as **two different boys**; they are one. *(inf, and the register settles it: when the next son is baptised in March 1776 he is christened **Valentinus** Josephus Gregorius — the name given again after the first died.)*",
+    "pid": "valentinus-franciscus-xaverius-defranceschi-1772",
+    "pidBasis": "fsid"
    },
    {
     "name": "Hellena Margaritha Maria Defranceschi",
@@ -800,7 +910,9 @@
     "key": "hellena margaritha",
     "ours": true,
     "by": 1774,
-    "dy": null
+    "dy": null,
+    "pid": "hellena-margaritha-maria-defranceschi-1774",
+    "pidBasis": "fsid"
    },
    {
     "name": "Ellena Defranceschi",
@@ -813,7 +925,9 @@
     "key": "elena",
     "ours": true,
     "by": 1775,
-    "dy": 1776
+    "dy": 1776,
+    "pid": "ellena-defranceschi-1775",
+    "pidBasis": "fsid"
    },
    {
     "name": "Valentinus Josephus Gregorius Defranceschi",
@@ -828,7 +942,9 @@
     "by": 1776,
     "dy": null,
     "img": "005497925 · baptisms img, ark 3:1:3QS7-899F-WC34",
-    "note": "Born 11 March, baptised 12 March 1776. **The second Valentino** — named again after his brother's death in August 1775. Godparents **D.no Carolo Müller** and **D.na Josepha Callinesi**: no Defranceschi."
+    "note": "Born 11 March, baptised 12 March 1776. **The second Valentino** — named again after his brother's death in August 1775. Godparents **D.no Carolo Müller** and **D.na Josepha Callinesi**: no Defranceschi.",
+    "pid": "valentinus-josephus-gregorius-defranceschi-1776",
+    "pidBasis": "name+year"
    },
    {
     "name": "Hellena Ludovica Defranceschi",
@@ -843,13 +959,19 @@
     "by": 1778,
     "dy": null,
     "img": "005497925 · baptisms img, ark 3:1:3QSQ-G99F-WHGT",
-    "note": "Baptised 8 February 1778 by C.us Lumaga. Godparents **D.no Ludovico Henrich** and **D.na Hellena Carina** — no Defranceschi. **The last child of this household**, and the family tree's death year for Giuseppe is the same year."
+    "note": "Baptised 8 February 1778 by C.us Lumaga. Godparents **D.no Ludovico Henrich** and **D.na Hellena Carina** — no Defranceschi. **The last child of this household**, and the family tree's death year for Giuseppe is the same year.",
+    "pid": "hellena-ludovica-defranceschi-1778",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h010",
   "src": "index",
   "confirmed": "All five baptisms read on the film, 20 September 2026, and one duplicate removed.",
-  "read": "**The register has now been read** — film 005497925, 20 September 2026 — and it changed this household in three ways. **The 1776 and 1778 baptisms were missing entirely.** **Valentino and Valentinus Franciscus Xaverius were one boy**, baptised 23 November 1772 and buried 22 August 1775. And the father is no longer anonymous: **Giuseppe is almost certainly the Josephus Aloysius born 24 May 1748** to **Joannes Baptista de Franceschi and Magdalena** — [the second Fiume household](/fiume-1626/#jbaptista). *The note that said «no register has been read» stood for as long as that was true.*"
+  "read": "**The register has now been read** — film 005497925, 20 September 2026 — and it changed this household in three ways. **The 1776 and 1778 baptisms were missing entirely.** **Valentino and Valentinus Franciscus Xaverius were one boy**, baptised 23 November 1772 and buried 22 August 1775. And the father is no longer anonymous: **Giuseppe is almost certainly the Josephus Aloysius born 24 May 1748** to **Joannes Baptista de Franceschi and Magdalena** — [the second Fiume household](/fiume-1626/#jbaptista). *The note that said «no register has been read» stood for as long as that was true.*",
+  "fatherPid": "giuseppe-defranceschi-1748",
+  "pidBasis_father": "exact+place",
+  "motherPid": "francesca-defranceschi-rijeka",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "giustina + matteo",
@@ -875,7 +997,9 @@
     "key": "maria",
     "ours": true,
     "by": 1791,
-    "dy": null
+    "dy": null,
+    "pid": "mari-de-franceschi-1791",
+    "pidBasis": "fsid"
    },
    {
     "name": "Nicoló De Franceschi",
@@ -888,13 +1012,17 @@
     "key": "nicolo",
     "ours": true,
     "by": 1794,
-    "dy": null
+    "dy": null,
+    "pid": "nicolo-de-franceschi-1794",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h011",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "giustina-promontore",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "orsola + valentino",
@@ -920,7 +1048,9 @@
     "key": "teresa maria",
     "ours": true,
     "by": 1794,
-    "dy": null
+    "dy": null,
+    "pid": "theresiam-mariam-josepham-nepomucenam-defranceschi-1794",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giosefa Defranceschi",
@@ -933,7 +1063,9 @@
     "key": "giosefa",
     "ours": true,
     "by": 1796,
-    "dy": 1797
+    "dy": 1797,
+    "pid": "giosefa-defranceschi-1796",
+    "pidBasis": "fsid"
    },
    {
     "name": "Josepham Joannam Nepomucenam Defranceschi",
@@ -946,7 +1078,9 @@
     "key": "giuseppa giovanna",
     "ours": true,
     "by": 1796,
-    "dy": 1797
+    "dy": 1797,
+    "pid": "josepham-joannam-nepomucenam-defranceschi-1796",
+    "pidBasis": "name+year"
    },
    {
     "name": "Franciscum Josephum Aloysium Joannem Nepomuc Defranceschi",
@@ -959,7 +1093,9 @@
     "key": "francesco giuseppe",
     "ours": true,
     "by": 1797,
-    "dy": null
+    "dy": null,
+    "pid": "franciscum-josephum-aloysium-joannem-nepomuc-defranceschi-1797",
+    "pidBasis": "name+year"
    },
    {
     "name": "Annam Mariam Josepham Nepomucenam Defranceschi",
@@ -972,7 +1108,9 @@
     "key": "anna maria",
     "ours": true,
     "by": 1799,
-    "dy": 1800
+    "dy": 1800,
+    "pid": "annam-mariam-josepham-nepomucenam-defranceschi-1799",
+    "pidBasis": "name+year"
    },
    {
     "name": "Anna Defranceschi",
@@ -985,7 +1123,9 @@
     "key": "anna",
     "ours": true,
     "by": 1799,
-    "dy": 1800
+    "dy": 1800,
+    "pid": "anna-defranceschi-1799",
+    "pidBasis": "fsid"
    },
    {
     "name": "Annam Mariam Ludovicam Defranceschi",
@@ -998,7 +1138,9 @@
     "key": "anna maria",
     "ours": true,
     "by": 1801,
-    "dy": null
+    "dy": null,
+    "pid": "annam-mariam-ludovicam-defranceschi-1801",
+    "pidBasis": "fsid"
    },
    {
     "name": "Joannem Nepomuc Aloysium Paschalem Defranceschi",
@@ -1011,7 +1153,9 @@
     "key": "giovanni nepomuc",
     "ours": true,
     "by": 1802,
-    "dy": null
+    "dy": null,
+    "pid": "joannem-nepomuc-aloysium-paschalem-defranceschi-1802",
+    "pidBasis": "name+year"
    },
    {
     "name": "Petrum Julium Paschalem Defranceschi",
@@ -1024,7 +1168,9 @@
     "key": "pietro julium",
     "ours": true,
     "by": 1803,
-    "dy": null
+    "dy": null,
+    "pid": "petrum-julium-paschalem-defranceschi-1803",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria Defranceschi",
@@ -1037,7 +1183,9 @@
     "key": "maria",
     "ours": true,
     "by": 1804,
-    "dy": 1804
+    "dy": 1804,
+    "pid": "maria-defranceschi-1804",
+    "pidBasis": "fsid"
    },
    {
     "name": "Antonium Petrum Nataliem Joannem Kepomuc Defranceschi",
@@ -1050,7 +1198,9 @@
     "key": "antonio pietro",
     "ours": true,
     "by": 1805,
-    "dy": null
+    "dy": null,
+    "pid": "antonium-petrum-nataliem-joannem-kepomuc-defranceschi-1805",
+    "pidBasis": "name+year"
    },
    {
     "name": "Josepham Ludovicam Joannam Nepomuc Defranceschi",
@@ -1069,7 +1219,9 @@
   "id": "h012",
   "src": "index",
   "confirmed": "12 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "ursul-defranceschi-rijeka",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "giovanni battista + maria",
@@ -1095,7 +1247,9 @@
     "key": "caterina",
     "ours": true,
     "by": 1809,
-    "dy": null
+    "dy": null,
+    "pid": "cattarina-de-franceschi-1809",
+    "pidBasis": "fsid"
    },
    {
     "name": "Federico Felice Antonio De Franceschi",
@@ -1108,13 +1262,19 @@
     "key": "federico felice",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "federico-felice-antonio-de-franceschi-c1809",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h013",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "gio-batta-de-franceschi-c1782",
+  "pidBasis_father": "exact+place",
+  "motherPid": "maria-sterna",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "elena + gregorio",
@@ -1140,7 +1300,9 @@
     "key": "margarita maria",
     "ours": true,
     "by": 1810,
-    "dy": null
+    "dy": null,
+    "pid": "margarita-maria-defranceschi-1810",
+    "pidBasis": "fsid"
    },
    {
     "name": "Nadalina Defranceschi",
@@ -1153,13 +1315,17 @@
     "key": "nadalina",
     "ours": true,
     "by": 1812,
-    "dy": null
+    "dy": null,
+    "pid": "nadalina-defranceschi-1812",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h014",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "ellena-promontore",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesca + ludovico",
@@ -1185,7 +1351,9 @@
     "key": "pietro paolo",
     "ours": true,
     "by": 1813,
-    "dy": 1813
+    "dy": 1813,
+    "pid": "pietro-paolo-franceschi-1813",
+    "pidBasis": "name+year"
    },
    {
     "name": "Piero Franceschi",
@@ -1198,13 +1366,17 @@
     "key": "pietro",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "piero-franceschi-c1813",
+    "pidBasis": "name+place"
    }
   ],
   "id": "h015",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "ludovico-franceschi-rijeka",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "maria malusa + pietro",
@@ -1256,7 +1428,9 @@
     "key": "teresa",
     "ours": true,
     "by": 1820,
-    "dy": null
+    "dy": null,
+    "pid": "teresa-domenica-de-franceschi-1820",
+    "pidBasis": "fsid"
    },
    {
     "name": "Stefano Matteo De Franceschi",
@@ -1282,13 +1456,17 @@
     "key": "cristoforo",
     "ours": true,
     "by": 1824,
-    "dy": null
+    "dy": null,
+    "pid": "cristoforo-de-franceschi-1824",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h016",
   "confirmed": "The husband identified in the marriage register.",
   "read": "«**+ Pietro De Franceschi di Giuseppe — Agricoltore**», witness 14 September 1818, signing with a cross. His brothers are **Cristoforo the weaver** and **Don Stefano the priest**, all «di Giuseppe» — so this household's father-in-law is a **Giuseppe De Franceschi**, alive in 1818.",
-  "src": "read"
+  "src": "read",
+  "motherPid": "maria-malusa-defranceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "domenico + zacchera cerlon",
@@ -1385,7 +1563,11 @@
   "id": "h017",
   "confirmed": "A burial found, and a grandfather named: 23 July 1829, house 48.",
   "read": "«**Pietro, figlio di Dom.co De Franceschi *q.m Pietro* e di Zacchera Cerlon di Franc.o**» — the death of a son names **Domenico's own dead father, a Pietro**. The baptism index gave this household as a bare pair of names; it now has a generation above it.",
-  "src": "read"
+  "src": "read",
+  "fatherPid": "domenico-de-franceschi-1786",
+  "pidBasis_father": "exact+place",
+  "motherPid": "zacchera-cerlon-vodnjan",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "bonetta vellico + stefano",
@@ -1411,7 +1593,9 @@
     "key": "domenico giovanni",
     "ours": true,
     "by": 1819,
-    "dy": null
+    "dy": null,
+    "pid": "domenico-giovanni-anto-de-franceschi-1819",
+    "pidBasis": "fsid"
    },
    {
     "name": "Martina De Franceschi",
@@ -1424,7 +1608,9 @@
     "key": "martino",
     "ours": true,
     "by": 1824,
-    "dy": null
+    "dy": null,
+    "pid": "martina-de-franceschi-1824",
+    "pidBasis": "fsid"
    },
    {
     "name": "Maria De Franceschi",
@@ -1437,13 +1623,19 @@
     "key": "maria",
     "ours": true,
     "by": 1829,
-    "dy": null
+    "dy": null,
+    "pid": "maria-de-franceschi-1829",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h018",
   "confirmed": "Two burials found, and the husband written out three generations deep.",
   "read": "House **325**. Their daughter **Maria died 11 March 1829**; **Bonetta Vellico herself died 11 September 1830, aged 57**, of pulmonary consumption. Her entry names the husband as «**Stefano De Franceschi *di* Domenico *q.m* Pietro**» — father living, grandfather dead — which gives this household **three generations above it** where the baptism index gave none.",
-  "src": "read"
+  "src": "read",
+  "fatherPid": "stefano-defranceschi-vodnjan",
+  "pidBasis_father": "exact+place",
+  "motherPid": "bonetta-vellico-de-franceschi-1773",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "stella + vittorio",
@@ -1469,7 +1661,9 @@
     "key": "maria",
     "ours": true,
     "by": 1819,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-1819",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giovanni Eliseo De Franceschi",
@@ -1482,13 +1676,17 @@
     "key": "giovanni eliseo",
     "ours": true,
     "by": 1825,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-eliseo-de-franceschi-1825",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h019",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "stella-pula",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "stella tamborin + vittorio",
@@ -1514,7 +1712,9 @@
     "key": "matteo giovanni",
     "ours": true,
     "by": 1821,
-    "dy": null
+    "dy": null,
+    "pid": "matteo-giovanni-defranceschi-1821",
+    "pidBasis": "fsid"
    },
    {
     "name": "Vitorio De Franceschi",
@@ -1546,7 +1746,9 @@
   "id": "h020",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "stela-tamborin-pula",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giovanni maria + lucia bonassin",
@@ -1572,7 +1774,9 @@
     "key": "veniera",
     "ours": true,
     "by": 1822,
-    "dy": null
+    "dy": null,
+    "pid": "veniera-de-franceschi-1822",
+    "pidBasis": "name+year"
    },
    {
     "name": "Pietro da Franceschi",
@@ -1585,7 +1789,9 @@
     "key": "pietro",
     "ours": true,
     "by": 1824,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-da-franceschi-1824",
+    "pidBasis": "name+year"
    },
    {
     "name": "Lucia De Franceschi",
@@ -1630,7 +1836,11 @@
   "id": "h021",
   "confirmed": "Their marriage found: 9 June 1821, house 356, Vodnjan.",
   "read": "«**Gio: Maria De Franceschi figlio di Pietro De Franceschi q.m Gio: Maria e della fu Veniera Francin q.m Dom.co de Rondel**, giugali, Agricoltori», aged 22, marrying «**Lucia figlia di Giovanni Bonassin q.m Giuseppe e della fu Lucia Davanzo q.m Leonardo**», aged 27. The household gains a father, a grandfather and a great-grandfather in one line.",
-  "src": "read"
+  "src": "read",
+  "fatherPid": "gio-maria-de-franceschi-vodnjan",
+  "pidBasis_father": "exact+place",
+  "motherPid": "lucia-bonassin-defranceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "madalena francin + pietro",
@@ -1670,7 +1880,9 @@
     "key": "maria martino",
     "ours": true,
     "by": 1822,
-    "dy": null
+    "dy": null,
+    "pid": "maria-martina-de-franceschi-1822",
+    "pidBasis": "fsid"
    },
    {
     "name": "Pasqua De Franceschi",
@@ -1683,7 +1895,9 @@
     "key": "pasqua",
     "ours": true,
     "by": 1824,
-    "dy": null
+    "dy": null,
+    "pid": "pasqua-de-franceschi-1824",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giovanni De Franceschi",
@@ -1696,7 +1910,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1827,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-de-franceschi-1827",
+    "pidBasis": "fsid"
    },
    {
     "name": "Lucia De Franceschi",
@@ -1709,7 +1925,9 @@
     "key": "lucia",
     "ours": true,
     "by": 1828,
-    "dy": null
+    "dy": null,
+    "pid": "lucia-de-franceschi-1828",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h022",
@@ -1760,7 +1978,11 @@
   "id": "h023",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "alois-defranceschi-austria",
+  "pidBasis_father": "exact+place",
+  "motherPid": "rosa-pachmann-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "antonio + maria bergamo",
@@ -1799,7 +2021,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1832,
-    "dy": null
+    "dy": null,
+    "pid": "johannes-defranceschi-1832",
+    "pidBasis": "name+year"
    },
    {
     "name": "Veneranda",
@@ -1812,7 +2036,9 @@
     "key": "veneranda",
     "ours": false,
     "by": 1837,
-    "dy": null
+    "dy": null,
+    "pid": "veneranda-de-franceschi-1837",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonio Defranceschi",
@@ -1825,7 +2051,9 @@
     "key": "antonio",
     "ours": true,
     "by": 1839,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-defranceschi-1839",
+    "pidBasis": "fsid"
    },
    {
     "name": "Domenico Defranceschi",
@@ -1838,7 +2066,9 @@
     "key": "domenico",
     "ours": true,
     "by": 1841,
-    "dy": null
+    "dy": null,
+    "pid": "domenico-defranceschi-1841",
+    "pidBasis": "fsid"
    },
    {
     "name": "Victorius Defranceschi",
@@ -1851,13 +2081,17 @@
     "key": "vittorio",
     "ours": true,
     "by": 1845,
-    "dy": null
+    "dy": null,
+    "pid": "victorius-defranceschi-1845",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h024",
   "src": "index",
   "confirmed": "6 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-bergamo-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giacoma + giovanni battista",
@@ -1883,7 +2117,9 @@
     "key": "giovanni battista",
     "ours": false,
     "by": 1825,
-    "dy": null
+    "dy": null,
+    "pid": "gio-battista-crosilla-1825",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Johannes Crosilla",
@@ -1896,13 +2132,17 @@
     "key": "giovanni crosilla",
     "ours": false,
     "by": 1831,
-    "dy": null
+    "dy": null,
+    "pid": "johannes-crosilla-1831",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h025",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "gio-battista-crosilla-croazia-austria",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "francesco vellico + michele",
@@ -1928,7 +2168,9 @@
     "key": "maria vellico",
     "ours": false,
     "by": 1826,
-    "dy": null
+    "dy": null,
+    "pid": "maria-vellico-1826",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Bonetta Vellico",
@@ -1941,7 +2183,9 @@
     "key": "bonetta vellico",
     "ours": false,
     "by": 1828,
-    "dy": null
+    "dy": null,
+    "pid": "bonetta-vellico-1828",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Domenico Vellico",
@@ -1954,7 +2198,9 @@
     "key": "domenico vellico",
     "ours": false,
     "by": 1831,
-    "dy": null
+    "dy": null,
+    "pid": "domenico-vellico-1831",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Cristoforo Vellico",
@@ -1967,13 +2213,17 @@
     "key": "cristoforo vellico",
     "ours": false,
     "by": 1833,
-    "dy": null
+    "dy": null,
+    "pid": "cristoforo-vellico-1833",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h026",
   "confirmed": "Their marriage found: 25 January 1826, house 224, Vodnjan.",
   "read": "«**Fran.co figlio delli furono giugali Domenico Vellico q.m Andrea e Martina Biasiol**», aged 27, marrying «**Michiela figlia di Cristoforo De Franceschi q.m Gio: Maria e di Maria Luigia Manzin q.m Domenico**», aged 26. A household reconstructed from baptism entries, now **confirmed by the wedding that made it**, with both sets of parents named.",
-  "src": "read"
+  "src": "read",
+  "motherPid": "michiela-de-franceschi-1800",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "antonio + maria glavinich",
@@ -1999,7 +2249,9 @@
     "key": "giuseppe domenico",
     "ours": true,
     "by": 1828,
-    "dy": null
+    "dy": null,
+    "pid": "giuseppe-domenico-franceschi-1828",
+    "pidBasis": "fsid"
    },
    {
     "name": "Elena Franceschi",
@@ -2012,13 +2264,17 @@
     "key": "elena",
     "ours": true,
     "by": 1832,
-    "dy": null
+    "dy": null,
+    "pid": "elena-franceschi-1832",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h027",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-glavinich-postira",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesca + giovanni bergamo",
@@ -2044,7 +2300,9 @@
     "key": "giovanni bergamo",
     "ours": false,
     "by": 1831,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-bergamo-1831",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Dominicus Bergamo",
@@ -2057,7 +2315,9 @@
     "key": "domenico bergamo",
     "ours": false,
     "by": 1836,
-    "dy": null
+    "dy": null,
+    "pid": "dominicus-bergamo-1836",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Vicenzo Bergamo",
@@ -2070,7 +2330,9 @@
     "key": "vicenzo bergamo",
     "ours": false,
     "by": 1840,
-    "dy": null
+    "dy": null,
+    "pid": "vicenzo-bergamo-1840",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Vincentius Bergamo",
@@ -2083,7 +2345,9 @@
     "key": "vincenzo bergamo",
     "ours": false,
     "by": 1840,
-    "dy": null
+    "dy": null,
+    "pid": "vincentius-bergamo-1840",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Benedetta Bergamo",
@@ -2096,7 +2360,9 @@
     "key": "benedetto bergamo",
     "ours": false,
     "by": 1842,
-    "dy": null
+    "dy": null,
+    "pid": "benedetta-bergamo-1842",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonio Bergamo",
@@ -2109,7 +2375,9 @@
     "key": "antonio bergamo",
     "ours": false,
     "by": 1845,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-bergamo-1845",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius Bergamo",
@@ -2122,13 +2390,19 @@
     "key": "antonio bergamo",
     "ours": false,
     "by": 1846,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-bergamo-1846",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h028",
   "src": "index",
   "confirmed": "7 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "francesca-defranceschi-croazia-austria",
+  "pidBasis_mother": "exact+place",
+  "fatherPid": "giovanni-bergamo-croazia-austria",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "giovanni moscarda + maria",
@@ -2155,7 +2429,9 @@
     "ours": false,
     "by": 1835,
     "dy": null,
-    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia"
+    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia",
+    "pid": "antonio-moscarda-1835",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Marianna Moscarda",
@@ -2169,7 +2445,9 @@
     "ours": false,
     "by": 1838,
     "dy": null,
-    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia"
+    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia",
+    "pid": "marianna-moscarda-1838",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Giuseppe Moscarda",
@@ -2183,13 +2461,17 @@
     "ours": false,
     "by": 1841,
     "dy": null,
-    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia"
+    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia",
+    "pid": "giuseppe-moscarda-1841",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h029",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "giovanni-moscarda-fazana",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "antonio tamborin + perina",
@@ -2216,7 +2498,9 @@
     "ours": false,
     "by": 1836,
     "dy": null,
-    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia"
+    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia",
+    "pid": "santa-tamborin-1836",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Natale Tamborin",
@@ -2230,13 +2514,17 @@
     "ours": false,
     "by": 1842,
     "dy": null,
-    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia"
+    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia",
+    "pid": "natale-tamborin-1842",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h030",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "antonio-tamborin-fazana",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "domenico + maria dorliguzzo",
@@ -2262,7 +2550,9 @@
     "key": "pietro",
     "ours": true,
     "by": 1837,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-de-franceschi-1837",
+    "pidBasis": "fsid"
    },
    {
     "name": "Bonetta De Franceschi",
@@ -2275,7 +2565,9 @@
     "key": "bonetta",
     "ours": true,
     "by": 1841,
-    "dy": null
+    "dy": null,
+    "pid": "bonetta-de-franceschi-1841",
+    "pidBasis": "name+year"
    },
    {
     "name": "Arveneria Defranceschi",
@@ -2288,7 +2580,9 @@
     "key": "arveneria",
     "ours": true,
     "by": 1844,
-    "dy": null
+    "dy": null,
+    "pid": "arveneria-defranceschi-1844",
+    "pidBasis": "fsid"
    },
    {
     "name": "Augustinus",
@@ -2301,7 +2595,9 @@
     "key": "augustinus",
     "ours": false,
     "by": 1847,
-    "dy": null
+    "dy": null,
+    "pid": "augustinus-de-franceschi-1847",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus",
@@ -2314,13 +2610,17 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1851,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-de-franceschi-1851",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h031",
   "confirmed": "Corroborated from Rovinj.",
   "read": "On the Rovinj film, **Bona Defranceschi, daughter of Dominicus Defranceschi and Oliva Dorligurro**, marries Antonius Medelin in the 1840s — this household sending a daughter up the coast.",
-  "src": "read"
+  "src": "read",
+  "motherPid": "maria-dorliguzzo-defranceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "caterina vlahovich + luca raschich",
@@ -2346,7 +2646,9 @@
     "key": "maria antonia",
     "ours": true,
     "by": 1847,
-    "dy": null
+    "dy": null,
+    "pid": "maria-antonia-franceschi-raschich-1847",
+    "pidBasis": "name+year"
    },
    {
     "name": "Catterina Franceschi Raschich",
@@ -2359,13 +2661,17 @@
     "key": "caterina raschich",
     "ours": true,
     "by": 1850,
-    "dy": null
+    "dy": null,
+    "pid": "catterina-franceschi-raschich-1850",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h032",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "catterina-vlahovich-postira",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "caterina vlahovich + luca",
@@ -2391,7 +2697,9 @@
     "key": "caterina",
     "ours": true,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "catterina-franceschi-1849",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonio Franceschi",
@@ -2404,13 +2712,19 @@
     "key": "antonio",
     "ours": true,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-franceschi-1853",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h033",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "luca-franceschi-postira",
+  "pidBasis_father": "exact+place",
+  "motherPid": "catterina-vlahovich-postira",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "domenica chersin + natale",
@@ -2436,7 +2750,9 @@
     "key": "vittorio giovanni",
     "ours": true,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "vittorio-giovanni-defranceschi-1849",
+    "pidBasis": "fsid"
    },
    {
     "name": "Angelo Defranceschi",
@@ -2449,7 +2765,9 @@
     "key": "angelo",
     "ours": true,
     "by": 1851,
-    "dy": null
+    "dy": null,
+    "pid": "angelo-defranceschi-1851",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h034",
@@ -2458,7 +2776,9 @@
   "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
   "nearDup": [
    "h035"
-  ]
+  ],
+  "motherPid": "domenica-chersin-pula",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "domenica chersin + natale #2",
@@ -2485,7 +2805,9 @@
     "ours": true,
     "by": 1849,
     "dy": null,
-    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia"
+    "placeAsIndexed": "Fasana, Pont Canavese, Torino, Piemonte, Italia",
+    "pid": "vittorio-giovanni-defranceschi-1849",
+    "pidBasis": "fsid"
    },
    {
     "name": "Angelo Defranceschi",
@@ -2508,7 +2830,9 @@
   "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
   "dupOf": "h034",
   "dupNote": "**The same two baptisms, indexed twice.** Natale Defranceschi and Domenica Chersin have *Vittorio Giovanni* in **1849** and *Angelo* in **1851** in both records; only the place string differs. **And this one's place is wrong**: the index geocodes *Fasana* to **«Fasana, Pont Canavese, Torino, Piemonte»** — a village in Piedmont, five hundred kilometres from Istria — where h034 reads *Pola*. **Fažana and Pula are four kilometres apart** and either could be the parish; what is certain is that there is one household here, not two, and two children, not four.",
-  "keyWas": "domenica chersin + natale"
+  "keyWas": "domenica chersin + natale",
+  "motherPid": "domenica-chersin-fazana",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesco + maria caralipco",
@@ -2534,7 +2858,9 @@
     "key": "giovanni giuseppe",
     "ours": true,
     "by": 1854,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-giuseppe-maria-franceschi-1854",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giovanni Giuseppe Maria Franceschi",
@@ -2547,7 +2873,9 @@
     "key": "giovanni giuseppe",
     "ours": true,
     "by": 1855,
-    "dy": 1855
+    "dy": 1855,
+    "pid": "giovanni-giuseppe-maria-franceschi-1855",
+    "pidBasis": "fsid"
    },
    {
     "name": "Elena Anna Maria Franceschi",
@@ -2560,7 +2888,9 @@
     "key": "elena anna",
     "ours": true,
     "by": 1856,
-    "dy": null
+    "dy": null,
+    "pid": "elena-anna-maria-franceschi-1856",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giovanni Girolamo Andrea Felice Franceschi",
@@ -2573,7 +2903,9 @@
     "key": "giovanni girolamo",
     "ours": true,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-girolamo-andrea-felice-franceschi-1857",
+    "pidBasis": "fsid"
    },
    {
     "name": "Rados Niccoló Maria Franceschi",
@@ -2586,7 +2918,9 @@
     "key": "rados nicolo",
     "ours": true,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "rados-niccolo-maria-franceschi-1858",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giuseppe Luigi Benedetto Maria Franceschi",
@@ -2599,7 +2933,9 @@
     "key": "giuseppe luigi",
     "ours": true,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "giuseppe-luigi-benedetto-maria-franceschi-1861",
+    "pidBasis": "fsid"
    },
    {
     "name": "Niccolò Pasquale Maria Franceschi",
@@ -2612,7 +2948,9 @@
     "key": "nicolo pasquale",
     "ours": true,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "niccolo-pasquale-maria-franceschi-1862",
+    "pidBasis": "fsid"
    },
    {
     "name": "Niccolo Franceschi",
@@ -2625,7 +2963,9 @@
     "key": "nicolo",
     "ours": true,
     "by": 1862,
-    "dy": 1862
+    "dy": 1862,
+    "pid": "niccolo-franceschi-1862",
+    "pidBasis": "fsid"
    },
    {
     "name": "Alessandro Paolo Pietro Maria Franceschi",
@@ -2638,7 +2978,9 @@
     "key": "alessandro paolo",
     "ours": true,
     "by": 1863,
-    "dy": null
+    "dy": null,
+    "pid": "alessandro-paolo-pietro-maria-franceschi-1863",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonio Emannele Maria Franceschi",
@@ -2651,7 +2993,9 @@
     "key": "antonio emannele",
     "ours": true,
     "by": 1866,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-emannele-maria-franceschi-1866",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giulio Franceschi",
@@ -2664,7 +3008,9 @@
     "key": "giulio",
     "ours": true,
     "by": 1869,
-    "dy": 1869
+    "dy": 1869,
+    "pid": "giulio-franceschi-1869",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giulio Michele Maria Franceschi",
@@ -2677,7 +3023,9 @@
     "key": "giulio michele",
     "ours": true,
     "by": 1869,
-    "dy": null
+    "dy": null,
+    "pid": "giulio-michele-maria-franceschi-1869",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giulio Maria Franceschi",
@@ -2690,7 +3038,9 @@
     "key": "giulio maria",
     "ours": true,
     "by": 1871,
-    "dy": null
+    "dy": null,
+    "pid": "giulio-maria-franceschi-1871",
+    "pidBasis": "fsid"
    },
    {
     "name": "Paolo Franceschi",
@@ -2703,7 +3053,9 @@
     "key": "paolo",
     "ours": true,
     "by": 1873,
-    "dy": 1883
+    "dy": 1883,
+    "pid": "paolo-franceschi-1873",
+    "pidBasis": "fsid"
    },
    {
     "name": "Paolo Maria Franceschi",
@@ -2716,7 +3068,9 @@
     "key": "paolo maria",
     "ours": true,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "paolo-maria-franceschi-1873",
+    "pidBasis": "fsid"
    },
    {
     "name": "Carlo Maria Franceschi",
@@ -2729,7 +3083,9 @@
     "key": "carlo maria",
     "ours": true,
     "by": 1876,
-    "dy": 1876
+    "dy": 1876,
+    "pid": "carlo-maria-franceschi-1876",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giorgio Franceschi",
@@ -2742,13 +3098,17 @@
     "key": "giorgio",
     "ours": true,
     "by": 1877,
-    "dy": null
+    "dy": null,
+    "pid": "giorgio-franceschi-1877",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h036",
   "src": "index",
   "confirmed": "17 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-de-caralipco-omis",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "maria francin + stefano",
@@ -2774,7 +3134,9 @@
     "key": "pietro",
     "ours": false,
     "by": 1854,
-    "dy": null
+    "dy": null,
+    "pid": "petrus-defranceschi-1854",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus",
@@ -2787,7 +3149,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-defranceschi-1858",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Joseph",
@@ -2800,7 +3164,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "joseph-defranceschi-1861",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Stephanus",
@@ -2813,7 +3179,9 @@
     "key": "stefano",
     "ours": false,
     "by": 1863,
-    "dy": null
+    "dy": null,
+    "pid": "stephanus-defranceschi-1863",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Dominica",
@@ -2826,7 +3194,9 @@
     "key": "domenica",
     "ours": false,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "dominica-defranceschi-1865",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h037",
@@ -2858,7 +3228,9 @@
     "key": "rosa teresa",
     "ours": true,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "rosina-theresia-genoveva-defranzeschi-1858",
+    "pidBasis": "fsid"
    },
    {
     "name": "Seraphina Franzisca Defranzeschi",
@@ -2871,13 +3243,17 @@
     "key": "seraphina franzisca",
     "ours": true,
     "by": 1876,
-    "dy": null
+    "dy": null,
+    "pid": "seraphina-franzisca-defranzeschi-1876",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h038",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "theresia-pfeifer-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giovanni + maria ipsich",
@@ -2903,7 +3279,9 @@
     "key": "girolamo",
     "ours": true,
     "by": 1860,
-    "dy": 1860
+    "dy": 1860,
+    "pid": "girolamo-franceschi-1860",
+    "pidBasis": "fsid"
    },
    {
     "name": "Anna Antonia Luigia Franceschi",
@@ -2916,7 +3294,9 @@
     "key": "anna antonia",
     "ours": true,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "anna-antonia-luigia-franceschi-1862",
+    "pidBasis": "fsid"
    },
    {
     "name": "Vincenzo Camillo Pietro Franceschi",
@@ -2929,7 +3309,9 @@
     "key": "vincenzo camillo",
     "ours": true,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "vincenzo-camillo-pietro-franceschi-1867",
+    "pidBasis": "name+year"
    },
    {
     "name": "Marco Giuseppe Franceschi",
@@ -2942,7 +3324,9 @@
     "key": "marco giuseppe",
     "ours": true,
     "by": 1871,
-    "dy": null
+    "dy": null,
+    "pid": "marco-giuseppe-franceschi-1871",
+    "pidBasis": "name+year"
    },
    {
     "name": "Pietro Bernardo Franceschi",
@@ -2955,7 +3339,9 @@
     "key": "pietro bernardo",
     "ours": true,
     "by": 1872,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-bernardo-franceschi-1872",
+    "pidBasis": "fsid"
    },
    {
     "name": "Maria Felicita Elisabetta Franceschi",
@@ -2968,7 +3354,9 @@
     "key": "maria felicita",
     "ours": true,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "maria-felicita-elisabetta-franceschi-1873",
+    "pidBasis": "fsid"
    },
    {
     "name": "Natale Tommaso Franceschi",
@@ -2981,13 +3369,17 @@
     "key": "natale tomaso",
     "ours": true,
     "by": 1874,
-    "dy": null
+    "dy": null,
+    "pid": "natale-tommaso-franceschi-1874",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h039",
   "src": "index",
   "confirmed": "7 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-ipsich-omis",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giuseppe + teresa moser",
@@ -3013,7 +3405,9 @@
     "key": "maria teresa",
     "ours": true,
     "by": 1866,
-    "dy": null
+    "dy": null,
+    "pid": "maria-theresia-franceschi-1866",
+    "pidBasis": "name+year"
    },
    {
     "name": "Joannes Franceschi",
@@ -3026,13 +3420,17 @@
     "key": "giovanni",
     "ours": true,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-franceschi-1867",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h040",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "theresia-moser-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesco + maria stefanutti",
@@ -3058,7 +3456,9 @@
     "key": "caterina",
     "ours": false,
     "by": 1868,
-    "dy": null
+    "dy": null,
+    "pid": "catharina-defranceschi-1868",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Anna Maria",
@@ -3071,13 +3471,17 @@
     "key": "anna maria",
     "ours": false,
     "by": 1872,
-    "dy": null
+    "dy": null,
+    "pid": "anna-maria-1872",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h041",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-stefanutti-defranceschi-ka-telir",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "maria primus + matteo",
@@ -3103,7 +3507,9 @@
     "key": "fusca",
     "ours": false,
     "by": 1870,
-    "dy": null
+    "dy": null,
+    "pid": "tusca-defranceschi-1870",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Tusca",
@@ -3116,7 +3522,9 @@
     "key": "tusca",
     "ours": false,
     "by": null,
-    "dy": 1870
+    "dy": 1870,
+    "pid": "tusca-defranceschi-1870",
+    "pidBasis": "same child: the index's burial record, misread «Tusca»; the register reads FUSCA (corrections, 12 Oct 2026)"
    },
    {
     "name": "Joannes",
@@ -3129,7 +3537,9 @@
     "key": "giovanni",
     "ours": false,
     "by": 1871,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-defranceschi-1871",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Anna",
@@ -3142,7 +3552,9 @@
     "key": "anna",
     "ours": false,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "anna-defranceschi-1873",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Magdalena",
@@ -3155,13 +3567,17 @@
     "key": "madalena",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "magdalena-defranceschi-liznjan",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h042",
   "src": "index",
   "confirmed": "5 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-primus-liznjan",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "nicolo + teresa",
@@ -3187,7 +3603,9 @@
     "key": "riccardo feligiano",
     "ours": true,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "riccardo-feligiano-maria-franceschi-1873",
+    "pidBasis": "fsid"
    },
    {
     "name": "Feliciano Maria Franceschi",
@@ -3200,7 +3618,9 @@
     "key": "feliciano maria",
     "ours": true,
     "by": 1873,
-    "dy": 1874
+    "dy": 1874,
+    "pid": "feliciano-maria-franceschi-1873",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giovanni Francesco Maria Franceschi",
@@ -3213,7 +3633,9 @@
     "key": "giovanni francesco",
     "ours": true,
     "by": 1875,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-francesco-maria-franceschi-1875",
+    "pidBasis": "fsid"
    },
    {
     "name": "Maria Giuseppina Franceschi",
@@ -3226,7 +3648,9 @@
     "key": "maria giuseppina",
     "ours": true,
     "by": 1879,
-    "dy": null
+    "dy": null,
+    "pid": "maria-giuseppina-franceschi-1879",
+    "pidBasis": "fsid"
    },
    {
     "name": "Angiolina Franceschi",
@@ -3239,13 +3663,17 @@
     "key": "angiolina",
     "ours": true,
     "by": 1887,
-    "dy": 1888
+    "dy": 1888,
+    "pid": "angiolina-franceschi-1887",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h043",
   "src": "index",
   "confirmed": "5 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "teresa-franceschi-omis",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "giovanna baucich + giovanni",
@@ -3271,7 +3699,9 @@
     "key": "genoeffa maria",
     "ours": true,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "genoeffa-maria-franceschi-1873",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonio Stefano Franceschi",
@@ -3284,7 +3714,9 @@
     "key": "antonio stefano",
     "ours": true,
     "by": 1874,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-stefano-franceschi-1874",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giuseppe Pietro Franceschi",
@@ -3297,13 +3729,17 @@
     "key": "giuseppe pietro",
     "ours": true,
     "by": 1879,
-    "dy": null
+    "dy": null,
+    "pid": "giuseppe-pietro-franceschi-1879",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h044",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "giovanna-baucich-omis",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "gregorio + maria vojnic",
@@ -3329,7 +3765,9 @@
     "key": "anastasia",
     "ours": false,
     "by": 1875,
-    "dy": 1875
+    "dy": 1875,
+    "pid": "anastasia-defranceski-1875",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria",
@@ -3342,7 +3780,9 @@
     "key": "maria",
     "ours": false,
     "by": 1875,
-    "dy": 1875
+    "dy": 1875,
+    "pid": "maria-defranceski-1875",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Anastasia",
@@ -3355,13 +3795,17 @@
     "key": "anastasia",
     "ours": false,
     "by": 1876,
-    "dy": null
+    "dy": null,
+    "pid": "anastasia-defranceski-1876",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h045",
   "src": "index",
   "confirmed": "3 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-vojnic-liznjan",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "anna kalanj + giuseppe",
@@ -3387,7 +3831,9 @@
     "key": "antonio rudolf",
     "ours": true,
     "by": 1890,
-    "dy": null
+    "dy": null,
+    "pid": "anton-antonius-rudolph-rudolf-ante-defranceschi-1890",
+    "pidBasis": "fsid"
    },
    {
     "name": "Marija Stjepanka Defranceschi",
@@ -3400,7 +3846,9 @@
     "key": "maria stjepanka",
     "ours": true,
     "by": 1892,
-    "dy": null
+    "dy": null,
+    "pid": "marija-stjepanka-defranceschi-1892",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h046",
@@ -3410,7 +3858,9 @@
   "nearDup": [
    "h048"
   ],
-  "dupNote": "One couple, not two. **Josip Defranceschi and Ana Kalanj** baptise at **Ledenice in 1890 and 1892** and at **Crikvenica in 1894 and 1896** — the same parents, four children, a family that moved eight kilometres down the coast. This is **generation 4 of the direct line**, and the two halves are kept as two records because that is how the index holds them."
+  "dupNote": "One couple, not two. **Josip Defranceschi and Ana Kalanj** baptise at **Ledenice in 1890 and 1892** and at **Crikvenica in 1894 and 1896** — the same parents, four children, a family that moved eight kilometres down the coast. This is **generation 4 of the direct line**, and the two halves are kept as two records because that is how the index holds them.",
+  "motherPid": "ana-kalanj-ledenice",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "domenica clagnan + giovanni",
@@ -3449,7 +3899,9 @@
     "key": "alexander angelo",
     "ours": false,
     "by": 1893,
-    "dy": null
+    "dy": null,
+    "pid": "alexander-angelus-1893",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Angela Regina",
@@ -3462,7 +3914,9 @@
     "key": "angelo regina",
     "ours": false,
     "by": 1894,
-    "dy": null
+    "dy": null,
+    "pid": "angela-regina-1894",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Umbertus Antonius Eduardus",
@@ -3475,13 +3929,17 @@
     "key": "umbertus antonio",
     "ours": false,
     "by": 1896,
-    "dy": null
+    "dy": null,
+    "pid": "umbertus-antonius-eduardus-1896",
+    "pidBasis": "minted for this household"
    }
   ],
   "id": "h047",
   "src": "index",
   "confirmed": "4 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "dominica-clagnan-croazia-austria",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "anna kalanj + giuseppe #2",
@@ -3507,7 +3965,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1894,
-    "dy": null
+    "dy": null,
+    "pid": "ivan-de-franceschi-1894",
+    "pidBasis": "fsid"
    },
    {
     "name": "Zorica De Franceski",
@@ -3520,7 +3980,9 @@
     "key": "zorica",
     "ours": true,
     "by": 1896,
-    "dy": null
+    "dy": null,
+    "pid": "zorica-de-franceski-1896",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h048",
@@ -3531,7 +3993,11 @@
    "h046"
   ],
   "dupNote": "One couple, not two. **Josip Defranceschi and Ana Kalanj** baptise at **Ledenice in 1890 and 1892** and at **Crikvenica in 1894 and 1896** — the same parents, four children, a family that moved eight kilometres down the coast. This is **generation 4 of the direct line**, and the two halves are kept as two records because that is how the index holds them.",
-  "keyWas": "anna kalanj + giuseppe"
+  "keyWas": "anna kalanj + giuseppe",
+  "fatherPid": "josip-defranceschi-1863",
+  "pidBasis_father": "exact+place",
+  "motherPid": "ana-kalanj-crikvenica",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giuseppe + maria tschigg",
@@ -3557,7 +4023,9 @@
     "key": "giuseppe",
     "ours": true,
     "by": 1897,
-    "dy": null
+    "dy": null,
+    "pid": "josef-defranzeschi-1897",
+    "pidBasis": "fsid"
    },
    {
     "name": "Johann Dofranzeschi",
@@ -3570,13 +4038,17 @@
     "key": "giovanni",
     "ours": true,
     "by": 1899,
-    "dy": null
+    "dy": null,
+    "pid": "johann-dofranzeschi-1899",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h049",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "maria-tschigg",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "caterina + giovanni baptæ",
@@ -3602,7 +4074,9 @@
     "key": "maria dorothæam",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "mariam-doroth-am-defranceschi-bakar",
+    "pidBasis": "name+place"
    },
    {
     "name": "Antoniam Defranceschi",
@@ -3615,13 +4089,17 @@
     "key": "antonio",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "antoniam-defranceschi-bakar",
+    "pidBasis": "fsid"
    }
   ],
   "id": "h050",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "motherPid": "catharin-bakar",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "elena + gerolimo",
@@ -3647,7 +4125,9 @@
     "key": "laura",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "laura-franceschi-omis",
+    "pidBasis": "name+place"
    },
    {
     "name": "Zorzi Franceschi",
@@ -3660,13 +4140,19 @@
     "key": "zorzi",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "zorzi-franceschi-omis",
+    "pidBasis": "name+place"
    }
   ],
   "id": "h051",
   "src": "index",
   "confirmed": "2 indexed records name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it."
+  "read": "Built from **index entries only** — this archive has not seen the page. The couple stands because the same two parents are named on every one of these baptisms; the spellings are the indexer's, and **no register has been read** to confirm it.",
+  "fatherPid": "gerolimo-franceschi-omis",
+  "pidBasis_father": "exact+place",
+  "motherPid": "elena-omis-2",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "gio maria + michiela zambaletta",
@@ -3706,7 +4192,9 @@
     "key": "veniera",
     "ours": true,
     "by": 1781,
-    "dy": null
+    "dy": null,
+    "pid": "veniera-de-franceschi-1781",
+    "pidBasis": "name+year"
    },
    {
     "name": "Cristoforo De Franceschi",
@@ -3718,9 +4206,15 @@
     "key": "cristoforo",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "cristoforo-de-franceschi-vodnjan",
+    "pidBasis": "name+place"
    }
-  ]
+  ],
+  "fatherPid": "gio-maria-de-franceschi-vodnjan",
+  "pidBasis_father": "exact+place",
+  "motherPid": "michiela-zambaletta-de-franceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "pietro q.m domenico + domenica manzin",
@@ -3748,7 +4242,9 @@
     "key": "bonetta",
     "ours": true,
     "by": 1800,
-    "dy": null
+    "dy": null,
+    "pid": "bonetta-de-franceschi-1800",
+    "pidBasis": "name+year"
    },
    {
     "name": "Pietro De Franceschi",
@@ -3774,7 +4270,9 @@
     "by": null,
     "dy": null
    }
-  ]
+  ],
+  "motherPid": "domenica-manzin-vodnjan",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "alvise birattan + lucia de franceschi",
@@ -3802,7 +4300,9 @@
     "key": "lucia",
     "ours": false,
     "by": 1797,
-    "dy": null
+    "dy": null,
+    "pid": "lucia-birattan-1797",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria Birattan",
@@ -3814,7 +4314,9 @@
     "key": "maria",
     "ours": false,
     "by": 1800,
-    "dy": null
+    "dy": null,
+    "pid": "maria-birattan-1800",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Bianca Birattan",
@@ -3826,9 +4328,15 @@
     "key": "bianca",
     "ours": false,
     "by": 1804,
-    "dy": null
+    "dy": null,
+    "pid": "bianca-birattan-1804",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "motherPid": "lucia-de-franceschi-1760",
+  "pidBasis_mother": "exact+place",
+  "fatherPid": "alvise-birattan-vodnjan",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "giuseppe + lucia tromba",
@@ -3856,7 +4364,9 @@
     "key": "don",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "don-stefano-de-franceschi-1819",
+    "pidBasis": "name+year"
    },
    {
     "name": "Pietro De Franceschi",
@@ -3880,7 +4390,9 @@
     "key": "cristoforo",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "cristoforo-de-franceschi-vodnjan",
+    "pidBasis": "name+place"
    },
    {
     "name": "Maria Francesca De Franceschi",
@@ -3892,9 +4404,15 @@
     "key": "maria",
     "ours": true,
     "by": 1805,
-    "dy": null
+    "dy": null,
+    "pid": "maria-francesca-de-franceschi-1805",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "fatherPid": "giuseppe-de-franceschi-1758",
+  "pidBasis_father": "exact+place",
+  "motherPid": "lucia-tromba-de-franceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "pietro q.m gio maria + veniera francin",
@@ -3922,7 +4440,9 @@
     "key": "gio:",
     "ours": true,
     "by": 1799,
-    "dy": null
+    "dy": null,
+    "pid": "gio-maria-de-franceschi-vodnjan",
+    "pidBasis": "name+place"
    },
    {
     "name": "Domenico De Franceschi",
@@ -3936,7 +4456,9 @@
     "by": 1803,
     "dy": null
    }
-  ]
+  ],
+  "motherPid": "veniera-francin-de-franceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "cristoforo q.m gio maria + maria luigia manzin",
@@ -3964,9 +4486,15 @@
     "key": "michiela",
     "ours": true,
     "by": 1800,
-    "dy": null
+    "dy": null,
+    "pid": "michiela-de-franceschi-1800",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "fatherPid": "cristoforo-de-franceschi-vodnjan",
+  "pidBasis_father": "exact+place",
+  "motherPid": "maria-luigia-manzin-vodnjan",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "pietro + martina civico",
@@ -3994,9 +4522,13 @@
     "key": "domenico",
     "ours": true,
     "by": 1786,
-    "dy": null
+    "dy": null,
+    "pid": "domenico-de-franceschi-1786",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "motherPid": "martina-civico-de-franceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "domenica + sebastiano giachin",
@@ -4022,7 +4554,9 @@
     "key": "maria",
     "ours": true,
     "by": 1817,
-    "dy": null
+    "dy": null,
+    "pid": "maria-giachin-1817",
+    "pidBasis": "fsid"
    },
    {
     "name": "Domenica Giachin",
@@ -4035,7 +4569,9 @@
     "key": "domenica",
     "ours": true,
     "by": 1823,
-    "dy": null
+    "dy": null,
+    "pid": "domenica-giachin-1823",
+    "pidBasis": "fsid"
    },
    {
     "name": "Michaela Giachin",
@@ -4048,7 +4584,9 @@
     "key": "michaela",
     "ours": true,
     "by": 1828,
-    "dy": null
+    "dy": null,
+    "pid": "michaela-giachin-1828",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giuseppe Giachin",
@@ -4061,13 +4599,17 @@
     "key": "giuseppe",
     "ours": true,
     "by": 1832,
-    "dy": null
+    "dy": null,
+    "pid": "giuseppe-giachin-1832",
+    "pidBasis": "fsid"
    }
   ],
   "from": 1817,
   "to": 1832,
   "n": 4,
-  "id": "h052"
+  "id": "h052",
+  "fatherPid": "sebastiano-giachin-c1790",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "lucia + giuseppe forlani",
@@ -4093,7 +4635,9 @@
     "key": "maria",
     "ours": true,
     "by": 1848,
-    "dy": null
+    "dy": null,
+    "pid": "maria-antonia-forlani-1848",
+    "pidBasis": "fsid"
    },
    {
     "name": "Lucia Forlani",
@@ -4106,7 +4650,9 @@
     "key": "lucia",
     "ours": true,
     "by": 1852,
-    "dy": null
+    "dy": null,
+    "pid": "lucia-forlani-1852",
+    "pidBasis": "fsid"
    },
    {
     "name": "Domenica Forlani",
@@ -4119,7 +4665,9 @@
     "key": "domenica",
     "ours": true,
     "by": 1854,
-    "dy": null
+    "dy": null,
+    "pid": "domenica-forlani-1854",
+    "pidBasis": "fsid"
    },
    {
     "name": "Dominica Forlani",
@@ -4132,13 +4680,17 @@
     "key": "dominica",
     "ours": true,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "dominica-forlani-1857",
+    "pidBasis": "fsid"
    }
   ],
   "from": 1848,
   "to": 1857,
   "n": 4,
-  "id": "h053"
+  "id": "h053",
+  "fatherPid": "giuseppe-forlani-c1821",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "stefano + maria forlanichio",
@@ -4164,7 +4716,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-maria-de-franceschi-1858",
+    "pidBasis": "fsid"
    },
    {
     "name": "Pietro De Franceschi",
@@ -4177,13 +4731,17 @@
     "key": "pietro",
     "ours": true,
     "by": 1860,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-de-franceschi-1860",
+    "pidBasis": "fsid"
    }
   ],
   "from": 1858,
   "to": 1860,
   "n": 2,
-  "id": "h054"
+  "id": "h054",
+  "motherPid": "maria-forlanichio-de-franceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "domenico + mattea delcarro",
@@ -4209,7 +4767,9 @@
     "key": "pietro",
     "ours": true,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-de-franceschi-1858",
+    "pidBasis": "fsid"
    },
    {
     "name": "Stefano De Franceschi",
@@ -4222,7 +4782,9 @@
     "key": "stefano",
     "ours": true,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "stefano-de-franceschi-1859",
+    "pidBasis": "fsid"
    },
    {
     "name": "Veneranda De Franceschi",
@@ -4235,7 +4797,9 @@
     "key": "veneranda",
     "ours": true,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "veneranda-de-franceschi-1862",
+    "pidBasis": "fsid"
    },
    {
     "name": "Venerio De Franceschi",
@@ -4248,13 +4812,17 @@
     "key": "venerio",
     "ours": true,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "venerio-de-franceschi-1865",
+    "pidBasis": "fsid"
    }
   ],
   "from": 1858,
   "to": 1865,
   "n": 4,
-  "id": "h055"
+  "id": "h055",
+  "motherPid": "mattea-delcarro-de-franceschi-vodnjan",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "michiela + andrea palin",
@@ -4285,9 +4853,15 @@
     "ours": true,
     "by": 1831,
     "dy": 1830,
-    "note": "Died 6 January 1831, house 24, with full sacraments."
+    "note": "Died 6 January 1831, house 24, with full sacraments.",
+    "pid": "domenica-palin-d1831",
+    "pidBasis": "name+place"
    }
-  ]
+  ],
+  "fatherPid": "andrea-palin-c1804",
+  "pidBasis_father": "exact+place",
+  "motherPid": "michiela-de-franceschi-1800",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "nicolai + caterina",
@@ -4317,7 +4891,9 @@
     "key": "georgium",
     "ours": true,
     "by": 1800,
-    "dy": null
+    "dy": null,
+    "pid": "georgium-mariam-marcum-franceschi-or-zardin-1800",
+    "pidBasis": "fsid"
    },
    {
     "name": "Franciscum Mariam Laurentium Franceschi",
@@ -4330,7 +4906,9 @@
     "key": "franciscum",
     "ours": true,
     "by": 1803,
-    "dy": null
+    "dy": null,
+    "pid": "franciscum-mariam-laurentium-franceschi-1803",
+    "pidBasis": "fsid"
    }
   ]
  },
@@ -4362,7 +4940,9 @@
     "key": "domenico",
     "ours": false,
     "by": 1810,
-    "dy": null
+    "dy": null,
+    "pid": "domco-johannes-miccoli-1810",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius Gregorius",
@@ -4375,7 +4955,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1818,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-gregorius-1818",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Francesco Saverio Miccoli",
@@ -4403,7 +4985,9 @@
     "by": 1824,
     "dy": null
    }
-  ]
+  ],
+  "fatherPid": "antonius-miccoli",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "michiela + pasquale",
@@ -4433,7 +5017,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1817,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-moscheni-1817",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Pasqua Cattarina Moscheni",
@@ -4446,7 +5032,9 @@
     "key": "pasqua",
     "ours": false,
     "by": 1819,
-    "dy": null
+    "dy": null,
+    "pid": "pasqua-cattarina-moscheni-1819",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Cattarina Moscheni",
@@ -4459,7 +5047,9 @@
     "key": "caterina",
     "ours": false,
     "by": 1822,
-    "dy": null
+    "dy": null,
+    "pid": "cattarina-moscheni-1822",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria Moscheni",
@@ -4472,7 +5062,9 @@
     "key": "maria",
     "ours": false,
     "by": 1824,
-    "dy": null
+    "dy": null,
+    "pid": "maria-moscheni-1824",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Pasquale Moscheni",
@@ -4485,9 +5077,13 @@
     "key": "pasquale",
     "ours": false,
     "by": 1831,
-    "dy": null
+    "dy": null,
+    "pid": "pasquale-moscheni-1831",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "pasquale-mosscheni",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "michiela + domenico",
@@ -4517,7 +5113,9 @@
     "key": "maria",
     "ours": false,
     "by": 1818,
-    "dy": null
+    "dy": null,
+    "pid": "maria-antonia-giachin-1818",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Stefano Domenico Giachin",
@@ -4530,9 +5128,13 @@
     "key": "stefano",
     "ours": false,
     "by": 1821,
-    "dy": null
+    "dy": null,
+    "pid": "stefano-domenico-giachin-1821",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "domenico-giachin",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "antonio + maria",
@@ -4562,7 +5164,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1823,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-dobrez-1823",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Zuanne Contossich",
@@ -4575,7 +5179,9 @@
     "key": "giovanni",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "zuanne-contossich",
+    "pidBasis": "minted for this household"
    }
   ]
  },
@@ -4607,7 +5213,9 @@
     "key": "nicolo",
     "ours": false,
     "by": 1830,
-    "dy": null
+    "dy": null,
+    "pid": "nicolo-provai-1830",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Johannes Batta Weber",
@@ -4620,7 +5228,9 @@
     "key": "giovanni",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "johannes-batta-weber",
+    "pidBasis": "minted for this household"
    }
   ]
  },
@@ -4652,7 +5262,9 @@
     "key": "benedictus",
     "ours": false,
     "by": 1833,
-    "dy": null
+    "dy": null,
+    "pid": "benedictus-defranceschi-1833",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius Crosilla",
@@ -4665,9 +5277,13 @@
     "key": "antonio",
     "ours": false,
     "by": 1845,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-crosilla-1845",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "motherPid": "joan-baptista-crosilla",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesco + caterina",
@@ -4697,7 +5313,9 @@
     "key": "ludovicus",
     "ours": false,
     "by": 1836,
-    "dy": null
+    "dy": null,
+    "pid": "ludovicus-defranceschi-1836",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Carolinam Iginiam Sapnuslam Juliam",
@@ -4710,7 +5328,9 @@
     "key": "carolinam",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "carolinam-iginiam-sapnuslam-juliam-vitipolis-modrus-fiume-m",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscam Juliam Georgiam",
@@ -4729,7 +5349,9 @@
   "nearDup": [
    "h069"
   ],
-  "dupNote": "**A Defranceschi married to a Bellinich at Fiume, thirteen years apart, and the wife has two forenames.** *Franciscus Defranceschi × **Catharina** Bellinich* in 1836; *Francisci Defranceschi **Regii** × **Carolinæ** Bellinich* in 1849. **Same surname pair, same town, same man's forename** — and *Regii* is an epithet rather than a name.\n\n*Two wives who were sisters, or one woman the index read twice: the archive cannot tell from these entries and does not guess.* **One oddity worth flagging:** two of h064's children are entered in the **genitive** — *«Carolinam Iginiam…», «Franciscam Juliam Georgiam»* — and carry no year, which is what an index does when it lifts a name from inside a sentence rather than from a name field."
+  "dupNote": "**A Defranceschi married to a Bellinich at Fiume, thirteen years apart, and the wife has two forenames.** *Franciscus Defranceschi × **Catharina** Bellinich* in 1836; *Francisci Defranceschi **Regii** × **Carolinæ** Bellinich* in 1849. **Same surname pair, same town, same man's forename** — and *Regii* is an epithet rather than a name.\n\n*Two wives who were sisters, or one woman the index read twice: the archive cannot tell from these entries and does not guess.* **One oddity worth flagging:** two of h064's children are entered in the **genitive** — *«Carolinam Iginiam…», «Franciscam Juliam Georgiam»* — and carry no year, which is what an index does when it lifts a name from inside a sentence rather than from a name field.",
+  "motherPid": "catharina-bellinich-c1809",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "domenica + domenico",
@@ -4759,7 +5381,9 @@
     "key": "dominico",
     "ours": false,
     "by": 1841,
-    "dy": null
+    "dy": null,
+    "pid": "dominico-codacovich-1841",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Marcuš",
@@ -4772,7 +5396,9 @@
     "key": "marcus",
     "ours": false,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "marcus-codacovich-1849",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscuš",
@@ -4798,7 +5424,9 @@
     "key": "maurus",
     "ours": false,
     "by": 1852,
-    "dy": null
+    "dy": null,
+    "pid": "maurus-codacovich-1852",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius",
@@ -4811,9 +5439,13 @@
     "key": "antonio",
     "ours": false,
     "by": 1855,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-codacovich-1855",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "domenico-codacovich",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "maria + nicolaus",
@@ -4843,7 +5475,9 @@
     "key": "gregorius",
     "ours": false,
     "by": 1841,
-    "dy": null
+    "dy": null,
+    "pid": "gregorius-cernobori-1841",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Michaelis Cernobori",
@@ -4856,7 +5490,9 @@
     "key": "michaelis",
     "ours": false,
     "by": 1845,
-    "dy": null
+    "dy": null,
+    "pid": "michaelis-cernobori-1845",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius Cernobori",
@@ -4869,9 +5505,13 @@
     "key": "antonio",
     "ours": false,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-cernobori-1853",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "nicolaus-cernobori",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "antonio + maria #2",
@@ -4901,7 +5541,9 @@
     "key": "caterina",
     "ours": true,
     "by": 1844,
-    "dy": 1855
+    "dy": 1855,
+    "pid": "cattarina-defranceschi-1844",
+    "pidBasis": "fsid"
    },
    {
     "name": "Antonius Defranceschi",
@@ -4914,10 +5556,14 @@
     "key": "antonio",
     "ours": true,
     "by": 1848,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-defranceschi-1848",
+    "pidBasis": "fsid"
    }
   ],
-  "keyWas": "antonio + maria"
+  "keyWas": "antonio + maria",
+  "motherPid": "maria-schifich",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "matteo + domenica",
@@ -4947,7 +5593,9 @@
     "key": "francesco",
     "ours": true,
     "by": 1846,
-    "dy": null
+    "dy": null,
+    "pid": "francesco-domenico-defranceschi-1846",
+    "pidBasis": "fsid"
    },
    {
     "name": "Paolo Defranceschi",
@@ -4962,7 +5610,9 @@
     "by": 1846,
     "dy": null
    }
-  ]
+  ],
+  "motherPid": "domenica-frezza",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesco + carolina",
@@ -5005,7 +5655,9 @@
     "key": "annam",
     "ours": false,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "annam-defranceschi-1849",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Carolum",
@@ -5018,7 +5670,9 @@
     "key": "carolum",
     "ours": false,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "carolum-defranceschi-1849",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscus Andreas",
@@ -5037,7 +5691,9 @@
   "nearDup": [
    "h064"
   ],
-  "dupNote": "**A Defranceschi married to a Bellinich at Fiume, thirteen years apart, and the wife has two forenames.** *Franciscus Defranceschi × **Catharina** Bellinich* in 1836; *Francisci Defranceschi **Regii** × **Carolinæ** Bellinich* in 1849. **Same surname pair, same town, same man's forename** — and *Regii* is an epithet rather than a name.\n\n*Two wives who were sisters, or one woman the index read twice: the archive cannot tell from these entries and does not guess.* **One oddity worth flagging:** two of h064's children are entered in the **genitive** — *«Carolinam Iginiam…», «Franciscam Juliam Georgiam»* — and carry no year, which is what an index does when it lifts a name from inside a sentence rather than from a name field."
+  "dupNote": "**A Defranceschi married to a Bellinich at Fiume, thirteen years apart, and the wife has two forenames.** *Franciscus Defranceschi × **Catharina** Bellinich* in 1836; *Francisci Defranceschi **Regii** × **Carolinæ** Bellinich* in 1849. **Same surname pair, same town, same man's forename** — and *Regii* is an epithet rather than a name.\n\n*Two wives who were sisters, or one woman the index read twice: the archive cannot tell from these entries and does not guess.* **One oddity worth flagging:** two of h064's children are entered in the **genitive** — *«Carolinam Iginiam…», «Franciscam Juliam Georgiam»* — and carry no year, which is what an index does when it lifts a name from inside a sentence rather than from a name field.",
+  "motherPid": "carolin-bellinich-c1822",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "veneranda + antonio",
@@ -5067,7 +5723,9 @@
     "key": "giovanni",
     "ours": false,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "johannis-maria-demarin-1849",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Johannes Maria",
@@ -5080,7 +5738,9 @@
     "key": "giovanni",
     "ours": false,
     "by": 1851,
-    "dy": null
+    "dy": null,
+    "pid": "johannes-maria-1851",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Petrus",
@@ -5093,9 +5753,13 @@
     "key": "pietro",
     "ours": false,
     "by": 1855,
-    "dy": null
+    "dy": null,
+    "pid": "petrus-demarin-1855",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "antonius-demarin",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "pasqua + angelus",
@@ -5125,7 +5789,9 @@
     "key": "paschalis",
     "ours": false,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "paschalis-ferrarese-1849",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Paschalis",
@@ -5138,7 +5804,9 @@
     "key": "paschalis",
     "ours": false,
     "by": 1851,
-    "dy": null
+    "dy": null,
+    "pid": "paschalis-ferrarese-1851",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius",
@@ -5151,7 +5819,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1854,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-ferrarese-1854",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Damiana",
@@ -5164,7 +5834,9 @@
     "key": "damiana",
     "ours": false,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "damiana-ferrarese-1857",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Domenicus",
@@ -5177,7 +5849,9 @@
     "key": "domenicus",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "domenicus-ferrarese-1859",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Dominicus",
@@ -5190,7 +5864,9 @@
     "key": "domenico",
     "ours": false,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "dominicus-ferrarese-1861",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Angelus",
@@ -5203,10 +5879,14 @@
     "key": "angelus",
     "ours": false,
     "by": 1864,
-    "dy": null
+    "dy": null,
+    "pid": "angelus-ferrarese-1864",
+    "pidBasis": "minted for this household"
    }
   ],
-  "parentsSwapped": "Corrected 12 Oct 2026: the wife stood in the father's slot."
+  "parentsSwapped": "Corrected 12 Oct 2026: the wife stood in the father's slot.",
+  "fatherPid": "angelus-ferrarese",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "domenica + andrea",
@@ -5236,7 +5916,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1851,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-delton-1851",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria Antonia",
@@ -5249,9 +5931,13 @@
     "key": "maria",
     "ours": false,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "maria-antonia-1853",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "andrea-delton",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "maria + giuseppe",
@@ -5281,7 +5967,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1852,
-    "dy": null
+    "dy": null,
+    "pid": "joseph-dobrez-1852",
+    "pidBasis": "name+year"
    },
    {
     "name": "Catharina",
@@ -5294,7 +5982,9 @@
     "key": "caterina",
     "ours": false,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "catharina-dobrez-1853",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius Dobrez",
@@ -5307,7 +5997,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1855,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-dobrez-1855",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscus Paulus Maria Dobrez",
@@ -5333,9 +6025,13 @@
     "key": "egidia",
     "ours": false,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "egidia-maria-dobrez-1867",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "joseph-dobrez",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "domenico + mattea",
@@ -5365,7 +6061,9 @@
     "key": "venerius",
     "ours": false,
     "by": 1852,
-    "dy": null
+    "dy": null,
+    "pid": "venerius-defranceschi-1852",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Bona",
@@ -5378,9 +6076,13 @@
     "key": "bona",
     "ours": false,
     "by": 1855,
-    "dy": null
+    "dy": null,
+    "pid": "bona-defranceschi-1855",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "motherPid": "mathaea-del-carro",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "domenica + antonio",
@@ -5410,7 +6112,9 @@
     "key": "antonia",
     "ours": false,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "antonia-maria-zustovich-1853",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria Antonia Gioanna Zustovich",
@@ -5423,7 +6127,9 @@
     "key": "maria",
     "ours": false,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "maria-antonia-gioanna-zustovich-1857",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Camilus Josephus Joannes",
@@ -5436,7 +6142,9 @@
     "key": "camilus",
     "ours": false,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "camilus-josephus-joannes-1861",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscus Or Julius",
@@ -5462,9 +6170,13 @@
     "key": "maria",
     "ours": false,
     "by": 1866,
-    "dy": null
+    "dy": null,
+    "pid": "maria-anna-1866",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "antonio-zustovich",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "domenica + floro",
@@ -5494,7 +6206,9 @@
     "key": "laurentia",
     "ours": false,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "laurentia-biasiol-1853",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Dominicus",
@@ -5507,7 +6221,9 @@
     "key": "domenico",
     "ours": false,
     "by": 1854,
-    "dy": null
+    "dy": null,
+    "pid": "dominicus-biasiol-1854",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Mathaeus",
@@ -5520,7 +6236,9 @@
     "key": "matteo",
     "ours": false,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "mathaeus-biasiol-1858",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius",
@@ -5533,7 +6251,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-biasiol-1862",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Laurentia",
@@ -5546,9 +6266,13 @@
     "key": "laurentia",
     "ours": false,
     "by": 1864,
-    "dy": null
+    "dy": null,
+    "pid": "laurentia-biasiol-1864",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "flos-biasiol",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "lucia + paulus",
@@ -5578,7 +6302,9 @@
     "key": "maddalena",
     "ours": false,
     "by": 1853,
-    "dy": null
+    "dy": null,
+    "pid": "magdalena-damiani-1853",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria",
@@ -5591,9 +6317,13 @@
     "key": "maria",
     "ours": false,
     "by": 1855,
-    "dy": null
+    "dy": null,
+    "pid": "maria-damiani-1855",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "paulus-damiani",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "michiela + paschalis",
@@ -5623,7 +6353,9 @@
     "key": "pietro",
     "ours": false,
     "by": 1855,
-    "dy": null
+    "dy": null,
+    "pid": "petrus-zanghirella-1855",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Paschalis",
@@ -5636,13 +6368,17 @@
     "key": "paschalis",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "paschalis-zanghirella-1859",
+    "pidBasis": "minted for this household"
    }
   ],
   "nearDup": [
    "h080"
   ],
-  "dupNote": "**One household, almost certainly, under two readings of the wife's name.** **Paschalis Zanghirella** is the husband in both, and both record a son **Petrus** — 1855 in one, 1856 in the other. The wife is **Michaela** in one and **Theresia Dominica** in the other. *A compound name split by the index, or two records of one woman: either way the husband, the surname and a son called Petrus are the same.* **Not merged**, because the archive's rule is that identity is by record and it does not yet know which name she used."
+  "dupNote": "**One household, almost certainly, under two readings of the wife's name.** **Paschalis Zanghirella** is the husband in both, and both record a son **Petrus** — 1855 in one, 1856 in the other. The wife is **Michaela** in one and **Theresia Dominica** in the other. *A compound name split by the index, or two records of one woman: either way the husband, the surname and a son called Petrus are the same.* **Not merged**, because the archive's rule is that identity is by record and it does not yet know which name she used.",
+  "fatherPid": "paschalis-zanghirella",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "francesco + maria",
@@ -5672,7 +6408,9 @@
     "key": "elena",
     "ours": true,
     "by": 1856,
-    "dy": null
+    "dy": null,
+    "pid": "elena-anna-maria-franceschi-1856",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giovanni Girolamo Andrea Felice Franceschi",
@@ -5685,7 +6423,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-girolamo-andrea-felice-franceschi-1857",
+    "pidBasis": "fsid"
    },
    {
     "name": "Rados Niccoló Maria Franceschi",
@@ -5698,7 +6438,9 @@
     "key": "rados",
     "ours": true,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "rados-niccolo-maria-franceschi-1858",
+    "pidBasis": "fsid"
    },
    {
     "name": "Giuseppe Luigi Benedetto Maria Franceschi",
@@ -5711,7 +6453,9 @@
     "key": "giuseppe",
     "ours": true,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "giuseppe-luigi-benedetto-maria-franceschi-1861",
+    "pidBasis": "fsid"
    },
    {
     "name": "Antonio Emannele Maria Franceschi",
@@ -5724,7 +6468,9 @@
     "key": "antonio",
     "ours": true,
     "by": 1866,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-emannele-maria-franceschi-1866",
+    "pidBasis": "fsid"
    },
    {
     "name": "Carlo Paolo Michele Maria Franceschi",
@@ -5737,7 +6483,9 @@
     "key": "carlo",
     "ours": true,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "carlo-paolo-michele-maria-franceschi-1867",
+    "pidBasis": "fsid"
    },
    {
     "name": "Paolo Franceschi",
@@ -5750,11 +6498,15 @@
     "key": "paolo",
     "ours": true,
     "by": 1873,
-    "dy": 1883
+    "dy": 1883,
+    "pid": "paolo-franceschi-1873",
+    "pidBasis": "fsid"
    }
   ],
   "dupOf": "h036",
-  "dupNote": "Six of this household's seven children are the same named individuals as in h036, and the place names are the same town: Almissa is Omiš. One man, one wife, indexed twice under two spellings of her name — De Caralipco and De Caralipeo. The seventh child, Carlo Paolo Michele Maria, appears ONLY here."
+  "dupNote": "Six of this household's seven children are the same named individuals as in h036, and the place names are the same town: Almissa is Omiš. One man, one wife, indexed twice under two spellings of her name — De Caralipco and De Caralipeo. The seventh child, Carlo Paolo Michele Maria, appears ONLY here.",
+  "motherPid": "maria-de-caralipeo-c1829",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "theresia + paschalis",
@@ -5784,7 +6536,9 @@
     "key": "maria",
     "ours": false,
     "by": 1856,
-    "dy": null
+    "dy": null,
+    "pid": "maria-zanghirella-1856",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Petrus",
@@ -5797,14 +6551,18 @@
     "key": "pietro",
     "ours": false,
     "by": 1856,
-    "dy": null
+    "dy": null,
+    "pid": "petrus-zanghirella-1856",
+    "pidBasis": "minted for this household"
    }
   ],
   "nearDup": [
    "h078"
   ],
   "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot.",
-  "dupNote": "**One household, almost certainly, under two readings of the wife's name.** **Paschalis Zanghirella** is the husband in both, and both record a son **Petrus** — 1855 in one, 1856 in the other. The wife is **Michaela** in one and **Theresia Dominica** in the other. *A compound name split by the index, or two records of one woman: either way the husband, the surname and a son called Petrus are the same.* **Not merged**, because the archive's rule is that identity is by record and it does not yet know which name she used."
+  "dupNote": "**One household, almost certainly, under two readings of the wife's name.** **Paschalis Zanghirella** is the husband in both, and both record a son **Petrus** — 1855 in one, 1856 in the other. The wife is **Michaela** in one and **Theresia Dominica** in the other. *A compound name split by the index, or two records of one woman: either way the husband, the surname and a son called Petrus are the same.* **Not merged**, because the archive's rule is that identity is by record and it does not yet know which name she used.",
+  "fatherPid": "paschalis-zanghirella",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "anna + giovanni",
@@ -5834,7 +6592,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-gazzoni-1857",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Eduardus Voran",
@@ -5847,7 +6607,9 @@
     "key": "eduardus",
     "ours": false,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "eduardus-voran-1865",
+    "pidBasis": "minted for this household"
    }
   ]
  },
@@ -5879,7 +6641,9 @@
     "key": "blasius",
     "ours": false,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "blasius-gorlato-1857",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Dominicus",
@@ -5892,7 +6656,9 @@
     "key": "domenico",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "dominicus-gorlato-1859",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscus",
@@ -5918,7 +6684,9 @@
     "key": "veneranda",
     "ours": false,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "veneranda-gorlato-1862",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Dominicus",
@@ -5931,9 +6699,13 @@
     "key": "domenico",
     "ours": false,
     "by": 1864,
-    "dy": null
+    "dy": null,
+    "pid": "dominicus-gorlato-1864",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "laurentius-gorlato",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "maddalena + antonio",
@@ -5963,7 +6735,9 @@
     "key": "caterina",
     "ours": false,
     "by": 1857,
-    "dy": null
+    "dy": null,
+    "pid": "cattarina-nascovich-1857",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius",
@@ -5976,13 +6750,17 @@
     "key": "antonio",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-nascovich-1859",
+    "pidBasis": "minted for this household"
    }
   ],
   "nearDup": [
    "h090"
   ],
-  "dupNote": "One couple under two spellings. **Antonio Nascovich / Antonius Nasković** and **Maddalena / Magdalena Defranceschi** — Cattarina 1857 and Antonius 1859 in the Italian entries, Joannes 1869 and Josephus 1873 in the Latin ones. **Four children across sixteen years, split in two by the language the clerk was writing in.**"
+  "dupNote": "One couple under two spellings. **Antonio Nascovich / Antonius Nasković** and **Maddalena / Magdalena Defranceschi** — Cattarina 1857 and Antonius 1859 in the Italian entries, Joannes 1869 and Josephus 1873 in the Latin ones. **Four children across sixteen years, split in two by the language the clerk was writing in.**",
+  "fatherPid": "antonio-nascovich",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "veneranda + antonio #2",
@@ -6012,7 +6790,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-subiotto-1858",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Johannes-Antonius",
@@ -6025,7 +6805,9 @@
     "key": "giovanni",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "johannes-antonius-subiotto-1859",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius",
@@ -6038,7 +6820,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-subiotto-1862",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Petrus",
@@ -6051,7 +6835,9 @@
     "key": "pietro",
     "ours": false,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "petrus-subiotto-1865",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Elisabeth",
@@ -6064,7 +6850,9 @@
     "key": "elisabeth",
     "ours": false,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "elisabeth-subiotto-1867",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Cristina",
@@ -6077,7 +6865,9 @@
     "key": "cristina",
     "ours": false,
     "by": 1869,
-    "dy": null
+    "dy": null,
+    "pid": "cristina-subiotto-1869",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Beniamin",
@@ -6090,7 +6880,9 @@
     "key": "beniamin",
     "ours": false,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "beniamin-subiotto-1873",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria-Aquilina",
@@ -6103,10 +6895,14 @@
     "key": "maria",
     "ours": false,
     "by": 1874,
-    "dy": null
+    "dy": null,
+    "pid": "maria-aquilina-subiotto-1874",
+    "pidBasis": "minted for this household"
    }
   ],
-  "keyWas": "veneranda + antonio"
+  "keyWas": "veneranda + antonio",
+  "fatherPid": "antonius-subiotto",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "giovanni + giovanna",
@@ -6136,7 +6932,9 @@
     "key": "johan",
     "ours": false,
     "by": 1858,
-    "dy": null
+    "dy": null,
+    "pid": "johan-antonius-defranceschi-1858",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria",
@@ -6149,7 +6947,9 @@
     "key": "maria",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-1859",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Rosa",
@@ -6162,7 +6962,9 @@
     "key": "rosa",
     "ours": false,
     "by": 1861,
-    "dy": null
+    "dy": null,
+    "pid": "rosa-defranceschi-1861",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Euphemia",
@@ -6175,7 +6977,9 @@
     "key": "euphemia",
     "ours": false,
     "by": 1863,
-    "dy": null
+    "dy": null,
+    "pid": "euphemia-defranceschi-1863",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Anna",
@@ -6188,7 +6992,9 @@
     "key": "anna",
     "ours": false,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "anna-defranceschi-1865",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Victorius-Joseph",
@@ -6201,9 +7007,13 @@
     "key": "vittorio",
     "ours": false,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "victorius-joseph-defranceschi-1867",
+    "pidBasis": "name+year via father's surname"
    }
-  ]
+  ],
+  "motherPid": "johanna-cleva",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "francesco + maria #2",
@@ -6233,7 +7043,9 @@
     "key": "aloisia",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "aloisia-defranceschi-1859",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus",
@@ -6246,10 +7058,14 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-defranceschi-1862",
+    "pidBasis": "name+year via father's surname"
    }
   ],
-  "keyWas": "francesco + maria"
+  "keyWas": "francesco + maria",
+  "motherPid": "maria-radoikovic",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "andriana + guglielmo",
@@ -6279,7 +7095,9 @@
     "key": "rodolfo",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "rodolfo-carlo-bernardo-matteo-vito-lazzer-1859",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Guglielmina Carolina Francesca Lazzer",
@@ -6305,7 +7123,9 @@
     "key": "arturo",
     "ours": false,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "arturo-bartolomeo-lazzer-1865",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Maria Lazzer",
@@ -6318,7 +7138,9 @@
     "key": "maria",
     "ours": false,
     "by": 1867,
-    "dy": null
+    "dy": null,
+    "pid": "maria-lazzer-1867",
+    "pidBasis": "minted for this household"
    }
   ],
   "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot.",
@@ -6326,7 +7148,9 @@
   "nearDup": [
    "h088"
   ],
-  "dupNote": "One household, indexed twice in two languages. **Andrina Defranceschi and Guglielmo Lazzer**: *Rodolfo Carlo Bernardo Matteo Vito Lazzer, 1859* and *Rudolphus Carolus Bernardus Matthæus Vitus, 1859* **are the same boy**. Between them the two records give five distinct children, not six."
+  "dupNote": "One household, indexed twice in two languages. **Andrina Defranceschi and Guglielmo Lazzer**: *Rodolfo Carlo Bernardo Matteo Vito Lazzer, 1859* and *Rudolphus Carolus Bernardus Matthæus Vitus, 1859* **are the same boy**. Between them the two records give five distinct children, not six.",
+  "fatherPid": "guglielmo-lazzer",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "andriana + guglielmo #2",
@@ -6356,7 +7180,9 @@
     "key": "rudolphus",
     "ours": false,
     "by": 1859,
-    "dy": null
+    "dy": null,
+    "pid": "rudolphus-carolus-bernardus-matth-us-vitus-1859",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Carolina Christina Pasqualina Matthæa",
@@ -6369,7 +7195,9 @@
     "key": "carolina",
     "ours": false,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "carolina-christina-pasqualina-matth-a-1862",
+    "pidBasis": "minted for this household"
    }
   ],
   "nearDup": [
@@ -6377,7 +7205,9 @@
   ],
   "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot.",
   "dupNote": "One household, indexed twice in two languages. **Andrina Defranceschi and Guglielmo Lazzer**: *Rodolfo Carlo Bernardo Matteo Vito Lazzer, 1859* and *Rudolphus Carolus Bernardus Matthæus Vitus, 1859* **are the same boy**. Between them the two records give five distinct children, not six.",
-  "keyWas": "andriana + guglielmo"
+  "keyWas": "andriana + guglielmo",
+  "fatherPid": "gulielmus-lazzer",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "marietta + matteo",
@@ -6407,7 +7237,9 @@
     "key": "caterina",
     "ours": false,
     "by": 1863,
-    "dy": null
+    "dy": null,
+    "pid": "cattarina-teresa-vittoria-maria-1863",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Giustino Antonio Alberto Lucciano Peršić",
@@ -6420,9 +7252,13 @@
     "key": "giustino",
     "ours": false,
     "by": 1871,
-    "dy": null
+    "dy": null,
+    "pid": "giustino-antonio-alberto-lucciano-persic-1871",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "matteo-persich",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "maddalena + antonio #2",
@@ -6452,7 +7288,9 @@
     "key": "giovanni",
     "ours": false,
     "by": 1869,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-naskovic-1869",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus",
@@ -6465,14 +7303,18 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-naskovic-1873",
+    "pidBasis": "minted for this household"
    }
   ],
   "nearDup": [
    "h083"
   ],
   "dupNote": "One couple under two spellings. **Antonio Nascovich / Antonius Nasković** and **Maddalena / Magdalena Defranceschi** — Cattarina 1857 and Antonius 1859 in the Italian entries, Joannes 1869 and Josephus 1873 in the Latin ones. **Four children across sixteen years, split in two by the language the clerk was writing in.**",
-  "keyWas": "maddalena + antonio"
+  "keyWas": "maddalena + antonio",
+  "fatherPid": "antonius-naskovic",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "lucia + matteo",
@@ -6502,7 +7344,9 @@
     "key": "antonio",
     "ours": false,
     "by": 1870,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-matheus-1870",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Matheus",
@@ -6515,7 +7359,9 @@
     "key": "matteo",
     "ours": false,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "matheus-lazaro-1873",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Jacobus",
@@ -6528,7 +7374,9 @@
     "key": "jacobus",
     "ours": false,
     "by": 1875,
-    "dy": null
+    "dy": null,
+    "pid": "jacobus-lazaro-1875",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Zorica Or Albina",
@@ -6541,7 +7389,9 @@
     "key": "zorica",
     "ours": false,
     "by": 1880,
-    "dy": null
+    "dy": null,
+    "pid": "zorica-or-albina-1880",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus",
@@ -6554,7 +7404,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1882,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-lazaro-1882",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Catharina",
@@ -6567,11 +7419,15 @@
     "key": "caterina",
     "ours": false,
     "by": 1884,
-    "dy": null
+    "dy": null,
+    "pid": "catharina-lazaro-1884",
+    "pidBasis": "minted for this household"
    }
   ],
   "nearDup": null,
-  "dupNote": "**Not a duplicate of h088, and the link between them is withdrawn.** *Matheus Lazaro × **Lucia** Defranceschi*, six children **1870–1884**, is a different couple from *Gulielmus Lazzer × **Andrina** Defranceschi*, two children 1859–1862. **Different husband, different wife, eleven years apart** — what they share is a surname the index spells **Lazzer** and **Lazaro**. *Two men of one in-law family married two women of this one, which is the ordinary thing in a small parish and the opposite of a duplicate.*"
+  "dupNote": "**Not a duplicate of h088, and the link between them is withdrawn.** *Matheus Lazaro × **Lucia** Defranceschi*, six children **1870–1884**, is a different couple from *Gulielmus Lazzer × **Andrina** Defranceschi*, two children 1859–1862. **Different husband, different wife, eleven years apart** — what they share is a surname the index spells **Lazzer** and **Lazaro**. *Two men of one in-law family married two women of this one, which is the ordinary thing in a small parish and the opposite of a duplicate.*",
+  "fatherPid": "matheus-lazaro",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "caterina + giuseppe",
@@ -6601,7 +7457,9 @@
     "key": "giovanni",
     "ours": false,
     "by": 1872,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-baptista-1872",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus",
@@ -6614,7 +7472,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1876,
-    "dy": null
+    "dy": null,
+    "pid": "josephus-jelcic-1876",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Anastasia",
@@ -6627,10 +7487,14 @@
     "key": "anastasia",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "anastasia-jelcic",
+    "pidBasis": "minted for this household"
    }
   ],
-  "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot."
+  "parentsSwapped": "Corrected 22 Sept 2026: the wife stood in the father's slot.",
+  "fatherPid": "josephus-jelcic",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "giuseppe + maria",
@@ -6660,7 +7524,9 @@
     "key": "matteo",
     "ours": false,
     "by": 1872,
-    "dy": null
+    "dy": null,
+    "pid": "math-us-ruman-1872",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Anastasia Ruman",
@@ -6673,7 +7539,9 @@
     "key": "anastasia",
     "ours": false,
     "by": 1880,
-    "dy": null
+    "dy": null,
+    "pid": "anastasia-ruman-1880",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Josephus Ruman",
@@ -6686,7 +7554,9 @@
     "key": "giuseppe",
     "ours": false,
     "by": 1882,
-    "dy": 1883
+    "dy": 1883,
+    "pid": "josephus-ruman-1882",
+    "pidBasis": "name+year"
    },
    {
     "name": "Mathæus Pérković",
@@ -6699,7 +7569,9 @@
     "key": "matteo",
     "ours": false,
     "by": 1886,
-    "dy": null
+    "dy": null,
+    "pid": "math-us-perkovic-1886",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Magdalena Perković",
@@ -6712,9 +7584,13 @@
     "key": "maddalena",
     "ours": false,
     "by": 1888,
-    "dy": null
+    "dy": null,
+    "pid": "magdalena-perkovic-1888",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "josephi-defranceschi-c1845",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "giovanni + maria",
@@ -6744,7 +7620,9 @@
     "key": "pietro",
     "ours": true,
     "by": 1872,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-bernardo-franceschi-1872",
+    "pidBasis": "fsid"
    },
    {
     "name": "Maria Felicita Elisabetta Franceschi",
@@ -6757,9 +7635,13 @@
     "key": "maria",
     "ours": true,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "maria-felicita-elisabetta-franceschi-1873",
+    "pidBasis": "fsid"
    }
-  ]
+  ],
+  "motherPid": "maria-sprich",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "lucia + giovanni",
@@ -6789,7 +7671,9 @@
     "key": "maria",
     "ours": false,
     "by": 1874,
-    "dy": null
+    "dy": null,
+    "pid": "maria-sandalj-1874",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Gregoria",
@@ -6802,9 +7686,13 @@
     "key": "gregoria",
     "ours": false,
     "by": 1876,
-    "dy": null
+    "dy": null,
+    "pid": "gregoria-sandalj-1876",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "joannes-sandalj",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "gregorio + maria",
@@ -6834,7 +7722,9 @@
     "key": "anastasia",
     "ours": false,
     "by": 1875,
-    "dy": null
+    "dy": null,
+    "pid": "anastasia-defranceschi-1875",
+    "pidBasis": "name+year via father's surname"
    },
    {
     "name": "Maria",
@@ -6847,9 +7737,13 @@
     "key": "maria",
     "ours": false,
     "by": 1875,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-1875",
+    "pidBasis": "name+year via father's surname"
    }
-  ]
+  ],
+  "motherPid": "mari-vojnic-c1848",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "maria + giuseppe #2",
@@ -6879,7 +7773,9 @@
     "key": "maria",
     "ours": false,
     "by": 1875,
-    "dy": null
+    "dy": null,
+    "pid": "maria-ruman-1875",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Magdalena",
@@ -6892,10 +7788,14 @@
     "key": "maddalena",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "magdalena-ruman",
+    "pidBasis": "minted for this household"
    }
   ],
-  "keyWas": "maria + giuseppe"
+  "keyWas": "maria + giuseppe",
+  "fatherPid": "josephus-ruman",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "luigia + giovanni",
@@ -6925,7 +7825,9 @@
     "key": "margherita",
     "ours": false,
     "by": 1883,
-    "dy": null
+    "dy": null,
+    "pid": "margarita-defranceschi-1883",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Michaël",
@@ -6938,9 +7840,13 @@
     "key": "michael",
     "ours": false,
     "by": 1885,
-    "dy": null
+    "dy": null,
+    "pid": "michael-defranceschi-1885",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "motherPid": "joannes-legovic",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "anna + thomas",
@@ -6970,7 +7876,9 @@
     "key": "maria",
     "ours": false,
     "by": 1883,
-    "dy": null
+    "dy": null,
+    "pid": "maria-concepta-dorina-cora-1883",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Silvia Maria Marcelis",
@@ -6983,9 +7891,13 @@
     "key": "silvia",
     "ours": false,
     "by": 1887,
-    "dy": null
+    "dy": null,
+    "pid": "silvia-maria-marcelis-1887",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "thomas-joachimus-celmes-de-domazetovich",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "elisabetta + filippo",
@@ -7015,7 +7927,9 @@
     "key": "maria",
     "ours": false,
     "by": 1884,
-    "dy": null
+    "dy": null,
+    "pid": "maria-concetta-anna-giuseppina-1884",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Ljudmila Maria Anna Antonia",
@@ -7028,9 +7942,13 @@
     "key": "ljudmila",
     "ours": false,
     "by": 1887,
-    "dy": null
+    "dy": null,
+    "pid": "ljudmila-maria-anna-antonia-1887",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "filippo-judovic",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "rodolfo + tommasina",
@@ -7060,7 +7978,9 @@
     "key": "caterina",
     "ours": false,
     "by": 1886,
-    "dy": null
+    "dy": null,
+    "pid": "caterina-costantina-anna-narcisa-1886",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonio Costantino Desiderio",
@@ -7073,9 +7993,13 @@
     "key": "antonio",
     "ours": false,
     "by": 1890,
-    "dy": null
+    "dy": null,
+    "pid": "antonio-costantino-desiderio-1890",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "motherPid": "tommasina-matas",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "margherita + pietro",
@@ -7105,7 +8029,9 @@
     "key": "josephina",
     "ours": false,
     "by": 1888,
-    "dy": null
+    "dy": null,
+    "pid": "josephina-maria-1888",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Joannes",
@@ -7118,10 +8044,14 @@
     "key": "giovanni",
     "ours": false,
     "by": 1892,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-sandri-1892",
+    "pidBasis": "minted for this household"
    }
   ],
-  "parentsSwapped": "Corrected 12 Oct 2026: the wife stood in the father's slot."
+  "parentsSwapped": "Corrected 12 Oct 2026: the wife stood in the father's slot.",
+  "fatherPid": "petrus-sandri",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "angelus + angela",
@@ -7151,7 +8081,9 @@
     "key": "carola",
     "ours": false,
     "by": 1896,
-    "dy": null
+    "dy": null,
+    "pid": "carola-defranceschi-1896",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Victorius",
@@ -7164,9 +8096,13 @@
     "key": "vittorio",
     "ours": false,
     "by": 1896,
-    "dy": null
+    "dy": null,
+    "pid": "victorius-defranceschi-1896",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "motherPid": "angela-comparich",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giovanni + maddalena",
@@ -7196,7 +8132,9 @@
     "key": "juliam",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "juliam-mariam-franciscam-de-franceschi-rijeka",
+    "pidBasis": "fsid"
    },
    {
     "name": "Pietro Pellegrini",
@@ -7209,7 +8147,9 @@
     "key": "pietro",
     "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "pietro-pellegrini",
+    "pidBasis": "minted for this household"
    }
   ]
  },
@@ -7237,7 +8177,9 @@
     "key": "",
     "ours": true,
     "by": 1911,
-    "dy": 1980
+    "dy": 1980,
+    "pid": "josip-petar-pepo-defranceski-1911",
+    "pidBasis": "name+year"
    },
    {
     "name": "Petar Vid “Pero” Defranceski",
@@ -7250,7 +8192,9 @@
     "key": "",
     "ours": true,
     "by": 1913,
-    "dy": null
+    "dy": null,
+    "pid": "petar-vid-pero-defranceski-1913",
+    "pidBasis": "name+year"
    },
    {
     "name": "Anka Nera Defranceski (Oreščanin)",
@@ -7263,7 +8207,9 @@
     "key": "",
     "ours": true,
     "by": 1915,
-    "dy": 1944
+    "dy": 1944,
+    "pid": "anka-nera-defranceski-orescanin-1915",
+    "pidBasis": "name+year"
    },
    {
     "name": "Zdravko “Frank” Defranceski",
@@ -7276,7 +8222,9 @@
     "key": "",
     "ours": true,
     "by": 1921,
-    "dy": 1979
+    "dy": 1979,
+    "pid": "zdravko-frank-defranceski-1921",
+    "pidBasis": "name+year"
    },
    {
     "name": "Ivan Defranceski",
@@ -7289,12 +8237,16 @@
     "key": "",
     "ours": true,
     "by": 1925,
-    "dy": 1995
+    "dy": 1995,
+    "pid": "ivan-defranceski-1925",
+    "pidBasis": "name+year"
    }
   ],
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
-  "confirmed": "**Five children, and the Pfullingen foreigners' list of 1939–45 names four of them in one town.** The household is on the Arolsen cards, on the Reutlingen and Neuhausen residence lists, and in David's tree, which agree with each other."
+  "confirmed": "**Five children, and the Pfullingen foreigners' list of 1939–45 names four of them in one town.** The household is on the Arolsen cards, on the Reutlingen and Neuhausen residence lists, and in David's tree, which agree with each other.",
+  "motherPid": "ursula-kovacina-defranceschi-1895",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "None #2",
@@ -7320,7 +8272,9 @@
     "key": "",
     "ours": true,
     "by": 1944,
-    "dy": 1999
+    "dy": 1999,
+    "pid": "antony-de-franceski-1944",
+    "pidBasis": "name+year"
    },
    {
     "name": "Petrica Defranceski (Baviello)",
@@ -7378,13 +8332,17 @@
     "key": "",
     "ours": true,
     "by": 1968,
-    "dy": 2015
+    "dy": 2015,
+    "pid": "lisa-t-defranceski-rose-1968",
+    "pidBasis": "name+year"
    }
   ],
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
   "confirmed": "Both children born at **Adelaide**, which is also where the National Archives keep his arrival card. **Lisa is in the tree as «Defraneski»**, one letter short of the surname — which is why no search of the family name ever returned her.",
-  "keyWas": null
+  "keyWas": null,
+  "motherPid": "marion-g-bain-adelaide",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "None #4",
@@ -7410,7 +8368,9 @@
     "key": "",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "antonia-baviello-jeffery-2",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Carla Baviello (Hendy)",
@@ -7423,13 +8383,17 @@
     "key": "",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "carla-baviello-hendy-2",
+    "pidBasis": "minted for this household"
    }
   ],
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
   "confirmed": "An Italian of **Villanova del Battista** married to a Croat's daughter in the same Wimmera town, a generation after the Croatian arrival. Both daughters are living and are named without dates.",
-  "keyWas": null
+  "keyWas": null,
+  "fatherPid": "michael-baviello-horsham",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "None #5",
@@ -7468,7 +8432,9 @@
     "key": "",
     "ours": true,
     "by": 1951,
-    "dy": 2026
+    "dy": 2026,
+    "pid": "ivan-defranceski-1951",
+    "pidBasis": "name+year"
    },
    {
     "name": "Robert “Robbie” Defranceski",
@@ -7482,13 +8448,19 @@
     "ours": true,
     "by": 1953,
     "dy": null,
-    "dead": true
+    "dead": true,
+    "pid": "robert-robbie-defranceski-1953",
+    "pidBasis": "name+year"
    }
   ],
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
   "confirmed": "**The household that split.** Ivan stayed on his own coast and is buried at Senj; Hedviga reached South Africa in April 1975, from Zimbabwe, after a remarriage about 1973. *Two men called Ivan Defranceski stand in this line, father and son* — the archive keeps people by name rather than by resolved individual, so both reach the same page.",
-  "keyWas": null
+  "keyWas": null,
+  "fatherPid": "ivan-defranceski-1925",
+  "pidBasis_father": "exact+place",
+  "motherPid": "hedviga-blazevic-defranceski-1926",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "None #6",
@@ -7527,13 +8499,19 @@
     "key": "",
     "ours": true,
     "by": 1937,
-    "dy": 1984
+    "dy": 1984,
+    "pid": "anton-braco-defranceski-1937",
+    "pidBasis": "name+year"
    }
   ],
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
   "confirmed": "The household that **never left Crikvenica** while three brothers and a sister did.",
-  "keyWas": null
+  "keyWas": null,
+  "fatherPid": "josip-petar-pepo-defranceski-1911",
+  "pidBasis_father": "exact+place",
+  "motherPid": "bozica-blaskovic-defranceski-1911",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "None #7",
@@ -7668,7 +8646,9 @@
   "src": "tree",
   "read": "Built from **David's own family tree**, read on 15 and 16 September 2026, and from the documents this archive already holds for the same people — the Arolsen displaced-persons file, the *General M B Stewart* manifest and the National Archives of Australia. **No parish register has been read for any of these households.** They are here because a family that is alive to be asked is a source, and because the archive was printing «no family is drawn for this name» under a man whose parents it had just named in prose.",
   "confirmed": "**Generation nine**, and the end of the drawn line. Every person in this household is living: named, placed, and never dated.",
-  "keyWas": null
+  "keyWas": null,
+  "fatherPid": "david-defranceski-johannesburg-brisbane",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "magdalena + joannes baptista",
@@ -7696,13 +8676,19 @@
     "by": 1748,
     "dy": null,
     "img": "005497925 · baptisms img 150, ark 3:1:3QS7-L99F-W4CK",
-    "note": "**In no index anywhere.** Almost certainly the **Giuseppe × Francesca** who heads the Rijeka chain — right forename, right town, and **twenty-four** at his first child's baptism in November 1772."
+    "note": "**In no index anywhere.** Almost certainly the **Giuseppe × Francesca** who heads the Rijeka chain — right forename, right town, and **twenty-four** at his first child's baptism in November 1772.",
+    "pid": "josephus-aloysius-de-franceschi-1748",
+    "pidBasis": "name+year"
    }
   ],
   "id": "h105",
   "src": "read",
   "confirmed": "One baptism, read on the page. The household is documented; its extent is not.",
-  "read": "**Found by reading, not by searching** — film 005497925, image 150, 20 September 2026, during a frame-by-frame sweep of the 1746–1750 gap. **This is the second Defranceschi household at Fiume**, beside Valentino the Carnian's, and this archive did not know it existed.\n\n**Only one child is known**, because only one page has been read. **Magdalena was dead by December 1771**, when Joannes Baptista remarries as a widower to **Catharina de Benzoni**; he has indexed children by her in 1773 and 1776. **No marriage of his stands in the Fiume register between 1736 and 1748**, all of which has been read — so he married elsewhere, and **Magdalena's maiden name is the open question**. See [the second household](/fiume-1626/#jbaptista)."
+  "read": "**Found by reading, not by searching** — film 005497925, image 150, 20 September 2026, during a frame-by-frame sweep of the 1746–1750 gap. **This is the second Defranceschi household at Fiume**, beside Valentino the Carnian's, and this archive did not know it existed.\n\n**Only one child is known**, because only one page has been read. **Magdalena was dead by December 1771**, when Joannes Baptista remarries as a widower to **Catharina de Benzoni**; he has indexed children by her in 1773 and 1776. **No marriage of his stands in the Fiume register between 1736 and 1748**, all of which has been read — so he married elsewhere, and **Magdalena's maiden name is the open question**. See [the second household](/fiume-1626/#jbaptista).",
+  "fatherPid": "joannes-baptista-de-franceschi-rijeka",
+  "pidBasis_father": "exact+place",
+  "motherPid": "magdalena-rijeka",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "antonio + mattea",
@@ -7758,7 +8744,9 @@
     "key": "domenica",
     "ours": true,
     "by": 1776,
-    "dy": null
+    "dy": null,
+    "pid": "domenica-de-franceschi-b-1776-1776",
+    "pidBasis": "name+year"
    },
    {
     "name": "Domenico de Franceschi",
@@ -7771,7 +8759,9 @@
     "key": "domenico",
     "ours": true,
     "by": 1777,
-    "dy": null
+    "dy": null,
+    "pid": "domenico-defranceschi-witness-1777-svetvincenat",
+    "pidBasis": "name+place"
    },
    {
     "name": "Maria de Franceschi",
@@ -7786,7 +8776,9 @@
     "by": null,
     "dy": null
    }
-  ]
+  ],
+  "motherPid": "mattea-svetvincenat",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giacomo + pascasia",
@@ -7816,7 +8808,9 @@
     "key": "casparus",
     "ours": true,
     "by": 1743,
-    "dy": null
+    "dy": null,
+    "pid": "casparus-de-franceschi-1743",
+    "pidBasis": "name+year"
    },
    {
     "name": "Martina Antonia de Franceschi",
@@ -7829,7 +8823,9 @@
     "key": "martina",
     "ours": true,
     "by": 1746,
-    "dy": null
+    "dy": null,
+    "pid": "martina-antonia-de-franceschi-1746",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonia de Franceschi",
@@ -7855,7 +8851,9 @@
     "key": "victoria",
     "ours": true,
     "by": 1750,
-    "dy": null
+    "dy": null,
+    "pid": "victoria-de-franceschi-1750",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giacomo Battista de Franceschi",
@@ -7881,7 +8879,9 @@
     "key": "giovanni",
     "ours": true,
     "by": 1756,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-de-franceschi-b-1756-1756",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonia de Franceschi",
@@ -7894,9 +8894,13 @@
     "key": "antonia",
     "ours": true,
     "by": 1759,
-    "dy": null
+    "dy": null,
+    "pid": "antonia-de-franceschi-b-1759-1759",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "motherPid": "pascasia-svetvincenat",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giacomo + anzola",
@@ -7926,7 +8930,9 @@
     "key": "gasparo",
     "ours": true,
     "by": 1737,
-    "dy": null
+    "dy": null,
+    "pid": "gasparo-de-franceschi-1737",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonio de Franceschi",
@@ -7944,7 +8950,9 @@
   ],
   "nearDup": [
    "h113"
-  ]
+  ],
+  "motherPid": "anzola-svetvincenat",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "giacomo + nicolina teserati",
@@ -7974,7 +8982,9 @@
     "key": "pasqua vittoria",
     "ours": true,
     "by": 1773,
-    "dy": null
+    "dy": null,
+    "pid": "pasqua-vittoria-de-franceschi-1773",
+    "pidBasis": "name+year"
    },
    {
     "name": "Giovanni de Franceschi",
@@ -7987,9 +8997,13 @@
     "key": "giovanni",
     "ours": true,
     "by": 1778,
-    "dy": null
+    "dy": null,
+    "pid": "giovanni-de-franceschi-b-1778-1778",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "motherPid": "nicolina-teserati-m-1772-c1750",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "vittorio + euphemia",
@@ -8019,9 +9033,13 @@
     "key": "maria matthia",
     "ours": true,
     "by": 1784,
-    "dy": null
+    "dy": null,
+    "pid": "maria-matthia-de-franceschi-1784",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "motherPid": "euphemia-svetvincenat",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "pietro + jacoba",
@@ -8051,7 +9069,9 @@
     "key": "anna",
     "ours": true,
     "by": 1738,
-    "dy": null
+    "dy": null,
+    "pid": "anna-euphemia-de-franceschi-1738",
+    "pidBasis": "name+year"
    },
    {
     "name": "Euphemia de Franceschi",
@@ -8064,7 +9084,9 @@
     "key": "euphemia",
     "ours": true,
     "by": 1739,
-    "dy": null
+    "dy": null,
+    "pid": "euphemia-de-franceschi-1739",
+    "pidBasis": "name+year"
    },
    {
     "name": "Valentino Defranceschi",
@@ -8090,7 +9112,9 @@
     "key": "victoria",
     "ours": true,
     "by": 1746,
-    "dy": null
+    "dy": null,
+    "pid": "victoria-de-franceschi-1746",
+    "pidBasis": "name+year"
    },
    {
     "name": "Euphemia de Franceschi",
@@ -8103,9 +9127,15 @@
     "key": "euphemia",
     "ours": true,
     "by": 1749,
-    "dy": null
+    "dy": null,
+    "pid": "euphemia-de-franceschi-1749",
+    "pidBasis": "name+year"
    }
-  ]
+  ],
+  "fatherPid": "pietro-de-franceschi-of-svetvincenat-fl-1738-c1710",
+  "pidBasis_father": "exact+place",
+  "motherPid": "jacoba-svetvincenat",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "matteo + francesca",
@@ -8135,7 +9165,9 @@
     "key": "helena",
     "ours": true,
     "by": 1742,
-    "dy": null
+    "dy": null,
+    "pid": "helena-de-franceschi-1742",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria de Franceschi",
@@ -8161,7 +9193,9 @@
     "key": "victoria",
     "ours": true,
     "by": 1749,
-    "dy": null
+    "dy": null,
+    "pid": "victoria-de-franceschi-1749",
+    "pidBasis": "name+year"
    },
    {
     "name": "Irena de Franceschi",
@@ -8174,7 +9208,9 @@
     "key": "irena",
     "ours": true,
     "by": 1752,
-    "dy": null
+    "dy": null,
+    "pid": "irena-de-franceschi-1752",
+    "pidBasis": "name+year"
    },
    {
     "name": "Fusca de Franceschi",
@@ -8187,7 +9223,9 @@
     "key": "fusca",
     "note": "No baptism found. Married Marc'Antonio Jacomini of Parenzo on 17 November 1773 as «Fusca filia q. Mathiæ de Franceschi»."
    }
-  ]
+  ],
+  "fatherPid": "matteo-defranceschi-of-svetvincenat-fl-1752-c1720",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "giacomo + francisca",
@@ -8255,7 +9293,9 @@
     "by": 1846,
     "dy": null
    }
-  ]
+  ],
+  "motherPid": "domenica-frezza-defranceschi-pore",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "vittorio + dominica",
@@ -8298,7 +9338,9 @@
     "key": "lucia",
     "ours": true,
     "by": 1748,
-    "dy": null
+    "dy": null,
+    "pid": "lucia-defranceschi-1748",
+    "pidBasis": "name+year"
    },
    {
     "name": "Dominico Defranceschi",
@@ -8311,7 +9353,9 @@
     "key": "dominico",
     "ours": true,
     "by": 1748,
-    "dy": null
+    "dy": null,
+    "pid": "dominico-defranceschi-1748",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria Defranceschi",
@@ -8326,7 +9370,9 @@
     "by": 1749,
     "dy": null
    }
-  ]
+  ],
+  "motherPid": "dominica-svetvincenat",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "joannes baptista + francisca salomon",
@@ -8356,7 +9402,9 @@
     "key": "raymundus",
     "ours": true,
     "by": 1823,
-    "dy": null
+    "dy": null,
+    "pid": "raymundus-de-franceschi-1823",
+    "pidBasis": "name+year"
    },
    {
     "name": "Antonius Defranceschi",
@@ -8370,7 +9418,9 @@
     "ours": true,
     "by": 1825,
     "dy": null,
-    "note": "Later of house 19, the *lapicida* — generation three of the direct line."
+    "note": "Later of house 19, the *lapicida* — generation three of the direct line.",
+    "pid": "antonius-defranceschi-1825",
+    "pidBasis": "name+year"
    },
    {
     "name": "Leopoldina Maria Defranceschi",
@@ -8383,7 +9433,9 @@
     "key": "leopoldina maria",
     "ours": true,
     "by": 1829,
-    "dy": null
+    "dy": null,
+    "pid": "leopoldina-maria-defranceschi-1829",
+    "pidBasis": "name+year"
    },
    {
     "name": "Regina Theresia Defranceschi",
@@ -8397,7 +9449,9 @@
     "ours": true,
     "by": 1836,
     "dy": null,
-    "note": "⚠ Year unresolved: the direct-line page transcribes **1830**, her roster row carries **1836**, and the photocopy will not separate them. The day and month agree."
+    "note": "⚠ Year unresolved: the direct-line page transcribes **1830**, her roster row carries **1836**, and the photocopy will not separate them. The day and month agree.",
+    "pid": "regina-theresia-defranceschi-gracisce",
+    "pidBasis": "name+place"
    },
    {
     "name": "Joannes Defranceschi",
@@ -8423,7 +9477,9 @@
     "key": "franciscus liberatus",
     "ours": true,
     "by": 1840,
-    "dy": null
+    "dy": null,
+    "pid": "franciscus-liberatus-defranceschi-1840",
+    "pidBasis": "name+year"
    }
   ]
  },
@@ -8443,7 +9499,9 @@
   "src": "read",
   "confirmed": "Read off the Gologorica Status Animarum 1826 — DAPA ZM34K-214, M01069328.",
   "read": "**The elder couple of the house the index calls «Defranceschi Leonardus N.ᵒ 10».** Leonardus born **30 January 1766**, died **14 April 1848** aged 82; Mathea born **20 February 1772**, died **8 April 1858** aged 85y 6m 15d. **No children are entered under them on this page** — the household beneath is [his nephew Antonius, whom he adopted](/gologorica-line/). ⭐ Mathea is the woman who [stood godmother four times in 1819](/gologorica-line/), the «Conditio Patrinorum» column reading «**Civis**» against her where it reads «Rust.» against the men beside her. ⚠ The house carries **two numbers** in one cell, 6 and 10, and [which was live is not settled](/worklist/).",
-  "children": []
+  "children": [],
+  "motherPid": "mathea-gologorica",
+  "pidBasis_mother": "minted for this household"
  },
  {
   "key": "antonius + francisca defranceschi",
@@ -8473,7 +9531,9 @@
     "key": "",
     "ours": true,
     "by": 1842,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-baptista-defranceschi-1842",
+    "pidBasis": "name+year"
    },
    {
     "name": "Teresia Defranceschi",
@@ -8486,7 +9546,9 @@
     "key": "",
     "ours": true,
     "by": 1843,
-    "dy": null
+    "dy": null,
+    "pid": "teresia-defranceschi-1843",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria Defranceschi",
@@ -8499,7 +9561,9 @@
     "key": "",
     "ours": true,
     "by": 1845,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-1845",
+    "pidBasis": "name+year"
    },
    {
     "name": "Leonardus Defranceschi",
@@ -8512,7 +9576,9 @@
     "key": "",
     "ours": true,
     "by": 1847,
-    "dy": null
+    "dy": null,
+    "pid": "leonardus-defranceschi-1847",
+    "pidBasis": "name+year"
    },
    {
     "name": "Rosa Defranceschi",
@@ -8538,7 +9604,9 @@
     "key": "",
     "ours": true,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "antonia-defranceschi-1849",
+    "pidBasis": "name+year"
    },
    {
     "name": "Franciscus Defranceschi",
@@ -8551,7 +9619,9 @@
     "key": "",
     "ours": true,
     "by": 1852,
-    "dy": null
+    "dy": null,
+    "pid": "franciscus-defranceschi-1819-2",
+    "pidBasis": "name+place"
    },
    {
     "name": "Antonius Defranceschi",
@@ -8566,7 +9636,9 @@
     "by": 1855,
     "dy": null
    }
-  ]
+  ],
+  "fatherPid": "antonius-defranceschi-1814",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "antonius sestan + joanna defranceschi",
@@ -8596,7 +9668,9 @@
     "key": "",
     "ours": false,
     "by": 1843,
-    "dy": null
+    "dy": null,
+    "pid": "maria-sestan-1843",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonia Sestan",
@@ -8610,7 +9684,9 @@
     "ours": false,
     "by": 1845,
     "dy": 1846,
-    "note": "Died aged 1y 0m 18d."
+    "note": "Died aged 1y 0m 18d.",
+    "pid": "antonia-sestan-1845",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Antonius Sestan",
@@ -8623,7 +9699,9 @@
     "key": "",
     "ours": false,
     "by": 1849,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-sestan-1849",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Joannes Sestan",
@@ -8636,7 +9714,9 @@
     "key": "",
     "ours": false,
     "by": 1852,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-sestan-1852",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Franciscus Sestan",
@@ -8663,9 +9743,13 @@
     "ours": false,
     "by": 1858,
     "dy": 1858,
-    "note": "Died aged two days."
+    "note": "Died aged two days.",
+    "pid": "josephus-sestan-1858",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "antonius-sestan-def-vincentii-et-mari-gologorica",
+  "pidBasis_father": "minted for this household"
  },
  {
   "key": "vincentius sestan + maria deprato",
@@ -8675,7 +9759,7 @@
   "mother": "Maria née Deprato",
   "place": "Gologorica, house 2",
   "region": "istria",
-  "line": "female",
+  "line": "beside",
   "from": 1805,
   "to": 1809,
   "n": 2,
@@ -8695,7 +9779,9 @@
     "key": "",
     "ours": false,
     "by": 1805,
-    "dy": 1825
+    "dy": 1825,
+    "pid": "vincentius-sestan-1805",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Joannes Sestan",
@@ -8708,9 +9794,16 @@
     "key": "",
     "ours": false,
     "by": 1809,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-sestan-1809",
+    "pidBasis": "minted for this household"
    }
-  ]
+  ],
+  "fatherPid": "vincentius-sestan-cives-gologorica",
+  "pidBasis_father": "minted for this household",
+  "motherPid": "maria-nee-deprato-gologorica",
+  "pidBasis_mother": "minted for this household",
+  "besideNote": "Vincentius Sestan and Maria née Deprato are the parents of Antonius Sestan, who married Joanna Defranceschi (h119). Neither of them bears the name. Kept because it explains h119; it was filed under «the daughters' households», which claims a Defranceschi mother."
  },
  {
   "key": "antonius + francisca",
@@ -8736,7 +9829,9 @@
     "key": "joannes baptista",
     "ours": true,
     "by": 1842,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-baptista-defranceschi-1842",
+    "pidBasis": "name+year"
    },
    {
     "name": "Theresia Defranceschi",
@@ -8749,7 +9844,9 @@
     "key": "theresia",
     "ours": true,
     "by": 1843,
-    "dy": null
+    "dy": null,
+    "pid": "theresia-defranceschi-1843",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria Defranceschi",
@@ -8762,7 +9859,9 @@
     "key": "maria",
     "ours": true,
     "by": 1845,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-1845",
+    "pidBasis": "name+year"
    },
    {
     "name": "Leonardus Defranceschi",
@@ -8775,7 +9874,9 @@
     "key": "leonardus",
     "ours": true,
     "by": 1847,
-    "dy": null
+    "dy": null,
+    "pid": "leonardus-defranceschi-1847",
+    "pidBasis": "name+year"
    },
    {
     "name": "Rosa Defranceschi",
@@ -8801,7 +9902,9 @@
     "key": "franciscus",
     "ours": true,
     "by": 1854,
-    "dy": null
+    "dy": null,
+    "pid": "franciscus-defranceschi-1819-2",
+    "pidBasis": "name+place"
    },
    {
     "name": "Antonius Defranceschi",
@@ -8819,7 +9922,11 @@
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "The 1862 *Status Animarum* lists all seven under one heading, with the parents' own dates and the Adnotatio «Ex Italia (Carnia)»; the 1862 recap at M01069550 repeats the sibling set."
+  "confirmed": "The 1862 *Status Animarum* lists all seven under one heading, with the parents' own dates and the Adnotatio «Ex Italia (Carnia)»; the 1862 recap at M01069550 repeats the sibling set.",
+  "fatherPid": "antonius-defranceschi-1814",
+  "pidBasis_father": "exact+place",
+  "motherPid": "francisca-defranceschi-1819",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "franciscus xaverius + clotilda",
@@ -8845,7 +9952,9 @@
     "key": "anna maria francisca",
     "ours": true,
     "by": 1860,
-    "dy": null
+    "dy": null,
+    "pid": "anna-maria-francisca-defranceschi-1860",
+    "pidBasis": "name+year"
    },
    {
     "name": "Victor Josephus Defranceschi",
@@ -8858,7 +9967,9 @@
     "key": "victor josephus",
     "ours": true,
     "by": 1862,
-    "dy": null
+    "dy": null,
+    "pid": "victor-josephus-defranceschi-1862",
+    "pidBasis": "name+year"
    },
    {
     "name": "Amalia Lambertina Defranceschi",
@@ -8871,7 +9982,9 @@
     "key": "amalia lambertina",
     "ours": true,
     "by": 1863,
-    "dy": null
+    "dy": null,
+    "pid": "amalia-lambertina-defranceschi-1863",
+    "pidBasis": "name+year"
    },
    {
     "name": "Beatrix Hermenegildis Defranceschi",
@@ -8884,7 +9997,9 @@
     "key": "beatrix hermenegildis",
     "ours": true,
     "by": 1865,
-    "dy": null
+    "dy": null,
+    "pid": "beatrix-hermenegildis-de-franceschi-1865",
+    "pidBasis": "name+year"
    },
    {
     "name": "Eleonora Clotildis Maria Defranceschi",
@@ -8897,7 +10012,9 @@
     "key": "eleonora clotildis maria",
     "ours": true,
     "by": 1866,
-    "dy": null
+    "dy": null,
+    "pid": "eleonora-clotildis-maria-defranceschi-1866",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria Henrica Defranceschi",
@@ -8910,7 +10027,9 @@
     "key": "maria henrica",
     "ours": true,
     "by": 1868,
-    "dy": null
+    "dy": null,
+    "pid": "maria-henrica-defranceschi-1868",
+    "pidBasis": "name+year"
    },
    {
     "name": "Clotildis Adelaidis Defranceschi",
@@ -8923,7 +10042,9 @@
     "key": "clotildis adelaidis",
     "ours": true,
     "by": 1868,
-    "dy": null
+    "dy": null,
+    "pid": "clotildis-adelaidis-defranceschi-1868",
+    "pidBasis": "name+year"
    },
    {
     "name": "Robertus Franciscus Josephus Defranceschi",
@@ -8936,7 +10057,9 @@
     "key": "robertus",
     "ours": true,
     "by": 1869,
-    "dy": null
+    "dy": null,
+    "pid": "robertus-franciscus-josephus-defranceschi-1860",
+    "pidBasis": "name+year"
    },
    {
     "name": "Victor Richardus Defranceschi",
@@ -8949,7 +10072,9 @@
     "key": "victor richardus",
     "ours": true,
     "by": 1871,
-    "dy": null
+    "dy": null,
+    "pid": "victor-richardus-defranceschi-1871",
+    "pidBasis": "name+year"
    },
    {
     "name": "Sylvia Helena Defranceschi",
@@ -8962,7 +10087,9 @@
     "key": "sylvia helena",
     "ours": true,
     "by": 1872,
-    "dy": null
+    "dy": null,
+    "pid": "sylvia-helena-defranceschi-1872",
+    "pidBasis": "name+year"
    },
    {
     "name": "Franciscus Carolus Natalis Defranceschi",
@@ -8975,7 +10102,9 @@
     "key": "franciscus carolus natalis",
     "ours": true,
     "by": 1874,
-    "dy": null
+    "dy": null,
+    "pid": "franciscus-carolus-natalis-defranceschi-1874",
+    "pidBasis": "name+year"
    },
    {
     "name": "Lambertina Lina Defranceschi",
@@ -8988,12 +10117,18 @@
     "key": "lambertina lina",
     "ours": true,
     "by": 1876,
-    "dy": null
+    "dy": null,
+    "pid": "lambertina-lina-defranceschi-1875",
+    "pidBasis": "name+year"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "House 4 of the 1862 *Status Animarum* gives the couple, their marriage of 10 October 1859 and twelve surviving children with a day apiece; Maria Henrica and Clotildis Adelaidis are braced «gemini»."
+  "confirmed": "House 4 of the 1862 *Status Animarum* gives the couple, their marriage of 10 October 1859 and twelve surviving children with a day apiece; Maria Henrica and Clotildis Adelaidis are braced «gemini».",
+  "fatherPid": "franciscus-xaverius-joseph-defranceschi-1816",
+  "pidBasis_father": "exact+place",
+  "motherPid": "clotilda-defranceschi-ortis-1834",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "aloysius + joanna",
@@ -9019,7 +10154,9 @@
     "key": "armella",
     "ours": true,
     "by": 1871,
-    "dy": null
+    "dy": null,
+    "pid": "armella-defranceschi-1871",
+    "pidBasis": "name+year"
    },
    {
     "name": "Gisella Elvira Defranceschi",
@@ -9032,7 +10169,9 @@
     "key": "gisella elvira",
     "ours": true,
     "by": 1873,
-    "dy": null
+    "dy": null,
+    "pid": "gisella-elvira-defranceschi-1873",
+    "pidBasis": "name+year"
    },
    {
     "name": "Ersilia Maria Defranceschi",
@@ -9045,7 +10184,9 @@
     "key": "ersilia maria",
     "ours": true,
     "by": 1878,
-    "dy": null
+    "dy": null,
+    "pid": "ersilia-maria-defranceschi-1878",
+    "pidBasis": "name+year"
    },
    {
     "name": "Aloysius Arturius Defranceschi",
@@ -9058,12 +10199,16 @@
     "key": "aloysius arturius",
     "ours": true,
     "by": 1883,
-    "dy": null
+    "dy": null,
+    "pid": "aloysius-arturius-defranceschi-1883",
+    "pidBasis": "name+year"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "House 87 of the 1921 census and M01069542 of the 1862 book, which gives their marriage of 25 November 1870 — the date this archive had been carrying as his death."
+  "confirmed": "House 87 of the 1921 census and M01069542 of the 1862 book, which gives their marriage of 25 November 1870 — the date this archive had been carrying as his death.",
+  "motherPid": "joanna-udovicic-defranceschi-1845",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "leonardus + maria flegar",
@@ -9089,7 +10234,9 @@
     "key": "carola",
     "ours": true,
     "by": 1875,
-    "dy": null
+    "dy": null,
+    "pid": "carola-defranceschi-1875",
+    "pidBasis": "name+year"
    },
    {
     "name": "Joannes Aloysius Defranceschi",
@@ -9102,7 +10249,9 @@
     "key": "joannes aloysius",
     "ours": true,
     "by": 1876,
-    "dy": null
+    "dy": null,
+    "pid": "joannes-aloysius-defranceschi-1876",
+    "pidBasis": "name+year"
    },
    {
     "name": "Theresia Defranceschi",
@@ -9115,12 +10264,16 @@
     "key": "theresia",
     "ours": true,
     "by": 1879,
-    "dy": null
+    "dy": null,
+    "pid": "theresia-defranceschi-1879",
+    "pidBasis": "name+year"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "His FIRST marriage. The 1894 census sorts his children explicitly «ex I thalamo»; his wife died 28 September 1882."
+  "confirmed": "His FIRST marriage. The 1894 census sorts his children explicitly «ex I thalamo»; his wife died 28 September 1882.",
+  "fatherPid": "leonardus-defranceschi-1847",
+  "pidBasis_father": "exact+place"
  },
  {
   "key": "leonardus + maria udovicic",
@@ -9146,7 +10299,9 @@
     "key": "antonius leopoldus",
     "ours": true,
     "by": 1884,
-    "dy": null
+    "dy": null,
+    "pid": "antonius-leopoldus-defranceschi-1884",
+    "pidBasis": "name+year"
    },
    {
     "name": "Rosa Defranceschi",
@@ -9159,7 +10314,9 @@
     "key": "rosa",
     "ours": true,
     "by": 1886,
-    "dy": null
+    "dy": null,
+    "pid": "rosa-defranceschi-1886",
+    "pidBasis": "name+year"
    },
    {
     "name": "Petrus Defranceschi",
@@ -9172,7 +10329,9 @@
     "key": "petrus",
     "ours": true,
     "by": 1889,
-    "dy": null
+    "dy": null,
+    "pid": "petrus-defranceschi-1889",
+    "pidBasis": "name+year"
    },
    {
     "name": "Romanus Defranceschi",
@@ -9185,7 +10344,9 @@
     "key": "romanus",
     "ours": true,
     "by": 1892,
-    "dy": null
+    "dy": null,
+    "pid": "romanus-defranceschi-1892",
+    "pidBasis": "name+year"
    },
    {
     "name": "Victor Defranceschi",
@@ -9198,7 +10359,9 @@
     "key": "victor",
     "ours": true,
     "by": 1897,
-    "dy": null
+    "dy": null,
+    "pid": "victor-defranceschi-1897",
+    "pidBasis": "name+year"
    },
    {
     "name": "Aemilius Ernestus Defranceschi",
@@ -9211,12 +10374,18 @@
     "key": "aemilius ernestus",
     "ours": true,
     "by": 1901,
-    "dy": null
+    "dy": null,
+    "pid": "aemilius-ernestus-defranceschi-1901",
+    "pidBasis": "name+year"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "His SECOND marriage, 3 April 1883, six months after the first wife died. The 1862 book marks the eldest «ex II. votis» and the 1894 census lists five sons under «ex II thalamo»."
+  "confirmed": "His SECOND marriage, 3 April 1883, six months after the first wife died. The 1862 book marks the eldest «ex II. votis» and the 1894 census lists five sons under «ex II thalamo».",
+  "fatherPid": "leonardus-defranceschi-1847",
+  "pidBasis_father": "exact+place",
+  "motherPid": "maria-udovicic-defranceschi-1857",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "joannes baptista + ruza",
@@ -9242,7 +10411,9 @@
     "key": "ernestus victor",
     "ours": true,
     "by": 1879,
-    "dy": null
+    "dy": null,
+    "pid": "ernestus-victor-defranceschi-1879",
+    "pidBasis": "name+year"
    },
    {
     "name": "Maria Luigia Defranceschi",
@@ -9255,12 +10426,16 @@
     "key": "maria luigia",
     "ours": true,
     "by": 1880,
-    "dy": null
+    "dy": null,
+    "pid": "maria-luigia-defranceschi-1880",
+    "pidBasis": "name+year"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "Ruža's FIRST marriage, 1878. He died 9 September 1880 and Maria Luigia was born at Gračišće three days later — a posthumous child."
+  "confirmed": "Ruža's FIRST marriage, 1878. He died 9 September 1880 and Maria Luigia was born at Gračišće three days later — a posthumous child.",
+  "motherPid": "ruza-rosa-defranceschi-salamon-1854",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "franciscus + ruza",
@@ -9291,7 +10466,9 @@
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "Ruža's SECOND marriage, 5 February 1883, to the brother of her first husband. He died 9 April 1884. The 1862 recap lists her children by him under «ex II thalamo»."
+  "confirmed": "Ruža's SECOND marriage, 5 February 1883, to the brother of her first husband. He died 9 April 1884. The 1862 recap lists her children by him under «ex II thalamo».",
+  "motherPid": "ruza-rosa-defranceschi-salamon-1854",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "antonius + ruza",
@@ -9317,7 +10494,9 @@
     "key": "ferdinand roman",
     "ours": true,
     "by": 1887,
-    "dy": null
+    "dy": null,
+    "pid": "ferdinand-roman-defranceschi-1887",
+    "pidBasis": "name+year"
    },
    {
     "name": "Aloysius Joannes Defranceschi",
@@ -9343,7 +10522,9 @@
     "key": "estella ida",
     "ours": true,
     "by": 1893,
-    "dy": null
+    "dy": null,
+    "pid": "estella-ida-defranceschi-1893",
+    "pidBasis": "name+year"
    },
    {
     "name": "Hector Ruggierus Defranceschi",
@@ -9356,7 +10537,9 @@
     "key": "hector ruggierus",
     "ours": true,
     "by": 1896,
-    "dy": null
+    "dy": null,
+    "pid": "hector-ruggierus-defranceschi-1896",
+    "pidBasis": "name+year"
    },
    {
     "name": "Ida-Rosa Defranceschi",
@@ -9369,12 +10552,16 @@
     "key": "ida-rosa",
     "ours": true,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "ida-rosa-defranceschi-gologorica",
+    "pidBasis": "name+place"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "Ruža's THIRD marriage, 26 October 1887, to the third of three brothers. The register writes it out: «Defranceschi Antonius … Antonii, III vir Rosae n. Salamon»."
+  "confirmed": "Ruža's THIRD marriage, 26 October 1887, to the third of three brothers. The register writes it out: «Defranceschi Antonius … Antonii, III vir Rosae n. Salamon».",
+  "motherPid": "ruza-rosa-defranceschi-salamon-1854",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "aloysius arturius + albina",
@@ -9400,7 +10587,9 @@
     "key": "norina",
     "ours": true,
     "by": 1913,
-    "dy": null
+    "dy": null,
+    "pid": "norina-defranceschi-1913",
+    "pidBasis": "name+year"
    },
    {
     "name": "Elda Maria Defranceschi",
@@ -9426,12 +10615,18 @@
     "key": "maria",
     "ours": true,
     "by": 1920,
-    "dy": null
+    "dy": null,
+    "pid": "maria-defranceschi-d1826",
+    "pidBasis": "name+place"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "The 1894 census names the couple and their daughters, confirming the parentage this archive had reasoned out from «fil. Aloysii» in the 1921 book."
+  "confirmed": "The 1894 census names the couple and their daughters, confirming the parentage this archive had reasoned out from «fil. Aloysii» in the 1921 book.",
+  "fatherPid": "aloysius-arturius-defranceschi-1883",
+  "pidBasis_father": "exact+place",
+  "motherPid": "albina-defranceschi-lovrinovic-1893",
+  "pidBasis_mother": "exact+place"
  },
  {
   "key": "franciscus bubic + rosalia",
@@ -9441,7 +10636,7 @@
   "mother": "Rosalia n. Grah-Missan",
   "place": "Gologorica",
   "region": "istria",
-  "line": "male",
+  "line": "beside",
   "from": 1869,
   "to": 1890,
   "n": 4,
@@ -9455,7 +10650,7 @@
     "y": 1869,
     "id": "",
     "key": "franciscus",
-    "ours": true,
+    "ours": false,
     "by": 1869,
     "dy": null
    },
@@ -9468,9 +10663,11 @@
     "y": null,
     "id": "",
     "key": "matthaeus",
-    "ours": true,
+    "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "matthaeus-bubic-gologorica",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Jacobus Bubić",
@@ -9481,9 +10678,11 @@
     "y": null,
     "id": "",
     "key": "jacobus",
-    "ours": true,
+    "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "jacobus-bubic-gologorica",
+    "pidBasis": "minted for this household"
    },
    {
     "name": "Catharina Bubić",
@@ -9494,14 +10693,19 @@
     "y": null,
     "id": "",
     "key": "catharina",
-    "ours": true,
+    "ours": false,
     "by": null,
-    "dy": null
+    "dy": null,
+    "pid": "catharina-bubic-gologorica",
+    "pidBasis": "minted for this household"
    }
   ],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "Married 18 June 1869. She is the one Grah of the 1894 Repertorium, entered «e Cerovglie N.º 12» in 1862 and as a mother in the baptism register."
+  "confirmed": "Married 18 June 1869. She is the one Grah of the 1894 Repertorium, entered «e Cerovglie N.º 12» in 1862 and as a mother in the baptism register.",
+  "motherPid": "rosalia-n-grah-missan-gologorica",
+  "pidBasis_mother": "minted for this household",
+  "besideNote": "Franciscus Bubić and Rosalia Grah-Missan. Neither bears the name. Recorded by the Gologorica sweep of 11 October 2026 for the Grah wives of the 1862 census, not as a household of the name; it was filed under «the large households» as though it were one."
  },
  {
   "key": "joannes bubic + marianna",
@@ -9511,13 +10715,18 @@
   "mother": "Marianna n. Grah-Missan",
   "place": "Gologorica",
   "region": "istria",
-  "line": "male",
+  "line": "beside",
   "from": 1861,
   "to": 1870,
   "n": 0,
   "children": [],
   "src": "read",
   "read": "Built from **registers this archive has read end to end** — the Gologorica *Status Animarum* of 1862 and 1894 and the baptism register of 1784–1880, swept on 11 October 2026. Each couple, each child and each date below is on a page cited in [the search register](/searched/) and told on [the Gologorica line](/gologorica-line/). ⚠ **Gologorica had no household rows at all before this**, although it is this archive's core parish; these are the first.",
-  "confirmed": "Married 22 January 1861. She bore at least two children, entered in the baptism register as «Mariana Grah-Missan», and died 19 August 1870 aged 35 of dropsy."
+  "confirmed": "Married 22 January 1861. She bore at least two children, entered in the baptism register as «Mariana Grah-Missan», and died 19 August 1870 aged 35 of dropsy.",
+  "fatherPid": "joannes-bubic-gologorica",
+  "pidBasis_father": "minted for this household",
+  "motherPid": "marianna-n-grah-missan-gologorica",
+  "pidBasis_mother": "minted for this household",
+  "besideNote": "Joannes Bubić and Marianna Grah-Missan. Neither bears the name. Recorded by the Gologorica sweep of 11 October 2026 for the Grah wives of the 1862 census, not as a household of the name; it was filed with the households of the name."
  }
 ]

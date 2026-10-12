@@ -45,7 +45,14 @@ for (const g of dl.generations) {
   const one = new Set(cand.map(x => norm(x.father) + "|" + norm(x.mother))).size === 1;
   if (cand.length && one) for (const c of cand) onTree.set(c.key, g.n);
 }
-const male = hs.filter(h => h.line !== 'female');
+/* THREE LINES, NOT TWO. A household whose parents BOTH carry another surname is not a
+   household of the name and is not a daughters' household either: it sits BESIDE the name,
+   kept because it explains one that is. They were being counted as the name's, so a
+   Bubić household was listed among «the large households» and a Sestan one among
+   «households where a Defranceschi woman is the mother». Corrected 12 October 2026. */
+const named = hs.filter(h => h.line !== 'beside');
+const beside = hs.filter(h => h.line === 'beside');
+const male = named.filter(h => h.line === 'male');
 const female = hs.filter(h => h.line === 'female');
 const big = male.filter(h => h.n >= 4);
 const rest = male.filter(h => h.n === 3);
@@ -56,11 +63,11 @@ const rest = male.filter(h => h.n === 3);
    they get their own section rather than being folded in with the threes. */
 const pairs = male.filter(h => h.n <= 2);
 const byPlace = {};
-for (const h of hs) { const p = h.place || "not localised"; byPlace[p] = (byPlace[p]||0) + 1; }
-const infant = hs.reduce((s,h) => s + h.children.filter(c => {
+for (const h of named) { const p = h.place || "not localised"; byPlace[p] = (byPlace[p]||0) + 1; }
+const infant = named.reduce((s,h) => s + h.children.filter(c => {
   const b=+((c.birth||'').match(/1[5-9]\d\d/)?.[0]||0), d=+((c.death||'').match(/1[5-9]\d\d/)?.[0]||0);
   return b && d && (d-b) <= 5; }).length, 0);
-const kids = hs.reduce((s,h)=>s+h.n,0);
+const kids = named.reduce((s,h)=>s+h.n,0);
 
 /* The card carries what the diagram carried: the couple, the children, and the
    ones who did not reach five. The short-life rule is this archive's own,
@@ -68,6 +75,12 @@ const kids = hs.reduce((s,h)=>s+h.n,0);
    handed over rather than re-derived from a printed string. */
 const shape = (h) => ({
   head: h.father, spouse: h.mother, where: h.place,
+  /* A link is a STATED claim in households.json (fatherPid, motherPid, a child's pid),
+     written by scripts/link-household-people.py on evidence or by
+     scripts/mint-household-people.py for a row made for this very household. Nothing is
+     looked up here, so a name with no row stays plain text instead of linking to a 404. */
+  headHref: h.fatherPid ? `/person/${h.fatherPid}/` : undefined,
+  spouseHref: h.motherPid ? `/person/${h.motherPid}/` : undefined,
   /* The card's year range is the span of the children's births, so it leaks
      exactly the dates the rule above withholds. Derive it from the children
      whose dates are actually shown; a household of only living children
@@ -94,6 +107,7 @@ const shape = (h) => ({
     const hide = maybeLiving(c);
     return {
       name: c.name,
+      href: (!hide && c.pid) ? `/person/${c.pid}/` : undefined,
       /* Name and nothing more, for anyone who may still be alive. */
       dates: hide ? "" : (c.by && c.dy ? `${c.by}\u2013${c.dy}` : (c.by ? String(c.by) : "")),
       short: !hide && !!(c.by && c.dy && c.dy - c.by <= 5),
@@ -101,12 +115,12 @@ const shape = (h) => ({
   }),
 });
 ---
-<Base title="Households" eyebrow={`${hs.length} families reconstructed from the registers`}
+<Base title="Households" eyebrow={`${named.length} families reconstructed from the registers`}
       dek="Not a family tree handed down — a family tree rebuilt. Each of these is a set of siblings who name the same two parents in the index, grouped and de-duplicated across Latin case endings and spelling drift.">
 
 <section class="blk">
   <div class="grid g4">
-    <div class="stat"><div class="n">{hs.length}</div><div class="l">households reconstructed from the registers</div></div>
+    <div class="stat"><div class="n">{named.length}</div><div class="l">households reconstructed from the registers</div></div>
     <div class="stat"><div class="n">{kids}</div><div class="l">children placed with their parents</div></div>
     <div class="stat"><div class="n">{infant}</div><div class="l">who did not reach five years old</div></div>
     <div class="stat"><div class="n">1645</div><div class="l">earliest reconstructed household</div></div>
@@ -119,7 +133,7 @@ const shape = (h) => ({
 <section class="blk">
   {onTree.size > 0 && (
     <a class="hh-tree" href={u("/tree/")}>
-      <span class="hh-k">{onTree.size === 1 ? `One of these ${hs.length} is on the tree` : `${onTree.size} of these ${hs.length} are on the tree`}</span>
+      <span class="hh-k">{onTree.size === 1 ? `One of these ${named.length} is on the tree` : `${onTree.size} of these ${named.length} are on the tree`}</span>
       <span class="hh-t">{onTree.size === 1 ? "Generation" : "Generations"} {[...onTree.values()].sort((a,b)=>a-b).join(", ")} of the direct line {onTree.size === 1 ? "is" : "are"} among the households below.
         The tree shows each of them as the couple it was, with its children, its evidence and its open questions →</span>
     </a>
@@ -141,6 +155,14 @@ const shape = (h) => ({
     <Households rows={female.map(shape)} u={u} sort="given" caveat={false} />
   </div>
   <div class="note" style="margin-top:26px">These come from sweeping 33 in-law surnames through the index and keeping only records that name our family — 209 of them. <strong>Francesca Defranceschi and Giovanni Bergamo</strong> had seven children between 1831 and 1846. <strong>Jacoba Defranceschi married a Johannes Baptista Crosilla</strong> — the Crosilla being one of the leading houses of Mione — and their children are recorded in 1831 and 1833; she was buried as his wife in 1882. Two more daughters married a Moscarda and a Tamborin at Fažana within a year of each other.</div>
+</section>
+<section class="blk">
+  <h2>Households beside the name</h2>
+  <p class="dek">{beside.length} households in which neither parent bears the name. They are kept because each one explains a household that does, and they are <strong>not</strong> counted in the totals above.</p>
+  <div class="stack" style="margin-top:26px">
+    <Households rows={beside.map(shape)} u={u} caveat={false} />
+  </div>
+  <ul class="small" style="margin-top:14px">{beside.map(h => (<li>{h.besideNote}</li>))}</ul>
 </section>
 <Rule name="helm" />
 

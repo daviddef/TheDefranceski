@@ -290,7 +290,8 @@ def record_strip(rows):
         for nm in (e.get("o") or []):
             row = ROW_BY_NAME.get(_nm(nm))
             o = {"n": nm}
-            if row: o["slug"] = slugify(row["name"])
+            # only link a name to a /who/ page that is BUILT (five or more letters; see node())
+            if row and len(re.sub(r"\s*\(.*?\)\s*", "", row["name"]).strip()) >= 5: o["slug"] = slugify(row["name"])
             others.append(o)
         return {"id": i, "says": e.get("says") or "", "place": e.get("p") or "",
                 "sp": e.get("sp") or "", "others": others,
@@ -453,6 +454,11 @@ def node(name, hh=None, child=None, small=False):
     if not name or name == "—": return None
     row = _row_fitting(name, hh, child)
     sl = slugify(row["name"]) if row else None
+    # A /who/ page is only BUILT for a name of five or more letters (see the `needle` guard where
+    # the people are made). Linking to one that is not built is a dead link in every page that
+    # shows the person's household: found 12 October 2026 when «Anta» (four letters, a mother
+    # recorded by forename only) was given a roster row.
+    if row and len(re.sub(r"\s*\(.*?\)\s*", "", row["name"]).strip()) < 5: sl = None
     n = {"n": name, "dt": _dates(row, child), "via": _via(row, hh, child)}
     if sl: n["slug"] = sl
     # AND THE PID, so a person page can link person-to-person. `slug` is the
