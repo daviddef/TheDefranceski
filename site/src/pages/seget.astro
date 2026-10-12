@@ -12,15 +12,47 @@ import s from "../data/seget.json";
 import v from "../data/seget-voce.json";
 import SegetArms from "../components/SegetArms.astro";
 import { u } from "../lib/url.js";
+
+/* GEOMETRY FOR THE ARC. The marks, the band and the years are in seget.json;
+   only the drawing lives here. The axis is PROPORTIONAL on purpose — the whole
+   point of the picture is that 1720-1732 is a burst and everything else is
+   spread thin, which an evenly spaced list of eleven rows actively hides. The
+   four events inside the burst are drawn as one band with its own list, because
+   at true scale their labels sit on top of each other. */
+const A = s.arc;
+const AW = 920, AH = 290, ML = 26, MR = 26, AX = 150;
+const px = (y) => ML + ((y - A.from) / (A.to - A.from)) * (AW - ML - MR);
+const MARKS = A.marks.map((m) => ({ ...m, x: px(m.y), up: m.side === "up" }));
+const BX0 = px(A.band.from), BX1 = px(A.band.to);
 ---
 <Base title="Seget, and Crete" eyebrow="The other Istrian branch"
       dek="A published monograph on an estate near Umag says something no family account here had: that there were two branches of this family in Istria — one seated at Gologorica, the other at Umag and Seget — and that the second came out of Crete.">
 
 
-  <section class="blk">
+  <section class="blk" id="line">
     <div class="lab">The line as ground covered</div>
     <h2 style="font-size:30px;margin:6px 0 4px">From Candia to Seget, and the pension that carries the join</h2>
     <River s={spines.spines.find(x => x.key === "crete")} u={u} />
+  </section>
+
+  <section class="blk">
+    <ul class="sfigs">
+      {s.facts.map(f => (
+        <li><span class="sfn">{f.n}</span><span class="sfw">{f.w}</span><span class="sfs">{f.s}</span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="blk">
+    <div class="lab">{s.nav.heading}</div>
+    <div class="stoc">
+      {s.nav.acts.map((a, ai) => (
+        <div class="sact">
+          <p class="sath"><span class="satn">{ai + 1}</span>{a.t}</p>
+          <ul>{a.items.map(it => (<li><a href={`#${it[0]}`}>{it[1]}</a></li>))}</ul>
+        </div>
+      ))}
+    </div>
   </section>
 
   <Locator place="Seget" radius={22}
@@ -36,16 +68,47 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="arrows" />
 
-<section class="blk">
-  <h2>How the estate came to them</h2>
-  <div class="scroll" style="margin-top:20px">
+<section class="blk" id="estate">
+  <h2>{s.arc.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(s.arc.lead)}></p>
+
+  <figure class="arc">
+    <svg viewBox={`0 0 ${AW} ${AH}`} role="img" aria-labelledby="arcttl">
+      <title id="arcttl">A proportional timeline from 1604 to 1945. Four of the eleven dated events fall between 1720 and 1732.</title>
+      <rect x={BX0} y={AX - 34} width={BX1 - BX0} height="68" class="aband" />
+      <line x1={ML} y1={AX} x2={AW - MR} y2={AX} class="aax" />
+      {[1604, 1650, 1700, 1750, 1800, 1850, 1900, 1945].map(y => (
+        <g>
+          <line x1={px(y)} y1={AX - 5} x2={px(y)} y2={AX + 5} class="atick" />
+          <text x={px(y)} y={AX + 22} class="ayr" text-anchor="middle">{y}</text>
+        </g>
+      ))}
+      {MARKS.map(m => (
+        <g>
+          <line x1={m.x} y1={AX} x2={m.x} y2={m.up ? AX - 46 : AX + 46} class="alead" />
+          <circle cx={m.x} cy={AX} r="5.5" class={m.key ? "adot akey" : "adot"} />
+          <text x={m.x} y={m.up ? AX - 54 : AX + 62} class="aml" text-anchor="middle">{m.y}</text>
+          <text x={m.x} y={m.up ? AX - 68 : AX + 76} class="amt" text-anchor="middle">{m.t}</text>
+        </g>
+      ))}
+      <text x={(BX0 + BX1) / 2} y={AX - 44} class="abl" text-anchor="middle">{A.band.from}–{A.band.to}</text>
+    </svg>
+    <figcaption>
+      <p class="abh">{A.band.label}</p>
+      <ol class="aburst">
+        {A.band.items.map(it => (<li><b>{it[0]}</b><span>{it[1]}</span></li>))}
+      </ol>
+    </figcaption>
+  </figure>
+
+  <div class="scroll" style="margin-top:26px">
     <table><tbody>{s.timeline.map(([y,t])=>(
       <tr><td class="m" style="width:64px">{y}</td><td>{t}</td></tr>))}</tbody></table>
   </div>
 </section>
 <Rule name="pomegranate" />
 
-<section class="blk">
+<section class="blk" id="household">
   <h2>The household</h2>
   <div class="scroll" style="margin-top:20px">
     <table><thead><tr><th>Name</th><th class="m">Dates</th><th>What the sources say</th></tr></thead>
@@ -64,7 +127,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="helm" />
 
-<section class="blk">
+<section class="blk" id="archives">
   <h2>Two family archives, and two family trees</h2>
   <p class="dek">This is the most valuable thing on the page. Both branches deposited their papers, and both are catalogued.</p>
   <div class="scroll" style="margin-top:22px">
@@ -75,7 +138,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="tablet" />
 
-<section class="blk">
+<section class="blk" id="carlobook">
   <h2>What Carlo's own book adds</h2>
   <p class="dek">Reading <em>L'Istria: note storiche</em> (1879) for the family rather than for the history turns up four things.</p>
   <div class="scroll" style="margin-top:20px">
@@ -89,7 +152,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="arcade" />
 
-<section class="blk">
+<section class="blk" id="crete">
   <h2>A county in Crete, and a shipwreck coming home</h2>
   <p class="dek">A 2020 feature in <em>la Voce del popolo</em> — the Italian-language daily of Rijeka — sets out the Seghetto family's own account of itself, and it explains what the branch was doing in Crete in the first place.</p>
   <div class="prose" style="margin-top:22px">
@@ -107,7 +170,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="loom" />
 
-<section class="blk">
+<section class="blk" id="arms">
   <h2>The arms on the tympanum</h2>
   <div class="grid g2" style="margin-top:24px;align-items:start">
     <SegetArms />
@@ -120,7 +183,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="arrows" />
 
-<section class="blk">
+<section class="blk" id="built">
   <h2>How the house was built, and what happened to the library</h2>
   <div class="scroll" style="margin-top:18px">
     <table>
@@ -135,7 +198,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="pomegranate" />
 
-<section class="blk">
+<section class="blk" id="branches">
   <h2>The two branches, and what they did</h2>
   <p class="dek">The family split. One branch held the farms of Seghetto, Giubba and Spinel; the other, the Umago branch, held Rosazzo, Macalè — formerly Casoni — and Carsette.</p>
   <div class="scroll" style="margin-top:18px">
@@ -148,7 +211,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="helm" />
 
-<section class="blk">
+<section class="blk" id="voce">
   <h2>{s.voce.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.voce.lead)}></p>
 
@@ -195,7 +258,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="tablet" />
 
-<section class="blk">
+<section class="blk" id="diet">
   <h2>{s.diet.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.diet.lead)}></p>
 
@@ -235,7 +298,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="arcade" />
 
-<section class="blk">
+<section class="blk" id="umago">
   <h2>{s.umago.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.umago.lead)}></p>
   <div class="scroll" style="margin-top:18px">
@@ -263,7 +326,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="loom" />
 
-<section class="blk">
+<section class="blk" id="dossier">
   <h2>{s.dossier.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.dossier.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -298,7 +361,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="arrows" />
 
-<section class="blk">
+<section class="blk" id="reichsrat">
   <h2>{s.reichsrat.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.reichsrat.lead)}></p>
   <div class="scroll" style="margin-top:18px">
@@ -321,7 +384,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="pomegranate" />
 
-<section class="blk">
+<section class="blk" id="photographed">
   <h2>{s.photographed.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.photographed.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -347,7 +410,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="helm" />
 
-<section class="blk">
+<section class="blk" id="umagtomb">
   <h2>{s.umagtomb.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.umagtomb.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -375,7 +438,7 @@ import { u } from "../lib/url.js";
 </section>
 <Rule name="tablet" />
 
-<section class="blk">
+<section class="blk" id="puhmajer">
   <h2>{s.puhmajer.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(s.puhmajer.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -413,7 +476,7 @@ import { u } from "../lib/url.js";
   <Lightbox />
 <Rule name="arcade" />
 
-<section class="blk">
+<section class="blk" id="umagstones">
   <h2>{s.umagstones.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(s.umagstones.lead)}></p>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
@@ -429,7 +492,7 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:14px" set:html={_md(s.umagstones.source_umag)}></p>
 </section>
 <Rule name="helm" label="Seget and Umag, photographed" />
-<section class="blk">
+<section class="blk" id="fieldplates">
   <h2>{s.fieldplates.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(s.fieldplates.lead)}></p>
   <div style="margin-top:22px"><Plates ids={s.fieldplates.ids} /></div>
@@ -440,7 +503,7 @@ import { u } from "../lib/url.js";
 
 <Rule name="helm" label="The house, dated" />
 
-<section class="blk">
+<section class="blk" id="deeper">
   <h2>{s.deeper.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(s.deeper.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -454,11 +517,8 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:16px" set:html={_md(s.deeper.source_deeper)}></p>
 </section>
 
-<Rule name="arcade" label="The chapel at Seget" />
-
-<section class="blk">
 <Rule name="arrows" label="The weather they walked in" />
-<section class="blk">
+<section class="blk" id="wave">
   <h2>{s.wave.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={mdHtml(s.wave.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -472,6 +532,8 @@ import { u } from "../lib/url.js";
   <p class="cap" style="margin-top:16px" set:html={mdHtml(s.wave.source_wave)}></p>
 </section>
 
+<Rule name="arcade" label="The chapel at Seget" />
+<section class="blk" id="umagbook">
   <h2>{s.umagbook.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(s.umagbook.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
@@ -487,3 +549,56 @@ import { u } from "../lib/url.js";
 
   <Sources ids={["puhmajer", "voce", "blasonario", "crsr", "carlo1879", "omisphotos", "anno", "attirovigno", "laricerca", "piccolo", "simon2024", "archiveorg"]} />
 </Base>
+
+<style>
+  /* the numbers, before any of the prose */
+  .sfigs { list-style:none; margin:0; padding:0; display:grid; gap:12px;
+           grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); }
+  .sfigs li { border-top:3px solid var(--accent,#8a7a52); padding:10px 0 0;
+              display:flex; flex-direction:column; gap:3px; }
+  .sfn { font-family:var(--mono); font-size:24px; font-weight:600; color:var(--ink); line-height:1.05; }
+  .sfw { font-size:13.5px; font-weight:600; color:var(--ink); }
+  .sfs { font-size:12px; color:var(--dim); line-height:1.5; }
+
+  /* twenty-two sections is too many to scroll blind */
+  .stoc { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+          margin-top:12px; }
+  .sact { border-left:3px solid var(--accent-wash,#e8e2d4); padding-left:12px; }
+  .sath { margin:0 0 6px; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+          color:var(--dim); display:flex; align-items:baseline; gap:7px; }
+  .satn { font-family:var(--mono); color:var(--accent,#8a7a52); font-size:13px; }
+  .sact ul { list-style:none; margin:0; padding:0; display:grid; gap:4px; }
+  .sact li a { font-size:13.5px; line-height:1.45; text-decoration:none;
+               border-bottom:1px solid transparent; }
+  .sact li a:hover { border-bottom-color:var(--accent,#8a7a52); }
+
+  /* the arc */
+  .arc { margin:22px 0 0; }
+  .arc svg { width:100%; height:auto; display:block; overflow:visible; }
+  .aax { stroke:var(--ink,#222); stroke-width:1.5; }
+  .atick { stroke:var(--accent-wash,#c9c2b2); stroke-width:1.5; }
+  .ayr { font-family:var(--mono); font-size:11px; fill:var(--dim); }
+  .aband { fill:var(--accent-wash,#f0ebdd); stroke:var(--accent,#8a7a52);
+           stroke-width:1; stroke-dasharray:4 3; rx:3; }
+  .abl { font-family:var(--mono); font-size:12px; font-weight:600; fill:var(--accent,#8a7a52); }
+  .alead { stroke:var(--accent-wash,#d8d2c4); stroke-width:1; }
+  .adot { fill:var(--panel,#fff); stroke:var(--ink,#222); stroke-width:2; }
+  .akey { fill:var(--terra,#a6412f); stroke:var(--terra,#a6412f); }
+  .aml { font-family:var(--mono); font-size:12px; font-weight:600; fill:var(--ink); }
+  .amt { font-size:11px; fill:var(--dim); }
+  .arc figcaption { margin-top:14px; border-top:2px solid var(--accent-wash,#e8e2d4); padding-top:12px; }
+  .abh { margin:0 0 8px; font-weight:700; font-size:14.5px; color:var(--ink); }
+  .aburst { list-style:none; margin:0; padding:0; display:grid; gap:7px;
+            grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .aburst li { display:flex; gap:10px; align-items:baseline; font-size:13px; line-height:1.5; }
+  .aburst b { font-family:var(--mono); color:var(--accent,#8a7a52); font-weight:600; }
+  .aburst span { color:var(--dim); }
+
+  section[id] { scroll-margin-top:18px; }
+
+  @media (max-width:760px) {
+    .amt { font-size:13px; }
+    .ayr { font-size:13px; }
+    .aml { font-size:14px; }
+  }
+</style>
