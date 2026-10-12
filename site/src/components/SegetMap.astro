@@ -106,8 +106,12 @@ const F = PTS.find((p) => p.slug === focus);
 <style>
   .smap { margin: 22px 0 0; }
   .smap svg { width: 100%; height: auto; display: block; border: 1px solid var(--accent-wash,#e8e2d4); border-radius: 3px; }
-  .sea   { fill: var(--panel-2, #eef2f3); }
-  .land  { fill: var(--panel, #fff); }
+  /* LAND GREY, WATER PALE — and the same way round in the inset, which had it
+     inverted: the main map was white land on grey water while the inset was
+     grey land on white water, so the two pictures of the same coast read as
+     two different things. Land is the filled shape on both now. */
+  .sea   { fill: var(--paper, #faf8f4); }
+  .land  { fill: var(--panel-2, #e4e7e4); }
   .shore { fill: none; stroke: var(--ink-3, #6b7b80); stroke-width: 1.1; stroke-linejoin: round; }
   .tie   { stroke: var(--accent, #8a7a52); stroke-width: .7; opacity: .42; }
   .pt    { fill: var(--ink-2, #39474c); stroke: var(--panel, #fff); stroke-width: 1.5; }
@@ -119,7 +123,7 @@ const F = PTS.find((p) => p.slug === focus);
   .sct   { font-family: var(--mono); font-size: 12px; fill: var(--ink); }
   .narr  { stroke: var(--ink); stroke-width: 1.4; }
   .nfil  { fill: var(--ink); }
-  .ibox  { fill: var(--panel, #fff); stroke: var(--accent-wash,#d8d2c4); stroke-width: 1; }
+  .ibox  { fill: var(--paper, #faf8f4); stroke: var(--accent-wash,#d8d2c4); stroke-width: 1; }
   .iland { fill: var(--panel-2, #e4eaec); stroke: var(--ink-3,#6b7b80); stroke-width: .5; }
   .iwin  { fill: none; stroke: var(--accent, #1F5C6B); stroke-width: 1.8; }
   .ict   { font-size: 10.5px; fill: var(--dim); }
