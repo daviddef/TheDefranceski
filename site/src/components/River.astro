@@ -162,10 +162,15 @@ const STRAND = { proved: "proved", open: "inferred", "not-joined": "not joined" 
   .rv-years { font-family: var(--mono); font-size: 12px; color: var(--dim); }
   .rv-kind { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
   .rv-gloss { font-size: 13.5px; color: var(--dim); margin: 3px 0 0; line-height: 1.55; max-width: 60ch; }
+  /* `--band-label` is the colour for text sitting ON the accent — #F5F3EE in
+     light mode, #10171E in dark. This pill paired it with --accent-WASH, so in
+     light mode it printed near-white on near-white and could not be read at
+     all. The pairing it was always meant to have is the filled accent. */
   .rv-band {
-    display: inline-block; margin: 8px 0 0; padding: 3px 9px; font-size: 12px;
-    border-radius: 999px; background: var(--accent-wash, #f0ebdd);
-    color: var(--band-label, var(--ink)); border: 1px solid var(--accent, #8a7a52);
+    display: inline-block; margin: 8px 0 0; padding: 4px 11px; font-size: 12px;
+    font-weight: 600; letter-spacing: .01em;
+    border-radius: 999px; background: var(--accent, #8a7a52);
+    color: var(--band-label, #fff); border: 1px solid var(--accent, #8a7a52);
   }
 
   .rv-people { list-style: none; margin: 10px 0 0; padding: 0; }

@@ -1,0 +1,131 @@
+---
+/* A MAP OF THE GROUND, with a real coast on it.
+ *
+ * David, on the radial locator that stood here: «could we also draw this with
+ * proper boundaries, borders, as a map?» The locator was a distance rose — it
+ * told you Umag was 3.0 km north-west and nothing whatever about where that
+ * was. This draws the actual coastline of north-western Istria from the
+ * archive's own outline file, with every settlement at its recorded
+ * coordinates, and an inset showing where the window sits in the peninsula.
+ *
+ * WHAT IS NOT DRAWN, AND WHY. There are no commune, parish or Venetian
+ * district boundaries on this map. This archive does not hold them, and a
+ * boundary drawn from memory onto a map that is otherwise accurate is worse
+ * than no boundary at all: it inherits the credibility of the coastline
+ * beside it. The coast is Natural Earth 1:10m physical land, public domain,
+ * generalised to about 130 m — accurate enough to place a village, not
+ * accurate enough to argue about a shoreline.
+ *
+ * Projection: equirectangular with longitude squeezed by cos(lat), the same
+ * one Census1945.astro uses, so the two maps of this archive agree.
+ */
+import land from "../data/istria-outline.json";
+
+const { places = [], focus, window: WIN, note } = Astro.props;
+
+const W = 900, H = 600, PAD = 0;
+const [L0, L1, A0, A1] = WIN;
+const KX = Math.cos(((A0 + A1) / 2) * Math.PI / 180);
+const sx = W / ((L1 - L0) * KX);
+const sy = H / (A1 - A0);
+const S = Math.min(sx, sy);
+const offx = (W - (L1 - L0) * KX * S) / 2;
+const offy = (H - (A1 - A0) * S) / 2;
+const px = (lon) => offx + (lon - L0) * KX * S;
+const py = (lat) => offy + (A1 - lat) * S;
+const ring = (r, fx, fy) => r.map((p, i) => `${i ? "L" : "M"}${fx(p[0]).toFixed(1)},${fy(p[1]).toFixed(1)}`).join("") + "Z";
+
+/* scale bar: a round number of kilometres, drawn at the map's own scale */
+const KM = 10;
+const kmpx = (KM / 111.32) * S;   /* 1 degree of latitude = 111.32 km */
+
+/* the inset: the whole clipped peninsula, with this window marked on it */
+const [BL0, BA0, BL1, BA1] = land.bbox;
+const IW = 190, IH = 190;
+const IKX = Math.cos(((BA0 + BA1) / 2) * Math.PI / 180);
+const IS = Math.min(IW / ((BL1 - BL0) * IKX), IH / (BA1 - BA0));
+const iox = (IW - (BL1 - BL0) * IKX * IS) / 2;
+const ioy = (IH - (BA1 - BA0) * IS) / 2;
+const ipx = (lon) => iox + (lon - BL0) * IKX * IS;
+const ipy = (lat) => ioy + (BA1 - lat) * IS;
+
+const PTS = places.map((p) => ({ ...p, x: px(p.coords[1]), y: py(p.coords[0]) }));
+const F = PTS.find((p) => p.slug === focus);
+---
+<figure class="smap">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="smapttl">
+    <title id="smapttl">North-western Istria. Seget lies three kilometres south-east of Umag, inland from the coast, with Poreč to the south and Motovun inland to the east.</title>
+    <defs>
+      <clipPath id="smclip"><rect x="0" y="0" width={W} height={H} /></clipPath>
+    </defs>
+    <rect x="0" y="0" width={W} height={H} class="sea" />
+    <g clip-path="url(#smclip)">
+      {land.rings.map((r) => <path d={ring(r, px, py)} class="land" />)}
+      {land.rings.map((r) => <path d={ring(r, px, py)} class="shore" />)}
+    </g>
+
+    {F && PTS.filter((p) => p.slug !== focus).map((p) => (
+      <line x1={F.x} y1={F.y} x2={p.x} y2={p.y} class="tie" />
+    ))}
+
+    {PTS.map((p) => (
+      <g>
+        <circle cx={p.x} cy={p.y} r={p.slug === focus ? 7 : 4} class={p.slug === focus ? "pt focus" : "pt"} />
+        <text x={p.x + (p.anchor === "end" ? -10 : 10)} y={p.y + (p.dy || 4)}
+              text-anchor={p.anchor === "end" ? "end" : "start"}
+              class={p.slug === focus ? "lbl flbl" : "lbl"}>{p.name}</text>
+        {p.it && (
+          <text x={p.x + (p.anchor === "end" ? -10 : 10)} y={p.y + (p.dy || 4) + 14}
+                text-anchor={p.anchor === "end" ? "end" : "start"} class="alt">{p.it}</text>
+        )}
+      </g>
+    ))}
+
+    <g transform={`translate(${W - 230},${H - 46})`}>
+      <line x1="0" y1="0" x2={kmpx} y2="0" class="sbar" />
+      <line x1="0" y1="-5" x2="0" y2="5" class="sbar" />
+      <line x1={kmpx} y1="-5" x2={kmpx} y2="5" class="sbar" />
+      <text x={kmpx / 2} y="-10" class="sct" text-anchor="middle">{KM} km</text>
+    </g>
+    <g transform="translate(34,40)">
+      <line x1="0" y1="26" x2="0" y2="0" class="narr" />
+      <path d="M0,-2 L-5,8 L5,8 Z" class="nfil" />
+      <text x="0" y="42" class="sct" text-anchor="middle">N</text>
+    </g>
+
+    <g transform={`translate(${W - 206},24)`} class="inset">
+      <rect x="-8" y="-8" width={IW + 16} height={IH + 16} class="ibox" />
+      {land.rings.map((r) => <path d={ring(r, ipx, ipy)} class="iland" />)}
+      <rect x={ipx(L0)} y={ipy(A1)} width={ipx(L1) - ipx(L0)} height={ipy(A0) - ipy(A1)} class="iwin" />
+      <text x={IW / 2} y={IH + 6} class="ict" text-anchor="middle">Istria, and this map on it</text>
+    </g>
+  </svg>
+  {note && <figcaption set:html={note}></figcaption>}
+</figure>
+
+<style>
+  .smap { margin: 22px 0 0; }
+  .smap svg { width: 100%; height: auto; display: block; border: 1px solid var(--accent-wash,#e8e2d4); border-radius: 3px; }
+  .sea   { fill: var(--panel-2, #eef2f3); }
+  .land  { fill: var(--panel, #fff); }
+  .shore { fill: none; stroke: var(--ink-3, #6b7b80); stroke-width: 1.1; stroke-linejoin: round; }
+  .tie   { stroke: var(--accent, #8a7a52); stroke-width: .7; opacity: .42; }
+  .pt    { fill: var(--ink-2, #39474c); stroke: var(--panel, #fff); stroke-width: 1.5; }
+  .focus { fill: var(--accent, #1F5C6B); stroke: var(--panel, #fff); stroke-width: 2.5; }
+  .lbl   { font-size: 15px; fill: var(--ink); font-family: var(--serif); }
+  .flbl  { font-size: 19px; font-weight: 700; fill: var(--accent, #1F5C6B); }
+  .alt   { font-size: 11.5px; fill: var(--dim); font-style: italic; }
+  .sbar  { stroke: var(--ink); stroke-width: 1.4; }
+  .sct   { font-family: var(--mono); font-size: 12px; fill: var(--ink); }
+  .narr  { stroke: var(--ink); stroke-width: 1.4; }
+  .nfil  { fill: var(--ink); }
+  .ibox  { fill: var(--panel, #fff); stroke: var(--accent-wash,#d8d2c4); stroke-width: 1; }
+  .iland { fill: var(--panel-2, #e4eaec); stroke: var(--ink-3,#6b7b80); stroke-width: .5; }
+  .iwin  { fill: none; stroke: var(--accent, #1F5C6B); stroke-width: 1.8; }
+  .ict   { font-size: 10.5px; fill: var(--dim); }
+  .smap figcaption { margin-top: 12px; font-size: 12.5px; color: var(--dim); line-height: 1.6; }
+  @media (max-width: 760px) {
+    .lbl { font-size: 19px; } .flbl { font-size: 23px; } .alt { font-size: 15px; }
+    .sct, .ict { font-size: 15px; }
+  }
+</style>

@@ -1000,5 +1000,107 @@
     ]
    }
   ]
+ },
+ "map": {
+  "heading": "Where Seget actually is",
+  "lead": "**Three kilometres inland from Umag, on the ridge above the coast road** — *and that is the whole of the family's geography.* **Umag is where they were made citizens, held the mayoralty for a century, and are buried; Seget is where they lived.** *The two are a forty-minute walk apart.* Poreč — *the* **Parenzo** *of [the Candia decrees](/candia-decrees/), where the sixty Cretan families were granted houses* — *is twenty kilometres down the same coast.*",
+  "window": [
+   13.35,
+   14.15,
+   45.13,
+   45.5
+  ],
+  "focus": "seget",
+  "places": [
+   {
+    "slug": "seget",
+    "name": "Seget",
+    "it": "Seghetto",
+    "coords": [
+     45.4,
+     13.55
+    ],
+    "dy": -6
+   },
+   {
+    "slug": "umag",
+    "name": "Umag",
+    "it": "Umago",
+    "coords": [
+     45.43,
+     13.52
+    ],
+    "anchor": "end",
+    "dy": -4
+   },
+   {
+    "slug": "sterna",
+    "name": "Šterna",
+    "it": "Sterna",
+    "coords": [
+     45.4022,
+     13.7431
+    ]
+   },
+   {
+    "slug": "vizinada",
+    "name": "Vižinada",
+    "it": "Visinada",
+    "coords": [
+     45.33,
+     13.75
+    ]
+   },
+   {
+    "slug": "kastelir",
+    "name": "Kaštelir",
+    "it": "Castellier",
+    "coords": [
+     45.3167,
+     13.7
+    ],
+    "dy": 16
+   },
+   {
+    "slug": "motovun",
+    "name": "Motovun",
+    "it": "Montona",
+    "coords": [
+     45.34,
+     13.83
+    ]
+   },
+   {
+    "slug": "tar",
+    "name": "Tar",
+    "it": "Torre",
+    "coords": [
+     45.3006,
+     13.6208
+    ],
+    "anchor": "end"
+   },
+   {
+    "slug": "porec",
+    "name": "Poreč",
+    "it": "Parenzo",
+    "coords": [
+     45.23,
+     13.6
+    ],
+    "anchor": "end"
+   },
+   {
+    "slug": "vrsar",
+    "name": "Vrsar",
+    "it": "Orsera",
+    "coords": [
+     45.1478,
+     13.6058
+    ],
+    "anchor": "end"
+   }
+  ],
+  "note": "Coast: <strong>Natural Earth 1:10m physical land</strong>, public domain, generalised to about 130&nbsp;m and held in this archive's own <code>istria-outline.json</code> — nothing is fetched when you open this page. Settlements are at the coordinates in the archive's gazetteer. <strong>No commune, parish or Venetian district boundaries are drawn, because this archive does not hold them</strong> — a border sketched from memory onto an otherwise accurate map borrows the credibility of the coastline beside it, and would be the one invented thing on the page."
  }
 }

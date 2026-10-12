@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { md as _md, mdHtml} from "../lib/md.js";
-import Locator from "../components/Locator.astro";
+import SegetMap from "../components/SegetMap.astro";
 import River from "../components/River.astro";
 import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
@@ -55,8 +55,11 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
     </div>
   </section>
 
-  <Locator place="Seget" radius={22}
-            note="Seghetto, above Umag. The estate the brothers bought in 1720, the palace of 1724, and the well-head cut M A · F in 1732." />
+  <section class="blk" id="where">
+    <h2>{s.map.heading}</h2>
+    <p class="dek" style="margin-top:8px" set:html={mdHtml(s.map.lead)}></p>
+    <SegetMap places={s.map.places} focus={s.map.focus} window={s.map.window} note={s.map.note} />
+  </section>
 
 
 <section class="blk">
