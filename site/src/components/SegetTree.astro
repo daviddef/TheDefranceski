@@ -1,0 +1,97 @@
+---
+/* THE HOUSEHOLD, DRAWN AS WHAT IT IS.
+ *
+ * David, looking at the table this replaces: «is this a tree?» It was — a
+ * four-generation descent flattened into seven rows of a table, which hid the
+ * one thing a reader needs: that Nicolò, Angelo and Alvise are the sons of
+ * MARC'ANTONIO, not of Giorgio. The table listed them straight after Giorgio
+ * and Nicolò with the single word «son», and nothing said whose.
+ *
+ * The parentage is not inferred here. seget.json already carried
+ * `children_marcantonio` — eleven names, Nicolò and Alvise and Angelo among
+ * them — and `children_alvise`, six. The tree simply draws what those two
+ * lists already said.
+ *
+ * The eleven and the six are drawn as chips rather than boxes because that is
+ * all this archive has of most of them: a name in a genealogy. Only the four
+ * the sources actually describe get a box, and the three generations that
+ * carry the estate get the spine.
+ */
+const { t } = Astro.props;
+---
+<div class="stree">
+  <ol class="sgen">
+    {t.gens.map((g, gi) => (
+      <li class={`sg ${gi === 0 ? "first" : ""}`}>
+        <p class="sgl"><span class="sgn">{g.n}</span>{g.label}</p>
+
+        <div class="srow">
+          {g.people.map(p => (
+            <div class={`sp ${p.key ? "key" : ""}`}>
+              <p class="spn">{p.name}{p.spouse && <span class="spm"> ═ {p.spouse}</span>}</p>
+              {p.d && <p class="spd">{p.d}</p>}
+              {p.w && <p class="spw">{p.w}</p>}
+            </div>
+          ))}
+        </div>
+
+        {g.sibs && (
+          <div class="ssibs">
+            <p class="ssl">{g.sibs.label}</p>
+            <ul>
+              {g.sibs.names.map(n => (
+                <li class={g.sibs.carried && g.sibs.carried.includes(n) ? "carried" : ""}>{n}</li>
+              ))}
+            </ul>
+            {g.sibs.note && <p class="ssn">{g.sibs.note}</p>}
+          </div>
+        )}
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style>
+  .stree { margin: 22px 0 0; }
+  .sgen { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; }
+  .sgen::before {
+    content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px;
+    width: 2px; background: var(--accent-wash, #d8d2c4);
+  }
+  .sg { position: relative; padding: 0 0 26px 12px; }
+  .sg:last-child { padding-bottom: 0; }
+  .sg::before {
+    content: ""; position: absolute; left: -25px; top: 4px; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--panel, #fff);
+    border: 2px solid var(--accent, #8a7a52);
+  }
+  .sg.first::before { background: var(--accent, #8a7a52); }
+
+  .sgl { margin: 0; display: flex; align-items: baseline; gap: 9px;
+         font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); }
+  .sgn { font-family: var(--mono); color: var(--accent, #8a7a52); letter-spacing: 0; font-size: 13px; }
+
+  .srow { display: grid; gap: 12px; margin-top: 10px;
+          grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .sp { border-left: 3px solid var(--accent-wash, #e8e2d4); padding: 2px 0 2px 12px; }
+  .sp.key { border-left-color: var(--accent, #8a7a52); }
+  .spn { margin: 0; font-weight: 700; font-size: 15.5px; color: var(--ink); line-height: 1.35; }
+  .spm { font-weight: 400; color: var(--ink-2, var(--dim)); }
+  .spd { margin: 2px 0 0; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .spw { margin: 5px 0 0; font-size: 13px; line-height: 1.55; color: var(--dim); max-width: 48ch; }
+
+  .ssibs { margin-top: 14px; border-top: 1px solid var(--accent-wash, #e8e2d4); padding-top: 10px; }
+  .ssl { margin: 0 0 8px; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--dim); }
+  .ssibs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .ssibs li {
+    font-size: 13px; padding: 3px 10px; border-radius: 999px;
+    border: 1px solid var(--accent-wash, #d8d2c4); color: var(--dim);
+  }
+  .ssibs li.carried {
+    border-color: var(--accent, #8a7a52); color: var(--ink); font-weight: 600;
+    background: var(--accent-wash, #f0ebdd);
+  }
+  .ssn { margin: 9px 0 0; font-size: 12.5px; color: var(--dim); line-height: 1.55; max-width: 62ch; }
+
+  @media (max-width: 640px) { .srow { grid-template-columns: 1fr; } }
+</style>

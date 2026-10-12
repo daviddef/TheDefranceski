@@ -137,8 +137,8 @@ const STRAND = { proved: "proved", open: "inferred", "not-joined": "not joined" 
 <style>
   .river { margin-top: 18px; }
   .rv-name { font-size: 20px; font-weight: 700; margin: 0; color: var(--ink); }
-  .rv-sub { font-family: var(--mono); font-size: 13px; color: var(--dim); margin: 4px 0 0; }
-  .rv-lede { font-size: 15px; line-height: 1.6; color: var(--ink); margin: 10px 0 0; max-width: 62ch; }
+  .rv-sub { font-family: var(--mono); font-size: 14px; color: var(--dim); margin: 4px 0 0; }
+  .rv-lede { font-size: 16px; line-height: 1.6; color: var(--ink); margin: 10px 0 0; max-width: 62ch; }
 
   .rv-channel { list-style: none; margin: 22px 0 0; padding: 0 0 0 26px; position: relative; }
   .rv-channel::before {
@@ -159,9 +159,9 @@ const STRAND = { proved: "proved", open: "inferred", "not-joined": "not joined" 
 
   .rv-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
   .rv-place { font-weight: 700; font-size: 17px; color: var(--ink); }
-  .rv-years { font-family: var(--mono); font-size: 12px; color: var(--dim); }
-  .rv-kind { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
-  .rv-gloss { font-size: 13.5px; color: var(--dim); margin: 3px 0 0; line-height: 1.55; max-width: 60ch; }
+  .rv-years { font-family: var(--mono); font-size: 13.5px; color: var(--dim); }
+  .rv-kind { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+  .rv-gloss { font-size: 15px; color: var(--dim); margin: 3px 0 0; line-height: 1.55; max-width: 60ch; }
   /* `--band-label` is the colour for text sitting ON the accent — #F5F3EE in
      light mode, #10171E in dark. This pill paired it with --accent-WASH, so in
      light mode it printed near-white on near-white and could not be read at
@@ -179,22 +179,22 @@ const STRAND = { proved: "proved", open: "inferred", "not-joined": "not joined" 
     padding: 5px 0; border-top: 1px solid var(--accent-wash, #e8e2d4);
   }
   .rv-gen {
-    font-family: var(--mono); font-size: 11px; min-width: 1.6em; text-align: right;
+    font-family: var(--mono); font-size: 12.5px; min-width: 1.6em; text-align: right;
     color: var(--dim);
   }
-  .rv-pname { font-weight: 600; font-size: 14.5px; color: var(--ink); }
-  .rv-dates { font-family: var(--mono); font-size: 12px; color: var(--dim); }
-  .rv-what, .rv-note { flex-basis: 100%; font-size: 13px; color: var(--dim); line-height: 1.55; max-width: 62ch; }
+  .rv-pname { font-weight: 600; font-size: 16px; color: var(--ink); }
+  .rv-dates { font-family: var(--mono); font-size: 13.5px; color: var(--dim); }
+  .rv-what, .rv-note { flex-basis: 100%; font-size: 14.5px; color: var(--dim); line-height: 1.55; max-width: 62ch; }
   .rv-note :global(strong) { color: var(--ink); }
 
   .rv-joins { list-style: none; margin: 8px 0 0; padding: 0 0 0 14px; }
   .rv-joins li {
     display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px;
-    padding: 4px 0; font-size: 13.5px;
+    padding: 6px 0; font-size: 15px;
   }
   .rv-trib { color: var(--accent, #8a7a52); }
   .rv-fam { font-weight: 600; color: var(--ink); }
-  .rv-person, .rv-from, .rv-born { color: var(--dim); font-size: 12.5px; }
+  .rv-person, .rv-from, .rv-born { color: var(--dim); font-size: 14px; }
 
   .rv-strands { margin-top: 24px; border-top: 2px solid var(--accent-wash, #e8e2d4); padding-top: 14px; }
   .rv-strands-h { font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); margin: 0 0 8px; }
@@ -210,9 +210,9 @@ const STRAND = { proved: "proved", open: "inferred", "not-joined": "not joined" 
   .st-proved .rv-badge { color: var(--ev-family, #3d6b4a); }
   .st-open .rv-badge { color: var(--ev-inferred, #8a6a1e); }
   .st-not-joined .rv-badge { color: #a6412f; }
-  .rv-slabel { font-weight: 600; color: var(--ink); font-size: 14.5px; }
-  .rv-sgen { font-family: var(--mono); font-size: 12px; color: var(--dim); }
-  .rv-more { flex-basis: 100%; font-size: 13px; }
+  .rv-slabel { font-weight: 600; color: var(--ink); font-size: 16px; }
+  .rv-sgen { font-family: var(--mono); font-size: 13.5px; color: var(--dim); }
+  .rv-more { flex-basis: 100%; font-size: 14.5px; }
   .rv-cta { margin-top: 18px; font-size: 15px; }
 
   @media (max-width: 640px) {

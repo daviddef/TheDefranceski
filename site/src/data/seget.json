@@ -1102,5 +1102,110 @@
    }
   ],
   "note": "Coast: <strong>Natural Earth 1:10m physical land</strong>, public domain, generalised to about 130&nbsp;m and held in this archive's own <code>istria-outline.json</code> — nothing is fetched when you open this page. Settlements are at the coordinates in the archive's gazetteer. <strong>No commune, parish or Venetian district boundaries are drawn, because this archive does not hold them</strong> — a border sketched from memory onto an otherwise accurate map borrows the credibility of the coastline beside it, and would be the one invented thing on the page."
+ },
+ "tree": {
+  "heading": "The household, drawn",
+  "lead": "**The table below this said «son» three times and never said whose.** *It is answered by the archive's own data:* **Nicolò, Angelo and Alvise are all sons of Marc'Antonio**, *because all three are in the list of his and Crissulla's eleven children.* ***They are Giorgio's grandsons, not his sons*** — *which is the difference between two generations at Seget and three.*",
+  "gens": [
+   {
+    "n": "1",
+    "label": "The father",
+    "people": [
+     {
+      "name": "Giorgio de Franceschi",
+      "d": "—",
+      "w": "Father of the two brothers who bought Seget. The family's Venetian form of his name, Zorzi, is the one on the War of Candia pension of 1730.",
+      "key": true
+     }
+    ]
+   },
+   {
+    "n": "2",
+    "label": "The two brothers who bought the estate, 1720",
+    "people": [
+     {
+      "name": "Nicolò de Franceschi",
+      "d": "—",
+      "w": "Bought Seget jointly with his brother in 1720."
+     },
+     {
+      "name": "Marc'Antonio de Franceschi",
+      "spouse": "Crissulla Marulli",
+      "d": "1671–1758 · married 1727",
+      "w": "Civil and military physician. Born 1671, two years after Candia fell — a child of the flight, not of the island. His wife's name is Chrysoula Marouli, Greek and not Istrian.",
+      "key": true
+     }
+    ]
+   },
+   {
+    "n": "3",
+    "label": "Marc'Antonio and Crissulla's children",
+    "people": [
+     {
+      "name": "Alvise de Franceschi",
+      "spouse": "Francesca Borella",
+      "d": "1727 – c. 1790",
+      "w": "Lived at Seget. The family genealogy records him as «Dragomanno alla Porta ottomana» — dragoman at the Ottoman court. Six children.",
+      "key": true
+     },
+     {
+      "name": "Nicolò",
+      "d": "d. 1792",
+      "w": "Lawyer at Koper. Died without heirs."
+     },
+     {
+      "name": "Angelo",
+      "d": "—",
+      "w": "His family settled at Brtonigla."
+     }
+    ],
+    "sibs": {
+     "label": "all eleven of them",
+     "names": [
+      "Giorgio",
+      "Nicolò",
+      "Cristina",
+      "Giovanni Battista",
+      "Vittorio",
+      "Palissena",
+      "Maria",
+      "Lugrezia",
+      "Alvise",
+      "Angelo",
+      "Caterina"
+     ],
+     "carried": [
+      "Alvise",
+      "Nicolò",
+      "Angelo"
+     ],
+     "note": "The three in colour are the only ones the sources describe. The other eight are names in the family's own genealogy and nothing more — which is worth saying plainly rather than leaving them off the page."
+    }
+   },
+   {
+    "n": "4",
+    "label": "Alvise and Francesca's children — the heirs who divide Seget in 1790",
+    "people": [
+     {
+      "name": "Six children",
+      "d": "dividing in 1790",
+      "w": "The division deed lists the palace room by room. It is the fullest description of the house that exists.",
+      "key": true
+     }
+    ],
+    "sibs": {
+     "label": "all six",
+     "names": [
+      "Nicolò",
+      "Dorotea",
+      "Giacomo",
+      "Marc'Antonio",
+      "Giovanni Battista",
+      "Angelo"
+     ],
+     "note": "The names repeat the generations above them — Nicolò, Marc'Antonio, Angelo, Giovanni Battista — which is how an Istrian family of this period named, and a reason to be careful with any match made on a name alone."
+    }
+   }
+  ]
  }
 }
