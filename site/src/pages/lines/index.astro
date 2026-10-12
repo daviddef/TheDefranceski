@@ -40,7 +40,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
                inferred: "inferred", probable: "probable", lore: "lore",
                disputed: "disputed" };
 ---
-<Base title="The Lines" eyebrow="Six families · four unplaced clusters · one very common name"
+<Base title="The Lines" eyebrow="Seven families · eight unplaced households · one very common name"
       dek="Separating three things this site had been adding together: a family is an origin, a station is a stop on one family's road, and a namesake is somebody who happens to share the commonest patronymic in Italy.">
 <section class="blk">
   <h2>{fam.heading}</h2>
@@ -54,13 +54,13 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
     ))}
   </div>
 
-  <h3 id="families" style="font-size:23px;margin-top:40px">The five families</h3>
+  <h3 id="families" style="font-size:23px;margin-top:40px">The seven families</h3>
   <div class="famgrid">
     {fam.families.map(f => (
       <a id={"fam-" + f.slug} class={f.not_ours ? "famcard away" : "famcard"} href={u(f.href)} style={`--c:${f.colour}`}>
         <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}{f.not_ours && <span style="color:var(--terra)"> · not this family</span>}</div>
         <h4>{f.name}</h4>
-        <div class="fc-meta"><span><b>From</b> {f.from}</span><span><b>Here from</b> {f.when}</span></div>
+        <div class="fc-meta"><span><b>From</b> <span set:html={_md(f.from)} /></span><span><b>Here from</b> <span set:html={_md(f.when)} /></span></div>
         <p class="fc-rest" set:html={mdHtml(f.rests)}></p>
         <p class="fc-who" set:html={_md(f.who)}></p>
       </a>
@@ -116,18 +116,18 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
           <div style="margin-top:10px"><Evidence level={l.status} /></div>
         </div>
         <div>
-          <div class="meta"><span><b>Route</b> {l.route}</span><span><b>Earliest</b> {l.earliest}</span></div>
+          <div class="meta"><span><b>Route</b> <span set:html={_md(l.route)} /></span><span><b>Earliest</b> <span set:html={_md(l.earliest)} /></span></div>
           <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:12px;max-width:62ch" set:html={_md(l.note)}></p>
         </div>
       </div>
     ))}
   </div>
 </section>
-<Rule name="arrows" label="Five rivers" />
+<Rule name="arrows" label="Seven rivers" />
 <section class="blk">
-  <h2>The five roads, drawn</h2>
-  <p class="dek" style="margin-top:8px">One surname, five families, and five entirely different reasons for being where they are. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
-  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} /></div>
+  <h2>The seven roads, drawn</h2>
+  <p class="dek" style="margin-top:8px">One surname and seven families, arriving from different directions for different reasons — and one that never arrived at all. Under the first of them are the eight households the archive will not pretend to have placed. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} /></div>
 </section>
 
 <Rule name="tablet" label="A parish named" />

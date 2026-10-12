@@ -13,8 +13,8 @@ const rows = t.rows.map(r => ({ ...r, href: r.href ? u(r.href) : null }));
 ---
 <Base
   title="The trees"
-  eyebrow={`${t.rows.length} families · all six drawn`}
-  dek="This archive follows six families of the name, and every one of them is now drawn — not all as pedigrees, because only two of them are pedigrees. A line that moved is drawn as the ground it covered; a parish that never joined up is drawn as the web it is; a chart a family made about itself is drawn banded by how much of it can be tested. A tree with invented joins in it is worse than no tree, so none of these has any.">
+  eyebrow={`${t.rows.length} drawings · five of the seven families, and the Kvarner that is not one`}
+  dek="This archive follows seven families of the name. Five of them are drawn here, beside the Kvarner households, which are drawn precisely because they are NOT a family — nine of them in two towns twelve kilometres apart, and not one record joining any two. Svetvinčenat and Vodnjan have roads on the rivers drawing and no tree here yet. Not all as pedigrees, because only two of them are pedigrees. A line that moved is drawn as the ground it covered; a parish that never joined up is drawn as the web it is; a chart a family made about itself is drawn banded by how much of it can be tested. A tree with invented joins in it is worse than no tree, so none of these has any.">
 
   <Trees rows={rows} close={t.close} drawn={u("/tree/")} />
 
@@ -22,7 +22,7 @@ const rows = t.rows.map(r => ({ ...r, href: r.href ? u(r.href) : null }));
   <section class="blk">
     <div class="doors" style="margin-top:18px">
       <a class="door" href={u("/lines/")}>
-        <div class="dn">All five, compared</div>
+        <div class="dn">All seven, compared</div>
         <div class="dd">The families side by side — where each begins, what it rests on, and where it ended up.</div>
         <div class="go">Compare them →</div>
       </a>
