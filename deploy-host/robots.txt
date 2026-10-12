@@ -1,0 +1,27 @@
+# daviddef.github.io — the one robots.txt any crawler will ever read.
+#
+# GitHub Pages serves every archive from ONE host, under a path each:
+#   /TheDefranceski/  /TheFalco/  /TheBlazevic/  /TheBooyzen/
+#   /TheLerena/  /TheDArcy/  /TheMazza/
+# Each of those publishes its own robots.txt at its own base, and a
+# crawler NEVER fetches those: robots.txt is read at the host root and
+# nowhere else. So until this file existed, seven sitemaps and roughly
+# 17,300 URLs were advertised to nobody.
+
+User-agent: *
+Allow: /
+
+# The Defranceschi Archive
+Sitemap: https://daviddef.github.io/TheDefranceski/sitemap.xml
+# The Falco Archive
+Sitemap: https://daviddef.github.io/TheFalco/sitemap.xml
+# The Blažević Archive
+Sitemap: https://daviddef.github.io/TheBlazevic/sitemap.xml
+# The Booyzen Archive
+Sitemap: https://daviddef.github.io/TheBooyzen/sitemap.xml
+# The Lerena Archive
+Sitemap: https://daviddef.github.io/TheLerena/sitemap.xml
+# The D'Arcy Archive
+Sitemap: https://daviddef.github.io/TheDArcy/sitemap.xml
+# The Mazza Archive
+Sitemap: https://daviddef.github.io/TheMazza/sitemap.xml
