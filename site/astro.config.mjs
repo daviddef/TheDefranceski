@@ -1,10 +1,14 @@
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages project site. If you later point defranceski.com at this repo,
-// set base to '/' and site to 'https://defranceski.com'.
+// Served at the ROOT of its own subdomain since 12 October 2026 —
+// https://archive.defranceski.com/ — not as a path under daviddef.github.io.
+// base must stay '/' and site must stay the bare origin: the kit's
+// archives.json keys this archive on base "" (BASE_URL stripped of its
+// trailing slash), and SocialHead falls back to the children's site, silently,
+// if the two disagree. GitHub redirects the old /TheDefranceski/ address.
 export default defineConfig({
-  site: 'https://daviddef.github.io',
-  base: '/TheDefranceski',
+  site: 'https://archive.defranceski.com',
+  base: '/',
   /* WHY outDir IS A VARIABLE, and why the default must stay 'dist'.
      Several sessions build this estate at once, and `astro build` EMPTIES its
      outDir before it refills it — so one session's build wipes the tree
@@ -31,13 +35,13 @@ export default defineConfig({
      have been published and linked to for months land there rather than
      rotting. */
   redirects: {
-    '/married-in': '/TheDefranceski/marriages',
-    '/research-map': '/TheDefranceski/map',
-    '/atlas': '/TheDefranceski/map',
-    '/graves-map': '/TheDefranceski/map',
+    '/married-in': '/marriages',
+    '/research-map': '/map',
+    '/atlas': '/map',
+    '/graves-map': '/map',
     /* 9 October 2026: three pages folded into pages that do the same job. */
-    '/research-log': '/TheDefranceski/open-questions/',
-    '/gaps': '/TheDefranceski/open-questions/#gaps',
-    '/photograph-these': '/TheDefranceski/errands/#photographs',
+    '/research-log': '/open-questions/',
+    '/gaps': '/open-questions/#gaps',
+    '/photograph-these': '/errands/#photographs',
   },
 });

@@ -48,7 +48,7 @@ for (const g of dl.generations) {
 const bearers = roster.rows.filter(x => x.pid && x.who === `/who/${p.slug}/`);
 const soleBearer = bearers.length === 1 ? bearers[0].pid : null;
 const CANONICAL = soleBearer
-  ? `https://daviddef.github.io/TheDefranceski/person/${soleBearer}/`
+  ? new URL(u(`/person/${soleBearer}/`), Astro.site).href
   : undefined;
 
 /* Every one of these pages shipped the same fourteen-word description. It now

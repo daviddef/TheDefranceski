@@ -11,8 +11,11 @@
 User-agent: *
 Allow: /
 
-# The Defranceschi Archive
-Sitemap: https://daviddef.github.io/TheDefranceski/sitemap.xml
+# The Defranceschi Archive — moved to its own subdomain, 12 October 2026.
+# It serves its own robots.txt at that root now; this line is kept because a
+# cross-host Sitemap directive is still a legal hint, and the old path
+# redirects rather than 404s.
+Sitemap: https://archive.defranceski.com/sitemap.xml
 # The Falco Archive
 Sitemap: https://daviddef.github.io/TheFalco/sitemap.xml
 # The Blažević Archive
