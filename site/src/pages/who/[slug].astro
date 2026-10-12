@@ -27,6 +27,49 @@ for (const g of dl.generations) {
   else if (g.spouse && _res(g.spouse.name, g.spouse.born) === p.slug)
     onTree.push({ g, role: `married into it — ${g.name}'s wife` });
 }
+/* THIS PAGE IS A NAME INDEX, AND FOR MOST NAMES IT HAS NOTHING TO INDEX.
+ *
+ * «The name pages stay, as indexes and disambiguation; this is where a person
+ * lives» — person/[pid].astro, 23 September 2026. True, and for 1,274 of the
+ * 1,477 names here there is exactly ONE bearer, so this page and that one are
+ * about the same human: identical <title>, about 70% of their words in common,
+ * and until 12 October 2026 each one telling a search engine it was the
+ * original. Nothing chooses between them, so a crawler indexes neither well.
+ *
+ * Where the name has one bearer, this page points its canonical at the person
+ * and stops competing. Both addresses keep working — the person id is minted
+ * and frozen, and a redirect would turn it into a hop — and a share of THIS
+ * page still opens this page, because og:url does not follow the canonical.
+ *
+ * Where the name has several bearers this page is doing real work and stays
+ * canonical to itself. /who/maria-defranceschi/ holds twenty-five different
+ * women born between 1733 and 1888, which is the whole reason it exists.
+ */
+const bearers = roster.rows.filter(x => x.pid && x.who === `/who/${p.slug}/`);
+const soleBearer = bearers.length === 1 ? bearers[0].pid : null;
+const CANONICAL = soleBearer
+  ? `https://daviddef.github.io/TheDefranceski/person/${soleBearer}/`
+  : undefined;
+
+/* Every one of these pages shipped the same fourteen-word description. It now
+   says what is actually under this name, from the page's own counts. */
+const WHO_DESC = (() => {
+  /* ⚠ Same rule as the person page: a meta description is read by people who
+     never open the page. If anyone under this name is living, the description
+     carries the name and the counts and no years and no place. */
+  if (bearers.some(x => x.living)) {
+    return `${p.name}. Every mention of this name in the archive — ${p.n} across ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}. Living people are named here and nothing more.`;
+  }
+  const yrs = (p.facts || []).find(f => f[0] === "Years");
+  const plc = (p.facts || []).find(f => f[0] === "Place");
+  const bits = [`${p.name}${yrs && yrs[1] ? `, ${yrs[1]}` : ""}.`];
+  if (plc && plc[1]) bits.push(`${plc[1]}.`);
+  bits.push(bearers.length > 1
+    ? `${bearers.length} different people of this name are kept apart here, each with their own page.`
+    : `Every mention of this name in the archive — ${p.n} across ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}.`);
+  return bits.join(" ").slice(0, 300);
+})();
+
 const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
 const groups = Object.entries(byPage);
@@ -53,15 +96,16 @@ import { mdHtml as md } from "../../lib/md.js";
 const pt = port.map[p.slug];
 const VIAW = { line: "the archive\u2019s own line", read: "a register read here", index: "a FamilySearch index entry", tree: "the family tree, unverified" };
 const pics = pt ? pt.ids.map(i => art[i]).filter(Boolean) : [];
-const sameName = roster.rows.filter(x => x.pid && x.who === `/who/${p.slug}/`)
+const sameName = [...bearers]
   .sort((a, b) => (a.b || a.bEst || 9999) - (b.b || b.bEst || 9999));
 const spanOf = (x) => [x.b || (x.bEst ? `about ${x.bEst}` : null), x.d].filter(Boolean).join(" \u2013 ") || "dates unknown";
 const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:/, ""),
   caption: [a.artist, a.date && a.date.slice(0,10), a.licence].filter(Boolean).join(" · "),
   holder: a.licence, w: a.w, h: a.h, src: u(a.src), thumb: u(a.thumb) }));
 ---
-<Base title={p.name} eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
-      dek={`Everything this archive holds under this name, gathered from every page of the site.`}>
+<Base title={bearers.length > 1 ? `${p.name} — ${bearers.length} people of the name` : p.name}
+      eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
+      dek={WHO_DESC} canonical={CANONICAL}>
 
 {onTree.length > 0 && (
   <div class="ontreewrap">

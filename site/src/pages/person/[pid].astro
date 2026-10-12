@@ -23,12 +23,32 @@ export function getStaticPaths() {
   const rows = roster.rows.filter(r => r.pid);
   const byName = {};
   rows.forEach(r => { const k = r.who || r.name; (byName[k] = byName[k] || []).push(r); });
-  return rows.map(r => ({
-    params: { pid: r.pid },
-    props: { r, kin: (byName[r.who || r.name] || []).filter(x => x.pid !== r.pid) },
-  }));
+  /* SAME NAME, SAME YEAR, DIFFERENT PEOPLE — which is this archive's whole
+     subject and was invisible in a page title. Seven men called Pietro De
+     Franceschi are recorded in 1734: one at Svetvinčenat, one at Bale, five at
+     Vodnjan. Their pages all carried the identical title, so a search result
+     could not tell them apart and neither could a reader scanning the tab bar.
+     Where the name and the year collide AND the parish separates them, the
+     parish goes in the title. Where it does not separate them — five Vodnjan
+     Pietros of 1734 — nothing is added, because a title that repeats the same
+     place is no more use than one that does not, and inventing a
+     distinguisher would be worse than admitting there is none. */
+  const stamp = (x) => `${x.name}|${x.b || x.d || x.bEst || ""}`;
+  const clash = {};
+  rows.forEach(x => { (clash[stamp(x)] = clash[stamp(x)] || []).push(x); });
+  return rows.map(r => {
+    const group = clash[stamp(r)] || [r];
+    const where = r.parish || r.place || "";
+    const placeSeparates = group.length > 1 && where &&
+      group.filter(x => (x.parish || x.place || "") === where).length === 1;
+    return {
+      params: { pid: r.pid },
+      props: { r, kin: (byName[r.who || r.name] || []).filter(x => x.pid !== r.pid),
+               placeSeparates },
+    };
+  });
 }
-const { r, kin } = Astro.props;
+const { r, kin, placeSeparates } = Astro.props;
 
 /* A DUPLICATE KEEPS ITS URL.
  *
@@ -162,15 +182,74 @@ const tree = _t ? {
     return out;
   })(),
 } : null;
+/* WHAT A SEARCH ENGINE IS TOLD ABOUT THIS PERSON, AND WHY IT WAS NOTHING.
+ *
+ * Until 12 October 2026 every one of these 1,587 pages shipped the SAME
+ * fourteen-word description — «One person. Everything this archive holds for
+ * this individual…» — and the SAME <title> as the /who/<name>/ page about the
+ * same human. Measured across the built site: 3,237 pages, 1,661 distinct
+ * titles, 501 distinct descriptions, 1,477 of them sharing one string. To a
+ * crawler that is a few thousand near-identical pages with nothing to tell
+ * them apart, and the result is the one David reported: the archive is barely
+ * in a search.
+ *
+ * So the title now carries the life span, which is what distinguishes a person
+ * from a name and what a reader scanning results actually needs — «Gaspar de
+ * Franceschi, 1562 – 1609» against the name page's «Gaspar de Franceschi» —
+ * and the description is built from this row's own facts. Nothing is invented:
+ * every part is already printed on the page, and a row that has only a name
+ * says only what a row with only a name can say.
+ */
+/* A few rows carry the place as the slug it is filed under rather than as a
+   name — «dalmatia» for Dalmatia — and a description is the one place that is
+   read by somebody who has not opened the page. */
+const WHERE = (() => {
+  const w = r.parish || r.place;
+  if (!w) return null;
+  return /^[a-z][a-z-]*$/.test(w) ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+})();
+const DESC = (() => {
+  if (dupOf) return `A duplicate entry, kept at its published address. The person is recorded under ${dupOf.name}.`;
+  /* ⚠ A META DESCRIPTION IS THE MOST EXPOSED LINE THIS ARCHIVE PUBLISHES: it
+     is what a search engine shows to somebody who never opens the page, and
+     what it keeps after the page changes. For a living person it says the
+     name and nothing else — no span, no parish, no note — which is the rule
+     read at its strictest and the only reading worth applying here. */
+  if (r.living) return `${r.name} — named here, and nothing more. A living person in a public archive.`;
+  const head = [r.name, (r.b || r.d || r.bEst) ? span : null, WHERE].filter(Boolean).join(", ");
+  const note = r.note
+    ? String(r.note).replace(/[*_`«»\[\]]/g, "").replace(/\s+/g, " ").trim().slice(0, 95)
+    : null;
+  return [head + ".", note ? note.replace(/\.$/, "") + "." : null,
+          "Every record this archive holds for this one person, with the document behind each."]
+    .filter(Boolean).join(" ").slice(0, 300);
+})();
+
+/* schema.org Person. The kit has emitted this since it was written — «a search
+ * engine that can see a Person with a birth place and a death date can answer
+ * a question about that person, and one that sees only prose cannot» — and no
+ * page in this archive had ever passed it one. A bare year is a valid
+ * schema.org date; an estimate is not a date and is left out rather than
+ * published as one. */
+/* and no Person record at all for a living person: schema.org Person exists to
+   be harvested, and a birth place is exactly what must not be. */
+const PERSON = (dupOf || r.living) ? null : {
+  name: r.name,
+  birthDate: r.b ? String(r.b) : undefined,
+  deathDate: r.d ? String(r.d) : undefined,
+  birthPlace: WHERE || undefined,
+};
+
 const plateRows = allplates.rows || allplates;
 const fm = fam.map[r.pid];
 const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boolean)
   .map(p => ({ id: p.id, title: p.title, caption: p.caption, holder: p.holder,
                w: p.w, h: p.h, src: u(p.src), thumb: u(p.thumb) })) : [];
 ---
-<Base title={r.name} eyebrow={dupOf ? "the same person as another page" : span} dek={dupOf
-        ? `A duplicate entry, kept at its published address. The person is recorded under ${dupOf.name}.`
-        : `One person. ${r.place ? r.place + ". " : ""}Everything this archive holds for this individual, kept apart from everyone else who shares the name.`}>
+<Base title={r.living ? r.name : [r.name, (r.b || r.d || r.bEst) ? span : null,
+              placeSeparates ? WHERE : null].filter(Boolean).join(", ")}
+      eyebrow={dupOf ? "the same person as another page" : span}
+      dek={DESC} person={PERSON}>
 
 {dupOf && (
 <section class="blk">
