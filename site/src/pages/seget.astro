@@ -23,7 +23,15 @@ import { u } from "../lib/url.js";
 const A = s.arc;
 const AW = 920, AH = 290, ML = 26, MR = 26, AX = 150;
 const px = (y) => ML + ((y - A.from) / (A.to - A.from)) * (AW - ML - MR);
-const MARKS = A.marks.map((m) => ({ ...m, x: px(m.y), up: m.side === "up" }));
+/* The first and last marks are ANCHORED INWARDS. Centred on their points they
+   ran off both ends of the viewBox, and 1604 and 1623 — nineteen years apart
+   on a 341-year axis — printed on top of each other. The long sentence for
+   each date is in the table below; up here a few words is the whole job. */
+const LAST = A.marks.length - 1;
+const MARKS = A.marks.map((m, i) => ({
+  ...m, x: px(m.y), up: m.side === "up",
+  anc: i === 0 ? "start" : (i === LAST ? "end" : "middle"),
+}));
 const BX0 = px(A.band.from), BX1 = px(A.band.to);
 ---
 <Base title="Seget, and Crete" eyebrow="The other Istrian branch"
@@ -91,8 +99,8 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
         <g>
           <line x1={m.x} y1={AX} x2={m.x} y2={m.up ? AX - 46 : AX + 46} class="alead" />
           <circle cx={m.x} cy={AX} r="5.5" class={m.key ? "adot akey" : "adot"} />
-          <text x={m.x} y={m.up ? AX - 54 : AX + 62} class="aml" text-anchor="middle">{m.y}</text>
-          <text x={m.x} y={m.up ? AX - 68 : AX + 76} class="amt" text-anchor="middle">{m.t}</text>
+          <text x={m.x} y={m.up ? AX - 54 : AX + 62} class="aml" text-anchor={m.anc}>{m.y}</text>
+          <text x={m.x} y={m.up ? AX - 68 : AX + 76} class="amt" text-anchor={m.anc}>{m.t}</text>
         </g>
       ))}
       <text x={(BX0 + BX1) / 2} y={AX - 44} class="abl" text-anchor="middle">{A.band.from}–{A.band.to}</text>
