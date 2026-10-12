@@ -457,6 +457,21 @@ import { u } from "../lib/url.js";
 <Rule name="arcade" label="The chapel at Seget" />
 
 <section class="blk">
+<Rule name="arrows" label="The weather they walked in" />
+<section class="blk">
+  <h2>{s.wave.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(s.wave.lead)}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
+    {s.wave.rows.map(r => (
+      <div class="one">
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(s.wave.source_wave)}></p>
+</section>
+
   <h2>{s.umagbook.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(s.umagbook.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
