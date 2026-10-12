@@ -2030,6 +2030,14 @@
    "owner": "David",
    "since": "2026-10-12",
    "note": "**The only documents known to name the Cretan families at Parenzo individually.** *The printed regesti record the Senate asking for both lists and receiving them, but print neither* (*Senato Rettori*, AMSI XX, cc. 3 and 83). **They are in the Senate filze at the ASV, which De Luca worked in directly** — *Senato Rettori* registers 46–50 and the corresponding *filze*, plus *Collegio, Risposte di fuori*, f. 424 and f. 429. ***This is now a better bet for a name than Camillo's 1952 offprint, and it is reachable by a paid search where the offprint is not.***"
+  },
+  {
+   "n": 235,
+   "what": "⚠⚠ TWO RENDERING DEFECTS found in the frame pipeline — a black frame that looks like a blank page, and a mislabelled frame that overwrote a good one",
+   "state": "done",
+   "owner": "Claude",
+   "since": "2026-10-12",
+   "note": "**Both found in ten minutes of the Medulin births book, and both would have put false readings into this archive.**\n\n**1 · THE BLACK FRAME.** *The render snippet drew* `document.images[0]` *to canvas* **without waiting for the image to load**. *After a navigation the image is sometimes not yet decoded, and the canvas then yields a* ***pure black page of perfectly normal dimensions*** — *28 KB, right aspect ratio, nothing on it.* **Frames 8 and 10 came back that way and would have been logged as read and empty.**\n\n> *Caught only because the LEFT and RIGHT halves were* **byte-identical** *— 28,217 bytes each. Two halves of one opening are never byte-identical.*\n\n**The fix**: the snippet now awaits `img.onload` when `!complete || !naturalWidth`, and **throws** `IMAGE NOT LOADED` if `naturalWidth` is 0, so the failure is loud rather than silent. **The standing check**: after every decode, compare the two halves' byte sizes; identical means refetch.\n\n**2 · THE MISLABELLED FRAME.** *A batch's first action re-rendered the frame the browser was still sitting on, and the output was labelled as the next frame* — **overwriting a good capture with a duplicate of its neighbour**. *Caught by the same size check:* `f10-R` *and* `f11-R` *both 912,167 bytes.* **The standing check**: md5 every half-page and assert no duplicate hashes across the whole book, not just within a frame.\n\n***This is the same family as the Ližnjan crop that cut every page and the two «blank» Medulin openings that were full pages.*** **The rule it keeps proving: an absence produced by this archive's own tooling is not an absence in the record, and the only defence is a check that fails loudly rather than a page that looks plausible.**"
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
