@@ -560,7 +560,12 @@ def ptree(name, row=None):
     t = {"self": {"n": name, "dt": _dates(row), "via": _via(row)}}
     myY = estY = None
     if row:
-        for _f in ("b", "d"):
+        # A DEATH YEAR IS NOT A BIRTH YEAR when the row carries an estimated birth:
+        # Tomas Defranceschi (d. 1858, born about 1799) was being gated as «born 1858»,
+        # which made him «died a child» and refused him his own household of 1843.
+        # Only a row with neither b nor bEst still falls back on its death year.
+        _fields = ("b",) if isinstance(row.get("bEst"), int) else ("b", "d")
+        for _f in _fields:
             if isinstance(row.get(_f), int): myY = row[_f]; break
         if myY is None and isinstance(row.get("bEst"), int):
             estY = row["bEst"]
