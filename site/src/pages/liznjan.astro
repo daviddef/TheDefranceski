@@ -150,6 +150,13 @@ import Plates from "../components/Plates.astro";
       </div>
     ))}
   </div>
+  {d.pomer.plates && (
+    <div style="margin-top:24px">
+      <h3 style="margin:0 0 6px">The pages themselves</h3>
+      <p class="cap" style="margin:0 0 12px">Seventeen whole pages of the Pomer books, so the column headings and the neighbouring lines stand with each entry. Each one links to the same image on FamilySearch (a free account is needed).</p>
+      <Plates ids={d.pomer.plates} cols={1} />
+    </div>
+  )}
   <p class="cap" style="margin-top:16px" set:html={mdHtml(d.pomer.source_p)}></p>
 </section>
 

@@ -276,7 +276,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     ))}
   </div>
   <p class="pcap">
-    <span class="lab">Photographs the family holds</span>
+    <span class="lab">{fm.label || "Photographs the family holds"}</span>
     <span set:html={_md(fm.whose)} />
     {fm.note && <> <span set:html={_md(fm.note)} /></>}
   </p>
