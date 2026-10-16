@@ -393,7 +393,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     <ul style="margin-top:14px">
       {kin.map(k => (
         <li><a href={u(`/person/${k.pid}/`)}>{k.name}</a>{" — "}
-          {[k.b || (k.bEst ? `about ${k.bEst}` : null), k.d].filter(Boolean).join(" – ") || "dates unknown"}
+          {k.living ? "living" : ([k.b || (k.bEst ? `about ${k.bEst}` : null), k.d].filter(Boolean).join(" – ") || "dates unknown")}
           {k.place ? `, ${k.place}` : ""}</li>
       ))}
     </ul>
