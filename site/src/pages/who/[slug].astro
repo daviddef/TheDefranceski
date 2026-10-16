@@ -46,10 +46,7 @@ for (const g of dl.generations) {
  * canonical to itself. /who/maria-defranceschi/ holds twenty-five different
  * women born between 1733 and 1888, which is the whole reason it exists.
  */
-/* A row's own page may be a hand-built page (a person with a page of their own, whose roster `who` points
-   there, not at /who/<slug>/): the row whose pid IS this slug is a bearer too, or a living person's name
-   page was indexable and in the sitemap (found 17 October 2026 on the one such row). */
-const bearers = roster.rows.filter(x => x.pid && (x.who === `/who/${p.slug}/` || x.pid === p.slug));
+const bearers = roster.rows.filter(x => x.pid && x.who === `/who/${p.slug}/`);
 const soleBearer = bearers.length === 1 ? bearers[0].pid : null;
 /* A name page whose every bearer is living is noindex, like their own pages (16 October
    2026). It then names no canonical: a noindex page that points at another page as its
