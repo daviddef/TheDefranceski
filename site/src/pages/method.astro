@@ -61,12 +61,12 @@ import { mdHtml } from "../lib/md.js";
 </section>
 <style>
   .rules { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
-  .rules li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 16px 18px;
+  .rules li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 18px; padding: 16px 18px;
               border: 1px solid var(--rule, #dcd6cc); border-left-width: 3px; border-radius: 3px; }
   .rules li.is-key { border-left-color: var(--terra, #a5442c); }
-  .num { font-size: 13px; opacity: .4; font-variant-numeric: tabular-nums; padding-top: 5px; }
+  .num { font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; padding-top: 5px; }
   .rules h3 { margin: 0; font-size: 20px; line-height: 1.25; }
   .rules p { margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; white-space: pre-line; }
-  @media (max-width: 620px) { .rules li { grid-template-columns: 1fr; gap: 6px; } }
+  @media (max-width: 620px) { .rules li { grid-template-columns: minmax(0, 1fr); gap: 6px; } .rules li h3, .rules li p { overflow-wrap: anywhere; } }
 </style>
 </Base>

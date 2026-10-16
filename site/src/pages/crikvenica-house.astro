@@ -59,7 +59,7 @@ const g = c.nextGen;
       <thead><tr><th>Child</th><th class="m">Born</th><th class="m">Died</th><th>What the entry gives</th></tr></thead>
       <tbody>{c.children.map(k => (
         <tr style={k.line ? "background:var(--accent-wash)" : undefined}>
-          <td>{k.name}{k.line && <span class="chip doc" style="margin-left:8px;font-size:9.5px;padding:2px 7px">the line</span>}</td>
+          <td>{k.name}{k.line && <span class="chip doc" style="margin-left:8px;font-size:11px;padding:2px 7px">the line</span>}</td>
           <td class="m">{k.born}</td><td class="m">{k.died || "—"}</td><td set:html={mdHtml(k.story)}></td>
         </tr>
       ))}</tbody>
