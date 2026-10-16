@@ -49920,7 +49920,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -63883,7 +63884,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -88140,7 +88142,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Lisa de Franceschi living Gary DeFranceschi Brooklyn living Deborah de Franceschi brooklyn new york living David Ivan Defranceski Johannesburg living Corie DeFranceschi living Kyle DeFranceschi living Gabrielle DeFranceschi living Nicholas"
+     "text": "de Franceschi living Gary DeFranceschi Brooklyn, United States living Deborah de Franceschi Brooklyn, United States living David Ivan Defranceski Johannesburg, South Africa living Corie DeFranceschi living Kyle DeFranceschi living Gabrielle DeFranceschi living"
     },
     {
      "page": "/senj-line/",
@@ -88246,7 +88248,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -116192,7 +116195,16 @@
     "siblings": [],
     "asChild": "",
     "spouse": "Cristina Adele D'Arcy (Defranceski)",
-    "children": [],
+    "children": [
+     {
+      "n": "Alessio David Defranceski",
+      "d": ""
+     },
+     {
+      "n": "Mateo Cristian Defranceski",
+      "d": ""
+     }
+    ],
     "span": "",
     "childrenPlace": "Brisbane",
     "upN": 1,
@@ -116232,9 +116244,25 @@
      "dt": "",
      "via": "line",
      "slug": "cristina-adele-d-arcy-defranceski",
-     "pid": "cristina-adele-d-arcy-defranceski"
+     "pid": "cristina-adele-d-arcy-defranceski",
+     "own": 2
     },
-    "children": [],
+    "children": [
+     {
+      "n": "Alessio David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "alessio-david-defranceski",
+      "pid": "alessio-david-defranceski"
+     },
+     {
+      "n": "Mateo Cristian Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "mateo-cristian-defranceski",
+      "pid": "mateo-cristian-defranceski"
+     }
+    ],
     "span": "",
     "childrenPlace": "Brisbane",
     "upN": 1,
@@ -116258,11 +116286,11 @@
     "tally": [
      [
       "line",
-      3
+      5
      ]
     ],
-    "nrel": 3,
-    "nread": 3,
+    "nrel": 5,
+    "nread": 5,
     "dupNames": []
    },
    "rec": null,
@@ -127755,7 +127783,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -129862,7 +129891,16 @@
    "tree": {
     "ambiguous": false,
     "spouse": "David Defranceski",
-    "children": [],
+    "children": [
+     {
+      "n": "Alessio David Defranceski",
+      "d": ""
+     },
+     {
+      "n": "Mateo Cristian Defranceski",
+      "d": ""
+     }
+    ],
     "span": "",
     "childrenPlace": "Brisbane",
     "upN": 0,
@@ -129880,9 +129918,25 @@
      "dt": "",
      "via": "line",
      "slug": "david-defranceski",
-     "pid": "david-defranceski-johannesburg-brisbane"
+     "pid": "david-defranceski-johannesburg-brisbane",
+     "own": 2
     },
-    "children": [],
+    "children": [
+     {
+      "n": "Alessio David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "alessio-david-defranceski",
+      "pid": "alessio-david-defranceski"
+     },
+     {
+      "n": "Mateo Cristian Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "mateo-cristian-defranceski",
+      "pid": "mateo-cristian-defranceski"
+     }
+    ],
     "span": "",
     "childrenPlace": "Brisbane",
     "upN": 0,
@@ -129900,11 +129954,225 @@
     "tally": [
      [
       "line",
-      1
+      3
      ]
     ],
-    "nrel": 1,
-    "nread": 1,
+    "nrel": 3,
+    "nread": 3,
+    "dupNames": []
+   },
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true
+  },
+  "alessio-david-defranceski": {
+   "name": "Alessio David Defranceski",
+   "slug": "alessio-david-defranceski",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/direct-line/",
+     "t": "Everyone"
+    }
+   ],
+   "hits": [],
+   "facts": [
+    [
+     "Place",
+     "Brisbane, Australia"
+    ],
+    [
+     "Relationship to David",
+     "son"
+    ],
+    [
+     "Living",
+     "named with relationships and a town and country, and nothing more"
+    ]
+   ],
+   "known": "",
+   "more": [],
+   "records": [],
+   "tree": {
+    "ambiguous": false,
+    "parents": [
+     "David Defranceski",
+     "Cristina Adele D'Arcy (Defranceski)"
+    ],
+    "parentsPlace": "Brisbane",
+    "siblings": [
+     "Mateo Cristian Defranceski"
+    ],
+    "asChild": "",
+    "upN": 1,
+    "downN": 0
+   },
+   "ptree": {
+    "self": {
+     "n": "Alessio David Defranceski",
+     "dt": "",
+     "via": "line",
+     "rel": "son"
+    },
+    "parents": [
+     {
+      "n": "David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "david-defranceski",
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
+     },
+     {
+      "n": "Cristina Adele D'Arcy (Defranceski)",
+      "dt": "",
+      "via": "line",
+      "slug": "cristina-adele-d-arcy-defranceski",
+      "pid": "cristina-adele-d-arcy-defranceski",
+      "own": 2
+     }
+    ],
+    "parentsPlace": "Brisbane",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Mateo Cristian Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "mateo-cristian-defranceski",
+      "pid": "mateo-cristian-defranceski",
+      "small": true
+     }
+    ],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [
+     [
+      "unchecked",
+      "David Defranceski",
+      "Cristina Adele D'Arcy (Defranceski)",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "tally": [
+     [
+      "line",
+      3
+     ]
+    ],
+    "nrel": 3,
+    "nread": 3,
+    "dupNames": []
+   },
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true
+  },
+  "mateo-cristian-defranceski": {
+   "name": "Mateo Cristian Defranceski",
+   "slug": "mateo-cristian-defranceski",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/direct-line/",
+     "t": "Everyone"
+    }
+   ],
+   "hits": [],
+   "facts": [
+    [
+     "Place",
+     "Brisbane, Australia"
+    ],
+    [
+     "Relationship to David",
+     "son"
+    ],
+    [
+     "Living",
+     "named with relationships and a town and country, and nothing more"
+    ]
+   ],
+   "known": "",
+   "more": [],
+   "records": [],
+   "tree": {
+    "ambiguous": false,
+    "parents": [
+     "David Defranceski",
+     "Cristina Adele D'Arcy (Defranceski)"
+    ],
+    "parentsPlace": "Brisbane",
+    "siblings": [
+     "Alessio David Defranceski"
+    ],
+    "asChild": "",
+    "upN": 1,
+    "downN": 0
+   },
+   "ptree": {
+    "self": {
+     "n": "Mateo Cristian Defranceski",
+     "dt": "",
+     "via": "line",
+     "rel": "son"
+    },
+    "parents": [
+     {
+      "n": "David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "david-defranceski",
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
+     },
+     {
+      "n": "Cristina Adele D'Arcy (Defranceski)",
+      "dt": "",
+      "via": "line",
+      "slug": "cristina-adele-d-arcy-defranceski",
+      "pid": "cristina-adele-d-arcy-defranceski",
+      "own": 2
+     }
+    ],
+    "parentsPlace": "Brisbane",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Alessio David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "alessio-david-defranceski",
+      "pid": "alessio-david-defranceski",
+      "small": true
+     }
+    ],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [
+     [
+      "unchecked",
+      "David Defranceski",
+      "Cristina Adele D'Arcy (Defranceski)",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "tally": [
+     [
+      "line",
+      3
+     ]
+    ],
+    "nrel": 3,
+    "nread": 3,
     "dupNames": []
    },
    "rec": null,
@@ -131789,6 +132057,42 @@
    "adjacent": null,
    "roster": true
   },
+  "charlotte-rita-baviello": {
+   "name": "Charlotte Rita Baviello",
+   "slug": "charlotte-rita-baviello",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/pfullingen/",
+     "t": "Everyone"
+    }
+   ],
+   "hits": [],
+   "facts": [
+    [
+     "Place",
+     "Horsham, Australia"
+    ],
+    [
+     "Relationship to David",
+     "second cousin once removed"
+    ],
+    [
+     "Living",
+     "named with relationships and a town and country, and nothing more"
+    ]
+   ],
+   "known": "",
+   "more": [],
+   "records": [],
+   "tree": null,
+   "ptree": null,
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true
+  },
   "lewis-rose": {
    "name": "Lewis Rose",
    "slug": "lewis-rose",
@@ -132187,7 +132491,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger"
+     "text": "Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945"
     },
     {
      "page": "/worklist/",
@@ -132679,7 +132983,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi living Carol Ann Defranceschi living Ladislava Defranceski Crikvenica"
+     "text": "Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi 1946 living Carol Ann Defranceschi 1946 living Ladislava Defranceski Crikvenica,"
     },
     {
      "page": "/worklist/",
@@ -132855,7 +133159,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi living Carol Ann Defranceschi living"
+     "text": "Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi 1946 living Carol Ann Defranceschi 1946"
     },
     {
      "page": "/worklist/",
@@ -137010,7 +137314,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Antoinetta de Franceschi 1920 living Emilio de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de"
+     "text": "Antoinetta de Franceschi 1920 living Emilio de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de"
     }
    ],
    "facts": [
@@ -137061,7 +137365,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi"
+     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi"
     }
    ],
    "facts": [
@@ -137116,7 +137420,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi living Assunta Maria de Franceschi Gracisce"
+     "text": "de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935"
     },
     {
      "page": "/worklist/",
@@ -137171,7 +137475,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin"
+     "text": "Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin"
     }
    ],
    "facts": [
@@ -137221,7 +137525,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica"
+     "text": "Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936"
     },
     {
      "page": "/worklist/",
@@ -137278,7 +137582,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana"
+     "text": "living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991"
     }
    ],
    "facts": [
@@ -137338,7 +137642,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Feliciano de Franceschi living Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach"
+     "text": "living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski"
     }
    ],
    "facts": [
@@ -137400,7 +137704,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger"
+     "text": "Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945"
     },
     {
      "page": "/worklist/",
@@ -137547,7 +137851,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi"
+     "text": "Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi"
     }
    ],
    "facts": [
@@ -137609,7 +137913,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi living Carol Ann Defranceschi living"
+     "text": "Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi 1946 living Carol Ann Defranceschi 1946"
     },
     {
      "page": "/worklist/",
@@ -137778,7 +138082,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi living Carol Ann Defranceschi living Ladislava Defranceski Crikvenica"
+     "text": "Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi 1946 living Carol Ann Defranceschi 1946 living Ladislava Defranceski Crikvenica,"
     },
     {
      "page": "/worklist/",
@@ -137931,7 +138235,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi living Carol Ann Defranceschi living Ladislava Defranceski Crikvenica living Petrica Defranceski Horsham living"
+     "text": "Dario de Franceschi 1937–1991 Gallignana living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi 1946 living Carol Ann Defranceschi 1946 living Ladislava Defranceski Crikvenica, Croatia living Petrica Defranceski Horsham,"
     }
    ],
    "facts": [
@@ -137977,7 +138281,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Gallignana living Ursula Defranceski Urach living Renata Defranceski Metzinger living Daria de Franceschi living Carol Ann Defranceschi living Ladislava Defranceski Crikvenica living Petrica Defranceski Horsham living Steven DeFranceschi living"
+     "text": "living Ursula Defranceski 1940 Urach living Renata Defranceski 1945 Metzinger living Daria de Franceschi 1946 living Carol Ann Defranceschi 1946 living Ladislava Defranceski Crikvenica, Croatia living Petrica Defranceski Horsham, Australia living Steven DeFranceschi"
     }
    ],
    "facts": [
@@ -138731,7 +139035,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Alyssa DeFranceschi living Isabella Marie DeFranceschi Allentown living Matthew Michael DeFranceschi Allentown living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living"
+     "text": "DeFranceschi living Isabella Marie DeFranceschi Allentown, United States living Matthew Michael DeFranceschi Allentown, United States living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice"
     }
    ],
    "facts": [
@@ -138773,7 +139077,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Isabella Marie DeFranceschi Allentown living Matthew Michael DeFranceschi Allentown living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living Giovachino de Franceschi"
+     "text": "Marie DeFranceschi Allentown, United States living Matthew Michael DeFranceschi Allentown, United States living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living Giovachino de Franceschi"
     }
    ],
    "facts": [
@@ -138819,7 +139123,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Matthew Michael DeFranceschi Allentown living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living Giovachino de Franceschi living Guiseppe DeFranceschi"
+     "text": "Matthew Michael DeFranceschi Allentown, United States living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living Giovachino de Franceschi living Guiseppe DeFranceschi"
     }
    ],
    "facts": [
@@ -138870,7 +139174,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "Allentown living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living Giovachino de Franceschi living Guiseppe DeFranceschi living Maria De Franceschi Calzavara living"
+     "text": "United States living Dragica de Franceschi living Aline Defranceski Germany living Aurelio Defranceski living Lukrezia di Venezia de Franceschi Venice living Giovachino de Franceschi living Guiseppe DeFranceschi living Maria De Franceschi Calzavara living"
     }
    ],
    "facts": [
@@ -148708,12 +149012,12 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi"
+     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi"
     },
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard Defranceschi living Assunta Maria de Franceschi Gracisce living Nenad Defranceski Varaždin living Lidija Defranceski Crikvenica living Dario de Franceschi 1937–1991 Gallignana"
+     "text": "Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991"
     },
     {
      "page": "/seget/",
@@ -182256,7 +182560,7 @@
     {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
-     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi Mercedes living Feliciano de Franceschi living Richard"
+     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi"
     },
     {
      "page": "/lines/",
@@ -227980,6 +228284,69 @@
     "dupNames": []
    }
   },
+  "alessio-david-defranceski": {
+   "pid": "alessio-david-defranceski",
+   "name": "Alessio David Defranceski",
+   "ptree": {
+    "self": {
+     "n": "Alessio David Defranceski",
+     "dt": "",
+     "via": "line",
+     "rel": "son"
+    },
+    "parents": [
+     {
+      "n": "David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "david-defranceski",
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
+     },
+     {
+      "n": "Cristina Adele D'Arcy (Defranceski)",
+      "dt": "",
+      "via": "line",
+      "slug": "cristina-adele-d-arcy-defranceski",
+      "pid": "cristina-adele-d-arcy-defranceski",
+      "own": 2
+     }
+    ],
+    "parentsPlace": "Brisbane",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Mateo Cristian Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "mateo-cristian-defranceski",
+      "pid": "mateo-cristian-defranceski",
+      "small": true
+     }
+    ],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [
+     [
+      "unchecked",
+      "David Defranceski",
+      "Cristina Adele D'Arcy (Defranceski)",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "tally": [
+     [
+      "line",
+      3
+     ]
+    ],
+    "nrel": 3,
+    "nread": 3,
+    "dupNames": []
+   }
+  },
   "alexander-angelus-1893": {
    "pid": "alexander-angelus-1893",
    "name": "Alexander Angelus",
@@ -245898,7 +246265,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -246243,9 +246611,25 @@
      "dt": "",
      "via": "line",
      "slug": "david-defranceski",
-     "pid": "david-defranceski-johannesburg-brisbane"
+     "pid": "david-defranceski-johannesburg-brisbane",
+     "own": 2
     },
-    "children": [],
+    "children": [
+     {
+      "n": "Alessio David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "alessio-david-defranceski",
+      "pid": "alessio-david-defranceski"
+     },
+     {
+      "n": "Mateo Cristian Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "mateo-cristian-defranceski",
+      "pid": "mateo-cristian-defranceski"
+     }
+    ],
     "span": "",
     "childrenPlace": "Brisbane",
     "upN": 0,
@@ -246263,11 +246647,11 @@
     "tally": [
      [
       "line",
-      1
+      3
      ]
     ],
-    "nrel": 1,
-    "nread": 1,
+    "nrel": 3,
+    "nread": 3,
     "dupNames": []
    }
   },
@@ -246765,9 +247149,25 @@
      "dt": "",
      "via": "line",
      "slug": "cristina-adele-d-arcy-defranceski",
-     "pid": "cristina-adele-d-arcy-defranceski"
+     "pid": "cristina-adele-d-arcy-defranceski",
+     "own": 2
     },
-    "children": [],
+    "children": [
+     {
+      "n": "Alessio David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "alessio-david-defranceski",
+      "pid": "alessio-david-defranceski"
+     },
+     {
+      "n": "Mateo Cristian Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "mateo-cristian-defranceski",
+      "pid": "mateo-cristian-defranceski"
+     }
+    ],
     "span": "",
     "childrenPlace": "Brisbane",
     "upN": 1,
@@ -246791,11 +247191,11 @@
     "tally": [
      [
       "line",
-      3
+      5
      ]
     ],
-    "nrel": 3,
-    "nread": 3,
+    "nrel": 5,
+    "nread": 5,
     "dupNames": []
    }
   },
@@ -268035,7 +268435,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -268217,7 +268618,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -268504,7 +268906,8 @@
       "dt": "",
       "via": "line",
       "slug": "david-defranceski",
-      "pid": "david-defranceski-johannesburg-brisbane"
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
      }
     ],
     "span": "",
@@ -295245,6 +295648,69 @@
     ],
     "nrel": 9,
     "nread": 9,
+    "dupNames": []
+   }
+  },
+  "mateo-cristian-defranceski": {
+   "pid": "mateo-cristian-defranceski",
+   "name": "Mateo Cristian Defranceski",
+   "ptree": {
+    "self": {
+     "n": "Mateo Cristian Defranceski",
+     "dt": "",
+     "via": "line",
+     "rel": "son"
+    },
+    "parents": [
+     {
+      "n": "David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "david-defranceski",
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "own": 2
+     },
+     {
+      "n": "Cristina Adele D'Arcy (Defranceski)",
+      "dt": "",
+      "via": "line",
+      "slug": "cristina-adele-d-arcy-defranceski",
+      "pid": "cristina-adele-d-arcy-defranceski",
+      "own": 2
+     }
+    ],
+    "parentsPlace": "Brisbane",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Alessio David Defranceski",
+      "dt": "",
+      "via": "line",
+      "slug": "alessio-david-defranceski",
+      "pid": "alessio-david-defranceski",
+      "small": true
+     }
+    ],
+    "upN": 1,
+    "downN": 0,
+    "dropped": [],
+    "unchecked": [
+     [
+      "unchecked",
+      "David Defranceski",
+      "Cristina Adele D'Arcy (Defranceski)",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "tally": [
+     [
+      "line",
+      3
+     ]
+    ],
+    "nrel": 3,
+    "nread": 3,
     "dupNames": []
    }
   },

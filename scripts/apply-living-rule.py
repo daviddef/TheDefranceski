@@ -187,14 +187,6 @@ def redeclare(old_rows, new_rows, held_pids):
     for k in held_pids:
         if k in pa["families"].get("person", []):
             pa["families"]["person"].remove(k)
-    for r in new_rows:                  # released people: their addresses are published again
-        if r.get("pid") and r["pid"] not in pa["families"]["person"]:
-            pa["families"]["person"].append(r["pid"])
-        w = (r.get("who") or "")
-        if w.startswith("/who/") and w.strip("/").split("/")[-1] not in pa["families"]["who"]:
-            pa["families"]["who"].append(w.strip("/").split("/")[-1])
-    pa["families"]["person"].sort()
-    pa["families"]["who"].sort()
     with io.open(led_p, "w", encoding="utf-8") as f:
         json.dump(pa, f, ensure_ascii=False, indent=1)
         f.write("\n")
