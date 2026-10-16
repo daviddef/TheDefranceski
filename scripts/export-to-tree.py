@@ -19,9 +19,11 @@ Writes data/to-the-tree.ged.
 **No living person is in it.** The rule everywhere else on this site is name
 and town and never a date; here the rule is stricter still, because a tree
 entry is a date by construction. Anybody the roster marks living, and anybody
-with no death and a birth after 1930, is left out entirely.
+the estate's one rule calls living (80 or younger, no death, no public source), is left out entirely.
 """
 import json, io, os, re, sys, unicodedata, collections, datetime
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import living_v2 as L2
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "site", "src", "data")
@@ -80,8 +82,8 @@ def main():
         if r.get("living"):
             skipped["living — never exported"] += 1
             continue
-        if not r.get("d") and (r.get("b") or 0) > 1930:
-            skipped["no death, born after 1930 — treated as living"] += 1
+        if L2.row_is_living(r):
+            skipped["the rule (80 or younger, no death, no public source) calls them living"] += 1
             continue
         out.append(r)
 

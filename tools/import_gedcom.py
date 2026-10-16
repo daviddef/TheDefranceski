@@ -1,5 +1,7 @@
 """Import a GEDCOM into the archive's data model, applying the living-person rule."""
-import json, re, sys, datetime
+import json, re, sys, os, datetime
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scripts"))
+import living_v2 as L2          # the estate's one definition of who is living
 
 def parse(path):
     inds, fams, cur, tag = {}, {}, None, None
@@ -54,8 +56,8 @@ if __name__ == '__main__':
         ev = i.get('_ev', {})
         b = year(ev.get('BIRT', {}).get('date'))
         d = year(ev.get('DEAT', {}).get('date'))
-        # living-person rule: omit anyone with no death date who could plausibly be alive
-        if not d and b and (THIS_YEAR - b) < 105:
+        # living-person rule (16 October 2026): omit anyone the estate's rule calls living or holds out
+        if L2.lr.is_living(b, bool(d), (), THIS_YEAR) or L2.lr.possible_minor(b, bool(d), (), False, THIS_YEAR):
             omitted += 1
             continue
         if not d and not b:

@@ -14,7 +14,7 @@ in a finally block and the file's original bytes written back, so the build is t
 same afterwards. Data faults edit the tracked file and restore it the same way —
 `git diff` is the proof, and the sweep ends by running it.
 """
-import os, sys, json, re, subprocess, shutil, glob
+import os, sys, json, re, subprocess, shutil, glob, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
@@ -124,6 +124,60 @@ def build_cases(D):
     return C
 
 
+def living_v2_cases(D):
+    """The living-people standard v2 gate, over the REAL tree: a fault in a built page, in the sitemap, in the
+    search index, and in the roster. The faults that need David's tree (a minor's name in a data file, a ledger
+    the rule disagrees with) are planted in a made-up archive by scripts/test-living-v2.py, because a real
+    person's name must not be written to a tracked path even for a moment."""
+    ro = json.load(open(os.path.join(SITE, "src/data/roster.json")))["rows"]
+    lv = next((x for x in ro if x.get("living") and x.get("pid")), None)
+    if not lv:
+        return []
+    d = os.path.join(SITE, D)
+    LP = os.path.join(d, "person", lv["pid"], "index.html")
+    SM = next((p for p in glob.glob(os.path.join(d, "sitemap*.xml"))), None)
+    SI = os.path.join(d, "searchindex.json")
+    RO = os.path.join(SITE, "src/data/roster.json")
+    cmd = ["python3", "../scripts/check-living-v2.py", "--dist", D, "--no-tree"]
+    env = {"ARCHIVE_OUT": D}
+    def jedit(fn):
+        def g(s):
+            o = json.loads(s); fn(o); return json.dumps(o, indent=1, ensure_ascii=False)
+        return g
+    def rows(o): return o["rows"] if isinstance(o, dict) else o
+    def idx(o): o.append({"k": "Person", "t": lv["name"], "h": "/person/%s/" % lv["pid"], "q": "x"})
+    C = []
+    def add(name, ctx): C.append(dict(name=name, tool="check-living-v2", cmd=cmd, ctx=ctx, env=env))
+    add("living v2: a living person's page loses its noindex",
+        lambda: Edit(LP, lambda s: s.replace('<meta name="robots" content="noindex">', "", 1)))
+    add("living v2: a living person's page gains Person structured data",
+        lambda: Edit(LP, lambda s: s.replace("</head>", '<script type="application/ld+json">{"@type":"Person","name":"x","birthDate":"1799"}</script></head>', 1)))
+    add("living v2: a living person's page gains a table",
+        lambda: Edit(LP, lambda s: s.replace("</main>", "<table><tr><td>x</td></tr></table></main>", 1)))
+    add("living v2: a living person's page gains an image",
+        lambda: Edit(LP, lambda s: s.replace("</main>", '<img src="/x.png" alt=""></main>', 1)))
+    add("living v2: a living person's page gains a year (1799)",
+        lambda: Edit(LP, lambda s: s.replace("</main>", "<p>1799</p></main>", 1)))
+    if SM:
+        add("living v2: a living person's page is listed in the sitemap",
+            lambda: Edit(SM, lambda s: s.replace("</urlset>", "<url><loc>https://x.test/person/%s/</loc></url></urlset>" % lv["pid"], 1)))
+    add("living v2: a living person is in the built search index",
+        lambda: Edit(SI, jedit(idx)))
+    add("living v2: a living row carries a birth year (1799)",
+        lambda: Edit(RO, jedit(lambda o: [x.__setitem__("b", 1799) for x in rows(o) if x.get("pid") == lv["pid"]])))
+    add("living v2: a living row carries a note",
+        lambda: Edit(RO, jedit(lambda o: [x.__setitem__("note", "an occupation") for x in rows(o) if x.get("pid") == lv["pid"]])))
+    add("living v2: a street in a living place",
+        lambda: Edit(RO, jedit(lambda o: [x.__setitem__("places", ["12 Zz Street, Testville, Testland"]) for x in rows(o) if x.get("pid") == lv["pid"]])))
+    add("living v2: an unmarked row the rule calls living (born 30 years ago)",
+        lambda: Edit(RO, jedit(lambda o: rows(o).append(dict(rows(o)[0], pid="zz-sweep-v2", name="Zz Sweep V2", b=datetime.date.today().year - 30, d=None, ark="", living=False)))))
+    add("living v2: a child published (born 9 years ago)",
+        lambda: Edit(RO, jedit(lambda o: rows(o).append(dict(rows(o)[0], pid="zz-sweep-kid", name="Zz Sweep Kid", b=datetime.date.today().year - 9, d=None, ark="", living=False)))))
+    add("living v2: the first person page is gone",
+        lambda: Move(os.path.join(d, "person", rows(ro)[0]["pid"], "index.html")))
+    return C
+
+
 def living_case(D):
     """A living person's full date: the data attaches it, a built page prints it."""
     rp = os.path.join(SITE, "src/data/roster.json")
@@ -162,7 +216,7 @@ def data_cases(D):
         lambda: Edit(RO, jedit(lambda o: rows(o)[0].__setitem__("name", rows(o)[0]["name"] + " Zz"))))
     add("atlas outcomes: a searched row with an outcome word the atlas cannot read", "check-atlas-outcomes", ["python3", "../scripts/check-atlas-outcomes.py"],
         lambda: Edit(SE, jedit(lambda o: rows(o)[0].__setitem__("outcome", "probably-something"))))
-    add("dates: a birth date inside the 95-year window, unexplained", "check-dates-everywhere", ["python3", "../scripts/check-dates-everywhere.py"],
+    add("dates: a birth date inside the 80-year rule, unexplained", "check-dates-everywhere", ["python3", "../scripts/check-dates-everywhere.py"],
         lambda: Edit(RO, jedit(lambda o: rows(o).append(dict(rows(o)[0], pid="zz-sweep-date", name="Zz Sweep Two", b=1995, d=None)))))
     add("kin: a death before the birth", "kit checkkin", kit("checkkin.py", "--data", "src/data/roster.json", "--born", "b", "--died", "d", "--max", "0"),
         lambda: Edit(RO, jedit(lambda o: rows(o).append(dict(rows(o)[0], pid="zz-sweep-kin", name="Zz Sweep Three", b=1900, d=1850)))))
@@ -217,6 +271,7 @@ def main():
         cmds = [("kit checkarchive", ["python3", f"{KIT}/checkarchive.py", "--dist", D]),
                 ("kit checknav", ["python3", f"{KIT}/checknav.py", "--dist", D, "--strict"]),
                 ("kit checkliving", ["../scripts/kit-living.sh", "--dist", D, "--data", "src/data", "--policy", "named-bare"]),
+                ("check-living-v2", ["python3", "../scripts/check-living-v2.py", "--dist", D, "--no-tree"]),
                 ("check_counter", ["python3", "../scripts/check_counter.py"]),
                 ("check-absence", ["python3", "../scripts/check-absence.py", "--dist", f"site/{D}"]),
                 ("check-licences", ["python3", "../scripts/check-licences.py", "--dist", D]),
@@ -231,7 +286,7 @@ def main():
     D = a[0]
     only = None
     if "--only" in a: only = set(a[a.index("--only") + 1].split(","))
-    cases = build_cases(D) + ([living_case(D)] if living_case(D) else []) + data_cases(D)
+    cases = build_cases(D) + ([living_case(D)] if living_case(D) else []) + living_v2_cases(D) + data_cases(D)
     if "--baseline" in a:
         print("every command on the UNMODIFIED tree — each must be green or the sweep means nothing")
         for c in cases:

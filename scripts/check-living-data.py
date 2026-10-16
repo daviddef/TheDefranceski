@@ -18,17 +18,19 @@ RULES.
   1. FAIL  `living: true` together with a death year. One of the two is wrong.
   2. FAIL  `living: true` together with a printed birth year `b`. The rule in
            this archive is name and town and nothing else.
-  3. REPORT rows with a birth year inside the living window and no death year
-           and no living flag. Not a failure: David's rule is «family only, as
-           written», so a stranger found in a public index keeps their dates.
-           It is a list to read, and it is how the two women would have been
-           found in March instead of by grepping for a string in September.
+  3. FAIL  a row with a birth year, no death, no public source and an age of 80
+           or less, that is not marked living. Until 16 October 2026 this was a
+           REPORT inside a private 95-year window, because «family only, as
+           written» let a stranger keep their dates. There is one rule now, for
+           everyone, and it is the kit's (living_rule.py).
 """
 import json, io, os, sys, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROSTER = os.path.join(ROOT, "site/src/data/roster.json")
-WINDOW = 95
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import living_v2 as L2
+WINDOW = L2.lr.LIVING_YEARS + 1       # the estate's 80 years (living-people standard v2), not a private 95
 
 def main():
     rows = json.load(io.open(ROSTER, encoding="utf-8"))["rows"]
@@ -49,8 +51,10 @@ def main():
             # `deceased: true` is for a death this archive knows about and
             # cannot date — the family tree records it, the archive will not
             # invent a year. It answers the question without guessing.
-            if b and not r.get("d") and not r.get("deceased") and (year - b) < WINDOW:
-                review.append((year - b, nm, pid, b))
+            if b and L2.row_is_living(r, year):
+                # v2: the rule calls this person living and the row is published with a birth year
+                fails.append("%s (%s) is published with a birth year (%s) and the rule (80 or younger, no "
+                             "death recorded, no public source) calls them living." % (nm, pid, b))
 
     for m in fails:
         print("  FAIL  %s" % m)

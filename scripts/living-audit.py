@@ -57,7 +57,9 @@ def living_names():
 # found eight people born 1931-1946 printed with their birth years and no
 # death recorded anywhere, three of them with a full birth date out of a 1947
 # refugee file. A hand-set flag will not find the ninth either.
-PRESUME_ALIVE_WITHIN = 95
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import living_v2 as L2
+PRESUME_ALIVE_WITHIN = L2.lr.LIVING_YEARS      # the estate's 80 years (standard v2), not a private 95
 
 def unflagged_possibly_living(this_year=None):
     """Roster rows young enough to be alive, with no death and no flag."""
@@ -65,16 +67,14 @@ def unflagged_possibly_living(this_year=None):
     y = this_year or datetime.date.today().year
     out, allowed = [], []
     for r in (load("roster.json") or {}).get("rows", []):
-        if r.get("living") or r.get("deceased") or r.get("d"):
+        if r.get("living") or L2.row_recorded_dead(r) or L2.row_citations(r):
             continue
         # A row may carry an explicit decision to publish the dates anyway.
         # David, 22 September 2026: the rule is about relatives, and somebody
         # already published by a public index is not made more private by this
         # site withholding what the index prints. Those rows say so, by name,
         # so that the exception is a record and not a silence.
-        if r.get("datesAllowed"):
-            allowed.append(r["name"])
-            continue
+        # (the 22 September exemption is gone: one rule for everyone, 16 October 2026)
         b = r.get("b") if isinstance(r.get("b"), int) else r.get("bEst")
         if isinstance(b, int) and y - b <= PRESUME_ALIVE_WITHIN:
             out.append((b, r["name"], r.get("src") or "", r.get("place") or ""))

@@ -32,6 +32,10 @@ roster = load("roster.json")
 LINE = dict(roster.get("legend") or [])
 people = []
 for r in roster["rows"]:
+    # A living person is noindex (living-people standard v2, 16 October 2026), and a page that
+    # keeps itself out of the search engines is kept out of this archive's own search as well.
+    if r.get("living"):
+        continue
     yrs = "–".join([str(r["b"]) if r.get("b") else "", str(r["d"]) if r.get("d") else ""]).strip("–")
     sub = " · ".join([x for x in (r.get("place") or "", yrs) if x]) or "no place recorded"
     q = " ".join([

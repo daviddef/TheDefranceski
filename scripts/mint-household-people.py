@@ -18,7 +18,8 @@ and a wrong mint puts two people where there is one. Those stay unlinked, listed
 
 Every row says, in its own note, that it is index-only or read, what the page
 actually prints about the person, and that nothing else is claimed. A person born
-after 1930 is named and nothing more (the living rule). The minted row is linked
+80 years ago or less, with no death recorded, is named with a town and country and nothing more (the living
+rule, the estate's one definition); a child is not minted at all. The minted row is linked
 back into households.json as it is made, so the link is by construction, not by
 guess.
 
@@ -29,6 +30,8 @@ guess.
 import json, io, re, sys, os, unicodedata, collections
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import living_v2 as L2          # who is living, and who is held out, is the estate's one rule
 HH = os.path.join(ROOT, "site/src/data/households.json")
 RO = os.path.join(ROOT, "site/src/data/roster.json")
 PL = os.path.join(ROOT, "site/src/data/places.json")
@@ -89,7 +92,7 @@ def main():
 
     new, seen = [], {}      # seen: dedupe key -> index in `new`
     st = collections.Counter()
-    LIVING_FROM = 1931
+    YEAR = L2.THIS_YEAR
 
     def slugplace(p):
         k = first_place(p).replace(" ", "-")
@@ -192,7 +195,11 @@ def main():
                     c["pid"], c["pidBasis"] = same[0]["pid"], "name+year via father's surname"
                     st["child: linked via father's surname"] += 1
                     continue
-            living = by is not None and by >= LIVING_FROM
+            if L2.lr.possible_minor(by, False, (), False, YEAR):
+                # a child is not published at all (living-people standard v2, 16 October 2026)
+                st["child: a possible minor, held out, NOT minted"] += 1
+                continue
+            living = L2.lr.is_living(by, False, (), YEAR)
             place = (c.get("place") or "").strip() or None
             dk = ("C", norm(full), by, norm(father), norm(mother))
             if dk in seen:
@@ -205,8 +212,8 @@ def main():
             supplied = (f" The household list gives the given name only; the surname is the father's and is supplied here."
                         if bare else "")
             if living:
-                note = (f"Child of **{father}** and **{mother}** ({lab}). Born after 1930, so **named and "
-                        "nothing more** under this archive's living-people rule.")
+                note = (f"Child of **{father}** and **{mother}** ({lab}). A living person, so **named "
+                        "with relationships and a town and country, and nothing more** under this archive's living-people rule.")
             else:
                 note = (f"Child of **{father}** and **{mother}** ({lab} on [the households list](/households/))."
                         f"{when}" + (f", at {place}" if place else "") + f". Evidence class: {cls}."

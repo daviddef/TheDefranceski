@@ -7,14 +7,16 @@ chart, the namesakes and the deep biographies — into one list, deduplicated
 by name and year, with a line assigned from the place and a link back to
 wherever that person is written up.
 
-Living people are excluded, not hidden: anyone with no death recorded and a
-birth after LIVING_CUTOFF is dropped, and the count of drops is reported.
+Living people are excluded here, not hidden: anyone the estate's one rule calls living (80 or younger,
+no death recorded, no public source) or holds out as a possible minor is dropped, and the count of drops
+is reported. apply-living-rule.py then puts the living back as scrubbed rows.
 """
-import json, os, re, unicodedata, collections
+import json, os, re, sys, unicodedata, collections
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D    = os.path.join(ROOT, "site", "src", "data")
-LIVING_CUTOFF = 1926
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import living_v2 as L2          # who is living is the estate's one rule; this file no longer keeps a cut-off year
 
 def load(n):
     with open(os.path.join(D, n), encoding="utf-8") as f: return json.load(f)
@@ -158,7 +160,9 @@ if os.path.exists(MHTSV):
 kept, living, notsur = [], 0, 0
 for r in rows:
     if not SUR.search(r["name"]): notsur += 1; continue
-    if r["d"] is None and (r["b"] or 0) >= LIVING_CUTOFF: living += 1; continue
+    if L2.lr.is_living(r["b"], r["d"] is not None, ["FamilySearch"] if r.get("ark") else [], L2.THIS_YEAR) \
+            or L2.lr.possible_minor(r["b"], r["d"] is not None, ["FamilySearch"] if r.get("ark") else [], False, L2.THIS_YEAR):
+        living += 1; continue
     if r["d"] is None and r["b"] is None and r["src"] in ("record",): pass
     r["line"] = line_of(r["place"] + " " + r["note"])
     kept.append(r)
@@ -289,7 +293,7 @@ META = {
   "record": "Record index"
  },
  "links": "**572 of them have a record behind them** — a FamilySearch document you can open — and **513 are in the family tree**. Better still, **367 now carry the name of the parish register they were actually found in**, recovered film by film from records the index labelled only «Croazia, Austria». Where a row has both links, both are given. A record link opens the indexed document; a tree link opens the person in David's MyHeritage tree, which is private, so it will only work for people he has given access to.",
- "warn": "**Living people are omitted, not hidden.** Anyone with no recorded death and a birth after 1925 is dropped from this list, and the count of drops is printed below."
+ "warn": "**Living people are omitted here, not hidden.** Anyone the estate's rule calls living (80 or younger, no recorded death, no public source) is dropped from this list, and the count of drops is printed below."
 }
 man = dict(META, **{"rows": out,
        "stats": {"total": len(out), "living_omitted": living,

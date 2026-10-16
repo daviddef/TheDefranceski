@@ -772,7 +772,11 @@ for slug, rows in by_slug.items():
     if len(needle) < 5:
         continue
     hits, pages = [], []
-    for dataname, blob in blobs.items():
+    # A name page whose every bearer is living quotes nothing: the standard (16 October
+    # 2026) lets a living person show a name, relationships and a town and country, and
+    # a quotation of every page that mentions them is neither. The page keeps its facts.
+    _all_living = all(r.get("living") for r in rows)
+    for dataname, blob in ({} if _all_living else blobs).items():
         href, title = route_of[dataname]
         if dataname in TABULAR:
             if needle in blob and not any(pp["h"] == href for pp in pages):
@@ -792,7 +796,7 @@ for slug, rows in by_slug.items():
     if r0.get("place"):
         facts.append(["Place", r0["place"]] + ([f"/places/{r0['placeSlug']}/"] if r0.get("placeSlug") else []))
     if yrs: facts.append(["Years", yrs + (f" \u00b7 from {r0['yfrom']}" if r0.get("yfrom") else "")])
-    elif YEAR_FROM.get(slug):
+    elif YEAR_FROM.get(slug) and not _all_living:
         # the roster has no year, but a register this archive read does. The
         # page said «estimated, not recorded» over the top of a date that was
         # sitting in the repository. It says the date now.
@@ -801,15 +805,16 @@ for slug, rows in by_slug.items():
     elif r0.get("bEst"):
         _rg = r0.get("bEstRange") or []
         facts.append(["Years", f"born about {r0['bEst']}" + (f" (somewhere {_rg[0]}\u2013{_rg[1]})" if len(_rg) == 2 else "") + " \u2014 estimated, not recorded"])
-    if r0.get("parish"): facts.append(["Parish", r0["parish"]])
-    if r0.get("line") and legend.get(r0["line"]): facts.append(["Line", legend[r0["line"]].split("—")[0].strip()])
+    if not r0.get("living"):
+        if r0.get("parish"): facts.append(["Parish", r0["parish"]])
+        if r0.get("line") and legend.get(r0["line"]): facts.append(["Line", legend[r0["line"]].split("—")[0].strip()])
     if r0.get("me"): facts.append(["Who this is", "David — the compiler of this archive"])
     elif r0.get("rel"): facts.append(["Relationship to David", r0["rel"]])
-    if r0.get("living"): facts.append(["Living", "named only — no dates, no places, no photograph"])
-    if r0.get("img"): facts.append(["Read from", r0["img"]])
+    if r0.get("living"): facts.append(["Living", "named with relationships and a town and country, and nothing more"])
+    if r0.get("img") and not r0.get("living"): facts.append(["Read from", r0["img"]])
     srcs = sorted({srclabel.get(r["src"], r["src"]) for r in rows})
-    if srcs: facts.append(["Found in", " · ".join(srcs)])
-    notes = [r["note"] for r in rows if r.get("note")]
+    if srcs and not _all_living: facts.append(["Found in", " · ".join(srcs)])
+    notes = [r["note"] for r in rows if r.get("note") and not r.get("living")]
     people[slug] = {
         "name": name, "slug": slug, "n": len(hits) or len(rows),
         "pages": pages or [{"h": r0.get("href") or "/people/", "t": "Everyone"}],
@@ -817,13 +822,14 @@ for slug, rows in by_slug.items():
         "facts": facts,
         "known": notes[0] if notes else "",
         "more": notes[1:],
-        "records": (BY_SLUG.get(slug, []) + RECORDS.get(" ".join(_key(name)), []))[:12]
-                    or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2],
+        "records": [] if _all_living else
+                   ((BY_SLUG.get(slug, []) + RECORDS.get(" ".join(_key(name)), []))[:12]
+                    or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
         "tree": mini_tree(name),
         "ptree": ptree(name),
         "rec": record_strip(rows),
         "chain": chain_tree(name),
-        "recyear": YEAR_FROM.get(slug),
+        "recyear": None if _all_living else YEAR_FROM.get(slug),
         "adjacent": adjacent_name(name),
         "roster": True,
     }

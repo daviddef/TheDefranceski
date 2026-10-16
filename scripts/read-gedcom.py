@@ -102,12 +102,11 @@ def main():
         dd = val(d, "DATE") if d else ""
         bp = val(b, "PLAC") if b else ""
         dp = val(d, "PLAC") if d else ""
-        # MyHeritage marks the living with _MARNM/_UID variously; the reliable
-        # test is the one this archive already uses: no death, and a birth
-        # inside the last hundred years.
+        # Who is living is the estate's rule (kit living_rule.py, 16 October 2026): 80 or younger with no
+        # death recorded and no public source. It used to be «no death and born after 1926», a private test.
         by = YEAR.search(bd)
         dy = YEAR.search(dd)
-        living = (not dd) and (not d) and (by is None or int(by.group()) > 1926)
+        living = None          # decided below, once the citations are read, by the estate's one rule
         # The citations David types by hand are NOTES, not SOUR records.
         # SOUR here is MyHeritage's own Smart-Match plumbing — «Meyer Family
         # Site», «Geni World Family Tree» — and reading only those found 272
@@ -134,6 +133,8 @@ def main():
                     t = " ".join(x for x in (s["val"], val(s, "PAGE"), val(s, "DATA", "TEXT")) if x)
                     if t.strip():
                         cites.append(tag + ": " + t.strip()[:400])
+        import living_v2 as _L2          # imported here: living_v2 loads this file's parser, so not at the top
+        living = _L2.lr.is_living(int(by.group()) if by else None, bool(dd or d), cites, _L2.THIS_YEAR)
         people[r["id"]] = {
             "id": r["id"], "name": name, "giv": giv, "sur": sur,
             "sex": val(r, "SEX"), "b": bd, "d": dd, "bp": bp, "dp": dp,
