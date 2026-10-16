@@ -151,6 +151,9 @@ def main():
         print("check-licences: FAIL — %d" % len(ERR))
         for m in ERR: print("  FAIL  %s" % m)
         return 1
+    if not datasets:
+        print("check-licences: FAIL — examined 0 dataset sources. A check with nothing to examine has not passed.")
+        return 1
     print("check-licences: ok — %d dataset source(s), every licence named on "
           "/sources/ and credited on the pages that use it" % len(datasets))
     return 0

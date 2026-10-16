@@ -113,6 +113,9 @@ def main():
         print("  ok    decisions  %d pid(s) added, nothing changed or removed" % added)
         return 0
 
+    if not new_pids:
+        print("  FAIL  decisions  examined 0 pids. A check with nothing to examine has not passed.")
+        return 1
     print("  ok    decisions  %d pid(s) and 2 scalar(s), all as declared" % len(new_pids))
     return 0
 

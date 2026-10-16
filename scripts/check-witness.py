@@ -135,6 +135,9 @@ def main():
     if not was:
         print("  ok    witness    first run — %d number(s) recorded" % len(now))
         return 0
+    if not now:
+        print("  FAIL  witness    examined 0 numbers. «No change» from a witness that saw nothing is the fault it exists for.")
+        return 1
     if not moved and not gone:
         print("  ok    witness    %d number(s), none moved" % len(now))
         return 0

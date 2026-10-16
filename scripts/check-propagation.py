@@ -173,6 +173,9 @@ def main():
         print("   scripts/check-propagation.py and say why it quotes the error on purpose.")
         return 1
 
+    if not RULES:
+        print("check-propagation: FAIL — examined 0 corrections. A check with nothing to examine has not passed.")
+        return 1
     print("check-propagation: ok — %d correction(s) reached every file that asserts them" % len(RULES))
     return 0
 

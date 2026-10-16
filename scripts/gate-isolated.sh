@@ -135,6 +135,23 @@ if ! ../scripts/check-absence.py --dist "site/$OUT"; then fail=1; fi
 # FINISHED, so a sampled book marked walked is worse than an unread one.
 # SPEAKS, because a page read and found empty leaves no citation behind it.
 ../scripts/check-walked.py | head -12
-[ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate ../.. --max-bespoke 9
+# ESTATE: checkpages compares this archive's pages with its siblings', and «fewer than two
+# archives found» is «cannot run», which it reports with exit 0. From site/, ../.. is ~/Projects,
+# one level ABOVE the siblings (they live in ~/Projects/Family Projects, where this checkout is
+# a symlink), so this check printed «not run» and passed on every build until the 14 October
+# fault sweep noticed. It is told where the estate is when it exists; where it does not (a CI
+# runner, one repository) «not run» is the honest answer. --max-bespoke 0 is what package.json
+# already asked for — the 9 here was looser than the build it stands in for.
+ESTATE="../../Family Projects"; [ -d "$ESTATE" ] || ESTATE="../.."
+[ -f "$KIT/checkpages.py" ] && run pages python3 "$KIT/checkpages.py" --root . --estate "$ESTATE" --max-bespoke 0
+# The checks package.json's build runs and this gate did not. A gate that stands in for the
+# build has to run what the build runs, or green here means less than green there.
+# sources: no ratchet means it can only fail when the list is missing — ten sources have no way to
+# be reached today, and the 11th must not slip in.
+run sources python3 "$KIT/checksources.py" --root . --dist "$OUT" --max-unreachable 10
+run inline  python3 "$KIT/checkinline.py"  --root . --max-inline 2
+run rows    python3 "$KIT/checkrows.py"    --root .
+run kin     python3 "$KIT/checkkin.py"     --data src/data/roster.json --born b --died d --max 0
+run pin     python3 "$KIT/checkpin.py"     --root .
 [ $fail -eq 0 ] && echo "gate: ALL GREEN" || echo "gate: NOT GREEN"
 exit $fail

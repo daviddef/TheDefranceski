@@ -141,6 +141,9 @@ def main():
         print("check-dates-everywhere: FAIL — %d date(s) of birth for people who may be living"
               % len(fails))
         return 1
+    if not glob.glob(os.path.join(DATA, "*.json")):
+        print("check-dates-everywhere: FAIL — examined 0 data files. A check with nothing to examine has not passed.")
+        return 1
     print("check-dates-everywhere: ok — no unexplained birth dates inside the %d-year window "
           "across %d data file(s)" % (WINDOW, len(glob.glob(os.path.join(DATA, "*.json")))))
     return 0

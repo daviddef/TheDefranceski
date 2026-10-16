@@ -55,15 +55,16 @@ def main():
     cfg = os.path.join(ROOT, "site", "astro.config.mjs")
     m = re.search(r"\bsite:\s*['\"]([^'\"]+)['\"]", open(cfg, encoding="utf-8").read())
     if not m:
-        print("  warn  counter    astro.config.mjs names no site; cannot tell whose counter this is")
-        return 0
+        print("  FAIL  counter    astro.config.mjs names no site; cannot tell whose counter this is — "
+              "a check that cannot look does not pass (refuses at zero, 14 Oct sweep)")
+        return 1
     mine = origin_of(m.group(1))
 
     try:
         ring = json.load(open(RING, encoding="utf-8"))["archives"]
     except Exception as e:
-        print(f"  warn  counter    the kit's archives.json is unreadable ({e}); not graded")
-        return 0
+        print(f"  FAIL  counter    the kit's archives.json is unreadable ({e}); not graded, and not passed")
+        return 1
 
     # BY ORIGIN, never by base. Matching the way the bug did would reproduce it.
     me = next((a for a in ring if origin_of(a.get("url")) == mine), None)
@@ -79,8 +80,9 @@ def main():
 
     pages = glob.glob(os.path.join(DIST, "**", "index.html"), recursive=True)
     if not pages:
-        print(f"  warn  counter    no built pages under {DIST}; not graded")
-        return 0
+        print(f"  FAIL  counter    examined 0 built pages under {DIST} — an unbuilt or in-flight tree is not "
+              f"a pass (refuses at zero, 14 Oct sweep)")
+        return 1
 
     seen, bad = {}, []
     pat = re.compile(r'data-goatcounter="https?://([^./"]+)\.goatcounter\.com')

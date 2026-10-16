@@ -193,6 +193,9 @@ def main():
         if len(fails) > 40:
             print(f"          … and {len(fails) - 40} more")
         return 1
+    if checked == 0:
+        print("  FAIL  evidence    examined 0 people across the evidence files. A check with nothing to examine has not passed.")
+        return 1
     if not a.quiet:
         print(f"  ok    evidence   {checked} people named in {len(EVIDENCE)} evidence file(s) "
               f"— every one reaches a page carrying a record or a correction")
