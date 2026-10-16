@@ -80,7 +80,7 @@
    "origin": "venetian",
    "route": "venice",
    "ours": false,
-   "detail": false,
+   "detail": true,
    "fb": {
     "total": "109",
     "top": "Italy 65 · United States 20 · Romania 14 · Croatia 7"
@@ -206,7 +206,7 @@
    "origin": "slavic",
    "route": "istria-austrian",
    "ours": false,
-   "detail": false
+   "detail": true
   },
   {
    "slug": "cleva",
@@ -468,7 +468,7 @@
    "origin": "carnia",
    "route": "carnia",
    "ours": false,
-   "detail": false
+   "detail": true
   },
   {
    "slug": "crosseta",
@@ -657,7 +657,7 @@
    "origin": "carnia",
    "route": "carnia",
    "ours": false,
-   "detail": false
+   "detail": true
   },
   {
    "slug": "descoveo",
@@ -1003,6 +1003,472 @@
    ],
    "found": "**Searched beyond the parish books, and the result is thin.** *Krbune's own register (1803–1870) is a* ***controlled nil*** *for the name — the instrument was proved against 457 Valcovich from the same film. The Gologorica death index's* «G» *block runs* **Gasparich · Gaspetich · Gherbaz · Gherfan ×2 · Giurando · Giuratich · Gregorovich** *and stops; its* Extranei *column — six people in ninety-six years — names one person from Krbune, and she is a* **Bortlich**, *not a Grah. The Gologorica obit calendar is nil on the name across every opening read.*\n\n***Everything this archive holds for the Grah has come out of parish registers, and all of it since 9 October 2026.***",
    "next": "**Three things, in order of cheapness.**\n\n**1 · Finish the two books that have no index.** *[Cerovlje is read end to end](/gologorica-line/#cerovljegrah); [the 1826 Gologorica census is read end to end](/gologorica-line/#sa1826grah). [So is the 1921 census](/gologorica-line/#sa1921grah). What is left is the* ***register frames*** *of 1862 and 1894, whose indexes were used instead — [and the 1862 index lists families, so a Grah wife is outside it](/gologorica-line/#threecensuses).*\n\n**2 · Search under all four forms, and above the heading.** «**Grah**» · «**Grach**» · «**Grah-Mišan / Grah-Missan**» · «**Gracco**». *[The Italian form was imposed by decree and is written in pencil above the household name, where the ink search will never reach it.](/method/)*\n\n**3 · Test the three populations against each other.** *What would join Krbune, Gračišće and Cerovlje is a* **marriage** *or a* **godparent clause** *naming a Grah of one parish in another's book. [The Gračišće marriage register is on the reel](/gologorica-line/) and has never been opened for this name. ⚠ **Until something does, they stay three families with one name.**"
+  },
+  "buich": {
+   "title": "Buić",
+   "names": [
+    "Buić",
+    "Buich"
+   ],
+   "from": "Pomer, in southern Istria",
+   "route": "istria-austrian",
+   "ours": false,
+   "why": "**Magdalena Buić (written Buich), born at Pomer on 11 July 1816, married Tomas Defranceschi of Pomer on 16 August 1843** and was the mother of Lucia (1844), Michele (1847) and Maria (1852). Her father, Paolo Buich, a countryman of house 28, was already dead at her marriage. The surname reaches the rest of the archive through her son **Stephanus, baptised at Pomer on 1 August 1859 to «Magdalena vidua Tomasi Defranceschi nata Buich» with no father named**, who is written Buić, and through his eight children, 1889–1908.",
+   "known": [
+    "**Stephanus bears his mother's maiden surname and no father is ever named.** The 1897 baptism of his son writes him «Buich Stephanus illeg.mus». *(doc.)*",
+    "He married **Emilia née Košara**; the register spells their children Buić. One burial entry, of 1908, writes the child's surname «Defranceschi» with «Buich» added above as a correction: the only place in the Pomer books where a child of Stephanus Buić is written with the surname Defranceschi. *(doc.)*",
+    "**Magdalena's death is probably read:** the Pula civil hospital, 20 March 1898, «Defranceschi Magdalena, *vidua* Thomae, *e Pomario*, *villica*», aged 85. *(inf, strongly.)* The age is three and a half years above her baptism's, and the archive says so. The Pomer deaths books were read for the surname Defranceschi and not for Buić, so a Buić death may be in them unfound.",
+    "**Corrected 13 October 2026:** her surname was first misread from a Medulin cell, until the Pomer register gave it four times in two hands as Buić. The person's frozen id still carries the misreading; the person is unchanged.",
+    "Her daughters: **Lucia married Matheus Lazaro** at Pomer, and **Maria married Petrus Kirac** at Medulin in 1874."
+   ],
+   "groups": [
+    {
+     "label": "Paolo Buich and his daughter Magdalena",
+     "note": "Magdalena married Tomas Defranceschi, who is listed with her.",
+     "pids": [
+      "paolo-buich-father-of-magdalena-pomer",
+      "magdalena-davic-pomer",
+      "tommaso-defranceschi-pomer"
+     ]
+    },
+    {
+     "label": "Stephanus Buić and Emilia Košara, and their children",
+     "note": "Stephanus was born in 1859 to Magdalena as a widow. Emilia is not of the name; she is listed because she married into it.",
+     "pids": [
+      "stephanus-no-surname-recorded-b-1859-pomer-1859",
+      "emilia-kosara-wife-of-stephanus-buic-pomer-pomer",
+      "josephus-emilian-buic-b-1889-pomer-1889",
+      "maria-buic-b-1890-pomer-1890",
+      "magdalena-joanna-buic-b-1891-pomer-1891",
+      "magdalena-joanna-buic-ii-b-1894-pomer-1894",
+      "valentinus-antonius-buic-b-1895-pomer-1895",
+      "blasius-stephanus-buic-b-1897-pomer-1897",
+      "catharina-buic-b-1902-pomer-1902",
+      "martinus-buic-b-1908-pomer-written-defranceschi-1908"
+     ]
+    }
+   ],
+   "related": [
+    {
+     "slug": "lazaro",
+     "why": "Lucia, Magdalena's daughter, married Matheus Lazaro"
+    }
+   ],
+   "links": [
+    {
+     "href": "/liznjan/#pomer",
+     "label": "Pomer: the Defranceschi household at house 5, told in full"
+    },
+    {
+     "href": "/searched/",
+     "label": "What Has Been Read: the Pomer births, marriages and deaths, the Medulin marriages and the Pula civil deaths"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books. In them, the Pomer baptisms (FamilySearch waypoint 9R2F-FMH), marriages (9R2F-ZNT) and deaths (9R2F-6YM, all 57 frames), the Medulin marriages (9R2H-444) and the Pula civil deaths 1893–98 (9R2D-YWP) have been opened for this household; the work list says which frames remain. No newspaper, state-archive or military source is recorded under the name.",
+   "next": "What is still unread at Pomer is kept on [the work list](/worklist/) (item 239) and told at [Pomer](/liznjan/#pomer). Magdalena's own death, if it is in the Pomer deaths book, needs that book read for Buić and not only for Defranceschi."
+  },
+  "lazaro": {
+   "title": "Lazaro",
+   "names": [
+    "Lazaro",
+    "Lazzaro",
+    "Lazar"
+   ],
+   "from": "Pomer, in southern Istria",
+   "route": "istria-austrian",
+   "ours": false,
+   "why": "**Matheus Lazaro married Lucia Defranceschi at Pomer in January 1866 (as read)**, she the daughter of Tomas Defranceschi and Magdalena Buić, and their children were baptised at Pomer from 1866 to 1884. The marriage entry writes him «Matheus Lazzaro q. Mathei», aged 29. He died on 27 September 1899, aged 62 years 11 months 20 days, and the burial entry calls him «maritus Luciae Defranceschi, agricola».",
+   "known": [
+    "**He was born about 7 October 1836, not about 1843.** The «c1843» in his frozen id was a guess from the index; the marriage entry (aged 29) and the death entry (62 years 11 months) agree with each other. *(doc.)*",
+    "At the baptism of Euphemia, the first child, on 4 November 1866 he is written «Miles et Possid[ens]», a soldier and a landholder. *(doc.)*",
+    "The surname is written **Lazaro, Lazzaro and Lazar** in different entries; the father of Matheus is «Matthaei», and the mother's name was not read with confidence.",
+    "Catharina, born 1884, is written the youngest of nine children. Six of the nine have a death year in childhood on the roster (1873 to 1884); Catharina lived to 1954."
+   ],
+   "groups": [
+    {
+     "label": "Matheus Lazaro and Lucia Defranceschi, and their children",
+     "note": "Lucia was born at Pomer on 27 September 1844. The children are in the order of the register.",
+     "pids": [
+      "matheus-lazaro-c1843",
+      "lucia-defranceschi-lazaro-pomer",
+      "euphemia-lazaro-b-1866-pomer-1866",
+      "maria-lazaro-b-1868-pomer-1868",
+      "antonius-matheus-1870",
+      "matheus-lazaro-1873",
+      "jacobus-lazaro-1875",
+      "euphemia-lazaro-b-1878-pomer-1878",
+      "zorica-or-albina-1880",
+      "josephus-lazaro-1882",
+      "catharina-lazaro-1884"
+     ]
+    }
+   ],
+   "related": [
+    {
+     "slug": "buich",
+     "why": "Lucia's mother, Magdalena Buić, and the Buić of Pomer"
+    }
+   ],
+   "links": [
+    {
+     "href": "/liznjan/#pomer",
+     "label": "Pomer: the Defranceschi household at house 5, told in full"
+    },
+    {
+     "href": "/households/",
+     "label": "The households list (h091)"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books. In them, the Pomer marriage book (9R2F-ZNT, frame 15), the Pomer baptisms (9R2F-FMH) and the Pomer deaths (9R2F-6YM) have been read for this household; the Medulin baptisms were read end to end for the children of Maria Defranceschi, Lucia's sister. No other source is recorded under the name.",
+   "next": "The work list (item 239) says what is unread at Pomer. The roster still flags the year digit of the 1866 marriage for a second reading."
+  },
+  "giachin": {
+   "title": "Giachin",
+   "names": [
+    "Giachin",
+    "Giachion"
+   ],
+   "from": "Vodnjan, in southern Istria",
+   "route": "istria-austrian",
+   "ours": false,
+   "why": "**Two Giachin men of Vodnjan each took a De Franceschi wife.** Sebastiano Giachin and Domenica De Franceschi had four children baptised at Vodnjan, 1817–1832 (household h052). Domenico Giachin and Michiela De Franceschi had two, in 1818 and 1821 (household h060). The households list gives each couple and nothing about the husband's origin.",
+   "known": [
+    "**Michiela is Michiela De Franceschi *fu Giuseppe*.** On 20 February 1833, at Vodnjan house 532, her son Giacomo died, his father already «del fu» Domenico Giachin and she still alive. The entry gives her father's name only as Giuseppe: whether she is a daughter of the Giuseppe De Franceschi (1758–1830) is an inference, and the archive marks it as one. *(doc for the entry; inf for the link.)*",
+    "There were at least three different Michiela De Franceschis at Vodnjan in these years (fu Pietro, wife of Andrea Palin; di Cristoforo; fu Giuseppe, wife of Domenico Giachin). The patronymic, not the name, is what separates them.",
+    "Domenica's birth, about 1795, is inferred from a marriage by 1816; the baptisms do not say whose daughter she was.",
+    "The Vodnjan *Liber Copulatorum* opens in October 1815; the Giachin marriage is not among the fourteen De Franceschi marriages catalogued from it (1817–1832), so it lies in the book's first fifteen months or before the book begins."
+   ],
+   "groups": [
+    {
+     "label": "Sebastiano Giachin and Domenica De Franceschi (household h052)",
+     "note": "Four children baptised at Vodnjan, 1817–1832. Index and household list only.",
+     "pids": [
+      "sebastiano-giachin-c1790",
+      "domenica-giachin-de-franceschi-1823",
+      "maria-giachin-1817",
+      "domenica-giachin-1823",
+      "michaela-giachin-1828",
+      "giuseppe-giachin-1832"
+     ]
+    },
+    {
+     "label": "Domenico Giachin and Michiela De Franceschi (household h060)",
+     "note": "Two children on the households list, 1818 and 1821. Index and household list only.",
+     "pids": [
+      "domenico-giachin-c1791",
+      "maria-antonia-giachin-1818",
+      "stefano-domenico-giachin-1821"
+     ]
+    }
+   ],
+   "related": [],
+   "links": [
+    {
+     "href": "/vodnjan/",
+     "label": "Vodnjan: five generations of the name, read by eye"
+    },
+    {
+     "href": "/households/",
+     "label": "The households list (h052 and h060)"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books. In them, images 172–174 of the Vodnjan *Liber Copulatorum* (DGS 005497894) were opened for the marriage and its first fifteen months were not scanned surname by surname; the *Liber Defunctorum* of February 1833 was read at image 571.",
+   "next": "The marriage entry of 1815–16 is, in the archive's words, «a bounded job, not an open one». It would name both of Michiela's parents and so test whether she is Giuseppe's daughter."
+  },
+  "subiotto": {
+   "title": "Subiotto",
+   "names": [
+    "Subiotto"
+   ],
+   "from": "Svetvinčenat, in Istria",
+   "route": "istria-austrian",
+   "ours": false,
+   "why": "**Antonius Subiotto married Veneranda Defranceschi**, and the FamilySearch index names him as the father on eight baptisms between 1858 and 1874 (household h084). The index gives no place; the archive places the family at **Svetvinčenat** because the children's images are bound into that parish's register book.",
+   "known": [
+    "**Everything on this page is index only: no register has been read for this household.** That is the archive's own wording for the evidence class, and it is the whole of what is known.",
+    "The households list gives the couple and the eight children, and nothing about the husband's origin.",
+    "Svetvinčenat is the castle parish where the Defranceschi are recorded from 1628 to 1791, told on the Lines page."
+   ],
+   "groups": [
+    {
+     "label": "Antonius Subiotto and Veneranda Defranceschi (household h084)",
+     "note": "Eight children baptised 1858–1874.",
+     "pids": [
+      "antonius-subiotto-c1831",
+      "antonius-subiotto-1858",
+      "johannes-antonius-subiotto-1859",
+      "antonius-subiotto-1862",
+      "petrus-subiotto-1865",
+      "elisabeth-subiotto-1867",
+      "cristina-subiotto-1869",
+      "beniamin-subiotto-1873",
+      "maria-aquilina-subiotto-1874"
+     ]
+    }
+   ],
+   "related": [],
+   "links": [
+    {
+     "href": "/lines/#svetread",
+     "label": "Svetvinčenat: the castle the name never left"
+    },
+    {
+     "href": "/households/",
+     "label": "The households list (h084)"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books, and not searched in them either: the only search recorded that reaches this family is the Register's harvest of FamilySearch personas, mined for parent-pairs on 10 September 2026.",
+   "next": "No register has been read for this household. The first step is to open the Svetvinčenat baptisms of 1858–1874 that the index points into."
+  },
+  "ferrarese": {
+   "title": "Ferrarese",
+   "names": [
+    "Ferrarese"
+   ],
+   "from": "Vodnjan, in southern Istria",
+   "route": "istria-austrian",
+   "ours": false,
+   "why": "**Angelus Ferrarese married Pascha Defranceschi**, and the FamilySearch index names him as the father on seven baptisms between 1849 and 1864 (household h071). The archive places the family at **Vodnjan**, from the register book the children's images are bound into; the index gives no place.",
+   "known": [
+    "**Everything on this page is index only: no register has been read for this household.**",
+    "The households list swapped the husband's slot and the wife's until 12 October 2026; the correction is on [the corrections page](/corrections/).",
+    "The list gives the couple and the seven children and nothing about the husband's origin; it gives a parent no date to compare, so whether Pascha is the same person as any other woman of the name is not established."
+   ],
+   "groups": [
+    {
+     "label": "Angelus Ferrarese and Pascha Defranceschi (household h071)",
+     "note": "Seven children baptised 1849–1864; two are named Paschalis (1849 and 1851).",
+     "pids": [
+      "angelus-ferrarese-c1822",
+      "pascha-defranceschi",
+      "paschalis-ferrarese-1849",
+      "paschalis-ferrarese-1851",
+      "antonius-ferrarese-1854",
+      "damiana-ferrarese-1857",
+      "domenicus-ferrarese-1859",
+      "dominicus-ferrarese-1861",
+      "angelus-ferrarese-1864"
+     ]
+    }
+   ],
+   "related": [
+    {
+     "slug": "giachin",
+     "why": "another Vodnjan household that took a De Franceschi wife"
+    }
+   ],
+   "links": [
+    {
+     "href": "/vodnjan/",
+     "label": "Vodnjan: five generations of the name, read by eye"
+    },
+    {
+     "href": "/households/",
+     "label": "The households list (h071)"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books, and not searched in them either: the only search recorded that reaches this family is the Register's harvest of FamilySearch personas, mined for parent-pairs on 10 September 2026.",
+   "next": "No register has been read for this household. The first step is to open the Vodnjan baptisms of 1849–1864 that the index points into."
+  },
+  "chersin": {
+   "title": "Chersin",
+   "names": [
+    "Chersin"
+   ],
+   "from": "Pula and Fažana, where Natale Defranceschi's household is recorded, 1849–1851",
+   "route": "istria-austrian",
+   "ours": false,
+   "why": "**Domenica Chersin was the wife of Natale Defranceschi**, in a household recorded at Pula (h034) and again at Fažana (h035), mother of Vittorio Giovanni (born 1849) and Angelo (born 1851). The archive's marriage index counts **eight indexed marriages** with the surname Chersin and groups it as Venetian by its form, which the archive itself calls «a reading, not a finding»; the one Chersin it has placed lived in Austrian Istria.",
+   "known": [
+    "**Her birth is unknown.** The year 1851 was carried as her birth year and was corrected on 13 September 2026: it is the year she first appears, in the baptism of her eldest known child.",
+    "Two of the three entries are the household list (Pula h034, Fažana h035), index only; the third is from David's tree and sits at Draguč. The archive's own note on the tree entry ties her to the household of 1849–1851.",
+    "An **open question** hangs on her family: whether the Angelo Defranceschi, 63, of via del Prato, Pola, who was taken to the hospital in November 1914, is her son Angelo, born 1851. It is an inference and is labelled one.",
+    "Forebears counts 109 living bearers of the surname in the world: Italy 65, United States 20, Romania 14, Croatia 7."
+   ],
+   "groups": [
+    {
+     "label": "Domenica Chersin",
+     "note": "Three entries for the same household of 1849–1851: the Pula and Fažana household lists, and David's tree. The archive does not establish that three entries are one woman beyond the tree entry's own note.",
+     "pids": [
+      "domenica-chersin-pula",
+      "domenica-chersin-fazana",
+      "domenica-chersin-defranceschi-draguc"
+     ]
+    }
+   ],
+   "related": [],
+   "links": [
+    {
+     "href": "/open-questions/",
+     "label": "Open questions: is the Angelo of via del Prato the Angelo born 1851?"
+    },
+    {
+     "href": "/households/",
+     "label": "The households list (h034 and h035)"
+    },
+    {
+     "href": "/marriages/",
+     "label": "The Marriages: all the families that married in"
+    }
+   ],
+   "found": "Not yet searched. No search under the name Chersin is recorded in the archive's log of what has been read.",
+   "next": "The open question names what would settle her son's identity: the Pola burial register, for his age and village at death, and the Fažana baptism book for 1851, for his parents."
+  },
+  "caneva": {
+   "title": "De Caneva",
+   "names": [
+    "De Caneva",
+    "De Canova"
+   ],
+   "from": "Liariis, in the commune of Ovaro, Carnia",
+   "route": "carnia",
+   "ours": false,
+   "why": "**Lucia Santa, daughter of the late Osvaldo Antonio de Caneva of Liariis, married Felice Santo de Franceschi, a weaver (*tessitore*), at Ovaro on 15 June 1815.** Her mother, Lucia Colinassio, widow of Osvaldo Antonio, was present in person on 14 June to consent. The act writes the family «de Canova» and the baptismal extract writes it «De Caneva». The bride could not sign: «dichiara essere illetterata».",
+   "known": [
+    "The act declares all four witnesses «non parenti, né affini». One of them is **Daniele «del fu Osvaldo» de Canova**, 49, *possidente* of Liariis, born about 1766, twenty-seven years before the bride.",
+    "**An open question:** either there were two men called Osvaldo at Liariis, or the «non parenti» formula is boilerplate and Daniele is the bride's brother.",
+    "The de Caneva of Liariis are well recorded: a Gio: Batta De Caneva stood godfather in 1793, and Jacoba, widow of Nicolaus de Caneva, in 1769.",
+    "The family listed below is the bride's, not the groom's."
+   ],
+   "groups": [
+    {
+     "label": "The bride's family and the marriage of 1815",
+     "note": "Felice Santo, the groom, is listed because he is the other half of the marriage.",
+     "pids": [
+      "osvaldo-antonio-de-caneva-mione",
+      "lucia-colinassio-de-caneva-mione",
+      "lucia-santa-de-canova-de-franceschi-1792",
+      "felice-santo-de-franceschi-1792"
+     ]
+    }
+   ],
+   "related": [],
+   "links": [
+    {
+     "href": "/carnia/#ovaro1815",
+     "label": "Ovaro, 15 June 1815: the marriage act"
+    },
+    {
+     "href": "/carnia/#allegati1815",
+     "label": "The papers filed with the act, 1815"
+    },
+    {
+     "href": "/open-questions/",
+     "label": "Open questions: is Daniele de Canova the bride's brother?"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books and the civil registers. The Ovaro marriage act and its *allegati* of 1815 were read on the Italian state archives' portal (Antenati, Archivio di Stato di Udine). The work list holds the next step as blocked: Antenati was returning 403 Forbidden to the Chrome that had been reading it.",
+   "next": "The Pieve di Gorto baptisms for the 1760s would say whose son Daniele was."
+  },
+  "corva": {
+   "title": "Corva",
+   "names": [
+    "Corva"
+   ],
+   "from": "Muina, in the commune of Ovaro, Carnia",
+   "route": "carnia",
+   "ours": false,
+   "why": "**Maria, daughter of the late Giacomo Corva of Muina, married Antonio de Franceschi of Gologorica at Svetvinčenat on 14 March 1785.** She was living in the Svetvinčenat parish when she married, though of Muina by origin, and her banns were read at Muina. The archive identifies her, as an inference, with the Maria née Corva who is the mother of Osvaldo de Franceschi of Muina, and who by January 1808 was «vedova del fu Antonio de Franceschi». *(doc for the entry; inf for the identification.)*",
+   "known": [
+    "**Her father Giacomo Corva is named in this archive for the first time in that entry, and was already dead in 1785.** The Carnia page had her only as «Maria née Corva», with no marriage found and no father's name.",
+    "The marriages essay names Corva and Crosilla together as the Carnian surnames that are Carnian in more than shape: in the scholarship on the Canale di Gorto emigration they are families of Ovaro's own commune, and a Giovanni Corva of Muina held tenants at Agrons.",
+    "A stone in the Carnian cemeteries reads **CORVA MARIANNA 1896–1979**, beside De Franceschi Umberto 1892–1988. The photographs do not distinguish which of the four cemeteries (Ovaro, Mione, Muina, Agrons) it stands in, and the archive does not guess. *(doc for the inscription.)*",
+    "The Muina marriage papers of 1806–07 hold two marriages of other Muina families, one of them a Corva, and no De Franceschi."
+   ],
+   "groups": [
+    {
+     "label": "Corva of Muina",
+     "note": "Two people the archive has a page for.",
+     "pids": [
+      "maria-corva-of-muina-m-1785-svetvincenat",
+      "marianna-corva-de-franceschi-1896-1979-1896"
+     ]
+    }
+   ],
+   "related": [
+    {
+     "slug": "crosilla",
+     "why": "the other Carnian name the essay singles out"
+    }
+   ],
+   "links": [
+    {
+     "href": "/carnia/",
+     "label": "Carnia: the Muina household and the Mione marriage papers"
+    },
+    {
+     "href": "/lines/#svetread",
+     "label": "Svetvinčenat: the castle the name never left"
+    },
+    {
+     "href": "/marriages/",
+     "label": "The Marriages: the Carnian names, and why they matter"
+    }
+   ],
+   "found": "Not yet searched beyond the parish books and the civil registers. The Svetvinčenat marriage book (FamilySearch film 005497886, frame 98) holds the marriage of 1785; on the Italian state archives' portal (Antenati, Archivio di Stato di Udine) the Mione marriage papers and banns of 1808–09 and the Muina papers of 1806–07 have been read.",
+   "next": "No step for this family is recorded on the work list. The archive's own statement of the gap is the Carnian route's: «The largest hole in the archive.»"
+  },
+  "crosilla": {
+   "title": "Crosilla",
+   "names": [
+    "Crosilla",
+    "Crisilla"
+   ],
+   "from": "Mione and Liariis, in the commune of Ovaro, Carnia",
+   "route": "carnia",
+   "ours": false,
+   "why": "**Crosilla is one of the two in-married surnames the archive's marriages essay calls Carnian in more than shape.** The essay says the scholarship on the Canale di Gorto emigration names it as a family of Ovaro's own commune, and that the *Micoli Crosilla Toscano* were the leading house of **Mione**, who built the *casa delle cento finestre* and ran a cloth shop at Pinguente. In Istria, two Crosilla husbands are recorded with a Defranceschi wife, and the essay adds that a Jacobina Defranceschi, born 1804, was buried in 1882 as the wife of a Joan-Baptae Crosilla.",
+   "known": [
+    "Two households, both **index only: no register read**: Gio Battista Crosilla and Giacoma De Franceschi (h025, two children, 1825 and 1831, at «Croazia, Austria» as the index puts it) and Joan Baptista Crosilla and Jacoba Defranceschi (h063; the index names him as father on two baptisms, 1833–1845).",
+    "In Carnia, the name stands twice among the witnesses at the Ovaro wedding of 1815 (Crisilla: Giovanni del fu Giacomo, 69, *possidente*, and Giacomo del fu Nicolò, 69, *falegname*), and **Orsola née Crosilla**, of Liariis stock, is the wife of Pietro Ermanni of Mione. *(doc.)*",
+    "**Giovanni Micoli-Toscano** was godfather to Felice Santo de Franceschi on 2 November 1792, of the family whose Mione palace holds the 1679 weavers' contracts. *(doc.)*",
+    "A stone reads **ANNA CROSILLA ved. SORAVITO DE FRANCESCHI 1900–1990**; the photographs do not say in which of the four Carnian cemeteries it stands. *(doc for the inscription.)*",
+    "The essay's own verdict on the Istrian burial: «not proof of descent», and it adds, «a very loud coincidence»."
+   ],
+   "groups": [
+    {
+     "label": "Crosilla husbands of Defranceschi wives",
+     "note": "Index and household list only.",
+     "pids": [
+      "gio-battista-crosilla-croazia-austria",
+      "gio-battista-crosilla-1825",
+      "johannes-crosilla-1831",
+      "joan-baptista-crosilla-c1806",
+      "antonius-crosilla-1845"
+     ]
+    },
+    {
+     "label": "Crosilla and Micoli-Toscano of Mione and Liariis",
+     "note": "Read off the Antenati papers and the Carnian gravestones.",
+     "pids": [
+      "orsola-crosilla-mione",
+      "giovanni-micoli-toscano-mione",
+      "anna-crosilla-widow-soravito-de-franceschi-1900-1990-1900"
+     ]
+    }
+   ],
+   "related": [
+    {
+     "slug": "corva",
+     "why": "the other Carnian name the essay singles out"
+    }
+   ],
+   "links": [
+    {
+     "href": "/carnia/#ovaro1815",
+     "label": "Ovaro, 15 June 1815: the marriage act and its witnesses"
+    },
+    {
+     "href": "/carnia/#allegati1815",
+     "label": "The papers filed with the act, 1815"
+    },
+    {
+     "href": "/marriages/",
+     "label": "The Marriages: the Carnian names, and why they matter"
+    }
+   ],
+   "found": "Not yet searched for the Crosilla themselves. The name turns up incidentally in the Antenati files read for De Franceschi: Mione marriage papers of 1811 and 1813 and the Ovaro marriage of 1815 (Archivio di Stato di Udine).",
+   "next": "The marriages page calls the Carnian names «the best lead on the page and the least worked», and says the archive «has never tested a single one of them against a Carnian register»."
   }
  },
  "close": "**Three of the six women who married into our own direct line are not in this index at all.** *Peschle*, *Fernasar* and *Kovačina* appear below with a count of zero — not because those marriages did not happen, but because the indexed marriage set does not contain them. Two of the three are mothers of generations of this line. It is a useful reminder of what a count on this page is actually measuring: **not marriages, but marriages somebody has indexed.**\n\n**Fourteen of the seventy-one carry Carnian surnames** — Cerlon, Francin, Tamborin, Bonassin, Dorliguzzo, Cleva, Elegnan, Ceselin and more. If this family came out of Carnia and went on marrying other Carnian families in Istria, that is exactly the pattern it would leave. It is also exactly what surname-morphology guessing produces when you go looking for it, and this archive has never tested a single one of them against a Carnian register. **It is the best lead on the page and the least worked.**",

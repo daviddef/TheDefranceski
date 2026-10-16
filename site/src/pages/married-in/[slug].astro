@@ -6,6 +6,7 @@ import { md as mdk } from "../../lib/md.js";
 import mi from "../../data/marriedin.json";
 import Cluster from "../../components/Cluster.astro";
 import cl from "../../data/clusters.json";
+import roster from "../../data/roster.json";
 export function getStaticPaths() {
   return Object.keys(mi.detail).map(slug => ({ params: { slug } }));
 }
@@ -13,14 +14,46 @@ const { slug } = Astro.params;
 const d = mi.detail[slug];
 const row = mi.rows.find(r => r.slug === slug);
 const R = mi.routes[d.route];
+
+/* THE PEOPLE ON RECORD. A family with people the archive has published (as opposed to a surname
+ * with only a count against it) lists them here, drawn from the roster by id, so a name, a date or a
+ * place can never be typed twice. Rules this block keeps, none of them new:
+ *  - only people who have a page: an id with no roster row stops the build, loudly;
+ *  - a person the archive marks as living is NEVER listed (the living-people standard: a family page
+ *    must not make a living person easier to find than their own page does). Counted, not named;
+ *  - the evidence class of each person is the archive's own label for the row (roster.srclabel). */
+const byPid = Object.fromEntries(roster.rows.filter((x) => x.pid).map((x) => [x.pid, x]));
+const groups = (d.groups || []).map((g) => ({
+  label: g.label,
+  note: g.note || "",
+  people: g.pids.map((pid) => {
+    const x = byPid[pid];
+    if (!x) throw new Error(`married-in/${slug}: no roster row for ${pid}`);
+    return x;
+  }).filter((x) => !x.living),
+}));
+const nListed = groups.reduce((a, g) => a + g.people.length, 0);
+/* roster.srclabel has no entry for two classes the roster uses ("index", 63 rows; "register", 9), so
+ * the pages that print it show the raw key. The wording below is the archive's own, from the notes
+ * on those rows ("Index only — no register read"). */
+const LABEL = { ...roster.srclabel, index: "Index only", register: "Parish register" };
+const tally = {};
+groups.forEach((g) => g.people.forEach((x) => { const k = LABEL[x.src] || x.src; tally[k] = (tally[k] || 0) + 1; }));
+const years = (x) => (x.b && x.d ? (x.b === x.d ? `${x.b}, died the same year` : `${x.b}\u2013${x.d}`) : x.b ? `b. ${x.b}` : x.d ? `d. ${x.d}` : "undated");
+const where = (x) => x.parish || x.place || "";
+const related = (d.related || []).map((o) => {
+  if (!mi.detail[o.slug]) throw new Error(`married-in/${slug}: related family ${o.slug} has no page`);
+  const orow = mi.rows.find((r) => r.slug === o.slug);
+  return { href: u(`/married-in/${o.slug}/`), name: (orow && orow.name) || mi.detail[o.slug].title || o.slug, why: o.why };
+});
 /* Was a private half-renderer: bold, «quotes» and italic only, so every
  * markdown link in this file's data printed as literal square brackets and
  * every pipe-table as literal pipes. The archive has ONE renderer that does
  * links, external links and tables — use it. (worklist 163.) */
 const md = mdk;
 ---
-<Base title={row.name}
-  eyebrow={`${row.c ? `${row.c} indexed marriage${row.c === 1 ? "" : "s"}` : "not in the marriage index"} · ${d.from}`}
+<Base title={row ? row.name : d.title}
+  eyebrow={`${row ? (row.c ? `${row.c} indexed marriage${row.c === 1 ? "" : "s"}` : "not in the marriage index") : "not in the marriage index"} · ${d.from}`}
   dek={d.ours ? "A family that married into our own direct line." : "A family that married into this one."}>
 
   <p class="prose" set:html={md(d.why)}></p>
@@ -29,6 +62,34 @@ const md = mdk;
     <>
       <Rule name="arrows" label="What is held" />
       <ul class="kn">{d.known.map(k => <li set:html={md(k)}></li>)}</ul>
+    </>
+  )}
+
+  {groups.length > 0 && (
+    <>
+      <Rule name="arrows" label="The people on record" />
+      <p class="prose pp-lede">
+        {nListed} person {nListed === 1 ? "page" : "pages"} in the archive{d.names ? <> under the surname <strong>{d.names.join(" · ")}</strong>, or for someone married to a bearer of it</> : ""}.
+        How each is known, in the archive's own words:
+        {Object.entries(tally).map(([k, n], i) => (<>{i ? " · " : " "}<strong>{k}</strong> {n}</>))}.
+        Only the dead are listed here, and the dates are the archive's: none is added.
+      </p>
+      {groups.map((g) => (
+        <section class="pp-g">
+          <h3 class="pp-h">{g.label}</h3>
+          {g.note && <p class="pp-n" set:html={md(g.note)}></p>}
+          <ul class="pp">
+            {g.people.map((x) => (
+              <li>
+                <a href={u(`/person/${x.pid}/`)}>{x.name}</a>
+                <span class="pp-y">{years(x)}</span>
+                {where(x) && <span class="pp-w">{where(x)}</span>}
+                <span class="pp-s">{LABEL[x.src] || x.src}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </>
   )}
 
@@ -59,6 +120,16 @@ const md = mdk;
     </dl>
   </section>
 
+  {(related.length > 0 || (d.links || []).length > 0) && (
+    <>
+      <Rule name="arrows" label="Where the archive tells the rest" />
+      <ul class="kn">
+        {related.map((o) => (<li><a href={o.href}>{o.name}</a> — {o.why}</li>))}
+        {(d.links || []).map((l) => (<li><a href={u(l.href)}>{l.label}</a></li>))}
+      </ul>
+    </>
+  )}
+
   <div class="doors" style="margin-top:28px">
     <a class="door" href={u("/married-in/")}>
       <div class="dn">All seventy-one</div>
@@ -75,6 +146,16 @@ const md = mdk;
 </Base>
 
 <style>
+.pp-lede{font-size:14.5px;max-width:84ch}
+.pp-g{margin-top:22px}
+.pp-h{margin:0 0 4px;font-family:var(--serif);font-weight:400;font-size:19px;color:var(--ink)}
+.pp-n{margin:0 0 6px;font-family:var(--sans);font-size:13.5px;line-height:1.6;color:var(--ink-2);max-width:78ch}
+.pp{list-style:none;margin:6px 0 0;padding:0;max-width:84ch}
+.pp li{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px;min-width:0}
+.pp li a{overflow-wrap:anywhere}
+.pp-y{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.pp-w{font-size:12.5px;color:var(--ink-2)}
+.pp-s{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-left:auto}
 .kn{margin:16px 0 0;padding-left:20px;max-width:84ch}
 .kn li{font-family:var(--sans);font-size:14px;line-height:1.68;color:var(--ink-2);margin-bottom:9px}
 .rt{border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:2px;

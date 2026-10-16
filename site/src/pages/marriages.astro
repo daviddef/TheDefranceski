@@ -60,6 +60,15 @@ const GROUPED = ORD.filter((k) => mi.routes[k]).map((k) => {
     })),
   };
 });
+/* Families whose page lists people the archive has published, not only a count: the ones a reader
+   can open to see who they were. A family in the 71 that has such a page is also linked on its chip. */
+const withPeople = Object.entries(mi.detail)
+  .filter(([, v]) => (v.groups || []).length > 0)
+  .map(([slug, v]) => {
+    const row = mi.rows.find((r) => r.slug === slug);
+    return { slug, name: row ? row.name : v.title, from: v.from, n: v.groups.reduce((a, g) => a + g.pids.length, 0), row };
+  })
+  .sort((a, b) => b.n - a.n);
 const nFam = mi.rows.length, nMarr = mi.rows.reduce((a, b) => a + b.c, 0);
 const band = (c) => (String(c.when).match(/\d{4}/) ? String(c.when).slice(0, 2) + "00s" : "Undated");
 
@@ -104,6 +113,17 @@ const timelinePoints = m.couples
   </Marriages>
 </section>
 
+
+<section class="blk">
+  <h2>Family pages that list their people</h2>
+  <p class="dek">{withPeople.length} of the family pages list the people the archive has published for the family, with how each is known. The older family pages tell theirs in prose, and most of the {nFam} above carry a count and nothing more.</p>
+  <ul class="wp">
+    {withPeople.map((f) => (
+      <li><a href={u(`/married-in/${f.slug}/`)}>{f.name}</a> <span>{f.n} person {f.n === 1 ? "page" : "pages"} · {f.from}</span></li>
+    ))}
+  </ul>
+</section>
+<Rule name="arrows" />
 
 <section class="blk">
   <div class="prose">
@@ -188,5 +208,8 @@ const timelinePoints = m.couples
 </Base>
 
 <style>
+.wp{list-style:none;margin:14px 0 0;padding:0;max-width:84ch}
+.wp li{padding:6px 0;border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px;min-width:0;overflow-wrap:anywhere}
+.wp li span{margin-left:10px;font-size:12.5px;color:var(--ink-2)}
 .ink{color:var(--accent)}
 </style>
