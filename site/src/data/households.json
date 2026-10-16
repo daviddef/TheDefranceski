@@ -5517,18 +5517,18 @@
   "key": "antonio + maria #2",
   "fatherKey": "antonio",
   "motherKey": "maria",
-  "father": "Antonio Defranceschi",
+  "father": "Antonio Defranceschi (fu Matteo)",
   "mother": "Maria Schifich",
-  "place": "—",
+  "place": "Ližnjan, house 17",
   "region": "unplaced",
   "line": "male",
   "from": 1844,
   "to": 1848,
-  "n": 2,
-  "src": "index",
+  "n": 3,
+  "src": "read",
   "id": "h067",
-  "confirmed": "2 baptisms in the FamilySearch index name the same two parents.",
-  "read": "Built from **index entries only** — this archive has not seen the page. The couple is here because the same two parents are named on 2 separate baptisms, which is a real pattern and not a guess; but the spellings are the indexer's, the children may still be duplicates of one another, and **no register has been read** to confirm any of it. Treat it as a household-shaped lead. **Read 16 Oct 2026:** the child Antonius (b. 20 April 1848) is the man who later lived at Pomer and Pula — see the Pomer section of [the Ližnjan page](/liznjan/#pomer).",
+  "confirmed": "Baptisms of 1846 and 1848 read at Ližnjan (images 25 and 27 of waypoint 9R2Z-44D); the 1844 and 1855 entries are from the index.",
+  "read": "**Antonio Defranceschi, son of the late Matteo, an agricoltore at Ližnjan house 17, and Maria Schiffich, daughter of Lorenzo.** *Read on the pages, 16 October 2026:* **Antonio, baptised 7 June 1846** (born about the 5th), **and Antonius, baptised 20 April 1848** — *two sons of one name, the first presumably dead before the second.* *Cattarina (b. 23 Aug 1844, d. 1855) is from the FamilySearch index.* **Antonius, the second, grew up to be the labourer of Pomer (1886) and the porter of Pula (1890) — [the Pomer section of the Ližnjan page](/liznjan/#pomer).** *His father was alive in 1890; his mother was dead by 1885.*",
   "children": [
    {
     "name": "Cattarina Defranceschi",
@@ -5544,6 +5544,19 @@
     "dy": 1855,
     "pid": "cattarina-defranceschi-1844",
     "pidBasis": "fsid"
+   },
+   {
+    "name": "Antonio Defranceschi",
+    "sex": "Male",
+    "birth": "about 5 Jun 1846",
+    "death": "",
+    "place": "Ližnjan",
+    "y": 1846,
+    "by": 1846,
+    "dy": null,
+    "ours": true,
+    "pid": "antonio-defranceschi-b-1846-liznjan-1846",
+    "pidBasis": "read at Ližnjan"
    },
    {
     "name": "Antonius Defranceschi",
@@ -5563,7 +5576,9 @@
   ],
   "keyWas": "antonio + maria",
   "motherPid": "maria-schifich",
-  "pidBasis_mother": "minted for this household"
+  "pidBasis_mother": "minted for this household",
+  "fatherPid": "antonio-defranceschi-fu-matteo-liznjan-house-17-1844-1890-liznjan",
+  "pidBasis_father": "read at Ližnjan"
  },
  {
   "key": "matteo + domenica",
