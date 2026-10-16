@@ -249,6 +249,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
 <Base title={r.living ? r.name : [r.name, (r.b || r.d || r.bEst) ? span : null,
               placeSeparates ? WHERE : null].filter(Boolean).join(", ")}
       eyebrow={dupOf ? "the same person as another page" : span}
+      noindex={!!r.living}
       dek={DESC} person={PERSON}>
 
 {dupOf && (
