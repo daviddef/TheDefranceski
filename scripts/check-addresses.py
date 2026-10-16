@@ -31,6 +31,13 @@ removed, because "this address once existed" is the fact being kept. Run
 hand it a config with a redirect removed and it must name that address. A test
 run against the artefact you just fixed is not a test.
 
+WITHDRAWN ON PURPOSE. A person held out under the living-people standard (a possible minor, 16 October 2026)
+has no page and must not be derivable from anything published, so the answer to «stranded» for them is
+NEVER a redirect, which would write their name into astro.config.mjs. Their slugs are taken out of the
+ledger and `upto` is advanced to the commit that removed them, so an ordinary run does not walk back
+to the commits where they existed. `--rebuild` walks all of history and WILL find them again: after a
+rebuild, remove them from the ledger by hand and say why in the commit.
+
 Limits, stated because they are real: it sees only addresses that reached a
 COMMITTED data file or page. An address that was deployed between two commits
 and never committed is invisible, and so is anything a hand-written page
