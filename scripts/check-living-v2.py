@@ -275,7 +275,7 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
         keys = sorted({L2.name_key(p["name"]) for p in minors if len(L2.name_key(p["name"]).split()) >= 2})
         S["possible minors in the tree"] = len(minors)
         if keys:
-            rx = re.compile(r"(?<![a-z])(?:%s)(?![a-z])" % "|".join(re.escape(k) for k in keys))
+            padded = [" %s " % k for k in keys]
             hit_files = collections.Counter()
             # A name a possible minor shares with someone who is not one (a man of 1870 with the same name as a
             # child of 2012) cannot be told apart by the name, so a hit on it is read, not refused.
@@ -292,13 +292,14 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
                     continue
                 if f.endswith(".html"):
                     t = TAGS.sub(" ", t)
-                ft = L2.fold(t)
-                for m in rx.finditer(ft):
-                    if m.group(0) in shared:
-                        soft += 1
-                        continue
-                    hit_files[os.path.relpath(f, root)] += 1
-                    break
+                ft = " %s " % L2.fold(t)
+                for k, pk in zip(keys, padded):
+                    if pk in ft:
+                        if k in shared:
+                            soft += 1
+                            continue
+                        hit_files[os.path.relpath(f, root)] += 1
+                        break
             S["name hits shared with an adult of the tree (read, not refused)"] = soft
             if soft:
                 N.append("%d place(s) name someone who shares a name with a possible minor and with an adult in the tree; read them" % soft)

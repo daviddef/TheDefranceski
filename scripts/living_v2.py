@@ -57,9 +57,24 @@ TREE_COLLECTIONS = ("geni world family tree", "wikitree", "genealogieonline fami
                     "famous people")
 
 
+def _fold_table():
+    """Accented Latin letters -> their plain letter, for str.translate (fast on a hundred megabytes of
+    built pages, where a per-character Python loop is not)."""
+    t = {}
+    for cp in list(range(0xC0, 0x250)) + list(range(0x1E00, 0x1F00)):
+        ch = chr(cp)
+        a = "".join(c for c in unicodedata.normalize("NFD", ch) if unicodedata.category(c) != "Mn")
+        if a != ch and a.isascii():
+            t[cp] = a.lower()
+    t.update({0x111: "d", 0x110: "d", 0x142: "l", 0x141: "l", 0xF8: "o", 0xD8: "o", 0xDF: "ss", 0xE6: "ae", 0xC6: "ae"})
+    return t
+
+
+_FOLD = _fold_table()
+
+
 def fold(s):
-    s = unicodedata.normalize("NFD", str(s or ""))
-    s = "".join(c for c in s if unicodedata.category(c) != "Mn").lower().replace("đ", "d")
+    s = str(s or "").lower().translate(_FOLD)
     return " ".join(re.sub(r"[^a-z ]+", " ", s).split())
 
 
