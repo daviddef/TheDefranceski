@@ -47,7 +47,11 @@ for (const g of dl.generations) {
  */
 const bearers = roster.rows.filter(x => x.pid && x.who === `/who/${p.slug}/`);
 const soleBearer = bearers.length === 1 ? bearers[0].pid : null;
-const CANONICAL = soleBearer
+/* A name page whose every bearer is living is noindex, like their own pages (16 October
+   2026). It then names no canonical: a noindex page that points at another page as its
+   original sends a search engine two contradictory signals. */
+const allLiving = bearers.length > 0 && bearers.every(x => x.living);
+const CANONICAL = soleBearer && !allLiving
   ? new URL(u(`/person/${soleBearer}/`), Astro.site).href
   : undefined;
 
@@ -105,6 +109,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 ---
 <Base title={bearers.length > 1 ? `${p.name} — ${bearers.length} people of the name` : p.name}
       eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
+      noindex={allLiving}
       dek={WHO_DESC} canonical={CANONICAL}>
 
 {onTree.length > 0 && (
