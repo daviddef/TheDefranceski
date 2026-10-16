@@ -5527,8 +5527,8 @@
   "n": 4,
   "src": "read",
   "id": "h067",
-  "confirmed": "Baptisms of 1846 and 1848 read at Ližnjan (images 25 and 27 of waypoint 9R2Z-44D); the 1844 and 1855 entries are from the index. The burial of Mattio (16 Jan 1850) is read on the page (image 19 of waypoint 9R2Z-4WG); his baptism is not.",
-  "read": "**Antonio Defranceschi, born 15 September 1819, son of Mattio «detto Matulin» and Madalena Percovich — married to Maria Schiffich at Ližnjan on 15 November 1843 (he 23, she 26) —, an agricoltore at Ližnjan house 17, and Maria Schiffich, daughter of Lorenzo.** *Read on the pages, 16 October 2026:* **Antonio, baptised 7 June 1846** (born about the 5th), **and Antonius, baptised 20 April 1848** — *two sons of one name: **the first died on 19 June 1846, aged eleven days** (Ližnjan deaths, page 24), and the name was given again.* *Cattarina (b. 23 Aug 1844, d. 1855) is from the FamilySearch index.* **Antonius, the second, grew up to be the labourer of Pomer (1886) and the porter of Pula (1890) — [the Pomer section of the Ližnjan page](/liznjan/#pomer).** *His father was alive in 1890; his mother was dead by 1885.* **His brother Gregorio (baptised 1822, same parents) married Maria's sister Agata fourteen months later, at the same house.** ***A fourth child, buried at nine days:*** **Mattio, «figlio di Antonio Defranceschi», house 17, 16 January 1850** (Ližnjan deaths, page 29, image 19 of waypoint 9R2Z-4WG) — *named for his grandfather Mattio; the entry names only the father, so the mother is inferred, `inf`.* ***And eleven months before, on 6 January 1849, «Maddalena fu Matteo Defranceschi», 61, was buried from the same house*** — *probably Antonio's mother, the widow Madalena Percovich (`inf`; «fu Matteo» may instead mean a daughter of a Matteo)*.",
+  "confirmed": "Baptisms of 1846 and 1848 read at Ližnjan (images 25 and 27 of waypoint 9R2Z-44D); the 1844 and 1855 entries are from the index. The baptism (8 Jan 1850, births image 28 of waypoint 9R2Z-44D) and burial (16 Jan 1850, deaths image 19 of waypoint 9R2Z-4WG) of Mattio are read.",
+  "read": "**Antonio Defranceschi, born 15 September 1819, son of Mattio «detto Matulin» and Madalena Percovich — married to Maria Schiffich at Ližnjan on 15 November 1843 (he 23, she 26) —, an agricoltore at Ližnjan house 17, and Maria Schiffich, daughter of Lorenzo.** *Read on the pages, 16 October 2026:* **Antonio, baptised 7 June 1846** (born about the 5th), **and Antonius, baptised 20 April 1848** — *two sons of one name: **the first died on 19 June 1846, aged eleven days** (Ližnjan deaths, page 24), and the name was given again.* *Cattarina (b. 23 Aug 1844, d. 1855) is from the FamilySearch index.* **Antonius, the second, grew up to be the labourer of Pomer (1886) and the porter of Pula (1890) — [the Pomer section of the Ližnjan page](/liznjan/#pomer).** *His father was alive in 1890; his mother was dead by 1885.* **His brother Gregorio (baptised 1822, same parents) married Maria's sister Agata fourteen months later, at the same house.** ***A fourth child, baptised on 8 January 1850 and buried on the 16th, at nine days:*** **Mattio — the baptism («Mattee, figlio di Antonio», father «Antonio fu Matteo Defranceschi», mother «Maria figlia di Lorenzo Schiffich», house 17; Ližnjan births, page 59, image 28 of waypoint 9R2Z-44D) and the burial («Mattio figlio di Antonio Defranceschi», giorni 9; Ližnjan deaths, page 29, image 19 of waypoint 9R2Z-4WG) are both read** (`doc`; `inf` that they are one child) — *named for his grandfather Mattio.* *So the household at house 17 buried its first Antonio in June 1846 and its fourth child, Mattio, in January 1850; the one son who lived is the Antonius of Pomer and Pula.*",
   "children": [
    {
     "name": "Cattarina Defranceschi",
@@ -5576,7 +5576,7 @@
    {
     "name": "Mattio Defranceschi",
     "sex": "Male",
-    "birth": "about 7 Jan 1850",
+    "birth": "baptised 8 Jan 1850",
     "death": "16 Jan 1850",
     "place": "Ližnjan",
     "y": 1850,
@@ -5584,7 +5584,7 @@
     "dy": 1850,
     "ours": true,
     "pid": "mattio-defranceschi-1850",
-    "pidBasis": "read at Ližnjan"
+    "pidBasis": "read at Ližnjan (baptism and burial)"
    }
   ],
   "keyWas": "antonio + maria",
@@ -11098,5 +11098,54 @@
   ],
   "confirmed": "Baptisms of Antonio (1819), Maria (1821) and Gregorio (22 May 1822) all read at Ližnjan (images 6 and 7 of waypoint 9R2Z-44D).",
   "read": "**Mattio Defranceschi, «di Antonio, detto Matulin», agricoltore, and Madalena Percovich — house 17 at Ližnjan.** *Three children read: **Antonio** (b. 15 Sept 1819), **Maria** (6 Jan 1821) and, by the index, **Gregorio** (baptised 23 May 1822).* **Antonio and Gregorio married two Schiffich sisters at the same house in 1843 and 1845** — [Antonio's household](/households/) and the Pomer–Pula chain are told at [the Pomer section of the Ližnjan page](/liznjan/#pomer). *Mattio was dead by 1846; the byname «Matulin» is the one the Pomer deaths index writes «d.º Mattulia».*"
+ },
+ {
+  "id": "h125",
+  "key": "gregorio + agata schiffich",
+  "fatherKey": "gregorio",
+  "motherKey": "agata",
+  "father": "Gregorio Defranceschi (di Mattio, detto Matulin)",
+  "mother": "Agata Schiffich (di Lorenzo)",
+  "place": "Ližnjan, house 17",
+  "region": "istria",
+  "line": "male",
+  "from": 1846,
+  "to": 1849,
+  "n": 2,
+  "src": "read",
+  "fatherPid": "gregorio-de-franceschi-1822",
+  "motherPid": "agata-schiffich-wife-of-gregorio-defranceschi-liznjan-house-17-1822",
+  "pidBasis_father": "read at Ližnjan",
+  "pidBasis_mother": "read at Ližnjan",
+  "children": [
+   {
+    "name": "Maria Defranceschi",
+    "sex": "Female",
+    "birth": "",
+    "death": "8 Dec 1846",
+    "place": "Ližnjan",
+    "y": 1846,
+    "by": 1846,
+    "dy": 1846,
+    "ours": true,
+    "pid": "maria-defranceschi-1846",
+    "pidBasis": "index; burial read at Ližnjan"
+   },
+   {
+    "name": "Maria Defranceschi",
+    "sex": "Female",
+    "birth": "27 Oct 1849",
+    "death": "",
+    "place": "Ližnjan",
+    "y": 1849,
+    "by": 1849,
+    "dy": null,
+    "ours": true,
+    "pid": "maria-defranceschi-b-27-oct-1849-liznjan-daughter-of-gregorio-1849",
+    "pidBasis": "read at Ližnjan"
+   }
+  ],
+  "confirmed": "Gregorio's marriage (22 Jan 1845), the 1849 baptism (births page 58, image 28 of waypoint 9R2Z-44D) and the 1846 burial of a Maria (deaths image 17 of waypoint 9R2Z-4WG) are read; other children of the couple are not looked for here.",
+  "read": "**Gregorio Defranceschi, baptised 23 May 1822 at house 17 (a younger brother of Antonio of the [household above](/households/)), and Agata Schiffich, daughter of Lorenzo — married at Ližnjan on 22 January 1845, she the sister of Antonio's wife Maria.** *Two daughters named Maria are read:* **one buried on 8 December 1846 («Maria figlia di Gregorio Defranceschi», house 17), and one born on 27 October 1849 and baptised the next day** — *the name given again after the first was lost, as in the household of Gregorio's brother Antonio.* *Other children of the couple are not read here.* [The Pomer section of the Ližnjan page](/liznjan/#pomer) tells the house."
  }
 ]
