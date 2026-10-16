@@ -66,9 +66,11 @@ const thisArchive =
 <title>{title === SITE ? SITE : `${title} — ${SITE}`}</title>
 <meta name="description" content={blurb} />
 <SocialHead title={title} description={blurb} site={SITE} canonical={canonical} />
-<JsonLd type={bare ? "WebSite" : "Article"} name={title} description={blurb}
+{/* A noindex page (every living person's, living-people standard v2) is asking not to be harvested, so it
+    carries no structured data at all: not a Person, and not an Article that repeats the name. */}
+{!noindex && (<JsonLd type={bare ? "WebSite" : "Article"} name={title} description={blurb}
         url={Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname}
-        site={SITE} about={person} />
+        site={SITE} about={person} />)}
     {noindex && <meta name="robots" content="noindex" />}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -121,7 +123,7 @@ const thisArchive =
 <footer class="site">
   <div class="wrap">
     <SiblingArchives />
-    <p class="foot">An evidence-first family archive for the Defranceschi, De Franceschi, Defranceski and de Franceski families of Istria, Kvarner, Carnia and the diaspora. Every claim carries its confidence. <strong>Living people are named</strong> — name and relationship only, never a date, a place, a photograph or a record.</p>
+    <p class="foot">An evidence-first family archive for the Defranceschi, De Franceschi, Defranceski and de Franceski families of Istria, Kvarner, Carnia and the diaspora. Every claim carries its confidence. <strong>A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more.</strong></p>
     <p class="foot dim">Built {new Date().getFullYear()} ·
       <a href={u("/sources/")}>Sources</a> ·
       <a href={u("/method/")}>Method</a> ·

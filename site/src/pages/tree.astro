@@ -121,7 +121,7 @@ const CONF = {
   <div class="legend" style="margin-bottom:22px">
     <span><i style="background:var(--accent);border-radius:0;width:3px;height:14px"></i>Documented — a register page or certified extract</span>
     <span><i style="background:var(--ochre);border-radius:0;width:3px;height:14px"></i>The family's own chart, not yet a register</span>
-    <span><i style="background:var(--ink-3);border-radius:0;width:3px;height:14px"></i>Living — name only, by the archive's rule</span>
+    <span><i style="background:var(--ink-3);border-radius:0;width:3px;height:14px"></i>Living — name, relationships and town only, by the archive's rule</span>
   </div>
 
   <div class="t-spine">
@@ -183,7 +183,7 @@ const CONF = {
                 <div class="t-person t-her empty">
                   <div class="t-nm">{g.confidence === "living" ? "Withheld" : "Not named"}</div>
                   <div class="t-alt">{g.confidence === "living"
-                    ? "Living people are named here and no more, by the archive's own rule."
+                    ? "A living person is named with their relationships and their town and country, and nothing more."
                     : "This generation's wife is in no source the archive holds."}</div>
                 </div>
               </>

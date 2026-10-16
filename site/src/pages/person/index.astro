@@ -6,8 +6,8 @@
 // /person, and /person does not link to any of them». They were reachable
 // only from a name page. A page nothing links to is a page nobody finds.
 //
-// Living people appear here by name and by town and by nothing else, which is
-// the same rule the person pages keep. The list is rendered whole and filtered
+// A living person appears here with a town and country and nothing more, which is
+// the same rule the person pages keep (standard v2, 16 October 2026). The list is rendered whole and filtered
 // in the browser: at this size a search box beats letter headings, and it
 // searches all of them at once instead of one letter at a time.
 import Base from "../../layouts/Base.astro";
@@ -43,8 +43,7 @@ const nDated  = rows.filter(r => r.span).length;
     index that is right. As a person's page it states something false.
   </p>
   <p class="prose note" style="margin-top:14px">
-    <strong>{nLiving} living people are on this list.</strong> They appear by name
-    and by town and by nothing else — no date of birth, here or on their own page.
+    <strong>{nLiving} living people are on this list.</strong> A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more. No date of birth, here or on their own page.
     {nDated} of the rest carry dates. Where a person's years are unknown the row is
     simply blank rather than guessed.
   </p>
@@ -61,7 +60,7 @@ const nDated  = rows.filter(r => r.span).length;
       <li data-k={`${p.name} ${p.span} ${p.place}`.toLowerCase()}>
         <a href={u(`/person/${p.pid}/`)}>{p.name}</a>
         {p.span && <span class="yr">{p.span}</span>}
-        {p.living && <span class="lv">living — named only</span>}
+        {p.living && <span class="lv">living</span>}
         {p.place && <span class="pl">{p.place}</span>}
       </li>
     ))}

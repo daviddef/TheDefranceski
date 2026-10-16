@@ -34,7 +34,7 @@ Every claim carries a confidence and a source:
 | **Inferred** | A reasoned conclusion from documented facts, with the reasoning written out so it can be overturned. |
 | **Family lore** | Told, remembered, not corroborated. Kept because it is precious; labelled because pretending otherwise is how family myths become family history. |
 
-**Living people are omitted from the build entirely** — not hidden, not gated, not present in the output.
+**A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more.** Who is living is decided by the estate's one definition (`scripts/living_v2.py`, which reads the shared kit's `living_rule.py`); a person who might be a child is not published at all.
 A removal request is honoured within days, without argument and without requiring a reason.
 
 On the contested history of 1943–56: report what happened to our people, with sources; use both toponyms

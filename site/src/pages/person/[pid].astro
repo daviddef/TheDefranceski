@@ -68,6 +68,21 @@ const { r, kin, placeSeparates } = Astro.props;
  * session that owns the cross-site layout, so this one says it in prose and in
  * the eyebrow instead. Worklist 147 carries the request.
  */
+/* THE LIVING-PEOPLE STANDARD, VERSION 2 (David, 16 October 2026). One sentence, the same in every
+   archive in substance, and the whole of what a living person's page may say about them:
+   a name, their relationships, and their town and country. No dates, no records, no sources, no
+   photograph, no notes, no table, no structured data; the page is noindex. */
+const LIVING_SENTENCE = "A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more.";
+/* How the person stands to David, who compiles this archive, in words that read after «David's». */
+const RELATION = (() => {
+  if (!r.living) return "";
+  if (r.me) return "the compiler of this archive";
+  if (!r.rel) return "";
+  if (r.rel === "by marriage") return "related by marriage";
+  if (/^this archive/.test(r.rel)) return r.rel;
+  return `David\u2019s ${r.rel}`;
+})();
+
 const dupOf = r.sameAs ? roster.rows.find((x) => x.pid === r.sameAs) : null;
 const SRC = roster.srclabel || {};
 const span = [r.b || (r.bEst ? `about ${r.bEst}` : null), r.d].filter(Boolean).join(" – ")
@@ -119,7 +134,8 @@ const _p = doss.persons ? doss.persons[r.pid] : null;
 const _t = _p && _p.ptree;
 const _node = (n, small) => n && ({
   name: n.n,
-  dates: n.dt || "",
+  /* a living person's page carries no year at all, not even a relative's: they are on the relative's page */
+  dates: r.living ? "" : (n.dt || ""),
   href: n.pid ? u(`/person/${n.pid}/`) : undefined,
   cls: n.via === "line" ? "via-line" : n.via === "read" ? "via-read" : n.via ? "via-tree" : "via-none",
   mark: n.ambiguous
@@ -131,7 +147,7 @@ const _node = (n, small) => n && ({
 const tree = _t ? {
   self: { name: r.name,
           dates: r.living ? "" : span === "dates unknown" ? (_t.self || {}).dt || "" : span,
-          note: r.living ? "living — named only" : "",
+          note: r.living ? "living" : "",
           noteCls: r.living ? "living" : "",
           gen: _i >= 0 ? `generation ${_i + 1} of the direct line` : "" },
   parents: (_t.parents || []).map((n) => _node(n)).filter(Boolean),
@@ -215,7 +231,7 @@ const DESC = (() => {
      what it keeps after the page changes. For a living person it says the
      name and nothing else — no span, no parish, no note — which is the rule
      read at its strictest and the only reading worth applying here. */
-  if (r.living) return `${r.name} — named here, and nothing more. A living person in a public archive.`;
+  if (r.living) return `${r.name}. ${LIVING_SENTENCE}`;
   const head = [r.name, (r.b || r.d || r.bEst) ? span : null, WHERE].filter(Boolean).join(", ");
   const note = r.note
     ? String(r.note).replace(/[*_`«»\[\]]/g, "").replace(/\s+/g, " ").trim().slice(0, 95)
@@ -241,14 +257,14 @@ const PERSON = (dupOf || r.living) ? null : {
 };
 
 const plateRows = allplates.rows || allplates;
-const fm = fam.map[r.pid];
+const fm = r.living ? null : fam.map[r.pid];
 const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boolean)
   .map(p => ({ id: p.id, title: p.title, caption: p.caption, holder: p.holder,
                w: p.w, h: p.h, src: u(p.src), thumb: u(p.thumb) })) : [];
 ---
 <Base title={r.living ? r.name : [r.name, (r.b || r.d || r.bEst) ? span : null,
               placeSeparates ? WHERE : null].filter(Boolean).join(", ")}
-      eyebrow={dupOf ? "the same person as another page" : span}
+      eyebrow={dupOf ? "the same person as another page" : r.living ? (RELATION || "living") : span}
       noindex={!!r.living}
       dek={DESC} person={PERSON}>
 
@@ -284,6 +300,14 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
 </section>
 )}
 
+{r.living && (
+<section class="blk">
+  {RELATION && <p class="lvrel"><span class="lvk">Relationship</span> {RELATION}</p>}
+  {r.place && <p class="lvrel"><span class="lvk">Town and country</span> {r.place}</p>}
+</section>
+)}
+
+{!r.living && (
 <section class="blk">
   <div class="rec">
     <div class="k">Name</div><div class="v">{r.name}</div><div class="w"></div>
@@ -300,6 +324,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
   </div>
 </section>
+)}
 
 {tree && (
 <section class="blk">
@@ -335,7 +360,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
 </section>
 )}
 
-{!tree && (
+{!tree && !r.living && (
 <section class="blk">
   <h2>The family</h2>
   <p class="dek"><strong>No family chart is drawn for this person, and that is
@@ -348,13 +373,14 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
 </section>
 )}
 
-{r.note && (
+{r.note && !r.living && (
 <section class="blk">
   <h2>What the archive knows</h2>
   <div class="prose" style="margin-top:20px" set:html={_md(r.note)}></div>
 </section>
 )}
 
+{!r.living && (
 <section class="blk">
   <p class="cap">
     {kin.length > 0
@@ -373,8 +399,9 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     </ul>
   )}
 </section>
+)}
 
-<Lightbox />
+{!r.living && <Lightbox />}
 </Base>
 
 <style>
@@ -401,4 +428,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
   .rec .w{grid-column:1/-1;font-family:var(--sans);font-size:12px;color:var(--ink-3);
     white-space:normal;text-align:left;overflow-wrap:break-word}
   .rec .w:empty{display:none}
+  .lvrel{font-family:var(--sans);font-size:15px;line-height:1.5;margin-top:10px;color:var(--ink)}
+  .lvrel .lvk{display:inline-block;min-width:130px;font-size:10.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-3)}
 </style>

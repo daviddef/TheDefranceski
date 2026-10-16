@@ -71,7 +71,7 @@ Say so when it is. Verification is worth publishing; it is not discovery.
 - **Never work around a bot check, CAPTCHA or rate limit.** Stop, record where,
   say so. A *different, open* source for the same question is fine.
 - **Never enter credentials.** David signs in; sessions drive.
-- **Living people: name only** — no dates, no places, no photographs.
+- **Living people:** A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more. No dates, no records, no photograph, no `Person` data; the page is `noindex`. Possible minors are not published at all. The test is `scripts/living_v2.py` (the kit's `living_rule.py`); the gate is `scripts/check-living-v2.py`.
 
 ## Ground you do not own
 
