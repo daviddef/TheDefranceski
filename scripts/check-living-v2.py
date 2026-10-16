@@ -7,7 +7,7 @@
 
 THE RULE (one definition, in the kit: kit/tools/living_rule.py, read through scripts/living_v2.py):
 living is 80 or younger by year with no death recorded and no public source; no birth year is not living;
-a possible minor is held out and not published at all.
+an UNDATED person with a living parent (a possible minor) is held out and not published at all.
 
 WHY THIS READS THE DATA AND NOT THE GENERATOR. scripts/apply-living-rule.py decides who is living and
 writes the roster. This file decides again, from the committed roster and from the built pages, and
@@ -18,7 +18,10 @@ WHAT IT REFUSES.
   scrub      a living row that carries anything beyond name, page address, relationship, and a full town and
              country: a date, a citation, a note, a parish, a tree id, an estimate, an image
   place      a living row whose place is not 'Town, Country' (a street, a number, a hospital, a care home)
-  minor      a row whose birth year makes the person under 18 with no death or public source (a child)
+  child      (with David's tree) a child with a KNOWN birth year under 18 whom the archive names but has no
+             page for, or whom the ledger wrongly holds out. Known children follow the standard: a page,
+             noindex, no dates (kit 6cefc79, David, 16 October 2026). Only an UNDATED person with a living
+             parent is held out.
   page       a living person's page that is missing, is not noindex, carries structured data, a table, an
              image, or a four-digit year
   name page  a /who/ page whose every bearer is living and is not noindex or names a canonical elsewhere
@@ -27,7 +30,7 @@ WHAT IT REFUSES.
   pages      a roster row with no person page
   links      MORE unlinked relatives on living pages than the recorded count (see the ledger)
   tree       (with David's tree) a ledger entry the rule now disagrees with, a possible minor in the roster,
-             and any possible minor's FULL NAME anywhere the archive publishes: data, pages, built site
+             and any held-out person's FULL NAME anywhere the archive publishes: data, pages, built site
   empty      nothing to examine. A gate that examined zero people has not passed.
 
 Counts only are printed; a name never is.
@@ -131,9 +134,6 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
         else:
             if lr.is_living(r.get("b"), L2.row_recorded_dead(r), L2.row_citations(r), year):
                 P.append("rule: the rule calls this person living and the row carries a birth year and no living mark (%s)" % pid)
-        b = r.get("b")
-        if isinstance(b, int) and (year - b) < lr.MINOR_AGE and not L2.row_recorded_dead(r) and not L2.row_citations(r):
-            P.append("minor: a row's birth year makes the person under 18, and they are published (%s)" % pid)
     S["pids"] = len({r.get("pid") for r in rows if r.get("pid")})
 
     # ---------------- the built site ----------------
@@ -257,6 +257,10 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
             elif bool(r.get("living")) != living:
                 P.append("tree: the rule says %s and the roster says %s (%s)" % (
                     "living" if living else "not living", "living" if r.get("living") else "not living", pid))
+        for uid in led.get("held", []):
+            if uid in tree.people and not tree.verdict(uid, year)[1]:
+                P.append("child: a person is held out and the rule does not hold them out (a known child, or no "
+                         "longer undated, follows the standard and gets a page)")
         # unmatched rows that the tree would call living
         by_key = collections.defaultdict(list)
         for u_, p in tree.people.items():
@@ -270,21 +274,28 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
             c = [u_ for u_ in by_key.get(L2.name_key(r["name"]), []) if tree.verdict(u_, year)[0]]
             if c:
                 S["undated rows sharing a name with a living tree person"] += 1
-        # the held-out: no possible minor's full name anywhere
+        # the held-out: no held-out person's full name anywhere; and every KNOWN child the archive names has a page
         minors = [p for u_, p in tree.people.items() if tree.verdict(u_, year)[1]]
+        known_children = [p for u_, p in tree.people.items()
+                          if p["by"] is not None and (year - p["by"]) < 18 and not p["dead"]
+                          and not lr.public_source(p["cites"]) and not tree.verdict(u_, year)[1]]
+        rkeys = {L2.name_key(r["name"]) for r in rows}
         keys = sorted({L2.name_key(p["name"]) for p in minors if len(L2.name_key(p["name"]).split()) >= 2})
+        ckeys = sorted({L2.name_key(p["name"]) for p in known_children
+                        if len(L2.name_key(p["name"]).split()) >= 2} - rkeys)
         S["possible minors in the tree"] = len(minors)
-        if keys:
-            padded = [" %s " % k for k in keys]
-            hit_files = collections.Counter()
-            # A name a possible minor shares with someone who is not one (a man of 1870 with the same name as a
-            # child of 2012) cannot be told apart by the name, so a hit on it is read, not refused.
+        S["known children in the tree"] = len(known_children)
+        if keys or ckeys:
+            # A name shared with someone who is not the person (a man of 1870 with the same name as a child
+            # of 2012) cannot be told apart by the name, so a hit on it is read, not refused.
             adults = collections.Counter()
             for u_, p in tree.people.items():
                 if not tree.verdict(u_, year)[1]:
                     adults[L2.name_key(p["name"])] += 1
-            shared = {k for k in keys if adults.get(k)}
-            soft = 0
+            shared = {k for k in keys if adults.get(k)} | {k for k in ckeys if sum(
+                1 for p in tree.people.values() if L2.name_key(p["name"]) == k) > 1}
+            hit_files, child_files, soft = collections.Counter(), collections.Counter(), 0
+            allk = [(k, " %s " % k, "held") for k in keys] + [(k, " %s " % k, "child") for k in ckeys]
             for f in corpus_files(root, dist):
                 try:
                     t = rd(f)
@@ -293,21 +304,27 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
                 if f.endswith(".html"):
                     t = TAGS.sub(" ", t)
                 ft = " %s " % L2.fold(t)
-                for k, pk in zip(keys, padded):
-                    if pk in ft:
+                seen = set()
+                for k, pk, kind in allk:
+                    if pk in ft and (kind, f) not in seen:
                         if k in shared:
                             soft += 1
                             continue
-                        hit_files[os.path.relpath(f, root)] += 1
-                        break
-            S["name hits shared with an adult of the tree (read, not refused)"] = soft
+                        seen.add((kind, f))
+                        (hit_files if kind == "held" else child_files)[os.path.relpath(f, root)] += 1
+            S["name hits shared with someone else in the tree (read, not refused)"] = soft
             if soft:
-                N.append("%d place(s) name someone who shares a name with a possible minor and with an adult in the tree; read them" % soft)
+                N.append("%d place(s) name someone who shares a name with a held-out person or a child and with another person in the tree; read them" % soft)
             S["files naming a held-out person"] = len(hit_files)
             for f in sorted(hit_files)[:6]:
-                P.append("held out: a possible minor is named in %s" % f)
+                P.append("held out: a person who is held out is named in %s" % f)
             if len(hit_files) > 6:
                 P.append("held out: ... and %d more files" % (len(hit_files) - 6))
+            S["files naming a child with no page"] = len(child_files)
+            for f in sorted(child_files)[:6]:
+                P.append("pages: a child with a known birth year is named in %s and has no person page" % f)
+            if len(child_files) > 6:
+                P.append("pages: ... and %d more files naming a child with no page" % (len(child_files) - 6))
 
     # ---------------- refuse an empty examination ----------------
     if S["living rows"] == 0:
@@ -349,8 +366,9 @@ def main():
         return 1
     print("  ok    living-v2  %d living of %d rows; %d living pages, %d living name pages, %d person pages read%s" % (
         S["living rows"], S["rows"], S["living pages examined"], S["living name pages examined"],
-        S["person pages built"], "; tree checked: %d ledger entries agree, %d possible minors, named in %d files" % (
-            S["ledger entries checked"], S["possible minors in the tree"], S["files naming a held-out person"]) if tree else ""))
+        S["person pages built"], "; tree checked: %d ledger entries agree, %d held out by rule (named in %d files), %d known children (%d named with no page)" % (
+            S["ledger entries checked"], S["possible minors in the tree"], S["files naming a held-out person"],
+            S["known children in the tree"], S["files naming a child with no page"]) if tree else ""))
     return 0
 
 

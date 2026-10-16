@@ -67,7 +67,7 @@ run living    ../scripts/kit-living.sh          --dist "$OUT" --data src/data --
 # the built pages, and (with David's tree, which is outside the repository) from the tree; the generator's word
 # is not taken. --require-tree: on this machine the tree must be found, or the people the rule holds out cannot
 # be checked and the gate must say so rather than pass. CI has no tree and runs the same file without that flag
-# (npm run check:living-v2). The second line plants 26 faults in a made-up archive and requires every one caught.
+# (npm run check:living-v2). The second line plants 28 faults in a made-up archive and requires every one caught.
 run livingv2  python3 ../scripts/check-living-v2.py --dist "$OUT" --require-tree
 run livingv2-faults python3 ../scripts/test-living-v2.py
 # Whose readers is this archive counting? Reads the BUILT html and picks the archive by

@@ -7,8 +7,9 @@ David's ruling of 16 October 2026 (the living-people standard, version 2):
     LIVING  =  80 or younger (this year minus the birth year) with NO death or
                burial recorded, and no citation from a public record source.
     A person with no birth year is NOT living: nothing shows they are 80 or younger.
-    HELD OUT = a possible minor (under 18 by year, or no birth year and a living
-               parent). Not published at all.
+    HELD OUT = an UNDATED person with a living parent (who might be a child). Not published
+               at all. A child with a KNOWN birth year is not held out: every child follows the same
+               standard as any living person (David, 16 October 2026; kit 6cefc79).
 
 The test itself is not written here. It is `living_rule.py`, in the shared kit,
 read through the installed copy so that this archive cannot drift from the others:
@@ -27,7 +28,8 @@ burial is recorded, the citations that count, and who the parents are.
 WHAT COUNTS AS A CITATION. The kit's `public_source` looks at strings. A MyHeritage
 export carries three kinds of source and only some are public records:
 
-  * a NOTE that names FamilySearch (David pastes the citation by hand)      -> counts
+  * a NOTE that names a provider on the kit's list (FamilySearch, the National
+    Archives of Australia ...; David pastes the citation by hand)            -> counts
   * a «Collection» source: a census, a register, a death index, a cemetery
     transcription, FamilySearch Family Tree                                -> counts
   * a «Collection» that is itself somebody's TREE (Geni World Family Tree,
@@ -176,8 +178,10 @@ def _citations(rec, srcs, g):
                         out.append("FamilySearch: " + t)
                     elif not t.lower().startswith(TREE_COLLECTIONS):
                         out.append("myheritage.com/research record collection: " + t)
-            elif c["tag"] == "NOTE" and "familysearch" in c["val"].lower():
-                out.append("FamilySearch: " + c["val"][:80])
+            elif c["tag"] == "NOTE" and lr.public_source([c["val"]]):
+                # a citation David pasted by hand that names any provider on the kit's list
+                # (FamilySearch, the National Archives of Australia, Findmypast ...)
+                out.append("citation: " + c["val"][:80])
             walk(c)
     walk(rec)
     return out

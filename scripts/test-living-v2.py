@@ -26,7 +26,7 @@ spec.loader.exec_module(G)
 
 YEAR = datetime.date.today().year
 UID = {"live1": "TESTUID-LIVE-1", "live2": "TESTUID-LIVE-2", "child": "TESTUID-CHILD-1", "old": "TESTUID-OLD-1",
-       "dead": "TESTUID-DEAD-1", "cited": "TESTUID-CITED-1"}
+       "dead": "TESTUID-DEAD-1", "cited": "TESTUID-CITED-1", "undated": "TESTUID-UNDATED-1"}
 N_FILLER = 110
 
 
@@ -72,6 +72,8 @@ def gedcom():
     out += indi(4, UID["old"], "Qx /Oldone/", 1799)
     out += indi(5, UID["dead"], "Qx /Deadone/", YEAR - 50, dead=True)
     out += indi(6, UID["cited"], "Qx /Citedone/", YEAR - 30, cite="FamilySearch ark:/61903/1:1:TEST")
+    out += indi(7, UID["undated"], "Qx /Undatedone/", None, fam=True)       # no birth year, a living parent
+    out += "0 @F1@ FAM\n1 HUSB @I1@\n1 CHIL @I7@\n"
     out += "0 TRLR\n"
     return out
 
@@ -83,7 +85,8 @@ def fixture(root):
     for i in range(N_FILLER):
         rows.append({"name": "Zz Filler%d" % i, "pid": "zz-filler-%d" % i, "who": "/who/zz-filler-%d/" % i,
                      "b": 1700 + i, "d": 1760 + i, "place": "Oldtown, Testland", "src": "burial", "note": "a note"})
-    live = [("Qx Livone", "qx-livone", "first cousin"), ("Qx Livtwo", "qx-livtwo", "")]
+    live = [("Qx Livone", "qx-livone", "first cousin"), ("Qx Livtwo", "qx-livtwo", ""),
+            ("Qx Childone", "qx-childone", "son")]       # a known child: a living row with a page, like anyone
     for name, pid, rel in live:
         r = {"name": name, "pid": pid, "who": "/who/%s/" % pid, "line": "x", "place": "Testville, Testland",
              "places": ["Testville, Testland"], "src": "life", "href": "/x/", "b": None, "d": None, "note": "",
@@ -104,8 +107,9 @@ def fixture(root):
     idx = [{"k": "Person", "t": r["name"], "h": r["who"], "q": r["name"].lower()} for r in rows if not r.get("living")]
     for rel in ("site/src/data/searchindex.json", "site/public/searchindex.json", "site/dist/searchindex.json"):
         w(os.path.join(root, rel), json.dumps(idx))
-    led = {"people": {"qx-livone": UID["live1"], "qx-livtwo": UID["live2"], "qx-oldone": UID["old"]},
-           "held": [UID["child"]], "unlinked_on_living_pages": 0}
+    led = {"people": {"qx-livone": UID["live1"], "qx-livtwo": UID["live2"], "qx-oldone": UID["old"],
+                      "qx-childone": UID["child"]},
+           "held": [UID["undated"]], "unlinked_on_living_pages": 0}
     w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
     w(os.path.join(root, "tree.ged"), gedcom())
     return rows
@@ -156,10 +160,8 @@ def F_place(root):
 def F_place_inst(root):
     d, r = row(root, "qx-livone"); r["places"] = ["Zz General Hospital, Testland"]; save(root, d)
 
-def F_minor_row(root):
-    d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Kid", "pid": "qx-kid", "b": YEAR - 9, "d": None,
-                                                     "src": "index", "note": ""}); save(root, d)
-    w(person(root, "qx-kid"), page("Qx Kid", False))
+def F_child_dates(root):
+    d, r = row(root, "qx-childone"); r["b"] = YEAR - 9; save(root, d)
 
 def F_noindex(root):
     w(person(root, "qx-livone"), page("Qx Livone", True, noindex=False))
@@ -205,18 +207,27 @@ def F_tree_disagree(root):
 def F_tree_not_living_flag(root):
     d, r = row(root, "qx-livone"); r["living"] = False; r["b"] = YEAR - 36; save(root, d)
 
+def F_child_held(root):
+    led = json.load(io.open(os.path.join(root, "data", "living-ledger.json"), encoding="utf-8"))
+    led["held"].append(UID["child"]); w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
+
+def F_child_nopage(root):
+    d = load(root); d["rows"] = [r for r in d["rows"] if r["pid"] != "qx-childone"]; save(root, d)
+    shutil.rmtree(os.path.join(root, "site", "dist", "person", "qx-childone"))
+    w(os.path.join(root, "site", "src", "data", "worklist.json"), json.dumps({"rows": [{"note": "Qx Childone was here"}]}))
+
 def F_tree_minor_row(root):
     led = json.load(io.open(os.path.join(root, "data", "living-ledger.json"), encoding="utf-8"))
-    led["people"]["qx-kid"] = UID["child"]; w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
+    led["people"]["qx-kid"] = UID["undated"]; w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
     d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Kid", "pid": "qx-kid", "b": None, "d": None, "living": True,
                                                      "src": "life", "place": "Testville, Testland", "note": "", "ark": "", "mh": ""}); save(root, d)
     w(person(root, "qx-kid"), page("Qx Kid", True))
 
 def F_held_in_data(root):
-    w(os.path.join(root, "site", "src", "data", "worklist.json"), json.dumps({"rows": [{"note": "Qx Childone was here"}]}))
+    w(os.path.join(root, "site", "src", "data", "worklist.json"), json.dumps({"rows": [{"note": "Qx Undatedone was here"}]}))
 
 def F_held_in_page(root):
-    w(os.path.join(root, "site", "dist", "about", "index.html"), "<main><p>about Qx Childone</p></main>")
+    w(os.path.join(root, "site", "dist", "about", "index.html"), "<main><p>about Qx Undatedone</p></main>")
 
 def F_cited_living(root):
     d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Citedone", "pid": "qx-citedone", "b": YEAR - 30, "d": None,
@@ -244,7 +255,9 @@ FAULTS = [
     ("scrub: a living row with a parish", "scrub:", F_scrub_key, {}),
     ("place: a street in a living place", "place:", F_place, {}),
     ("place: a hospital in a living place", "place:", F_place_inst, {}),
-    ("minor: a child published by birth year", "minor:", F_minor_row, {}),
+    ("child: a known child's row carries a birth year (a child follows the standard)", "scrub:", F_child_dates, {}),
+    ("child: a known child wrongly held out by the ledger", "child:", F_child_held, {}),
+    ("child: a known child named but with no page", "no person page", F_child_nopage, {}),
     ("page: a living page that is not noindex", "not noindex", F_noindex, {}),
     ("page: a living page with structured data", "structured data", F_ld, {}),
     ("page: a living page with a table", "table", F_table, {}),
@@ -258,9 +271,9 @@ FAULTS = [
     ("links: more unlinked relatives than recorded", "links:", F_links, {}),
     ("tree: the roster says living, the rule says not", "tree:", F_tree_disagree, {}),
     ("tree: the roster says not living, the rule says living", "tree:", F_tree_not_living_flag, {}),
-    ("tree: a possible minor published as a row", "possible minor", F_tree_minor_row, {}),
-    ("held out: a minor's full name in a data file", "held out:", F_held_in_data, {}),
-    ("held out: a minor's full name in a built page", "held out:", F_held_in_page, {}),
+    ("tree: an undated person with a living parent published as a row", "possible minor", F_tree_minor_row, {}),
+    ("held out: an undated person with a living parent, named in a data file", "held out:", F_held_in_data, {}),
+    ("held out: the same, named in a built page", "held out:", F_held_in_page, {}),
     ("empty: no living person in the roster", "empty:", F_empty_living, {}),
     ("empty: no built person pages", "empty:", F_empty_dist, {}),
     ("tree absent but required", "tree:", F_no_tree, {"tree": False, "require_tree": True}),
@@ -274,7 +287,7 @@ def main():
         clean = os.path.join(base, "clean")
         fixture(clean)
         P, N, S = run_gate(clean)
-        print("clean fixture: %s  (%d living rows, %d living pages read, %d ledger entries agree, %d minors in the tree)" % (
+        print("clean fixture: %s  (%d living rows incl. a known child, %d living pages read, %d ledger entries agree, %d held out by rule)" % (
             "PASSES" if not P else "FAILS", S["living rows"], S["living pages examined"], S["ledger entries checked"],
             S["possible minors in the tree"]))
         if P:

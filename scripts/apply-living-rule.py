@@ -23,8 +23,9 @@ WHAT IT WRITES.
     source, or undated) loses the flag. If the tree gives a birth year and a death
     year they are restored, because they may be shown; the note loses the sentence
     that said they were living.
-  * A possible minor is removed from the roster. Their tree id is recorded, never
-    their name, in data/living-ledger.json so a later import does not republish them.
+  * A person held out (UNDATED with a living parent: a possible minor) is removed from the roster.
+    Their tree id is recorded, never their name, in data/living-ledger.json so a later import does
+    not republish them. A child with a KNOWN birth year is not held out: they are a living row.
   * data/living-ledger.json maps each tree-matched row to the tree's opaque _UID.
     It holds no date.
 
@@ -166,6 +167,9 @@ def redeclare(old_rows, new_rows, held_pids):
     new = {r["pid"]: "%s|%s|%s" % (r.get("name", ""), r.get("b") or "", r.get("d") or "")
            for r in new_rows if r.get("pid")}
     n_changed = sum(1 for k, v in new.items() if k in pids and pids[k] != v)
+    n_added = sum(1 for k in new if k not in pids)
+    for k, v in new.items():            # a released person's frozen id is declared again (adding is free)
+        pids.setdefault(k, v)
     for k in held_pids:
         pids.pop(k, None)
     pids.update({k: v for k, v in new.items() if k in pids})
@@ -183,11 +187,19 @@ def redeclare(old_rows, new_rows, held_pids):
     for k in held_pids:
         if k in pa["families"].get("person", []):
             pa["families"]["person"].remove(k)
+    for r in new_rows:                  # released people: their addresses are published again
+        if r.get("pid") and r["pid"] not in pa["families"]["person"]:
+            pa["families"]["person"].append(r["pid"])
+        w = (r.get("who") or "")
+        if w.startswith("/who/") and w.strip("/").split("/")[-1] not in pa["families"]["who"]:
+            pa["families"]["who"].append(w.strip("/").split("/")[-1])
+    pa["families"]["person"].sort()
+    pa["families"]["who"].sort()
     with io.open(led_p, "w", encoding="utf-8") as f:
         json.dump(pa, f, ensure_ascii=False, indent=1)
         f.write("\n")
-    print("re-declared: %d id(s) changed, %d removed (decisions.json, published-addresses.json)"
-          % (n_changed, len(held_pids)))
+    print("re-declared: %d id(s) changed, %d added, %d removed (decisions.json, published-addresses.json)"
+          % (n_changed, n_added, len(held_pids)))
 
 
 def prune_dossiers(old_rows, new_rows, held_pids):
@@ -284,6 +296,9 @@ def main():
     if len(tree.people) < 1000:
         sys.exit("apply-living-rule: the tree has %d people. Refusing to decide anything from that." % len(tree.people))
     led = L2.load_ledger()
+    # held out is now only an UNDATED person with a living parent (kit 6cefc79; a child with a known
+    # birth year follows the standard). A tree id the rule no longer holds out is released.
+    led["held"] = [u for u in led.get("held", []) if u in tree.people and tree.verdict(u, year)[1]]
     d = json.load(io.open(ROSTER, encoding="utf-8"))
     rows = d["rows"]
     ROWS.update({r["pid"]: r for r in rows if r.get("pid")})
@@ -314,7 +329,7 @@ def main():
             held_pids.append(pid)
             if uid and uid not in led["held"]:
                 led["held"].append(uid)
-            C["held out (possible minor)"] += 1
+            C["held out (undated, living parent)"] += 1
             continue
         if living:
             nr = scrub_living(r, p, year)

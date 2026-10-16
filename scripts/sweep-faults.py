@@ -171,7 +171,7 @@ def living_v2_cases(D):
         lambda: Edit(RO, jedit(lambda o: [x.__setitem__("places", ["12 Zz Street, Testville, Testland"]) for x in rows(o) if x.get("pid") == lv["pid"]])))
     add("living v2: an unmarked row the rule calls living (born 30 years ago)",
         lambda: Edit(RO, jedit(lambda o: rows(o).append(dict(rows(o)[0], pid="zz-sweep-v2", name="Zz Sweep V2", b=datetime.date.today().year - 30, d=None, ark="", living=False)))))
-    add("living v2: a child published (born 9 years ago)",
+    add("living v2: a known child shown with a birth year and no living mark (born 9 years ago)",
         lambda: Edit(RO, jedit(lambda o: rows(o).append(dict(rows(o)[0], pid="zz-sweep-kid", name="Zz Sweep Kid", b=datetime.date.today().year - 9, d=None, ark="", living=False)))))
     add("living v2: the first person page is gone",
         lambda: Move(os.path.join(d, "person", rows(ro)[0]["pid"], "index.html")))

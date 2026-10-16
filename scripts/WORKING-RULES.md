@@ -86,7 +86,7 @@ challenge is not. Never enter credentials — David signs in, sessions drive.
 **A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more.**
 That is David's ruling of 16 October 2026 (the living-people standard, version 2), the same in every
 archive. Living is *80 or younger, by year, with no death or burial recorded and no citation from a public
-record source*; a person with no birth year is not living; a possible minor is not published at all.
+record source*; a person with no birth year is not living; an undated person with a living parent is not published at all (a child with a known birth year follows the standard).
 The test is `scripts/living_v2.py` over the kit's `living_rule.py`, never a hand-set flag. A birth year is
 never committed for a living person: `scripts/apply-living-rule.py` reads David's MyHeritage GEDCOM
 (outside the repository) and writes only the verdict. `scripts/check-living-v2.py` is the gate.
