@@ -29,7 +29,7 @@ import Lightbox from "../components/Lightbox.astro";
         <div class="body">
           <div class="lab">Generation {g.n} · {g.where}</div>
           <h3 style="font-size:23px">{g.who}</h3>
-          <p style="margin-top:8px">{g.what}</p>
+          <p style="margin-top:8px" set:html={mdHtml(g.what)}></p>
         </div>
       </article>
     ))}

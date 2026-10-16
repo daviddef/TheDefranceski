@@ -115,7 +115,7 @@ const total = open.length + blocked.length;
     one place and left open in another.</p>
     <div class="scroll" style="margin-top:22px">
       <table><tbody>{closed.map((c) => (
-        <tr><td style="width:34%">{c.q}</td><td>{c.answer}</td></tr>
+        <tr><td style="width:34%">{c.q}</td><td set:html={md(c.answer)}></td></tr>
       ))}</tbody></table>
     </div>
   </section>
@@ -132,7 +132,7 @@ const total = open.length + blocked.length;
             {r.place && <span class="pl">{r.place}</span>}
           </div>
           <p set:html={mdpsHtml(r.known)}></p>
-          <p class="cap" style="margin-top:8px"><span class="lab">Where the death should be</span> {r.where}</p>
+          <p class="cap" style="margin-top:8px"><span class="lab">Where the death should be</span> <Fragment set:html={md(r.where)} /></p>
         </article>
       ))}
     </div>

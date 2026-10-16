@@ -82,7 +82,7 @@ const shots = c.days.flatMap(d => (d.shots || []).map(s => ({ d: d.n, s })));
           <td><strong>{d.who}</strong></td>
           <td class="dek" style="font-size:13px">{d.how}</td>
           <td>{d.say === "—" ? <span class="mono">—</span> : <em style="font-size:16px">{d.say}</em>}</td>
-          <td class="dek" style="font-size:13px">{d.gets}</td>
+          <td class="dek" style="font-size:13px" set:html={md(d.gets)}></td>
         </tr>
       ))}</tbody>
     </table>

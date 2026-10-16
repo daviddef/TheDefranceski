@@ -1,4 +1,5 @@
 ---
+import { plain as _plainq } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Errands from "@daviddef/archive-kit/components/Errands.astro";
 import Rule from "../components/Rule.astro";
@@ -32,7 +33,7 @@ const rowsFor = (wk) => p.rows.filter(r => r.walk === wk).map(r => ({
 const groups = [{
   rows: e.rows.map((r) => ({
     n: r.n, who: r.who, what: mdpsUnbased(r.what), ref: mdpsUnbased(r.ref), why: mdpsUnbased(r.why),
-    ask: mdpsUnbased(r.ask), draft: mdpsUnbased(r.draft), sent: r.sent,
+    ask: mdpsUnbased(r.ask), draft: mdpsUnbased(r.draft), sent: _plainq(r.sent),
     stateLabel: (PRI[r.pri] || [r.pri])[0],
     colour: (PRI[r.pri] || [])[1],
   })),

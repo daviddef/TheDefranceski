@@ -179,3 +179,18 @@ const untable = (s) => s
 
 export const mdFlat = (x) => based(inline(untable(String(x ?? ""))
   .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")));
+
+/* Plain text from the archive's light markup, for places that cannot hold HTML
+   (a tag label, a link's text, an <option>, a meta description): the markers go,
+   the words stay. Added 16 October 2026. */
+export const plain = (x) => String(x ?? "")
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")
+  .replace(/\*\*\*(.+?)\*\*\*/g, "$1")
+  .replace(/\*\*(.+?)\*\*/g, "$1")
+  .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1$2")
+  .replace(/`([^`\n]+)`/g, "$1");
+
+/* Links reduced to their text but everything else left as written, for a kit
+   component that renders **bold** and *italic* itself and has no link syntax. */
+export const unlink = (x) => String(x ?? "")
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1");

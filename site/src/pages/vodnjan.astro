@@ -27,7 +27,7 @@ import v from "../data/vodnjan.json";
           {g.map(p => (
             <div class={"pn " + p.c}>
               <div class="nm">{p.n}</div>
-              <div class="dt">{p.d}</div>
+              <div class="dt" set:html={_md(p.d)}></div>
             </div>
           ))}
         </div>

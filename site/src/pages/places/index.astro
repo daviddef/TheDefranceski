@@ -18,7 +18,7 @@ const rows = places.map((p) => ({
   variants: Object.values(p.alt || {}),
   note: [p.lead, p.registers
     ? (p.registers.books
-        ? `<em>${p.registers.books} registers, ${p.registers.digitised} digitised.</em>`
+        ? `<em>${p.registers.books} register${p.registers.books === 1 ? "" : "s"}${p.registers.digitised != null ? `, ${p.registers.digitised} digitised` : ""}.</em>`
         : "<em>Registers not yet inventoried.</em>")
     : ""].filter(Boolean).join(" "),
 }));

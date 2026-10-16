@@ -1,4 +1,5 @@
 ---
+import { plain as _plainq } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Sources from "@daviddef/archive-kit/components/Sources.astro";
 import { md as _md } from "../lib/md.js";
@@ -37,8 +38,9 @@ const groups = kinds.map(k => ({
   label: k,
   note: blurb[k] || "Other material this archive rests on.",
   rows: all.filter(s => s.kind === k).map(s => ({
-    id: s.id, title: s.title, url: s.url, where: s.where,
-    what: _md(s.what), cites: s.cites, note: s.note ? _md(s.note) : null,
+    id: s.id, title: _plainq(s.title), url: s.url, where: s.where,
+    what: _md(s.what), cites: s.cites, /* two notes carry a literal <em> (a journal title); other `<` in this file are placeholders and stay escaped */
+    note: s.note ? _md(s.note).replace(/&lt;(\/?)em&gt;/g, "<$1em>") : null,
     held: s.held,
   })),
 }));

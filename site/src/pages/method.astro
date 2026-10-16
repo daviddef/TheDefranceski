@@ -43,7 +43,7 @@ import { mdHtml } from "../lib/md.js";
       <li class={r.key ? "is-key" : ""}>
         <span class="num">{String(i + 1).padStart(2, "0")}</span>
         <div>
-          <h3>{r.lab}</h3>
+          <h3 set:html={mdHtml(r.lab)}></h3>
           <p set:html={based(mdHtml(r.text))}></p>
         </div>
       </li>

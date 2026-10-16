@@ -34,7 +34,7 @@ import Plates from "../components/Plates.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{d.grga.source_g}</p>
+  <p class="cap" style="margin-top:14px" set:html={mdHtml(d.grga.source_g)}></p>
 </section>
 <Rule name="tablet" label="And what cannot be shown" />
 
@@ -67,7 +67,7 @@ import Plates from "../components/Plates.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:14px">{d.zagreb.source_z}</p>
+  <p class="cap" style="margin-top:14px" set:html={mdHtml(d.zagreb.source_z)}></p>
 </section>
 
 <Rule name="helm" label="A document from the family" />
@@ -84,7 +84,7 @@ import Plates from "../components/Plates.astro";
     ))}
   </div>
   <div style="margin-top:24px"><Plates ids={d.smrtnilist.plates} cols={1} /></div>
-  <p class="cap" style="margin-top:14px">{d.smrtnilist.source_s}</p>
+  <p class="cap" style="margin-top:14px" set:html={mdHtml(d.smrtnilist.source_s)}></p>
 </section>
 
 
@@ -101,7 +101,7 @@ import Plates from "../components/Plates.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.southistria.source_si}</p>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(d.southistria.source_si)}></p>
 </section>
 
 <Rule name="arrows" label="What the evidence is" />
@@ -118,7 +118,7 @@ import Plates from "../components/Plates.astro";
     ))}
   </div>
   <div style="margin-top:24px"><Plates ids={d.registers.plates} cols={1} /></div>
-  <p class="cap" style="margin-top:16px">{d.registers.source_si}</p>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(d.registers.source_si)}></p>
 </section>
 
 <Rule name="arrows" label="Medulin · her eight children" />
@@ -134,7 +134,7 @@ import Plates from "../components/Plates.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.medulin.source_m}</p>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(d.medulin.source_m)}></p>
 </section>
 
 <Rule name="arrows" label="Pomer · where she came from" />
@@ -173,7 +173,7 @@ import Plates from "../components/Plates.astro";
       </div>
     ))}
   </div>
-  <p class="cap" style="margin-top:16px">{d.decrees.source_d}</p>
+  <p class="cap" style="margin-top:16px" set:html={mdHtml(d.decrees.source_d)}></p>
 </section>
 
 <Sources ids={["familysearch", "dapa", "dfcom"]} />

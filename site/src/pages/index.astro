@@ -1,5 +1,6 @@
 ---
 import { u } from "../lib/url.js";
+import { md } from "../lib/md.js";
 import Rule from "../components/Rule.astro";
 import Base from "../layouts/Base.astro";
 import WaysIn from "@daviddef/archive-kit/components/WaysIn.astro";
@@ -177,7 +178,8 @@ const spineRows = gens.map((g, i) => {
     herSiblings: [],
     hisLabel: String(g.name).split(" ")[0] + "\u2019s",
     herLabel: g.spouse ? String(g.spouse.name || g.spouse).split(" ")[0] + "\u2019s" : "Hers",
-    note: g.evidence || "",
+    /* The kit prints this as HTML, so the archive's **bold** and *italic* are rendered here. */
+    note: g.evidence ? md(g.evidence) : "",
     sources: g.sources || [],
     /* Where this marriage leads out of the archive. The kit already derives a
        door from the wife's surname, but it can only reach a sibling archive's

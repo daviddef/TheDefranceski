@@ -1,5 +1,6 @@
 ---
 import g from "../data/gologorica.json";
+import { plain } from "../lib/md.js";
 const { famId, depth = 0 } = Astro.props;
 const by = Object.fromEntries(g.people.map(p => [p.gid, p]));
 const fam = g.families.find(f => f.gid === famId);
@@ -27,7 +28,7 @@ const headsOf = p => g.families.filter(f => f.husb === p.gid || f.wife === p.gid
         return (
           <div class="pedkid">
             <div class="pk">{nameOf(k)}<span class="py">{life(k)}</span>
-              {k.notes?.[0] && <span class="pn">{k.notes[0].slice(0, 120)}</span>}
+              {k.notes?.[0] && <span class="pn">{plain(k.notes[0]).slice(0, 120)}</span>}
             </div>
             {own.map(o => <div class="pednest"><Astro.self famId={o} depth={depth + 1} /></div>)}
           </div>

@@ -336,6 +336,15 @@ section.blk > .dek{margin-top:10px}
   text-transform:uppercase;color:var(--accent);opacity:0;transition:opacity .18s}
 .plate:hover .zoomhint,.plate:focus-visible .zoomhint{opacity:1}
 
+/* Cited plates whose picture is not held on this site: a closed disclosure, never a broken <img>. */
+.plates-cited{display:grid;gap:8px;margin-top:14px}
+.pcited{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:10px 14px;font-family:var(--sans)}
+.pcited summary{cursor:pointer;font-size:13px;line-height:1.45}
+.pcited .t{font-weight:600;color:var(--ink)}
+.pcited .h{font-size:11px;letter-spacing:.05em;color:var(--ink-3);margin-left:6px}
+.pcited .pc-src{font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--ink-3);margin:10px 0 0;overflow-wrap:anywhere}
+.pcited .pc-cap{font-size:13.5px;line-height:1.6;color:var(--ink-2);margin:8px 0 0;max-width:80ch}
+
 dialog.lb{border:0;padding:0;background:transparent;max-width:min(1180px,94vw);max-height:94vh;color:var(--ink)}
 dialog.lb::backdrop{background:rgba(10,14,18,.88)}
 .lb-in{background:var(--panel);border:1px solid var(--rule-strong);border-radius:3px;

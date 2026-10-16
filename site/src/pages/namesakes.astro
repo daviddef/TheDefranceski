@@ -104,7 +104,7 @@ const fields = [...new Set(ns.map(n => n.field))].sort();
 
 <section class="blk" id="landmarks">
   <h2>{lm.heading}</h2>
-  <p class="dek" style="margin-top:8px">{lm.lead}</p>
+  <p class="dek" style="margin-top:8px" set:html={mdHtml(lm.lead)}></p>
   <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px">
     {lm.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>

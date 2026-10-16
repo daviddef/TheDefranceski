@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import WorkList from "@daviddef/archive-kit/components/WorkList.astro";
 import { u } from "../lib/url.js";
-import { mdp } from "../lib/md.js";
+import { mdp, plain } from "../lib/md.js";
 import work from "../data/worklist.json";
 
 const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
@@ -20,7 +20,7 @@ const waiting = work.rows.filter(r => r.state === "blocked").length;
 
   <div class="prose" style="margin-top:8px" set:html={link(mdp(work.lead))}></div>
 
-  <WorkList work={work} u={u} />
+  <WorkList work={{ ...work, rows: work.rows.map((r) => ({ ...r, what: plain(r.what) })) }} u={u} />
 
   <div class="one" style="margin-top:34px;border-left-color:var(--accent)">
     <div class="lab">What is left</div>

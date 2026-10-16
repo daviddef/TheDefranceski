@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { md as _md } from "../../lib/md.js";
+import { tidyHit } from "../../lib/hit.js";
 import Rule from "../../components/Rule.astro";
 import { u, based } from "../../lib/url.js";
 import dl from "../../data/directline.json";
@@ -71,7 +72,9 @@ const WHO_DESC = (() => {
   bits.push(bearers.length > 1
     ? `${bearers.length} different people of this name are kept apart here, each with their own page.`
     : `Every mention of this name in the archive — ${p.n} across ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}.`);
-  return bits.join(" ").slice(0, 300);
+  /* Facts are written in the archive's light markup (**bold**, *italic*); a
+     description is plain text, so the markers are removed, not printed. */
+  return bits.join(" ").replace(/\*{1,3}([^*\n]+?)\*{1,3}/g, "$1").replace(/`/g, "").slice(0, 300);
 })();
 
 const byPage = {};
@@ -173,7 +176,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 {(p.facts && p.facts.length > 0) && (
 <section class="blk">
   <div class="facts">
-    {p.facts.map(([k, v, href]) => { const h = factHref(k, v, href); return (<div class="fact"><span class="fk">{k}</span><span class="fv">{h ? <a href={u(h)}>{v}</a> : v}</span></div>); })}
+    {p.facts.map(([k, v, href]) => { const h = factHref(k, v, href); return (<div class="fact"><span class="fk">{k}</span><span class="fv">{h ? <a href={u(h)}>{v}</a> : <Fragment set:html={_md(v)} />}</span></div>); })}
   </div>
   {p.known && (
     <div class="known">
@@ -385,7 +388,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
     )}
     {(p.ptree.est && !p.recyear) && (
       <p><strong>This person has no recorded year.</strong> The archive estimates a birth <strong>about {p.ptree.est[0]}</strong>
-        {p.ptree.est[1] && <> — somewhere between {p.ptree.est[1][0]} and {p.ptree.est[1][1]}</>}, {p.ptree.est[2]}.
+        {p.ptree.est[1] && <> — somewhere between {p.ptree.est[1][0]} and {p.ptree.est[1][1]}</>}, <Fragment set:html={_md(p.ptree.est[2])} />.
         The households above were tested against that estimate rather than a date, on a deliberately loose window.
         <strong>That is a sanity check, not a verification</strong> — it can throw out an absurdity, and it cannot confirm a link.</p>
     )}
@@ -469,7 +472,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   <section class="blk">
     <h2>{g.page ? <a href={u(g.page)}>{title}</a> : title}</h2>
     <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px">
-      {g.hits.map(h => (<div class="one"><p style="font-size:14px;line-height:1.65">…{h.text}…</p></div>))}
+      {g.hits.map(h => tidyHit(h.text)).filter(Boolean).map(t => (<div class="one"><p style="font-size:14px;line-height:1.65">…{t}…</p></div>))}
     </div>
   </section>
 ))}

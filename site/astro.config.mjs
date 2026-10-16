@@ -39,6 +39,11 @@ export default defineConfig({
     '/research-map': '/map',
     '/atlas': '/map',
     '/graves-map': '/map',
+    /* 16 October 2026: five research notes link to /plates/ (the corrections
+       log, the Gologorica line, the searched log and the Kalanj page, twice);
+       the plate room has always been /gallery/, so /plates/ was a dead link.
+       The prose is not edited; the address lands where the notes meant. */
+    '/plates': '/gallery/',
     /* 9 October 2026: three pages folded into pages that do the same job. */
     '/research-log': '/open-questions/',
     '/gaps': '/open-questions/#gaps',

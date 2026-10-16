@@ -1,12 +1,21 @@
 ---
 import { u } from "../lib/url.js";
+import { md } from "../lib/md.js";
 import all from "../data/plates.json";
 const { group, ids, cols } = Astro.props;
 let list = all;
 if (ids) list = ids.map(i => all.find(p => p.id === i)).filter(Boolean);
 else if (group) list = all.filter(p => (Array.isArray(group) ? group : [group]).includes(p.group));
-const data = list.map(p => ({ ...p, src: u(p.src), thumb: u(p.thumb) }));
+/* A plate is only an image when the manifest holds a thumbnail for it. Sixty-two
+   entries are cited pages whose picture is not kept on this site: their `src`
+   is the citation, not a path, and u() turned the missing path into "/", so each
+   rendered <img src="/"> (165 times across four pages). Those are listed as
+   cited-but-not-held below the grid instead of as broken pictures. */
+const held = list.filter(p => p.thumb);
+const cited = list.filter(p => !p.thumb);
+const data = held.map(p => ({ ...p, src: u(p.src), thumb: u(p.thumb) }));
 ---
+{data.length > 0 && (
 <div class="plates" style={cols ? `grid-template-columns:repeat(${cols},minmax(0,1fr))` : undefined} data-plates={JSON.stringify(data)}>
   {data.map((p, i) => (
     <button class={`plate${p.h > p.w ? " tall" : ""}`} data-i={i} type="button">
@@ -19,3 +28,15 @@ const data = list.map(p => ({ ...p, src: u(p.src), thumb: u(p.thumb) }));
     </button>
   ))}
 </div>
+)}
+{cited.length > 0 && (
+<div class="plates-cited">
+  {cited.map((p) => (
+    <details class="pcited">
+      <summary><span class="t">{p.title}</span> <span class="h">cited here, picture not shown on this site</span></summary>
+      <p class="pc-src" set:html={md(p.src)} />
+      <p class="pc-cap" set:html={md(p.caption)} />
+    </details>
+  ))}
+</div>
+)}

@@ -60,7 +60,7 @@ const g = c.nextGen;
       <tbody>{c.children.map(k => (
         <tr style={k.line ? "background:var(--accent-wash)" : undefined}>
           <td>{k.name}{k.line && <span class="chip doc" style="margin-left:8px;font-size:9.5px;padding:2px 7px">the line</span>}</td>
-          <td class="m">{k.born}</td><td class="m">{k.died || "—"}</td><td>{k.story}</td>
+          <td class="m">{k.born}</td><td class="m">{k.died || "—"}</td><td set:html={mdHtml(k.story)}></td>
         </tr>
       ))}</tbody>
     </table>
@@ -88,7 +88,7 @@ const g = c.nextGen;
             <span><b>Born</b>{s.born}</span>
             {s.died && <span><b>Died</b>{s.died}</span>}
           </div>
-          <p class="cap" style="max-width:62ch">{s.story}</p>
+          <p class="cap" style="max-width:62ch" set:html={mdHtml(s.story)}></p>
           {s.plates.length > 0 && <div style="margin-top:14px;max-width:660px"><Plates ids={s.plates} cols={s.plates.length} /></div>}
         </div>
       </article>
@@ -102,7 +102,7 @@ const g = c.nextGen;
         <>
           <h3>{a.name}</h3>
           <p><span class="mono">{a.born}{a.died ? ` — ${a.died}` : ""}</span></p>
-          <p>{a.story}</p>
+          <p set:html={mdHtml(a.story)}></p>
         </>
       ))}
       <p style="margin-top:10px"><a href={u("/graves/")}>The grave gazetteer →</a> · <a href={u("/pfullingen/")}>The six at Pfullingen →</a></p>

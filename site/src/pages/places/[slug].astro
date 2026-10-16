@@ -1,6 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { md as _md } from "../../lib/md.js";
+import { md as _md, mdHtml } from "../../lib/md.js";
 import places from "../../data/places.json";
 import Locator from "../../components/Locator.astro";
 import Plates from "../../components/Plates.astro";
@@ -22,7 +22,7 @@ const langName={it:"Italian",de:"German",fur:"Friulian",other:"also written"};
 <section class="blk">
   <div class="grid g2">
     <div class="prose">
-      {p.body.map(t => <p set:html={_md(t)}></p>)}
+      {p.body.map(t => <p set:html={mdHtml(t)}></p>)}
     </div>
     <div>
       <div class="panel">
@@ -61,11 +61,11 @@ const langName={it:"Italian",de:"German",fur:"Friulian",other:"also written"};
   <div class="scroll" style="margin-top:22px">
     <table>
       <tbody>
-        <tr><td>Baptisms</td><td class="m">{r.baptisms}</td></tr>
-        <tr><td>Marriages</td><td class="m">{r.marriages}</td></tr>
-        <tr><td>Burials</td><td class="m">{r.burials}</td></tr>
+        {r.baptisms && <tr><td>Baptisms</td><td class="m">{r.baptisms}</td></tr>}
+        {r.marriages && <tr><td>Marriages</td><td class="m">{r.marriages}</td></tr>}
+        {r.burials && <tr><td>Burials</td><td class="m">{r.burials}</td></tr>}
         {r.statusAnimarum?.length>0 && <tr><td>Household censuses</td><td class="m">{r.statusAnimarum.join(" · ")}</td></tr>}
-        {r.books && <tr><td>Books catalogued</td><td class="m">{r.books} — {r.digitised} digitised</td></tr>}
+        {r.books && <tr><td>Books catalogued</td><td class="m">{r.books}{r.digitised != null ? ` — ${r.digitised} digitised` : ""}</td></tr>}
         <tr><td>Held at</td><td class="m">{r.held.join(" · ")}</td></tr>
       </tbody>
     </table>

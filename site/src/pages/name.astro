@@ -152,7 +152,7 @@ import gn from "../data/givennames.json";
     <p class="cap" style="margin-top:14px" set:html={_md(names.spellings_world.bycountry.source)}></p>
   </section>)}
 
-  <p class="cap">Source: {names.spellings_world.source}. {names.spellings_world.note} Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
+  <p class="cap">Source: {names.spellings_world.source}. <Fragment set:html={_md(names.spellings_world.note)} /> Franceschi is approximate — it runs to five figures across more than forty-six countries and is not usefully counted alongside the rest.</p>
 </section>
 <Rule name="loom" />
 

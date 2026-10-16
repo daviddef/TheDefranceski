@@ -5,7 +5,7 @@ import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
-import { mdHtml, mdpHtml } from "../lib/md.js";
+import { mdHtml, mdpHtml, plain } from "../lib/md.js";
 const sev = { serious: "Serious", minor: "Minor", process: "Process", note: "Not ours" };
 const order = ["serious", "process", "minor", "note"];
 const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
@@ -24,7 +24,7 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
 <section class="blk">
   <Corrections u={u} rows={rows.map(r => ({
     when: r.when,
-    kind: r.what,
+    kind: plain(r.what),
     sev: sev[r.sev] || r.sev,
     was: based(mdHtml(r.said)),
     now: based(mdHtml(r.true)),

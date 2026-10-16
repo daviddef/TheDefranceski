@@ -24,7 +24,7 @@ const STATE = {
             <span class="on-lang">{r.lang}</span>
             <span class="on-state">{STATE[r.state][0]}</span>
           </div>
-          <div class="on-who">{r.who}<span class="on-years">{r.years}</span></div>
+          <div class="on-who"><Fragment set:html={mdHtml(r.who)} /><span class="on-years">{r.years}</span></div>
           <div class="on-rule">{r.rule}</div>
           <p class="on-note" set:html={mdHtml(r.note)}></p>
         </div>

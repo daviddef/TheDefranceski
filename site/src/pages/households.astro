@@ -162,7 +162,7 @@ const shape = (h) => ({
   <div class="stack" style="margin-top:26px">
     <Households rows={beside.map(shape)} u={u} caveat={false} />
   </div>
-  <ul class="small" style="margin-top:14px">{beside.map(h => (<li>{h.besideNote}</li>))}</ul>
+  <ul class="small" style="margin-top:14px">{beside.map(h => (<li set:html={_md(h.besideNote)}></li>))}</ul>
 </section>
 <Rule name="helm" />
 

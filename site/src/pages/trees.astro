@@ -3,13 +3,14 @@
    component is the kit's — this page used to carry a near-verbatim copy of
    it, which is how the shared one came to be missing the markdown rendering
    this one had. */
+import { unlink as _unlinkq } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import Trees from "@daviddef/archive-kit/components/Trees.astro";
 import { u } from "../lib/url.js";
 import t from "../data/trees.json";
 
-const rows = t.rows.map(r => ({ ...r, href: r.href ? u(r.href) : null }));
+const rows = t.rows.map(r => ({ ...r, what: _unlinkq(r.what), gap: r.gap ? _unlinkq(r.gap) : r.gap, href: r.href ? u(r.href) : null }));
 ---
 <Base
   title="The trees"

@@ -35,7 +35,7 @@ const max = Math.max(...d.clusters.map(c => c.n));
         </div>
         <div>
           <p style="margin:0"><em>{c.who}</em></p>
-          {c.note && <p class="cap" style="margin-top:8px" set:html={_md(c.note)}></p>}
+          {c.note && <p class="cap" style="margin-top:8px" set:html={mdHtml(c.note)}></p>}
         </div>
       </div>
     ))}
