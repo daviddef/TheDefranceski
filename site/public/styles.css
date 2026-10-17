@@ -1099,3 +1099,8 @@ table td, table th{overflow-wrap:break-word;word-break:normal;hyphens:manual}
   .scroll.scroll:has(table){width:fit-content;min-width:100%;
     max-width:min(var(--maxw-wide),calc(100vw - 56px));margin-left:50%;transform:translateX(-50%)}
 }
+
+/* THE BOOK (17 October 2026). The kit's running head and Previous / Next read this archive's own tokens (--ink, --ink-2, --ink-3,
+   --rule, --panel, --accent, --sans, --serif) and its 1240px measure, so nothing is mapped. The cover's picture used to sit flush
+   under the site header; with the running head between them it gets a small gap of its own. */
+body.is-home .bk-head + main{padding-top:12px}
