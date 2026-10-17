@@ -9462,7 +9462,7 @@
   "id": "h116",
   "src": "read",
   "confirmed": "Read off the Gallignana Status Animarum, house 5 — DAPA ZM34K-217, M01072071.",
-  "read": "**The direct line's own household, and it was not in this file at all.** Joan. Bapt. Defranceschi, *agricola*, born **13 August 1787**, married **1819**, died **September 1846**; Francisca Salomon born **17 March 1797**. The book lists **sons first, then daughters**, so the dates do not run in order. ⚠ **Two dates inside this archive disagree** on this page — his death (1 or 14 September 1846) and Regina Theresia's birth (1830 or 1836) — and [neither is resolvable from the photocopy held](/worklist/). ⚠ **Francisca, born 3 February 1819, who came out of «Parochia Gallignana sub N.ᵒ 5» to Gologorica in 1840, is NOT among these children**: they begin in 1823 and the marriage is 1819, so she belongs to the generation before. ***⭐ Franciscus Liberatus (b. January 1840) died at Pula on 20 November 1875 — read on the page, 16 October 2026:*** *«Defranceschi Franciscus fil. Joannis Baptae e Gallignana, uxoratus, diurnista», 36, of pulmonary emphysema, married seven years (`doc` for the entry; `inf` that he is this boy — and the Pula marriage of 1 June 1868 names his parents as Gio. Battista De Franceschi and Francesca Salomon, `doc`). **His son Joannes Baptista, b. Pola 15 December 1869, married there in 1894 — [the Pola household told on the Pula place page](/places/).***",
+  "read": "**The direct line's own household, and it was not in this file at all.** Joan. Bapt. Defranceschi, *agricola*, born **13 August 1787**, married **1819**, died **September 1846**; Francisca Salomon born **17 March 1797**. The book lists **sons first, then daughters**, so the dates do not run in order. ⚠ **Two dates inside this archive disagree** on this page — his death (1 or 14 September 1846) and Regina Theresia's birth (1830 or 1836) — and [neither is resolvable from the photocopy held](/worklist/). ⚠ **Francisca, born 3 February 1819, who came out of «Parochia Gallignana sub N.ᵒ 5» to Gologorica in 1840, is NOT among these children**: they begin in 1823 and the marriage is 1819, so she belongs to the generation before. ***⭐ Franciscus Liberatus (b. January 1840) died at Pula on 20 November 1875 — read on the page, 16 October 2026:*** *«Defranceschi Franciscus fil. Joannis Baptae e Gallignana, uxoratus, diurnista», 36, of pulmonary emphysema, married seven years (`doc` for the entry; `inf` that he is this boy — and the Pula marriage of 1 June 1868 names his parents as Gio. Battista De Franceschi and Francesca Salomon, `doc`). **His son Joannes Baptista, b. Pola 15 December 1869, married there in 1894 — [the Pola household told on the Pula place page](/places/).*** ⭐⭐ **Joannes (b. 30 June 1833) is read at Pola in the naval parish: a «k.k. Marinediener 4. Cl.», born «Galignana in Istrien», son of «Franz [sic] Defranceschi» and «Franziska geb. Salomon», married Paula Pietra there on 16 January 1871** ([the entry](/person/johann-joannes-defranceschi-navy-servant-1833/); `doc`; `inf` that he is this boy — the father's name differs and the age is three years low).",
   "children": [
    {
     "name": "Raymundus Defranceschi",
@@ -9537,7 +9537,9 @@
     "key": "joannes",
     "ours": true,
     "by": 1833,
-    "dy": null
+    "dy": null,
+    "pid": "johann-joannes-defranceschi-navy-servant-1833",
+    "pidBasis": "read at Pola (naval marriage 1871)"
    },
    {
     "name": "Franciscus Liberatus Defranceschi",
@@ -11410,5 +11412,25 @@
   ],
   "confirmed": "Two Pula marriages of daughters: Leopolda, 14 January 1888 (9R28-VZW image 198, entry 3) and Catharina, 31 January 1898 (9R2X-4WP image 197, entry 18). Both name «Defranceschi Antonius, lapicida» (dead by 1898) and the mother — «Tornasar Maria» in 1888, «Fornasar Maria» in 1898. `doc` for the entries; `inf` that they are the pedigree's Antonius and Maria.",
   "read": "**The direct line's own house — Antonius the stonecutter and Maria, married 25 November 1856 — and two daughters read on pages: Leopolda, b. Gallignana 6 November 1865, a servant at Pola from 1883, married there on 14 January 1888 to Emericus Zuban; and Catharina, b. Gallignana 3 February 1869, a servant at Pola from 1894, married there on 31 January 1898 to the porter Joannes Kostessich — her father «defunctus».** ([The entry](/person/leopolda-de-franceschi-1865/); `doc`.) *The other children — the eldest, Antonius, born 6 August 1856, and the line down to Anna Kalanj's husband — are in the [pedigree](/direct-line/) and are not repeated here; this row is built only from the page.* **The mother's surname is «Tornasar» in 1888 and «Fornasar» in 1898 — which reopens the [Fernasar/Tornasar question](/maternal/fernasar/).** ([Catharina's entry](/person/catharina-defranceschi-kostessich-1869/).)"
+ },
+ {
+  "key": "johann + paula pietra",
+  "fatherKey": "johann",
+  "motherKey": "paula",
+  "father": "Johann (Joannes) Defranceschi (b. Gračišće 1833), k.k. Marinediener at Pola",
+  "mother": "Paula Pietra (b. Pola c.1851)",
+  "place": "Pola",
+  "region": "istria",
+  "line": "male",
+  "from": 1871,
+  "to": 1871,
+  "n": 0,
+  "src": "read",
+  "fatherPid": "johann-joannes-defranceschi-navy-servant-1833",
+  "pidBasis_father": "read at Pola (naval marriage 1871)",
+  "children": [],
+  "id": "h132",
+  "confirmed": "Read on the page: Pola naval parish marriage, 16 January 1871 (9R28-MNY, image 82). `doc`.",
+  "read": "**Johann Defranceschi, navy servant of the 4th class, born at Gračišće, married Paula Pietra, 19, born at Pola, on 16 January 1871** — the entry names his parents as «Franz Defranceschi, Besitzer» and **Franziska née Salomon** ([the entry](/person/johann-joannes-defranceschi-navy-servant-1833/); `doc`). *He is, `inf`, the brother of the Franciscus of [h129](/households/) and the son of [h116](/households/); his father is written Franz where the Gračišće and Pula civil books have Joannes Baptista. No children are known. His wife's father is Rocco …, her mother Johanna Borri.*"
  }
 ]
