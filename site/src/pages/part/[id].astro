@@ -1,0 +1,16 @@
+---
+/* A part opener: the part's paragraph, its chapters, the way in. Read from src/data/book.json. */
+import Base from "../../layouts/Base.astro";
+import BookPart from "@daviddef/archive-kit/components/BookPart.astro";
+import { u } from "../../lib/url.js";
+import book from "../../data/book.json";
+export function getStaticPaths() {
+  return book.parts.map((part) => ({ params: { id: part.id }, props: { part } }));
+}
+const { part } = Astro.props;
+---
+<Base title={part.title} eyebrow={`Part ${part.numeral} of the book`} description={part.intro}>
+  <section class="blk">
+    <BookPart book={book} id={part.id} u={u} />
+  </section>
+</Base>

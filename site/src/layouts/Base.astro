@@ -10,6 +10,9 @@ import SkipLink from "@daviddef/archive-kit/components/SkipLink.astro";
 import SocialHead from "@daviddef/archive-kit/components/SocialHead.astro";
 import JsonLd from "@daviddef/archive-kit/components/JsonLd.astro";
 import VisitCount from "@daviddef/archive-kit/components/VisitCount.astro";
+import BookHead from "@daviddef/archive-kit/components/BookHead.astro";
+import BookFoot from "@daviddef/archive-kit/components/BookFoot.astro";
+import book from "../data/book.json";
 import ring from "@daviddef/archive-kit/data/archives.json";
 /* `canonical` and `person` are passed straight through to the kit.
    canonical — a page that is the same SUBJECT as a better page says so,
@@ -107,6 +110,10 @@ const thisArchive =
   </div>
 </header>
 
+{/* THE BOOK (17 October 2026): the running head sits below the site header, Previous / Next above the footer. Both read
+    the page's own path against src/data/book.json; no page passes anything. */}
+<BookHead book={book} u={u} />
+
 <main id="main" tabindex="-1">
   <div class="wrap">
     {!bare && (
@@ -120,6 +127,8 @@ const thisArchive =
     <slot />
   </div>
 </main>
+
+<BookFoot book={book} u={u} />
 
 <footer class="site">
   <div class="wrap">

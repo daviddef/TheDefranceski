@@ -81,6 +81,10 @@ run counter   env ARCHIVE_OUT="$OUT" python3 ../scripts/check_counter.py
 # living page does, and an empty build is refused. The second line plants ten faults and requires each caught.
 run alsoin    env ARCHIVE_OUT="$OUT" python3 ../scripts/check_also_in.py
 run alsoin-faults python3 ../scripts/check_also_in.py --self-test
+# THE BOOK (17 October 2026): every built page is a chapter of src/data/book.json, inherits one by prefix, or is listed
+# as outside on purpose, and every running head and Previous / Next agrees with the book's order. It reads the BUILT
+# pages, so it runs here against this gate's private build, after the sitemap.
+run book      python3 "$KIT/checkbook.py" --dist "$OUT" --book src/data/book.json
 run templates python3 "$KIT/checktemplates.py" --root .
 run kit       python3 "$KIT/checkarchive.py"  --dist "$OUT"
 [ -f "$KIT/checknav.py" ] && run nav python3 "$KIT/checknav.py" --dist "$OUT" --strict

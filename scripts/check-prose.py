@@ -42,7 +42,7 @@ DATA = "site/src/data"
 # Data files a person edits (or a person's session appends to). Each is read by the gate.
 HAND_EDITED = {
     "america.json", "ancestors.json", "antenati-catalogue.json", "arrivals.json", "art-src.json",
-    "atlas-seed.json", "atsea.json", "austria.json", "carlo.json", "carnia.json", "carnia-books.json",
+    "atlas-seed.json", "atsea.json", "austria.json", "book.json", "carlo.json", "carnia.json", "carnia-books.json",
     "cheryl.json", "clusters.json", "collections-walk.json", "corrections.json", "corsica.json",
     "crikvenica.json", "dalmatia-books.json", "decrees.json", "diaspora.json", "dna.json", "eleven.json",
     "errands.json", "families.json", "familysearch.json", "famphotos.json", "findmypast.json",

@@ -1,0 +1,15 @@
+---
+/* The whole book, front matter and every part, each chapter with its one line. Read from src/data/book.json. */
+import Base from "../layouts/Base.astro";
+import BookContents from "@daviddef/archive-kit/components/BookContents.astro";
+import { u } from "../lib/url.js";
+import book from "../data/book.json";
+const n = book.parts.length;
+---
+<Base title="Contents"
+      eyebrow="The Defranceschi Archive, as one book"
+      dek={`Front matter and ${n} parts, read in order or entered anywhere. Every page of the archive is a chapter, and Previous and Next at the foot of each page follow this order. The menus stay as shortcuts; no address has moved.`}>
+  <section class="blk">
+    <BookContents book={book} u={u} />
+  </section>
+</Base>
