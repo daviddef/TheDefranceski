@@ -273,13 +273,14 @@ def main():
                 ("kit checkliving", ["../scripts/kit-living.sh", "--dist", D, "--data", "src/data", "--policy", "named-bare"]),
                 ("check-living-v2", ["python3", "../scripts/check-living-v2.py", "--dist", D, "--no-tree"]),
                 ("check_counter", ["python3", "../scripts/check_counter.py"]),
+                ("check_also_in", ["python3", "../scripts/check_also_in.py"]),
                 ("check-absence", ["python3", "../scripts/check-absence.py", "--dist", f"site/{D}"]),
                 ("check-licences", ["python3", "../scripts/check-licences.py", "--dist", D]),
                 ("kit checksources", ["python3", f"{KIT}/checksources.py", "--root", ".", "--dist", D]),
                 ("check-evidence", ["python3", "../scripts/check-evidence.py", "--dist", D])]
         print(f"{'check':20}  verdict on an EMPTY build tree")
         for n, c in cmds:
-            bad, out = run(c, {"ARCHIVE_OUT": D} if n == "check_counter" else None)
+            bad, out = run(c, {"ARCHIVE_OUT": D} if n in ("check_counter", "check_also_in") else None)
             last = [l for l in out.strip().splitlines() if l.strip()][-1:] or [""]
             print(f"{n:20}  {'REFUSES' if bad else 'PASSES (examined nothing and said ok)'}   | {last[0][:110]}")
         return

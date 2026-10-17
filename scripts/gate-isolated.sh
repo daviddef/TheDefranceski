@@ -75,6 +75,12 @@ run livingv2-faults python3 ../scripts/test-living-v2.py
 # logged hours of pageviews to THIS archive's counter: base became "" for every archive
 # that moved and find(a => a.base === base) returns the first, which is this one.
 run counter   env ARCHIVE_OUT="$OUT" python3 ../scripts/check_counter.py
+# «Also documented in …» (17 October 2026): the kit draws a pointer to another archive for a CONFIRMED pair and is
+# silent for everything else, a template that drops its props renders nothing and says nothing, so this reads the
+# BUILT person pages: every confirmed pair shows exactly one pointer at the right address, no other page and no
+# living page does, and an empty build is refused. The second line plants ten faults and requires each caught.
+run alsoin    env ARCHIVE_OUT="$OUT" python3 ../scripts/check_also_in.py
+run alsoin-faults python3 ../scripts/check_also_in.py --self-test
 run templates python3 "$KIT/checktemplates.py" --root .
 run kit       python3 "$KIT/checkarchive.py"  --dist "$OUT"
 [ -f "$KIT/checknav.py" ] && run nav python3 "$KIT/checknav.py" --dist "$OUT" --strict

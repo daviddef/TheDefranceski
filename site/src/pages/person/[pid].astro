@@ -14,6 +14,7 @@ import roster from "../../data/roster.json";
 import fam from "../../data/famphotos.json";
 import allplates from "../../data/plates.json";
 import PersonTree from "@daviddef/archive-kit/components/PersonTree.astro";
+import AlsoIn from "@daviddef/archive-kit/components/AlsoIn.astro";
 import "@daviddef/archive-kit/styles/persontree.css";
 import dlp from "../../data/directline-pids.json";
 import dline from "../../data/directline.json";
@@ -323,6 +324,12 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     {r.line && (<><div class="k">Line</div><div class="v">{r.line}</div><div class="w"></div></>)}
     <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
   </div>
+  {/* «Also documented in the Blazevic archive»: one person held by two archives is two pages by design,
+      and they can disagree about what is known. The kit draws this ONLY for a pair marked CONFIRMED in
+      kit/data/cross-archive.json. It sits inside the not-living branch, because a living page is a
+      name, relationships and a place and gets no pointer. tools: scripts/check-also-in.py reads the
+      built pages. */}
+  <AlsoIn archive="defranceski" path={`/person/${r.pid}/`} />
 </section>
 )}
 
