@@ -1049,3 +1049,53 @@ body.is-home #onthispage{display:none}
 :root[data-theme="dark"] .wl-pill[style*="--c:#7A7A7A" i]{--c:#929292!important}
 :root[data-theme="dark"] .wl-pill[style*="--c:#12703F" i]{--c:#609F7E!important}
 :root[data-theme="dark"] .wl-pill[style*="--c:#1E5F8C" i]{--c:#6D97B4!important}
+
+/* ---------------------------------------------------------------------------
+   ONE CONTENT COLUMN, 17 October 2026 (layout audit). Three faults, one block.
+
+   1. Table cells inherited `overflow-wrap:anywhere` from the work-list note
+      (and the phone rules above). In a table `anywhere` lets a column shrink to
+      ONE character, so words broke mid-word and dates stacked three high.
+      A cell now breaks only a word that cannot fit (`break-word`, whose
+      min-content stays the longest word), never hyphenates, and never splits
+      a word it can keep whole.
+   2. A table sat in a `.scroll` that was fit-content wide, inside a note capped
+      at 70ch (487px on a 1184px row). The `.scroll` that holds a table now
+      takes the width of its column; the table is 100% of it and still grows
+      to its content (the wrapper scrolls on a phone; the page never does).
+      A table of one or two columns shares the prose measure instead of
+      stretching a label and a value across the page.
+   3. Prose sat at 80ch (730px) and lists at 84ch (766px) in a 1184px column
+      beside tables of 592px: a ragged edge and a third of the row empty.
+      Prose, lists and notes now share one measure, 54rem; tables take the row.
+
+   Specificity note: the work-list note's max-width is an Astro scoped rule from
+   the kit (class + data attribute), so it is beaten with two classes and an
+   element, not with !important. Print is untouched (print.css forces
+   `main,.wrap` full width; these rules are screen-only where they set widths).
+   --------------------------------------------------------------------------- */
+table td, table th{overflow-wrap:break-word;word-break:normal;hyphens:manual}
+@media screen{
+  .prose, ul.kn.kn{max-width:min(100%,54rem)}
+  .one > :is(p,ul,ol,blockquote){max-width:min(100%,54rem)}
+  div.wl-one > div.wl-note{max-width:none}
+  div.wl-one > div.wl-note > :is(p,ul,ol,blockquote,h6,pre){max-width:min(100%,54rem)}
+  .scroll table:not(:has(tr > :nth-child(3))){max-width:min(100%,54rem)}
+}
+/* A date or a short code must keep its words together, and a column must not be
+   squeezed below a date's width by a prose column beside it (auto table layout
+   hands spare width out in proportion to content, so a short column gets the
+   least). No class marks a date column, so the floor is on the cell: 7rem (the
+   box includes its 18px padding), enough for «12 Sept 1791» in the table font.
+   Tables nested in a table cell get less (the /searched/ detail tables) so they
+   do not push their parent past its column. Phones are left to the scrolling
+   wrapper above. */
+@media (min-width:701px){table td{min-width:7rem}table table td{min-width:5.75rem}}
+/* A table's wrapper is as wide as its column, no narrower (the old rule made it
+   as wide as the content, 301 to 592px) and still breaks out, centred, only when
+   the table cannot fit its column. Direct children of a section used to be forced
+   to 1360px whatever they held; they now follow the same rule. */
+@media (min-width:1180px){
+  .scroll.scroll:has(table){width:fit-content;min-width:100%;
+    max-width:min(var(--maxw-wide),calc(100vw - 56px));margin-left:50%;transform:translateX(-50%)}
+}
