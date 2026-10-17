@@ -48,21 +48,11 @@ export default defineConfig({
     '/research-log': '/open-questions/',
     '/gaps': '/open-questions/#gaps',
     '/photograph-these': '/errands/#photographs',
-    /* 12 October 2026: the one address found stranded by a rename. It was live
-       for about an hour on 22 September (commit e70f6c3) before the row was
-       renamed and the page retired (0229387). The successor is the page that
-       now holds the 1752 godmother's husband; that is an inference from the
-       two roster rows, not something the old page stated. */
-    '/who/jacobo-defranceschi-of-svetvincenat-fl-1752': '/who/jacobo-de-franceschi-of-svetvincenat-fl-1737-1752/',
-    /* Four surname-first pages from the 27 September Trove harvest, live for a
-       few hours as «De Franceschi, Albino» and since normalised to given-name
-       first. Same name, inverted — an inference from the two spellings, not
-       something the retired pages stated. */
-    '/who/de-franceschi-albino': '/who/albino-de-franceschi/',
-    '/who/de-franceschi-anna-maria': '/who/anna-maria-de-franceschi/',
-    '/who/de-franceschi-bernardino': '/who/bernardino-de-franceschi/',
-    '/who/de-franceschi-cesare': '/who/cesare-de-franceschi/',
-    /* 21 September: a rename, found by the person whose page it was. */
-    '/who/maria-trompich-cincopan': '/who/maria-trompich-or-fumpich-cincopan/',
+    /* The six retired /who/ addresses (a rename on 12 October 2026, four surname-first pages from the 27 September
+       Trove harvest, and a rename on 21 September) used to be redirects here. On 17 October 2026 the book made every
+       built page a chapter with a running head, and an Astro redirect page has no layout to carry one, so they are now
+       ordinary pages at the same six addresses (src/pages/who/<old-slug>.astro, via components/Moved.astro): the same
+       meta refresh, the same canonical, inside the layout. Each still lands where it did; the reasons are kept with the
+       pages. */
   },
 });

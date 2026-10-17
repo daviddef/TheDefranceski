@@ -10,7 +10,8 @@ way in one day, two of them dead for three weeks before anyone noticed.
 This check asks the question from the other end. For each address family whose
 slug is DERIVED from data, it walks the whole git history of that data and
 collects every slug that ever built, then requires each one to be either still
-built or named in the redirect table of site/astro.config.mjs.
+built, named in the redirect table of site/astro.config.mjs, or served by a page file of its own
+(site/src/pages/<family>/<slug>.astro).
 
 A frozen ledger prevents REORDERING and is not enough: person ids are minted
 once, so a set difference over them is zero by design. The families that bite
@@ -132,8 +133,24 @@ def redirect_sources():
     return {re.sub(r"/+$", "", k) for k in re.findall(r"'([^']+)'\s*:", body)}
 
 
+def explicit_pages():
+    """Addresses served by a hand-written page file (site/src/pages/who/<slug>.astro), not by a dynamic route.
+
+    Since 17 October 2026 six retired /who/ addresses are ordinary pages rather than Astro redirects (the book gives
+    every built page a running head, and a redirect page has no layout to carry one; see components/Moved.astro).
+    A page file is as good as a redirect for this check's question, which is only whether the address 404s."""
+    out = set()
+    base = os.path.join("site", "src", "pages")
+    for d, _, fs in os.walk(base):
+        for f in fs:
+            if f.endswith(".astro") and not f.startswith("[") and f != "index.astro":
+                rel = os.path.relpath(os.path.join(d, f[:-len(".astro")]), base).replace(os.sep, "/")
+                out.add("/" + rel)
+    return out
+
+
 def main():
-    redir = redirect_sources()
+    redir = redirect_sources() | explicit_pages()
     rebuild = "--rebuild" in sys.argv
     led = {"upto": None, "families": {}} if rebuild else load_ledger()
     head = git("rev-parse", "HEAD").stdout.strip()
@@ -186,7 +203,7 @@ def main():
     print("check-addresses: every published address, against git history and the redirect table")
     print("\n".join(summary))
     if stranded:
-        print("\n  STRANDED — published once, built nowhere now, and not in the redirect table:")
+        print("\n  STRANDED — published once, built nowhere now, and neither in the redirect table nor a page file of its own:")
         for s in stranded:
             print("    ", s)
         print("  Add each to `redirects` in site/astro.config.mjs, pointing at the page that now")
