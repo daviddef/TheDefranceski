@@ -40,6 +40,11 @@ only ADDS names to living.json when it is there; see below).
     1953 does not make a man dead), and an undated person from the family tree or a modern record. The first form of
     this generator listed 44 people born after 1900 with no death, one born in 1953; this one lists none.
 
+THE SECOND SOURCE (18 October 2026, the linking standard's L2). A person the archive only READ from a record has no roster row, so no entry. The
+names the narrative pages use that the roster does not hold, and that the archive's structured files (register.json, fsrecords.json,
+households.json) show dead, are listed in site/src/data/read-names.json by scripts/build-read-names.py; each has a /who/ name page, and
+each becomes a `people` entry with that address. A name any roster row bears (in either orthography) is never listed: the roster decides.
+
 living.json is the safety net, built from the SAME decision: every person NOT known to be dead (all their spellings
 and their /person/ and /who/ addresses). The kit stops (exit 2) if the index holds any of it, and refuses to link a
 dead name that overlaps one of those names in a sentence. When David's tree is on the machine (living_v2.gedcom_path)
@@ -227,9 +232,10 @@ def is_plain(name):
         and is_name(name)
 
 
-def build(rows, people, L2=None, tree_names=(), namesakes=None):
+def build(rows, people, L2=None, tree_names=(), namesakes=None, read=None):
     """-> (index, living, stats). rows: roster rows. people: dossiers `people` (slug -> {...}); tree_names: extra
-    living or held-out names from David's tree (empty in CI)."""
+    living or held-out names from David's tree (empty in CI). read: the second source (site/src/data/read-names.json, made by
+    scripts/build-read-names.py): names the narratives use that the roster does not hold, each with a /who/ page of its own."""
     groups, canon = person_groups(rows)
     status = {p: group_status(g, L2) for p, g in groups.items()}
     first, last = given_name_counts(rows, canon)
@@ -302,6 +308,19 @@ def build(rows, people, L2=None, tree_names=(), namesakes=None):
     drop_pids = {"/person/%s/" % p_ for p_ in ns.get("pids", [])}
     drop_names = {" ".join(n_.split()).casefold() for n_ in ns.get("names", [])}
     out_people = [e for e in out_people if e["url"] not in drop_pids]
+    # THE SECOND SOURCE (the linking standard, L2): a name read from a record, with a /who/ name page that says what the archive's structured
+    # files hold under that spelling. It is listed only if NOBODY in the roster bears the name (in either orthography), the name page
+    # exists, the spelling is a plain name, and the name is not one a living or held-out person bears; the generator's own rules for
+    # «dead» are in scripts/build-read-names.py and are judged again by check-names-index.py.
+    n_read = 0
+    for e in (read or {}).get("names", []):
+        spelling, slug = e.get("name"), e.get("slug")
+        if not (isinstance(spelling, str) and isinstance(slug, str)) or slug not in people or not is_plain(spelling):
+            continue
+        if slugify(spelling).replace("de-franceschi", "defranceschi") in bearers_of or slug in set(ns.get("pids", [])):
+            continue
+        out_people.append({"name": spelling, "aliases": [], "url": "/who/%s/" % slug})
+        n_read += 1
     ambiguous = [e for e in ambiguous if " ".join(e["name"].split()).casefold() not in drop_names]
     out_people.sort(key=lambda e: (e["name"].casefold(), e["url"]))
     ambiguous.sort(key=lambda e: (e["name"].casefold(), e["url"]))
@@ -331,7 +350,7 @@ def build(rows, people, L2=None, tree_names=(), namesakes=None):
         if n and len(n.split()) >= 2:
             names.add(" ".join(n.split()))
     living = {"names": sorted(names), "urls": sorted(urls)}
-    stats = {"rows": len(rows), "people": len(out_people), "aliases": sum(len(e["aliases"]) for e in out_people),
+    stats = {"read": n_read, "rows": len(rows), "people": len(out_people), "aliases": sum(len(e["aliases"]) for e in out_people),
              "ambiguous": len(ambiguous), "not_known_dead": len(not_dead), "living_names": len(names),
              "living_urls": len(urls), "tree_names": len(tree_names)}
     return {"people": out_people, "ambiguous": ambiguous}, living, stats
@@ -357,6 +376,13 @@ def tree_living_names(L2):
         if living or minor:
             out.add(p["name"])
     return sorted(out), True
+
+
+def load_read(path=os.path.join(DATA, "read-names.json")):
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def load_namesakes(path=NAMESAKES):
@@ -389,8 +415,8 @@ def main(argv):
     rows, people = load()
     names, found = ([], False) if "--no-tree" in argv else tree_living_names(L2)
     ns = load_namesakes()
-    index, living, stats = build(rows, people, L2, names, ns)
-    msg = ("names-index: %(people)d people (%(aliases)d aliases), %(ambiguous)d ambiguous; living.json: "
+    index, living, stats = build(rows, people, L2, names, ns, load_read())
+    msg = ("names-index: %(people)d people (%(read)d read from records, %(aliases)d aliases), %(ambiguous)d ambiguous; living.json: "
            "%(not_known_dead)d roster people not shown to be dead, %(living_names)d names, %(living_urls)d addresses" % stats)
     msg += "; tree %s (%d living or held-out names added)" % ("found" if found else "not found, committed data only", len(names))
     if "--print" in argv:

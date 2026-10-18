@@ -57,6 +57,53 @@ def nz(s):
     return s.replace("DeFranceschi", "Defranceschi").replace("DeFranceski", "Defranceski").casefold()
 
 
+def _fold(x):
+    import unicodedata
+    x = unicodedata.normalize("NFKD", str(x or ""))
+    x = "".join(c for c in x if not unicodedata.combining(c)).lower().replace("'", "").replace("\u2019", "").replace("-", " ")
+    return " ".join(re.sub(r"[^a-z0-9 ]", " ", x).split())
+
+
+def _year(x):
+    m = re.search(r"\b(1[0-9]{3}|20[0-9]{2})\b", str(x or ""))
+    return int(m.group(1)) if m else None
+
+
+def structured_dead(name, data=None):
+    """For the second source: -> [bool] one per structured entry that bears the name (folded), True when that bearer is shown dead.
+    Code of its own, from the committed structured files, written from the rules in scripts/build-read-names.py's docstring and not from
+    its functions: a persona is dead with a death or burial in its line or a birth in or before 1900; a relative named on the entry of a
+    persona born in or before 1850 is dead; a household's parent or child is dead with a child born in or before 1900 (a recorded death
+    for a child). An empty list means the structured files do not hold the name at all."""
+    D = data or os.path.join(ROOT, "site", "src", "data")
+    k = _fold(name)
+    got = []
+    reg = json.load(open(os.path.join(D, "register.json"), encoding="utf-8"))["rows"]
+    for r in reg:
+        y, says = r.get("y"), str(r.get("says") or "")
+        if _fold(r.get("n")) == k:
+            got.append(bool(re.search(r"\b(?:d|bur)\.", says)) or (isinstance(y, int) and y <= 1900))
+        for o in r.get("o") or []:
+            if _fold(o) == k:
+                got.append(isinstance(y, int) and y <= 1850)
+    for r in json.load(open(os.path.join(D, "fsrecords.json"), encoding="utf-8")):
+        if _fold(r.get("name")) == k:
+            by = _year(r.get("birth"))
+            got.append(bool(r.get("death") or r.get("burial")) or (by is not None and by <= 1900))
+    for h in json.load(open(os.path.join(D, "households.json"), encoding="utf-8")):
+        kids = h.get("children") or []
+        ys = [y for y in (_year(c.get("y") or c.get("birth")) for c in kids) if y]
+        first = min(ys) if ys else _year(h.get("from"))
+        for role in ("father", "mother"):
+            if _fold(h.get(role)) == k:
+                got.append(first is not None and first <= 1900)
+        for c in kids:
+            if _fold(c.get("name")) == k:
+                cy = _year(c.get("y") or c.get("birth"))
+                got.append(bool(c.get("death")) or (cy is not None and cy <= 1900))
+    return got
+
+
 def key_exact(name):
     return B.slugify(B.base_name(name))
 
@@ -65,8 +112,11 @@ def key_pooled(name):
     return key_exact(name).replace("de-franceschi", "defranceschi")
 
 
-def problems(index, living, rows, people, tree_names=(), namesakes=None):
-    """-> {kind: count} for the two files, judged against the roster rows and the dossiers `people`."""
+def problems(index, living, rows, people, tree_names=(), namesakes=None, read=None, dead_of=None):
+    """-> {kind: count} for the two files, judged against the roster rows and the dossiers `people`. read: the second source
+    (read-names.json); dead_of: structured_dead, replaceable by a test."""
+    dead_of = dead_of or structured_dead
+    read_by_slug = {e.get("slug"): e for e in ((read or {}).get("names") or []) if isinstance(e, dict)}
     P = {}
 
     def bad(kind):
@@ -118,6 +168,26 @@ def problems(index, living, rows, people, tree_names=(), namesakes=None):
     for e in ppl:
         if not shape_ok(e):
             bad("shape")
+            continue
+        mw = re.match(r"^/who/([^/]+)/$", e["url"])
+        if mw:
+            # a name READ from a record (the second source): a /who/ page of its own, no roster bearer in any orthography, every
+            # structured entry that bears it shown dead, and only what read-names.json lists
+            n = e["name"]
+            rd_ = read_by_slug.get(mw.group(1))
+            if not rd_ or rd_.get("name") != n or mw.group(1) not in people:
+                bad("address")
+            if e.get("aliases"):
+                bad("alias")
+            if n.casefold() in seen:
+                bad("shape")
+            seen.add(n.casefold())
+            name_checks(n)
+            if bearers.get(key_pooled(n)) or exact.get(B.slugify(n)):
+                bad("bearers")
+            ds = dead_of(n)
+            if not ds or not all(ds):
+                bad("dead")
             continue
         m = re.match(r"^/person/([^/]+)/$", e["url"])
         if not m or m.group(1) not in row_of:
@@ -190,7 +260,7 @@ def problems(index, living, rows, people, tree_names=(), namesakes=None):
             bad("living")
 
     # stale: the files are what the builder writes now
-    exp_i, exp_l, _st = B.build(rows, people, L2, tree_names, namesakes)
+    exp_i, exp_l, _st = B.build(rows, people, L2, tree_names, namesakes, read)
     if json.loads(B.dumps(index)) != json.loads(B.dumps(exp_i)) or json.loads(B.dumps(living)) != json.loads(B.dumps(exp_l)):
         bad("stale")
     return P
@@ -203,7 +273,7 @@ def rd(p):
         return f.read()
 
 
-def dist_problems(index, dist):
+def dist_problems(index, dist, read_slugs=()):
     P = {}
 
     def bad(kind):
@@ -226,7 +296,7 @@ def dist_problems(index, dist):
         h = rd(p)
         if re.search(r'<meta name="robots" content="[^"]*noindex', h):
             bad("page")
-        if u.startswith("/who/"):
+        if u.startswith("/who/") and u.strip("/").split("/")[-1] not in read_slugs:
             m = re.search(r"<main\b.*?</main>", h, re.S)
             if len(set(re.findall(r'href="(/person/[^"/]+/)"', m.group(0) if m else ""))) < 2:
                 bad("page")
@@ -352,6 +422,47 @@ def self_test():
     planted[0] += 1
     expect("a tree-living namesake of an index entry is caught -> living", "living" in got)
 
+
+    # THE SECOND SOURCE: names read from records (read-names.json). The generator lists one only if no roster row bears it and its page
+    # exists; the checker judges the file again with code of its own and the structured files (here a fixture).
+    people_r = dict(people)
+    for slug, nm in (("zz-qqqq", "Zz Qqqq"), ("ww-rrrr", "Ww Rrrr"), ("uu-ssss", "Uu Ssss")):
+        people_r[slug] = {"n": 1, "name": nm}
+    read = {"names": [{"name": "Zz Qqqq", "slug": "zz-qqqq"},
+                      {"name": "Aa Bbbb", "slug": "aa-bbbb"}, {"name": "Yy Nopage", "slug": "yy-nopage"},
+                      {"name": "Uu Ssss, the elder", "slug": "uu-ssss"}]}
+    read_ww = {"names": read["names"] + [{"name": "Ww Rrrr", "slug": "ww-rrrr"}]}
+    dead_fx = {"zz qqqq": [True, True], "ww rrrr": [True, False], "aa bbbb": [True], "uu ssss the elder": [True]}
+    dead_of = lambda n: dead_fx.get(" ".join(n.lower().replace(",", " ").split()), [])
+    ir, lr, _sr = B.build(rows, people_r, L2, (), None, read)
+    rn = [e["name"] for e in ir["people"] if e["url"].startswith("/who/")]
+    planted[0] += 1
+    expect("generator lists a read name nobody in the roster bears", "Zz Qqqq" in rn)
+    expect("generator omits a read name a roster row bears", "Aa Bbbb" not in rn)
+    expect("generator omits a read name with no page", "Yy Nopage" not in rn)
+    expect("generator omits a read name that is not a plain name", "Uu Ssss, the elder" not in rn)
+    # the checker, on a good file with the read names, and on planted faults
+    ig = copy.deepcopy(ir)
+    planted[0] += 1
+    expect("control: the clean files with a read name pass", problems(ig, lr, rows, people_r, read=read, dead_of=dead_of) == {})
+
+    def caught_r(label, mutate, kind, rd=None):
+        i = copy.deepcopy(ig)
+        mutate(i)
+        planted[0] += 1
+        expect("%s -> %s" % (label, kind), kind in problems(i, lr, rows, people_r, read=rd or read, dead_of=dead_of))
+
+    iw, _lw, _sw = B.build(rows, people_r, L2, (), None, read_ww)
+    planted[0] += 1
+    expect("a read name a bearer of whom is not shown dead planted -> dead",
+           "dead" in problems(iw, lr, rows, people_r, read=read_ww, dead_of=dead_of))
+    caught_r("a read name a roster row bears planted", lambda i: i["people"].append({"name": "Aa Bbbb", "aliases": [], "url": "/who/aa-bbbb/"}), "bearers")
+    caught_r("a read name with no entry in read-names.json planted", lambda i: i["people"].append({"name": "Zz Other", "aliases": [], "url": "/who/zz-qqqq/"}), "address")
+    caught_r("a read name whose page does not exist planted", lambda i: i["people"].append({"name": "Yy Nopage", "aliases": [], "url": "/who/yy-nopage/"}), "address")
+    caught_r("a read name with an alias planted", lambda i: [e.__setitem__("aliases", ["Zz Qqq"]) for e in i["people"] if e["name"] == "Zz Qqqq"], "alias")
+    caught_r("a read name that is not a plain name planted", lambda i: i["people"].append({"name": "Uu Ssss, the elder", "aliases": [], "url": "/who/uu-ssss/"}), "junk")
+    caught_r("a read name with no structured entry at all planted", lambda i: i["people"].append({"name": "Vv Tttt", "aliases": [], "url": "/who/zz-qqqq/"}), "address")
+
     if fails:
         for f in fails:
             print("  FAIL  names-index self-test: not caught: %s" % f)
@@ -370,14 +481,15 @@ def main(argv):
     index, living = json.loads(rd(ip)), json.loads(rd(lp))
     rows, people = B.load()
     names, _found = ([], False) if "--no-tree" in argv else B.tree_living_names(L2)
-    P = problems(index, living, rows, people, names, B.load_namesakes())
+    read = B.load_read()
+    P = problems(index, living, rows, people, names, B.load_namesakes(), read)
     extra = ""
     if "--dist" in argv:
         dist = os.environ.get("ARCHIVE_OUT") or argv[argv.index("--dist") + 1]
         if not os.path.isdir(dist):
             print("  FAIL  names-index  no built site at %s" % dist)
             return 1
-        Q, n, ne = dist_problems(index, dist)
+        Q, n, ne = dist_problems(index, dist, {e.get("slug") for e in (read or {}).get("names", [])})
         for k, v in Q.items():
             P[k] = P.get(k, 0) + v
         extra = "; %d indexed pages built and indexable, %d pages excluded and unlinked" % (n, ne)
