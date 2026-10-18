@@ -27,13 +27,27 @@ import notables from "../../data/notables.json";
  */
 import roster from "../../data/roster.json";
 import { mdFlat } from "../../lib/md.js";
-const S = roster.stats;
-const LINEN = { carnia: "Carnia", venice: "Venice", crete: "Crete", south: "S. Istria",
+/* THE LINE LABELS, AND WHY THEY ARE READ OFF THE ROWS.
+ *
+ * Svetvinčenat and Vodnjan are families of their own on the Lines page, so they have a
+ * label here. Some rows carry a hand-typed `line` (married-in, gologorica, istria,
+ * liznjan) that was never a label of its own: each names a lane that already has one,
+ * and is folded onto it, so no chip prints the word «undefined». The header counts are
+ * counted from the rows themselves, not from roster.stats, which was written once and
+ * not refreshed when rows were added. */
+const ALIAS = { "married-in": "carnia", gologorica: "carnia", istria: "carnia", liznjan: "south" };
+const LINEN = { carnia: "Carnia", svetvincenat: "Svetvinčenat", venice: "Venice", crete: "Crete",
+                south: "S. Istria", vodnjan: "Vodnjan",
                 unplaced: "Not placed", trentino: "Trentino", corsica: "Corsica",
                 abroad: "Abroad", unknown: "No place", other: "Other" };
-const ORDER = ["carnia", "venice", "crete", "south", "unplaced", "trentino", "corsica",
-               "abroad", "unknown", "other"];
-const R = roster.rows;
+const ORDER = ["carnia", "svetvincenat", "venice", "crete", "south", "vodnjan", "unplaced", "trentino",
+               "corsica", "abroad", "unknown", "other"];
+const R = roster.rows.map((r) => (ALIAS[r.line] ? { ...r, line: ALIAS[r.line] } : r));
+const LINECOUNT = R.reduce((a, r) => { a[r.line] = (a[r.line] || 0) + 1; return a; }, {});
+const S = { ...roster.stats, total: R.length, lines: LINECOUNT };
+const LEGEND = [...roster.legend];
+if (!LEGEND.some(([k]) => k === "svetvincenat")) LEGEND.push(["svetvincenat", "Svetvinčenat — the castle parish the Lines page draws as a family of its own, its origin inferred Carnian"]);
+if (!LEGEND.some(([k]) => k === "vodnjan")) LEGEND.push(["vodnjan", "Vodnjan — five generations read by eye out of a marriage register no index holds; origin not found"]);
 const N = {
   mine: R.filter(r => r.mine).length,
   direct: R.filter(r => r.direct).length,
@@ -80,7 +94,7 @@ const PLACES = Object.entries(
       { key: "place", label: "Narrow by place", all: "Everywhere",
         options: PLACES.map(([k, n]) => ({ v: k.toLowerCase(), label: `${k} — ${n}` })) },
     ]}
-    rows={roster.rows.map((r) => ({
+    rows={R.map((r) => ({
       /* No hay. The name, the dates, the place-or-parish and the note are every
          one of them a cell below, and the shared script reads the row. Measured
          rather than assumed: of 1,206 rows there is exactly one word in the old
@@ -98,7 +112,7 @@ const PLACES = Object.entries(
         (r.parish ? `<span class="parish" title="The parish register this record was filmed from">${r.parish}</span>` : (r.place || "—")) +
           (r.parish && r.place && r.place !== r.parish ? `<span class="rnote"> · ${r.place}</span>` : ""),
         `<span class="lchip l-${r.line}">${LINEN[r.line]}</span>`,
-        `<a href="${u(r.href)}">${roster.srclabel[r.src]}</a>` + (r.note ? `<span class="rnote"> · ${mdFlat(r.note)}</span>` : ""),
+        `<a href="${u(r.href)}">${roster.srclabel[r.src] || (r.src.charAt(0).toUpperCase() + r.src.slice(1))}</a>` + (r.note ? `<span class="rnote"> · ${mdFlat(r.note)}</span>` : ""),
         (r.ark ? `<a class="reclink" href="https://www.familysearch.org/ark:/61903/${r.ark}" rel="noopener">record</a>` : "") +
         (r.mh ? `<a class="reclink tree" href="https://www.myheritage.com/site-family-tree-OYYV7AGVV4FMSGNWXC6TO74JQDUMOYA?familyTreeID=4&individualId=${r.mh}" rel="noopener">tree</a>` : ""),
       ],
@@ -111,7 +125,7 @@ const PLACES = Object.entries(
 <Rule name="arrows" label="What the colours mean" />
 <section class="blk">
   <div class="regkey">
-    {roster.legend.filter(([k]) => S.lines[k]).map(([k, v]) => (
+    {LEGEND.filter(([k]) => S.lines[k]).map(([k, v]) => (
       <div class="regkey-row"><span class={"lchip l-" + k}>{LINEN[k]}</span><span class="regkey-v">{v}</span></div>
     ))}
   </div>
@@ -167,6 +181,8 @@ const PLACES = Object.entries(
   .rc-venice{border-left-color:var(--ochre)}
   .rc-crete{border-left-color:var(--terra)}
   .rc-south{border-left-color:var(--t-napo)}
+  .rc-svetvincenat{border-left-color:var(--r-istria, var(--teal))}
+  .rc-vodnjan{border-left-color:var(--r-venice, var(--ochre))}
   .rc-corsica{border-left-color:var(--t-italy)}
   .rtools{margin-top:24px}
   .rtools input{width:100%;padding:12px 14px;font-family:var(--sans);font-size:15px;
@@ -219,6 +235,8 @@ const PLACES = Object.entries(
   .l-venice{background:color-mix(in srgb,var(--ochre) 20%,transparent);color:var(--ochre)}
   .l-crete{background:color-mix(in srgb,var(--terra) 18%,transparent);color:var(--terra)}
   .l-south{background:color-mix(in srgb,var(--r-napo) 18%,transparent);color:var(--t-napo)}
+  .l-svetvincenat{background:color-mix(in srgb,var(--r-istria, var(--teal)) 18%,transparent);color:var(--r-istria, var(--teal))}
+  .l-vodnjan{background:color-mix(in srgb,var(--r-venice, var(--ochre)) 18%,transparent);color:var(--r-venice, var(--ochre))}
   .l-corsica{background:color-mix(in srgb,var(--r-italy) 18%,transparent);color:var(--t-italy)}
   .regkey{margin-top:6px;display:grid;gap:8px;padding:14px 16px;background:var(--panel-2);border-radius:10px}
   .regkey-row{display:flex;gap:12px;align-items:baseline;font-size:13.5px}
