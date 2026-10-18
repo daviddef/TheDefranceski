@@ -104,8 +104,8 @@ files; David's tree only adds names to `living.json`). The old browser linker (`
 is gone. A person is linked only if the roster shows them dead and nobody else bears the name; a shared name
 goes to its `/who/` page or to the search; a person born after 1900 with no death recorded is never linked.
 A run on David's machine REFUSES when a living or held-out person of the tree bears the name of an indexed
-dead person: add the page id it prints to `data/autolink-namesakes.json`. A list, a table or a person's own
-page opts out with `noautolink` on `<Base>`. `scripts/check-names-index.py` judges the files and the linked
+dead person: add the page id it prints to `data/autolink-namesakes.json`. The person and name pages and the people
+index (each lays out its own links) opt out with `noautolink` on `<Base>`. `scripts/check-names-index.py` judges the files and the linked
 site, and its `--self-test` plants the faults.
 
 ## Starting a session

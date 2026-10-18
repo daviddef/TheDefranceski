@@ -22,10 +22,12 @@ import ring from "@daviddef/archive-kit/data/archives.json";
    turns into schema.org Person. The kit has emitted it since it was
    written and no page here ever passed one, so 1,587 person pages were
    published as a generic Article with nobody in them.
-   noautolink — the page is a list, a table or a person's own page: its names are laid out by
-   the page itself (a row, a tree node, a card), so the kit's build-time name linker
-   (autolink.py, run after the build) must leave the whole page alone. It puts
-   data-no-autolink on the page's wrapper, which the linker honours. 18 October 2026. */
+   noautolink — the page is a person's own page, a name page or the index of people: it lays out
+   its own links (a tree node, a row, a card, the person's name in every fact line, and the
+   excerpts of other pages that a name page quotes), so the kit's build-time name linker
+   (autolink.py, run after the build) must leave the whole page alone; it would link a person
+   to their own page. It puts data-no-autolink on the page's wrapper, which the linker
+   honours. 18 October 2026. */
 const { title, description = "", dek, eyebrow, bare, noindex, canonical, person, noautolink } = Astro.props;
 const SITE = "The Defranceschi Archive";
 /* A dek is written in the archive's light markup (**bold**, *italic*, `code`). On the

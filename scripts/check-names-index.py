@@ -30,8 +30,8 @@ WHAT IT REFUSES (counts are printed, a name never is)
   stale      the files differ from what build-names-index.py writes from the roster now
 and, with --dist (the linked site):
   page       an indexed address whose page is missing, is noindex, or (a name page) does not list two people
-  excluded   a data-autolink link on a page that asked not to be linked (Base's noautolink: a list, a table, a person's
-             own page)
+  excluded   a data-autolink link on a page that asked not to be linked (Base's noautolink: a person's own page, a name page, the
+             people index)
 """
 import os, re, sys, json, copy, glob, importlib.util
 from urllib.parse import quote, unquote

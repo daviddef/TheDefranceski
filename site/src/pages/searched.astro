@@ -50,7 +50,7 @@ const evHtml = (r) => !(r.ev || []).length ? "" :
   + r.ev.map(([href, label]) => `<a href="${u(href)}">${label}</a>`).join(" · ")
   + `</p>`;
 ---
-<Base noautolink title="The Search Register" eyebrow={`${d.rows.length} sources examined · every one of them linked`}
+<Base title="The Search Register" eyebrow={`${d.rows.length} sources examined · every one of them linked`}
       dek="Everything looked at, whether or not it found anything — because a search that returns nothing is a result, and the next person should not have to repeat it. Search it, filter it, and follow any row back to the source or forward to what it produced.">
 
 <section class="blk">
