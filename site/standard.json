@@ -1,0 +1,207 @@
+{
+ "version": 1,
+ "scope": "main",
+ "reasons": {
+  "_note": "Why the config is the way it is. Counts only; the gate reads none of this. Every exemption below is a choice written down, not a loosening: remove it and the gate counts more.",
+  "carlos-letter: data-name-exempt on p.qit and p.qen": "The Italian of Carlo's own writing and its English: the names in a quotation are the author's, not this archive's claims. Marked on the page itself (15 elements), counted in EX, ratcheted.",
+  "corrections: data-name-exempt on the 'was' text": "/corrections/ restates the superseded wording on purpose, verbatim, under the correction. Marked in corrections.astro (the span around the old sentence), counted in EX, ratcheted. The links in it stay.",
+  "citations without the generic 'page N' and 'act/entry/no. N' patterns": "173 of the 593 passages those two patterns find are bibliographic page numbers (pp. 7-490 of a printed book, cited in the Sources block) or a bare page number inside a register the sentence already named; neither is a record to link. Every other pattern is kept (DAPA image id, FamilySearch ark, waypoint and frame, Antenati ark, film, frame, folio). Add the two back when a records table covers register pages.",
+  "tables: skip": "The tables on these pages are inventories and frame maps (which image is on which frame of a film, one image id per cell), not sentences that rely on a record. The prose around them is read. 123 cells would otherwise count (88 L3, 11 L4); none of them has a public address, and a frame map does not want a scan beside every row. David's decision to flip (kit option tables: records).",
+  "scans.link_only antenati, ark, waypoint-frame": "FamilySearch frames and Antenati scans are link-only (David, 18 October 2026): a passage that cites one is asked for a link and never for a picture beside it. Only the family's own DAPA copy plates are asked for (L4).",
+  "record_links.prefixes": "/sources/, /searched/, /antenati/ and /parish-books/ are lists of records the archive holds or has searched; /gallery/ and /register/ are not (a plate room, a list of leads) and are not accepted as a record link.",
+  "not in include: /cheryl-lerena/": "A memoir with poems and writings by a member of the family: creative writing, so the names in it are not claims about records and no sentence cites one (0 citing passages). The page still gets the build-time name links; the standard simply does not count its names."
+ },
+ "include": [
+  "/gologorica-line/",
+  "/corrections/",
+  "/carnia/",
+  "/liznjan/",
+  "/lines/",
+  "/seget/",
+  "/pfullingen/",
+  "/fiume-1626/",
+  "/carlos-letter/",
+  "/crikvenica-house/",
+  "/carlo/"
+ ],
+ "new_page_max": 0,
+ "allow_prefixes": [
+  "/person/",
+  "/who/",
+  "/search/"
+ ],
+ "tables": "skip",
+ "names": {
+  "entry_prefixes": [
+   "/person/",
+   "/who/"
+  ],
+  "read_blocks": [
+   "blockquote",
+   "p.tr",
+   "p.qen",
+   "p.wh",
+   "div.doc2"
+  ],
+  "stop_words": [
+   "Die",
+   "Anno",
+   "Liber",
+   "Defunctorum",
+   "Baptizatorum",
+   "Matrimoniorum",
+   "Nati",
+   "Morti",
+   "Matrimoni",
+   "Archivio",
+   "Stato",
+   "Civile",
+   "Antenati",
+   "Registro",
+   "Image",
+   "Frame",
+   "Page",
+   "Film",
+   "Witnesses",
+   "Witness",
+   "Neither",
+   "Whether",
+   "Both",
+   "Note",
+   "Read",
+   "Dominus",
+   "Domini",
+   "Domino",
+   "Dominum",
+   "Reverendus",
+   "Reverendi",
+   "Admodum",
+   "Filia",
+   "Filius",
+   "Uxor",
+   "Vidua",
+   "Parochus",
+   "Parochum",
+   "Parochi",
+   "Judex",
+   "Judicis",
+   "Idem",
+   "Ejusdem",
+   "Dr",
+   "Mr",
+   "Mrs",
+   "Miss",
+   "Sor",
+   "Donna",
+   "Don",
+   "Father",
+   "Pater",
+   "Rev",
+   "Count",
+   "Signor",
+   "Anno",
+   "Mense",
+   "Eodem",
+   "David",
+   "Capellanus",
+   "Gio"
+  ],
+  "not_names": [
+   "^(Santa|San|Santo|Sant|Sveti|Sv\\.?) ",
+   "^(Mount|Monte|Cape|Port|Fort|Lake|New|North|South|East|West|Great|Little|Saint|Holy|Our|Via|Piazza|Casa|Chiesa|Palazzo|Contrada|Castle|Street|St|Villa|Ulica|Trg)\\b",
+   "\\b(Island|Street|Road|Church|Archive|Archives|Register|Registers|Parish|Books|Book|Census|Index|Commune|Comune|Reel|Film|Liber|Cathedral|Chapel|Square|Palace|Monastery|Hospital|County|Istria|Dalmatia|Croatia|Carniola|Venice|Pazin|Pula|Fiume|Rijeka|Gologorica|Carnia|Udine|Friuli|Trieste|Zagreb|Vienna)\\b",
+   "\\b(Pascoli|Storia|Zbornik|Geschichtsbl\\w+|Jenny)\\b"
+  ],
+  "given_names_file": "../private/standard/given.json",
+  "surname_words": [
+   "Crikvenica",
+   "Grah",
+   "Franceschi",
+   "Defranceschi",
+   "Defranceski",
+   "Franceski"
+  ]
+ },
+ "citations": {
+  "blocks": [
+   "p",
+   "li",
+   "dd",
+   "blockquote",
+   "div.prose",
+   "figcaption"
+  ],
+  "patterns": [
+   {
+    "id": "dapa-image",
+    "regex": "\\b(?P<m>M0\\d{7})\\b",
+    "key": "dapa {m}"
+   },
+   {
+    "id": "waypoint-frame",
+    "flags": "i",
+    "regex": "\\b(?P<w>9R[0-9A-Z]{2}-[0-9A-Z]{3})\\b[^.;]{0,60}?\\b(?:frame|image)\\s+(?P<f>\\d+)",
+    "key": "wp {w} f{f}"
+   },
+   {
+    "id": "ark",
+    "regex": "\\b3:1:(?P<a>[A-Z0-9]{4}-[A-Z0-9]{3,4}-[A-Z0-9]{3,4})",
+    "key": "ark {a}"
+   },
+   {
+    "id": "waypoint",
+    "regex": "\\b9R[0-9A-Z]{2}-[0-9A-Z]{3}\\b"
+   },
+   {
+    "id": "antenati",
+    "regex": "\\ban_ua\\d+"
+   },
+   {
+    "id": "film",
+    "flags": "i",
+    "regex": "ZM34K-\\d+|\\b(?:film|microfilm|reel)\\s+(?:no\\.?\\s*)?0?\\d{6,9}"
+   },
+   {
+    "id": "frame",
+    "flags": "i",
+    "regex": "\\b(?:frames?|images?|img)\\s+(?:no\\.?\\s*)?\\d+"
+   },
+   {
+    "id": "folio",
+    "flags": "i",
+    "regex": "\\b(?:folios?|fol\\.|annual number|fascicle)\\s*(?:no\\.?\\s*)?\\d+"
+   }
+  ],
+  "record_links": {
+   "prefixes": [
+    "/sources/",
+    "/searched/",
+    "/antenati/",
+    "/parish-books/"
+   ],
+   "hosts": [
+    "familysearch.org",
+    "antenati.cultura.gov.it",
+    "antenati.beniculturali.it",
+    "dapa.hr",
+    "archive.org",
+    "arolsen-archives.org",
+    "anno.onb.ac.at",
+    "matricula-online.eu"
+   ],
+   "url_contains": [],
+   "fragments": [
+    "#plate-"
+   ]
+  },
+  "next_block_max_chars": 240
+ },
+ "scans": {
+  "link_only": [
+   "antenati",
+   "ark",
+   "waypoint-frame"
+  ],
+  "aliases_file": "../private/standard/plate-aliases.json"
+ }
+}

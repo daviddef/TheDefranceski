@@ -25,6 +25,13 @@ jobs:
       - name: Install
         run: npm ci || npm install
         working-directory: site
+      # The linking standard's gate proves itself before it is trusted (the kit's self-test plants a fault for every rule and a control
+      # for each), then runs inside `npm run build` as its last step. CI has no GEDCOM and no tree: the gate reads only the committed
+      # roster (through the names index and living list that `npm run autolink` writes), the committed config and ratchet, and inputs
+      # rebuilt from committed data (scripts/build-standard-inputs.py, scripts/build-records.py --check).
+      - name: Self-test of the linking standard's gate
+        run: npm run check:standard-selftest
+        working-directory: site
       - name: Build
         run: npm run build
         working-directory: site

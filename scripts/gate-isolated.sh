@@ -79,6 +79,16 @@ run namesindex-faults python3 ../scripts/check-names-index.py --self-test
 run links python3 "$KIT/checklinks.py" --dist "$OUT" --index ../private/autolink/names-index.json --living ../private/autolink/living.json \
   --allow-prefix /person/ --allow-prefix /who/ --allow-prefix /search/ --floor .linkfloor.json
 run living    ../scripts/kit-living.sh          --dist "$OUT" --data src/data --policy named-bare
+# THE LINKING STANDARD (18 October 2026; kit/docs/linking-standard.md). The records table is made from committed data and checked
+# against it; every record link on the built site is checked against the data it came from (scripts/check-rec.py); and the kit's
+# gate counts the five rules on the narrative pages in site/standard.json with the committed ratchet. It reads the LINKED site, so it
+# runs after autolink and the checks above, against this gate's private build.
+run records   python3 ../scripts/build-records.py --check
+run readnames python3 ../scripts/build-read-names.py --check
+run rec       env ARCHIVE_OUT="$OUT" python3 ../scripts/check-rec.py
+run rec-faults python3 ../scripts/check-rec.py --self-test
+run standard-faults python3 "$KIT/checkstandard_selftest.py"
+run standard  env ARCHIVE_OUT="$OUT" python3 ../scripts/standard-run.py
 # The living-people standard v2 (16 October 2026). It decides who is living ITSELF, from the committed roster and
 # the built pages, and (with David's tree, which is outside the repository) from the tree; the generator's word
 # is not taken. --require-tree: on this machine the tree must be found, or the people the rule holds out cannot

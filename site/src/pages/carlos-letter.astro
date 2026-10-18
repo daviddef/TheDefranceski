@@ -25,8 +25,8 @@ import prov from "../data/provenance.json";
   <div class="stack" style="margin-top:26px">
     {k.quotes.map(q => (
       <div class="qz">
-        <p class="qit">“{q.it}”</p>
-        <p class="qen" set:html={_md(q.en)}></p>
+        <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims">“{q.it}”</p>
+        <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(q.en)}></p>
         <p class="qwhy" set:html={_md(q.why)}></p>
       </div>
     ))}
@@ -64,8 +64,8 @@ import prov from "../data/provenance.json";
   <h2>{k.correction.heading}</h2>
   <p class="dek" set:html={_md(k.correction.lead)}></p>
   <div class="qz" style="margin-top:20px">
-    <p class="qit">“{k.correction.quote}”</p>
-    <p class="qen" set:html={_md(k.correction.en)}></p>
+    <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims">“{k.correction.quote}”</p>
+    <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(k.correction.en)}></p>
     <p class="qwhy" set:html={_md(k.correction.why)}></p>
   </div>
   <p class="cap" style="margin-top:20px" set:html={_md(k.correction.trees.note)}></p>
@@ -82,8 +82,8 @@ import prov from "../data/provenance.json";
   <h2>{k.gologorica.heading}</h2>
   <p class="dek" set:html={_md(k.gologorica.lead)}></p>
   <div class="qz" style="margin-top:20px">
-    <p class="qit">“{k.gologorica.quote}”</p>
-    <p class="qen" set:html={_md(k.gologorica.en)}></p>
+    <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims">“{k.gologorica.quote}”</p>
+    <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(k.gologorica.en)}></p>
     <p class="qwhy" set:html={_md(k.gologorica.why)}></p>
   </div>
 </section>
@@ -138,7 +138,7 @@ import prov from "../data/provenance.json";
   <div class="one" style="border-left-color:var(--terra);margin-top:18px">
     <div class="lab">A second document for Carnia</div>
     <h3>{k.otherhalf.valentino.heading}</h3>
-    <p class="qit" style="font-family:var(--serif);font-style:italic;font-size:17px;margin-top:10px">“{k.otherhalf.valentino.text}”</p>
+    <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" style="font-family:var(--serif);font-style:italic;font-size:17px;margin-top:10px">“{k.otherhalf.valentino.text}”</p>
     <p style="margin-top:12px" set:html={_md(k.otherhalf.valentino.en)}></p>
     <p style="margin-top:12px"><strong>{k.otherhalf.valentino.why}</strong></p>
     <p class="cap" style="margin-top:12px" set:html={_md(k.otherhalf.valentino.then)}></p>
@@ -151,8 +151,8 @@ import prov from "../data/provenance.json";
   <h2>{k.chapel.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={_md(k.chapel.lead)}></p>
   <div class="qz" style="margin-top:18px">
-    <p class="qit">“{k.chapel.quote}”</p>
-    <p class="qen" set:html={_md(k.chapel.en)}></p>
+    <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims">“{k.chapel.quote}”</p>
+    <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(k.chapel.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.chapel.rows.map(r => (
@@ -245,8 +245,8 @@ import prov from "../data/provenance.json";
   <h2>{k.obituary.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(k.obituary.lead)}></p>
   <div class="qz" style="margin-top:18px">
-    <p class="qit">“{k.obituary.quote}”</p>
-    <p class="qen" set:html={_md(k.obituary.en)}></p>
+    <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims">“{k.obituary.quote}”</p>
+    <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(k.obituary.en)}></p>
   </div>
   <p class="prose" style="margin-top:16px" set:html={_md(k.obituary.grave)}></p>
 </section>
@@ -263,8 +263,8 @@ import prov from "../data/provenance.json";
         {it.text && <p style="margin-top:10px" set:html={_md(it.text)}></p>}
         {it.quote && (
           <div class="qz" style="margin-top:12px">
-            <p class="qit">“{it.quote}”</p>
-            <p class="qen" set:html={_md(it.en)}></p>
+            <p class="qit" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims">“{it.quote}”</p>
+            <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(it.en)}></p>
           </div>
         )}
         {it.why && <p style="margin-top:12px" set:html={_md(it.why)}></p>}
@@ -295,7 +295,7 @@ import prov from "../data/provenance.json";
   <p class="dek" style="margin-top:8px" set:html={_md(k.benzoni.lead)}></p>
   <p class="prose" style="margin-top:16px" set:html={_md(k.benzoni.kobler)}></p>
   <div class="qz" style="margin-top:14px">
-    <p class="qen" set:html={_md(k.benzoni.en)}></p>
+    <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(k.benzoni.en)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.benzoni.rows.map(r => (
@@ -314,7 +314,7 @@ import prov from "../data/provenance.json";
   <h2>{k.benzonihouse.heading}</h2>
   <p class="dek" style="margin-top:8px" set:html={_md(k.benzonihouse.lead)}></p>
   <div class="qz" style="margin-top:16px">
-    <p class="qen" set:html={_md(k.benzonihouse.quote)}></p>
+    <p class="qen" data-name-exempt="a quotation from Carlo's own writing and its translation: the names are the author's, not this archive's claims" set:html={_md(k.benzonihouse.quote)}></p>
   </div>
   <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
     {k.benzonihouse.rows.map(r => (

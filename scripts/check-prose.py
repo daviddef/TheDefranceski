@@ -70,6 +70,9 @@ GENERATED = {
     "gologorica-toc.json", "gologorica.json", "graves.json", "gravesmap.json", "households.json",
     "leads.json", "lineages.json", "map.json", "movements.json", "mymap.json", "names.json",
     "onename.json", "plates.json", "reconcile.json", "researchmap.json", "roster.json", "searchindex.json",
+    # 18 October 2026, the linking standard: both are written by a script from the archive's own data (scripts/build-records.py,
+    # scripts/build-read-names.py), never typed, and each script has a --check that fails on a hand edit.
+    "read-names.json", "records.json",
 }
 
 # Prose that is typed outside src/pages and notes/*.md: components and layouts (a sentence can be typed there),
