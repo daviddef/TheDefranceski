@@ -2,6 +2,7 @@
 import { u } from "../lib/url.js";
 import { md } from "../lib/md.js";
 import all from "../data/plates.json";
+import { claim } from "@daviddef/archive-kit/lib/rec.js";
 const { group, ids, cols } = Astro.props;
 let list = all;
 if (ids) list = ids.map(i => all.find(p => p.id === i)).filter(Boolean);
@@ -14,11 +15,14 @@ else if (group) list = all.filter(p => (Array.isArray(group) ? group : [group]).
 const held = list.filter(p => p.thumb);
 const cited = list.filter(p => !p.thumb);
 const data = held.map(p => ({ ...p, src: u(p.src), thumb: u(p.thumb) }));
+/* The anchor a passage's record link points to (the linking standard, L3; md.js `[words](rec:plate-<id>)`). One id per plate
+   per page: a plate shown twice on a page keeps both buttons and gives the id to the first (the kit's claim()). */
+const anchors = data.map(p => (claim(Astro.request, "plate-" + p.id) ? "plate-" + p.id : undefined));
 ---
 {data.length > 0 && (
 <div class="plates" style={cols ? `grid-template-columns:repeat(${cols},minmax(0,1fr))` : undefined} data-plates={JSON.stringify(data)}>
   {data.map((p, i) => (
-    <button class={`plate${p.h > p.w ? " tall" : ""}`} data-i={i} type="button">
+    <button class={`plate${p.h > p.w ? " tall" : ""}`} data-i={i} type="button" id={anchors[i]}>
       <img class="shot" src={p.thumb} alt={p.title} width={p.w} height={p.h} loading="lazy" decoding="async" />
       <span class="meta">
         <span class="t">{p.title}</span>

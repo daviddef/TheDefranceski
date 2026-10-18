@@ -5,6 +5,37 @@ import { u, based } from "./url.js";
 
 const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
+/* RECORD LINKS: [the author's words](rec:ID)   (the linking standard, L3; kit/docs/linking-standard.md)
+ *
+ * The words stay exactly as written; this gives them their link to the record the passage cites, drawn the way the kit's
+ * <Rec> draws it (class lk-rec, data-rec, data-cite, which is the mark the gate reads as «a record link»). Two kinds of id:
+ *   rec:<id>          a row of src/data/records.json, made by scripts/build-records.py from the archive's own data
+ *                     (an Antenati volume, a FamilySearch image ark): the link goes to that row's address.
+ *   rec:plate-<id>    a plate of src/data/plates.json that the SAME page shows (components/Plates.astro gives each plate
+ *                     the anchor id="plate-<id>"): the link goes to the plate on this page.
+ * An id the data does not hold STOPS THE BUILD: a link that is a guess is worse than no link. scripts/check-rec.py reads
+ * the built pages for the other half (a plate anchor that is not on its page, a link that does not match its row). */
+import recTable from "../data/records.json";
+import plateTable from "../data/plates.json";
+const RECS = new Map(recTable.records.map((r) => [r.id, r]));
+const PLATES = new Map(plateTable.map((p) => [p.id, p]));
+const attr = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const recLink = (text, id, root) => {
+  let href, kind, label, ext = false;
+  if (id.startsWith("plate-")) {
+    const p = PLATES.get(id.slice(6));
+    if (!p) throw new Error(`md.js: [${text}](rec:${id}): plates.json has no such plate`);
+    href = "#" + id; kind = "plate"; label = p.title;
+  } else {
+    const r = RECS.get(id);
+    if (!r) throw new Error(`md.js: [${text}](rec:${id}): records.json has no such record`);
+    if (r.living || r.hold) throw new Error(`md.js: rec:${id} is flagged living or hold: it is never drawn`);
+    if (!/^https?:\/\/[^\s"<>]+$/.test(r.url) && !/^\/(?!\/)[^\s"<>\\]*$/.test(r.url)) throw new Error(`md.js: rec:${id} has an address a link may not carry`);
+    ext = r.url.startsWith("http"); href = ext ? r.url : root(r.url); kind = r.kind; label = r.label;
+  }
+  return `<a class="lk-rec" href="${attr(href)}" data-rec="${attr(id)}" data-cite data-kind="${attr(kind)}" title="${attr(label)}"${ext ? ' rel="noopener"' : ""}>${text}</a>`;
+};
+
 // And internal links, which this renderer refused for a year.
 //
 // Data files were being written with [text](/path/) in them anyway — eighteen
@@ -22,8 +53,9 @@ const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">":
  * handled the common case and left the other one as visible punctuation.
  * An external href is never passed through u(): it is already absolute. */
 const link = (s) => s.replace(
-  /\[([^\]\n]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]*)\)/g,
-  (_, t, href) => href.startsWith("/")
+  /\[([^\]\n]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]*|rec:[\w.:-]+)\)/g,
+  (_, t, href) => href.startsWith("rec:") ? recLink(t, href.slice(4), u)
+    : href.startsWith("/")
     ? `<a href="${u(href)}">${t}</a>`
     : `<a href="${href}" rel="noopener">${t}</a>`);
 
@@ -126,8 +158,9 @@ export const mdps = (x, style = "margin-top:12px") =>
    renderer started basing its own links. Use this ONLY where a component
    downstream is going to do the basing. */
 const linkRaw = (s) => s.replace(
-  /\[([^\]\n]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]*)\)/g,
-  (_, t, href) => href.startsWith("/")
+  /\[([^\]\n]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]*|rec:[\w.:-]+)\)/g,
+  (_, t, href) => href.startsWith("rec:") ? recLink(t, href.slice(4), (x) => x)
+    : href.startsWith("/")
     ? `<a href="${href}">${t}</a>`
     : `<a href="${href}" rel="noopener">${t}</a>`);
 
@@ -178,13 +211,13 @@ const untable = (s) => s
   .join("\n");
 
 export const mdFlat = (x) => based(inline(untable(String(x ?? ""))
-  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")));
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/|rec:)[^)\s]*\)/g, "$1")));
 
 /* Plain text from the archive's light markup, for places that cannot hold HTML
    (a tag label, a link's text, an <option>, a meta description): the markers go,
    the words stay. Added 16 October 2026. */
 export const plain = (x) => String(x ?? "")
-  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1")
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/|rec:)[^)\s]*\)/g, "$1")
   .replace(/\*\*\*(.+?)\*\*\*/g, "$1")
   .replace(/\*\*(.+?)\*\*/g, "$1")
   .replace(/(^|[^*])\*([^*\n]+?)\*/g, "$1$2")
@@ -193,4 +226,4 @@ export const plain = (x) => String(x ?? "")
 /* Links reduced to their text but everything else left as written, for a kit
    component that renders **bold** and *italic* itself and has no link syntax. */
 export const unlink = (x) => String(x ?? "")
-  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/)[^)\s]*\)/g, "$1");
+  .replace(/\[([^\]\n]+)\]\((?:\/|https?:\/\/|rec:)[^)\s]*\)/g, "$1");

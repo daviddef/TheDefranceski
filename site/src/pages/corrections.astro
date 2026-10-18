@@ -5,10 +5,26 @@ import Rule from "../components/Rule.astro";
 import { u, based } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
+import plateTable from "../data/plates.json";
+import { claim } from "@daviddef/archive-kit/lib/rec.js";
 import { mdHtml, mdpHtml, plain } from "../lib/md.js";
 const sev = { serious: "Serious", minor: "Minor", process: "Process", note: "Not ours" };
 const order = ["serious", "process", "minor", "note"];
 const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
+/* A scan beside the passage that cites it (the linking standard, L4). A correction that rests on a page of the family's own copy
+   of a parish register carries that plate, a small picture inside the entry, linked to the full file; the plate is already
+   published (components/Plates.astro, /gallery/), and the words that cite it link here (md.js, [words](rec:plate-<id>)).
+   Inline markup only: the kit draws the body fields inside <p>, where a <figure> is not allowed. One anchor id per plate
+   per page (the kit's claim()). */
+const esc = (x) => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const thumbs = (ids) => (ids || []).map((id) => {
+  const p = plateTable.find((x) => x.id === id);
+  if (!p || !p.thumb) throw new Error(`corrections.json: plate ${id} is not a plate with a picture`);
+  const anchor = claim(Astro.request, "plate-" + id) ? ` id="plate-${esc(id)}"` : "";
+  return `<span class="cx-plate"><a class="cx-plate-img"${anchor} href="${esc(u(p.src))}"><img src="${esc(u(p.thumb))}" alt="${esc(p.title)}"` +
+    `${p.w ? ` width="${p.w}"` : ""}${p.h ? ` height="${p.h}"` : ""} loading="lazy" decoding="async"></a>` +
+    `<span class="cx-plate-cap">The register page itself, from the family's copy of the film</span></span>`;
+}).join("");
 const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev === k).length]));
 ---
 <Base title="Corrections"
@@ -26,16 +42,18 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
     when: r.when,
     kind: plain(r.what),
     sev: sev[r.sev] || r.sev,
-    was: based(mdHtml(r.said)),
+    /* The sentence being withdrawn, kept verbatim: its names are the old claim, quoted, not this archive's claim now. The mark is the
+       linking standard's own (data-name-exempt, with its reason); the links stay, only L2 and L5 do not count the names inside it. */
+    was: r.said ? `<span data-name-exempt="the sentence being withdrawn, kept verbatim: its names are the old claim, quoted">${based(mdHtml(r.said))}</span>` : "",
     now: based(mdHtml(r.true)),
-    how: based(mdHtml(r.how)),
+    how: based(mdHtml(r.how)) + (r.how ? thumbs(r.plates) : ""),
     /* 231 rows, and the shape drifted: 205 are written said/true/how, but 26 —
        every one added since late September — carry a single narrative `note`
        instead, and this page rendered none of it. They published as a title
        with an empty body. `why` is the component's only unlabelled prose slot,
        which is what a narrative note is. Found 9 October 2026 by grepping the
        BUILT page for a correction's own text and getting nothing back. */
-    why: r.note ? based(mdpHtml(r.note)) : "",
+    why: r.note ? based(mdpHtml(r.note)) + (!r.how ? thumbs(r.plates) : "") : (!r.how && r.plates ? thumbs(r.plates) : ""),
     extra: r.where
       /* A «where» part is sometimes a bare path, sometimes a markdown link,
          and sometimes a sentence with links and code spans inside it —
@@ -54,6 +72,12 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
   <p class="prose note">Corrections are made on the page where the claim was made, under the original wording, rather than by deleting it. This page is the index to them, not a substitute. The running log of every search, including the ones that found nothing, is in <a href={u("/searched/")}>the Search Register</a>.</p>
 </section>
 
+<style is:global>
+  .cx-plate { display: block; margin: 12px 0 4px; max-width: 14rem; }
+  .cx-plate-img { display: block; }
+  .cx-plate img { display: block; width: 100%; height: auto; }
+  .cx-plate-cap { display: block; font-size: 12px; line-height: 1.4; opacity: .7; margin-top: 4px; }
+</style>
 <style>
   .corr { border: 1px solid var(--rule, #dcd6cc); border-left-width: 4px; border-radius: 3px; padding: 20px 22px; }
   .sev-serious { border-left-color: var(--terra, #a5442c); }
