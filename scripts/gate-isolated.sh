@@ -30,6 +30,12 @@ if ! python3 ../scripts/check-repo.py; then
   echo "gate: REPOSITORY DAMAGED — not building"; exit 2
 fi
 
+# The name list the browser linker reads (18 October 2026). whoindex.json is copied into the build as it stands, so
+# it is judged BEFORE the build: it must equal what scripts/build-whoindex.py writes from the roster, list only
+# deceased single-bearer people with a page, no phrase that is not a name. The second line plants the faults.
+python3 ../scripts/check-whoindex.py || { echo "gate: whoindex.json is stale or dirty — not building"; exit 2; }
+python3 ../scripts/check-whoindex.py --self-test || { echo "gate: whoindex self-test failed — not building"; exit 2; }
+
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=2048}"
 echo "gate: building into $OUT (dist left alone)"
 npm run publish:index >/dev/null 2>&1 || { echo "gate: publish:index failed"; exit 2; }
