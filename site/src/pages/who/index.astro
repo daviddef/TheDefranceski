@@ -18,7 +18,7 @@ const people = Object.values(d.people).sort((a, b) => a.name.localeCompare(b.nam
 const rows = people.map(p => ({ slug: p.slug, name: p.name, n: p.n }));
 const total = people.reduce((s, p) => s + p.n, 0);
 ---
-<Base title="Every Name" eyebrow={`${people.length} names · ${total} mentions`}
+<Base noautolink title="Every Name" eyebrow={`${people.length} names · ${total} mentions`}
       dek="One page per name — every single one the archive can put in writing, including those read straight off a register page that no index anywhere contains. Each opens with what is known, then gathers every mention of that name from every page of the site. A name is not a person, and since 23 September 2026 this archive says so with URLs rather than a sentence: where two people share a name they share this page, and each also has a page of their own.">
 
 <NameLists here="who" u={u} />

@@ -115,7 +115,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
   caption: [a.artist, a.date && a.date.slice(0,10), a.licence].filter(Boolean).join(" · "),
   holder: a.licence, w: a.w, h: a.h, src: u(a.src), thumb: u(a.thumb) }));
 ---
-<Base title={bearers.length > 1 ? `${p.name} — ${bearers.length} people of the name` : p.name}
+<Base noautolink title={bearers.length > 1 ? `${p.name} — ${bearers.length} people of the name` : p.name}
       eyebrow={`${p.n} mention${p.n === 1 ? "" : "s"} · ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}`}
       noindex={allLiving}
       dek={WHO_DESC} canonical={CANONICAL}>

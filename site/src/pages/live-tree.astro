@@ -41,7 +41,7 @@ const mirror = rec.disagree.filter((d) => d.kind === "mirror")
 const yrs = (a) => (a[0] || "?") + "–" + (a[1] || "?");
 const colls = rec.colls.filter((c) => c.c > 0);
 ---
-<Base
+<Base noautolink
   title="The live tree, read against this archive"
   eyebrow={`${n(s.treeTotal)} people · ${n(s.treeSurname)} of the name · exported 16 September 2026`}
   dek="What David's own tree holds that this archive has never read, and what this archive holds that the tree has not.">

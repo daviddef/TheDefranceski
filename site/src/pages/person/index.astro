@@ -31,7 +31,7 @@ const rows = roster.rows.filter(r => r.pid && !r.sameAs).map(r => ({
 const nLiving = rows.filter(r => r.living).length;
 const nDated  = rows.filter(r => r.span).length;
 ---
-<Base title="Every Person" eyebrow={`${rows.length} people · one page each`}
+<Base noautolink title="Every Person" eyebrow={`${rows.length} people · one page each`}
       dek="One page per person — not per name. A name page gathers everyone who shares a name and is an index; this is the list of individuals, and each row is one human being with a page of their own that nobody else appears on.">
 
 <section class="blk">

@@ -30,18 +30,22 @@ if ! python3 ../scripts/check-repo.py; then
   echo "gate: REPOSITORY DAMAGED — not building"; exit 2
 fi
 
-# The name list the browser linker reads (18 October 2026). whoindex.json is copied into the build as it stands, so
-# it is judged BEFORE the build: it must equal what scripts/build-whoindex.py writes from the roster, list only
-# deceased single-bearer people with a page, no phrase that is not a name. The second line plants the faults.
-python3 ../scripts/check-whoindex.py || { echo "gate: whoindex.json is stale or dirty — not building"; exit 2; }
-python3 ../scripts/check-whoindex.py --self-test || { echo "gate: whoindex self-test failed — not building"; exit 2; }
-
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=2048}"
 echo "gate: building into $OUT (dist left alone)"
 npm run publish:index >/dev/null 2>&1 || { echo "gate: publish:index failed"; exit 2; }
 npx astro build --outDir "$OUT" > "/tmp/gate-$$.log" 2>&1 || {
   echo "gate: BUILD FAILED"; tail -12 "/tmp/gate-$$.log"; exit 2; }
 echo "gate: built $(grep -oE '[0-9]+ page\(s\) built' "/tmp/gate-$$.log" | tail -1)"
+
+# THE NAME LINKER (18 October 2026). The kit's autolink.py links the first mention of each person in each section of the
+# BUILT html, once, and runs before anything else reads the built pages (the sitemap, the living gates, the nav and inline
+# checks), so that they all judge the linked output. The names index and the living list it reads are made from the
+# committed roster (build-names-index.py; on David's machine the tree adds its living and held-out names to the second, and
+# a name both the index and the tree hold stops the run). The old browser linker, wholink.js and whoindex.json, is gone.
+python3 ../scripts/build-names-index.py || { echo "gate: the names index could not be built — not linking"; exit 2; }
+python3 "$KIT/autolink.py" --dist "$OUT" --index ../private/autolink/names-index.json --living ../private/autolink/living.json \
+  --allow-prefix /person/ --allow-prefix /who/ --allow-prefix /search/ \
+  || { echo "gate: autolink refused or failed"; exit 2; }
 
 # The kit's sitemap generator hardcodes site/dist and takes no arguments, but it
 # derives `site` from the CURRENT DIRECTORY. So give it a private one: a scratch
@@ -68,6 +72,12 @@ run() { # name, command...
     echo "  ok    $n"
   fi
 }
+# The linker's own files, judged against the roster by code of their own, and the linked site: indexed pages exist and are
+# indexable, no excluded page was linked. Then the kit's ratchet: a page's count of still-unlinked names may only go down.
+run namesindex python3 ../scripts/check-names-index.py --dist "$OUT"
+run namesindex-faults python3 ../scripts/check-names-index.py --self-test
+run links python3 "$KIT/checklinks.py" --dist "$OUT" --index ../private/autolink/names-index.json --living ../private/autolink/living.json \
+  --allow-prefix /person/ --allow-prefix /who/ --allow-prefix /search/ --floor .linkfloor.json
 run living    ../scripts/kit-living.sh          --dist "$OUT" --data src/data --policy named-bare
 # The living-people standard v2 (16 October 2026). It decides who is living ITSELF, from the committed roster and
 # the built pages, and (with David's tree, which is outside the repository) from the tree; the generator's word

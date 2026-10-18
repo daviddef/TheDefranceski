@@ -771,17 +771,14 @@ main section > h2 { scroll-margin-top: 18px }
   .toc > nav a:last-child { border-bottom: 0 }
 }
 
-/* person links injected by wholink.js */
-a.wholink{
-  color:inherit;
-  text-decoration:none;
-  border-bottom:1px dotted var(--rule,#c9c2b6);
-  transition:border-color .15s,background .15s;
-}
-a.wholink:hover{
-  border-bottom-color:var(--accent,#9a3b26);
-  background:color-mix(in srgb,var(--accent,#9a3b26) 8%,transparent);
-}
+/* A name the build-time linker (kit autolink.py, run after the build) has turned into a link carries
+   data-autolink and no scoped-style attribute, so it takes the global `a` rule above and nothing else:
+   the same colour, underline and weight as a person link typed by hand in the prose. The rule below is
+   the global one restated at the SAME specificity (:where adds none), so every contextual rule that
+   recolours a hand-typed link (a caption, a small line) still recolours this one; checked against the
+   hand-typed links on the 114 pages the linker touches (18 October 2026). The browser linker this
+   replaced, wholink.js, drew a dotted rule instead; it and its a.wholink style are gone. */
+a:where([data-autolink]){color:var(--accent);text-underline-offset:3px;text-decoration-thickness:.06em}
 
 /* Home-page banner — used only when an image has been placed at /art/banner.webp */
 .banner { margin: 0 0 30px; }

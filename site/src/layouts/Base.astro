@@ -21,8 +21,12 @@ import ring from "@daviddef/archive-kit/data/archives.json";
    person    — { name, birthDate, deathDate, birthPlace }, which the kit
    turns into schema.org Person. The kit has emitted it since it was
    written and no page here ever passed one, so 1,587 person pages were
-   published as a generic Article with nobody in them. */
-const { title, description = "", dek, eyebrow, bare, noindex, canonical, person } = Astro.props;
+   published as a generic Article with nobody in them.
+   noautolink — the page is a list, a table or a person's own page: its names are laid out by
+   the page itself (a row, a tree node, a card), so the kit's build-time name linker
+   (autolink.py, run after the build) must leave the whole page alone. It puts
+   data-no-autolink on the page's wrapper, which the linker honours. 18 October 2026. */
+const { title, description = "", dek, eyebrow, bare, noindex, canonical, person, noautolink } = Astro.props;
 const SITE = "The Defranceschi Archive";
 /* A dek is written in the archive's light markup (**bold**, *italic*, `code`). On the
    page it is rendered; in the meta description, the social card and the JSON-LD it is
@@ -115,7 +119,7 @@ const thisArchive =
 <BookHead book={book} u={u} />
 
 <main id="main" tabindex="-1">
-  <div class="wrap">
+  <div class="wrap" data-no-autolink={noautolink ? "" : undefined}>
     {!bare && (
       <div class="pagehead">
         {eyebrow && (MARKUP.test(eyebrow) ? <div class="lab" set:html={md(eyebrow)} /> : <div class="lab">{eyebrow}</div>)}
@@ -229,6 +233,5 @@ const thisArchive =
     });
   })();
 </script>
-  <script src={u("/wholink.js") + v("wholink.js")} defer></script>
 </body>
 </html>

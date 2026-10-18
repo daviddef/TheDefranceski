@@ -263,7 +263,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
   .map(p => ({ id: p.id, title: p.title, caption: p.caption, holder: p.holder,
                w: p.w, h: p.h, src: u(p.src), thumb: u(p.thumb) })) : [];
 ---
-<Base title={r.living ? r.name : [r.name, (r.b || r.d || r.bEst) ? span : null,
+<Base noautolink title={r.living ? r.name : [r.name, (r.b || r.d || r.bEst) ? span : null,
               placeSeparates ? WHERE : null].filter(Boolean).join(", ")}
       eyebrow={dupOf ? "the same person as another page" : r.living ? (RELATION || "living") : span}
       noindex={!!r.living}

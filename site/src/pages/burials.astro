@@ -21,7 +21,7 @@ const minY = 1580, maxY = 2000, span = maxY - minY;
 const pct = (y) => ((y - minY) / span) * 100;
 const places = S.places.filter(([p]) => p !== "not stated");
 ---
-<Base
+<Base noautolink
   title="The Register of the Dead"
   eyebrow={`${S.total} burials, ${S.earliest}–${S.latest}`}
   dek="Baptisms tell you a family had children. Only the burial register tells you how many of them it kept. This is the part of the parish paper that genealogy usually skips.">

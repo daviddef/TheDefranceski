@@ -94,6 +94,20 @@ red gate.
 - Person ids are **minted once and frozen**; a moved id is a dead URL.
 - Never commit raw GEDCOM; never publish living DNA-match names.
 
+## Names on the narrative pages are linked at build time
+
+The kit's `autolink.py` runs right after `astro build` (`npm run autolink`) and links the FIRST mention of a
+person in each section of the built HTML; `checklinks.py` (`npm run check:links`, floor `site/.linkfloor.json`)
+stops the count of unlinked names rising. It reads `private/autolink/names-index.json` and `living.json`,
+both written by `scripts/build-names-index.py` from the COMMITTED roster (CI has no tree and builds the same
+files; David's tree only adds names to `living.json`). The old browser linker (`wholink.js`, `whoindex.json`)
+is gone. A person is linked only if the roster shows them dead and nobody else bears the name; a shared name
+goes to its `/who/` page or to the search; a person born after 1900 with no death recorded is never linked.
+A run on David's machine REFUSES when a living or held-out person of the tree bears the name of an indexed
+dead person: add the page id it prints to `data/autolink-namesakes.json`. A list, a table or a person's own
+page opts out with `noautolink` on `<Base>`. `scripts/check-names-index.py` judges the files and the linked
+site, and its `--self-test` plants the faults.
+
 ## Starting a session
 
 Read the worklist (`running`, then `next`), run the gate, note the `check-story`
