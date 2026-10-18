@@ -112,3 +112,27 @@ site, and its `--self-test` plants the faults.
 
 Read the worklist (`running`, then `next`), run the gate, note the `check-story`
 count — and make sure it has not risen by the time you stop.
+
+## The linking standard (18 October 2026)
+
+The kit's `checkstandard.py` (docs: `kit/docs/linking-standard.md`) holds the twelve research narratives (`site/standard.json`: /gologorica-line/,
+/corrections/, /carnia/, /liznjan/, /lines/, /seget/, /pfullingen/, /fiume-1626/, /carlos-letter/, /crikvenica-house/, /carlo/; the memoir
+/cheryl-lerena/ is out on purpose, the reasons are in the file) to five counts that may only go down (`site/.standardfloor.json`, counts, never a
+name): L1 names linked, L2 people read from records with no entry, L3 passages that cite a record with no link to it, L4 a scan the archive may show
+beside the passage that relies on it, L5 bare given names and forms nobody wrote in full. `npm run check:standard` is the last step of the build
+(`scripts/standard-run.py`; CI runs it on committed data only, after the kit's own self-test of the gate). A raised number is a person's edit in a
+commit that says why.
+
+* **A citation links to its record with the author's own words**: `[M01069230](rec:plate-golo-1787-parochus)` in the data (a DAPA image id to the
+  plate of that page on the same page, anchor `#plate-<id>` from `components/Plates.astro`), `[an_ua667516](rec:antenati-an_ua667516)` (an Antenati
+  volume), ``[`3:1:3QS7-L99F-W4CK`](rec:fs-3QS7-L99F-W4CK)`` (a FamilySearch image). `src/lib/md.js` draws them as the kit's `Rec` does (class `lk-rec`,
+  `data-rec`, `data-cite`); an id the data does not hold STOPS the build. `src/data/records.json` is made by `scripts/build-records.py` from
+  `antenati-catalogue.json` and the data's own arks (never by hand), `scripts/check-rec.py` judges every such link on the built site against the
+  source data. **No address is made up**: a DAPA image id with no plate, a film, a frame or a folio has no public address and stays text, counted.
+* **Link-only**: FamilySearch frames, Antenati scans and Matricula pages are never drawn beside a passage (David, 18 October 2026). Only plates of the
+  family's own copy of the Pazin films (DAPA) are placed beside the passage that cites them (L4), and only ones the archive already shows.
+* **Names read from records** (L2): `scripts/build-read-names.py` lists, from the structured files (`register.json`, `fsrecords.json`,
+  `households.json`), the names the narratives use that the roster does not hold and that those files show dead; each has a /who/ page and is a
+  `people` row of the names index (`site/src/data/read-names.json`, the second source of `build-names-index.py`, judged again by
+  `check-names-index.py`). The parish-book readings themselves exist only as prose: no name is taken from prose.
+* Do not add the generic `page N` / `act N` patterns, or a table mode, to `standard.json` to make a count fall; add a record link or a full name.
