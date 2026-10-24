@@ -5,7 +5,8 @@
 David's ruling of 16 October 2026 (the living-people standard, version 2):
 
     LIVING  =  80 or younger (this year minus the birth year) with NO death or
-               burial recorded, and no citation from a public record source.
+               burial recorded. A citation from a public record source does NOT change that
+               for a person WITH a birth year (25 October 2026, below).
     A person with no birth year is NOT living: nothing shows they are 80 or younger.
     HELD OUT = an UNDATED person with a living parent (who might be a child). Not published
                at all. A child with a KNOWN birth year is not held out: every child follows the same
@@ -24,6 +25,21 @@ source), so the only place it exists is David's MyHeritage tree, exported as a
 GEDCOM that lives outside the repository. `load_tree()` reads it and produces,
 for every person, the four facts the rule needs: birth year, whether a death or
 burial is recorded, the citations that count, and who the parents are.
+
+THE CUTOFF IS ONE CONSTANT, DERIVED: `CUTOFF = THIS_YEAR - LIVING_YEARS` (the year of the oldest person who
+is still living; 1946 in 2026). Everything in this archive that needs the boundary reads it from here
+(Python) or from src/lib/living.js (the pages), which takes the same 80 from the kit. A year >= CUTOFF with
+no death beside it is a living person's year wherever it is printed: `in_window()`.
+
+A PUBLIC SOURCE DOES NOT UN-LIVE A DATED PERSON (25 October 2026). The kit's `living_rule.is_living`
+returns False for ANY person carrying a public-source citation, whatever the birth year, on the reasoning
+that "what that source says may be shown". A public source can show that someone was born, or arrived; it
+cannot show that they are dead, and David's rule is 80 or younger with no death recorded. This archive
+published a woman born in 1946 as "not living", with her year, on exactly that (a FamilySearch ark on her
+row). So for a person WITH a birth year the citations are not passed to the kit's rule: the year and the
+absence of a death decide, alone (`cites_for_living`). An UNDATED person is unchanged: a public source still
+releases the recent-child inference, which is only an inference. The kit is not edited; the gap in its rule
+is reported (the same hole was closed in the Mazza archive on the same day).
 
 WHAT COUNTS AS A CITATION. The kit's `public_source` looks at strings. A MyHeritage
 export carries three kinds of source and only some are public records:
@@ -52,6 +68,40 @@ import living_rule as lr          # noqa: E402  (the shared definition; never co
 
 LEDGER = os.path.join(ROOT, "data", "living-ledger.json")
 THIS_YEAR = datetime.date.today().year
+LIVING_YEARS = lr.LIVING_YEARS                  # 80, the kit's
+CUTOFF = THIS_YEAR - LIVING_YEARS               # a birth year >= this is 80 or younger today (1946 in 2026)
+
+
+def cutoff(year=None):
+    """The oldest birth year that is still living in `year` (default: this year)."""
+    return (year or THIS_YEAR) - LIVING_YEARS
+
+
+def in_window(y, year=None):
+    """True if birth year `y` makes a person 80 or younger in `year` (and not born in the future)."""
+    try:
+        y = int(y)
+    except (TypeError, ValueError):
+        return False
+    return cutoff(year) <= y <= (year or THIS_YEAR)
+
+
+def cites_for_living(birth_year, cites):
+    """The citations the LIVING test may see for a person: none, if they have a birth year.
+    See the header (25 October 2026): a public source cannot make a dated person 80 or younger
+    with no death recorded 'not living'. An undated person keeps their citations."""
+    return [] if birth_year is not None else list(cites or [])
+
+
+def is_living(birth_year, recorded_dead, citations=(), today_year=None, **kw):
+    """The estate's rule, minus the kit's hole: this is the ONE call every script here makes."""
+    return lr.is_living(birth_year, recorded_dead, cites_for_living(birth_year, citations),
+                        today_year or THIS_YEAR, **kw)
+
+
+def possible_minor(birth_year, recorded_dead, citations=(), parent_living=False, today_year=None, **kw):
+    return lr.possible_minor(birth_year, recorded_dead, cites_for_living(birth_year, citations),
+                             parent_living, today_year or THIS_YEAR, **kw)
 
 # Collections that are somebody's tree, not a record. Matched as a prefix, lowercase.
 TREE_COLLECTIONS = ("geni world family tree", "wikitree", "genealogieonline family tree",
@@ -125,9 +175,9 @@ class Tree:
             return self._memo[k]
         p = self.people[uid]
         self._memo[k] = (False, False)          # break cycles in a malformed tree
-        living = lr.is_living(p["by"], p["dead"], p["cites"], year)
+        living = is_living(p["by"], p["dead"], p["cites"], year)
         pl = any(self.verdict(q, year)[0] for q in p["parents"] if q in self.people)
-        minor = lr.possible_minor(p["by"], p["dead"], p["cites"], pl, year)
+        minor = possible_minor(p["by"], p["dead"], p["cites"], pl, year)
         self._memo[k] = (living, minor)
         return self._memo[k]
 
@@ -208,7 +258,7 @@ def row_citations(r):
 def row_is_living(r, year=None):
     """The rule over a roster row's COMMITTED fields. A row already scrubbed (living flag, no
     birth year) cannot be re-derived here: it needs the tree. See Tree.verdict."""
-    return lr.is_living(r.get("b"), row_recorded_dead(r), row_citations(r), year or THIS_YEAR)
+    return is_living(r.get("b"), row_recorded_dead(r), row_citations(r), year or THIS_YEAR)
 
 
 # ---- place: the full town and the country, never a street or an institution ----

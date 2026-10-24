@@ -57,7 +57,7 @@ if __name__ == '__main__':
         b = year(ev.get('BIRT', {}).get('date'))
         d = year(ev.get('DEAT', {}).get('date'))
         # living-person rule (16 October 2026): omit anyone the estate's rule calls living or holds out
-        if L2.lr.is_living(b, bool(d), (), THIS_YEAR) or L2.lr.possible_minor(b, bool(d), (), False, THIS_YEAR):
+        if L2.is_living(b, bool(d), (), THIS_YEAR) or L2.possible_minor(b, bool(d), (), False, THIS_YEAR):
             omitted += 1
             continue
         if not d and not b:

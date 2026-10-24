@@ -85,11 +85,17 @@ challenge is not. Never enter credentials — David signs in, sessions drive.
 
 **A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more.**
 That is David's ruling of 16 October 2026 (the living-people standard, version 2), the same in every
-archive. Living is *80 or younger, by year, with no death or burial recorded and no citation from a public
-record source*; a person with no birth year is not living; an undated person with a living parent is not published at all (a child with a known birth year follows the standard).
+archive. Living is *80 or younger, by year, with no death or burial recorded*; a citation from a public
+record source does **not** un-live a person who has a birth year (25 October 2026: a source can show someone
+was born, never that they died; the kit's rule says otherwise, so `living_v2.py` withholds the citations from it
+for the dated). The boundary is one derived constant, `CUTOFF = this year - 80` (1946 in 2026): `living_v2.py` for
+scripts, `site/src/lib/living.js` for pages, nothing else spells the number; a person with no birth year is not living; an undated person with a living parent is not published at all (a child with a known birth year follows the standard).
 The test is `scripts/living_v2.py` over the kit's `living_rule.py`, never a hand-set flag. A birth year is
 never committed for a living person: `scripts/apply-living-rule.py` reads David's MyHeritage GEDCOM
-(outside the repository) and writes only the verdict. `scripts/check-living-v2.py` is the gate.
+(outside the repository) and writes only the verdict (`--roster-only` decides from the committed fields where there is no tree).
+`scripts/check-living-v2.py` is the gate: rule 7 fails the build on a year at or after the cutoff with no death beside it
+anywhere (data rows, built pages, JSON-LD, titles, after a living name; reviewed exceptions in `data/living-year-allow.json`),
+rule 8 on a page or script that spells the boundary out. `scripts/test-living-v2.py` plants the faults and runs in `check:living-v2`.
 
 ## 7. Ground you do not own
 

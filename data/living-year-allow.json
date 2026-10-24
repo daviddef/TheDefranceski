@@ -1,0 +1,17 @@
+{
+ "note": "Reviewed exceptions to scripts/check-living-v2.py rule 7 (a birth year of someone 80 or younger with no death beside it). Each entry is a decision: the snippet is removed from the text the gate reads, and `why` says who the year belongs to. A person is NOT allowed because they are in the roster as dead (the gate already reads that); an entry here is for a year the gate cannot attach to a name.",
+ "allow": [
+  {
+   "text": "Ivan was born on 17 December 1951",
+   "why": "Ivan Defranceski of Senj, roster row ivan-defranceski-1951: died 2026 (the gate reads the death, but the name is not within its reach on that page)."
+  },
+  {
+   "text": "8 Dec 1939 Born 29 Jun 1963",
+   "why": "Not a birth: a bishop's table, born 8 December 1939, ordained priest 29 June 1963 (the word Born heads the first column)."
+  },
+  {
+   "text": "Born 1953, the second of Ivan and Hedviga's three children",
+   "why": "Robert Robbie Defranceski, roster row robert-robbie-defranceski-1953, marked deceased from David's tree (the tree records the death, with a place, and no date). TO CONFIRM with David: if he is not dead, this entry and his year go."
+  }
+ ]
+}

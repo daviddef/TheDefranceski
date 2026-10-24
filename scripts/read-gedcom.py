@@ -134,7 +134,7 @@ def main():
                     if t.strip():
                         cites.append(tag + ": " + t.strip()[:400])
         import living_v2 as _L2          # imported here: living_v2 loads this file's parser, so not at the top
-        living = _L2.lr.is_living(int(by.group()) if by else None, bool(dd or d), cites, _L2.THIS_YEAR)
+        living = _L2.is_living(int(by.group()) if by else None, bool(dd or d), cites, _L2.THIS_YEAR)
         people[r["id"]] = {
             "id": r["id"], "name": name, "giv": giv, "sur": sur,
             "sex": val(r, "SEX"), "b": bd, "d": dd, "bp": bp, "dp": dp,

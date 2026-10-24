@@ -59,7 +59,7 @@ def living_names():
 # refugee file. A hand-set flag will not find the ninth either.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import living_v2 as L2
-PRESUME_ALIVE_WITHIN = L2.lr.LIVING_YEARS      # the estate's 80 years (standard v2), not a private 95
+PRESUME_ALIVE_WITHIN = L2.LIVING_YEARS         # the estate's 80 years (standard v2), not a private 95; the cutoff is L2.CUTOFF
 
 def unflagged_possibly_living(this_year=None):
     """Roster rows young enough to be alive, with no death and no flag."""
@@ -67,7 +67,8 @@ def unflagged_possibly_living(this_year=None):
     y = this_year or datetime.date.today().year
     out, allowed = [], []
     for r in (load("roster.json") or {}).get("rows", []):
-        if r.get("living") or L2.row_recorded_dead(r) or L2.row_citations(r):
+        # a public-source citation is NOT an exemption for a dated row (25 October 2026): only a living flag or a death is
+        if r.get("living") or L2.row_recorded_dead(r):
             continue
         # A row may carry an explicit decision to publish the dates anyway.
         # David, 22 September 2026: the rule is about relatives, and somebody
@@ -76,7 +77,7 @@ def unflagged_possibly_living(this_year=None):
         # so that the exception is a record and not a silence.
         # (the 22 September exemption is gone: one rule for everyone, 16 October 2026)
         b = r.get("b") if isinstance(r.get("b"), int) else r.get("bEst")
-        if isinstance(b, int) and y - b <= PRESUME_ALIVE_WITHIN:
+        if isinstance(b, int) and L2.in_window(b, y):
             out.append((b, r["name"], r.get("src") or "", r.get("place") or ""))
     return sorted(out, reverse=True), sorted(allowed)
 

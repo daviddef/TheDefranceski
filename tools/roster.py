@@ -160,8 +160,8 @@ if os.path.exists(MHTSV):
 kept, living, notsur = [], 0, 0
 for r in rows:
     if not SUR.search(r["name"]): notsur += 1; continue
-    if L2.lr.is_living(r["b"], r["d"] is not None, ["FamilySearch"] if r.get("ark") else [], L2.THIS_YEAR) \
-            or L2.lr.possible_minor(r["b"], r["d"] is not None, ["FamilySearch"] if r.get("ark") else [], False, L2.THIS_YEAR):
+    if L2.is_living(r["b"], r["d"] is not None, ["FamilySearch"] if r.get("ark") else [], L2.THIS_YEAR) \
+            or L2.possible_minor(r["b"], r["d"] is not None, ["FamilySearch"] if r.get("ark") else [], False, L2.THIS_YEAR):
         living += 1; continue
     if r["d"] is None and r["b"] is None and r["src"] in ("record",): pass
     r["line"] = line_of(r["place"] + " " + r["note"])

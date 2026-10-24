@@ -6,8 +6,11 @@
     python3 scripts/check-living-v2.py --dist dist --require-tree   # and David's tree, which only his machine has
 
 THE RULE (one definition, in the kit: kit/tools/living_rule.py, read through scripts/living_v2.py):
-living is 80 or younger by year with no death recorded and no public source; no birth year is not living;
-an UNDATED person with a living parent (a possible minor) is held out and not published at all.
+living is 80 or younger by year with no death recorded; no birth year is not living; an UNDATED person with a
+living parent (a possible minor) is held out and not published at all. A public-source citation does NOT make a
+person with a birth year "not living" (the kit's rule says it does; scripts/living_v2.py withholds the citations
+from it, and this gate does the same: 25 October 2026, after a woman born in 1946 was published with her year on
+the strength of a FamilySearch ark).
 
 WHY THIS READS THE DATA AND NOT THE GENERATOR. scripts/apply-living-rule.py decides who is living and
 writes the roster. This file decides again, from the committed roster and from the built pages, and
@@ -31,11 +34,17 @@ WHAT IT REFUSES.
   links      MORE unlinked relatives on living pages than the recorded count (see the ledger)
   tree       (with David's tree) a ledger entry the rule now disagrees with, a possible minor in the roster,
              and any held-out person's FULL NAME anywhere the archive publishes: data, pages, built site
+  year       (25 October 2026) A BIRTH YEAR THAT MAKES SOMEONE 80 OR YOUNGER (>= L2.CUTOFF, 1946 in 2026), with no
+             death beside it, anywhere: in any data row (source or built), in any built page, in JSON-LD, in a title,
+             after a living person's name, or as a `b. YYYY` / `born YYYY`. Nothing starts from the `living` flag or
+             from a citation: the year and the absence of a death decide, alone. See rule7_years().
+  cutoff     a page, component or script that spells the 80-year boundary out itself (`NOW - by < 80`) instead of
+             reading src/lib/living.js / scripts/living_v2.py, or a kit whose 80 disagrees with ours.
   empty      nothing to examine. A gate that examined zero people has not passed.
 
 Counts only are printed; a name never is.
 """
-import os, sys, re, io, json, glob, collections, argparse
+import os, sys, re, io, json, glob, collections, argparse, html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -98,6 +107,308 @@ def corpus_files(root, dist):
     return out
 
 
+
+# ============================================================================================================
+# RULE 7 (25 October 2026): no birth year of someone 80 or younger is published without a death beside it.
+#
+# The fault this closes: a woman born in 1946 was published as "not living", with her year in the title, the
+# heading, the JSON-LD, the search index, the timeline, the people lists and four name-cluster pages, because her
+# row carried a FamilySearch ark and the kit's rule takes a public source for a death. Every other living check
+# here started from the `living` flag, so none of them looked. This one starts from nothing: it reads every data
+# row and every built page for a year at or after the cutoff and asks whether a death is beside it.
+#
+#   7a  a data row that names a living person by pid / slug / who-address carries no birth or death field
+#   7b  a data row with a birth-ish field in the window, no death field, whose person the roster does not record
+#       as dead (by pid, by name page and the same year, or by name and the same year), and not flagged living
+#   7c  a built page or data file with `b. YYYY`, `born YYYY`, or JSON-LD birthDate YYYY in the window and no death
+#       marker within 80 characters; a reviewed exception goes in data/living-year-allow.json, each a decision
+#   7d  a living person's NAME followed (within a few characters) by a year in the window, or, with David's tree,
+#       a person the tree gives as 80 or younger with no death followed by their own birth year
+# ============================================================================================================
+BIRTHISH = {"b", "by", "born", "birth", "birthyear", "bornyear", "birthdate", "dob", "yob"}
+DEATHISH = {"d", "dy", "died", "death", "deathyear", "deathdate", "deceased", "dead", "buried", "dod"}
+YEAR_ONE = re.compile(r"(?<!\d)(1[0-9]\d\d|20\d\d)(?!\d)")
+MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
+DEATH_NEAR = re.compile(r"(died|death|dead|deceased|buried|burial|killed|drown|funeral|obituar|†|✝|\bd\.|\bd\s*\d|"
+                        r"[–-]\s*(?:\d{1,2}\s+" + MONTH + r"\s+)?(?:19|20)\d\d)", re.I)
+RX_B = re.compile(r"\bb\.\s*(?:\d{1,2}\s+" + MONTH + r"\s+)?(1[0-9]\d\d|20\d\d)\b", re.I)
+_Y = r"(?:1[0-9]\d\d|20\d\d)"
+# «born 1942, 1946 and 1947» (every year in the run), «born at Adelaide in 1967», «born — Dean in 1967 and Lisa in 1968»
+RX_BORN = re.compile(r"\b(?:born|geb\.)\s*(?:in|on|at|about|circa|c\.)?\s*(?:\d{1,2}\s+" + MONTH + r"\s+)?(?:" + MONTH + r"\s+)?"
+                     + _Y + r"(?:\s*(?:,|and|&)\s*(?:" + MONTH + r"\s+)?" + _Y + r")*\b", re.I)
+RX_BORN_IN = re.compile(r"\bborn\b[^.;\d]{0,30}?\bin\s+" + _Y + r"(?:[^.;\d]{0,24}\bin\s+" + _Y + r")*\b", re.I)
+RX_LD = re.compile(r'birthDate"\s*:\s*"([^"]*)"')
+
+
+def _birth_year(v):
+    """A single plain year out of a birth-ish value, else None. Two years (a span with an end) is not a bare birth."""
+    if isinstance(v, bool) or v is None:
+        return None
+    if isinstance(v, int):
+        return v if 1000 <= v <= 2100 else None
+    if isinstance(v, str):
+        ys = YEAR_ONE.findall(v)
+        if len(ys) == 1:
+            return int(ys[0])
+        if ys and re.search(r"[–-]\s*(\?|$)", v.strip()):
+            return int(ys[0])
+    return None
+
+
+def _slug_of(v):
+    if not isinstance(v, str):
+        return None
+    m = re.match(r"^/(?:who|person)/([^/]+)/?$", v.strip())
+    return m.group(1) if m else None
+
+
+def _walk_nodes(o):
+    stack = [o]
+    while stack:
+        x = stack.pop()
+        if isinstance(x, dict):
+            yield x
+            stack.extend(v for v in x.values() if isinstance(v, (dict, list)))
+        elif isinstance(x, list):
+            stack.extend(v for v in x if isinstance(v, (dict, list)))
+
+
+def _allow(root):
+    ap = os.path.join(root, "data", "living-year-allow.json")
+    if not os.path.exists(ap):
+        return []
+    return [a["text"] for a in _load_json(ap, {}).get("allow", []) if a.get("text")]
+
+
+def _name_norm(n):
+    return L2.name_key(n)
+
+
+def rule7_years(root, dist, rows, tree, year, P, S):
+    cut = L2.cutoff(year)
+    win = lambda y: isinstance(y, int) and cut <= y <= year
+    live_pids = {r["pid"] for r in rows if r.get("living") and r.get("pid")}
+    live_who = {(r.get("who") or "").strip("/").split("/")[-1] for r in rows if r.get("living") and r.get("who")}
+    live_who.discard("")
+    dead_pid, dead_who, dead_name = set(), collections.defaultdict(set), collections.defaultdict(set)
+    dead_win = []          # (name tokens, birth year) of roster people recorded dead who were born in the window
+    for r in rows:
+        if r.get("living") or not L2.row_recorded_dead(r):
+            continue
+        if r.get("pid"):
+            dead_pid.add(r["pid"])
+        w = (r.get("who") or "").strip("/").split("/")[-1]
+        for yy in (r.get("b"), r.get("d")):
+            if isinstance(yy, int):
+                if w:
+                    dead_who[w].add(yy)
+                dead_name[_name_norm(r.get("name"))].add(yy)
+        if isinstance(r.get("b"), int) and win(r["b"]):
+            toks = {t for t in _name_norm(r.get("name")).split() if len(t) > 1}
+            if toks:
+                dead_win.append((toks, r["b"]))
+    # the files: every JSON in the source data and the public folder, and every JSON in the built site
+    jfiles = []
+    for base in (os.path.join(root, "site", "src", "data"), os.path.join(root, "site", "public"), dist):
+        for dp, _, fs in os.walk(base):
+            for f in fs:
+                if f.endswith(".json") and f not in ("roster.json",):
+                    jfiles.append(os.path.join(dp, f))
+    n_rows = n_nodes = 0
+    bad_a, bad_b = [], []
+    for path in jfiles:
+        try:
+            doc = json.loads(rd(path))
+        except Exception:
+            continue
+        rel = os.path.relpath(path, root)
+        for d in _walk_nodes(doc):
+            n_nodes += 1
+            ids = [v for k, v in d.items() if k in ("pid", "slug", "id") and isinstance(v, str)]
+            who = [_slug_of(v) for k, v in d.items() if k in ("w", "who", "h", "href", "page") and _slug_of(v)]
+            is_live_flag = d.get("living") is True
+            names_live = bool((set(ids) & live_pids) or (set(who) & live_who) or (set(ids) & live_who))
+            life_vals = [(k, v) for k, v in d.items()
+                         if (k.lower() in BIRTHISH or k.lower() in DEATHISH
+                             or (k == "y" and ("d" in d or "n" in d or "name" in d) and "p" not in d and "living" not in d)
+                             or (k in ("y",) and "living" in d)
+                             or k == "dt")
+                         and v not in (None, "", [], {}, False, 0)]
+            if names_live and not is_live_flag:
+                n_rows += 1
+                if life_vals:
+                    bad_a.append("%s: a row that names a living person carries %s" % (rel, sorted({k for k, _ in life_vals})[:3]))
+                continue
+            if is_live_flag:
+                continue
+            # 7b
+            has_death = any(k.lower() in DEATHISH and v not in (None, "", [], {}, False, 0) for k, v in d.items())
+            for k, v in d.items():
+                kl = k.lower()
+                birthish = (kl in BIRTHISH or kl == "dt"
+                            or (k == "y" and ("d" in d) and ("n" in d or "name" in d))
+                            or (k == "y" and "living" in d))
+                if not birthish:
+                    continue
+                y = _birth_year(v)
+                if not win(y) or has_death:
+                    continue
+                nm = d.get("n") or d.get("name") or d.get("t") or ""
+                dead_ok = (set(ids) & dead_pid or any(y in dead_who.get(w, ()) for w in who)
+                           or y in dead_name.get(_name_norm(nm), ()))
+                if dead_ok:
+                    continue
+                bad_b.append("%s: a row with a birth year in the 80-year window, no death and no living flag (%s)" % (
+                    rel, (ids or who or [nm or "unnamed"])[0]))
+    S["rows naming a living person (rule 7a)"] = n_rows
+    S["data nodes read (rule 7)"] = n_nodes
+    for m in sorted(set(bad_a))[:8]:
+        P.append("year: " + m)
+    for m in sorted(set(bad_b))[:8]:
+        P.append("year: " + m)
+    if len(set(bad_a)) + len(set(bad_b)) > 16:
+        P.append("year: ... and %d more data rows" % (len(set(bad_a)) + len(set(bad_b)) - 16))
+
+    # 7c / 7d: the built site
+    allow = _allow(root)
+    live_names = sorted({re.sub(r"\s+", " ", re.sub(r"[“”\"]", "", re.sub(r"\(.*?\)", "", r["name"]))).strip()
+                         for r in rows if r.get("living") and len(r.get("name", "").split()) >= 2}, key=len, reverse=True)
+    name_rx = None
+    if live_names:
+        name_rx = re.compile("(?:" + "|".join(r"\s+".join(re.escape(t) for t in n.split()) for n in live_names) + r")\)?\s*[,(–—-]?\s*(?:b\.|born|geb\.)?\s*(?:in\s+)?(1[0-9]\d\d|20\d\d)(?![\d–-])", re.I)
+    win_names = {}
+    if tree is not None:
+        for p in tree.people.values():
+            if p["by"] is not None and not p["dead"] and L2.in_window(p["by"], year) and len(p["name"].split()) >= 2:
+                win_names.setdefault(re.sub(r"\s+", " ", p["name"]), set()).add(p["by"])
+    win_rx = None
+    if win_names:
+        win_rx = re.compile("|".join(r"\s+".join(re.escape(t) for t in n.split()) for n in sorted(win_names, key=len, reverse=True)))
+    hits = collections.Counter()
+    groups = collections.OrderedDict()           # (kind, year, snippet) -> [files]
+
+    def explained(y, near):
+        """A year in the window beside the NAME of a roster person recorded dead who was born that year."""
+        words = set(_name_norm(near).split())
+        return any(by == y and toks <= words for toks, by in dead_win)
+
+    def note(kind, y, rel, msg, snippet):
+        k = (kind, msg, re.sub(r"\s+", " ", snippet.lower()))
+        groups.setdefault(k, []).append(rel)
+    n_files = 0
+    for base, dp_ in ((dist, None),):
+        for dp, _, fs in os.walk(base):
+            for f in fs:
+                if not f.endswith((".html", ".json", ".xml", ".txt")):
+                    continue
+                path = os.path.join(dp, f)
+                n_files += 1
+                t = rd(path)
+                rel = os.path.relpath(path, dist)
+                ld = " ".join(RX_LD.findall(t)) if f.endswith(".html") else ""
+                if f.endswith(".html"):
+                    meta = " ".join(re.findall(r'<(?:title)[^>]*>[^<]*|content="[^"]*"', t))
+                    plain = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", t, flags=re.S)
+                    plain = TAGS.sub(" ", plain)
+                else:
+                    meta, plain = "", t
+                plain = re.sub(r"\s+", " ", html.unescape(plain))
+                for a in allow:
+                    plain = re.sub(re.escape(a), " ", plain, flags=re.I)
+                # JSON-LD: a Person's birthDate in the window with no deathDate in the same block
+                if f.endswith(".html"):
+                    for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S):
+                        try:
+                            doc = json.loads(blk)
+                        except ValueError:
+                            doc = None
+                        for d in (_walk_nodes(doc) if doc is not None else ()):
+                            y = _birth_year(d.get("birthDate"))
+                            if win(y) and not d.get("deathDate"):
+                                nmv = str(d.get("name") or "")
+                                if y in dead_name.get(_name_norm(nmv), ()):
+                                    continue
+                                hits["jsonld"] += 1
+                                note("jsonld", y, rel, "a Person's birthDate (%d) is in the 80-year window with no deathDate" % y, nmv)
+                                break
+                for kind, rx in (("b.", RX_B), ("born", RX_BORN), ("born in", RX_BORN_IN)):
+                    for m in rx.finditer(plain):
+                        for y in sorted({int(v) for v in YEAR_ONE.findall(m.group(0))}):
+                            if not win(y):
+                                continue
+                            near = plain[max(0, m.start() - 80): m.end() + 80]
+                            if DEATH_NEAR.search(near) or explained(y, plain[max(0, m.start() - 400): m.end() + 200]):
+                                continue
+                            hits[kind] += 1
+                            note(kind, y, rel, "«%s %d» is a birth year in the 80-year window with no death shown" % (kind, y), plain[max(0, m.start() - 40): m.end() + 30])
+                if name_rx:
+                    for m in name_rx.finditer(plain):
+                        y = int(m.group(1))
+                        if win(y):
+                            hits["name+year"] += 1
+                            note("name+year", y, rel, "a living person's name is followed by the year %d (80-year window)" % y, plain[max(0, m.start() - 10): m.end() + 10])
+                            break
+                if win_rx:
+                    for m in win_rx.finditer(plain):
+                        nm = re.sub(r"\s+", " ", m.group(0))
+                        tail = plain[m.end(): m.end() + 100]
+                        fm = YEAR_ONE.search(tail)
+                        if fm and re.fullmatch(r"[^\d]*", tail[:fm.start()]) and int(fm.group(0)) in win_names.get(nm, ()):
+                            hits["tree name+year"] += 1
+                            note("tree", int(fm.group(0)), rel, "a person the tree gives as 80 or younger with no death is followed by their own birth year", nm)
+                            break
+    S["built files read for years (rule 7)"] = n_files
+    S["year hits"] = sum(len(v) for v in groups.values())
+    for (kind, msg, snip), files in list(groups.items())[:12]:
+        P.append("year: %s (%d file%s, first %s; «…%s…»)" % (msg, len(files), "" if len(files) == 1 else "s", files[0], snip[:60]))
+    if len(groups) > 12:
+        P.append("year: ... and %d more distinct hits" % (len(groups) - 12))
+
+
+# RULE 8: the boundary is spelled once.
+LITERAL_BOUNDARY = [
+    re.compile(r"(?:getFullYear\(\)|\bNOW\b|\bYEAR\b|\bTHIS_YEAR\b|\bthisYear\b|\bnowYear\b|today(?:_year|Year)?\b)\s*-\s*[\w.\[\]]+\)?\s*(?:<|<=|>|>=)\s*(?:79|80|81)\b"),
+    re.compile(r"[\w.\[\]]+\s*(?:<|<=|>|>=)\s*(?:79|80|81)\b\s*(?:#.*)?$(?<=\S)"),   # placeholder, refined below
+    re.compile(r"\b(?:PRESUME\w*|PRESUMED?_?DEAD\w*|LIVING_YEARS|ALIVE_WITHIN|WINDOW|LIVING_AGE)\s*=\s*(?:79|80|81)\b"),
+    re.compile(r"\b(?:year|today\.year|YEAR|THIS_YEAR)\s*-\s*[\w.\[\]\"']+\)?\s*(?:<|<=|>|>=)\s*(?:79|80|81)\b"),
+]
+LITERAL_BOUNDARY = [LITERAL_BOUNDARY[0], LITERAL_BOUNDARY[2], LITERAL_BOUNDARY[3]]
+
+
+def rule8_cutoff_literals(root, P, S):
+    n = 0
+    for base, exts in (("site/src/pages", (".astro", ".js", ".ts")), ("site/src/components", (".astro", ".js", ".ts")),
+                       ("site/src/layouts", (".astro", ".js", ".ts")), ("site/src/lib", (".js", ".mjs", ".ts")),
+                       ("scripts", (".py", ".mjs", ".js")), ("tools", (".py", ".mjs", ".js"))):
+        for dp, _, fs in os.walk(os.path.join(root, base)):
+            for f in fs:
+                if not f.endswith(exts) or f in ("living.js", "living_v2.py", "check-living-v2.py", "test-living-v2.py"):
+                    continue
+                path = os.path.join(dp, f)
+                n += 1
+                for i, line in enumerate(rd(path).splitlines(), 1):
+                    code = line.split("//")[0] if path.endswith((".js", ".astro", ".ts", ".mjs")) else line.split("#")[0]
+                    if any(rx.search(code) for rx in LITERAL_BOUNDARY):
+                        P.append("cutoff: %s:%d spells the 80-year boundary out (use src/lib/living.js or scripts/living_v2.py)" % (
+                            os.path.relpath(path, root), i))
+    S["files read for a literal boundary (rule 8)"] = n
+    # the two copies of the number must agree: the kit's JS and the kit's Python
+    kit = os.path.join(root, "site", "node_modules", "@daviddef", "archive-kit", "kit")
+    pj = os.path.join(kit, "lib", "person.js")
+    if os.path.exists(pj):
+        m = re.search(r"export const LIVING_YEARS = (\d+);", rd(pj))
+        if not m or int(m.group(1)) != L2.LIVING_YEARS:
+            P.append("cutoff: the kit's JavaScript LIVING_YEARS (%s) is not the kit's Python LIVING_YEARS (%d)" % (
+                m.group(1) if m else "missing", L2.LIVING_YEARS))
+    lj = os.path.join(root, "site", "src", "lib", "living.js")
+    if os.path.exists(lj):
+        src = rd(lj)
+        if "LIVING_CUTOFF = THIS_YEAR - LIVING_YEARS" not in src or "archive-kit/lib/person.js" not in src:
+            P.append("cutoff: site/src/lib/living.js does not derive the cutoff from the kit's LIVING_YEARS")
+    elif os.path.isdir(os.path.join(root, "site", "src", "lib")):
+        P.append("cutoff: site/src/lib/living.js is missing: the pages have no single cutoff")
+
+
 def run(root, dist, tree, year, require_tree=False, verbose=False):
     P = []                                  # problems
     N = []                                  # notes
@@ -132,9 +443,22 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
                         P.append("place: a living row's place is not a town and a country: '%s' (%s)" % (
                             "" if re.search(r"\d", part) else "?", pid))
         else:
-            if lr.is_living(r.get("b"), L2.row_recorded_dead(r), L2.row_citations(r), year):
+            if L2.is_living(r.get("b"), L2.row_recorded_dead(r), L2.row_citations(r), year):
                 P.append("rule: the rule calls this person living and the row carries a birth year and no living mark (%s)" % pid)
+            elif isinstance(r.get("b"), int) and L2.in_window(r["b"], year) and not (
+                    r.get("d") or r.get("deceased") or r.get("src") in ("burial", "grave")):
+                # belt and braces, written without the kit: a year at or after the cutoff and no death field
+                P.append("rule: a row carries a birth year of someone 80 or younger, no death, and no living mark (%s)" % pid)
     S["pids"] = len({r.get("pid") for r in rows if r.get("pid")})
+    # A person born in the window who is published as dead on an UNDATED death mark (`deceased: true`, no death year) is
+    # published on the tree's word alone. The gate accepts it (a death recorded, dated or not, is a death) but says so,
+    # because if the mark is wrong the year is a living person's.
+    shaky = [r.get("pid") for r in rows if not r.get("living") and isinstance(r.get("b"), int) and L2.in_window(r["b"], year)
+             and r.get("deceased") and not r.get("d")]
+    S["born in the window, death recorded without a date"] = len(shaky)
+    if shaky:
+        N.append("%d person(s) born in the 80-year window are published on an undated death mark alone (%s): confirm with David" % (
+            len(shaky), ", ".join(sorted(shaky))))
 
     # ---------------- the built site ----------------
     if not dist or not os.path.isdir(dist):
@@ -269,7 +593,7 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
         for r in rows:
             if r.get("pid") in ledger_pids or r.get("living"):
                 continue
-            if r.get("b") or r.get("d") or r.get("deceased") or L2.row_recorded_dead(r) or L2.row_citations(r):
+            if r.get("b") or r.get("d") or r.get("deceased") or L2.row_recorded_dead(r):
                 continue
             c = [u_ for u_ in by_key.get(L2.name_key(r["name"]), []) if tree.verdict(u_, year)[0]]
             if c:
@@ -278,7 +602,7 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
         minors = [p for u_, p in tree.people.items() if tree.verdict(u_, year)[1]]
         known_children = [p for u_, p in tree.people.items()
                           if p["by"] is not None and (year - p["by"]) < 18 and not p["dead"]
-                          and not lr.public_source(p["cites"]) and not tree.verdict(u_, year)[1]]
+                          and not tree.verdict(u_, year)[1]]
         rkeys = {L2.name_key(r["name"]) for r in rows}
         keys = sorted({L2.name_key(p["name"]) for p in minors if len(L2.name_key(p["name"]).split()) >= 2})
         ckeys = sorted({L2.name_key(p["name"]) for p in known_children
@@ -325,6 +649,10 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
                 P.append("pages: a child with a known birth year is named in %s and has no person page" % f)
             if len(child_files) > 6:
                 P.append("pages: ... and %d more files naming a child with no page" % (len(child_files) - 6))
+
+    # ---------------- a year in the window, with no death, anywhere (25 October 2026) ----------------
+    rule7_years(root, dist, rows, tree, year, P, S)
+    rule8_cutoff_literals(root, P, S)
 
     # ---------------- refuse an empty examination ----------------
     if S["living rows"] == 0:

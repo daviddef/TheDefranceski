@@ -11,6 +11,7 @@ import lin from "../data/lineages.json";
 import dl from "../data/directline.json";
 import roster from "../data/roster.json";
 import { norm } from "../lib/people.js";
+import { bornInLivingWindow } from "../lib/living.js";
 
 /* THE LIVING, ON THIS PAGE.
    The archive's rule is that a living person is named and nothing more. The
@@ -20,9 +21,10 @@ import { norm } from "../lib/people.js";
    to the checker: it never learns the year belongs to them. Two of these were
    already reaching the page through the exactly-three bucket.
    So the suppression is done here, on the same two tests the kit itself uses:
-   the data's own living flag, and its PRESUME_DEAD_AFTER = 80. */
-const NOW = new Date().getFullYear();
-const PRESUME_DEAD_AFTER = 80;
+   the data's own living flag, and the 80-year window. The window is src/lib/living.js,
+   derived from the kit's LIVING_YEARS: this page used to compare the age with 80 using a strict
+   «less than», which is 79 in effect, so a child born exactly 80 years ago (1946 in 2026) was not
+   withheld (25 October 2026). */
 const flaggedLiving = new Set(
   roster.rows.filter(r => r.living || r.presumedLiving || r.alive || r.isLiving
                      || String(r.conf || "").toLowerCase() === "living")
@@ -34,7 +36,7 @@ const flaggedLiving = new Set(
 const maybeLiving = (c) =>
   !c.dy && !c.dead && (
     flaggedLiving.has(norm(c.name)) ||
-    (c.by && (NOW - c.by) < PRESUME_DEAD_AFTER));
+    (c.by && bornInLivingWindow(c.by)));
 /* Which of these households is a generation of the direct line? The tree shows
    those eight as couples; this page should say which of them they are. */
 const onTree = new Map();

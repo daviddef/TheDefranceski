@@ -335,7 +335,7 @@ def _fixture():
         row("Gg Hhhh", "gg-hhhh-2", d=1710),
         row("Ii Jjjj", "ii-jjjj-1", d=1690),                                 # one person read twice
         row("Ii Jjjj", "ii-jjjj-2", d=1690, sameAs="ii-jjjj-1"),
-        row("Nn Oooo", "nn-oooo", b=1953, src="record", ark="1:1:AAAA-BBBB"),     # born 1953, a public record: not shown dead
+        row("Nn Oooo", "nn-oooo", b=1953, src="record", ark="1:1:AAAA-BBBB"),     # born 1953, a public record: living all the same (a source is not a death)
         row("Pp Qqqq", "pp-qqqq", src="myheritage"),                         # undated, family tree: not shown dead
         row("Rr Ssss", "rr-ssss", d=1650),                                   # dead, but a label below names the same plain name
         row("Rr Ssss, daughter of Tttt", "rr-ssss-2", d=1655, who=""),       # a second Rr Ssss in a label
@@ -391,7 +391,7 @@ def self_test():
 
     caught("a living person planted", with_(lambda i, l: i["people"].append({"name": "Cc Dddd", "aliases": [], "url": "/person/cc-dddd/"})), "living")
     caught("a name with a living bearer planted", with_(lambda i, l: i["people"].append({"name": "Ee Ffff", "aliases": [], "url": "/person/ee-ffff-1/"})), "living")
-    caught("a person born 1953 planted", with_(lambda i, l: i["people"].append({"name": "Nn Oooo", "aliases": [], "url": "/person/nn-oooo/"})), "dead")
+    caught("a person born 1953 with a public record planted", with_(lambda i, l: i["people"].append({"name": "Nn Oooo", "aliases": [], "url": "/person/nn-oooo/"})), "living")
     caught("an undated tree person planted", with_(lambda i, l: i["people"].append({"name": "Pp Qqqq", "aliases": [], "url": "/person/pp-qqqq/"})), "dead")
     caught("a name two dead people bear planted as one person", with_(lambda i, l: i["people"].append({"name": "Gg Hhhh", "aliases": [], "url": "/person/gg-hhhh-1/"})), "bearers")
     caught("a name a roster label also bears planted as one person", with_(lambda i, l: i["people"].append({"name": "Rr Ssss", "aliases": [], "url": "/person/rr-ssss/"})), "bearers")

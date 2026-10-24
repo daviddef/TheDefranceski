@@ -71,7 +71,7 @@ Say so when it is. Verification is worth publishing; it is not discovery.
 - **Never work around a bot check, CAPTCHA or rate limit.** Stop, record where,
   say so. A *different, open* source for the same question is fine.
 - **Never enter credentials.** David signs in; sessions drive.
-- **Living people:** A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more. No dates, no records, no photograph, no `Person` data; the page is `noindex`. Possible minors are not published at all. The test is `scripts/living_v2.py` (the kit's `living_rule.py`); the gate is `scripts/check-living-v2.py`.
+- **Living people:** A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more. No dates, no records, no photograph, no `Person` data; the page is `noindex`. Possible minors are not published at all. The test is `scripts/living_v2.py` (the kit's `living_rule.py`, minus its hole: a public-source citation never un-lives a person who has a birth year); the cutoff is one derived constant (this year - 80), `L2.CUTOFF` / `site/src/lib/living.js`; the gate is `scripts/check-living-v2.py` (rule 7: no year at or after the cutoff without a death beside it, anywhere).
 
 ## Ground you do not own
 
