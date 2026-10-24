@@ -52,7 +52,7 @@ HAND_EDITED = {
     "kalanj.json", "kobler.json", "kvarner-books.json", "landmarks.json", "library.json", "lines.json",
     "listria.json", "liznjan.json", "marriages.json", "marriedin.json", "maternal.json", "matricula.json",
     "method.json", "migration.json", "mymap-page.json", "namefold.json", "namefold-extra.json",
-    "namesakes.json", "notables.json", "oldsite.json", "omis.json", "parishbooks.json", "parishmap.json",
+    "namesakes.json", "notables.json", "oldsite.json", "omis.json", "our-line.json", "parishbooks.json", "parishmap.json",
     "people.json", "pfullingen.json", "places.json", "portraits.json", "pressures.json", "provenance.json",
     "questions.json", "reads.json", "regions.json", "register.json", "registers.json", "ribbon.json",
     "rivers.json", "searched.json", "seget.json", "seget-voce.json", "senjline.json", "shots.json",

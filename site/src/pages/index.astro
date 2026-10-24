@@ -205,6 +205,12 @@ const spineRows = gens.map((g, i) => {
 </section>
 
 <section class="opener">
+  <a class="startbook" href={u("/our-line/")}>
+    <span class="sb-k">Start here</span>
+    <span class="sb-t">Start with the story: <em>Down from the Hill</em></span>
+    <span class="sb-d">The line told once, as a short book: a weaver's household on an Istrian hill, a farmer, a stonecutter, the move down to the sea, a grave at Senj, and on to Brisbane. About twenty-five minutes, and every paragraph says how well it is known.</span>
+    <span class="sb-c">Begin reading →</span>
+  </a>
   <p class="lede">
     This archive was built by <b>David Defranceski</b>, born in Johannesburg, living in Brisbane —
     and it runs backwards from him: to <b>Senj</b>, where his grandfather Ivan is buried; to
@@ -352,3 +358,15 @@ const spineRows = gens.map((g, i) => {
     See <a href={u("/method/")}>Method</a>.</p>
   </section>
 </Base>
+
+<style>
+  /* The one calm way in, above the doors (25 October 2026): David asked for an easy first place to go. */
+  .startbook { display: block; max-width: 760px; margin: 0 0 26px; padding: 18px 22px 16px; text-decoration: none;
+    background: var(--panel); border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: 2px; color: var(--ink); }
+  .startbook:hover { border-color: var(--accent); }
+  .startbook:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+  .sb-k { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  .sb-t { display: block; font-family: var(--serif); font-size: clamp(22px, 3vw, 27px); line-height: 1.2; margin-top: 6px; }
+  .sb-d { display: block; font-family: var(--serif); font-size: 17px; line-height: 1.5; color: var(--ink-2); margin-top: 8px; }
+  .sb-c { display: block; font-family: var(--sans); font-size: 13.5px; font-weight: 600; color: var(--accent); margin-top: 10px; }
+</style>

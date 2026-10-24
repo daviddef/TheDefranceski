@@ -1,0 +1,171 @@
+---
+/* THE BOOK OF THE LINE (25 October 2026). The reader's first page: the direct line told once as a short book.
+   The prose is data (src/data/our-line.json) so a gate can read it; this template only sets it. Two registers, told apart
+   at a glance: the people (reg A), each paragraph marked doc / inf / lore by its weakest claim and linked to the
+   evidence; and the world around them (reg B), set in from the margin, marked archive or history by its source.
+   Plates are the archive's own, of documents and of the dead, through the shared Plates component. */
+import Base from "../layouts/Base.astro";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
+import Sources from "../components/Sources.astro";
+import Rule from "../components/Rule.astro";
+import { md } from "../lib/md.js";
+import { u } from "../lib/url.js";
+import book from "../data/our-line.json";
+
+const chapters = [...book.chapters, book.closing];
+const href = (h) => (h.startsWith("#") ? h : u(h));
+const markWord = { doc: "doc", inf: "inf", lore: "lore", archive: "archive", history: "history" };
+const markTitle = { doc: "Documented", inf: "Inferred", lore: "Family lore", archive: "From this archive's own pages", history: "General history" };
+/* A run of world paragraphs opens with the small-caps lead once, not once per paragraph. */
+const leads = (paras) => paras.map((p, i) => p.reg === "B" && (i === 0 || paras[i - 1].reg !== "B"));
+---
+<Base title={book.title} eyebrow={book.eyebrow} dek={book.dek}>
+
+<div class="ol">
+  <aside class="ol-legend" aria-label="How to read the marks">
+    <span class="ol-lt">How to read the marks</span>
+    {book.legend.map(([k, w]) => (
+      <span class="ol-li"><sup class={`mk mk-${k}`}>{k}</sup> {w}</span>
+    ))}
+    <span class="ol-li"><span class="ol-wl">In the world around them</span> the place and the years, never these people; marked <sup class="mk mk-archive">archive</sup> or <sup class="mk mk-history">history</sup></span>
+  </aside>
+
+  <nav class="ol-toc" aria-label="Chapters">
+    <a href="#start">{book.prologue.title}</a>
+    {chapters.map((c) => <a href={`#${c.id}`}><span class="ol-tn">{c.n}</span> {c.title}</a>)}
+    <a href="#unknown">{book.unknown.title}</a>
+  </nav>
+
+  <section class="ol-ch ol-pro" id="start" aria-labelledby="start-h">
+    <h2 id="start-h" class="ol-h">{book.prologue.title}</h2>
+    {book.prologue.paras.map((p) => (
+      <p class="ol-p" id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{markWord[p.g]}</a></sup></p>
+    ))}
+  </section>
+
+  {chapters.map((c) => {
+    const lead = leads(c.paras);
+    return (
+      <>
+        <Rule name="arrows" />
+        <section class="ol-ch" id={c.id} aria-labelledby={`${c.id}-h`}>
+          <header class="ol-head">
+            <div class="ol-num" aria-hidden="true">{c.n}</div>
+            <h2 id={`${c.id}-h`} class="ol-h"><span class="vh">Chapter {c.n}. </span>{c.title}</h2>
+            <p class="ol-when">{c.when}</p>
+          </header>
+          {c.paras.map((p, i) => (
+            p.reg === "B"
+              ? <div class="ol-world" id={p.id}>
+                  <p class="ol-p">{lead[i] && <span class="ol-wl">In the world around them. </span>}<span set:html={md(p.t)} />{p.src.map((s) => (
+                    <sup class={`mk mk-${s.k}`}><a href={href(s.href)} title={`${markTitle[s.k]}: ${s.why}`}>{markWord[s.k]}</a></sup>
+                  ))}</p>
+                </div>
+              : <p class={`ol-p${i === 0 ? " ol-first" : ""}`} id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{markWord[p.g]}</a></sup></p>
+          ))}
+          {c.plates && c.plates.length > 0 && (
+            <div class="ol-plates"><Plates ids={c.plates} /></div>
+          )}
+          {c.papers && (
+            <p class="ol-papers"><span class="ol-pl">The papers for this chapter</span>
+              {c.papers.map(([t, h], k) => <>{k > 0 && <span aria-hidden="true"> · </span>}<a href={href(h)}>{t}</a></>)}
+            </p>
+          )}
+        </section>
+      </>
+    );
+  })}
+
+  <Rule name="pomegranate" />
+  <section class="ol-ch" id="unknown" aria-labelledby="unknown-h">
+    <h2 id="unknown-h" class="ol-h">{book.unknown.title}</h2>
+    <p class="ol-p">{book.unknown.lead}</p>
+    <ul class="ol-list">
+      {book.unknown.items.map((x) => (
+        <li><span set:html={md(x.t)} /> <a class="ol-more" href={href(x.href)}>Where it stands →</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="ol-ch" id="papers" aria-labelledby="papers-h">
+    <h2 id="papers-h" class="ol-h">{book.readPapers.title}</h2>
+    <p class="ol-p">{book.readPapers.lead}</p>
+    <ul class="ol-list ol-read">
+      {book.readPapers.links.map(([t, h, w]) => (
+        <li><a href={href(h)}>{t}</a> <span class="ol-rw">{w}</span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="ol-ch ol-notes" id="world-notes" aria-labelledby="notes-h">
+    <h2 id="notes-h" class="ol-h ol-hs">{book.worldNotes.title}</h2>
+    <p class="ol-p">{book.worldNotes.lead}</p>
+    <ol class="ol-list ol-wn">
+      {book.worldNotes.items.map(([k, claim, src]) => (
+        <li id={`world-${k}`}><span class="ol-wk">{k}</span> {claim} <span class="ol-rw">{src}</span></li>
+      ))}
+    </ol>
+  </section>
+</div>
+
+<Lightbox />
+<Sources ids={["dapa", "maticne", "arolsen", "familysearch", "huic", "ivetic"]} />
+</Base>
+
+<style>
+  .ol { max-width: 68ch; margin: 0 auto; }
+  .ol-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5;
+    color: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0; margin: 6px 0 22px; }
+  .ol-lt { flex-basis: 100%; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 10.5px; color: var(--ink-3); }
+  .ol-li { display: inline-block; }
+  .ol-toc { display: flex; flex-direction: column; gap: 4px; font-family: var(--sans); font-size: 14px; margin: 0 0 8px; }
+  .ol-toc a { color: var(--accent); text-decoration: none; padding: 2px 0; }
+  .ol-toc a:hover { text-decoration: underline; }
+  .ol-tn { display: inline-block; min-width: 2.6em; font-family: var(--serif); color: var(--ink-3); }
+
+  .ol-ch { margin: 26px 0 8px; }
+  .ol-head { text-align: center; margin: 4px 0 26px; }
+  .ol-num { font-family: var(--serif); font-size: 15px; letter-spacing: .3em; color: var(--accent); }
+  .ol-h { font-family: var(--serif); font-weight: 500; font-size: clamp(27px, 4.4vw, 36px); line-height: 1.15; margin: 6px 0 0; color: var(--ink); }
+  .ol-pro .ol-h, #unknown .ol-h, #papers .ol-h { font-size: clamp(24px, 3.6vw, 30px); }
+  .ol-hs { font-size: 22px !important; }
+  .ol-when { font-family: var(--serif); font-variant: small-caps; letter-spacing: .08em; font-size: 17px; color: var(--ink-2); margin-top: 8px; }
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .ol-p { font-family: var(--serif); font-size: 20px; line-height: 1.62; color: var(--ink); margin: 0 0 16px; hyphens: auto; overflow-wrap: break-word; }
+  .ol-first::first-letter { float: left; font-size: 3.15em; line-height: .86; padding: 6px 8px 0 0; color: var(--accent); font-weight: 500; }
+  .ol-world { margin: 4px 0 18px; padding: 2px 0 2px 1.4em; border-left: 2px solid var(--rule); }
+  .ol-world .ol-p { font-size: 18.5px; color: var(--ink-2); margin-bottom: 0; }
+  .ol-wl { font-variant: small-caps; letter-spacing: .08em; color: var(--ink-3); font-weight: 500; }
+
+  .mk { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .06em; line-height: 0; margin-left: 4px; vertical-align: super; white-space: nowrap; }
+  .mk a { text-decoration: none; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .mk a:hover { text-decoration: underline; }
+  .mk-doc { color: var(--accent); }
+  .mk-inf { color: var(--ev-inferred); }
+  .mk-lore { color: var(--ev-family); font-style: italic; }
+  .mk-archive, .mk-history { color: var(--ink-3); font-weight: 500; }
+  .ol-legend .mk { line-height: 1; margin-left: 0; }
+
+  .ol-plates { margin: 22px 0 6px; }
+  .ol-papers { font-family: var(--sans); font-size: 13.5px; line-height: 1.75; color: var(--ink-2); margin: 18px 0 0; padding-top: 10px; border-top: 1px dotted var(--rule-strong); }
+  .ol-pl { display: block; font-variant: small-caps; letter-spacing: .1em; font-size: 14px; color: var(--ink-3); }
+  .ol-papers a { color: var(--accent); }
+
+  .ol-list { font-family: var(--serif); font-size: 18.5px; line-height: 1.55; color: var(--ink); padding-left: 1.1em; margin: 0; }
+  .ol-list li { margin: 0 0 12px; }
+  .ol-more { font-family: var(--sans); font-size: 13px; color: var(--accent); white-space: nowrap; }
+  .ol-read a { color: var(--accent); }
+  .ol-rw { color: var(--ink-2); font-size: .9em; }
+  .ol-notes .ol-p, .ol-wn { font-size: 15.5px; }
+  .ol-wk { font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--ink-3); margin-right: 4px; }
+  .ol a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  @media (max-width: 520px) {
+    .ol-p { font-size: 18.5px; line-height: 1.58; }
+    .ol-world { padding-left: .9em; }
+    .ol-world .ol-p { font-size: 17px; }
+    .ol-list { font-size: 17px; }
+  }
+</style>
