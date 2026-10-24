@@ -89,6 +89,14 @@ run rec       env ARCHIVE_OUT="$OUT" python3 ../scripts/check-rec.py
 run rec-faults python3 ../scripts/check-rec.py --self-test
 run standard-faults python3 "$KIT/checkstandard_selftest.py"
 run standard  env ARCHIVE_OUT="$OUT" python3 ../scripts/standard-run.py
+# THE "AT THE TIME" NOTES (25 October 2026; kit/docs/era-notes.md). The place table is judged against the rows and the pages
+# (scripts/build-era.py --check); the kit's gate then reads the BUILT person pages, re-derives every note from the committed
+# snapshot, its place and its year, and fails a note on a living or noindex page, an unlisted era, a wrong mark or a missing
+# one (the living list is made from the committed roster); the third line plants a fault for each rule and requires each caught.
+run eraground python3 ../scripts/build-era.py --check
+python3 ../scripts/build-era.py --living-urls ../private/era-living.json >/dev/null || { echo "gate: the era living list could not be made"; exit 2; }
+run era       python3 "$KIT/checkera.py" --dist "$OUT" --snapshot src/data/era-snapshot.json --living-urls ../private/era-living.json --require-tracked
+run era-faults python3 "$KIT/era_selftest.py"
 # The living-people standard v2 (16 October 2026). It decides who is living ITSELF, from the committed roster and
 # the built pages, and (with David's tree, which is outside the repository) from the tree; the generator's word
 # is not taken. --require-tree: on this machine the tree must be found, or the people the rule holds out cannot

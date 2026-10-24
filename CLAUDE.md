@@ -136,3 +136,19 @@ commit that says why.
   `people` row of the names index (`site/src/data/read-names.json`, the second source of `build-names-index.py`, judged again by
   `check-names-index.py`). The parish-book readings themselves exist only as prose: no name is taken from prose.
 * Do not add the generic `page N` / `act N` patterns, or a table mode, to `standard.json` to make a count fall; add a record link or a full name.
+
+## The "at the time" notes (25 October 2026)
+
+A quiet line under the Place row of a deceased person's page, from the Record Atlas's region eras (kit/docs/era-notes.md; snapshot version 5, kit 2ce1fa4):
+`· At the time: Habsburg / Austria–Hungary per the Record Atlas, drawn from this archive's own research`. Text only, no flag, no ruler (rulers are OFF; only Calabria has them), nothing on a
+living page or a duplicate. The page prints one place and the person's years, so a note is drawn only where every plain year the page prints (born, died) has the SAME note.
+
+* **The place table is geometry, not a name guess.** `data/era-ground.tsv` names the TOWN each place string is (or leaves it empty: a country, a route "A → B", two places, a homonym), `data/era-towns.tsv` holds the
+  point (and an `exclude` reason where a ring is known to reach over ground that was not the region's), and `scripts/build-era.py --decide <context.json>` sets the region from the Atlas's ring that contains the
+  point (the smallest ring; two peer rings and no edge in sight: no region). A new place string fails `npm run check:era-ground` until it has a row.
+* **The snapshot is committed, never fetched**: `scripts/build-era.py --snapshot <context.json>` (copy `Record Atlas/site/public/context.json` first; the Atlas repo is read-only here) rebuilds
+  `site/src/data/era-snapshot.json` with `--unassessed allow` (the recorded policy: the notes say whether the era was assessed). Refresh deliberately and review the diff.
+* The Istria, Kvarner, Carnia and Dalmatia eras are SEEDED from `sovereignty.json`, so those notes say so. `scripts/compare-sovereignty.py <context.json>` counts where our bands and the Atlas's eras disagree.
+* Gates: `check:era-ground`, `check:era` (the kit's `checkera.py` on the built pages), `check:era:selftest`, all in the build and in `scripts/gate-isolated.sh`. `scripts/verify-era-independent.py --contract <context.json> --dist <dist>`
+  re-derives every note from the contract and the rings with no kit code, both directions (0 wrong, 0 missing is the standard). A tool that reads built text must skip `.era-note` and `<style data-era-css>`.
+* The note's source words are long on a seeded era: `[pid].astro` lets them wrap (the kit sets `white-space:nowrap`), or a phone's page runs wider than the screen.

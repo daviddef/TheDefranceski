@@ -1,0 +1,1011 @@
+{
+ "_about": "Built by scripts/build-era.py from data/era-ground.tsv and data/era-towns.tsv. Place as printed -> {region, lat, lon}, or null where no Atlas region covers it. Read by kit erasnap.py.",
+ "places": {
+  "Adelaide": null,
+  "Adelaide, South Australia, Australia": null,
+  "Almissa, Spalato, Dalmazia, Austria": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "Argentina": null,
+  "Arlington, Virginia, USA": null,
+  "Assunzione di Maria Santissima, Telve, Trento, Italy": {
+   "lat": 46.07,
+   "lon": 11.47,
+   "region": "trentino"
+  },
+  "Athens, Clarke County, Georgia, USA": null,
+  "Atlanta, Georgia": null,
+  "Austria": null,
+  "Bad Urach": null,
+  "Bakar": {
+   "lat": 45.31,
+   "lon": 14.53,
+   "region": "kvarner"
+  },
+  "Bakar, Modrus-Fiume": {
+   "lat": 45.31,
+   "lon": 14.53,
+   "region": "kvarner"
+  },
+  "Bakar, Primorsko-goranska": {
+   "lat": 45.31,
+   "lon": 14.53,
+   "region": "kvarner"
+  },
+  "Bakar, Primorsko-goranska, Hrvatska": {
+   "lat": 45.31,
+   "lon": 14.53,
+   "region": "kvarner"
+  },
+  "Bale": {
+   "lat": 45.04,
+   "lon": 13.78,
+   "region": "istria-south"
+  },
+  "Basel, Switzerland": null,
+  "Belgrade, Serbia": {
+   "lat": 44.8,
+   "lon": 20.46,
+   "region": "serbia"
+  },
+  "Beverley, Western Australia": null,
+  "Borgo Sansepolcro": null,
+  "Boulogne": null,
+  "Brisbane, Queensland, Australia": {
+   "lat": -27.47,
+   "lon": 153.03,
+   "region": "queensland"
+  },
+  "Broken Hill, New South Wales, Australia": null,
+  "Bronx, New York, USA": null,
+  "Brooklyn, Kings County, New York, United States": null,
+  "Brtonigla": {
+   "lat": 45.39,
+   "lon": 13.61,
+   "region": "istria-west"
+  },
+  "Buenos Aires · Washington": null,
+  "Bulleen, Victoria, Australia": null,
+  "Bushnell, Sumter County, Florida, USA": null,
+  "Cadillac, Wexford County, Michigan": null,
+  "Candia, Crete": null,
+  "Castelgomberto, Vicenza": {
+   "lat": 45.58,
+   "lon": 11.4,
+   "region": "veneto"
+  },
+  "Castelgomberto, Vicenza, Veneto": {
+   "lat": 45.58,
+   "lon": 11.4,
+   "region": "veneto"
+  },
+  "Castelnovo del Friuli, Pordenone": {
+   "lat": 46.2,
+   "lon": 12.9,
+   "region": "veneto"
+  },
+  "Castronovo": null,
+  "Castronovo → Torrington, Connecticut": null,
+  "Cathedral City, Riverside County, California, USA": null,
+  "Cavrano → Pola": null,
+  "Chalfont, Bucks County, Pennsylvania, USA": null,
+  "Chialina": {
+   "lat": 46.49,
+   "lon": 12.87,
+   "region": "carnia"
+  },
+  "Clarksburg, Harrison County, West Virginia, USA": null,
+  "Clarksburg, Harrison, West Virginia": null,
+  "Cles, Trento": {
+   "lat": 46.36,
+   "lon": 11.03,
+   "region": "trentino"
+  },
+  "Clifton, Passaic, New Jersey": null,
+  "Clinton, East Feliciana Parish, Louisiana, USA": null,
+  "Colonia, Uruguay": {
+   "lat": -34.47,
+   "lon": -57.84,
+   "region": "uruguay"
+  },
+  "Concesio, Brescia": null,
+  "Connecticut": null,
+  "Corsica · France": null,
+  "Crikvenica": {
+   "lat": 45.18,
+   "lon": 14.69,
+   "region": "kvarner"
+  },
+  "Crikvenica → Pfullingen → Senj": null,
+  "Crikvenica, Modrus-Fiume, Mađarska": {
+   "lat": 45.18,
+   "lon": 14.69,
+   "region": "kvarner"
+  },
+  "Croatia, parish not named": null,
+  "Croazia, Austria": null,
+  "Croydon, Surrey": {
+   "lat": 51.38,
+   "lon": -0.1,
+   "region": "england"
+  },
+  "Dallas, Texas": null,
+  "Detroit, Wayne, Michigan": null,
+  "Dolo, Venezia, Veneto, Italy": {
+   "lat": 45.42,
+   "lon": 12.08,
+   "region": "veneto"
+  },
+  "Draguč": null,
+  "Dubrovnik": null,
+  "Dubrovnik-Grad": null,
+  "Dueville, Vicenza": {
+   "lat": 45.63,
+   "lon": 11.55,
+   "region": "veneto"
+  },
+  "East Farmingdale, Suffolk County, New York, USA": null,
+  "Ellis Island": null,
+  "Fasana": {
+   "lat": 44.93,
+   "lon": 13.81,
+   "region": "istria-south"
+  },
+  "Fawkner, Victoria, Australia": null,
+  "Fažana": {
+   "lat": 44.93,
+   "lon": 13.81,
+   "region": "istria-south"
+  },
+  "Fažana (Fasana), Istria": {
+   "lat": 44.93,
+   "lon": 13.81,
+   "region": "istria-south"
+  },
+  "Fiera di Primiero, Trento": {
+   "lat": 46.17,
+   "lon": 11.83,
+   "region": "trentino"
+  },
+  "Fiume, Modrus-Fiume": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Fiume, Modrus-Fiume, Ungheria": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Fiume, Rijeka": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Forlì": null,
+  "France · Spain": null,
+  "Friedrichstadt, Dresden, Saxony, Germany": null,
+  "Gaillard, Haute-Savoie": null,
+  "Gallignana": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Germany": null,
+  "Giubiasco, Ticino, Switzerland": null,
+  "Gologorica": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica → Gračišće": null,
+  "Gologorica, Istra": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica, Istra, Croatia": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica, Općina Cerovlje": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica, Pazin, Istria": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica, house 2": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica, house 3": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gologorica, house 6 · 10": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
+  "Gracisce, Istra": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Gračišće": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Gračišće (Galignana) → Pola": null,
+  "Gračišće (Gallignana)": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Gračišće (Gallignana) → Dachau": null,
+  "Gračišće (Gallignana), house 19": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Gračišće (Gallignana), house 5": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Gračišće → Crikvenica": null,
+  "Gračišće → Pola": null,
+  "Gračišće, Istria": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Harrison, West Virginia": null,
+  "Hartsdale, Westchester County, New York, USA": null,
+  "Horsham, Australia": null,
+  "Horsham, Rural City of Horsham, Victoria, Australia": null,
+  "Illegio, Tolmezzo": {
+   "lat": 46.43,
+   "lon": 13.06,
+   "region": "carnia"
+  },
+  "Immacolata Concezione, Strigno, Trento, Trentino-Alto Adige, Italia": {
+   "lat": 46.06,
+   "lon": 11.52,
+   "region": "trentino"
+  },
+  "Istria": null,
+  "Italy": null,
+  "Johannesburg": {
+   "lat": -26.2,
+   "lon": 28.04,
+   "region": "transvaal"
+  },
+  "Johannesburg, South Africa": {
+   "lat": -26.2,
+   "lon": 28.04,
+   "region": "transvaal"
+  },
+  "Kanahooka, Wollongong, New South Wales, Australia": null,
+  "Kastelir": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kastelir, Croatia": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir (Vižinada)": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir, Croatia": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir, Istra": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir, Istra, Croatia": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir, Istra, Hrvatska": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Kaštelir, Küstenland, Österreich": {
+   "lat": 45.3,
+   "lon": 13.69,
+   "region": "istria-west"
+  },
+  "Klenovica, Vinodol": {
+   "lat": 45.1,
+   "lon": 14.85,
+   "region": "kvarner"
+  },
+  "Klenovica, house 22 → Pfullingen": null,
+  "Koper": null,
+  "Koper · Padua · Udine": null,
+  "Labin": null,
+  "Laives": {
+   "lat": 46.43,
+   "lon": 11.34,
+   "region": "trentino"
+  },
+  "Laives, Bolzano": {
+   "lat": 46.43,
+   "lon": 11.34,
+   "region": "trentino"
+  },
+  "Laives, Bolzano, South Tyrol": {
+   "lat": 46.43,
+   "lon": 11.34,
+   "region": "trentino"
+  },
+  "Laives, Bozen": {
+   "lat": 46.43,
+   "lon": 11.34,
+   "region": "trentino"
+  },
+  "Laives, Bozen, Tirol": {
+   "lat": 46.43,
+   "lon": 11.34,
+   "region": "trentino"
+  },
+  "Lake City, Missaukee County, Michigan, USA": null,
+  "Laterza, Taranto": null,
+  "Ledenice": {
+   "lat": 45.14,
+   "lon": 14.84,
+   "region": "kvarner"
+  },
+  "Ledenice / Klenovica 22, Klenovica": null,
+  "Ledenice, Modrus-Fiume, Mađarska": {
+   "lat": 45.14,
+   "lon": 14.84,
+   "region": "kvarner"
+  },
+  "Lestans, Sequals, Udine": {
+   "lat": 46.16,
+   "lon": 12.89,
+   "region": "veneto"
+  },
+  "Liariis, Ovaro": {
+   "lat": 46.49,
+   "lon": 12.88,
+   "region": "carnia"
+  },
+  "Lilydale, Victoria, Australia": null,
+  "Lilydale, Yarra Ranges Shire, Victoria, Australia": null,
+  "Lismore, New South Wales, Australia": null,
+  "Livonia, Wayne County, Michigan, USA": null,
+  "Liznjan, Istra": {
+   "lat": 44.83,
+   "lon": 13.96,
+   "region": "istria-south"
+  },
+  "Ližnjan": {
+   "lat": 44.83,
+   "lon": 13.96,
+   "region": "istria-south"
+  },
+  "Ližnjan → Pola": null,
+  "Ližnjan, Istra": {
+   "lat": 44.83,
+   "lon": 13.96,
+   "region": "istria-south"
+  },
+  "Ližnjan, Istra, Croatia": {
+   "lat": 44.83,
+   "lon": 13.96,
+   "region": "istria-south"
+  },
+  "Ližnjan, Istria, Italia": {
+   "lat": 44.83,
+   "lon": 13.96,
+   "region": "istria-south"
+  },
+  "Loud Township, Montmorency County, Michigan, USA": null,
+  "Luincis, Pieve di Santa Maria di Gorto": {
+   "lat": 46.5,
+   "lon": 12.86,
+   "region": "carnia"
+  },
+  "Luint, Mione": {
+   "lat": 46.49,
+   "lon": 12.86,
+   "region": "carnia"
+  },
+  "Makarska": {
+   "lat": 43.3,
+   "lon": 17.02,
+   "region": "dalmatia"
+  },
+  "Mandolacce di Tomino": null,
+  "Marina (Trogir)": {
+   "lat": 43.51,
+   "lon": 16.11,
+   "region": "dalmatia"
+  },
+  "Maryborough, Queensland, Australia": {
+   "lat": -25.54,
+   "lon": 152.7,
+   "region": "queensland"
+  },
+  "Mauthausen": null,
+  "Medulin": {
+   "lat": 44.82,
+   "lon": 13.94,
+   "region": "istria-south"
+  },
+  "Medulin → Pola": null,
+  "Medulin, Istra": {
+   "lat": 44.82,
+   "lon": 13.94,
+   "region": "istria-south"
+  },
+  "Memphis, Shelby County, Tennessee": null,
+  "Memphis, Shelby, Tennessee": null,
+  "Mercedes": null,
+  "Metzingen": null,
+  "Metzingen, Württemberg": null,
+  "Metzinger": null,
+  "Middle Village, Queens County, New York, USA": null,
+  "Milan, Lombardia, Italy": null,
+  "Millbrook, Dutchess County, New York, USA": null,
+  "Mione": {
+   "lat": 46.48,
+   "lon": 12.85,
+   "region": "carnia"
+  },
+  "Mione → Ovaro": null,
+  "Mione, Ovaro": {
+   "lat": 46.48,
+   "lon": 12.85,
+   "region": "carnia"
+  },
+  "Mione, Ovaro, Udine, Friuli Venezia Giulia, Italia": {
+   "lat": 46.48,
+   "lon": 12.85,
+   "region": "carnia"
+  },
+  "Mione, Ovaro, Udine, Italia": {
+   "lat": 46.48,
+   "lon": 12.85,
+   "region": "carnia"
+  },
+  "Mitchell, Canberra, ACT, Australia": null,
+  "Molinella, Bologna, Emilia-Romagna, Italia": null,
+  "Muina, Ovaro": {
+   "lat": 46.46,
+   "lon": 12.87,
+   "region": "carnia"
+  },
+  "Muina, Ovaro — married at Svetvinčenat": null,
+  "Natzweiler (Struthof)": {
+   "lat": 48.45,
+   "lon": 7.27,
+   "region": "alsace-lorraine"
+  },
+  "Naunina, Paluzza, Udine": {
+   "lat": 46.53,
+   "lon": 13.02,
+   "region": "carnia"
+  },
+  "Naunina, Paluzza, Udine, Italia": {
+   "lat": 46.53,
+   "lon": 13.02,
+   "region": "carnia"
+  },
+  "Neuhausen": null,
+  "Neuhausen, Kreis Reutlingen": null,
+  "New South Wales, Australia": null,
+  "New York": null,
+  "Niles, Cook County, Illinois, USA": null,
+  "North Lismore, New South Wales, Australia": null,
+  "Novaki": null,
+  "Nürnberg": null,
+  "Omiš": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "Omiš · Imotski": null,
+  "Omiš · Zadar": null,
+  "Omiš, Split-Dalmatia, Croazia": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "Omiš, Splitsko-dalmatinska": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "Osijek · Istria": null,
+  "Osoppo (Friuli) → Pola": null,
+  "Ovaro": {
+   "lat": 46.48,
+   "lon": 12.87,
+   "region": "carnia"
+  },
+  "Ovaro, Udine": {
+   "lat": 46.48,
+   "lon": 12.87,
+   "region": "carnia"
+  },
+  "Ovasta, Mione": {
+   "lat": 46.5,
+   "lon": 12.85,
+   "region": "carnia"
+  },
+  "Padova, Veneto, Italy": {
+   "lat": 45.41,
+   "lon": 11.88,
+   "region": "veneto"
+  },
+  "Padua, Veneto, Italy": {
+   "lat": 45.41,
+   "lon": 11.88,
+   "region": "veneto"
+  },
+  "Pag, Zara, Dalmatien, Österreich": null,
+  "Paluzza, Udine": {
+   "lat": 46.53,
+   "lon": 13.02,
+   "region": "carnia"
+  },
+  "Paluzza, Udine, Italia": {
+   "lat": 46.53,
+   "lon": 13.02,
+   "region": "carnia"
+  },
+  "Parenzo (Poreč)": {
+   "lat": 45.23,
+   "lon": 13.6,
+   "region": "istria-west"
+  },
+  "Parkville, Victoria, Australia": null,
+  "Pasian di Prato, Udine": null,
+  "Pasian di Prato, Udine, Italy": null,
+  "Pazin": {
+   "lat": 45.24,
+   "lon": 13.94,
+   "region": "istria-central"
+  },
+  "Pazin (Pisino)": {
+   "lat": 45.24,
+   "lon": 13.94,
+   "region": "istria-central"
+  },
+  "Pederobba, Treviso, Italy": {
+   "lat": 45.87,
+   "lon": 11.97,
+   "region": "veneto"
+  },
+  "Pfullingen": null,
+  "Phoenix, Maricopa County, Arizona, USA": null,
+  "Pieve di Santa Maria di Gorto": {
+   "lat": 46.48,
+   "lon": 12.87,
+   "region": "carnia"
+  },
+  "Pirano → Pola": null,
+  "Pisino (Pazin)": {
+   "lat": 45.24,
+   "lon": 13.94,
+   "region": "istria-central"
+  },
+  "Pisino, Istrien, Küstenland, Österreich": {
+   "lat": 45.24,
+   "lon": 13.94,
+   "region": "istria-central"
+  },
+  "Plomin, Istria": null,
+  "Plomin, Istria, Croatia": null,
+  "Pola": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Pola, Italia": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Pomer": {
+   "lat": 44.82,
+   "lon": 13.9,
+   "region": "istria-south"
+  },
+  "Pomer, Istra": {
+   "lat": 44.82,
+   "lon": 13.9,
+   "region": "istria-south"
+  },
+  "Poreč": {
+   "lat": 45.23,
+   "lon": 13.6,
+   "region": "istria-west"
+  },
+  "Poreč → Pola": null,
+  "Poreč, Croatia": {
+   "lat": 45.23,
+   "lon": 13.6,
+   "region": "istria-west"
+  },
+  "Poreč, Požeško-slavonska, Croazia": {
+   "lat": 45.23,
+   "lon": 13.6,
+   "region": "istria-west"
+  },
+  "Porto Alegre, Rio Grande do Sul, Brazil": null,
+  "Postira": {
+   "lat": 43.38,
+   "lon": 16.63,
+   "region": "dalmatia"
+  },
+  "Postira, Spalato, Dalmazia, Austria": {
+   "lat": 43.38,
+   "lon": 16.63,
+   "region": "dalmatia"
+  },
+  "Prague · Vienna": null,
+  "Promontore": {
+   "lat": 44.8,
+   "lon": 13.91,
+   "region": "istria-south"
+  },
+  "Promontore, Istra, Croazia": {
+   "lat": 44.8,
+   "lon": 13.91,
+   "region": "istria-south"
+  },
+  "Provincia di Parma": null,
+  "Pula": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Pula (Pola)": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Pula, Croatia": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Pula, Grad Pula, Istarska, Croatia": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Pula, Istria, Küstenland, Austria": {
+   "lat": 44.87,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Queens, New York": null,
+  "Ragusa, Dubrovnik": null,
+  "Ravina/Trentino": {
+   "lat": 46.02,
+   "lon": 11.1,
+   "region": "trentino"
+  },
+  "Rijeka": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Rijeka, Modrus-Fiume, Hungary": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Rijeka, Primorsko-goranska, Hrvatska": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Rio de Janeiro, Brazil": null,
+  "River Grove, Cook County, Illinois, USA": null,
+  "Rivolta d'Adda, Cremona": null,
+  "Rivolta d'Adda, Cremona, Lombardia, Italia": null,
+  "Rivolta d'Adda, Cremona, Lombardy": null,
+  "Rivolta d'Adda, Cremona, Lombardy, Italy": null,
+  "Rome": {
+   "lat": 41.9,
+   "lon": 12.5,
+   "region": "lazio"
+  },
+  "Rome, Lazio, Italy": {
+   "lat": 41.9,
+   "lon": 12.5,
+   "region": "lazio"
+  },
+  "Rookwood, New South Wales, Australia": null,
+  "Rovigno (Rovinj)": {
+   "lat": 45.08,
+   "lon": 13.64,
+   "region": "istria-south"
+  },
+  "Rovinj": {
+   "lat": 45.08,
+   "lon": 13.64,
+   "region": "istria-south"
+  },
+  "San Daniele del Friuli": null,
+  "San Germán, Puerto Rico, USA": null,
+  "San Giacomo, Grigno, Trento, Italy": null,
+  "San Juan, Puerto Rico": null,
+  "San Lorenzo, Santa Fe": {
+   "lat": -32.75,
+   "lon": -60.73,
+   "region": "santafe"
+  },
+  "San Lorenzo, Santa Fe, Argentina": {
+   "lat": -32.75,
+   "lon": -60.73,
+   "region": "santafe"
+  },
+  "San Rocco di Vernazza, Genoa": null,
+  "Sansepolcro, Tuscany": null,
+  "Sansepolcro, Tuscany, Italy": null,
+  "Santa Maria Assunta, Fiera di Primiero, Trento, Trentino-Alto Adige, Italia": {
+   "lat": 46.17,
+   "lon": 11.83,
+   "region": "trentino"
+  },
+  "Santa Maria del Carmelo, Rovereto, Trento": {
+   "lat": 45.89,
+   "lon": 11.04,
+   "region": "trentino"
+  },
+  "Santa Maria di Sala, Venezia, Veneto, Italy": {
+   "lat": 45.51,
+   "lon": 12.04,
+   "region": "veneto"
+  },
+  "Santi Angeli Custodi, Genoa": null,
+  "Sassari, Sassari, Sardinia, Italy": null,
+  "Seget": {
+   "lat": 43.54,
+   "lon": 16.22,
+   "region": "dalmatia"
+  },
+  "Senj → Johannesburg": null,
+  "Senj → Johannesburg → Brisbane": null,
+  "Sequals": {
+   "lat": 46.17,
+   "lon": 12.9,
+   "region": "veneto"
+  },
+  "Sequals → Washington, D.C.": null,
+  "Sherwood Park, Alberta, Canada": null,
+  "Siena · Venice": null,
+  "Skokie, Cook, Illinois": null,
+  "South Africa": null,
+  "Southfield, Oakland County, Michigan, USA": null,
+  "Sovignacco": null,
+  "Sovinjak": null,
+  "Spalato, Dalmazia, Austria": {
+   "lat": 43.51,
+   "lon": 16.44,
+   "region": "dalmatia"
+  },
+  "Split": {
+   "lat": 43.51,
+   "lon": 16.44,
+   "region": "dalmatia"
+  },
+  "Split (Sv. Dujam)": {
+   "lat": 43.51,
+   "lon": 16.44,
+   "region": "dalmatia"
+  },
+  "Split-Veli Varoš": {
+   "lat": 43.51,
+   "lon": 16.44,
+   "region": "dalmatia"
+  },
+  "Sterna": {
+   "lat": 45.41,
+   "lon": 13.79,
+   "region": "istria-west"
+  },
+  "Sterna, Litorale Austriaco, Austria": {
+   "lat": 45.41,
+   "lon": 13.79,
+   "region": "istria-west"
+  },
+  "Strigno, Trento": {
+   "lat": 46.06,
+   "lon": 11.52,
+   "region": "trentino"
+  },
+  "Sv. Marko (Zagreb)": {
+   "lat": 45.81,
+   "lon": 15.98,
+   "region": "civil-croatia"
+  },
+  "Svetvinčenat": {
+   "lat": 45.09,
+   "lon": 13.88,
+   "region": "istria-south"
+  },
+  "Svetvinčenat (from Carnia)": {
+   "lat": 45.09,
+   "lon": 13.88,
+   "region": "istria-south"
+  },
+  "Svetvinčenat (from the Albona territory)": {
+   "lat": 45.09,
+   "lon": 13.88,
+   "region": "istria-south"
+  },
+  "Svetvinčenat — «da Gollogorizza»": {
+   "lat": 45.09,
+   "lon": 13.88,
+   "region": "istria-south"
+  },
+  "São Paulo, Brazil": null,
+  "Tar": {
+   "lat": 45.3,
+   "lon": 13.63,
+   "region": "istria-west"
+  },
+  "Tarsatica, Modrus-Fiume": {
+   "lat": 45.34,
+   "lon": 14.46,
+   "region": "kvarner"
+  },
+  "Telve, Trentin": {
+   "lat": 46.07,
+   "lon": 11.47,
+   "region": "trentino"
+  },
+  "Telve, Trento": {
+   "lat": 46.07,
+   "lon": 11.47,
+   "region": "trentino"
+  },
+  "Thiébauménil, Meurthe-et-Moselle, France": null,
+  "Thunder Bay, Ontario, Canada": null,
+  "Tignale, Brescia, Lombardia, Italy": null,
+  "Tirol": null,
+  "Tomino": null,
+  "Tomino, Haute-Corse": null,
+  "Torrington, Litchfield County, Connecticut, USA": null,
+  "Trento, Sacco": null,
+  "Trento, Sacco, Parrochia di San Giovanni Battista": null,
+  "Trieste": null,
+  "Urach": null,
+  "Urach, Württemberg": null,
+  "Varaždin": {
+   "lat": 46.31,
+   "lon": 16.34,
+   "region": "civil-croatia"
+  },
+  "Veglia (Krk) → Pola": null,
+  "Venezia": {
+   "lat": 45.44,
+   "lon": 12.33,
+   "region": "veneto"
+  },
+  "Venice": {
+   "lat": 45.44,
+   "lon": 12.33,
+   "region": "veneto"
+  },
+  "Venice · Padua": null,
+  "Venice · Zadar": null,
+  "Vigonza, Padova, Veneto, Italy": {
+   "lat": 45.43,
+   "lon": 11.99,
+   "region": "veneto"
+  },
+  "Visinada → Pola": null,
+  "Vitipolis, Modrus-Fiume": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Vitipolis, Modrus-Fiume, Magyarország": {
+   "lat": 45.33,
+   "lon": 14.44,
+   "region": "kvarner"
+  },
+  "Vižinada": {
+   "lat": 45.33,
+   "lon": 13.76,
+   "region": "istria-west"
+  },
+  "Vodnjan": {
+   "lat": 44.96,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Vodnjan (Dignano)": {
+   "lat": 44.96,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Vodnjan, Istarska, Hrvatska": {
+   "lat": 44.96,
+   "lon": 13.85,
+   "region": "istria-south"
+  },
+  "Volosca (Volosko)": null,
+  "Volosca, Opatija": null,
+  "Vrsar": {
+   "lat": 45.15,
+   "lon": 13.6,
+   "region": "istria-west"
+  },
+  "Washington, District of Columbia, USA": null,
+  "Wayne, Michigan": null,
+  "Whiting, Ocean County, New Jersey, USA": null,
+  "Willowbank, City of Ipswich, Queensland, Australia": {
+   "lat": -27.68,
+   "lon": 152.67,
+   "region": "queensland"
+  },
+  "Woodside, Queens County, New York, USA": null,
+  "Yauco, Puerto Rico, USA": null,
+  "Zadar": {
+   "lat": 44.12,
+   "lon": 15.23,
+   "region": "dalmatia"
+  },
+  "Zadar, Croatia": {
+   "lat": 44.12,
+   "lon": 15.23,
+   "region": "dalmatia"
+  },
+  "Zagreb": {
+   "lat": 45.81,
+   "lon": 15.98,
+   "region": "civil-croatia"
+  },
+  "Zagreb (widow of Grga Defranceschi of Ližnjan)": {
+   "lat": 45.81,
+   "lon": 15.98,
+   "region": "civil-croatia"
+  },
+  "born Ližnjan (Istra); died Zagreb": null,
+  "dalmatia": null,
+  "Österreich": null,
+  "Šimuni (Simino)": null,
+  "Šterna": {
+   "lat": 45.41,
+   "lon": 13.79,
+   "region": "istria-west"
+  }
+ }
+}

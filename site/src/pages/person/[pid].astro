@@ -19,6 +19,9 @@ import "@daviddef/archive-kit/styles/persontree.css";
 import dlp from "../../data/directline-pids.json";
 import dline from "../../data/directline.json";
 import doss from "../../data/dossiers.json";
+import EraNote from "@daviddef/archive-kit/components/EraNote.astro";
+import { eraAt, plainYear } from "@daviddef/archive-kit/lib/era.js";
+import eraSnapshot from "../../data/era-snapshot.json";
 
 export function getStaticPaths() {
   const rows = roster.rows.filter(r => r.pid);
@@ -86,6 +89,21 @@ const RELATION = (() => {
 
 const dupOf = r.sameAs ? roster.rows.find((x) => x.pid === r.sameAs) : null;
 const SRC = roster.srclabel || {};
+/* AN «AT THE TIME» NOTE beside the Place row (kit/docs/era-notes.md; David, 18 October 2026): who held that ground, from the Record Atlas's
+   REGION eras as this archive committed them (src/data/era-snapshot.json, rebuilt deliberately by scripts/build-era.py --snapshot; the
+   place -> region table is data/era-ground.tsv, decided by the rings of the Atlas's contract). Context about the ground, never a claim about
+   the family. This page prints ONE place per person and no event date: the place is where the person is recorded, and the Years row prints
+   the birth and death years. So the note is drawn only where EVERY year the page prints for the person (born, died; an estimate «about 1750»
+   is not a year) is a plain year, each has a note, and they are the SAME note (same era, same marks): then it holds for the whole span and
+   for any record in it. A page whose years fall in two eras, or whose only year is within the margin of a change, or that prints no plain
+   year, has none. NEVER on a living person's page, and not on a duplicate (a pointer to the person); the gate check:era fails a note on a
+   living, held-out or noindex page. */
+const noNotes = !!r.living || !!dupOf;
+const plainYears = noNotes || !r.place ? [] : [r.b, r.d].filter((y) => y !== null && y !== undefined && y !== "");
+const eraNotes = plainYears.map((y) => eraAt(eraSnapshot, r.place, plainYear(String(y), Number.isInteger(y) ? y : null)));
+const sameNote = (a, b) => JSON.stringify({ ...a, year: 0 }) === JSON.stringify({ ...b, year: 0 });
+const eraNote = eraNotes.length > 0 && eraNotes.every((e) => e && sameNote(e, eraNotes[0])) ? eraNotes[0] : null;
+
 const span = [r.b || (r.bEst ? `about ${r.bEst}` : null), r.d].filter(Boolean).join(" – ")
   || (r.d ? `died ${r.d}` : "dates unknown");
 
@@ -314,7 +332,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     <div class="k">Name</div><div class="v">{r.name}</div><div class="w"></div>
     <div class="k">Years</div><div class="v">{span}</div>
     <div class="w">{r.bEst && !r.b ? "estimated from the record, not read off a register" : ""}</div>
-    {r.place && (<><div class="k">Place</div><div class="v">{r.place}</div><div class="w"></div></>)}
+    {r.place && (<><div class="k">Place</div><div class="v">{r.place}<EraNote era={eraNote} /></div><div class="w"></div></>)}
     {/* A spouse is only ever written here from a source that names the couple
         TOGETHER. It is never inferred by matching a name against a household,
         because that is the mechanism that gave five women called Maria
@@ -428,6 +446,10 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
   .rec .k{font-family:var(--sans);font-size:10.5px;letter-spacing:.09em;
     text-transform:uppercase;color:var(--ink-3)}
   .rec .v{font-size:15.5px;line-height:1.5}
+  /* The kit's era note keeps its source words on one line (.era-src{white-space:nowrap}), which is right for «per the Record Atlas» and wrong
+     for a seeded era's «per the Record Atlas, drawn from this archive's own research»: in the value column of a phone it ran the page 100px
+     wider than the screen. Here the words may wrap (the link text is still one link, and the text is unchanged). */
+  .rec .v :global(.era-note .era-src){white-space:normal}
   /* white-space here overrides the global .rec .w, which is nowrap because on
      other pages that cell holds a short mono date. Here it holds a sentence —
      «named as her husband on declaration of intention» ran /person/gerda-

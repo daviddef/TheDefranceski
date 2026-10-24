@@ -1,0 +1,174 @@
+# Where each town named in data/era-ground.tsv is, for ONE purpose: scripts/build-era.py decides the Record Atlas region of a place by
+# RING GEOMETRY from the point (the ring of the Atlas's context contract that contains it), and hands the point to the kit's erasnap.py, which
+# refuses a place whose point falls in a DIFFERENT region's ring than the one given, or within 15 km of its own region's ring edge.
+# how: the centre of the town or comune to two decimals, written by hand for this file; where this archive's data/gazetteer.json holds the
+# town (right country) the two agree to 0.1 degree, and 'gazetteer' says so. A cross-check, never a boundary.
+# exclude: a reason, where the ring is known to reach over ground that was not the region's: the town is then left without a region.
+town	lat	lon	how	exclude
+Adelaide	-34.93	138.60	hand	
+Arlington (Virginia)	38.88	-77.10	hand	
+Athens (Georgia)	33.96	-83.38	hand	
+Atlanta	33.75	-84.39	hand	
+Bad Urach	48.49	9.40	hand	
+Bakar	45.31	14.53	hand; gazetteer agrees (Bakar, HR)	
+Bale	45.04	13.78	hand; gazetteer agrees (Bale-Valle, HR)	
+Basel	47.56	7.59	hand	the alsace-lorraine ring reaches over Basel, which is Swiss
+Belgrade	44.80	20.46	hand	
+Beverley (Western Australia)	-32.11	116.93	hand	
+Brisbane	-27.47	153.03	hand; gazetteer agrees (Brisbane, AU)	
+Broken Hill	-31.96	141.47	hand	
+Bronx	40.84	-73.87	hand	
+Brooklyn	40.65	-73.95	hand	
+Brtonigla	45.39	13.61	hand; gazetteer agrees (Brtonigla-Verteneglio, HR)	
+Bulleen	-37.76	145.09	hand	
+Bushnell (Florida)	28.66	-82.11	hand	
+Cadillac (Michigan)	44.25	-85.40	hand	
+Candia	35.34	25.14	hand	
+Castelgomberto	45.58	11.40	hand	
+Castelnovo del Friuli	46.20	12.90	hand	
+Cathedral City	33.78	-116.47	hand	
+Chalfont (Pennsylvania)	40.29	-75.21	hand	
+Chialina	46.49	12.87	hand	
+Clarksburg (West Virginia)	39.28	-80.34	hand	
+Cles	46.36	11.03	hand	
+Clifton (New Jersey)	40.86	-74.16	hand	
+Clinton (Louisiana)	30.86	-91.02	hand	
+Colonia del Sacramento	-34.47	-57.84	hand	
+Concesio	45.61	10.22	hand	
+Crikvenica	45.18	14.69	hand; gazetteer agrees (Grad Crikvenica, HR)	
+Croydon	51.38	-0.10	hand	
+Dallas	32.78	-96.80	hand	
+Detroit	42.33	-83.05	hand	
+Dolo	45.42	12.08	hand	
+Draguć	45.33	14.01	hand; gazetteer agrees (Draguć, HR)	not settled whether Draguć was the County of Pazin's or Venice's; left silent
+Dubrovnik	42.65	18.09	hand; gazetteer agrees (Grad Dubrovnik, HR)	
+Dueville	45.63	11.55	hand	
+East Farmingdale	40.73	-73.42	hand	
+Ellis Island	40.70	-74.04	hand	
+Fawkner	-37.71	144.96	hand	
+Fažana	44.93	13.81	hand; gazetteer agrees (Fažana-Fasana, HR)	
+Fiera di Primiero	46.17	11.83	hand	
+Forlì	44.22	12.04	hand	
+Friedrichstadt	51.06	13.72	hand	
+Gaillard	46.19	6.21	hand	
+Genoa	44.41	8.93	hand	
+Giubiasco	46.17	9.01	hand	
+Gologorica	45.26	14.03	hand; gazetteer agrees (Gologorica, HR)	
+Gračišće	45.22	14.01	hand; gazetteer agrees (Gračišće, HR)	
+Grigno	46.02	11.65	hand	the veneto ring reaches over the Valsugana, which was Tyrol; it sits just outside the trentino ring
+Hartsdale	41.02	-73.80	hand	
+Horsham (Victoria)	-36.71	142.20	hand	
+Illegio	46.43	13.06	hand	
+Johannesburg	-26.20	28.04	hand; gazetteer agrees (Johannesburg, ZA)	
+Kanahooka	-34.49	150.81	hand	
+Kaštelir	45.30	13.69	hand; gazetteer agrees (Kaštelir, HR)	
+Klenovica	45.10	14.85	hand; gazetteer agrees (Klenovica, HR)	
+Koper	45.55	13.73	hand	the carniola ring reaches over the Küstenland (Koper was Italian from 1918, Carniola not)
+Labin	45.09	14.12	hand; gazetteer agrees (Grad Labin, HR)	the Albona (Labin) territory was Venetian; the istria-central ring (the County of Pazin, Habsburg) reaches over it
+Laives	46.43	11.34	hand	
+Lake City (Michigan)	44.33	-85.21	hand	
+Laterza	40.63	16.80	hand	
+Ledenice	45.14	14.84	hand; gazetteer agrees (Ledenice, HR)	
+Lestans	46.16	12.89	hand	
+Liariis	46.49	12.88	hand	
+Lilydale (Victoria)	-37.76	145.35	hand	
+Lismore	-28.81	153.28	hand	the queensland ring reaches over north-eastern New South Wales
+Livonia (Michigan)	42.37	-83.35	hand	
+Ližnjan	44.83	13.96	hand; gazetteer agrees (Ližnjan-Lisignano, HR)	
+Loud Township	44.90	-84.07	hand	
+Luincis	46.50	12.86	hand	
+Luint	46.49	12.86	hand	
+Makarska	43.30	17.02	hand; gazetteer agrees (Town of Makarska, HR)	
+Mandolacce	42.95	9.45	hand	
+Marina	43.51	16.11	hand	
+Maryborough (Queensland)	-25.54	152.70	hand	
+Mauthausen	48.25	14.50	hand	
+Medulin	44.82	13.94	hand; gazetteer agrees (Medulin, HR)	
+Memphis	35.15	-90.05	hand	
+Metzingen	48.54	9.28	hand	
+Middle Village	40.72	-73.88	hand	
+Milan	45.46	9.19	hand	
+Millbrook (New York)	41.78	-73.69	hand	
+Mione	46.48	12.85	hand; gazetteer agrees (Mione, IT)	
+Mitchell (ACT)	-35.22	149.13	hand	
+Molinella	44.62	11.66	hand	
+Muina	46.46	12.87	hand; gazetteer agrees (Muina, IT)	
+Natzweiler	48.45	7.27	hand	
+Naunina	46.53	13.02	hand	
+New York	40.71	-74.01	hand	
+Niles (Illinois)	42.02	-87.80	hand	
+North Lismore	-28.79	153.27	hand	the queensland ring reaches over north-eastern New South Wales
+Nürnberg	49.45	11.08	hand	
+Omiš	43.44	16.69	hand; gazetteer agrees (Grad Omiš, HR)	
+Ovaro	46.48	12.87	hand; gazetteer agrees (Ovaro, IT)	
+Ovasta	46.50	12.85	hand	
+Padua	45.41	11.88	hand	
+Pag	44.44	15.06	hand	the vojna-krajina ring (the Military Frontier) reaches over the island of Pag, which was Dalmatia
+Paluzza	46.53	13.02	hand; gazetteer agrees (Paluzza, IT)	
+Parkville (Victoria)	-37.79	144.95	hand	
+Pasian di Prato	46.05	13.19	hand	
+Pazin	45.24	13.94	hand; gazetteer agrees (Grad Pazin, HR)	
+Pederobba	45.87	11.97	hand	
+Pfullingen	48.46	9.23	hand; gazetteer agrees (Pfullingen, DE)	
+Phoenix	33.45	-112.07	hand	
+Plomin	45.14	14.18	hand; gazetteer agrees (Plomin, HR)	the Albona (Labin) territory was Venetian; the istria-central ring (the County of Pazin, Habsburg) reaches over it
+Pomer	44.82	13.90	hand; gazetteer agrees (Pomer, HR)	
+Poreč	45.23	13.60	hand; gazetteer agrees (Grad Poreč, HR)	
+Porto Alegre	-30.03	-51.23	hand	
+Postira	43.38	16.63	hand; gazetteer agrees (Postira, HR)	
+Premantura	44.80	13.91	hand; gazetteer agrees (Premantura, HR)	
+Pula	44.87	13.85	hand; gazetteer agrees (Grad Pula, HR)	
+Queens	40.73	-73.82	hand	
+Ravina	46.02	11.10	hand	
+Rijeka	45.33	14.44	hand; gazetteer agrees (Grad Rijeka, HR)	
+Rio de Janeiro	-22.91	-43.17	hand	
+River Grove	41.93	-87.84	hand	
+Rivolta d'Adda	45.47	9.51	hand	
+Rome	41.90	12.50	hand	
+Rookwood	-33.87	151.05	hand	
+Rovereto	45.89	11.04	hand	
+Rovinj	45.08	13.64	hand; gazetteer agrees (Grad Rovinj, HR)	
+San Daniele del Friuli	46.16	13.01	hand	
+San Germán	18.08	-67.04	hand	
+San Juan	18.47	-66.11	hand	
+San Lorenzo (Santa Fe)	-32.75	-60.73	hand	
+Sansepolcro	43.57	12.14	hand	
+Santa Maria di Sala	45.51	12.04	hand	
+Sassari	40.73	8.56	hand	
+Seget	43.54	16.22	hand; gazetteer agrees (Seget, HR)	
+Sequals	46.17	12.90	hand	
+Sherwood Park	53.52	-113.31	hand	
+Skokie	42.03	-87.73	hand	
+Southfield	42.47	-83.22	hand	
+Sovinjak	45.38	13.92	hand; gazetteer agrees (Sovinjak, HR)	not settled whether Sovinjak was the County of Pazin's or Venice's; left silent
+Split	43.51	16.44	hand; gazetteer agrees (Grad Split, HR)	
+Strigno	46.06	11.52	hand; gazetteer agrees (Strigno, IT)	
+Svetvinčenat	45.09	13.88	hand; gazetteer agrees (Svetvinčenat, HR)	
+São Paulo	-23.55	-46.63	hand	
+Tar	45.30	13.63	hand; gazetteer agrees (Tar, HR)	
+Telve	46.07	11.47	hand; gazetteer agrees (Telve, IT)	
+Thiébauménil	48.60	6.62	hand	the alsace-lorraine ring reaches over Meurthe-et-Moselle, which stayed French after 1871
+Thunder Bay	48.38	-89.25	hand	
+Tignale	45.73	10.72	hand	
+Tomino (Haute-Corse)	42.95	9.45	hand	
+Torrington (Connecticut)	41.80	-73.12	hand	
+Trieste	45.65	13.78	hand; gazetteer agrees (Trieste, IT)	the carniola ring reaches over the Küstenland (Trieste was Italian from 1918, Carniola not)
+Trsat	45.34	14.46	hand	
+Varaždin	46.31	16.34	hand	
+Venice	45.44	12.33	hand	
+Vernazza	44.14	9.68	hand	
+Vigonza	45.43	11.99	hand	
+Vižinada	45.33	13.76	hand; gazetteer agrees (Vižinada-Visinada, HR)	
+Vodnjan	44.96	13.85	hand; gazetteer agrees (Vodnjan-Dignano, HR)	
+Volosko	45.35	14.32	hand	
+Vrsar	45.15	13.60	hand; gazetteer agrees (Vrsar-Orsera, HR)	
+Washington (DC)	38.90	-77.04	hand	
+Wayne (Michigan)	42.28	-83.39	hand	
+Whiting (New Jersey)	39.95	-74.37	hand	
+Willowbank	-27.68	152.67	hand	
+Woodside (Queens)	40.75	-73.90	hand	
+Yauco	18.03	-66.85	hand	
+Zadar	44.12	15.23	hand	
+Zagreb	45.81	15.98	hand; gazetteer agrees (City of Zagreb, HR)	
+Šimuni	44.43	15.17	hand	the vojna-krajina ring (the Military Frontier) reaches over the island of Pag, which was Dalmatia
+Šterna	45.41	13.79	hand; gazetteer agrees (Šterna, HR)	

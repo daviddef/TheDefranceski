@@ -1,0 +1,3657 @@
+{
+ "atlas": {
+  "base": "https://recordatlas.org",
+  "rings_sha256": null,
+  "rings_source": "contract"
+ },
+ "built": "2026-10-25",
+ "contract": {
+  "generated": "2026-10-19",
+  "name": "recordatlas-context",
+  "sha256": "03a8542fbbe5e7153345d1ab85e049dc4e0578084638ce7cefbc0615a48355f7",
+  "version": "1.12.0"
+ },
+ "dropped": [
+  {
+   "from": 1552,
+   "id": "alsace-lorraine--era-1552",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "alsace-lorraine",
+   "to": 1792
+  },
+  {
+   "from": 1792,
+   "id": "alsace-lorraine--era-1792",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "alsace-lorraine",
+   "to": 1871
+  },
+  {
+   "from": 1871,
+   "id": "alsace-lorraine--era-1871",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "alsace-lorraine",
+   "to": 1918
+  },
+  {
+   "from": 1918,
+   "id": "alsace-lorraine--era-1918",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "alsace-lorraine",
+   "to": 1940
+  },
+  {
+   "from": 1940,
+   "id": "alsace-lorraine--era-1940",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "alsace-lorraine",
+   "to": 1944
+  },
+  {
+   "from": 1944,
+   "id": "alsace-lorraine--era-1944",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "alsace-lorraine",
+   "to": null
+  },
+  {
+   "from": 1463,
+   "id": "bosnia--era-1463",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "bosnia",
+   "to": 1878
+  },
+  {
+   "from": 1878,
+   "id": "bosnia--era-1878",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "bosnia",
+   "to": 1908
+  },
+  {
+   "from": 1941,
+   "id": "bosnia--era-1941",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "bosnia",
+   "to": 1945
+  },
+  {
+   "from": 1992,
+   "id": "bosnia--era-1992",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "bosnia",
+   "to": null
+  },
+  {
+   "from": 1200,
+   "id": "carnia--era-1200",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "carnia",
+   "to": 1420
+  },
+  {
+   "from": 1866,
+   "id": "carnia--era-1866",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "carnia",
+   "to": null
+  },
+  {
+   "from": 1918,
+   "id": "carniola--era-1918",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "carniola",
+   "to": 1941
+  },
+  {
+   "from": 1941,
+   "id": "carniola--era-1941",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "carniola",
+   "to": 1945
+  },
+  {
+   "from": 1945,
+   "id": "carniola--era-1945",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "carniola",
+   "to": 1991
+  },
+  {
+   "from": 1200,
+   "id": "dalmatia--era-1200",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "dalmatia",
+   "to": 1420
+  },
+  {
+   "from": 1420,
+   "id": "dalmatia--era-1420",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "dalmatia",
+   "to": 1797
+  },
+  {
+   "from": 1805,
+   "id": "dalmatia--era-1805",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "dalmatia",
+   "to": 1813
+  },
+  {
+   "from": 1918,
+   "id": "dalmatia--era-1918",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "dalmatia",
+   "to": 1941
+  },
+  {
+   "from": 1941,
+   "id": "dalmatia--era-1941",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "dalmatia",
+   "to": 1943
+  },
+  {
+   "from": 1943,
+   "id": "dalmatia--era-1943",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "dalmatia",
+   "to": 1945
+  },
+  {
+   "from": 1991,
+   "id": "dalmatia--era-1991",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "dalmatia",
+   "to": null
+  },
+  {
+   "from": 1000,
+   "id": "hungary--era-1000",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "hungary",
+   "to": 1526
+  },
+  {
+   "from": 1526,
+   "id": "hungary--era-1526",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "hungary",
+   "to": 1699
+  },
+  {
+   "from": 1918,
+   "id": "hungary--era-1918",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "hungary",
+   "to": 1945
+  },
+  {
+   "from": 1918,
+   "id": "imotski--era-1918",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "imotski",
+   "to": 1991
+  },
+  {
+   "from": 1200,
+   "id": "istria-central--era-1200",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "istria-central",
+   "to": 1374
+  },
+  {
+   "from": 1943,
+   "id": "istria-central--era-1943",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "istria-central",
+   "to": 1945
+  },
+  {
+   "from": 1200,
+   "id": "istria-south--era-1200",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "istria-south",
+   "to": 1331
+  },
+  {
+   "from": 1943,
+   "id": "istria-south--era-1943",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "istria-south",
+   "to": 1945
+  },
+  {
+   "from": 1945,
+   "id": "istria-south--era-1945",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "istria-south",
+   "to": 1991
+  },
+  {
+   "from": 1200,
+   "id": "istria-west--era-1200",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "istria-west",
+   "to": 1331
+  },
+  {
+   "from": 1943,
+   "id": "istria-west--era-1943",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "istria-west",
+   "to": 1945
+  },
+  {
+   "from": 1945,
+   "id": "istria-west--era-1945",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "istria-west",
+   "to": 1991
+  },
+  {
+   "from": 1200,
+   "id": "kvarner--era-1200",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "kvarner",
+   "to": 1469
+  },
+  {
+   "from": 1813,
+   "id": "kvarner--era-1813",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "kvarner",
+   "to": 1918
+  },
+  {
+   "from": 1918,
+   "id": "kvarner--era-1918",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "kvarner",
+   "to": 1943
+  },
+  {
+   "from": 1943,
+   "id": "kvarner--era-1943",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "kvarner",
+   "to": 1945
+  },
+  {
+   "from": 1810,
+   "id": "santafe--era-1810",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "santafe",
+   "to": 1889
+  },
+  {
+   "from": 1889,
+   "id": "santafe--era-1889",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "santafe",
+   "to": null
+  },
+  {
+   "from": 1941,
+   "id": "serbia--era-1941",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "serbia",
+   "to": 1944
+  },
+  {
+   "from": 1027,
+   "id": "trentino--era-1027",
+   "reason": "a bound whose margin is unknowable (null) or not a whole number of years",
+   "region": "trentino",
+   "to": 1803
+  },
+  {
+   "from": 1699,
+   "id": "vojvodina--era-1699",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "vojvodina",
+   "to": 1848
+  },
+  {
+   "from": 1848,
+   "id": "vojvodina--era-1848",
+   "reason": "contested about its regime or a part, not its bounds only (contestedScope)",
+   "region": "vojvodina",
+   "to": 1918
+  },
+  {
+   "from": 1941,
+   "id": "vojvodina--era-1941",
+   "reason": "regime is the project's own shorthand, not a state",
+   "region": "vojvodina",
+   "to": 1944
+  }
+ ],
+ "edge_neighbours": {
+  "assunzione di maria santissima telve trento italy": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "bale": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "belgrade serbia": {
+   "kind": "edge",
+   "regions": [
+    "vojvodina"
+   ]
+  },
+  "brtonigla": {
+   "kind": "edge",
+   "regions": [
+    "carniola",
+    "istria-central"
+   ]
+  },
+  "castelnovo del friuli pordenone": {
+   "kind": "edge",
+   "regions": [
+    "carnia"
+   ]
+  },
+  "chialina": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "fiera di primiero trento": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "fiume modrus fiume": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "fiume modrus fiume ungheria": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "fiume rijeka": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "illegio tolmezzo": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "immacolata concezione strigno trento trentino alto adige italia": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "kastelir": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "kastelir croatia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "kastelir istra": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "kastelir istra croatia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "kastelir istra hrvatska": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "kastelir kustenland osterreich": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "kastelir vizinada": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "liariis ovaro": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "liznjan": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "liznjan istra": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "liznjan istra croatia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "liznjan istria italia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "luincis pieve di santa maria di gorto": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "luint mione": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "makarska": {
+   "kind": "edge",
+   "regions": [
+    "bosnia",
+    "imotski"
+   ]
+  },
+  "medulin": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "medulin istra": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "mione": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "mione ovaro": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "mione ovaro udine friuli venezia giulia italia": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "mione ovaro udine italia": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "muina ovaro": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "naunina paluzza udine": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "naunina paluzza udine italia": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "ovaro": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "ovaro udine": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "ovasta mione": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "paluzza udine": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "paluzza udine italia": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "parenzo porec": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-south"
+   ]
+  },
+  "pazin": {
+   "kind": "edge",
+   "regions": [
+    "istria-south",
+    "istria-west"
+   ]
+  },
+  "pazin pisino": {
+   "kind": "edge",
+   "regions": [
+    "istria-south",
+    "istria-west"
+   ]
+  },
+  "pieve di santa maria di gorto": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "pisino istrien kustenland osterreich": {
+   "kind": "edge",
+   "regions": [
+    "istria-south",
+    "istria-west"
+   ]
+  },
+  "pisino pazin": {
+   "kind": "edge",
+   "regions": [
+    "istria-south",
+    "istria-west"
+   ]
+  },
+  "pola": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pola italia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pomer": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pomer istra": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "porec": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-south"
+   ]
+  },
+  "porec croatia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-south"
+   ]
+  },
+  "porec pozesko slavonska croazia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-south"
+   ]
+  },
+  "pula": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pula croatia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pula grad pula istarska croatia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pula istria kustenland austria": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "pula pola": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "rijeka": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "rijeka modrus fiume hungary": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "rijeka primorsko goranska hrvatska": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "rovigno rovinj": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "rovinj": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "santa maria assunta fiera di primiero trento trentino alto adige italia": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "santa maria del carmelo rovereto trento": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "sterna": {
+   "kind": "edge",
+   "regions": [
+    "carniola",
+    "istria-central"
+   ]
+  },
+  "sterna litorale austriaco austria": {
+   "kind": "edge",
+   "regions": [
+    "carniola",
+    "istria-central"
+   ]
+  },
+  "strigno trento": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "svetvincenat": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "svetvincenat da gollogorizza": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "svetvincenat from carnia": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "svetvincenat from the albona territory": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-west"
+   ]
+  },
+  "tar": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "telve trentin": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "telve trento": {
+   "kind": "edge",
+   "regions": [
+    "veneto"
+   ]
+  },
+  "varazdin": {
+   "kind": "edge",
+   "regions": [
+    "carniola",
+    "hungary"
+   ]
+  },
+  "vitipolis modrus fiume": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "vitipolis modrus fiume magyarorszag": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "vizinada": {
+   "kind": "edge",
+   "regions": [
+    "istria-central"
+   ]
+  },
+  "vrsar": {
+   "kind": "edge",
+   "regions": [
+    "istria-central",
+    "istria-south"
+   ]
+  }
+ },
+ "places": {
+  "almissa spalato dalmazia austria": "dalmatia",
+  "assunzione di maria santissima telve trento italy": "trentino",
+  "bale": "istria-south",
+  "belgrade serbia": "serbia",
+  "brisbane queensland australia": "queensland",
+  "brtonigla": "istria-west",
+  "castelgomberto vicenza": "veneto",
+  "castelgomberto vicenza veneto": "veneto",
+  "castelnovo del friuli pordenone": "veneto",
+  "chialina": "carnia",
+  "crikvenica": "kvarner",
+  "crikvenica modrus fiume mađarska": "kvarner",
+  "croydon surrey": "england",
+  "dolo venezia veneto italy": "veneto",
+  "dueville vicenza": "veneto",
+  "fasana": "istria-south",
+  "fazana": "istria-south",
+  "fazana fasana istria": "istria-south",
+  "fiera di primiero trento": "trentino",
+  "fiume modrus fiume": "kvarner",
+  "fiume modrus fiume ungheria": "kvarner",
+  "fiume rijeka": "kvarner",
+  "gallignana": "istria-central",
+  "gologorica": "istria-central",
+  "gologorica house 2": "istria-central",
+  "gologorica house 3": "istria-central",
+  "gologorica house 6 10": "istria-central",
+  "gologorica istra": "istria-central",
+  "gologorica istra croatia": "istria-central",
+  "gologorica opcina cerovlje": "istria-central",
+  "gologorica pazin istria": "istria-central",
+  "gracisce": "istria-central",
+  "gracisce gallignana": "istria-central",
+  "gracisce gallignana house 19": "istria-central",
+  "gracisce gallignana house 5": "istria-central",
+  "gracisce istra": "istria-central",
+  "gracisce istria": "istria-central",
+  "illegio tolmezzo": "carnia",
+  "immacolata concezione strigno trento trentino alto adige italia": "trentino",
+  "johannesburg": "transvaal",
+  "johannesburg south africa": "transvaal",
+  "kastelir": "istria-west",
+  "kastelir croatia": "istria-west",
+  "kastelir istra": "istria-west",
+  "kastelir istra croatia": "istria-west",
+  "kastelir istra hrvatska": "istria-west",
+  "kastelir kustenland osterreich": "istria-west",
+  "kastelir vizinada": "istria-west",
+  "klenovica vinodol": "kvarner",
+  "ledenice": "kvarner",
+  "ledenice modrus fiume mađarska": "kvarner",
+  "liariis ovaro": "carnia",
+  "liznjan": "istria-south",
+  "liznjan istra": "istria-south",
+  "liznjan istra croatia": "istria-south",
+  "liznjan istria italia": "istria-south",
+  "luincis pieve di santa maria di gorto": "carnia",
+  "luint mione": "carnia",
+  "makarska": "dalmatia",
+  "marina trogir": "dalmatia",
+  "maryborough queensland australia": "queensland",
+  "medulin": "istria-south",
+  "medulin istra": "istria-south",
+  "mione": "carnia",
+  "mione ovaro": "carnia",
+  "mione ovaro udine friuli venezia giulia italia": "carnia",
+  "mione ovaro udine italia": "carnia",
+  "muina ovaro": "carnia",
+  "natzweiler struthof": "alsace-lorraine",
+  "naunina paluzza udine": "carnia",
+  "naunina paluzza udine italia": "carnia",
+  "omis": "dalmatia",
+  "omis split dalmatia croazia": "dalmatia",
+  "omis splitsko dalmatinska": "dalmatia",
+  "ovaro": "carnia",
+  "ovaro udine": "carnia",
+  "ovasta mione": "carnia",
+  "padova veneto italy": "veneto",
+  "padua veneto italy": "veneto",
+  "paluzza udine": "carnia",
+  "paluzza udine italia": "carnia",
+  "parenzo porec": "istria-west",
+  "pazin": "istria-central",
+  "pazin pisino": "istria-central",
+  "pederobba treviso italy": "veneto",
+  "pieve di santa maria di gorto": "carnia",
+  "pisino istrien kustenland osterreich": "istria-central",
+  "pisino pazin": "istria-central",
+  "pola": "istria-south",
+  "pola italia": "istria-south",
+  "pomer": "istria-south",
+  "pomer istra": "istria-south",
+  "porec": "istria-west",
+  "porec croatia": "istria-west",
+  "porec pozesko slavonska croazia": "istria-west",
+  "postira": "dalmatia",
+  "postira spalato dalmazia austria": "dalmatia",
+  "pula": "istria-south",
+  "pula croatia": "istria-south",
+  "pula grad pula istarska croatia": "istria-south",
+  "pula istria kustenland austria": "istria-south",
+  "pula pola": "istria-south",
+  "ravina trentino": "trentino",
+  "rijeka": "kvarner",
+  "rijeka modrus fiume hungary": "kvarner",
+  "rijeka primorsko goranska hrvatska": "kvarner",
+  "rome": "lazio",
+  "rome lazio italy": "lazio",
+  "rovigno rovinj": "istria-south",
+  "rovinj": "istria-south",
+  "san lorenzo santa fe": "santafe",
+  "san lorenzo santa fe argentina": "santafe",
+  "santa maria assunta fiera di primiero trento trentino alto adige italia": "trentino",
+  "santa maria del carmelo rovereto trento": "trentino",
+  "santa maria di sala venezia veneto italy": "veneto",
+  "seget": "dalmatia",
+  "spalato dalmazia austria": "dalmatia",
+  "split": "dalmatia",
+  "split sv dujam": "dalmatia",
+  "split veli varos": "dalmatia",
+  "sterna": "istria-west",
+  "sterna litorale austriaco austria": "istria-west",
+  "strigno trento": "trentino",
+  "sv marko zagreb": "civil-croatia",
+  "svetvincenat": "istria-south",
+  "svetvincenat da gollogorizza": "istria-south",
+  "svetvincenat from carnia": "istria-south",
+  "svetvincenat from the albona territory": "istria-south",
+  "tar": "istria-west",
+  "telve trentin": "trentino",
+  "telve trento": "trentino",
+  "varazdin": "civil-croatia",
+  "venezia": "veneto",
+  "venice": "veneto",
+  "vigonza padova veneto italy": "veneto",
+  "vitipolis modrus fiume": "kvarner",
+  "vitipolis modrus fiume magyarorszag": "kvarner",
+  "vizinada": "istria-west",
+  "vodnjan": "istria-south",
+  "vodnjan dignano": "istria-south",
+  "vodnjan istarska hrvatska": "istria-south",
+  "vrsar": "istria-west",
+  "willowbank city of ipswich queensland australia": "queensland",
+  "zagreb": "civil-croatia",
+  "zagreb widow of grga defranceschi of liznjan": "civil-croatia"
+ },
+ "places_silent": {
+  "bakar": "edge",
+  "bakar modrus fiume": "edge",
+  "bakar primorsko goranska": "edge",
+  "bakar primorsko goranska hrvatska": "edge",
+  "cles trento": "edge",
+  "colonia uruguay": "edge",
+  "laives": "edge",
+  "laives bolzano": "edge",
+  "laives bolzano south tyrol": "edge",
+  "laives bozen": "edge",
+  "laives bozen tirol": "edge",
+  "lestans sequals udine": "edge",
+  "promontore": "edge",
+  "promontore istra croazia": "edge",
+  "sequals": "edge",
+  "tarsatica modrus fiume": "edge",
+  "zadar": "edge",
+  "zadar croatia": "edge"
+ },
+ "policy": {
+  "approx": "margin",
+  "boundary": "newer",
+  "contested": "scope",
+  "edge": "agree",
+  "edge_km": 15,
+  "margin_years": 5,
+  "margins": {},
+  "recent_from": 1990,
+  "ruler_polities": {
+   "italy": [
+    "kingdom-of-italy",
+    "italian-republic"
+   ],
+   "twosicilies": [
+    "kingdom-of-the-two-sicilies"
+   ]
+  },
+  "unassessed": "allow"
+ },
+ "quality": {
+  "counts": {
+   "gaps": 52,
+   "overlaps": 36
+  },
+  "gaps": [],
+  "overlaps": []
+ },
+ "regions": {
+  "alsace-lorraine": [],
+  "bosnia": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1908,
+    "from_margin": 0,
+    "id": "bosnia--era-1908",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1914,
+     "kind": "margin",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria-Hungary — annexed",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 0,
+    "url": "/region/bosnia/#era-1908",
+    "why": "Annexation 5-7 Oct 1908 (Wikipedia; Hrvatska enciklopedija 1908), recognised by the Ottomans in Feb 1909 and by the powers afterwards (Bosnian crisis, but no change of holder on the ground). End 1918: governor's term ended 3 Nov 1918 and the Kingdom of SCS was formed 1 Dec 1918 (Wikipedia gives 1 Dec 1918 as the end of rule); Hrvatska enciklopedija says 1918. Same year. Also: https://www.enciklopedija.hr/clanak/bosna-i-hercegovina"
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 0,
+    "id": "bosnia--era-1918",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "margin",
+     "last": 1935
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Serbs, Croats and Slovenes, then Yugoslavia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1941,
+    "to_margin": 0,
+    "url": "/region/bosnia/#era-1918",
+    "why": "Bosnia entered the new Yugoslav state in 1918 (Hrvatska enciklopedija; Wikipedia Austro-Hungarian rule gives 1 Dec 1918 for the end of rule). End: Yugoslavia invaded 6 April 1941 and Bosnia was included in the NDH after the capitulation on 17 April 1941 (Hrvatska enciklopedija). Both in the same year. Also: https://www.enciklopedija.hr/clanak/bosna-i-hercegovina"
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1945,
+    "from_margin": 0,
+    "id": "bosnia--era-1945",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1951,
+     "kind": "margin",
+     "last": 1986
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia — the Socialist Republic of Bosnia and Herzegovina",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1992,
+    "to_margin": 0,
+    "url": "/region/bosnia/#era-1945",
+    "why": "Bosnia became a republic in postwar Yugoslavia, with the third ZAVNOBiH session in Sarajevo in April 1945 (Hrvatska enciklopedija); end: independence referendum 29 Feb-1 Mar 1992, declaration 3 March 1992, recognition 6 April (Wikipedia) or 7 April 1992 (Hrvatska enciklopedija), all in one year. The tail of the era saw rival bodies set up (Herzeg-Bosnia 18 Nov 1991; Republic of the Serbian People 9 Jan 1992), but control of the ground did not change until the war. Also: https://www.enciklopedija.hr/clanak/bosna-i-hercegovina"
+   }
+  ],
+  "carnia": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1420,
+    "from_margin": 0,
+    "id": "carnia--era-1420",
+    "label": "Republic of Venice",
+    "margin_ok": {
+     "first": 1426,
+     "kind": "margin",
+     "last": 1791
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Republic of Venice — Patria del Friuli",
+    "present": false,
+    "regime": "venice",
+    "seeded_from_archive": true,
+    "to": 1797,
+    "to_margin": 0,
+    "url": "/region/carnia/#era-1420",
+    "why": "Udine surrendered to Venice 4 June (it.wikipedia Carnia) or 7 June 1420 (Wikipedia Patria del Friuli); patriarch lost temporal power 7 July 1420; Tolmezzo followed soon after; Carnia 'by 1420' (Wikipedia Carnia). One year across sources. End: fall of Venice 12 May 1797 (magicoveneto)."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1797,
+    "from_margin": 0,
+    "id": "carnia--era-1797",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1803,
+     "kind": "approx",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — first occupation",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1805,
+    "to_margin": 1,
+    "url": "/region/carnia/#era-1797",
+    "why": "Venice fell 12 May 1797, Campo Formio 17 Oct 1797, Austrian administration installed 11 Jan 1798 (magicoveneto.it). End: Pressburg 26 Dec 1805 (Wikipedia); Carnia annexed to Kingdom of Italy 1805 (it.wikivoyage Tolmezzo) or 1806 (annexation announced 30 Mar 1806, Wikipedia Napoleonic Kingdom of Italy). Gap in the data: Carnia has no era for 1805."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1806,
+    "from_margin": 1,
+    "id": "carnia--era-1806",
+    "label": "Napoleonic Kingdom of Italy",
+    "margin_ok": {
+     "first": 1812,
+     "kind": "approx",
+     "last": 1809
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Napoleonic Kingdom of Italy",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": true,
+    "to": 1815,
+    "to_margin": 2,
+    "url": "/region/carnia/#era-1806",
+    "why": "Start 1805 (Pressburg; Friuli-Venezia Giulia article, Wikivoyage) vs 1806 (annexation 30 Mar/1 May 1806, Wikipedia). End: Austrian return late 1813/1814 (Museo civico Vicenza; walter-us Udine: 1813 or 1814), Austria occupied Milan 28 Apr 1814, Lombardy-Venetia announced 12 June 1814, Vienna 1815. Sources differ by year at both ends."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1815,
+    "from_margin": 2,
+    "id": "carnia--era-1815",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1821,
+     "kind": "approx",
+     "last": 1860
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Lombardy-Venetia",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1866,
+    "to_margin": 0,
+    "url": "/region/carnia/#era-1815",
+    "why": "Start approximate: Austrian occupation 1813-14 and Lombardy-Venetia announced 1814, formal 1815 (Wikipedia Friuli-Venezia Giulia; magicoveneto '1814/1848 second Austrian rule'). End: Treaty of Vienna 3 Oct 1866, transfer to Italy 19 Oct, plebiscite 21-22 Oct 1866 (Wikipedia Treaty of Vienna 1866); it.wikipedia Carnia: annexed 21 Oct 1866."
+   }
+  ],
+  "carniola": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1500,
+    "from_margin": 50,
+    "id": "carniola--era-1500",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1551,
+     "kind": "approx",
+     "last": 1769
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Inner Austria — Carniola, Styria, Carinthia",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1784,
+    "to_margin": 14,
+    "url": "/region/carniola/#era-1500",
+    "why": "1500 is a lower bound (register survival), not a change of sovereignty: Carniola passed to the Habsburgs in 1335 and became a duchy in 1364 (Hrvatska enciklopedija; Wikipedia agrees on 1335), and was a Habsburg land continuously after. Wikipedia gives 1564 for Inner Austria as a separate unit, so 'Inner Austria' is not right for 1500-1564. End 1784 is the Josephine register reform (patent of 20 Feb 1784 per search snippets of a Czech legal encyclopedia and the Styrian Matrikenkatalog; page not fetched). Also: https://www.enciklopedija.hr/clanak/kranjska"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1784,
+    "from_margin": 14,
+    "id": "carniola--era-1784",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1799,
+     "kind": "approx",
+     "last": 1803
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Joseph II's register reform",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1809,
+    "to_margin": 0,
+    "url": "/region/carniola/#era-1784",
+    "why": "1784 is an administrative register reform (patent 20 Feb 1784, making registration a state matter; a FEEFHS newsletter says the tabular form was adopted 1770 and modified 1784), not a change of sovereignty, so the year is approximate as a regime boundary. Carniola stayed Habsburg throughout. The 1809 end is the Treaty of Schonbrunn (14 Oct 1809), clean. Sources only seen as search snippets (feefhs.org 2017Apr newsletter; katholische-kirche-steiermark.at Matrikenkatalog); the Czech page fetched empty."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1809,
+    "from_margin": 0,
+    "id": "carniola--era-1809",
+    "label": "Napoleonic — The Illyrian Provinces",
+    "margin_ok": {
+     "first": 1815,
+     "kind": "approx",
+     "last": 1807
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "The Illyrian Provinces",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": false,
+    "to": 1813,
+    "to_margin": 2,
+    "url": "/region/carniola/#era-1809",
+    "why": "Start: Treaty of Schonbrunn 14 Oct 1809 created the Illyrian Provinces (Wikipedia); Hrvatska enciklopedija also says Kranjska was an Illyrian province from 1809. End is not clean: Austria retook territory from Aug-Nov 1813 (Trieste 29 Oct 1813), the Treaty of Paris was 1814, and the formal Austrian annexation is dated 9 June 1815 (Wikipedia gives 1809-1814/1815; Duchy of Carniola infobox says restored 1815). De facto 1813 vs de jure 1815 is a gap over a year. Sovereignty itself not disputed. Also: https://www.enciklopedija.hr/clanak/kranjska"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1813,
+    "from_margin": 2,
+    "id": "carniola--era-1813",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1819,
+     "kind": "approx",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — the Duchy of Carniola and Lower Styria",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 2,
+    "url": "/region/carniola/#era-1813",
+    "why": "Start: Austrian reconquest in autumn 1813 de facto, 1814 Paris, 9 June 1815 formal (Wikipedia, Illyrian Provinces); Kingdom of Illyria only from 1816 (Hrvatska enciklopedija). End: Duchy of Carniola ceased 29 Oct 1918 (Wikipedia infobox) but the borders were settled by Saint-Germain (10 Sept 1919) and Rapallo (12 Nov 1920). Habsburg rule itself undisputed in between. Also: https://www.enciklopedija.hr/clanak/kranjska"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": true,
+    "contested_scope": "bounds",
+    "from": 1991,
+    "from_margin": 1,
+    "id": "carniola--era-1991",
+    "label": "Slovenia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "both",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Slovenia",
+    "present": true,
+    "regime": "slovenia",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/carniola/#era-1991",
+    "why": "Declared independence 25 June 1991; Ten-Day War 27 June-7 July; Brioni Accord postponed independence for three months; JNA withdrew by 25-26 Oct 1991; EC recognition 15 Jan 1992; UN membership 22 May 1992 (Wikipedia, Ten-Day War). Federal sovereignty was practically contested in 1991, so both approx and contested are true for the start year. From 1992 uncontested."
+   }
+  ],
+  "civil-croatia": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1102,
+    "from_margin": 11,
+    "id": "civil-croatia--era-1102",
+    "label": "Hungary",
+    "margin_ok": {
+     "first": 1119,
+     "kind": "margin",
+     "last": 1516
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "Kingdom of Croatia in personal union with Hungary",
+    "present": false,
+    "regime": "hungary",
+    "seeded_from_archive": false,
+    "to": 1527,
+    "to_margin": 1,
+    "url": "/region/civil-croatia/#era-1102",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1527,
+    "from_margin": 1,
+    "id": "civil-croatia--era-1527",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1533,
+     "kind": "margin",
+     "last": 1862
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Croatia under the Habsburg monarchy",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1868,
+    "to_margin": 1,
+    "url": "/region/civil-croatia/#era-1527",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1868,
+    "from_margin": 1,
+    "id": "civil-croatia--era-1868",
+    "label": "Hungary",
+    "margin_ok": {
+     "first": 1874,
+     "kind": "margin",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Croatia-Slavonia (within the Hungarian half)",
+    "present": false,
+    "regime": "hungary",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 0,
+    "url": "/region/civil-croatia/#era-1868",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 0,
+    "id": "civil-croatia--era-1918",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "margin",
+     "last": 1935
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Serbs, Croats and Slovenes, then Yugoslavia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1941,
+    "to_margin": 0,
+    "url": "/region/civil-croatia/#era-1918",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1941,
+    "from_margin": 0,
+    "id": "civil-croatia--era-1941",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1947,
+     "kind": "margin",
+     "last": 1939
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Independent State of Croatia",
+    "present": false,
+    "regime": "croatia",
+    "seeded_from_archive": false,
+    "to": 1945,
+    "to_margin": 0,
+    "url": "/region/civil-croatia/#era-1941",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1945,
+    "from_margin": 0,
+    "id": "civil-croatia--era-1945",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1951,
+     "kind": "margin",
+     "last": 1985
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia — SR Croatia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1991,
+    "to_margin": 1,
+    "url": "/region/civil-croatia/#era-1945",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1991,
+    "from_margin": 1,
+    "id": "civil-croatia--era-1991",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Croatia",
+    "present": true,
+    "regime": "croatia",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/civil-croatia/#era-1991",
+    "why": null
+   }
+  ],
+  "dalmatia": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1797,
+    "from_margin": 0,
+    "id": "dalmatia--era-1797",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1803,
+     "kind": "approx",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — first occupation",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1805,
+    "to_margin": 1,
+    "url": "/region/dalmatia/#era-1797",
+    "why": "Start: Venice fell and Austria obtained Dalmatia at Campo Formio (17-18 Oct 1797; Hrvatska enciklopedija and Wikipedia Kingdom of Dalmatia). End: Peace of Pressburg 26 Dec 1805 transferred Dalmatia, France took control in February 1806 (Hrvatska enciklopedija), so end 1805 vs 1806 differ. Also: https://www.enciklopedija.hr/clanak/dalmacija"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1814,
+    "from_margin": 2,
+    "id": "dalmatia--era-1814",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1820,
+     "kind": "approx",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Kingdom of Dalmatia",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1918,
+    "to_margin": 0,
+    "url": "/region/dalmatia/#era-1814",
+    "why": "Start is a process: Austrian takeover 1813 (Tomasic), Illyrian dissolution 1814, Congress of Vienna confirmation and Kingdom of Dalmatia 1815 (Wikipedia: infobox 1815-1918; Hrvatska enciklopedija: 1815). End 1918: Kingdom ended 29 Oct 1918 when the Croatian Sabor joined the State of SCS, but Italian forces reached Vis, Lastovo and Sibenik on 5-6 Nov 1918 and occupied a Zadar-Sibenik strip and islands by end 1918. Austrian rule itself undisputed in between. Also: https://www.enciklopedija.hr/clanak/dalmacija"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1945,
+    "from_margin": 2,
+    "id": "dalmatia--era-1945",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1951,
+     "kind": "approx",
+     "last": 1985
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia — SR Croatia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": true,
+    "to": 1991,
+    "to_margin": 1,
+    "url": "/region/dalmatia/#era-1945",
+    "why": "Start: Partisans liberated Dalmatia progressively by end 1944 (Split-based Croatian government formed 14 April 1945; Hrvatska enciklopedija); Zadar captured 1 Nov 1944 but only officially became Yugoslav/Croatian in 1947 (Wikipedia: Zadar). End: Croatian independence declared 25 June 1991, effective only after the Brioni three-month postponement (7 Jul 1991 -> Oct 1991) and Dalmatian hinterland partly held by Serb forces from 1991. So both ends fuzzy. Also: https://www.enciklopedija.hr/clanak/dalmacija"
+   }
+  ],
+  "england": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1538,
+    "from_margin": 0,
+    "id": "england--era-1538",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1544,
+     "kind": "approx",
+     "last": 1831
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "England — the parish register",
+    "present": false,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": 1837,
+    "to_margin": 0,
+    "url": "/region/england/#era-1538",
+    "why": "Cromwell's injunction to keep registers is dated 5 Sept 1538 (Wikipedia), but a search found other sources giving 29 Sept 1538 for publication, compliance was uneven, and it was repeated in 1547 and reaffirmed in 1597; this is a record-keeping start, not a change of sovereignty. England under Henry VIII governed through Cromwell as Vicar General, no rival authority reported."
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1837,
+    "from_margin": 0,
+    "id": "england--era-1837",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1843,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "England and Wales — civil registration",
+    "present": true,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/england/#era-1837",
+    "why": "Civil registration began 1 July 1837 (Wikipedia GRO; several family-history sites agree; one source cites 1 March 1837 as the Act's commencement, registration itself started 1 July). Registration became compulsory only in 1874/75 (Wikipedia says 1875, other sources the 1874 Act), which the era note already says. No rival authority."
+   }
+  ],
+  "hungary": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1699,
+    "from_margin": 13,
+    "id": "hungary--era-1699",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1713,
+     "kind": "approx",
+     "last": 1861
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Habsburg — Kingdom of Hungary",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1867,
+    "to_margin": 0,
+    "url": "/region/hungary/#era-1699",
+    "why": "Treaty of Karlowitz 26 Jan 1699; Buda had been retaken in 1686; the Banat of Temesvar stayed Ottoman until the Treaty of Passarowitz 1718, and Transylvania was nominally independent under Austrian governors (Wikipedia). No competing claimant for the post-1699 core."
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1867,
+    "from_margin": 0,
+    "id": "hungary--era-1867",
+    "label": "Hungary",
+    "margin_ok": {
+     "first": 1873,
+     "kind": "margin",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria–Hungary — the Hungarian half",
+    "present": false,
+    "regime": "hungary",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 3,
+    "url": "/region/hungary/#era-1867",
+    "why": "Compromise ratified by the restored Hungarian Diet 29 May 1867, Franz Joseph crowned King of Hungary 8 June 1867 (Wikipedia). It restored the pre-1848 constitution only partly; the 1848 April Laws were a prior step."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": true,
+    "contested_scope": "bounds",
+    "from": 1945,
+    "from_margin": 4,
+    "id": "hungary--era-1945",
+    "label": "Hungary",
+    "margin_ok": {
+     "first": 1951,
+     "kind": "both",
+     "last": 1983
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "People's Republic of Hungary",
+    "present": false,
+    "regime": "hungary",
+    "seeded_from_archive": false,
+    "to": 1989,
+    "to_margin": 2,
+    "url": "/region/hungary/#era-1945",
+    "why": "German occupation March 1944; Szalasi's Arrow Cross government (Oct 1944) and Miklos's provisional government (28 Dec 1944) each claimed to be legitimate while the Soviets set up a separate Provisional National Government in Debrecen (22 Dec 1944); armistice 20 Jan 1945, Budapest fell 13 Feb, German troops expelled 4 April 1945. The People's Republic dates from 1949 (Wikipedia), a republic from 1946."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1989,
+    "from_margin": 2,
+    "id": "hungary--era-1989",
+    "label": "Hungary",
+    "margin_ok": {
+     "first": 1995,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Hungary",
+    "present": true,
+    "regime": "hungary",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/hungary/#era-1989",
+    "why": "Wikipedia dates the People's Republic 1949-1989 and the Third Republic 1989-2012, but free elections were 1990 and Soviet troops left 1991, so the transition was gradual. Sovereignty did not change."
+   }
+  ],
+  "imotski": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "unknown",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1493,
+    "from_margin": 1,
+    "id": "imotski--era-1493",
+    "label": "Ottoman Empire",
+    "margin_ok": {
+     "first": 1499,
+     "kind": "approx",
+     "last": 1711
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Ottoman Empire — Sanjak of Klis",
+    "present": false,
+    "regime": "ottoman",
+    "seeded_from_archive": false,
+    "to": 1717,
+    "to_margin": 1,
+    "url": "/region/imotski/#era-1493",
+    "why": "Start: Wikipedia says held by the Ottomans 'from the fall of Bosnia in 1492'; Hrvatska enciklopedija says 1493 ('od 1493'); a tourism site says only '15th century'. End: Imotski liberated by Venice 2 Aug 1717 (Mocenigo; Wikipedia, Total Croatia News), clean. I could not verify 'Sanjak of Klis': the Wikipedia Sanjak of Klis page (founded 12 March 1537) does not mention Imotski; the Ottoman administrative assignment is unverified. Also: https://www.enciklopedija.hr/clanak/imotski"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "unknown",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1717,
+    "from_margin": 1,
+    "id": "imotski--era-1717",
+    "label": "Republic of Venice",
+    "margin_ok": {
+     "first": 1723,
+     "kind": "approx",
+     "last": 1791
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Republic of Venice — Acquisto Nuovo",
+    "present": false,
+    "regime": "venice",
+    "seeded_from_archive": false,
+    "to": 1797,
+    "to_margin": 0,
+    "url": "/region/imotski/#era-1717",
+    "why": "Venice took Imotski on 2 Aug 1717 (Wikipedia, Hrvatska enciklopedija 'od 1717'); the Treaty of Passarowitz (21 July 1718) then confirmed it, with Venice gaining 'Imotski and Vrgorac' (Wikipedia: Passarowitz). So 1717 conquest vs 1718 treaty. End 1797: Campo Formio (17-18 Oct 1797), clean. Also: https://www.enciklopedija.hr/clanak/imotski"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "unknown",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1797,
+    "from_margin": 0,
+    "id": "imotski--era-1797",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1803,
+     "kind": "approx",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1805,
+    "to_margin": 1,
+    "url": "/region/imotski/#era-1797",
+    "why": "Start 1797 Campo Formio is clean (Hrvatska enciklopedija). End: Pressburg 26 Dec 1805 but French took control in Feb 1806 (Hrvatska enciklopedija dalmacija), so 1805 vs 1806. Hrvatska enciklopedija on Imotski gives 'Habsburg rule 1797-1918, interrupted by a short French administration 1805-13'. Also: https://www.enciklopedija.hr/clanak/dalmacija"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "unknown",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1805,
+    "from_margin": 1,
+    "id": "imotski--era-1805",
+    "label": "Napoleonic — French Illyria",
+    "margin_ok": {
+     "first": 1811,
+     "kind": "approx",
+     "last": 1807
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "French Illyria",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": false,
+    "to": 1813,
+    "to_margin": 2,
+    "url": "/region/imotski/#era-1805",
+    "why": "French administration 1805-1813 per Hrvatska enciklopedija (Imotski); actual French takeover Feb 1806, and the Austrian reconquest of Dalmatia ran 1813-1814 (Zadar 6 Dec 1813, Kotor Jan 1814), with formal annexation 9 June 1815 (Wikipedia Illyrian Provinces). Imotski is inland so the British island occupation did not touch it. Also: https://www.enciklopedija.hr/clanak/imotski"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "unknown",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1814,
+    "from_margin": 2,
+    "id": "imotski--era-1814",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1820,
+     "kind": "approx",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Kingdom of Dalmatia",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 0,
+    "url": "/region/imotski/#era-1814",
+    "why": "Start fuzzy: reconquest 1813, 1814, Kingdom of Dalmatia and Congress of Vienna 1815. End 1918 clean for Imotski: Kingdom of Dalmatia ended 29 Oct 1918, the Italian occupation of 1918 was a coastal strip Zadar-Sibenik plus islands (Wikipedia: Rapallo, Kingdom of Dalmatia), not inland Imotski. Also: https://en.wikipedia.org/wiki/Kingdom_of_Dalmatia"
+   },
+   {
+    "approx": true,
+    "assessed": false,
+    "basis": "unknown",
+    "contested": null,
+    "contested_scope": null,
+    "from": 1991,
+    "from_margin": 1,
+    "id": "imotski--era-1991",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Croatia — Split-Dalmatia",
+    "present": true,
+    "regime": "croatia",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/imotski/#era-1991",
+    "why": "Start approximate: Croatia declared independence 25 June 1991, postponed three months at Brioni on 7 July 1991 (Wikipedia, Ten-Day War), so effective October 1991. Contested left unassessed: I found no source stating whether any part of Imotska krajina was outside Croatian control in 1991-95 (a Croatian army brigade of Imotski fought near Dubrovnik per predsjednik.hr; that does not settle it). Absence is not evidence."
+   }
+  ],
+  "istria-central": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1374,
+    "from_margin": 0,
+    "id": "istria-central--era-1374",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1380,
+     "kind": "margin",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Habsburg — County of Pazin",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1805,
+    "to_margin": 4,
+    "url": "/region/istria-central/#era-1374",
+    "why": "Two independent sources give 1374 for the Habsburg takeover of the Pazin County: Wikipedia Pazin (Albert III of Gorizia bequeathed the Mitterburg estates; attached to Carniola) and Hrvatska enciklopedija (Istra: Pazin county to the Habsburgs 1374 by inheritance treaty). Wikipedia notes a brief Venetian conquest 1508-09 (War of Cambrai); not a change of sovereign."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1805,
+    "from_margin": 4,
+    "id": "istria-central--era-1805",
+    "label": "Napoleonic — Illyrian Provinces",
+    "margin_ok": {
+     "first": 1811,
+     "kind": "approx",
+     "last": 1809
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Napoleonic — Illyrian Provinces",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": true,
+    "to": 1815,
+    "to_margin": 2,
+    "url": "/region/istria-central/#era-1805",
+    "why": "Dates contradicted for THIS ground. Pazin was Austrian (not Venetian) Istria. Hrvatska enciklopedija: after Pressburg 1805 only former VENETIAN Istria went to the Kingdom of Italy; the rest of Istria went to Napoleon by Schönbrunn (14 Oct 1809) and the whole peninsula joined the Illyrian Provinces in 1809. Wikipedia Illyrian Provinces lists the March of Istria among the 1809 cessions. Austrian return: army entered Oct 1813, Treaty of Paris 1814 (Hrvatska); Wikipedia Istria says 1814; so end year is also approximate. Wikipedia Pazin does not cover the Napoleonic period."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1815,
+    "from_margin": 2,
+    "id": "istria-central--era-1815",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1821,
+     "kind": "approx",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria–Hungary — Küstenland",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1918,
+    "to_margin": 2,
+    "url": "/region/istria-central/#era-1815",
+    "why": "Start is approximate: Austria re-entered Istria Oct 1813, Treaty of Paris 1814 (Hrvatska enciklopedija), Wikipedia Istria dates the Austrian section 1814-1918; Congress of Vienna 1815. Polity label is anachronistic: Wikipedia Istria has Istria in the Kingdom of Illyria 1816-1849 (Friuli-Venezia Giulia article: Illyria abolished 1849, Austrian Littoral/Küstenland after); 'Austria-Hungary' only from 1867."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 2,
+    "id": "istria-central--era-1918",
+    "label": "Italy",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "approx",
+     "last": 1937
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Italy — Provincia dell'Istria",
+    "present": false,
+    "regime": "italy",
+    "seeded_from_archive": true,
+    "to": 1943,
+    "to_margin": 0,
+    "url": "/region/istria-central/#era-1918",
+    "why": "Italy held Istria by end 1918 after Villa Giusti armistice (3 Nov 1918; Wikipedia Treaty of Rapallo) but the formal transfer is Rapallo, 12 Nov 1920 (Wikipedia; Hrvatska says 'formally confirmed 1920'). The State of SCS laid a competing claim to the eastern Adriatic 1918-20, but Italy held Istria on the ground."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1945,
+    "from_margin": 2,
+    "id": "istria-central--era-1945",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1951,
+     "kind": "approx",
+     "last": 1985
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia — SR Croatia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": true,
+    "to": 1991,
+    "to_margin": 1,
+    "url": "/region/istria-central/#era-1945",
+    "why": "Yugoslav partisans took most of Istria in 1945 and entered Pazin in May 1945 (Wikipedia Istria, Pazin); the Morgan Line (June 1945) put most of Istria in Yugoslav-administered Zone B (Wikipedia Morgan Line); Italy's cession is the Paris treaty, signed 10 Feb 1947, in force 15 Sept 1947. So 1945 de facto vs 1947 de jure. No Allied enclave in central Istria."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1991,
+    "from_margin": 1,
+    "id": "istria-central--era-1991",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Croatia — Istria County",
+    "present": true,
+    "regime": "croatia",
+    "seeded_from_archive": true,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/istria-central/#era-1991",
+    "why": "Croatia declared independence 25 June 1991, moratorium, ties severed 8 Oct 1991, EEC recognition 15 Jan 1992 (Wikipedia Independence of Croatia); the JNA withdrew from Istria 6 Dec 1991 (Hrvatska enciklopedija). No fighting in Istria is described."
+   }
+  ],
+  "istria-south": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1331,
+    "from_margin": 48,
+    "id": "istria-south--era-1331",
+    "label": "Republic of Venice",
+    "margin_ok": {
+     "first": 1380,
+     "kind": "approx",
+     "last": 1791
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Republic of Venice — Istria da Mar",
+    "present": false,
+    "regime": "venice",
+    "seeded_from_archive": true,
+    "to": 1797,
+    "to_margin": 0,
+    "url": "/region/istria-south/#era-1331",
+    "why": "Pula to Venice 1331 (Wikipedia Pula; Hrvatska enciklopedija), held until 1797. But Rovinj was Venetian from 1283 (Wikipedia Rovinj; Hrvatska: 'Rovinj i Piran 1283', also 1331), so 1331 is a Pula date, not region-wide."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1797,
+    "from_margin": 0,
+    "id": "istria-south--era-1797",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1803,
+     "kind": "approx",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — first occupation",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1805,
+    "to_margin": 1,
+    "url": "/region/istria-south/#era-1797",
+    "why": "Campo Formio 17 Oct 1797 gives Istria to Austria (Hrvatska enciklopedija; Wikipedia Pula 1797). End is approximate: Pressburg signed 26 Dec 1805 (Wikipedia) but Istria incorporated into Kingdom of Italy 1806 (Wikipedia Istria: 1806-1810)."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1805,
+    "from_margin": 1,
+    "id": "istria-south--era-1805",
+    "label": "Napoleonic — Illyrian Provinces",
+    "margin_ok": {
+     "first": 1811,
+     "kind": "approx",
+     "last": 1807
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Napoleonic — Illyrian Provinces",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": true,
+    "to": 1813,
+    "to_margin": 2,
+    "url": "/region/istria-south/#era-1805",
+    "why": "Contradicted label. Kingdom of Italy included Istria from the Pressburg treaty (26 Dec 1805; annexation announced 30 Mar 1806, ratified 1 May 1806) until it was ceded to France under Schönbrunn (14 Oct 1809), effective 10 June 1810 (Wikipedia Napoleonic Kingdom of Italy); Hrvatska enciklopedija: 1805-1809 Kingdom of Italy, 1809 Illyrian Provinces. Austria returned Oct 1813 / 1814 (Hrvatska)."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1813,
+    "from_margin": 2,
+    "id": "istria-south--era-1813",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1819,
+     "kind": "approx",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Küstenland, diocese of Pola",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1918,
+    "to_margin": 2,
+    "url": "/region/istria-south/#era-1813",
+    "why": "Start approximate: Austrian army entered Istria Oct 1813, Treaty of Paris 1814 (Hrvatska enciklopedija); Wikipedia Pula says 1813, Istria/Poreč pages 1814, Umag page 1815. Label 'Küstenland' is anachronistic before 1849 (Kingdom of Illyria 1816-49, Wikipedia Istria)."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 2,
+    "id": "istria-south--era-1918",
+    "label": "Italy",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "approx",
+     "last": 1937
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Italy — Provincia di Pola",
+    "present": false,
+    "regime": "italy",
+    "seeded_from_archive": true,
+    "to": 1943,
+    "to_margin": 0,
+    "url": "/region/istria-south/#era-1918",
+    "why": "Italy held Istria by end 1918 (Villa Giusti armistice 3 Nov 1918) but formal cession is Rapallo, 12 Nov 1920 (Wikipedia Treaty of Rapallo; Hrvatska). Rovinj page gives 1918 for Italy, Pula page 1918. Competing SCS claim 1918-20 was diplomatic; Italy held the ground."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1991,
+    "from_margin": 1,
+    "id": "istria-south--era-1991",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Croatia — Istria County",
+    "present": true,
+    "regime": "croatia",
+    "seeded_from_archive": true,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/istria-south/#era-1991",
+    "why": "Declaration 25 June 1991, independence effective 8 Oct 1991, recognition Jan 1992 (Wikipedia Independence of Croatia); JNA left Istria 6 Dec 1991 (Hrvatska). No fighting in Istria described."
+   }
+  ],
+  "istria-west": [
+   {
+    "approx": true,
+    "assessed": false,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": null,
+    "contested_scope": null,
+    "from": 1331,
+    "from_margin": 64,
+    "id": "istria-west--era-1331",
+    "label": "Republic of Venice",
+    "margin_ok": {
+     "first": 1396,
+     "kind": "approx",
+     "last": 1791
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Republic of Venice — Istria da Mar",
+    "present": false,
+    "regime": "venice",
+    "seeded_from_archive": true,
+    "to": 1797,
+    "to_margin": 0,
+    "url": "/region/istria-west/#era-1331",
+    "why": "Contradicted for THIS ground. Wikipedia Istria: Poreč formally to Venice 15 Feb 1267, Umag 1269, Novigrad 1270, Rovinj 1283; Hrvatska enciklopedija: Poreč 1267, Rovinj 1283, Pula 1331; Wikipedia Poreč 1267 'first Istrian city'; Umag 1269 (Wikipedia Umag); Buje 1358-1797 (Wikipedia Buje). 1331 is Pula's date. Gradual, 1267-1358. No source on rivalry."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1797,
+    "from_margin": 0,
+    "id": "istria-west--era-1797",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1803,
+     "kind": "approx",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — first occupation",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1805,
+    "to_margin": 1,
+    "url": "/region/istria-west/#era-1797",
+    "why": "Campo Formio 17 Oct 1797 gives Istria to Austria (Hrvatska enciklopedija; Wikipedia Buje). End approximate: Pressburg 26 Dec 1805 vs Kingdom of Italy from 1806 (Wikipedia Istria 1806-1810). Wikipedia Umag wrongly says French 1797-1815."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1805,
+    "from_margin": 1,
+    "id": "istria-west--era-1805",
+    "label": "Napoleonic — Illyrian Provinces",
+    "margin_ok": {
+     "first": 1811,
+     "kind": "approx",
+     "last": 1807
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Napoleonic — Illyrian Provinces",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": true,
+    "to": 1813,
+    "to_margin": 2,
+    "url": "/region/istria-west/#era-1805",
+    "why": "Contradicted label. Kingdom of Italy included Istria from the Pressburg treaty (26 Dec 1805; annexation announced 30 Mar 1806, ratified 1 May 1806) until it was ceded to France under Schönbrunn (14 Oct 1809), effective 10 June 1810 (Wikipedia Napoleonic Kingdom of Italy); Hrvatska enciklopedija: 1805-1809 Kingdom of Italy, 1809 Illyrian Provinces. Austria returned Oct 1813 / 1814 (Hrvatska). Wikipedia Poreč: Kingdom of Italy then Illyrian Provinces."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1813,
+    "from_margin": 2,
+    "id": "istria-west--era-1813",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1819,
+     "kind": "approx",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Küstenland, diocese of Pola",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1918,
+    "to_margin": 2,
+    "url": "/region/istria-west/#era-1813",
+    "why": "Start approximate: Austria returned Oct 1813 / Treaty of Paris 1814 (Hrvatska enciklopedija); Wikipedia Poreč '1814', Buje and Umag '1815'. 'Küstenland' anachronistic before 1849 (Kingdom of Illyria 1816-49)."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 2,
+    "id": "istria-west--era-1918",
+    "label": "Italy",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "approx",
+     "last": 1937
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Italy — Provincia di Pola",
+    "present": false,
+    "regime": "italy",
+    "seeded_from_archive": true,
+    "to": 1943,
+    "to_margin": 0,
+    "url": "/region/istria-west/#era-1918",
+    "why": "Italy held Istria by end 1918 (Villa Giusti armistice 3 Nov 1918); formal cession Rapallo 12 Nov 1920 (Wikipedia; Hrvatska). Wikipedia Poreč, Buje, Rovinj, Umag all give 1918 for Italian rule."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1991,
+    "from_margin": 1,
+    "id": "istria-west--era-1991",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Croatia — Istria County",
+    "present": true,
+    "regime": "croatia",
+    "seeded_from_archive": true,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/istria-west/#era-1991",
+    "why": "Declaration 25 June 1991, effective 8 Oct 1991, recognition Jan 1992 (Wikipedia Independence of Croatia); JNA left Istria 6 Dec 1991 (Hrvatska). The Croatia-Slovenia dispute (Dragonja valley, Piran Bay, 2017 arbitration, Croatia rejects) is on the northern edge; Wikipedia does not name Poreč, Umag, Buje as disputed."
+   }
+  ],
+  "kvarner": [
+   {
+    "approx": true,
+    "assessed": false,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": null,
+    "contested_scope": null,
+    "from": 1469,
+    "from_margin": 205,
+    "id": "kvarner--era-1469",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1675,
+     "kind": "approx",
+     "last": 1803
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Habsburg — Senj a Military Frontier garrison",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": true,
+    "to": 1809,
+    "to_margin": 0,
+    "url": "/region/kvarner/#era-1469",
+    "why": "Contradicted. 1469 is Matthias Corvinus's army taking Senj and founding the Senj captaincy (Hrvatska enciklopedija: Senj) - Hungarian-Croatian crown, not Habsburg. Rijeka went to the Habsburgs in 1466 (Wikipedia Rijeka; Hrvatska). Vinodol stayed Frankopan, divided with Zrinski 1577, to the Habsburg crown only in 1671 (Hrvatska Vinodol). Senj returned to the Military Frontier 1776 (Hrvatska Senj). The three grounds differ; contested not assessed (Uskok war with Venice ended 1617, Wikipedia Senj, but no source on who held title)."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1809,
+    "from_margin": 0,
+    "id": "kvarner--era-1809",
+    "label": "Napoleonic — Illyrian Provinces",
+    "margin_ok": {
+     "first": 1815,
+     "kind": "approx",
+     "last": 1807
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Napoleonic — Illyrian Provinces",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": true,
+    "to": 1813,
+    "to_margin": 3,
+    "url": "/region/kvarner/#era-1809",
+    "why": "Illyrian Provinces created by Schönbrunn 14 Oct 1809 (Wikipedia Illyrian Provinces; Hrvatska Vinodol: 1809-1813). End approximate: Fiume held by the British navy 3 July-26 Aug 1813 then Austrian (Wikipedia list of governors of Fiume); Austria's recovery 1813-14, Treaty of Paris 30 May 1814, Vienna 1815 (Wikipedia Illyrian Provinces); Wikipedia Rijeka infobox gives 1809-1816."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1945,
+    "from_margin": 2,
+    "id": "kvarner--era-1945",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1951,
+     "kind": "approx",
+     "last": 1985
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia — SR Croatia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": true,
+    "to": 1991,
+    "to_margin": 1,
+    "url": "/region/kvarner/#era-1945",
+    "why": "Partisans entered Rijeka 3 May 1945; Morgan Line placed Rijeka in Yugoslav Zone B (Wikipedia Morgan Line); Paris Peace Treaty 1947 formally ceded it (Hrvatska Rijeka; Wikipedia Rijeka). Rijeka and Sušak merged 1948 (Wikipedia Sušak: council election 1 Feb 1948; Hrvatska says 1947). 1945 de facto vs 1947 de jure."
+   },
+   {
+    "approx": true,
+    "assessed": false,
+    "basis": "seeded:defranceschi-sovereignty",
+    "contested": null,
+    "contested_scope": null,
+    "from": 1991,
+    "from_margin": 1,
+    "id": "kvarner--era-1991",
+    "label": "Croatia",
+    "margin_ok": {
+     "first": 1997,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Croatia — Primorje-Gorski Kotar",
+    "present": true,
+    "regime": "croatia",
+    "seeded_from_archive": true,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/kvarner/#era-1991",
+    "why": "Declaration 25 June 1991, effective 8 Oct 1991, recognition Jan 1992 (Wikipedia Independence of Croatia). No source found on the Kvarner situation in 1991, so contested unassessed."
+   }
+  ],
+  "lazio": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 756,
+    "from_margin": 28,
+    "id": "lazio--era-756",
+    "label": "The Papal States",
+    "margin_ok": {
+     "first": 790,
+     "kind": "margin",
+     "last": 1787
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "Papal States",
+    "present": false,
+    "regime": "papal",
+    "seeded_from_archive": false,
+    "to": 1798,
+    "to_margin": 0,
+    "url": "/region/lazio/#era-756",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1798,
+    "from_margin": 0,
+    "id": "lazio--era-1798",
+    "label": "France",
+    "margin_ok": {
+     "first": 1804,
+     "kind": "margin",
+     "last": 1793
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Roman Republic (French-backed)",
+    "present": false,
+    "regime": "france",
+    "seeded_from_archive": false,
+    "to": 1799,
+    "to_margin": 1,
+    "url": "/region/lazio/#era-1798",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1799,
+    "from_margin": 1,
+    "id": "lazio--era-1799",
+    "label": "The Papal States",
+    "margin_ok": {
+     "first": 1805,
+     "kind": "margin",
+     "last": 1803
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Papal States, restored",
+    "present": false,
+    "regime": "papal",
+    "seeded_from_archive": false,
+    "to": 1809,
+    "to_margin": 1,
+    "url": "/region/lazio/#era-1799",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1809,
+    "from_margin": 1,
+    "id": "lazio--era-1809",
+    "label": "Napoleonic — French Empire",
+    "margin_ok": {
+     "first": 1815,
+     "kind": "margin",
+     "last": 1808
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "French Empire",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": false,
+    "to": 1814,
+    "to_margin": 0,
+    "url": "/region/lazio/#era-1809",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1814,
+    "from_margin": 0,
+    "id": "lazio--era-1814",
+    "label": "The Papal States",
+    "margin_ok": {
+     "first": 1820,
+     "kind": "margin",
+     "last": 1864
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Papal States, restored",
+    "present": false,
+    "regime": "papal",
+    "seeded_from_archive": false,
+    "to": 1870,
+    "to_margin": 0,
+    "url": "/region/lazio/#era-1814",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1870,
+    "from_margin": 0,
+    "id": "lazio--era-1870",
+    "label": "Italy",
+    "margin_ok": {
+     "first": 1876,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Italy — Lazio",
+    "present": true,
+    "regime": "italy",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/lazio/#era-1870",
+    "why": null
+   }
+  ],
+  "queensland": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1788,
+    "from_margin": 54,
+    "id": "queensland--era-1788",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1843,
+     "kind": "approx",
+     "last": 1853
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "New South Wales",
+    "present": false,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": 1859,
+    "to_margin": 0,
+    "url": "/region/queensland/#era-1788",
+    "why": "1788 is the founding of New South Wales (arrival 18 Jan, colony proclaimed 7 Feb 1788), not of European authority at Moreton Bay: convict settlement there began 1824 (Brisbane site 2 Dec 1824), free settlement allowed 1842. Much of the region's ground (north, west to 138E) was not administered for decades. No rival state claimant found in sources read; Indigenous sovereignty is not discussed in them."
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1859,
+    "from_margin": 0,
+    "id": "queensland--era-1859",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1865,
+     "kind": "approx",
+     "last": 1895
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Colony of Queensland",
+    "present": false,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": 1901,
+    "to_margin": 0,
+    "url": "/region/queensland/#era-1859",
+    "why": "Queensland separation: Letters Patent signed 6 Jun 1859, but the colony was proclaimed in Brisbane 10 Dec 1859, 'separation became a legal reality' only then. Two dates six months apart; Queensland Day marks 6 June but the Queensland State Archives says the colony was born at the proclamation. Until then NSW law applied. The 1862 western boundary move (141E to 138E) is noted, and the 28 deg S border is stated differently in one Archives post (29 deg)."
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1901,
+    "from_margin": 0,
+    "id": "queensland--era-1901",
+    "label": "Australia",
+    "margin_ok": {
+     "first": 1907,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Australia — State of Queensland",
+    "present": true,
+    "regime": "australia",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/queensland/#era-1901",
+    "why": "Commonwealth proclaimed and Queensland became a State on 1 Jan 1901 (Constitution in force); one clean date."
+   }
+  ],
+  "santafe": [
+   {
+    "approx": true,
+    "assessed": false,
+    "basis": "not-recorded",
+    "contested": null,
+    "contested_scope": null,
+    "from": 1580,
+    "from_margin": 50,
+    "id": "santafe--era-1580",
+    "label": "Spanish Empire",
+    "margin_ok": {
+     "first": 1631,
+     "kind": "approx",
+     "last": 1803
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Spanish Empire — Viceroyalty of the Río de la Plata",
+    "present": false,
+    "regime": "spain",
+    "seeded_from_archive": false,
+    "to": 1810,
+    "to_margin": 6,
+    "url": "/region/santafe/#era-1580",
+    "why": "1580 is not an event: Santa Fe city was founded 15 Nov 1573 by Garay (Wikipedia, es.wikipedia). The 'Viceroyalty of the Rio de la Plata' did not exist until 1 Aug 1776; before that the land belonged to the Viceroyalty of Peru. No source found for conditions on the Rosario ground in 1580, so contested is left unassessed."
+   }
+  ],
+  "serbia": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1500,
+    "from_margin": 50,
+    "id": "serbia--era-1500",
+    "label": "Ottoman Empire",
+    "margin_ok": {
+     "first": 1551,
+     "kind": "approx",
+     "last": 1712
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Ottoman Empire — Sanjak of Smederevo",
+    "present": false,
+    "regime": "ottoman",
+    "seeded_from_archive": false,
+    "to": 1718,
+    "to_margin": 1,
+    "url": "/region/serbia/#era-1500",
+    "why": "a lower bound: the source gives no start for Ottoman rule here"
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1718,
+    "from_margin": 1,
+    "id": "serbia--era-1718",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1724,
+     "kind": "margin",
+     "last": 1733
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Habsburg Kingdom of Serbia",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1739,
+    "to_margin": 0,
+    "url": "/region/serbia/#era-1718",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1739,
+    "from_margin": 0,
+    "id": "serbia--era-1739",
+    "label": "Ottoman Empire",
+    "margin_ok": {
+     "first": 1745,
+     "kind": "margin",
+     "last": 1798
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Ottoman Empire — Sanjak of Smederevo",
+    "present": false,
+    "regime": "ottoman",
+    "seeded_from_archive": false,
+    "to": 1804,
+    "to_margin": 2,
+    "url": "/region/serbia/#era-1739",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1804,
+    "from_margin": 2,
+    "id": "serbia--era-1804",
+    "label": "Serbia",
+    "margin_ok": {
+     "first": 1810,
+     "kind": "margin",
+     "last": 1807
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Revolutionary Serbia (the First Serbian Uprising)",
+    "present": false,
+    "regime": "serbia",
+    "seeded_from_archive": false,
+    "to": 1813,
+    "to_margin": 0,
+    "url": "/region/serbia/#era-1804",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1813,
+    "from_margin": 0,
+    "id": "serbia--era-1813",
+    "label": "Ottoman Empire",
+    "margin_ok": {
+     "first": 1819,
+     "kind": "margin",
+     "last": 1809
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Ottoman rule restored",
+    "present": false,
+    "regime": "ottoman",
+    "seeded_from_archive": false,
+    "to": 1815,
+    "to_margin": 0,
+    "url": "/region/serbia/#era-1813",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1815,
+    "from_margin": 0,
+    "id": "serbia--era-1815",
+    "label": "Serbia",
+    "margin_ok": {
+     "first": 1821,
+     "kind": "margin",
+     "last": 1876
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Principality of Serbia",
+    "present": false,
+    "regime": "serbia",
+    "seeded_from_archive": false,
+    "to": 1882,
+    "to_margin": 0,
+    "url": "/region/serbia/#era-1815",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1882,
+    "from_margin": 0,
+    "id": "serbia--era-1882",
+    "label": "Serbia",
+    "margin_ok": {
+     "first": 1888,
+     "kind": "margin",
+     "last": 1912
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Serbia",
+    "present": false,
+    "regime": "serbia",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 0,
+    "url": "/region/serbia/#era-1882",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 0,
+    "id": "serbia--era-1918",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "margin",
+     "last": 1935
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Serbs, Croats and Slovenes, then Yugoslavia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1941,
+    "to_margin": 0,
+    "url": "/region/serbia/#era-1918",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1944,
+    "from_margin": 0,
+    "id": "serbia--era-1944",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1950,
+     "kind": "margin",
+     "last": 1986
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia — SR Serbia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1992,
+    "to_margin": 1,
+    "url": "/region/serbia/#era-1944",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1992,
+    "from_margin": 1,
+    "id": "serbia--era-1992",
+    "label": "Serbia",
+    "margin_ok": {
+     "first": 1998,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Serbia",
+    "present": true,
+    "regime": "serbia",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/serbia/#era-1992",
+    "why": null
+   }
+  ],
+  "transvaal": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1852,
+    "from_margin": 5,
+    "id": "transvaal--era-1852",
+    "label": "The Boer republics and the Voortrekker states",
+    "margin_ok": {
+     "first": 1863,
+     "kind": "margin",
+     "last": 1866
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "South African Republic (Transvaal)",
+    "present": false,
+    "regime": "boer",
+    "seeded_from_archive": false,
+    "to": 1877,
+    "to_margin": 0,
+    "url": "/region/transvaal/#era-1852",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1877,
+    "from_margin": 0,
+    "id": "transvaal--era-1877",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1883,
+     "kind": "margin",
+     "last": 1875
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Transvaal — British annexation",
+    "present": false,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": 1881,
+    "to_margin": 1,
+    "url": "/region/transvaal/#era-1877",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1881,
+    "from_margin": 1,
+    "id": "transvaal--era-1881",
+    "label": "The Boer republics and the Voortrekker states",
+    "margin_ok": {
+     "first": 1887,
+     "kind": "margin",
+     "last": 1896
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "South African Republic (Transvaal)",
+    "present": false,
+    "regime": "boer",
+    "seeded_from_archive": false,
+    "to": 1902,
+    "to_margin": 2,
+    "url": "/region/transvaal/#era-1881",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1902,
+    "from_margin": 2,
+    "id": "transvaal--era-1902",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1908,
+     "kind": "margin",
+     "last": 1904
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Transvaal Colony",
+    "present": false,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": 1910,
+    "to_margin": 0,
+    "url": "/region/transvaal/#era-1902",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1910,
+    "from_margin": 0,
+    "id": "transvaal--era-1910",
+    "label": "Britain and its colonies",
+    "margin_ok": {
+     "first": 1916,
+     "kind": "margin",
+     "last": 1955
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Union of South Africa — Province of the Transvaal",
+    "present": false,
+    "regime": "britain",
+    "seeded_from_archive": false,
+    "to": 1961,
+    "to_margin": 0,
+    "url": "/region/transvaal/#era-1910",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1961,
+    "from_margin": 0,
+    "id": "transvaal--era-1961",
+    "label": "South Africa",
+    "margin_ok": {
+     "first": 1967,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "South Africa — the former Transvaal",
+    "present": true,
+    "regime": "southafrica",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/transvaal/#era-1961",
+    "why": null
+   }
+  ],
+  "trentino": [
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1803,
+    "from_margin": 1,
+    "id": "trentino--era-1803",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1809,
+     "kind": "margin",
+     "last": 1799
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Principality of Trent, under the County of Tyrol",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1805,
+    "to_margin": 1,
+    "url": "/region/trentino/#era-1803",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1805,
+    "from_margin": 1,
+    "id": "trentino--era-1805",
+    "label": "Bavaria",
+    "margin_ok": {
+     "first": 1811,
+     "kind": "margin",
+     "last": 1804
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Bavaria — Tyrol",
+    "present": false,
+    "regime": "bavaria",
+    "seeded_from_archive": false,
+    "to": 1810,
+    "to_margin": 1,
+    "url": "/region/trentino/#era-1805",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1810,
+    "from_margin": 1,
+    "id": "trentino--era-1810",
+    "label": "Napoleonic Kingdom of Italy — Department of Alto Adige",
+    "margin_ok": {
+     "first": 1816,
+     "kind": "margin",
+     "last": 1808
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Napoleonic Kingdom of Italy — Department of Alto Adige",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": false,
+    "to": 1814,
+    "to_margin": 1,
+    "url": "/region/trentino/#era-1810",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1814,
+    "from_margin": 1,
+    "id": "trentino--era-1814",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1825,
+     "kind": "margin",
+     "last": 1907
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "Austria — County of Tyrol",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1918,
+    "to_margin": 2,
+    "url": "/region/trentino/#era-1814",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1918,
+    "from_margin": 2,
+    "id": "trentino--era-1918",
+    "label": "Italy",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Italy — Trentino",
+    "present": true,
+    "regime": "italy",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/trentino/#era-1918",
+    "why": null
+   }
+  ],
+  "veneto": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1406,
+    "from_margin": 20,
+    "id": "veneto--era-1406",
+    "label": "Republic of Venice",
+    "margin_ok": {
+     "first": 1432,
+     "kind": "approx",
+     "last": 1786
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "Republic of Venice — the Terraferma",
+    "present": false,
+    "regime": "venice",
+    "seeded_from_archive": false,
+    "to": 1797,
+    "to_margin": 0,
+    "url": "/region/veneto/#era-1406",
+    "why": "Venetian rule on the mainland was won between 1339 and the 1400s; 1406 is the fall of the Carrara of Padua"
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1797,
+    "from_margin": 0,
+    "id": "veneto--era-1797",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1808,
+     "kind": "margin",
+     "last": 1795
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "Austria — Venetia (Treaty of Campo Formio)",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1806,
+    "to_margin": 1,
+    "url": "/region/veneto/#era-1797",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1806,
+    "from_margin": 1,
+    "id": "veneto--era-1806",
+    "label": "Napoleonic Kingdom of Italy",
+    "margin_ok": {
+     "first": 1817,
+     "kind": "margin",
+     "last": 1803
+    },
+    "margin_sourced": false,
+    "margin_src": "contract",
+    "polity": "Napoleonic Kingdom of Italy",
+    "present": false,
+    "regime": "napo",
+    "seeded_from_archive": false,
+    "to": 1814,
+    "to_margin": 1,
+    "url": "/region/veneto/#era-1806",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1814,
+    "from_margin": 1,
+    "id": "veneto--era-1814",
+    "label": "Habsburg / Austria–Hungary",
+    "margin_ok": {
+     "first": 1820,
+     "kind": "margin",
+     "last": 1860
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Austria — Kingdom of Lombardy–Venetia",
+    "present": false,
+    "regime": "habsburg",
+    "seeded_from_archive": false,
+    "to": 1866,
+    "to_margin": 0,
+    "url": "/region/veneto/#era-1814",
+    "why": null
+   },
+   {
+    "approx": false,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1866,
+    "from_margin": 0,
+    "id": "veneto--era-1866",
+    "label": "Italy",
+    "margin_ok": {
+     "first": 1872,
+     "kind": "margin",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Italy — Veneto",
+    "present": true,
+    "regime": "italy",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/veneto/#era-1866",
+    "why": null
+   }
+  ],
+  "vojvodina": [
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": true,
+    "contested_scope": "bounds",
+    "from": 1526,
+    "from_margin": 26,
+    "id": "vojvodina--era-1526",
+    "label": "Ottoman Empire",
+    "margin_ok": {
+     "first": 1553,
+     "kind": "both",
+     "last": 1679
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Ottoman Empire",
+    "present": false,
+    "regime": "ottoman",
+    "seeded_from_archive": false,
+    "to": 1699,
+    "to_margin": 19,
+    "url": "/region/vojvodina/#era-1526",
+    "why": "Start approximate: Mohacs 1526, but Hrvatska enciklopedija says Srijem was subdued by 1529, Backa by 1540 and Banat by 1551-52. Contested: Jovan Nenad's brief Serb state 1526-27 (Wikipedia, History of Vojvodina). End approximate: Backa and part of Srijem passed to the Habsburgs in 1699 (Karlowitz), the Banat and rest of Srijem only in 1716-1718 (Passarowitz). Also: https://www.enciklopedija.hr/clanak/vojvodina"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": true,
+    "contested_scope": "bounds",
+    "from": 1918,
+    "from_margin": 2,
+    "id": "vojvodina--era-1918",
+    "label": "Yugoslavia",
+    "margin_ok": {
+     "first": 1924,
+     "kind": "both",
+     "last": 1935
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Kingdom of Serbs, Croats and Slovenes, then Yugoslavia",
+    "present": false,
+    "regime": "yugo",
+    "seeded_from_archive": false,
+    "to": 1941,
+    "to_margin": 0,
+    "url": "/region/vojvodina/#era-1918",
+    "why": "Serbian forces entered Novi Sad 9 Nov 1918, dismantled the Banat Republic (proclaimed 31 Oct) on 15 Nov, assembly voted union with Serbia on 25 Nov 1918, Kingdom of SCS 1 Dec 1918; the exact borders were set by the peace conference: eastern Banat to Romania 1919, northern Backa/Baranya to Hungary 1920 (Wikipedia: Banat, Backa and Baranja). Sovereignty was in question until Trianon. End 1941: Axis invasion 6 April 1941. Also: https://en.wikipedia.org/wiki/Banat,_Ba%C4%8Dka_and_Baranja"
+   },
+   {
+    "approx": true,
+    "assessed": true,
+    "basis": "not-recorded",
+    "contested": false,
+    "contested_scope": "none",
+    "from": 1944,
+    "from_margin": 1,
+    "id": "vojvodina--era-1944",
+    "label": "Serbia",
+    "margin_ok": {
+     "first": 1950,
+     "kind": "approx",
+     "last": null
+    },
+    "margin_sourced": true,
+    "margin_src": "contract",
+    "polity": "Yugoslavia, then Serbia — the Autonomous Province of Vojvodina",
+    "present": true,
+    "regime": "serbia",
+    "seeded_from_archive": false,
+    "to": null,
+    "to_margin": null,
+    "url": "/region/vojvodina/#era-1944",
+    "why": "Start 1944: autumn 1944 for Banat and Backa, April 1945 for Srijem (Syrmian Front breakthrough 12 April 1945). Autonomous province: Hrvatska enciklopedija says delimited from Croatia and joined Serbia as an autonomous province in 1945-46; Wikipedia says 1945. The military administration period was not verified. Since then no competing authority was found. Also: https://www.enciklopedija.hr/clanak/vojvodina"
+   }
+  ]
+ },
+ "rulers": {
+  "alsace-lorraine": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "bosnia": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "carnia": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "carniola": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "civil-croatia": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "dalmatia": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "england": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "hungary": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "imotski": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "istria-central": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "istria-south": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "istria-west": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "kvarner": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "lazio": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "queensland": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "santafe": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "serbia": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "transvaal": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "trentino": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "veneto": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  },
+  "vojvodina": {
+   "has": false,
+   "reigns": [],
+   "why": "the contract says the region has no rulers"
+  }
+ },
+ "unchecked_edge": [],
+ "version": 5
+}
