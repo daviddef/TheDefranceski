@@ -15,6 +15,7 @@ import lines from "../../data/lines.json";
 import fam from "../../data/families.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
 import rivers from "../../data/rivers.json";
+import { statusLine } from "@daviddef/archive-kit/lib/lines.js";
 import { L, word, Cap, lanes, households, names, personBase } from "../../lib/rivers.js";
 import arr from "../../data/arrivals.json";
 import reg from "../../data/regions.json";
@@ -42,6 +43,16 @@ import Lightbox from "../../components/Lightbox.astro";
  * ninth household (Pomer, read on 14 October 2026) made both stale at once. */
 /* (the words and names are made in src/lib/rivers.js, which the home page uses too) */
 
+/* THE STATUS OF A FAMILY IS THE LANE'S, WORDED BY THE KIT (lib/lines.js statusLine). The family cards and the «pages
+ * themselves» rows used to carry a status of their own (families.json conf, lines.json status), which said
+ * «Documented» of the Carnia family while the drawing said the descent is not, and «Documented» of two families whose
+ * origin is not found. A card or row whose family has a lane now prints the lane's line, so the two cannot disagree;
+ * the data fields stay for the rows that have no lane. */
+const laneBy = Object.fromEntries(rivers.lanes.map((l) => [l.key, l]));
+const LANE_OF = { carnia: "carnia", svetvincenat: "svetvincenat", liznjan: "liznjan", venice: "venice", crete: "crete", vodnjan: "vodnjan",
+                  corsica: "corsica", dalmatia: "venice", seget: "crete", "carnia-fiume": "carnia" };
+const laneLine = (slug) => (laneBy[LANE_OF[slug]] ? statusLine(laneBy[LANE_OF[slug]]) : null);
+
 const CONF = { doc: "documented", documented: "documented", inf: "inferred",
                inferred: "inferred", probable: "probable", lore: "lore",
                disputed: "disputed" };
@@ -64,7 +75,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
   <div class="famgrid">
     {fam.families.map(f => (
       <a id={"fam-" + f.slug} class={f.not_ours ? "famcard away" : "famcard"} href={u(f.href)} style={`--c:${f.colour}`}>
-        <div class="fc-conf">{f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}{f.not_ours && <span style="color:var(--terra)"> · not this family</span>}</div>
+        <div class="fc-conf">{laneLine(f.slug) ? laneLine(f.slug).text : f.conf === "doc" ? "Documented" : f.conf === "inf" ? "Inferred" : "Family lore"}{f.not_ours && !(laneLine(f.slug) && /not this family/i.test(laneLine(f.slug).text)) && <span style="color:var(--terra)"> · not this family</span>}</div>
         <h4>{f.name}</h4>
         <div class="fc-meta"><span><b>From</b> <span set:html={_md(f.from)} /></span><span><b>Here from</b> <span set:html={_md(f.when)} /></span></div>
         <p class="fc-rest" set:html={mdHtml(f.rests)}></p>
@@ -119,7 +130,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
       <div class="linerow">
         <div>
           <h2 style="font-size:26px">{l.name}</h2>
-          <div style="margin-top:10px"><Evidence level={l.status} /></div>
+          <div style="margin-top:10px">{laneLine(l.slug) ? <div class="fc-conf">{laneLine(l.slug).text}</div> : <Evidence level={l.status} />}</div>
         </div>
         <div>
           <div class="meta"><span><b>Route</b> <span set:html={_md(l.route)} /></span><span><b>Earliest</b> <span set:html={_md(l.earliest)} /></span></div>
