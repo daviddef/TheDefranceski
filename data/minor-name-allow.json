@@ -1,0 +1,10 @@
+{
+ "why": "Reviewed exceptions to scripts/check-living-v2.py's rare-given-name check (a held-out person's first name, borne by three or fewer people in the tree, standing alone in published text). Each is a DIFFERENT, long-dead person who happens to share the first name; nothing here names a held-out person. The São Paulo immigrant-hostel register extract (data/harvest/saopaulo-hospedaria.json) holds a passenger who shares a first name: an 1890s Italian immigrant (surname Franceschini), not a held-out person.",
+ "neighbours": [
+  "berkoveo",
+  "francetich"
+ ],
+ "paths": [
+  "data/harvest/saopaulo-hospedaria.json"
+ ]
+}

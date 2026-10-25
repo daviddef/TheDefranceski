@@ -221,6 +221,38 @@ def prune_dossiers(old_rows, new_rows, held_pids):
         d["people"].pop(s_, None)
     for pid in held_pids:
         d["persons"].pop(pid, None)
+    # (25 October 2026) A held-out CHILD is also drawn on his parents' trees (`tree.children` is a list of names;
+    # `ptree.children` of {n, slug, pid}). Taking the child's own page away left him named there. Drop every
+    # entry that is a held person, and take it off the counts the tree states.
+    held_p = set(held_pids)
+    held_n = {r["name"] for r in old_rows if r.get("pid") in held_p}
+    n_edges = 0
+
+    def _is_held(e):
+        if isinstance(e, dict):
+            return e.get("pid") in held_p or e.get("slug") in held_p or e.get("slug") in gone or e.get("n") in held_n
+        return False
+
+    for sect in ("people", "persons"):
+        for rec in d[sect].values():
+            for key in ("tree", "ptree"):
+                t = rec.get(key)
+                if not isinstance(t, dict):
+                    continue
+                for lst in ("children", "siblings", "parents"):
+                    v = t.get(lst)
+                    if isinstance(v, list) and any(_is_held(e) for e in v):
+                        k = sum(1 for e in v if _is_held(e))
+                        t[lst] = [e for e in v if not _is_held(e)]
+                        n_edges += k
+                        if key == "ptree":
+                            for cnt in ("nrel", "nread"):
+                                if isinstance(t.get(cnt), int):
+                                    t[cnt] = max(0, t[cnt] - k)
+                            for row in t.get("tally", []):
+                                if isinstance(row, list) and row and row[0] == "line" and isinstance(row[1], int):
+                                    row[1] = max(0, row[1] - k)
+    print("pruned %d child/sibling edge(s) from parents' trees" % n_edges)
     with io.open(p, "w", encoding="utf-8") as f:
         json.dump(d, f, ensure_ascii=False, indent=1)
     print("pruned dossiers: %d name page(s), %d person tree(s)" % (len(gone), len(held_pids)))
@@ -393,6 +425,8 @@ def main():
     d["rows"] = new_rows
     with io.open(ROSTER, "w", encoding="utf-8") as f:
         json.dump(d, f, ensure_ascii=False, indent=1)
+    for pid in held_pids:
+        led["people"].pop(pid, None)      # (25 October 2026) a held-out person's slug is a name: only the tree id stays, under `held`
     led["note"] = ("pid -> the tree's opaque _UID for every roster row matched to David's MyHeritage tree "
                    "while applying the living-people standard (v2). `held` lists tree ids, never names, of "
                    "people held out as possible minors. No date is recorded here.")

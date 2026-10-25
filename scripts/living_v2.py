@@ -9,8 +9,9 @@ David's ruling of 16 October 2026 (the living-people standard, version 2):
                for a person WITH a birth year (25 October 2026, below).
     A person with no birth year is NOT living: nothing shows they are 80 or younger.
     HELD OUT = an UNDATED person with a living parent (who might be a child). Not published
-               at all. A child with a KNOWN birth year is not held out: every child follows the same
-               standard as any living person (David, 16 October 2026; kit 6cefc79).
+               at all. SUPERSEDED 25 October 2026 (David): a child with a KNOWN birth year of MINOR_BORN_FROM or later,
+               and an undated child of a parent born 1975 or later, are held out too: see `minor_supplement` below.
+               (The kit, 6cefc79, still lets a known-year child follow the standard; the gap is reported.)
 
 The test itself is not written here. It is `living_rule.py`, in the shared kit,
 read through the installed copy so that this archive cannot drift from the others:
@@ -111,6 +112,34 @@ def possible_minor(birth_year, recorded_dead, citations=(), parent_living=False,
     return lr.possible_minor(birth_year, recorded_dead, cites_for_living(birth_year, citations),
                              parent_living, today_year or THIS_YEAR, **kw)
 
+
+# ---- THE MINORS SUPPLEMENT (25 October 2026) --------------------------------------------------------------
+# David's newer ruling: a POSSIBLE MINOR is not published at all (no page, no name in a list, no tree node name, no
+# search-index entry, no photograph). The kit's rule (living_rule.possible_minor) holds out only an UNDATED person
+# with a living parent and EXEMPTS a child with a known birth year (David, 16 October 2026: "every child follows the
+# standard"), so two children born 2017 and 2019 were published with their full names. THE KIT IS NOT EDITED (the gap
+# is reported); this archive adds the missing cases HERE, in one place, and every script reads it from here:
+#
+#   a child        a person with a known birth year MINOR_BORN_FROM (this year minus 18) or later, and no death record;
+#   a child        an UNDATED person, no death record, one of whose parents was born PARENT_RECENT_FROM (1975) or later
+#                  (a parent of that age has only young children; a public-source citation does not release them,
+#                  because FamilySearch carries living people too).
+#
+# Both cut-offs are derived or named here and nowhere else; scripts/check-living-v2.py reads them.
+MINOR_YEARS = 18
+MINOR_BORN_FROM = THIS_YEAR - MINOR_YEARS      # 2008 in 2026: born in this year or later is held out
+PARENT_RECENT_FROM = 1975
+
+
+def minor_supplement(birth_year, recorded_dead, parent_birth_years=(), today_year=None):
+    """True for a person the kit's rule leaves published but David's 25 October 2026 ruling holds out."""
+    if recorded_dead:
+        return False
+    ty = today_year or THIS_YEAR
+    if birth_year is not None:
+        return int(birth_year) >= ty - MINOR_YEARS
+    return any(y is not None and int(y) >= PARENT_RECENT_FROM for y in parent_birth_years)
+
 # Collections that are somebody's tree, not a record. Matched as a prefix, lowercase.
 TREE_COLLECTIONS = ("geni world family tree", "wikitree", "genealogieonline family tree",
                     "filae family trees", "compilation of", "biographical summaries",
@@ -186,6 +215,7 @@ class Tree:
         living = is_living(p["by"], p["dead"], p["cites"], year, undated_dead=p.get("undated_dead", False))
         pl = any(self.verdict(q, year)[0] for q in p["parents"] if q in self.people)
         minor = possible_minor(p["by"], p["dead"], p["cites"], pl, year, undated_dead=p.get("undated_dead", False))
+        minor = minor or minor_supplement(p["by"], p["dead"], [self.people[q]["by"] for q in p["parents"] if q in self.people], year)
         self._memo[k] = (living, minor)
         return self._memo[k]
 

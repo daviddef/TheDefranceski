@@ -27,7 +27,8 @@ spec.loader.exec_module(G)
 YEAR = datetime.date.today().year
 CUT = L2.cutoff(YEAR)          # the oldest birth year that is still living (1946 in 2026)
 UID = {"live1": "TESTUID-LIVE-1", "live2": "TESTUID-LIVE-2", "child": "TESTUID-CHILD-1", "old": "TESTUID-OLD-1",
-       "dead": "TESTUID-DEAD-1", "cited": "TESTUID-CITED-1", "undated": "TESTUID-UNDATED-1", "flag": "TESTUID-FLAG-1"}
+       "dead": "TESTUID-DEAD-1", "cited": "TESTUID-CITED-1", "undated": "TESTUID-UNDATED-1", "flag": "TESTUID-FLAG-1",
+       "dpar": "TESTUID-DEADPARENT-1", "orphan": "TESTUID-ORPHAN-1", "kid2": "TESTUID-KID-2", "n19": "TESTUID-NINETEEN-1"}
 N_FILLER = 110
 
 
@@ -66,6 +67,8 @@ def gedcom():
         if cite:
             s += "1 NOTE %s\n" % cite
         if fam:
+            s += "1 FAMC @F%d@\n" % (2 if i == 10 else 1)
+        if i == 3:
             s += "1 FAMC @F1@\n"
         return s
     out = "0 HEAD\n1 SOUR MYHERITAGE\n"
@@ -77,7 +80,15 @@ def gedcom():
     out += indi(6, UID["cited"], "Qx /Citedone/", YEAR - 30, cite="FamilySearch ark:/61903/1:1:TEST")
     out += indi(7, UID["undated"], "Qx /Undatedone/", None, fam=True)       # no birth year, a living parent
     out += indi(8, UID["flag"], "Qx /Flagone/", YEAR - 30, flag=True)      # born in the window, a bare flag: still living
-    out += "0 @F1@ FAM\n1 HUSB @I1@\n1 CHIL @I7@\n"
+    # (25 October 2026) THE MINORS SUPPLEMENT. A known child (born YEAR-9, parent live1) is held out; so is a child with a RARE
+    # given name; so is an UNDATED child of a DEAD parent born in 1980 (the kit's rule would publish her: her parent is not
+    # living); and a person born exactly YEAR-19 is an adult and stays published (the control).
+    out += indi(9, UID["dpar"], "Qx /Deadparent/", 1980, dead=True)
+    out += indi(10, UID["orphan"], "Qx /Orphanone/", None, fam=True)
+    out += indi(11, UID["kid2"], "Quibblet /Smallone/", YEAR - 5, fam=True)
+    out += indi(12, UID["n19"], "Qx /Nineteen/", YEAR - 19)
+    out += "0 @F1@ FAM\n1 HUSB @I1@\n1 CHIL @I7@\n1 CHIL @I3@\n1 CHIL @I11@\n"
+    out += "0 @F2@ FAM\n1 HUSB @I9@\n1 CHIL @I10@\n"
     out += "0 TRLR\n"
     return out
 
@@ -90,7 +101,7 @@ def fixture(root):
         rows.append({"name": "Zz Filler%d" % i, "pid": "zz-filler-%d" % i, "who": "/who/zz-filler-%d/" % i,
                      "b": 1700 + i, "d": 1760 + i, "place": "Oldtown, Testland", "src": "burial", "note": "a note"})
     live = [("Qx Livone", "qx-livone", "first cousin"), ("Qx Livtwo", "qx-livtwo", ""),
-            ("Qx Childone", "qx-childone", "son")]       # a known child: a living row with a page, like anyone
+            ("Qx Nineteen", "qx-nineteen", "")]          # born YEAR-19: an adult, living, with a page (the control for the supplement)
     for name, pid, rel in live:
         r = {"name": name, "pid": pid, "who": "/who/%s/" % pid, "line": "x", "place": "Testville, Testland",
              "places": ["Testville, Testland"], "src": "life", "href": "/x/", "b": None, "d": None, "note": "",
@@ -136,10 +147,11 @@ def fixture(root):
     for rel in ("site/src/data/searchindex.json", "site/public/searchindex.json", "site/dist/searchindex.json"):
         w(os.path.join(root, rel), json.dumps(idx))
     led = {"people": {"qx-livone": UID["live1"], "qx-livtwo": UID["live2"], "qx-oldone": UID["old"],
-                      "qx-childone": UID["child"], "qx-flagone": UID["flag"]},
-           "held": [UID["undated"]], "unlinked_on_living_pages": 0}
+                      "qx-nineteen": UID["n19"], "qx-flagone": UID["flag"]},
+           "held": [UID["undated"], UID["child"], UID["orphan"], UID["kid2"]], "unlinked_on_living_pages": 0}
     w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
     w(os.path.join(root, "tree.ged"), gedcom())
+    w(os.path.join(root, "data", "minor-name-allow.json"), json.dumps({"neighbours": ["berkoveo"], "paths": []}))
     return rows
 
 
@@ -188,8 +200,10 @@ def F_place(root):
 def F_place_inst(root):
     d, r = row(root, "qx-livone"); r["places"] = ["Zz General Hospital, Testland"]; save(root, d)
 
-def F_child_dates(root):
-    d, r = row(root, "qx-childone"); r["b"] = YEAR - 9; save(root, d)
+def F_minor_year_row(root):
+    d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Smallrow", "pid": "qx-smallrow", "b": YEAR - 5, "d": None,
+                                                     "src": "index", "note": ""}); save(root, d)
+    w(person(root, "qx-smallrow"), page("Qx Smallrow", False))
 
 def F_noindex(root):
     w(person(root, "qx-livone"), page("Qx Livone", True, noindex=False))
@@ -236,13 +250,41 @@ def F_tree_not_living_flag(root):
     d, r = row(root, "qx-livone"); r["living"] = False; r["b"] = YEAR - 36; save(root, d)
 
 def F_child_held(root):
+    """An ADULT wrongly held out by the ledger."""
     led = json.load(io.open(os.path.join(root, "data", "living-ledger.json"), encoding="utf-8"))
-    led["held"].append(UID["child"]); w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
+    led["held"].append(UID["live2"]); w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
 
-def F_child_nopage(root):
-    d = load(root); d["rows"] = [r for r in d["rows"] if r["pid"] != "qx-childone"]; save(root, d)
-    shutil.rmtree(os.path.join(root, "site", "dist", "person", "qx-childone"))
+def _publish_as_living(root, pid, name, uid):
+    led = json.load(io.open(os.path.join(root, "data", "living-ledger.json"), encoding="utf-8"))
+    led["people"][pid] = uid; w(os.path.join(root, "data", "living-ledger.json"), json.dumps(led))
+    d, _ = row(root, "qx-oldone"); d["rows"].append({"name": name, "pid": pid, "who": "/who/%s/" % pid, "b": None, "d": None,
+                                                     "living": True, "src": "life", "place": "Testville, Testland", "note": "",
+                                                     "ark": "", "mh": ""}); save(root, d)
+    w(person(root, pid), page(name, True))
+
+def F_minor_known_row(root):
+    """A child with a KNOWN birth year (the kit's rule would publish him: 16 October 2026) published as a living row."""
+    _publish_as_living(root, "qx-childone", "Qx Childone", UID["child"])
+
+def F_minor_orphan_row(root):
+    """An UNDATED child of a DEAD parent born in 1980: the kit's rule needs a LIVING parent, so it would publish her."""
+    _publish_as_living(root, "qx-orphanone", "Qx Orphanone", UID["orphan"])
+
+def F_minor_known_data(root):
     w(os.path.join(root, "site", "src", "data", "worklist.json"), json.dumps({"rows": [{"note": "Qx Childone was here"}]}))
+
+def F_minor_known_page(root):
+    w(os.path.join(root, "site", "dist", "about", "index.html"), "<main><p>about Qx Childone</p></main>")
+
+def F_given_name(root):
+    w(os.path.join(root, "site", "dist", "about", "index.html"), "<main><p>Her grandsons Quibblet and another.</p></main>")
+
+def F_given_name_data(root):
+    w(os.path.join(root, "site", "src", "data", "worklist.json"), json.dumps({"rows": [{"note": "a poem for Quibblet"}]}))
+
+def F_given_name_ok(root):
+    """CONTROL: the same first name on a long-dead priest (a reviewed neighbour) and D'Quibblet-like forms are not refused."""
+    w(os.path.join(root, "site", "dist", "about", "index.html"), "<main><p>Don Quibblet Berkoveo baptised the child in 1644.</p></main>")
 
 def F_tree_minor_row(root):
     led = json.load(io.open(os.path.join(root, "data", "living-ledger.json"), encoding="utf-8"))
@@ -356,9 +398,14 @@ FAULTS = [
     ("scrub: a living row with a parish", "scrub:", F_scrub_key, {}),
     ("place: a street in a living place", "place:", F_place, {}),
     ("place: a hospital in a living place", "place:", F_place_inst, {}),
-    ("child: a known child's row carries a birth year (a child follows the standard)", "scrub:", F_child_dates, {}),
-    ("child: a known child wrongly held out by the ledger", "child:", F_child_held, {}),
-    ("child: a known child named but with no page", "no person page", F_child_nopage, {}),
+    ("minor: an adult wrongly held out by the ledger", "child:", F_child_held, {}),
+    ("minor: a row born in the last 18 years published (no tree: the CI check)", "minor:", F_minor_year_row, {"tree": False}),
+    ("minor: a child with a KNOWN birth year published as a living row (the kit would)", "possible minor", F_minor_known_row, {}),
+    ("minor: an UNDATED child of a DEAD parent born 1975 or later published (the kit would)", "possible minor", F_minor_orphan_row, {}),
+    ("minor: a held-out child's full name in a data file", "held out:", F_minor_known_data, {}),
+    ("minor: a held-out child's full name in a built page", "held out:", F_minor_known_page, {}),
+    ("minor: a held-out child's RARE FIRST NAME alone in a built page", "given name:", F_given_name, {}),
+    ("minor: a held-out child's RARE FIRST NAME alone in a data file", "given name:", F_given_name_data, {}),
     ("page: a living page that is not noindex", "not noindex", F_noindex, {}),
     ("page: a living page with structured data", "structured data", F_ld, {}),
     ("page: a living page with a table", "table", F_table, {}),
@@ -407,7 +454,7 @@ def main():
         clean = os.path.join(base, "clean")
         fixture(clean)
         P, N, S = run_gate(clean)
-        print("clean fixture: %s  (%d living rows incl. a known child, %d living pages read, %d ledger entries agree, %d held out by rule)" % (
+        print("clean fixture: %s  (%d living rows incl. an adult born 19 years ago, %d living pages read, %d ledger entries agree, %d held out by rule)" % (
             "PASSES" if not P else "FAILS", S["living rows"], S["living pages examined"], S["ledger entries checked"],
             S["possible minors in the tree"]))
         if P:
@@ -426,8 +473,9 @@ def main():
             if not hit:
                 bad.append(name)
         # NEGATIVE CONTROLS: ordinary content that must not be refused (a gate that cries wolf stops being read)
-        for name, mut in (("an ordinary «born» year long before the window", F_page_born_ordinary),):
-            d = os.path.join(base, "n%d" % len(bad))
+        for name, mut in (("an ordinary «born» year long before the window", F_page_born_ordinary),
+                          ("a reviewed neighbour: the same first name on a long-dead priest", F_given_name_ok)):
+            d = os.path.join(base, "n%s" % abs(hash(name)))
             shutil.copytree(clean, d)
             mut(d)
             P, N, S = run_gate(d)
