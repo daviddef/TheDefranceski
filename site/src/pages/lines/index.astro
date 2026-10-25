@@ -14,7 +14,9 @@ import { u } from "../../lib/url.js";
 import lines from "../../data/lines.json";
 import fam from "../../data/families.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
+import { ledger, pensOf } from "@daviddef/archive-kit/lib/lines.js";
 import rivers from "../../data/rivers.json";
+import roster from "../../data/roster.json";
 import arr from "../../data/arrivals.json";
 import reg from "../../data/regions.json";
 import Plates from "../../components/Plates.astro";
@@ -36,11 +38,23 @@ import Lightbox from "../../components/Lightbox.astro";
  *
  * So the mapping is total and an unrecognised value is loud.
  */
+/* THE COUNTS ON THIS PAGE ARE THE DRAWING'S OWN (kit lib/lines.js ledger), never typed. The eyebrow used to say «Seven
+ * families · eight unplaced households», and the drawing's prose said the same eight again, in words, in two places; a
+ * ninth household (Pomer, read on 14 October 2026) made both stale at once. */
+const L = ledger(rivers);
+const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen"];
+const word = (n) => WORDS[n] ?? String(n);
+const Cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const lanes = word(L.lanes), households = word(L.households);
+/* the people in the pens, by display name: the roster's names for the ids the generator listed (scripts/build-rivers-members.py) */
+const byPid = Object.fromEntries(roster.rows.filter((r) => r.pid).map((r) => [r.pid, r.name]));
+const names = Object.fromEntries(pensOf(rivers).flatMap((p) => (p.members || []).map((m) => [m.person || m, byPid[m.person || m] || m])));
+
 const CONF = { doc: "documented", documented: "documented", inf: "inferred",
                inferred: "inferred", probable: "probable", lore: "lore",
                disputed: "disputed" };
 ---
-<Base title="The Lines" eyebrow="Seven families · eight unplaced households · one very common name"
+<Base title="The Lines" eyebrow={`${Cap(lanes)} families · ${households} unplaced ${L.households === 1 ? "household" : "households"} · one very common name`}
       dek="Separating three things this site had been adding together: a family is an origin, a station is a stop on one family's road, and a namesake is somebody who happens to share the commonest patronymic in Italy.">
 <section class="blk">
   <h2>{fam.heading}</h2>
@@ -54,7 +68,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
     ))}
   </div>
 
-  <h3 id="families" style="font-size:23px;margin-top:40px">The seven families</h3>
+  <h3 id="families" style="font-size:23px;margin-top:40px">The {word(fam.families.length)} families</h3>
   <div class="famgrid">
     {fam.families.map(f => (
       <a id={"fam-" + f.slug} class={f.not_ours ? "famcard away" : "famcard"} href={u(f.href)} style={`--c:${f.colour}`}>
@@ -123,11 +137,11 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
     ))}
   </div>
 </section>
-<Rule name="arrows" label="Seven rivers" />
+<Rule name="arrows" label={`${Cap(lanes)} rivers`} />
 <section class="blk">
-  <h2>The seven roads, drawn</h2>
-  <p class="dek" style="margin-top:8px">One surname and seven families, arriving from different directions for different reasons — and one that never arrived at all. Under the first of them are the eight households the archive will not pretend to have placed. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
-  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} /></div>
+  <h2>The {lanes} roads, drawn</h2>
+  <p class="dek" style="margin-top:8px">One surname and {lanes} families, arriving from different directions for different reasons — and one that never arrived at all. Under the first of them are the {households} households the archive will not pretend to have placed, and below those the people of the name it keeps apart on purpose. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase="/person/" names={names} /></div>
 </section>
 
 <Rule name="tablet" label="A parish named" />

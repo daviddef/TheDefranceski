@@ -6,7 +6,12 @@
    "label": "Out of Carnia, for work",
    "href": "/story/",
    "read": "The story →",
-   "conf": "documented",
+   "status": "inferred",
+   "statusNote": "the route is documented, the descent is not",
+   "span": [
+    1661,
+    null
+   ],
    "nodes": [
     [
      "Mione",
@@ -28,11 +33,12 @@
      "1711",
      "ANNO · DOMNI · 1711 cut over the door of the house"
     ],
-    [
-     "Gračišće",
-     "1787",
-     "Joannes Baptista, farmer of house 5 — the line's earliest dated ancestor"
-    ],
+    {
+     "place": "Gračišće",
+     "year": "1787",
+     "why": "Joannes Baptista, farmer of house 5 — the line's earliest dated ancestor",
+     "person": "giovanni-battista-defranceschi-1787"
+    },
     [
      "Poreč",
      "1800s",
@@ -83,7 +89,12 @@
    "label": "Svetvinčenat — the castle the name never left",
    "href": "/lines/",
    "read": "The Svetvinčenat line →",
-   "conf": "documented 1628–1791 · origin inferred Carnian",
+   "status": "inferred",
+   "statusNote": "origin inferred Carnian",
+   "span": [
+    1628,
+    1791
+   ],
    "nodes": [
     [
      "Elena",
@@ -130,7 +141,12 @@
    "label": "Out of southern Istria — origin unknown",
    "href": "/liznjan/",
    "read": "The Ližnjan page →",
-   "conf": "documented from 1628 · at Ližnjan from 1815 · origin still not found",
+   "status": "origin-unknown",
+   "statusNote": "at Ližnjan from 1815 · origin still not found",
+   "span": [
+    1628,
+    null
+   ],
    "nodes": [
     [
      "Svetvinčenat",
@@ -157,11 +173,12 @@
      "1924",
      "Two born here who died in France"
     ],
-    [
-     "Ližnjan",
-     "1815",
-     "⭐⭐⭐ CORRECTED 12 October 2026 — **this node said 1931 and it was out by 116 years.** *The old note was right that 1931 was a death year and not a Ližnjan date; what nobody had done was open the parish's own books.* **Ližnjan «Liber Copulatorum», page 1, entry 2 — the second marriage the book ever records:** «12 Novembre **1815**», house 17, «**Mario de Franceschi deto Marulin di Antonio**», aged **21**, *celibes*, to «Maddalena Percouich di Antonio». *He was born about 1794 and his father was Antonio.* **He died in the same house in 1839** — «Mattio Franceschi **d.to Marulin**, agr., ann. 40» — *with the byname written on him a second time, in a different book and a different hand.* **Three generations now stand in a row from these books:** Antonio → Mattio detto Marulin (m. 1815, d. 1839) → Antonius (b. 1819, m. 1861). *Eleven people of the name are in the burial register alone.*"
-    ]
+    {
+     "place": "Ližnjan",
+     "year": "1815",
+     "why": "⭐⭐⭐ CORRECTED 12 October 2026 — **this node said 1931 and it was out by 116 years.** *The old note was right that 1931 was a death year and not a Ližnjan date; what nobody had done was open the parish's own books.* **Ližnjan «Liber Copulatorum», page 1, entry 2 — the second marriage the book ever records:** «12 Novembre **1815**», house 17, «**Mario de Franceschi deto Marulin di Antonio**», aged **21**, *celibes*, to «Maddalena Percouich di Antonio». *He was born about 1794 and his father was Antonio.* **He died in the same house in 1839** — «Mattio Franceschi **d.to Marulin**, agr., ann. 40» — *with the byname written on him a second time, in a different book and a different hand.* **Three generations now stand in a row from these books:** Antonio → Mattio detto Marulin (m. 1815, d. 1839) → Antonius (b. 1819, m. 1861). *Eleven people of the name are in the burial register alone.*",
+     "person": "matteo-defranceschi-father-of-antonio-and-probably-gregorio-liznjan-liznjan"
+    }
    ],
    "ends": [
     [
@@ -192,7 +209,12 @@
    "label": "Out of Venice, as soldiers",
    "href": "/imotski/",
    "read": "The Imotski page →",
-   "conf": "documented",
+   "status": "documented",
+   "statusNote": "a family chart reaches back to 1318",
+   "span": [
+    1359,
+    null
+   ],
    "nodes": [
     [
      "Venice",
@@ -239,7 +261,12 @@
    "label": "Out of Crete, as refugees",
    "href": "/seget/",
    "read": "The Seget page →",
-   "conf": "documented",
+   "status": "documented",
+   "statusNote": "the flight of 1669 is tradition, well supported",
+   "span": [
+    1500,
+    null
+   ],
    "nodes": [
     [
      "Candia",
@@ -291,13 +318,19 @@
    "label": "Vodnjan — five generations, read by eye",
    "href": "/vodnjan/",
    "read": "The Vodnjan page →",
-   "conf": "documented · marriage register indexed nowhere",
+   "status": "origin-unknown",
+   "statusNote": "five generations read by eye · origin not found",
+   "span": [
+    1818,
+    null
+   ],
    "nodes": [
-    [
-     "Pietro",
-     "1770s",
-     "Named only in his son's patronymic — «Gio. Maria De Franceschi fu Pietro». The oldest man in the line, standing behind a marriage of the 1770s"
-    ],
+    {
+     "place": "Pietro",
+     "year": "1770s",
+     "why": "Named only in his son's patronymic — «Gio. Maria De Franceschi fu Pietro». The oldest man in the line, standing behind a marriage of the 1770s",
+     "evidence": "inferred"
+    },
     [
      "Gio. Maria",
      "by 1818",
@@ -346,9 +379,14 @@
    "key": "corsica",
    "colour": "var(--r-italy)",
    "label": "Out of Corsica — never in Istria",
-   "conf": "documented · not this family",
    "href": "/namesakes/",
    "read": "The namesakes →",
+   "status": "documented",
+   "statusNote": "not this family",
+   "span": [
+    1694,
+    1826
+   ],
    "parallel": true,
    "nodes": [
     [
@@ -396,69 +434,395 @@
    ]
   }
  ],
- "unplaced": [
-  [
-   "Rijeka — Fiume, Vitipolis",
-   "/carlos-letter/",
-   "The largest town in the rebuilt record sweep (206 records, 1620–1910, across six spellings of the surname), and it was hidden in plain sight: the index writes this one city under three different names — «Fiume» (52 records), «Vitipolis» (45) and «Rijeka» (9). Vitipolis is Latin for the city of Saint Vitus, after «Terra Fluminis Sancti Viti», the river of St Vitus whose cathedral stands there. 106 records in all under those three names, 22 of them accepted — though 65 are spelt Francetich and only 20 Defranceschi, so most of the pile is a Croatian surname that may be nobody's. Kobler found three separate stocks in the civic registers and refused to join them to one another. One — Valentino, «venuto dalla Carnia», a citizen in 1739 — is almost certainly the Carnian family. The other two are not placed. Read on the register, 20 September 2026, and one of the three is no longer a guess. Valentino's marriage entry of 28 February 1737 calls him «D.num Valentinum de Franceschi ex Carnia» in the clerk's own hand — two years before the citizenship, and no longer only Kobler's word. A second household then surfaced on the same film: Joannes Baptista × Magdalena, whose son Josephus Aloysius, born 24 May 1748, is almost certainly the Giuseppe who heads the Rijeka chain. That is the household the dotted line points at, because Kobler's correspondent claimed a *«Giovanni Batt. De Franceschi venuto dalla Contea di Pisino… intorno al 1740»* for the Gologorica family — this archive's own. *The bridge is drawn dotted because nothing joins them yet: the test is Magdalena's maiden name, and it is in the County of Pazin's books, not Fiume's.*"
-  ],
-  [
-   "Medulin — Medolino",
-   "/liznjan/",
-   "**⭐⭐ 1825 CONFIRMS THE NIL FROM A SECOND DIRECTION.** *Slaven Bertoša's study of the Pula confirmation lists of October 1825 (Državni arhiv u Pazinu,* «Elenco Cresimati» *245) prints the surnames village by village.* **Medulin's seventeen are** *Cukon, De Marin, Garbin, Gasparin, Grakalić, Jukopila, Kirac, Lavrić, Lazarić, Lorencin, Marinović, Mihaljević, Misdaris, Privrat, Radošević, Rakić, Vojnić —* ***every one of them a name read off the Medulin death register, and no Defranceschi among them.*** *A register and a confirmation roll, independently, say the same thing.*\n\n**⚠ But the same lists put the name four kilometres away:** «De Franceschi» *stands at* **Premantura** *and at* **Fažana** *in 1825 — both already stops on [the southern-Istrian lane](/liznjan/).*\n\n**⚠ A LEAD, NOT A FACT, on why Medulin's registers read the way they do.** *A 2025 article claims Morlach families were transported from Dalmatia to* «**Orcevano near Medulin**» *in* **1612**. *If true it would explain the solid wall of Croatian patronymics in the books below — a planted population.* ***It gives no archival reference, its onomastics are speculative, and it misplaces Zeta.*** *To be verified in the Provincial Archive of Istria before it is believed.*\n\n**⭐⭐⭐ AND A SECOND, A WOMAN.** *Page 33, 16 November 1873:* «**Maria (Defranceschi) Ant. Verinic uxor**», *aged* **78** — ***a Defranceschi daughter married into Medulin***, *born about 1795. The brackets are the scribe's maiden-name convention and the next line proves it:* «Maria (Vrinic q. Nic.) vid. Georgii Lorenzin». **So the name reached Medulin by marriage even though no Defranceschi household stands in the parish's own books** — *which is the [daughters' villages](/lines/) pattern already tracked at Krbune, Galižana and Labin.* ***Three Defranceschi of one generation now stand around these two villages: the Ližnjan groom of 1815 (b. ~1794), the soldier who died here in 1833 (b. ~1793), and Maria (b. ~1795).***\n\n**⭐⭐⭐ 12 OCTOBER, LATER STILL — THE NAME IS IN A MEDULIN REGISTER AFTER ALL.** *The deaths book* «Liber Defunctorum» *(HDA inv. br. 158), page 12, year 1833, entry 43:* «**Mathæus Defranceschi q. Ant. fil. miles**» — *son of a dead Antonio, a* **soldier** — *died* **19 December 1833**, *aged* **40**, *of* «chronicus morb[us]». ***Forty in December 1833 means born about 1793, which is the year the family tree already carried for him.*** *A man this archive held as* **tree-only, with no document behind him**, *is now in a register.*\n\n**⚠ It is a VERIFICATION, not a discovery, and the difference matters.** *His roster row already carried the ark* `3:1:3QS7-L99X-KCP6` — ***the very frame the entry is on***. *The lead was in this archive's own data and nobody had opened it.*\n\n**⚠⚠ HE IS NOT THE LIŽNJAN MAN.** *The* «deto Marulin» *groom of 1815 was still alive to be buried at Ližnjan in* **1839**, *an* agricola; *this man was dead by December 1833, and a* soldier. ***Two Mattheuses, each son of an Antonio, four kilometres apart, both dying at forty, six years apart — the exact shape of a false join, and it is refused.***\n\n⭐⭐ **MEDULIN — raised by David on 12 October 2026, and the archive cannot yet answer it.** *Medolino is Medulin, five kilometres down the cape from Ližnjan.* **Two things point there and neither is proof.** *First, the only two people this roster places at Medulin are* **tree-only** — «Mattheus Defranceschi b. 1793 d. 1833» *and* «Antonio Defranceschi b. 1819» — ***and those dates are the Ližnjan founders***: *the 1815 groom was 21, so born about 1794, and the baptism book has an Antonio born 15 September 1819. The tree says Medulin; the registers say Ližnjan; nobody has opened a Medulin register to adjudicate.* **Second**, *the 1861 Ližnjan marriage of Antonius Defranceski gives his bride as* «Fosca nata Lazarić … **nata e Medolino**» — *so traffic between the two parishes is proved, in that direction at least.*\n\n**✔ 12 OCTOBER, LATER THE SAME DAY — THE OLDEST OF THE FOUR BOOKS IS NOW READ END TO END, AND THE NAME IS NOT IN IT.** *All 24 frames of* «Rođenih 1648–1649, vjenčanih 1666–1704» *(waypoint* `9R29-T3D`, *Arhiv JAZU* **Sign. VIII-158**, *film roll 24 item 2) rendered at native resolution and looked at.* ***Not one Defranceschi.*** *What is there instead is the finding:* **Medulin in these years is a village of Croatian patronymics and nothing else** — *Radonovich, Micaglievich, Gracalich, Grubisich, Golemovich, Stefanelich, Marinovich, Surionich and thirty more. The only Italian names in the whole book are the clergy and one gentleman godfather.* ***There is no Italian-surnamed household at Medulin at all between 1666 and 1705.***\n\n**⭐⭐ But the book settles the place-name, in the parish's own hand.** «**D. Pietro Binussi Piev.o di MEDULINO**» — *the incumbent styling his own cure* — *and* «**Io Piero, Pre di MEDOLIN**», *23 November 1666.* ***Medolino is Medulin, and that is now the parish's own word for it, not an inference.***\n\n**⭐⭐ And Ližnjan is all over this book from 1666 — ten times.** *Godparents* «da Lisigna», *a bride married in from Ližnjan in 1671, and* **«Io Pre Ant.o de Lorenzin, PIEV. DI LISIGNAN» officiating a marriage recorded in the MEDULIN book on 9 October 1666.** *The two parishes' priests served each other's altars.* ***Traffic between these two villages is not a hypothesis; it is a documented habit a hundred and fifty years before the 1815 marriage.*** *And* **Lazarich** — *the 1861 bride's own surname —* *stands here as a Medulin family in 1701 and 1705.*\n\n**⚠ Two openings were NOT read: frames 21 and 22 carry GLAGOLITIC pages**, *and this archive cannot read the script. They are unread, not nil.* **⚠ And Medulin's births begin only in 1801**, *so a man born about 1794 is in no surviving Medulin birth register — which is the structural point below, unchanged.*\n\n**⚠ The FamilySearch index puts only FOUR records of the name in Medulin's four books** — *which is evidence of very little, because the index demonstrably misses entries the page carries, and this archive's own harvest of it was cut short by a rate limit on exactly the field married-out daughters live in. One of the four names a* «**Tomas Defranceschi**» *who appears nowhere else here.*\n\n**⚠ Why it matters structurally:** *Ližnjan's books begin in* **1815** *and the first Defranceschi in them is a twenty-one-year-old marrying in —* ***those volumes cannot say where he came from***. *Medulin's* **marriages run 1666–1704** *(waypoint* `9R29-T3D`, *24 frames), which is the only register in reach that predates the question. Its births start only in 1801, so a man born about 1794 is not in them. **All four of Medulin's books — 193 frames — have since been read end to end by this archive (two Glagolitic openings in the oldest excepted).**"
-  ],
-  [
-   "Kaštelir and Tar",
-   "/places/kastelir/",
-   "No longer a scatter. Read by image rather than by place text, Vižinada, Kaštelir and Tar hold the same people: Giulio De Franceschi × Maria Ceselin, whose son Francesco Napoleone is baptised at Vižinada in 1818 and buried from Kaštelir's register decades later, and Angelus × Lucia-Antonia Rodella, whose son Julius is baptised at Kaštelir in January 1866 and buried at Tar in March 1870, aged four. One family across three parishes, joined by name and date rather than by any document naming two of them at once — so it is still off every lane, but it is no longer unexplained."
-  ],
-  [
-   "Dubrovnik — Ragusa",
-   "/places/dubrovnik/",
-   "Fifty-six records, and until today no page at all. The city parish and Pile outside the western gate carry more of the name than any Dalmatian place but Omiš, and not one of those records writes «Dubrovnik» in its place field — they were found through the films their images sit on. A Marietta Defranceschi, daughter of a Pietro, marries a Matteo Persich and baptises children in the city in 1863 and 1871. Ragusa was a separate republic with its own patriciate; nothing joins this to the Venetian line at Zadar and Omiš, and it will not be joined on the strength of a shared surname."
-  ],
-  [
-   "The daughters' villages",
-   "/register/#resolved",
-   "Krbune, Medulin, Galižana, Labin — four parishes that hold no De Franceschi child at all, only De Franceschi mothers. (Pomer left this list on 14 October 2026: its books hold a Defranceschi household of their own, and Lucia, who married Matthaeus Lazar there, is that household’s daughter — nine children 1866–1884, six dead young.) Mariana × Vincentius Marziol at Krbune, in the County of Pazin. Dominica × Antonius Zustovich at Labin, five children 1853–1866. Catharina × Antonio Micoli at Barban — and the same couple at Vižinada eight years earlier. The surname keeps its sons and loses its daughters; these are the villages it lost them to."
-  ],
-  [
-   "Sovinjak",
-   "/istria-sweep/",
-   "A hill parish above Buzet holding two burials and nothing else: Zuane Franceschi in 1759, son of Gio Batta Franceschi, and Sebastiano De Franceschi, born and buried on 6 August 1783, son of Gio Battista De Franceschi. Twenty-four years and one Christian name apart — a father twice bereaved, or a grandfather's name coming round again. Sovinjak is not one of the parishes in the filmed collection this archive has walked, so the question stands open on the page rather than closed in a book. (Draguč, named alongside it here yesterday as equally unfilmed, is filmed — three volumes — and holds none of the name at all.)"
-  ],
-  [
-   "Bakar",
-   "/crikvenica-house/",
-   "Twelve people, one household across three generations, from before 1772 to a death in 1819 — Dominus Giovanni Battista son of Dominus Francesco, styled Dominus, a citizen-class family. Nothing on the page ties them to Gologorica, to Gračišće, or to Kobler's Fiume stocks, and this archive will not join a fourth household to them on the strength of two common Christian names."
-  ],
-  [
-   "Rovinj",
-   "/places/rovinj/",
-   "The earliest dated Istrian record this archive holds — «morì ser Piero di Franceschi da Pola», 27 May 1619 — plus a Rovinj household across three generations from Giacomo to Piero Anto in 1736. Neither is joined to any lane. It is also where Carlo De Franceschi was married at his own bedside in 1852."
-  ]
+ "pens": [
+  {
+   "id": "unplaced",
+   "kind": "not-yet-placed",
+   "note": "Real, documented households of the name that belong to no lane yet. Each is here because the archive has read it and cannot honestly join it to one of the families above: a household moves out of this pen when a document names both ends of the join, and not before.",
+   "items": [
+    [
+     "Rijeka — Fiume, Vitipolis",
+     "/carlos-letter/",
+     "The largest town in the rebuilt record sweep (206 records, 1620–1910, across six spellings of the surname), and it was hidden in plain sight: the index writes this one city under three different names — «Fiume» (52 records), «Vitipolis» (45) and «Rijeka» (9). Vitipolis is Latin for the city of Saint Vitus, after «Terra Fluminis Sancti Viti», the river of St Vitus whose cathedral stands there. 106 records in all under those three names, 22 of them accepted — though 65 are spelt Francetich and only 20 Defranceschi, so most of the pile is a Croatian surname that may be nobody's. Kobler found three separate stocks in the civic registers and refused to join them to one another. One — Valentino, «venuto dalla Carnia», a citizen in 1739 — is almost certainly the Carnian family. The other two are not placed. Read on the register, 20 September 2026, and one of the three is no longer a guess. Valentino's marriage entry of 28 February 1737 calls him «D.num Valentinum de Franceschi ex Carnia» in the clerk's own hand — two years before the citizenship, and no longer only Kobler's word. A second household then surfaced on the same film: Joannes Baptista × Magdalena, whose son Josephus Aloysius, born 24 May 1748, is almost certainly the Giuseppe who heads the Rijeka chain. That is the household the dotted line points at, because Kobler's correspondent claimed a *«Giovanni Batt. De Franceschi venuto dalla Contea di Pisino… intorno al 1740»* for the Gologorica family — this archive's own. *The bridge is drawn dotted because nothing joins them yet: the test is Magdalena's maiden name, and it is in the County of Pazin's books, not Fiume's.*"
+    ],
+    [
+     "Medulin — Medolino",
+     "/liznjan/",
+     "**⭐⭐ 1825 CONFIRMS THE NIL FROM A SECOND DIRECTION.** *Slaven Bertoša's study of the Pula confirmation lists of October 1825 (Državni arhiv u Pazinu,* «Elenco Cresimati» *245) prints the surnames village by village.* **Medulin's seventeen are** *Cukon, De Marin, Garbin, Gasparin, Grakalić, Jukopila, Kirac, Lavrić, Lazarić, Lorencin, Marinović, Mihaljević, Misdaris, Privrat, Radošević, Rakić, Vojnić —* ***every one of them a name read off the Medulin death register, and no Defranceschi among them.*** *A register and a confirmation roll, independently, say the same thing.*\n\n**⚠ But the same lists put the name four kilometres away:** «De Franceschi» *stands at* **Premantura** *and at* **Fažana** *in 1825 — both already stops on [the southern-Istrian lane](/liznjan/).*\n\n**⚠ A LEAD, NOT A FACT, on why Medulin's registers read the way they do.** *A 2025 article claims Morlach families were transported from Dalmatia to* «**Orcevano near Medulin**» *in* **1612**. *If true it would explain the solid wall of Croatian patronymics in the books below — a planted population.* ***It gives no archival reference, its onomastics are speculative, and it misplaces Zeta.*** *To be verified in the Provincial Archive of Istria before it is believed.*\n\n**⭐⭐⭐ AND A SECOND, A WOMAN.** *Page 33, 16 November 1873:* «**Maria (Defranceschi) Ant. Verinic uxor**», *aged* **78** — ***a Defranceschi daughter married into Medulin***, *born about 1795. The brackets are the scribe's maiden-name convention and the next line proves it:* «Maria (Vrinic q. Nic.) vid. Georgii Lorenzin». **So the name reached Medulin by marriage even though no Defranceschi household stands in the parish's own books** — *which is the [daughters' villages](/lines/) pattern already tracked at Krbune, Galižana and Labin.* ***Three Defranceschi of one generation now stand around these two villages: the Ližnjan groom of 1815 (b. ~1794), the soldier who died here in 1833 (b. ~1793), and Maria (b. ~1795).***\n\n**⭐⭐⭐ 12 OCTOBER, LATER STILL — THE NAME IS IN A MEDULIN REGISTER AFTER ALL.** *The deaths book* «Liber Defunctorum» *(HDA inv. br. 158), page 12, year 1833, entry 43:* «**Mathæus Defranceschi q. Ant. fil. miles**» — *son of a dead Antonio, a* **soldier** — *died* **19 December 1833**, *aged* **40**, *of* «chronicus morb[us]». ***Forty in December 1833 means born about 1793, which is the year the family tree already carried for him.*** *A man this archive held as* **tree-only, with no document behind him**, *is now in a register.*\n\n**⚠ It is a VERIFICATION, not a discovery, and the difference matters.** *His roster row already carried the ark* `3:1:3QS7-L99X-KCP6` — ***the very frame the entry is on***. *The lead was in this archive's own data and nobody had opened it.*\n\n**⚠⚠ HE IS NOT THE LIŽNJAN MAN.** *The* «deto Marulin» *groom of 1815 was still alive to be buried at Ližnjan in* **1839**, *an* agricola; *this man was dead by December 1833, and a* soldier. ***Two Mattheuses, each son of an Antonio, four kilometres apart, both dying at forty, six years apart — the exact shape of a false join, and it is refused.***\n\n⭐⭐ **MEDULIN — raised by David on 12 October 2026, and the archive cannot yet answer it.** *Medolino is Medulin, five kilometres down the cape from Ližnjan.* **Two things point there and neither is proof.** *First, the only two people this roster places at Medulin are* **tree-only** — «Mattheus Defranceschi b. 1793 d. 1833» *and* «Antonio Defranceschi b. 1819» — ***and those dates are the Ližnjan founders***: *the 1815 groom was 21, so born about 1794, and the baptism book has an Antonio born 15 September 1819. The tree says Medulin; the registers say Ližnjan; nobody has opened a Medulin register to adjudicate.* **Second**, *the 1861 Ližnjan marriage of Antonius Defranceski gives his bride as* «Fosca nata Lazarić … **nata e Medolino**» — *so traffic between the two parishes is proved, in that direction at least.*\n\n**✔ 12 OCTOBER, LATER THE SAME DAY — THE OLDEST OF THE FOUR BOOKS IS NOW READ END TO END, AND THE NAME IS NOT IN IT.** *All 24 frames of* «Rođenih 1648–1649, vjenčanih 1666–1704» *(waypoint* `9R29-T3D`, *Arhiv JAZU* **Sign. VIII-158**, *film roll 24 item 2) rendered at native resolution and looked at.* ***Not one Defranceschi.*** *What is there instead is the finding:* **Medulin in these years is a village of Croatian patronymics and nothing else** — *Radonovich, Micaglievich, Gracalich, Grubisich, Golemovich, Stefanelich, Marinovich, Surionich and thirty more. The only Italian names in the whole book are the clergy and one gentleman godfather.* ***There is no Italian-surnamed household at Medulin at all between 1666 and 1705.***\n\n**⭐⭐ But the book settles the place-name, in the parish's own hand.** «**D. Pietro Binussi Piev.o di MEDULINO**» — *the incumbent styling his own cure* — *and* «**Io Piero, Pre di MEDOLIN**», *23 November 1666.* ***Medolino is Medulin, and that is now the parish's own word for it, not an inference.***\n\n**⭐⭐ And Ližnjan is all over this book from 1666 — ten times.** *Godparents* «da Lisigna», *a bride married in from Ližnjan in 1671, and* **«Io Pre Ant.o de Lorenzin, PIEV. DI LISIGNAN» officiating a marriage recorded in the MEDULIN book on 9 October 1666.** *The two parishes' priests served each other's altars.* ***Traffic between these two villages is not a hypothesis; it is a documented habit a hundred and fifty years before the 1815 marriage.*** *And* **Lazarich** — *the 1861 bride's own surname —* *stands here as a Medulin family in 1701 and 1705.*\n\n**⚠ Two openings were NOT read: frames 21 and 22 carry GLAGOLITIC pages**, *and this archive cannot read the script. They are unread, not nil.* **⚠ And Medulin's births begin only in 1801**, *so a man born about 1794 is in no surviving Medulin birth register — which is the structural point below, unchanged.*\n\n**⚠ The FamilySearch index puts only FOUR records of the name in Medulin's four books** — *which is evidence of very little, because the index demonstrably misses entries the page carries, and this archive's own harvest of it was cut short by a rate limit on exactly the field married-out daughters live in. One of the four names a* «**Tomas Defranceschi**» *who appears nowhere else here.*\n\n**⚠ Why it matters structurally:** *Ližnjan's books begin in* **1815** *and the first Defranceschi in them is a twenty-one-year-old marrying in —* ***those volumes cannot say where he came from***. *Medulin's* **marriages run 1666–1704** *(waypoint* `9R29-T3D`, *24 frames), which is the only register in reach that predates the question. Its births start only in 1801, so a man born about 1794 is not in them. **All four of Medulin's books — 193 frames — have since been read end to end by this archive (two Glagolitic openings in the oldest excepted).**"
+    ],
+    [
+     "Kaštelir and Tar",
+     "/places/kastelir/",
+     "No longer a scatter. Read by image rather than by place text, Vižinada, Kaštelir and Tar hold the same people: Giulio De Franceschi × Maria Ceselin, whose son Francesco Napoleone is baptised at Vižinada in 1818 and buried from Kaštelir's register decades later, and Angelus × Lucia-Antonia Rodella, whose son Julius is baptised at Kaštelir in January 1866 and buried at Tar in March 1870, aged four. One family across three parishes, joined by name and date rather than by any document naming two of them at once — so it is still off every lane, but it is no longer unexplained."
+    ],
+    [
+     "Dubrovnik — Ragusa",
+     "/places/dubrovnik/",
+     "Fifty-six records, and until today no page at all. The city parish and Pile outside the western gate carry more of the name than any Dalmatian place but Omiš, and not one of those records writes «Dubrovnik» in its place field — they were found through the films their images sit on. A Marietta Defranceschi, daughter of a Pietro, marries a Matteo Persich and baptises children in the city in 1863 and 1871. Ragusa was a separate republic with its own patriciate; nothing joins this to the Venetian line at Zadar and Omiš, and it will not be joined on the strength of a shared surname."
+    ],
+    [
+     "The daughters' villages",
+     "/register/#resolved",
+     "Krbune, Medulin, Galižana, Labin — four parishes that hold no De Franceschi child at all, only De Franceschi mothers. (Pomer left this list on 14 October 2026: its books hold a Defranceschi household of their own, and Lucia, who married Matthaeus Lazar there, is that household’s daughter — nine children 1866–1884, six dead young.) Mariana × Vincentius Marziol at Krbune, in the County of Pazin. Dominica × Antonius Zustovich at Labin, five children 1853–1866. Catharina × Antonio Micoli at Barban — and the same couple at Vižinada eight years earlier. The surname keeps its sons and loses its daughters; these are the villages it lost them to."
+    ],
+    [
+     "Sovinjak",
+     "/istria-sweep/",
+     "A hill parish above Buzet holding two burials and nothing else: Zuane Franceschi in 1759, son of Gio Batta Franceschi, and Sebastiano De Franceschi, born and buried on 6 August 1783, son of Gio Battista De Franceschi. Twenty-four years and one Christian name apart — a father twice bereaved, or a grandfather's name coming round again. Sovinjak is not one of the parishes in the filmed collection this archive has walked, so the question stands open on the page rather than closed in a book. (Draguč, named alongside it here yesterday as equally unfilmed, is filmed — three volumes — and holds none of the name at all.)"
+    ],
+    [
+     "Bakar",
+     "/crikvenica-house/",
+     "Twelve people, one household across three generations, from before 1772 to a death in 1819 — Dominus Giovanni Battista son of Dominus Francesco, styled Dominus, a citizen-class family. Nothing on the page ties them to Gologorica, to Gračišće, or to Kobler's Fiume stocks, and this archive will not join a fourth household to them on the strength of two common Christian names."
+    ],
+    [
+     "Rovinj",
+     "/places/rovinj/",
+     "The earliest dated Istrian record this archive holds — «morì ser Piero di Franceschi da Pola», 27 May 1619 — plus a Rovinj household across three generations from Giacomo to Piero Anto in 1736. Neither is joined to any lane. It is also where Carlo De Franceschi was married at his own bedside in 1852."
+    ]
+   ],
+   "members": [
+    "pietro-de-franceschi-d1619",
+    "joannem-anto-de-franceschi-1626",
+    "gioanna-victoriam-de-franceschi-1628",
+    "mariam-de-franceschi-1632",
+    "catarina-de-franceschi-d1717",
+    "vitorio-defranceschi-1720",
+    "martino-de-franceschi-1722",
+    "antonio-defranceschi-d1727",
+    "matto-de-franceschi-d1728",
+    "catharina-defranceschi-1734",
+    "catharinam-sablich-defranceschi-1734",
+    "piero-anto-de-franceschi-1736",
+    "francescha-defranceschi-1742",
+    "mattio-defranceschi-d1742",
+    "nicolo-defranceschi-d1742",
+    "giuseppe-defranceschi-1748",
+    "matheius-de-franceschi-1750",
+    "maria-defranceschi-1751",
+    "antonio-de-franceschi-1753",
+    "aloysia-defranceschi-1757",
+    "maria-defranceschi-1757",
+    "petrus-defranceschi-1765",
+    "valentinus-valentin-defranceschi-1770",
+    "petrus-defranceschi-1772",
+    "valentino-defranceschi-1772",
+    "valentinus-franciscus-xaverius-defranceschi-1772",
+    "hellena-margaritha-maria-defranceschi-1774",
+    "antonia-defranceschi-d1775",
+    "ellena-defranceschi-1775",
+    "valentinum-defranceschi-1775",
+    "valentinus-defranceschi-1775",
+    "valentinum-josephum-gregorium-defranceschi-1776",
+    "valentinus-defranceschi-1776",
+    "hellenam-ludovicam-defranceschi-1778",
+    "sebastiano-de-franceschi-1783",
+    "maria-anna-defranceschi-d1785",
+    "valentino-defranceschi-d1785",
+    "elisabetta-dalino-defranceschi-1789",
+    "aloysius-defranceschi-1790",
+    "petrus-de-franceschi-1790",
+    "mattheus-defranceschi-1793",
+    "theresiam-mariam-josepham-defranceschi-1794",
+    "theresiam-mariam-josepham-nepomucenam-defranceschi-1794",
+    "giosefa-defranceschi-1796",
+    "giosefa-joannam-nepomucenam-defranceschi-1796",
+    "josepha-ludovica-joanna-nepomucena-defranceschi-1796",
+    "josepham-joannam-nepomucenam-defranceschi-1796",
+    "franciscum-josephum-aloysium-defranceschi-1797",
+    "franciscum-josephum-aloysium-joannem-defranceschi-1797",
+    "franciscum-josephum-aloysium-joannem-nepomuc-defranceschi-1797",
+    "franciscus-defranceschi-1797",
+    "anna-defranceschi-1799",
+    "annam-mariam-josepham-defranceschi-1799",
+    "annam-mariam-josepham-nepomucenam-defranceschi-1799",
+    "giuseppa-ludovica-defranceschi-1800",
+    "josepha-defranceschi-1800",
+    "josepham-ludovicam-joannam-defranceschi-1800",
+    "josepham-ludovicam-joannam-nepomuc-defranceschi-1800",
+    "annam-mariam-ludovicam-defranceschi-1801",
+    "joannem-nepomuc-aloysium-paschalem-defranceschi-1802",
+    "joannes-giovanni-nepomucenus-aloysius-paschalus-defranceschi-1802",
+    "maria-teresa-martecchini-defranceschi-1803",
+    "petrum-julium-paschalem-defranceschi-1803",
+    "petrus-defranceschi-1803",
+    "petrus-julius-paschalus-defranceschi-1803",
+    "maria-defranceschi-1804",
+    "antonium-petrum-nataliem-joannem-defranceschi-1805",
+    "antonium-petrum-nataliem-joannem-kepomuc-defranceschi-1805",
+    "josepham-ludovicam-joannam-defranceschi-1805",
+    "elisabeth-defranceschi-1810",
+    "elisabetham-franciscam-defranceschi-1810",
+    "elisabetta-defranceschi-1810",
+    "carlo-de-franceschi-1812",
+    "catharina-bellinich-defranceschi-1813",
+    "catharina-defranceschi-1813",
+    "pietro-paolo-franceschi-1813",
+    "francesco-naplone-de-franceschi-1818",
+    "antonio-defranceschi-1819",
+    "franciscus-defranceschi-1819",
+    "teresa-domenica-de-franceschi-1820",
+    "franco-de-defranceschi-1821",
+    "franco-de-franceschi-1821",
+    "antonius-defranceschi-1824",
+    "aloysius-augustinus-defranceschi-1825",
+    "aloysius-defranceschi-1826",
+    "angelus-defranceschi-1828",
+    "antonija-defranceschi-1829",
+    "cattarina-defranceschi-1829",
+    "julius-defranceschi-1833",
+    "julius-laurentius-defranceschi-1833",
+    "carlo-francesco-andrea-defranceschi-1849",
+    "julius-defranceschi-1853",
+    "giulio-giuseppe-defranceschi-1856",
+    "joannes-aloysius-defranceschi-1858",
+    "virginia-lambertina-defranceschi-1858",
+    "emanuel-antonius-defranceschi-1859",
+    "emmanuel-defranceschi-1860",
+    "josephus-defranceschi-1862",
+    "julius-defranceschi-1866",
+    "catharina-defranceschi-1868",
+    "anna-maria-defranceschi-1872",
+    "maria-defranceschi-1872",
+    "maria-defranceschi-1876",
+    "julius-frane-joseph-defranceschi-1879",
+    "maria-legovic-defranceschi-1895",
+    "aloysiae-defranceschi-ka-telir",
+    "aloysium-joannes-petre-defranceschi-c1749",
+    "anna-defranceschi-baichin-1799",
+    "anna-maria-defranceschi-1844-2",
+    "antoniam-defranceschi-bakar",
+    "catharina-carli-defranceschi-kastelir",
+    "domenica-moscarda-defranceschi-rovinj",
+    "domenico-de-franceschi-1803",
+    "domenico-defranceschi-1839",
+    "elisabetta-defranceschi-1810-2",
+    "franciscam-joanne-theresiam-defranceschi-c1749",
+    "francisci-defranceschi-kastelir",
+    "franco-de-franceschi-rovinj",
+    "gasparo-de-franceschi-c1665",
+    "gioanna-victoriam-franceschi-c1629",
+    "giovanni-battista-defranceschi-rijeka",
+    "giovanni-nep-defranceschi-rijeka",
+    "giuseppa-ludovica-defranceschi-rijeka",
+    "guilio-defranceschi-rijeka",
+    "ignatium-defranceschi-rijeka",
+    "joanna-deklic-defranceschi-ka-telir",
+    "joannem-de-franceschi-rijeka",
+    "joannem-defranceschi-bakar",
+    "joannem-john-joannes-ivan-giovanni-baptista-defranceschi-bakar",
+    "joannis-defranceschi-ka-telir",
+    "josepham-catharinam-defranceschi-c1749",
+    "josepham-ludovicam-joannam-nepomuc-defranceschi-c1799",
+    "juliam-mariam-franciscam-de-franceschi-rijeka",
+    "julius-defranceschi-1833-2",
+    "maria-defranceschi-browachio-1757",
+    "maria-defranceschi-buman-1757",
+    "maria-defranceschi-contossich-1757",
+    "maria-defranceschi-covaz-1757",
+    "maria-defranceschi-dobrez-1757",
+    "maria-sesalin-defranceschi-ka-telir",
+    "maria-stefanutti-defranceschi-ka-telir",
+    "mariam-doroth-am-defranceschi-bakar",
+    "matheus-franciscus-de-franceschi-c1749",
+    "mattio-de-franceschi-1674-2",
+    "nicolaus-francus-de-franceschi-c1749",
+    "piero-franceschi-c1813",
+    "pietro-defranceschi-1884-2",
+    "ursula-de-benzoni-defranceschi-rijeka",
+    "valentinum-de-franceschi-rijeka",
+    "vittorio-de-franceschi-rovinj",
+    "vittorio-defranceschi-c1792",
+    "piero-di-franceschi-d1619",
+    "giovanni-antonio-de-franceschi-rijeka",
+    "maria-michelcich-de-franceschi-1826",
+    "antonius-miccoli-c1783",
+    "catharina-bellinich-c1809",
+    "carolin-bellinich-c1822",
+    "antonio-zustovich-c1826",
+    "marietta-defranceschi-c1836",
+    "matteo-persich-c1836",
+    "ignatius-francus-mattheus-defranceschi-1745",
+    "vitus-joannes-baptista-defranceschi-1751",
+    "aloysius-rochus-defranceschi-1754",
+    "rosalia-francisca-defranceschi-1755",
+    "jacobum-vincentium-defranceschi-1757",
+    "francisca-matthaea-defranceschi-1747",
+    "josephus-aloysius-de-franceschi-1748",
+    "joannes-baptista-de-franceschi-rijeka",
+    "elena-surcho-defranceschi-rijeka",
+    "giovanni-pietro-de-franceschi-rovinj",
+    "franciscus-defranceschi-tailor-of-kastelir-1818-1892-1818",
+    "joannes-aloysius-de-franceschi-kastelir-1858-1858",
+    "josephus-defranceschi-kastelir-1870-1862",
+    "catharina-defranceschi-widow-of-bakar-d-1819-1734",
+    "lucas-kirac-1874",
+    "fusca-kirac-d1896",
+    "stephanus-kirac-1876",
+    "catharina-kirac-1879",
+    "maria-kirac-1882",
+    "thomas-kirac-1884",
+    "agnes-kirac-1885",
+    "antonius-chirac-1888",
+    "valentinus-josephus-gregorius-defranceschi-1776",
+    "hellena-ludovica-defranceschi-1778",
+    "francesca-defranceschi-rijeka",
+    "ursul-defranceschi-rijeka",
+    "ludovico-franceschi-rijeka",
+    "lutia-rijeka",
+    "catharin-bakar",
+    "magdalena-rijeka",
+    "anna-maria-1872",
+    "ludovicus-defranceschi-1836",
+    "carolinam-iginiam-sapnuslam-juliam-vitipolis-modrus-fiume-m",
+    "annam-defranceschi-1849",
+    "carolum-defranceschi-1849",
+    "catharina-dobrez-1853",
+    "antonius-dobrez-1855",
+    "ivan-defranceski-1912"
+   ]
+  },
+  {
+   "id": "pomer",
+   "kind": "not-yet-placed",
+   "head": "Pomer — a household of its own, not yet placed on any line",
+   "note": "Pomer left the daughters' villages on 14 October 2026: its books hold a Defranceschi household of their own, read end to end on 13 and 14 October. Where Tomas and Michele came from before Pomer is not found, and the second household there (Antonius, from Ližnjan, 1886) is not joined to Tomas's.",
+   "items": [
+    [
+     "Pomer — house 5",
+     "/places/pomer/",
+     "A Defranceschi household at house 5 from 1843: Tomas, Magdalena Buich and three children, a daughter's nine Lazaro grandchildren, and a widow who was the village midwife. The books (births 1816–1900, marriages 1837–1865 and 1885–1910, deaths 1842–1911) were read end to end, and the result is a household, not a name."
+    ]
+   ],
+   "members": [
+    "pietro-defranceschi-1793",
+    "lucia-defranceschi-lazaro-pomer",
+    "matheus-lazaro-c1843",
+    "maria-defranceschi-pomer-1852",
+    "tommaso-defranceschi-pomer",
+    "magdalena-davic-pomer",
+    "jacobus-lazaro-1875",
+    "josephus-lazaro-1882",
+    "catharina-lazaro-1884",
+    "michele-defranceschi-1847",
+    "michele-defranceschi-father-of-tomas-pomer",
+    "paolo-buich-father-of-magdalena-pomer",
+    "antonio-defranceschi-d-mattulia-pomer",
+    "gregorio-defranceschi-named-1827-pomer-pomer",
+    "stephanus-no-surname-recorded-b-1859-pomer-1859",
+    "euphemia-lazaro-b-1866-pomer-1866",
+    "maria-lazaro-b-1868-pomer-1868",
+    "euphemia-lazaro-b-1878-pomer-1878",
+    "mathias-defranceschi-b-1886-pomer-1886",
+    "antonius-defranceschi-labourer-from-liznjan-pomer-1886-pomer",
+    "euphemia-radesic-wife-of-antonius-defranceschi-pomer-1886-pomer",
+    "josephus-emilian-buic-b-1889-pomer-1889",
+    "maria-buic-b-1890-pomer-1890",
+    "magdalena-joanna-buic-b-1891-pomer-1891",
+    "valentinus-antonius-buic-b-1895-pomer-1895",
+    "magdalena-joanna-buic-ii-b-1894-pomer-1894",
+    "blasius-stephanus-buic-b-1897-pomer-1897",
+    "maria-trost-b-1899-pomer-1899",
+    "joannes-zuccon-b-1880-pomer-m-catharina-lazar-1905-1880",
+    "catharina-buic-b-1902-pomer-1902",
+    "martinus-buic-b-1908-pomer-written-defranceschi-1908",
+    "emilia-kosara-wife-of-stephanus-buic-pomer-pomer"
+   ]
+  },
+  {
+   "id": "loose",
+   "kind": "different-stock",
+   "note": "A different stock of a very common name — the commonest patronymic in Italy. Kept apart on purpose: nothing joins these to Istria, and the surname alone is not a join.",
+   "items": [
+    [
+     "Brazil",
+     "/diaspora/",
+     "The largest cluster of the surname anywhere — Rio Grande do Sul, Santa Catarina, São Paulo. Veneto and Trentino, not Istrian: the in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco."
+    ],
+    [
+     "Ticino",
+     "/diaspora/",
+     "Italian-speaking Switzerland, over the border from Lombardy. A different stock of the same ordinary patronymic."
+    ],
+    [
+     "Michigan",
+     "/diaspora/",
+     "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan, with a wife born in Switzerland. Nothing joins him to Istria."
+    ]
+   ]
+  },
+  {
+   "id": "trentino",
+   "kind": "different-stock",
+   "head": "Telve and the Trentino stock — kept apart, and counted",
+   "note": "People of the name in the Valsugana and South Tyrol (Telve, Laives, Strigno, Fiera di Primiero, Trento). They come out of David's family tree and no register has been read for them. Defranceschi is a common Trentino surname formed independently from the same patronymic; no descent connects them to the Istrian or Carnian families, and that is a working assumption, not a finding.",
+   "items": [
+    [
+     "Telve — and the Trentino stock",
+     "/trentino/",
+     "The largest single concentration of the name outside Istria and Dalmatia in this archive's roster, at Telve in the Valsugana (births 1856–1911, every one spelt Defranceschi), with Laives in South Tyrol, Strigno, Fiera di Primiero and Trento. Written down because they are there, and not claimed as relatives."
+    ]
+   ],
+   "members": [
+    "jacobus-antonius-defranceschi-1734",
+    "maria-elisabet-defranceschi-1734",
+    "sebastianus-antonius-defranceschi-1758",
+    "anna-margherita-elisabeth-defranceschi-1775",
+    "andreas-defranceschi-1795",
+    "maria-katharina-goddard-defranceschi-1801",
+    "katharina-johanna-de-franceschi-1823",
+    "andreas-defranceschi-1835",
+    "johann-bapt-franz-defranceschi-1838",
+    "carolina-maria-defranceschi-1840",
+    "johanna-defranceschi-girardi-1842",
+    "carolina-katharina-visentheiner-defranceschi-1844",
+    "giuseppe-costante-defranceschi-1856",
+    "antonia-defranceschi-1858",
+    "antonio-francesco-defranceschi-1862",
+    "giovanna-carlotta-defranceschi-1862",
+    "cattarina-defranceschi-1865",
+    "maria-defranceschi-1865",
+    "giovanni-alessandro-defranceschi-1866",
+    "dominico-andres-defranceschi-1868",
+    "vittoria-maria-defranceschi-1868",
+    "andreas-babtist-defranceschi-1870",
+    "elvira-carlotta-defranceschi-1871",
+    "maria-zanetti-defranceschi-1871",
+    "giovanni-maria-cesare-defranceschi-1872",
+    "maria-karoline-defranceschi-1873",
+    "dominika-karolina-defranceschi-hafner-1874",
+    "anna-maria-defranceschi-1875",
+    "francesco-luigi-defranceschi-1875",
+    "franz-giovanni-maria-defranceschi-1876",
+    "orsola-maria-luigia-defranceschi-1877",
+    "amalia-dominica-defranceschi-1878",
+    "pietro-francesco-defranceschi-1879",
+    "pietro-leone-maria-defranceschi-1881",
+    "rosa-theresia-volser-defranceschi-1886",
+    "giovanni-defranceschi-1897",
+    "tomaso-thomas-defranceschi-1900",
+    "luigi-defranceschi-1901",
+    "antonio-defranceschi-1902",
+    "celestina-defranceschi-pasqualini-1905",
+    "francesco-antonio-nicolo-defranceschi-1905",
+    "constante-defranceschi-1909",
+    "albino-vittorio-giuseppe-defranceschi-1911",
+    "pompilio-aurelio-maria-defranceschi-1922",
+    "annae-bonet-bonetti-defranceschi-santa-maria-assunta",
+    "antonietta-moser-defranceschi-trento",
+    "carlotta-strosio-defranceschi-assunzione-di-maria-sant",
+    "dominicae-defranceschi-immacolata-concezione",
+    "giuseppe-joseph-defranceschi-immacolata-concezione",
+    "maria-baldi-defranceschi-san-giacomo",
+    "petri-defranceschi-santa-maria-assunta",
+    "teresa-varesco-defranceschi-assunzione-di-maria-sant",
+    "vittoria-defranceschi-of-telve-1894-1894"
+   ]
+  }
  ],
  "unplacedAfter": "carnia",
  "title": "Seven families of one surname, and the road each of them took",
- "caption": "The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the foot is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are. <strong>A dotted end-point means the attachment is family lore, not a document</strong> — Argentina hangs off Carnia only on the word of a reunion album, and Monheim is a pin on a map. <strong>A dotted curve drawn across the picture is a candidate join, on evidence short of a document</strong>, and there are three: Kobler’s Giovanni Battista reaching Fiume from the County of Pazin, Ližnjan reaching Medulin down the road, and the Carnian godparents standing at Svetvinčenat. Under the rule, directly below the line this archive descends from, are the households it will not pretend to have placed: <strong>eight real, documented households of the name that belong to nobody yet</strong> — Rijeka, Medulin, Kaštelir and Tar, Dubrovnik, the daughters’ villages, Sovinjak, Bakar and Rovinj. Brazil, Ticino and Michigan, below them again, are somebody else’s entirely.",
- "looseNote": "— the commonest patronymic in Italy",
- "loose": [
-  [
-   "Brazil",
-   "/diaspora/",
-   "The largest cluster of the surname anywhere — Rio Grande do Sul, Santa Catarina, São Paulo. Veneto and Trentino, not Istrian: the in-law names are Marcato, Busatto, Poletta, Raminelli, Barbiero, Negri, Catteri, Facco."
-  ],
-  [
-   "Ticino",
-   "/diaspora/",
-   "Italian-speaking Switzerland, over the border from Lombardy. A different stock of the same ordinary patronymic."
-  ],
-  [
-   "Michigan",
-   "/diaspora/",
-   "Domme De Franceski, born in Italy 1880, at the Penn Iron Mining Company at Norway, Michigan, with a wife born in Switzerland. Nothing joins him to Istria."
-  ]
- ],
+ "caption": "The teal river is the one this archive descends from, and the only one that arrived on foot looking for work. <strong>The green river at the foot is drawn dashed because it never came to Istria at all</strong> — a fully documented family of the same name that goes from Cap Corse to the Caribbean, put here so that a Franceschi found in Puerto Rico or Caracas can be seen for what they are. <strong>A dotted end-point means the attachment is family lore, not a document</strong> — Argentina hangs off Carnia only on the word of a reunion album, and Monheim is a pin on a map. <strong>A dotted curve drawn across the picture is a candidate join, on evidence short of a document</strong>, and the ones drawn are Kobler’s Giovanni Battista reaching Fiume from the County of Pazin, Ližnjan reaching Medulin down the road, and the Carnian godparents standing at Svetvinčenat. Under the rule, directly below the line this archive descends from, are the households it will not pretend to have placed: <strong>real, documented households of the name that belong to nobody yet</strong> — Rijeka, Medulin, Kaštelir and Tar, Dubrovnik, the daughters’ villages, Sovinjak, Bakar and Rovinj — with Pomer, whose household was read end to end in October, beside them. Telve and the Trentino stock, then Brazil, Ticino and Michigan, below them again, are somebody else’s entirely.",
  "bridges": [
   {
    "from": "carnia",
