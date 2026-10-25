@@ -4,17 +4,62 @@
   "eyebrow": "Start here · eight generations · Gologorica to Brisbane",
   "dek": "The line this archive descends from, told once as a short book: a weaver's household on an Istrian hill, a farmer, a stonecutter, a stonemason who went down to the sea, a garage in Württemberg, a grave at Senj. About twenty-five minutes to read. Every paragraph says how well it is known.",
   "legend": [
-    ["doc", "a document says so"],
-    ["inf", "the archive reasons it from documents"],
-    ["lore", "family memory, the family chart or the family's tree"]
+    [
+      "doc",
+      "a document says so"
+    ],
+    [
+      "inf",
+      "the archive reasons it from documents"
+    ],
+    [
+      "lore",
+      "family memory, the family chart or the family's tree"
+    ]
   ],
   "prologue": {
     "title": "Start here",
     "paras": [
-      {"id": "p-1", "reg": "A", "g": "doc", "ev": "/direct-line/", "why": "The Spine: the eight generations, with the document under each", "t": "This is the short version of a long archive: eight generations of one family, told in order, from a hill village in Istria to a city on the other side of the world. It is meant to be read in one sitting."},
-      {"id": "p-2", "reg": "A", "g": "doc", "ev": "/method/", "why": "Method: how this archive decides what it is willing to say", "t": "Everything said here about a person comes from a paper the archive holds, or is marked when it does not. A small mark ends each paragraph: **doc** where a document says so, **inf** where the archive reasons from documents, **lore** where it rests on the family's memory, chart or tree. A paragraph takes the mark of its weakest sentence, and every mark links to the evidence."},
-      {"id": "p-3", "reg": "A", "g": "doc", "ev": "#world-notes", "why": "Where the world passages come from", "t": "Some passages are set in from the margin under the words *In the world around them*. They describe the place and the years, never what these particular people did or saw. Their marks say where the detail comes from: **archive** for this archive's own pages, **history** for general history, listed at the foot of the page."},
-      {"id": "p-4", "reg": "A", "g": "doc", "ev": "/name/", "why": "The Name: every spelling, and why it changed", "t": "The name changes as the story moves: Defranceschi in the Latin registers, Defranceski on the Croatian coast, Defrančeski on one gravestone. The villages have two names each. Gologorica is Moncalvo in Italian, and Gračišće is Gallignana. Each chapter ends with *The papers for this chapter*."}
+      {
+        "id": "p-0",
+        "reg": "A",
+        "g": "doc",
+        "ev": "/corrections/",
+        "why": "Corrections: what this archive has had to take back",
+        "t": "A first telling: corrections welcome, see [Corrections](/corrections/)."
+      },
+      {
+        "id": "p-1",
+        "reg": "A",
+        "g": "doc",
+        "ev": "/direct-line/",
+        "why": "The Spine: the eight generations, with the document under each",
+        "t": "This is the short version of a long archive: eight generations of one family, told in order, from a hill village in Istria to a city on the other side of the world. It is meant to be read in one sitting."
+      },
+      {
+        "id": "p-2",
+        "reg": "A",
+        "g": "doc",
+        "ev": "/method/",
+        "why": "Method: how this archive decides what it is willing to say",
+        "t": "Everything said here about a person comes from a paper the archive holds, or is marked when it does not. A small mark ends each paragraph: **doc** where a document says so, **inf** where the archive reasons from documents, **lore** where it rests on the family's memory, chart or tree. A paragraph takes the mark of its weakest sentence, and every mark links to the evidence."
+      },
+      {
+        "id": "p-3",
+        "reg": "A",
+        "g": "doc",
+        "ev": "#world-notes",
+        "why": "Where the world passages come from",
+        "t": "Some passages are set in from the margin under the words *In the world around them*. They describe the place and the years, never what these particular people did or saw. Their marks say where the detail comes from: **archive** for this archive's own pages, **history** for general history, listed at the foot of the page."
+      },
+      {
+        "id": "p-4",
+        "reg": "A",
+        "g": "doc",
+        "ev": "/name/",
+        "why": "The Name: every spelling, and why it changed",
+        "t": "The name changes as the story moves: Defranceschi in the Latin registers, Defranceski on the Croatian coast, Defrančeski on one gravestone. The villages have two names each. Gologorica is Moncalvo in Italian, and Gračišće is Gallignana. Each chapter ends with *The papers for this chapter*."
+      }
     ]
   },
   "chapters": [
@@ -23,30 +68,146 @@
       "n": "I",
       "title": "The weaver's son",
       "when": "Gologorica, 1773–1805",
-      "plates": ["golo-marriage-1774", "golo-1789-smallpox"],
+      "plates": [
+        "golo-marriage-1774",
+        "golo-1789-smallpox"
+      ],
       "paras": [
-        {"id": "i-1", "reg": "A", "g": "doc", "ev": "/gologorica-line/#textorexcarnia", "why": "Gologorica deaths, 14 March 1773, DAPA ZM34K-214, M01068977", "t": "On 14 March 1773 the parish priest of Gologorica, Marcus Bancich, entered a death in his book. [Leonardus Defranceschi](/person/leonardus-defranceschi-1697/), seventy-six years old, had been given the sacrament of penance. He was buried the next day inside the parish church, in the tomb of [Dominus Petrus Defranceschi](/person/pietro-defranceschi-1695/). At the end of the entry, set off between two marks, the priest wrote what the man had been: *professionis suae textor ex Carnia*. By trade a weaver, from Carnia."},
-        {"id": "i-2", "reg": "A", "g": "doc", "ev": "/gologorica-line/#textorexcarnia", "why": "The same entry, and what it does not prove", "t": "It is the first time a Gologorica register puts anyone of the name outside Istria. What kin the old weaver was to the Dominus whose tomb he lay in, the book does not say, and no paper yet joins him to any one village in Carnia."},
-        {"id": "i-3", "reg": "B", "src": [{"k": "archive", "href": "/carnia/", "why": "Back to Carnia: Giorgio Ferigo on the weavers and the road of the Furlans"}], "t": "Carnia is the mountain country north of Udine, and for two centuries its parishes sent men down into Istria to weave. The historian of its people, Giorgio Ferigo, followed the road they took from the parishes of Ovaro and Luincis: rare in the sixteenth century, thick in the seventeenth, thickest in the eighteenth. So many went that, as he put it, to say *cargnel* in Istria was to say weaver. A headmen's return of 1679 lists only the weavers who had gone into the County of Pisino, and a Zuane De Franceschi of Mione is among them, with a son. Some came home each spring. Others bought or built a house and a smallholding or a vineyard, and stayed."},
-        {"id": "i-4", "reg": "A", "g": "doc", "ev": "/gologorica-line/#marriage1774", "why": "Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999", "t": "Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him *[Joannes Baptista Defranceschi](/person/joannes-baptista-defranceschi-detti-leonardi-m-1774/) q.m Leonardi filius*, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who married them was the archpriest of Krbune, Joannes Grah, a man of her own surname."},
-        {"id": "i-5", "reg": "A", "g": "inf", "ev": "/gologorica-line/#casa31", "why": "Casa 31, and a birthday that matches to the day: the case for, and the case against", "t": "This couple are very probably the first generation of this book. The family's own chart begins with a Giovanni of Gologorica and Gračišće, father of the farmer of the next chapter, Joannes Baptista, born on 13 August 1787. On 13 August 1787 a boy of exactly that name was baptised at Gologorica, the son of Joannes Baptista and Theresia née Grach. The archive reads the two as one boy, and says plainly that this is inference: the baptism may not have been the day of birth, and two boys of one name born on one day in one small district is unlikely rather than impossible."},
-        {"id": "i-6", "reg": "A", "g": "doc", "ev": "/gologorica-line/#textor1787", "why": "The weaver's household in the baptism books, 1776–1787", "t": "If he is, the papers give the household a shape. The register files them as *cives*, townspeople rather than peasants. Their children came to the font one after another: Josepha Mariana in 1776, baptised at Krbune; Joannes Petrus in 1780; Franciscus Antonius in April 1785, with the archpriest of Krbune standing godfather; and in August 1787 the boy who carries the line, entered with his father's trade, *professione textor*. His godfather was Mathias Ortis of Novaki, himself a weaver's son. Even the house number will not sit still in these books: the old weaver's house is number 45 on a list of 1770, the couple's is 31 in 1785 and 35 in 1787, and nobody has yet worked out why. No paper says where the loom stood."},
-        {"id": "i-7", "reg": "A", "g": "inf", "ev": "#plate-golo-1789-smallpox", "why": "Gologorica deaths, September 1789, M01069231", "t": "In September 1789 smallpox went through the village. On that page of the death book the column for the cause reads *Pustulla*, almost all the way down. On 10 September it took a boy of seven from house 31, written as Joh. Defranceschi, son of Theresia. The archive takes him for her son, an elder brother of the boy of 1787. He is in no other record."},
-        {"id": "i-8", "reg": "B", "src": [{"k": "archive", "href": "/gologorica-line/#palazzetto", "why": "Radmila Matejčić, 1979, on the Baroque in the Pisino country"}], "t": "Gologorica, Moncalvo di Pisino to its Italian speakers, lay in the Habsburg county of Pazin, a few kilometres from Gračišće. Writing in 1979 about the Baroque in that county, the architectural historian Radmila Matejčić noted that in the eighteenth century the artisans who had come from Carnia and Friuli began to build houses of their own around Pisino. Her example was the Defranceschi *palazzetto* at Moncalvo, with an arcaded loggia and a coat of arms on its front. It still stands, and [a tablet set into its wall](/gologorica-line/#house) names the man who had it made for himself and his heirs."},
-        {"id": "i-9", "reg": "A", "g": "lore", "ev": "/gologorica-line/#cadastre1820", "why": "Nothing yet joins the Gologorica house to the Gallignana line", "t": "The family has always believed it came from that house. No paper yet joins the house to the weaver's household, and this book does not join them."},
-        {"id": "i-10", "reg": "A", "g": "inf", "ev": "/gologorica-line/#theresia1805", "why": "Gologorica baptisms, 25 January 1805, M01069047", "t": "Then the household begins to move. On 25 January 1805 Theresia stood godmother at Gologorica once more, as the wife of a living Joannes Baptista, and the clerk wrote against her name *ex Gallignana*: of Gračišće. Twenty-one years before, the same book had called the couple *ambo ex hac Parochia*, both of this parish. One clerk's note is not a removal, and the archive does not call it one. But it is the first thread that runs from the hill village to the town."},
-        {"id": "i-11", "reg": "A", "g": "lore", "ev": "/direct-line/#treecheck", "why": "Checked against the family's own tree, September 2026", "t": "The family's own tree gives the end of the chart's Giovanni: born at Gologorica in 1750, dead at Gračišće on 14 October 1829, with a reference to a register image. The archive still carries these dates as the family's, not its own."}
+        {
+          "id": "i-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/gologorica-line/#textorexcarnia",
+          "why": "Gologorica deaths, 14 March 1773, DAPA ZM34K-214, M01068977",
+          "t": "On 14 March 1773 the parish priest of Gologorica, Marcus Bancich, entered a death in his book. [Leonardus Defranceschi](/person/leonardus-defranceschi-1697/), seventy-six years old, had been given the sacrament of penance. He was buried the next day inside the parish church, in the tomb of [Dominus Petrus Defranceschi](/person/pietro-defranceschi-1695/). At the end of the entry, set off between two marks, the priest wrote what the man had been: *professionis suae textor ex Carnia*. By trade a weaver, from Carnia."
+        },
+        {
+          "id": "i-2",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/gologorica-line/#textorexcarnia",
+          "why": "The same entry, and what it does not prove",
+          "t": "It is the first time a Gologorica register puts anyone of the name outside Istria. What kin the old weaver was to the Dominus whose tomb he lay in, the book does not say, and no paper yet joins him to any one village in Carnia."
+        },
+        {
+          "id": "i-3",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/carnia/",
+              "why": "Back to Carnia: Giorgio Ferigo on the weavers and the road of the Furlans"
+            }
+          ],
+          "t": "Carnia is the mountain country north of Udine, and for two centuries its parishes sent men down into Istria to weave. The historian of its people, Giorgio Ferigo, followed the road they took from the parishes of Ovaro and Luincis: rare in the sixteenth century, thick in the seventeenth, thickest in the eighteenth. So many went that, as he put it, to say *cargnel* in Istria was to say weaver. A headmen's return of 1679 lists only the weavers who had gone into the County of Pisino, and a Zuane De Franceschi of Mione is among them, with a son. Some came home each spring. Others bought or built a house and a smallholding or a vineyard, and stayed."
+        },
+        {
+          "id": "i-4",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/gologorica-line/#marriage1774",
+          "why": "Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999",
+          "t": "Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him *[Joannes Baptista Defranceschi](/person/joannes-baptista-defranceschi-detti-leonardi-m-1774/) q.m Leonardi filius*, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who married them was the archpriest of Krbune, Joannes Grah, a man of her own surname."
+        },
+        {
+          "id": "i-5",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/gologorica-line/#casa31",
+          "why": "Casa 31, and a birthday that matches to the day: the case for, and the case against",
+          "t": "This couple are very probably the first generation of this book. The family's own chart begins with a Giovanni of Gologorica and Gračišće, father of the farmer of the next chapter, Joannes Baptista, born on 13 August 1787. On 13 August 1787 a boy of exactly that name was baptised at Gologorica, the son of Joannes Baptista and Theresia née Grach. The archive reads the two as one boy, and says plainly that this is inference: the baptism may not have been the day of birth, and two boys of one name born on one day in one small district is unlikely rather than impossible.",
+          "tbc": "The identification of the weaver's son with the chart's Giovanni is still inference."
+        },
+        {
+          "id": "i-6",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/gologorica-line/#textor1787",
+          "why": "The weaver's household in the baptism books, 1776–1787",
+          "t": "If he is, the papers give the household a shape. The register files them as *cives*, townspeople rather than peasants. Their children came to the font one after another: Josepha Mariana in 1776, baptised at Krbune; Joannes Petrus in 1780; Franciscus Antonius in April 1785, with the archpriest of Krbune standing godfather; and in August 1787 the boy who carries the line, entered with his father's trade, *professione textor*. His godfather was Mathias Ortis of Novaki, himself a weaver's son. Even the house number will not sit still in these books: the old weaver's house is number 45 on a list of 1770, the couple's is 31 in 1785 and 35 in 1787, and nobody has yet worked out why. No paper says where the loom stood."
+        },
+        {
+          "id": "i-7",
+          "reg": "A",
+          "g": "inf",
+          "ev": "#plate-golo-1789-smallpox",
+          "why": "Gologorica deaths, September 1789, M01069231",
+          "t": "In September 1789 smallpox went through the village. On that page of the death book the column for the cause reads *Pustulla*, almost all the way down. On 10 September it took a boy of seven from house 31, written as Joh. Defranceschi, son of Theresia. The archive takes him for her son, an elder brother of the boy of 1787. He is in no other record."
+        },
+        {
+          "id": "i-8",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/gologorica-line/#palazzetto",
+              "why": "Radmila Matejčić, 1979, on the Baroque in the Pisino country"
+            }
+          ],
+          "t": "Gologorica, Moncalvo di Pisino to its Italian speakers, lay in the Habsburg county of Pazin, a few kilometres from Gračišće. Writing in 1979 about the Baroque in that county, the architectural historian Radmila Matejčić noted that in the eighteenth century the artisans who had come from Carnia and Friuli began to build houses of their own around Pisino. Her example was the Defranceschi *palazzetto* at Moncalvo, with an arcaded loggia and a coat of arms on its front. It still stands, and [a tablet set into its wall](/gologorica-line/#house) names the man who had it made for himself and his heirs."
+        },
+        {
+          "id": "i-9",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/gologorica-line/#cadastre1820",
+          "why": "Nothing yet joins the Gologorica house to the Gallignana line",
+          "t": "The family has always believed it came from that house. No paper yet joins the house to the weaver's household, and this book does not join them."
+        },
+        {
+          "id": "i-10",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/gologorica-line/#theresia1805",
+          "why": "Gologorica baptisms, 25 January 1805, M01069047",
+          "t": "Then the household begins to move. On 25 January 1805 Theresia stood godmother at Gologorica once more, as the wife of a living Joannes Baptista, and the clerk wrote against her name *ex Gallignana*: of Gračišće. Twenty-one years before, the same book had called the couple *ambo ex hac Parochia*, both of this parish. One clerk's note is not a removal, and the archive does not call it one. But it is the first thread that runs from the hill village to the town."
+        },
+        {
+          "id": "i-11",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/direct-line/#treecheck",
+          "why": "Checked against the family's own tree, September 2026",
+          "t": "The family's own tree gives the end of the chart's Giovanni: born at Gologorica in 1750, dead at Gračišće on 14 October 1829, with a reference to a register image. The archive still carries these dates as the family's, not its own."
+        }
       ],
       "papers": [
-        ["The weaver's death, 1773", "/gologorica-line/#textorexcarnia"],
-        ["The marriage of 1774", "/gologorica-line/#marriage1774"],
-        ["Casa 31, and the birthday", "/gologorica-line/#casa31"],
-        ["Smallpox, 1789", "/gologorica-line/#plate-golo-1789-smallpox"],
-        ["Theresia «ex Gallignana», 1805", "/gologorica-line/#theresia1805"],
-        ["The weaver's son", "/person/joannes-baptista-defranceschi-detti-leonardi-m-1774/"],
-        ["Theresia née Grach", "/person/theresia-defranceschi-nee-grach-gologorica/"],
-        ["The weavers' road from Carnia", "/carnia/"],
-        ["The Spine, generation one", "/direct-line/"]
+        [
+          "The weaver's death, 1773",
+          "/gologorica-line/#textorexcarnia"
+        ],
+        [
+          "The marriage of 1774",
+          "/gologorica-line/#marriage1774"
+        ],
+        [
+          "Casa 31, and the birthday",
+          "/gologorica-line/#casa31"
+        ],
+        [
+          "Smallpox, 1789",
+          "/gologorica-line/#plate-golo-1789-smallpox"
+        ],
+        [
+          "Theresia «ex Gallignana», 1805",
+          "/gologorica-line/#theresia1805"
+        ],
+        [
+          "The weaver's son",
+          "/person/joannes-baptista-defranceschi-detti-leonardi-m-1774/"
+        ],
+        [
+          "Theresia née Grach",
+          "/person/theresia-defranceschi-nee-grach-gologorica/"
+        ],
+        [
+          "The weavers' road from Carnia",
+          "/carnia/"
+        ],
+        [
+          "The Spine, generation one",
+          "/direct-line/"
+        ]
       ]
     },
     {
@@ -54,27 +215,153 @@
       "n": "II",
       "title": "The book of souls",
       "when": "Gračišće, house 5, 1787–1846",
-      "plates": ["status-animarum-gb"],
+      "plates": [
+        "status-animarum-gb"
+      ],
       "paras": [
-        {"id": "ii-1", "reg": "A", "g": "doc", "ev": "#plate-status-animarum-gb", "why": "Status Animarum of Gallignana, house 5, DAPA ZM34K 217, M01072071", "t": "The row for house 5 runs across the page in one hand. *Joan. Bapt. Defranceschi, agricola, natus 13. Augusti 1787, matrimonium 1819.* [Giovanni Battista Defranceschi](/person/giovanni-battista-defranceschi-1787/), a farmer, born on 13 August 1787, married in 1819. Beneath him his wife, Francisca Salomon, born on 17 March 1797, and then the children, sons first and daughters after, as this book always lists them: Raymundus, Antonius, Joannes and Franciscus Liberatus; Leopoldina Maria and Regina Theresia."},
-        {"id": "ii-2", "reg": "B", "src": [{"k": "archive", "href": "/direct-line/", "why": "The Spine: what a book of souls is"}, {"k": "archive", "href": "/direct-line/#raymundus", "why": "The sacrament columns on the house 5 page"}], "t": "A *Status Animarum*, a book of souls, is not a register of events but of households. A priest kept one to know his parish: a ruled row for the head of each house, with his condition, his birth, his marriage and his death, and beneath him his wife and every child, each with a date and a column of ticks for the sacraments they had reached: vaccinated, confirmed, confession, communion."},
-        {"id": "ii-3", "reg": "A", "g": "inf", "ev": "/direct-line/#raymundus", "why": "Raymundus: what the page says, and what it does not", "t": "The ticks date the page. Raymundus, the eldest, born on 9 October 1823, has all four. Franciscus Liberatus, born on 26 January 1840, has only the first two. The father's death is already written in, in September 1846; the archive's own files disagree about the day. So the page was written up about 1848, two years after the farmer died, at about fifty-nine."},
-        {"id": "ii-4", "reg": "A", "g": "doc", "ev": "/maternal/salomon/", "why": "The Salomon line", "t": "Of Francisca the page gives a name and a birthday, and nothing more. Her surname is still cut on stones in the Gračišće cemetery. Whether she was of the family whose house is described below, nobody can yet say: Salamon is not a rare name in Istria."},
-        {"id": "ii-5", "reg": "B", "src": [{"k": "archive", "href": "/direct-line/#town", "why": "Egidio Ivetic's counts of Istrian hearths"}, {"k": "archive", "href": "/direct-line/#gracisce_town", "why": "Irma Huić on Gračišće, and the Salamon palace"}], "t": "Gračišće was no hamlet. In the first Venetian count of hearths, in 1508, it was one of the two largest places in the Habsburg county of Pazin, and in the wars of the sixteenth and seventeenth centuries its walls held when its neighbours fell. The bishops of Pedena kept a residence there. Facing it, by the main gate, the Salamon family built a two-storey house of carefully chiselled local stone, with a Gothic double-lancet window and a balcony on the upper floor: one of the best Venetian façades in Istria, in a town that was never Venetian. It is still there, empty for decades and falling down."},
-        {"id": "ii-6", "reg": "B", "src": [{"k": "history", "href": "#world-notes", "why": "The food of an Istrian farm household (H1)"}, {"k": "archive", "href": "/gologorica-line/#dialect", "why": "Małecki's 1930 survey: «trukińu» for maize at Gologorica"}], "t": "A farming household of the Pazin country lived on what it grew. Maize had become the poor man's grain, eaten as polenta; when a dialectologist came through in 1930 he took down the Gologorica word for it, *trukińu*. Beans, cabbage and sauerkraut went into the thick soups called *jota* and *maneštra*. The wine was the household's own and drunk young. Cured ham, *pršut*, was for feast days. No paper says what was on the table at house 5."},
-        {"id": "ii-7", "reg": "B", "src": [{"k": "archive", "href": "/gologorica-line/#french1812", "why": "The French took the registers, 1812–1814"}, {"k": "archive", "href": "/gologorica-line/#plate-golo-1817-page-of-fames", "why": "The famine of 1817 in the Gologorica death book"}], "t": "These were hard years in the county. From July 1812 to January 1814, while Istria belonged to Napoleon's Illyrian Provinces, the French took the Gologorica parish books away to the town hall at Pazin, and the priest had to write that year and a half's deaths in afterwards. Then came hunger. Through 1815 and 1816, and above all the spring of 1817, the Gologorica priest kept reaching past a column printed for diseases for words that meant want: *fames*, hunger; *inopia consumptus*, consumed by want; *debilitates fame mendicando*, weakened by hunger while begging. He recorded at least fifty-two such deaths, children of one and three and four among them. Whether the hunger reached house 5 at Gračišće, nothing in the archive says."},
-        {"id": "ii-8", "reg": "A", "g": "inf", "ev": "/gologorica-line/#cadastre1820", "why": "Six households in 1820, from the Franciscan cadastre", "t": "One paper of those years may touch him. An Austrian land survey of about 1820, read in the archives at Trieste by the historian Dean Brhan, lists six De Franceschi households holding property at Gologorica, and one of them is a Giobatta entered as *di Gallignana*. It could be this farmer, a cousin, or a man who had bought land there. It is the first paper that puts the two villages' names in one line."},
-        {"id": "ii-9", "reg": "A", "g": "inf", "ev": "/direct-line/#raymundus", "why": "Searched, and not found: Raymundus", "t": "Then the page stops. The columns for marriage and death are empty for every child. Raymundus, alive, at home and unmarried at about twenty-five, never appears in any record again, under any spelling, in any country the archive has searched. He may have died young, or left, or gone into the church; the archive does not choose. What is certain is what followed. The line did not pass through him. It runs through the second son, Antonius, who became a stonecutter and headed a house of his own."}
+        {
+          "id": "ii-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-status-animarum-gb",
+          "why": "Status Animarum of Gallignana, house 5, DAPA ZM34K 217, M01072071",
+          "t": "The row for house 5 runs across the page in one hand. *Joan. Bapt. Defranceschi, agricola, natus 13. Augusti 1787, matrimonium 1819.* [Giovanni Battista Defranceschi](/person/giovanni-battista-defranceschi-1787/), a farmer, born on 13 August 1787, married in 1819. Beneath him his wife, Francisca Salomon, born on 17 March 1797, and then the children, sons first and daughters after, as this book always lists them: Raymundus, Antonius, Joannes and Franciscus Liberatus; Leopoldina Maria and Regina Theresia."
+        },
+        {
+          "id": "ii-2",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/direct-line/",
+              "why": "The Spine: what a book of souls is"
+            },
+            {
+              "k": "archive",
+              "href": "/direct-line/#raymundus",
+              "why": "The sacrament columns on the house 5 page"
+            }
+          ],
+          "t": "A *Status Animarum*, a book of souls, is not a register of events but of households. A priest kept one to know his parish: a ruled row for the head of each house, with his condition, his birth, his marriage and his death, and beneath him his wife and every child, each with a date and a column of ticks for the sacraments they had reached: vaccinated, confirmed, confession, communion."
+        },
+        {
+          "id": "ii-3",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/direct-line/#raymundus",
+          "why": "Raymundus: what the page says, and what it does not",
+          "t": "The ticks date the page. Raymundus, the eldest, born on 9 October 1823, has all four. Franciscus Liberatus, born on 26 January 1840, has only the first two. The father's death is already written in, in September 1846; the archive's own files disagree about the day. So the page was written up about 1848, two years after the farmer died, at about fifty-nine."
+        },
+        {
+          "id": "ii-4",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/maternal/salomon/",
+          "why": "The Salomon line",
+          "t": "Of Francisca the page gives a name and a birthday, and nothing more. Her surname is still cut on stones in the Gračišće cemetery. Whether she was of the family whose house is described below, nobody can yet say: Salamon is not a rare name in Istria."
+        },
+        {
+          "id": "ii-5",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/direct-line/#town",
+              "why": "Egidio Ivetic's counts of Istrian hearths"
+            },
+            {
+              "k": "archive",
+              "href": "/direct-line/#gracisce_town",
+              "why": "Irma Huić on Gračišće, and the Salamon palace"
+            }
+          ],
+          "t": "Gračišće was no hamlet. In the first Venetian count of hearths, in 1508, it was one of the two largest places in the Habsburg county of Pazin, and in the wars of the sixteenth and seventeenth centuries its walls held when its neighbours fell. The bishops of Pedena kept a residence there. Facing it, by the main gate, the Salamon family built a two-storey house of carefully chiselled local stone, with a Gothic double-lancet window and a balcony on the upper floor: one of the best Venetian façades in Istria, in a town that was never Venetian. It is still there, empty for decades and falling down."
+        },
+        {
+          "id": "ii-6",
+          "reg": "B",
+          "src": [
+            {
+              "k": "history",
+              "href": "#world-notes",
+              "why": "The food of an Istrian farm household (H1)"
+            },
+            {
+              "k": "archive",
+              "href": "/gologorica-line/#dialect",
+              "why": "Małecki's 1930 survey: «trukińu» for maize at Gologorica"
+            }
+          ],
+          "t": "A farming household of the Pazin country lived on what it grew. Maize had become the poor man's grain, eaten as polenta; when a dialectologist came through in 1930 he took down the Gologorica word for it, *trukińu*. Beans, cabbage and sauerkraut went into the thick soups called *jota* and *maneštra*. The wine was the household's own and drunk young. Cured ham, *pršut*, was for feast days. No paper says what was on the table at house 5.",
+          "tbc": "General history (H1), awaiting confirmation."
+        },
+        {
+          "id": "ii-7",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/gologorica-line/#french1812",
+              "why": "The French took the registers, 1812–1814"
+            },
+            {
+              "k": "archive",
+              "href": "/gologorica-line/#plate-golo-1817-page-of-fames",
+              "why": "The famine of 1817 in the Gologorica death book"
+            }
+          ],
+          "t": "These were hard years in the county. From July 1812 to January 1814, while Istria belonged to Napoleon's Illyrian Provinces, the French took the Gologorica parish books away to the town hall at Pazin, and the priest had to write that year and a half's deaths in afterwards. Then came hunger. Through 1815 and 1816, and above all the spring of 1817, the Gologorica priest kept reaching past a column printed for diseases for words that meant want: *fames*, hunger; *inopia consumptus*, consumed by want; *debilitates fame mendicando*, weakened by hunger while begging. He recorded at least fifty-two such deaths, children of one and three and four among them. Whether the hunger reached house 5 at Gračišće, nothing in the archive says."
+        },
+        {
+          "id": "ii-8",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/gologorica-line/#cadastre1820",
+          "why": "Six households in 1820, from the Franciscan cadastre",
+          "t": "One paper of those years may touch him. An Austrian land survey of about 1820, read in the archives at Trieste by the historian Dean Brhan, lists six De Franceschi households holding property at Gologorica, and one of them is a Giobatta entered as *di Gallignana*. It could be this farmer, a cousin, or a man who had bought land there. It is the first paper that puts the two villages' names in one line."
+        },
+        {
+          "id": "ii-9",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/direct-line/#raymundus",
+          "why": "Searched, and not found: Raymundus",
+          "t": "Then the page stops. The columns for marriage and death are empty for every child. Raymundus, alive, at home and unmarried at about twenty-five, never appears in any record again, under any spelling, in any country the archive has searched. He may have died young, or left, or gone into the church; the archive does not choose. What is certain is what followed. The line did not pass through him. It runs through the second son, Antonius, who became a stonecutter and headed a house of his own."
+        }
       ],
       "papers": [
-        ["The four generations in one household book", "/direct-line/#statusanimarum"],
-        ["Reading the house 5 page", "/gologorica-line/#house5"],
-        ["Raymundus, the eldest son", "/direct-line/#raymundus"],
-        ["The town, and the Salamon palace", "/direct-line/#gracisce_town"],
-        ["Six households in 1820", "/gologorica-line/#cadastre1820"],
-        ["The famine of 1817", "/gologorica-line/#plate-golo-1817-page-of-fames"],
-        ["Francisca's people", "/maternal/salomon/"],
-        ["Raymundus de Franceschi", "/person/raymundus-de-franceschi-1823/"]
+        [
+          "The four generations in one household book",
+          "/direct-line/#statusanimarum"
+        ],
+        [
+          "Reading the house 5 page",
+          "/gologorica-line/#house5"
+        ],
+        [
+          "Raymundus, the eldest son",
+          "/direct-line/#raymundus"
+        ],
+        [
+          "The town, and the Salamon palace",
+          "/direct-line/#gracisce_town"
+        ],
+        [
+          "Six households in 1820",
+          "/gologorica-line/#cadastre1820"
+        ],
+        [
+          "The famine of 1817",
+          "/gologorica-line/#plate-golo-1817-page-of-fames"
+        ],
+        [
+          "Francisca's people",
+          "/maternal/salomon/"
+        ],
+        [
+          "Raymundus de Franceschi",
+          "/person/raymundus-de-franceschi-1823/"
+        ]
       ]
     },
     {
@@ -82,27 +369,135 @@
       "n": "III",
       "title": "The man who cut stone",
       "when": "Gračišće, house 19, 1825–1894",
-      "plates": ["status-animarum-ant"],
+      "plates": [
+        "status-animarum-ant"
+      ],
       "paras": [
-        {"id": "iii-1", "reg": "A", "g": "doc", "ev": "#plate-status-animarum-ant", "why": "Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656", "t": "Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by [Antonius Defranceschi](/person/antonio-defranceschi-1825/) *q. Joannis*, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade, *lapidarius*, a stonecutter. When his son was baptised in 1863 the register put it as *lapicida*. Both words mean a man who cut stone."},
-        {"id": "iii-2", "reg": "B", "src": [{"k": "history", "href": "#world-notes", "why": "Building in stone in central Istria (H2)"}], "t": "In the villages of central Istria a house was built of the stone it stood on. Below was the *konoba*, the cellar and byre, where the wine was kept; above, the kitchen with its open hearth. Water came from cisterns and from the village pond. Walls, steps, doorframes, troughs and gravestones were all cut by hand, and a man who could dress stone worked wherever anyone built or mended."},
-        {"id": "iii-3", "reg": "A", "g": "doc", "ev": "/direct-line/#statusanimarum", "why": "House 19, transcribed", "t": "He married Maria Fernasar, born on 17 October 1832, on 25 November 1856. Their first son, Antonius, had been born that August. The children came over nineteen years: Antonius in 1856; Catharina in 1859; Josephus on 22 March 1863; Leopolda in 1865; a second Catharina in 1869, named for the first, who had died the year before; and Modestus in 1875."},
-        {"id": "iii-4", "reg": "A", "g": "lore", "ev": "/direct-line/#treecheck", "why": "The family's tree, read September 2026", "t": "The family's tree adds a Francisca, born in April 1858, who lived two days."},
-        {"id": "iii-5", "reg": "A", "g": "doc", "ev": "/direct-line/#statusanimarum", "why": "A trade for a woman in the line: obstetrix", "t": "Maria had a trade of her own. On a later page, where she heads the household as a widow, the priest entered her condition as *obstetrix*: midwife. She is the first woman of this line the archive can give a trade to, and her name was an old one in the parish; a Fernasar family was bringing children to the Gallignana font in the winter of 1679. She died on 10 January 1916, at eighty-three."},
-        {"id": "iii-6", "reg": "B", "src": [{"k": "history", "href": "#world-notes", "why": "The parish church of Gračišće (H3); the Istrian railway (H5)"}, {"k": "archive", "href": "/gologorica-line/#dialect", "why": "Małecki's 1930 dialect survey"}], "t": "The parish church of Gračišće, built in 1769 on the site of a medieval one, is dedicated to St Vitus, with Modestus and Crescentia. The registers were kept in Latin, but the village spoke its own Croatian. When the Polish dialectologist Mieczysław Małecki came through with a notebook in 1930, he took down words at Gračišće, *besêda*, *koleno*, *člověk*, and filed the village under a different dialect from Gologorica, a few kilometres off. In 1876 the railway from Divača to Pola opened, with a station at Pazin."},
-        {"id": "iii-7", "reg": "A", "g": "doc", "ev": "/the-eleven/", "why": "The Eleven, and the orphanage at Trieste", "t": "Their eldest, Antonius, married in 1889 a Maria Volhardt, and against her name the priest wrote where she came from: *nata in Orfanotrofio Tergesti*, born in the orphanage at Trieste. Their eleven children went to New York, Buenos Aires, Tuscany, Slovenia and Croatia, and in 2012 the American branch put his name at the head of the chart for its first reunion."},
-        {"id": "iii-8", "reg": "A", "g": "inf", "ev": "/direct-line/#treecheck", "why": "Generation 3, the day he died", "t": "Antonius the stonecutter died in 1894. The parish's own index gives the year. The day, 4 August, comes from an indexed record that the family's tree cites."},
-        {"id": "iii-9", "reg": "B", "src": [{"k": "archive", "href": "/direct-line/#village_1895", "why": "Gračišće in the Pola papers, 1893–1901"}], "t": "In the months after, the village came apart along the line of language. In January 1895 a Pola paper of the Italian party reported peasants marching through the place shouting against the Italians, a counter-demonstration at once, blows, the windows of the Croatian priest broken, an axe. Gračišće then had about five hundred people. The papers took sides, and are read that way. None of what they print names this family."}
+        {
+          "id": "iii-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-status-animarum-ant",
+          "why": "Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656",
+          "t": "Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by [Antonius Defranceschi](/person/antonio-defranceschi-1825/) *q. Joannis*, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade, *lapidarius*, a stonecutter. When his son was baptised in 1863 the register put it as *lapicida*. Both words mean a man who cut stone."
+        },
+        {
+          "id": "iii-2",
+          "reg": "B",
+          "src": [
+            {
+              "k": "history",
+              "href": "#world-notes",
+              "why": "Building in stone in central Istria (H2)"
+            }
+          ],
+          "t": "In the villages of central Istria a house was built of the stone it stood on. Below was the *konoba*, the cellar and byre, where the wine was kept; above, the kitchen with its open hearth. Water came from cisterns and from the village pond. Walls, steps, doorframes, troughs and gravestones were all cut by hand, and a man who could dress stone worked wherever anyone built or mended.",
+          "tbc": "General history (H2), awaiting confirmation."
+        },
+        {
+          "id": "iii-3",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/direct-line/#statusanimarum",
+          "why": "House 19, transcribed",
+          "t": "He married Maria Fernasar, born on 17 October 1832, on 25 November 1856. Their first son, Antonius, had been born that August. The children came over nineteen years: Antonius in 1856; Catharina in 1859; Josephus on 22 March 1863; Leopolda in 1865; a second Catharina in 1869, named for the first, who had died the year before; and Modestus in 1875."
+        },
+        {
+          "id": "iii-4",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/direct-line/#treecheck",
+          "why": "The family's tree, read September 2026",
+          "t": "The family's tree adds a Francisca, born in April 1858, who lived two days."
+        },
+        {
+          "id": "iii-5",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/direct-line/#statusanimarum",
+          "why": "A trade for a woman in the line: obstetrix",
+          "t": "Maria had a trade of her own. On a later page, where she heads the household as a widow, the priest entered her condition as *obstetrix*: midwife. She is the first woman of this line the archive can give a trade to, and her name was an old one in the parish; a Fernasar family was bringing children to the Gallignana font in the winter of 1679. She died on 10 January 1916, at eighty-three."
+        },
+        {
+          "id": "iii-6",
+          "reg": "B",
+          "src": [
+            {
+              "k": "history",
+              "href": "#world-notes",
+              "why": "The parish church of Gračišće (H3); the Istrian railway (H5)"
+            },
+            {
+              "k": "archive",
+              "href": "/gologorica-line/#dialect",
+              "why": "Małecki's 1930 dialect survey"
+            }
+          ],
+          "t": "The parish church of Gračišće, built in 1769 on the site of a medieval one, is dedicated to St Vitus, with Modestus and Crescentia. The registers were kept in Latin, but the village spoke its own Croatian. When the Polish dialectologist Mieczysław Małecki came through with a notebook in 1930, he took down words at Gračišće, *besêda*, *koleno*, *člověk*, and filed the village under a different dialect from Gologorica, a few kilometres off. In 1876 the railway from Divača to Pola opened, with a station at Pazin.",
+          "tbc": "General history (H3, H5), awaiting confirmation."
+        },
+        {
+          "id": "iii-7",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/the-eleven/",
+          "why": "The Eleven, and the orphanage at Trieste",
+          "t": "Their eldest, Antonius, married in 1889 a Maria Volhardt, and against her name the priest wrote where she came from: *nata in Orfanotrofio Tergesti*, born in the orphanage at Trieste. Their eleven children went to New York, Buenos Aires, Tuscany, Slovenia and Croatia, and in 2012 the American branch put his name at the head of the chart for its first reunion."
+        },
+        {
+          "id": "iii-8",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/direct-line/#treecheck",
+          "why": "Generation 3, the day he died",
+          "t": "Antonius the stonecutter died in 1894. The parish's own index gives the year. The day, 4 August, comes from an indexed record that the family's tree cites."
+        },
+        {
+          "id": "iii-9",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/direct-line/#village_1895",
+              "why": "Gračišće in the Pola papers, 1893–1901"
+            }
+          ],
+          "t": "In the months after, the village came apart along the line of language. In January 1895 a Pola paper of the Italian party reported peasants marching through the place shouting against the Italians, a counter-demonstration at once, blows, the windows of the Croatian priest broken, an axe. Gračišće then had about five hundred people. The papers took sides, and are read that way. None of what they print names this family."
+        }
       ],
       "papers": [
-        ["House 19, side by side with house 5", "/direct-line/#statusanimarum"],
-        ["Antonius, the stonecutter", "/person/antonio-defranceschi-1825/"],
-        ["Maria, née Fernasar", "/person/maria-fernasar-tornasar-de-franceschi-1832/"],
-        ["The Fernasar line", "/maternal/fernasar/"],
-        ["The Eleven", "/the-eleven/"],
-        ["Gračišće in the 1890s", "/direct-line/#village_1895"],
-        ["What the village sounded like", "/gologorica-line/#dialect"],
-        ["Checked against the family's tree", "/direct-line/#treecheck"]
+        [
+          "House 19, side by side with house 5",
+          "/direct-line/#statusanimarum"
+        ],
+        [
+          "Antonius, the stonecutter",
+          "/person/antonio-defranceschi-1825/"
+        ],
+        [
+          "Maria, née Fernasar",
+          "/person/maria-fernasar-tornasar-de-franceschi-1832/"
+        ],
+        [
+          "The Fernasar line",
+          "/maternal/fernasar/"
+        ],
+        [
+          "The Eleven",
+          "/the-eleven/"
+        ],
+        [
+          "Gračišće in the 1890s",
+          "/direct-line/#village_1895"
+        ],
+        [
+          "What the village sounded like",
+          "/gologorica-line/#dialect"
+        ],
+        [
+          "Checked against the family's tree",
+          "/direct-line/#treecheck"
+        ]
       ]
     },
     {
@@ -110,26 +505,127 @@
       "n": "IV",
       "title": "Down to the sea",
       "when": "Gračišće · Klenovica · Crikvenica, 1863–1951",
-      "plates": ["gracisce-1863", "anton-1890"],
+      "plates": [
+        "gracisce-1863",
+        "anton-1890"
+      ],
       "paras": [
-        {"id": "iv-1", "reg": "A", "g": "doc", "ev": "#plate-gracisce-1863", "why": "Liber Baptizatorum, Gračišće 1841–1899, folio 108, entry 23, certified by DAPA, 26 April 2021", "t": "[Josephus](/person/josip-defranceschi-1863/) was born at Gračišće on 22 March 1863 and baptised the next day by the cooperator Matthias Zimmermann. Entry 23 of that year gives his father as [Antonius Defranceschi](/person/antonio-defranceschi-1825/), stonecutter. In April 2021 the State Archive at Pazin sent the family a certified copy of this one entry, at a cost of 117 kuna, and the rest of this archive grew out of it."},
-        {"id": "iv-2", "reg": "A", "g": "lore", "ev": "/direct-line/#treecheck", "why": "«1887?» on the Gračišće page, and the tree's date", "t": "Some time in his twenties he went down to the Kvarner coast, where he was Josip. Back at Gračišće the priest later wrote a marriage year against his name with a question mark, *1887?*: he was guessing at a wedding that had happened somewhere else. The family's tree puts it at Klenovica on 12 October 1889. The entry itself has not been found."},
-        {"id": "iv-3", "reg": "A", "g": "doc", "ev": "/kalanj/", "why": "Ledenice baptisms, entry 2 of 1864; the Crikvenica entries", "t": "The bride was [Ana Kalanj](/person/anna-kalanj-de-franceschi-1864-1936-1864/), born on 3 January 1864 at Klenovica, house 22, in the parish of Ledenice above the coast, daughter of Josephus Kalanj and Rosalia Perković. The registers name her as the mother in four of her children's entries. Once, in a death entry, the priest wrote down the name her own household would have used: Anica."},
-        {"id": "iv-4", "reg": "A", "g": "doc", "ev": "#plate-anton-1890", "why": "Klenovica baptisms 1890, entry 9", "t": "Their first child was born in her parents' house. Anton Rudolf came on 20 January 1890 at Klenovica, house 22, and in the remarks column the priest explained why the birth was entered there at all: the parents were «with their own people at Klenovica, that is with the parents of the wife Ana». The godfather was Jakov Kalanj of the same house. In the column for the parents' home commune the priest wrote *Gallignana u Istriji*. Under the law of the time a family belonged to the commune of its fathers wherever it lived, and this one still belonged to Gračišće."},
-        {"id": "iv-5", "reg": "B", "src": [{"k": "history", "href": "#world-notes", "why": "Two halves of one empire (H4)"}, {"k": "archive", "href": "/1948/", "why": "The Hotel Therapia, Crikvenica"}], "t": "Istria and this coast were both Habsburg, but they were governed from different capitals: Istria from Vienna, as part of the Austrian Littoral; the Vinodol and Crikvenica from Zagreb and Budapest, in the Kingdom of Croatia-Slavonia under the Hungarian crown. A man from Gračišće who married at Klenovica had crossed a border inside the empire. In 1895 a hotel opened at Crikvenica as the Nadvojvoda Josip; renamed the Therapia a few years later and fitted with a hydropathic institute, it turned a fishing town into a resort, with baths, a season, an orchestra and guests from Vienna and Budapest."},
-        {"id": "iv-6", "reg": "A", "g": "inf", "ev": "/crikvenica-house/", "why": "The Crikvenica house: the children's entries", "t": "For a while they lived in lodgings. When their daughter Marija Stjepanka was baptised at Ledenice in December 1892, the family was at Klenovica, house 28, *na stan*, and Josip was entered as a stonecutter. By November 1894, when a son, Ivan, was born, they were down at Crikvenica. Ivan died in March 1896, aged two; the cause is one local word, *Dobrac*, that the archive cannot translate with confidence. When Zorica was born that December the priest placed the household not by a house number but by where it came from: *Iz Istrije mjesto Gračišće, sad ovdje stanujući*. From Istria, the place Gračišće, now living here. Six years on the coast, and on paper they were still incomers."},
-        {"id": "iv-7", "reg": "A", "g": "doc", "ev": "/crikvenica-house/", "why": "Crikvenica deaths, 1905 and 1906", "t": "Then came 1905. Marija Stjepanka died on 29 September, aged twelve. About three weeks later another daughter was born and given the same name. She died of pneumonia on 4 February 1906, three and a half months old, and Carl Aleksander, the priest who had buried Ivan ten years before, buried her. In the death register of 1906 the clerk gave Josip's trade in four words: *vešti klesar sada tvorničar*. A skilled stonemason, now a factory worker. No paper names the factory."},
-        {"id": "iv-8", "reg": "A", "g": "inf", "ev": "/crikvenica-house/", "why": "Zorica, aged eighteen, in a nurse's apron: «Ilustrovani list», Zagreb, 6 March 1915", "t": "In March 1915, seven months into the war, wounded soldiers were brought to Crikvenica, and a Zagreb picture weekly named the town's Red Cross committee and its two young nurses, Zora Defranceschi and Marica Car. The archive takes Zora for Zorica, then eighteen. It is the only day of her life after her baptism that any paper shows."},
-        {"id": "iv-9", "reg": "A", "g": "lore", "ev": "/crikvenica-house/", "why": "One sentence in the family's own file", "t": "The family's own file holds one sentence about Josip that is not a date or a place: «He built this house himself, for his family, but was lost due to family greed.» No document speaks of the house. A stonecutter's son building his own house is what the registers say he was equipped to do; how it was lost, the archive leaves to the family."},
-        {"id": "iv-10", "reg": "A", "g": "lore", "ev": "/crikvenica-house/", "why": "The monument, entire, and what is left of it", "t": "The family put up a monument at Crikvenica. It named ANA DE. FRANCESCHI, dead on 28 May 1936, and gave her a birth date, 19 September 1863, that is not the one the registers give for Josip's wife; the family's own file calls Josip's wife Ana Grubišić. Which Ana lies there is the oldest open question in this archive. Below her the stone cut JOSIP DE. FRANCESCHI with the year 1950. The family's tree gives 19 January 1951. The monument has since been taken down and the plot sold; the family says its dead were never moved."}
+        {
+          "id": "iv-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-gracisce-1863",
+          "why": "Liber Baptizatorum, Gračišće 1841–1899, folio 108, entry 23, certified by DAPA, 26 April 2021",
+          "t": "[Josephus](/person/josip-defranceschi-1863/) was born at Gračišće on 22 March 1863 and baptised the next day by the cooperator Matthias Zimmermann. Entry 23 of that year gives his father as [Antonius Defranceschi](/person/antonio-defranceschi-1825/), stonecutter. In April 2021 the State Archive at Pazin sent the family a certified copy of this one entry, at a cost of 117 kuna, and the rest of this archive grew out of it."
+        },
+        {
+          "id": "iv-2",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/direct-line/#treecheck",
+          "why": "«1887?» on the Gračišće page, and the tree's date",
+          "t": "Some time in his twenties he went down to the Kvarner coast, where he was Josip. Back at Gračišće the priest later wrote a marriage year against his name with a question mark, *1887?*: he was guessing at a wedding that had happened somewhere else. The family's tree puts it at Klenovica on 12 October 1889. The entry itself has not been found."
+        },
+        {
+          "id": "iv-3",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/kalanj/",
+          "why": "Ledenice baptisms, entry 2 of 1864; the Crikvenica entries",
+          "t": "The bride was [Ana Kalanj](/person/anna-kalanj-de-franceschi-1864-1936-1864/), born on 3 January 1864 at Klenovica, house 22, in the parish of Ledenice above the coast, daughter of Josephus Kalanj and Rosalia Perković. The registers name her as the mother in four of her children's entries. Once, in a death entry, the priest wrote down the name her own household would have used: Anica."
+        },
+        {
+          "id": "iv-4",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-anton-1890",
+          "why": "Klenovica baptisms 1890, entry 9",
+          "t": "Their first child was born in her parents' house. Anton Rudolf came on 20 January 1890 at Klenovica, house 22, and in the remarks column the priest explained why the birth was entered there at all: the parents were «with their own people at Klenovica, that is with the parents of the wife Ana». The godfather was Jakov Kalanj of the same house. In the column for the parents' home commune the priest wrote *Gallignana u Istriji*. Under the law of the time a family belonged to the commune of its fathers wherever it lived, and this one still belonged to Gračišće."
+        },
+        {
+          "id": "iv-5",
+          "reg": "B",
+          "src": [
+            {
+              "k": "history",
+              "href": "#world-notes",
+              "why": "Two halves of one empire (H4)"
+            },
+            {
+              "k": "archive",
+              "href": "/1948/",
+              "why": "The Hotel Therapia, Crikvenica"
+            }
+          ],
+          "t": "Istria and this coast were both Habsburg, but they were governed from different capitals: Istria from Vienna, as part of the Austrian Littoral; the Vinodol and Crikvenica from Zagreb and Budapest, in the Kingdom of Croatia-Slavonia under the Hungarian crown. A man from Gračišće who married at Klenovica had crossed a border inside the empire. In 1895 a hotel opened at Crikvenica as the Nadvojvoda Josip; renamed the Therapia a few years later and fitted with a hydropathic institute, it turned a fishing town into a resort, with baths, a season, an orchestra and guests from Vienna and Budapest.",
+          "tbc": "General history (H4), awaiting confirmation."
+        },
+        {
+          "id": "iv-6",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/crikvenica-house/",
+          "why": "The Crikvenica house: the children's entries",
+          "t": "For a while they lived in lodgings. When their daughter Marija Stjepanka was baptised at Ledenice in December 1892, the family was at Klenovica, house 28, *na stan*, and Josip was entered as a stonecutter. By November 1894, when a son, Ivan, was born, they were down at Crikvenica. Ivan died in March 1896, aged two; the cause is one local word, *Dobrac*, that the archive cannot translate with confidence. When Zorica was born that December the priest placed the household not by a house number but by where it came from: *Iz Istrije mjesto Gračišće, sad ovdje stanujući*. From Istria, the place Gračišće, now living here. Six years on the coast, and on paper they were still incomers."
+        },
+        {
+          "id": "iv-7",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/crikvenica-house/",
+          "why": "Crikvenica deaths, 1905 and 1906",
+          "t": "Then came 1905. Marija Stjepanka died on 29 September, aged twelve. About three weeks later another daughter was born and given the same name. She died of pneumonia on 4 February 1906, three and a half months old, and Carl Aleksander, the priest who had buried Ivan ten years before, buried her. In the death register of 1906 the clerk gave Josip's trade in four words: *vešti klesar sada tvorničar*. A skilled stonemason, now a factory worker. No paper names the factory."
+        },
+        {
+          "id": "iv-8",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/crikvenica-house/",
+          "why": "Zorica, aged eighteen, in a nurse's apron: «Ilustrovani list», Zagreb, 6 March 1915",
+          "t": "In March 1915, seven months into the war, wounded soldiers were brought to Crikvenica, and a Zagreb picture weekly named the town's Red Cross committee and its two young nurses, Zora Defranceschi and Marica Car. The archive takes Zora for Zorica, then eighteen. It is the only day of her life after her baptism that any paper shows."
+        },
+        {
+          "id": "iv-9",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/crikvenica-house/",
+          "why": "One sentence in the family's own file",
+          "t": "The family's own file holds one sentence about Josip that is not a date or a place: «He built this house himself, for his family, but was lost due to family greed.» No document speaks of the house. A stonecutter's son building his own house is what the registers say he was equipped to do; how it was lost, the archive leaves to the family."
+        },
+        {
+          "id": "iv-10",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/crikvenica-house/",
+          "why": "The monument, entire, and what is left of it",
+          "t": "The family put up a monument at Crikvenica. It named ANA DE. FRANCESCHI, dead on 28 May 1936, and gave her a birth date, 19 September 1863, that is not the one the registers give for Josip's wife; the family's own file calls Josip's wife Ana Grubišić. Which Ana lies there is the oldest open question in this archive. Below her the stone cut JOSIP DE. FRANCESCHI with the year 1950. The family's tree gives 19 January 1951. The monument has since been taken down and the plot sold; the family says its dead were never moved."
+        }
       ],
       "papers": [
-        ["The Crikvenica house", "/crikvenica-house/"],
-        ["Josip", "/person/josip-defranceschi-1863/"],
-        ["Anna Kalanj and the parish nobody has opened", "/kalanj/"],
-        ["The certificate that began it", "/direct-line/"],
-        ["Nineteen forty-eight, and the Therapia", "/1948/"],
-        ["Burials", "/burials/"]
+        [
+          "The Crikvenica house",
+          "/crikvenica-house/"
+        ],
+        [
+          "Josip",
+          "/person/josip-defranceschi-1863/"
+        ],
+        [
+          "Anna Kalanj and the parish nobody has opened",
+          "/kalanj/"
+        ],
+        [
+          "The certificate that began it",
+          "/direct-line/"
+        ],
+        [
+          "Nineteen forty-eight, and the Therapia",
+          "/1948/"
+        ],
+        [
+          "Burials",
+          "/burials/"
+        ]
       ]
     },
     {
@@ -137,24 +633,115 @@
       "n": "V",
       "title": "Three months in Württemberg",
       "when": "Crikvenica · Pfullingen, 1890–1943",
-      "plates": ["cert-anton-1890", "ursula-kovacina"],
+      "plates": [
+        "cert-anton-1890",
+        "ursula-kovacina"
+      ],
       "paras": [
-        {"id": "v-1", "reg": "A", "g": "doc", "ev": "#plate-cert-anton-1890", "why": "Municipal certificate, Pfullingen, 28 February 1950 (Arolsen Archives)", "t": "In February 1950 the mayor of Pfullingen, a small town in Württemberg, signed a certificate for a man who was no longer there. [Anton Defranceski](/person/anton-rudolf-defranceski-1890/), born on 20 January 1890, had lodged at Pfullingen, and his place of work had been Hermann Sauer, Reutlingen-Süd. The certificate gives his birthplace as Crikvenica, the market town, where the register had said the village of Klenovica. It is the same man. It is also the last paper that names him, and it is dated seven years after the year the family gives for his death."},
-        {"id": "v-2", "reg": "A", "g": "inf", "ev": "/maternal/kovacina/", "why": "Ursula's people: the Kovačina of house 119", "t": "He grew up on the coast his father had come down to, and married Ursula Kovačina. The entry has not been found. The archive thinks she was of the Kovačina household at Crikvenica, house 119, where a retired Imperial-Royal customs guard had lived, but that is inference. One photograph of her survives in the family: seated, in the loose, drop-waisted dress of the early 1920s, with something folded in her lap. Their children were Josip, called Pepe, the eldest; Petar, born in 1913; a daughter, Anka; Zdravko, born in 1921; and Ivan, born in 1925."},
-        {"id": "v-3", "reg": "B", "src": [{"k": "history", "href": "#world-notes", "why": "1918 and after (H6)"}, {"k": "archive", "href": "/pfullingen/", "why": "Six Names at Pfullingen: the words that matter; the two employers"}], "t": "In 1918 the empire ended, and the coast passed into the new Kingdom of Serbs, Croats and Slovenes, called Yugoslavia from 1929. In April 1941 Germany and Italy invaded and partitioned the country. Croatian men went north to work in the Reich under a labour agreement that was voluntary on paper and pressed, in practice, by quota and by hunger; by 1942 the freedom to go home had all but gone. Pfullingen was a textile town below the Swabian Alb, joined to Reutlingen by a tramway, and Reutlingen held some 3,950 foreign people in its labour camps during the war, about a tenth of its population."},
-        {"id": "v-4", "reg": "A", "g": "inf", "ev": "/pfullingen/", "why": "How long each of them was actually there: the Pfullingen list of 1947", "t": "Anton went in the spring of 1942. The town's list of foreigners, drawn up in 1947, has him there from 1 March to 13 June 1942: three and a half months. His youngest son had arrived the October before. He worked at Hermann Sauer's, which the archive identifies, on good but not final evidence, as a garage and motor-vehicle business by the Südbahnhof at Reutlingen. Then he went home."},
-        {"id": "v-5", "reg": "A", "g": "lore", "ev": "/crikvenica-house/", "why": "Which of them the Partisans took, and what the papers actually say", "t": "He died in 1943. The year is the family's, and it is the only fact about him that no paper supports. Nobody knows the day, or the place, or how. The family has long remembered that Anton was taken by the Partisans. The papers put that on his son: after the war Zdravko told the refugee organisation that he had been taken by the Partisans in 1943, held three or four months, and then sent to Germany. In one house, in one year, a father died and a son was carried off, and it is easy to see how the two became one memory."},
-        {"id": "v-6", "reg": "B", "src": [{"k": "archive", "href": "/crikvenica-house/", "why": "The Crikvenica death register for 1943, and why it is not simply readable"}], "t": "In September 1943 Italy surrendered, German forces occupied the coast, and there were Partisan units in the hills behind Crikvenica. The Crikvenica death register for that year still exists, but a Croatian state register passes to the archives only when its last entry is a hundred years old, so it is closed until the 2040s. A descendant may ask the registry office for an extract."},
-        {"id": "v-7", "reg": "A", "g": "lore", "ev": "/pfullingen/", "why": "The French zone files, the ship, and the graves", "t": "His sons went four ways. Petar, a ship's engineer, had gone to Germany in 1939 and stayed, and by 1949 he had a house and two cars. Zdravko, his wife Ruža and their small son sailed from Naples on 17 March 1949 in the USAT General Stewart and landed at Melbourne on 13 April; Zdravko is buried at Horsham, in the Victorian Wimmera. Pepe, the family says, never left Crikvenica. Ivan went home."},
-        {"id": "v-8", "reg": "A", "g": "lore", "ev": "/pfullingen/#australia", "why": "The three siblings Zdravko left behind", "t": "Of Anka the family's tree records only that she died at Belgrade in 1944, at twenty-nine. The archive knows nothing else about her."}
+        {
+          "id": "v-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-cert-anton-1890",
+          "why": "Municipal certificate, Pfullingen, 28 February 1950 (Arolsen Archives)",
+          "t": "In February 1950 the mayor of Pfullingen, a small town in Württemberg, signed a certificate for a man who was no longer there. [Anton Defranceski](/person/anton-rudolf-defranceski-1890/), born on 20 January 1890, had lodged at Pfullingen, and his place of work had been Hermann Sauer, Reutlingen-Süd. The certificate gives his birthplace as Crikvenica, the market town, where the register had said the village of Klenovica. It is the same man. It is also the last paper that names him, and it is dated seven years after the year the family gives for his death."
+        },
+        {
+          "id": "v-2",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/maternal/kovacina/",
+          "why": "Ursula's people: the Kovačina of house 119",
+          "t": "He grew up on the coast his father had come down to, and married Ursula Kovačina. The entry has not been found. The archive thinks she was of the Kovačina household at Crikvenica, house 119, where a retired Imperial-Royal customs guard had lived, but that is inference. One photograph of her survives in the family: seated, in the loose, drop-waisted dress of the early 1920s, with something folded in her lap. Their children were Josip, called Pepe, the eldest; Petar, born in 1913; a daughter, Anka; Zdravko, born in 1921; and Ivan, born in 1925."
+        },
+        {
+          "id": "v-3",
+          "reg": "B",
+          "src": [
+            {
+              "k": "history",
+              "href": "#world-notes",
+              "why": "1918 and after (H6)"
+            },
+            {
+              "k": "archive",
+              "href": "/pfullingen/",
+              "why": "Six Names at Pfullingen: the words that matter; the two employers"
+            }
+          ],
+          "t": "In 1918 the empire ended, and the coast passed into the new Kingdom of Serbs, Croats and Slovenes, called Yugoslavia from 1929. In April 1941 Germany and Italy invaded and partitioned the country. Croatian men went north to work in the Reich under a labour agreement that was voluntary on paper and pressed, in practice, by quota and by hunger; by 1942 the freedom to go home had all but gone. Pfullingen was a textile town below the Swabian Alb, joined to Reutlingen by a tramway, and Reutlingen held some 3,950 foreign people in its labour camps during the war, about a tenth of its population.",
+          "tbc": "General history (H6), awaiting confirmation."
+        },
+        {
+          "id": "v-4",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/pfullingen/",
+          "why": "How long each of them was actually there: the Pfullingen list of 1947",
+          "t": "Anton went in the spring of 1942. The town's list of foreigners, drawn up in 1947, has him there from 1 March to 13 June 1942: three and a half months. His youngest son had arrived the October before. He worked at Hermann Sauer's, which the archive identifies, on good but not final evidence, as a garage and motor-vehicle business by the Südbahnhof at Reutlingen. Then he went home."
+        },
+        {
+          "id": "v-5",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/crikvenica-house/",
+          "why": "Which of them the Partisans took, and what the papers actually say",
+          "t": "He died in 1943. The year is the family's, and it is the only fact about him that no paper supports. Nobody knows the day, or the place, or how. The family has long remembered that Anton was taken by the Partisans. The papers put that on his son: after the war Zdravko told the refugee organisation that he had been taken by the Partisans in 1943, held three or four months, and then sent to Germany. In one house, in one year, a father died and a son was carried off, and it is easy to see how the two became one memory."
+        },
+        {
+          "id": "v-6",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/crikvenica-house/",
+              "why": "The Crikvenica death register for 1943, and why it is not simply readable"
+            }
+          ],
+          "t": "In September 1943 Italy surrendered, German forces occupied the coast, and there were Partisan units in the hills behind Crikvenica. The Crikvenica death register for that year still exists, but a Croatian state register passes to the archives only when its last entry is a hundred years old, so it is closed until the 2040s. A descendant may ask the registry office for an extract."
+        },
+        {
+          "id": "v-7",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/pfullingen/",
+          "why": "The French zone files, the ship, and the graves",
+          "t": "His sons went four ways. Petar, a ship's engineer, had gone to Germany in 1939 and stayed, and by 1949 he had a house and two cars. Zdravko, his wife Ruža and their small son sailed from Naples on 17 March 1949 in the USAT General Stewart and landed at Melbourne on 13 April; Zdravko is buried at Horsham, in the Victorian Wimmera. Pepe, the family says, never left Crikvenica. Ivan went home."
+        },
+        {
+          "id": "v-8",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/pfullingen/#australia",
+          "why": "The three siblings Zdravko left behind",
+          "t": "Of Anka the family's tree records only that she died at Belgrade in 1944, at twenty-nine. The archive knows nothing else about her."
+        }
       ],
       "papers": [
-        ["Six names at Pfullingen", "/pfullingen/"],
-        ["Anton Rudolf", "/person/anton-rudolf-defranceski-1890/"],
-        ["Which of them the Partisans took", "/crikvenica-house/"],
-        ["Ursula's people, the Kovačina", "/maternal/kovacina/"],
-        ["What became of them in Australia", "/pfullingen/#australia"],
-        ["Graves", "/graves/"]
+        [
+          "Six names at Pfullingen",
+          "/pfullingen/"
+        ],
+        [
+          "Anton Rudolf",
+          "/person/anton-rudolf-defranceski-1890/"
+        ],
+        [
+          "Which of them the Partisans took",
+          "/crikvenica-house/"
+        ],
+        [
+          "Ursula's people, the Kovačina",
+          "/maternal/kovacina/"
+        ],
+        [
+          "What became of them in Australia",
+          "/pfullingen/#australia"
+        ],
+        [
+          "Graves",
+          "/graves/"
+        ]
       ]
     },
     {
@@ -162,26 +749,127 @@
       "n": "VI",
       "title": "The boy who went home",
       "when": "Crikvenica · Pfullingen · Senj, 1925–1995",
-      "plates": ["kk-ivan", "ivan-grave"],
+      "plates": [
+        "kk-ivan",
+        "ivan-grave"
+      ],
       "paras": [
-        {"id": "vi-1", "reg": "A", "g": "doc", "ev": "#plate-kk-ivan", "why": "Allgemeine Ortskrankenkasse membership card (Arolsen Archives)", "t": "The card is a printed form, filled in by hand. [Ivan Defranceski](/person/ivan-defranceski-1925/), born June 1925 at Crikvenica, single, Brunnenstraße 7, Pfullingen. He entered work on 21 October 1941 as a *Hilfsarbeiter*, an unskilled hand. He was sixteen."},
-        {"id": "vi-2", "reg": "A", "g": "doc", "ev": "/pfullingen/", "why": "The Pfullingen list, the card, and the town certificates of 1950", "t": "The German papers cannot agree on his birthday. The town's list gives 24 June, his own card 25 June, and the archive follows the card. A town certificate of 1950 puts him with Licht und Kraft at Reutlingen. He was registered at Pfullingen until 5 September 1942, and then, at seventeen, he went back to the coast."},
-        {"id": "vi-3", "reg": "B", "src": [{"k": "archive", "href": "/pfullingen/", "why": "Six Names at Pfullingen"}], "t": "Pfullingen is a small Swabian town below the Alb. Its foreign workers were billeted in the town and walked to their shifts. In April 1945 the French army reached Reutlingen and the district became part of the French zone of occupation, which is why the papers that follow this family after the war are written in French."},
-        {"id": "vi-4", "reg": "A", "g": "lore", "ev": "/senj-line/", "why": "The Senj line; and Nineteen forty-eight, claim four", "t": "At home he married Hedviga Blažević of Senj, born there on 3 August 1926, daughter of Ljubomir Blažević and of Milka Papić, a worker in the Senj tobacco factory. How a Crikvenica man met a Senj woman twenty-five miles down the coast, no paper says. The family remembers that Hedviga sang at the Therapia in Crikvenica, and that may be the answer."},
-        {"id": "vi-5", "reg": "B", "src": [{"k": "archive", "href": "/senj-line/", "why": "Trhonoša: the Senj carriers, and the tobacco factory"}, {"k": "archive", "href": "/1948/", "why": "Nineteen forty-eight: the year, and the island"}], "t": "Senj is an old port where the road over the Velebit comes down to the sea. For centuries its carriers took goods up the Vratnik pass on packhorses into the Lika, and in the twentieth century its tobacco factory was the town's industrial employer. Crikvenica and Senj had never been Italian; they had been in Croatia since 1918. In June 1948 Tito broke with Stalin, and the next year a camp for those suspected of siding with Moscow opened on Goli otok, a bare island in the water between Senj and Rab, within sight of that coast. Leaving the country needed a permission that was rarely given."},
-        {"id": "vi-6", "reg": "A", "g": "lore", "ev": "/1948/", "why": "Nineteen forty-eight: four things the family remembers", "t": "The family says that in 1948 they tried to leave, and did not get out. No paper of the attempt has been found, and why they came back is not known."},
-        {"id": "vi-7", "reg": "A", "g": "doc", "ev": "/crikvenica-house/", "why": "Stateless: one sheet of paper", "t": "In 1951 a Senj birth-register entry for their son, later sworn into English for a South African court, gave Ivan's trade as electro-mechanic. In the column for citizenship the clerk wrote, against the mother, FNRJ and Croatian. Against Ivan, in the same hand on the same sheet, he wrote STATELESS, and for his nationality, Italian. No paper the archive holds explains how a man born at Crikvenica came to be written down as stateless on his own coast."},
-        {"id": "vi-8", "reg": "A", "g": "lore", "ev": "/1948/", "why": "Nineteen forty-eight: and then, six years later, they went", "t": "The family's memory, set down in a memoir, is that they got out of Yugoslavia at last in about 1954, and that the marriage ended in about 1969. Whatever the road between, Ivan ended his life at Senj, and Hedviga hers at Johannesburg."},
-        {"id": "vi-9", "reg": "A", "g": "doc", "ev": "#plate-ivan-grave", "why": "The grave at Senj; the dates of both deaths", "t": "He died at Senj on 30 October 1995 and is buried there, under a slab of polished dark granite with a gilt cross and his name in Croatian letters: IVAN DEFRANČESKI, and beneath it 1925 and 1995. Hedviga died at Johannesburg on 30 October 2001, six years to the day after him. Neither date was copied from the other. It is a coincidence, and both are right."}
+        {
+          "id": "vi-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-kk-ivan",
+          "why": "Allgemeine Ortskrankenkasse membership card (Arolsen Archives)",
+          "t": "The card is a printed form, filled in by hand. [Ivan Defranceski](/person/ivan-defranceski-1925/), born June 1925 at Crikvenica, single, Brunnenstraße 7, Pfullingen. He entered work on 21 October 1941 as a *Hilfsarbeiter*, an unskilled hand. He was sixteen."
+        },
+        {
+          "id": "vi-2",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/pfullingen/",
+          "why": "The Pfullingen list, the card, and the town certificates of 1950",
+          "t": "The German papers cannot agree on his birthday. The town's list gives 24 June, his own card 25 June, and the archive follows the card. A town certificate of 1950 puts him with Licht und Kraft at Reutlingen. He was registered at Pfullingen until 5 September 1942, and then, at seventeen, he went back to the coast."
+        },
+        {
+          "id": "vi-3",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/pfullingen/",
+              "why": "Six Names at Pfullingen"
+            }
+          ],
+          "t": "Pfullingen is a small Swabian town below the Alb. Its foreign workers were billeted in the town and walked to their shifts. In April 1945 the French army reached Reutlingen and the district became part of the French zone of occupation, which is why the papers that follow this family after the war are written in French."
+        },
+        {
+          "id": "vi-4",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/senj-line/",
+          "why": "The Senj line; and Nineteen forty-eight, claim four",
+          "t": "At home he married Hedviga Blažević of Senj, born there on 3 August 1926, daughter of Ljubomir Blažević and of Milka Papić, a worker in the Senj tobacco factory. How a Crikvenica man met a Senj woman twenty-five miles down the coast, no paper says. The family remembers that Hedviga sang at the Therapia in Crikvenica, and that may be the answer."
+        },
+        {
+          "id": "vi-5",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/senj-line/",
+              "why": "Trhonoša: the Senj carriers, and the tobacco factory"
+            },
+            {
+              "k": "archive",
+              "href": "/1948/",
+              "why": "Nineteen forty-eight: the year, and the island"
+            }
+          ],
+          "t": "Senj is an old port where the road over the Velebit comes down to the sea. For centuries its carriers took goods up the Vratnik pass on packhorses into the Lika, and in the twentieth century its tobacco factory was the town's industrial employer. Crikvenica and Senj had never been Italian; they had been in Croatia since 1918. In June 1948 Tito broke with Stalin, and the next year a camp for those suspected of siding with Moscow opened on Goli otok, a bare island in the water between Senj and Rab, within sight of that coast. Leaving the country needed a permission that was rarely given."
+        },
+        {
+          "id": "vi-6",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/1948/",
+          "why": "Nineteen forty-eight: four things the family remembers",
+          "t": "The family says that in 1948 they tried to leave, and did not get out. No paper of the attempt has been found, and why they came back is not known."
+        },
+        {
+          "id": "vi-7",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/crikvenica-house/",
+          "why": "Stateless: one sheet of paper",
+          "t": "In 1951 a Senj birth-register entry for their son, later sworn into English for a South African court, gave Ivan's trade as electro-mechanic. In the column for citizenship the clerk wrote, against the mother, FNRJ and Croatian. Against Ivan, in the same hand on the same sheet, he wrote STATELESS, and for his nationality, Italian. No paper the archive holds explains how a man born at Crikvenica came to be written down as stateless on his own coast.",
+          "tbc": "Why the clerk wrote stateless is not yet explained by any paper."
+        },
+        {
+          "id": "vi-8",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/1948/",
+          "why": "Nineteen forty-eight: and then, six years later, they went",
+          "t": "The family's memory, set down in a memoir, is that they got out of Yugoslavia at last in about 1954, and that the marriage ended in about 1969. Whatever the road between, Ivan ended his life at Senj, and Hedviga hers at Johannesburg."
+        },
+        {
+          "id": "vi-9",
+          "reg": "A",
+          "g": "doc",
+          "ev": "#plate-ivan-grave",
+          "why": "The grave at Senj; the dates of both deaths",
+          "t": "He died at Senj on 30 October 1995 and is buried there, under a slab of polished dark granite with a gilt cross and his name in Croatian letters: IVAN DEFRANČESKI, and beneath it 1925 and 1995. Hedviga died at Johannesburg on 30 October 2001, six years to the day after him. Neither date was copied from the other. It is a coincidence, and both are right."
+        }
       ],
       "papers": [
-        ["Six names at Pfullingen", "/pfullingen/"],
-        ["Ivan", "/person/ivan-defranceski-1925/"],
-        ["Stateless: the 1951 extract", "/crikvenica-house/"],
-        ["Nineteen forty-eight", "/1948/"],
-        ["The Senj line", "/senj-line/"],
-        ["Hedviga", "/person/hedviga-blazevic-defranceski-1926/"],
-        ["Graves", "/graves/"]
+        [
+          "Six names at Pfullingen",
+          "/pfullingen/"
+        ],
+        [
+          "Ivan",
+          "/person/ivan-defranceski-1925/"
+        ],
+        [
+          "Stateless: the 1951 extract",
+          "/crikvenica-house/"
+        ],
+        [
+          "Nineteen forty-eight",
+          "/1948/"
+        ],
+        [
+          "The Senj line",
+          "/senj-line/"
+        ],
+        [
+          "Hedviga",
+          "/person/hedviga-blazevic-defranceski-1926/"
+        ],
+        [
+          "Graves",
+          "/graves/"
+        ]
       ]
     }
   ],
@@ -191,48 +879,147 @@
     "title": "And then it is us",
     "when": "Senj · Johannesburg · Brisbane",
     "paras": [
-      {"id": "vii-1", "reg": "A", "g": "lore", "ev": "/direct-line/", "why": "The Spine, generation seven; Nineteen forty-eight", "t": "Their son was Ivan too: Ivan in Croatian, Giovanni in Italian, John in English, one man written down three ways. He was born at Senj. The family remembers a boyhood in Rhodesia; then came Johannesburg, and then Brisbane. He has died since this archive began, and this book says no more of his life than that."},
-      {"id": "vii-2", "reg": "A", "g": "doc", "ev": "/direct-line/", "why": "The Spine: the last two generations, as the archive publishes them", "t": "His wife is Cheryl Lerena. Their son is David Defranceski, who keeps this archive, in Brisbane, Australia. They are living, and by this archive's rule the living are named with their relationships and their towns, and nothing more."},
-      {"id": "vii-3", "reg": "A", "g": "doc", "ev": "/direct-line/", "why": "The Spine", "t": "So the line runs from an old weaver laid in another man's tomb inside a church on an Istrian hill to a city on the far side of the world: Gologorica, Gračišće, Klenovica, Crikvenica, Pfullingen, Senj, Johannesburg, Brisbane. Papers in Latin, Croatian, German, French and English. A name spelled four ways. And then it is us."}
+      {
+        "id": "vii-1",
+        "reg": "A",
+        "g": "lore",
+        "ev": "/direct-line/",
+        "why": "The Spine, generation seven; Nineteen forty-eight",
+        "t": "Their son was Ivan too: Ivan in Croatian, Giovanni in Italian, John in English, one man written down three ways. He was born at Senj. The family remembers a boyhood in Rhodesia; then came Johannesburg, and then Brisbane. He has died since this archive began, and this book says no more of his life than that."
+      },
+      {
+        "id": "vii-2",
+        "reg": "A",
+        "g": "doc",
+        "ev": "/direct-line/",
+        "why": "The Spine: the last two generations, as the archive publishes them",
+        "t": "His wife is Cheryl Lerena. Their son is David Defranceski, who keeps this archive, in Brisbane, Australia. They are living, and by this archive's rule the living are named with their relationships and their towns, and nothing more."
+      },
+      {
+        "id": "vii-3",
+        "reg": "A",
+        "g": "doc",
+        "ev": "/direct-line/",
+        "why": "The Spine",
+        "t": "So the line runs from an old weaver laid in another man's tomb inside a church on an Istrian hill to a city on the far side of the world: Gologorica, Gračišće, Klenovica, Crikvenica, Pfullingen, Senj, Johannesburg, Brisbane. Papers in Latin, Croatian, German, French and English. A name spelled four ways. And then it is us."
+      }
     ]
   },
   "unknown": {
     "title": "What we do not know",
     "lead": "Every chapter has its silences. These are the ones a single letter, an afternoon in a reading room or a request by name could break. Each is an invitation.",
     "items": [
-      {"t": "**Whether the weaver's son of 1774 is the chart's Giovanni.** A Gračišće entry naming the farmer's father would settle it: his marriage of 1819, or his death in 1846. The Gračišće books for 1800–1820 are on the family's own second reel and have barely been opened.", "href": "/gologorica-line/#casa31"},
-      {"t": "**Where houses 5 and 19 stood.** The Franciscan cadastre of about 1820, at the Archivio di Stato di Trieste, would show both houses and who held them. It is a letter, not a download.", "href": "/direct-line/#gracisce_town"},
-      {"t": "**What became of Raymundus.** The Gračišće death and marriage registers for 1848–1880, and the Austrian conscription records for the county of Pazin.", "href": "/direct-line/#raymundus"},
-      {"t": "**When Josip married, and whose name was on the Crikvenica stone.** The Crikvenica marriage register, and the death register for 28 May 1936.", "href": "/senj-line/"},
-      {"t": "**How and when Anton Rudolf died.** An extract of the Crikvenica death register for 1943, the parish's own book for that year, and the 1964 census of war victims.", "href": "/crikvenica-house/"},
-      {"t": "**What happened in 1948, and why Ivan was stateless.** The Arolsen Archives, and the refugee files of the years after the war.", "href": "/1948/"}
+      {
+        "t": "**Whether the weaver's son of 1774 is the chart's Giovanni.** A Gračišće entry naming the farmer's father would settle it: his marriage of 1819, or his death in 1846. The Gračišće books for 1800–1820 are on the family's own second reel and have barely been opened.",
+        "href": "/gologorica-line/#casa31"
+      },
+      {
+        "t": "**Where houses 5 and 19 stood.** The Franciscan cadastre of about 1820, at the Archivio di Stato di Trieste, would show both houses and who held them. It is a letter, not a download.",
+        "href": "/direct-line/#gracisce_town"
+      },
+      {
+        "t": "**What became of Raymundus.** The Gračišće death and marriage registers for 1848–1880, and the Austrian conscription records for the county of Pazin.",
+        "href": "/direct-line/#raymundus"
+      },
+      {
+        "t": "**When Josip married, and whose name was on the Crikvenica stone.** The Crikvenica marriage register, and the death register for 28 May 1936.",
+        "href": "/senj-line/"
+      },
+      {
+        "t": "**How and when Anton Rudolf died.** An extract of the Crikvenica death register for 1943, the parish's own book for that year, and the 1964 census of war victims.",
+        "href": "/crikvenica-house/"
+      },
+      {
+        "t": "**What happened in 1948, and why Ivan was stateless.** The Arolsen Archives, and the refugee files of the years after the war.",
+        "href": "/1948/"
+      }
     ]
   },
   "readPapers": {
     "title": "Read the papers",
     "lead": "This book is the front door. The evidence is behind it.",
     "links": [
-      ["The Spine", "/direct-line/", "the eight generations, a table and the document under each"],
-      ["The Story", "/story/", "the same descent in nine chapters, from 1679, each with its key quotation"],
-      ["The Gologorica line", "/gologorica-line/", "the two Pazin reels, read page by page"],
-      ["The Crikvenica house", "/crikvenica-house/", "Josip's household on the coast, and the graves"],
-      ["Six Names at Pfullingen", "/pfullingen/", "the wartime and refugee papers"],
-      ["The Senj line", "/senj-line/", "Hedviga's people"],
-      ["Nineteen forty-eight", "/1948/", "what the family remembers, held against the paper"],
-      ["Back to Carnia", "/carnia/", "where every account of the family begins"],
-      ["Corrections", "/corrections/", "what this archive has had to take back"]
+      [
+        "The Spine",
+        "/direct-line/",
+        "the eight generations, a table and the document under each"
+      ],
+      [
+        "The Story",
+        "/story/",
+        "the same descent in nine chapters, from 1679, each with its key quotation"
+      ],
+      [
+        "The Gologorica line",
+        "/gologorica-line/",
+        "the two Pazin reels, read page by page"
+      ],
+      [
+        "The Crikvenica house",
+        "/crikvenica-house/",
+        "Josip's household on the coast, and the graves"
+      ],
+      [
+        "Six Names at Pfullingen",
+        "/pfullingen/",
+        "the wartime and refugee papers"
+      ],
+      [
+        "The Senj line",
+        "/senj-line/",
+        "Hedviga's people"
+      ],
+      [
+        "Nineteen forty-eight",
+        "/1948/",
+        "what the family remembers, held against the paper"
+      ],
+      [
+        "Back to Carnia",
+        "/carnia/",
+        "where every account of the family begins"
+      ],
+      [
+        "Corrections",
+        "/corrections/",
+        "what this archive has had to take back"
+      ]
     ]
   },
   "worldNotes": {
     "title": "Where the world comes from",
-    "lead": "Passages marked archive draw on this archive's own pages, and their marks link there. Passages marked history draw on general history of Istria and its neighbours; these are the claims, and where they can be checked.",
+    "lead": "Passages marked archive draw on this archive's own pages, and their marks link there. Passages marked history draw on general history of Istria and its neighbours; these are the claims, and where they can be checked. All six are to be confirmed.",
     "items": [
-      ["H1", "The food of an Istrian farm household: maize polenta, the bean and sauerkraut soups jota and maneštra, the household's own young wine, pršut on feast days.", "Standard Istrian ethnography; e.g. Istrapedia, «Istarska kuhinja», and the Croatian register of intangible heritage."],
-      ["H2", "Village houses of central Istria built of local stone, a konoba below and the kitchen and hearth above; water from cisterns and village ponds.", "Standard accounts of Istrian vernacular building; e.g. Istrapedia, «kuća»."],
-      ["H3", "The parish church of Gračišće: St Vitus, Modestus and Crescentia, Baroque, 1769, on the site of a medieval church.", "Croatian heritage listing for the Općina Gračišće; Central Istria tourist board, «St. Vitus church»."],
-      ["H4", "After 1867 Istria was governed from Vienna as part of the Austrian Littoral, and the Vinodol coast from Zagreb within the Kingdom of Croatia-Slavonia under the Hungarian crown.", "Standard Austro-Hungarian administrative history."],
-      ["H5", "The Istrian railway from Divača to Pola opened in 1876, through Pazin.", "Standard railway history of the Istrian State Railway."],
-      ["H6", "In 1918 the Kvarner coast passed into the Kingdom of Serbs, Croats and Slovenes, renamed Yugoslavia in 1929; in April 1941 the country was invaded and partitioned.", "Standard history of Yugoslavia."]
+      [
+        "H1",
+        "The food of an Istrian farm household: maize polenta, the bean and sauerkraut soups jota and maneštra, the household's own young wine, pršut on feast days.",
+        "Standard Istrian ethnography; e.g. Istrapedia, «Istarska kuhinja», and the Croatian register of intangible heritage."
+      ],
+      [
+        "H2",
+        "Village houses of central Istria built of local stone, a konoba below and the kitchen and hearth above; water from cisterns and village ponds.",
+        "Standard accounts of Istrian vernacular building; e.g. Istrapedia, «kuća»."
+      ],
+      [
+        "H3",
+        "The parish church of Gračišće: St Vitus, Modestus and Crescentia, Baroque, 1769, on the site of a medieval church.",
+        "Croatian heritage listing for the Općina Gračišće; Central Istria tourist board, «St. Vitus church»."
+      ],
+      [
+        "H4",
+        "After 1867 Istria was governed from Vienna as part of the Austrian Littoral, and the Vinodol coast from Zagreb within the Kingdom of Croatia-Slavonia under the Hungarian crown.",
+        "Standard Austro-Hungarian administrative history."
+      ],
+      [
+        "H5",
+        "The Istrian railway from Divača to Pola opened in 1876, through Pazin.",
+        "Standard railway history of the Istrian State Railway."
+      ],
+      [
+        "H6",
+        "In 1918 the Kvarner coast passed into the Kingdom of Serbs, Croats and Slovenes, renamed Yugoslavia in 1929; in April 1941 the country was invaded and partitioned.",
+        "Standard history of Yugoslavia."
+      ]
     ]
   }
 }

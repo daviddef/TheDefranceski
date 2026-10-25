@@ -60,9 +60,9 @@ const leads = (paras) => paras.map((p, i) => p.reg === "B" && (i === 0 || paras[
               ? <div class="ol-world" id={p.id}>
                   <p class="ol-p">{lead[i] && <span class="ol-wl">In the world around them. </span>}<span set:html={md(p.t)} />{p.src.map((s) => (
                     <sup class={`mk mk-${s.k}`}><a href={href(s.href)} title={`${markTitle[s.k]}: ${s.why}`}>{markWord[s.k]}</a></sup>
-                  ))}</p>
+                  ))}{p.tbc && <span class="tbc" title={p.tbc}> to be confirmed</span>}</p>
                 </div>
-              : <p class={`ol-p${i === 0 ? " ol-first" : ""}`} id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{markWord[p.g]}</a></sup></p>
+              : <p class={`ol-p${i === 0 ? " ol-first" : ""}`} id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{markWord[p.g]}</a></sup>{p.tbc && <span class="tbc" title={p.tbc}> to be confirmed</span>}</p>
           ))}
           {c.plates && c.plates.length > 0 && (
             <div class="ol-plates"><Plates ids={c.plates} /></div>
@@ -103,7 +103,7 @@ const leads = (paras) => paras.map((p, i) => p.reg === "B" && (i === 0 || paras[
     <p class="ol-p">{book.worldNotes.lead}</p>
     <ol class="ol-list ol-wn">
       {book.worldNotes.items.map(([k, claim, src]) => (
-        <li id={`world-${k}`}><span class="ol-wk">{k}</span> {claim} <span class="ol-rw">{src}</span></li>
+        <li id={`world-${k}`}><span class="ol-wk">{k}</span> {claim} <span class="ol-rw">{src}</span> <span class="tbc">to be confirmed</span></li>
       ))}
     </ol>
   </section>
@@ -159,6 +159,7 @@ const leads = (paras) => paras.map((p, i) => p.reg === "B" && (i === 0 || paras[
   .ol-read a { color: var(--accent); }
   .ol-rw { color: var(--ink-2); font-size: .9em; }
   .ol-notes .ol-p, .ol-wn { font-size: 15.5px; }
+  .tbc { font-family: var(--serif); font-variant: small-caps; letter-spacing: .06em; font-size: .82em; color: var(--ev-inferred); white-space: nowrap; }
   .ol-wk { font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--ink-3); margin-right: 4px; }
   .ol a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 
