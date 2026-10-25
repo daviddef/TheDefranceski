@@ -3,11 +3,12 @@
 ---
 <dialog class="lb" id="lb" aria-label="Document plate">
   <div class="lb-in" style="position:relative">
-    <div class="lb-img"><img id="lb-img" src="" alt="" /></div>
+    <div class="lb-img"><img id="lb-img" alt="" decoding="async" /><span class="lb-wait" id="lb-wait" role="status" hidden>Loading the full-size image…</span></div>
     <div class="lb-txt">
       <div class="lab" id="lb-holder"></div>
       <h3 id="lb-title"></h3>
       <p id="lb-cap"></p>
+      <a class="lb-full" id="lb-full" href="#" target="_blank" rel="noopener">Open the image full size ↗</a>
       <div class="lb-nav">
         <button type="button" id="lb-prev">← Previous</button>
         <button type="button" id="lb-next">Next →</button>
@@ -23,13 +24,31 @@
     const ttl = document.getElementById("lb-title");
     const cap = document.getElementById("lb-cap");
     const hol = document.getElementById("lb-holder");
-    let set = [], at = 0;
+    const wait = document.getElementById("lb-wait");
+    const full = document.getElementById("lb-full");
+    let set = [], at = 0, tok = 0;
 
     const show = (n) => {
       if (!set.length) return;
       at = (n + set.length) % set.length;
       const p = set[at];
-      img.src = p.src; img.alt = p.title;
+      /* The full-size plate can be a megabyte. The old code set img.src to it and showed an empty
+         grey panel (the image is 0 x 0 until it arrives), and on Previous/Next kept the last picture
+         beside the new caption. Now the thumbnail, already fetched for the grid, shows at once and
+         is swapped for the full image when that has loaded; a late answer for a plate the reader has
+         already left is dropped. */
+      const me = ++tok;
+      img.alt = p.title;
+      if (p.w && p.h) { img.width = p.w; img.height = p.h; }
+      img.src = p.thumb || p.src;
+      full.href = p.src;
+      if (p.thumb) {
+        wait.textContent = "Loading the full-size image…"; wait.hidden = false; img.classList.add("lb-soft");
+        const big = new Image();
+        big.onload = () => { if (me !== tok) return; img.src = p.src; img.classList.remove("lb-soft"); wait.hidden = true; };
+        big.onerror = () => { if (me !== tok) return; img.classList.remove("lb-soft"); wait.textContent = "The full-size image did not load; the preview is shown."; };
+        big.src = p.src;
+      } else { wait.hidden = true; img.classList.remove("lb-soft"); }
       // Plate captions are written in the archive's light markdown; render it
       // rather than printing the asterisks at the reader.
       const fmt = (x) => String(x ?? "")
