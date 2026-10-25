@@ -14,9 +14,8 @@ import { u } from "../../lib/url.js";
 import lines from "../../data/lines.json";
 import fam from "../../data/families.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
-import { ledger, pensOf } from "@daviddef/archive-kit/lib/lines.js";
 import rivers from "../../data/rivers.json";
-import roster from "../../data/roster.json";
+import { L, word, Cap, lanes, households, names, personBase } from "../../lib/rivers.js";
 import arr from "../../data/arrivals.json";
 import reg from "../../data/regions.json";
 import Plates from "../../components/Plates.astro";
@@ -41,14 +40,7 @@ import Lightbox from "../../components/Lightbox.astro";
 /* THE COUNTS ON THIS PAGE ARE THE DRAWING'S OWN (kit lib/lines.js ledger), never typed. The eyebrow used to say «Seven
  * families · eight unplaced households», and the drawing's prose said the same eight again, in words, in two places; a
  * ninth household (Pomer, read on 14 October 2026) made both stale at once. */
-const L = ledger(rivers);
-const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen"];
-const word = (n) => WORDS[n] ?? String(n);
-const Cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
-const lanes = word(L.lanes), households = word(L.households);
-/* the people in the pens, by display name: the roster's names for the ids the generator listed (scripts/build-rivers-members.py) */
-const byPid = Object.fromEntries(roster.rows.filter((r) => r.pid).map((r) => [r.pid, r.name]));
-const names = Object.fromEntries(pensOf(rivers).flatMap((p) => (p.members || []).map((m) => [m.person || m, byPid[m.person || m] || m])));
+/* (the words and names are made in src/lib/rivers.js, which the home page uses too) */
 
 const CONF = { doc: "documented", documented: "documented", inf: "inferred",
                inferred: "inferred", probable: "probable", lore: "lore",
@@ -141,7 +133,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
 <section class="blk">
   <h2>The {lanes} roads, drawn</h2>
   <p class="dek" style="margin-top:8px">One surname and {lanes} families, arriving from different directions for different reasons — and one that never arrived at all. Under the first of them are the {households} households the archive will not pretend to have placed, and below those the people of the name it keeps apart on purpose. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
-  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase="/person/" names={names} /></div>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase={personBase} names={names} /></div>
 </section>
 
 <Rule name="tablet" label="A parish named" />
