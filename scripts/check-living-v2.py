@@ -443,22 +443,27 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
                         P.append("place: a living row's place is not a town and a country: '%s' (%s)" % (
                             "" if re.search(r"\d", part) else "?", pid))
         else:
-            if L2.is_living(r.get("b"), L2.row_recorded_dead(r), L2.row_citations(r), year):
+            if L2.is_living(r.get("b"), L2.row_recorded_dead(r), L2.row_citations(r), year,
+                            undated_dead=L2.row_undated_dead(r)):
                 P.append("rule: the rule calls this person living and the row carries a birth year and no living mark (%s)" % pid)
-            elif isinstance(r.get("b"), int) and L2.in_window(r["b"], year) and not (
-                    r.get("d") or r.get("deceased") or r.get("src") in ("burial", "grave")):
+            elif isinstance(r.get("b"), int) and L2.in_window(r["b"], year) and not L2.row_recorded_dead(r):
                 # belt and braces, written without the kit: a year at or after the cutoff and no death field
                 P.append("rule: a row carries a birth year of someone 80 or younger, no death, and no living mark (%s)" % pid)
     S["pids"] = len({r.get("pid") for r in rows if r.get("pid")})
-    # A person born in the window who is published as dead on an UNDATED death mark (`deceased: true`, no death year) is
-    # published on the tree's word alone. The gate accepts it (a death recorded, dated or not, is a death) but says so,
-    # because if the mark is wrong the year is a living person's.
+    # A person born in the window who is published as dead on a death RECORD with no date (a `deathSource`, no death
+    # year) is accepted: a recorded, sourced death frees them (kit 341af33). A bare `deceased` mark does NOT (the line
+    # above calls that row living and fails). The gate counts the undated records and prints their source, because if
+    # the source is wrong the year is a living person's.
     shaky = [r.get("pid") for r in rows if not r.get("living") and isinstance(r.get("b"), int) and L2.in_window(r["b"], year)
-             and r.get("deceased") and not r.get("d")]
+             and L2.row_recorded_dead(r) and not r.get("d") and r.get("src") not in ("burial", "grave")]
     S["born in the window, death recorded without a date"] = len(shaky)
+    for r in rows:
+        if r.get("pid") in shaky and not (r.get("deathSource") and r.get("deathGrade")):
+            P.append("rule: a person born in the window is dead on a record with no date but the row carries no deathSource and deathGrade (%s)" % r.get("pid"))
     if shaky:
-        N.append("%d person(s) born in the 80-year window are published on an undated death mark alone (%s): confirm with David" % (
-            len(shaky), ", ".join(sorted(shaky))))
+        N.append("%d person(s) born in the 80-year window are published as dead on a source with no date (%s): %s" % (
+            len(shaky), ", ".join(sorted(shaky)),
+            "; ".join(sorted({"%s (%s)" % (r["deathSource"], r.get("deathGrade", "?")) for r in rows if r.get("pid") in shaky and r.get("deathSource")}))))
 
     # ---------------- the built site ----------------
     if not dist or not os.path.isdir(dist):
@@ -575,6 +580,8 @@ def run(root, dist, tree, year, require_tree=False, verbose=False):
             r = by_pid.get(pid)
             if r is None:
                 continue
+            if L2.row_recorded_dead(r) and not r.get("living"):
+                living, minor = False, False      # a death the tree does not hold, recorded on the row (family confirmation)
             S["ledger entries checked"] += 1
             if minor:
                 P.append("tree: a possible minor is published (%s)" % pid)

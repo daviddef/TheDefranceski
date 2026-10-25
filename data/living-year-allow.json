@@ -1,13 +1,60 @@
 {
- "note": "Reviewed exceptions to scripts/check-living-v2.py rule 7 (a birth year of someone 80 or younger with no death beside it). Each entry is a decision: the snippet is removed from the text the gate reads, and `why` says who the year belongs to. A person is NOT allowed because they are in the roster as dead (the gate already reads that); an entry here is for a year the gate cannot attach to a name.",
+ "note": "Reviewed exceptions to scripts/check-living-v2.py rule 7 and to the kit's printed-year gate (checkliving.py --years, standard.json living_years). Each entry is a decision: the text is removed from what the gate reads, and `why` says who the year belongs to. A person is NOT allowed because they are in the roster as dead (the gates already read that); an entry here is for a year the gates cannot attach to a name. The archive's gate reads the visible text and the kit's reads the built file as written, so a text here is chosen to occur in both; `file` limits an entry to one built file (the kit honours it).",
  "allow": [
   {
-   "text": "Ivan was born on 17 December 1951",
-   "why": "Ivan Defranceski of Senj, roster row ivan-defranceski-1951: died 2026 (the gate reads the death, but the name is not within its reach on that page)."
+   "text": "17 December 1951",
+   "why": "Ivan Defranceski of Senj, roster row ivan-defranceski-1951, died 2026 (the data records the death; the name is not within the gate's reach on every page that prints his birth date)."
   },
   {
-   "text": "8 Dec 1939 Born 29 Jun 1963",
-   "why": "Not a birth: a bishop's table, born 8 December 1939, ordained priest 29 June 1963 (the word Born heads the first column)."
+   "text": "17 december 1951",
+   "file": "searchindex.json",
+   "why": "Ivan Defranceski of Senj, roster row ivan-defranceski-1951, died 2026 (the data records the death; the name is not within the gate's reach on every page that prints his birth date). Lower-cased in the search index."
+  },
+  {
+   "text": "born at Senj in 1951",
+   "why": "Ivan Defranceski of Senj, roster row ivan-defranceski-1951, died 2026 (the data records the death; the name is not within the gate's reach on every page that prints his birth date)."
+  },
+  {
+   "text": "29 Jun 1963",
+   "why": "Not a birth: a bishop's events table (born 8 December 1939, ordained priest 29 June 1963; the word Born heads the first row, the ordination date follows it)."
+  },
+  {
+   "text": "born in the 1960s",
+   "why": "A decade, not a person's birth: 'children born in the 1960s' in a description of a house of the parish book."
+  },
+  {
+   "text": "Born 1953, the second of Ivan and Hedviga's three children",
+   "why": "Robert Robbie Defranceski, roster row robert-robbie-defranceski-1953: dead by family confirmation (David Defranceski, 25 October 2026, grade lore), recorded on the row as deathSource and deathRecorded; no death date is held. The name is written with quotation marks, which the gates' name match does not read."
+  },
+  {
+   "text": "born 1953, the second of ivan",
+   "file": "searchindex.json",
+   "why": "Robert Robbie Defranceski, roster row robert-robbie-defranceski-1953: dead by family confirmation (David Defranceski, 25 October 2026, grade lore), recorded on the row as deathSource and deathRecorded; no death date is held. The name is written with quotation marks, which the gates' name match does not read. Lower-cased in the search index."
+  },
+  {
+   "text": "b. 1953",
+   "file": "person/ivan-defranceski-1951/index.html",
+   "why": "Robert Robbie Defranceski, roster row robert-robbie-defranceski-1953: dead by family confirmation (David Defranceski, 25 October 2026, grade lore), recorded on the row as deathSource and deathRecorded; no death date is held. The name is written with quotation marks, which the gates' name match does not read. Here the year stands beside his name in his brother's tree on Ivan Defranceski's page."
+  },
+  {
+   "text": "\"birthDate\":\"1953\"",
+   "file": "person/robert-robbie-defranceski-1953/index.html",
+   "why": "Robert Robbie Defranceski, roster row robert-robbie-defranceski-1953: dead by family confirmation (David Defranceski, 25 October 2026, grade lore), recorded on the row as deathSource and deathRecorded; no death date is held. The name is written with quotation marks, which the gates' name match does not read. His Person JSON-LD cannot carry a deathDate the archive does not hold."
+  },
+  {
+   "text": "\"birthDate\":\"1946\",\"deathDate\":\"2022\"",
+   "file": "person/joseph-joe-de-franceschi-1946/index.html",
+   "why": "A dead man's JSON-LD: the birth is followed by its own deathDate (2022); the gate's death-word test is blind to the camel-case key."
+  },
+  {
+   "text": "\"birthDate\":\"1952\",\"deathDate\":\"1967\"",
+   "file": "person/edward-dado-de-franceschi-1952/index.html",
+   "why": "A dead boy's JSON-LD: the birth is followed by its own deathDate (1967); the gate's death-word test is blind to the camel-case key."
+  },
+  {
+   "text": "<span class=\"hh-lk\">head born</span>1968",
+   "file": "households/index.html",
+   "why": "The households page prints the last birth year of the household of Lisa T Defranceski (Rose), roster row lisa-t-defranceski-rose-1968, who died in 2015 (printed beside her name as 1968-2015)."
   }
  ]
 }

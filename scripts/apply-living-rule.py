@@ -98,6 +98,8 @@ def match(row, tree, led, by_name):
 def reason_not_living(p, year):
     if p["dead"]:
         return "death recorded"
+    if p.get("undated_dead") and p["by"] is None:
+        return "death flag, no birth year"
     if lr.public_source(p["cites"]):
         return "public source"
     if p["by"] is None:
@@ -147,7 +149,7 @@ def restore_ordinary(r, p, year):
     if p is not None:
         if p["by"] and not out.get("b"):
             out["b"] = p["by"]
-        if p["dead"]:
+        if p["dead"] or p.get("undated_dead"):
             if p["dy"] and not out.get("d"):
                 out["d"] = p["dy"]
             elif not p["dy"]:
@@ -327,6 +329,8 @@ def main():
         # --- the verdict ---
         if p is not None:
             living, minor = tree.verdict(uid, year)
+            if L2.row_recorded_dead(r) and not was:
+                living, minor = False, False        # a death recorded on the row itself (deathSource), not in the tree
         else:
             living = L2.row_is_living(r, year) and not was      # committed data only
             minor = False

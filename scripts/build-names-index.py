@@ -103,8 +103,14 @@ def known_dead(row):
     """True when the roster ITSELF shows the person is dead (not merely that the living rule lets them be shown)."""
     if row.get("living"):
         return False
-    if row.get("d") or row.get("deceased") or row.get("src") in ("burial", "grave"):
+    if row.get("d") or row.get("deathSource") or row.get("src") in ("burial", "grave"):
         return True
+    if row.get("deceased"):
+        # a bare flag is not a record for a person born inside the living window (kit 341af33)
+        try:
+            return not _living_v2().in_window(row.get("b"))
+        except Exception:
+            return not row.get("b")
     b = row.get("b") or row.get("bEst")
     if b:
         return int(b) <= OLDEST_BIRTH

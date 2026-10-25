@@ -26,8 +26,8 @@ GEDCOM that lives outside the repository. `load_tree()` reads it and produces,
 for every person, the four facts the rule needs: birth year, whether a death or
 burial is recorded, the citations that count, and who the parents are.
 
-THE CUTOFF IS ONE CONSTANT, DERIVED: `CUTOFF = THIS_YEAR - LIVING_YEARS` (the year of the oldest person who
-is still living; 1946 in 2026). Everything in this archive that needs the boundary reads it from here
+THE CUTOFF IS ONE CONSTANT, DERIVED: `CUTOFF = lr.cutoff_year()` (the kit's, this year minus LIVING_YEARS: the year
+of the oldest person who is still living; 1946 in 2026). Everything in this archive that needs the boundary reads it from here
 (Python) or from src/lib/living.js (the pages), which takes the same 80 from the kit. A year >= CUTOFF with
 no death beside it is a living person's year wherever it is printed: `in_window()`.
 
@@ -40,6 +40,14 @@ row). So for a person WITH a birth year the citations are not passed to the kit'
 absence of a death decide, alone (`cites_for_living`). An UNDATED person is unchanged: a public source still
 releases the recent-child inference, which is only an inference. The kit is not edited; the gap in its rule
 is reported (the same hole was closed in the Mazza archive on the same day).
+
+A BARE DEATH FLAG DOES NOT FREE A DATED PERSON EITHER (kit 341af33, 25 October 2026). A GEDCOM `DEAT Y` with no date and
+no place, and a roster row marked `deceased: true` with no death year, are the archive's belief that someone died, not
+a death record. For a person born inside the window they are passed to the kit as `undated_dead=True`, which the kit
+ignores for a dated person (they stay living) and reads as dead for an undated one. A death RECORD is a date, a year, a
+place, a burial or cremation, a burial/headstone source, or a recorded SOURCE for the death (`deathSource` on a roster
+row: «family confirmation, David Defranceski, 25 October 2026», grade `lore`, no date needed). The kit's
+`death_kind()` does the classifying; this file only says where the facts are.
 
 WHAT COUNTS AS A CITATION. The kit's `public_source` looks at strings. A MyHeritage
 export carries three kinds of source and only some are public records:
@@ -69,12 +77,12 @@ import living_rule as lr          # noqa: E402  (the shared definition; never co
 LEDGER = os.path.join(ROOT, "data", "living-ledger.json")
 THIS_YEAR = datetime.date.today().year
 LIVING_YEARS = lr.LIVING_YEARS                  # 80, the kit's
-CUTOFF = THIS_YEAR - LIVING_YEARS               # a birth year >= this is 80 or younger today (1946 in 2026)
+CUTOFF = lr.cutoff_year(THIS_YEAR)              # the kit's one derived line: a birth year >= this is 80 or younger today (1946 in 2026)
 
 
 def cutoff(year=None):
-    """The oldest birth year that is still living in `year` (default: this year)."""
-    return (year or THIS_YEAR) - LIVING_YEARS
+    """The oldest birth year that is still living in `year` (default: this year): the kit's cutoff_year()."""
+    return lr.cutoff_year(year or THIS_YEAR)
 
 
 def in_window(y, year=None):
@@ -175,9 +183,9 @@ class Tree:
             return self._memo[k]
         p = self.people[uid]
         self._memo[k] = (False, False)          # break cycles in a malformed tree
-        living = is_living(p["by"], p["dead"], p["cites"], year)
+        living = is_living(p["by"], p["dead"], p["cites"], year, undated_dead=p.get("undated_dead", False))
         pl = any(self.verdict(q, year)[0] for q in p["parents"] if q in self.people)
-        minor = possible_minor(p["by"], p["dead"], p["cites"], pl, year)
+        minor = possible_minor(p["by"], p["dead"], p["cites"], pl, year, undated_dead=p.get("undated_dead", False))
         self._memo[k] = (living, minor)
         return self._memo[k]
 
@@ -202,11 +210,15 @@ def load_tree(path):
         m = re.search(r"\b(1[0-9]\d\d|20\d\d)\b", g.val(b, "DATE") if b else "")
         d = g.sub(r, "DEAT")
         dm = re.search(r"\b(1[0-9]\d\d|20\d\d)\b", g.val(d, "DATE") if d else "")
-        dead = any(g.sub(r, t) is not None for t in ("DEAT", "BURI", "CREM"))
+        # A death RECORD is a date, a place, or a burial/cremation; a bare `DEAT Y` is only a FLAG (the kit's death_kind).
+        kind = lr.death_kind(died=(g.val(d, "DATE") if d else None),
+                             buried=("burial" if (g.sub(r, "BURI") is not None or g.sub(r, "CREM") is not None) else None),
+                             death_place=(g.val(d, "PLAC") if d else None),
+                             dead_flag=d is not None)
         people[uid] = {
             "uid": uid, "xref": r["id"], "name": g.val(r, "NAME").replace("/", " ").strip(),
             "by": int(m.group()) if m else None, "dy": int(dm.group()) if dm else None,
-            "dead": dead, "place": g.val(b, "PLAC") if b else "",
+            "dead": kind == "record", "undated_dead": kind == "flag", "place": g.val(b, "PLAC") if b else "",
             "cites": _citations(r, srcs, g), "parents": parents_of.get(r["id"], []),
         }
         by_xref[r["id"]] = uid
@@ -240,9 +252,22 @@ def _citations(rec, srcs, g):
 # ---- the roster, from committed data alone ---------------------------------
 
 def row_recorded_dead(r):
-    """A death or burial the ROSTER records: a death year, the 'deceased' mark, or a burial
-    register / headstone as the source."""
-    return bool(r.get("d")) or bool(r.get("deceased")) or r.get("src") in ("burial", "grave")
+    """A death or burial the ROSTER RECORDS: a death year, a burial register / headstone as the source, or a
+    recorded source for the death (`deathSource`: «family confirmation, David Defranceski, 25 October 2026»).
+    The bare `deceased` mark is NOT a record (see row_undated_dead)."""
+    return bool(r.get("d")) or bool(r.get("deathSource")) or r.get("src") in ("burial", "grave")
+
+
+def row_undated_dead(r):
+    """The roster says `deceased` and holds nothing that records the death: a bare flag. The kit ignores it for a
+    person born inside the window and reads it as dead for an undated one."""
+    return bool(r.get("deceased")) and not row_recorded_dead(r)
+
+
+def row_dead(r, year=None):
+    """The roster shows this person as dead, by the kit's rule: a death RECORD, or a bare flag for a person who is
+    NOT born inside the living window (a flag never frees a dated person born in it)."""
+    return row_recorded_dead(r) or (row_undated_dead(r) and not in_window(r.get("b"), year))
 
 
 def row_citations(r):
@@ -258,7 +283,8 @@ def row_citations(r):
 def row_is_living(r, year=None):
     """The rule over a roster row's COMMITTED fields. A row already scrubbed (living flag, no
     birth year) cannot be re-derived here: it needs the tree. See Tree.verdict."""
-    return is_living(r.get("b"), row_recorded_dead(r), row_citations(r), year or THIS_YEAR)
+    return is_living(r.get("b"), row_recorded_dead(r), row_citations(r), year or THIS_YEAR,
+                     undated_dead=row_undated_dead(r))
 
 
 # ---- place: the full town and the country, never a street or an institution ----
