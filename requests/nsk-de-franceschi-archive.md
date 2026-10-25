@@ -77,7 +77,7 @@ Dear Ms Marin,
 
 I am writing from Australia as a descendant of the Defranceski family. My line comes from
 Gračišće and Gologorica in Istria: my great-great-grandfather **Josip Defranceschi was
-baptised at Gračišće on 22 March 1863**, the son of Antonio, a stonecutter, and the
+born at Gračišće on 22 March 1863**, the son of Antonio, a stonecutter, and the
 household later moved down to the Kvarner coast at Crikvenica. For some years now I have
 been assembling and publishing a documented history of the family.
 
