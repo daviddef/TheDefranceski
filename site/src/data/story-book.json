@@ -1616,78 +1616,140 @@
   "cardsNote": "From the earlier version of this page: the document each chapter rests on, and what the paper cannot say.",
   "ribbon": [
     {
-      "ch": "origin",
-      "label": "Carnia",
-      "yr": "1679",
-      "g": "doc",
-      "glyph": "hill",
-      "why": "the headmen's return names weavers of Mione in the County of Pisino"
+      "n": "1",
+      "link": "weaver",
+      "title": "The family chart's Giovanni, born at Gologorica by the family's tree; the weaver's son who married Theresia Grah of Krbune in 1774 is him by inference",
+      "name": "Giovanni Defranceschi",
+      "pid": "giovanni-defranceschi-1750",
+      "years": "1750–1829",
+      "place": "Gologorica",
+      "support": "lore",
+      "spouse": {
+        "name": "Theresia née Grah",
+        "pid": "theresia-defranceschi-nee-grach-gologorica",
+        "place": "of Krbune",
+        "support": "inf"
+      }
     },
     {
-      "ch": "weaver",
-      "label": "Gologorica",
-      "yr": "1774",
-      "g": "inf",
-      "glyph": "loom",
-      "gen": "1",
-      "why": "the weaver's son marries; that he is generation one is inference"
+      "n": "2",
+      "link": "farmer",
+      "title": "Born at Gologorica by inference from the baptism of 1787; documented at Gračišće, house 5, married 1819",
+      "name": "Giovanni Battista Defranceschi",
+      "pid": "giovanni-battista-defranceschi-1787",
+      "years": "1787–1846",
+      "place": "Gologorica",
+      "support": "inf",
+      "town": "at Gračišće, 1819",
+      "spouse": {
+        "name": "Francisca Salomon",
+        "place": "place not known",
+        "support": "doc"
+      }
     },
     {
-      "ch": "farmer",
-      "label": "Gračišće",
-      "yr": "1819",
-      "g": "doc",
-      "glyph": "field",
-      "gen": "2",
-      "why": "the farmer of house 5 marries"
+      "n": "3",
+      "link": "stonecutter",
+      "title": "Born in the household of house 5 at Gračišće; the stonecutter of house 19",
+      "name": "Antonio Defranceschi",
+      "pid": "antonio-defranceschi-1825",
+      "years": "1825–1894",
+      "place": "Gračišće",
+      "support": "doc",
+      "spouse": {
+        "name": "Maria Fernasar",
+        "pid": "maria-fernasar-tornasar-de-franceschi-1832",
+        "place": "of Gračišće",
+        "support": "doc"
+      }
     },
     {
-      "ch": "stonecutter",
-      "label": "Gračišće",
-      "yr": "1856",
-      "g": "doc",
-      "glyph": "stone",
-      "gen": "3",
-      "why": "the stonecutter of house 19 marries"
+      "n": "4",
+      "link": "coast",
+      "title": "Born at Gračišće; on the coast at Klenovica by 1890; his death year is 1950 on the stone and 1951 in the family's tree",
+      "name": "Josip Defranceschi",
+      "pid": "josip-defranceschi-1863",
+      "years": "1863–1950 or 1951",
+      "place": "Gračišće",
+      "support": "doc",
+      "town": "at Klenovica, 1890",
+      "spouse": {
+        "name": "Ana Kalanj",
+        "pid": "anna-kalanj-de-franceschi-1864-1936-1864",
+        "place": "of Klenovica",
+        "support": "doc"
+      }
     },
     {
-      "ch": "coast",
-      "label": "Klenovica",
-      "yr": "1890",
-      "g": "doc",
-      "glyph": "wave",
-      "gen": "4",
-      "why": "the first child is born on the coast"
+      "n": "5",
+      "link": "pfullingen",
+      "title": "Born at Klenovica, house 22; a Crikvenica man who worked three months at Pfullingen; 1943 is the family's year",
+      "name": "Anton Rudolf Defranceski",
+      "pid": "anton-rudolf-defranceski-1890",
+      "years": "1890–1943?",
+      "place": "Klenovica",
+      "support": "doc",
+      "town": "worked at Pfullingen, 1942",
+      "spouse": {
+        "name": "Ursula Kovačina",
+        "pid": "ursula-kovacina-defranceschi-1895",
+        "place": "of Crikvenica (inferred)",
+        "support": "inf"
+      }
     },
     {
-      "ch": "pfullingen",
-      "label": "Pfullingen",
-      "yr": "1942",
-      "g": "doc",
-      "glyph": "works",
-      "gen": "5",
-      "why": "three and a half months in Württemberg"
+      "n": "6",
+      "link": "senj",
+      "title": "Born at Crikvenica; the family at Senj on the paper of 1951",
+      "name": "Ivan Defranceski",
+      "pid": "ivan-defranceski-1925",
+      "years": "1925–1995",
+      "place": "Crikvenica",
+      "support": "doc",
+      "town": "at Senj, 1951",
+      "spouse": {
+        "name": "Hedviga Blažević",
+        "pid": "hedviga-blazevic-defranceski-1926",
+        "place": "of Senj",
+        "support": "doc"
+      }
     },
     {
-      "ch": "senj",
-      "label": "Senj",
-      "yr": "1951",
-      "g": "doc",
-      "glyph": "gable",
-      "gen": "6",
-      "why": "the family on the paper at Senj"
+      "n": "7",
+      "link": "us",
+      "title": "Born at Senj; Johannesburg, then Brisbane; his wife is living and is named with her town only",
+      "name": "Ivan Defranceski",
+      "pid": "ivan-defranceski-1951",
+      "years": "†",
+      "place": "Senj",
+      "support": "doc",
+      "town": "later Johannesburg, Brisbane",
+      "spouse": {
+        "name": "Cheryl Lerena",
+        "href": "/cheryl-lerena/",
+        "place": "of Johannesburg, South Africa",
+        "living": true
+      }
     },
     {
-      "ch": "us",
-      "label": "South Africa · Australia",
-      "yr": "",
-      "g": "doc",
-      "glyph": "ship",
-      "gen": "7–8",
-      "why": "the living generations, by country only"
+      "n": "8",
+      "link": "us",
+      "title": "Living: named with his relationships and his towns and nothing more",
+      "name": "David Defranceski",
+      "pid": "david-defranceski-johannesburg-brisbane",
+      "place": "Johannesburg, South Africa",
+      "support": "doc",
+      "town": "in Brisbane, Australia",
+      "living": true,
+      "spouse": {
+        "name": "Cristina Adele D'Arcy",
+        "pid": "cristina-adele-d-arcy-defranceski",
+        "place": "of Brisbane, Australia",
+        "living": true
+      }
     }
   ],
-  "ribbonNote": "Each stop is the place where that generation's own household first appears in a document, with the year of that document. The last stop names countries only and carries no year, because living people are in it.",
+  "ribbonNote": "Each card names that generation's person and where he came from, with the place a document later finds the household where it differs, and his wife and where she came from. The outline carries the evidence for where he came from: solid documented, dashed inferred, dotted family memory. Living people are named with their towns only, with no dates.",
   "conflicts": [
     {
       "card": 2,
