@@ -1,0 +1,377 @@
+{
+  "_note": "Four maps for /story/. Coast and borders: Natural Earth 50m (public domain), through the kit's outlines.js, simplified and clipped at build time by components/StoryMap.astro. Town dots: this archive's own gazetteer (data/era-towns.tsv, hand-checked; Senj from site/src/data/places.json). Country markers for the living generations are placed by hand at the middle of the country and name no town. Legs: solid = a move the documents show (a document at each end), dashed = inferred, dotted = family memory or route not known. Each leg's `ev` is the evidence.",
+  "places": {
+    "Mione": {
+      "lat": 46.48,
+      "lon": 12.85,
+      "src": "data/era-towns.tsv"
+    },
+    "Gologorica": {
+      "lat": 45.26,
+      "lon": 14.03,
+      "src": "data/era-towns.tsv"
+    },
+    "Gračišće": {
+      "lat": 45.22,
+      "lon": 14.01,
+      "src": "data/era-towns.tsv"
+    },
+    "Klenovica": {
+      "lat": 45.1,
+      "lon": 14.85,
+      "src": "data/era-towns.tsv"
+    },
+    "Crikvenica": {
+      "lat": 45.18,
+      "lon": 14.69,
+      "src": "data/era-towns.tsv"
+    },
+    "Senj": {
+      "lat": 44.99,
+      "lon": 14.9,
+      "src": "site/src/data/places.json"
+    },
+    "Pfullingen": {
+      "lat": 48.46,
+      "lon": 9.23,
+      "src": "data/era-towns.tsv"
+    }
+  },
+  "maps": {
+    "carnia": {
+      "title": "Carnia and Istria",
+      "frame": {
+        "w": 12.2,
+        "e": 15.2,
+        "s": 44.95,
+        "n": 46.75
+      },
+      "ch": "origin",
+      "dots": [
+        {
+          "p": "Mione",
+          "ch": "origin",
+          "dx": 8,
+          "dy": -8,
+          "note": "the name in the 1679 return and the registers of 1806–1815"
+        },
+        {
+          "p": "Gologorica",
+          "ch": "weaver",
+          "dx": 10,
+          "dy": -6,
+          "anchor": "start",
+          "note": "the weaver's household, 1773–1805"
+        },
+        {
+          "p": "Gračišće",
+          "ch": "farmer",
+          "dx": -10,
+          "dy": 10,
+          "anchor": "end",
+          "note": "houses 5 and 19, 1819–1894"
+        }
+      ],
+      "regions": [
+        {
+          "label": "CARNIA",
+          "lat": 46.4,
+          "lon": 12.95,
+          "r": 0.2
+        },
+        {
+          "label": "COUNTY OF PISINO",
+          "lat": 45.45,
+          "lon": 13.75,
+          "r": 0
+        }
+      ],
+      "legs": [
+        {
+          "id": "a1",
+          "from": {
+            "lat": 46.3,
+            "lon": 13.1
+          },
+          "to": "Gologorica",
+          "type": "dotted",
+          "label": "ex Carnia · 1773 · village and route not known",
+          "ch": "origin",
+          "ev": "/gologorica-line/#textorexcarnia",
+          "bend": 0.12
+        }
+      ]
+    },
+    "coast": {
+      "title": "Down to the coast",
+      "frame": {
+        "w": 13.75,
+        "e": 15.15,
+        "s": 44.88,
+        "n": 45.42
+      },
+      "ch": "coast",
+      "dots": [
+        {
+          "p": "Gologorica",
+          "ch": "weaver",
+          "dx": -9,
+          "dy": -4,
+          "anchor": "end"
+        },
+        {
+          "p": "Gračišće",
+          "ch": "farmer",
+          "dx": -9,
+          "dy": 14,
+          "anchor": "end"
+        },
+        {
+          "p": "Klenovica",
+          "ch": "coast",
+          "dx": 10,
+          "dy": 16
+        },
+        {
+          "p": "Crikvenica",
+          "ch": "coast",
+          "dx": -10,
+          "dy": 22,
+          "anchor": "end"
+        },
+        {
+          "p": "Senj",
+          "ch": "senj",
+          "dx": 8,
+          "dy": 12
+        }
+      ],
+      "regions": [
+        {
+          "label": "ISTRIA",
+          "lat": 45.36,
+          "lon": 13.85,
+          "r": 0
+        },
+        {
+          "label": "KVARNER",
+          "lat": 45.05,
+          "lon": 14.45,
+          "r": 0
+        }
+      ],
+      "legs": [
+        {
+          "id": "b0",
+          "from": "Gologorica",
+          "to": "Gračišće",
+          "type": "dashed",
+          "label": "1787 → 1819",
+          "ch": "farmer",
+          "ev": "/gologorica-line/#casa31",
+          "bend": 0.6,
+          "lo": [
+            70,
+            -34
+          ]
+        },
+        {
+          "id": "b1",
+          "from": "Gračišće",
+          "to": "Klenovica",
+          "type": "solid",
+          "label": "1863 → 1890",
+          "ch": "coast",
+          "ev": "#plate-anton-1890",
+          "bend": -0.18,
+          "lo": [
+            0,
+            -4
+          ]
+        },
+        {
+          "id": "b2",
+          "from": "Klenovica",
+          "to": "Crikvenica",
+          "type": "solid",
+          "label": "1892 → 1894",
+          "ch": "coast",
+          "ev": "/crikvenica-house/",
+          "bend": 0.75,
+          "lo": [
+            -6,
+            -16
+          ]
+        },
+        {
+          "id": "b3",
+          "from": "Crikvenica",
+          "to": "Senj",
+          "type": "solid",
+          "label": "by 1951",
+          "ch": "senj",
+          "ev": "/crikvenica-house/",
+          "bend": -0.45,
+          "lo": [
+            34,
+            4
+          ]
+        }
+      ]
+    },
+    "europe": {
+      "title": "To Württemberg and back",
+      "frame": {
+        "w": 5.5,
+        "e": 20.5,
+        "s": 42.4,
+        "n": 50.2
+      },
+      "ch": "pfullingen",
+      "dots": [
+        {
+          "p": "Gračišće",
+          "ch": "farmer",
+          "dx": -8,
+          "dy": 14,
+          "anchor": "end"
+        },
+        {
+          "p": "Crikvenica",
+          "ch": "coast",
+          "dx": 8,
+          "dy": 4
+        },
+        {
+          "p": "Senj",
+          "ch": "senj",
+          "dx": 8,
+          "dy": 14
+        },
+        {
+          "p": "Pfullingen",
+          "ch": "pfullingen",
+          "dx": -8,
+          "dy": -8,
+          "anchor": "end"
+        }
+      ],
+      "regions": [],
+      "legs": [
+        {
+          "id": "c1",
+          "from": "Crikvenica",
+          "to": "Pfullingen",
+          "type": "solid",
+          "label": "1941–42",
+          "ch": "pfullingen",
+          "ev": "/pfullingen/",
+          "bend": 0.15
+        },
+        {
+          "id": "c2",
+          "from": "Pfullingen",
+          "to": "Crikvenica",
+          "type": "solid",
+          "label": "home, 1942",
+          "ch": "senj",
+          "ev": "/pfullingen/",
+          "bend": 0.15
+        }
+      ]
+    },
+    "world": {
+      "title": "Out into the world",
+      "frame": {
+        "w": -20,
+        "e": 160,
+        "s": -42,
+        "n": 56
+      },
+      "ch": "us",
+      "dots": [
+        {
+          "p": "Senj",
+          "ch": "senj",
+          "dx": 6,
+          "dy": -6
+        }
+      ],
+      "countries": [
+        {
+          "label": "Rhodesia (Zimbabwe)",
+          "lat": -19.0,
+          "lon": 29.8,
+          "ch": "us",
+          "dx": 10,
+          "dy": -8
+        },
+        {
+          "label": "South Africa",
+          "lat": -29.0,
+          "lon": 24.7,
+          "ch": "us",
+          "dx": -8,
+          "dy": 14,
+          "anchor": "end"
+        },
+        {
+          "label": "Australia",
+          "lat": -25.3,
+          "lon": 134.0,
+          "ch": "us",
+          "dx": 0,
+          "dy": 18,
+          "anchor": "middle"
+        }
+      ],
+      "regions": [],
+      "legs": [
+        {
+          "id": "d1",
+          "from": "Senj",
+          "to": {
+            "country": "Rhodesia (Zimbabwe)"
+          },
+          "type": "dotted",
+          "label": "family memory",
+          "ch": "us",
+          "ev": "/1948/",
+          "bend": 0.2,
+          "lo": [
+            -18,
+            0
+          ]
+        },
+        {
+          "id": "d2",
+          "from": {
+            "country": "Rhodesia (Zimbabwe)"
+          },
+          "to": {
+            "country": "South Africa"
+          },
+          "type": "dotted",
+          "label": "",
+          "ch": "us",
+          "ev": "/1948/",
+          "bend": 0.3
+        },
+        {
+          "id": "d3",
+          "from": {
+            "country": "South Africa"
+          },
+          "to": {
+            "country": "Australia"
+          },
+          "type": "solid",
+          "label": "",
+          "ch": "us",
+          "ev": "/direct-line/",
+          "bend": -0.15
+        }
+      ]
+    }
+  }
+}

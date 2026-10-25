@@ -1,45 +1,283 @@
 ---
+/* THE STORY (25 October 2026): one page for the line, the reader's first page. Two stories became one here.
+   The narrative ("Down from the Hill", first published at /our-line/, which now redirects here) leads: its prose is
+   src/data/story-book.json, every paragraph graded doc / inf / lore by its weakest claim (reg A, the people) or set in as
+   "In the world around them" (reg B, marked archive or history). Under each chapter sit the evidence cards of the nine
+   data-driven chapters this page used to be (src/data/story.json, unchanged): the quoted document line and its source,
+   what the paper cannot say, its plates and its links. Where an old card and the narrative disagree, the card says so and
+   the disagreement waits for David (story-book.json `conflicts`); nothing is silently resolved.
+   Trees: components/LineTree.astro. Maps: components/StoryMap.astro over src/data/story-maps.json. */
 import Base from "../layouts/Base.astro";
-import Sources from "../components/Sources.astro";
 import Plates from "../components/Plates.astro";
 import Lightbox from "../components/Lightbox.astro";
+import Sources from "../components/Sources.astro";
+import Rule from "../components/Rule.astro";
+import LineTree from "../components/LineTree.astro";
+import StoryMap from "../components/StoryMap.astro";
+import { md } from "../lib/md.js";
 import { u } from "../lib/url.js";
-import s from "../data/story.json";
+import book from "../data/story-book.json";
+import old from "../data/story.json";
+
+const chapters = [...book.chapters, book.closing];
+const href = (h) => (h.startsWith("#") ? h : u(h));
+const markTitle = { doc: "Documented", inf: "Inferred", lore: "Family lore", archive: "From this archive's own pages", history: "General history" };
+const leads = (paras) => paras.map((p, i) => p.reg === "B" && (i === 0 || paras[i - 1].reg !== "B"));
+const conflictsOf = (k) => book.conflicts.filter((c) => c.card === k);
+/* The chapter's plates are its own and its old cards', once each; its papers are its own and its old cards' links, once each. */
+const platesOf = (c) => [...new Set([...(c.plates || []), ...c.cards.flatMap((k) => old.chapters[k].plates)])];
+const papersOf = (c) => {
+  const seen = new Set(); const out = [];
+  for (const [t, h] of [...(c.papers || []), ...c.cards.flatMap((k) => old.chapters[k].links)]) {
+    if (seen.has(h)) continue; seen.add(h); out.push([t, h]);
+  }
+  return out;
+};
+const G = {
+  hill: "M0 16L7 4L11 10L14 7L21 16Z", loom: "M1 2H20V16H1ZM5 2V16M9 2V16M13 2V16M17 2V16M1 9H20",
+  field: "M0 6Q5 3 10 6T21 6M0 11Q5 8 10 11T21 11M0 16Q5 13 10 16T21 16", stone: "M1 7H20V16H1ZM6 7V11M14 11V16M3 2L9 6",
+  wave: "M0 9Q3 5 6 9T12 9T18 9T24 9M0 15Q3 11 6 15T12 15T18 15T24 15", works: "M0 16V8L5 4V8L10 4V8L15 4V8L20 4V16ZM17 4V0H19V3",
+  gable: "M1 16V8L10 1L19 8V16ZM8 16V11H12V16", ship: "M0 12H22L18 17H4ZM11 12V1L18 9H11",
+};
+const genOf = Object.fromEntries(book.ribbon.map((r) => [r.ch, r.gen]));
 ---
-<Base
-  title="The Story"
-  eyebrow="Nine chapters · 1679 to Brisbane"
-  dek="The whole descent told once, in order. Every chapter carries the document it rests on, and says plainly where the evidence stops.">
+<Base title={book.title} eyebrow={book.eyebrow} dek={book.dek}>
 
-  <div class="walk">
-    {s.chapters.map(c => (
-      <article class="chap">
-        <div class="cn">
-          <span class="yr">{c.yr}</span>
-          {c.n}
-        </div>
-        <div class="cb">
-          <div class="lab">{c.place}</div>
-          <h3 style="margin-top:8px">{c.title}</h3>
-          <p class="cw">{c.text}</p>
-          <blockquote class="cq">{c.quote}</blockquote>
-          <p class="cap" style="margin-top:8px">{c.qsrc}</p>
-          <p class="cw" style="margin-top:14px"><strong>{c.hard}</strong></p>
-          {c.plates.length > 0 && (
-            <div style="margin-top:20px;max-width:640px"><Plates ids={c.plates} cols={c.plates.length > 2 ? 3 : 2} /></div>
-          )}
-          <div class="cl">{c.links.map(([t, h]) => <a href={u(h)}>{t} →</a>)}</div>
-        </div>
-      </article>
+<div class="ol">
+  <nav class="ol-rib" aria-label="The generations, in order">
+    <ol>
+      {book.ribbon.map((r) => (
+        <li data-ch={r.ch}>
+          <a href={`#${r.ch}`} class={`rb rb-${r.g}`} title={r.why}>
+            <svg viewBox="-2 -2 28 22" width="26" height="20" aria-hidden="true"><path d={G[r.glyph]} /></svg>
+            <span class="rb-g">{r.gen ? `Gen. ${r.gen}` : "Before"}</span>
+            <span class="rb-p">{r.label}</span>
+            {r.yr && <span class="rb-y">{r.yr}</span>}
+          </a>
+        </li>
+      ))}
+    </ol>
+    <p class="rb-note">{book.ribbonNote}</p>
+  </nav>
+
+  <aside class="ol-legend" aria-label="How to read the marks">
+    <span class="ol-lt">How to read the marks</span>
+    {book.legend.map(([k, w]) => (
+      <span class="ol-li"><sup class={`mk mk-${k}`}>{k}</sup> {w}</span>
     ))}
-  </div>
+    <span class="ol-li"><span class="ol-wl">In the world around them</span> the place and the years, never these people; marked <sup class="mk mk-archive">archive</sup> or <sup class="mk mk-history">history</sup></span>
+    <span class="ol-li">In the trees and maps: <b>solid</b> documented, <b>dashed</b> inferred, <b>dotted</b> family memory</span>
+  </aside>
 
-  <section class="blk" style="border-top:1px solid var(--rule);margin-top:10px">
-    <h2>{s.after.heading}</h2>
-    <p class="dek" style="margin-top:10px">{s.after.text}</p>
-    <div class="cl" style="margin-top:18px">{s.after.links.map(([t, h]) => <a href={u(h)}>{t} →</a>)}</div>
+  <nav class="ol-toc" aria-label="Chapters">
+    <a href="#start">{book.prologue.title}</a>
+    {chapters.map((c) => <a href={`#${c.id}`}><span class="ol-tn">{c.n}</span> {c.title}</a>)}
+    <a href="#after">{old.after.heading}</a>
+    <a href="#unknown">{book.unknown.title}</a>
+  </nav>
+
+  <section class="ol-ch ol-pro" id="start" aria-labelledby="start-h">
+    <h2 id="start-h" class="ol-h">{book.prologue.title}</h2>
+    {book.prologue.paras.map((p) => (
+      <p class="ol-p" id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{p.g}</a></sup></p>
+    ))}
   </section>
 
-  <Lightbox />
-  <Sources ids={["dapa", "maticne", "kobler", "arolsen", "familysearch"]} />
+  {chapters.map((c, ci) => {
+    const lead = leads(c.paras);
+    const nx = chapters[ci + 1];
+    return (
+      <>
+        <Rule name="arrows" />
+        <section class="ol-ch" id={c.id} data-chapter={c.id} aria-labelledby={`${c.id}-h`}>
+          <header class="ol-head">
+            <div class="ol-num" aria-hidden="true">{c.n}</div>
+            <h2 id={`${c.id}-h`} class="ol-h"><span class="vh">Chapter {c.n}. </span>{c.title}</h2>
+            <p class="ol-when">{c.when}{genOf[c.id] && <span class="ol-gen"> · generation {genOf[c.id]} of 8</span>}</p>
+          </header>
+          {c.paras.map((p, i) => (
+            p.reg === "B"
+              ? <div class="ol-world" id={p.id}>
+                  <p class="ol-p">{lead[i] && <span class="ol-wl">In the world around them. </span>}<span set:html={md(p.t)} />{p.src.map((s) => (
+                    <sup class={`mk mk-${s.k}`}><a href={href(s.href)} title={`${markTitle[s.k]}: ${s.why}`}>{s.k}</a></sup>
+                  ))}{p.tbc && <span class="tbc" title={p.tbc}> to be confirmed</span>}</p>
+                </div>
+              : <p class={`ol-p${i === 0 ? " ol-first" : ""}`} id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{p.g}</a></sup>{p.tbc && <span class="tbc" title={p.tbc}> to be confirmed</span>}</p>
+          ))}
+          {c.tree && <LineTree tree={c.tree} title={c.title} next={nx ? nx.id : null} nextTitle={nx ? nx.title : ""} />}
+          {c.map && <StoryMap id={c.map} here={c.id} />}
+          {c.cards.length > 0 && (
+            <div class="ol-cards">
+              <p class="ol-cn">{book.cardsNote}</p>
+              {c.cards.map((k) => {
+                const o = old.chapters[k];
+                const cf = conflictsOf(k);
+                return (
+                  <aside class="ol-card" aria-label={`In the document: ${o.title}`}>
+                    <div class="ol-ck">In the document · {o.yr} · {o.place}</div>
+                    <div class="ol-ct">{o.title}</div>
+                    <blockquote class="ol-q">{o.quote}</blockquote>
+                    <p class="ol-qs">{o.qsrc}</p>
+                    <p class="ol-hard"><span class="ol-hl">What the paper cannot say.</span> {o.hard}</p>
+                    {cf.map((x) => <p class="ol-cf"><span class="tbc">to be confirmed</span> {x.note}</p>)}
+                  </aside>
+                );
+              })}
+            </div>
+          )}
+          {platesOf(c).length > 0 && (
+            <div class="ol-plates"><Plates ids={platesOf(c)} /></div>
+          )}
+          <p class="ol-papers"><span class="ol-pl">The papers for this chapter</span>
+            {papersOf(c).map(([t, h], k) => <>{k > 0 && <span aria-hidden="true"> · </span>}<a href={href(h)}>{t}</a></>)}
+          </p>
+        </section>
+      </>
+    );
+  })}
+
+  <Rule name="helm" />
+  <section class="ol-ch" id="after" aria-labelledby="after-h">
+    <h2 id="after-h" class="ol-h ol-hs2">{old.after.heading}</h2>
+    <p class="ol-p">{old.after.text}</p>
+    <p class="ol-papers">{old.after.links.map(([t, h], k) => <>{k > 0 && <span aria-hidden="true"> · </span>}<a href={href(h)}>{t}</a></>)}</p>
+  </section>
+
+  <Rule name="pomegranate" />
+  <section class="ol-ch" id="unknown" aria-labelledby="unknown-h">
+    <h2 id="unknown-h" class="ol-h ol-hs2">{book.unknown.title}</h2>
+    <p class="ol-p">{book.unknown.lead}</p>
+    <ul class="ol-list">
+      {book.unknown.items.map((x) => (
+        <li><span set:html={md(x.t)} /> <a class="ol-more" href={href(x.href)}>Where it stands →</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="ol-ch" id="papers" aria-labelledby="papers-h">
+    <h2 id="papers-h" class="ol-h ol-hs2">{book.readPapers.title}</h2>
+    <p class="ol-p">{book.readPapers.lead}</p>
+    <ul class="ol-list ol-read">
+      {book.readPapers.links.map(([t, h, w]) => (
+        <li><a href={href(h)}>{t}</a> <span class="ol-rw">{w}</span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="ol-ch ol-notes" id="world-notes" aria-labelledby="notes-h">
+    <h2 id="notes-h" class="ol-h ol-hs">{book.worldNotes.title}</h2>
+    <p class="ol-p">{book.worldNotes.lead}</p>
+    <ol class="ol-list ol-wn">
+      {book.worldNotes.items.map(([k, claim, src]) => (
+        <li id={`world-${k}`}><span class="ol-wk">{k}</span> {claim} <span class="ol-rw">{src}</span> <span class="tbc">to be confirmed</span></li>
+      ))}
+    </ol>
+    <p class="ol-p">{book.mapNote}</p>
+  </section>
+</div>
+
+<Lightbox />
+<Sources ids={["dapa", "maticne", "kobler", "arolsen", "familysearch", "huic", "ivetic"]} />
+
+<script>
+  /* The ribbon marks the chapter being read. Without script it is a plain list of links. */
+  const items = new Map([...document.querySelectorAll(".ol-rib li[data-ch]")].map((li) => [li.dataset.ch, li]));
+  const io = new IntersectionObserver((es) => {
+    for (const e of es) {
+      if (!e.isIntersecting) continue;
+      for (const li of items.values()) { li.classList.remove("on"); li.querySelector("a")?.removeAttribute("aria-current"); }
+      const li = items.get(e.target.dataset.chapter);
+      if (li) { li.classList.add("on"); li.querySelector("a")?.setAttribute("aria-current", "step"); }
+    }
+  }, { rootMargin: "-35% 0px -60% 0px" });
+  document.querySelectorAll("section[data-chapter]").forEach((s) => io.observe(s));
+</script>
 </Base>
+
+<style>
+  .ol { max-width: 68ch; margin: 0 auto; }
+  .ol-rib { margin: 0 0 18px; }
+  .ol-rib ol { display: flex; gap: 0; list-style: none; padding: 4px 2px 10px; margin: 0; overflow-x: auto; scrollbar-width: thin; }
+  .ol-rib li { flex: 0 0 auto; position: relative; padding-right: 14px; }
+  .ol-rib li + li::before { content: ""; position: absolute; left: -12px; top: 21px; width: 12px; border-top: 3px solid var(--terra); }
+  .rb { display: flex; flex-direction: column; align-items: center; min-width: 74px; padding: 6px 6px 7px; text-decoration: none;
+    color: var(--ink-2); border: 1.6px solid var(--accent); border-radius: 6px; background: var(--panel); font-family: var(--sans); }
+  .rb svg { fill: none; stroke: var(--ochre); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
+  .rb-inf { border-style: dashed; border-color: var(--ev-inferred); }
+  .rb-lore { border-style: dotted; border-color: var(--ev-family); }
+  .rb-g { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-top: 2px; }
+  .rb-p { font-family: var(--serif); font-size: 15px; color: var(--ink); white-space: nowrap; }
+  .rb-y { font-size: 11.5px; color: var(--ink-3); }
+  .ol-rib li.on .rb, .rb:hover { background: var(--accent-wash); }
+  .ol-rib li.on .rb { box-shadow: 0 0 0 2px var(--terra); }
+  .rb:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .rb-note { font-family: var(--sans); font-size: 12px; color: var(--ink-3); margin: 2px 0 0; line-height: 1.5; }
+
+  .ol-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5;
+    color: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0; margin: 6px 0 22px; }
+  .ol-lt { flex-basis: 100%; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 10.5px; color: var(--ink-3); }
+  .ol-li { display: inline-block; }
+  .ol-toc { display: flex; flex-direction: column; gap: 4px; font-family: var(--sans); font-size: 14px; margin: 0 0 8px; }
+  .ol-toc a { color: var(--accent); text-decoration: none; padding: 2px 0; }
+  .ol-toc a:hover { text-decoration: underline; }
+  .ol-tn { display: inline-block; min-width: 2.6em; font-family: var(--serif); color: var(--ink-3); }
+
+  .ol-ch { margin: 26px 0 8px; }
+  .ol-head { text-align: center; margin: 4px 0 26px; }
+  .ol-num { font-family: var(--serif); font-size: 15px; letter-spacing: .3em; color: var(--accent); }
+  .ol-h { font-family: var(--serif); font-weight: 500; font-size: clamp(27px, 4.4vw, 36px); line-height: 1.15; margin: 6px 0 0; color: var(--ink); }
+  .ol-pro .ol-h, .ol-hs2 { font-size: clamp(24px, 3.6vw, 30px); }
+  .ol-hs { font-size: 22px !important; }
+  .ol-when { font-family: var(--serif); font-variant: small-caps; letter-spacing: .08em; font-size: 17px; color: var(--ink-2); margin-top: 8px; }
+  .ol-gen { font-variant: normal; letter-spacing: 0; font-size: 14px; color: var(--ink-3); }
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .ol-p { font-family: var(--serif); font-size: 20px; line-height: 1.62; color: var(--ink); margin: 0 0 16px; hyphens: auto; overflow-wrap: break-word; }
+  .ol-first::first-letter { float: left; font-size: 3.15em; line-height: .86; padding: 6px 8px 0 0; color: var(--accent); font-weight: 500; }
+  .ol-world { margin: 4px 0 18px; padding: 2px 0 2px 1.4em; border-left: 2px solid var(--rule); }
+  .ol-world .ol-p { font-size: 18.5px; color: var(--ink-2); margin-bottom: 0; }
+  .ol-wl { font-variant: small-caps; letter-spacing: .08em; color: var(--ink-3); font-weight: 500; }
+
+  .mk { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .06em; line-height: 0; margin-left: 4px; vertical-align: super; white-space: nowrap; }
+  .mk a { text-decoration: none; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .mk a:hover { text-decoration: underline; }
+  .mk-doc { color: var(--accent); }
+  .mk-inf { color: var(--ev-inferred); }
+  .mk-lore { color: var(--ev-family); font-style: italic; }
+  .mk-archive, .mk-history { color: var(--ink-3); font-weight: 500; }
+  .ol-legend .mk { line-height: 1; margin-left: 0; }
+  .tbc { font-family: var(--serif); font-variant: small-caps; letter-spacing: .06em; font-size: .82em; color: var(--ev-inferred); white-space: nowrap; }
+
+  .ol-cards { margin: 22px 0 6px; }
+  .ol-cn { font-family: var(--sans); font-size: 12px; color: var(--ink-3); margin: 0 0 8px; }
+  .ol-card { background: var(--panel); border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: 2px; padding: 14px 18px 12px; margin: 0 0 12px; }
+  .ol-ck { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .ol-ct { font-family: var(--serif); font-size: 18px; color: var(--ink); margin-top: 4px; }
+  .ol-q { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; color: var(--ink); margin: 10px 0 4px; padding-left: 12px; border-left: 2px solid var(--rule-strong); }
+  .ol-qs { font-family: var(--sans); font-size: 12.5px; color: var(--ink-3); margin: 0; }
+  .ol-hard { font-family: var(--serif); font-size: 16.5px; line-height: 1.5; color: var(--ink-2); margin: 10px 0 0; }
+  .ol-hl { font-variant: small-caps; letter-spacing: .06em; color: var(--ink); }
+  .ol-cf { font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--ink-2); margin: 8px 0 0; }
+
+  .ol-plates { margin: 22px 0 6px; }
+  .ol-papers { font-family: var(--sans); font-size: 13.5px; line-height: 1.75; color: var(--ink-2); margin: 18px 0 0; padding-top: 10px; border-top: 1px dotted var(--rule-strong); }
+  .ol-pl { display: block; font-variant: small-caps; letter-spacing: .1em; font-size: 14px; color: var(--ink-3); }
+  .ol-papers a { color: var(--accent); }
+
+  .ol-list { font-family: var(--serif); font-size: 18.5px; line-height: 1.55; color: var(--ink); padding-left: 1.1em; margin: 0; }
+  .ol-list li { margin: 0 0 12px; }
+  .ol-more { font-family: var(--sans); font-size: 13px; color: var(--accent); white-space: nowrap; }
+  .ol-read a { color: var(--accent); }
+  .ol-rw { color: var(--ink-2); font-size: .9em; }
+  .ol-notes .ol-p, .ol-wn { font-size: 15.5px; }
+  .ol-wk { font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--ink-3); margin-right: 4px; }
+  .ol a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  @media (max-width: 520px) {
+    .ol-p { font-size: 18.5px; line-height: 1.58; }
+    .ol-world { padding-left: .9em; }
+    .ol-world .ol-p { font-size: 17px; }
+    .ol-list { font-size: 17px; }
+    .ol-q { font-size: 17px; }
+  }
+</style>

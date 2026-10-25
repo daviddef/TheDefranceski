@@ -1,0 +1,186 @@
+---
+/* One map of the line's moves, drawn at BUILD TIME as inline SVG (25 October 2026, for /story/).
+   Geometry: Natural Earth 50m (public domain) through the kit's outlines.js, then clipped to the frame here so that a
+   frame which touches Eurasia does not ship Eurasia. Projection: equirectangular, x scaled by cos(middle latitude), one
+   per map. Dots: only places the archive documents the family at, at the coordinates in story-maps.json (the archive's
+   own gazetteer). Countries, for the living generations: a marker and a country name, no town and no year.
+   Legs: solid = documented, dashed = inferred, dotted = family memory or route not known; the chapter's own legs are
+   drawn heavier. Every dot and leg links to its chapter; the same legs are listed as text under the map. */
+import RAW from "@daviddef/archive-kit/data/outlines.json";
+/* Natural Earth 50m (public domain), as the kit stores it: integer thousandths of a degree, delta-encoded. Decoded and
+   simplified here, at build time; the kit itself is read, never changed. */
+const SC = RAW.scale || 1000;
+function decode(dd) { let x = dd[0], y = dd[1]; const pts = [[x / SC, y / SC]]; for (let i = 2; i < dd.length; i += 2) { x += dd[i]; y += dd[i + 1]; pts.push([x / SC, y / SC]); } return pts; }
+function bboxOf(dd) { let x = dd[0], y = dd[1], x0 = x, x1 = x, y0 = y, y1 = y; for (let i = 2; i < dd.length; i += 2) { x += dd[i]; y += dd[i + 1]; if (x < x0) x0 = x; else if (x > x1) x1 = x; if (y < y0) y0 = y; else if (y > y1) y1 = y; } return [x0 / SC, y0 / SC, x1 / SC, y1 / SC]; }
+function dp(pts, t) {
+  if (pts.length < 3) return pts;
+  const keep = new Uint8Array(pts.length); keep[0] = keep[pts.length - 1] = 1; const st = [[0, pts.length - 1]];
+  while (st.length) { const [a, b] = st.pop(); let far = -1, best = t; const [ax, ay] = pts[a], [bx, by] = pts[b]; const dx = bx - ax, dy = by - ay; const den = Math.hypot(dx, dy) || 1;
+    for (let i = a + 1; i < b; i++) { const dist = Math.abs(dy * pts[i][0] - dx * pts[i][1] + bx * ay - by * ax) / den; if (dist > best) { best = dist; far = i; } }
+    if (far > 0) { keep[far] = 1; st.push([a, far], [far, b]); } }
+  return pts.filter((_, i) => keep[i]);
+}
+function simplifyRing(pts, t) {
+  const nn = pts.length; if (nn < 4) return pts; let far = 1, best = -1;
+  for (let i = 1; i < nn - 1; i++) { const dd = Math.hypot(pts[i][0] - pts[0][0], pts[i][1] - pts[0][1]); if (dd > best) { best = dd; far = i; } }
+  return dp(pts.slice(0, far + 1), t).concat(dp(pts.slice(far), t).slice(1));
+}
+function outlinesIn(f, t) {
+  const pick = (set) => set.filter((dd) => { const [x0, y0, x1, y1] = bboxOf(dd); return !(x1 < f.w || x0 > f.e || y1 < f.s || y0 > f.n); }).map((dd) => simplifyRing(decode(dd), t)).filter((r) => r.length >= 2);
+  return { land: pick(RAW.land), borders: pick(RAW.borders) };
+}
+import data from "../data/story-maps.json";
+const { id, here } = Astro.props;
+const m = data.maps[id];
+const P = data.places;
+const { w, e, s, n } = m.frame;
+const W = 640;
+const c0 = Math.cos(((s + n) / 2) * Math.PI / 180);
+const k = W / ((e - w) * c0);
+const H = Math.round((n - s) * k);
+const X = (lon) => (lon - w) * c0 * k;
+const Y = (lat) => (n - lat) * k;
+const r1 = (v) => Math.round(v * 10) / 10;
+
+/* Sutherland–Hodgman against a padded frame, for land rings (polygons). */
+const pad = 12;
+const box = [-pad, -pad, W + pad, H + pad];
+function clipPoly(pts) {
+  const edges = [
+    (p) => p[0] >= box[0], (p) => p[0] <= box[2], (p) => p[1] >= box[1], (p) => p[1] <= box[3],
+  ];
+  const isect = (a, b, i) => {
+    const [x0, y0] = a, [x1, y1] = b;
+    if (i < 2) { const xv = i === 0 ? box[0] : box[2]; const t = (xv - x0) / (x1 - x0); return [xv, y0 + t * (y1 - y0)]; }
+    const yv = i === 2 ? box[1] : box[3]; const t = (yv - y0) / (y1 - y0); return [x0 + t * (x1 - x0), yv];
+  };
+  let out = pts;
+  for (let i = 0; i < 4; i++) {
+    const inside = edges[i]; const inp = out; out = [];
+    if (!inp.length) break;
+    let prev = inp[inp.length - 1];
+    for (const cur of inp) {
+      if (inside(cur)) { if (!inside(prev)) out.push(isect(prev, cur, i)); out.push(cur); }
+      else if (inside(prev)) out.push(isect(prev, cur, i));
+      prev = cur;
+    }
+  }
+  return out;
+}
+/* Lines (borders): keep only the runs inside the padded frame. */
+function clipLine(pts) {
+  const runs = []; let cur = [];
+  const inb = (p) => p[0] >= box[0] && p[0] <= box[2] && p[1] >= box[1] && p[1] <= box[3];
+  for (const p of pts) { if (inb(p)) cur.push(p); else { if (cur.length > 1) runs.push(cur); cur = []; } }
+  if (cur.length > 1) runs.push(cur);
+  return runs;
+}
+const tol = (e - w) / 260;
+const o = outlinesIn({ w: w - 1, e: e + 1, s: s - 1, n: n + 1 }, tol);
+const proj = (ring) => ring.map(([lon, lat]) => [X(lon), Y(lat)]);
+const d = (pts, close) => pts.length < 2 ? "" : "M" + pts.map((p) => `${r1(p[0])} ${r1(p[1])}`).join("L") + (close ? "Z" : "");
+const land = o.land.map((r) => clipPoly(proj(r))).filter((r) => r.length > 2).map((r) => d(r, true)).join("");
+const borders = o.borders.flatMap((r) => clipLine(proj(r))).map((r) => d(r, false)).join("");
+
+const pt = (ref) => {
+  if (typeof ref === "string") return { x: X(P[ref].lon), y: Y(P[ref].lat), name: ref };
+  if (ref.country) { const c = m.countries.find((q) => q.label === ref.country); return { x: X(c.lon), y: Y(c.lat), name: c.label }; }
+  return { x: X(ref.lon), y: Y(ref.lat), name: "Carnia" };
+};
+const legs = m.legs.map((L) => {
+  const a = pt(L.from), b = pt(L.to);
+  const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+  const dx = b.x - a.x, dy = b.y - a.y;
+  const cx = mx - dy * (L.bend || 0), cy = my + dx * (L.bend || 0);
+  /* stop the line short of the dot so the arrowhead sits on the rim */
+  const len = Math.hypot(b.x - cx, b.y - cy) || 1;
+  const ex = b.x - ((b.x - cx) / len) * 6, ey = b.y - ((b.y - cy) / len) * 6;
+  const lx = 0.25 * a.x + 0.5 * cx + 0.25 * ex, ly = 0.25 * a.y + 0.5 * cy + 0.25 * ey;
+  return { ...L, a, b, path: `M${r1(a.x)} ${r1(a.y)}Q${r1(cx)} ${r1(cy)} ${r1(ex)} ${r1(ey)}`, lx: r1(lx + ((L.lo || [])[0] || 0)), ly: r1(ly + ((L.lo || [])[1] || 0)), mine: L.ch === here };
+});
+const word = { solid: "documented", dashed: "inferred", dotted: "family memory or route not known" };
+const listId = `map-${id}-legs`;
+const alt = `${m.title}. ` + legs.map((L) => `${L.a.name} to ${L.b.name}${L.label ? ", " + L.label : ""}: ${word[L.type]}.`).join(" ");
+---
+<figure class="smap" id={`map-${id}`}>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby={`map-${id}-t`} aria-describedby={listId}>
+    <title id={`map-${id}-t`}>{alt}</title>
+    <defs>
+      <marker id={`ah-${id}`} viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="sm-ah" />
+      </marker>
+      <marker id={`ahm-${id}`} viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="sm-ahm" />
+      </marker>
+    </defs>
+    <rect class="sm-sea" x="0" y="0" width={W} height={H} />
+    <path class="sm-land" d={land} />
+    <path class="sm-border" d={borders} />
+    {(m.regions || []).map((g) => (
+      <g>
+        {g.r > 0 && <ellipse class="sm-region" cx={r1(X(g.lon))} cy={r1(Y(g.lat))} rx={r1(g.r * c0 * k * 1.6)} ry={r1(g.r * k)} />}
+        <text class="sm-rl" x={r1(X(g.lon))} y={r1(Y(g.lat) - (g.r > 0 ? g.r * k + 6 : 0))} text-anchor="middle">{g.label}</text>
+      </g>
+    ))}
+    {legs.map((L) => (
+      <a href={`#${L.ch}`} aria-label={`${L.a.name} to ${L.b.name}${L.label ? ", " + L.label : ""}: ${word[L.type]}. Go to the chapter.`}>
+        <path class={`sm-leg sm-${L.type}${L.mine ? " sm-mine" : ""}`} d={L.path} marker-end={`url(#${L.mine ? "ahm" : "ah"}-${id})`} />
+        {L.label && <text class={`sm-ll${L.mine ? " sm-llm" : ""}`} x={L.lx} y={L.ly - 6} text-anchor="middle">{L.label}</text>}
+      </a>
+    ))}
+    {m.dots.map((q) => (
+      <a href={`#${q.ch}`} aria-label={`${q.p}${q.note ? ": " + q.note : ""}. Go to the chapter.`}>
+        <circle class={`sm-dot${q.ch === here ? " sm-dh" : ""}`} cx={r1(X(P[q.p].lon))} cy={r1(Y(P[q.p].lat))} r="4.5" />
+        <text class="sm-pl" x={r1(X(P[q.p].lon) + (q.dx || 0))} y={r1(Y(P[q.p].lat) + (q.dy || 0))} text-anchor={q.anchor || "start"}>{q.p}</text>
+      </a>
+    ))}
+    {(m.countries || []).map((q) => (
+      <a href={`#${q.ch}`} aria-label={`${q.label}, country only. Go to the chapter.`}>
+        <rect class="sm-ctry" x={r1(X(q.lon) - 5)} y={r1(Y(q.lat) - 5)} width="10" height="10" rx="2" />
+        <text class="sm-pl" x={r1(X(q.lon) + (q.dx || 0))} y={r1(Y(q.lat) + (q.dy || 0))} text-anchor={q.anchor || "start"}>{q.label}</text>
+      </a>
+    ))}
+  </svg>
+  <figcaption class="sm-cap">
+    <span class="sm-title">{m.title}.</span>
+    <span class="sm-key"><svg width="26" height="8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" class="sm-k sm-solid" /></svg> documented</span>
+    <span class="sm-key"><svg width="26" height="8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" class="sm-k sm-dashed" /></svg> inferred</span>
+    <span class="sm-key"><svg width="26" height="8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" class="sm-k sm-dotted" /></svg> family memory, or route not known</span>
+    {(m.countries || []).length > 0 && <span class="sm-key"><svg width="12" height="12" aria-hidden="true"><rect x="1" y="1" width="10" height="10" rx="2" class="sm-ctry" /></svg> country only, for the living generations</span>}
+    <ol class="sm-legs" id={listId}>
+      {legs.map((L) => (
+        <li><a href={`#${L.ch}`}>{L.a.name} → {L.b.name}</a>{L.label ? `, ${L.label}` : ""} · <em>{word[L.type]}</em>{L.ev && <> · <a href={L.ev}>the evidence</a></>}</li>
+      ))}
+    </ol>
+  </figcaption>
+</figure>
+<style>
+  .smap { margin: 22px 0 10px; }
+  .smap svg[role="img"] { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 2px; }
+  .sm-sea { fill: var(--panel); }
+  .sm-land { fill: var(--panel-2); stroke: var(--rule-strong); stroke-width: .6; }
+  .sm-border { fill: none; stroke: var(--rule-strong); stroke-width: .6; stroke-dasharray: 2 2; }
+  .sm-region { fill: var(--accent-wash); stroke: var(--rule-strong); stroke-width: .8; stroke-dasharray: 1 3; }
+  .sm-rl { font-family: var(--sans); font-size: 10px; letter-spacing: .14em; fill: var(--ink-3); }
+  .sm-leg { fill: none; stroke: var(--ink-2); stroke-width: 1.8; }
+  .sm-mine { stroke: var(--terra); stroke-width: 3; }
+  .sm-dashed { stroke-dasharray: 7 5; }
+  .sm-dotted { stroke-dasharray: 1.5 4.5; stroke-linecap: round; }
+  .sm-ah { fill: var(--ink-2); }
+  .sm-ahm { fill: var(--terra); }
+  .sm-ll { font-family: var(--sans); font-size: 11px; fill: var(--ink-2); paint-order: stroke; stroke: var(--panel); stroke-width: 3px; }
+  .sm-llm { fill: var(--terra); font-weight: 600; }
+  .sm-dot { fill: var(--paper); stroke: var(--accent); stroke-width: 2; }
+  .sm-dh { fill: var(--accent); }
+  .sm-ctry { fill: var(--paper); stroke: var(--accent); stroke-width: 1.6; }
+  .sm-pl { font-family: var(--serif); font-size: 15px; fill: var(--ink); paint-order: stroke; stroke: var(--panel); stroke-width: 3.5px; }
+  .smap a:focus-visible { outline: none; }
+  .smap a:focus-visible .sm-dot, .smap a:focus-visible .sm-ctry, .smap a:focus-visible .sm-leg { stroke: var(--accent-2); stroke-width: 4; }
+  .smap a:hover .sm-leg { stroke-width: 3.4; }
+  .sm-cap { font-family: var(--sans); font-size: 12.5px; line-height: 1.6; color: var(--ink-2); margin-top: 8px; }
+  .sm-title { font-weight: 600; color: var(--ink); margin-right: 8px; }
+  .sm-key { display: inline-block; margin-right: 12px; white-space: nowrap; }
+  .sm-k { stroke: var(--ink-2); stroke-width: 2; }
+  .sm-legs { margin: 6px 0 0; padding-left: 1.2em; }
+  .sm-legs a { color: var(--accent); }
+</style>

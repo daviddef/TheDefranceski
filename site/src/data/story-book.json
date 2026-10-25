@@ -1,8 +1,8 @@
 {
-  "_note": "The book of the direct line, the reader's first page (/our-line/). Prose only; the page template draws it. Every paragraph is either reg A (the people: what the archive's documents say, graded doc / inf / lore, the grade of its weakest claim, with ev the link to the evidence) or reg B (the world around them: never a claim that these people did or saw it; src lists where each detail comes from, 'archive' = this archive's own pages, 'history' = general history listed in worldNotes). The fact ledger and the fact-check are kept outside the repository with the session's notes. Living people are named with relationships and towns only; generation nine is not published.",
+  "_note": "The book of the direct line, the reader's first page (/story/, which /our-line/ now redirects to). Prose only; the page template draws it. Every paragraph is either reg A (the people: what the archive's documents say, graded doc / inf / lore, the grade of its weakest claim, with ev the link to the evidence) or reg B (the world around them: never a claim that these people did or saw it; src lists where each detail comes from, 'archive' = this archive's own pages, 'history' = general history listed in worldNotes). The fact ledger and the fact-check are kept outside the repository with the session's notes. Living people are named with relationships and towns only; generation nine is not published. Each chapter also carries `cards` (indices into story.json's nine chapters, whose quote, source line, hard limit, plates and links are set under the narrative unchanged), a `tree` (the chapter's couple and children, drawn by components/LineTree.astro) and, in four chapters, a `map` (an id in story-maps.json). `conflicts` lists where the old chapters and the narrative disagree; nothing there is resolved silently.",
   "title": "Down from the Hill",
-  "eyebrow": "Start here · eight generations · Gologorica to Brisbane",
-  "dek": "The line this archive descends from, told once as a short book: a weaver's household on an Istrian hill, a farmer, a stonecutter, a stonemason who went down to the sea, a garage in Württemberg, a grave at Senj. About twenty-five minutes to read. Every paragraph says how well it is known.",
+  "eyebrow": "The story · eight generations · Gologorica to Brisbane",
+  "dek": "The line this archive descends from, told once as a short book: out of Carnia, a weaver's household on an Istrian hill, a farmer, a stonecutter, a stonemason who went down to the sea, a garage in Württemberg, a grave at Senj. Under every chapter, a small family tree and the documents it rests on; four maps follow the moves. Every paragraph says how well it is known.",
   "legend": [
     [
       "doc",
@@ -34,7 +34,7 @@
         "g": "doc",
         "ev": "/direct-line/",
         "why": "The Spine: the eight generations, with the document under each",
-        "t": "This is the short version of a long archive: eight generations of one family, told in order, from a hill village in Istria to a city on the other side of the world. It is meant to be read in one sitting."
+        "t": "This is the short version of a long archive: eight generations of one family, told in order, from the mountains of Carnia and a hill village in Istria to a city on the other side of the world. It is meant to be read in one sitting."
       },
       {
         "id": "p-2",
@@ -64,8 +64,181 @@
   },
   "chapters": [
     {
-      "id": "weaver",
+      "id": "origin",
+      "title": "Where they came from",
+      "when": "Carnia and the road into Istria, 1679–1773",
+      "paras": [
+        {
+          "id": "o-1",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/carnia/#weavers",
+          "why": "What the 1679 list was a list of: Ferigo, «Le cifre, le anime»",
+          "t": "In 1679 the headmen of the parishes of the Val di Gorto, in Carnia, answered a question about their men in the County of Pisino. Their return names only the weavers who had gone there, and from the village of Mione it gives three: «Zuane De Franceschi con un suo fiolo, Zuane d'Erman: questi tre nell'Istria, luogo imperiale». Zuane De Franceschi, with a son of his, and Zuane d'Erman: these three in Istria, imperial territory. It is the oldest paper in this archive that puts a De Franceschi on the road into the county where the line would live. No page joins that Zuane, or his son, to anybody in Istria."
+        },
+        {
+          "id": "o-2",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/carnia/#gorto",
+              "why": "The Val di Gorto and its mother church at Luincis"
+            },
+            {
+              "k": "archive",
+              "href": "/",
+              "why": "The cover: what each ancestral place lived under"
+            }
+          ],
+          "t": "Carnia is the mountain country north of Udine. The Val di Gorto follows the river Degano, and its villages, Mione, Muina, Agrons, Cella, Ovasta and Luint among them, were all subject to one mother church at Luincis above Ovaro, one of the eleven ancient *pievi* of Carnia. Mione was Venetian for three hundred and seventy-seven years."
+        },
+        {
+          "id": "o-3",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/carnia/",
+              "why": "Back to Carnia: Giorgio Ferigo on the weavers and the road of the Furlans"
+            }
+          ],
+          "t": "Carnia is the mountain country north of Udine, and for two centuries its parishes sent men down into Istria to weave. The historian of its people, Giorgio Ferigo, followed the road they took from the parishes of Ovaro and Luincis: rare in the sixteenth century, thick in the seventeenth, thickest in the eighteenth. So many went that, as he put it, to say *cargnel* in Istria was to say weaver. A headmen's return of 1679 lists only the weavers who had gone into the County of Pisino, and a Zuane De Franceschi of Mione is among them, with a son. Some came home each spring. Others bought or built a house and a smallholding or a vineyard, and stayed."
+        },
+        {
+          "id": "o-4",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/carnia/#households1806",
+          "why": "The Mione households in the Napoleonic civil registers, 1806–1815",
+          "t": "The name stayed in the valley as well as leaving it. Twelve people of the name are documented in Carnia itself, across three villages. The Napoleonic civil registers of the commune of Mione, which nobody had opened before this archive, give five De Franceschi households between 1806 and 1810: farmers, a carpenter, a tailor; and in 1815 a De Franceschi of Mione who married at Ovaro was written down there as a weaver, and in the banns at Mione as a tailor. None of them is joined by any paper to Istria."
+        },
+        {
+          "id": "o-5",
+          "reg": "A",
+          "g": "lore",
+          "ev": "/carnia/#agrons",
+          "why": "Agrons: Carlo's letter of 1876 and the Istrian Encyclopedia",
+          "t": "The Gologorica family of the name told its own story. In 1876 the historian [Carlo De Franceschi](/carlo/), born at Gologorica, wrote privately to Giovanni Kobler: «Anche i miei derivano dalla Carnia, ma si stabilirono in Istria intorno al 1700». Mine too come from Carnia, but they settled in Istria around 1700. He added that some were still at Mione and Muina. The Istrian Encyclopedia says the family held the castle of Agrons by the river Degano. That is a family speaking about itself. Whether the weaver of the next chapter belonged to it, no paper says."
+        },
+        {
+          "id": "o-6",
+          "reg": "A",
+          "g": "inf",
+          "ev": "/gologorica-line/#first1661",
+          "why": "1661: the first time the name is written in the village; and the dates the accounts give",
+          "t": "When they came is less certain than that they came. The rent-rolls of the county of Pazin for 1498 and the sixteenth century, read in full for this archive, do not contain the name. A 2022 article by librarians in Zagreb, on the family's book collection, says it is first written in the Gologorica baptism book in 1661, a page this archive has not yet seen. The accounts that survive give the crossing four different dates, from the sixteenth century to about 1700, and none of them cites a document. The archive reads them as the sediment of a road used for two hundred years, not as rival answers."
+        },
+        {
+          "id": "o-7",
+          "reg": "A",
+          "g": "doc",
+          "ev": "/name/",
+          "why": "The Name: every spelling, and the clerk behind it",
+          "t": "The name went down the road with them and was written by whoever held the pen. A Latin register in Istria wrote Defranceschi, and once, for a count whose son was baptised in 1720, de Franceschis. Carlo wrote De Franceschi. On the Croatian coast the clerks made it Defranceski, a gravestone at Senj cut it Defrančeski, and an Australian file opened in 1949 wrote De Franceski. One family, spelled by each clerk the way his own language heard it."
+        },
+        {
+          "id": "o-8",
+          "reg": "B",
+          "src": [
+            {
+              "k": "archive",
+              "href": "/",
+              "why": "The cover: what the ancestral places lived under"
+            },
+            {
+              "k": "archive",
+              "href": "/gologorica-line/#french1812",
+              "why": "The French took the registers, 1812–1814"
+            }
+          ],
+          "t": "The places changed hands under them. Gologorica was Habsburg from 1374, French for a few years under Napoleon, Austrian again, Italian between the two world wars, then Yugoslav and Croatian. Senj, where the line would end on that coast, was never Italian at all."
+        }
+      ],
+      "papers": [
+        [
+          "The weavers' road, and the 1679 list",
+          "/carnia/#weavers"
+        ],
+        [
+          "Agrons, and Carlo's letter",
+          "/carnia/#agrons"
+        ],
+        [
+          "The Mione households",
+          "/carnia/#households1806"
+        ],
+        [
+          "1661 in the Gologorica book",
+          "/gologorica-line/#first1661"
+        ],
+        [
+          "Carlo's Letter",
+          "/carlos-letter/"
+        ],
+        [
+          "The Name",
+          "/name/"
+        ],
+        [
+          "Back to Carnia",
+          "/carnia/"
+        ]
+      ],
+      "plates": [],
       "n": "I",
+      "cards": [
+        0,
+        1
+      ],
+      "tree": {
+        "glyph": "hill",
+        "note": "The 1679 return names a father and a son on the road; the register of 1773 names a weaver from Carnia. No paper joins them, so the thread is broken.",
+        "rows": [
+          {
+            "role": "top",
+            "people": [
+              {
+                "name": "Zuane De Franceschi",
+                "years": "of Mione, 1679",
+                "pid": "zuane-de-franceschi-c1629",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "a son of his",
+                "years": "in Istria, 1679",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "gap",
+            "text": "no paper joins them"
+          },
+          {
+            "role": "top",
+            "people": [
+              {
+                "name": "Leonardus Defranceschi",
+                "years": "ex Carnia, † 1773",
+                "pid": "leonardus-defranceschi-1697",
+                "g": "doc"
+              }
+            ],
+            "line": true
+          }
+        ]
+      },
+      "map": "carnia"
+    },
+    {
+      "id": "weaver",
+      "n": "II",
       "title": "The weaver's son",
       "when": "Gologorica, 1773–1805",
       "plates": [
@@ -88,18 +261,6 @@
           "ev": "/gologorica-line/#textorexcarnia",
           "why": "The same entry, and what it does not prove",
           "t": "It is the first time a Gologorica register puts anyone of the name outside Istria. What kin the old weaver was to the Dominus whose tomb he lay in, the book does not say, and no paper yet joins him to any one village in Carnia."
-        },
-        {
-          "id": "i-3",
-          "reg": "B",
-          "src": [
-            {
-              "k": "archive",
-              "href": "/carnia/",
-              "why": "Back to Carnia: Giorgio Ferigo on the weavers and the road of the Furlans"
-            }
-          ],
-          "t": "Carnia is the mountain country north of Udine, and for two centuries its parishes sent men down into Istria to weave. The historian of its people, Giorgio Ferigo, followed the road they took from the parishes of Ovaro and Luincis: rare in the sixteenth century, thick in the seventeenth, thickest in the eighteenth. So many went that, as he put it, to say *cargnel* in Istria was to say weaver. A headmen's return of 1679 lists only the weavers who had gone into the County of Pisino, and a Zuane De Franceschi of Mione is among them, with a son. Some came home each spring. Others bought or built a house and a smallholding or a vineyard, and stayed."
         },
         {
           "id": "i-4",
@@ -208,11 +369,82 @@
           "The Spine, generation one",
           "/direct-line/"
         ]
-      ]
+      ],
+      "cards": [],
+      "tree": {
+        "glyph": "loom",
+        "note": "The thread to the next chapter is dashed: the boy of 1787 is the farmer of house 5 by inference.",
+        "rows": [
+          {
+            "role": "top",
+            "people": [
+              {
+                "name": "Leonardus",
+                "years": "† 1773, aged 76",
+                "pid": "leonardus-defranceschi-1697",
+                "g": "doc"
+              }
+            ],
+            "line": true
+          },
+          {
+            "role": "couple",
+            "people": [
+              {
+                "name": "Joannes Baptista Defranceschi",
+                "years": "weaver, m. 1774",
+                "pid": "joannes-baptista-defranceschi-detti-leonardi-m-1774",
+                "g": "doc"
+              },
+              {
+                "name": "Theresia née Grah",
+                "years": "of Krbune",
+                "pid": "theresia-defranceschi-nee-grach-gologorica",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "Josepha Mariana",
+                "years": "1776–1786",
+                "pid": "mariana-defranceschi-d1786",
+                "g": "doc"
+              },
+              {
+                "name": "Joannes Petrus",
+                "years": "1780",
+                "pid": "joannes-petrus-defranceschi-1780",
+                "g": "doc"
+              },
+              {
+                "name": "Joh.",
+                "years": "† 1789, aged 7",
+                "g": "inf"
+              },
+              {
+                "name": "Franciscus Antonius",
+                "years": "1785",
+                "pid": "franciscus-antonius-defranceschi-1785",
+                "g": "doc"
+              },
+              {
+                "name": "Joannes Baptista",
+                "years": "1787",
+                "pid": "giovanni-battista-defranceschi-1787",
+                "g": "inf",
+                "line": true
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "farmer",
-      "n": "II",
+      "n": "III",
       "title": "The book of souls",
       "when": "Gračišće, house 5, 1787–1846",
       "plates": [
@@ -362,11 +594,76 @@
           "Raymundus de Franceschi",
           "/person/raymundus-de-franceschi-1823/"
         ]
-      ]
+      ],
+      "cards": [
+        2
+      ],
+      "tree": {
+        "glyph": "field",
+        "rows": [
+          {
+            "role": "couple",
+            "people": [
+              {
+                "name": "Joannes Baptista Defranceschi",
+                "years": "1787–1846, farmer",
+                "pid": "giovanni-battista-defranceschi-1787",
+                "g": "doc"
+              },
+              {
+                "name": "Francisca Salomon",
+                "years": "1797",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "Raymundus",
+                "years": "1823",
+                "pid": "raymundus-de-franceschi-1823",
+                "g": "doc"
+              },
+              {
+                "name": "Antonius",
+                "years": "1825",
+                "pid": "antonio-defranceschi-1825",
+                "g": "doc",
+                "line": true
+              },
+              {
+                "name": "Leopoldina Maria",
+                "years": "1829",
+                "pid": "leopoldina-maria-defranceschi-1829",
+                "g": "doc"
+              },
+              {
+                "name": "Regina Theresia",
+                "years": "1830 or 1836",
+                "pid": "regina-theresia-defranceschi-gracisce",
+                "g": "doc"
+              },
+              {
+                "name": "Joannes",
+                "years": "1833",
+                "g": "doc"
+              },
+              {
+                "name": "Franciscus Liberatus",
+                "years": "1840",
+                "pid": "franciscus-liberatus-defranceschi-1840",
+                "g": "doc"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "stonecutter",
-      "n": "III",
+      "n": "IV",
       "title": "The man who cut stone",
       "when": "Gračišće, house 19, 1825–1894",
       "plates": [
@@ -498,11 +795,83 @@
           "Checked against the family's tree",
           "/direct-line/#treecheck"
         ]
-      ]
+      ],
+      "cards": [
+        3
+      ],
+      "tree": {
+        "glyph": "stone",
+        "note": "Francisca is from the family's tree, so her outline is dotted.",
+        "rows": [
+          {
+            "role": "couple",
+            "people": [
+              {
+                "name": "Antonius Defranceschi",
+                "years": "1825–1894, stonecutter",
+                "pid": "antonio-defranceschi-1825",
+                "g": "doc"
+              },
+              {
+                "name": "Maria née Fernasar",
+                "years": "1832–1916, midwife",
+                "pid": "maria-fernasar-tornasar-de-franceschi-1832",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "Antonius",
+                "years": "1856",
+                "href": "/the-eleven/",
+                "g": "doc"
+              },
+              {
+                "name": "Francisca",
+                "years": "1858, lived two days",
+                "g": "lore"
+              },
+              {
+                "name": "Catharina",
+                "years": "1859–1868",
+                "g": "doc"
+              },
+              {
+                "name": "Josephus",
+                "years": "1863",
+                "pid": "josip-defranceschi-1863",
+                "g": "doc",
+                "line": true
+              },
+              {
+                "name": "Leopolda",
+                "years": "1865",
+                "pid": "leopolda-de-franceschi-1865",
+                "g": "doc"
+              },
+              {
+                "name": "Catharina",
+                "years": "1869",
+                "pid": "catharina-defranceschi-kostessich-1869",
+                "g": "doc"
+              },
+              {
+                "name": "Modestus",
+                "years": "1875",
+                "pid": "modestus-de-franceschi-1875",
+                "g": "doc"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "coast",
-      "n": "IV",
+      "n": "V",
       "title": "Down to the sea",
       "when": "Gračišće · Klenovica · Crikvenica, 1863–1951",
       "plates": [
@@ -626,11 +995,74 @@
           "Burials",
           "/burials/"
         ]
-      ]
+      ],
+      "cards": [
+        4,
+        5,
+        6
+      ],
+      "tree": {
+        "glyph": "wave",
+        "rows": [
+          {
+            "role": "couple",
+            "people": [
+              {
+                "name": "Josip Defranceschi",
+                "years": "1863, stonemason",
+                "pid": "josip-defranceschi-1863",
+                "g": "doc"
+              },
+              {
+                "name": "Ana Kalanj",
+                "years": "1864",
+                "pid": "anna-kalanj-de-franceschi-1864-1936-1864",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "Anton Rudolf",
+                "years": "1890",
+                "pid": "anton-rudolf-defranceski-1890",
+                "g": "doc",
+                "line": true
+              },
+              {
+                "name": "Marija Stjepanka",
+                "years": "1892–1905",
+                "pid": "marija-stjepanka-defranceschi-1892",
+                "g": "doc"
+              },
+              {
+                "name": "Ivan",
+                "years": "1894–1896",
+                "pid": "ivan-de-franceschi-1894",
+                "g": "doc"
+              },
+              {
+                "name": "Zorica",
+                "years": "1896",
+                "pid": "zorica-de-franceski-1896",
+                "g": "doc"
+              },
+              {
+                "name": "Marija",
+                "years": "1905–1906",
+                "g": "doc"
+              }
+            ]
+          }
+        ]
+      },
+      "map": "coast"
     },
     {
       "id": "pfullingen",
-      "n": "V",
+      "n": "VI",
       "title": "Three months in Württemberg",
       "when": "Crikvenica · Pfullingen, 1890–1943",
       "plates": [
@@ -742,11 +1174,74 @@
           "Graves",
           "/graves/"
         ]
-      ]
+      ],
+      "cards": [
+        7
+      ],
+      "tree": {
+        "glyph": "works",
+        "note": "His year of death and Pepe's and Anka's years are the family's, so those outlines are dotted.",
+        "rows": [
+          {
+            "role": "couple",
+            "people": [
+              {
+                "name": "Anton Rudolf Defranceski",
+                "years": "1890 – 1943?",
+                "pid": "anton-rudolf-defranceski-1890",
+                "g": "lore"
+              },
+              {
+                "name": "Ursula Kovačina",
+                "years": "",
+                "pid": "ursula-kovacina-defranceschi-1895",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "Josip «Pepe»",
+                "years": "the eldest",
+                "pid": "josip-petar-pepo-defranceski-1911",
+                "g": "lore"
+              },
+              {
+                "name": "Petar",
+                "years": "1913",
+                "pid": "petar-defranceski-1913",
+                "g": "doc"
+              },
+              {
+                "name": "Anka",
+                "years": "† Belgrade 1944",
+                "pid": "anka-nera-defranceski-orescanin-1915",
+                "g": "lore"
+              },
+              {
+                "name": "Zdravko",
+                "years": "1921–1979",
+                "pid": "zdravko-frank-defranceski-1921",
+                "g": "doc"
+              },
+              {
+                "name": "Ivan",
+                "years": "1925",
+                "pid": "ivan-defranceski-1925",
+                "g": "doc",
+                "line": true
+              }
+            ]
+          }
+        ]
+      },
+      "map": "europe"
     },
     {
       "id": "senj",
-      "n": "VI",
+      "n": "VII",
       "title": "The boy who went home",
       "when": "Crikvenica · Pfullingen · Senj, 1925–1995",
       "plates": [
@@ -870,12 +1365,49 @@
           "Graves",
           "/graves/"
         ]
-      ]
+      ],
+      "cards": [
+        8
+      ],
+      "tree": {
+        "glyph": "gable",
+        "rows": [
+          {
+            "role": "couple",
+            "people": [
+              {
+                "name": "Ivan Defranceski",
+                "years": "1925–1995",
+                "pid": "ivan-defranceski-1925",
+                "g": "doc"
+              },
+              {
+                "name": "Hedviga Blažević",
+                "years": "1926–2001",
+                "pid": "hedviga-blazevic-defranceski-1926",
+                "g": "doc"
+              }
+            ]
+          },
+          {
+            "role": "kids",
+            "people": [
+              {
+                "name": "Ivan",
+                "years": "born at Senj",
+                "pid": "ivan-defranceski-1951",
+                "g": "doc",
+                "line": true
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "closing": {
     "id": "us",
-    "n": "VII",
+    "n": "VIII",
     "title": "And then it is us",
     "when": "Senj · Johannesburg · Brisbane",
     "paras": [
@@ -892,8 +1424,8 @@
         "reg": "A",
         "g": "doc",
         "ev": "/direct-line/",
-        "why": "The Spine: the last two generations, as the archive publishes them",
-        "t": "His wife is Cheryl Lerena. Their son is David Defranceski, who keeps this archive, in Brisbane, Australia. They are living, and by this archive's rule the living are named with their relationships and their towns, and nothing more."
+        "why": "The Spine, generations seven to nine, as the archive publishes them",
+        "t": "His wife is [Cheryl Lerena](/cheryl-lerena/), of Brisbane, Australia. Their son is David Defranceski, who keeps this archive, in Brisbane. David's two sons, A. and M., are Ivan's grandchildren, and they carry the name on in Australia. All of them are living, and by this archive's rule the living are named with their relationships and their towns and nothing more; the two youngest, by their initials only."
       },
       {
         "id": "vii-3",
@@ -903,6 +1435,70 @@
         "why": "The Spine",
         "t": "So the line runs from an old weaver laid in another man's tomb inside a church on an Istrian hill to a city on the far side of the world: Gologorica, Gračišće, Klenovica, Crikvenica, Pfullingen, Senj, Johannesburg, Brisbane. Papers in Latin, Croatian, German, French and English. A name spelled four ways. And then it is us."
       }
+    ],
+    "cards": [],
+    "tree": {
+      "glyph": "ship",
+      "note": "Living people are drawn as filled nodes: the adults by first name or as «living», the two grandchildren by their initials only, with no dates.",
+      "rows": [
+        {
+          "role": "couple",
+          "people": [
+            {
+              "name": "Ivan",
+              "years": "Senj · Johannesburg · Brisbane",
+              "pid": "ivan-defranceski-1951",
+              "g": "doc"
+            },
+            {
+              "name": "Cheryl",
+              "years": "",
+              "g": "living"
+            }
+          ]
+        },
+        {
+          "role": "kids",
+          "people": [
+            {
+              "name": "living",
+              "years": "",
+              "g": "living",
+              "line": true
+            }
+          ]
+        },
+        {
+          "role": "grand",
+          "people": [
+            {
+              "name": "A.",
+              "years": "",
+              "g": "living"
+            },
+            {
+              "name": "M.",
+              "years": "",
+              "g": "living"
+            }
+          ]
+        }
+      ]
+    },
+    "map": "world",
+    "papers": [
+      [
+        "The Spine, the last two generations",
+        "/direct-line/"
+      ],
+      [
+        "Nineteen forty-eight",
+        "/1948/"
+      ],
+      [
+        "The Senj line",
+        "/senj-line/"
+      ]
     ]
   },
   "unknown": {
@@ -943,11 +1539,6 @@
         "The Spine",
         "/direct-line/",
         "the eight generations, a table and the document under each"
-      ],
-      [
-        "The Story",
-        "/story/",
-        "the same descent in nine chapters, from 1679, each with its key quotation"
       ],
       [
         "The Gologorica line",
@@ -1021,5 +1612,115 @@
         "Standard history of Yugoslavia."
       ]
     ]
-  }
+  },
+  "cardsNote": "From the earlier version of this page: the document each chapter rests on, and what the paper cannot say.",
+  "ribbon": [
+    {
+      "ch": "origin",
+      "label": "Carnia",
+      "yr": "1679",
+      "g": "doc",
+      "glyph": "hill",
+      "why": "the headmen's return names weavers of Mione in the County of Pisino"
+    },
+    {
+      "ch": "weaver",
+      "label": "Gologorica",
+      "yr": "1774",
+      "g": "inf",
+      "glyph": "loom",
+      "gen": "1",
+      "why": "the weaver's son marries; that he is generation one is inference"
+    },
+    {
+      "ch": "farmer",
+      "label": "Gračišće",
+      "yr": "1819",
+      "g": "doc",
+      "glyph": "field",
+      "gen": "2",
+      "why": "the farmer of house 5 marries"
+    },
+    {
+      "ch": "stonecutter",
+      "label": "Gračišće",
+      "yr": "1856",
+      "g": "doc",
+      "glyph": "stone",
+      "gen": "3",
+      "why": "the stonecutter of house 19 marries"
+    },
+    {
+      "ch": "coast",
+      "label": "Klenovica",
+      "yr": "1890",
+      "g": "doc",
+      "glyph": "wave",
+      "gen": "4",
+      "why": "the first child is born on the coast"
+    },
+    {
+      "ch": "pfullingen",
+      "label": "Pfullingen",
+      "yr": "1942",
+      "g": "doc",
+      "glyph": "works",
+      "gen": "5",
+      "why": "three and a half months in Württemberg"
+    },
+    {
+      "ch": "senj",
+      "label": "Senj",
+      "yr": "1951",
+      "g": "doc",
+      "glyph": "gable",
+      "gen": "6",
+      "why": "the family on the paper at Senj"
+    },
+    {
+      "ch": "us",
+      "label": "South Africa · Australia",
+      "yr": "",
+      "g": "doc",
+      "glyph": "ship",
+      "gen": "7–8",
+      "why": "the living generations, by country only"
+    }
+  ],
+  "ribbonNote": "Each stop is the place where that generation's own household first appears in a document, with the year of that document. The last stop names countries only and carries no year, because living people are in it.",
+  "conflicts": [
+    {
+      "card": 2,
+      "field": "quote",
+      "note": "This line gives the farmer's death as 1 September 1846; the narrative above leaves the day open, because the archive's own files give both 1 and 14 September. To be confirmed."
+    },
+    {
+      "card": 2,
+      "field": "hard",
+      "note": "Since this was written, registers have been read that date the weaver of 1773 and the marriage of 1774 (chapter II above). To be confirmed."
+    },
+    {
+      "card": 1,
+      "field": "hard",
+      "note": "Since this was written, the house at Gologorica has been found and photographed (chapter I above); no paper yet joins it to this line. To be confirmed."
+    },
+    {
+      "card": 8,
+      "field": "hard",
+      "note": "The archive's rule has since changed: living people are named with their relationships and their towns, as in the last chapter. To be confirmed."
+    }
+  ],
+  "conflictsText": [
+    "Old chapter II (1711) tells Carlo De Franceschi's great-great-grandfather Giambattista as the line's own ancestor; the narrative says no paper joins the 1711 house to the weaver's household.",
+    "Old chapter III gives the farmer's death as 1 September 1846; the archive's files give 1 and 14 September.",
+    "Old chapter III calls the farmer the earliest ancestor dated from a register; registers now date the weaver (1773) and the marriage of 1774.",
+    "Old chapter III lists four sons; the same page also names two daughters.",
+    "Old chapter IV counts five children of the stonecutter; the household book names six, and the family's tree a seventh.",
+    "Old chapter V says Josephus was baptised on 22 March 1863; the register says born on the 22nd, baptised on the 23rd.",
+    "Old chapter VII says Josip and Ana had six children and calls «vešti klesar sada tvorničar» five words; the registers give five children (the monument adds unplaced names) and the phrase is four words.",
+    "Old chapter VIII quotes «Emigré Australie le 8.3.49»; the ship's list has the sailing from Naples on 17 March 1949 (the archive reads the 8th as the day they left the camp).",
+    "Old chapter IX says Ivan worked at Senj; no paper this archive holds says where he worked, only that he was an electro-mechanic in 1951.",
+    "Old chapter IX says the living are omitted and the last generations are named only where death has closed them; the archive's rule now names the living with relationships and towns."
+  ],
+  "mapNote": "The maps: coastlines and borders from Natural Earth (public domain, naturalearthdata.com), simplified and clipped for this page; one equirectangular projection per map. Town dots stand at this archive's own gazetteer coordinates and only where a document puts the family. Countries, not towns, mark the living generations, with no dates. A solid leg has a document at each end; a dashed leg is inferred; a dotted leg is family memory or a route nobody has recorded."
 }

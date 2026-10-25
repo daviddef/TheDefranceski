@@ -1,0 +1,154 @@
+---
+/* A chapter's household as a small tree on a stem (25 October 2026, for /story/).
+   Drawn from the `tree` of a chapter in story-book.json: rows of `top` (a parent), `couple`, `kids` and `gap` (a break the
+   papers have not closed). The node outline carries the evidence, as the story's paragraph marks do: solid = documented,
+   dashed = inferred or family chart only, dotted = family memory or the family's tree. A living person is a filled node
+   that says «living» and nothing else. The coloured thread runs down the stem to the child who carries the line on to the
+   next chapter. Every named node with a page links to it. */
+import { u } from "../lib/url.js";
+const { tree, title, next, nextTitle } = Astro.props;
+const W = 360, X0 = 22, KX = 46;
+const word = { doc: "documented", inf: "inferred", lore: "family memory or the family's tree", living: "living: named in the text only, no dates" };
+const rows = [];
+let y = 14;
+let stemTop = null, threadTop = 0, threadY = null, lineKid = null;
+for (const r of tree.rows) {
+  if (r.role === "top") {
+    const p = r.people[0];
+    rows.push({ kind: "top", p, y: y + 12 });
+    if (stemTop == null) stemTop = y + 12;
+    y += 40;
+  } else if (r.role === "couple") {
+    rows.push({ kind: "couple", a: r.people[0], b: r.people[1], y });
+    if (stemTop == null) stemTop = y;
+    y += 84;
+  } else if (r.role === "kids") {
+    const kids = r.people.map((p, i) => ({ p, y: y + 10 + i * 27 }));
+    rows.push({ kind: "kids", kids });
+    const lk = kids.find((k) => k.p.line);
+    if (lk) lineKid = lk;
+    y += 10 + r.people.length * 27;
+  } else if (r.role === "grand") {
+    const g = r.people.map((p, i) => ({ p, y: y + 10 + i * 27 }));
+    rows.push({ kind: "grand", g, from: lineKid ? lineKid.y : y });
+    y += 10 + r.people.length * 27;
+  } else if (r.role === "gap") {
+    rows.push({ kind: "gap", text: r.text, y: y + 8 });
+    y += 30;
+  }
+}
+const H = y + (next ? 30 : 8);
+const lastY = Math.max(...rows.filter((r) => r.kind !== "grand").flatMap((r) => r.kind === "kids" ? r.kids.map((k) => k.y) : [r.y + (r.kind === "couple" ? 64 : 0)]));
+const gaps = rows.filter((r) => r.kind === "gap");
+const kidsRow = rows.find((r) => r.kind === "kids");
+const kidsTop = kidsRow ? kidsRow.kids[0].y - 10 : 0;
+const href = (p) => (p.pid ? u(`/person/${p.pid}/`) : p.href ? u(p.href) : null);
+const label = (p) => p.name;
+const tip = (p) => p.g === "living" ? (p.name === "living" ? "A living person, drawn without name or dates" : `${p.name}: a living person, with no dates`) : `${p.name}${p.years ? ", " + p.years : ""} (${word[p.g]})`;
+const G = {
+  hill: "M0 16L7 4L11 10L14 7L21 16Z",
+  loom: "M1 2H20V16H1ZM5 2V16M9 2V16M13 2V16M17 2V16M1 9H20",
+  field: "M0 6Q5 3 10 6T21 6M0 11Q5 8 10 11T21 11M0 16Q5 13 10 16T21 16",
+  stone: "M1 7H20V16H1ZM6 7V11M14 11V16M3 2L9 6",
+  wave: "M0 9Q3 5 6 9T12 9T18 9T24 9M0 15Q3 11 6 15T12 15T18 15T24 15",
+  works: "M0 16V8L5 4V8L10 4V8L15 4V8L20 4V16ZM17 4V0H19V3",
+  gable: "M1 16V8L10 1L19 8V16ZM8 16V11H12V16",
+  ship: "M0 12H22L18 17H4ZM11 12V1L18 9H11",
+};
+---
+<figure class="ltree">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Family tree for ${title}. ` + tree.rows.map((r) => r.role === "gap" ? r.text + "." : r.people.map((p) => p.g === "living" ? (p.name === "living" ? "a living person" : `${p.name}, living`) : `${p.name}${p.years ? " " + p.years : ""}, ${word[p.g]}${p.line ? ", who carries the line" : ""}`).join("; ") + ".").join(" ")}>
+    {/* the stem, broken where the papers are */}
+    {stemTop != null && (gaps.length
+      ? gaps.map((g, i) => <>
+          <line class="lt-stem" x1={X0} y1={i === 0 ? stemTop : gaps[i - 1].y + 14} x2={X0} y2={g.y - 12} />
+          <line class="lt-stem" x1={X0} y1={g.y + 14} x2={X0} y2={lastY} />
+        </>)
+      : <line class="lt-stem" x1={X0} y1={stemTop} x2={X0} y2={lastY} />)}
+    {/* the thread: down the stem to the child who carries the line, and on */}
+    {lineKid && <path class="lt-thread" d={`M${X0} ${stemTop}V${kidsTop}`} />}
+    {lineKid && <path class={`lt-thread lt-e-${lineKid.p.g}`} d={`M${X0} ${kidsTop}V${lineKid.y}H${KX - 8}`} />}
+    {!lineKid && rows.filter((r) => r.kind === "top" && r.p && tree.rows.find((q) => q.role === "top" && q.line && q.people[0] === r.p)).map((r) => (
+      <path class="lt-thread lt-e-doc" d={`M${X0} ${r.y}V${H - 6}`} />
+    ))}
+    {rows.map((r) => {
+      if (r.kind === "top") return (
+        <a href={href(r.p) || undefined} aria-label={tip(r.p)}>
+          <title>{tip(r.p)}</title>
+          <circle class={`lt-n lt-${r.p.g}`} cx={X0} cy={r.y} r="7" />
+          <text class="lt-name" x={X0 + 16} y={r.y + 4}>{label(r.p)}<tspan class="lt-yr" dx="6">{r.p.years}</tspan></text>
+        </a>);
+      if (r.kind === "grand") return (
+        <g>
+          <line class="lt-stem" x1={KX} y1={r.from + 7} x2={KX} y2={r.g[r.g.length - 1].y} />
+          {r.g.map((k) => (
+            <a aria-label={tip(k.p)}>
+              <title>{tip(k.p)}</title>
+              <line class="lt-tick" x1={KX} y1={k.y} x2={KX + 17} y2={k.y} />
+              <circle class={`lt-n lt-${k.p.g}`} cx={KX + 24} cy={k.y} r="6" />
+              <text class="lt-name" x={KX + 37} y={k.y + 4}>{label(k.p)}</text>
+            </a>
+          ))}
+        </g>);
+      if (r.kind === "gap") return (
+        <text class="lt-gap" x={X0 - 4} y={r.y + 4}>⋯ {r.text}</text>);
+      if (r.kind === "couple") return (
+        <g>
+          <rect class="lt-box" x="6" y={r.y} width={W - 12} height="64" rx="5" />
+          <path class="lt-glyph" d={G[tree.glyph] || G.hill} transform={`translate(${W - 40} ${r.y + 8})`} />
+          {[r.a, r.b].map((p, i) => (
+            <a href={href(p) || undefined} aria-label={tip(p)}>
+              <title>{tip(p)}</title>
+              <circle class={`lt-n lt-${p.g}`} cx={X0} cy={r.y + 18 + i * 28} r="6.5" />
+              <text class="lt-name" x={X0 + 15} y={r.y + 16 + i * 28}>{(i === 1 ? "= " : "") + label(p)}</text>
+              {p.years && p.g !== "living" && <text class="lt-yr" x={X0 + 15 + (i === 1 ? 14 : 0)} y={r.y + 29 + i * 28}>{p.years}</text>}
+            </a>
+          ))}
+        </g>);
+      return (
+        <g>
+          {r.kids.map((k) => (
+            <a href={href(k.p) || undefined} aria-label={tip(k.p) + (k.p.line ? ", who carries the line" : "")}>
+              <title>{tip(k.p) + (k.p.line ? ", who carries the line" : "")}</title>
+              <line class={`lt-tick lt-e-${k.p.g}${k.p.line ? " lt-on" : ""}`} x1={X0} y1={k.y} x2={KX - 7} y2={k.y} />
+              <circle class={`lt-n lt-${k.p.g}${k.p.line ? " lt-lc" : ""}`} cx={KX} cy={k.y} r="6" />
+              <text class={`lt-name${k.p.line ? " lt-ln" : ""}`} x={KX + 13} y={k.y + 4}>{label(k.p)}{k.p.g !== "living" && <tspan class="lt-yr" dx="6">{k.p.years}</tspan>}</text>
+            </a>
+          ))}
+        </g>);
+    })}
+    {next && (
+      <a href={`#${next}`} aria-label={`The line continues in the chapter ${nextTitle}`}>
+        <text class="lt-next" x={W - 8} y={H - 10} text-anchor="end">the line goes on: {nextTitle} ↓</text>
+      </a>
+    )}
+  </svg>
+  {tree.note && <figcaption class="lt-cap">{tree.note}</figcaption>}
+</figure>
+<style>
+  .ltree { margin: 22px 0 8px; max-width: 440px; }
+  .ltree svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .lt-box { fill: var(--panel); stroke: var(--rule); }
+  .lt-glyph { fill: none; stroke: var(--ochre); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
+  .lt-stem { stroke: var(--rule-strong); stroke-width: 2; }
+  .lt-thread { fill: none; stroke: var(--terra); stroke-width: 3; stroke-linecap: round; }
+  .lt-tick { stroke: var(--rule-strong); stroke-width: 1.6; }
+  .lt-tick.lt-on { stroke: var(--terra); stroke-width: 3; }
+  .lt-e-inf { stroke-dasharray: 5 4; }
+  .lt-e-lore { stroke-dasharray: 1.5 3.5; stroke-linecap: round; }
+  .lt-n { fill: var(--paper); stroke: var(--accent); stroke-width: 2; }
+  .lt-inf { stroke-dasharray: 3.5 2.5; stroke: var(--ev-inferred); }
+  .lt-lore { stroke-dasharray: 1 2.6; stroke-linecap: round; stroke: var(--ev-family); }
+  .lt-living { fill: var(--panel-2); stroke: var(--ink-3); }
+  .lt-lc { fill: var(--terra); }
+  .lt-name { font-family: var(--serif); font-size: 15px; fill: var(--ink); }
+  .lt-ln { font-weight: 600; }
+  .lt-yr { font-family: var(--sans); font-size: 11.5px; fill: var(--ink-3); font-weight: 400; }
+  .lt-gap { font-family: var(--serif); font-style: italic; font-size: 13.5px; fill: var(--ink-3); }
+  .lt-next { font-family: var(--sans); font-size: 12px; fill: var(--terra); font-weight: 600; }
+  .ltree a:hover .lt-name { fill: var(--accent); }
+  .ltree a:focus-visible { outline: none; }
+  .ltree a:focus-visible .lt-n { stroke: var(--accent-2); stroke-width: 4; }
+  .ltree a:focus-visible .lt-name { fill: var(--accent); text-decoration: underline; }
+  .lt-cap { font-family: var(--sans); font-size: 12.5px; color: var(--ink-3); margin-top: 6px; line-height: 1.5; }
+</style>
