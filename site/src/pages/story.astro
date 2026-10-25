@@ -89,12 +89,13 @@ const genOf = Object.fromEntries(book.ribbon.map((r) => [r.ch, r.gen]));
     return (
       <>
         <Rule name="arrows" />
-        <section class="ol-ch" id={c.id} data-chapter={c.id} aria-labelledby={`${c.id}-h`}>
+        <section class={`ol-ch ol-chap${c.map ? " has-map" : ""}`} id={c.id} data-chapter={c.id} aria-labelledby={`${c.id}-h`}>
           <header class="ol-head">
             <div class="ol-num" aria-hidden="true">{c.n}</div>
             <h2 id={`${c.id}-h`} class="ol-h"><span class="vh">Chapter {c.n}. </span>{c.title}</h2>
             <p class="ol-when">{c.when}{genOf[c.id] && <span class="ol-gen"> · generation {genOf[c.id]} of 8</span>}</p>
           </header>
+          <div class="ol-text">
           {c.paras.map((p, i) => (
             p.reg === "B"
               ? <div class="ol-world" id={p.id}>
@@ -104,8 +105,9 @@ const genOf = Object.fromEntries(book.ribbon.map((r) => [r.ch, r.gen]));
                 </div>
               : <p class={`ol-p${i === 0 ? " ol-first" : ""}`} id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{p.g}</a></sup>{p.tbc && <span class="tbc" title={p.tbc}> to be confirmed</span>}</p>
           ))}
-          {c.tree && <LineTree tree={c.tree} title={c.title} next={nx ? nx.id : null} nextTitle={nx ? nx.title : ""} />}
-          {c.map && <StoryMap id={c.map} here={c.id} />}
+          </div>
+          {c.tree && <div class="ol-tree"><LineTree tree={c.tree} title={c.title} next={nx ? nx.id : null} nextTitle={nx ? nx.title : ""} /></div>}
+          {c.map && <div class="ol-map"><StoryMap id={c.map} here={c.id} /></div>}
           {c.cards.length > 0 && (
             <div class="ol-cards">
               <p class="ol-cn">{book.cardsNote}</p>
@@ -195,11 +197,20 @@ const genOf = Object.fromEntries(book.ribbon.map((r) => [r.ch, r.gen]));
 </Base>
 
 <style>
-  .ol { max-width: 68ch; margin: 0 auto; }
+  /* The page container's full width, one left edge with the title (David, 25 October 2026); the READING
+     measure is kept on the prose itself, not on the page. */
+  .ol { max-width: none; margin: 0; }
+  .ol-p, .ol-world, .ol-list, .ol-text { max-width: 70ch; }
   .ol-rib { margin: 0 0 18px; }
-  .ol-rib ol { display: flex; gap: 0; list-style: none; padding: 4px 2px 10px; margin: 0; overflow-x: auto; scrollbar-width: thin; }
-  .ol-rib li { flex: 0 0 auto; position: relative; padding-right: 14px; }
-  .ol-rib li + li::before { content: ""; position: absolute; left: -12px; top: 21px; width: 12px; border-top: 3px solid var(--terra); }
+  .ol-rib ol { display: flex; gap: 14px; list-style: none; padding: 4px 2px 10px; margin: 0; overflow-x: auto; scrollbar-width: thin; }
+  .ol-rib li { flex: 0 0 auto; position: relative; }
+  .ol-rib li + li::before { content: ""; position: absolute; left: -14px; top: 21px; width: 14px; border-top: 3px solid var(--terra); }
+  @media (min-width: 900px) {
+    .ol-rib ol { overflow-x: visible; }
+    .ol-rib li { flex: 1 1 0; min-width: 0; }
+    .ol-rib .rb { min-width: 0; height: 100%; padding: 6px 4px 7px; }
+    .ol-rib .rb-p { white-space: normal; text-align: center; line-height: 1.2; }
+  }
   .rb { display: flex; flex-direction: column; align-items: center; min-width: 74px; padding: 6px 6px 7px; text-decoration: none;
     color: var(--ink-2); border: 1.6px solid var(--accent); border-radius: 6px; background: var(--panel); font-family: var(--sans); }
   .rb svg { fill: none; stroke: var(--ochre); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
@@ -213,17 +224,33 @@ const genOf = Object.fromEntries(book.ribbon.map((r) => [r.ch, r.gen]));
   .rb:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
   .rb-note { font-family: var(--sans); font-size: 12px; color: var(--ink-3); margin: 2px 0 0; line-height: 1.5; }
 
-  .ol-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5;
-    color: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0; margin: 6px 0 22px; }
-  .ol-lt { flex-basis: 100%; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 10.5px; color: var(--ink-3); }
+  .ol-legend { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 22px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5;
+    color: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin: 6px 0 20px; }
+  .ol-lt { font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 10.5px; color: var(--ink-3); }
   .ol-li { display: inline-block; }
-  .ol-toc { display: flex; flex-direction: column; gap: 4px; font-family: var(--sans); font-size: 14px; margin: 0 0 8px; }
+  .ol-toc { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 28px; font-family: var(--sans); font-size: 14px; margin: 0 0 8px; }
+  @media (min-width: 700px) { .ol-toc { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row; } }
+  @media (min-width: 1100px) { .ol-toc { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   .ol-toc a { color: var(--accent); text-decoration: none; padding: 2px 0; }
   .ol-toc a:hover { text-decoration: underline; }
   .ol-tn { display: inline-block; min-width: 2.6em; font-family: var(--serif); color: var(--ink-3); }
 
   .ol-ch { margin: 26px 0 8px; }
-  .ol-head { text-align: center; margin: 4px 0 26px; }
+  .ol-head { text-align: left; margin: 4px 0 26px; }
+  /* Two zones from 1100px: the prose at its reading measure on the left; the tree, the old chapter's document cards
+     and the plates on the right; the map across the full width under both. DOM order is unchanged (text, tree, map,
+     cards, plates, papers), so reading and focus order are the same at every width. */
+  @media (min-width: 1100px) {
+    .ol-chap { display: grid; grid-template-columns: minmax(0, 66ch) minmax(300px, 1fr); grid-template-rows: auto auto auto auto 1fr auto auto; column-gap: 52px; align-items: start; }
+    .ol-chap > .ol-head { grid-column: 1 / -1; }
+    .ol-chap > .ol-text { grid-column: 1; grid-row: 2 / 6; }
+    .ol-chap > .ol-tree { grid-column: 2; grid-row: 2; }
+    .ol-chap > .ol-cards { grid-column: 2; grid-row: 3; margin-top: 8px; }
+    .ol-chap > .ol-plates { grid-column: 2; grid-row: 4; }
+    .ol-chap > .ol-map { grid-column: 1 / -1; grid-row: 6; }
+    .ol-chap > .ol-papers { grid-column: 1 / -1; grid-row: 7; }
+    .ol-chap > .ol-tree :global(.ltree) { margin-top: 0; }
+  }
   .ol-num { font-family: var(--serif); font-size: 15px; letter-spacing: .3em; color: var(--accent); }
   .ol-h { font-family: var(--serif); font-weight: 500; font-size: clamp(27px, 4.4vw, 36px); line-height: 1.15; margin: 6px 0 0; color: var(--ink); }
   .ol-pro .ol-h, .ol-hs2 { font-size: clamp(24px, 3.6vw, 30px); }

@@ -156,6 +156,12 @@ const alt = `${m.title}. ` + legs.map((L) => `${L.a.name} to ${L.b.name}${L.labe
 </figure>
 <style>
   .smap { margin: 22px 0 10px; }
+  /* At a wide container the map and its key sit side by side, so the map uses the width without growing taller than
+     a screen. Below 1100px the key follows the map. */
+  @media (min-width: 1100px) {
+    .smap { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr); column-gap: 32px; align-items: start; }
+    .smap .sm-cap { margin-top: 0; }
+  }
   .smap svg[role="img"] { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 2px; }
   .sm-sea { fill: var(--panel); }
   .sm-land { fill: var(--panel-2); stroke: var(--rule-strong); stroke-width: .6; }
