@@ -30,7 +30,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROSTER = os.path.join(ROOT, "site/src/data/roster.json")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import living_v2 as L2
-WINDOW = L2.lr.LIVING_YEARS + 1       # the estate's 80 years (living-people standard v2), not a private 95
+WINDOW = L2.LIVING_YEARS + 1          # the estate's 80 years (living-people standard v2), not a private 95; L2.CUTOFF is the boundary year
 
 def main():
     rows = json.load(io.open(ROSTER, encoding="utf-8"))["rows"]
@@ -54,7 +54,7 @@ def main():
             if b and L2.row_is_living(r, year):
                 # v2: the rule calls this person living and the row is published with a birth year
                 fails.append("%s (%s) is published with a birth year (%s) and the rule (80 or younger, no "
-                             "death recorded, no public source) calls them living." % (nm, pid, b))
+                             "death recorded; a public source does not change that) calls them living." % (nm, pid, b))
 
     for m in fails:
         print("  FAIL  %s" % m)

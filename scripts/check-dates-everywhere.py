@@ -44,7 +44,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import living_v2 as L2
 # The window is the estate's, not this file's: 80 years, by year, from the kit's living_rule.py
 # (the living-people standard v2, 16 October 2026). It was a private 95 until then.
-WINDOW = L2.lr.LIVING_YEARS + 1       # `(year - born) < WINDOW`  is  `<= 80`
+WINDOW = L2.LIVING_YEARS + 1          # `(year - born) < WINDOW`  is  `<= 80`; the boundary year is L2.CUTOFF (1946 in 2026)
 NAMEK = {"name", "who", "person", "child", "fullname"}
 DATEK = {"born", "birth", "b", "dob", "birthdate"}
 DEADK = {"d", "died", "death", "dy", "deathdate", "deceased"}
@@ -68,8 +68,9 @@ DEADWORDS = re.compile(r"\b(died|death|buried|headstone|grave|d\.\s*1[89]\d\d|"
 # three are over 80, which is why they no longer need an exemption.
 ALLOW = set()
 
-# A public record source that names the person means the rule treats them as not living.
-CITED = re.compile(r"familysearch|ark:/|findmypast|trove\.nla|freebmd|findagrave|billiongraves", re.I)
+# A public record source does NOT make a dated person "not living" (25 October 2026: a woman born in 1946
+# was published, year and all, because her row carried a FamilySearch ark and this file, like the kit's
+# rule, took a citation for a death). Only a death settles it. There is no CITED exemption any more.
 
 def year_of(s):
     """Returns (year, certain). A two-digit year is never certain."""
@@ -95,7 +96,7 @@ def _dead_names():
     except Exception:
         return out
     for r in rows:
-        if r.get("d") or r.get("deceased") or L2.row_recorded_dead(r) or L2.row_citations(r):
+        if r.get("d") or r.get("deceased") or L2.row_recorded_dead(r):
             out.add(_norm(r.get("name")))
     return out
 
@@ -111,9 +112,7 @@ def main():
                        if k.lower() in NAMEK and isinstance(o.get(k), str)), None)
             dead = any(o.get(k) for k in o if k.lower() in DEADK)
             if not dead:
-                dead = any(isinstance(v, str) and (DEADWORDS.search(v) or CITED.search(v)) for v in o.values())
-            if not dead:
-                dead = bool(o.get("ark") or o.get("arks") or o.get("cited"))
+                dead = any(isinstance(v, str) and DEADWORDS.search(v) for v in o.values())
             if not dead and nm and _norm(nm) in DEAD_NAMES:
                 dead = True
             for k, v in o.items():

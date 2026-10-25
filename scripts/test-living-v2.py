@@ -25,6 +25,7 @@ G = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(G)
 
 YEAR = datetime.date.today().year
+CUT = L2.cutoff(YEAR)          # the oldest birth year that is still living (1946 in 2026)
 UID = {"live1": "TESTUID-LIVE-1", "live2": "TESTUID-LIVE-2", "child": "TESTUID-CHILD-1", "old": "TESTUID-OLD-1",
        "dead": "TESTUID-DEAD-1", "cited": "TESTUID-CITED-1", "undated": "TESTUID-UNDATED-1"}
 N_FILLER = 110
@@ -96,11 +97,27 @@ def fixture(root):
         rows.append(r)
     rows.append({"name": "Qx Oldone", "pid": "qx-oldone", "who": "/who/qx-oldone/", "b": 1799, "d": None,
                  "place": "Oldtown, Testland", "src": "index", "note": ""})
+    # POSITIVE CONTROLS for rule 7: the year just outside the window is not a living person's; a person born in the
+    # window who has a death is not either. A gate that refuses these is a gate that cries wolf.
+    rows.append({"name": "Qx Eightyone", "pid": "qx-eightyone", "who": "/who/qx-eightyone/", "b": CUT - 1, "d": None,
+                 "place": "Oldtown, Testland", "src": "index", "note": ""})
+    rows.append({"name": "Qx Gone", "pid": "qx-gone", "who": "/who/qx-gone/", "b": YEAR - 30, "d": YEAR - 3,
+                 "place": "Oldtown, Testland", "src": "index", "note": ""})
     json.dump({"rows": rows}, io.open(os.path.join(data, "roster.json"), "w", encoding="utf-8")) if os.makedirs(data, exist_ok=True) is None else None
     # pages
     for r in rows:
         w(os.path.join(dist, "person", r["pid"], "index.html"), page(r["name"], bool(r.get("living"))))
         w(os.path.join(dist, "who", r["pid"], "index.html"), page(r["name"], bool(r.get("living"))))
+    w(os.path.join(data, "zz-controls.json"), json.dumps(
+        [{"name": "Qx Gone", "pid": "qx-gone", "b": YEAR - 30, "d": YEAR - 3}, {"name": "Qx Eightyone", "b": CUT - 1},
+         {"n": "Qx Gone", "y": str(YEAR - 30), "p": "", "living": False}]))
+    w(os.path.join(root, "data", "living-year-allow.json"),
+      json.dumps({"allow": [{"text": "Qx Allowed b. %d" % CUT, "why": "a reviewed exception (control)"}]}))
+    w(os.path.join(dist, "controls", "index.html"),
+      "<!doctype html><html><head><title>controls</title></head><body><main><p>Qx Gone (b. %d, died %d). Qx Eightyone b. %d. "
+      "Qx Allowed b. %d. Written in %d.</p></main></body></html>" % (YEAR - 30, YEAR - 3, CUT - 1, CUT, YEAR))
+    w(os.path.join(dist, "about", "index.html"),
+      "<!doctype html><html><head><title>about</title></head><body><main><p>About this archive.</p></main></body></html>")
     # who pages are keyed by slug = pid in the fixture
     sm = "".join("<url><loc>https://x.test/person/%s/</loc></url>" % r["pid"] for r in rows if not r.get("living"))
     w(os.path.join(dist, "sitemap.xml"), "<urlset>%s</urlset>" % sm)
@@ -248,6 +265,66 @@ def F_empty_dist(root):
 def F_no_tree(root):
     pass
 
+def _about(root, extra):
+    p = os.path.join(root, "site", "dist", "about", "index.html")
+    w(p, io.open(p, encoding="utf-8").read().replace("</main>", extra + "</main>"))
+
+def F_boundary(root):
+    d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Boundary", "pid": "qx-boundary", "b": CUT, "d": None,
+                                                     "src": "index", "note": ""}); save(root, d)
+    w(person(root, "qx-boundary"), page("Qx Boundary", False))
+
+def F_cited_dated(root):
+    d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Citedrow", "pid": "qx-citedrow", "b": CUT, "d": None,
+                                                     "src": "index", "note": "", "cited": "FamilySearch", "ark": "ark:/61903/1:1:TEST"}); save(root, d)
+    w(person(root, "qx-citedrow"), page("Qx Citedrow", False))
+
+def F_data_living(root):
+    w(os.path.join(root, "site", "src", "data", "zz-planted.json"), json.dumps([{"pid": "qx-livone", "name": "Qx Livone", "b": YEAR - 36}]))
+
+def F_data_living_dt(root):
+    w(os.path.join(root, "site", "src", "data", "zz-planted.json"),
+      json.dumps({"ptree": {"parents": [{"n": "Qx Livtwo", "dt": str(YEAR - 41), "slug": "qx-livtwo", "pid": "qx-livtwo"}]}}))
+
+def F_data_nodeath(root):
+    w(os.path.join(root, "site", "src", "data", "zz-planted.json"), json.dumps([{"name": "Qx Nobody", "b": CUT + 3}]))
+
+def F_data_reconcile(root):
+    w(os.path.join(root, "site", "src", "data", "zz-planted.json"), json.dumps({"new": [{"n": "Qx Nobody", "y": str(CUT), "p": "", "living": False}]}))
+
+def F_data_built(root):
+    w(os.path.join(root, "site", "dist", "zz-planted.json"), json.dumps({"places": [{"people": [{"n": "Qx Nobody", "y": CUT + 1, "d": None, "w": "/who/qx-nobody/"}]}]}))
+
+def F_page_b(root):
+    _about(root, "<p>Qx Nobody (b. %d)</p>" % (CUT + 2))
+
+def F_page_born_run(root):
+    _about(root, "<p>Three children born 1942, %d and %d.</p>" % (CUT, CUT + 1))
+
+def F_page_born_in(root):
+    _about(root, "<p>Where the child was born at Testville in %d.</p>" % (YEAR - 5))
+
+def F_page_born_ordinary(root):
+    _about(root, "<p>Qx Nobody, born %d, a stranger.</p>" % (CUT - 30))
+
+def F_jsonld(root):
+    _about(root, '<script type="application/ld+json">{"@type":"Person","name":"Qx Nobody","birthDate":"%d"}</script>' % (CUT + 4))
+
+def F_name_year(root):
+    _about(root, "<p>Qx Livone, %d, of Testville.</p>" % (YEAR - 36))
+
+def F_name_year_b(root):
+    _about(root, "<p>Qx Livtwo (b. %d)</p>" % (YEAR - 41))
+
+def F_tree_name_year(root):
+    _about(root, "<p>Qx Citedone %d</p>" % (YEAR - 30))
+
+def F_literal_cutoff(root):
+    w(os.path.join(root, "site", "src", "pages", "zz.astro"), "---\nconst NOW = new Date().getFullYear();\nconst maybe = (c) => (NOW - c.by) < 80;\n---\n")
+
+def F_literal_const(root):
+    w(os.path.join(root, "scripts", "zz-planted.py"), "PRESUME_DEAD_AFTER = 80\n")
+
 FAULTS = [
     ("rule: an unmarked row the rule calls living", "rule:", F_rule, {}),
     ("scrub: a living row with a birth year", "scrub:", F_scrub_b, {}),
@@ -277,6 +354,22 @@ FAULTS = [
     ("empty: no living person in the roster", "empty:", F_empty_living, {}),
     ("empty: no built person pages", "empty:", F_empty_dist, {}),
     ("tree absent but required", "tree:", F_no_tree, {"tree": False, "require_tree": True}),
+    ("rule 7: a person born in the cutoff year (exactly 80) published with no living mark", "rule:", F_boundary, {}),
+    ("rule 7: a dated person under 81 with a public-source citation published as not living (the 1946 fault)", "rule:", F_cited_dated, {}),
+    ("rule 7: a data row naming a living person carries a birth year", "year:", F_data_living, {}),
+    ("rule 7: a family-tree node of a living person carries a dated line (dt)", "year:", F_data_living_dt, {}),
+    ("rule 7: a data row with a birth year in the window, no death, no living flag", "year:", F_data_nodeath, {}),
+    ("rule 7: a reconciliation row (y, living false) with a year in the window", "year:", F_data_reconcile, {}),
+    ("rule 7: the same in a BUILT data file (atlas pin: y, d null)", "year:", F_data_built, {}),
+    ("rule 7: «b. YYYY» in the window on a built page", "year:", F_page_b, {}),
+    ("rule 7: «born 1942, YYYY and YYYY» (a run of years) on a built page", "year:", F_page_born_run, {}),
+    ("rule 7: «born at Testville in YYYY» on a built page", "year:", F_page_born_in, {}),
+    ("rule 7: Person JSON-LD with a birthDate in the window and no deathDate", "year:", F_jsonld, {}),
+    ("rule 7: a living person's name followed by a year in the window", "year:", F_name_year, {}),
+    ("rule 7: a living person's name followed by «(b. YYYY)»", "year:", F_name_year_b, {}),
+    ("rule 7: a person the tree gives as 80 or younger followed by their own year", "year:", F_tree_name_year, {}),
+    ("rule 8: a page that spells the 80-year boundary out (NOW - by < 80)", "cutoff:", F_literal_cutoff, {}),
+    ("rule 8: a script that sets its own PRESUME_DEAD_AFTER = 80", "cutoff:", F_literal_const, {}),
 ]
 
 
@@ -305,6 +398,16 @@ def main():
             print("%-62s %s" % (name, "YES  (%d)" % len(P) if hit else "NO  <<<<"))
             if not hit:
                 bad.append(name)
+        # NEGATIVE CONTROLS: ordinary content that must not be refused (a gate that cries wolf stops being read)
+        for name, mut in (("an ordinary «born» year long before the window", F_page_born_ordinary),):
+            d = os.path.join(base, "n%d" % len(bad))
+            shutil.copytree(clean, d)
+            mut(d)
+            P, N, S = run_gate(d)
+            ok = not P
+            print("%-62s %s" % ("control: " + name, "passes (right)" if ok else "REFUSED <<<<"))
+            if not ok:
+                bad.append("control: " + name)
         print("\n%d planted faults, %d caught, %d missed" % (len(FAULTS), len(FAULTS) - len(bad), len(bad)))
         return 1 if bad else 0
     finally:

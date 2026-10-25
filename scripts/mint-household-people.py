@@ -195,11 +195,11 @@ def main():
                     c["pid"], c["pidBasis"] = same[0]["pid"], "name+year via father's surname"
                     st["child: linked via father's surname"] += 1
                     continue
-            if L2.lr.possible_minor(by, False, (), False, YEAR):
+            if L2.possible_minor(by, False, (), False, YEAR):
                 # a child is not published at all (living-people standard v2, 16 October 2026)
                 st["child: a possible minor, held out, NOT minted"] += 1
                 continue
-            living = L2.lr.is_living(by, False, (), YEAR)
+            living = L2.is_living(by, False, (), YEAR)
             place = (c.get("place") or "").strip() or None
             dk = ("C", norm(full), by, norm(father), norm(mother))
             if dk in seen:

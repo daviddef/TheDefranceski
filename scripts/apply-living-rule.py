@@ -4,6 +4,8 @@
 
     python3 scripts/apply-living-rule.py            # report only; writes nothing
     python3 scripts/apply-living-rule.py --write    # rewrite roster.json and the ledger
+    python3 scripts/apply-living-rule.py --roster-only [--write]
+                                                    # no tree needed: apply the rule to the COMMITTED fields only
 
 THE RULE is the shared one (scripts/living_v2.py -> the kit's living_rule.py): living
 is 80 or younger with no death recorded and no public source; a person with no birth
@@ -28,6 +30,12 @@ WHAT IT WRITES.
     not republish them. A child with a KNOWN birth year is not held out: they are a living row.
   * data/living-ledger.json maps each tree-matched row to the tree's opaque _UID.
     It holds no date.
+
+--roster-only (25 October 2026) is for the machine that has no GEDCOM (CI, a second session). It decides from
+what the roster itself holds: a row that is not flagged living, carries a birth year 80 or younger today
+(L2.CUTOFF) and records no death is scrubbed living, whatever citation it carries (a public source cannot
+un-live a dated person: see living_v2.py). It never UNflags anyone, never holds anyone out, and touches no
+ledger entry: those need the tree.
 
 This script prints COUNTS only. Run with --names to see who, on your own screen.
 """
@@ -279,23 +287,25 @@ def patch_reconcile(new_rows):
 def main():
     write = "--write" in sys.argv
     names = "--names" in sys.argv
-    gpath = L2.gedcom_path(sys.argv[sys.argv.index("--gedcom") + 1] if "--gedcom" in sys.argv else None)
-    if not gpath:
+    roster_only = "--roster-only" in sys.argv
+    gpath = None if roster_only else L2.gedcom_path(sys.argv[sys.argv.index("--gedcom") + 1] if "--gedcom" in sys.argv else None)
+    if not gpath and not roster_only:
         sys.exit("apply-living-rule: no MyHeritage GEDCOM found (set ARCHIVE_GEDCOM). Without the tree "
                  "nobody has a birth year and the rule would call everybody not living. Refusing.")
     year = L2.THIS_YEAR
-    tree = L2.load_tree(gpath)
-    if len(tree.people) < 1000:
+    tree = None if roster_only else L2.load_tree(gpath)
+    if tree is not None and len(tree.people) < 1000:
         sys.exit("apply-living-rule: the tree has %d people. Refusing to decide anything from that." % len(tree.people))
     led = L2.load_ledger()
     # held out is now only an UNDATED person with a living parent (kit 6cefc79; a child with a known
     # birth year follows the standard). A tree id the rule no longer holds out is released.
-    led["held"] = [u for u in led.get("held", []) if u in tree.people and tree.verdict(u, year)[1]]
+    if tree is not None:
+        led["held"] = [u for u in led.get("held", []) if u in tree.people and tree.verdict(u, year)[1]]
     d = json.load(io.open(ROSTER, encoding="utf-8"))
     rows = d["rows"]
     ROWS.update({r["pid"]: r for r in rows if r.get("pid")})
     by_name = collections.defaultdict(list)
-    for p in tree.people.values():
+    for p in (tree.people.values() if tree is not None else ()):
         by_name[L2.name_key(p["name"])].append(p)
 
     C = collections.Counter()
@@ -304,10 +314,15 @@ def main():
         pid = r.get("pid")
         was = bool(r.get("living"))
         uid, how = (None, "n/a")
-        if was or (pid in led["people"]) or (pid in TWINS):
+        if roster_only:
+            if was:
+                new_rows.append(r)          # needs the tree to be judged: left exactly as it is
+                C["flagged living, kept (roster-only)"] += 1
+                continue
+        elif was or (pid in led["people"]) or (pid in TWINS):
             uid, how = match(r, tree, led, by_name)
-        p = tree.people.get(uid) if uid else None
-        if was and p is None:
+        p = tree.people.get(uid) if (uid and tree is not None) else None
+        if was and p is None and not roster_only:
             C["flagged living, no tree match (%s)" % how] += 1
         # --- the verdict ---
         if p is not None:
@@ -341,7 +356,7 @@ def main():
             new_rows.append(nr)
             changed.append((pid, why))
             continue
-        if p is not None and L2.row_is_living(r, year) and lr.public_source(p["cites"]):
+        if p is not None and L2.row_is_living(r, year) and lr.public_source(p["cites"]) and p["by"] is None:
             r = dict(r, cited="FamilySearch" if any("familysearch" in c.lower() for c in p["cites"]) else "MyHeritage record collection")
             C["not living: public source now recorded on the row"] += 1
         new_rows.append(r)
@@ -357,7 +372,7 @@ def main():
                 t, c = L2.town_country(pl[0])
                 kinds["town and country" if t and c else ("country only" if c else "town only")] += 1
 
-    print("tree: %d people, export %s" % (len(tree.people), os.path.basename(gpath)))
+    print("tree: %s" % (("%d people, export %s" % (len(tree.people), os.path.basename(gpath))) if tree is not None else "none (--roster-only)"))
     for k, v in sorted(C.items()):
         print("  %-52s %d" % (k, v))
     for k, v in sorted(kinds.items()):

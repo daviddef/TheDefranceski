@@ -12,7 +12,7 @@
     "check:book": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkbook.py --dist dist --book src/data/book.json",
     "check:kit": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkarchive.py --dist dist",
     "check:living": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkliving.py --dist dist --data src/data --policy named-bare",
-    "check:living-v2": "python3 ../scripts/check-living-v2.py --dist dist",
+    "check:living-v2": "python3 ../scripts/check-living-v2.py --dist dist && python3 ../scripts/test-living-v2.py",
     "check:worklist": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkworklist.py --root .",
     "check:covers": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkcovers.py --root .",
     "check:evidence": "python3 ../scripts/check-evidence.py --dist dist",
