@@ -5619,10 +5619,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -5644,7 +5640,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -5797,11 +5793,6 @@
      "text": "Giovanni (b.1883, 1915), Olivo and Ulivo (b.1896, 1915). Vermont in those years means one thing: the granite sheds of Barre, which drew stonecutters out of northern Italy and the Adriatic by the thousand. And this archive's own man at Gračišće — Antonius Defranceschi q. Joannis, house 19 — is entered in the Status Animarum as a stonecutter. That is a resonance, not a link. None of the Vermont rows carries a birthplace in the index, and the transcripts were not bought. It is written down here so that whoever"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
-    },
-    {
      "page": "/open-questions/",
      "title": "Open Questions",
      "text": "and posted it to Queensland for 117 kuna. The refusal is of open-ended research, not of a named request. Is there a Gračišće record in hand? Yes. Josephus Defranceschi, born 22 March 1863 and baptised the next day at Gračišće, son of Antonius Defranceschi, «lapidarius» — a stonemason — and Maria. Certified from MKR Gračišće 1841–1899, folio 108, entry 23. A marginal note was added by the civil registry in 1951, so the same person is traceable forward. Are the Gologorica registers reachable at"
@@ -5813,7 +5804,12 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
      "text": "Spine /direct-line/ Households /households/ status-animarum-gb 1825 IV Gračišće, house 19 Lapicida — the man who cut stone Three Latin words weld house 5 to house 19. Antonius Defranceschi q. Joannis — son of the late Giovanni — born 20 September 1825, married 25 November 1856, dead 4 August 1894. Against his name the clerk wrote his trade, and it is the trade that comes down the hill with the family: lapicida, a stonecutter. His wife Maria"
     },
     {
@@ -9268,10 +9264,6 @@
      "t": "Our line, drawn"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -9282,6 +9274,10 @@
     {
      "h": "/about/",
      "t": "About"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -9410,9 +9406,9 @@
      "text": "behind it· Pietro Defranceschi· 1701· a family tree· Gian Battista Defranceschi· 1743· a family tree· Leonardus Defranceschi· 1773· a family tree· Gisanna Defranceschi· 1774· a family tree· Pietro Defranceschi· 1781· a family"
     },
     {
-     "page": "/our-line/",
+     "page": "/story/",
      "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "A doc /gologorica-line/textorexcarnia Gologorica deaths, 14 March 1773, DAPA ZM34K-214, M01068977 On 14 March 1773 the parish priest of Gologorica, Marcus Bancich, entered a death in his book. Leonardus Defranceschi, seventy-six years old, had been given the sacrament of penance. He was buried the next day inside the parish church, in the tomb of Dominus Petrus Defranceschi. At the end of the"
+     "text": "Mione, 1679 zuane-de-franceschi-c1629 doc kids a son of his in Istria, 1679 doc gap no paper joins them top Leonardus Defranceschi ex Carnia, † 1773 leonardus-defranceschi-1697 doc line carnia weaver II The weaver's son Gologorica, 1773–1805 golo-marriage-1774"
     },
     {
      "page": "/worklist/",
@@ -10853,7 +10849,7 @@
   "antonio-defranceschi": {
    "name": "Antonio Defranceschi",
    "slug": "antonio-defranceschi",
-   "n": 33,
+   "n": 35,
    "pages": [
     {
      "h": "/the-eleven/",
@@ -10950,6 +10946,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -11102,6 +11102,11 @@
      "text": "reads «habitat Pisini» — he kept the house at Gologorica and lived at Pazin. (doc — ZM34K-214, M01069322.) Amalia Peschle, ex VOLOSCA — godmother at the baptism of Clementina Maria Defranceschi, 6 October 1822, standing with Pietro Antonio Defranceschi; both entered Cives Gollogoricenses. ⚠ This archive published her as «ex Silesia» and built worklist 170 on it; re-read at four times magnification on 11 October 2026 the word is «ex Volosca» — the Kvarner"
     },
     {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "qm Matthaei, e Besanova» (Pula births 1893–96, p. 396, entry 821, image 650; sponsor Ghira Angelus, carpenter; midwife Dobrez Helena). A margin note reads «nupsit Antonio Defranceschi, Polae 26.X.19?9». doc for the note. It is the other half of the note on the baptism of Antonius Georgius, 1894 («…Longhini, Polae 26.X.19?9»): the same day and place, each naming the other, so she is his wife (inf, firm). The year"
+    },
+    {
      "page": "/register/",
      "title": "Register",
      "text": "Lucas Francetich Francetich y b. 1726· bur. 19 May 1765 Karlovac, Zagrebačka, Hrvatska, Österreich Karlovac, Zagrebačka, Hrvatska, Österreich, lead X9D5-96BB Antonio Defranceschi Defranceschi y d. 12 Jul 1727· of Fiume, Modrus-Fiume, Ungheria Fiume, Modrus-Fiume, Ungheria, in Rijeka 6BKV-GST2 Isabetta Surname not indexed"
@@ -11115,6 +11120,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "surname never appears as a father at Gračišće at all</strong, and its six appearances there are all as godparents, five labelled <emof Gologorica</em. <strongHis descent is not in doubt; his birthplace is not established.</strong gen Antonio Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b."
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "at Gračišće, 1819 Francisca Salomon place not known doc 3 stonecutter Born in the household of house 5 at Gračišće; the stonecutter of house 19 Antonio Defranceschi antonio-defranceschi-1825 1825–1894 Gračišće doc Maria Fernasar maria-fernasar-tornasar-de-franceschi-1832 of Gračišće doc 4"
     },
     {
      "page": "/walk/carnia/",
@@ -11152,7 +11162,7 @@
    ],
    "known": "**Born about 5 June 1846, baptised 7 June, died 19 June 1846 aged 11 days — first son of Antonio Defranceschi fu Matteo and Maria Schiffich di Lorenzo, house 17, Ližnjan.** `doc` — baptism: Ližnjan births 1816–1864, image 25 of waypoint 9R2Z-44D; burial: Ližnjan deaths 1815–1900, page 24, image 16 of waypoint 9R2Z-4WG ([open](https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-GCVN?cc=2040054&wc=9R2Z-4WG)): «Antonio Defranceschi di Antonio», 11 giorni (as read), «Naturale». The FamilySearch index row for the burial (ark 1:1:XQM3-B2N4) is this entry. **The same parents baptise another Antonio on 20 April 1848** — the later Pomer labourer and Pula porter.",
    "more": [
-    "**Baptised at Pula on 3 May 1894, born 9 April 1894 — «Antonius Georgius», son of «Defranceschi Antonius, Antonii e Lisignano, bajulus» and «Climan Lucia»**, house 33 (Via Medolino); godparents Georgius Benchiavaz and Elvira Uzzetta (Pula births 1887–1896, page 165, entry 315, ark position 527 of waypoint 9R2Z-3T1, [open](https://www.familysearch.org/ark:/61903/3:1:3QS7-L99X-G7SX?cc=2040054&wc=9R2Z-3T1)). `doc` — read on the page on 16 October 2026. **The father is the [labourer of Pomer and porter of Pula](/person/antonius-defranceschi-labourer-from-liznjan-pomer-1886-pomer/) born at Ližnjan in 1848, the mother his second wife [Lucia Climan](/person/lucia-climan-second-wife-of-antonius-defranceschi-pula-1890-1863/) (married 20 October 1890)**; so this is **a son of the Ližnjan house-17 line — and the Pula entry itself writes «e Lisignano» for the father.** The index birth date of this grave record (9 April 1894, Pula) is the baptism's birth date exactly: `inf` that the naval-cemetery Antonio who died on 11 February 1946 is this child — same day, same town; the Pula births index shows no other Defranceschi born on 9 April in 1889–94. A marginal note on the baptism records his marriage at Pola to a «Longhin» (26 October, year «19?9»). Re-read at level 13 on 25 Oct 2026 (image 527): the margin note runs «…Longhini, Polae 26.X. 1949», the tens digit a small raised 4 and not a plain 1 (`doc` for the reading, not fully secure). **If it is 1949 the marriage falls after the grave record's death on 11 Feb 1946, so either the naval-cemetery Antonio is another man or the year is 1919 — the identification with the 1946 grave is `inf` and now doubtful; unresolved.** The earlier Antonius d. 25 March 1893 (index, parents «Antonii») may be another child of the same couple — not read.",
+    "**Baptised at Pula on 3 May 1894, born 9 April 1894 — «Antonius Georgius», son of «Defranceschi Antonius, Antonii e Lisignano, bajulus» and «Climan Lucia»**, house 33 (Via Medolino); godparents Georgius Benchiavaz and Elvira Uzzetta (Pula births 1887–1896, page 165, entry 315, ark position 527 of waypoint 9R2Z-3T1, [open](https://www.familysearch.org/ark:/61903/3:1:3QS7-L99X-G7SX?cc=2040054&wc=9R2Z-3T1)). `doc` — read on the page on 16 October 2026. **The father is the [labourer of Pomer and porter of Pula](/person/antonius-defranceschi-labourer-from-liznjan-pomer-1886-pomer/) born at Ližnjan in 1848, the mother his second wife [Lucia Climan](/person/lucia-climan-second-wife-of-antonius-defranceschi-pula-1890-1863/) (married 20 October 1890)**; so this is **a son of the Ližnjan house-17 line — and the Pula entry itself writes «e Lisignano» for the father.** The index birth date of this grave record (9 April 1894, Pula) is the baptism's birth date exactly: `inf` that the naval-cemetery Antonio who died on 11 February 1946 is this child — same day, same town; the Pula births index shows no other Defranceschi born on 9 April in 1889–94. A marginal note on the baptism records his marriage at Pola to a «Longhin(i)» on 26 October, the year «19?9»: **his wife is [Joanna Barbara Longhin](/person/joanna-barbara-longhin-1895/), born 24 September 1895 — her own baptism (Pula births 1893–96, p. 396, entry 821, image 650 of waypoint 9R2Z-3T1) carries the reciprocal note «nupsit Antonio Defranceschi, Polae 26.X.19?9»: the same day and place, each note naming the other (`doc` for the notes; `inf` for the join, firm).** The year digits: the year digits are «19?9» in both notes — the third a loop that reads as 2 (1929) or 0, and which on the first note I read on 25 Oct as a raised 4; the marriage is 26 October 19?9, most likely 1929 — so the earlier suggestion that the marriage fell after his grave record of 1946 is withdrawn: 1929 fits (he 35, she 34), and the identification with the naval-cemetery Antonio of 1946 stays `inf`, as before. The earlier Antonius d. 25 March 1893 (index, parents «Antonii») may be another child of the same couple — not read.",
     "**Born 31 January 1909**, **prisoner 8165 at Natzweiler-Struthof** (1.1.29.2). **No birthplace in the file.** **Arolsen Archives online collections, read 21 September 2026** under the **-schi** spelling, which this archive had not tried until the service came back up. *(doc)*"
    ],
    "records": [
@@ -12926,6 +12936,10 @@
     {
      "slug": "catarina-defranceschi-kisdaris",
      "name": "Catarina Defranceschi (Kisdaris)"
+    },
+    {
+     "slug": "catarina-defranceschi-godmother-at-pola-1895",
+     "name": "Catarina Defranceschi (godmother at Pola, 1895)"
     }
    ]
   },
@@ -17812,7 +17826,7 @@
   "giovanni-defranceschi": {
    "name": "Giovanni Defranceschi",
    "slug": "giovanni-defranceschi",
-   "n": 22,
+   "n": 23,
    "pages": [
     {
      "h": "/tree/",
@@ -17881,6 +17895,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -17992,6 +18010,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "under IVAN DEFRANČESKI stop Johannesburg from 1960s the second leaving move Brisbane to 2026 end gen Giovanni Defranceschi 1750 – 1829 at gen Giovanni Battista Defranceschi b. 13 Aug 1787 – 1846 at ⚠ <strongHis birth of 13 August 1787 is on the Gallignana <emStatus Animarum</em of house 5, not in a baptism"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "rests on, and what the paper cannot say. 1 weaver The family chart's Giovanni, born at Gologorica by the family's tree; the weaver's son who married Theresia Grah of Krbune in 1774 is him by inference Giovanni Defranceschi giovanni-defranceschi-1750 1750–1829 Gologorica lore Theresia née Grah theresia-defranceschi-nee-grach-gologorica of Krbune inf 2"
     },
     {
      "page": "/worklist/",
@@ -18628,10 +18651,6 @@
      "t": "Method"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -18653,7 +18672,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -18699,7 +18718,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "Status Animarum of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and four sons beneath him. And a candidate for his baptism has now been read off the Gologorica film: a Joannes Baptista Defranceschi baptised at Gologorica, house 31, on 13 August 1787, son of Joannes Baptista and Theresia née Grach — the same name and the same day. It is an inference, not a proof, and it is set out with its objections on the Gologorica line."
+     "text": "of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and their six children, four sons and two daughters, beneath him. And a candidate for his baptism has now been read off the Gologorica film: a Joannes Baptista Defranceschi baptised at Gologorica, house 31, on 13 August 1787, son of Joannes Baptista and Theresia née Grach — the same name and the same day. It is an inference, not a proof, and it is set out with its objections on the Gologorica line."
     },
     {
      "page": "/",
@@ -18802,11 +18821,6 @@
      "text": "that as a fact about one man: Joannes Baptista de Franceschi, an incomer. Reading forward four more frames turned it into a fact about the parish. Between 1742 and 1745 the same clerk writes «ex Cargno» against seventeen different people: Joannes Baptista Defranceschi (1742, 1743, 1744), Antonij Fiorca ex Cargno standing godfather to a foundling on 9 April 1744, Antonius Valentinus Colovri ex Cargno standing godfather to Pietro Defranceschi's son on 14 February 1745 — and the child is named Valentinus after"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "doc /gologorica-line/marriage1774 Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999 Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him Joannes Baptista Defranceschi q.m Leonardi filius, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who married them"
-    },
-    {
      "page": "/",
      "title": "The Defranceschi Archive",
      "text": "in the 1890s: two Defranceschi households, one from Ližnjan and one born here. The Ližnjan one is told on the Ližnjan page: Antonius, porter of Via Medolino, and his son Antonius Georgius (b. 1894). The other is Pola's own — Joannes Baptista Defranceschi, born at Pola on 15 December 1869, a chimney sweep, son of a municipal watchman, Franciscus (dead by 1894), and Euphemia Franca; he married Dominica Francisca Clagnan, a servant of Pola, on 20 January 1894 (doc: the marriage entry"
@@ -18823,8 +18837,13 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
-     "text": "house 5 The farmer of house five Here the line stops being testimony and becomes record. The Status Animarum of Gallignana — the parish's book of souls, bought from the Pazin archive in 2021 — rules a household across a page: Joannes Baptista Defranceschi, agricola, born 13 August 1787, married in 1819, dead on 1 September 1846. His wife Francisca Salomon, born 17 March 1797. Four sons, and the second of them is Antonius. Joan. Bapt. Defranceschi, agricola — n. 13 Aug. 1787, m. 1819, † 1 Sept."
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "doc /gologorica-line/marriage1774 Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999 Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him Joannes Baptista Defranceschi q.m Leonardi filius, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who married them"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "house 5 The farmer of house five Here the line stops being testimony and becomes record. The Status Animarum of Gallignana — the parish's book of souls, bought from the Pazin archive in 2021 — rules a household across a page: Joannes Baptista Defranceschi, agricola, born 13 August 1787, married in 1819, dead in September 1846, on the 1st or the 14th (the archive's files give both). His wife Francisca Salomon, born 17 March 1797. Four sons and two daughters, and the second son is Antonius. Joan."
     },
     {
      "page": "/worklist/",
@@ -20210,10 +20229,6 @@
      "t": "The Marriages"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -20232,6 +20247,10 @@
     {
      "h": "/about/",
      "t": "About"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -20370,11 +20389,6 @@
      "text": "and a master's wife goes where the ship goes. Valle (Bale), on the west coast of Istria — a Venetian patrician name venice ours Anna, daughter of the Nobil Signor Tommaso Bembo of Valle, married Petrus Defranceschi of Gologorica on 22 January 1795, the three publications of banns dispensed with by the bishop of Parenzo. It is the only marriage this archive holds that takes the name into a Venetian patrician house. Anna Bembo, born 5 July 1779,"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "Marcus Bancich, entered a death in his book. Leonardus Defranceschi, seventy-six years old, had been given the sacrament of penance. He was buried the next day inside the parish church, in the tomb of Dominus Petrus Defranceschi. At the end of the entry, set off between two marks, the priest wrote what the man had been: professionis suae textor ex Carnia. By trade a weaver, from Carnia. i-2 A doc"
-    },
-    {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
      "text": "Bay, Thunder Bay District, Ontario, Canada grave date Maria Defranceschi Maria Defranceschi 1789, 1826, 1786, 1826, myheritage date Petrus Defranceschi Petrus Defranceschi 1768, 1829, 1765, 1829, Gologorica, Istra, Croatia burial mirror Petrus Defranceschi Petrus Defranceschi 1765, 1829,"
@@ -20383,6 +20397,11 @@
      "page": "/register/",
      "title": "Register",
      "text": "Francesco Franceschi Franceschi y b. 1765· of, lead Same name as somebody here, but 166 years apart. A different person. 6BKK-LGXJ Petrus Defranceschi Defranceschi M y b. 1765· d. 19 Jan 1829· of Regnum Croatiae Regnum Croatiae Josephi in XQMM-X7FV Nicolo Franincich Surname not indexed M y"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "Marcus Bancich, entered a death in his book. Leonardus Defranceschi, seventy-six years old, had been given the sacrament of penance. He was buried the next day inside the parish church, in the tomb of Dominus Petrus Defranceschi. At the end of the entry, set off between two marks, the priest wrote what the man had been: professionis suae textor ex Carnia. By trade a weaver, from Carnia. i-2 A doc"
     },
     {
      "page": "/worklist/",
@@ -24656,7 +24675,7 @@
   "giovanni-battista-defranceschi": {
    "name": "Giovanni Battista Defranceschi",
    "slug": "giovanni-battista-defranceschi",
-   "n": 19,
+   "n": 20,
    "pages": [
     {
      "h": "/tree/",
@@ -24691,10 +24710,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/people/",
      "t": "The People"
     },
@@ -24717,6 +24732,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     }
    ],
    "hits": [
@@ -24786,11 +24805,6 @@
      "text": "The place to look for the Peschle is Volosca and Fiume, where the register puts them. Gračišće (Gallignana), Istria istria-austrian ours Francisca Salomon, born 17 March 1797, married Giovanni Battista Defranceschi and is the mother of the third generation of our line. Her family had a palace on the square at Gračišće, facing the bishop's. Children recorded: Raymundus b. 9 October 1823, Antonius b. 20 September 1825 — who carried the line —"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "plate-status-animarum-gb Status Animarum of Gallignana, house 5, DAPA ZM34K 217, M01072071 The row for house 5 runs across the page in one hand. Joan. Bapt. Defranceschi, agricola, natus 13. Augusti 1787, matrimonium 1819. Giovanni Battista Defranceschi, a farmer, born on 13 August 1787, married in 1819. Beneath him his wife, Francisca Salomon, born on 17 March 1797, and then the children, sons first and daughters after, as this book always lists them:"
-    },
-    {
      "page": "/people/",
      "title": "The People",
      "text": "Carnian weavers and traders were moving into the Venetian and Habsburg Adriatic through exactly this period, so the identification is plausible and unproven in equal measure. What is striking is the timing. Valentino was made a citizen of Fiume in 1739; Giovanni Battista Defranceschi arrived from the County of Pazin around 1740 and was made a citizen in 1746. Two men of the same surname, from the two regions this family claims, in the same port, within eighteen months. The existing research treats them as unrelated. That is an inference"
@@ -24814,6 +24828,16 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "from 1960s the second leaving move Brisbane to 2026 end gen Giovanni Defranceschi 1750 – 1829 at gen Giovanni Battista Defranceschi b. 13 Aug 1787 – 1846 at ⚠ <strongHis birth of 13 August 1787 is on the Gallignana <emStatus Animarum</em of house 5, not in a baptism register.</strong The Gračišće baptism book has now been swept and his baptism is not in it —"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "plate-status-animarum-gb Status Animarum of Gallignana, house 5, DAPA ZM34K 217, M01072071 The row for house 5 runs across the page in one hand. Joan. Bapt. Defranceschi, agricola, natus 13. Augusti 1787, matrimonium 1819. Giovanni Battista Defranceschi, a farmer, born on 13 August 1787, married in 1819. Beneath him his wife, Francisca Salomon, born on 17 March 1797, and then the children, sons first and daughters after, as this book always lists them:"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "Grah theresia-defranceschi-nee-grach-gologorica of Krbune inf 2 farmer Born at Gologorica by inference from the baptism of 1787; documented at Gračišće, house 5, married 1819 Giovanni Battista Defranceschi giovanni-battista-defranceschi-1787 1787–1846 Gologorica inf at Gračišće, 1819 Francisca Salomon place not known doc 3"
     }
    ],
    "facts": [
@@ -34187,7 +34211,7 @@
   "carlo-de-franceschi": {
    "name": "Carlo De Franceschi",
    "slug": "carlo-de-franceschi",
-   "n": 55,
+   "n": 56,
    "pages": [
     {
      "h": "/tree/",
@@ -34319,7 +34343,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -34593,8 +34617,13 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
-     "text": "to Carnia /carnia/ The dal Ginut household at Mione /carnia/ mione-index 1711 II Gologorica A house, with the year cut into it A hundred and sixty years later Carlo De Franceschi — the family's own historian, born at Gologorica in 1809 — wrote privately to Giovanni Kobler about where they came from. His great-great-grandfather was Giambattista, son of the late Leonardo. And what that man left behind is not a document but a"
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "is joined by any paper to Istria. o-5 A lore /carnia/agrons Agrons: Carlo's letter of 1876 and the Istrian Encyclopedia The Gologorica family of the name told its own story. In 1876 the historian Carlo De Franceschi, born at Gologorica, wrote privately to Giovanni Kobler: «Anche i miei derivano dalla Carnia, ma si stabilirono in Istria intorno al 1700». Mine too come from Carnia, but they settled in Istria around 1700. He added that some were still at Mione"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "to Carnia /carnia/ The dal Ginut household at Mione /carnia/ mione-index 1711 II Gologorica A house, with the year cut into it A hundred and sixty years later Carlo De Franceschi — the family's own historian, born at Gologorica in 1809 — wrote privately to Giovanni Kobler about where they came from. His own great-great-grandfather, he wrote, was Giambattista, son of the late Leonardo, and what that man left behind is not a document"
     },
     {
      "page": "/walk/carnia/",
@@ -56546,6 +56575,10 @@
     {
      "slug": "catarina-defranceschi-kisdaris",
      "name": "Catarina Defranceschi (Kisdaris)"
+    },
+    {
+     "slug": "catarina-defranceschi-godmother-at-pola-1895",
+     "name": "Catarina Defranceschi (godmother at Pola, 1895)"
     }
    ]
   },
@@ -65903,7 +65936,7 @@
   "josip-defranceschi": {
    "name": "Josip Defranceschi",
    "slug": "josip-defranceschi",
-   "n": 27,
+   "n": 28,
    "pages": [
     {
      "h": "/tree/",
@@ -65988,6 +66021,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -66123,6 +66160,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "there are all as godparents, five labelled <emof Gologorica</em. <strongHis descent is not in doubt; his birthplace is not established.</strong gen Antonio Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b. 1925 – 1995 at gen Ivan Defranceski d. 2026"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "has opened /kalanj/ The certificate that began it /direct-line/ Nineteen forty-eight, and the Therapia /1948/ Burials /burials/ 4, 5, 6, wave couple Josip Defranceschi 1863, stonemason josip-defranceschi-1863 doc Ana Kalanj 1864 anna-kalanj-de-franceschi-1864-1936-1864 doc kids Anton Rudolf 1890"
     },
     {
      "page": "/walk/carnia/",
@@ -70386,7 +70428,7 @@
      "Read off the register"
     ]
    ],
-   "known": "⭐⭐ **READ ON THE PAGE, 16 October 2026 — a second daughter of the direct line at Pula.** Marriage, **31 January 1898** (entry 18 of the 1889–1898 book, [image](https://www.familysearch.org/ark:/61903/3:1:3QS7-899F-W9Y7?cc=2040054&wc=9R2X-4WP)): «**Defranceschi Catharina, famula**», **born 3 February 1869** at «Gallignae» (Gračišće), at Pola since 1894, 29, married **Joannes Kostessich, porter (bajulus)**, born 22 June 1868 at Cavrano, at Pola since 1896; they lived together at Via Monte Castagner 22. **Her parents: «Defranceschi defunctus Antonius, lapicida» and «Fornasar Maria»** (`doc` for the entry; `inf` that they are [Antonius, b. 1825](/person/antonius-defranceschi-1825/) and [Maria née Fernasar/Tornasar/Fornasar, 1832–1916](/person/maria-fernasar-tornasar-de-franceschi-1832/)). The tree's «Catharina 1869» row, until now tree-only, is therefore the 1869 child read on a page; her sister [Leopolda](/person/leopolda-de-franceschi-1865/) had married at Pula ten years earlier. **The entry says her father was already dead** — consistent with the tree's 1894 for Antonius, and the first document for it.",
+   "known": "⭐⭐ **READ ON THE PAGE, 16 October 2026 — a second daughter of the direct line at Pula.** Marriage, **31 January 1898** (entry 18 of the 1889–1898 book, [image](https://www.familysearch.org/ark:/61903/3:1:3QS7-899F-W9Y7?cc=2040054&wc=9R2X-4WP)): «**Defranceschi Catharina, famula**», **born 3 February 1869** at «Gallignae» (Gračišće), at Pola since 1894, 29, married **Joannes Kostessich, porter (bajulus)**, born 22 June 1868 at Cavrano, at Pola since 1896; they lived together at Via Monte Castagner 22. **Her parents: «Defranceschi defunctus Antonius, lapicida» and «Fornasar Maria»** (`doc` for the entry; `inf` that they are [Antonius, b. 1825](/person/antonius-defranceschi-1825/) and [Maria née Fernasar/Tornasar/Fornasar, 1832–1916](/person/maria-fernasar-tornasar-de-franceschi-1832/)). The tree's «Catharina 1869» row, until now tree-only, is therefore the 1869 child read on a page; her sister [Leopolda](/person/leopolda-de-franceschi-1865/) had married at Pula ten years earlier. **The entry says her father was already dead** — consistent with the tree's 1894 for Antonius, and the first document for it.\n\n**A possible sighting, 25 October 2026:** a «Defranceschi Catarina» stands godmother at a baptism at Pola on 29 December 1895 (Pula births 1893–96, p. 404, entry 865; [her row](/person/catarina-defranceschi-godmother-at-pola-1895-pula/)). The entry gives no age or kin, so it is `inf` at most that she is this woman, then a servant of twenty-six in the town; the rows are not merged.",
    "more": [],
    "records": [
     {
@@ -70512,6 +70554,117 @@
     {
      "slug": "katharina-defranceschi-delladio",
      "name": "Katharina Defranceschi (Delladio)"
+    }
+   ]
+  },
+  "catarina-defranceschi-godmother-at-pola-1895": {
+   "name": "Catarina Defranceschi (godmother at Pola, 1895)",
+   "slug": "catarina-defranceschi-godmother-at-pola-1895",
+   "n": 2,
+   "pages": [
+    {
+     "h": "/",
+     "t": "The Defranceschi Archive"
+    },
+    {
+     "h": "/burials/",
+     "t": "The Register of the Dead"
+    },
+    {
+     "h": "/archive/",
+     "t": "The Archive"
+    },
+    {
+     "h": "/map/",
+     "t": "The Map"
+    },
+    {
+     "h": "/register/",
+     "t": "Register"
+    },
+    {
+     "h": "/lives/",
+     "t": "Lives on one scale"
+    }
+   ],
+   "hits": [
+    {
+     "page": "/map/",
+     "title": "The Map",
+     "text": "burial register register Maria Defranceschi y parish burial register register Maddalena Defranceschi y parish burial register register Catarina Defranceschi y parish burial register register Agatha Defranceschi y parish burial register register Joannes Defranceschi y parish burial register"
+    },
+    {
+     "page": "/register/",
+     "title": "Register",
+     "text": "Rijeka 6B47-8PYW Arveneria Defranceschi Defranceschi M y b. 27 Sep 1844 Domenico Defranceschi Maria Oliva Dorliquzzo in XQM3-BVXS Catarina Defranceschi Defranceschi F y b. 1844· d. 3 Sep 1855· of Ližnjan, Istria, Italia Ližnjan, Istria, Italia, in XQM3-B4ND Cattarina Defranceschi Defranceschi F"
+    }
+   ],
+   "facts": [
+    [
+     "Place",
+     "Pola",
+     "/places/pula/"
+    ],
+    [
+     "Parish",
+     "Pula"
+    ],
+    [
+     "Line",
+     "A documented Istrian or Kvarner household this archive will not attach to any line"
+    ],
+    [
+     "Found in",
+     "Read off the register"
+    ]
+   ],
+   "known": "**Named once, as a godmother: «Defranceschi Catarina», with «Zotel Joseph», at the baptism of «Catarina», born that day, 29 December 1895, and baptised at home by the midwife and then supplied at the cathedral by the canon Emanuel Pacovich (house 32, Via Nesazio)** — the daughter of «Gobbo Catarina, qm Joannis, e Sarmenigga(?)», **no father named** (Pula births 1893–96, Liber X, p. 404, entry 865, image 654 of waypoint 9R2Z-3T1, [open](https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-GQD1?cc=2040054&wc=9R2Z-3T1); midwife Zapletal Dominica; `doc`). The entry gives her **no age, trade or kin**, so who she was is not settled. **One Catharina of the right place and time is in the archive: [Catharina Defranceschi, born 3 February 1869 at Gračišće, a servant at Pola from 1894 and married there in 1898 to Joannes Kostessich](/person/catharina-defranceschi-kostessich-1869/) — then twenty-six, in service like the baby's mother** (`inf` at most: a servant from Gračišće is a likelier godmother for a servant's child than a stranger, but nothing in the entry says so). **The two rows are not merged.** Not counted as a find of a new family.",
+   "more": [],
+   "records": [
+    {
+     "kind": "FamilySearch record",
+     "text": "Burial Jul 1717 · Fiume, Modrus-Fiume, Ungheria",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 1844 · Death 3 Sep 1855 · Ližnjan, Istria, Italia",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "Parish burial",
+     "text": "Buried Jul 1717 @ Fiume, Modrus-Fiume, Ungheria · Rijeka",
+     "href": "/burials/",
+     "url": null
+    },
+    {
+     "kind": "Parish burial",
+     "text": "Buried Ližnjan, Istria, Italia · Ližnjan · aged 11",
+     "href": "/burials/",
+     "url": null
+    }
+   ],
+   "tree": null,
+   "ptree": null,
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true,
+   "alsoWritten": [
+    {
+     "slug": "catarina-de-franceschi",
+     "name": "Catarina De Franceschi"
+    },
+    {
+     "slug": "catarina-defranceschi",
+     "name": "Catarina Defranceschi"
+    },
+    {
+     "slug": "catarina-defranceschi-kisdaris",
+     "name": "Catarina Defranceschi (Kisdaris)"
     }
    ]
   },
@@ -80493,10 +80646,6 @@
      "t": "The Imotski Franceschi"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/pfullingen/",
      "t": "Six Names at Pfullingen"
     },
@@ -80519,6 +80668,10 @@
     {
      "h": "/sources/",
      "t": "Sources"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -80547,11 +80700,6 @@
      "text": "1922, Fužine 30 January 1996, Horsham, Victoria Zdravko's wife. Her Horsham memorial gives 1 February — the interment. Fužine confirms the Belnica origin the archive had from the displaced-persons papers. Anton Defranceski 22 August 1944, Reutlingen 28 June 1999, Ipswich, Queensland Born in Germany to Zdravko and Ruža while they were there, and the exact date the Arolsen child-tracing papers were opened on. This is the single most valuable"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "plate-cert-anton-1890 Municipal certificate, Pfullingen, 28 February 1950 (Arolsen Archives) In February 1950 the mayor of Pfullingen, a small town in Württemberg, signed a certificate for a man who was no longer there. Anton Defranceski, born on 20 January 1890, had lodged at Pfullingen, and his place of work had been Hermann Sauer, Reutlingen-Süd. The certificate gives his birthplace as Crikvenica, the market town, where the register had said the"
-    },
-    {
      "page": "/pfullingen/",
      "title": "Six Names at Pfullingen",
      "text": "Defranceski 20 January 1890 Crikvenica The eldest of the six. Certified by the mayor of Pfullingen in 1950 as having worked for Hermann Sauer at Reutlingen-Süd. — published Felix"
@@ -80570,6 +80718,11 @@
      "page": "/open-questions/",
      "title": "Open Questions",
      "text": "live tree with nothing attached to it — no dates, no places, no children, no maiden name. «Koka» is a Croatian pet name, not a given name, which is how a person reaches a family tree when somebody remembers her and nobody remembers her papers. Ivan Anton Defranceski, 1925–1995, was divorced from Hedviga about 1969 and stayed at Senj while she went to Africa. He had twenty-six years on his own coast after that, and this is the only trace of what he did with them. The Senj marriage registers after 1969"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "plate-cert-anton-1890 Municipal certificate, Pfullingen, 28 February 1950 (Arolsen Archives) In February 1950 the mayor of Pfullingen, a small town in Württemberg, signed a certificate for a man who was no longer there. Anton Defranceski, born on 20 January 1890, had lodged at Pfullingen, and his place of work had been Hermann Sauer, Reutlingen-Süd. The certificate gives his birthplace as Crikvenica, the market town, where the register had said the"
     },
     {
      "page": "/worklist/",
@@ -80715,7 +80868,7 @@
   "anton-rudolf-defranceski": {
    "name": "Anton Rudolf Defranceski",
    "slug": "anton-rudolf-defranceski",
-   "n": 22,
+   "n": 24,
    "pages": [
     {
      "h": "/tree/",
@@ -80764,6 +80917,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -80874,6 +81031,16 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "descent is not in doubt; his birthplace is not established.</strong gen Antonio Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b. 1925 – 1995 at gen Ivan Defranceski d. 2026 at gen D. Defranceski living — named only at"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "/pfullingen/australia Graves /graves/ 7, works His year of death and Pepe's and Anka's years are the family's, so those outlines are dotted. couple Anton Rudolf Defranceski 1890 – 1943? anton-rudolf-defranceski-1890 lore Ursula Kovačina ursula-kovacina-defranceschi-1895 doc kids Josip «Pepe» the eldest"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "of Klenovica doc 5 pfullingen Born at Klenovica, house 22; a Crikvenica man who worked three months at Pfullingen; 1943 is the family's year Anton Rudolf Defranceski anton-rudolf-defranceski-1890 1890–1943? Klenovica doc worked at Pfullingen, 1942 Ursula Kovačina ursula-kovacina-defranceschi-1895 of Crikvenica"
     },
     {
      "page": "/walk/carnia/",
@@ -81960,6 +82127,113 @@
    "adjacent": null,
    "roster": true
   },
+  "joanna-barbara-longhin": {
+   "name": "Joanna Barbara Longhin",
+   "slug": "joanna-barbara-longhin",
+   "n": 1,
+   "pages": [
+    {
+     "h": "/tree/",
+     "t": "Our line, drawn"
+    },
+    {
+     "h": "/liznjan/",
+     "t": "Ližnjan"
+    },
+    {
+     "h": "/lives/",
+     "t": "Lives on one scale"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    }
+   ],
+   "hits": [
+    {
+     "page": "/liznjan/",
+     "title": "Ližnjan",
+     "text": "a marginal note on the baptism records his marriage at Pola to a «Longhin(i)», 26 October 19?9 — and the other half of that note is now read on the bride's own baptism (Pula births 1893–96, p. 396, entry 821: «nupsit Antonio Defranceschi, Polae 26.X.19?9», Joanna Barbara Longhin, b. 24 Sep 1895; doc): the year's third digit reads as 2 or 0, most likely 1929 (inf). That is the chain: Antonio «Matulin» → Mattio (d. 1839) → Antonio (b. 1819) → Antonius (b. 1848) → Antonius Georgius (b. 1894). Found through the Pula births"
+    }
+   ],
+   "facts": [
+    [
+     "Place",
+     "Pola",
+     "/places/pula/"
+    ],
+    [
+     "Years",
+     "1895"
+    ],
+    [
+     "Parish",
+     "Pula"
+    ],
+    [
+     "Line",
+     "A documented Istrian or Kvarner household this archive will not attach to any line"
+    ],
+    [
+     "Found in",
+     "Read off the register"
+    ]
+   ],
+   "known": "**Born 24 September 1895, baptised at the Pola cathedral on 8 December 1895 (house 6, Mercato Vecchio): «Joanna Barbara Angela», daughter of «Longhin Vincentius, Thomae, e Venetiis, faber lignarius» and «Rumsich Helena, qm Matthiae, e Besanova»; sponsor «Ghira Angelus, carpentarius» with Lonich Barbara; midwife Dobrez Helena** (Pula births 1893–96, Liber X, p. 396, entry 821, image 650 of waypoint 9R2Z-3T1, [open](https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-GQND?cc=2040054&wc=9R2Z-3T1); `doc`). **A margin note, read at level 13 on 25 October 2026: «nupsit Antonio Defranceschi, Polae 26.X.19?9»** — she married [Antonius Georgius Defranceschi](/person/antonio-defranceschi-1894/), born at Pola on 9 April 1894 (h128), whose own baptism entry carries the reciprocal note «…Longhini, Polae 26.X.19?9»: the same day and place, each naming the other (`doc` for both notes; `inf` for the join, firm). The year digits are «19?9» in both notes — the third a loop that reads as 2 (1929) or 0, and which on the first note I read on 25 Oct as a raised 4; the marriage is 26 October 19?9, most likely 1929. **Not of the name's surname; kept because she married a Defranceschi.** Told in [household h136](/households/) and in [the Pula section](/places/).",
+   "more": [],
+   "records": [],
+   "tree": {
+    "ambiguous": false,
+    "spouse": "Antonius Georgius Defranceschi (b. Pola 1894)",
+    "children": [],
+    "span": "1929–1929",
+    "childrenPlace": "Pola",
+    "upN": 0,
+    "downN": 1
+   },
+   "ptree": {
+    "self": {
+     "n": "Joanna Barbara Longhin",
+     "dt": "b. 1895",
+     "via": "read"
+    },
+    "spouse": {
+     "n": "Antonius Georgius Defranceschi (b. Pola 1894)",
+     "dt": "b. 1894",
+     "via": "read",
+     "slug": "antonius-georgius-defranceschi",
+     "pid": "antonius-georgius-defranceschi-1894"
+    },
+    "children": [],
+    "span": "1929–1929",
+    "childrenPlace": "Pola",
+    "upN": 0,
+    "downN": 1,
+    "dropped": [],
+    "unchecked": [],
+    "estRej": [],
+    "tally": [
+     [
+      "read",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 1,
+    "dupNames": []
+   },
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true,
+   "alsoWritten": [
+    {
+     "slug": "joanna-defranceschi",
+     "name": "Joanna Defranceschi"
+    }
+   ]
+  },
   "antonius-georgius-defranceschi": {
    "name": "Antonius Georgius Defranceschi",
    "slug": "antonius-georgius-defranceschi",
@@ -82008,8 +82282,12 @@
     "parentsPlace": "Pula, via Medolino 33",
     "siblings": [],
     "asChild": "9 Apr 1894",
+    "spouse": "Joanna Barbara Longhin (b. Pola 1895)",
+    "children": [],
+    "span": "1929–1929",
+    "childrenPlace": "Pola",
     "upN": 1,
-    "downN": 0
+    "downN": 1
    },
    "ptree": {
     "self": {
@@ -82036,19 +82314,29 @@
     "parentsPlace": "Pula, via Medolino 33",
     "parentsHref": "/households/",
     "siblings": [],
+    "spouse": {
+     "n": "Joanna Barbara Longhin (b. Pola 1895)",
+     "dt": "b. 1895",
+     "via": "read",
+     "slug": "joanna-barbara-longhin",
+     "pid": "joanna-barbara-longhin-1895"
+    },
+    "children": [],
+    "span": "1929–1929",
+    "childrenPlace": "Pola",
     "upN": 1,
-    "downN": 0,
+    "downN": 1,
     "dropped": [],
     "unchecked": [],
     "estRej": [],
     "tally": [
      [
       "read",
-      2
+      3
      ]
     ],
-    "nrel": 2,
-    "nread": 2,
+    "nrel": 3,
+    "nread": 3,
     "dupNames": []
    },
    "rec": null,
@@ -82452,7 +82740,7 @@
   "ursula-kovacina-defranceschi": {
    "name": "Ursula Kovačina(Defranceschi)",
    "slug": "ursula-kovacina-defranceschi",
-   "n": 13,
+   "n": 15,
    "pages": [
     {
      "h": "/",
@@ -82475,10 +82763,6 @@
      "t": "The Imotski Franceschi"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/lives/",
      "t": "Lives on one scale"
     },
@@ -82489,6 +82773,10 @@
     {
      "h": "/senj-line/",
      "t": "The Senj Line"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     }
    ],
    "hits": [
@@ -82548,14 +82836,24 @@
      "text": "June 1999, Ipswich, Queensland Born in Germany to Zdravko and Ruža while they were there, and the exact date the Arolsen child-tracing papers were opened on. This is the single most valuable line in the file. Ursula Kovačina Anton Rudolf's wife and the mother of all of them. The tree gives her no dates, and neither does anything else this archive has found. The 1999 that is not a death date The family's"
     },
     {
-     "page": "/our-line/",
+     "page": "/senj-line/",
+     "title": "The Senj Line",
+     "text": "reading ANA DE. FRANCESCHI for an Ana Grubišić, 19 September 1863 to 28 May 1936. The database shows where the second version comes from and how firmly it is held. In the file, Anton Rudolf — entered as «Ante de Franceschi», who married Ursula Kovačina and whose children are Pepe, Zdravko, Ivan, Anka and Peter, so certainly the right man — is the son of «Josip Bepo de Franceschi», born 1870, and «Ana Nona-Nana Grubišić», 1863–1936. The registers make his father Josephus, born 22 March 1863, and his mother"
+    },
+    {
+     "page": "/story/",
      "title": "${markTitle[p.g]}: ${p.why}",
      "text": "seven years after the year the family gives for his death. v-2 A inf /maternal/kovacina/ Ursula's people: the Kovačina of house 119 He grew up on the coast his father had come down to, and married Ursula Kovačina. The entry has not been found. The archive thinks she was of the Kovačina household at Crikvenica, house 119, where a retired Imperial-Royal customs guard had lived, but that is inference. One photograph of her survives in the family: seated, in the loose,"
     },
     {
-     "page": "/senj-line/",
-     "title": "The Senj Line",
-     "text": "reading ANA DE. FRANCESCHI for an Ana Grubišić, 19 September 1863 to 28 May 1936. The database shows where the second version comes from and how firmly it is held. In the file, Anton Rudolf — entered as «Ante de Franceschi», who married Ursula Kovačina and whose children are Pepe, Zdravko, Ivan, Anka and Peter, so certainly the right man — is the son of «Josip Bepo de Franceschi», born 1870, and «Ana Nona-Nana Grubišić», 1863–1936. The registers make his father Josephus, born 22 March 1863, and his mother"
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "year of death and Pepe's and Anka's years are the family's, so those outlines are dotted. couple Anton Rudolf Defranceski 1890 – 1943? anton-rudolf-defranceski-1890 lore Ursula Kovačina ursula-kovacina-defranceschi-1895 doc kids Josip «Pepe» the eldest josip-petar-pepo-defranceski-1911 lore Petar 1913"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "three months at Pfullingen; 1943 is the family's year Anton Rudolf Defranceski anton-rudolf-defranceski-1890 1890–1943? Klenovica doc worked at Pfullingen, 1942 Ursula Kovačina ursula-kovacina-defranceschi-1895 of Crikvenica (inferred) inf 6 senj Born at Crikvenica; the family at Senj on the paper of 1951 Ivan Defranceski"
     }
    ],
    "facts": [
@@ -88640,10 +88938,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/pfullingen/",
      "t": "Six Names at Pfullingen"
     },
@@ -88670,6 +88964,10 @@
     {
      "h": "/sources/",
      "t": "Sources"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/1948/",
@@ -88785,7 +89083,7 @@
     {
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
-     "text": "or Pauldo, de Franceschi 1901, Crikvenica 1971 An accordion player. Placed by the tree among Josip Bepo's Imotski children, but born and working at Crikvenica — the second individual sitting across the seam. Ivan Defranceski 25 June 1925, Crikvenica 30 October 1995, Senj Worked at Senj. Buried there — the family holds the gravestone photograph. Hedviga Blažević 3 August 1926, Senj 30 October 2001,"
+     "text": "or Pauldo, de Franceschi 1901, Crikvenica 1971 An accordion player. Placed by the tree among Josip Bepo's Imotski children, but born and working at Crikvenica — the second individual sitting across the seam. Ivan Defranceski 25 June 1925, Crikvenica 30 October 1995, Senj An electro-mechanic by 1951. Buried at Senj — the family holds the gravestone photograph. Hedviga Blažević 3 August 1926, Senj 30 October 2001,"
     },
     {
      "page": "/namesakes/",
@@ -88801,11 +89099,6 @@
      "page": "/namesakes/",
      "title": "The Other Franceschi",
      "text": "Centro di ricerche storiche present. He spells the name exactly as this family does — Defranceski, fused, no particle. Nothing connects him to it. The National Union Catalog of pre-1956 imprints has the first edition. ivandf Ivan Defranceski fl. 1943–1945 Istria Arms Political commissar in the Istrian partisans. He was commissar of the II Company of the First Istrian Partisan Battalion, then of the battalion itself under the acting commander Vinko"
-    },
-    {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "Senj, 1925–1995 kk-ivan ivan-grave vi-1 A doc plate-kk-ivan Allgemeine Ortskrankenkasse membership card (Arolsen Archives) The card is a printed form, filled in by hand. Ivan Defranceski, born June 1925 at Crikvenica, single, Brunnenstraße 7, Pfullingen. He entered work on 21 October 1941 as a Hilfsarbeiter, an unskilled hand. He was sixteen. vi-2 A doc /pfullingen/"
     },
     {
      "page": "/pfullingen/",
@@ -88831,6 +89124,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b. 1925 – 1995 at gen Ivan Defranceski d. 2026 at gen D. Defranceski living — named only at Salomon Francisca Salomon b. 17 Mar"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "Senj, 1925–1995 kk-ivan ivan-grave vi-1 A doc plate-kk-ivan Allgemeine Ortskrankenkasse membership card (Arolsen Archives) The card is a printed form, filled in by hand. Ivan Defranceski, born June 1925 at Crikvenica, single, Brunnenstraße 7, Pfullingen. He entered work on 21 October 1941 as a Hilfsarbeiter, an unskilled hand. He was sixteen. vi-2 A doc /pfullingen/"
     },
     {
      "page": "/1948/",
@@ -94261,6 +94559,10 @@
     {
      "slug": "catarina-defranceschi",
      "name": "Catarina Defranceschi"
+    },
+    {
+     "slug": "catarina-defranceschi-godmother-at-pola-1895",
+     "name": "Catarina Defranceschi (godmother at Pola, 1895)"
     }
    ]
   },
@@ -112828,10 +113130,6 @@
      "t": "David's Map"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/people/",
      "t": "The People"
     },
@@ -112865,7 +113163,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -113024,11 +113322,6 @@
      "text": "www.plemstvo.hr Zadar 44.11937, 15.23137, on Omiš 43.44336, 16.69292, on Anna Nanna Grubisic, antonio, pietro, Imotski 43.44711, 17.214, on Zuane De Franceschi governor Proložac 43.48479, 17.13664, on Antonio Death Trsat 45.33255, 14.45544, on Antonia travels to Trsat after Antonio's Death in Prolozac Pisak 43.39974,"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "in the sixteenth century, thick in the seventeenth, thickest in the eighteenth. So many went that, as he put it, to say cargnel in Istria was to say weaver. A headmen's return of 1679 lists only the weavers who had gone into the County of Pisino, and a Zuane De Franceschi of Mione is among them, with a son. Some came home each spring. Others bought or built a house and a smallholding or a vineyard, and stayed. i-4 A doc /gologorica-line/marriage1774 Gologorica marriages, 9"
-    },
-    {
      "page": "/people/",
      "title": "The People",
      "text": "and municipal officials Details are sparse and the line disperses. Included because it is part of the received account and because anything that later joins it must be able to find it. zuane-de-franceschi-mione Zuane De Franceschi born died mione carnia-fiume Weaver documented Named in 1679, with a son, as a weaver of Mione working in the Habsburg County of Pazin. The oldest documented tie between"
@@ -113060,7 +113353,12 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "cifre, le anime» In 1679 the headmen of the parishes of the Val di Gorto, in Carnia, answered a question about their men in the County of Pisino. Their return names only the weavers who had gone there, and from the village of Mione it gives three: «Zuane De Franceschi con un suo fiolo, Zuane d'Erman: questi tre nell'Istria, luogo imperiale». Zuane De Franceschi, with a son of his, and Zuane d'Erman: these three in Istria, imperial territory. It is the oldest paper in this archive that puts a De Franceschi on the road"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
      "text": "of itself starts in Carnia — the high valleys north of Udine, where villages sent their men down the road of the Furlans into Istria each autumn as weavers and pedlars, and fetched them home in late spring. A headmen's list of 1679 catches exactly that: a Zuane De Franceschi of Mione at work in the imperial part of Istria, with his son. Some of them stopped coming home. Zuane De Franceschi di Mione, con suo figlio. Headmen's list, 1679 That is the whole of the documentary evidence for the"
     },
     {
@@ -128479,10 +128777,6 @@
      "t": "The Imotski Franceschi"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/lives/",
      "t": "Lives on one scale"
     },
@@ -128500,7 +128794,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -128635,12 +128929,7 @@
     {
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
-     "text": "Crikvenica — the second individual sitting across the seam. Ivan Defranceski 25 June 1925, Crikvenica 30 October 1995, Senj Worked at Senj. Buried there — the family holds the gravestone photograph. Hedviga Blažević 3 August 1926, Senj 30 October 2001, Johannesburg Ivan's wife, of the Blažević of Senj and Krmpote. She died in South Africa, six years to the day after her husband died in Senj. Zdravko, called"
-    },
-    {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "zone of occupation, which is why the papers that follow this family after the war are written in French. vi-4 A lore /senj-line/ The Senj line; and Nineteen forty-eight, claim four At home he married Hedviga Blažević of Senj, born there on 3 August 1926, daughter of Ljubomir Blažević and of Milka Papić, a worker in the Senj tobacco factory. How a Crikvenica man met a Senj woman twenty-five miles down the coast, no paper says. The family remembers that Hedviga sang at"
+     "text": "the second individual sitting across the seam. Ivan Defranceski 25 June 1925, Crikvenica 30 October 1995, Senj An electro-mechanic by 1951. Buried at Senj — the family holds the gravestone photograph. Hedviga Blažević 3 August 1926, Senj 30 October 2001, Johannesburg Ivan's wife, of the Blažević of Senj and Krmpote. She died in South Africa, six years to the day after her husband died in Senj. Zdravko, called"
     },
     {
      "page": "/senj-line/",
@@ -128654,8 +128943,13 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
-     "text": "Senj· Johannesburg· Brisbane And Ivan went home The third brother did not stay in Germany and did not sail for Australia. Ivan was born at Crikvenica on 25 June 1925, went back to his own coast, worked at Senj and married Hedviga Blažević — whose people were Senj packhorse carriers and tobacco-factory workers, and whose Karlobag ancestry reaches people born about 1690. He died at Senj on 30 October 1995 under a plain granite slab cut IVAN DEFRANČESKI. Hedviga died at Johannesburg six years"
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "zone of occupation, which is why the papers that follow this family after the war are written in French. vi-4 A lore /senj-line/ The Senj line; and Nineteen forty-eight, claim four At home he married Hedviga Blažević of Senj, born there on 3 August 1926, daughter of Ljubomir Blažević and of Milka Papić, a worker in the Senj tobacco factory. How a Crikvenica man met a Senj woman twenty-five miles down the coast, no paper says. The family remembers that Hedviga sang at"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "Brisbane And Ivan went home The third brother did not stay in Germany and did not sail for Australia. Ivan was born at Crikvenica on 25 June 1925, went back to his own coast, was an electro-mechanic by 1951, and married Hedviga Blažević — whose people were Senj packhorse carriers and tobacco-factory workers, and whose Karlobag ancestry reaches people born about 1690. He died at Senj on 30 October 1995 under a plain granite slab cut IVAN DEFRANČESKI. Hedviga died at Johannesburg six years"
     },
     {
      "page": "/worklist/",
@@ -135684,10 +135978,6 @@
      "t": "The Gologorica Line"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/live-tree/",
      "t": "The live tree, read against this archive"
     },
@@ -135698,6 +135988,10 @@
     {
      "h": "/about/",
      "t": "About"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     }
    ],
    "hits": [
@@ -135707,14 +136001,14 @@
      "text": "in 2021, and at the magnification it will bear the figures are genuinely ambiguous. Reel ZM34K-217 is not one of the two this archive owns. Both are raised rather than resolved. ⭐ AND TWO PEOPLE MOVE FROM INFERENCE TO DOCUMENT. Raymundus de Franceschi (1823) and Regina Theresia de Franceschi (1836) both carry the roster note «tree-derived: no register has been read for this person here». This is a register"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "The town, and the Salamon palace /direct-line/graciscetown Six households in 1820 /gologorica-line/cadastre1820 The famine of 1817 /gologorica-line/plate-golo-1817-page-of-fames Francisca's people /maternal/salomon/ Raymundus de Franceschi /person/raymundus-de-franceschi-1823/ stonecutter III The man who cut stone Gračišće, house 19, 1825–1894 status-animarum-ant iii-1 A doc"
-    },
-    {
      "page": "/live-tree/",
      "title": "The live tree, read against this archive",
      "text": "Josephus De Franceschi 1813 Gologorica living Amalia Alexandra De Franceschi 1818 Gologorica living Mathaei Defranceschi 1821 Ližnjan living Raymundus de Franceschi 1823 living Adelaidis Defranceschi 1824 Gologorica living Madalena Defranceschi 1827–1828 Liznjan living Regina Theresia de Franceschi"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "The town, and the Salamon palace /direct-line/graciscetown Six households in 1820 /gologorica-line/cadastre1820 The famine of 1817 /gologorica-line/plate-golo-1817-page-of-fames Francisca's people /maternal/salomon/ Raymundus de Franceschi /person/raymundus-de-franceschi-1823/ 2, field couple Joannes Baptista Defranceschi 1787–1846, farmer giovanni-battista-defranceschi-1787 doc"
     }
    ],
    "facts": [
@@ -167966,10 +168260,6 @@
      "t": "The Marriages"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -167984,6 +168274,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -168057,14 +168351,14 @@
      "text": "one Fernasar issue still unread; and the Gračišće register image for Maria's own entry, which would settle the letter the priest actually formed. Klenovica, in the Vinodol hungarian-littoral ours Anna Kalanj, born 3 January 1864, married Josip Defranceschi — the generation that left Istria. She came from the valley directly above Crikvenica and did not move far. Four marriages of the name into this family in the index. Two households: Josip"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "The family's tree gives 19 January 1951. The monument has since been taken down and the plot sold; the family says its dead were never moved. The Crikvenica house /crikvenica-house/ Josip /person/josip-defranceschi-1863/ Anna Kalanj and the parish nobody has opened /kalanj/ The certificate that began it /direct-line/ Nineteen forty-eight, and the Therapia /1948/ Burials /burials/ pfullingen V Three months in Württemberg"
-    },
-    {
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "the bishop's Fernasar Maria née Fernasar b. 17 Oct 1832 gen at Gračišće written Fernasar in one hand and Tornasar in another; Tornasar now retired Kalanj Anna Kalanj b. 3 Jan 1864 gen at Klenovica, in the Vinodol the valley directly above Crikvenica — she did not move far Kovačina Uršula Kovačina b. about 1890 gen"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "The family's tree gives 19 January 1951. The monument has since been taken down and the plot sold; the family says its dead were never moved. The Crikvenica house /crikvenica-house/ Josip /person/josip-defranceschi-1863/ Anna Kalanj and the parish nobody has opened /kalanj/ The certificate that began it /direct-line/ Nineteen forty-eight, and the Therapia /1948/ Burials /burials/ 4, 5, 6, wave couple"
     },
     {
      "page": "/worklist/",
@@ -169921,10 +170215,6 @@
      "t": "Method"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -169946,7 +170236,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/worklist/",
@@ -169992,7 +170282,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "Status Animarum of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and four sons beneath him. And a candidate for his baptism has now been read off the Gologorica film: a Joannes Baptista Defranceschi baptised at Gologorica, house 31, on 13 August 1787, son of Joannes Baptista and Theresia née Grach — the same name and the same day. It is an inference, not a proof, and it is set out with its objections on the Gologorica line."
+     "text": "of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and their six children, four sons and two daughters, beneath him. And a candidate for his baptism has now been read off the Gologorica film: a Joannes Baptista Defranceschi baptised at Gologorica, house 31, on 13 August 1787, son of Joannes Baptista and Theresia née Grach — the same name and the same day. It is an inference, not a proof, and it is set out with its objections on the Gologorica line."
     },
     {
      "page": "/",
@@ -170095,11 +170385,6 @@
      "text": "that as a fact about one man: Joannes Baptista de Franceschi, an incomer. Reading forward four more frames turned it into a fact about the parish. Between 1742 and 1745 the same clerk writes «ex Cargno» against seventeen different people: Joannes Baptista Defranceschi (1742, 1743, 1744), Antonij Fiorca ex Cargno standing godfather to a foundling on 9 April 1744, Antonius Valentinus Colovri ex Cargno standing godfather to Pietro Defranceschi's son on 14 February 1745 — and the child is named Valentinus after"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "doc /gologorica-line/marriage1774 Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999 Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him Joannes Baptista Defranceschi q.m Leonardi filius, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who married them"
-    },
-    {
      "page": "/",
      "title": "The Defranceschi Archive",
      "text": "in the 1890s: two Defranceschi households, one from Ližnjan and one born here. The Ližnjan one is told on the Ližnjan page: Antonius, porter of Via Medolino, and his son Antonius Georgius (b. 1894). The other is Pola's own — Joannes Baptista Defranceschi, born at Pola on 15 December 1869, a chimney sweep, son of a municipal watchman, Franciscus (dead by 1894), and Euphemia Franca; he married Dominica Francisca Clagnan, a servant of Pola, on 20 January 1894 (doc: the marriage entry"
@@ -170116,8 +170401,13 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
-     "text": "house 5 The farmer of house five Here the line stops being testimony and becomes record. The Status Animarum of Gallignana — the parish's book of souls, bought from the Pazin archive in 2021 — rules a household across a page: Joannes Baptista Defranceschi, agricola, born 13 August 1787, married in 1819, dead on 1 September 1846. His wife Francisca Salomon, born 17 March 1797. Four sons, and the second of them is Antonius. Joan. Bapt. Defranceschi, agricola — n. 13 Aug. 1787, m. 1819, † 1 Sept."
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "doc /gologorica-line/marriage1774 Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999 Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him Joannes Baptista Defranceschi q.m Leonardi filius, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who married them"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "house 5 The farmer of house five Here the line stops being testimony and becomes record. The Status Animarum of Gallignana — the parish's book of souls, bought from the Pazin archive in 2021 — rules a household across a page: Joannes Baptista Defranceschi, agricola, born 13 August 1787, married in 1819, dead in September 1846, on the 1st or the 14th (the archive's files give both). His wife Francisca Salomon, born 17 March 1797. Four sons and two daughters, and the second son is Antonius. Joan."
     },
     {
      "page": "/worklist/",
@@ -183945,10 +184235,6 @@
      "t": "defranceski.com"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -183982,7 +184268,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/trees/",
@@ -184302,11 +184588,6 @@
      "text": "century before Imotski — which is a simpler reason why Kačić Miošić sang of the hero of 1717 as «Perinović Ive». Frane 1826–1896, wife M. Caralipeo Independently reconstructed for this archive from the FamilySearch index: a Francesco Franceschi and Maria Caralipeo at Almissa with eleven recorded children between 1854 and 1877 — the largest household in the whole reconstruction. Antonio 1801–1877, wife D. Radmilović Also in the index: an Antonio Franceschi and Antonia Radmillovich at Almissa."
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "The weaver's household in the baptism books, 1776–1787 If he is, the papers give the household a shape. The register files them as cives, townspeople rather than peasants. Their children came to the font one after another: Josepha Mariana in 1776, baptised at Krbune; Joannes Petrus in 1780; Franciscus Antonius in April 1785, with the archpriest of Krbune standing godfather; and in August 1787 the boy who carries the line, entered with his father's trade, professione textor. His godfather"
-    },
-    {
      "page": "/people/",
      "title": "The People",
      "text": "for a firecracker in a Trieste square; died in Venice, an exile, having written the standard history of the county his family came from. Born 3 August 1868 Parenzo (Poreč) — baptism register Parents Carlo Defranceschi and Maria Michelcich as the register writes her Position Last of four surviving children Schooling German gymnasium at Pisino, then Trieste; Academy of Commerce, 1889 Arrested September 1889, aged 21 Sentenced Two years,"
@@ -184368,8 +184649,13 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
-     "text": "q. Joannis — son of the late Giovanni — born 20 September 1825, married 25 November 1856, dead 4 August 1894. Against his name the clerk wrote his trade, and it is the trade that comes down the hill with the family: lapicida, a stonecutter. His wife Maria née Fernasar. Five children. † Antonius Defranceschi q. Joannis, lapicida — n. 20 Sept. 1825. Status Animarum, Gallignana, house 19 «q. Joannis» is what joins the two households. Without those two words the line breaks"
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "The weaver's household in the baptism books, 1776–1787 If he is, the papers give the household a shape. The register files them as cives, townspeople rather than peasants. Their children came to the font one after another: Josepha Mariana in 1776, baptised at Krbune; Joannes Petrus in 1780; Franciscus Antonius in April 1785, with the archpriest of Krbune standing godfather; and in August 1787 the boy who carries the line, entered with his father's trade, professione textor. His godfather"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "q. Joannis — son of the late Giovanni — born 20 September 1825, married 25 November 1856, dead 4 August 1894. Against his name the clerk wrote his trade, and it is the trade that comes down the hill with the family: lapicida, a stonecutter. His wife Maria née Fernasar. Six children in the household book, and a seventh in the family's tree. † Antonius Defranceschi q. Joannis, lapicida — n. 20 Sept. 1825. Status Animarum, Gallignana, house 19 «q. Joannis» is what joins the two"
     },
     {
      "page": "/trees/",
@@ -188761,10 +189047,6 @@
      "t": "David's Map"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -188794,7 +189076,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -188927,11 +189209,6 @@
      "text": "14.691505, -36.718862, 142.196232, Peter Moves to Metzingen 45.173583, 14.691505, 48.5399, 9.286406, David Ivan and Cheryl Move to Brisbane -26.204103, 28.047305, -27.469771, 153.025124, Ana Kalanj Moves to Crikvenica 45.101632, 14.844552, 45.173583, 14.691505, Josip Moves to Crikvenica 45.219424, 14.008976, 45.173583, 14.691505, Gologorica to Gracisce (Convergence of Lines) 45.262452,"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "else. The family's tree puts it at Klenovica on 12 October 1889. The entry itself has not been found. iv-3 A doc /kalanj/ Ledenice baptisms, entry 2 of 1864; the Crikvenica entries The bride was Ana Kalanj, born on 3 January 1864 at Klenovica, house 22, in the parish of Ledenice above the coast, daughter of Josephus Kalanj and Rosalia Perković. The registers name her as the mother in four of her children's"
-    },
-    {
      "page": "/open-questions/",
      "title": "Open Questions",
      "text": "DE FRANCESCHI and Maria nata Corva, with Antonio's written consent dated 25 October 1807. Four generations at Muina, the earliest a Leonardo dead before 1808. The 1807 act is not yet located. Who was Josip's wife? open Ana Kalanj, by four register entries — the baptisms of 1890, 1892, 1894 and 1896 all name her, and the 1905 burial of their daughter writes her Ana Kalaj-Kučarica with the house-name. Her own baptism survives at Ledenice: 3 January 1864, daughter of Josip Kalanj and"
@@ -188948,7 +189225,12 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "else. The family's tree puts it at Klenovica on 12 October 1889. The entry itself has not been found. iv-3 A doc /kalanj/ Ledenice baptisms, entry 2 of 1864; the Crikvenica entries The bride was Ana Kalanj, born on 3 January 1864 at Klenovica, house 22, in the parish of Ledenice above the coast, daughter of Josephus Kalanj and Rosalia Perković. The registers name her as the mother in four of her children's"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
      "text": "Gallery /gallery/ gracisce-1863 dapa-letter-1 1890 VI Klenovica, house 22 One word welds the coast to the hill Josip came down off the hill to the Kvarner coast and married Ana Kalanj of the Vinodol. On 20 January 1890 their eldest was born at Klenovica and baptised on 9 February. In the column for the parents' place of origin the priest wrote three words that no chart could have supplied — and they are the reason this archive exists at"
     },
     {
@@ -208362,10 +208644,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -208383,7 +208661,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -208513,7 +208791,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "Status Animarum of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and four sons beneath him. And a candidate for his baptism has now been read off the Gologorica film: a Joannes Baptista Defranceschi baptised at Gologorica, house 31, on 13 August 1787, son of Joannes Baptista and Theresia née Grach — the same name and the same day. It is an inference, not a proof, and it is set out with its objections on the Gologorica line."
+     "text": "of the parish of Gallignana, house 5. Name, condition, birth, marriage and death in the ruled columns; wife and their six children, four sons and two daughters, beneath him. And a candidate for his baptism has now been read off the Gologorica film: a Joannes Baptista Defranceschi baptised at Gologorica, house 31, on 13 August 1787, son of Joannes Baptista and Theresia née Grach — the same name and the same day. It is an inference, not a proof, and it is set out with its objections on the Gologorica line."
     },
     {
      "page": "/lines/",
@@ -208576,11 +208854,6 @@
      "text": "Vicolo Santa Maria 45.88468, 11.04466, on Osoppo 46.25578, 13.08275, on Croatia, Church Books, 1516-1994, FamilySearch ( : Fri Jul 19 18:24:38 UTC 2024), Entry for Joannes Baptista Antonius Di Franceschi and Joannes Di Franceschi, 14 Apr 1884. https://www.familysearch.org/ark:/61903/1:1:6YBR-QLHN www.familysearch.org Labin 45.09159, 14.12381, on Croatia, Church Books,"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "doc /gologorica-line/marriage1774 Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999 Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him Joannes Baptista Defranceschi q.m Leonardi filius, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who"
-    },
-    {
      "page": "/",
      "title": "The Defranceschi Archive",
      "text": "at Pula. Franciscus Liberatus, baptised in January 1840, son of Joan. Bapt. Defranceschi and Francisca Salomon, is — inf — the «Franciscus fil. Joannis Baptae e Gallignana», a day-labourer, who was buried at Pula on 20 November 1875 aged 36; his son Joannes Baptista was born there in 1869 (the Pula page). 1667–1988 1671–1988 1775–2004 1775, 1825, 1841, 1865, 1870, 1881, 1897, 1925, books digitised BA"
@@ -208607,8 +208880,13 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
-     "text": "house 5 The farmer of house five Here the line stops being testimony and becomes record. The Status Animarum of Gallignana — the parish's book of souls, bought from the Pazin archive in 2021 — rules a household across a page: Joannes Baptista Defranceschi, agricola, born 13 August 1787, married in 1819, dead on 1 September 1846. His wife Francisca Salomon, born 17 March 1797. Four sons, and the second of them is Antonius. Joan. Bapt. Defranceschi, agricola — n. 13 Aug. 1787, m. 1819,"
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "doc /gologorica-line/marriage1774 Gologorica marriages, 9 June 1774, DAPA ZM34K-214, M01068999 Fifteen months after the burial, on 9 June 1774, the weaver's son married in the same church. The register calls him Joannes Baptista Defranceschi q.m Leonardi filius, son of the late Leonardus, and gives his trade as weaver too. The bride was Theresia, daughter of Antonius Grah, from the next parish, Krbune. The priest who"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "house 5 The farmer of house five Here the line stops being testimony and becomes record. The Status Animarum of Gallignana — the parish's book of souls, bought from the Pazin archive in 2021 — rules a household across a page: Joannes Baptista Defranceschi, agricola, born 13 August 1787, married in 1819, dead in September 1846, on the 1st or the 14th (the archive's files give both). His wife Francisca Salomon, born 17 March 1797. Four sons and two daughters, and the second son is Antonius."
     },
     {
      "page": "/fiume-1626/",
@@ -212612,7 +212890,7 @@
   "antonio-defranceschi-d-mattulia": {
    "name": "Antonio Defranceschi (d.º Mattulia)",
    "slug": "antonio-defranceschi-d-mattulia",
-   "n": 33,
+   "n": 35,
    "pages": [
     {
      "h": "/the-eleven/",
@@ -212709,6 +212987,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -212861,6 +213143,11 @@
      "text": "reads «habitat Pisini» — he kept the house at Gologorica and lived at Pazin. (doc — ZM34K-214, M01069322.) Amalia Peschle, ex VOLOSCA — godmother at the baptism of Clementina Maria Defranceschi, 6 October 1822, standing with Pietro Antonio Defranceschi; both entered Cives Gollogoricenses. ⚠ This archive published her as «ex Silesia» and built worklist 170 on it; re-read at four times magnification on 11 October 2026 the word is «ex Volosca» — the Kvarner"
     },
     {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "qm Matthaei, e Besanova» (Pula births 1893–96, p. 396, entry 821, image 650; sponsor Ghira Angelus, carpenter; midwife Dobrez Helena). A margin note reads «nupsit Antonio Defranceschi, Polae 26.X.19?9». doc for the note. It is the other half of the note on the baptism of Antonius Georgius, 1894 («…Longhini, Polae 26.X.19?9»): the same day and place, each naming the other, so she is his wife (inf, firm). The year"
+    },
+    {
      "page": "/register/",
      "title": "Register",
      "text": "Lucas Francetich Francetich y b. 1726· bur. 19 May 1765 Karlovac, Zagrebačka, Hrvatska, Österreich Karlovac, Zagrebačka, Hrvatska, Österreich, lead X9D5-96BB Antonio Defranceschi Defranceschi y d. 12 Jul 1727· of Fiume, Modrus-Fiume, Ungheria Fiume, Modrus-Fiume, Ungheria, in Rijeka 6BKV-GST2 Isabetta Surname not indexed"
@@ -212874,6 +213161,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "surname never appears as a father at Gračišće at all</strong, and its six appearances there are all as godparents, five labelled <emof Gologorica</em. <strongHis descent is not in doubt; his birthplace is not established.</strong gen Antonio Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b."
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "at Gračišće, 1819 Francisca Salomon place not known doc 3 stonecutter Born in the household of house 5 at Gračišće; the stonecutter of house 19 Antonio Defranceschi antonio-defranceschi-1825 1825–1894 Gračišće doc Maria Fernasar maria-fernasar-tornasar-de-franceschi-1832 of Gračišće doc 4"
     },
     {
      "page": "/walk/carnia/",
@@ -214789,10 +215081,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -214814,7 +215102,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -214967,11 +215255,6 @@
      "text": "Giovanni (b.1883, 1915), Olivo and Ulivo (b.1896, 1915). Vermont in those years means one thing: the granite sheds of Barre, which drew stonecutters out of northern Italy and the Adriatic by the thousand. And this archive's own man at Gračišće — Antonius Defranceschi q. Joannis, house 19 — is entered in the Status Animarum as a stonecutter. That is a resonance, not a link. None of the Vermont rows carries a birthplace in the index, and the transcripts were not bought. It is written down here so that whoever"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
-    },
-    {
      "page": "/open-questions/",
      "title": "Open Questions",
      "text": "and posted it to Queensland for 117 kuna. The refusal is of open-ended research, not of a named request. Is there a Gračišće record in hand? Yes. Josephus Defranceschi, born 22 March 1863 and baptised the next day at Gračišće, son of Antonius Defranceschi, «lapidarius» — a stonemason — and Maria. Certified from MKR Gračišće 1841–1899, folio 108, entry 23. A marginal note was added by the civil registry in 1951, so the same person is traceable forward. Are the Gologorica registers reachable at"
@@ -214983,7 +215266,12 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
      "text": "Spine /direct-line/ Households /households/ status-animarum-gb 1825 IV Gračišće, house 19 Lapicida — the man who cut stone Three Latin words weld house 5 to house 19. Antonius Defranceschi q. Joannis — son of the late Giovanni — born 20 September 1825, married 25 November 1856, dead 4 August 1894. Against his name the clerk wrote his trade, and it is the trade that comes down the hill with the family: lapicida, a stonecutter. His wife Maria"
     },
     {
@@ -217578,7 +217866,7 @@
   "antonio-defranceschi-b-1846-liznjan": {
    "name": "Antonio Defranceschi (b. 1846 Ližnjan)",
    "slug": "antonio-defranceschi-b-1846-liznjan",
-   "n": 33,
+   "n": 35,
    "pages": [
     {
      "h": "/the-eleven/",
@@ -217675,6 +217963,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -217827,6 +218119,11 @@
      "text": "reads «habitat Pisini» — he kept the house at Gologorica and lived at Pazin. (doc — ZM34K-214, M01069322.) Amalia Peschle, ex VOLOSCA — godmother at the baptism of Clementina Maria Defranceschi, 6 October 1822, standing with Pietro Antonio Defranceschi; both entered Cives Gollogoricenses. ⚠ This archive published her as «ex Silesia» and built worklist 170 on it; re-read at four times magnification on 11 October 2026 the word is «ex Volosca» — the Kvarner"
     },
     {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "qm Matthaei, e Besanova» (Pula births 1893–96, p. 396, entry 821, image 650; sponsor Ghira Angelus, carpenter; midwife Dobrez Helena). A margin note reads «nupsit Antonio Defranceschi, Polae 26.X.19?9». doc for the note. It is the other half of the note on the baptism of Antonius Georgius, 1894 («…Longhini, Polae 26.X.19?9»): the same day and place, each naming the other, so she is his wife (inf, firm). The year"
+    },
+    {
      "page": "/register/",
      "title": "Register",
      "text": "Lucas Francetich Francetich y b. 1726· bur. 19 May 1765 Karlovac, Zagrebačka, Hrvatska, Österreich Karlovac, Zagrebačka, Hrvatska, Österreich, lead X9D5-96BB Antonio Defranceschi Defranceschi y d. 12 Jul 1727· of Fiume, Modrus-Fiume, Ungheria Fiume, Modrus-Fiume, Ungheria, in Rijeka 6BKV-GST2 Isabetta Surname not indexed"
@@ -217840,6 +218137,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "surname never appears as a father at Gračišće at all</strong, and its six appearances there are all as godparents, five labelled <emof Gologorica</em. <strongHis descent is not in doubt; his birthplace is not established.</strong gen Antonio Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b."
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "at Gračišće, 1819 Francisca Salomon place not known doc 3 stonecutter Born in the household of house 5 at Gračišće; the stonecutter of house 19 Antonio Defranceschi antonio-defranceschi-1825 1825–1894 Gračišće doc Maria Fernasar maria-fernasar-tornasar-de-franceschi-1832 of Gračišće doc 4"
     },
     {
      "page": "/walk/carnia/",
@@ -218264,7 +218566,7 @@
   "antonio-defranceschi-fu-matteo-liznjan-house-17-1844-1890": {
    "name": "Antonio Defranceschi (fu Matteo; Ližnjan house 17, 1844–1890)",
    "slug": "antonio-defranceschi-fu-matteo-liznjan-house-17-1844-1890",
-   "n": 33,
+   "n": 35,
    "pages": [
     {
      "h": "/the-eleven/",
@@ -218361,6 +218663,10 @@
     {
      "h": "/imotski/",
      "t": "The Imotski Franceschi"
+    },
+    {
+     "h": "/story/",
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -218513,6 +218819,11 @@
      "text": "reads «habitat Pisini» — he kept the house at Gologorica and lived at Pazin. (doc — ZM34K-214, M01069322.) Amalia Peschle, ex VOLOSCA — godmother at the baptism of Clementina Maria Defranceschi, 6 October 1822, standing with Pietro Antonio Defranceschi; both entered Cives Gollogoricenses. ⚠ This archive published her as «ex Silesia» and built worklist 170 on it; re-read at four times magnification on 11 October 2026 the word is «ex Volosca» — the Kvarner"
     },
     {
+     "page": "/",
+     "title": "The Defranceschi Archive",
+     "text": "qm Matthaei, e Besanova» (Pula births 1893–96, p. 396, entry 821, image 650; sponsor Ghira Angelus, carpenter; midwife Dobrez Helena). A margin note reads «nupsit Antonio Defranceschi, Polae 26.X.19?9». doc for the note. It is the other half of the note on the baptism of Antonius Georgius, 1894 («…Longhini, Polae 26.X.19?9»): the same day and place, each naming the other, so she is his wife (inf, firm). The year"
+    },
+    {
      "page": "/register/",
      "title": "Register",
      "text": "Lucas Francetich Francetich y b. 1726· bur. 19 May 1765 Karlovac, Zagrebačka, Hrvatska, Österreich Karlovac, Zagrebačka, Hrvatska, Österreich, lead X9D5-96BB Antonio Defranceschi Defranceschi y d. 12 Jul 1727· of Fiume, Modrus-Fiume, Ungheria Fiume, Modrus-Fiume, Ungheria, in Rijeka 6BKV-GST2 Isabetta Surname not indexed"
@@ -218526,6 +218837,11 @@
      "page": "/imotski/",
      "title": "The Imotski Franceschi",
      "text": "surname never appears as a father at Gračišće at all</strong, and its six appearances there are all as godparents, five labelled <emof Gologorica</em. <strongHis descent is not in doubt; his birthplace is not established.</strong gen Antonio Defranceschi b. 20 Sep 1825 – 1894 at gen Josip Defranceschi b. 22 Mar 1863 – 1951 at gen Anton Rudolf Defranceski b. 20 Jan 1890 – 1943 at gen Ivan Defranceski b."
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "at Gračišće, 1819 Francisca Salomon place not known doc 3 stonecutter Born in the household of house 5 at Gračišće; the stonecutter of house 19 Antonio Defranceschi antonio-defranceschi-1825 1825–1894 Gračišće doc Maria Fernasar maria-fernasar-tornasar-de-franceschi-1832 of Gračišće doc 4"
     },
     {
      "page": "/walk/carnia/",
@@ -222551,6 +222867,10 @@
      "name": "Ivana Defranceschi"
     },
     {
+     "slug": "joanna-barbara-longhin",
+     "name": "Joanna Barbara Longhin"
+    },
+    {
      "slug": "joanna-defranceschi-sestan",
      "name": "Joanna Defranceschi (Sestan)"
     },
@@ -224706,10 +225026,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -224731,7 +225047,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -224884,11 +225200,6 @@
      "text": "Giovanni (b.1883, 1915), Olivo and Ulivo (b.1896, 1915). Vermont in those years means one thing: the granite sheds of Barre, which drew stonecutters out of northern Italy and the Adriatic by the thousand. And this archive's own man at Gračišće — Antonius Defranceschi q. Joannis, house 19 — is entered in the Status Animarum as a stonecutter. That is a resonance, not a link. None of the Vermont rows carries a birthplace in the index, and the transcripts were not bought. It is written down here so that whoever"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
-    },
-    {
      "page": "/open-questions/",
      "title": "Open Questions",
      "text": "and posted it to Queensland for 117 kuna. The refusal is of open-ended research, not of a named request. Is there a Gračišće record in hand? Yes. Josephus Defranceschi, born 22 March 1863 and baptised the next day at Gračišće, son of Antonius Defranceschi, «lapidarius» — a stonemason — and Maria. Certified from MKR Gračišće 1841–1899, folio 108, entry 23. A marginal note was added by the civil registry in 1951, so the same person is traceable forward. Are the Gologorica registers reachable at"
@@ -224900,7 +225211,12 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
      "text": "Spine /direct-line/ Households /households/ status-animarum-gb 1825 IV Gračišće, house 19 Lapicida — the man who cut stone Three Latin words weld house 5 to house 19. Antonius Defranceschi q. Joannis — son of the late Giovanni — born 20 September 1825, married 25 November 1856, dead 4 August 1894. Against his name the clerk wrote his trade, and it is the trade that comes down the hill with the family: lapicida, a stonecutter. His wife Maria"
     },
     {
@@ -225824,10 +226140,6 @@
      "t": "The Name"
     },
     {
-     "h": "/our-line/",
-     "t": "${markTitle[p.g]}: ${p.why}"
-    },
-    {
      "h": "/corrections/",
      "t": "Corrections"
     },
@@ -225849,7 +226161,7 @@
     },
     {
      "h": "/story/",
-     "t": "The Story"
+     "t": "${markTitle[p.g]}: ${p.why}"
     },
     {
      "h": "/walk/carnia/",
@@ -226002,11 +226314,6 @@
      "text": "Giovanni (b.1883, 1915), Olivo and Ulivo (b.1896, 1915). Vermont in those years means one thing: the granite sheds of Barre, which drew stonecutters out of northern Italy and the Adriatic by the thousand. And this archive's own man at Gračišće — Antonius Defranceschi q. Joannis, house 19 — is entered in the Status Animarum as a stonecutter. That is a resonance, not a link. None of the Vermont rows carries a birthplace in the index, and the transcripts were not bought. It is written down here so that whoever"
     },
     {
-     "page": "/our-line/",
-     "title": "${markTitle[p.g]}: ${p.why}",
-     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
-    },
-    {
      "page": "/open-questions/",
      "title": "Open Questions",
      "text": "and posted it to Queensland for 117 kuna. The refusal is of open-ended research, not of a named request. Is there a Gračišće record in hand? Yes. Josephus Defranceschi, born 22 March 1863 and baptised the next day at Gračišće, son of Antonius Defranceschi, «lapidarius» — a stonemason — and Maria. Certified from MKR Gračišće 1841–1899, folio 108, entry 23. A marginal note was added by the civil registry in 1951, so the same person is traceable forward. Are the Gologorica registers reachable at"
@@ -226018,7 +226325,12 @@
     },
     {
      "page": "/story/",
-     "title": "The Story",
+     "title": "${markTitle[p.g]}: ${p.why}",
+     "text": "A doc plate-status-animarum-ant Status Animarum of Gallignana, house 19, DAPA ZM34K 217, M01071656 Three Latin words join one house to the next. On another page of the same book of souls, house 19 is headed by Antonius Defranceschi q. Joannis, son of the late Giovanni, born on 20 September 1825: the very day given for the second son of house 5. A small cross stands before his name, the priest's sign that he had died. Beside it is his trade,"
+    },
+    {
+     "page": "/story/",
+     "title": "${markTitle[p.g]}: ${p.why}",
      "text": "Spine /direct-line/ Households /households/ status-animarum-gb 1825 IV Gračišće, house 19 Lapicida — the man who cut stone Three Latin words weld house 5 to house 19. Antonius Defranceschi q. Joannis — son of the late Giovanni — born 20 September 1825, married 25 November 1856, dead 4 August 1894. Against his name the clerk wrote his trade, and it is the trade that comes down the hill with the family: lapicida, a stonecutter. His wife Maria"
     },
     {
@@ -250172,19 +250484,29 @@
     "parentsPlace": "Pula, via Medolino 33",
     "parentsHref": "/households/",
     "siblings": [],
+    "spouse": {
+     "n": "Joanna Barbara Longhin (b. Pola 1895)",
+     "dt": "b. 1895",
+     "via": "read",
+     "slug": "joanna-barbara-longhin",
+     "pid": "joanna-barbara-longhin-1895"
+    },
+    "children": [],
+    "span": "1929–1929",
+    "childrenPlace": "Pola",
     "upN": 1,
-    "downN": 0,
+    "downN": 1,
     "dropped": [],
     "unchecked": [],
     "estRej": [],
     "tally": [
      [
       "read",
-      2
+      3
      ]
     ],
-    "nrel": 2,
-    "nread": 2,
+    "nrel": 3,
+    "nread": 3,
     "dupNames": []
    }
   },
@@ -279804,6 +280126,41 @@
     ],
     "nrel": 3,
     "nread": 0,
+    "dupNames": []
+   }
+  },
+  "joanna-barbara-longhin-1895": {
+   "pid": "joanna-barbara-longhin-1895",
+   "name": "Joanna Barbara Longhin",
+   "ptree": {
+    "self": {
+     "n": "Joanna Barbara Longhin",
+     "dt": "b. 1895",
+     "via": "read"
+    },
+    "spouse": {
+     "n": "Antonius Georgius Defranceschi (b. Pola 1894)",
+     "dt": "b. 1894",
+     "via": "read",
+     "slug": "antonius-georgius-defranceschi",
+     "pid": "antonius-georgius-defranceschi-1894"
+    },
+    "children": [],
+    "span": "1929–1929",
+    "childrenPlace": "Pola",
+    "upN": 0,
+    "downN": 1,
+    "dropped": [],
+    "unchecked": [],
+    "estRej": [],
+    "tally": [
+     [
+      "read",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 1,
     "dupNames": []
    }
   },
