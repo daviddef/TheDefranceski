@@ -9,7 +9,8 @@
   "tables: skip": "The tables on these pages are inventories and frame maps (which image is on which frame of a film, one image id per cell), not sentences that rely on a record. The prose around them is read. 123 cells would otherwise count (88 L3, 11 L4); none of them has a public address, and a frame map does not want a scan beside every row. David's decision to flip (kit option tables: records).",
   "scans.link_only antenati, ark, waypoint-frame": "FamilySearch frames and Antenati scans are link-only (David, 18 October 2026): a passage that cites one is asked for a link and never for a picture beside it. Only the family's own DAPA copy plates are asked for (L4).",
   "record_links.prefixes": "/sources/, /searched/, /antenati/ and /parish-books/ are lists of records the archive holds or has searched; /gallery/ and /register/ are not (a plate room, a list of leads) and are not accepted as a record link.",
-  "not in include: /cheryl-lerena/": "A memoir with poems and writings by a member of the family: creative writing, so the names in it are not claims about records and no sentence cites one (0 citing passages). The page still gets the build-time name links; the standard simply does not count its names."
+  "not in include: /cheryl-lerena/": "A memoir with poems and writings by a member of the family: creative writing, so the names in it are not claims about records and no sentence cites one (0 citing passages). The page still gets the build-time name links; the standard simply does not count its names.",
+  "not_names: Roman Catholic, Roman Ritual, Rituali Romano, Venezia Giulia": "Not people: 'Roman' is a given name in the index, so these four phrases read as names and were counted in L5 on /gologorica-line/ (one each). Added 25 October 2026, when the new roster entry Joanna Barbara Longhin made 'Barbara' a given name and two existing non-person mentions of it on that page (a baptism-name list under the surname Salamon; the chronicle called the Barbara) began to count: they cannot be linked to a person or exempted without raising EX, so the false positives were taken out instead."
  },
  "include": [
   "/gologorica-line/",
@@ -119,7 +120,8 @@
    "^(Santa|San|Santo|Sant|Sveti|Sv\\.?) ",
    "^(Mount|Monte|Cape|Port|Fort|Lake|New|North|South|East|West|Great|Little|Saint|Holy|Our|Via|Piazza|Casa|Chiesa|Palazzo|Contrada|Castle|Street|St|Villa|Ulica|Trg)\\b",
    "\\b(Island|Street|Road|Church|Archive|Archives|Register|Registers|Parish|Books|Book|Census|Index|Commune|Comune|Reel|Film|Liber|Cathedral|Chapel|Square|Palace|Monastery|Hospital|County|Istria|Dalmatia|Croatia|Carniola|Venice|Pazin|Pula|Fiume|Rijeka|Gologorica|Carnia|Udine|Friuli|Trieste|Zagreb|Vienna)\\b",
-   "\\b(Pascoli|Storia|Zbornik|Geschichtsbl\\w+|Jenny)\\b"
+   "\\b(Pascoli|Storia|Zbornik|Geschichtsbl\\w+|Jenny)\\b",
+   "\\b(Roman Catholic|Roman Ritual|Rituali Romano|Venezia Giulia)\\b"
   ],
   "given_names_file": "../private/standard/given.json",
   "surname_words": [
