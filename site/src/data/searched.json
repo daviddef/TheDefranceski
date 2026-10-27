@@ -20262,6 +20262,49 @@
     ]
    ],
    "key": "src/pula-marriages-1858-73-t3f-item3-liber4-walk"
+  },
+  {
+   "src": "HR-HDA-1448 — Croatian State Archives' register finding aid (arhiv.hr, Pretraga matičnih knjiga): Crikvenica, RIMOKATOLICI, kind V (marriages)",
+   "what": "Is the Crikvenica marriage of 1912 (Anton Rudolf Defranceschi × Uršula Kovačina, Geni: 21 June 1912) in any register this archive can reach?",
+   "when": "27 Oct 2026",
+   "outcome": "found",
+   "dest": "Crikvenica",
+   "tags": [
+    "crikvenica",
+    "hda",
+    "marriages",
+    "kovacina"
+   ],
+   "got": "**Marriages 1909–1947, Matični ured Crikvenica, roll ZM-34J/362, mark M-6957, digital «Da»** — the book the 1912 entry is in. Also listed for Crikvenica kind V: 1738–1793 (Župni ured, «O = Blagajnička knjiga», ZM-34J/249), 1800–1823, 1822–1855 and 1856–1858 (Hrvatski državni arhiv, ZM-34/043, digital), 1859–1908 (Državni arhiv u Rijeci, ZM-34J/028, not digital). **Verification, not discovery:** the signature was already on the HDA page and in errand 29 (searched 8 Sept 2026); the entry is now named in the errand. **Terms tried:** place «CRIKVENICA» (plain; the list also holds «CRIKVENA» and two «CRIKVENICA MJESTA…» forms, not run in the working form), confession RIMOKATOLICI, kind V. **Control:** Proložac, same settings, returned three marriage rows (1858–1885 Split ZM-34F/936; 1885–1935 and 1935–1949 Imotski ZM-34F/1118). **The trap:** selecting items by script or by clicking the list returned «Nema zapisa» for both Crikvenica and the control; only typing the place into the box and letting the search fire gave rows.",
+   "url": "http://www.arhiv.hr/Pretraga-matičnih-knjiga",
+   "key": "src/hda-1448-crikvenica-marriages-1912-check",
+   "ev": [
+    [
+     "/errands/",
+     "Errands"
+    ],
+    [
+     "/crikvenica-house/",
+     "Crikvenica house"
+    ]
+   ],
+   "next": "Send errand 29 (it now names the 1912 entry)."
+  },
+  {
+   "src": "Belgrade — municipal death register for 3 November 1975 (Palilula) and the Historical Archives of Belgrade: web search of what is published",
+   "what": "How to reach Uršula Kovačina's Belgrade death entry; whether 1975 books are at the archive",
+   "when": "27 Oct 2026",
+   "outcome": "nothing",
+   "dest": "Belgrade",
+   "tags": [
+    "belgrade",
+    "kovacina",
+    "deaths"
+   ],
+   "got": "**Not established.** Terms tried (two web searches, Serbian): «izvod iz matične knjige umrlih Beograd opština Palilula istorijski arhiv Beograda … čuvanje rok 100 godina zahtev za pretragu»; «Istorijski arhiv Beograda matične knjige umrlih 1975 Palilula genealogija istraživanje porodice zahtev». They return the Law on Civil Registry Books (City of Belgrade and its municipalities keep the books; extracts are public documents; books are kept in two copies) and the archive's address and hours; none says where 1975 death books are, or how a descendant asks. A copy of the Law was fetched but not read to the retention clause. Nothing is claimed about access.",
+   "url": "https://portal.ehri-project.eu/institutions/rs-006045",
+   "key": "src/belgrade-death-register-1975-route",
+   "next": "Ask the Palilula registry office for an extract of the death entry of 3 Nov 1975, quoting the notice number 350 of 24 Feb 1976 on the Crikvenica baptism margin."
   }
  ]
 }
