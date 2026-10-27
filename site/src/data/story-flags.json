@@ -1,0 +1,397 @@
+{
+ "_note": "Made by scripts/build-ribbon-flags.py: the story's ribbon (story-book.json) in the kit's card shape, with the flags the kit's ribbonflags.py gives each card (kit/docs/ribbon-flags.md). Drawn by src/pages/story.astro with the kit's FlagMini. Do not edit by hand.",
+ "ribbon": {
+  "cards": [
+   {
+    "name": "Giovanni Defranceschi",
+    "years": "1750–1829",
+    "origin": "Gologorica",
+    "originGrade": "lore",
+    "spouse": "Theresia née Grah",
+    "spouseOrigin": "of Krbune",
+    "atPlace": "",
+    "atYear": "",
+    "living": false,
+    "chapter": "weaver",
+    "person": "giovanni-defranceschi-1750",
+    "spousePerson": "theresia-defranceschi-nee-grach-gologorica",
+    "spouseDirect": true,
+    "flags": [
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Gologorica",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Gologorica: Croatia today",
+      "grade": "lore"
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Krbune",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "spouse of Krbune: Croatia today",
+      "grade": "lore"
+     }
+    ]
+   },
+   {
+    "name": "Giovanni Battista Defranceschi",
+    "years": "1787–1846",
+    "origin": "Gologorica",
+    "originGrade": "inf",
+    "spouse": "Francisca Salomon",
+    "spouseOrigin": "place not known",
+    "atPlace": "Gračišće",
+    "atYear": "1819",
+    "living": false,
+    "chapter": "farmer",
+    "person": "giovanni-battista-defranceschi-1787",
+    "flags": [
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Gologorica",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Gologorica: Croatia today",
+      "grade": "inf"
+     },
+     {
+      "kind": "today",
+      "line": "at",
+      "place": "Gračišće",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "at Gračišće: Croatia today",
+      "grade": "inf"
+     }
+    ]
+   },
+   {
+    "name": "Antonio Defranceschi",
+    "years": "1825–1894",
+    "origin": "Gračišće",
+    "originGrade": "doc",
+    "spouse": "Maria Fernasar",
+    "spouseOrigin": "of Gračišće",
+    "atPlace": "",
+    "atYear": "",
+    "living": false,
+    "chapter": "stonecutter",
+    "person": "antonio-defranceschi-1825",
+    "spousePerson": "maria-fernasar-tornasar-de-franceschi-1832",
+    "spouseDirect": true,
+    "flags": [
+     {
+      "kind": "era",
+      "line": "from",
+      "place": "Gračišće",
+      "svg": "austria-flags--era-1804.svg",
+      "flag": "austria-flags--era-1804",
+      "era": "istria-central--era-1815",
+      "year": 1825,
+      "label": "from Gračišće, 1825: Habsburg / Austria–Hungary then",
+      "grade": "doc",
+      "assessed": true
+     },
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Gračišće",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Gračišće: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "era",
+      "line": "spouse",
+      "place": "Gračišće",
+      "svg": "austria-flags--era-1804.svg",
+      "flag": "austria-flags--era-1804",
+      "era": "istria-central--era-1815",
+      "year": 1825,
+      "label": "spouse of Gračišće, 1825: Habsburg / Austria–Hungary then",
+      "grade": "doc",
+      "assessed": true
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Gračišće",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "spouse of Gračišće: Croatia today",
+      "grade": "doc"
+     }
+    ]
+   },
+   {
+    "name": "Josip Defranceschi",
+    "years": "1863–1950 or 1951",
+    "origin": "Gračišće",
+    "originGrade": "doc",
+    "spouse": "Ana Kalanj",
+    "spouseOrigin": "of Klenovica",
+    "atPlace": "Klenovica",
+    "atYear": "1890",
+    "living": false,
+    "chapter": "coast",
+    "person": "josip-defranceschi-1863",
+    "spousePerson": "anna-kalanj-de-franceschi-1864-1936-1864",
+    "spouseDirect": true,
+    "flags": [
+     {
+      "kind": "era",
+      "line": "from",
+      "place": "Gračišće",
+      "svg": "austria-flags--era-1804.svg",
+      "flag": "austria-flags--era-1804",
+      "era": "istria-central--era-1815",
+      "year": 1863,
+      "label": "from Gračišće, 1863: Habsburg / Austria–Hungary then",
+      "grade": "doc",
+      "assessed": true
+     },
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Gračišće",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Gračišće: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "at",
+      "place": "Klenovica",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "at Klenovica: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Klenovica",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "spouse of Klenovica: Croatia today",
+      "grade": "doc"
+     }
+    ]
+   },
+   {
+    "name": "Anton Rudolf Defranceski",
+    "years": "1890–1943?",
+    "origin": "Klenovica",
+    "originGrade": "doc",
+    "spouse": "Ursula Kovačina",
+    "spouseOrigin": "of Crikvenica (inferred)",
+    "atPlace": "Pfullingen",
+    "atYear": "1942",
+    "living": false,
+    "chapter": "pfullingen",
+    "person": "anton-rudolf-defranceski-1890",
+    "spousePerson": "ursula-kovacina-defranceschi-1895",
+    "spouseDirect": true,
+    "flags": [
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Klenovica",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Klenovica: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "at",
+      "place": "Pfullingen",
+      "svg": "germany-flags--era-1990.svg",
+      "flag": "germany-flags--era-1990",
+      "country": "DE",
+      "year": null,
+      "label": "at Pfullingen: Germany today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Crikvenica (inferred)",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "spouse of Crikvenica (inferred): Croatia today",
+      "grade": "doc"
+     }
+    ]
+   },
+   {
+    "name": "Ivan Defranceski",
+    "years": "1925–1995",
+    "origin": "Crikvenica",
+    "originGrade": "doc",
+    "spouse": "Hedviga Blažević",
+    "spouseOrigin": "of Senj",
+    "atPlace": "Senj",
+    "atYear": "1951",
+    "living": false,
+    "chapter": "senj",
+    "person": "ivan-defranceski-1925",
+    "spousePerson": "hedviga-blazevic-defranceski-1926",
+    "spouseDirect": true,
+    "flags": [
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Crikvenica",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Crikvenica: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "at",
+      "place": "Senj",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "at Senj: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Senj",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "spouse of Senj: Croatia today",
+      "grade": "doc"
+     }
+    ]
+   },
+   {
+    "name": "Ivan Defranceski",
+    "years": "†",
+    "origin": "Senj",
+    "originGrade": "doc",
+    "spouse": "Cheryl Lerena",
+    "spouseOrigin": "of Johannesburg, South Africa",
+    "atPlace": "later Johannesburg, Brisbane",
+    "atYear": "",
+    "living": false,
+    "chapter": "us",
+    "person": "ivan-defranceski-1951",
+    "spouseHref": "/cheryl-lerena/",
+    "spouseLiving": true,
+    "flags": [
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Senj",
+      "svg": "croatia-flags--era-1990.svg",
+      "flag": "croatia-flags--era-1990",
+      "country": "HR",
+      "year": null,
+      "label": "from Senj: Croatia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Johannesburg, South Africa",
+      "svg": "south-africa-flags--era-1994.svg",
+      "flag": "south-africa-flags--era-1994",
+      "country": "ZA",
+      "year": null,
+      "label": "spouse of Johannesburg, South Africa: South Africa today",
+      "grade": "doc"
+     }
+    ]
+   },
+   {
+    "name": "David Defranceski",
+    "years": "",
+    "origin": "Johannesburg, South Africa",
+    "originGrade": "doc",
+    "spouse": "Cristina Adele D'Arcy",
+    "spouseOrigin": "of Brisbane, Australia",
+    "atPlace": "Brisbane, Australia",
+    "atYear": "",
+    "living": true,
+    "chapter": "us",
+    "person": "david-defranceski-johannesburg-brisbane",
+    "spousePerson": "cristina-adele-d-arcy-defranceski",
+    "spouseLiving": true,
+    "flags": [
+     {
+      "kind": "today",
+      "line": "from",
+      "place": "Johannesburg, South Africa",
+      "svg": "south-africa-flags--era-1994.svg",
+      "flag": "south-africa-flags--era-1994",
+      "country": "ZA",
+      "year": null,
+      "label": "from Johannesburg, South Africa: South Africa today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "at",
+      "place": "Brisbane, Australia",
+      "svg": "australia-flags--era-1901.svg",
+      "flag": "australia-flags--era-1901",
+      "country": "AU",
+      "year": null,
+      "label": "at Brisbane, Australia: Australia today",
+      "grade": "doc"
+     },
+     {
+      "kind": "today",
+      "line": "spouse",
+      "place": "Brisbane, Australia",
+      "svg": "australia-flags--era-1901.svg",
+      "flag": "australia-flags--era-1901",
+      "country": "AU",
+      "year": null,
+      "label": "spouse of Brisbane, Australia: Australia today",
+      "grade": "doc"
+     }
+    ]
+   }
+  ]
+ }
+}

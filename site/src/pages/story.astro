@@ -25,6 +25,14 @@ import old from "../data/story.json";
 import "@daviddef/archive-kit/styles/ours.css";
 import { cardEntry, OURS_LEGEND } from "@daviddef/archive-kit/lib/directline.js";
 import directLine from "../data/direct-line.json";
+/* THE MINI FLAGS (kit/docs/ribbon-flags.md, David, 27 October 2026): card n's flags are card n of src/data/story-flags.json, which
+   scripts/build-ribbon-flags.py makes from this ribbon with the kit's generator (ribbonflags.py); the kit's FlagMini draws them as
+   the kit's StoryRibbon does (the same markup and classes, absolutely placed in the header row, so a card keeps its size), and the
+   kit's key and credit line goes under the ribbon. The kit's text classes (st-rb-top, st-rb-g, st-rb-n) sit beside this page's own
+   so the kit's box gate (checkflagfit.mjs) can see the words a strip must not touch. */
+import FlagMini from "@daviddef/archive-kit/components/FlagMini.astro";
+import { hasFlags, FLAG_KEY, FLAG_CREDIT } from "@daviddef/archive-kit/lib/flags.js";
+import storyFlags from "../data/story-flags.json";
 
 const chapters = [...book.chapters, book.closing];
 const href = (h) => (h.startsWith("#") ? h : u(h));
@@ -50,6 +58,10 @@ const genOf = {};
 for (const r of book.ribbon) genOf[r.link] = genOf[r.link] ? `${genOf[r.link]} and ${r.n}` : r.n;
 /* The ribbon's glyphs, by generation: the trade or the place of each. */
 const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable", 7: "ship", 8: "hill" };
+const flagCards = storyFlags.ribbon.cards;
+if (flagCards.length !== book.ribbon.length || flagCards.some((c, i) => c.name !== book.ribbon[i].name))
+  throw new Error("story.astro: src/data/story-flags.json is not this ribbon; run scripts/build-ribbon-flags.py");
+const flagged = hasFlags(flagCards);
 ---
 <Base title={book.title} eyebrow={book.eyebrow} dek={book.dek}>
 
@@ -60,12 +72,13 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
         const on = cardEntry(directLine, { person: r.pid }, i);
         return (
         <li data-ch={r.link} class={`rb st-rb rb-${r.support}${on ? " is-ours" : ""}`} title={r.title}
-            data-person={r.pid || undefined} data-ours={on ? (r.pid || `gen:${i + 1}`) : undefined}>
-          <a class="rb-top" href={`#${r.link}`} aria-label={`Generation ${r.n}: go to the chapter`}>
+            data-person={r.pid || undefined} data-ours={on ? (r.pid || `gen:${i + 1}`) : undefined} data-living={r.living ? "1" : "0"}>
+          <a class="rb-top st-rb-top" href={`#${r.link}`} aria-label={`Generation ${r.n}: go to the chapter`}>
             <svg viewBox="-2 -2 28 22" width="26" height="20" aria-hidden="true"><path d={G[RG[r.n]]} /></svg>
-            <span class="rb-g">Gen. {r.n}</span>
+            <span class="rb-g st-rb-g">Gen. {r.n}</span>
           </a>
-          <span class="rb-n">{r.pid ? <a href={u(`/person/${r.pid}/`)}>{r.name}</a> : r.name}</span>
+          <FlagMini card={flagCards[i]} />
+          <span class="rb-n st-rb-n">{r.pid ? <a href={u(`/person/${r.pid}/`)}>{r.name}</a> : r.name}</span>
           {r.years && <span class="rb-y" aria-label={r.years === "†" ? "deceased" : undefined}>{r.years}</span>}
           <span class="rb-f">from {r.place}{r.support === "inf" && <span class="rb-q"> (inferred)</span>}{r.support === "lore" && <span class="rb-q"> (family's tree)</span>}</span>
           {r.town && <span class="rb-at">{r.town}</span>}
@@ -75,6 +88,7 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
       })}
     </ol>
     <p class="rb-note">{book.ribbonNote}</p>
+    {flagged && <p class="rb-note st-rb-fl" data-flag-credit="1">{FLAG_KEY} <span class="flag-credit">{FLAG_CREDIT}.</span></p>}
   </nav>
 
   <aside class="ol-legend" aria-label="How to read the marks">
@@ -259,6 +273,18 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
     .rb-n { font-size: 13.5px; }
   }
   .rb-note { font-family: var(--sans); font-size: 12px; color: var(--ink-3); margin: 2px 0 0; line-height: 1.5; }
+  /* The mini flags: the kit's rules for FlagMini (styles/story.css), with this archive's tokens in place of the kit's --st-* aliases.
+     The kit's stylesheet is not loaded here: its `.st-rb` card rules would restyle this page's own cards. */
+  .rb :global(.flag-strip) { position: absolute; top: 6px; right: 6px; display: flex; flex-direction: column; gap: 2px; line-height: 0; z-index: 1; }
+  .rb :global(.flag-strip-left) { right: auto; left: 6px; }
+  .rb :global(.flag-mini) { display: block; width: 18px; height: 12px; margin: 0; border: 0; border-radius: 2px;
+    box-shadow: 0 0 0 1px var(--rule-strong); background: var(--paper, transparent); }
+  .rb :global(.flag-mini-inf) { box-shadow: none; outline: 1px dashed var(--ev-inferred); outline-offset: 1px; }
+  .rb :global(.flag-mini-lore) { box-shadow: none; outline: 1px dotted var(--ev-family); outline-offset: 1px; }
+  .rb :global(.flag-mini-today) { box-sizing: border-box; box-shadow: none; border: 1px solid var(--rule-strong); border-bottom: 1px dotted var(--ink-2); }
+  .rb :global(.flag-more) { display: block; height: 12px; min-width: 14px; font: 600 9px/12px var(--sans); color: var(--ink-3); text-align: center;
+    border-radius: 2px; box-shadow: 0 0 0 1px var(--rule); }
+  .st-rb-fl .flag-credit { color: var(--ink-3); font-style: italic; }
 
   .ol-legend { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 22px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5;
     color: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin: 6px 0 20px; }

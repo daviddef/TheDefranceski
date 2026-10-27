@@ -11,7 +11,10 @@
    The tint is direct-line.json (scripts/build-direct-line.py, from the story's ribbon): our side of every block is on it.
    A spouse the archive has no page for (Francisca Salomon) is named and not linked. The band is `data-no-autolink`: every
    name in it is already linked to its own page or deliberately not linked, and the build's name linker must not add a
-   second link inside a card ("Francesco Maria Franceschi" read as a "Maria Franceschi"). */
+   second link inside a card ("Francesco Maria Franceschi" read as a "Maria Franceschi").
+   THE MINI FLAGS (kit/docs/ribbon-flags.md, 27 October 2026): each card's `flags` are the same card's in family-flags.json, made
+   by scripts/build-ribbon-flags.py with the kit's generator. They are not in family-lines.json because the kit's family-ribbon
+   schema (checkfamilyribbon.py F0) does not know the field; they are put on the card here, and the kit's FamilyRibbon draws them. */
 import FamilyRibbon from "@daviddef/archive-kit/components/FamilyRibbon.astro";
 import "@daviddef/archive-kit/styles/story.css";
 import "@daviddef/archive-kit/styles/ours.css";
@@ -20,11 +23,16 @@ import { blocksOf, blockSentence, GRADE_WORD } from "@daviddef/archive-kit/lib/f
 import { directMap, OURS_LEGEND } from "@daviddef/archive-kit/lib/directline.js";
 import lines from "../data/family-lines.json";
 import links from "../data/family-links.json";
+import familyFlags from "../data/family-flags.json";
 import directLine from "../data/direct-line.json";
 import { u } from "../lib/url.js";
 
 const { id } = Astro.props;
-const ribbon = lines.families.find((f) => f.id === id);
+const bare = lines.families.find((f) => f.id === id);
+const flagsOf = bare ? familyFlags.families.find((f) => f.id === id) : null;
+if (bare && (!flagsOf || flagsOf.cards.length !== bare.cards.length || flagsOf.cards.some((c, i) => c.name !== bare.cards[i].name)))
+  throw new Error(`FamilyBand: family-flags.json is not family-lines.json for "${id}"; run scripts/build-ribbon-flags.py`);
+const ribbon = bare && { ...bare, cards: bare.cards.map((c, i) => (flagsOf.cards[i].flags ? { ...c, flags: flagsOf.cards[i].flags } : c)) };
 const only = links.families.find((f) => f.id === id);
 if (!ribbon && !only) throw new Error(`FamilyBand: no family "${id}" in family-lines.json or family-links.json`);
 const personHref = (s) => u(`/person/${s}/`);

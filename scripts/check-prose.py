@@ -59,6 +59,9 @@ HAND_EDITED = {
     "sources.json", "sovereignty.json", "spines.json", "story.json", "story-book.json", "story-maps.json", "sweep.json", "trees.json",
     "trentino.json", "triage.json", "valentino.json", "vodnjan.json", "walk.json", "waypoints.json",
     "worklist.json", "y1948.json",
+    # 27 October 2026, the mini flags (kit/docs/ribbon-flags.md): the archive's own answers for today's country of a card's
+    # place, and a card's place text -> the era table's, each entry with its evidence; typed by a person.
+    "flag-countries.json", "flag-places.json",
 }
 
 # Data files a script writes. Their generator's own scrub gate (check-living-v2.py, checkliving.py,
@@ -82,6 +85,11 @@ GENERATED = {
     # from spines.json, carnia.json, households.json, rivers.json and the roster; never typed, and each script's --check fails on a
     # hand edit. Every name and year in them is already in the hand-edited file it was read from, which this gate reads.
     "direct-line.json", "family-lines.json", "family-links.json",
+    # 27 October 2026, the mini flags on the ribbon cards (kit/docs/ribbon-flags.md): story-flags.json and family-flags.json are
+    # written by scripts/build-ribbon-flags.py (the story's ribbon in the kit's card shape, and family-lines.json's cards, each with
+    # the flags the kit's ribbonflags.py gives it); never typed, and its --check fails on a hand edit. Every name in them is already
+    # in story-book.json or in the files family-lines.json is made from.
+    "story-flags.json", "family-flags.json",
 }
 
 # Prose that is typed outside src/pages and notes/*.md: components and layouts (a sentence can be typed there),

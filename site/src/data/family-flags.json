@@ -1,0 +1,1365 @@
+{
+ "_note": "Made by scripts/build-ribbon-flags.py: the families and cards of family-lines.json with the flags the kit's ribbonflags.py gives each card (kit/docs/ribbon-flags.md); kept apart because the kit's family-ribbon schema does not know `flags`. Drawn by src/components/FamilyBand.astro through the kit's FamilyRibbon. Do not edit by hand.",
+ "families": [
+  {
+   "id": "carnia",
+   "cards": [
+    {
+     "name": "Leonardo de Franceschi",
+     "years": "",
+     "origin": "",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false
+    },
+    {
+     "name": "Antonio de Franceschi",
+     "years": "",
+     "origin": "",
+     "originGrade": "doc",
+     "spouse": "Maria née Corva",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false
+    },
+    {
+     "name": "Osvaldo de Franceschi",
+     "years": "",
+     "origin": "",
+     "originGrade": "doc",
+     "spouse": "Appolonia Galante",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false
+    },
+    {
+     "name": "Anna Maria de Franceschi",
+     "years": "",
+     "origin": "",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false
+    }
+   ]
+  },
+  {
+   "id": "liznjan",
+   "cards": [
+    {
+     "name": "Mattio Defranceschi",
+     "years": "d. 1839",
+     "origin": "Ližnjan",
+     "originGrade": "doc",
+     "spouse": "Madalena Percovich",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "spousePerson": "madalena-percovich-wife-of-mattio-defranceschi-liznjan-liznjan",
+     "person": "matteo-defranceschi-father-of-antonio-and-probably-gregorio-liznjan-liznjan",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ližnjan",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Ližnjan: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio Defranceschi",
+     "years": "1819–1895",
+     "origin": "Ližnjan",
+     "originGrade": "doc",
+     "spouse": "Maria Schiffich",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "spousePerson": "maria-schifich",
+     "person": "antonio-defranceschi-fu-matteo-liznjan-house-17-1844-1890-liznjan",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ližnjan",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Ližnjan: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "venice",
+   "cards": [
+    {
+     "name": "Niccolò",
+     "years": "1318–1362",
+     "origin": "Venice",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Envoy of Pope Urban V; received into the Hungarian-Croatian nobility at Buda, 8 March 1359.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Venice",
+       "svg": "italy-flags--era-1946.svg",
+       "flag": "italy-flags--era-1946",
+       "country": "IT",
+       "year": null,
+       "label": "from Venice: Italy today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1342–1400",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Counsellor to King Louis of Hungary.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Stefano",
+     "years": "1394–1438",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Notary of Zadar. Wife Aquilina.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Tommaso",
+     "years": "1436–1496",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Municipal archivist of Zadar.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1460–1512",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "The salt office of the port of Zadar. Wife a contessa Grisogono.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Tommaso-Francesco",
+     "years": "1484–1536",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Colonel.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1520–1598",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Counsellor of the Serenissima.",
+     "person": "francesco-de-franceschi-1520",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Gasparo",
+     "years": "1562–1609",
+     "origin": "Omiš",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Admiral. Wife a contessa Zanon.",
+     "person": "gasparo-de-franceschi-1562",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Pietro Antonio, detto Perini",
+     "years": "1588–1661",
+     "origin": "Omiš",
+     "originGrade": "inf",
+     "spouse": "M. Dešković",
+     "spouseOrigin": "of Dalmatia",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife M. Dešković. Perinuša is NOT named for him — see the correction.",
+     "person": "pietro-antonio-detto-perini-de-franceschi-1588",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1608–1660",
+     "origin": "Omiš",
+     "originGrade": "inf",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife Lucrezia.",
+     "person": "francesco-de-franceschi-1608",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Girolamo",
+     "years": "1622–1695",
+     "origin": "Omiš",
+     "originGrade": "inf",
+     "spouse": "Elena Coltroni",
+     "spouseOrigin": "of Omiš",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife Elena Coltroni.",
+     "person": "girolamo-de-franceschi-1622",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "inf"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Omiš: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Giovanni, il Zuane",
+     "years": "1673–1741",
+     "origin": "Imotski",
+     "originGrade": "doc",
+     "spouse": "Francesca Cvitanović",
+     "spouseOrigin": "of Dalmatia",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Venetian commander at the taking of Imotski in 1717, then governor. Rewarded with the estates on the Vrljika.",
+     "person": "giovanni-il-zuane-de-franceschi-1673",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Imotski",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Imotski: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio, Ante",
+     "years": "1723–1791",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "contessa M. Cambi",
+     "spouseOrigin": "of Split",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Born at Omiš, died in the Proložac district. Wife a contessa Cambi.",
+     "person": "antonio-de-franceschi-1723",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Split",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Split: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Pietro Antonio, Petar",
+     "years": "1757–1803",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "Katarina Dorić",
+     "spouseOrigin": "of Omiš",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Serdar and landholder. Wife Katarina Dorić.",
+     "person": "pietro-antonio-de-franceschi-1757",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Omiš: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio, Ante",
+     "years": "1801–1877",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Born at Omiš, died at Proložac.",
+     "person": "antonio-de-franceschi-1801",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Ivan",
+     "years": "1829–1895",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "Ivanica Baučić",
+     "spouseOrigin": "of Omiš",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife Ivanica Baučić.",
+     "person": "ivan-de-franceschi-1829",
+     "flags": [
+      {
+       "kind": "era",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "austria-flags--era-1804.svg",
+       "flag": "austria-flags--era-1804",
+       "era": "dalmatia--era-1814",
+       "year": 1829,
+       "label": "from Omiš, 1829: Habsburg / Austria–Hungary then",
+       "grade": "doc",
+       "assessed": true
+      },
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      },
+      {
+       "kind": "era",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "austria-flags--era-1804.svg",
+       "flag": "austria-flags--era-1804",
+       "era": "dalmatia--era-1814",
+       "year": 1829,
+       "label": "spouse of Omiš, 1829: Habsburg / Austria–Hungary then",
+       "grade": "doc",
+       "assessed": true
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Omiš: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio",
+     "years": "1874–1948",
+     "origin": "Perinuša",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder at Perinuša. Wife Antica Radišić.",
+     "person": "antonio-de-franceschi-1874",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Perinuša",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Perinuša: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "venice-omis",
+   "cards": [
+    {
+     "name": "Niccolò",
+     "years": "1318–1362",
+     "origin": "Venice",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Envoy of Pope Urban V; received into the Hungarian-Croatian nobility at Buda, 8 March 1359.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Venice",
+       "svg": "italy-flags--era-1946.svg",
+       "flag": "italy-flags--era-1946",
+       "country": "IT",
+       "year": null,
+       "label": "from Venice: Italy today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1342–1400",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Counsellor to King Louis of Hungary.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Stefano",
+     "years": "1394–1438",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Notary of Zadar. Wife Aquilina.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Tommaso",
+     "years": "1436–1496",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Municipal archivist of Zadar.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1460–1512",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "The salt office of the port of Zadar. Wife a contessa Grisogono.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Tommaso-Francesco",
+     "years": "1484–1536",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Colonel.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1520–1598",
+     "origin": "Zadar",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Counsellor of the Serenissima.",
+     "person": "francesco-de-franceschi-1520",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Zadar",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Zadar: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Gasparo",
+     "years": "1562–1609",
+     "origin": "Omiš",
+     "originGrade": "lore",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Admiral. Wife a contessa Zanon.",
+     "person": "gasparo-de-franceschi-1562",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "lore"
+      }
+     ]
+    },
+    {
+     "name": "Pietro Antonio, detto Perini",
+     "years": "1588–1661",
+     "origin": "Omiš",
+     "originGrade": "inf",
+     "spouse": "M. Dešković",
+     "spouseOrigin": "of Dalmatia",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife M. Dešković. Perinuša is NOT named for him — see the correction.",
+     "person": "pietro-antonio-detto-perini-de-franceschi-1588",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Francesco",
+     "years": "1608–1660",
+     "origin": "Omiš",
+     "originGrade": "inf",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife Lucrezia.",
+     "person": "francesco-de-franceschi-1608",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Girolamo",
+     "years": "1622–1695",
+     "origin": "Omiš",
+     "originGrade": "inf",
+     "spouse": "Elena Coltroni",
+     "spouseOrigin": "of Omiš",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife Elena Coltroni.",
+     "person": "girolamo-de-franceschi-1622",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "inf"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Omiš: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Giovanni, il Zuane",
+     "years": "1673–1741",
+     "origin": "Imotski",
+     "originGrade": "doc",
+     "spouse": "Francesca Cvitanović",
+     "spouseOrigin": "of Dalmatia",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Venetian commander at the taking of Imotski in 1717, then governor. Rewarded with the estates on the Vrljika.",
+     "person": "giovanni-il-zuane-de-franceschi-1673",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Imotski",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Imotski: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio, Ante",
+     "years": "1723–1791",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "contessa M. Cambi",
+     "spouseOrigin": "of Split",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Born at Omiš, died in the Proložac district. Wife a contessa Cambi.",
+     "person": "antonio-de-franceschi-1723",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Split",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Split: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Pietro Antonio, Petar",
+     "years": "1757–1803",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "Katarina Dorić",
+     "spouseOrigin": "of Omiš",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Serdar and landholder. Wife Katarina Dorić.",
+     "person": "pietro-antonio-de-franceschi-1757",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Omiš: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio, Ante",
+     "years": "1801–1877",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Born at Omiš, died at Proložac.",
+     "person": "antonio-de-franceschi-1801",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Ivan",
+     "years": "1829–1895",
+     "origin": "Omiš",
+     "originGrade": "doc",
+     "spouse": "Ivanica Baučić",
+     "spouseOrigin": "of Omiš",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder. Wife Ivanica Baučić.",
+     "person": "ivan-de-franceschi-1829",
+     "flags": [
+      {
+       "kind": "era",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "austria-flags--era-1804.svg",
+       "flag": "austria-flags--era-1804",
+       "era": "dalmatia--era-1814",
+       "year": 1829,
+       "label": "from Omiš, 1829: Habsburg / Austria–Hungary then",
+       "grade": "doc",
+       "assessed": true
+      },
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Omiš: Croatia today",
+       "grade": "doc"
+      },
+      {
+       "kind": "era",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "austria-flags--era-1804.svg",
+       "flag": "austria-flags--era-1804",
+       "era": "dalmatia--era-1814",
+       "year": 1829,
+       "label": "spouse of Omiš, 1829: Habsburg / Austria–Hungary then",
+       "grade": "doc",
+       "assessed": true
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Omiš",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "spouse of Omiš: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Antonio",
+     "years": "1874–1948",
+     "origin": "Perinuša",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Landholder at Perinuša. Wife Antica Radišić.",
+     "person": "antonio-de-franceschi-1874",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Perinuša",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Perinuša: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crete",
+   "cards": [
+    {
+     "name": "Giorgio de Franceschi",
+     "years": "",
+     "origin": "",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "person": "giorgio-de-franceschi",
+     "title": "Father of the two brothers who bought Seget. The family's Venetian form of his name, Zorzi, is the one on the War of Candia pension of 1730."
+    },
+    {
+     "name": "Marc'Antonio de Franceschi",
+     "years": "1671–1758",
+     "origin": "Šibenik",
+     "originGrade": "inf",
+     "spouse": "Crissulla Marulli",
+     "spouseOrigin": "of a Greek house",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "person": "marc-antonio-de-franceschi-1671",
+     "spousePerson": "crissulla-marulli",
+     "title": "Civil and military physician. Born 1671, two years after Candia fell — a child of the flight, not of the island. His wife's name is Chrysoula Marouli, Greek and not Istrian.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Šibenik",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Šibenik: Croatia today",
+       "grade": "inf"
+      }
+     ]
+    },
+    {
+     "name": "Alvise de Franceschi",
+     "years": "1727–c. 1790",
+     "origin": "Seget",
+     "originGrade": "doc",
+     "spouse": "Francesca Borella",
+     "spouseOrigin": "of Istria",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "person": "alvise-de-franceschi-1727",
+     "spousePerson": "francesca-borella-seget",
+     "title": "Lived at Seget. The family genealogy records him as «Dragomanno alla Porta ottomana» — dragoman at the Ottoman court. Six children.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Seget",
+       "svg": "croatia-flags--era-1990.svg",
+       "flag": "croatia-flags--era-1990",
+       "country": "HR",
+       "year": null,
+       "label": "from Seget: Croatia today",
+       "grade": "doc"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corsica",
+   "cards": [
+    {
+     "name": "Pietro Franceschi",
+     "years": "1694–1771",
+     "origin": "Ersa",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "The first generation the family's own historian could reach.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ersa",
+       "svg": "france-flags--era-1958.svg",
+       "flag": "france-flags--era-1958",
+       "country": "FR",
+       "year": null,
+       "label": "from Ersa: France today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Gasparo Franceschi",
+     "years": "1721–1799",
+     "origin": "Ersa",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ersa",
+       "svg": "france-flags--era-1958.svg",
+       "flag": "france-flags--era-1958",
+       "country": "FR",
+       "year": null,
+       "label": "from Ersa: France today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Francesco Maria Franceschi",
+     "years": "1750–1828",
+     "origin": "Ersa",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Born Genoese; died French. Genoa ceded the island in 1768, when he was eighteen.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ersa",
+       "svg": "france-flags--era-1958.svg",
+       "flag": "france-flags--era-1958",
+       "country": "FR",
+       "year": null,
+       "label": "from Ersa: France today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Pietro Franceschi",
+     "years": "1789–1871",
+     "origin": "Ersa",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ersa",
+       "svg": "france-flags--era-1958.svg",
+       "flag": "france-flags--era-1958",
+       "country": "FR",
+       "year": null,
+       "label": "from Ersa: France today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "Simone Franceschi",
+     "years": "1826–1907",
+     "origin": "Ersa",
+     "originGrade": "doc",
+     "spouse": "Caroline Mattei",
+     "spouseOrigin": "of Cap Corse",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Born at Ersa and dead at Ersa, eighty-one years apart. Married Caroline Mattei.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Ersa",
+       "svg": "france-flags--era-1958.svg",
+       "flag": "france-flags--era-1958",
+       "country": "FR",
+       "year": null,
+       "label": "from Ersa: France today",
+       "grade": "doc"
+      },
+      {
+       "kind": "today",
+       "line": "spouse",
+       "place": "Cap Corse",
+       "svg": "france-flags--era-1958.svg",
+       "flag": "france-flags--era-1958",
+       "country": "FR",
+       "year": null,
+       "label": "spouse of Cap Corse: France today",
+       "grade": "doc"
+      }
+     ]
+    },
+    {
+     "name": "François Marie Franceschi",
+     "years": "d. 1918",
+     "origin": "Carabobo",
+     "originGrade": "doc",
+     "spouse": "",
+     "spouseOrigin": "",
+     "atPlace": "",
+     "atYear": "",
+     "living": false,
+     "title": "Went out through the French Caribbean and died at Miranda, in Carabobo.",
+     "flags": [
+      {
+       "kind": "today",
+       "line": "from",
+       "place": "Carabobo",
+       "svg": "venezuela-flags--era-1830.svg",
+       "flag": "venezuela-flags--era-1830",
+       "country": "VE",
+       "year": null,
+       "label": "from Carabobo: Venezuela today",
+       "grade": "doc"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
