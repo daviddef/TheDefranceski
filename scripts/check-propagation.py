@@ -152,6 +152,11 @@ RULES = [
      r"Her own birth record has not been found|Uršula Kovačina, born about 1890|born about 1890, married Anton Rudolf|falls squarely in the unfilmed years|plausible window for Uršula falls in the unfilmed",
      {"corrections.json", "worklist.json", "searched.json", "maternal.json",
       "dossiers.json", "searchindex.json"}),
+    ("The Kovačina–Car marriage dated 28 November 1895 (27 Oct 2026: the page reads «dne 28ª listopada» — 28 October, and Uršula was born eight months before it)",
+     # The correction, the search log, the worklist's own narrative and the maternal/Crikvenica pages that tell the fix quote the old date on purpose; generated files mirror them.
+     r"(?:Kovačina|Marija Car)[^\n]{0,400}28 November 1895|28 November 1895[^\n]{0,400}(?:Kovačina|Marija Car)|Her parents married in November 1895|nine months (?:after|before) (?:her|Uršula)",
+     {"corrections.json", "worklist.json", "searched.json", "maternal.json", "crikvenica.json",
+      "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
