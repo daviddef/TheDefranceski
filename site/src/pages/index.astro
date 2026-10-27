@@ -21,6 +21,7 @@ import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
 import Descent from "@daviddef/archive-kit/components/Descent.astro";
 import dline from "../data/directline.json";
 import rivers from "../data/rivers.json";
+import directLine from "../data/direct-line.json";
 import { Cap as riversCap, lanes as riversLanes, households as riversHouseholds, names as riversNames, personBase as riversPersonBase } from "../lib/rivers.js";
 import Chip from "../components/Chip.astro";
 import lines from "../data/lines.json";
@@ -239,7 +240,7 @@ const spineRows = gens.map((g, i) => {
   <div class="kicker" style="color:var(--accent)">{riversCap(riversLanes)} families, one surname</div>
   <h2 style="margin-top:6px">Where each of them came from, and where each of them went</h2>
   <p class="dek" style="margin-top:10px">They are not one family and they never were. They arrive from different directions for different reasons — one for work, one as soldiers paid off in ruined land, one as refugees off a wrecked fleet, and two that the registers hold for generations without ever saying where they came from. And the last of them, drawn dashed at the foot, never came to Istria at all: a fully documented family of the same name that runs from a poor cape in Corsica to the Caribbean, put beside the others so it can be told apart from them.</p>
-  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase={riversPersonBase} names={riversNames} /></div>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase={riversPersonBase} names={riversNames} directLine={directLine} /></div>
   <p class="cap" style="margin-top:14px"><a href={u("/lines/")}>The {riversLanes} families, the {riversHouseholds} households still unplaced, and which diaspora belongs to whom →</a></p>
 </section>
 <Rule name="arrows" />

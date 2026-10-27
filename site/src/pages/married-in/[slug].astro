@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import FamilyBand from "../../components/FamilyBand.astro";
 import Rule from "../../components/Rule.astro";
 import { u } from "../../lib/url.js";
 import { md as mdk } from "../../lib/md.js";
@@ -57,6 +58,7 @@ const md = mdk;
   dek={d.ours ? "A family that married into our own direct line." : "A family that married into this one."}>
 
   <p class="prose" set:html={md(d.why)}></p>
+  <FamilyBand id={`married-in-${slug}`} />
 
   {d.known && d.known.length > 0 && (
     <>

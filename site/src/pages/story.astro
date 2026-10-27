@@ -18,6 +18,13 @@ import { md } from "../lib/md.js";
 import { u } from "../lib/url.js";
 import book from "../data/story-book.json";
 import old from "../data/story.json";
+/* THE DIRECT-LINE TINT (kit/docs/family-ribbon.md, 27 October 2026): a ribbon card and a tree node whose person is in
+   src/data/direct-line.json (made from this ribbon by scripts/build-direct-line.py) carries `is-ours` and says whom
+   (data-ours); the kit's gate checkfamilyribbon.py O2 reads the cards back (they carry the kit's class `st-rb` beside
+   this page's own `rb` for that). The fill and the bar are the kit's tokens (styles/ours.css); the outline stays the evidence. */
+import "@daviddef/archive-kit/styles/ours.css";
+import { cardEntry, OURS_LEGEND } from "@daviddef/archive-kit/lib/directline.js";
+import directLine from "../data/direct-line.json";
 
 const chapters = [...book.chapters, book.closing];
 const href = (h) => (h.startsWith("#") ? h : u(h));
@@ -49,8 +56,11 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
 <div class="ol">
   <nav class="ol-rib" aria-label="The generations, in order">
     <ol>
-      {book.ribbon.map((r) => (
-        <li data-ch={r.link} class={`rb rb-${r.support}`} title={r.title}>
+      {book.ribbon.map((r, i) => {
+        const on = cardEntry(directLine, { person: r.pid }, i);
+        return (
+        <li data-ch={r.link} class={`rb st-rb rb-${r.support}${on ? " is-ours" : ""}`} title={r.title}
+            data-person={r.pid || undefined} data-ours={on ? (r.pid || `gen:${i + 1}`) : undefined}>
           <a class="rb-top" href={`#${r.link}`} aria-label={`Generation ${r.n}: go to the chapter`}>
             <svg viewBox="-2 -2 28 22" width="26" height="20" aria-hidden="true"><path d={G[RG[r.n]]} /></svg>
             <span class="rb-g">Gen. {r.n}</span>
@@ -61,7 +71,8 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
           {r.town && <span class="rb-at">{r.town}</span>}
           <span class="rb-s">m. {r.spouse.pid ? <a href={u(`/person/${r.spouse.pid}/`)}>{r.spouse.name}</a> : r.spouse.href ? <a href={u(r.spouse.href)}>{r.spouse.name}</a> : r.spouse.name}, {r.spouse.place}</span>
         </li>
-      ))}
+        );
+      })}
     </ol>
     <p class="rb-note">{book.ribbonNote}</p>
   </nav>
@@ -73,6 +84,7 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
     ))}
     <span class="ol-li"><span class="ol-wl">In the world around them</span> the place and the years, never these people; marked <sup class="mk mk-archive">archive</sup> or <sup class="mk mk-history">history</sup></span>
     <span class="ol-li">In the trees and maps: <b>solid</b> documented, <b>dashed</b> inferred, <b>dotted</b> family memory</span>
+    <span class="ol-li"><span class="ours-sw"></span>{OURS_LEGEND}: the cards and the people in the trees on the line from Gologorica to Brisbane</span>
   </aside>
 
   <nav class="ol-toc" aria-label="Chapters">
@@ -112,7 +124,7 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
               : <p class={`ol-p${i === 0 ? " ol-first" : ""}`} id={p.id}><span set:html={md(p.t)} /><sup class={`mk mk-${p.g}`}><a href={href(p.ev)} title={`${markTitle[p.g]}: ${p.why}`}>{p.g}</a></sup>{p.tbc && <span class="tbc" title={p.tbc}> to be confirmed</span>}</p>
           ))}
           </div>
-          {c.tree && <div class="ol-tree"><LineTree tree={c.tree} title={c.title} next={nx ? nx.id : null} nextTitle={nx ? nx.title : ""} /></div>}
+          {c.tree && <div class="ol-tree"><LineTree tree={c.tree} directLine={directLine} title={c.title} next={nx ? nx.id : null} nextTitle={nx ? nx.title : ""} /></div>}
           {c.map && <div class="ol-map"><StoryMap id={c.map} here={c.id} /></div>}
           {c.cards.length > 0 && (
             <div class="ol-cards">
@@ -233,6 +245,10 @@ const RG = { 1: "loom", 2: "field", 3: "stone", 4: "wave", 5: "works", 6: "gable
   .rb-s a { color: var(--accent); }
   .rb.on, .rb:hover { background: var(--accent-wash); }
   .rb.on { box-shadow: 0 0 0 2px var(--terra); }
+  /* on our direct line: the kit's fill and top bar (styles/ours.css), kept through this page's own hover and "on" states */
+  .rb.is-ours, .rb.is-ours:hover { background: var(--ours-soft); box-shadow: inset 0 3px 0 var(--ours); }
+  .rb.is-ours.on { box-shadow: inset 0 3px 0 var(--ours), 0 0 0 2px var(--terra); }
+  .rb.is-ours .rb-g { color: var(--ours-ink); }
   .rb a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
   @media (min-width: 900px) {
     .ol-rib ol { overflow-x: visible; gap: 10px; }

@@ -22,6 +22,15 @@ import doss from "../../data/dossiers.json";
 import EraNote from "@daviddef/archive-kit/components/EraNote.astro";
 import { eraAt, plainYear } from "@daviddef/archive-kit/lib/era.js";
 import eraSnapshot from "../../data/era-snapshot.json";
+/* OUR DIRECT LINE (kit/docs/family-ribbon.md, 27 October 2026). src/data/direct-line.json is made from the story's ribbon
+   (scripts/build-direct-line.py): the eight generations and the five wives who are the next one's mother. A page of one of
+   them carries the kit's quiet band, "On our direct line · generation n", with the way into the story; in the family chart
+   a relative with a page who is on the line is tinted. The kit's gate (checkfamilyribbon.py O3) requires the band on each
+   of their pages and on no other. It says nothing a living page may not: a relationship, no date. */
+import OursBand from "@daviddef/archive-kit/components/OursBand.astro";
+import "@daviddef/archive-kit/styles/ours.css";
+import { oursOf, OURS_LEGEND } from "@daviddef/archive-kit/lib/directline.js";
+import directLine from "../../data/direct-line.json";
 
 export function getStaticPaths() {
   const rows = roster.rows.filter(r => r.pid);
@@ -157,6 +166,7 @@ const _node = (n, small) => n && ({
   dates: r.living ? "" : (n.dt || ""),
   href: n.pid ? u(`/person/${n.pid}/`) : undefined,
   cls: n.via === "line" ? "via-line" : n.via === "read" ? "via-read" : n.via ? "via-tree" : "via-none",
+  ours: n.pid && oursOf(directLine, n.pid) ? n.pid : undefined,
   mark: n.ambiguous
     ? `${n.ambiguous} people of this name — not linked`
     : (n.via === "line" ? "the direct line" : n.via === "read" ? "a register read here"
@@ -217,6 +227,8 @@ const tree = _t ? {
     return out;
   })(),
 } : null;
+/* a relative on our direct line is tinted, and the chart then carries the legend that says so */
+if (tree) tree.oursAny = [...tree.parents, ...tree.spouses, ...tree.children, ...tree.siblings].some((x) => x && x.ours);
 /* WHAT A SEARCH ENGINE IS TOLD ABOUT THIS PERSON, AND WHY IT WAS NOTHING.
  *
  * Until 12 October 2026 every one of these 1,587 pages shipped the SAME
@@ -286,6 +298,8 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
       eyebrow={dupOf ? "the same person as another page" : r.living ? (RELATION || "living") : span}
       noindex={!!r.living}
       dek={DESC} person={PERSON}>
+
+{!dupOf && <OursBand directLine={directLine} slug={r.pid} storyHref="/story/" u={u} />}
 
 {dupOf && (
 <section class="blk">
@@ -360,6 +374,7 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
               labels={{ parents: "The generation above" }}>
     <Fragment slot="keys">
       <span class="key"><i class="sw line"></i> the direct line, argued on <a href={u("/direct-line/")}>the line</a></span>
+      {tree.oursAny && <span class="key"><i class="sw is-ours"></i> {OURS_LEGEND}</span>}
     </Fragment>
     <Fragment slot="notes">
       <p class="warn"><strong>This chart is the direct line and nothing else.</strong>

@@ -15,6 +15,7 @@ import lines from "../../data/lines.json";
 import fam from "../../data/families.json";
 import BranchRivers from "@daviddef/archive-kit/components/BranchRivers.astro";
 import rivers from "../../data/rivers.json";
+import directLine from "../../data/direct-line.json";
 import { statusLine } from "@daviddef/archive-kit/lib/lines.js";
 import { L, word, Cap, lanes, households, names, personBase } from "../../lib/rivers.js";
 import arr from "../../data/arrivals.json";
@@ -144,7 +145,7 @@ const CONF = { doc: "documented", documented: "documented", inf: "inferred",
 <section class="blk">
   <h2>The {lanes} roads, drawn</h2>
   <p class="dek" style="margin-top:8px">One surname and {lanes} families, arriving from different directions for different reasons — and one that never arrived at all. Under the first of them are the {households} households the archive will not pretend to have placed, and below those the people of the name it keeps apart on purpose. Click any stop for the document behind it; click a destination on the right and it tells you its own story, with the way through to the page.</p>
-  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase={personBase} names={names} /></div>
+  <div style="margin-top:24px"><BranchRivers rivers={rivers} caption={rivers.caption} title={rivers.title} personBase={personBase} names={names} directLine={directLine} /></div>
 </section>
 
 <Rule name="tablet" label="A parish named" />

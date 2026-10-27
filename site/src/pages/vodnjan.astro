@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import FamilyBand from "../components/FamilyBand.astro";
 import { md, mdps, md as _md } from "../lib/md.js";
 import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
@@ -8,6 +9,7 @@ import v from "../data/vodnjan.json";
 ---
 <Base title={v.title} eyebrow={v.eyebrow} dek={v.dek}>
 <section class="blk"><p class="prose" set:html={mdps(v.lead)}></p></section>
+<FamilyBand id="vodnjan" />
 
   <Locator place="Vodnjan" radius={14}
             note="Dignano. Forty-seven records, and the reel that had to be resolved by film number rather than by the place field." />

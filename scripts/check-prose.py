@@ -77,6 +77,11 @@ GENERATED = {
     # data/era-ground.tsv and data/era-towns.tsv: place strings and a region id; era-snapshot.json from the Record Atlas's context.json:
     # region eras and regime labels), never typed, and its --check fails on a hand edit. No person's name is in either.
     "era-places.json", "era-snapshot.json",
+    # 27 October 2026, the family ribbons and the direct-line tint (kit/docs/family-ribbon.md): direct-line.json is written by
+    # scripts/build-direct-line.py from the story's ribbon, family-lines.json and family-links.json by scripts/build-family-lines.py
+    # from spines.json, carnia.json, households.json, rivers.json and the roster; never typed, and each script's --check fails on a
+    # hand edit. Every name and year in them is already in the hand-edited file it was read from, which this gate reads.
+    "direct-line.json", "family-lines.json", "family-links.json",
 }
 
 # Prose that is typed outside src/pages and notes/*.md: components and layouts (a sentence can be typed there),

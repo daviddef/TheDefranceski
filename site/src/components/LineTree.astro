@@ -6,7 +6,12 @@
    that says «living» and nothing else. The coloured thread runs down the stem to the child who carries the line on to the
    next chapter. Every named node with a page links to it. */
 import { u } from "../lib/url.js";
-const { tree, title, next, nextTitle } = Astro.props;
+/* directLine: src/data/direct-line.json. A named node whose person is on our direct line is `is-ours` (data-ours = the
+   person): its circle is filled with the tint and its name is set heavier; its outline is still its evidence. */
+import { oursOf } from "@daviddef/archive-kit/lib/directline.js";
+const { tree, title, next, nextTitle, directLine = null } = Astro.props;
+const ours = (p) => (p && p.pid && oursOf(directLine, p.pid) ? p.pid : undefined);
+const oc = (p) => (ours(p) ? "is-ours" : undefined);
 const W = 360, X0 = 22, KX = 46;
 const word = { doc: "documented", inf: "inferred", lore: "family memory or the family's tree", living: "living: named in the text only, no dates" };
 const rows = [];
@@ -73,7 +78,7 @@ const G = {
     ))}
     {rows.map((r) => {
       if (r.kind === "top") return (
-        <a href={href(r.p) || undefined} aria-label={tip(r.p)}>
+        <a href={href(r.p) || undefined} aria-label={tip(r.p)} class={oc(r.p)} data-ours={ours(r.p)}>
           <title>{tip(r.p)}</title>
           <circle class={`lt-n lt-${r.p.g}`} cx={X0} cy={r.y} r="7" />
           <text class="lt-name" x={X0 + 16} y={r.y + 4}>{label(r.p)}<tspan class="lt-yr" dx="6">{r.p.years}</tspan></text>
@@ -82,7 +87,7 @@ const G = {
         <g>
           <line class="lt-stem" x1={KX} y1={r.from + 7} x2={KX} y2={r.g[r.g.length - 1].y} />
           {r.g.map((k) => (
-            <a aria-label={tip(k.p)}>
+            <a aria-label={tip(k.p)} class={oc(k.p)} data-ours={ours(k.p)}>
               <title>{tip(k.p)}</title>
               <line class="lt-tick" x1={KX} y1={k.y} x2={KX + 17} y2={k.y} />
               <circle class={`lt-n lt-${k.p.g}`} cx={KX + 24} cy={k.y} r="6" />
@@ -97,7 +102,7 @@ const G = {
           <rect class="lt-box" x="6" y={r.y} width={W - 12} height="64" rx="5" />
           <path class="lt-glyph" d={G[tree.glyph] || G.hill} transform={`translate(${W - 40} ${r.y + 8})`} />
           {[r.a, r.b].map((p, i) => (
-            <a href={href(p) || undefined} aria-label={tip(p)}>
+            <a href={href(p) || undefined} aria-label={tip(p)} class={oc(p)} data-ours={ours(p)}>
               <title>{tip(p)}</title>
               <circle class={`lt-n lt-${p.g}`} cx={X0} cy={r.y + 18 + i * 28} r="6.5" />
               <text class="lt-name" x={X0 + 15} y={r.y + 16 + i * 28}>{(i === 1 ? "= " : "") + label(p)}</text>
@@ -108,7 +113,7 @@ const G = {
       return (
         <g>
           {r.kids.map((k) => (
-            <a href={href(k.p) || undefined} aria-label={tip(k.p) + (k.p.line ? ", who carries the line" : "")}>
+            <a href={href(k.p) || undefined} aria-label={tip(k.p) + (k.p.line ? ", who carries the line" : "")} class={oc(k.p)} data-ours={ours(k.p)}>
               <title>{tip(k.p) + (k.p.line ? ", who carries the line" : "")}</title>
               <line class={`lt-tick lt-e-${k.p.g}${k.p.line ? " lt-on" : ""}`} x1={X0} y1={k.y} x2={KX - 7} y2={k.y} />
               <circle class={`lt-n lt-${k.p.g}${k.p.line ? " lt-lc" : ""}`} cx={KX} cy={k.y} r="6" />
@@ -147,6 +152,9 @@ const G = {
   .lt-gap { font-family: var(--serif); font-style: italic; font-size: 13.5px; fill: var(--ink-3); }
   .lt-next { font-family: var(--sans); font-size: 12px; fill: var(--terra); font-weight: 600; }
   .ltree a:hover .lt-name { fill: var(--accent); }
+  /* on our direct line (kit styles/ours.css tokens): the circle filled with the tint, the name heavier; the outline is the evidence */
+  .ltree a.is-ours .lt-n:not(.lt-lc) { fill: var(--ours-soft); stroke-width: 3; }
+  .ltree a.is-ours .lt-name { font-weight: 600; }
   .ltree a:focus-visible { outline: none; }
   .ltree a:focus-visible .lt-n { stroke: var(--accent-2); stroke-width: 4; }
   .ltree a:focus-visible .lt-name { fill: var(--accent); text-decoration: underline; }

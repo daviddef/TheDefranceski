@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import FamilyBand from "../components/FamilyBand.astro";
 import River from "../components/River.astro";
 import spines from "../data/spines.json";
 import Rule from "../components/Rule.astro";
@@ -9,6 +10,7 @@ import { mdpHtml } from "../lib/md.js";
 const P = (s) => `<p>${mdpHtml(s)}</p>`;
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
+  <FamilyBand id="corsica" />
 
 
   <section class="blk">

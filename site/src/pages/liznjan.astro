@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import FamilyBand from "../components/FamilyBand.astro";
 import Locator from "../components/Locator.astro";
 import Cluster from "../components/Cluster.astro";
 import cl from "../data/clusters.json";
@@ -11,6 +12,7 @@ import { mdHtml } from "../lib/md.js";
 import Plates from "../components/Plates.astro";
 ---
 <Base title="Ližnjan" eyebrow="Third of eighteen towns, and no page until now" dek={d.note}>
+  <FamilyBand id="liznjan" />
 
 
   <section class="blk">

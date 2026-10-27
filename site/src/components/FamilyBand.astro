@@ -1,0 +1,89 @@
+---
+/* The family ribbon and HOW OUR LINE CONNECTS, at the top of a family page (kit/docs/family-ribbon.md; David, 27 October 2026).
+
+   Both files are made by scripts/build-family-lines.py from the archive's own data, never typed:
+     family-lines.json  a family whose own line of generations the data holds: the kit's FamilyRibbon draws the cards and,
+                        under them, the blocks (and the kit's gate, checkfamilyribbon.py, reads them back);
+     family-links.json  a family whose generations the data does not hold as a line: NO ribbon, and nothing made up in its
+                        place, but the blocks all the same. The kit's component draws nothing for a family with no cards, so
+                        the blocks are drawn here with the kit's own markup, classes and stylesheets (the same `fr-b` block,
+                        the same tint on our side), and held by build-family-lines.py --check --dist.
+   The tint is direct-line.json (scripts/build-direct-line.py, from the story's ribbon): our side of every block is on it.
+   A spouse the archive has no page for (Francisca Salomon) is named and not linked. The band is `data-no-autolink`: every
+   name in it is already linked to its own page or deliberately not linked, and the build's name linker must not add a
+   second link inside a card ("Francesco Maria Franceschi" read as a "Maria Franceschi"). */
+import FamilyRibbon from "@daviddef/archive-kit/components/FamilyRibbon.astro";
+import "@daviddef/archive-kit/styles/story.css";
+import "@daviddef/archive-kit/styles/ours.css";
+import "@daviddef/archive-kit/styles/familyribbon.css";
+import { blocksOf, blockSentence, GRADE_WORD } from "@daviddef/archive-kit/lib/familyribbon.js";
+import { directMap, OURS_LEGEND } from "@daviddef/archive-kit/lib/directline.js";
+import lines from "../data/family-lines.json";
+import links from "../data/family-links.json";
+import directLine from "../data/direct-line.json";
+import { u } from "../lib/url.js";
+
+const { id } = Astro.props;
+const ribbon = lines.families.find((f) => f.id === id);
+const only = links.families.find((f) => f.id === id);
+if (!ribbon && !only) throw new Error(`FamilyBand: no family "${id}" in family-lines.json or family-links.json`);
+const personHref = (s) => u(`/person/${s}/`);
+const dm = directMap(directLine);
+const blocks = only ? blocksOf({ ...only, cards: [] }, directLine, { cards: [] }) : [];
+const uid = String(id).replace(/[^a-z0-9]+/gi, "-");
+---
+{ribbon && (
+  <div class="fband" data-no-autolink>
+    <FamilyRibbon family={ribbon} directLine={directLine} personHref={personHref} u={u} />
+  </div>
+)}
+{only && (
+  <section class="fr fband fr-only" data-family={only.id} aria-labelledby={`frh-${uid}`} data-no-autolink>
+    <div class="fr-conn" data-connections={blocks.filter((b) => b.kind === "link").length}>
+      <h2 class="fr-ch" id={`frh-${uid}`}>How our line connects</h2>
+      {blocks[0].kind === "none" ? (
+        <p class="fr-nc" data-not-connected="1"><b>Not connected to our line yet.</b>{blocks[0].why ? <>{" "}{blocks[0].why}</> : null}</p>
+      ) : (
+        <ul class="fr-bl">
+          {blocks.map((b, i) => {
+            const theirOurs = b.theirSlug ? dm.get(String(b.theirSlug)) : null;
+            return (
+              <li class={`fr-b fr-b-${b.grade}`} id={`frb-${uid}-${i + 1}`} data-grade={b.grade} data-relation={b.relation} data-our={b.ourSlug}
+                  data-their={b.theirSlug || undefined} data-our-generation={b.ourGeneration} aria-label={blockSentence(b)}>
+                <div class="fr-b-our is-ours" data-ours={b.ourSlug}>
+                  <span class="fr-b-k">Our line · Gen. {b.ourGeneration}</span>
+                  <span class="fr-b-nm"><a href={personHref(b.ourSlug)}>{b.ourName}</a></span>
+                </div>
+                <div class="fr-b-rel"><span class="fr-b-w">{b.word}</span></div>
+                <div class={`fr-b-their${theirOurs ? " is-ours" : ""}`} data-ours={theirOurs ? b.theirSlug : undefined}>
+                  <span class="fr-b-k">{theirOurs ? `Our line · Gen. ${theirOurs.generation}` : only.title}</span>
+                  <span class="fr-b-nm">{b.theirSlug ? <a href={personHref(b.theirSlug)}>{b.theirName}</a> : b.theirName}</span>
+                  {b.theirOrigin && <span class="fr-b-o">{b.theirOrigin.replace(/^from /, "of ")}</span>}
+                </div>
+                <p class="fr-b-foot">
+                  <span class="fr-b-g">{GRADE_WORD[b.grade]}</span>
+                  {b.storyHref && <a href={u(b.storyHref)}>in the story →</a>}
+                  {b.note && <span class="fr-b-note">{b.note}</span>}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+    {blocks[0].kind !== "none" && (
+      <p class="fr-leg" aria-label="How to read the blocks">
+        <span class="fr-lt">Blocks</span>
+        <span><span class="fr-lk"></span>solid: documented</span>
+        <span><span class="fr-lk fr-lk-inf"></span>dashed: inferred</span>
+        <span><span class="fr-lk fr-lk-lore"></span>dotted: family memory or the family's tree</span>
+        <span class="fr-lg-ours"><span class="ours-sw"></span>{OURS_LEGEND}</span>
+      </p>
+    )}
+  </section>
+)}
+
+<style>
+  /* the band sits at the top of the page, under its introduction, with the page's own section rhythm */
+  .fband { margin: 26px 0 30px; }
+</style>

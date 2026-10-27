@@ -1,0 +1,487 @@
+{
+ "_note": "Made by scripts/build-family-lines.py: the family pages with no line of generations in the data, and how our line connects to each (the story's ribbon and chapter trees). Drawn by src/components/FamilyBand.astro. Do not edit by hand.",
+ "families": [
+  {
+   "id": "svetvincenat",
+   "title": "Svetvinčenat",
+   "page": "/places/svetvincenat/",
+   "kind": "place line",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "vodnjan",
+   "title": "Vodnjan",
+   "page": "/vodnjan/",
+   "kind": "place line",
+   "notConnected": {
+    "why": "Five generations read by eye · origin not found."
+   }
+  },
+  {
+   "id": "maternal-salomon",
+   "title": "Salomon",
+   "page": "/maternal/salomon/",
+   "kind": "maternal line",
+   "connections": [
+    {
+     "ourSlug": "giovanni-battista-defranceschi-1787",
+     "ourGeneration": 2,
+     "ourName": "Giovanni Battista Defranceschi",
+     "theirSlug": "",
+     "theirName": "Francisca Salomon",
+     "theirOrigin": "place not known",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#farmer",
+     "note": ""
+    },
+    {
+     "ourSlug": "antonio-defranceschi-1825",
+     "ourGeneration": 3,
+     "ourName": "Antonio Defranceschi",
+     "theirSlug": "",
+     "theirName": "Francisca Salomon",
+     "theirOrigin": "place not known",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#farmer",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "maternal-fernasar",
+   "title": "Fernasar",
+   "page": "/maternal/fernasar/",
+   "kind": "maternal line",
+   "connections": [
+    {
+     "ourSlug": "antonio-defranceschi-1825",
+     "ourGeneration": 3,
+     "ourName": "Antonio Defranceschi",
+     "theirSlug": "maria-fernasar-tornasar-de-franceschi-1832",
+     "theirName": "Maria Fernasar",
+     "theirOrigin": "of Gračišće",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#stonecutter",
+     "note": ""
+    },
+    {
+     "ourSlug": "josip-defranceschi-1863",
+     "ourGeneration": 4,
+     "ourName": "Josip Defranceschi",
+     "theirSlug": "maria-fernasar-tornasar-de-franceschi-1832",
+     "theirName": "Maria Fernasar",
+     "theirOrigin": "of Gračišće",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#stonecutter",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "maternal-kalanj",
+   "title": "Kalanj",
+   "page": "/kalanj/",
+   "kind": "maternal line",
+   "connections": [
+    {
+     "ourSlug": "josip-defranceschi-1863",
+     "ourGeneration": 4,
+     "ourName": "Josip Defranceschi",
+     "theirSlug": "anna-kalanj-de-franceschi-1864-1936-1864",
+     "theirName": "Ana Kalanj",
+     "theirOrigin": "of Klenovica",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#coast",
+     "note": ""
+    },
+    {
+     "ourSlug": "anton-rudolf-defranceski-1890",
+     "ourGeneration": 5,
+     "ourName": "Anton Rudolf Defranceski",
+     "theirSlug": "anna-kalanj-de-franceschi-1864-1936-1864",
+     "theirName": "Ana Kalanj",
+     "theirOrigin": "of Klenovica",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#coast",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "maternal-kovacina",
+   "title": "Kovačina",
+   "page": "/maternal/kovacina/",
+   "kind": "maternal line",
+   "connections": [
+    {
+     "ourSlug": "anton-rudolf-defranceski-1890",
+     "ourGeneration": 5,
+     "ourName": "Anton Rudolf Defranceski",
+     "theirSlug": "ursula-kovacina-defranceschi-1895",
+     "theirName": "Ursula Kovačina",
+     "theirOrigin": "of Crikvenica (inferred)",
+     "relation": "married",
+     "grade": "inf",
+     "storyHref": "/story/#pfullingen",
+     "note": ""
+    },
+    {
+     "ourSlug": "ivan-defranceski-1925",
+     "ourGeneration": 6,
+     "ourName": "Ivan Defranceski",
+     "theirSlug": "ursula-kovacina-defranceschi-1895",
+     "theirName": "Ursula Kovačina",
+     "theirOrigin": "of Crikvenica (inferred)",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#pfullingen",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "maternal-blazevic",
+   "title": "Blažević",
+   "page": "/senj-line/",
+   "kind": "maternal line",
+   "connections": [
+    {
+     "ourSlug": "ivan-defranceski-1925",
+     "ourGeneration": 6,
+     "ourName": "Ivan Defranceski",
+     "theirSlug": "hedviga-blazevic-defranceski-1926",
+     "theirName": "Hedviga Blažević",
+     "theirOrigin": "of Senj",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#senj",
+     "note": ""
+    },
+    {
+     "ourSlug": "ivan-defranceski-1951",
+     "ourGeneration": 7,
+     "ourName": "Ivan Defranceski",
+     "theirSlug": "hedviga-blazevic-defranceski-1926",
+     "theirName": "Hedviga Blažević",
+     "theirOrigin": "of Senj",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#senj",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "married-in-peschle",
+   "title": "Peschle",
+   "page": "/married-in/peschle/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-salomon",
+   "title": "Salomon",
+   "page": "/married-in/salomon/",
+   "kind": "married in",
+   "connections": [
+    {
+     "ourSlug": "giovanni-battista-defranceschi-1787",
+     "ourGeneration": 2,
+     "ourName": "Giovanni Battista Defranceschi",
+     "theirSlug": "",
+     "theirName": "Francisca Salomon",
+     "theirOrigin": "place not known",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#farmer",
+     "note": ""
+    },
+    {
+     "ourSlug": "antonio-defranceschi-1825",
+     "ourGeneration": 3,
+     "ourName": "Antonio Defranceschi",
+     "theirSlug": "",
+     "theirName": "Francisca Salomon",
+     "theirOrigin": "place not known",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#farmer",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "married-in-fernasar",
+   "title": "Fernasar / Tornasar",
+   "page": "/married-in/fernasar/",
+   "kind": "married in",
+   "connections": [
+    {
+     "ourSlug": "antonio-defranceschi-1825",
+     "ourGeneration": 3,
+     "ourName": "Antonio Defranceschi",
+     "theirSlug": "maria-fernasar-tornasar-de-franceschi-1832",
+     "theirName": "Maria Fernasar",
+     "theirOrigin": "of Gračišće",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#stonecutter",
+     "note": ""
+    },
+    {
+     "ourSlug": "josip-defranceschi-1863",
+     "ourGeneration": 4,
+     "ourName": "Josip Defranceschi",
+     "theirSlug": "maria-fernasar-tornasar-de-franceschi-1832",
+     "theirName": "Maria Fernasar",
+     "theirOrigin": "of Gračišće",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#stonecutter",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "married-in-kalanj",
+   "title": "Kalanj",
+   "page": "/married-in/kalanj/",
+   "kind": "married in",
+   "connections": [
+    {
+     "ourSlug": "josip-defranceschi-1863",
+     "ourGeneration": 4,
+     "ourName": "Josip Defranceschi",
+     "theirSlug": "anna-kalanj-de-franceschi-1864-1936-1864",
+     "theirName": "Ana Kalanj",
+     "theirOrigin": "of Klenovica",
+     "relation": "married",
+     "grade": "doc",
+     "storyHref": "/story/#coast",
+     "note": ""
+    },
+    {
+     "ourSlug": "anton-rudolf-defranceski-1890",
+     "ourGeneration": 5,
+     "ourName": "Anton Rudolf Defranceski",
+     "theirSlug": "anna-kalanj-de-franceschi-1864-1936-1864",
+     "theirName": "Ana Kalanj",
+     "theirOrigin": "of Klenovica",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#coast",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "married-in-kovacina",
+   "title": "Kovačina",
+   "page": "/married-in/kovacina/",
+   "kind": "married in",
+   "connections": [
+    {
+     "ourSlug": "anton-rudolf-defranceski-1890",
+     "ourGeneration": 5,
+     "ourName": "Anton Rudolf Defranceski",
+     "theirSlug": "ursula-kovacina-defranceschi-1895",
+     "theirName": "Ursula Kovačina",
+     "theirOrigin": "of Crikvenica (inferred)",
+     "relation": "married",
+     "grade": "inf",
+     "storyHref": "/story/#pfullingen",
+     "note": ""
+    },
+    {
+     "ourSlug": "ivan-defranceski-1925",
+     "ourGeneration": 6,
+     "ourName": "Ivan Defranceski",
+     "theirSlug": "ursula-kovacina-defranceschi-1895",
+     "theirName": "Ursula Kovačina",
+     "theirOrigin": "of Crikvenica (inferred)",
+     "relation": "son of",
+     "grade": "doc",
+     "storyHref": "/story/#pfullingen",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "married-in-bergamo",
+   "title": "Bergamo",
+   "page": "/married-in/bergamo/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-bellinich",
+   "title": "Bellinich",
+   "page": "/married-in/bellinich/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-cosulich",
+   "title": "Cosulich",
+   "page": "/married-in/cosulich/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-bembo",
+   "title": "Bembo",
+   "page": "/married-in/bembo/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-jablich",
+   "title": "Sablich / Jablich",
+   "page": "/married-in/jablich/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-orlis",
+   "title": "Orlis / Ortis",
+   "page": "/married-in/orlis/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-grach",
+   "title": "Grach / Grah",
+   "page": "/married-in/grach/",
+   "kind": "married in",
+   "connections": [
+    {
+     "ourSlug": "giovanni-defranceschi-1750",
+     "ourGeneration": 1,
+     "ourName": "Giovanni Defranceschi",
+     "theirSlug": "theresia-defranceschi-nee-grach-gologorica",
+     "theirName": "Theresia née Grah",
+     "theirOrigin": "of Krbune",
+     "relation": "married",
+     "grade": "inf",
+     "storyHref": "/story/#weaver",
+     "note": ""
+    },
+    {
+     "ourSlug": "giovanni-battista-defranceschi-1787",
+     "ourGeneration": 2,
+     "ourName": "Giovanni Battista Defranceschi",
+     "theirSlug": "theresia-defranceschi-nee-grach-gologorica",
+     "theirName": "Theresia née Grah",
+     "theirOrigin": "of Krbune",
+     "relation": "son of",
+     "grade": "inf",
+     "storyHref": "/story/#weaver",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "married-in-buich",
+   "title": "Buich",
+   "page": "/married-in/buich/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-lazaro",
+   "title": "Lazaro",
+   "page": "/married-in/lazaro/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-giachin",
+   "title": "Giachin",
+   "page": "/married-in/giachin/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-subiotto",
+   "title": "Subiotto",
+   "page": "/married-in/subiotto/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-ferrarese",
+   "title": "Ferrarese",
+   "page": "/married-in/ferrarese/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-chersin",
+   "title": "Chersin",
+   "page": "/married-in/chersin/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-caneva",
+   "title": "De Caneva",
+   "page": "/married-in/caneva/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-corva",
+   "title": "Corva",
+   "page": "/married-in/corva/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  },
+  {
+   "id": "married-in-crosilla",
+   "title": "Crosilla",
+   "page": "/married-in/crosilla/",
+   "kind": "married in",
+   "notConnected": {
+    "why": ""
+   }
+  }
+ ]
+}

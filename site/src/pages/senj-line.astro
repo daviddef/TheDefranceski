@@ -1,6 +1,7 @@
 ---
 import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
+import FamilyBand from "../components/FamilyBand.astro";
 import Locator from "../components/Locator.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
@@ -17,6 +18,7 @@ import Lightbox from "../components/Lightbox.astro";
   <section class="prose">
     <p>{d.lead}</p>
   </section>
+  <FamilyBand id="maternal-blazevic" />
 
   <Locator place="Senj" radius={50}
             note="Where Ivan is buried under IVAN DEFRANČESKI, and where the Blažević carriers came from." />

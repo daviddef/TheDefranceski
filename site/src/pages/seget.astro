@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import FamilyBand from "../components/FamilyBand.astro";
 import { md as _md, mdHtml} from "../lib/md.js";
 import SegetMap from "../components/SegetMap.astro";
 import SegetTree from "../components/SegetTree.astro";
@@ -36,6 +37,7 @@ const BX0 = px(A.band.from), BX1 = px(A.band.to);
 ---
 <Base title="Seget, and Crete" eyebrow="The other Istrian branch"
       dek="A published monograph on an estate near Umag says something no family account here had: that there were two branches of this family in Istria — one seated at Gologorica, the other at Umag and Seget — and that the second came out of Crete.">
+  <FamilyBand id="crete" />
 
 
   <section class="blk" id="line">

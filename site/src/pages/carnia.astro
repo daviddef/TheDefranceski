@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import FamilyBand from "../components/FamilyBand.astro";
 import Gist from "../components/Gist.astro";
 import gists from "../data/gists.json";
 import SceneFurlans from "../components/SceneFurlans.astro";
@@ -25,6 +26,7 @@ import { mdHtml, mdpHtml, mdFlat } from "../lib/md.js";
     <p>Searching by <em>place</em> instead of by name changed that.</p>
   </section>
 
+  <FamilyBand id="carnia" />
   <Locator place="Mione di Ovaro" radius={14}
             note="Mione is a frazione of Ovaro, in the Val Degano — the Canale di Gorto of the 1679 headmen's list. Muina is the next hamlet down the valley." />
 
