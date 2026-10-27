@@ -29,7 +29,7 @@ OUT = os.path.join(ROOT, "private", "standard")
 
 DAPA = re.compile(r"\b(M0\d{7})\b")
 WPF = re.compile(r"\b(9R[0-9A-Z]{2}-[0-9A-Z]{3})\b[^.;]{0,60}?\b(?:frame|image)\s+(\d+)", re.I)
-ARK = re.compile(r"\b3:1:([A-Z0-9]{4}-[A-Z0-9]{3,4}-[A-Z0-9]{3,4})")
+ARK = re.compile(r"\b3:1:([A-Z0-9]{4}-[A-Z0-9]{3,4}-[A-Z0-9]{3,4}(?:-[A-Z0-9]{1,4})?)")
 
 
 def _bni():

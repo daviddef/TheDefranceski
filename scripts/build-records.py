@@ -31,7 +31,7 @@ OUT = os.path.join(DATA, "records.json")
 # the data files whose prose the narrative pages render (FamilySearch arks are read from these)
 SOURCES = ["gologorica.json", "corrections.json", "carnia.json", "liznjan.json", "fiume.json", "valentino.json",
            "jbaptista.json", "lines.json", "seget.json", "pfullingen.json", "carlo.json", "crikvenica.json"]
-FS_ARK = re.compile(r"`3:1:([A-Z0-9]{4}-[A-Z0-9]{3,4}-[A-Z0-9]{3,4})`")
+FS_ARK = re.compile(r"`3:1:([A-Z0-9]{4}-[A-Z0-9]{3,4}-[A-Z0-9]{3,4}(?:-[A-Z0-9]{1,4})?)`")  # a fourth segment exists on some volumes (Crikvenica births: ...-R9M9-1)
 FS_BASE = "https://www.familysearch.org/ark:/61903/3:1:"
 
 

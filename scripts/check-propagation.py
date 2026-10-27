@@ -146,6 +146,12 @@ RULES = [
      r"Gregorio Defranceschi q\.m Antonio",
      {"corrections.json", "worklist.json", "roster.json", "families.json",
       "searched.json", "dossiers.json", "searchindex.json", "decisions.json"}),
+    ("Uršula Kovačina's birth still «not found» / «about 1890», or her baptism «in the unfilmed years» (27 Oct 2026: baptised 2 Mar 1895, Crikvenica births image 652)",
+     # The correction, the search log, the worklist's own narrative and the maternal page that tells
+     # the story of the fix quote the old claim on purpose; generated files mirror them.
+     r"Her own birth record has not been found|Uršula Kovačina, born about 1890|born about 1890, married Anton Rudolf|falls squarely in the unfilmed years|plausible window for Uršula falls in the unfilmed",
+     {"corrections.json", "worklist.json", "searched.json", "maternal.json",
+      "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
