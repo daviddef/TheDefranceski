@@ -11016,7 +11016,7 @@
    "key": "src/crikvenica-births-1896-read-en-e4135b"
   },
   {
-   "src": "Crikvenica births 1859–1896 (waypoint 9R28-RMH), images 651–653 — January to March 1895, read for Uršula Kovačina's baptism",
+   "src": "Crikvenica births 1859–1896 (waypoint 9R28-RMH), images 651–653 — January to March 1895, one baptism sought",
    "when": "27 Oct 2026",
    "outcome": "hit",
    "film": "FamilySearch 9R28-RMH · Crikvenica births 1859-1896 (DGS 5494727; frame = image + 1)",
@@ -20299,15 +20299,16 @@
    "tags": [
     "belgrade",
     "kovacina",
-    "deaths"
+    "deaths",
+    "web-search"
    ],
    "got": "**Not established.** Terms tried (two web searches, Serbian): «izvod iz matične knjige umrlih Beograd opština Palilula istorijski arhiv Beograda … čuvanje rok 100 godina zahtev za pretragu»; «Istorijski arhiv Beograda matične knjige umrlih 1975 Palilula genealogija istraživanje porodice zahtev». They return the Law on Civil Registry Books (City of Belgrade and its municipalities keep the books; extracts are public documents; books are kept in two copies) and the archive's address and hours; none says where 1975 death books are, or how a descendant asks. A copy of the Law was fetched but not read to the retention clause. Nothing is claimed about access.",
-   "url": "https://portal.ehri-project.eu/institutions/rs-006045",
+   "url": "",
    "key": "src/belgrade-death-register-1975-route",
    "next": "Ask the Palilula registry office for an extract of the death entry of 3 Nov 1975, quoting the notice number 350 of 24 Feb 1976 on the Crikvenica baptism margin."
   },
   {
-   "src": "Crikvenica marriages 1895 (DGS 005494728, frame 187) — page 128, entry 28, re-read at full size",
+   "src": "Crikvenica marriages 1859–1908 (waypoint 9R28-3Y9) — one page of 1895 re-read at full size",
    "what": "The marriage of Petar Kovačina and Marija Car: the date and the ages, tested against the page because the index and the earlier reading disagreed",
    "when": "27 Oct 2026",
    "outcome": "hit",
@@ -20321,8 +20322,8 @@
    ],
    "film": "FamilySearch · Crikvenica marriages 1895 (DGS 5494728, frame 187; ark 3:1:3QS7-899X-RSD)",
    "walked": false,
-   "pages": "page 128 (entries 26–30)",
-   "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-RSD",
+   "pages": "191",
+   "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-RSD?cc=2040054&wc=9R28-3Y9",
    "got": "**Verification that corrects a log: entry 28 is «dne 28ª listopada» — 28 October 1895, not the 28 November the archive had carried.** Level 13 on the date cell; the neighbours agree (entries 26–27 «8ª Rujna», 29 «3ª Studenoga», 30 «17ª Studenoga»). The index's «28 Sep 1895» is wrong too. **New from the page:** groom «rodj. 1877, 25/8, 18 god.», bride «rodj. 1873, 28/2, 22 god.», status «Momak» / «ne djevojka»; parents and the Ministry leave as already logged (not re-read word for word). **Not walked:** only entries 26–30 of the page were looked at. Searched first in `searched.json` and `roster.json`: the entry was already read, so this is a re-read, not a discovery.",
    "what_next": "",
    "ev": [
@@ -20335,10 +20336,11 @@
      "Corrections"
     ]
    ],
-   "key": "src/crikvenica-marriages-1895-entry-28-reread"
+   "key": "src/crikvenica-marriages-1895-entry-28-reread",
+   "waypoint": "9R28-3Y9"
   },
   {
-   "src": "Draga baptisms 1849 (DGS 005494733, frame 373) — page 121, last entry: Petar, son of Tome Kovačina",
+   "src": "Draga births 1815–1855 (waypoint 9R28-PTY) — one page of 1849 read at full size",
    "what": "Petar Kovačina the elder's own baptism, found through the FamilySearch index (father's-surname search) and read on the page",
    "when": "27 Oct 2026",
    "outcome": "hit",
@@ -20352,8 +20354,8 @@
    ],
    "film": "FamilySearch · Draga baptisms (DGS 5494733, frame 373; ark 3:1:3QS7-899X-R998-8)",
    "walked": false,
-   "pages": "pages 120–121",
-   "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-R998-8",
+   "pages": "295",
+   "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-R998-8?cc=2040054&wc=9R28-PTY",
    "got": "**Found: 29 June 1849, «sina zakonitih Tome Kovačina, služitelja pri c. kr. financii, i Marie …» — «Petar»**, baptised by the «Kapelan Dražki»; godfather a corporal of the finance. Read at level 13 on the date and the father's line. The mother's surname is the index's «Škovich»; **not independently read**. It fits the death entry (born Draga, 55 in 1904). **David's family account has this Petar «of Rijeka»; the page gives Draga, kotar Sušak.** Index query that found it: `q.fatherSurname=Kovacina`, `q.surname=Kovacina`, country Croatia, 736 rows, filtered to forenames Petar/Pero/Pietro/Pedro. **Not walked:** pages 120–121 only were looked at; no sibling or earlier entry of the family was searched.",
    "ev": [
     [
@@ -20362,7 +20364,8 @@
     ]
    ],
    "key": "src/draga-baptisms-1849-petar-kovacina",
-   "next": "If the family account of «Rijeka» is to be tested: Tome Kovačina and his wife in the Draga and Rijeka registers, 1840s–1860s."
+   "next": "If the family account of «Rijeka» is to be tested: Tome Kovačina and his wife in the Draga and Rijeka registers, 1840s–1860s.",
+   "waypoint": "9R28-PTY"
   },
   {
    "src": "FamilySearch — Uruguay collections (civil registration 1879–2020, parish books 1726–2000, passenger lists 1888–1980), index search for Kovacina and nine other spellings",
@@ -20380,6 +20383,37 @@
    "url": "https://www.familysearch.org/",
    "key": "src/familysearch-uruguay-kovacina-1910",
    "next": "Browse the Uruguay civil registration of 1910 by department; or ask the family for the name the emigrant used abroad."
+  },
+  {
+   "src": "Crikvenica deaths 1893–1908 (waypoint 9R2H-HZQ) — one page of 1904 re-read at full size",
+   "what": "Death of Petar Kovačina the customs guard: the page against the index's «Mar 1904»",
+   "when": "27 Oct 2026",
+   "outcome": "hit",
+   "dest": "Crikvenica",
+   "tags": [
+    "Crikvenica",
+    "deaths",
+    "kovacina",
+    "familysearch",
+    "defranceschi"
+   ],
+   "film": "FamilySearch 9R2H-HZQ · Crikvenica deaths 1893-1908 (DGS 5494729, frame 147; ark 3:1:3QSQ-G99X-KZ1Z)",
+   "waypoint": "9R2H-HZQ",
+   "walked": false,
+   "pages": "151",
+   "url": "https://www.familysearch.org/ark:/61903/3:1:3QSQ-G99X-KZ1Z?cc=2040054&wc=9R2H-HZQ",
+   "got": "**Verification: entry 67 is «dne 3ª Studena» — 3 November 1904, as the archive already had; the FamilySearch index's «Mar 1904» (burial «Apr 1904») is the indexer's error.** *Studeni* is November; entries 68–70 run 11 and 20 Studena and 2 prosinca. Same page: born «Draga k. Kotar Sušak», age 55, house 119, wife «Ursa Kovačina rođena Stojčić». **Not walked:** entries 67–72 of one page only. Already in `searched.json` and the roster, so this is a re-read, not a discovery.",
+   "ev": [
+    [
+     "/crikvenica-house/",
+     "Crikvenica house"
+    ],
+    [
+     "/corrections/",
+     "Corrections"
+    ]
+   ],
+   "key": "src/crikvenica-deaths-1904-entry-67-reread"
   }
  ]
 }
