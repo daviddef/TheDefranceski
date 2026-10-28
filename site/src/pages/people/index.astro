@@ -70,6 +70,7 @@ const PLACES = Object.entries(
   <p class="dek" set:html={mdFlat(roster.note)}></p>
   <div class="note" style="margin-top:16px" set:html={mdFlat(roster.warn)}></div>
   <p class="dek" style="margin-top:14px" set:html={mdFlat(roster.links)}></p>
+  <p class="dek" style="margin-top:14px">Prefer a picture? <a href={u("/roots/")}>Roots &amp; Routes</a> shows every person here as a family tree, on maps and on a timeline, and says where to look next. It is rebuilt as the research grows.</p>
 
   <div class="rcount">
     {ORDER.filter(k => S.lines[k]).map(k => (

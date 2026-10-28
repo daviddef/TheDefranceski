@@ -1,0 +1,7 @@
+---
+/* Roots & Routes: a complete, self-contained document built by scripts/build-tree-page.py from the roster, dossiers, households and
+   direct line. Nothing else renders here; the page carries its own styles and script, and no living person is in its data.
+   Rebuild with `python3 scripts/build-tree-page.py`; see data/tree-page/README.md. Listed under `outside` in src/data/book.json. */
+import html from "../../../../data/tree-page/roots.html?raw";
+---
+<Fragment set:html={html} />
