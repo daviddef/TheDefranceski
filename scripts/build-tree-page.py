@@ -104,12 +104,32 @@ def build(args):
         for nme in names: byhead.setdefault(head(nme), p)
         sp[p["name"]] = p
     placemap = {}
+    def route_of(row):
+        """The places a row names, in order. A route ("Senj → Johannesburg → Brisbane"), a `places` list, or "born X; died Y":
+        the FIRST is where they were born, the LAST where they died. Read as one string, a route matched nothing and the person
+        silently took a relative's place (Ivan, born Senj, appeared in Klenovica)."""
+        pl = row.get("places")
+        if isinstance(pl, list) and pl: parts = [str(x) for x in pl]
+        else:
+            s_ = str(row.get("place") or "")
+            m = re.match(r"\s*born\s+(.+?)\s*;\s*died\s+(.+)", s_, re.I)
+            parts = [m.group(1), m.group(2)] if m else [x.strip() for x in s_.split("→")]
+        return [x for x in parts if x and x != "None"]
+    def lookup(cand):
+        return byhead.get(head(str(cand).split("/")[0]))
     def resolve_place(row):
-        for cand in (row.get("place"), row.get("parish"), row.get("placeSlug")):
+        route = route_of(row)
+        if route:
+            p = lookup(route[0])
+            if p: return p
+        for cand in (row.get("parish"), row.get("placeSlug")):
             if cand and str(cand) != "None":
-                p = byhead.get(head(cand))
+                p = lookup(cand)
                 if p: return p
         return None
+    def resolve_death_place(row):
+        route = route_of(row)
+        return lookup(route[-1]) if len(route) > 1 else None
 
     # ---- who is in
     def is_living(r):
@@ -225,13 +245,14 @@ def build(args):
         del P[pid]; rep["living_withheld_estimated_window"] += 1
     # ---- places
     for p in P.values():
-        sp_ = resolve_place(p["row"]); p["site_place"] = sp_["name"] if sp_ else None
+        sp_ = resolve_place(p["row"]); p["site_place"] = sp_["name"] if sp_ else None; p["bpe"] = False
+        dq = resolve_death_place(p["row"]); p["death_place"] = dq["name"] if dq and p["site_place"] else None
     for _ in range(3):
         for p in P.values():
             if p["site_place"]: continue
             for rid in [p["father"], p["mother"]] + p["spouse"] + p["kids"]:
-                if rid and P[rid]["site_place"]: p["site_place"] = P[rid]["site_place"]; rep["placed_from_relative"] += 1; break
-    names_used = {p["site_place"] for p in P.values() if p["site_place"]}
+                if rid and P[rid]["site_place"]: p["site_place"] = P[rid]["site_place"]; p["bpe"] = True; rep["placed_from_relative"] += 1; break
+    names_used = {p["site_place"] for p in P.values() if p["site_place"]} | {p["death_place"] for p in P.values() if p.get("death_place")}
     # Record Atlas ids by name within 15 km
     aidx = {}
     for x in apl:
@@ -245,6 +266,10 @@ def build(args):
     bad = [k for k, v in placemap.items() if not v["iso"]]
     if bad: sys.exit("no country for coordinates: %s" % bad[:8])
 
+    for p in P.values():   # a route that ends elsewhere is a move; its year is not recorded, so it is estimated at 60% of the life and counted
+        p["my"] = None
+        if p["site_place"] and p.get("death_place") and p["death_place"] != p["site_place"] and p["by"] is not None and p["dy"] is not None and p["dy"] - p["by"] > 24:
+            p["my"] = p["by"] + int((p["dy"] - p["by"]) * .6); rep["move_years_estimated"] += 1
     # ---- keep only people we can draw
     keep = {i: p for i, p in P.items() if p["by"] is not None and p["site_place"]}
     rep["not_drawn_no_year"] = sum(1 for p in P.values() if p["by"] is None)
@@ -264,7 +289,7 @@ def build(args):
         for a_ in ([r.get("ark")] if r.get("ark") else []) + list(r.get("arks") or []):
             if a_ and not any(x["u"].endswith(str(a_)) for x in srcs): srcs.append({"t": "FamilySearch record " + str(a_), "u": "https://www.familysearch.org/ark:/61903/" + str(a_)})
         people.append({"id": pid, "sex": p["sex"], "given": p["given"], "sur": p["sur"], "line": p["line"], "by": p["by"], "bp": p["site_place"],
-                       "dy": p["dy"], "dp": p["site_place"], "my": None, "occ": None,
+                       "dy": p["dy"], "dp": p["death_place"] or p["site_place"], "my": p["my"], "bpe": p["bpe"], "occ": None,
                        "father": p["father"] if p["father"] in keep else None, "mother": p["mother"] if p["mother"] in keep else None,
                        "spouse": [s for s in p["spouse"] if s in keep], "kids": [k for k in p["kids"] if k in keep],
                        "srcs": srcs[:4], "href": who if who and str(who).startswith("/") else None,

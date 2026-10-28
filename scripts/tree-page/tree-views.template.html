@@ -106,6 +106,10 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 .tc b{font:500 16px/1.2 var(--serif)}
 .tc .ty{font:500 14px/1.2 var(--serif)}
 .tc small{font-size:11px;color:var(--muted)}
+.pl{color:inherit;text-decoration:underline dotted;text-underline-offset:3px}
+.pl:hover{color:var(--atlas);text-decoration-style:solid}
+.fanlink text{cursor:pointer}
+.fanlink:hover text{text-decoration:underline;fill:var(--atlas)}
 .tlk{flex:none;width:18px;height:2px;background:var(--brick);opacity:.45}
 .tlk.mv{height:3px;opacity:1}
 .gdiv{stroke:var(--hair);stroke-width:1;opacity:.75}
@@ -372,7 +376,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
           <div class="trailbar"><b>Place trail</b><span class="seg" data-key="tline"><button data-v="pat">Father's line</button><button data-v="mat">Mother's line</button><button data-v="down">Down</button></span><span>Birthplace by generation. Dashed = not surveyed in the Atlas yet. A bold link means the family moved. Click a card to re-centre.</span></div>
           <div class="trail" id="trail"></div>
           <div class="scroll"><svg id="hg" role="group" aria-label="Hourglass tree"></svg></div>
-          <div class="foot"><span>Dashed card = spouse</span><span>Flag = the flag over the birthplace in the birth year (Flag Atlas)</span><span>Drag or swipe to move around</span></div>
+          <div class="foot"><span>Dashed card = spouse</span><span>Flag = the flag over the birthplace in the birth year (Flag Atlas)</span><span>Drag or swipe to move around</span><span id="bpenote" hidden>* place taken from a relative, not recorded</span></div>
         </div>
       </section>
 
@@ -559,6 +563,8 @@ const evOf=id=>{const e=ATLAS.events[id];return{id,n:e[0],ty:e[1],f:e[2],t:e[3],
 function eraAt(place,y){const pl=PL[place];if(!pl||!pl.reg)return null;const es=ERA[pl.reg];for(const e of es)if(y>=e.from&&y<e.to)return e;const l=es[es.length-1];return y>=l.to?l:null}
 const rgv=id=>'var(--rg-'+id+')';
 const atlasURL=n=>{const p=PL[n];return p&&p.id?'https://recordatlas.org/place/'+p.id+'/':'https://recordatlas.org/add/'};
+// a place name that opens its Record Atlas page, when the Atlas has the place
+const placeA=n=>{const p=PL[n];return p&&p.id?'<a class="pl" href="'+atlasURL(n)+'" target="_blank" rel="noopener" title="Open '+esc(n)+' in Record Atlas">'+esc(n)+'</a>':esc(n)};
 const eventsFor=(n,a,b)=>(PL[n]?PL[n].ev:[]).map(evOf).filter(e=>e.f<=b&&e.t>=a);
 (function(){
   let l=':root{',d='';
@@ -626,7 +632,7 @@ function loadTree(T){
   const P={},list=[];
   for(const r of T.people){
     const p={id:r.id,sex:r.sex==='f'?'f':'m',fi:r.line==null?7:r.line,sur:r.sur||'',given:r.given||'',by:r.by,bp:r.bp,dy:r.dy==null?null:r.dy,dp:r.dp||r.bp,my:r.my||null,occ:r.occ||null,
-      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,bye:!!r.bye,dye:!!r.dye,note:r.note||null};
+      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null};
     if(p.dy==null)p.dp=null;
     P[p.id]=p;list.push(p);
   }
@@ -810,7 +816,7 @@ function back(){const id=st.hist.pop();if(id){st.focus=id;render()}}
 function plink(p){return '<button class="plink" data-id="'+p.id+'"><i style="background:'+colorOf(p)+'"></i><span>'+esc(nm(p))+'</span><small>'+esc(yrs(p))+'</small></button>'}
 function placeBlock(label,place,year,until){
   const pl=PL[place],e=eraAt(place,year);
-  let h='<div class="plc"><span class="ico" data-place="'+esc(place)+'" data-year="'+year+'"></span><div><small>'+label+'</small><b>'+esc(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+year+'"></span></b><small>'+esc(pl.cn)+'</small>';
+  let h='<div class="plc"><span class="ico" data-place="'+esc(place)+'" data-year="'+year+'"></span><div><small>'+label+'</small><b>'+placeA(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+year+'"></span></b><small>'+esc(pl.cn)+'</small>';
   if(e){
     h+='<span class="chip rg" style="background:'+rgv(e.rg)+'">'+esc(ATLAS.regimes[e.rg].label)+'</span><small>'+esc(e.polity)+', '+e.from+'–'+e.to+'</small>';
     if(e.filed.length)h+='<small>Records: '+e.filed.slice(0,3).map(k=>esc(ATLAS.prov[k]||k)).join(', ')+'</small>';
@@ -860,7 +866,7 @@ function renderPanel(){
     const lk=recLink(p.bp,p.by);
     h+='<div class="note"><b>'+(p._orph?'Orphan record.':p._clus?'Detached family.':'Dead end.')+'</b> '+(p._orph?'Not joined to anyone in the tree.':p._clus?'Not connected to any tree.':'No parents recorded.')+' To connect: search '+esc(p.bp)+' records around '+p.by+'. <a href="'+lk.u+'" target="_blank" rel="noopener">'+esc(clip(lk.t,48))+' ↗</a> <a href="#" data-goto="orphans" data-okind="'+(p._orph?'orph':p._clus?'clus':'dead')+'">More places to start</a></div>';
   }
-  h+='<h3 class="at">Places · from Record Atlas</h3>'+placeBlock('Born',p.bp,p.by);
+  h+='<h3 class="at">Places · from Record Atlas</h3>'+placeBlock('Born'+(p.bpe?' · place taken from a relative, not recorded':''),p.bp,p.by);
   if(!living(p)&&p.dp!==p.bp)h+=placeBlock('Died, moved c.'+p.my,p.dp,p.my||p.dy);
   if(!living(p)){
     const end=p.dy,evs=[];
@@ -904,7 +910,7 @@ function renderTrail(){
   path.forEach((p,i)=>{
     const rel=i-fi,lab=rel===0?'FOCUS':'GEN. '+(rel>0?'+':'−')+Math.abs(rel),pl=PL[p.bp];
     if(i)h+='<span class="tlk'+(path[i-1].bp!==p.bp?' mv':'')+'"></span>';
-    h+='<button class="tc'+(rel===0?' focus':'')+(pl.id?'':' dash')+'" data-id="'+p.id+'" title="'+esc(nm(p))+'">'+iconSVG(PTYPE[p.bp],26)+'<span class="tg">'+lab+'</span><b>'+esc(p.bp)+'</b><span class="ty">'+(living(p)?'living':p.by)+'</span><small>'+esc(living(p)?'Living':p.given)+'</small></button>';
+    h+='<div role="button" tabindex="0" class="tc'+(rel===0?' focus':'')+(pl.id?'':' dash')+'" data-id="'+p.id+'" title="'+esc(nm(p))+'">'+iconSVG(PTYPE[p.bp],26)+'<span class="tg">'+lab+'</span><b>'+placeA(p.bp)+(p.bpe?'*':'')+'</b><span class="ty">'+(living(p)?'living':p.by)+'</span><small>'+esc(living(p)?'Living':p.given)+'</small></div>';
   });
   tr.innerHTML=h;
   if(st.tline!=='down'){   // where the descendants went on to, like the routes on the family sites
@@ -918,7 +924,9 @@ function renderTrail(){
         S('path',{d:'M0,'+mid+'C90,'+mid+' 80,'+y+' 150,'+y,fill:'none',stroke:'var(--atlas)','stroke-width':n>1?1.6:1.2,'stroke-dasharray':n>1?'':'3 3','stroke-opacity':.75},fan);
         S('circle',{cx:150,cy:y,r:3.2,fill:'var(--atlas)'},fan);
         drawFlag(fan,flagAt(pl,2000),158,y-5,15);
-        S('text',{x:179,y:y+4,'font-size':12,'font-family':'var(--sans)',fill:'var(--ink)'},fan,clip(pl,18)+' · '+n);
+        const la=PL[pl]&&PL[pl].id?S('a',{href:atlasURL(pl),target:'_blank',class:'fanlink'},fan):fan;
+        if(la!==fan)S('title',{},la,'Open '+pl+' in Record Atlas');
+        S('text',{x:179,y:y+4,'font-size':12,'font-family':'var(--sans)',fill:'var(--ink)'},la,clip(pl,18)+' · '+n);
       });
       const lk=document.createElement('span');lk.className='tlk mv';tr.appendChild(lk);tr.appendChild(fan);
     }
@@ -991,7 +999,7 @@ function renderHG(){
       S('text',{class:'syr',x:CW/2,y:70,'text-anchor':'middle'},g,living(p)?'living':clip(p.by+' · '+p.bp,19));
     }else{
       S('text',{class:'cname',x:13,y:16},g,clip(nm(p),20));
-      S('text',{class:'cmeta',x:13,y:30},g,clip(yrs(p)+(living(p)?'':' · '+p.bp),23));
+      S('text',{class:'cmeta',x:13,y:30},g,clip(yrs(p)+(living(p)?'':' · '+p.bp+(p.bpe?'*':'')),23));
       drawFlag(g,flagAt(p.bp,p.by),CW-42,(CH-24)/2,36);
     }
   }
@@ -1283,7 +1291,7 @@ function renderMove(){
   let h='';
   for(const [place,n] of top){
     const e=eraAt(place,yr),evs=eventsFor(place,yr,yr);
-    h+='<div class="c"><span class="ico" data-place="'+esc(place)+'" data-year="'+yr+'"></span><div><b>'+esc(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+yr+'"></span> <small style="display:inline">'+n+' living</small></b>';
+    h+='<div class="c"><span class="ico" data-place="'+esc(place)+'" data-year="'+yr+'"></span><div><b>'+placeA(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+yr+'"></span> <small style="display:inline">'+n+' living</small></b>';
     h+=e?'<span class="chip rg" style="background:'+rgv(e.rg)+'">'+esc(ATLAS.regimes[e.rg].label)+'</span><small>'+esc(e.polity)+'</small>':'<small>Not surveyed in the Atlas yet</small>';
     evs.forEach(ev=>{h+='<span class="chip ev" title="'+esc(ev.says)+'">'+esc(clip(ev.n,34))+'</span>'});
     h+='<a class="lk" style="font-size:12px" href="'+atlasURL(place)+'" target="_blank" rel="noopener">Atlas ↗</a></div></div>';
@@ -1766,7 +1774,7 @@ function renderOrphans(){
   sug.forEach((s,i)=>{
     const era=eraAt(s.place,s.med),sur={};s.ps.forEach(p=>{sur[p.sur]=(sur[p.sur]||0)+1});
     const sn=Object.entries(sur).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([n,c])=>esc(n)+' '+c).join(', ');
-    h+='<div class="sg"><div class="sgh"><span class="fl" data-place="'+esc(s.place)+'" data-year="'+s.med+'"></span><div><b>'+(i+1)+'. '+esc(s.place)+'</b><small>'+esc(s.pl.cn)+'</small></div><span class="sgn">'+s.ps.length+'</span></div>';
+    h+='<div class="sg"><div class="sgh"><span class="fl" data-place="'+esc(s.place)+'" data-year="'+s.med+'"></span><div><b>'+(i+1)+'. '+placeA(s.place)+'</b><small>'+esc(s.pl.cn)+'</small></div><span class="sgn">'+s.ps.length+'</span></div>';
     h+=era?'<span class="chip rg" style="background:'+rgv(era.rg)+'">'+esc(ATLAS.regimes[era.rg].label)+'</span><small class="sgs">'+esc(era.polity)+', '+era.from+'–'+era.to+'</small>':'<small class="sgs">'+(s.pl.id?'No regime table yet.':'Not in the Atlas yet. Add it first.')+'</small>';
     h+='<p class="sgp">Born '+s.lo+'–'+s.hi+' · '+sn+'</p><ul class="sgl">';
     const links=s.cols.length?s.cols.slice(0,3).map(c=>({t:c[0],u:c[1],w:'Atlas collection'})):[recLink(s.place,s.med)];
@@ -1991,7 +1999,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('keydown',e=>{
   if(e.key!=='Enter'&&e.key!==' ')return;
-  const t=e.target.closest&&e.target.closest('svg [data-id]');
+  const t=e.target.closest&&e.target.closest('svg [data-id], .tc[data-id]');
   if(t){e.preventDefault();go(t.dataset.id)}
 });
 const qi=$('#q'),res=$('#results');
@@ -2016,6 +2024,7 @@ $('#kq').addEventListener('input',e=>{
 let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship'].includes(st.view))render()},120)});
 
 if(TREE){const v=$('.verdict');if(v)v.hidden=true}
+const bn=$('#bpenote');if(bn)bn.hidden=!(TREE&&list.some(p=>p.bpe));
 const ub=$('[data-key="okind"] [data-v="undrawn"]');if(ub)ub.hidden=!(TREE&&TREE.undrawn&&TREE.undrawn.length);
 $('#q').placeholder='Find a person, e.g. '+FAMS[0].sur;
 $('#yr').min=Math.max(1500,ALLY0+10);st.year=Math.min(2020,Math.max(ALLY0+10,st.year));
