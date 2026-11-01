@@ -153,18 +153,22 @@ def build(args):
 
     # ---- parent links, in order of strength: the dossiers (read from a register), the households, the direct line
     parents = collections.defaultdict(list)   # child -> [parent pids in order seen]
-    def add(child, par):
-        if child in P and par in P and child != par and par not in parents[child]: parents[child].append(par)
+    grade = {}   # (child, parent) -> strongest evidence behind the link: 2 read from a register, 1 the household tree, 0 an index entry only
+    def add(child, par, g=0):
+        if child in P and par in P and child != par:
+            if par not in parents[child]: parents[child].append(par)
+            grade[(child, par)] = max(g, grade.get((child, par), 0))
+    VIA = {"read": 2, "tree": 1, "index": 0}
     for pid, v in dossiers.items():
-        for q in v.get("ptree", {}).get("parents", []): add(pid, q.get("pid"))
+        for q in v.get("ptree", {}).get("parents", []): add(pid, q.get("pid"), VIA.get(q.get("via"), 0))
     for h in households:
         pars = [x for x in (h.get("fatherPid"), h.get("motherPid")) if x]
         for c in h["children"]:
-            for x in pars: add(c.get("pid"), x)
+            for x in pars: add(c.get("pid"), x, VIA.get(h.get("src"), 0))
     try:   # the direct line: consecutive generations are parent and child by definition
         seq = [g.get("pid") for g in sorted(jl(os.path.join(DATA, "directline-pids.json"))["generations"], key=lambda g: g["gen"])]
         for a_, b_ in zip(seq, seq[1:]):
-            if a_ and b_: add(b_, a_)
+            if a_ and b_: add(b_, a_, 2)
     except Exception:
         rep["directline_skipped"] += 1
     # sex-aware father/mother; a parent who is also a descendant would make a loop, so test before linking
@@ -291,6 +295,7 @@ def build(args):
         people.append({"id": pid, "sex": p["sex"], "given": p["given"], "sur": p["sur"], "line": p["line"], "by": p["by"], "bp": p["site_place"],
                        "dy": p["dy"], "dp": p["death_place"] or p["site_place"], "my": p["my"], "bpe": p["bpe"], "occ": None,
                        "father": p["father"] if p["father"] in keep else None, "mother": p["mother"] if p["mother"] in keep else None,
+                       "fg": grade.get((p["id"], p["father"])) if p["father"] in keep else None, "mg": grade.get((p["id"], p["mother"])) if p["mother"] in keep else None,
                        "spouse": [s for s in p["spouse"] if s in keep], "kids": [k for k in p["kids"] if k in keep],
                        "srcs": srcs[:4], "href": who if who and str(who).startswith("/") else None,
                        "bye": p["bye"], "dye": p["dye"], "note": plain(r.get("note"))[:320] or None})
@@ -317,7 +322,7 @@ def build(args):
     for pid, p in keep.items():
         sc = min(len(n_desc(pid)), 40) + min(len(n_anc(pid)), 40) + (25 if p["row"].get("direct") else 0)
         if sc > best: best, focus = sc, pid
-    meta = {"title": "Roots & Routes", "sub": "Every person this archive holds, by generation, place, era and relationship. Click anyone and every view follows. Links are as the archive's records assert them; the evidence grade is on each person's page, not shown here yet. Rebuilt as the research grows.",
+    meta = {"title": "Roots & Routes", "sub": "Every person this archive holds, by generation, place, era and relationship. Click anyone and every view follows. Links are as the archive's records assert them; a dashed line is a link seen in an index entry only, not yet read from a register. Rebuilt as the research grows.",
             "living": "omit", "generated": datetime.date.today().isoformat(), "inputs": inputs_hash(), "source": "the archive's own roster, dossiers, households and direct line",
             "rowLabel": "Research line", "lineLabel": "Research line"}
     tree = {"meta": meta, "lines": [{"sur": n, "host": HOST} for _, n in LINES] + [{"sur": "Other", "host": HOST}], "focus": focus, "people": people, "undrawn": undrawn}
