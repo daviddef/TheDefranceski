@@ -11,7 +11,9 @@
    never matched by name. An entry carries `pid` only where scripts/patch-map-pids.py
    found one living-safe roster row (same name, birth and death year); a row
    without one gets no link rather than a guess, and its existing link to the
-   name page is untouched.
+   name page is untouched. Only a person Roots & Routes DRAWS is offered
+   (public/roots-links.json, written by build-tree-page.py): a person it withholds
+   or cannot place would be a link to nothing.
    WHICH PLACE: site/src/data/place-crosswalk.json, made by build-place-crosswalk.py
    (the same name key AND within 25 km): the marker name and the name Roots & Routes
    draws it under, which are not always the same string.
@@ -22,7 +24,7 @@ import { u } from "../lib/url.js";
 import x from "../data/place-crosswalk.json";
 const places = {};
 for (const r of x.places) if (r.map && (r.status === "ok" || r.status === "offset")) places[r.map] = r.rr;
-const cfg = { data: u("/map-data.json"), roots: u("/roots/"), places };
+const cfg = { data: u("/map-data.json"), drawn: u("/roots-links.json"), roots: u("/roots/"), places };
 ---
 <style is:global>
   .at-ppl li a.at-rr, .at-rr-place a {
@@ -36,14 +38,18 @@ const cfg = { data: u("/map-data.json"), roots: u("/roots/"), places };
   (function () {
     var body = document.getElementById("at-body");
     if (!body) return;
-    var byKey = null, loading = false;
+    var byKey = null, drawn = null, loading = false;
     function load(cb) {
       if (byKey) return cb();
       if (loading) return;
       loading = true;
-      fetch(cfg.data).then(function (r) { return r.json(); }).then(function (d) {
-        byKey = {};
-        (d.places || []).forEach(function (p) { byKey[p.slug || p.name] = p; });
+      Promise.all([
+        fetch(cfg.data).then(function (r) { return r.json(); }),
+        fetch(cfg.drawn).then(function (r) { return r.json(); })
+      ]).then(function (v) {
+        byKey = {}; drawn = {};
+        (v[0].places || []).forEach(function (p) { byKey[p.slug || p.name] = p; });
+        (v[1].people || []).forEach(function (id) { drawn[id] = 1; });
         cb();
       }).catch(function () { loading = false; });
     }
@@ -62,7 +68,7 @@ const cfg = { data: u("/map-data.json"), roots: u("/roots/"), places };
           var lis = ul.children;
           for (var i = 0; i < lis.length && i < (p.people || []).length; i++) {
             var q = p.people[i];
-            if (!q.pid || lis[i].querySelector(".at-rr")) continue;
+            if (!q.pid || !drawn[q.pid] || lis[i].querySelector(".at-rr")) continue;
             var a = document.createElement("a");
             a.className = "at-rr";
             a.href = cfg.roots + "#hourglass&p=" + encodeURIComponent(q.pid);

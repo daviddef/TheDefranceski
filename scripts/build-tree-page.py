@@ -451,6 +451,14 @@ def link_map(ad):
     io.open(ad, "w", encoding="utf-8").write(json.dumps(d, ensure_ascii=False, separators=(",", ":")))
     print("link-map: %d of %d places carry a marker on /map/" % (n, len(d["places"])))
 
+def write_roots_links(tree):
+    """site/public/roots-links.json: the people Roots & Routes DRAWS (one id each). /map/ (site/src/components/AtlasRootsLinks.astro) offers 'in Roots & Routes'
+    only for those: a person the page withholds (living, possibly living) or cannot place would be a link to nothing."""
+    ids = sorted(p["id"] for p in jl(tree)["people"])
+    out = {"note": "The people Roots & Routes draws, by person id. Made by scripts/build-tree-page.py; do not edit by hand.", "people": ids}
+    io.open(os.path.join(ROOT, "site", "public", "roots-links.json"), "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
+    print("roots-links: %d people" % len(ids))
+
 def run(cmd):
     print("$", " ".join(os.path.relpath(c, ROOT) if os.path.isabs(c) and c.startswith(ROOT) else c for c in cmd))
     r = subprocess.run(cmd)
@@ -469,6 +477,7 @@ def main():
     py = sys.executable; tree = os.path.join(OUT, "tree.json"); pm = os.path.join(OUT, "place_map.json"); ad = os.path.join(OUT, "atlas-data.json"); page = os.path.join(OUT, "roots.html")
     run([py, os.path.join(TP, "build_atlas_data.py"), "--atlas", atlas, "--tree", tree, "--place-map", pm, "--out", ad])
     link_map(ad)
+    write_roots_links(tree)
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page, "--ext", EXT])
     embed = os.path.join(OUT, "roots.embed.html")   # the same page as a fragment, rendered inside the site layout by site/src/pages/roots/index.astro
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", embed, "--embed", "--ext", EXT])
