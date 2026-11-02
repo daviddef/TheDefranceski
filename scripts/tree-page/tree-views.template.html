@@ -45,6 +45,8 @@ h1{font:650 30px/1.1 var(--serif);margin:0;text-wrap:balance}
 .results button{display:flex;width:100%;gap:8px;align-items:center;text-align:left;border:0;background:none;padding:7px 8px;border-radius:4px}
 .results button:hover{background:var(--band)}
 .results small{margin-left:auto;color:var(--muted);font:400 11px var(--mono)}
+.pname{color:inherit;text-decoration:none}.pname:hover{text-decoration:underline;text-decoration-color:var(--atlas)}
+#openmode[aria-pressed="true"]{background:var(--sel);color:var(--on-sel);border-color:var(--sel)}
 
 .atlasbar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:10px 14px;margin-bottom:14px;background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--atlas);border-radius:6px;font-size:13px}
 .abadge{display:inline-flex;gap:6px;align-items:center;color:var(--atlas);font:600 10.5px var(--sans);letter-spacing:.13em;text-transform:uppercase}
@@ -350,6 +352,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
       <input id="q" type="search" placeholder="Find a person, e.g. Mazza" autocomplete="off">
       <ul class="results" id="results" hidden></ul>
     </div>
+    <button class="btn" id="openmode" aria-pressed="false" title="When on, clicking a person opens their page on the family site instead of re-centring the views. Ctrl or ⌘-click always opens it in a new tab." hidden>Click opens page</button>
   </header>
 
   <div class="atlasbar">
@@ -393,7 +396,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
           <div class="trailbar"><b>Place trail</b><span class="seg" data-key="tline"><button data-v="pat">Father's line</button><button data-v="mat">Mother's line</button><button data-v="down">Down</button></span><span>Birthplace by generation. Dashed = not surveyed in the Atlas yet. A bold link means the family moved. Click a card to re-centre.</span></div>
           <div class="trail" id="trail"></div>
           <div class="scroll"><svg id="hg" role="group" aria-label="Hourglass tree"></svg></div>
-          <div class="foot"><span>Dashed card = spouse</span><span id="weaknote" hidden>Dashed line = parent link from an index entry only, no register read</span><span>Flag = the flag over the birthplace in the birth year (Flag Atlas)</span><span>Drag or swipe to move around</span><span id="bpenote" hidden>* place taken from a relative, not recorded</span></div>
+          <div class="foot"><span>Dashed card = spouse</span><span id="weaknote" hidden>Dashed line = parent link from an index entry only, no register read</span><span>Flag = the flag over the birthplace in the birth year (Flag Atlas)</span><span>Drag or swipe to move around</span><span>Ctrl/⌘-click a person to open their page</span><span id="bpenote" hidden>* place taken from a relative, not recorded</span></div>
         </div>
       </section>
 
@@ -828,8 +831,38 @@ function pedigree(id){if(pedKey===id)return pedSet;const p=P[id],s=new Set([id])
 /* ---------- State ---------- */
 const VIEWS=['hourglass','fan','map','atlasmap','movements','kinship','lanes','eras','timeline','orphans',...EXT.names];
 const st={focus:ROOT.id,hist:[],view:'hourglass',card:'full',orient:'h',up:3,down:2,gens:5,q:'',line:null,zoom:1,tx:0,suppress:false,
-  mgroup:'line',mview:'global',mscope:'focus',year:1925,lgroup:'place',lscope:'focus',lzoom:1,hz:1,keep:false,open:null,tline:'pat',aview:'global',av:{cx:35,cy:-10,w:250},amode:'born',ascope:'all',apl:null,escope:'focus',ezoom:1,okind:'orph',fopen:false,kb:null,kinShow:false,kinSeq:null,kinIds:null,mapscope:'all',mcolor:'line',cty:null};
-try{const h=location.hash.slice(1);if(VIEWS.includes(h))st.view=h;if(h==='close'){st.view='map';st.mapscope='close';st.mcolor='country'}const pm=location.hash.match(/p=([\w-]+)/);if(pm&&P[pm[1]])st.focus=pm[1]}catch(e){}
+  mgroup:'line',mview:'global',mscope:'focus',year:1925,lgroup:'place',lscope:'focus',lzoom:1,hz:1,keep:false,open:null,tline:'pat',aview:'global',av:{cx:35,cy:-10,w:250},amode:'born',ascope:'all',apl:null,escope:'focus',ezoom:1,okind:'orph',fopen:false,kb:null,kinShow:false,kinSeq:null,kinIds:null,mapscope:'all',mcolor:'line',cty:null,click:'focus'};
+/* The address bar is the page's state, so a link shares exactly what you are looking at: #kinship&p=<person>&b=<second person>&…
+   Only what differs from the defaults is written. An old link (#kinship, #close, #p=…) still works. */
+const DEF=Object.assign({},st);
+const HASHKEYS={p:'focus',b:'kb',card:'card',o:'orient',up:'up',down:'down',gens:'gens',mg:'mgroup',mv:'mview',ms:'mscope',y:'year',lg:'lgroup',ls:'lscope',tl:'tline',es:'escope',ok:'okind',map:'mapscope',mc:'mcolor',cty:'cty',ln:'line',am:'amode',as:'ascope',pl:'apl',av:'aview',click:'click'};
+function applyHash(){
+  try{
+    const parts=location.hash.slice(1).split('&').filter(Boolean);
+    const v0=parts.length&&!parts[0].includes('=')?parts.shift():null;
+    const kv={};parts.forEach(x=>{const i=x.indexOf('=');if(i>0)kv[x.slice(0,i)]=decodeURIComponent(x.slice(i+1))});
+    for(const k in HASHKEYS){
+      const sk=HASHKEYS[k],d=DEF[sk],v=kv[k];
+      if(v==null){st[sk]=d;continue}
+      st[sk]=typeof d==='number'?(isNaN(+v)?d:+v):v;
+    }
+    if(!P[st.focus])st.focus=DEF.focus;
+    if(st.kb&&(!P[st.kb]||st.kb===st.focus))st.kb=null;
+    st.view=VIEWS.includes(v0)?v0:DEF.view;
+    if(v0==='close'){st.view='map';if(kv.ms==null&&kv.map==null)st.mapscope='close';if(kv.mc==null)st.mcolor='country'}
+    if(st.apl&&!PL[st.apl])st.apl=null;
+    if(st.apl&&st.aview==='fit'){const pl=PL[st.apl];st._av='x';st.av={cx:pl.lon,cy:-pl.lat,w:26}}
+  }catch(e){}
+}
+function writeHash(){
+  try{
+    const kvs=[];
+    for(const k in HASHKEYS){const sk=HASHKEYS[k];if(st[sk]!=null&&st[sk]!==DEF[sk])kvs.push(k+'='+encodeURIComponent(st[sk]))}
+    const h=[st.view,...kvs].join('&');
+    if(h!==location.hash.slice(1))history.replaceState(null,'',location.pathname+location.search+'#'+h);
+  }catch(e){}
+}
+applyHash();
 function go(id){if(!P[id])return;st.kinShow=false;if(id!==st.focus)st.hist.push(st.focus);st.focus=id;render()}
 function back(){const id=st.hist.pop();if(id){st.focus=id;render()}}
 
@@ -858,13 +891,19 @@ function sourceRows(p){
   }
   return rows;
 }
+function pageURL(p){if(!p||living(p))return null;const site=FAMS[p.fi].host;return site?'https://'+site+(p.href||'/people/'+(p.slug||slugify(p.given+' '+p.sur))+'/'):null}
+function pick(id,e){
+  const url=pageURL(P[id]);
+  if(url&&(st.click==='page'||(e&&(e.metaKey||e.ctrlKey)))){if(e&&(e.metaKey||e.ctrlKey))window.open(url,'_blank','noopener');else location.href=url;return}
+  go(id);
+}
 function renderPanel(){
   const p=P[st.focus],A=ancSet(p),D=descSet(p);
   const gensBack=A.size?Math.max(...A.values()):0;
   const sibs=new Set();for(const id of [p.father,p.mother])if(id)for(const k of P[id].kids)if(k!==p.id)sibs.add(k);
   const byLine=Array(8).fill(0);A.forEach((g,id)=>byLine[P[id].fi]++);
-  let h='<div class="head"><div class="swatch" style="background:'+colorOf(p)+'"></div><div><h2>'+esc(nm(p))+'</h2><div class="meta">'+esc(yrs(p))+' · '+esc(p.id)+'</div></div></div>';
-  h+='<button class="btn" id="backbtn"'+(st.hist.length?'':' disabled')+'>← Back</button> <button class="btn" data-goto="kinship">How are we related?</button>';
+  let h='<div class="head"><div class="swatch" style="background:'+colorOf(p)+'"></div><div><h2>'+(pageURL(p)?'<a class="pname" href="'+pageURL(p)+'" title="Open their page">'+esc(nm(p))+'</a>':esc(nm(p)))+'</h2><div class="meta">'+esc(yrs(p))+' · '+esc(p.id)+'</div></div></div>';
+  h+='<button class="btn" id="backbtn"'+(st.hist.length?'':' disabled')+'>← Back</button> <button class="btn" data-goto="kinship">How are we related?</button> <button class="btn" id="copylink">Copy link</button>';
   if(living(p)) h+='<p class="note">Living person. Name and details are withheld on the public site.</p>';
   else h+='<dl>'+(p.occ?'<dt>Occupation</dt><dd>'+esc(p.occ)+'</dd>':'')+'<dt>Born</dt><dd>'+(p.bye?'about ':'')+p.by+'</dd><dt>Died</dt><dd>'+(p.dye?'not recorded':p.dy)+'</dd></dl>';
   const stat=(k,n,l)=>'<button class="stat" data-open="'+k+'" aria-expanded="'+(st.open===k)+'"'+(n?'':' disabled')+'>'+n+'<small>'+l+(n?' '+(st.open===k?'▴':'▾'):'')+'</small></button>';
@@ -1985,7 +2024,10 @@ function render(){
   $$('.seg').forEach(s=>{const k=s.dataset.key;[...s.children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===String(st[k]))))});
   (({hourglass:renderHG,fan:renderFan,map:renderMap,movements:renderMove,lanes:renderLanes,timeline:renderTL,atlasmap:renderAtlas,eras:renderEras,orphans:renderOrphans,kinship:renderKin})[st.view]||EXT.views[st.view])();
   requestAnimationFrame(()=>$$('.swipe').forEach(edges));
+  writeHash();
 }
+['click','change','keyup','input'].forEach(ev=>document.addEventListener(ev,()=>setTimeout(writeHash,0)));
+window.addEventListener('hashchange',()=>{applyHash();render()});
 document.addEventListener('click',e=>{if(st.suppress){e.preventDefault();e.stopPropagation();st.suppress=false}},true);
 document.addEventListener('click',e=>{
   const kn=e.target.closest('[data-kin]');
@@ -2016,14 +2058,22 @@ document.addEventListener('click',e=>{
   if(e.target.closest('a'))return;
   const t=e.target.closest('[data-id]');
   if(t){if(st.suppress){st.suppress=false;return}
-    $('#results').hidden=true;go(t.dataset.id);return}
+    if(t.closest('#results')){$('#results').hidden=true;go(t.dataset.id);return}
+    pick(t.dataset.id,e);return}
   if(!e.target.closest('.search'))$('#results').hidden=true;
 });
 document.addEventListener('keydown',e=>{
   if(e.key!=='Enter'&&e.key!==' ')return;
   const t=e.target.closest&&e.target.closest('svg [data-id], .tc[data-id]');
-  if(t){e.preventDefault();go(t.dataset.id)}
+  if(t){e.preventDefault();pick(t.dataset.id,e)}
 });
+document.addEventListener('click',e=>{
+  if(e.target.closest('#copylink')){const b=$('#copylink'),u=location.href;
+    const done=()=>{b.textContent='Copied';setTimeout(()=>{b.textContent='Copy link'},1500)};
+    try{navigator.clipboard.writeText(u).then(done,()=>{window.prompt('Copy this link',u)})}catch(x){window.prompt('Copy this link',u)}}
+  if(e.target.closest('#openmode')){st.click=st.click==='page'?'focus':'page';syncOpenMode();writeHash()}
+});
+function syncOpenMode(){const b=$('#openmode');if(b)b.setAttribute('aria-pressed',String(st.click==='page'))}
 const qi=$('#q'),res=$('#results');
 qi.addEventListener('input',()=>{
   st.q=qi.value;const q=st.q.trim().toLowerCase();
@@ -2092,6 +2142,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.ksearch'))$('#kres'
 let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship',...EXT.names].includes(st.view))render()},120)});
 
 if(TREE){const v=$('.verdict');if(v)v.hidden=true}
+{const ob=$('#openmode');if(ob){ob.hidden=!(TREE&&FAMS[0].host);syncOpenMode()}}
 const wn=$('#weaknote');if(wn)wn.hidden=!(TREE&&list.some(p=>p.fg===0||p.mg===0));
 const bn=$('#bpenote');if(bn)bn.hidden=!(TREE&&list.some(p=>p.bpe));
 const ub=$('[data-key="okind"] [data-v="undrawn"]');if(ub)ub.hidden=!(TREE&&TREE.undrawn&&TREE.undrawn.length);
