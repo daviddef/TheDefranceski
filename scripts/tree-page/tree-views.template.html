@@ -61,7 +61,6 @@ h1{font:650 30px/1.1 var(--serif);margin:0;text-wrap:balance}
 .vnote{margin:0 0 10px;color:var(--muted);max-width:84ch}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:16px;align-items:start}
 @media (max-width:960px){.layout{grid-template-columns:minmax(0,1fr)}}
-}
 .stage{min-width:0;background:var(--panel);border:1px solid var(--rule);border-radius:8px;position:relative}
 .bar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--rule);font-size:12.5px;color:var(--muted)}
 .bar b{font-weight:600;margin-right:6px}
@@ -245,6 +244,7 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 .mt{padding:8px 10px}.mt b{font-size:21px}.mt small{font-size:11px}
 .atlasbar{padding:8px 10px;gap:6px 12px;margin-bottom:10px;font-size:12px}
 .atlasbar p{flex-basis:100%}
+}
 .amwrap{display:grid;grid-template-columns:minmax(0,1fr) 290px}
 @media (max-width:820px){.amwrap{grid-template-columns:minmax(0,1fr)}}
 .amcanvas{min-width:0;border-right:1px solid var(--rule)}
@@ -319,6 +319,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
 .tie p{margin:0;color:var(--muted)}
 .build{margin-top:18px;max-width:74ch;color:var(--muted)}
 .build b{color:var(--ink);font-weight:600}
+/*EXT:STYLE*/
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -362,6 +363,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
     <button class="tab" role="tab" data-view="lanes">Place lanes<sup>ATLAS</sup></button>
     <button class="tab" role="tab" data-view="eras">Eras<sup>ATLAS</sup></button>
     <button class="tab" role="tab" data-view="timeline">Lifespans<sup>ATLAS</sup></button>
+<!--EXT:TABS-->
     <button class="tab" role="tab" data-view="orphans" title="Orphans and where to start">Orphans<sup>ATLAS</sup></button>
   </nav>
 
@@ -510,6 +512,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
           <div class="foot"><span>Small map = birthplace with regime pin</span><span>Hatched band = Atlas event at a relative's birthplace</span></div>
         </div>
       </section>
+<!--EXT:VIEWS-->
     </div>
 
     <aside class="pc" id="panel" aria-live="polite"></aside>
@@ -557,6 +560,8 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
 (function(){
 'use strict';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+/* optional extension views (see build_page.py --ext): they register a renderer in EXT.views and read this page's own state */
+const EXT={names:[/*EXT:NAMES*/],views:{},stop(){}};
 const NS='http://www.w3.org/2000/svg';
 function S(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -813,7 +818,7 @@ let pedKey=null,pedSet=null;
 function pedigree(id){if(pedKey===id)return pedSet;const p=P[id],s=new Set([id]);ancSet(p).forEach((g,k)=>s.add(k));descSet(p).forEach((g,k)=>s.add(k));pedKey=id;pedSet=s;return s}
 
 /* ---------- State ---------- */
-const VIEWS=['hourglass','fan','map','atlasmap','movements','kinship','lanes','eras','timeline','orphans'];
+const VIEWS=['hourglass','fan','map','atlasmap','movements','kinship','lanes','eras','timeline','orphans',...EXT.names];
 const st={focus:ROOT.id,hist:[],view:'hourglass',card:'full',orient:'h',up:3,down:2,gens:5,q:'',line:null,zoom:1,tx:0,suppress:false,
   mgroup:'line',mview:'global',mscope:'focus',year:1925,lgroup:'place',lscope:'focus',lzoom:1,hz:1,keep:false,open:null,tline:'pat',aview:'global',av:{cx:35,cy:-10,w:250},amode:'born',ascope:'all',apl:null,escope:'focus',ezoom:1,okind:'orph',fopen:false,kb:null,kinShow:false,kinSeq:null,kinIds:null,mapscope:'all',mcolor:'line',cty:null};
 try{const h=location.hash.slice(1);if(VIEWS.includes(h))st.view=h;if(h==='close'){st.view='map';st.mapscope='close';st.mcolor='country'}const pm=location.hash.match(/p=([\w-]+)/);if(pm&&P[pm[1]])st.focus=pm[1]}catch(e){}
@@ -1965,11 +1970,12 @@ function renderKin(){
 function render(){
   renderPanel();
   if(st.view!=='movements')stopPlay();
+  if(!EXT.names.includes(st.view))EXT.stop();
   $$('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.view==='close'?(st.view==='map'&&st.mapscope==='close'):t.dataset.view==='map'?(st.view==='map'&&st.mapscope!=='close'):t.dataset.view===st.view)));
   VIEWS.forEach(v=>{$('#v-'+v).hidden=v!==st.view});
   syncFilters();
   $$('.seg').forEach(s=>{const k=s.dataset.key;[...s.children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===String(st[k]))))});
-  ({hourglass:renderHG,fan:renderFan,map:renderMap,movements:renderMove,lanes:renderLanes,timeline:renderTL,atlasmap:renderAtlas,eras:renderEras,orphans:renderOrphans,kinship:renderKin})[st.view]();
+  (({hourglass:renderHG,fan:renderFan,map:renderMap,movements:renderMove,lanes:renderLanes,timeline:renderTL,atlasmap:renderAtlas,eras:renderEras,orphans:renderOrphans,kinship:renderKin})[st.view]||EXT.views[st.view])();
   requestAnimationFrame(()=>$$('.swipe').forEach(edges));
 }
 document.addEventListener('click',e=>{if(st.suppress){e.preventDefault();e.stopPropagation();st.suppress=false}},true);
@@ -2029,7 +2035,7 @@ $('#kq').addEventListener('input',e=>{
   res.innerHTML=m.length?m.map(p=>'<li><button data-kin="'+p.id+'"><i style="width:8px;height:8px;border-radius:2px;background:'+colorOf(p)+'"></i>'+esc(nm(p))+'<small>'+esc(yrs(p))+'</small></button></li>').join(''):'<li style="padding:8px;color:var(--muted)">No match</li>';
   res.hidden=false;
 });
-let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship'].includes(st.view))render()},120)});
+let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship',...EXT.names].includes(st.view))render()},120)});
 
 if(TREE){const v=$('.verdict');if(v)v.hidden=true}
 const wn=$('#weaknote');if(wn)wn.hidden=!(TREE&&list.some(p=>p.fg===0||p.mg===0));
@@ -2043,6 +2049,7 @@ document.querySelectorAll('[data-key="mcolor"] [data-v="line"]').forEach(b=>{b.t
 document.title=META.title;$('#ptitle').textContent=META.title;$('#subtxt').textContent=META.sub;
 $('#count').textContent=TREE?'':'Sample data: '+list.length.toLocaleString('en')+' invented people.';
 $('#rgkey').innerHTML=Object.keys(ATLAS.regimes).slice(0,5).map(k=>'<span><i style="background:var(--rg-'+k+')"></i>'+esc(ATLAS.regimes[k].label.split(/ [—·\/] /)[0])+'</span>').join('')+'<span><i style="background:var(--hair)"></i>Not surveyed yet</span>';
+/*EXT:SCRIPT*/
 renderMetrics();
 render();
 })();

@@ -35,6 +35,22 @@ of what the page was built from is `tree.json` → `meta.inputs`. Needs the Reco
 - **Colour and rows are research lines** (Carnia, S. Istria, Venice, Abroad, Trentino, Other lines, Not yet placed), not surnames,
   because this is a one-name study.
 
+## The five animated views (Painted Lines)
+
+Five more tabs sit beside the ten: **Night sky**, **Ink ledger**, **Household**, **Generations** and **Where they lived**. They are an optional extension of the
+template, `scripts/tree-page/painted-lines.ext.html` (tabs, views, style and script in one file), injected by `build_page.py --ext` at the markers in
+`tree-views.template.html` (`<!--EXT:TABS-->`, `<!--EXT:VIEWS-->`, `/*EXT:STYLE*/`, `/*EXT:SCRIPT*/`). Without `--ext` the markers are removed and the page is as before.
+
+- **One selection.** They read the page's own `P`, `PL`, `ERA`, `ATLAS`, `st.focus` and `go()`, so choosing a person in the search box, the hourglass or the card redraws
+  all fifteen views. Clicking a head, star, name or node inside an animated view re-centres everything.
+- **No new data.** Ancestors, descendants and spouses come from the people already in `tree.json`; ground colour and events from the Atlas slice already in `atlas-data.json`.
+  Only people with a recorded death are in `tree.json`, so no living person can be drawn.
+- **A parent link is not drawn where the parent would have been under 13 or over 60 at the birth** (the page says how many). The roster is not edited.
+- **Moves are windows.** A person's place is known at their birth, at their children's births, at a recorded move year (`my`) and at death. A leg is drawn between two such
+  records and the dot travelling along it only marks the window. A child's birthplace is evidence, not proof.
+- **Not in the Atlas yet:** wars and famines. Only the Atlas's own events are drawn (flu 1918, Jasenovac, the Holocaust and so on).
+- The hash is `#sky`, `#ink`, `#house`, `#gen` or `#routes`; `#p=<id>` chooses the person.
+
 ## Publishing it
 
 Not wired into the Astro build yet, on purpose: `site/public/*`, the nav and `package.json` are shared ground, and a standalone page in `dist` has

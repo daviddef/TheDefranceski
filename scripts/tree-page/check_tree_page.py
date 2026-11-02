@@ -33,7 +33,7 @@ def main():
     if gaps: warn.append('places not in the Atlas yet: ' + ', '.join(gaps))
     if a.page:
         h = open(a.page, encoding='utf-8').read()
-        for ph in ('/*ATLAS_DATA*/null', '/*TREE_DATA*/null'):
+        for ph in ('/*ATLAS_DATA*/null', '/*TREE_DATA*/null', '<!--EXT:', '/*EXT:'):
             if ph in h: errs.append('page still contains placeholder ' + ph)
         if len(h.encode()) > 12_000_000: errs.append('page is over 12 MB')
         living_given = [p for p in t['people'] if p.get('dy') is None and p.get('given')]

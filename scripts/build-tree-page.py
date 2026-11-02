@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Roots & Routes: the tree page for this archive, built from this archive's own committed data.
 
-    python3 scripts/build-tree-page.py            # rebuild data/tree-page/ (tree.json, atlas-data.json, roots.html)
+    python3 scripts/build-tree-page.py            # rebuild data/tree-page/ (tree.json, atlas-data.json, roots.html, roots.embed.html)
     python3 scripts/build-tree-page.py --check    # exit 1 if the page is older than the data it was built from
 
 WHERE THE PEOPLE COME FROM. There is no committed GEDCOM (David's tree export carries living dates and stays outside the repo), so
@@ -28,6 +28,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "site", "src", "data")
 OUT = os.path.join(ROOT, "data", "tree-page")
 TP = os.path.join(ROOT, "scripts", "tree-page")
+EXT = os.path.join(TP, "painted-lines.ext.html")   # the five animated views (Night sky, Ink ledger, Household, Generations, Where they lived)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 NOW = datetime.date.today().year
 HOST = "archive.defranceski.com"
@@ -46,6 +47,7 @@ def inputs_hash():
     h = hashlib.sha1()
     for n in INPUTS: h.update(io.open(os.path.join(DATA, n), "rb").read())
     h.update(io.open(os.path.join(TP, "tree-views.template.html"), "rb").read())
+    h.update(io.open(os.path.join(TP, "painted-lines.ext.html"), "rb").read())
     h.update(io.open(os.path.join(ROOT, "scripts", "build-tree-page.py"), "rb").read())
     return h.hexdigest()[:16]
 
@@ -327,7 +329,7 @@ def build(args):
     for pid, p in keep.items():
         sc = min(len(n_desc(pid)), 40) + min(len(n_anc(pid)), 40) + (25 if p["row"].get("direct") else 0)
         if sc > best: best, focus = sc, pid
-    meta = {"title": "Roots & Routes", "sub": "Every person this archive holds, by generation, place, era and relationship. Click anyone and every view follows. Links are as the archive's records assert them; a dashed line is a link seen in an index entry only, not yet read from a register. Rebuilt as the research grows.",
+    meta = {"title": "Roots & Routes", "sub": "Every person this archive holds, by generation, place, era and relationship. Click anyone and every view follows. A dashed line is a link seen in an index entry only, not yet read from a register.",
             "living": "omit", "generated": datetime.date.today().isoformat(), "inputs": inputs_hash(), "source": "the archive's own roster, dossiers, households and direct line",
             "rowLabel": "Research line", "lineLabel": "Research line"}
     tree = {"meta": meta, "lines": [{"sur": n, "host": HOST} for _, n in LINES] + [{"sur": "Other", "host": HOST}], "focus": focus, "people": people, "undrawn": undrawn}
@@ -425,7 +427,10 @@ def main():
     if a.worklist: write_worklist(jl(os.path.join(OUT, "tree.report.json")))
     py = sys.executable; tree = os.path.join(OUT, "tree.json"); pm = os.path.join(OUT, "place_map.json"); ad = os.path.join(OUT, "atlas-data.json"); page = os.path.join(OUT, "roots.html")
     run([py, os.path.join(TP, "build_atlas_data.py"), "--atlas", atlas, "--tree", tree, "--place-map", pm, "--out", ad])
-    run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page])
+    run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page, "--ext", EXT])
+    embed = os.path.join(OUT, "roots.embed.html")   # the same page as a fragment, rendered inside the site layout by site/src/pages/roots/index.astro
+    run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", embed, "--embed", "--ext", EXT])
     run([py, os.path.join(TP, "check_tree_page.py"), "--tree", tree, "--atlas-data", ad, "--page", page])
+    run([py, os.path.join(TP, "check_tree_page.py"), "--tree", tree, "--atlas-data", ad, "--page", embed])
 
 if __name__ == "__main__": main()

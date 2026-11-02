@@ -1,7 +1,12 @@
 ---
-/* Roots & Routes: a complete, self-contained document built by scripts/build-tree-page.py from the roster, dossiers, households and
-   direct line. Nothing else renders here; the page carries its own styles and script, and no living person is in its data.
-   Rebuild with `python3 scripts/build-tree-page.py`; see data/tree-page/README.md. Listed under `outside` in src/data/book.json. */
-import html from "../../../../data/tree-page/roots.html?raw";
+/* Roots & Routes: built by scripts/build-tree-page.py from the roster, dossiers, households and direct line, and rendered here inside the
+   site layout (header, menu, footer). The fragment carries its own scoped styles and script (every selector under #rr), and no living
+   person is in its data. Rebuild with `python3 scripts/build-tree-page.py`; see data/tree-page/README.md. A standalone copy of the
+   page is kept at data/tree-page/roots.html. */
+import Base from "../../layouts/Base.astro";
+import page from "../../../../data/tree-page/roots.embed.html?raw";
+import { meta } from "../../../../data/tree-page/tree.json";
 ---
-<Fragment set:html={html} />
+<Base title={meta.title} dek={meta.sub} noautolink>
+  <Fragment set:html={page} />
+</Base>
