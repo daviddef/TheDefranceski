@@ -84,6 +84,8 @@ def plain(s):
     s = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", str(s or "")); s = re.sub(r"[*_`]+", "", s)
     return re.sub(r"\s+", " ", s).strip()
 
+DETAIL = {}   # filled by build(): who is behind each count in the report
+
 def build(args):
     import living_v2 as L2
     atlas = args.atlas or find_atlas()
@@ -95,6 +97,7 @@ def build(args):
     households = jl(os.path.join(DATA, "households.json"))
     site_atlas = jl(os.path.join(DATA, "atlas.json"))["places"]
     rep = collections.Counter()
+    detail = {"dropped": [], "inferred_place": [], "weak": []}   # who is behind each count, for the worklist rows (--worklist)
 
     # ---- the archive's own places: head name -> (name, lat, lon)
     sp = {}
@@ -224,6 +227,7 @@ def build(args):
             x = p[k]
             if x and p["id"] in recorded and x in recorded and not (12 <= p["by"] - P[x]["by"] <= 75):
                 P[x]["kids"].remove(p["id"]); p[k] = None; rep["links_dropped_implausible_gap"] += 1
+                detail["dropped"].append({"child": p["id"], "parent": x, "child_born": p["by"], "parent_born": P[x]["by"]})
     # two recorded years that cannot be one life (over 110 years, or death before birth) are a conflict in the archive's own rows:
     # the death year is not drawn, the person is listed in the report for the research to settle
     conflicts = []
@@ -231,6 +235,7 @@ def build(args):
         if p["id"] in recorded and p["dy"] is not None and not p["dye"] and p["by"] is not None and not (0 <= p["dy"] - p["by"] <= 110):
             conflicts.append({"pid": p["id"], "born": p["by"], "died": p["dy"]}); p["dy"], p["dye"] = min(p["by"] + 70, NOW - 1), True
     rep["life_span_conflicts"] = conflicts
+    detail["weak"] = [{"child": c, "parent": q, "grade": g} for (c, q), g in grade.items() if g == 0 and P[c]["father"] == q or g == 0 and P[c]["mother"] == q]
     for p in P.values():
         if p["dy"] is not None and p["by"] is not None and p["dy"] < p["by"]: p["dy"], p["dye"] = p["by"], True
         if p["dye"] and p["dy"] is not None:
@@ -255,7 +260,7 @@ def build(args):
         for p in P.values():
             if p["site_place"]: continue
             for rid in [p["father"], p["mother"]] + p["spouse"] + p["kids"]:
-                if rid and P[rid]["site_place"]: p["site_place"] = P[rid]["site_place"]; p["bpe"] = True; rep["placed_from_relative"] += 1; break
+                if rid and P[rid]["site_place"]: p["site_place"] = P[rid]["site_place"]; p["bpe"] = True; rep["placed_from_relative"] += 1; detail["inferred_place"].append({"pid": p["id"], "place": p["site_place"], "from": rid}); break
     names_used = {p["site_place"] for p in P.values() if p["site_place"]} | {p["death_place"] for p in P.values() if p.get("death_place")}
     # Record Atlas ids by name within 15 km
     aidx = {}
@@ -341,8 +346,67 @@ def build(args):
                 "linked": deg["linked"], "orphans": deg["orphan"], "parent_links": sum(1 for x in people if x["father"]) + sum(1 for x in people if x["mother"]),
                 "focus": focus})
     json.dump(rep, io.open(os.path.join(OUT, "tree.report.json"), "w"), indent=1)
+    detail["names"] = {i: {"name": plain(p["row"]["name"])[:80], "b": yr(p["row"].get("b")), "href": p["row"].get("who") if str(p["row"].get("who") or "").startswith("/") else None}
+                       for i, p in P.items() if p["by"] is not None and p["by"] < L2.CUTOFF}   # nobody born at or after the living cutoff is named
+    detail["drawn"] = sorted(keep)
+    DETAIL.update(detail)
     print(json.dumps(dict(rep), indent=1))
     return atlas
+
+def worklist_rows(rep):
+    """The research the tree page turns up, as rows for site/src/data/worklist.json. Rows carry `gen` so a re-run replaces them in place."""
+    D = DETAIL; N = D["names"]; drawn = set(D["drawn"])
+    def nm(i):
+        n = N.get(i)
+        if not n: return "*a person born too recently to name here*"
+        return ("[%s](%s)" % (n["name"], n["href"]) if n["href"] else n["name"])
+    def table(head, rows, more=None, cap=25):
+        out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)] + ["| " + " | ".join(str(c) for c in r) + " |" for r in rows[:cap]]
+        if len(rows) > cap: out.append("\n*…and %d more; the full list is rebuilt with `python3 scripts/build-tree-page.py --worklist`.*" % (len(rows) - cap))
+        return "\n".join(out)
+    today = datetime.date.today().isoformat()
+    base = dict(state="next", owner="this archive", since=today, covers=[])
+    rows = []
+    conf = [c for c in rep["life_span_conflicts"]]
+    def why(c):
+        if "child_born" in c: return "a child is dated %d years later (%d)" % (c["child_born"] - c["born"], c["child_born"])
+        return "recorded death %s is over 110 years after the birth, or before it" % c["died"]
+    rows.append(dict(gen="roots-routes:conflicts", what="Roots & Routes: %d people whose recorded dates cannot be one life" % len(conf), **base,
+        note="**The archive's own rows disagree with themselves.** Either two people are one row, or a year is a misreading, or a child belongs to a different parent. The tree page keeps the person and does not trust the impossible date. Open the person and the register behind each date.\n\n"
+        + table(["person", "born", "the conflict"], [(nm(c["pid"]), c["born"], why(c)) for c in conf])))
+    dr = [d for d in D["dropped"]]
+    rows.append(dict(gen="roots-routes:dropped", what="Roots & Routes: %d parent links dropped because the two recorded years cannot be parent and child" % len(dr), **base,
+        note="**A link was asserted by a dossier or a household, but the recorded birth years put parent and child less than 12 or more than 75 years apart, so the tree page does not draw it.** Either the link is wrong (two people with one name) or a year is. Each needs the page it came from.\n\n"
+        + table(["child", "born", "asserted parent", "born"], [(nm(d["child"]), d["child_born"], nm(d["parent"]), d["parent_born"]) for d in dr])))
+    wk = [w for w in D["weak"] if w["child"] in drawn and w["parent"] in drawn]
+    line = set()
+    try:
+        line = {g.get("pid") for g in jl(os.path.join(DATA, "directline-pids.json"))["generations"]}
+    except Exception: pass
+    wl = sorted([w for w in wk if w["child"] in line or w["parent"] in line], key=lambda w: (N.get(w["child"], {}).get("b") or 9999))
+    rows.append(dict(gen="roots-routes:weak", what="Roots & Routes: %d parent links rest on an index entry only; read the register behind them" % len(wk), **base,
+        note="**These links are drawn as dashed lines on [Roots & Routes](/roots/).** Each was seen in an index or a household built from index entries, and no register page has been read to confirm the parents.\n\n"
+        "**%d of them touch the direct line, and those are worth doing first:**\n\n" % len(wl)
+        + table(["child", "born", "index-only parent", "born"], [(nm(w["child"]), N.get(w["child"], {}).get("b") or "?", nm(w["parent"]), N.get(w["parent"], {}).get("b") or "?") for w in wl])))
+    ip = [x for x in D["inferred_place"] if x["pid"] in drawn]
+    rows.append(dict(gen="roots-routes:inferred", what="Roots & Routes: %d people drawn at a place taken from a relative, not recorded" % len(ip), **base,
+        note="**These people have a birth year and no place of their own, so the tree page puts them where their parent, spouse or child was (marked with an asterisk).** Each needs its own record.\n\n"
+        + table(["person", "born", "drawn at", "taken from"], [(nm(x["pid"]), N.get(x["pid"], {}).get("b") or "?", x["place"], nm(x["from"])) for x in ip])))
+    rows.append(dict(gen="roots-routes:undrawn", what="Roots & Routes: %d people are not drawn yet (%d with no year, %d with no place)" % (rep["not_drawn_no_year"] + rep["not_drawn_no_place"], rep["not_drawn_no_year"], rep["not_drawn_no_place"]), **base,
+        note="**Anyone with no birth year (own or from a relative) or no place is left off the picture and listed in its *Not drawn yet* tab.** The fastest way to shrink the number is a person who links two people already drawn: a year or a place for them also places their relatives.\n\n"
+        "The list is on [Roots & Routes](/roots/), tab *Not drawn yet*, with each person's page."))
+    return rows
+
+def write_worklist(rep):
+    path = os.path.join(DATA, "worklist.json")
+    w = jl(path); have = {r.get("gen"): r for r in w["rows"] if r.get("gen")}
+    fresh = worklist_rows(rep); n = max(r["n"] for r in w["rows"])
+    for r in fresh:
+        old = have.get(r["gen"])
+        if old: r["n"], r["since"], r["state"] = old["n"], old.get("since", r["since"]), old["state"]; w["rows"][w["rows"].index(old)] = r
+        else: n += 1; r["n"] = n; w["rows"].insert(0, r)
+    io.open(path, "w", encoding="utf-8").write(json.dumps(w, ensure_ascii=False, indent=2) + "\n")
+    print("worklist: %d tree-page rows written (%s)" % (len(fresh), ", ".join(r["gen"] for r in fresh)))
 
 def run(cmd):
     print("$", " ".join(os.path.relpath(c, ROOT) if os.path.isabs(c) and c.startswith(ROOT) else c for c in cmd))
@@ -350,7 +414,7 @@ def run(cmd):
     if r.returncode: sys.exit(r.returncode)
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--check", action="store_true"); ap.add_argument("--atlas")
+    ap = argparse.ArgumentParser(); ap.add_argument("--check", action="store_true"); ap.add_argument("--atlas"); ap.add_argument("--worklist", action="store_true", help="also write the research rows into site/src/data/worklist.json")
     a = ap.parse_args()
     if a.check:
         try: have = jl(os.path.join(OUT, "tree.json"))["meta"]["inputs"]
@@ -358,6 +422,7 @@ def main():
         if have != inputs_hash(): print("tree page is STALE: the roster, dossiers, households, atlas or builder changed since it was built.\n  python3 scripts/build-tree-page.py"); sys.exit(1)
         print("tree page is current"); return
     atlas = build(a) or a.atlas
+    if a.worklist: write_worklist(jl(os.path.join(OUT, "tree.report.json")))
     py = sys.executable; tree = os.path.join(OUT, "tree.json"); pm = os.path.join(OUT, "place_map.json"); ad = os.path.join(OUT, "atlas-data.json"); page = os.path.join(OUT, "roots.html")
     run([py, os.path.join(TP, "build_atlas_data.py"), "--atlas", atlas, "--tree", tree, "--place-map", pm, "--out", ad])
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page])

@@ -11,6 +11,56 @@
   ],
   "rows": [
     {
+      "gen": "roots-routes:undrawn",
+      "what": "Roots & Routes: 668 people are not drawn yet (428 with no year, 240 with no place)",
+      "state": "next",
+      "owner": "this archive",
+      "since": "2026-11-02",
+      "covers": [],
+      "note": "**Anyone with no birth year (own or from a relative) or no place is left off the picture and listed in its *Not drawn yet* tab.** The fastest way to shrink the number is a person who links two people already drawn: a year or a place for them also places their relatives.\n\nThe list is on [Roots & Routes](/roots/), tab *Not drawn yet*, with each person's page.",
+      "n": 247
+    },
+    {
+      "gen": "roots-routes:inferred",
+      "what": "Roots & Routes: 89 people drawn at a place taken from a relative, not recorded",
+      "state": "next",
+      "owner": "this archive",
+      "since": "2026-11-02",
+      "covers": [],
+      "note": "**These people have a birth year and no place of their own, so the tree page puts them where their parent, spouse or child was (marked with an asterisk).** Each needs its own record.\n\n| person | born | drawn at | taken from |\n|---|---|---|---|\n| [Pietro DeFranceschi](/who/pietro-defranceschi/) | 1784 | Vodnjan | Domenica Manzin |\n| [Giovanni de Franceschi](/who/giovanni-de-franceschi/) | 1810 | Vodnjan | Domenica Manzin |\n| [Pietro da Franceschi](/who/pietro-da-franceschi/) | 1824 | Vodnjan | [Gio. Maria De Franceschi](/who/gio-maria-de-franceschi/) |\n| [Maria Flegar (Defranceschi)](/who/maria-flegar-defranceschi/) | 1842 | Gologorica | [Leonardus Defranceschi](/who/leonardus-defranceschi/) |\n| [Maria Defranceschi](/who/maria-defranceschi/) | 1859 | Omiš | [Zuanne De Franceschi](/who/zuanne-de-franceschi/) |\n| [Euphemia Defranceschi](/who/euphemia-defranceschi/) | 1863 | Omiš | [Zuanne De Franceschi](/who/zuanne-de-franceschi/) |\n| [Anna Defranceschi (Voran)](/who/anna-defranceschi-voran/) | ? | Rijeka | Ursulæ Defranceschi |\n| [Victorius-Joseph Defranceschi](/who/victorius-joseph-defranceschi/) | 1867 | Omiš | [Zuanne De Franceschi](/who/zuanne-de-franceschi/) |\n| [Giovanni Defranceschi](/who/giovanni-defranceschi/) | 1871 | Vodnjan | Domenica Manzin |\n| [Giovanni Defranceschi](/who/giovanni-defranceschi/) | 1876 | Vodnjan | Domenica Manzin |\n| [Antonius Georgius Defranceschi](/who/antonius-georgius-defranceschi/) | 1894 | Pula | Lucia Climan (second wife of Antonius Defranceschi, Pula 1890) |\n| [Anna Fajolli (Defranceschi)](/who/anna-fajolli-defranceschi/) | ? | Vižinada | [Aloÿsius Defranceschi](/who/aloysius-defranceschi/) |\n| [Gasparo Defranceschi](/who/gasparo-defranceschi/) | ? | Svetvinčenat | [Giacomo De Franceschi](/who/giacomo-de-franceschi/) |\n| [Pietro De Franceschi](/who/pietro-de-franceschi/) | 1734 | Svetvinčenat | [Nadal Defranceschi](/who/nadal-defranceschi/) |\n| [Anna-Maria Francisca De Franceschi](/who/anna-maria-francisca-de-franceschi/) | ? | Gologorica | [Franciscus Xaverius Joseph Defranceschi](/who/franciscus-xaverius-joseph-defranceschi/) |\n| [Francesco Franceschi](/who/francesco-franceschi/) | 1829 | Omiš | Maria De Caralipco |\n| [Leonardo De Franceschi](/who/leonardo-de-franceschi/) | ? | Svetvinčenat | [Giacoma De Franceschi](/who/giacoma-de-franceschi/) |\n| Giovanni Defranceschi | ? | Vodnjan | [Gio. Maria De Franceschi](/who/gio-maria-de-franceschi/) |\n| Domenica Defranceschi (Clagnan) | ? | Svetvinčenat | [Piero De Franceschi](/who/piero-de-franceschi/) |\n| Pietro De Franceschi | ? | Svetvinčenat | [Nadal Defranceschi](/who/nadal-defranceschi/) |\n| Giovanni DeFranceschi | 1876 | Vodnjan | Domenica Manzin |\n| [Antonio Franceschi (Dalmatian courts, 1843)](/who/antonio-franceschi-dalmatian-courts-1843/) | ? | Postira | Luca Franceschi |\n| [Antonio Franceschi (Venice accounts)](/who/antonio-franceschi-venice-accounts/) | ? | Postira | Luca Franceschi |\n| [Francesca Franceschi](/who/francesca-franceschi/) | ? | Rijeka | Ludovico Franceschi |\n| Alois Defranceschi | ? | Laives | [Katharina Johanna de Franceschi](/who/katharina-johanna-de-franceschi/) |\n\n*…and 64 more; the full list is rebuilt with `python3 scripts/build-tree-page.py --worklist`.*",
+      "n": 246
+    },
+    {
+      "gen": "roots-routes:weak",
+      "what": "Roots & Routes: 343 parent links rest on an index entry only; read the register behind them",
+      "state": "next",
+      "owner": "this archive",
+      "since": "2026-11-02",
+      "covers": [],
+      "note": "**These links are drawn as dashed lines on [Roots & Routes](/roots/).** Each was seen in an index or a household built from index entries, and no register page has been read to confirm the parents.\n\n**8 of them touch the direct line, and those are worth doing first:**\n\n| child | born | index-only parent | born |\n|---|---|---|---|\n| [Anton Rudolf Franceschi](/who/anton-rudolf-franceschi/) | 1890 | [Josip Defranceschi](/who/josip-defranceschi/) | 1863 |\n| [Marija Stjepanka Defranceschi](/who/marija-stjepanka-defranceschi/) | 1892 | [Josip Defranceschi](/who/josip-defranceschi/) | 1863 |\n| [Ivan De Franceschi](/who/ivan-de-franceschi/) | 1894 | [Josip Defranceschi](/who/josip-defranceschi/) | 1863 |\n| [Zorica De Franceski](/who/zorica-de-franceski/) | 1896 | [Josip Defranceschi](/who/josip-defranceschi/) | 1863 |\n| [Josip Petar “Pepo” Defranceski](/who/josip-petar-pepo-defranceski/) | 1911 | [Anton Rudolf Defranceski](/who/anton-rudolf-defranceski/) | 1890 |\n| [Petar Vid “Pero” Defranceski](/who/petar-vid-pero-defranceski/) | 1913 | [Anton Rudolf Defranceski](/who/anton-rudolf-defranceski/) | 1890 |\n| [Anka Nera Defranceski (Oreščanin)](/who/anka-nera-defranceski-orescanin/) | 1915 | [Anton Rudolf Defranceski](/who/anton-rudolf-defranceski/) | 1890 |\n| [Zdravko “Frank” Defranceski](/who/zdravko-frank-defranceski/) | 1921 | [Anton Rudolf Defranceski](/who/anton-rudolf-defranceski/) | 1890 |",
+      "n": 245
+    },
+    {
+      "gen": "roots-routes:dropped",
+      "what": "Roots & Routes: 21 parent links dropped because the two recorded years cannot be parent and child",
+      "state": "next",
+      "owner": "this archive",
+      "since": "2026-11-02",
+      "covers": [],
+      "note": "**A link was asserted by a dossier or a household, but the recorded birth years put parent and child less than 12 or more than 75 years apart, so the tree page does not draw it.** Either the link is wrong (two people with one name) or a year is. Each needs the page it came from.\n\n| child | born | asserted parent | born |\n|---|---|---|---|\n| [Franceschina De Franceschi](/who/franceschina-de-franceschi/) | 1667 | [Anto De Franceschi](/who/anto-de-franceschi/) | 1671 |\n| [Mattia De Franceschi](/who/mattia-de-franceschi/) | 1669 | [Anto De Franceschi](/who/anto-de-franceschi/) | 1671 |\n| [Mattia Defranceschi](/who/mattia-defranceschi/) | 1669 | [Anto De Franceschi](/who/anto-de-franceschi/) | 1671 |\n| [Mattio De Franceschi](/who/mattio-de-franceschi/) | 1674 | [Anto De Franceschi](/who/anto-de-franceschi/) | 1671 |\n| [Mattio Defranceschi](/who/mattio-defranceschi/) | 1674 | [Anto De Franceschi](/who/anto-de-franceschi/) | 1671 |\n| [Zuana De Franceschi](/who/zuana-de-franceschi/) | 1688 | [Gaspero Defranceschi](/who/gaspero-defranceschi/) | 1688 |\n| [Zuana Defranceschi](/who/zuana-defranceschi/) | 1688 | [Gaspero Defranceschi](/who/gaspero-defranceschi/) | 1688 |\n| [Domenica De Franceschi](/who/domenica-de-franceschi/) | 1703 | [Piero De Franceschi](/who/piero-de-franceschi/) | 1707 |\n| [Doma De Franceschi](/who/doma-de-franceschi/) | 1705 | [Piero De Franceschi](/who/piero-de-franceschi/) | 1707 |\n| [Felice Anto De Franceschi](/who/felice-anto-de-franceschi/) | 1778 | [Zannetta Defranceschi](/who/zannetta-defranceschi/) | 1778 |\n| [Feliciano Maria Franceschi](/who/feliciano-maria-franceschi/) | 1873 | [Niccolo Franceschi](/who/niccolo-franceschi/) | 1862 |\n| [Riccardo Feligiano Maria Franceschi](/who/riccardo-feligiano-maria-franceschi/) | 1873 | [Niccolo Franceschi](/who/niccolo-franceschi/) | 1862 |\n| [Mattio De Franceschi](/who/mattio-de-franceschi/) | 1674 | [Anto De Franceschi](/who/anto-de-franceschi/) | 1671 |\n| [Josephus Ruman](/who/josephus-ruman/) | 1882 | [Mariæ De Franceschi](/who/mari-de-franceschi/) | 1791 |\n| Marina De Franceschi | 1710 | [Piero De Franceschi](/who/piero-de-franceschi/) | 1707 |\n| [Peter De Franceschi](/who/peter-de-franceschi/) | 1902 | [Petar Vid “Pero” Defranceski](/who/petar-vid-pero-defranceski/) | 1913 |\n| Mathæus Ruman | 1872 | [Mariæ De Franceschi](/who/mari-de-franceschi/) | 1791 |\n| Anastasia Ruman | 1880 | [Mariæ De Franceschi](/who/mari-de-franceschi/) | 1791 |\n| Mathæus Pérković | 1886 | [Mariæ De Franceschi](/who/mari-de-franceschi/) | 1791 |\n| Magdalena Perković | 1888 | [Mariæ De Franceschi](/who/mari-de-franceschi/) | 1791 |\n| Emericus Zuban (Zuppan) | 1862 | [Leopolda de Franceschi](/who/leopolda-de-franceschi/) | 1865 |",
+      "n": 244
+    },
+    {
+      "gen": "roots-routes:conflicts",
+      "what": "Roots & Routes: 6 people whose recorded dates cannot be one life",
+      "state": "next",
+      "owner": "this archive",
+      "since": "2026-11-02",
+      "covers": [],
+      "note": "**The archive's own rows disagree with themselves.** Either two people are one row, or a year is a misreading, or a child belongs to a different parent. The tree page keeps the person and does not trust the impossible date. Open the person and the register behind each date.\n\n| person | born | the conflict |\n|---|---|---|\n| [Josephi Defranceschi](/who/josephi-defranceschi/) | 1748 | a child is dated 140 years later (1888) |\n| [Zuanne De Franceschi](/who/zuanne-de-franceschi/) | 1611 | a child is dated 256 years later (1867) |\n| Elena | 1611 | a child is dated 256 years later (1867) |\n| Stela Tamborin | 1692 | a child is dated 129 years later (1821) |\n| Domenica Manzin | 1667 | a child is dated 230 years later (1897) |\n| Mattea | 1681 | a child is dated 242 years later (1923) |",
+      "n": 243
+    },
+    {
       "n": 232,
       "what": "⭐⭐⭐ MEDULIN — the name IS in the deaths book: «Mathæus Defranceschi … miles», 19 December 1833",
       "state": "running",
