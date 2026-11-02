@@ -280,8 +280,16 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 
 .kinpick{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--rule);font-size:14px}
 .kinpick small{font:400 11.5px var(--mono);color:var(--muted)}
-.ksearch{position:relative;width:min(320px,100%)}
-.ksearch input{width:100%;padding:8px 12px;border:1px solid var(--rule);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.ksearch{position:relative;flex:1 1 340px;max-width:520px;min-width:min(260px,100%)}
+.klab{display:block;margin:0 0 3px;font:600 10.5px var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--atlas)}
+.ksearch input{width:100%;padding:11px 14px;border:2px solid var(--atlas);border-radius:8px;background:var(--panel);color:var(--ink);font:16px/1.3 var(--sans)}
+.ksearch input:focus{outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--atlas) 25%,transparent)}
+.ksearch .results{max-height:420px;overflow:auto}
+.ksearch .results button{padding:8px 10px;flex-wrap:wrap;row-gap:0}
+.ksearch .results button[aria-selected="true"],.ksearch .results button:hover{background:var(--band)}
+.ksearch .results .rel{font:600 12px var(--sans);color:var(--atlas)}
+.ksearch .results .rel.none{color:var(--muted);font-weight:400}
+.ksearch .results .where{flex-basis:100%;margin-left:16px;color:var(--muted);font-size:11.5px}
 .kvs{color:var(--muted)}
 .kinchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 14px 12px;border-bottom:1px solid var(--rule)}
 .kinchips em{font:400 10.5px var(--sans);font-style:normal;color:inherit;opacity:.75;margin-left:2px}
@@ -494,7 +502,7 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
       <section class="view" id="v-kinship" hidden>
         <p class="vnote">Pick a second person and see exactly how they are related: the nearest shared ancestors, each generation down both sides, and where every link on the chain was born. Falls back to a marriage path when there is no shared ancestor.</p>
         <div class="stage">
-          <div class="kinpick"><span id="kinA"></span><span class="kvs">is related to</span><div class="ksearch"><label class="vh" for="kq">Second person</label><input id="kq" type="search" autocomplete="off"><ul class="results" id="kres" hidden></ul></div><button class="btn" id="kswap">Swap</button></div>
+          <div class="kinpick"><span id="kinA"></span><span class="kvs">is related to</span><div class="ksearch"><label class="klab" for="kq">Compare with anyone</label><input id="kq" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="kres" placeholder="Type a name, a place or a year"><ul class="results" id="kres" role="listbox" hidden></ul></div><button class="btn" id="kswap">Swap</button></div>
           <div class="kinchips" id="kinchips"></div>
           <div class="kinhead" id="kinhead"></div>
           <div class="scroll" id="kvwrap"><svg id="kv" role="group" aria-label="Kinship diagram"></svg></div>
@@ -1981,7 +1989,7 @@ function render(){
 document.addEventListener('click',e=>{if(st.suppress){e.preventDefault();e.stopPropagation();st.suppress=false}},true);
 document.addEventListener('click',e=>{
   const kn=e.target.closest('[data-kin]');
-  if(kn){st.kb=kn.dataset.kin;$('#kres').hidden=true;renderKin();return}
+  if(kn){st.kb=kn.dataset.kin;$('#kres').hidden=true;$('#kq').value='';renderKin();return}
   const sp=e.target.closest('[data-showpath]');
   if(sp){st.kinShow=true;st.view='map';st.mapscope=(st.kinIds||[]).every(id=>closeSet(st.focus).has(id))?'close':'all';st.mcolor='line';render();return}
   const ck=e.target.closest('[data-clearkin]');
@@ -2028,13 +2036,59 @@ qi.addEventListener('input',()=>{
   if(st.view==='map')renderMap();
 });
 $('#kswap').onclick=()=>{const a=st.focus,b=st.kb;if(b){st.kb=a;go(b)}};
-$('#kq').addEventListener('input',e=>{
-  const q=e.target.value.trim().toLowerCase(),res=$('#kres');
-  if(!q){res.hidden=true;return}
-  const m=list.filter(p=>p.id!==st.focus&&nm(p).toLowerCase().includes(q)).sort((a,b)=>Math.abs(a.by-P[st.focus].by)-Math.abs(b.by-P[st.focus].by)).slice(0,8);
-  res.innerHTML=m.length?m.map(p=>'<li><button data-kin="'+p.id+'"><i style="width:8px;height:8px;border-radius:2px;background:'+colorOf(p)+'"></i>'+esc(nm(p))+'<small>'+esc(yrs(p))+'</small></button></li>').join(''):'<li style="padding:8px;color:var(--muted)">No match</li>';
-  res.hidden=false;
+/* Kinship search. Spelling-tolerant (Franceschi, Defranceschi, Defranceski, De Franceschi are one name), any word order, matches a place or a
+   year as well as a name, and puts relatives first, each result showing how they are related to the person in focus. */
+const skey=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/đ/g,'d').replace(/ł/g,'l').replace(/sch/g,'sk').replace(/ch/g,'k').replace(/ck/g,'k').replace(/[zs]+/g,'s').replace(/[yj]/g,'i').replace(/w/g,'v').replace(/(.)\1+/g,'$1').replace(/[^a-z0-9]/g,'');
+const swords=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+function lev1(a,b){if(Math.abs(a.length-b.length)>1)return false;let i=0;while(i<a.length&&a[i]===b[i])i++;if(a.length===b.length)return a.slice(i+1)===b.slice(i+1)||(a[i]===b[i+1]&&a[i+1]===b[i]&&a.slice(i+2)===b.slice(i+2));return a.length>b.length?a.slice(i+1)===b.slice(i):b.slice(i+1)===a.slice(i)}
+function skeyOf(p){
+  if(!p._sk){const pw=swords(nm(p)),ws=pw.map(skey).filter(Boolean);p._sk={pw,ws,all:ws.join(''),pl:swords((p.bp||'')+' '+(p.dp||'')).map(skey),yrs:[p.by,p.dy].filter(Boolean).map(String)}}
+  return p._sk;
+}
+function kinScore(p,toks,fuzzy){
+  const k=skeyOf(p);let tot=0;
+  for(const t of toks){
+    let b=0;
+    if(/^\d+$/.test(t)){if(k.yrs.some(y=>y===t))b=3;else if(k.yrs.some(y=>y.startsWith(t)))b=2}
+    else{
+      const pq=swords(t).join(''),q=skey(t);if(!pq)continue;
+      for(const w of k.pw){if(w===pq)b=Math.max(b,4);else if(w.startsWith(pq))b=Math.max(b,3)}      // exactly as typed, or the start of a word
+      if(q.length>=3){                                                                              // spelled another way: Defranceski for Defranceschi
+        for(const w of k.ws){if(w===q)b=Math.max(b,4);else if(w.startsWith(q))b=Math.max(b,3);else if(w.includes(q))b=Math.max(b,1.5);else if(fuzzy&&q.length>=4&&lev1(q,w))b=Math.max(b,1)}
+        if(!b&&k.all.includes(q))b=1.5;                                                             // "defra" across the de/di prefix
+      }
+      if(!b&&k.pl.some(w=>w===q||(q.length>2&&w.startsWith(q))))b=1.2;
+    }
+    if(!b)return 0;tot+=b;
+  }
+  return tot;
+}
+let kAct=-1;
+function kinSearch(raw){
+  const res=$('#kres'),inp=$('#kq'),A=P[st.focus];
+  const toks=raw.trim().split(/\s+/).filter(Boolean);
+  if(!toks.length){res.hidden=true;inp.setAttribute('aria-expanded','false');return}
+  let m=[];
+  for(const fuzzy of [false,true]){
+    m=[];for(const p of list){if(p.id===A.id)continue;const sc=kinScore(p,toks,fuzzy);if(sc)m.push({p,sc})}
+    if(m.length)break;
+  }
+  m=m.sort((a,b)=>b.sc-a.sc).slice(0,40).map(x=>{const k=kinship(A,x.p);return Object.assign(x,{k,d:k?k.dA+k.dB:99})});
+  m.sort((a,b)=>(b.sc>=3)-(a.sc>=3)||a.d-b.d||b.sc-a.sc||Math.abs((a.p.by||0)-A.by)-Math.abs((b.p.by||0)-A.by));
+  m=m.slice(0,12);kAct=m.length?0:-1;
+  res.innerHTML=m.length?m.map((x,i)=>'<li role="presentation"><button role="option" data-kin="'+x.p.id+'" aria-selected="'+(i===0)+'"><i style="width:8px;height:8px;border-radius:2px;background:'+colorOf(x.p)+'"></i>'+esc(nm(x.p))+' <span class="rel'+(x.k?'':' none')+'">'+esc(x.k?x.k.label:'no known link')+'</span><small>'+esc(yrs(x.p))+'</small><span class="where">'+esc(x.p.bp||'')+'</span></button></li>').join(''):'<li style="padding:10px;color:var(--muted)">No one matches “'+esc(raw.trim())+'”. Try a surname, a town or a birth year.</li>';
+  res.hidden=false;inp.setAttribute('aria-expanded','true');
+}
+$('#kq').addEventListener('input',e=>kinSearch(e.target.value));
+$('#kq').addEventListener('focus',e=>{if(e.target.value.trim())kinSearch(e.target.value)});
+$('#kq').addEventListener('keydown',e=>{
+  const bs=[...$('#kres').querySelectorAll('button')];
+  if(e.key==='Escape'){$('#kres').hidden=true;return}
+  if(!bs.length||$('#kres').hidden)return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();kAct=(kAct+(e.key==='ArrowDown'?1:-1)+bs.length)%bs.length;bs.forEach((b,i)=>b.setAttribute('aria-selected',i===kAct));bs[kAct].scrollIntoView({block:'nearest'})}
+  else if(e.key==='Enter'){e.preventDefault();bs[Math.max(0,kAct)].click();$('#kq').value=''}
 });
+document.addEventListener('click',e=>{if(!e.target.closest('.ksearch'))$('#kres').hidden=true});
 let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship',...EXT.names].includes(st.view))render()},120)});
 
 if(TREE){const v=$('.verdict');if(v)v.hidden=true}
