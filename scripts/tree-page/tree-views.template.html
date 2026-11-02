@@ -211,6 +211,10 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 .srcs em{font-style:normal;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:4px}
 .fsite{margin:0;font-size:13.5px;font-weight:600}
 .plc{display:grid;grid-template-columns:58px 1fr;gap:10px;margin-bottom:10px;font-size:13px}
+.plcs{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;align-items:start}
+.plcs .plc{grid-template-columns:1fr;gap:6px;margin-bottom:10px;min-width:0}.plcs .plc>div{min-width:0}.plcs .plc small{overflow-wrap:anywhere}
+.plcs.one{grid-template-columns:1fr}.plcs.one .plc{grid-template-columns:58px 1fr;gap:10px}
+@media (min-width:561px) and (max-width:960px){.plcs .plc{grid-template-columns:58px 1fr;gap:10px}}
 .plc b{font:600 14px var(--serif)}
 .plc small{display:block;color:var(--muted);font-size:12px}
 .plc .lk{font-size:12px;font-weight:600}
@@ -939,8 +943,10 @@ function renderPanel(){
     const lk=recLink(p.bp,p.by);
     h+='<div class="note"><b>'+(p._orph?'Orphan record.':p._clus?'Detached family.':'Dead end.')+'</b> '+(p._orph?'Not joined to anyone in the tree.':p._clus?'Not connected to any tree.':'No parents recorded.')+' To connect: search '+esc(p.bp)+' records around '+p.by+'. <a href="'+lk.u+'" target="_blank" rel="noopener">'+esc(clip(lk.t,48))+' ↗</a> <a href="#" data-goto="orphans" data-okind="'+(p._orph?'orph':p._clus?'clus':'dead')+'">More places to start</a></div>';
   }
-  h+='<h3 class="at">Places · from Record Atlas</h3>'+placeBlock('Born'+(p.bpe?' · place taken from a relative, not recorded':''),p.bp,p.by);
-  if(!living(p)&&p.dp!==p.bp)h+=placeBlock(p.route?'Died':'Died, moved '+(p.mye?'about ':'c.')+p.my,p.dp,p.route?p.dy:p.my||p.dy);
+  // birth place and death place sit side by side (one column when there is only one place)
+  const two=!living(p)&&p.dp!==p.bp;
+  h+='<h3 class="at">Places · from Record Atlas</h3><div class="plcs'+(two?'':' one')+'">'+placeBlock('Born'+(p.bpe?' · place taken from a relative, not recorded':''),p.bp,p.by)
+    +(two?placeBlock(p.route?'Died':'Died, moved '+(p.mye?'about ':'c.')+p.my,p.dp,p.route?p.dy:p.my||p.dy):'')+'</div>';
   if(p.route)h+=routeBlock(p);
   if(!living(p)){
     const end=p.dy,evs=[];
