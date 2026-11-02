@@ -470,6 +470,56 @@ def write_gaps(tree, ad):
     io.open(tree, "w", encoding="utf-8").write(json.dumps(t, ensure_ascii=False, separators=(",", ":")))
     print("gaps: %d of %d people have a 'what's missing' list" % (n, len(t["people"])))
 
+def write_gap_rows(tree, ad):
+    """One worklist row per birthplace with five or more people who have an actionable gap (no parents, an index-only parent link), one row for the smaller places,
+    and one each for estimated birth years and children with no spouse. Rows are tagged roots-routes:gap:* and replaced in place; rows for a place that no longer qualifies are removed."""
+    import gaps as G
+    t = jl(tree); allg, _ = G.all_gaps(tree, ad); P = {p["id"]: p for p in t["people"]}
+    today = datetime.date.today().isoformat(); base = dict(state="next", owner="this archive", since=today, covers=[])
+    def link(p): return "[%s](%s)" % ((p["given"] + " " + p["sur"]).strip(), p["page"]) if p.get("page") else (p["given"] + " " + p["sur"]).strip()
+    def table(head, rows, cap=30):
+        out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)] + ["| " + " | ".join(str(c) for c in r) + " |" for r in rows[:cap]]
+        if len(rows) > cap: out.append("\n*…and %d more, each listed in its *What is missing* box on [Roots & Routes](/roots/).*" % (len(rows) - cap))
+        return "\n".join(out)
+    def look(ids, want):
+        seen = {}
+        for i in ids:
+            for x in allg[i]:
+                if x["kind"] in want:
+                    for l in x["look"]: seen.setdefault((l["what"], l["by"]), l)
+        return "; ".join("%s (%s, %s–%s)" % (k[0].strip(), k[1], l["from"], l["to"]) for k, l in list(seen.items())[:4]) or "no collection is listed for this place yet — check Record Atlas"
+    by_place = collections.defaultdict(list)
+    for i, v in allg.items():
+        if any(x["kind"] in ("parents", "parent_index") for x in v): by_place[P[i]["bp"]].append(i)
+    rows = []; small = []
+    for place, ids in sorted(by_place.items(), key=lambda kv: -len(kv[1])):
+        ids.sort(key=lambda i: (P[i]["line"] != 0, P[i]["by"]))
+        if len(ids) < 5: small += ids; continue
+        kinds = lambda i: ", ".join("no parents" if x["kind"] == "parents" else "parent link from an index only" for x in allg[i] if x["kind"] in ("parents", "parent_index"))
+        rows.append(dict(gen="roots-routes:gap:" + re.sub(r"[^a-z0-9]+", "-", unicodedata.normalize("NFKD", place).encode("ascii", "ignore").decode().lower()).strip("-"),
+            what="Roots & Routes: find the missing parents of %d people born at %s" % (len(ids), place), **base,
+            note="**%d people born at %s have no parents recorded or only an index-entry link.** Direct-line people are listed first. Where to look: %s.\n\n" % (len(ids), place, look(ids, ("parents", "parent_index")))
+            + table(["person", "born", "gap"], [(link(P[i]), P[i]["by"], kinds(i)) for i in ids])))
+    if small:
+        rows.append(dict(gen="roots-routes:gap:other-places", what="Roots & Routes: find the missing parents of %d people born at the %d smaller places" % (len(small), len({P[i]["bp"] for i in small})), **base,
+            note="**These places each have fewer than five people with this gap.** Where to look: see each person's *What is missing* box on [Roots & Routes](/roots/).\n\n" + table(["person", "born at", "born"], [(link(P[i]), P[i]["bp"], P[i]["by"]) for i in small])))
+    ey = sorted((i for i, v in allg.items() if any(x["kind"] == "birth_year" for x in v)), key=lambda i: P[i]["by"])
+    rows.append(dict(gen="roots-routes:gap:birth-years", what="Roots & Routes: %d birth years are estimates, not recorded dates" % len(ey), **base,
+        note="**Each of these people is drawn at an estimated birth year.** A baptism or birth entry replaces the estimate.\n\n" + table(["person", "estimated", "born at"], [(link(P[i]), P[i]["by"], P[i]["bp"]) for i in ey])))
+    ns = sorted((i for i, v in allg.items() if any(x["kind"] == "spouse" for x in v)), key=lambda i: P[i]["by"])
+    rows.append(dict(gen="roots-routes:gap:spouses", what="Roots & Routes: %d people have children recorded but no spouse" % len(ns), **base,
+        note="**The marriage record would name the other parent and often both sets of grandparents.**\n\n" + table(["person", "born", "born at"], [(link(P[i]), P[i]["by"], P[i]["bp"]) for i in ns])))
+    path = os.path.join(DATA, "worklist.json"); w = jl(path)
+    have = {r.get("gen"): r for r in w["rows"] if r.get("gen")}; keep = {r["gen"] for r in rows}
+    w["rows"] = [r for r in w["rows"] if not (str(r.get("gen", "")).startswith("roots-routes:gap:") and r["gen"] not in keep)]
+    n = max(r["n"] for r in w["rows"])
+    for r in rows:
+        old = have.get(r["gen"])
+        if old: r["n"], r["since"], r["state"] = old["n"], old.get("since", r["since"]), old["state"]; w["rows"][w["rows"].index(old)] = r
+        else: n += 1; r["n"] = n; w["rows"].insert(0, r)
+    io.open(path, "w", encoding="utf-8").write(json.dumps(w, ensure_ascii=False, indent=2) + "\n")
+    print("worklist: %d gap rows written (%d places with five or more, %d people at smaller places)" % (len(rows), len(rows) - 3, len(small)))
+
 def run(cmd):
     print("$", " ".join(os.path.relpath(c, ROOT) if os.path.isabs(c) and c.startswith(ROOT) else c for c in cmd))
     r = subprocess.run(cmd)
@@ -490,6 +540,7 @@ def main():
     link_map(ad)
     write_roots_links(tree)
     write_gaps(tree, ad)
+    if a.worklist: write_gap_rows(tree, ad)
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page, "--ext", EXT])
     embed = os.path.join(OUT, "roots.embed.html")   # the same page as a fragment, rendered inside the site layout by site/src/pages/roots/index.astro
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", embed, "--embed", "--ext", EXT])
