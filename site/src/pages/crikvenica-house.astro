@@ -116,7 +116,7 @@ const g = c.nextGen;
     {c.kovacina.rows.map(r => (
       <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
         <div class="lab">{r.who}</div>
-        <p style="margin-top:8px">{r.what}</p>
+        <p style="margin-top:8px" set:html={mdHtml(r.what)}></p>
       </div>
     ))}
   </div>
@@ -161,7 +161,7 @@ const g = c.nextGen;
       ))}</tbody>
     </table>
   </div>
-  <p class="prose note" style="margin-top:20px">{c.kalanj.why}</p>
+  <p class="prose note" style="margin-top:20px" set:html={mdHtml(c.kalanj.why)}></p>
   <p class="prose" style="margin-top:14px">{c.kalanj.next}</p>
   <p class="cap" style="margin-top:14px">{c.kalanj.source_kalanj}</p>
 </section>
