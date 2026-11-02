@@ -109,6 +109,8 @@ function build(id){
   R.forEach(r=>{r.s=r.b;r.e=r.d>r.b?r.d+.5:r.b+.4});
   const gen=r=>{if(r.g)return r.g;const ps=[r.f,r.m].filter(x=>I[x]&&!I[x].mi);r.g=ps.length?1+Math.max(...ps.map(x=>gen(I[x]))):1;return r.g};
   R.filter(r=>!r.mi).forEach(gen);
+  // a person with no recorded parents sits one row above their earliest child (not in row I), so Hedviga, mother of the focus, is not placed with a 1750 ancestor
+  R.filter(r=>!r.mi&&!I[r.f]&&!I[r.m]).forEach(r=>{const ks=R.filter(k=>k.f===r.id||k.m===r.id);if(ks.length)r.g=Math.min(...ks.map(k=>k.g))-1});
   R.filter(r=>r.mi).forEach(r=>{const ks=R.filter(k=>k.f===r.id||k.m===r.id);r.g=ks.length?Math.min(...ks.map(k=>k.g))-1:1});
   const g0=Math.min(...R.map(r=>r.g));R.forEach(r=>r.g-=g0-1);
   const G=Math.max(...R.map(r=>r.g));
@@ -156,8 +158,12 @@ function world(m){ // the columns, branches and labels for the sky, ledger and h
     const pref=r.par?I[r.par].x:(o&&I[o].x!=null?I[o].x+.04:.5);let best=-1,bd=9;
     for(let c=0;c<NC;c++){const free=occ[c].every(q=>r.e+1<q[0]||r.s-1>q[1]);const d=Math.abs(colx(c)-pref);if(free&&d<bd){bd=d;best=c}}
     if(best<0)best=0;occ[best].push([r.s,r.e]);r.x=colx(best)});
-  const cnt={};R.forEach(r=>cnt[r.n]=(cnt[r.n]||0)+1);
-  R.forEach(r=>{const w=r.n.split(' ');let l=w.length===2?w[0][0]+'. '+w[1]:r.n;if(cnt[r.n]>1)l+=' '+r.b;r.l=l;r.bud=r.par?clamp(2+Math.abs(r.x-I[r.par].x)*18,2,9):2;
+  // a surname is shown whenever it is not the focus person's own family name (Defranceschi, De Franceschi and Defranceski are one name),
+  // so the married-in and maternal lines say which family they come from
+  const sfold=t=>(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/sch/g,'sk').replace(/ch/g,'k').replace(/[^a-z]/g,'').replace(/^(de|di|da)(?=.{5})/,''),own=sfold(m.f.sur);
+  R.forEach(r=>{const w=r.n.split(' ');r.l0=(w.length===2?w[0][0]+'. '+w[1]:r.n)+(r.sur&&sfold(r.sur)!==own?' '+r.sur:'')});
+  const cnt={};R.forEach(r=>cnt[r.l0]=(cnt[r.l0]||0)+1);
+  R.forEach(r=>{let l=r.l0;if(cnt[l]>1)l+=' '+r.b;r.l=l;r.bud=r.par?clamp(2+Math.abs(r.x-I[r.par].x)*18,2,9):2;
     let h=0;for(const ch of r.id)h=(h*31+ch.charCodeAt(0))%97;r.sy=.07+((r.g-1)/Math.max(2,m.G))*.30+((h%9)/9)*.05;r.sx=r.x});
   const span=m.t1-m.t0;m.ppy=span>220?4.6:span>140?6.5:9;
   m.house=houseModel(m);
@@ -387,7 +393,7 @@ function drawRoutes(s,t){
 const DRAW={sky:drawSky,ink:drawInk,house:drawHouse,gen:drawGen,routes:drawRoutes};
 const V={};
 VW.forEach(k=>{V[k]={k,cv:document.getElementById('cv-'+k),ctx:document.getElementById('cv-'+k).getContext('2d'),rg:document.getElementById('rg-'+k),yl:document.getElementById('yr-'+k),btn:document.querySelector('[data-pl="'+k+'"]'),t:0,min:0,max:1,W:0,H:0}});
-const hOf={sky:w=>Math.round(clamp(w*.95,470,640)),ink:()=>INKL.top+(M.t1+1-M.t0)*M.ppy+20,house:w=>Math.round(clamp(w*.95,500,660)),gen:w=>Math.round(TR.top+TR.bot+M.G*(w<560?78:TR.row)),routes:w=>Math.round(clamp(w*.6,300,560))};
+const hOf={sky:w=>Math.round(clamp(Math.max(w*1.15,innerHeight*.88),640,1100)),ink:()=>INKL.top+(M.t1+1-M.t0)*M.ppy+20,house:w=>Math.round(clamp(w*.95,500,660)),gen:w=>Math.round(TR.top+TR.bot+M.G*(w<560?78:TR.row)),routes:w=>Math.round(clamp(w*.6,300,560))};
 let playing=null,raf=0,last=0;
 function rangeOf(k){const h=M.house;return k==='house'?[h.t0,h.t1,h.rest]:k==='ink'?[M.t0,M.t1,M.t1]:[M.t0,M.t1,M.rest]}
 function paint(k){const s=V[k];T=tokens();hits=[];const c=s.cv.getContext('2d');c.setTransform(s.dpr,0,0,s.dpr,0,0);c.clearRect(0,0,s.W,s.H);DRAW[k](s,s.t);s.btn.textContent=playing===k?'Pause':(s.t>=s.max-.01?'Replay':'Play');s.rg.value=s.t;s.yl.textContent=Math.floor(s.t);s.cv.classList.toggle('hit',hits.length>0)}
