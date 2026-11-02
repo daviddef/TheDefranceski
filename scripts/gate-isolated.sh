@@ -178,6 +178,10 @@ if ! ../scripts/check-absence.py --dist "site/$OUT"; then fail=1; fi
 # scripts/build-tree-page.py and committed. It SPEAKS when it is older than that data, and does not block: a finding that changes
 # a person should not be held up by a page a different command rebuilds. Rebuild with `python3 scripts/build-tree-page.py`.
 python3 ../scripts/build-tree-page.py --check | head -3
+# The map and Roots & Routes meet at two committed files: person ids on the map's people (scripts/patch-map-pids.py) and which marker is which
+# place (scripts/build-place-crosswalk.py). Both SPEAK when stale, like the tree page; rebuild order is in each script's docstring.
+python3 ../scripts/patch-map-pids.py --check | head -3
+python3 ../scripts/build-place-crosswalk.py --check | head -2
 # Coverage SPEAKS too, and for the same reason. On 30 September David asked
 # whether the registers already opened had been finished; nobody could say,
 # because it had never been counted. It was 4.0%. A coverage figure that is

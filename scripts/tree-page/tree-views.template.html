@@ -177,6 +177,7 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 .ctx .c small{color:var(--muted);display:block}
 .chip{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600;background:var(--band);border:1px solid var(--rule);margin:2px 4px 0 0}
 .chip.rg{color:var(--on-line);border:0}
+.chip.sh{display:inline-flex;align-items:center;gap:5px}.chip.sh i{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
 .chip.ev{color:var(--brick);border-color:var(--brick);background:transparent}
 
 /* person card */
@@ -217,7 +218,7 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 @media (min-width:561px) and (max-width:960px){.plcs .plc{grid-template-columns:58px 1fr;gap:10px}}
 .plc b{font:600 14px var(--serif)}
 .plc small{display:block;color:var(--muted);font-size:12px}
-.plc .lk{font-size:12px;font-weight:600}
+.plc .lk{font-size:12px;font-weight:600;display:block;margin-top:3px}
 .life{margin:0;padding:0;list-style:none;font-size:12.5px}
 .life li{padding:5px 0;border-top:1px solid var(--rule)}
 .life li:first-child{border-top:0}
@@ -892,9 +893,13 @@ function placeBlock(label,place,year,until){
     h+='<span class="chip rg" style="background:'+rgv(e.rg)+'">'+esc(ATLAS.regimes[e.rg].label)+'</span><small>'+esc(e.polity)+', '+e.from+'–'+e.to+'</small>';
     if(e.filed.length)h+='<small>Records: '+e.filed.slice(0,3).map(k=>esc(ATLAS.prov[k]||k)).join(', ')+'</small>';
   }else h+='<small>'+(pl.id?'No regime table for this ground yet.':'Not in the Atlas yet.')+'</small>';
-  h+='<a class="lk" href="'+atlasURL(place)+'" target="_blank" rel="noopener">'+(pl.id?'Open in Record Atlas ↗':'Add it to the Atlas ↗')+'</a></div></div>';
+  h+=shelfChip(pl)+'<a class="lk" href="'+atlasURL(place)+'" target="_blank" rel="noopener">'+(pl.id?'Open in Record Atlas ↗':'Add it to the Atlas ↗')+'</a>'+mapLink(pl)+'</div></div>';
   return h;
 }
+/* A site that has its own map names it in atlas-data (site.mapBase) and marks the places it matched (mp = the marker, sh = the shelf state it shows there). */
+const SITE=ATLAS.site||null;
+const shelfChip=pl=>{const s=SITE&&pl.sh&&SITE.shelf[pl.sh];return s?'<span class="chip sh"><i style="background:'+s[1]+'"></i>'+esc(s[0])+'</span>':''};
+const mapLink=pl=>SITE&&pl.mp?'<a class="lk" href="'+SITE.mapBase+encodeURIComponent(pl.mp)+'" title="Open this place on the archive map">On the archive map →</a>':'';
 /* Each family line has its own site; a person's page is /people/<slug>/ with the archive's own slug rule. */
 const slugify=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').toLowerCase().slice(0,60);
 /* Where the record for each source lives: an Atlas collection covering that place and year, else the archive the Atlas says that era was filed under, else the place's Atlas page. */

@@ -49,6 +49,7 @@ def inputs_hash():
     h.update(io.open(os.path.join(TP, "tree-views.template.html"), "rb").read())
     h.update(io.open(os.path.join(TP, "painted-lines.ext.html"), "rb").read())
     h.update(io.open(os.path.join(ROOT, "scripts", "build-tree-page.py"), "rb").read())
+    for n in ("place-crosswalk.json", "shelf-cats.json"): h.update(io.open(os.path.join(ROOT, "site", "src", "data", n), "rb").read())
     return h.hexdigest()[:16]
 
 LINES = [("carnia", "Carnia"), ("south", "S. Istria"), ("venice", "Venice"), ("abroad", "Abroad"), ("trentino", "Trentino"), ("other", "Other lines"),
@@ -434,6 +435,22 @@ def write_worklist(rep):
     io.open(path, "w", encoding="utf-8").write(json.dumps(w, ensure_ascii=False, indent=2) + "\n")
     print("worklist: %d tree-page rows written (%s)" % (len(fresh), ", ".join(r["gen"] for r in fresh)))
 
+def link_map(ad):
+    """Join each Roots & Routes place to its marker on /map/ (site/src/data/place-crosswalk.json, scripts/build-place-crosswalk.py) and the shelf state the map shows.
+    A place is linked only when the crosswalk matched it to ONE marker (status ok or offset); ATLAS.site carries the link base and the state labels."""
+    X = {r["rr"]: r for r in jl(os.path.join(ROOT, "site", "src", "data", "place-crosswalk.json"))["places"]}
+    S = jl(os.path.join(ROOT, "site", "src", "data", "shelf-cats.json"))["states"]
+    d = jl(ad); n = 0
+    for p in d["places"]:
+        r = X.get(p["n"])
+        p.pop("mp", None); p.pop("sh", None)
+        if r and r.get("map") and r["status"] in ("ok", "offset"):
+            p["mp"] = r["map"]; n += 1
+            if r.get("shelf"): p["sh"] = r["shelf"]
+    d["site"] = {"mapBase": "/map/?at=", "shelf": {k: [lab, col] for k, lab, col in S}}
+    io.open(ad, "w", encoding="utf-8").write(json.dumps(d, ensure_ascii=False, separators=(",", ":")))
+    print("link-map: %d of %d places carry a marker on /map/" % (n, len(d["places"])))
+
 def run(cmd):
     print("$", " ".join(os.path.relpath(c, ROOT) if os.path.isabs(c) and c.startswith(ROOT) else c for c in cmd))
     r = subprocess.run(cmd)
@@ -451,6 +468,7 @@ def main():
     if a.worklist: write_worklist(jl(os.path.join(OUT, "tree.report.json")))
     py = sys.executable; tree = os.path.join(OUT, "tree.json"); pm = os.path.join(OUT, "place_map.json"); ad = os.path.join(OUT, "atlas-data.json"); page = os.path.join(OUT, "roots.html")
     run([py, os.path.join(TP, "build_atlas_data.py"), "--atlas", atlas, "--tree", tree, "--place-map", pm, "--out", ad])
+    link_map(ad)
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page, "--ext", EXT])
     embed = os.path.join(OUT, "roots.embed.html")   # the same page as a fragment, rendered inside the site layout by site/src/pages/roots/index.astro
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", embed, "--embed", "--ext", EXT])

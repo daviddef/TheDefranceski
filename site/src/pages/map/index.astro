@@ -20,6 +20,7 @@
 import Base from "../../layouts/Base.astro";
 import Atlas from "@daviddef/archive-kit/components/Atlas.astro";
 import AtlasTimelineTint from "../../components/AtlasTimelineTint.astro";
+import AtlasRootsLinks from "../../components/AtlasRootsLinks.astro";
 import { u } from "../../lib/url.js";
 import { md, mdp } from "../../lib/md.js";
 import r from "../../data/researchmap.json";
@@ -28,6 +29,7 @@ import a from "../../data/atlas.json";
 import g from "../../data/gravesmap.json";
 import mat from "../../data/matricula.json";
 import ros from "../../data/roster.json";
+import shelf from "../../data/shelf-cats.json";
 
 const s = r.stats;
 const st = r.stats;
@@ -43,13 +45,7 @@ const st = r.stats;
    Third, and current: the colour says HOW FAR WE HAVE GOT. Depth is not lost
    — it is in the panel, in words, where "114 volumes catalogued" can sit next
    to "nobody has opened any of it" without either pretending to be the other. */
-const shelfCats = [
-  ["none",       "In no catalogue at all",      "#8A8F96"],
-  ["untouched",  "Catalogued, never opened",    "#C0392B"],
-  ["worked",     "Researched, books unopened",  "#E8792B"],
-  ["started",    "A volume of its own read",    "#EFC03B"],
-  ["done",       "Every volume read",           "#1E8449"],
-];
+const shelfCats = shelf.states;   /* written once, in site/src/data/shelf-cats.json, which Roots & Routes reads too */
 /* The atlas's own six, which are not coverage states at all — they say HOW we
    know a place, not how far through it we are. */
 const peopleCats = [
@@ -160,6 +156,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
   />
 
   <AtlasTimelineTint dataUrl={u("/map-data.json")} schemes={schemes} catOf={catOf} />
+  <AtlasRootsLinks />
 
   <div class="one" style="border-left-color:var(--accent);margin-top:26px">
     <div class="lab">Why there is one map here and not three</div>

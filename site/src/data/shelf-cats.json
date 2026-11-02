@@ -1,0 +1,10 @@
+{
+  "note": "The five shelf states, written once. /map/ (site/src/pages/map/index.astro) and Roots & Routes (scripts/build-tree-page.py, from site/src/data/place-crosswalk.json) both read this file. The colour says HOW FAR WE HAVE GOT at a place; it says nothing about which family or line. Do not reuse these colours for anything else, and do not recolour the people layer (hue = layer) without David's decision.",
+  "states": [
+    ["none",      "In no catalogue at all",     "#8A8F96"],
+    ["untouched", "Catalogued, never opened",   "#C0392B"],
+    ["worked",    "Researched, books unopened", "#E8792B"],
+    ["started",   "A volume of its own read",   "#EFC03B"],
+    ["done",      "Every volume read",          "#1E8449"]
+  ]
+}

@@ -1,0 +1,92 @@
+---
+/* «Open in Roots & Routes», from the map's panel.
+
+   The panel is the shared kit component and this session does not own it, so
+   nothing here reaches into it: after the panel renders, each person it lists
+   is given a second link, to that person in Roots & Routes, and the place gets
+   one to the same ground drawn there.
+
+   WHICH PERSON: the kit lists p.people in order, so the n-th row of the list is
+   the n-th entry of the open place (panel._at = the place's key) and a row is
+   never matched by name. An entry carries `pid` only where scripts/patch-map-pids.py
+   found one living-safe roster row (same name, birth and death year); a row
+   without one gets no link rather than a guess, and its existing link to the
+   name page is untouched.
+   WHICH PLACE: site/src/data/place-crosswalk.json, made by build-place-crosswalk.py
+   (the same name key AND within 25 km): the marker name and the name Roots & Routes
+   draws it under, which are not always the same string.
+
+   The panel is rebuilt with innerHTML on every marker click, so a MutationObserver
+   re-tags on each rebuild (as AtlasTimelineTint does). */
+import { u } from "../lib/url.js";
+import x from "../data/place-crosswalk.json";
+const places = {};
+for (const r of x.places) if (r.map && (r.status === "ok" || r.status === "offset")) places[r.map] = r.rr;
+const cfg = { data: u("/map-data.json"), roots: u("/roots/"), places };
+---
+<style is:global>
+  .at-ppl li a.at-rr, .at-rr-place a {
+    font-size: 11.5px; font-weight: 600; white-space: nowrap;
+  }
+  .at-ppl li a.at-rr { margin-left: 8px; }
+  .at-rr-place { margin: 8px 0 0; font-size: 12.5px; }
+</style>
+
+<script is:inline define:vars={{ cfg }}>
+  (function () {
+    var body = document.getElementById("at-body");
+    if (!body) return;
+    var byKey = null, loading = false;
+    function load(cb) {
+      if (byKey) return cb();
+      if (loading) return;
+      loading = true;
+      fetch(cfg.data).then(function (r) { return r.json(); }).then(function (d) {
+        byKey = {};
+        (d.places || []).forEach(function (p) { byKey[p.slug || p.name] = p; });
+        cb();
+      }).catch(function () { loading = false; });
+    }
+    function tag() {
+      var ul = body.querySelector(".at-ppl");
+      var key = body._at;
+      var rrName = key && cfg.places[key];
+      var need = (ul && !ul.hasAttribute("data-rr")) || (rrName && !body.querySelector(".at-rr-place"));
+      if (!need) return;
+      load(function () {
+        var p = byKey[key];
+        if (!p) return;
+        var ul = body.querySelector(".at-ppl");
+        if (ul && !ul.hasAttribute("data-rr")) {
+          ul.setAttribute("data-rr", "1");
+          var lis = ul.children;
+          for (var i = 0; i < lis.length && i < (p.people || []).length; i++) {
+            var q = p.people[i];
+            if (!q.pid || lis[i].querySelector(".at-rr")) continue;
+            var a = document.createElement("a");
+            a.className = "at-rr";
+            a.href = cfg.roots + "#hourglass&p=" + encodeURIComponent(q.pid);
+            a.title = "Open " + q.n + " in Roots & Routes";
+            a.textContent = "in Roots & Routes →";
+            lis[i].appendChild(a);
+          }
+        }
+        if (rrName && !body.querySelector(".at-rr-place")) {
+          var sec = body.querySelector(".at-sec");
+          if (!sec) return;
+          var d = document.createElement("p");
+          d.className = "at-rr-place";
+          d.innerHTML = '<a href="' + cfg.roots + "#atlasmap&pl=" + encodeURIComponent(rrName) + '&av=fit">This place in Roots & Routes →</a>';
+          sec.parentNode.insertBefore(d, sec);
+        }
+      });
+    }
+    var busy = false;
+    new MutationObserver(function () {
+      if (busy) return;
+      busy = true;
+      try { tag(); } finally { busy = false; }
+    }).observe(body, { childList: true, subtree: true });
+    tag();
+  })();
+</script>

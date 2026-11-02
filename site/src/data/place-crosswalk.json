@@ -1,0 +1,2154 @@
+{
+ "note": "Which marker on /map/ is each place Roots & Routes draws. Made by scripts/build-place-crosswalk.py; do not edit by hand. A match needs the map builder's name key AND a distance of at most 25 km; one further than 5 km is flagged 'offset'.",
+ "rules": {
+  "match_km": 25.0,
+  "flag_km": 5.0
+ },
+ "stats": {
+  "places": 127,
+  "ok": 123,
+  "offset": 4,
+  "ambiguous": 0,
+  "absent": 0,
+  "with_shelf": 37
+ },
+ "places": [
+  {
+   "rr": "Adelaide",
+   "rr_lat": -34.928,
+   "rr_lon": 138.601,
+   "atlas_id": "adelaide",
+   "map": "Adelaide",
+   "map_lat": -34.9285,
+   "map_lon": 138.6007,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "American Fork",
+   "rr_lat": 40.377,
+   "rr_lon": -111.796,
+   "atlas_id": null,
+   "map": "American Fork",
+   "map_lat": 40.3769,
+   "map_lon": -111.79576,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Arlington",
+   "rr_lat": 32.736,
+   "rr_lon": -97.108,
+   "atlas_id": null,
+   "map": "Arlington",
+   "map_lat": 32.73569,
+   "map_lon": -97.10807,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Athens, Georgia",
+   "rr_lat": 33.952,
+   "rr_lon": -83.358,
+   "atlas_id": null,
+   "map": "Athens, Georgia",
+   "map_lat": 33.9519,
+   "map_lon": -83.3576,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Atlanta",
+   "rr_lat": 33.749,
+   "rr_lon": -84.388,
+   "atlas_id": "atlanta",
+   "map": "Atlanta",
+   "map_lat": 33.749,
+   "map_lon": -84.38798,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Bakar",
+   "rr_lat": 45.3,
+   "rr_lon": 14.533,
+   "atlas_id": "bakar",
+   "map": "Bakar",
+   "map_lat": 45.3,
+   "map_lon": 14.5333,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "3 volumes, covering 1789–1857 · not tracked per volume"
+  },
+  {
+   "rr": "Belgrade",
+   "rr_lat": 44.804,
+   "rr_lon": 20.465,
+   "atlas_id": "belgrade",
+   "map": "Belgrade",
+   "map_lat": 44.80401,
+   "map_lon": 20.46513,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Brisbane",
+   "rr_lat": -27.47,
+   "rr_lon": 153.025,
+   "atlas_id": "brisbane",
+   "map": "Brisbane",
+   "map_lat": -27.4698,
+   "map_lon": 153.0251,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Broken Hill",
+   "rr_lat": -31.954,
+   "rr_lon": 141.454,
+   "atlas_id": null,
+   "map": "Broken Hill",
+   "map_lat": -31.9539,
+   "map_lon": 141.4539,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Cadillac",
+   "rr_lat": 44.252,
+   "rr_lon": -85.401,
+   "atlas_id": null,
+   "map": "Cadillac",
+   "map_lat": 44.25195,
+   "map_lon": -85.40116,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Castelgomberto",
+   "rr_lat": 45.585,
+   "rr_lon": 11.396,
+   "atlas_id": null,
+   "map": "Castelgomberto",
+   "map_lat": 45.58489,
+   "map_lon": 11.39569,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Castelnovo del Friuli",
+   "rr_lat": 46.2,
+   "rr_lon": 12.903,
+   "atlas_id": null,
+   "map": "Castelnovo del Friuli",
+   "map_lat": 46.19991,
+   "map_lon": 12.90293,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Cathedral City",
+   "rr_lat": 33.78,
+   "rr_lon": -116.465,
+   "atlas_id": null,
+   "map": "Cathedral City",
+   "map_lat": 33.77974,
+   "map_lon": -116.46529,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Chalfont",
+   "rr_lat": 40.288,
+   "rr_lon": -75.209,
+   "atlas_id": null,
+   "map": "Chalfont",
+   "map_lat": 40.28844,
+   "map_lon": -75.20906,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Chialina",
+   "rr_lat": 46.491,
+   "rr_lon": 12.866,
+   "atlas_id": null,
+   "map": "Chialina",
+   "map_lat": 46.49083,
+   "map_lon": 12.86639,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Città metropolitana di Roma Capitale",
+   "rr_lat": 41.967,
+   "rr_lon": 12.667,
+   "atlas_id": null,
+   "map": "Città metropolitana di Roma Capitale",
+   "map_lat": 41.96667,
+   "map_lon": 12.66667,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Clarksburg",
+   "rr_lat": 39.281,
+   "rr_lon": -80.345,
+   "atlas_id": null,
+   "map": "Clarksburg",
+   "map_lat": 39.28065,
+   "map_lon": -80.34453,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Cles",
+   "rr_lat": 46.365,
+   "rr_lon": 11.033,
+   "atlas_id": null,
+   "map": "Cles",
+   "map_lat": 46.36511,
+   "map_lon": 11.03297,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Clifton",
+   "rr_lat": 40.858,
+   "rr_lon": -74.164,
+   "atlas_id": "clifton",
+   "map": "Clifton",
+   "map_lat": 40.85843,
+   "map_lon": -74.16376,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Clinton",
+   "rr_lat": 38.765,
+   "rr_lon": -76.898,
+   "atlas_id": null,
+   "map": "Clinton",
+   "map_lat": 38.76511,
+   "map_lon": -76.89831,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Concesio",
+   "rr_lat": 45.605,
+   "rr_lon": 10.217,
+   "atlas_id": null,
+   "map": "Concesio",
+   "map_lat": 45.60518,
+   "map_lon": 10.21697,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Crikvenica",
+   "rr_lat": 45.17,
+   "rr_lon": 14.69,
+   "atlas_id": "crikvenica",
+   "map": "Crikvenica",
+   "map_lat": 45.17,
+   "map_lon": 14.69,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "2 volumes, covering 1798–1896 · not tracked per volume"
+  },
+  {
+   "rr": "Detroit",
+   "rr_lat": 42.331,
+   "rr_lon": -83.046,
+   "atlas_id": "detroit",
+   "map": "Detroit",
+   "map_lat": 42.33143,
+   "map_lon": -83.04575,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Dolo, Venezia",
+   "rr_lat": 45.427,
+   "rr_lon": 12.076,
+   "atlas_id": null,
+   "map": "Dolo, Venezia",
+   "map_lat": 45.4269,
+   "map_lon": 12.0764,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Draguč",
+   "rr_lat": 45.349,
+   "rr_lon": 14.005,
+   "atlas_id": "draguc",
+   "map": "Draguč",
+   "map_lat": 45.33139,
+   "map_lon": 14.00694,
+   "km": 1.96,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "3 volumes, covering 1711–1832 · not tracked per volume"
+  },
+  {
+   "rr": "Dubrovnik",
+   "rr_lat": 42.651,
+   "rr_lon": 18.094,
+   "atlas_id": "dubrovnik",
+   "map": "Dubrovnik",
+   "map_lat": 42.64125,
+   "map_lon": 18.10909,
+   "km": 1.64,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "2 volumes, covering 1791–1920 · not tracked per volume"
+  },
+  {
+   "rr": "East Farmingdale",
+   "rr_lat": 40.729,
+   "rr_lon": -73.417,
+   "atlas_id": null,
+   "map": "East Farmingdale",
+   "map_lat": 40.72927,
+   "map_lon": -73.41679,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Fawkner",
+   "rr_lat": -37.717,
+   "rr_lon": 144.967,
+   "atlas_id": null,
+   "map": "Fawkner",
+   "map_lat": -37.71667,
+   "map_lon": 144.96667,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Fažana-Fasana",
+   "rr_lat": 44.928,
+   "rr_lon": 13.805,
+   "atlas_id": "fazana",
+   "map": "Fažana",
+   "map_lat": 44.9297,
+   "map_lon": 13.8039,
+   "km": 0.21,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "note": "the roster writes both names of Fažana (Fasana) as one place; the map's marker is Fažana",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Fiera di Primiero",
+   "rr_lat": 46.176,
+   "rr_lon": 11.829,
+   "atlas_id": null,
+   "map": "Fiera di Primiero",
+   "map_lat": 46.17621,
+   "map_lon": 11.82879,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Friedrichstadt",
+   "rr_lat": 51.06,
+   "rr_lon": 13.708,
+   "atlas_id": null,
+   "map": "Friedrichstadt",
+   "map_lat": 51.06047,
+   "map_lon": 13.70787,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Gaillard",
+   "rr_lat": 46.185,
+   "rr_lon": 6.207,
+   "atlas_id": null,
+   "map": "Gaillard",
+   "map_lat": 46.1853,
+   "map_lon": 6.20693,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Giubiasco",
+   "rr_lat": 46.172,
+   "rr_lon": 9.008,
+   "atlas_id": null,
+   "map": "Giubiasco",
+   "map_lat": 46.17246,
+   "map_lon": 9.00793,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Gologorica",
+   "rr_lat": 45.29,
+   "rr_lon": 14.03,
+   "atlas_id": "gologorica",
+   "map": "Gologorica",
+   "map_lat": 45.25778,
+   "map_lon": 14.03417,
+   "km": 3.6,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "7 volumes, covering 1644–1948 · not tracked per volume"
+  },
+  {
+   "rr": "Gračišće",
+   "rr_lat": 45.28,
+   "rr_lon": 14.02,
+   "atlas_id": "gracisce",
+   "map": "Gračišće",
+   "map_lat": 45.21889,
+   "map_lon": 14.01056,
+   "km": 6.84,
+   "status": "offset",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "started",
+   "births": "10 volumes, covering 1667–1988 · 1 read, 0 part read, 9 unopened"
+  },
+  {
+   "rr": "Harare",
+   "rr_lat": -17.822,
+   "rr_lon": 31.049,
+   "atlas_id": "harare",
+   "map": "Harare",
+   "map_lat": -17.8216,
+   "map_lon": 31.0492,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Hartsdale",
+   "rr_lat": 41.019,
+   "rr_lon": -73.798,
+   "atlas_id": null,
+   "map": "Hartsdale",
+   "map_lat": 41.01899,
+   "map_lon": -73.79819,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Hopkins",
+   "rr_lat": 44.925,
+   "rr_lon": -93.463,
+   "atlas_id": null,
+   "map": "Hopkins",
+   "map_lat": 44.92496,
+   "map_lon": -93.46273,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Horsham, Victoria",
+   "rr_lat": -36.719,
+   "rr_lon": 142.196,
+   "atlas_id": null,
+   "map": "Horsham, Victoria",
+   "map_lat": -36.7189,
+   "map_lon": 142.1962,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Illegio",
+   "rr_lat": 46.429,
+   "rr_lon": 13.057,
+   "atlas_id": null,
+   "map": "Illegio",
+   "map_lat": 46.4292,
+   "map_lon": 13.05657,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Johannesburg",
+   "rr_lat": -26.204,
+   "rr_lon": 28.047,
+   "atlas_id": "johannesburg",
+   "map": "Johannesburg",
+   "map_lat": -26.2041,
+   "map_lon": 28.0473,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Kanahooka",
+   "rr_lat": -34.492,
+   "rr_lon": 150.808,
+   "atlas_id": null,
+   "map": "Kanahooka",
+   "map_lat": -34.4916,
+   "map_lon": 150.80817,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Kaštelir",
+   "rr_lat": 45.317,
+   "rr_lon": 13.7,
+   "atlas_id": "kastelir",
+   "map": "Kaštelir",
+   "map_lat": 45.3167,
+   "map_lon": 13.7,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Klenovica",
+   "rr_lat": 45.102,
+   "rr_lon": 14.845,
+   "atlas_id": "klenovica",
+   "map": "Klenovica",
+   "map_lat": 45.1016,
+   "map_lon": 14.8446,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Laives",
+   "rr_lat": 46.43,
+   "rr_lon": 11.337,
+   "atlas_id": null,
+   "map": "Laives",
+   "map_lat": 46.4297,
+   "map_lon": 11.3369,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Laterza",
+   "rr_lat": 40.63,
+   "rr_lon": 16.8,
+   "atlas_id": null,
+   "map": "Laterza",
+   "map_lat": 40.62952,
+   "map_lon": 16.79969,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Ledenice",
+   "rr_lat": 45.139,
+   "rr_lon": 14.842,
+   "atlas_id": "ledenice",
+   "map": "Ledenice",
+   "map_lat": 45.13866,
+   "map_lon": 14.84202,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "5 volumes, covering 1734–1894 · not tracked per volume"
+  },
+  {
+   "rr": "Lestans",
+   "rr_lat": 46.158,
+   "rr_lon": 12.889,
+   "atlas_id": null,
+   "map": "Lestans",
+   "map_lat": 46.15793,
+   "map_lon": 12.88872,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Liariis",
+   "rr_lat": 46.492,
+   "rr_lon": 12.876,
+   "atlas_id": null,
+   "map": "Liariis",
+   "map_lat": 46.4916,
+   "map_lon": 12.87567,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Lilydale",
+   "rr_lat": -37.75,
+   "rr_lon": 145.35,
+   "atlas_id": null,
+   "map": "Lilydale",
+   "map_lat": -37.75,
+   "map_lon": 145.35,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Livonia",
+   "rr_lat": 42.368,
+   "rr_lon": -83.353,
+   "atlas_id": null,
+   "map": "Livonia",
+   "map_lat": 42.36837,
+   "map_lon": -83.35271,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Ližnjan",
+   "rr_lat": 44.82,
+   "rr_lon": 13.96,
+   "atlas_id": "liznjan",
+   "map": "Ližnjan",
+   "map_lat": 44.82,
+   "map_lon": 13.96,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "8 volumes, covering 1683–1993, in 2 stretches · not tracked per volume"
+  },
+  {
+   "rr": "Loud Township",
+   "rr_lat": 44.896,
+   "rr_lon": -84.069,
+   "atlas_id": null,
+   "map": "Loud Township",
+   "map_lat": 44.8961,
+   "map_lon": -84.0689,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Medulin",
+   "rr_lat": 44.819,
+   "rr_lon": 13.938,
+   "atlas_id": "medulin",
+   "map": "Medulin",
+   "map_lat": 44.8189,
+   "map_lon": 13.9375,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "2 volumes, covering 1648–1890, in 2 stretches · not tracked per volume"
+  },
+  {
+   "rr": "Memphis",
+   "rr_lat": 35.15,
+   "rr_lon": -90.049,
+   "atlas_id": null,
+   "map": "Memphis",
+   "map_lat": 35.14953,
+   "map_lon": -90.04898,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Middle Village",
+   "rr_lat": 40.716,
+   "rr_lon": -73.881,
+   "atlas_id": null,
+   "map": "Middle Village",
+   "map_lat": 40.71649,
+   "map_lon": -73.88125,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Milano",
+   "rr_lat": 45.464,
+   "rr_lon": 9.192,
+   "atlas_id": "milan",
+   "map": "Milano",
+   "map_lat": 45.46416,
+   "map_lon": 9.19199,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Millbrook",
+   "rr_lat": 32.48,
+   "rr_lon": -86.362,
+   "atlas_id": null,
+   "map": "Millbrook",
+   "map_lat": 32.47986,
+   "map_lon": -86.36192,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Mione di Ovaro",
+   "rr_lat": 46.47,
+   "rr_lon": 12.85,
+   "atlas_id": "mione",
+   "map": "Mione",
+   "map_lat": 46.4256,
+   "map_lon": 12.8797,
+   "km": 5.44,
+   "status": "offset",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "started",
+   "note": "the roster adds the comune (Ovaro); the map's marker is the village, Mione",
+   "births": "4 volumes, covering 1806–1810, in 2 stretches · ALL READ"
+  },
+  {
+   "rr": "Mitchell, Canberra",
+   "rr_lat": -35.219,
+   "rr_lon": 149.139,
+   "atlas_id": null,
+   "map": "Mitchell, Canberra",
+   "map_lat": -35.2192,
+   "map_lon": 149.1386,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Muina",
+   "rr_lat": 46.472,
+   "rr_lon": 12.858,
+   "atlas_id": null,
+   "map": "Muina",
+   "map_lat": 46.472,
+   "map_lon": 12.858,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Naunina",
+   "rr_lat": 46.534,
+   "rr_lon": 13.021,
+   "atlas_id": null,
+   "map": "Naunina",
+   "map_lat": 46.53412,
+   "map_lon": 13.0211,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "New York",
+   "rr_lat": 40.713,
+   "rr_lon": -74.006,
+   "atlas_id": null,
+   "map": "New York",
+   "map_lat": 40.7128,
+   "map_lon": -74.006,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Niles",
+   "rr_lat": 42.019,
+   "rr_lon": -87.803,
+   "atlas_id": null,
+   "map": "Niles",
+   "map_lat": 42.01892,
+   "map_lon": -87.80284,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Omiš",
+   "rr_lat": 43.44,
+   "rr_lon": 16.69,
+   "atlas_id": "omis",
+   "map": "Omiš",
+   "map_lat": 43.44,
+   "map_lon": 16.69,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "4 volumes, covering 1588–1894 · not tracked per volume"
+  },
+  {
+   "rr": "Pag",
+   "rr_lat": 44.444,
+   "rr_lon": 15.058,
+   "atlas_id": "pag",
+   "map": "Pag",
+   "map_lat": 44.445,
+   "map_lon": 15.0575,
+   "km": 0.12,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "37 volumes, covering 1577–1898, in 3 stretches · not tracked per volume"
+  },
+  {
+   "rr": "Paluzza",
+   "rr_lat": 46.53,
+   "rr_lon": 12.997,
+   "atlas_id": "paluzza",
+   "map": "Paluzza",
+   "map_lat": 46.53202,
+   "map_lon": 13.01586,
+   "km": 1.46,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "10 volumes, covering 1806–1815 · not tracked per volume"
+  },
+  {
+   "rr": "Parkville, Victoria",
+   "rr_lat": -37.783,
+   "rr_lon": 144.95,
+   "atlas_id": null,
+   "map": "Parkville, Victoria",
+   "map_lat": -37.7833,
+   "map_lon": 144.95,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Pasian di Prato",
+   "rr_lat": 46.048,
+   "rr_lon": 13.193,
+   "atlas_id": null,
+   "map": "Pasian di Prato",
+   "map_lat": 46.04812,
+   "map_lon": 13.19283,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Pazin",
+   "rr_lat": 45.24,
+   "rr_lon": 13.94,
+   "atlas_id": "pazin",
+   "map": "Pazin",
+   "map_lat": 45.24,
+   "map_lon": 13.94,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "46 volumes, covering 1582–1966 · not tracked per volume"
+  },
+  {
+   "rr": "Pfullingen",
+   "rr_lat": 48.467,
+   "rr_lon": 9.233,
+   "atlas_id": null,
+   "map": "Pfullingen",
+   "map_lat": 48.4667,
+   "map_lon": 9.2333,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Phoenix",
+   "rr_lat": 33.448,
+   "rr_lon": -112.074,
+   "atlas_id": null,
+   "map": "Phoenix",
+   "map_lat": 33.44838,
+   "map_lon": -112.07404,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Plomin",
+   "rr_lat": 45.133,
+   "rr_lon": 14.167,
+   "atlas_id": "plomin",
+   "map": "Plomin",
+   "map_lat": 45.1333,
+   "map_lon": 14.1667,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Pomer",
+   "rr_lat": 44.821,
+   "rr_lon": 13.913,
+   "atlas_id": "pomer",
+   "map": "Pomer",
+   "map_lat": 44.82389,
+   "map_lon": 13.89583,
+   "km": 1.39,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Poreč",
+   "rr_lat": 45.23,
+   "rr_lon": 13.6,
+   "atlas_id": null,
+   "map": "Poreč (Poreč)",
+   "map_lat": 45.23,
+   "map_lon": 13.6,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "56 volumes, covering 1657–1963, in 2 stretches · not tracked per volume"
+  },
+  {
+   "rr": "Porto Alegre",
+   "rr_lat": -30.033,
+   "rr_lon": -51.23,
+   "atlas_id": null,
+   "map": "Porto Alegre",
+   "map_lat": -30.03283,
+   "map_lon": -51.23019,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Postira",
+   "rr_lat": 43.379,
+   "rr_lon": 16.637,
+   "atlas_id": "postira",
+   "map": "Postira",
+   "map_lat": 43.3789,
+   "map_lon": 16.6367,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Premantura",
+   "rr_lat": 44.801,
+   "rr_lon": 13.909,
+   "atlas_id": "premantura",
+   "map": "Premantura",
+   "map_lat": 44.8016,
+   "map_lon": 13.9115,
+   "km": 0.21,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Provincia di Padova",
+   "rr_lat": 45.35,
+   "rr_lon": 11.817,
+   "atlas_id": "padova",
+   "map": "Provincia di Padova",
+   "map_lat": 45.35,
+   "map_lon": 11.81667,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Provincia di Venezia",
+   "rr_lat": 45.44,
+   "rr_lon": 12.326,
+   "atlas_id": null,
+   "map": "Provincia di Venezia",
+   "map_lat": 45.44045,
+   "map_lon": 12.32632,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Pula",
+   "rr_lat": 44.867,
+   "rr_lon": 13.85,
+   "atlas_id": "pula",
+   "map": "Pula",
+   "map_lat": 44.86761,
+   "map_lon": 13.84934,
+   "km": 0.09,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "31 volumes, covering 1613–1913 · not tracked per volume"
+  },
+  {
+   "rr": "Queens",
+   "rr_lat": 40.681,
+   "rr_lon": -73.837,
+   "atlas_id": null,
+   "map": "Queens",
+   "map_lat": 40.68149,
+   "map_lon": -73.83652,
+   "km": 0.07,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Ravina",
+   "rr_lat": 46.038,
+   "rr_lon": 11.108,
+   "atlas_id": null,
+   "map": "Ravina",
+   "map_lat": 46.03816,
+   "map_lon": 11.1077,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Rijeka",
+   "rr_lat": 45.33,
+   "rr_lon": 14.44,
+   "atlas_id": "rijeka",
+   "map": "Rijeka",
+   "map_lat": 45.32706,
+   "map_lon": 14.44424,
+   "km": 0.47,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "27 volumes, covering 1590–1901, in 2 stretches · not tracked per volume"
+  },
+  {
+   "rr": "River Grove",
+   "rr_lat": 41.926,
+   "rr_lon": -87.836,
+   "atlas_id": null,
+   "map": "River Grove",
+   "map_lat": 41.92586,
+   "map_lon": -87.83589,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Rivolta d'Adda",
+   "rr_lat": 45.47,
+   "rr_lon": 9.511,
+   "atlas_id": null,
+   "map": "Rivolta d'Adda",
+   "map_lat": 45.47017,
+   "map_lon": 9.51145,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Rookwood",
+   "rr_lat": -33.875,
+   "rr_lon": 151.056,
+   "atlas_id": null,
+   "map": "Rookwood",
+   "map_lat": -33.8747,
+   "map_lon": 151.0565,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Rovinj",
+   "rr_lat": 45.081,
+   "rr_lon": 13.638,
+   "atlas_id": "rovinj",
+   "map": "Rovinj",
+   "map_lat": 45.081,
+   "map_lon": 13.638,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "12 volumes, covering 1560–1890 · not tracked per volume"
+  },
+  {
+   "rr": "San Daniele del Friuli",
+   "rr_lat": 46.158,
+   "rr_lon": 13.008,
+   "atlas_id": null,
+   "map": "San Daniele del Friuli",
+   "map_lat": 46.1583,
+   "map_lon": 13.0083,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "San Germán",
+   "rr_lat": 20.6,
+   "rr_lon": -76.135,
+   "atlas_id": null,
+   "map": "San Germán",
+   "map_lat": 20.59971,
+   "map_lon": -76.1347,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "San Juan",
+   "rr_lat": 18.466,
+   "rr_lon": -66.106,
+   "atlas_id": "san-juan-pr",
+   "map": "San Juan",
+   "map_lat": 18.46633,
+   "map_lon": -66.10572,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "San Lorenzo, Santa Fe",
+   "rr_lat": -32.75,
+   "rr_lon": -60.733,
+   "atlas_id": null,
+   "map": "San Lorenzo, Santa Fe",
+   "map_lat": -32.75,
+   "map_lon": -60.7333,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Sansepolcro",
+   "rr_lat": 43.575,
+   "rr_lon": 12.143,
+   "atlas_id": null,
+   "map": "Sansepolcro",
+   "map_lat": 43.57465,
+   "map_lon": 12.14305,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Santa Maria di Sala",
+   "rr_lat": 45.506,
+   "rr_lon": 12.023,
+   "atlas_id": null,
+   "map": "Santa Maria di Sala",
+   "map_lat": 45.5064,
+   "map_lon": 12.0225,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Scranton",
+   "rr_lat": 41.409,
+   "rr_lon": -75.665,
+   "atlas_id": null,
+   "map": "Scranton",
+   "map_lat": 41.40916,
+   "map_lon": -75.6649,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Seget",
+   "rr_lat": 45.409,
+   "rr_lon": 13.543,
+   "atlas_id": null,
+   "map": "Seget",
+   "map_lat": 45.4086,
+   "map_lon": 13.5434,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Senj",
+   "rr_lat": 44.99,
+   "rr_lon": 14.9,
+   "atlas_id": null,
+   "map": "Senj (Senj)",
+   "map_lat": 44.99,
+   "map_lon": 14.9,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "4 volumes, covering 1734–1894 · not tracked per volume"
+  },
+  {
+   "rr": "Sherwood Park",
+   "rr_lat": 53.517,
+   "rr_lon": -113.319,
+   "atlas_id": null,
+   "map": "Sherwood Park",
+   "map_lat": 53.51684,
+   "map_lon": -113.3187,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Skokie",
+   "rr_lat": 42.033,
+   "rr_lon": -87.733,
+   "atlas_id": null,
+   "map": "Skokie",
+   "map_lat": 42.03336,
+   "map_lon": -87.73339,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Southfield",
+   "rr_lat": 42.473,
+   "rr_lon": -83.222,
+   "atlas_id": null,
+   "map": "Southfield",
+   "map_lat": 42.47337,
+   "map_lon": -83.22187,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Sovinjak",
+   "rr_lat": 45.369,
+   "rr_lon": 13.993,
+   "atlas_id": "sovinjak",
+   "map": "Sovinjak",
+   "map_lat": 45.37806,
+   "map_lon": 13.92278,
+   "km": 5.58,
+   "status": "offset",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "4 volumes, covering 1707–1877 · not tracked per volume"
+  },
+  {
+   "rr": "Split",
+   "rr_lat": 43.51,
+   "rr_lon": 16.44,
+   "atlas_id": "split",
+   "map": "Split",
+   "map_lat": 43.51586,
+   "map_lon": 16.44227,
+   "km": 0.68,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "29 volumes, covering 1597–1922 · not tracked per volume"
+  },
+  {
+   "rr": "Strigno",
+   "rr_lat": 46.056,
+   "rr_lon": 11.501,
+   "atlas_id": null,
+   "map": "Strigno",
+   "map_lat": 46.0561,
+   "map_lon": 11.5011,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Svetvinčenat",
+   "rr_lat": 45.08,
+   "rr_lon": 13.9,
+   "atlas_id": "svetvincenat",
+   "map": "Svetvinčenat",
+   "map_lat": 45.08,
+   "map_lon": 13.9,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "started",
+   "births": "49 volumes, covering 1568–1986, in 2 stretches · 0 read, 1 part read, 48 unopened"
+  },
+  {
+   "rr": "Tar",
+   "rr_lat": 45.301,
+   "rr_lon": 13.621,
+   "atlas_id": "tar",
+   "map": "Tar",
+   "map_lat": 45.30083,
+   "map_lon": 13.62528,
+   "km": 0.34,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "1 volume · not tracked per volume"
+  },
+  {
+   "rr": "Telve",
+   "rr_lat": 46.067,
+   "rr_lon": 11.459,
+   "atlas_id": null,
+   "map": "Telve",
+   "map_lat": 46.0669,
+   "map_lon": 11.4589,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "The Bronx",
+   "rr_lat": 40.85,
+   "rr_lon": -73.866,
+   "atlas_id": null,
+   "map": "The Bronx",
+   "map_lat": 40.84985,
+   "map_lon": -73.86641,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Thunder Bay",
+   "rr_lat": 48.382,
+   "rr_lon": -89.25,
+   "atlas_id": null,
+   "map": "Thunder Bay",
+   "map_lat": 48.38202,
+   "map_lon": -89.25018,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Tignale",
+   "rr_lat": 45.74,
+   "rr_lon": 10.722,
+   "atlas_id": null,
+   "map": "Tignale",
+   "map_lat": 45.74039,
+   "map_lon": 10.72248,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Tomiño",
+   "rr_lat": 41.988,
+   "rr_lon": -8.755,
+   "atlas_id": null,
+   "map": "Tomiño",
+   "map_lat": 41.98772,
+   "map_lon": -8.75502,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Torrington",
+   "rr_lat": 41.801,
+   "rr_lon": -73.121,
+   "atlas_id": null,
+   "map": "Torrington",
+   "map_lat": 41.8007,
+   "map_lon": -73.1212,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Trieste",
+   "rr_lat": 45.651,
+   "rr_lon": 13.767,
+   "atlas_id": "trieste",
+   "map": "Trieste",
+   "map_lat": 45.71479,
+   "map_lon": 13.75579,
+   "km": 7.15,
+   "status": "offset",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "3 volumes, covering 1848–1913 · not tracked per volume"
+  },
+  {
+   "rr": "Trsat",
+   "rr_lat": 45.334,
+   "rr_lon": 14.465,
+   "atlas_id": "trsat",
+   "map": "Trsat (Rijeka)",
+   "map_lat": 45.3313,
+   "map_lon": 14.45685,
+   "km": 0.7,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "6 volumes, covering 1646–1879 · not tracked per volume"
+  },
+  {
+   "rr": "Vernazza",
+   "rr_lat": 44.136,
+   "rr_lon": 9.684,
+   "atlas_id": null,
+   "map": "Vernazza",
+   "map_lat": 44.1361,
+   "map_lon": 9.6844,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Vigonza",
+   "rr_lat": 45.428,
+   "rr_lon": 11.959,
+   "atlas_id": null,
+   "map": "Vigonza",
+   "map_lat": 45.42759,
+   "map_lon": 11.95941,
+   "km": 0.06,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Vižinada",
+   "rr_lat": 45.33,
+   "rr_lon": 13.75,
+   "atlas_id": "vizinada",
+   "map": "Vižinada",
+   "map_lat": 45.33,
+   "map_lon": 13.75,
+   "km": 0.0,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "37 volumes, covering 1663–1994 · not tracked per volume"
+  },
+  {
+   "rr": "Vodnjan",
+   "rr_lat": 44.96,
+   "rr_lon": 13.85,
+   "atlas_id": "vodnjan",
+   "map": "Vodnjan",
+   "map_lat": 44.9613,
+   "map_lon": 13.8502,
+   "km": 0.15,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "started",
+   "births": "41 volumes, covering 1559–1975, in 2 stretches · 0 read, 1 part read, 40 unopened"
+  },
+  {
+   "rr": "Volosko",
+   "rr_lat": 45.35,
+   "rr_lon": 14.316,
+   "atlas_id": "volosko",
+   "map": "Volosko (Opatija)",
+   "map_lat": 45.348888,
+   "map_lon": 14.3175,
+   "km": 0.17,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "3 volumes, covering 1791–1886 · not tracked per volume"
+  },
+  {
+   "rr": "Vrsar",
+   "rr_lat": 45.148,
+   "rr_lon": 13.606,
+   "atlas_id": "vrsar",
+   "map": "Vrsar",
+   "map_lat": 45.1478,
+   "map_lon": 13.6058,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "2 volumes, covering 1632–1882 · not tracked per volume"
+  },
+  {
+   "rr": "Washington",
+   "rr_lat": 38.895,
+   "rr_lon": -77.036,
+   "atlas_id": "washington",
+   "map": "Washington",
+   "map_lat": 38.89511,
+   "map_lon": -77.03637,
+   "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Wayne",
+   "rr_lat": 42.281,
+   "rr_lon": -83.386,
+   "atlas_id": null,
+   "map": "Wayne",
+   "map_lat": 42.28143,
+   "map_lon": -83.38632,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Whiting",
+   "rr_lat": 41.68,
+   "rr_lon": -87.494,
+   "atlas_id": null,
+   "map": "Whiting",
+   "map_lat": 41.67976,
+   "map_lon": -87.49449,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Willowbank",
+   "rr_lat": -27.682,
+   "rr_lon": 152.674,
+   "atlas_id": null,
+   "map": "Willowbank",
+   "map_lat": -27.68215,
+   "map_lon": 152.67407,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Woodside",
+   "rr_lat": 40.745,
+   "rr_lon": -73.905,
+   "atlas_id": null,
+   "map": "Woodside",
+   "map_lat": 40.74538,
+   "map_lon": -73.90541,
+   "km": 0.05,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Yauco",
+   "rr_lat": 18.035,
+   "rr_lon": -66.85,
+   "atlas_id": "yauco",
+   "map": "Yauco",
+   "map_lat": 18.03496,
+   "map_lon": -66.8499,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people",
+    "records"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Zadar",
+   "rr_lat": 44.119,
+   "rr_lon": 15.231,
+   "atlas_id": "albanasi",
+   "map": "Zadar",
+   "map_lat": 44.11578,
+   "map_lon": 15.22514,
+   "km": 0.59,
+   "status": "ok",
+   "layers": [
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "25 volumes, covering 1569–1891 · not tracked per volume"
+  },
+  {
+   "rr": "Šterna",
+   "rr_lat": 45.402,
+   "rr_lon": 13.743,
+   "atlas_id": "sterna",
+   "map": "Šterna",
+   "map_lat": 45.41306,
+   "map_lon": 13.79361,
+   "km": 4.14,
+   "status": "ok",
+   "layers": [
+    "graves",
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "5 volumes, covering 1667–1821, in 2 stretches · not tracked per volume"
+  }
+ ]
+}
