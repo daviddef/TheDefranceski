@@ -15,6 +15,8 @@ def main():
     for p in P.values():
         for k in ('bp', 'dp'):
             if p.get(k) and p[k] not in places: errs.append('%s: place %r is not in atlas-data' % (p['id'], p[k]))
+        for st in (p.get('route') or []):
+            if st[0] not in places: errs.append('%s: route stop %r is not in atlas-data' % (p['id'], st[0]))
         if not p.get('bp'): errs.append('%s has no birth place' % p['id'])
         if p.get('by') is None: errs.append('%s has no birth year' % p['id'])
         if p.get('dy') is not None and p['by'] is not None and not (p['by'] <= p['dy'] <= p['by'] + 125): errs.append('%s: impossible life %s-%s' % (p['id'], p['by'], p['dy']))

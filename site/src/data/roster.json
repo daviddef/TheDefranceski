@@ -20633,10 +20633,10 @@
    "name": "Hedviga Blažević (Defranceski)",
    "b": 1926,
    "d": 2001,
-   "place": "Senj → Johannesburg",
+   "place": "Senj → Crikvenica → Harare → Johannesburg",
    "src": "line",
    "href": "/senj-line/",
-   "note": "**A singer at the Hotel Therapia, Crikvenica** — family testimony, 10 September 2026, and the likeliest explanation of how a Senj woman met a Crikvenica man. Daughter of **Ljubomir «Ljubo» Blažević, 1892–1966**, and **Milka Lucia Papić, 1886–1971**. Born at Senj and died at Johannesburg, 30 October 2001, of cancer.\n\n**Born 3 August 1926.** The archive carried two dates — 8 March and 3 August, a day and month transposed — and preferred neither. **David's own tree gives 3 August**, so that is what this archive now says, marked as coming from the tree rather than from a register. The Senj birth register of 1926 would settle it for good and is [on the errands](/errands/).\n\n**And she did not go straight to Johannesburg.** The tree gives her **immigration in April 1975, from Zimbabwe** — Rhodesia as it then was, in the middle of its war. This archive has drawn her route as *Senj → Johannesburg* and there is a country in the middle of it that nobody had written down. She married again about 1973, and the tree names two later husbands: **Santou (Shemtov) Isaac Codron, 1913–1997**, and **Ladislav Carr**. Ivan stayed on his own coast and is buried at Senj; the divorce the family put at about 1969 now has a shape around it. *tree — not yet a document.*",
+   "note": "**A singer at the Hotel Therapia, Crikvenica** — family testimony, 10 September 2026, and the likeliest explanation of how a Senj woman met a Crikvenica man. Daughter of **Ljubomir «Ljubo» Blažević, 1892–1966**, and **Milka Lucia Papić, 1886–1971**. Born at Senj and died at Johannesburg, 30 October 2001, of cancer.\n\n**Born 3 August 1926.** The archive carried two dates — 8 March and 3 August, a day and month transposed — and preferred neither. **David's own tree gives 3 August**, so that is what this archive now says, marked as coming from the tree rather than from a register. The Senj birth register of 1926 would settle it for good and is [on the errands](/errands/).\n\n**And she did not go straight to Johannesburg.** The tree gives her **immigration in April 1975, from Zimbabwe** — Rhodesia as it then was, in the middle of its war. This archive first drew her route as *Senj → Johannesburg*; it now draws *Senj → Crikvenica → Harare → Johannesburg*, Harare being the pin on David's own map (confirmed by him, 2 November 2026). The years in Zimbabwe are not recorded; April 1975 is her move to South Africa, from the tree. She married again about 1973, and the tree names two later husbands: **Santou (Shemtov) Isaac Codron, 1913–1997**, and **Ladislav Carr**. Ivan stayed on his own coast and is buried at Senj; the divorce the family put at about 1969 now has a shape around it. *tree — not yet a document.*",
    "notable": false,
    "ark": "",
    "mh": "",
@@ -20650,7 +20650,11 @@
    "places": [
     "Senj",
     "Crikvenica",
+    "Harare, Zimbabwe",
     "Johannesburg, Gauteng, South Africa"
+   ],
+   "moves": [
+    {"place": "Johannesburg, Gauteng, South Africa", "y": 1975, "est": true, "g": "tree"}
    ],
    "pid": "hedviga-blazevic-defranceski-1926"
   },
@@ -20860,10 +20864,10 @@
    "name": "Ivan Defranceski",
    "b": 1951,
    "d": 2026,
-   "place": "Senj → Johannesburg → Brisbane",
+   "place": "Senj → Harare → Johannesburg → Brisbane",
    "src": "line",
    "href": "/direct-line/",
-   "note": "**Generation 7 of the direct line — David's father.** Died in 2026. He was absent from this list until then for two reasons, and only one of them was the rule about living people: the roster is filtered to the surname, and the direct line recorded him as **«Ivan»** with no surname at all, so he was dropped as somebody else's. **Born at Senj on 17 December 1951** — the month from Cheryl's memoir, the day from David, 14 September 2026.",
+   "note": "**Generation 7 of the direct line — David's father.** Died in 2026. He was absent from this list until then for two reasons, and only one of them was the rule about living people: the roster is filtered to the surname, and the direct line recorded him as **«Ivan»** with no surname at all, so he was dropped as somebody else's. **Born at Senj on 17 December 1951** — the month from Cheryl's memoir, the day from David, 14 September 2026.\n\n**Zimbabwe, added 2 November 2026.** David confirmed that his father went from Senj to Zimbabwe, then to South Africa, then to Brisbane, and that the town in Zimbabwe is Harare, the pin on his own map. The family's account, quoted on [the page for 1948](/1948/), puts Rhodesia from about 1954 until about 1970; the years here are approximate and the move to Brisbane is not dated. *lore* — David Defranceski, 2 November 2026; two sources that were never compared agree, and there is no document yet.",
    "notable": false,
    "ark": "",
    "mh": "",
@@ -20874,8 +20878,13 @@
    "rel": "the compiler's father",
    "places": [
     "Senj",
+    "Harare, Zimbabwe",
     "Johannesburg, Gauteng, South Africa",
     "Brisbane, Queensland, Australia"
+   ],
+   "moves": [
+    {"place": "Harare, Zimbabwe", "y": 1954, "est": true, "g": "lore"},
+    {"place": "Johannesburg, Gauteng, South Africa", "y": 1970, "est": true, "g": "lore"}
    ],
    "pid": "ivan-defranceski-1951",
    "spouse": {

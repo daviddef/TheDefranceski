@@ -263,7 +263,30 @@ def build(args):
             if p["site_place"]: continue
             for rid in [p["father"], p["mother"]] + p["spouse"] + p["kids"]:
                 if rid and P[rid]["site_place"]: p["site_place"] = P[rid]["site_place"]; p["bpe"] = True; rep["placed_from_relative"] += 1; detail["inferred_place"].append({"pid": p["id"], "place": p["site_place"], "from": rid}); break
-    names_used = {p["site_place"] for p in P.values() if p["site_place"]} | {p["death_place"] for p in P.values() if p.get("death_place")}
+    # THE WHOLE ROUTE, NOT ITS ENDS. The roster holds a route in order ("Senj → Harare → Johannesburg → Brisbane"); until 2 November 2026 only the
+    # first and the last place were drawn, so Ivan Defranceski (born Senj, Zimbabwe, South Africa, Brisbane) was drawn Senj → Brisbane as if
+    # he had made one move. A roster row may carry `moves`: [{"place", "y", "est", "g"}], the year a person arrived at a stop (approximate when
+    # est). The first stop is the birth place (born there, no arrival year) and a stop with no year has an undated arrival: the views draw
+    # it dashed and say so. A route that does not start at the person's drawn birth place is a data question, listed in the report, not drawn.
+    rep["routes_with_stops_between"] = 0; rep["route_start_mismatch"] = []
+    for p in P.values():
+        p["route"] = None
+        if not (p["site_place"] and p.get("death_place")): continue
+        stops = []
+        for x in route_of(p["row"]):
+            q = lookup(x)
+            if q and (not stops or stops[-1] != q["name"]): stops.append(q["name"])
+        if len(stops) < 3: continue
+        if stops[0] != p["site_place"] or stops[-1] != p["death_place"]:
+            rep["route_start_mismatch"].append(p["id"]); continue
+        yrs_ = {}
+        for m_ in (p["row"].get("moves") or []):
+            q = lookup(m_.get("place") or "")
+            if q and m_.get("y") is not None: yrs_[q["name"]] = (int(m_["y"]), 1 if m_.get("est", True) else 0)
+        p["route"] = [[n, yrs_.get(n, (None, 0))[0], yrs_.get(n, (None, 0))[1]] for n in stops]
+        rep["routes_with_stops_between"] += 1
+    names_used = ({p["site_place"] for p in P.values() if p["site_place"]} | {p["death_place"] for p in P.values() if p.get("death_place")}
+                  | {s_[0] for p in P.values() if p.get("route") for s_ in p["route"]})
     # Record Atlas ids by name within 15 km
     aidx = {}
     for x in apl:
@@ -278,9 +301,10 @@ def build(args):
     if bad: sys.exit("no country for coordinates: %s" % bad[:8])
 
     for p in P.values():   # a route that ends elsewhere is a move; its year is not recorded, so it is estimated at 60% of the life and counted
-        p["my"] = None
+        p["my"] = None; p["mye"] = False
+        if p.get("route"): continue    # the route's own stops, dated or not, replace the single estimated year
         if p["site_place"] and p.get("death_place") and p["death_place"] != p["site_place"] and p["by"] is not None and p["dy"] is not None and p["dy"] - p["by"] > 24:
-            p["my"] = p["by"] + int((p["dy"] - p["by"]) * .6); rep["move_years_estimated"] += 1
+            p["my"] = p["by"] + int((p["dy"] - p["by"]) * .6); p["mye"] = True; rep["move_years_estimated"] += 1
     # ---- keep only people we can draw
     keep = {i: p for i, p in P.items() if p["by"] is not None and p["site_place"]}
     rep["not_drawn_no_year"] = sum(1 for p in P.values() if p["by"] is None)
@@ -300,7 +324,7 @@ def build(args):
         for a_ in ([r.get("ark")] if r.get("ark") else []) + list(r.get("arks") or []):
             if a_ and not any(x["u"].endswith(str(a_)) for x in srcs): srcs.append({"t": "FamilySearch record " + str(a_), "u": "https://www.familysearch.org/ark:/61903/" + str(a_)})
         people.append({"id": pid, "sex": p["sex"], "given": p["given"], "sur": p["sur"], "line": p["line"], "by": p["by"], "bp": p["site_place"],
-                       "dy": p["dy"], "dp": p["death_place"] or p["site_place"], "my": p["my"], "bpe": p["bpe"], "occ": None,
+                       "dy": p["dy"], "dp": p["death_place"] or p["site_place"], "my": p["my"], "mye": 1 if p.get("mye") else 0, "route": p.get("route"), "bpe": p["bpe"], "occ": None,
                        "father": p["father"] if p["father"] in keep else None, "mother": p["mother"] if p["mother"] in keep else None,
                        "fg": grade.get((p["id"], p["father"])) if p["father"] in keep else None, "mg": grade.get((p["id"], p["mother"])) if p["mother"] in keep else None,
                        "spouse": [s for s in p["spouse"] if s in keep], "kids": [k for k in p["kids"] if k in keep],

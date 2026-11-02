@@ -157,6 +157,14 @@ RULES = [
      r"(?:Kovačina|Marija Car)[^\n]{0,400}28 November 1895|28 November 1895[^\n]{0,400}(?:Kovačina|Marija Car)|Her parents married in November 1895|nine months (?:after|before) (?:her|Uršula)",
      {"corrections.json", "worklist.json", "searched.json", "maternal.json", "crikvenica.json",
       "dossiers.json", "searchindex.json"}),
+    # --- 2 November 2026. The direct line's route was drawn «Senj → Johannesburg» (Hedviga) and «Senj → Johannesburg → Brisbane» (Ivan, 1951-2026)
+    # everywhere, with Zimbabwe missing from the middle of it. David confirmed on 2 November that Ivan went Senj, Zimbabwe, South Africa, Brisbane
+    # and that Hedviga was in Zimbabwe (Harare, the pin on his own map) before South Africa. The roster, the pedigree, the direct line, the era
+    # tables and the generated files now carry Harare. The files below quote the old route ON PURPOSE: the 1948 page and the roster/dossier notes
+    # say it was first drawn that way, the search log records the day it was found, and movements.json is David's own map imported as drawn.
+    ("the direct line's route still drawn without Zimbabwe (Senj → Johannesburg)",
+     r"Senj \u2192 Johannesburg",
+     {"y1948.json", "searched.json", "movements.json", "roster.json", "dossiers.json"}),
 ]
 
 def main():

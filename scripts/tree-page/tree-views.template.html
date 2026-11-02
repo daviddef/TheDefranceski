@@ -46,6 +46,7 @@ h1{font:650 30px/1.1 var(--serif);margin:0;text-wrap:balance}
 .results button:hover{background:var(--band)}
 .results small{margin-left:auto;color:var(--muted);font:400 11px var(--mono)}
 .pname{color:inherit;text-decoration:none}.pname:hover{text-decoration:underline;text-decoration-color:var(--atlas)}
+ol.rte{margin:6px 0 0;padding-left:20px;font-size:13.5px}ol.rte li{margin:0 0 3px}ol.rte small{color:var(--muted)}.rtn{font-size:12.5px;margin-top:6px}
 a.plk{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor}a.plk:hover{color:var(--atlas);border-bottom-style:solid}
 svg a.plk .cname,svg a.plk .sname{text-decoration:underline dotted}svg a.plk:hover .cname,svg a.plk:hover .sname{text-decoration:underline solid;fill:var(--atlas)}
 
@@ -655,7 +656,7 @@ function loadTree(T){
   const P={},list=[];
   for(const r of T.people){
     const p={id:r.id,sex:r.sex==='f'?'f':'m',fi:r.line==null?7:r.line,sur:r.sur||'',given:r.given||'',by:r.by,bp:r.bp,dy:r.dy==null?null:r.dy,dp:r.dp||r.bp,my:r.my||null,occ:r.occ||null,
-      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,page:r.page||null,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null,fg:r.fg==null?null:r.fg,mg:r.mg==null?null:r.mg};
+      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,page:r.page||null,route:r.route||null,mye:!!r.mye,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null,fg:r.fg==null?null:r.fg,mg:r.mg==null?null:r.mg};
     if(p.dy==null)p.dp=null;
     P[p.id]=p;list.push(p);
   }
@@ -763,9 +764,12 @@ const MOVES=[];
 for(const p of list){
   const fa=p.father?P[p.father]:null;
   if(fa&&fa.bp!==p.bp)MOVES.push({a:fa.bp,b:p.bp,y:p.by,p:p.id,k:'family'});
-  if(p.my)MOVES.push({a:p.bp,b:p.dp,y:p.my,p:p.id,k:'self'});
+  if(p.route){   // the whole route in the roster's order; a stop with no year is an undated arrival (est: dashed on the map)
+    for(let i=1;i<p.route.length;i++){const a=p.route[i-1],b=p.route[i];MOVES.push({a:a[0],b:b[0],y:b[1],p:p.id,k:'route',est:b[2]===1||b[1]==null,und:b[1]==null})}
+  }else if(p.my)MOVES.push({a:p.bp,b:p.dp,y:p.my,p:p.id,k:'self',est:!!p.mye});
 }
-MOVES.sort((a,b)=>a.y-b.y);
+const mvYear=m=>m.y==null?P[m.p].by:m.y;
+MOVES.sort((a,b)=>mvYear(a)-mvYear(b));
 // connected components: the main tree, small detached families, and single orphan records
 (function(){
   const comp=new Map(),sizes=[];
@@ -868,6 +872,15 @@ function back(){const id=st.hist.pop();if(id){st.focus=id;render()}}
 
 /* ---------- Person card ---------- */
 function plink(p){return '<button class="plink" data-id="'+p.id+'"><i style="background:'+colorOf(p)+'"></i><span>'+esc(nm(p))+'</span><small>'+esc(yrs(p))+'</small></button>'}
+/* A route of three or more places, in the order the archive holds it. A stop with no year is an undated arrival: it is listed, drawn dashed, and said to be undated. */
+function routeBlock(p){
+  const n=p.route.length;
+  let h='<h3 class="at">The whole route · order as recorded</h3><ol class="rte">';
+  p.route.forEach((s,i)=>{const pl=PL[s[0]];
+    const how=i===0?'born '+p.by:i===n-1?'died '+p.dy+(s[1]?', arrived '+(s[2]?'about ':'')+s[1]:' · arrival not dated'):(s[1]?'arrived '+(s[2]?'about ':'')+s[1]:'date not recorded');
+    h+='<li>'+placeA(s[0])+' <small>'+esc(pl.cn)+' · '+how+'</small></li>'});
+  return h+'</ol><p class="note rtn">Dashed on the Movements map unless a year is recorded. Between undated stops this person is not placed on a map for a given year.</p>';
+}
 function placeBlock(label,place,year,until){
   const pl=PL[place],e=eraAt(place,year);
   let h='<div class="plc"><span class="ico" data-place="'+esc(place)+'" data-year="'+year+'"></span><div><small>'+label+'</small><b>'+placeA(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+year+'"></span></b><small>'+esc(pl.cn)+'</small>';
@@ -885,7 +898,7 @@ function sourceRows(p){
   const rows=[];
   for(let i=0;i<p.src;i++){
     const kind=SRC[(p.by+i*3+p.fi)%SRC.length],late=/Passenger|Probate|Newspaper/.test(kind);
-    const place=late&&p.dp?p.dp:p.bp,year=late?(p.my||p.dy):p.by,pl=PL[place];
+    const place=late&&p.dp?p.dp:p.bp,year=late?(p.route?p.dy:(p.my||p.dy)):p.by,pl=PL[place];
     const link=recLink(place,year);
     rows.push({kind,year,place,link});
   }
@@ -927,7 +940,8 @@ function renderPanel(){
     h+='<div class="note"><b>'+(p._orph?'Orphan record.':p._clus?'Detached family.':'Dead end.')+'</b> '+(p._orph?'Not joined to anyone in the tree.':p._clus?'Not connected to any tree.':'No parents recorded.')+' To connect: search '+esc(p.bp)+' records around '+p.by+'. <a href="'+lk.u+'" target="_blank" rel="noopener">'+esc(clip(lk.t,48))+' ↗</a> <a href="#" data-goto="orphans" data-okind="'+(p._orph?'orph':p._clus?'clus':'dead')+'">More places to start</a></div>';
   }
   h+='<h3 class="at">Places · from Record Atlas</h3>'+placeBlock('Born'+(p.bpe?' · place taken from a relative, not recorded':''),p.bp,p.by);
-  if(!living(p)&&p.dp!==p.bp)h+=placeBlock('Died, moved c.'+p.my,p.dp,p.my||p.dy);
+  if(!living(p)&&p.dp!==p.bp)h+=placeBlock(p.route?'Died':'Died, moved '+(p.mye?'about ':'c.')+p.my,p.dp,p.route?p.dy:p.my||p.dy);
+  if(p.route)h+=routeBlock(p);
   if(!living(p)){
     const end=p.dy,evs=[];
     for(const pl of new Set([p.bp,p.dp]))for(const e of eventsFor(pl,p.by,end))if(!evs.some(x=>x.id===e.id))evs.push(Object.assign({at:pl},e));
@@ -1315,7 +1329,15 @@ mapSvg.addEventListener('mouseleave',()=>{tip.hidden=true});
 /* ---------- 4 · Movements ---------- */
 const VBOX={global:{x:-82,y:-66,w:240,h:112,land:'world',lab:false},europe:{x:-12,y:-60,w:46,h:28,land:'eu',lab:true},fit:{x:FIT.x,y:FIT.y,w:FIT.w,h:FIT.h,land:FIT.eu?'eu':'world',lab:true}};
 const inEu=n=>{const p=PL[n];return p.lat>30&&p.lat<62&&p.lon>-13&&p.lon<50};
-function residentAt(p,yr){if(p.by>yr||(p.dy!=null&&p.dy<yr)||(p.dy==null&&yr>2025))return null;return(p.my&&yr>=p.my)?p.dp:p.bp}
+function residentAt(p,yr){
+  if(p.by>yr||(p.dy!=null&&p.dy<yr)||(p.dy==null&&yr>2025))return null;
+  if(p.route){   // born at the first stop; after that only the place of the latest stop with a year; between undated stops nobody is placed
+    if(yr===p.by)return p.route[0][0];
+    let at=p.route[0][0],unk=false;
+    for(let i=1;i<p.route.length;i++){const s=p.route[i];if(s[1]==null){unk=true;continue}if(yr>=s[1]){at=s[0];unk=false}else break}
+    return unk?(p.dy!=null&&yr>=p.dy?p.dp:null):at;
+  }
+  return(p.my&&yr>=p.my)?p.dp:p.bp}
 function renderMove(){
   const svg=$('#mv'),V=VBOX[st.mview],W=Math.max(520,svg.parentNode.clientWidth||900),H=Math.round(W*V.h/V.w),k=V.w/W;
   svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox',V.x+' '+V.y+' '+V.w+' '+V.h);svg.textContent='';
@@ -1329,14 +1351,14 @@ function renderMove(){
   // arcs
   const ga=S('g',{},svg);
   MOVES.forEach(m=>{
-    if(m.y>yr||(scope&&!scope.has(m.p)))return;
+    const vy=mvYear(m);if(vy>yr||(scope&&!scope.has(m.p)))return;
     const A=PL[m.a],B=PL[m.b],x1=A.lon,y1=-A.lat,x2=B.lon,y2=-B.lat,dx=x2-x1,dy=y2-y1,d=Math.hypot(dx,dy);
     if(d<.01)return;
     const hs=[...m.p].reduce((a,ch)=>(a*31+ch.charCodeAt(0))>>>0,7),sg=hs%2?1:-1,c=(.16+(hs%4)*.04)*sg;
     const cxp=(x1+x2)/2-dy*c,cyp=(y1+y2)/2+dx*c;
-    const age=yr-m.y,recent=age<=60,p=P[m.p];
-    const path=S('path',{class:'arc','data-id':m.p,d:'M'+x1+','+y1+'Q'+cxp+','+cyp+' '+x2+','+y2,stroke:colorOf(p),'stroke-width':recent?1.7:1,'stroke-opacity':recent?.85:.16,'vector-effect':'non-scaling-stroke'},ga);
-    S('title',{},path,nm(p)+': '+m.a+' → '+m.b+', '+m.y+(m.k==='family'?' (family had moved by the birth)':''));
+    const age=yr-vy,recent=age<=60,p=P[m.p];
+    const path=S('path',{class:'arc','data-id':m.p,d:'M'+x1+','+y1+'Q'+cxp+','+cyp+' '+x2+','+y2,stroke:colorOf(p),'stroke-width':recent?1.7:1,'stroke-opacity':m.und?.5:recent?.85:.16,'vector-effect':'non-scaling-stroke'},ga);if(m.est)path.setAttribute('stroke-dasharray','5 4');
+    S('title',{},path,nm(p)+': '+m.a+' → '+m.b+', '+(m.und?'date not recorded':(m.est?'about ':'')+m.y)+(m.k==='family'?' (family had moved by the birth)':m.k==='route'?' (stop '+(P[m.p].route.findIndex(s=>s[0]===m.b)+1)+' of '+P[m.p].route.length+' in the roster)':''));
     if(recent)S('circle',{cx:x2,cy:y2,r:2.2*k,fill:colorOf(p),opacity:.9,style:'pointer-events:none'},ga);
   });
   // nodes
@@ -1373,6 +1395,17 @@ $('#play').onclick=()=>{
 $('#yr').addEventListener('input',e=>{st.year=+e.target.value;renderMove()});
 
 /* ---------- 5 · Place lanes ---------- */
+/* Where a person was, and when, as bars. A route is drawn only for the years the record places them: the first stop from the birth, a later stop
+   from its (approximate) arrival, and an undated stop for the single year it is recorded (the last dated arrival or the death), marked `und`. */
+function lifeSegs(p,end){
+  if(!p.route)return p.my?[{place:p.bp,a:p.by,b:p.my},{place:p.dp,a:p.my,b:end}]:[{place:p.bp,a:p.by,b:end}];
+  const r=p.route,out=[];let at=r[0][0],from=p.by,open=true;
+  for(let i=1;i<r.length;i++){const s=r[i];
+    if(s[1]==null){if(open)out.push({place:at,a:from,b:from+1,und:true});at=s[0];open=false;continue}
+    if(open)out.push({place:at,a:from,b:s[1]});
+    at=s[0];from=s[1];open=true}
+  if(open)out.push({place:at,a:from,b:end});else out.push({place:at,a:end-1,b:end,und:true});
+  return out}
 function renderLanes(){
   const lab=$('#lnlab'),svg=$('#ln'),box=$('#lnbox');lab.textContent='';svg.textContent='';
   const lsc=scopeSet(st.lscope),people=(lsc?[...lsc].map(id=>P[id]):list).filter(p=>p);
@@ -1382,8 +1415,7 @@ function renderLanes(){
   const segs=[];
   for(const p of people){
     const end=p.dy==null?2026:p.dy;
-    p._segs=[{p,key:keyOf(p.bp,p),place:p.bp,a:p.by,b:p.my||end}];
-    if(p.my)p._segs.push({p,key:keyOf(p.dp,p),place:p.dp,a:p.my,b:end});
+    p._segs=lifeSegs(p,end).map(s=>Object.assign({p,key:keyOf(s.place,p)},s));
     p._segs.forEach(s=>segs.push(s));
   }
   const byKey=new Map();segs.forEach(s=>{if(!byKey.has(s.key))byKey.set(s.key,[]);byKey.get(s.key).push(s)});
@@ -1493,7 +1525,7 @@ function renderLanes(){
   const bg=S('g',{},svg);
   for(const L of lanes)for(const s of L.segs){
     const p=s.p,x1=x(s.a),x2=Math.max(x(s.b),x1+2.5);
-    const r=S('rect',{class:'dot',x:x1,y:s.cy-BH/2,width:x2-x1,height:BH,rx:BH/2,fill:colorOf(p),opacity:p.dy==null&&s.b===2026?.5:1,'data-id':p.id},bg);
+    const r=S('rect',{class:'dot',x:x1,y:s.cy-BH/2,width:x2-x1,height:BH,rx:BH/2,fill:colorOf(p),opacity:s.und?.45:p.dy==null&&s.b===2026?.5:1,'data-id':p.id},bg);
     if(p.id===st.focus){r.setAttribute('stroke','var(--ink)');r.setAttribute('stroke-width',1.6)}
     S('title',{},r,nm(p)+' · '+yrs(p)+' · '+s.place);
   }
@@ -1727,7 +1759,7 @@ function renderEras(){
     const yy=yFam+8+(p.by%3)*8;
     const c=S('circle',{class:'dot',cx:x(p.by),cy:yy,r:people.length>300?2:2.8,fill:colorOf(p),opacity:.9,'data-id':p.id},svg);
     S('title',{},c,nm(p)+' born '+p.by+', '+p.bp);
-    if(p.my){const d=S('path',{class:'dot',d:'M'+x(p.my)+','+(yy-3.4)+'l3.4,3.4l-3.4,3.4l-3.4,-3.4Z',fill:'var(--brick)','data-id':p.id},svg);S('title',{},d,nm(p)+' moved '+p.bp+' → '+p.dp+', '+p.my)}
+    (p.route?p.route.slice(1).filter(s=>s[1]!=null).map(s=>[s[1],s[0],s[2]]):p.my?[[p.my,p.dp,p.mye?1:0]]:[]).forEach(([my,to,est])=>{const d=S('path',{class:'dot',d:'M'+x(my)+','+(yy-3.4)+'l3.4,3.4l-3.4,3.4l-3.4,-3.4Z',fill:'var(--brick)',opacity:est?.7:1,'data-id':p.id},svg);S('title',{},d,nm(p)+' moved to '+to+', '+(est?'about ':'')+my)});
     if(p.dy!=null&&people.length<=300){const d=S('circle',{class:'dot',cx:x(p.dy),cy:yy,r:2.6,fill:'var(--panel)',stroke:colorOf(p),'stroke-width':1.4,'data-id':p.id},svg);S('title',{},d,nm(p)+' died '+p.dy+', '+p.dp)}
   }
   // what they were up against
@@ -1743,7 +1775,8 @@ function renderEras(){
   line.forEach(p=>{
     const g=living(p)?'Living':p.given;
     fam.push({y:p.by,t:p.by+' · '+g+(p.id===f.id?' (focus) born':' born'),s:p.bp+' · '+nm(p),id:p.id});
-    if(p.my)fam.push({y:p.my,t:p.my+' · '+g+' leaves '+p.bp,s:'For '+p.dp,id:p.id});
+    if(p.route)p.route.slice(1).forEach((s,i)=>{if(s[1]!=null)fam.push({y:s[1],t:(s[2]?'about ':'')+s[1]+' · '+g+' leaves '+p.route[i][0],s:'For '+s[0],id:p.id})});
+    else if(p.my)fam.push({y:p.my,t:(p.mye?'about ':'')+p.my+' · '+g+' leaves '+p.bp,s:'For '+p.dp,id:p.id});
     if(p.dy!=null&&(p.id===f.id||p.id===f.father||p.id===f.mother))fam.push({y:p.dy,t:p.dy+' · '+g+' dies',s:p.dp,id:p.id});
   });
   const seenE=new Set();

@@ -54,7 +54,8 @@ def main():
     if miss: sys.exit('Not a Record Atlas checkout (missing %s)' % ', '.join(miss))
     J = lambda f: json.load(open(os.path.join(A, f)))
     tree = json.load(open(a.tree)); pm_all = json.load(open(a.place_map))
-    names = sorted({p['bp'] for p in tree['people'] if p.get('bp')} | {p['dp'] for p in tree['people'] if p.get('dp')})
+    # the stops of a longer route (person.route = [[place, year|null, est], ...]) are places the page draws too
+    names = sorted({p['bp'] for p in tree['people'] if p.get('bp')} | {p['dp'] for p in tree['people'] if p.get('dp')} | {st[0] for p in tree['people'] for st in (p.get('route') or [])})
     pm = {}
     for raw, e in pm_all.items():
         if e.get('name') and e.get('lat') is not None: pm.setdefault(e['name'], e)

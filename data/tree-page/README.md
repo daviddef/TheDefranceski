@@ -51,6 +51,15 @@ template, `scripts/tree-page/painted-lines.ext.html` (tabs, views, style and scr
 - **Not in the Atlas yet:** wars and famines. Only the Atlas's own events are drawn (flu 1918, Jasenovac, the Holocaust and so on).
 - The hash is `#sky`, `#ink`, `#house`, `#gen` or `#routes`; `#p=<id>` chooses the person.
 
+## Routes (three or more places)
+
+A roster row's `places` (or a `place` written "A → B → C") is the route of a life in order. `build-tree-page.py` carries it whole as `route` when it has three or more
+places and starts at the drawn birth place and ends at the drawn death place (a mismatch is listed in `tree.report.json` as `route_start_mismatch`, not drawn). A row may
+also carry `moves: [{"place", "y", "est", "g"}]`: the (approximate, when `est`) year a person arrived at a stop, and the grade of that statement (`lore`, `tree`, `doc`).
+A stop with no year is an undated arrival: the views list it, draw it dashed, and do not place the person on a map for the years between undated stops. Until 2 November 2026
+only the first and last place were drawn, and a father who went Senj, Zimbabwe, South Africa, Brisbane was drawn Senj to Brisbane. `scripts/check-propagation.py` now
+holds the old route out of every file that does not quote it on purpose.
+
 ## Publishing it
 
 Not wired into the Astro build yet, on purpose: `site/public/*`, the nav and `package.json` are shared ground, and a standalone page in `dist` has
