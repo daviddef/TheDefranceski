@@ -1198,6 +1198,9 @@ function renderFan(){
 
 /* ---------- 3 · Whole-tree map ---------- */
 const ML=112,MR=14;let Y0=1720,Y1=2030;
+/* Few people are born before 1700 (6%), so a plain year scale left the left third of the plot empty. When the axis starts earlier than CUT, everything before CUT is squeezed into the first EB of the plot (a band marked "before 1700"); from CUT on the scale is linear. */
+const CUT=1700,EB=.07;
+const fr=y=>Y0>=CUT?(y-Y0)/(Y1-Y0):(y<CUT?(y-Y0)/(CUT-Y0)*EB:EB+(y-CUT)/(Y1-CUT)*(1-EB));
 const CTY=(()=>{const c={};list.forEach(p=>{const k=PL[p.bp].cn;c[k]=(c[k]||0)+1});return Object.keys(c).sort((a,b)=>c[b]-c[a]).slice(0,8)})();
 const ctyVar=c=>'var(--l'+(CTY.indexOf(c)<0?7:CTY.indexOf(c))+')';
 const ALLY0=Math.floor(Math.min(...list.map(p=>p.by))/10)*10-5;
@@ -1222,9 +1225,9 @@ function renderMap(){
   const W=Math.max(520,wrap.clientWidth||900),plotW=W-ML-MR;
   const clampTx=tx=>Math.min(0,Math.max(-(plotW*st.zoom-plotW),tx));
   {const cm=st.mapscope==='close';if(cm){const ids=closeSet(st.focus);Y0=Math.floor(Math.min(...[...ids].map(id=>P[id].by))/10)*10-5;Y1=2030}else{Y0=ALLY0;Y1=2030}}
-  const xOf=y=>ML+(y-Y0)/(Y1-Y0)*plotW*st.zoom+st.tx;
+  const xOf=y=>ML+fr(y)*plotW*st.zoom+st.tx;
   const fp=P[st.focus],fx=xOf(fp.by);
-  if(fx<ML||fx>W-MR){ if(st.zoom>1){st.tx=clampTx(-((fp.by-Y0)/(Y1-Y0)*plotW*st.zoom-plotW/2))} }
+  if(fx<ML||fx>W-MR){ if(st.zoom>1){st.tx=clampTx(-(fr(fp.by)*plotW*st.zoom-plotW/2))} }
   st.tx=clampTx(st.tx);
   const closeMode=st.mapscope==='close',cty=st.mcolor==='country';
   const pool=closeMode?[...closeSet(st.focus)].map(id=>P[id]):list,poolIds=new Set(pool.map(p=>p.id));
@@ -1243,7 +1246,7 @@ function renderMap(){
     L.people.sort((a,b)=>a.by-b.by);
     const ends=[];
     for(const p of L.people){
-      const x=(p.by-Y0)/(Y1-Y0)*plotW;let r=0;
+      const x=fr(p.by)*plotW;let r=0;
       while(ends[r]!==undefined&&ends[r]>x-GAPX)r++;
       ends[r]=x;p._row=r;p._lane=L;
     }
@@ -1259,12 +1262,14 @@ function renderMap(){
     S('text',{class:'lane',x:10,y:L.y0+L.h/2-1,fill:L.color},svg,L.key);
     S('text',{class:'lanec',x:10,y:L.y0+L.h/2+11},svg,L.people.length+' people');
   });
-  const step=st.zoom>=6?5:st.zoom>=2.2?10:25;
-  for(let yr=Math.ceil(Y0/step)*step;yr<=2025;yr+=step){
+  /* the smallest step that keeps neighbouring labels about 42px apart, so a narrow panel thins its labels instead of printing them on top of each other */
+  const ppy=plotW*st.zoom*(1-(Y0<CUT?EB:0))/(Y1-Math.max(Y0,CUT)),step=[5,10,25,50,100].find(k=>k*ppy>=42)||100;
+  for(let yr=Math.ceil(Math.max(Y0,CUT)/step)*step;yr<=2025;yr+=step){
     const x=xOf(yr);if(x<ML-2||x>W-MR+2)continue;
     S('line',{class:'grid',x1:x,x2:x,y1:16,y2:H},svg);
     S('text',{class:'tick',x:x,y:11,'text-anchor':'middle'},svg,yr);
   }
+  if(Y0<CUT){const xe=xOf(Y0);if(xe>=ML-2&&xe<W-MR-30&&xOf(CUT)-xe>=52)S('text',{class:'tick',x:xe+2,y:11,'text-anchor':'start'},svg,'<'+CUT)}
   const g=S('g',{'clip-path':'url(#plotclip)'},svg);
   const ped=pedigree(st.focus),q=st.q.trim().toLowerCase();
   const pos=p=>[xOf(p.by),p._lane.y0+(closeMode?17:10)+p._row*RH];
