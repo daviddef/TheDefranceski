@@ -78,6 +78,8 @@ svg a.plk .cname,svg a.plk .sname{text-decoration:underline dotted}svg a.plk:hov
 .btn{border:1px solid var(--rule);border-radius:6px}
 .btn:disabled{opacity:.4;cursor:default}
 .scroll{overflow-x:auto}
+/* The host site shrink-wraps and centres every .scroll (width:fit-content); the plots size themselves from this box, so they must fill the stage instead */
+.stage>.scroll{width:auto;max-width:none;margin-left:0;transform:none}
 svg{display:block}
 svg text{user-select:none;-webkit-user-select:none}
 input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
