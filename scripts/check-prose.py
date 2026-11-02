@@ -41,6 +41,7 @@ DATA = "site/src/data"
 
 # Data files a person edits (or a person's session appends to). Each is read by the gate.
 HAND_EDITED = {
+    "shelf-cats.json",   # 2 November 2026: the five shelf states (a label and a colour each) that /map/ and Roots & Routes both read
     "america.json", "ancestors.json", "antenati-catalogue.json", "arrivals.json", "art-src.json",
     "atlas-seed.json", "atsea.json", "austria.json", "book.json", "carlo.json", "carnia.json", "carnia-books.json",
     "cheryl.json", "clusters.json", "collections-walk.json", "corrections.json", "corsica.json",
@@ -80,6 +81,9 @@ GENERATED = {
     # data/era-ground.tsv and data/era-towns.tsv: place strings and a region id; era-snapshot.json from the Record Atlas's context.json:
     # region eras and regime labels), never typed, and its --check fails on a hand edit. No person's name is in either.
     "era-places.json", "era-snapshot.json",
+    # 2 November 2026, the map and Roots & Routes: place-crosswalk.json is written by scripts/build-place-crosswalk.py (place strings, marker names,
+    # distances), never typed, and its --check fails on a hand edit.
+    "place-crosswalk.json",
     # 27 October 2026, the family ribbons and the direct-line tint (kit/docs/family-ribbon.md): direct-line.json is written by
     # scripts/build-direct-line.py from the story's ribbon, family-lines.json and family-links.json by scripts/build-family-lines.py
     # from spines.json, carnia.json, households.json, rivers.json and the roster; never typed, and each script's --check fails on a
