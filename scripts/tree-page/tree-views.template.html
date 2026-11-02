@@ -65,6 +65,7 @@ svg a.plk .cname,svg a.plk .sname{text-decoration:underline dotted}svg a.plk:hov
 .vnote{margin:0 0 10px;color:var(--muted);max-width:84ch}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:16px;align-items:start}
 @media (max-width:960px){.layout{grid-template-columns:minmax(0,1fr)}}
+.gaps{margin:4px 0 12px;padding:0;list-style:none}.gaps li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:13px;line-height:1.4}.gaps small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.gaps em{font-style:normal;opacity:.85}
 .stage{min-width:0;background:var(--panel);border:1px solid var(--rule);border-radius:8px;position:relative}
 .bar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--rule);font-size:12.5px;color:var(--muted)}
 .bar b{font-weight:600;margin-right:6px}
@@ -661,7 +662,7 @@ function loadTree(T){
   const P={},list=[];
   for(const r of T.people){
     const p={id:r.id,sex:r.sex==='f'?'f':'m',fi:r.line==null?7:r.line,sur:r.sur||'',given:r.given||'',by:r.by,bp:r.bp,dy:r.dy==null?null:r.dy,dp:r.dp||r.bp,my:r.my||null,occ:r.occ||null,
-      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,page:r.page||null,route:r.route||null,mye:!!r.mye,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null,fg:r.fg==null?null:r.fg,mg:r.mg==null?null:r.mg};
+      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,page:r.page||null,route:r.route||null,mye:!!r.mye,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null,fg:r.fg==null?null:r.fg,mg:r.mg==null?null:r.mg,gaps:r.gaps||null};
     if(p.dy==null)p.dp=null;
     P[p.id]=p;list.push(p);
   }
@@ -947,6 +948,10 @@ function renderPanel(){
   if(p._orph||p._clus||p._dead){
     const lk=recLink(p.bp,p.by);
     h+='<div class="note"><b>'+(p._orph?'Orphan record.':p._clus?'Detached family.':'Dead end.')+'</b> '+(p._orph?'Not joined to anyone in the tree.':p._clus?'Not connected to any tree.':'No parents recorded.')+' To connect: search '+esc(p.bp)+' records around '+p.by+'. <a href="'+lk.u+'" target="_blank" rel="noopener">'+esc(clip(lk.t,48))+' ↗</a> <a href="#" data-goto="orphans" data-okind="'+(p._orph?'orph':p._clus?'clus':'dead')+'">More places to start</a></div>';
+  }
+  if(p.gaps&&p.gaps.length){
+    const gl=p.gaps.filter(x=>!(x.k==='parents'&&(p._orph||p._clus||p._dead)));
+    if(gl.length)h+='<h3>What is missing</h3><ul class="gaps">'+gl.map(x=>'<li>'+esc(x.t)+(x.l.length?'<small>Where to look: '+x.l.slice(0,3).map(l=>(l.u?'<a href="'+esc(l.u)+'" target="_blank" rel="noopener">'+esc(clip(l.w,54))+' ↗</a>':esc(clip(l.w,54)))+' <em>'+esc(l.y)+' · '+esc(l.b)+'</em>').join('; ')+'</small>':'')+'</li>').join('')+'</ul>';
   }
   // birth place and death place sit side by side (one column when there is only one place)
   const two=!living(p)&&p.dp!==p.bp;
@@ -2183,6 +2188,8 @@ $('#kq').addEventListener('keydown',e=>{
   else if(e.key==='Enter'){e.preventDefault();bs[Math.max(0,kAct)].click();$('#kq').value=''}
 });
 document.addEventListener('click',e=>{if(!e.target.closest('.ksearch'))$('#kres').hidden=true});
+// the dot map is drawn at its panel's width; if the panel is measured before layout settles (or later widens) draw it again
+if(window.ResizeObserver){const mw=$('#map')&&$('#map').parentNode;if(mw)new ResizeObserver(()=>{const w=mw.clientWidth;if(w>0&&st.view==='map'&&Math.abs(w-(+$('#map').getAttribute('width')||0))>8&&(w>=520||+$('#map').getAttribute('width')>w))render()}).observe(mw)}
 let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship',...EXT.names].includes(st.view))render()},120)});
 
 if(TREE){const v=$('.verdict');if(v)v.hidden=true}

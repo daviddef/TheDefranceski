@@ -29,7 +29,7 @@ DATA = os.path.join(ROOT, "site", "src", "data")
 OUT = os.path.join(ROOT, "data", "tree-page")
 TP = os.path.join(ROOT, "scripts", "tree-page")
 EXT = os.path.join(TP, "painted-lines.ext.html")   # the five animated views (Night sky, Ink ledger, Household, Generations, Where they lived)
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tree-page"))
 NOW = datetime.date.today().year
 HOST = "archive.defranceski.com"
 ATLAS_CANDIDATES = [os.environ.get("RECORD_ATLAS", ""), os.path.expanduser("~/Projects/Family Projects/Record Atlas"),
@@ -459,6 +459,17 @@ def write_roots_links(tree):
     io.open(os.path.join(ROOT, "site", "public", "roots-links.json"), "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     print("roots-links: %d people" % len(ids))
 
+def write_gaps(tree, ad):
+    """What is missing for each person and where to look (scripts/tree-page/gaps.py), written into tree.json as p.gaps for the person card's 'What's missing' list."""
+    import gaps as G
+    t = jl(tree); allg, _ = G.all_gaps(tree, ad); n = 0
+    for p in t["people"]:
+        g = [{"k": x["kind"], "t": x["text"], "l": [{"w": l["what"], "u": l["url"], "y": "%s–%s" % (l["from"], l["to"]), "b": l["by"], "p": l["place"]} for l in x["look"]]} for x in allg.get(p["id"], [])]
+        if g: p["gaps"] = g; n += 1
+        else: p.pop("gaps", None)
+    io.open(tree, "w", encoding="utf-8").write(json.dumps(t, ensure_ascii=False, separators=(",", ":")))
+    print("gaps: %d of %d people have a 'what's missing' list" % (n, len(t["people"])))
+
 def run(cmd):
     print("$", " ".join(os.path.relpath(c, ROOT) if os.path.isabs(c) and c.startswith(ROOT) else c for c in cmd))
     r = subprocess.run(cmd)
@@ -478,6 +489,7 @@ def main():
     run([py, os.path.join(TP, "build_atlas_data.py"), "--atlas", atlas, "--tree", tree, "--place-map", pm, "--out", ad])
     link_map(ad)
     write_roots_links(tree)
+    write_gaps(tree, ad)
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page, "--ext", EXT])
     embed = os.path.join(OUT, "roots.embed.html")   # the same page as a fragment, rendered inside the site layout by site/src/pages/roots/index.astro
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", embed, "--embed", "--ext", EXT])
