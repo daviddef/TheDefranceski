@@ -7,7 +7,7 @@
 The page is one self-contained HTML file: no network calls except links the reader clicks.
 """
 import argparse, json, os, re, html
-VERSION = '1.3.0'
+VERSION = '1.3.1'
 SCOPE = 'rr'
 
 def _split(sel):

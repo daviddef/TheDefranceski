@@ -304,7 +304,7 @@ def build(args):
                        "father": p["father"] if p["father"] in keep else None, "mother": p["mother"] if p["mother"] in keep else None,
                        "fg": grade.get((p["id"], p["father"])) if p["father"] in keep else None, "mg": grade.get((p["id"], p["mother"])) if p["mother"] in keep else None,
                        "spouse": [s for s in p["spouse"] if s in keep], "kids": [k for k in p["kids"] if k in keep],
-                       "srcs": srcs[:4], "href": who if who and str(who).startswith("/") else None,
+                       "srcs": srcs[:4], "href": who if who and str(who).startswith("/") else None, "page": "/person/%s/" % pid,   # this exact person's page (every roster person id has one); href is the name index several people share
                        "bye": p["bye"], "dye": p["dye"], "note": plain(r.get("note"))[:320] or None})
     # symmetric relations after the filter
     ids = {x["id"] for x in people}

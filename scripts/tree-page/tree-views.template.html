@@ -46,7 +46,8 @@ h1{font:650 30px/1.1 var(--serif);margin:0;text-wrap:balance}
 .results button:hover{background:var(--band)}
 .results small{margin-left:auto;color:var(--muted);font:400 11px var(--mono)}
 .pname{color:inherit;text-decoration:none}.pname:hover{text-decoration:underline;text-decoration-color:var(--atlas)}
-#openmode[aria-pressed="true"]{background:var(--sel);color:var(--on-sel);border-color:var(--sel)}
+a.plk{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor}a.plk:hover{color:var(--atlas);border-bottom-style:solid}
+svg a.plk .cname,svg a.plk .sname{text-decoration:underline dotted}svg a.plk:hover .cname,svg a.plk:hover .sname{text-decoration:underline solid;fill:var(--atlas)}
 
 .atlasbar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:10px 14px;margin-bottom:14px;background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--atlas);border-radius:6px;font-size:13px}
 .abadge{display:inline-flex;gap:6px;align-items:center;color:var(--atlas);font:600 10.5px var(--sans);letter-spacing:.13em;text-transform:uppercase}
@@ -352,7 +353,6 @@ td:first-child{font:600 14.5px var(--serif);white-space:nowrap}
       <input id="q" type="search" placeholder="Find a person, e.g. Mazza" autocomplete="off">
       <ul class="results" id="results" hidden></ul>
     </div>
-    <button class="btn" id="openmode" aria-pressed="false" title="When on, clicking a person opens their page on the family site instead of re-centring the views. Ctrl or ⌘-click always opens it in a new tab." hidden>Click opens page</button>
   </header>
 
   <div class="atlasbar">
@@ -655,7 +655,7 @@ function loadTree(T){
   const P={},list=[];
   for(const r of T.people){
     const p={id:r.id,sex:r.sex==='f'?'f':'m',fi:r.line==null?7:r.line,sur:r.sur||'',given:r.given||'',by:r.by,bp:r.bp,dy:r.dy==null?null:r.dy,dp:r.dp||r.bp,my:r.my||null,occ:r.occ||null,
-      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null,fg:r.fg==null?null:r.fg,mg:r.mg==null?null:r.mg};
+      father:r.father||null,mother:r.mother||null,spouse:r.spouse||[],kids:r.kids||[],g:0,src:(r.srcs||[]).length,srcs:r.srcs||null,slug:r.slug||null,href:r.href||null,page:r.page||null,bye:!!r.bye,dye:!!r.dye,bpe:!!r.bpe,note:r.note||null,fg:r.fg==null?null:r.fg,mg:r.mg==null?null:r.mg};
     if(p.dy==null)p.dp=null;
     P[p.id]=p;list.push(p);
   }
@@ -831,11 +831,11 @@ function pedigree(id){if(pedKey===id)return pedSet;const p=P[id],s=new Set([id])
 /* ---------- State ---------- */
 const VIEWS=['hourglass','fan','map','atlasmap','movements','kinship','lanes','eras','timeline','orphans',...EXT.names];
 const st={focus:ROOT.id,hist:[],view:'hourglass',card:'full',orient:'h',up:3,down:2,gens:5,q:'',line:null,zoom:1,tx:0,suppress:false,
-  mgroup:'line',mview:'global',mscope:'focus',year:1925,lgroup:'place',lscope:'focus',lzoom:1,hz:1,keep:false,open:null,tline:'pat',aview:'global',av:{cx:35,cy:-10,w:250},amode:'born',ascope:'all',apl:null,escope:'focus',ezoom:1,okind:'orph',fopen:false,kb:null,kinShow:false,kinSeq:null,kinIds:null,mapscope:'all',mcolor:'line',cty:null,click:'focus'};
+  mgroup:'line',mview:'global',mscope:'focus',year:1925,lgroup:'place',lscope:'focus',lzoom:1,hz:1,keep:false,open:null,tline:'pat',aview:'global',av:{cx:35,cy:-10,w:250},amode:'born',ascope:'all',apl:null,escope:'focus',ezoom:1,okind:'orph',fopen:false,kb:null,kinShow:false,kinSeq:null,kinIds:null,mapscope:'all',mcolor:'line',cty:null};
 /* The address bar is the page's state, so a link shares exactly what you are looking at: #kinship&p=<person>&b=<second person>&…
    Only what differs from the defaults is written. An old link (#kinship, #close, #p=…) still works. */
 const DEF=Object.assign({},st);
-const HASHKEYS={p:'focus',b:'kb',card:'card',o:'orient',up:'up',down:'down',gens:'gens',mg:'mgroup',mv:'mview',ms:'mscope',y:'year',lg:'lgroup',ls:'lscope',tl:'tline',es:'escope',ok:'okind',map:'mapscope',mc:'mcolor',cty:'cty',ln:'line',am:'amode',as:'ascope',pl:'apl',av:'aview',click:'click'};
+const HASHKEYS={p:'focus',b:'kb',card:'card',o:'orient',up:'up',down:'down',gens:'gens',mg:'mgroup',mv:'mview',ms:'mscope',y:'year',lg:'lgroup',ls:'lscope',tl:'tline',es:'escope',ok:'okind',map:'mapscope',mc:'mcolor',cty:'cty',ln:'line',am:'amode',as:'ascope',pl:'apl',av:'aview'};
 function applyHash(){
   try{
     const parts=location.hash.slice(1).split('&').filter(Boolean);
@@ -891,10 +891,10 @@ function sourceRows(p){
   }
   return rows;
 }
-function pageURL(p){if(!p||living(p))return null;const site=FAMS[p.fi].host;return site?'https://'+site+(p.href||'/people/'+(p.slug||slugify(p.given+' '+p.sur))+'/'):null}
+function pageURL(p){if(!p||living(p))return null;const site=FAMS[p.fi].host;return site?'https://'+site+(p.page||p.href||'/people/'+(p.slug||slugify(p.given+' '+p.sur))+'/'):null}   // p.page = this exact person's page; p.href is a name index shared by everyone with that name
 function pick(id,e){
   const url=pageURL(P[id]);
-  if(url&&(st.click==='page'||(e&&(e.metaKey||e.ctrlKey)))){if(e&&(e.metaKey||e.ctrlKey))window.open(url,'_blank','noopener');else location.href=url;return}
+  if(url&&e&&(e.metaKey||e.ctrlKey)){window.open(url,'_blank','noopener');return}
   go(id);
 }
 function renderPanel(){
@@ -946,8 +946,8 @@ function renderPanel(){
   if(kids.length)h+='<h3>Children ('+kids.length+')</h3>'+kids.slice(0,8).map(plink).join('')+(kids.length>8?'<small style="color:var(--muted)">and '+(kids.length-8)+' more</small>':'');
   if(!living(p)){
     const slug=p.slug||slugify(p.given+' '+p.sur),site=FAMS[p.fi].host;
-    const pg=p.href||'/people/'+slug+'/';
-    if(site)h+='<h3 class="at">On the family site</h3><p class="fsite"><a href="https://'+site+pg+'" target="_blank" rel="noopener">'+(p.href?'Page on the site':'People page')+' ↗</a> · <a href="https://'+site+'/people/" target="_blank" rel="noopener">All '+esc(p.sur)+' people ↗</a><small>'+site+pg+'</small>'+(TREE?'':'<small>Sample person: this page does not exist yet. An imported GEDCOM would create it.</small>')+'</p>';
+    const pg=p.page||p.href||'/people/'+slug+'/';
+    if(site)h+='<h3 class="at">On the family site</h3><p class="fsite"><a href="https://'+site+pg+'" target="_blank" rel="noopener">'+(p.page||p.href?'Their page':'People page')+' ↗</a> · <a href="https://'+site+'/people/" target="_blank" rel="noopener">All '+esc(p.sur)+' people ↗</a><small>'+site+pg+'</small>'+(TREE?'':'<small>Sample person: this page does not exist yet. An imported GEDCOM would create it.</small>')+'</p>';
     if(TREE){
       if(p.srcs&&p.srcs.length)h+='<h3>Sources ('+p.srcs.length+')</h3><ul class="srcs">'+p.srcs.map(x=>'<li>'+(x.u?'<a href="'+esc(x.u)+'" target="_blank" rel="noopener">'+esc(clip(x.t,70))+' ↗</a>':esc(clip(x.t,70)))+'</li>').join('')+'</ul>';
       const lk=recLink(p.bp,p.by);
@@ -970,7 +970,7 @@ function renderTrail(){
   path.forEach((p,i)=>{
     const rel=i-fi,lab=rel===0?'FOCUS':'GEN. '+(rel>0?'+':'−')+Math.abs(rel),pl=PL[p.bp];
     if(i)h+='<span class="tlk'+(path[i-1].bp!==p.bp?' mv':'')+'"></span>';
-    h+='<div role="button" tabindex="0" class="tc'+(rel===0?' focus':'')+(pl.id?'':' dash')+'" data-id="'+p.id+'" title="'+esc(nm(p))+'">'+iconSVG(PTYPE[p.bp],26)+'<span class="tg">'+lab+'</span><b>'+placeA(p.bp)+(p.bpe?'*':'')+'</b><span class="ty">'+(living(p)?'living':p.by)+'</span><small>'+esc(living(p)?'Living':p.given)+'</small></div>';
+    h+='<div role="button" tabindex="0" class="tc'+(rel===0?' focus':'')+(pl.id?'':' dash')+'" data-id="'+p.id+'" title="'+esc(nm(p))+'">'+iconSVG(PTYPE[p.bp],26)+'<span class="tg">'+lab+'</span><b>'+placeA(p.bp)+(p.bpe?'*':'')+'</b><span class="ty">'+(living(p)?'living':p.by)+'</span><small>'+(pageURL(p)?'<a class="plk" href="'+pageURL(p)+'" title="Open '+esc(nm(p))+'\'s page">'+esc(p.given)+'</a>':esc(living(p)?'Living':p.given))+'</small></div>';
   });
   tr.innerHTML=h;
   if(st.tline!=='down'){   // where the descendants went on to, like the routes on the family sites
@@ -1040,6 +1040,8 @@ function renderHG(){
     if(vert)S('text',{class:'colh',x:PAD,y:dep(g)+CH/2+3},svg,compact?clip(heads[g],14):heads[g]);
     else S('text',{class:'colh',x:dep(g),y:12},svg,heads[g]);
   }
+  // the name in a card is an ordinary link to that person's own page; the rest of the card re-centres the views
+  function nameHost(g,p){const u=pageURL(p);return u?S('a',{class:'plk',href:u},g):g}
   function card(p,n,o){
     o=o||{};
     const g=S('g',{class:'card'+(o.focus?' focus':'')+(o.dash?' dash':'')+(simple?' simple':''),transform:'translate('+n.x+','+n.y+')',tabindex:0,role:'button','data-id':p.id,'aria-label':nm(p)+', '+yrs(p)},gC);
@@ -1055,10 +1057,10 @@ function renderHG(){
       // simple tile: place-type icon, generation, name, year and place
       placeIcon(g,PTYPE[p.bp],CW/2,17,22);
       S('text',{class:'sgen',x:CW/2,y:40,'text-anchor':'middle'},g,o.gen||'');
-      S('text',{class:'sname',x:CW/2,y:56,'text-anchor':'middle'},g,clip(nm(p),15));
+      S('text',{class:'sname',x:CW/2,y:56,'text-anchor':'middle'},nameHost(g,p),clip(nm(p),15));
       S('text',{class:'syr',x:CW/2,y:70,'text-anchor':'middle'},g,living(p)?'living':clip(p.by+' · '+p.bp,19));
     }else{
-      S('text',{class:'cname',x:13,y:16},g,clip(nm(p),20));
+      S('text',{class:'cname',x:13,y:16},nameHost(g,p),clip(nm(p),20));
       S('text',{class:'cmeta',x:13,y:30},g,clip(yrs(p)+(living(p)?'':' · '+p.bp+(p.bpe?'*':'')),23));
       drawFlag(g,flagAt(p.bp,p.by),CW-42,(CH-24)/2,36);
     }
@@ -1817,7 +1819,7 @@ function renderUndrawn(){
   const U=(TREE&&TREE.undrawn)||[],noYear=U.filter(u=>u.why==='year'),noPlace=U.filter(u=>u.why==='place');
   $('#orsum').innerHTML='<b>'+U.length.toLocaleString('en')+'</b> people the archive holds are not drawn on the maps: no birth or death year and no relative with one ('+noYear.length+'), or a year but no place the archive can put on a map ('+noPlace.length+'). Each links to their page on the site. Finding a year or a place for them is the quickest way to grow the tree.';
   $('#orsug').innerHTML='<div class="sg"><div class="sgh"><div><b>No year</b><small>cannot be placed in time</small></div><span class="sgn">'+noYear.length+'</span></div><p class="sgp">Look for a baptism, burial or census entry, or any relative with a year, then add it to the roster.</p></div><div class="sg"><div class="sgh"><div><b>No place</b><small>cannot be put on a map</small></div><span class="sgn">'+noPlace.length+'</span></div><p class="sgp">A parish, town or country is enough. The archive atlas supplies the coordinates.</p></div>';
-  const row=u=>'<a class="plink" href="'+(u.href?'https://'+FAMS[0].host+u.href:'#')+'" target="_blank" rel="noopener"><i style="background:var(--hair)"></i><span>'+esc(u.name)+'</span><small>'+esc((u.b?'b. '+u.b+' · ':'')+(u.place||u.why))+'</small></a>';
+  const row=u=>'<a class="plink" href="'+(u.id&&TREE?'https://'+FAMS[0].host+'/person/'+u.id+'/':u.href?'https://'+FAMS[0].host+u.href:'#')+'" target="_blank" rel="noopener"><i style="background:var(--hair)"></i><span>'+esc(u.name)+'</span><small>'+esc((u.b?'b. '+u.b+' · ':'')+(u.place||u.why))+'</small></a>';
   $('#orlist').innerHTML='<h3>Not drawn yet ('+U.length+')</h3><div class="orgrid">'+U.slice(0,400).map(row).join('')+'</div>'+(U.length>400?'<p class="amsub">and '+(U.length-400)+' more in the data</p>':'');
 }
 function renderOrphans(){
@@ -2071,9 +2073,7 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#copylink')){const b=$('#copylink'),u=location.href;
     const done=()=>{b.textContent='Copied';setTimeout(()=>{b.textContent='Copy link'},1500)};
     try{navigator.clipboard.writeText(u).then(done,()=>{window.prompt('Copy this link',u)})}catch(x){window.prompt('Copy this link',u)}}
-  if(e.target.closest('#openmode')){st.click=st.click==='page'?'focus':'page';syncOpenMode();writeHash()}
 });
-function syncOpenMode(){const b=$('#openmode');if(b)b.setAttribute('aria-pressed',String(st.click==='page'))}
 const qi=$('#q'),res=$('#results');
 qi.addEventListener('input',()=>{
   st.q=qi.value;const q=st.q.trim().toLowerCase();
@@ -2142,7 +2142,6 @@ document.addEventListener('click',e=>{if(!e.target.closest('.ksearch'))$('#kres'
 let rt=0;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(['map','timeline','movements','lanes','atlasmap','eras','orphans','kinship',...EXT.names].includes(st.view))render()},120)});
 
 if(TREE){const v=$('.verdict');if(v)v.hidden=true}
-{const ob=$('#openmode');if(ob){ob.hidden=!(TREE&&FAMS[0].host);syncOpenMode()}}
 const wn=$('#weaknote');if(wn)wn.hidden=!(TREE&&list.some(p=>p.fg===0||p.mg===0));
 const bn=$('#bpenote');if(bn)bn.hidden=!(TREE&&list.some(p=>p.bpe));
 const ub=$('[data-key="okind"] [data-v="undrawn"]');if(ub)ub.hidden=!(TREE&&TREE.undrawn&&TREE.undrawn.length);
