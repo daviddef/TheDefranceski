@@ -67,6 +67,19 @@ const g = c.nextGen;
   </div>
   <div style="margin-top:22px"><Plates ids={["anton-1890"]} cols={1} /></div>
 
+  <h2 style="font-size:30px;margin-top:48px">{c.josipjr.heading}</h2>
+  <p class="dek" style="margin-top:8px">{c.josipjr.lead}</p>
+  <div class="grid g2" style="margin-top:20px">
+    {c.josipjr.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--terra)" : ""}>
+        <div class="lab">{r.who}</div>
+        <p style="margin-top:8px" set:html={mdHtml(r.what)}></p>
+      </div>
+    ))}
+  </div>
+  <p class="prose note" style="margin-top:22px" set:html={mdHtml(c.josipjr.close)}></p>
+  <p class="prose cap" style="margin-top:12px">{c.josipjr.next}</p>
+
   <h2 style="font-size:30px;margin-top:48px">Anton Rudolf and Ursula</h2>
   <div class="grid g2" style="margin-top:20px;align-items:start">
     <div class="prose">
