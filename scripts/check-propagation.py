@@ -165,6 +165,13 @@ RULES = [
     ("the direct line's route still drawn without Zimbabwe (Senj → Johannesburg)",
      r"Senj \u2192 Johannesburg",
      {"y1948.json", "searched.json", "movements.json", "roster.json", "dossiers.json"}),
+    ("Ivan De Franceschi (son of Josip and Ana) still carried as born in November 1894 (3 Nov 2026: Crikvenica births 1894 entry 26 reads «dne 11a Travnja» — 11 April 1894; the whole year was read and holds no second child of the family)",
+     # The correction, the story file that tells the conflict and the fix, the search log and the worklist quote the old
+     # month on purpose, and the files that hold the FamilySearch index's own transcription (record 1:1:6YBK-GX5M, «Nov 1894»)
+     # keep it as the index's reading; generated files mirror them.
+     r"\"born\": \"November 1894\"|b\. November 1894|By November 1894, when a son, Ivan|Ivan, born November 1894",
+     {"corrections.json", "crikvenica.json", "searched.json", "worklist.json", "households.json", "fsrecords.json",
+      "explorer.json", "register.json", "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
