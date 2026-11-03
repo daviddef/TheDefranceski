@@ -43,6 +43,23 @@ open a register, write to an archive, or find a source the atlas does
 not list — as you do it, not in a sweep at the end. Record the
 FamilySearch waypoint, not just the film number; the skill explains why.
 
+## Surname spellings come only from the Record Atlas catalogue
+
+The one catalogue of spellings is the Atlas's (`data/surname-families.json`, shown on every surname page and
+on <https://recordatlas.org/surname-families/>), written only through `scripts/surname_variants.py`. **Do not keep
+a list, table or file of spellings in this archive.** Before searching any index, register or newspaper for a name,
+and **before** writing a nil (not after: on the Draga walk of 4 November 2026 `cover` was run after the reading and
+showed that Kalain and Kallayn had never been named to the readers):
+
+```bash
+ATLAS="/Volumes/DJ - Crucial - 4TB-SSD/Claude Projects/Family Projects/Record Atlas"
+python3 "$ATLAS/scripts/surname_variants.py" terms Defranceschi     # what to type, what not to count
+python3 "$ATLAS/scripts/surname_variants.py" cover Defranceschi --tried "…"   # exits 1 until every form is tried
+```
+
+`add` (with its evidence) any spelling met on a record, `publish` once at the end, and say whether it is "added
+locally", "published" or "live". The `surname-variants` skill (user-level) holds the rest.
+
 ## A correction is done when the old claim is gone from EVERY file
 
 Not when it is written. A name fixed on a person page and left standing in
