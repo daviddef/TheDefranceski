@@ -84,7 +84,15 @@ for f in sorted(glob.glob(os.path.join(DATA, "*.json"))):
     if name in SKIP or name not in route_of:
         continue
     try:
-        blobs[name] = json.dumps(json.load(open(f, encoding="utf-8")), ensure_ascii=False)
+        data = json.load(open(f, encoding="utf-8"))
+        if name == "worklist":
+            # A row's state, owner and since-date are bookkeeping, not prose about a person: quoted beside a name they
+            # printed «next this archive 2026-11-02» on /who/ pages, which the living-years gate reads as a birth in 2026.
+            for row in (data.get("rows") if isinstance(data, dict) else data) or []:
+                if isinstance(row, dict):
+                    for k in ("state", "owner", "since"):
+                        row.pop(k, None)
+        blobs[name] = json.dumps(data, ensure_ascii=False)
     except Exception:
         pass
 
