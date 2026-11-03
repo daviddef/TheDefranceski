@@ -172,6 +172,10 @@ RULES = [
      r"\"born\": \"November 1894\"|b\. November 1894|By November 1894, when a son, Ivan|Ivan, born November 1894",
      {"corrections.json", "crikvenica.json", "searched.json", "worklist.json", "households.json", "fsrecords.json",
       "explorer.json", "register.json", "dossiers.json", "searchindex.json"}),
+    ("Zorica (daughter of Josip and Ana) still carried as baptised in July 1897 (3 Nov 2026: Crikvenica births entry 143 reads «7a siječnja» — 7 January 1897)",
+     # The correction and the log quote the old month on purpose; generated files mirror them.
+     r"baptised in July 1897|baptised privately at birth and only entered",
+     {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
