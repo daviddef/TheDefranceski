@@ -695,16 +695,17 @@
        earlier. So this is the one hook into the shared component that does not
        touch the shared component. */
     var BASES = [
-      ["Street", "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-       "&copy; OpenStreetMap contributors", 18],
+      ["Map", "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+       "Esri, HERE, Garmin &middot; &copy; OpenStreetMap contributors", 18],
       ["Terrain", "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
        "&copy; OpenStreetMap contributors · SRTM | &copy; OpenTopoMap (CC-BY-SA)", 16],
       ["Satellite",
        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-       "Imagery &copy; Esri, Maxar, Earthstar Geographics", 18],
-      ["Plain", "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-       "&copy; OpenStreetMap contributors &copy; CARTO", 19]
+       "Imagery &copy; Esri, Maxar, Earthstar Geographics", 18]
     ];
+    /* «Map» is Esri's light grey canvas, the same ground as the Record Atlas: no
+       peaks, roads or shop icons, so the markers carry the page. A saved or linked
+       base that no longer exists («street», «plain») falls through to Map. */
     var KEY = "at-base";
 
     function baseControl(map) {
@@ -714,9 +715,19 @@
       want = Math.max(0, BASES.findIndex(function (b) {
         return b[0].toLowerCase() === String(pref || "").toLowerCase(); }));
 
-      var layers = BASES.map(function (b) {
-        return L.tileLayer(b[1], { attribution: b[2], maxZoom: b[3] });
+      var layers = BASES.map(function (b, i) {
+        return L.tileLayer(b[1], { attribution: b[2], maxZoom: b[3],
+                                   maxNativeZoom: i === 0 ? 16 : null });
       });
+      /* The canvas keeps its place names in a separate layer: its own pane, above
+         the tiles and below the markers, present only while Map is the base. */
+      var lp = map.getPane("baseLabels") || map.createPane("baseLabels");
+      lp.style.zIndex = 250; lp.style.pointerEvents = "none";
+      var baseLabels = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+        { pane: "baseLabels", maxNativeZoom: 16, maxZoom: 18 });
+      layers[0].on("add", function () { baseLabels.addTo(map); });
+      layers[0].on("remove", function () { map.removeLayer(baseLabels); });
       /* The kit put its own street layer on at construction. Take it off
          rather than stack a second one under it. */
       var old = [];
@@ -737,8 +748,7 @@
              bandwidth; the title says so where a reader can see it. */
           btn.title = b[0] === "Terrain" ? "OpenTopoMap — contours and relief"
                     : b[0] === "Satellite" ? "Esri world imagery"
-                    : b[0] === "Plain" ? "CARTO Positron — quiet, so the markers carry the page"
-                    : "OpenStreetMap";
+                    : "Esri light grey canvas — quiet, so the markers carry the page";
           L.DomEvent.on(btn, "click", function (e) {
             L.DomEvent.stop(e);
             if (i === cur) return;
