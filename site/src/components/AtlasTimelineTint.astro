@@ -465,6 +465,9 @@
   }
 
   /* ---- the basemap picker ------------------------------------------------ */
+  /* The kit's own picker (Street, Terrain, Satellite, Plain) is still in the
+     page; this component owns the layers, so that one is hidden. */
+  .leaflet-bar.at-base { display: none !important; }
   .at-base { background: none !important; border: none !important; }
   .at-base .at-base-in {
     display: flex; gap: 0; background: var(--card, #fff);
