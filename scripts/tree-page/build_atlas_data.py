@@ -134,7 +134,9 @@ def main():
         if rid: used_reg.add(rid)
         if frid: used_reg.add(frid)
         places.append({'n': n, 'id': aid, 'lat': round(lat, 3), 'lon': round(lon, 3), 'reg': rid, 'cn': e.get('country') or '', 'ev': hit, 'fl': fl,
-                       'cols': [[c.get('title', '')[:80], c['url'], c.get('from'), c.get('to'), c.get('provider', '')] for c in (pls[aid].get('collections', []) if aid else []) if c.get('url')][:12],
+                       'cols': [[c.get('title', '')[:80], c['url'], c.get('from'), c.get('to'), c.get('provider', '')] for c in (pls[aid].get('collections', []) if aid else []) if c.get('url')][:40],
+                       # catalogue entries (the book exists, nobody has photographed it): listed so «where to look» shows everything the Atlas holds for the place
+                       'cat': [[c.get('title', '')[:80], c.get('from'), c.get('to'), c.get('provider', '')] for c in (pls[aid].get('collections', []) if aid else []) if not c.get('url')][:40],
                        **({'type': e['type']} if e.get('type') else {})})
     regions, used = {}, set()
     for k in sorted(used_reg):
