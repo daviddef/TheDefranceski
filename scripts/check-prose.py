@@ -63,6 +63,9 @@ HAND_EDITED = {
     # 27 October 2026, the mini flags (kit/docs/ribbon-flags.md): the archive's own answers for today's country of a card's
     # place, and a card's place text -> the era table's, each entry with its evidence; typed by a person.
     "flag-countries.json", "flag-places.json",
+    # 4 November 2026, the people pages (kit PersonPage): person-notes.json is the notes a person writes for a page (the lore stages, the gaps,
+    # the dek), other-archives.json the page of the same person on a sister archive; both typed by a person.
+    "person-notes.json", "other-archives.json",
 }
 
 # Data files a script writes. Their generator's own scrub gate (check-living-v2.py, checkliving.py,
@@ -88,6 +91,10 @@ GENERATED = {
     # fetched by the Archive Kit's tools/atlas_given_names.py and committed as fetched, never typed here; the forms are kept once, in the
     # Atlas (scripts/given_name_variants.py), and nothing about a person is in it. This archive's own forms table (givennames-forms.json) is deleted.
     "given-names.json",
+    # 4 November 2026, the people pages: flag-eras.json is written by scripts/build-flag-polities.py from the Record Atlas's own flag pages (the
+    # era, its pills and paragraphs), atlas-events.json by scripts/build-atlas-events.py from the Atlas's events; never typed, and neither
+    # holds a person (an era or an event, by place and year). Neither script has a --check yet: a hand edit is undone by the next run.
+    "flag-eras.json", "atlas-events.json",
     # 27 October 2026, the family ribbons and the direct-line tint (kit/docs/family-ribbon.md): direct-line.json is written by
     # scripts/build-direct-line.py from the story's ribbon, family-lines.json and family-links.json by scripts/build-family-lines.py
     # from spines.json, carnia.json, households.json, rivers.json and the roster; never typed, and each script's --check fails on a
