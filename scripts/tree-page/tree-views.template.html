@@ -217,9 +217,10 @@ input[type=range]{accent-color:var(--atlas);flex:1 1 240px;min-width:140px}
 .fsite{margin:0;font-size:13.5px;font-weight:600}
 .plc{display:grid;grid-template-columns:58px 1fr;gap:10px;margin-bottom:10px;font-size:13px}
 .plcs{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;align-items:start}
-.plcs .plc{grid-template-columns:1fr;gap:6px;margin-bottom:10px;min-width:0}.plcs .plc>div{min-width:0}.plcs .plc small{overflow-wrap:anywhere}
-.plcs.one{grid-template-columns:1fr}.plcs.one .plc{grid-template-columns:58px 1fr;gap:10px}
-@media (min-width:561px) and (max-width:960px){.plcs .plc{grid-template-columns:58px 1fr;gap:10px}}
+.plcs .plc{grid-template-columns:58px minmax(0,1fr);gap:6px 10px;margin-bottom:10px;min-width:0}.plcs .plc>div{min-width:0}.plcs .plc small{overflow-wrap:anywhere}
+.plc .pld{grid-column:1/-1;min-width:0}.plc .pld .chip{display:inline-block;margin:2px 4px 2px 0}.plc .pld>small{margin-top:2px}
+.plc .pld .lk{display:inline-block;margin:6px 14px 0 0}
+.plcs.one{grid-template-columns:1fr}
 .plc b{font:600 14px var(--serif)}
 .plc small{display:block;color:var(--muted);font-size:12px}
 .plc .lk{font-size:12px;font-weight:600;display:block;margin-top:3px}
@@ -929,7 +930,8 @@ function routeBlock(p){
 }
 function placeBlock(label,place,year,until){
   const pl=PL[place],e=eraAt(place,year);
-  let h='<div class="plc"><span class="ico" data-place="'+esc(place)+'" data-year="'+year+'"></span><div><small>'+label+'</small><b>'+placeA(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+year+'"></span></b><small>'+esc(pl.cn)+'</small>';
+  let h='<div class="plc"><span class="ico" data-place="'+esc(place)+'" data-year="'+year+'"></span><div class="plh"><small>'+label+'</small><b>'+placeA(place)+'<span class="fl" data-place="'+esc(place)+'" data-year="'+year+'"></span></b><small>'+esc(pl.cn)+'</small>';
+  h+='</div><div class="pld">';
   if(e){
     h+='<span class="chip rg" style="background:'+rgv(e.rg)+'">'+esc(ATLAS.regimes[e.rg].label)+'</span><small>'+esc(e.polity)+', '+e.from+'–'+e.to+'</small>';
     if(e.filed.length)h+='<small>Records: '+e.filed.slice(0,3).map(k=>esc(ATLAS.prov[k]||k)).join(', ')+'</small>';

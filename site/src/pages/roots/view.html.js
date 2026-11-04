@@ -40,6 +40,7 @@ const EMBED = `<script>
 .emb-profile #panel{position:static!important;width:auto!important;max-width:none!important;height:auto!important;max-height:none!important;overflow:visible!important;
   border:0!important;box-shadow:none!important;background:transparent!important;padding:0!important;columns:2 24rem;column-gap:2.6rem;zoom:1.2}
 .emb-profile #panel .rrg{break-inside:avoid;margin:0 0 1.6rem}
+.emb-profile #panel .plcs{grid-template-columns:minmax(0,1fr)}   /* each place has the whole column: the map and the name above, the regime, records and links across the full width */
 .emb-profile #panel .rrg>h3:first-child{margin-top:0}
 </style>`;
 
