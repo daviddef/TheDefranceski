@@ -2,7 +2,12 @@
 import { mdHtml } from "../lib/md.js";
 import Base from "../layouts/Base.astro";
 import SayYourName from "@daviddef/archive-kit/components/SayYourName.astro";
-import N from "../data/givennames-forms.json";
+/* THE FORMS ARE NOT KEPT HERE. Every form of a given name, by language, and whether a family archive has met it on a
+   record, is kept ONCE, in Record Atlas (data/given-name-families.json, written only through
+   scripts/given_name_variants.py), and fetched into this file at build time by the Archive Kit's
+   tools/atlas_given_names.py (4 Nov 2026). The old table of this archive's own forms (givennames-forms.json) was
+   deleted the same day. A form met in a record here is added to the Atlas with its evidence, never to this page. */
+import G from "../data/given-names.json";
 /* ONE OBJECT, BUILT TWICE. This page and the Blazevic one were written
    separately, about 230 lines each, and hold the same thing: a box you type a
    name into, chips, a shareable ?n= address, and a card per language. They
@@ -47,27 +52,26 @@ const langs = [
   ["german", "German", "The language of the Habsburg bureaucracy, of the Pazin gymnasium, and of the wartime sickness-fund cards at Reutlingen."],
   ["hungarian", "Hungarian", "Fiume was Hungarian — a corpus separatum of the Crown of St Stephen — and this archive's own place-strings say so: «Vitipolis, Modrus-Fiume, Magyarország». From the civil registration of 1895 the clerk there wrote in Hungarian."],
   ["english", "English", "The language of arrival: Ellis Island, Broken Hill, Horsham, Brisbane. Usually the last change a name makes."],
-  ["slips", "A clerk's slip", "Not a form of the name at all — one hand, once, getting it wrong. These are the spellings a search will never find, and they are listed with the document each came out of below."],
 ];
 const slips = gn.slips || [];
 const seen = gn.seen || {};
 ---
 <Base
   title="Say Your Name"
-  eyebrow={`${rows.length} names · ${gn.attested} forms met in the records, ${gn.totalForms - gn.attested} more as lookup aids`}
+  eyebrow={`${G.rows.length} names · ${G.attested} forms met on a record, ${G.totalForms - G.attested} more as lookup aids`}
   dek="One person, written down six different ways by six different clerks. Type a given name and see every form the same human being would have been entered under across four centuries of registers.">
 
   <section class="prose">
     <p>This archive's owner puts it best: <em>my own father can be Ivan or Giovanni or John.</em> One man, three registers, three languages, no change of person.</p>
     <p><strong>A name you have looked up is a link you can send.</strong> The address bar follows the search — <span class="mono" style="font-size:13px">?n=Gregorio</span> — so a card can go to a cousin, an archivist or a mailing list and open on exactly what you were looking at. There is a <em>Copy link</em> button above every result.</p>
     <p>That is not a curiosity, it is the central difficulty of the work. A Josip in a Croatian register, a Giuseppe in an Italian one and a Josephus in a Latin one are the same name, and an index that treats them as three people will never join a family up.</p>
-    <p><strong>Seven columns, and two kinds of cell.</strong> A form printed plainly is one this archive has actually met in one of its own records. A form marked <span class="aid">like this<sup>°</sup></span> is a <strong>lookup aid</strong> — the correct form in that language, and the right thing to type into a Hungarian or a German index tomorrow, but not something this archive has yet seen written down. <strong>{gn.attested} of the {gn.totalForms} forms below are attested; {gn.totalForms - gn.attested} are aids.</strong> Nothing here decides that by hand: <a href={u("/method/")}>a script looks every form up in the records</a> and the build refuses if the marking drifts.</p>
+    <p><strong>Seven columns, and two kinds of cell.</strong> A form printed plainly is one a family archive has actually met on a record (this archive's, or one of the other family archives' that share the Record Atlas catalogue). A form marked <span class="aid">like this<sup>°</sup></span> is a <strong>lookup aid</strong> — the correct form in that language, and the right thing to type into a Hungarian or a German index tomorrow, but not something any family archive has yet seen written down. <strong>{G.attested} of the {G.totalForms} forms below are attested; {G.totalForms - G.attested} are aids.</strong> Nothing here is decided by hand on this page: the forms are kept once, in <a href="https://recordatlas.org/your-name/">Record Atlas</a>, each with the evidence that it was met, and this page is read from that catalogue when the site is built.</p>
     <p>This page said, until 17 September 2026, that every form on it came «from the forms that actually appear in these registers — not from a dictionary». <a href={u("/corrections/")}>Thirty-one per cent of them did not</a>, there was no Hungarian column at all, and dozens sat under the wrong language — <em>Antal</em> and <em>Ilona</em> filed as Italian when they are Hungarian, <em>Božo</em> and <em>Tomislav</em> filed as Italian when they are Croatian.</p>
   </section>
 
-  <SayYourName rows={N.rows} u={u}
+  <SayYourName rows={G.rows} u={u}
     langs={langs.map(([key, label, note]) => ({ key, label, note }))}
-    chips={["Giovanni", "JVAN", "Zuane", "Gergely", "Gregor", "ZORAFKO", "Juraj", "Ilona", "Franz", "Orsola"]} />
+    chips={["Giovanni", "Zuane", "Gergely", "Gregor", "Juraj", "Ilona", "Franz", "Orsola"]} />
 
   <h2 id="slips" style="font-size:30px;margin-top:52px">And then there are the slips</h2>
   <p class="dek" style="margin-top:8px;max-width:74ch" set:html={mdHtml(gn.slipnote)}></p>

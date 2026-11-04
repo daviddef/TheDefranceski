@@ -48,7 +48,7 @@ HAND_EDITED = {
     "crikvenica.json", "dalmatia-books.json", "decrees.json", "diaspora.json", "dna.json", "eleven.json",
     "errands.json", "families.json", "familysearch.json", "famphotos.json", "findmypast.json",
     "findmypast-map.json", "fiume.json", "fsrecords.json", "gaps.json", "giornaletto.json", "gists.json",
-    "givennames-forms.json", "gologorica_roots.json", "hda1448.json", "imotski.json", "imperial.json",
+    "gologorica_roots.json", "hda1448.json", "imotski.json", "imperial.json",
     "istria-outline.json", "istriasweep.json", "jbaptista.json", "josip1863.json", "julius.json",
     "kalanj.json", "kobler.json", "kvarner-books.json", "landmarks.json", "library.json", "lines.json",
     "listria.json", "liznjan.json", "marriages.json", "marriedin.json", "maternal.json", "matricula.json",
@@ -84,6 +84,10 @@ GENERATED = {
     # 2 November 2026, the map and Roots & Routes: place-crosswalk.json is written by scripts/build-place-crosswalk.py (place strings, marker names,
     # distances), never typed, and its --check fails on a hand edit.
     "place-crosswalk.json",
+    # 4 November 2026, Say Your Name: given-names.json is the Record Atlas's given-name catalogue (https://recordatlas.org/given-names.json),
+    # fetched by the Archive Kit's tools/atlas_given_names.py and committed as fetched, never typed here; the forms are kept once, in the
+    # Atlas (scripts/given_name_variants.py), and nothing about a person is in it. This archive's own forms table (givennames-forms.json) is deleted.
+    "given-names.json",
     # 27 October 2026, the family ribbons and the direct-line tint (kit/docs/family-ribbon.md): direct-line.json is written by
     # scripts/build-direct-line.py from the story's ribbon, family-lines.json and family-links.json by scripts/build-family-lines.py
     # from spines.json, carnia.json, households.json, rivers.json and the roster; never typed, and each script's --check fails on a
