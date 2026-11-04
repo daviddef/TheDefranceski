@@ -46,7 +46,15 @@ for (const g of dl.generations) {
  * canonical to itself. /who/maria-defranceschi/ holds twenty-five different
  * women born between 1733 and 1888, which is the whole reason it exists.
  */
-const bearers = roster.rows.filter(x => x.pid && x.who === `/who/${p.slug}/`);
+/* THE BEARERS ARE EVERY ROW OF THE NAME, NOT ONLY THE ROWS THAT CARRY A `who`.
+ *
+ * Rows added to the roster after the name join (register reads, newspapers, Austrian State Archives, the household
+ * reconstructions) have a person page and no `who`: 561 of 2,022 on 5 November 2026, 505 of them for a name that has a page
+ * here. Counting only the linked rows made this page say "3 people of the name" for Ivan Defranceski when the archive holds
+ * five (two boys who died at Pola in 1915 were left out), and it let a name with one linked and one unlinked bearer point its
+ * canonical at the linked one. A row with no `who` belongs here when its name is this page's name. */
+const nameSlug = (s) => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase().slice(0, 60);
+const bearers = roster.rows.filter(x => x.pid && (x.who ? x.who === `/who/${p.slug}/` : nameSlug(x.name) === p.slug));
 const soleBearer = bearers.length === 1 ? bearers[0].pid : null;
 /* A name page whose every bearer is living is noindex, like their own pages (16 October
    2026). It then names no canonical: a noindex page that points at another page as its
@@ -70,8 +78,12 @@ const WHO_DESC = (() => {
   if (bearers.some(x => x.living)) {
     return `${p.name}. Every mention of this name in the archive — ${p.n} across ${p.pages.length} page${p.pages.length === 1 ? "" : "s"}. ${LIVING_SENTENCE}`;
   }
-  const yrs = (p.facts || []).find(f => f[0] === "Years");
-  const plc = (p.facts || []).find(f => f[0] === "Place");
+  /* ONE PERSON'S YEARS AND ROUTE DESCRIBE THIS PAGE ONLY WHEN IT IS ABOUT ONE PERSON. «Ivan Defranceski, 1925–1995.
+     Crikvenica → Pfullingen → Senj. 3 different people…» was the snippet of a page about five men, and read as if it were
+     about the first. The dossier's facts are the first bearer's. */
+  const one = bearers.length <= 1;
+  const yrs = one ? (p.facts || []).find(f => f[0] === "Years") : null;
+  const plc = one ? (p.facts || []).find(f => f[0] === "Place") : null;
   const bits = [`${p.name}${yrs && yrs[1] ? `, ${yrs[1]}` : ""}.`];
   if (plc && plc[1]) bits.push(`${plc[1]}.`);
   bits.push(bearers.length > 1
@@ -82,6 +94,8 @@ const WHO_DESC = (() => {
   return bits.join(" ").replace(/\*{1,3}([^*\n]+?)\*{1,3}/g, "$1").replace(/`/g, "").slice(0, 300);
 })();
 
+/* The dossier's Place and Years are the first bearer's; on a page about several people they would read as everyone's. */
+const shownFacts = (p.facts || []).filter(f => bearers.length <= 1 || (f[0] !== "Place" && f[0] !== "Years"));
 const byPage = {};
 for (const h of p.hits) { (byPage[h.title] ||= { page: h.page, hits: [] }).hits.push(h); }
 const groups = Object.entries(byPage);
@@ -195,9 +209,9 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 
 {(p.facts && p.facts.length > 0) && (
 <section class="blk">
-  <div class="facts">
-    {p.facts.map(([k, v, href]) => { const h = factHref(k, v, href); return (<div class="fact"><span class="fk">{k}</span><span class="fv">{h ? <a href={u(h)}>{v}</a> : <Fragment set:html={_md(v)} />}</span></div>); })}
-  </div>
+  {shownFacts.length > 0 && <div class="facts">
+    {shownFacts.map(([k, v, href]) => { const h = factHref(k, v, href); return (<div class="fact"><span class="fk">{k}</span><span class="fv">{h ? <a href={u(h)}>{v}</a> : <Fragment set:html={_md(v)} />}</span></div>); })}
+  </div>}
   {p.known && (
     <div class="known">
       <div class="lab">What the archive knows</div>
