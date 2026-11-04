@@ -46,7 +46,7 @@
     "check:kin": "python3 node_modules/@daviddef/archive-kit/kit/tools/checkkin.py --data src/data/roster.json --born b --died d --max 0"
   },
   "dependencies": {
-    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#35dfa739319b59ac65daaac3157e3856533439e4",
+    "@daviddef/archive-kit": "github:daviddef/TheArchiveKit#22e6397adeb1e1373a0f742f55d860a2c8e11451",
     "astro": "^5.18.2"
   },
   "devDependencies": {
