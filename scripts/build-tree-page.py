@@ -291,7 +291,9 @@ def build(args):
     # Record Atlas ids by name within 15 km
     aidx = {}
     for x in apl:
-        for nme in [x["name"]] + [n["n"].split(",")[0] for n in x.get("names", [])]: aidx.setdefault(fold(nme), []).append(x)
+        # the Atlas names a town "Senj (Senj)" when a region shares its name: the town is also found as "Senj", never missed for the suffix
+        for nme in [x["name"], re.sub(r"\s*\([^)]*\)\s*$", "", x["name"])] + [n["n"].split(",")[0] for n in x.get("names", [])]:
+            if x not in aidx.setdefault(fold(nme), []): aidx[fold(nme)].append(x)
     for nme in sorted(names_used):
         s = sp[nme]; lat, lon = s["lat"], s["lon"]; iso = geo.country_of(lat, lon)
         aid = None

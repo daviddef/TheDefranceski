@@ -28,7 +28,7 @@ import ring from "@daviddef/archive-kit/data/archives.json";
    (autolink.py, run after the build) must leave the whole page alone; it would link a person
    to their own page. It puts data-no-autolink on the page's wrapper, which the linker
    honours. 18 October 2026. */
-const { title, description = "", dek, eyebrow, bare, noindex, canonical, person, noautolink } = Astro.props;
+const { title, description = "", dek, eyebrow, bare, noindex, canonical, person, noautolink, ownHeader } = Astro.props;
 const SITE = "The Defranceschi Archive";
 /* A dek is written in the archive's light markup (**bold**, *italic*, `code`). On the
    page it is rendered; in the meta description, the social card and the JSON-LD it is
@@ -122,7 +122,7 @@ const thisArchive =
 
 <main id="main" tabindex="-1">
   <div class="wrap" data-no-autolink={noautolink ? "" : undefined}>
-    {!bare && (
+    {!bare && !ownHeader && (
       <div class="pagehead">
         {eyebrow && (MARKUP.test(eyebrow) ? <div class="lab" set:html={md(eyebrow)} /> : <div class="lab">{eyebrow}</div>)}
         <h1>{title}</h1>

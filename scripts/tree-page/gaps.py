@@ -35,6 +35,7 @@ def look_for(place, year, atlas_places, prov, want=None, window=15, regions={}):
     out = []
     for c in atlas_places.get(place, {}).get("cols", []):
         title, url, y0, y1, src = c[:5]
+        y0 = -9999 if y0 is None else y0; y1 = 9999 if y1 is None else y1   # a volume with no years is not ruled out by them
         if year is None or (y0 - window <= year <= y1 + window):
             if want and not any(w in title.lower() for w in want):
                 continue

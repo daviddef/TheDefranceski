@@ -7,9 +7,10 @@
 // Puerto Rico. That is a good index and a useless biography. The name pages
 // stay, as indexes and disambiguation; this is where a person lives.
 import Base from "../../layouts/Base.astro";
-import { md as _md } from "../../lib/md.js";
+import { md as _md, mdp as _mdp } from "../../lib/md.js";
 import { u } from "../../lib/url.js";
 import Lightbox from "../../components/Lightbox.astro";
+import PersonSection from "@daviddef/archive-kit/components/PersonSection.astro";
 import roster from "../../data/roster.json";
 import fam from "../../data/famphotos.json";
 import allplates from "../../data/plates.json";
@@ -19,6 +20,30 @@ import "@daviddef/archive-kit/styles/persontree.css";
 import dlp from "../../data/directline-pids.json";
 import dline from "../../data/directline.json";
 import doss from "../../data/dossiers.json";
+import PersonPage from "@daviddef/archive-kit/components/PersonPage.astro";
+import PersonGlance from "@daviddef/archive-kit/components/PersonGlance.astro";
+import PersonStory from "@daviddef/archive-kit/components/PersonStory.astro";
+import PersonLore from "@daviddef/archive-kit/components/PersonLore.astro";
+import PersonEvidence from "@daviddef/archive-kit/components/PersonEvidence.astro";
+import PersonWorldAround from "@daviddef/archive-kit/components/PersonWorldAround.astro";
+import PersonRootsViews from "@daviddef/archive-kit/components/PersonRootsViews.astro";
+import PS from "@daviddef/archive-kit/data/public-sources.json";
+import "@daviddef/archive-kit/styles/personpage.css";
+import rootsLinks from "../../../public/roots-links.json";
+import atlasData from "../../data/atlas.json";
+import atlasSlice from "../../../../data/tree-page/atlas-data.json";
+import flagEras from "../../data/flag-eras.json";
+import Namesakes from "../../components/person/Namesakes.astro";
+import atlasEvents from "../../data/atlas-events.json";
+import { ledeOf, lifeSentence, gapsOf, leadOf, journeyOf, chaptersOf, eraFlag, eventsAround, flagUrl, placeHref, familyOf, ancestryOf, storyOf, hasStory, GRADE_SAY } from "@daviddef/archive-kit/lib/personstory.js";
+import { inWindow, isLiving as isLivingKit } from "@daviddef/archive-kit/lib/person.js";
+import otherArchives from "../../data/other-archives.json";
+import personNotes from "../../data/person-notes.json";
+import lore1948 from "../../data/y1948.json";
+import familyLinks from "../../data/family-links.json";
+import { evidenceOf as _evidenceOf, linkTable } from "@daviddef/archive-kit/lib/personevidence.js";
+import treeData from "../../../../data/tree-page/tree.json";
+import archivePlaces from "../../data/places.json";
 import EraNote from "@daviddef/archive-kit/components/EraNote.astro";
 import { eraAt, plainYear } from "@daviddef/archive-kit/lib/era.js";
 import eraSnapshot from "../../data/era-snapshot.json";
@@ -27,6 +52,7 @@ import eraSnapshot from "../../data/era-snapshot.json";
    them carries the kit's quiet band, "On our direct line · generation n", with the way into the story; in the family chart
    a relative with a page who is on the line is tinted. The kit's gate (checkfamilyribbon.py O3) requires the band on each
    of their pages and on no other. It says nothing a living page may not: a relationship, no date. */
+import { splitQualifier } from "@daviddef/archive-kit/lib/person.js";
 import OursBand from "@daviddef/archive-kit/components/OursBand.astro";
 import "@daviddef/archive-kit/styles/ours.css";
 import { oursOf, OURS_LEGEND } from "@daviddef/archive-kit/lib/directline.js";
@@ -63,6 +89,15 @@ export function getStaticPaths() {
 }
 const { r, kin, placeSeparates } = Astro.props;
 
+/* WHO IS LIVING IS THE KIT'S RULE AND THE ARCHIVE'S OWN LIST, WHICHEVER IS STRICTER. The roster's `living` is this archive's own computation; the kit's
+   isLiving (80 years, no death recorded; 60 for a child's parent) is the estate's standard. A page is a living person's if EITHER says so, so neither can
+   make it more generous than the other. */
+const RULE = { now: new Date().getFullYear(), sources: PS, heldIds: [] };
+/* A death the roster records without a date («deceased», with a deathSource or deathRecorded) is a death RECORD to the kit; a bare «deceased» flag is
+   not, for a person born inside the window. Without these two fields a man the family has confirmed dead (Robbie, 1953) would be called living. */
+const DEATHINFO = { deathRecorded: !!(r.deathRecorded || r.deathSource), deceased: r.deceased === true };
+const LIVE = !!r.living || isLivingKit({ id: r.pid, born: r.b || (r.bEst ? `c. ${r.bEst}` : null), died: r.d || null, ...DEATHINFO }, RULE);
+
 /* A DUPLICATE KEEPS ITS URL.
  *
  * On 27 September eighteen pairs of rows were proved to be one person: each
@@ -88,7 +123,7 @@ const { r, kin, placeSeparates } = Astro.props;
 const LIVING_SENTENCE = "A living person (80 or younger, with no death recorded) is named with their relationships and their town and country, and nothing more.";
 /* How the person stands to David, who compiles this archive, in words that read after «David's». */
 const RELATION = (() => {
-  if (!r.living) return "";
+  if (!LIVE) return "";
   if (r.me) return "the compiler of this archive";
   if (!r.rel) return "";
   if (r.rel === "by marriage") return "related by marriage";
@@ -107,7 +142,7 @@ const SRC = roster.srclabel || {};
    for any record in it. A page whose years fall in two eras, or whose only year is within the margin of a change, or that prints no plain
    year, has none. NEVER on a living person's page, and not on a duplicate (a pointer to the person); the gate check:era fails a note on a
    living, held-out or noindex page. */
-const noNotes = !!r.living || !!dupOf;
+const noNotes = !!LIVE || !!dupOf;
 const plainYears = noNotes || !r.place ? [] : [r.b, r.d].filter((y) => y !== null && y !== undefined && y !== "");
 const eraNotes = plainYears.map((y) => eraAt(eraSnapshot, r.place, plainYear(String(y), Number.isInteger(y) ? y : null)));
 const sameNote = (a, b) => JSON.stringify({ ...a, year: 0 }) === JSON.stringify({ ...b, year: 0 });
@@ -160,75 +195,6 @@ const _spouseName = (g) =>
  */
 const _p = doss.persons ? doss.persons[r.pid] : null;
 const _t = _p && _p.ptree;
-const _node = (n, small) => n && ({
-  name: n.n,
-  /* a living person's page carries no year at all, not even a relative's: they are on the relative's page */
-  dates: r.living ? "" : (n.dt || ""),
-  href: n.pid ? u(`/person/${n.pid}/`) : undefined,
-  cls: n.via === "line" ? "via-line" : n.via === "read" ? "via-read" : n.via ? "via-tree" : "via-none",
-  ours: n.pid && oursOf(directLine, n.pid) ? n.pid : undefined,
-  mark: n.ambiguous
-    ? `${n.ambiguous} people of this name — not linked`
-    : (n.via === "line" ? "the direct line" : n.via === "read" ? "a register read here"
-       : n.via ? "from the tree" : "named here only"),
-  small: !!small,
-});
-const tree = _t ? {
-  self: { name: r.name,
-          dates: r.living ? "" : span === "dates unknown" ? (_t.self || {}).dt || "" : span,
-          note: r.living ? "living" : "",
-          noteCls: r.living ? "living" : "",
-          gen: _i >= 0 ? `generation ${_i + 1} of the direct line` : "" },
-  parents: (_t.parents || []).map((n) => _node(n)).filter(Boolean),
-  spouses: _t.spouse && _t.spouse !== "\u2014"
-    ? [_node(typeof _t.spouse === "string" ? { n: _t.spouse } : _t.spouse)].filter(Boolean)
-    : [],
-  children: (_t.children || []).map((c) => _node({ n: c.n, dt: c.d || "", via: "", pid: c.pid })).filter(Boolean),
-  siblings: (_t.siblings || []).map((n) => _node(n, true)).filter(Boolean),
-  /* build-dossiers records every relative its DATE GATE refused, as
-     ["dropped", father, mother, year]. The fourth cell is the year of the
-     REFUSED RECORD — a child's year, a household's first birth, a register
-     entry — and never the named person's own, so it is reported as the reason
-     and never as their dates. Three call sites, one reason: the years do not
-     fit, by more than six for a child or outside 12-60 for a parent. */
-  /* A RELATIONSHIP NOTHING TESTED IS NOT THE SAME AS ONE THAT PASSED.
-     `_fits_child` and `_fits_parent` both end with
-
-         if myY is None or cY is None:
-             t["gate"].append(["unchecked", ...]);  return True
-
-     — so when either side has no year, the date gate cannot run and the
-     relative is drawn ANYWAY, on a name match alone, inside a function whose
-     own docstring says «A name is not enough». 196 of 693 trees on this site
-     carry at least one such link; 440 in all.
-
-     They are not removed. Most of this archive's early register people have
-     no year at all, and refusing every undated relative would empty the
-     charts of exactly the centuries the archive exists to show. But a drawn
-     line with no gate behind it is a claim, and the page now says how many
-     of its lines are of that kind. Reported by the landing session, whose
-     own fix showed the refused relatives; this is the other half of the
-     same silence. */
-  untested: (_t.unchecked || []).length,
-  dropped: (() => {
-    const out = [], seen = new Set();
-    for (const g of (_t.dropped || [])) {
-      const y = String(g[3] || "").trim();
-      const why = y ? `the dates do not fit a record of ${y}` : "the dates could not be checked";
-      for (const [rel, nm] of [["father", g[1]], ["mother", g[2]]]) {
-        const name = String(nm || "").trim();
-        if (!name || name === "\u2014") continue;
-        const k = rel + "|" + name + "|" + why;
-        if (seen.has(k)) continue;
-        seen.add(k);
-        out.push({ rel, name, why });
-      }
-    }
-    return out;
-  })(),
-} : null;
-/* a relative on our direct line is tinted, and the chart then carries the legend that says so */
-if (tree) tree.oursAny = [...tree.parents, ...tree.spouses, ...tree.children, ...tree.siblings].some((x) => x && x.ours);
 /* WHAT A SEARCH ENGINE IS TOLD ABOUT THIS PERSON, AND WHY IT WAS NOTHING.
  *
  * Until 12 October 2026 every one of these 1,587 pages shipped the SAME
@@ -262,7 +228,7 @@ const DESC = (() => {
      what it keeps after the page changes. For a living person it says the
      name and nothing else — no span, no parish, no note — which is the rule
      read at its strictest and the only reading worth applying here. */
-  if (r.living) return `${r.name}. ${LIVING_SENTENCE}`;
+  if (LIVE) return `${r.name}. ${LIVING_SENTENCE}`;
   const head = [r.name, (r.b || r.d || r.bEst) ? span : null, WHERE].filter(Boolean).join(", ");
   const note = r.note
     ? String(r.note).replace(/[*_`«»\[\]]/g, "").replace(/\s+/g, " ").trim().slice(0, 95)
@@ -280,28 +246,190 @@ const DESC = (() => {
  * published as one. */
 /* and no Person record at all for a living person: schema.org Person exists to
    be harvested, and a birth place is exactly what must not be. */
-const PERSON = (dupOf || r.living) ? null : {
+const PERSON = (dupOf || LIVE) ? null : {
   name: r.name,
   birthDate: r.b ? String(r.b) : undefined,
   deathDate: r.d ? String(r.d) : undefined,
   birthPlace: WHERE || undefined,
 };
 
+/* THE STORY LAYER: the lede, the facts, the journey and the chapters, all read from the row the page already has. */
+const inRoots = !LIVE && (rootsLinks.people || []).includes(r.pid);
+const LEDE = LIVE ? "" : ledeOf(r);
+const JOURNEY = LIVE ? [] : journeyOf(r, atlasData.places, GRADE_SAY).map((s) => { const flag = eraFlag(atlasSlice, flagEras, s.name, s.year); return { ...s, flag: flag && { ...flag, href: flagUrl(flag.id) }, place: placeHref(s.name, archivePlaces, atlasSlice, u) }; });
+const WORLD = LIVE ? [] : eventsAround(r, atlasSlice, atlasEvents);
+/* the kit reads a tree row's `href`; this archive's tree rows carry `page` (and only under /person/ is it a page of this archive) */
+const TREE_BY = Object.fromEntries(treeData.people.map((x) => [x.id, { ...x, href: x.page && String(x.page).startsWith("/person/") ? x.page : "" }]));
+const evidenceOf = (row) => _evidenceOf(row, { docSrc: ["read", "register", "burial", "grave", "oesta", "paper", "gazette", "press"], treeSrc: ["myheritage"] });
+const FAM = !LIVE && !dupOf && inRoots && TREE_BY[r.pid] ? familyOf(TREE_BY, r.pid, RULE) : null;
+/* Roots & Routes omits the living, so a child or a brother or sister who may be living is missing from its data. The archive's own family record
+   (dossiers.json) names them against this person; where the tree has none, those names fill in, by name only (no dates for anyone who may be living). */
+if (FAM && _t) {
+  /* a name in the archive's own family record (dossiers.json) with one year in the kit's window and no second year is a LIVING person: a name
+     and a relationship, no dates and no link, and the story marks the node so the gate can find it */
+  const isLivingRec = (d) => { const ys = String(d || "").match(/\b\d{4}\b/g) || []; return ys.length === 1 && inWindow(+ys[0], RULE.now); };
+  const fromRecord = (list, rel) => (list || []).filter((c) => c && c.n).map((c) => { const lv = isLivingRec(c.d || c.dt);
+    return { name: c.n, rel, living: lv, dates: lv ? "" : String(c.d || c.dt || ""), place: "", href: !lv && c.pid ? `/person/${c.pid}/` : "", line: null }; });
+  if (FAM.children.length === 0) FAM.children = fromRecord(_t.children, "Child");
+  if (FAM.siblings.length === 0) FAM.siblings = fromRecord(_t.siblings, "Brother or sister");
+  if (FAM.spouses.length === 0 && _t.spouse && _t.spouse !== "\u2014") {
+    const sp = typeof _t.spouse === "string" ? { n: _t.spouse } : _t.spouse;
+    FAM.spouses = fromRecord([sp], "Married to");
+  }
+}
+const CHAPTERS = LIVE || !r.note ? [] : chaptersOf(r.note, LEDE);
+/* the family's own account of where its line began (the archive's /carnia/ page): drawn above the earliest person on the archive's own line */
+const ORIGIN = { place: "Carnia, Friuli", when: "by the family's own account, about 1700", href: "/carnia/",
+  note: "Carlo De Franceschi told it that the family came out of Carnia and settled in Istria around 1700." };
+const THREADS = FAM ? ancestryOf(TREE_BY, r.pid, { ...ORIGIN, go: "Back to Carnia →" }, RULE) : [];
+/* a person whose own page is on another family's archive (the Blažević Archive holds Hedviga's): the card goes there, not to this archive's stub */
+const elsewhere = (n) => { const o = n && n.id && otherArchives[n.id]; if (o) Object.assign(n, { href: o.href, external: true, site: o.site }); };
+if (FAM) { for (const list of [FAM.parents, FAM.grand, FAM.siblings, FAM.children, FAM.spouses]) list.forEach(elsewhere);
+  for (const t of THREADS) { elsewhere(t.parent); elsewhere(t.earliest); t.between.forEach(elsewhere); } }
+/* the mark on each card: what this archive holds for that person (from their own roster row), and, where the archive has tested the link
+   to this person, what the link rests on (family-links.json). Someone with no roster row of their own has no mark. */
+const ROW_OF = Object.fromEntries(roster.rows.filter((x) => x.pid).map((x) => [x.pid, x]));
+const LINKS = linkTable(familyLinks);
+/* THE FAMILY CHART'S ROWS, for the kit's PersonChart (a page that is not in story mode, and every living page). A row says what it knows and
+   the kit decides what may be drawn: dates are passed as born and died, never as a pre-formatted string; the source is this archive's own word
+   (line, read, index, tree, or none), which the kit folds to its seven; a living relative keeps a name and a relationship. A relative with a page
+   of their own (a pid) takes their dates from that page's roster row; one without is read from the dossier's date string. A relative this archive
+   names but has no page for goes in the «not drawn» list, with the reason, because the standard is that every person drawn has a page. */
+const MON_RX = "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec";
+const dateIn = (t) => {
+  const x = String(t || "");
+  const circa = /\b(about|c\.|before|after)\b/i.test(x) ? "c. " : "";
+  let m = x.match(new RegExp(`(\\d{1,2}) (${MON_RX})\\w* (\\d{4})`));
+  if (m && !circa) return `${m[1]} ${m[2]} ${m[3]}`;
+  m = x.match(/\b(1[5-9]\d\d|20\d\d)\b/);
+  return m ? circa + m[1] : null;
+};
+const datesOf = (dt) => {
+  const x = String(dt || "").trim();
+  if (!x) return {};
+  if (/^d\./.test(x)) return { died: dateIn(x) };
+  const parts = x.split(/\s+[–-]\s+/);
+  if (parts.length >= 2) return { born: dateIn(parts[0]), died: dateIn(parts[1]) };
+  return { born: dateIn(x) };
+};
+const relRow = (n, extra = {}) => {
+  const row = n.pid ? ROW_OF[n.pid] : null;
+  const d = row ? { born: row.b ? row.b : row.bEst ? `c. ${row.bEst}` : null, died: row.d || null,
+    deathRecorded: !!(row.deathRecorded || row.deathSource) || undefined, deceased: row.deceased === true || undefined, saidLiving: row.living === true || undefined } : datesOf(n.dt);
+  return { id: n.pid || undefined, name: n.n, href: n.pid ? u(`/person/${n.pid}/`) : undefined, ambiguous: n.ambiguous ? true : undefined,
+           source: n.via || "", line: n.via === "line" || undefined, slug: n.pid && oursOf(directLine, n.pid) ? n.pid : undefined, ...d, ...extra };
+};
+const RELATIONS = (() => {
+  if (!_t) return {};
+  const out = { parents: [], spouses: [], children: [], siblings: [], dropped: [] };
+  const put = (list, n, extra, why) => {
+    if (!n || !n.n) return;
+    if (n.pid || n.ambiguous) list.push(relRow(n, extra));
+    else out.dropped.push({ rel: why, name: n.n, why: "named in the record; this archive has no page for them yet", ...datesOf(n.dt) });
+  };
+  (_t.parents || []).forEach((n) => put(out.parents, n, {}, "parent"));
+  if (_t.spouse && _t.spouse !== "\u2014") put(out.spouses, typeof _t.spouse === "string" ? { n: _t.spouse } : _t.spouse, {}, "spouse");
+  (_t.children || []).forEach((c) => put(out.children, { n: c.n, dt: c.d || "", via: c.via || "", pid: c.pid, ambiguous: c.ambiguous }, {}, "child"));
+  (_t.siblings || []).forEach((n) => put(out.siblings, n, {}, "brother or sister"));
+  /* what build-dossiers refused: a relative whose dates do not fit, named with the reason and never with the refused record's year as theirs */
+  const seen = new Set();
+  for (const g of (_t.dropped || [])) {
+    const y = String(g[3] || "").trim();
+    const why = y ? `the dates do not fit a record of ${y}` : "the dates could not be checked";
+    for (const [rel, nm] of [["father", g[1]], ["mother", g[2]]]) {
+      const name = String(nm || "").trim();
+      if (!name || name === "\u2014") continue;
+      const k = rel + "|" + name + "|" + why;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.dropped.push({ rel, name, why });
+    }
+  }
+  return out;
+})();
+const SELF_EV = LIVE ? null : evidenceOf(r);
+const mark = (n) => { if (!n || n.unknown || !n.id) return; n.ev = evidenceOf(ROW_OF[n.id]); const l = LINKS[`${r.pid}|${n.id}`]; if (l && !l.reverse) n.link = l; };
+if (FAM) { for (const list of [FAM.parents, FAM.grand, FAM.siblings, FAM.children, FAM.spouses]) list.forEach(mark);
+  for (const t of THREADS) { mark(t.parent); mark(t.earliest); t.between.forEach(mark); } }
+const STORY = LIVE ? [] : storyOf(CHAPTERS, FAM, JOURNEY, r, THREADS, { metaRx: /roster|this list|the list|filtered|surname field|dropped|recorded him|recorded her|recorded them|direct line recorded|this archive|the archive|index entry|matched/i });
+/* what this archive cannot account for: a card at the end of the life, from the stops that rest on the family's account or on no year, plus
+   anything written for this person (data/person-notes.json) */
+const NOTES = personNotes[r.pid] || {};
+/* where a reader can write; unset until the archive has an address to give (no link is drawn without one) */
+const CONTACT = "";
+const HELP = `**Can you help?** A name for someone in a photograph, or a certificate, a register entry or a letter for any of this, is the most useful thing that could reach this page.${CONTACT ? ` [Write to the archive](${CONTACT}).` : ""}`;
+const GAPS = LIVE ? "" : gapsOf(JOURNEY, NOTES.gaps || [], inRoots ? `/person/${r.pid}/` : null, HELP);
+if (GAPS) {
+  const card = { title: "What this archive cannot account for", body: GAPS, grade: null, gap: true };
+  const life = STORY.find((x) => x.key === "life");
+  if (life) life.cards.push(card);
+  else STORY.splice(Math.max(STORY.findIndex((x) => x.key === "birth") + 1, 0), 0, { key: "life", label: "Life", when: r.b && r.d ? `${r.b} – ${r.d}` : "", cards: [card] });
+}
+/* the ledger: what is said about this person, with what each rests on, from the cards of the story and the links the archive has tested */
+const plain = (t) => String(t || "").replace(/\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/[*`_«»]/g, "").replace(/\s+/g, " ").trim();
+const firstBit = (t) => { const x = plain(t); const m = x.match(/^.{20,150}?[.!?](\s|$)/); return m ? m[0].trim() : x.slice(0, 140); };
+const LEDGER = LIVE ? [] : [
+  ...STORY.filter((x) => ["birth", "life", "death", "legacy"].includes(x.key)).flatMap((x) => x.cards.filter((c) => !c.gap)
+    .map((c) => ({ year: c.year || "", what: c.title ? plain(c.title) : firstBit(c.body), kind: c.reg ? "register" : (c.grade || "note") }))),
+  ...(FAM ? FAM.parents.filter((n) => n.link).map((n) => ({ year: "", what: `Link to ${n.name}: ${n.link.relation}`, kind: n.link.grade === "doc" ? "register" : n.link.grade, link: true })) : []),
+  ...(SRC[r.src] ? [{ year: "", what: `Listed in this archive from: ${SRC[r.src]}`, kind: r.src === "myheritage" ? "tree" : (SELF_EV && SELF_EV.tier === "doc" ? "doc" : "note") }] : []),
+].sort((a, b) => (a.year || 9999) - (b.year || 9999));
+const nRead = LEDGER.filter((x) => !x.link && (x.kind === "register" || x.kind === "doc")).length;
+const LEDGER_SUMMARY = nRead === 0
+  ? "No register entry is attached to this page. What it says rests on the family's account and on the tree, and stays marked that way."
+  : `${nRead} ${nRead === 1 ? "entry" : "entries"} here ${nRead === 1 ? "is" : "are"} read from a register or documented; the rest rests on the family's account, an inference or the tree.`;
+const TREE_SRCS = FAM && TREE_BY[r.pid] ? (TREE_BY[r.pid].srcs || []).map((x) => (typeof x === "string" ? x : x.t || x.title || JSON.stringify(x))) : null;
+/* the family's lore about this person, each claim beside the archive's own reading of it (the claims are on the page for 1948) */
+const LORE = LIVE ? [] : (NOTES.lore || []).map((n) => lore1948.claims.find((c) => c.n === n)).filter(Boolean)
+  .map((c) => ({ n: c.n, said: c.said, grade: c.grade, verdict: leadOf(c.against), settle: c.settle }));
+/* the shape of the life in one line, and the places of it for the eyebrow */
+const SHAPE = LIVE || JOURNEY.length < 2 ? "" : lifeSentence(JOURNEY, r);
+const bornStop = JOURNEY.find((x) => x.kind === "Born"), diedStop = JOURNEY.find((x) => x.kind === "Died");
+const PLACES_SPAN = bornStop && diedStop && r.b && r.d ? `${bornStop.name} ${r.b} — ${diedStop.name} ${r.d}` : "";
+const AGE = r.b && r.d ? r.d - r.b : null;
+const kinFact = (rel, n) => (n && !n.unknown ? { k: rel, v: n.name, sub: [n.dates, n.place].filter(Boolean).join(" · "), href: n.href ? (n.external ? n.href : u(n.href)) : "", external: n.external, site: n.site, ev: n.ev } : { k: rel, v: "not yet found" });
+const LEG = Object.fromEntries(roster.legend || []);
+/* the same test the band above the facts uses, so the two never disagree (a spouse who is also our ancestor counts) */
+const OURS_ENTRY = oursOf(directLine, r.pid);
+const lastStop = JOURNEY[JOURNEY.length - 1];
+/* Born and Died sit side by side: a birth printed in the last eighty years must have its death beside it, or the estate's living-years gate takes it for a living person's. */
+const FACTS = LIVE ? [] : [
+  { k: "Born", v: r.b ? String(r.b) : (r.bEst ? `c. ${r.bEst}` : "not recorded"), sub: JOURNEY[0] ? JOURNEY[0].name + (JOURNEY[0].country ? ", " + JOURNEY[0].country : "") : "", era: JOURNEY[0] && JOURNEY[0].flag && !(r.d && r.b >= 1940) ? JOURNEY[0].flag.polity : "" },
+  { k: "Died", v: r.d ? String(r.d) : "not recorded", sub: JOURNEY.length > 1 && r.d ? lastStop.name + (lastStop.country ? ", " + lastStop.country : "") : "", era: JOURNEY.length > 1 && r.d && lastStop.flag ? lastStop.flag.polity : "" },
+  ...(FAM ? [kinFact("Father", FAM.parents[0]), kinFact("Mother", FAM.parents[1])] : []),
+  ...(r.spouse ? [{ k: "Married to", v: String(_spouseName(r)).split(",")[0], sub: "" }] : []),
+  ...(AGE ? [{ k: "Lifetime", v: `${AGE} years`, sub: JOURNEY.length > 1 ? `${JOURNEY.length} places` : "" }] : []),
+  /* where this person sits in the family: on the direct line, or under which line the archive keeps them */
+  OURS_ENTRY ? { k: "In this archive", v: `On the direct line, generation ${OURS_ENTRY.generation}`, sub: r.rel ? r.rel[0].toUpperCase() + r.rel.slice(1) : "" }
+       : { k: "In this archive", v: "Not on the direct line", sub: LEG[r.line] ? `Kept under: ${LEG[r.line]}` : "" },
+  ...(SELF_EV ? [{ k: "Grade", v: SELF_EV.label, sub: "", ev: null }] : []),
+];
+
 const plateRows = allplates.rows || allplates;
-const fm = r.living ? null : fam.map[r.pid];
+const fm = LIVE ? null : fam.map[r.pid];
 const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boolean)
   .map(p => ({ id: p.id, title: p.title, caption: p.caption, holder: p.holder,
                w: p.w, h: p.h, src: u(p.src), thumb: u(p.thumb) })) : [];
+/* WHO IS LIVING IS THE KIT'S RULE AND THE ARCHIVE'S OWN LIST, WHICHEVER IS STRICTER. The roster's `living` is this archive's own computation; the kit's
+   isLiving (80 years, no death recorded) is the estate's standard. A page is a living person's if EITHER says so, so neither can make it more
+   generous than the other. A person the roster calls living but the kit would not is passed to the kit as «said living» with no birth year. */
+const KPERSON = { id: r.pid, slug: r.pid, name: r.name, born: r.living ? null : (r.b || (r.bEst ? `c. ${r.bEst}` : null)), died: r.living ? null : (r.d || null), ...DEATHINFO,
+  saidLiving: !!r.living, place: LIVE ? (r.place || "") : "", relations: RELATIONS, citations: [] };
+if (LIVE) KPERSON.saidLiving = true;
+/* STORY MODE (kit PERSON-PAGE-SPEC.md 2a): a page that tells the life. Used when there is more to tell than «no parent is named». */
+const STORYMODE = !LIVE && !dupOf && hasStory(STORY);
+/* A duplicate's name can carry a parenthesised qualifier («Angela Defranceschi (m. Ricardus Bearcco, Pola 1914)»): the heading is the
+   name and the qualifier goes in the line under it (ruling 4, 16 Oct 2026), as PersonPage does for every other page. */
+const _nq = splitQualifier(r.name);
+const HEADNAME = dupOf ? _nq.name : r.name;
 ---
-<Base noautolink title={r.living ? r.name : [r.name, (r.b || r.d || r.bEst) ? span : null,
+<Base noautolink title={LIVE ? r.name : [HEADNAME, (r.b || r.d || r.bEst) ? span : null,
               placeSeparates ? WHERE : null].filter(Boolean).join(", ")}
-      eyebrow={dupOf ? "the same person as another page" : r.living ? (RELATION || "living") : span}
-      noindex={!!r.living}
-      dek={DESC} person={PERSON}>
+      eyebrow={dupOf ? "the same person as another page" : undefined}
+      noindex={LIVE} ownHeader={!dupOf}
+      dek={LIVE ? DESC : ((dupOf && _nq.qualifier ? [_nq.qualifier + ".", SHAPE, LEDE] : [SHAPE, LEDE]).filter(Boolean).join(" ") || DESC)} person={PERSON}>
 
-{!dupOf && <OursBand directLine={directLine} slug={r.pid} storyHref="/story/" u={u} />}
-
-{dupOf && (
+{dupOf ? (
 <section class="blk">
   <p class="warn"><strong>This page and <a href={u(`/person/${dupOf.pid}/`)}>{dupOf.name}</a> are the same person.</strong></p>
   <p class="prose">
@@ -313,138 +441,67 @@ const fdata = fm ? fm.ids.map(i => plateRows.find(x => x.id === i)).filter(Boole
     an archive that moves its own addresses is not much of an archive.
   </p>
   <p class="prose"><a href={u(`/person/${dupOf.pid}/`)}>Go to {dupOf.name}</a>.</p>
+  <p class="warn pempty">No family is drawn on this page: it points to the person, where the family is.</p>
 </section>
-)}
-
-{fdata.length > 0 && (
-<section class="blk">
-  <div class="pgal" data-plates={JSON.stringify(fdata)}>
-    {fdata.map((a, i) => (
-      <button class="plate" type="button" data-i={i}>
-        <img class="shot" src={a.thumb} alt={a.title} width={a.w} height={a.h} loading="lazy" decoding="async" />
-      </button>
-    ))}
-  </div>
-  <p class="pcap">
-    <span class="lab">{fm.label || "Photographs the family holds"}</span>
-    <span set:html={_md(fm.whose)} />
-    {fm.note && <> <span set:html={_md(fm.note)} /></>}
-  </p>
-</section>
-)}
-
-{r.living && (
-<section class="blk">
-  {RELATION && <p class="lvrel"><span class="lvk">Relationship</span> {RELATION}</p>}
-  {r.place && <p class="lvrel"><span class="lvk">Town and country</span> {r.place}</p>}
-</section>
-)}
-
-{!r.living && (
-<section class="blk">
-  <div class="rec">
-    <div class="k">Name</div><div class="v">{r.name}</div><div class="w"></div>
-    <div class="k">Years</div><div class="v">{span}</div>
-    <div class="w">{r.bEst && !r.b ? "estimated from the record, not read off a register" : ""}</div>
-    {r.place && (<><div class="k">Place</div><div class="v">{r.place}<EraNote era={eraNote} /></div><div class="w"></div></>)}
-    {/* A spouse is only ever written here from a source that names the couple
-        TOGETHER. It is never inferred by matching a name against a household,
-        because that is the mechanism that gave five women called Maria
-        Defranceschi the dates of one infant's burial — see worklist 152. */}
-    {r.spouse && (<><div class="k">Spouse</div><div class="v">{r.spouse.name}</div>
-      <div class="w">{r.spouse.how || ""}</div></>)}
-    {r.line && (<><div class="k">Line</div><div class="v">{r.line}</div><div class="w"></div></>)}
-    <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
-  </div>
-  {/* «Also documented in the Blazevic archive»: one person held by two archives is two pages by design,
-      and they can disagree about what is known. The kit draws this ONLY for a pair marked CONFIRMED in
-      kit/data/cross-archive.json. It sits inside the not-living branch, because a living page is a
-      name, relationships and a place and gets no pointer. tools: scripts/check-also-in.py reads the
-      built pages. */}
-  <AlsoIn archive="defranceski" path={`/person/${r.pid}/`} />
-</section>
-)}
-
-{tree && (
-<section class="blk">
-  <h2>The family</h2>
-  <PersonTree self={tree.self} parents={tree.parents} spouses={tree.spouses}
-              children={tree.children} siblings={tree.siblings}
-              dropped={tree.dropped}
-              labels={{ parents: "The generation above" }}>
-    <Fragment slot="keys">
-      <span class="key"><i class="sw line"></i> the direct line, argued on <a href={u("/direct-line/")}>the line</a></span>
-      {tree.oursAny && <span class="key"><i class="sw is-ours"></i> {OURS_LEGEND}</span>}
-    </Fragment>
-    <Fragment slot="notes">
-      <p class="warn"><strong>This chart is the direct line and nothing else.</strong>
-      Brothers and sisters are not drawn here: this archive records kin against a
-      NAME rather than against a person, so the family on
-      <a href={u("/who/")}>a name page</a> may belong to several different people
-      of that name. Where it is drawn it is read from
-      <a href={u("/direct-line/")}>the direct line</a>, person by person.</p>
-      {tree.untested > 0 && (
-        <p class="warn"><strong>{tree.untested === 1
-          ? "One relationship on this chart was never date-tested."
-          : `${tree.untested} relationships on this chart were never date-tested.`}</strong>
-        {" "}This archive refuses a relative whose years do not fit — more than six
-        out for a child, outside twelve to sixty for a parent. Where one side has
-        no year at all that test cannot run, and the link is drawn on the name.
-        It is shown because most people in the early registers carry no year, and
-        refusing them would empty the chart of the centuries this archive exists
-        to show. <em>It is counted here because a line nothing tested is a weaker
-        claim than a line that passed, and the chart cannot tell them apart.</em></p>
-      )}
-    </Fragment>
-  </PersonTree>
-</section>
-)}
-
-{!tree && !r.living && (
-<section class="blk">
-  <h2>The family</h2>
-  <p class="dek"><strong>No family chart is drawn for this person, and that is
-  a statement about the data rather than about them.</strong> This archive records
-  kin against a <em>name</em> — the tree on <a href={u("/who/")}>a name page</a>
-  gathers everyone who shares it, so it may hold one person's dates beside
-  another's wife. Rather than hand a reader a family that might not be this
-  person's, the chart is drawn only where the relationship is recorded person by
-  person, which today means <a href={u("/direct-line/")}>the direct line</a>.</p>
-</section>
-)}
-
-{r.note && !r.living && (
-<section class="blk">
-  <h2>What the archive knows</h2>
-  <div class="prose" style="margin-top:20px" set:html={_md(r.note)}></div>
-</section>
-)}
-
-{!r.living && (
-<section class="blk">
-  <p class="cap">
-    {kin.length > 0
-      ? `${kin.length} other ${kin.length === 1 ? "person" : "people"} in this archive carry this name. They are different individuals and are not this person.`
-      : "No one else in this archive carries this name."}
-    {" "}
-    {r.who && <a href={u(r.who)}>See the name index →</a>}
-  </p>
-  {kin.length > 0 && (
-    <ul style="margin-top:14px">
-      {kin.map(k => (
-        <li><a href={u(`/person/${k.pid}/`)}>{k.name}</a>{" — "}
-          {k.living ? "living" : ([k.b || (k.bEst ? `about ${k.bEst}` : null), k.d].filter(Boolean).join(" – ") || "dates unknown")}
-          {k.place ? `, ${k.place}` : ""}</li>
+) : (
+<PersonPage person={KPERSON} lede={LIVE ? "" : [SHAPE, LEDE].filter(Boolean).join(" ")} relation={LIVE ? RELATION : ""} plainFamilyOfLiving={true}
+            peopleHref={u("/who/")} nameHref={r.who ? u(r.who) : null}
+            directLine={directLine} slug={r.pid} storyHref={u("/story/")} now={RULE.now} sources={PS} edgeLevel={true}>
+  {(FACTS.length > 0 || JOURNEY.length > 1) && <Fragment slot="glance"><PersonGlance facts={FACTS} journey={JOURNEY} gradeSay={GRADE_SAY} /></Fragment>}
+  {STORYMODE && <Fragment slot="story"><PersonStory stages={STORY} md={(x) => `<p>${_mdp(x)}</p>`} gradeSay={GRADE_SAY} u={u} /></Fragment>}
+  {r.note && !STORYMODE && CHAPTERS.length === 0 && FACTS.length === 0 && <Fragment slot="record"><div class="prose" set:html={_md(r.note)}></div></Fragment>}
+  {fdata.length > 0 && (
+  <Fragment slot="media">
+    <div class="plates"><div class="pgal" data-plates={JSON.stringify(fdata)}>
+      {fdata.map((a, i) => (
+        <button class="plate" type="button" data-i={i}>
+          <img class="shot" src={a.thumb} alt={a.title} width={a.w} height={a.h} loading="lazy" decoding="async" />
+        </button>
       ))}
-    </ul>
+    </div></div>
+    <p class="pcap">
+      <span class="lab">{fm.label || "Photographs the family holds"}</span>
+      <span set:html={_md(fm.whose)} />
+      {fm.note && <> <span set:html={_md(fm.note)} /></>}
+    </p>
+  </Fragment>
   )}
-</section>
+  {LORE.length > 0 && <Fragment slot="lore"><PersonLore claims={LORE} u={u} md={_md} dek={NOTES.loreDek || undefined} href="/1948/" hrefLabel="the page for 1948" /></Fragment>}
+  {LEDGER.length > 0 && <Fragment slot="sources"><PersonEvidence name={r.name} rows={LEDGER} summary={LEDGER_SUMMARY} treeSources={TREE_SRCS} /></Fragment>}
+  {WORLD.length > 0 && <Fragment slot="world"><PersonWorldAround events={WORLD} name={r.name.split(" ")[0]} /></Fragment>}
+  {inRoots && <Fragment slot="where"><PersonRootsViews pid={r.pid} u={u} /></Fragment>}
+  <Fragment slot="namesakes"><Namesakes kin={kin} u={u} nameIndex={r.who ? u(r.who) : ""} name={r.name} /></Fragment>
+  <PersonSection kind="more" title="The record, line by line">
+    <details class="fold fold-rec">
+      <summary>Open the record</summary>
+      <div class="rec">
+        <div class="k">Name</div><div class="v">{r.name}</div><div class="w"></div>
+        <div class="k">Years</div><div class="v">{span}</div>
+        <div class="w">{r.bEst && !r.b ? "estimated from the record, not read off a register" : ""}</div>
+        {r.place && (<><div class="k">Place</div><div class="v">{r.place}<EraNote era={eraNote} /></div><div class="w"></div></>)}
+        {r.spouse && (<><div class="k">Spouse</div><div class="v">{_spouseName(r)}</div>
+          <div class="w">{(r.spouse && r.spouse.how) || ""}</div></>)}
+        {r.line && (<><div class="k">Line</div><div class="v">{r.line}</div><div class="w"></div></>)}
+        <div class="k">Found in</div><div class="v">{SRC[r.src] || r.src || "—"}</div><div class="w"></div>
+      </div>
+    </details>
+    <AlsoIn archive="defranceski" path={`/person/${r.pid}/`} />
+  </PersonSection>
+</PersonPage>
 )}
-
-{!r.living && <Lightbox />}
+{!LIVE && !dupOf && <Lightbox />}
 </Base>
 
 <style>
+  .plates .pgal { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+  .plates .pgal .plate { display: block; width: 100%; line-height: 0; }
+  .plates .pgal .plate:first-child { grid-column: 1 / -1; }
+  .plates .pgal .plate img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .plates .pgal .plate:first-child img { aspect-ratio: 5 / 4; }
+  @media (max-width: 62rem) { .plates .pgal { grid-template-columns: repeat(3, minmax(0, 1fr)); } .plates .pgal .plate:first-child { grid-column: auto; } .plates .pgal .plate:first-child img { aspect-ratio: 4 / 5; } }
+  .fold { margin: .4rem 0 .2rem; }
+  .fold > summary { cursor: pointer; font-family: var(--sans); font-size: .95rem; color: var(--accent); width: max-content; }
+  .fold[open] > summary { margin-bottom: .8rem; }
   /* The gallery and record styles are Astro-SCOPED inside who/[slug].astro, so
      they do not reach this page. Repeated here rather than promoted to the
      estate stylesheet, which another session owns. Without them the plates

@@ -1,0 +1,60 @@
+---
+/* People in this archive who carry the same name, as cards a reader can tell apart at a glance: who, when, which way they travelled.
+   Each card is one link to that person's own page. Nothing here says they are related or the same person: the line above the cards
+   says they are not. A living person shows only the name, the word «living» and the places, as everywhere else on this site. */
+import { ledeOf } from "@daviddef/archive-kit/lib/personstory.js";
+const { kin = [], u = (p) => p, nameIndex = "", name = "this name" } = Astro.props;
+const span = (k) => k.living ? "Living" : ([k.b || (k.bEst ? `about ${k.bEst}` : null), k.d].filter(Boolean).join(" – ") || "Dates unknown");
+const route = (k) => String(k.place || "").split("→").map((s) => s.trim().split(",")[0].trim()).filter(Boolean);
+const gist = (k) => (k.living ? (k.rel ? k.rel[0].toUpperCase() + k.rel.slice(1) + "." : "") : ledeOf(k));
+---
+<div class="ns">
+  {kin.length > 0 ? (
+    <>
+      <p class="ns-why">{kin.length} other {kin.length === 1 ? "person" : "people"} in this archive {kin.length === 1 ? "is" : "are"} also called {name}. They are different individuals and are not this person.{nameIndex && <> <a href={nameIndex}>See the name index →</a></>}</p>
+      <ul class="ns-list">
+        {kin.map((k) => (
+          <li class="ns-item">
+            <a class="ns-card" href={u(`/person/${k.pid}/`)}>
+              <span class="ns-top">
+                <span class="ns-name">{k.name}</span>
+                {k.direct ? <span class="ns-chip">Direct line</span> : null}
+              </span>
+              <span class="ns-span">{span(k)}</span>
+              {route(k).length > 0 ? (
+                <span class="ns-route" aria-label="Places, in order">
+                  {route(k).map((p, i) => <>{i > 0 ? <span class="ns-arrow" aria-hidden="true">→</span> : null}<span class="ns-stop">{p}</span></>)}
+                </span>
+              ) : null}
+              {gist(k) ? <span class="ns-gist">{gist(k)}</span> : null}
+              <span class="ns-go" aria-hidden="true">Open their page →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  ) : (
+    <p class="ns-why">No one else in this archive carries this name.{nameIndex && <> <a href={nameIndex}>See the name index →</a></>}</p>
+  )}
+</div>
+
+<style>
+  .ns { margin: 0 0 2.4rem; }
+  .ns-h { margin: 0 0 .4rem; }
+  .ns-why { margin: 0 0 1rem; max-width: 46rem; color: var(--ink-2); font-family: var(--sans); font-size: .98rem; line-height: 1.55; }
+  .ns-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; }
+  .ns-item { display: flex; }
+  .ns-card { display: flex; flex-direction: column; gap: .4rem; width: 100%; padding: 1rem 1.2rem 1.1rem; border: 1px solid var(--rule); border-radius: .5rem;
+    background: var(--panel); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s; }
+  .ns-card:hover, .ns-card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+  .ns-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .ns-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem .6rem; }
+  .ns-name { font-family: var(--serif); font-size: 1.3rem; line-height: 1.2; }
+  .ns-chip { font-family: var(--sans); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .5rem; border-radius: 99rem; border: 1px solid var(--accent); color: var(--accent); }
+  .ns-span { font-family: var(--mono); font-size: 1rem; }
+  .ns-route { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .35rem; font-family: var(--sans); font-size: .92rem; }
+  .ns-stop { padding: .1rem .55rem; border-radius: 99rem; background: var(--panel-2, var(--rule)); }
+  .ns-arrow { color: var(--ink-2); }
+  .ns-gist { font-size: .98rem; line-height: 1.5; color: var(--ink-2); }
+  .ns-go { margin-top: auto; padding-top: .3rem; font-family: var(--sans); font-size: .88rem; color: var(--accent); }
+</style>
