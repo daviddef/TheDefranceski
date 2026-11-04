@@ -112,7 +112,10 @@ const thisArchive =
       <div class="dgrp"><span class="gl">{label}</span>
         {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
       </div>
-    ))}</div>
+    ))}
+      {/* the header's Search pill is hidden with the nav below 1181px; without this a phone or a tablet has no way to /search/ */}
+      <div class="dgrp"><a href={u("/search/")} class={here === u("/search/") ? "on" : ""}>Search the archive</a></div>
+    </div>
   </div>
 </header>
 
