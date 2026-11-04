@@ -1243,8 +1243,13 @@ function renderMap(){
   if(st.mgroup==='country')keys.sort((a,b)=>byKey.get(b).length-byKey.get(a).length);
   else keys.sort((a,b)=>FAMS.findIndex(f=>f.sur===a)-FAMS.findIndex(f=>f.sur===b));
   const lanes=keys.map(k=>({key:k,people:byKey.get(k),y0:0,h:0,color:st.mgroup==='line'?(cty?'var(--ink)':'var(--l'+FAMS.findIndex(f=>f.sur===k)+')'):(cty?ctyVar(k):'var(--ink)')}));
+  /* people the archive holds but the builder cannot draw: dated ones sit at their birth year in a lane of their own, undated ones fill a grid lane */
+  const UD=closeMode?[]:((TREE&&TREE.undrawn)||[]),udDated=UD.filter(u=>u.b!=null),udUndated=UD.filter(u=>u.b==null);
+  if(udDated.length)lanes.push({key:'Undrawn: no place',extra:'dated',people:udDated.map(u=>({u,by:u.b})),y0:0,h:0,color:'var(--muted)'});
+  if(udUndated.length)lanes.push({key:'Undrawn: no year',extra:'grid',people:udUndated.map(u=>({u})),y0:0,h:0,color:'var(--muted)'});
   let y=24;
   for(const L of lanes){
+    if(L.extra==='grid'){const cols=Math.max(1,Math.floor((plotW-8)/GAPX));L.people.forEach((p,i)=>{p._row=Math.floor(i/cols);p._col=i%cols;p._lane=L});L.nrows=Math.ceil(L.people.length/cols);L.y0=y;L.h=L.nrows*RH+16;y+=L.h;continue}
     L.people.sort((a,b)=>a.by-b.by);
     const ends=[];
     for(const p of L.people){
@@ -1291,6 +1296,14 @@ function renderMap(){
     }
   });
   const r=2.5+(closeMode?1.2:0)+Math.min(st.zoom,8)*.2,showNames=st.zoom>=6||(closeMode&&pool.length<=120&&st.zoom>=1.6);
+  for(const L of lanes){if(!L.extra)continue;
+    for(const p of L.people){
+      const u=p.u,x=L.extra==='grid'?ML+4+p._col*GAPX:xOf(p.by),yy=L.y0+10+p._row*RH;if(x<ML-6||x>W+6)continue;
+      let op=.8;if(cty?st.cty:st.line!==null)op=.1;if(q&&!u.name.toLowerCase().includes(q))op=Math.min(op,.12);
+      const par=u.href?S('a',{href:u.href,target:'_blank',rel:'noopener'},g):g;
+      S('title',{},S('circle',{class:'dot',cx:x,cy:yy,r:r,fill:'none',stroke:'var(--muted)','stroke-width':1.3,opacity:op},par),u.name+(u.b?' · born '+u.b:'')+(u.place?' · '+u.place:'')+' · not drawn yet: '+(u.why==='year'?'no birth year':'no place we can map'));
+    }
+  }
   for(const p of pool){
     const [x,yy]=pos(p);if(x<ML-6||x>W+6)continue;
     const inPed=ped.has(p.id),match=q&&nm(p).toLowerCase().includes(q);
@@ -1310,11 +1323,11 @@ function renderMap(){
     const cnt=Array(8).fill(0);pool.forEach(p=>cnt[p.fi]++);
     $('#maplegend').innerHTML='<span style="color:var(--muted)">Click a line to isolate it:</span>'+FAMS.map((f,i)=>'<button data-line="'+i+'" aria-pressed="'+(st.line===i)+'"><i style="background:var(--l'+i+')"></i>'+esc(f.sur)+' <em>'+cnt[i]+'</em></button>').join('');
   }
-  $('#mapnote').textContent=closeMode?"Last names down the left, birth year across, one dot per person. This shows the selected person's ancestors, descendants, siblings, aunts and uncles, and 1st and 2nd cousins, coloured by birth country. Select someone else to redraw it. Use Filters to switch to the whole tree.":"Every person as one dot: birth year across, then either family line or birth country down. Built for the whole file. Search lights people up; the focus person's ancestors and descendants stay bright. Use Filters to show only close family.";
+  $('#mapnote').textContent=closeMode?"Last names down the left, birth year across, one dot per person. This shows the selected person's ancestors, descendants, siblings, aunts and uncles, and 1st and 2nd cousins, coloured by birth country. Select someone else to redraw it. Use Filters to switch to the whole tree.":"Every person as one dot: birth year across, then either family line or birth country down. Built for the whole file. Search lights people up; the focus person's ancestors and descendants stay bright. Use Filters to show only close family. Hollow grey dots at the bottom are people the archive holds but cannot place yet (no place we can map, or no birth year); click one to open their page.";
   if(closeMode){
     const A=ancSet(fp),D=descSet(fp),sib=new Set();for(const id of [fp.father,fp.mother])if(id)P[id].kids.forEach(k=>{if(k!==fp.id)sib.add(k)});
     $('#mapsum').textContent='Close family of '+nm(fp)+': '+pool.length+' people · '+A.size+' ancestors · '+D.size+' descendants · '+sib.size+' siblings · '+(pool.length-1-A.size-D.size-sib.size)+' aunts, uncles and cousins';
-  }else $('#mapsum').textContent='Whole tree: '+pool.length+' people';
+  }else $('#mapsum').textContent='Whole tree: '+pool.length+' people'+(UD.length?' · '+UD.length+' more not placed yet':'');
   if(st.kinShow)$('#mapsum').insertAdjacentHTML('beforeend',' <button class="btn" data-clearkin="1">Clear relationship path</button>');
 }
 function zoomAt(mx,f){
