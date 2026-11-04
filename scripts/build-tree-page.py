@@ -238,6 +238,16 @@ def build(args):
         if p["id"] in recorded and p["dy"] is not None and not p["dye"] and p["by"] is not None and not (0 <= p["dy"] - p["by"] <= 110):
             conflicts.append({"pid": p["id"], "born": p["by"], "died": p["dy"]}); p["dy"], p["dye"] = min(p["by"] + 70, NOW - 1), True
     rep["life_span_conflicts"] = conflicts
+    # a child dated more than 100 years after its parent is two people on one name, whatever the years rest on (recorded or estimated):
+    # the link is dropped and listed with the dropped links, so the page never draws an edge no life could carry
+    for p in P.values():
+        for _k in list(p["kids"]):
+            if p["by"] is not None and P[_k]["by"] is not None and P[_k]["by"] - p["by"] > 100:
+                p["kids"].remove(_k)
+                for _f in ("father", "mother"):
+                    if P[_k][_f] == p["id"]: P[_k][_f] = None
+                rep["links_dropped_implausible_gap"] += 1
+                detail["dropped"].append({"child": _k, "parent": p["id"], "child_born": P[_k]["by"], "parent_born": p["by"]})
     detail["weak"] = [{"child": c, "parent": q, "grade": g} for (c, q), g in grade.items() if g == 0 and P[c]["father"] == q or g == 0 and P[c]["mother"] == q]
     for p in P.values():
         if p["dy"] is not None and p["by"] is not None and p["dy"] < p["by"]: p["dy"], p["dye"] = p["by"], True
