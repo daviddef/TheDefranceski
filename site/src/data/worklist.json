@@ -401,6 +401,51 @@
    "n": 243
   },
   {
+   "what": "Record Atlas errands: one shared module, so any archive or visitor sees who holds the book, what they need and what others were told — decide the data model and the privacy line",
+   "state": "next",
+   "owner": "David, to approve the design (then a Record Atlas session)",
+   "since": "2026-11-05",
+   "covers": [],
+   "note": "**Why this is worth doing, and where it is not.** The errands are already the same job in every archive: a gap that reading cannot close, a holder who can, a letter, a wait. They are kept in each archive's own `errands.json` (40 here, 27 unsent; the Atlas keeps four of its own), so **the same holder is written to by several archives who never learn from each other's replies**: the postal address DARI wanted on 5 November is a fact every later letter to Rijeka should already carry. The Atlas already receives research sessions and already will know who holds what (rows 283–285); the errand is the missing third thing, and it is the one that turns the catalogue from a reference into a service: a researcher at any archive, or any visitor to recordatlas.org, sees **who holds the book, what they need, in what language, what others asked, and what they answered**.\n\n**What may and may not leave an archive.** The line already drawn for the Atlas (surname strings and counts, no given name, no full date, no relationship, no identifier, nobody living) holds, and it decides the design: **the letter stays where the person is; the Atlas holds the shape of the ask.** A shape is *holder · register (place, faith, kind, years) · what is asked (does it exist, where is it, a transcript, a scan, permission to publish) · state · outcome · dates · evidence link*. The person's name, the reason and the draft stay in the archive that drafted the letter. Letters are generated **in the archive**, from a template and a holder profile pulled from the Atlas; the Atlas never holds a draft with a person in it.\n\n**Three guardrails, which are the reasons I would say yes and not just «go».** (1) **Nothing sends from the Atlas**, as today: sending is a person's decision, and a shared module must not become a way to mass-mail archives that answer by hand (DARI's office answered ours within a day, and one person reads it). (2) **Answered once, published for everyone:** the module should show «three researchers asked DARI for the Trsat 1803–1815 deaths; reply of 5 November: …» *before* it offers to draft a fourth letter, and should **bundle every open ask for one holder into one letter**; that is the load-reducing reason an archive would not mind it. (3) **Institutional contacts only**, from the holder's own page or reply; no named staff, no personal address, no scraping.\n\n**What it is not.** Not a server and not accounts: recordatlas.org is static and `my-research` is local to a browser, which is the right default for other users (their errands stay in their browser or an exported file; the Atlas's JSON is what they read). Writing back is for sessions, through a script that publishes only the published file from a fresh clone, as `publish-research-sessions.py` does. A visitor's «tell the Atlas the answer» is a later, optional, reviewed step (a form that opens a pull request), never a live database.\n\n**Order of work, one row each below.** (1) the data model and the privacy line, agreed by David; (2) the Atlas errand catalogue and the sync script, after the custody tool; (3) bundled letter packs and templates by language, with the holder's required fields as a checklist; (4) the public module on recordatlas.org, local-first; (5) outcomes written back, with turnaround and fee statistics and the skill that ties it together.",
+   "n": 286
+  },
+  {
+   "what": "Errand catalogue in the Atlas: asks as shapes (holder, register, kind of ask, state, outcome), written by sessions, read by every archive — after the custody tool",
+   "state": "blocked",
+   "owner": "Claude, in Record Atlas, after row 283",
+   "since": "2026-11-05",
+   "covers": [],
+   "note": "**Models:** `scripts/surname_variants.py` and `scripts/publish-research-sessions.py`. A new `data/errand-asks.json`, written only through `scripts/errand_asks.py` (`add`, `state`, `outcome`, `open --holder DARI`, `check`, `publish`), published from a fresh clone and touching only that file. **Migration:** this archive's 40 errands and the Atlas's own four, **shape only**: the reader of `errands.json` here sees `who`, `ref` and `ask`, and the Atlas gets the holder id, the register and the kind of ask; `why`, `draft` and `key` stay. A check refuses a given name, a full date of a person, an identifier or a living person in any field, as the name catalogues' checks do. **Dedupe by holder + register + ask**, so a second archive's identical ask joins the first instead of repeating it.",
+   "n": 287
+  },
+  {
+   "what": "Holder-bundled letter packs and templates by language, with each holder's required fields as a checklist",
+   "state": "blocked",
+   "owner": "Claude, after the errand catalogue",
+   "since": "2026-11-05",
+   "covers": [],
+   "note": "**One letter per holder, not one per gap:** `errand_asks.py pack DARI` lists every open ask for Rijeka (the Klenovica and Ledenice marriages, the Trsat deaths of 1803–1815, the originals behind every Bakar, Draga and Kraljevica volume read here) with the holder's profile: contact, language, form or email, fee, **what they need before they look** (DARI: the applicant's postal address with postcode), and the quotation of the last reply. Templates for Croatian, Italian, German, Slovenian and English; the draft is written **in the archive**, with the person's details, and checked against the holder's checklist before David sends it. Nothing sends from the Atlas.",
+   "n": 288
+  },
+  {
+   "what": "A public errands module on recordatlas.org: local-first, no accounts, reading the custody and errand catalogues",
+   "state": "blocked",
+   "owner": "Claude, in Record Atlas, after the letter packs",
+   "since": "2026-11-05",
+   "covers": [],
+   "note": "**Same pattern as `my-research`:** the visitor's errands live in their browser or in an exported file, and the page reads the Atlas's published JSON for the holder, the profile, the templates and the **answers others have had**. Before it offers a draft it says what has already been asked and answered. A «tell the Atlas the answer» button, if it comes, opens a reviewed pull request with the **shape only**; it is never a live write. The page must say plainly that the archives it names answer by hand, and link their own page first.",
+   "n": 289
+  },
+  {
+   "what": "Close the loop: outcomes written back, turnaround and fee statistics per holder, and a skill (`record-errands`) that every session runs after sending or hearing back",
+   "state": "blocked",
+   "owner": "Claude, after the module",
+   "since": "2026-11-05",
+   "covers": [],
+   "note": "**An errand is not finished until its answer is a row.** The outcome codes (*found*, *not held*, *redirected to another holder*, *fee*, *refused*, *no reply after N days*) turn a custody *lead* into *verified* (the Trsat friary's redirect to Rijeka is the first example) and a «not on film» nil into a dated answer from the holder. The Atlas shows, per holder, how many asks, how many answered and how long it took, so a researcher can choose the channel that works. The skill is the same shape as `surname-variants` and `record-custody`: read first, write with evidence, publish once, say whether it is added locally, published or live.",
+   "n": 290
+  },
+  {
    "what": "Record Atlas: a «who holds the records» catalogue — custody by parish, record kind and period, with how to ask (design agreed 5 November 2026)",
    "state": "next",
    "owner": "Claude, in a Record Atlas session; David to approve the design",
