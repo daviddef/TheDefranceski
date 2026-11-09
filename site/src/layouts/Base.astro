@@ -86,6 +86,9 @@ const thisArchive =
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href={u("/styles.css") + v("styles.css")} />
 <slot name="head" />
+{/* Google AdSense (Auto ads). Never on a page about a living person: those are noindex, and the ad
+   script would hand Google the page address, which carries the name. Privacy page says so. */}
+{!noindex && <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4156851882993001" crossorigin="anonymous"></script>}
 </head>
 <body class={bare ? "is-home" : ""}>
 <SkipLink />
