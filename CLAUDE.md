@@ -169,3 +169,9 @@ living page or a duplicate. The page prints one place and the person's years, so
 * Gates: `check:era-ground`, `check:era` (the kit's `checkera.py` on the built pages), `check:era:selftest`, all in the build and in `scripts/gate-isolated.sh`. `scripts/verify-era-independent.py --contract <context.json> --dist <dist>`
   re-derives every note from the contract and the rings with no kit code, both directions (0 wrong, 0 missing is the standard). A tool that reads built text must skip `.era-note` and `<style data-era-css>`.
 * The note's source words are long on a seeded era: `[pid].astro` lets them wrap (the kit sets `white-space:nowrap`), or a phone's page runs wider than the screen.
+
+## Given names and old place names
+
+Given-name forms (Ivan = Johann = Giovanni = Zuane = Joannes) and a place's name in the year of the record (Salisbury before 1982, Fiume before 1945) come only from the Record Atlas catalogues, as surnames do: invoke the user-level `name-variants` skill, run `given_name_variants.py terms` / `place_names.py at PLACE YEAR` before searching, `cover` before any nil, `add` (with evidence) for every new form, `publish` once at the end. Keep no table of given-name forms or old place names here. Nothing about a person goes in the catalogues; `lead` is never a finding.
+
+This site's own given-name table (`site/src/data/givennames.json`, `givennames-forms.json`, `tools/givennames.py`) was folded into the Atlas catalogue on 2026-11-04 (people stripped). It is no longer the source: add new forms to the Atlas, and the `/your-name/` page is to read `https://recordatlas.org/given-names.json`; do not hand-edit the old table or re-run `tools/givennames.py`.
