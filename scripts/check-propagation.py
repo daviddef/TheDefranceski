@@ -176,6 +176,13 @@ RULES = [
      # The correction and the log quote the old month on purpose; generated files mirror them.
      r"baptised in July 1897|baptised privately at birth and only entered",
      {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
+    # --- 11 November 2026. The Gologorica priest's death entry (M01069235, page 15) reads «ex Paroch: gallogaz», formerly parish priest of
+    # GOLOGORICA; it had been read since 6 October as «ex Parocho Gallegna[nensi]» (Gallignana = Gra\u010di\u0161\u0107) and a Gra\u010di\u0161\u0107 cure, a
+    # 1769x1782 window and a «second churchman of that parish» had been built on it. The correction, the search log, the worklist's own
+    # narrative quote the old reading on purpose; generated files mirror them.
+    ("the Gologorica priest called «ex Parocho Gallegna[nensi]» / formerly parish priest of Gallignana-Gra\u010di\u0161\u0107 (11 Nov 2026: the word reads «gallogaz», Gologorica itself)",
+     r"GALLEGNA|Gallegna\[|ex Parocho Gallign|Gallegnanensi|formerly parish priest of (?:GALLIGNANA|Gallignana)|Gallignana window|second churchman of that parish|HELD THE CURE OF GRA|He was parish priest of Gra\u010di\u0161\u0107|had been parish priest of Gra\u010di\u0161\u0107|Gra\u010di\u0161\u0107's former",
+     {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
