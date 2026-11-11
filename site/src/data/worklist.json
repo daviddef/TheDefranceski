@@ -2834,6 +2834,15 @@
    "since": "2026-11-11",
    "covers": [],
    "note": "**11 November 2026: read** by two readers at full size: the name in about forty godparent cells from 1605 («di Franceschi»), a second child in 1627, no Jacobus, Andreas or Gaspar, no baptism of the sons, no Port/Hort; the 1628 «only sighting» is corrected. The book is filed by the child's initial; pages with no recoverable text are named in the search log. To do: the baptism book of 1647–62 (not on the film: the Pazin state archive); the Cargna by-name (a Carnian origin?) against the Carnia page."
+  },
+  {
+   "n": 320,
+   "what": "RECORD ATLAS — publish the 39 FamilySearch collection rows of the 15 Sept 2026 walk (requested by the Atlas coordinator)",
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-11-12",
+   "covers": [],
+   "note": "**12 November 2026: recorded, not published.** The 44 verdicts of /collections-walk/ existed only on that page; the five already marked at the Atlas (2040054, 1939238, 1985107, 5000002, 1452460) were left alone and the other **39** were added to `searched.json` as one row each (`collection` = the FamilySearch collection address, ids taken from collections-walk.json, none invented): 37 «nil» (the browse tree read for Croatian places, the surname Defranceschi counted inside; no `pages`, not `walked`) and 2 «found» (Delnice Deanery 1875189 and Pola and Trieste 2152685, which hold Croatian places already on the map). The ten collections of elsewhere.json are all among the 44; none needed a row of its own. **To do:** run `publish-research-sessions.py` (it asks David's go-ahead first); until it has printed «published», say these marks are recorded here only."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
