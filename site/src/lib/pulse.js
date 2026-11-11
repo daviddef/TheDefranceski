@@ -13,6 +13,11 @@ import worklist from "../data/worklist.json";
 import roster from "../data/roster.json";
 import sources from "../data/sources.json";
 
+/* the card kinds of the timeline (Record Atlas's vocabulary): a day's searches fold into ONE research card, each correction is its own */
+export const CARD = {
+  research: { label: "Research", glyph: "⚑", note: "registers and sources read that day, with what each gave" },
+  corrected: { label: "Corrected", glyph: "✓", note: "an earlier claim was withdrawn or fixed" },
+};
 export const KIND = {
   found: { label: "Found", glyph: "✦", note: "a register or source gave something" },
   corrected: { label: "Corrected", glyph: "✓", note: "an earlier claim was withdrawn or fixed" },
@@ -58,16 +63,40 @@ const entries = [];
     src: clip(r.src, 110),
     href: ev ? ev[0] : "/searched/",
     walked: r.walked === true,
+    place: typeof r.dest === "string" && r.dest.length <= 32 && !/[·;]/.test(r.dest) ? r.dest.trim() : "",
+    pages: typeof r.pages === "string" && r.pages.length <= 24 ? r.pages.trim() : "",
   });
 });
 (corrections.rows || corrections || []).forEach((r, i) => {
   const w = parseWhen(r.when);
   if (!w || !r.what) return;
-  entries.push({ iso: w.iso, exact: w.exact, kind: "corrected", order: 100000 + i, head: clip(r.what, 160), more: "", src: "", href: "/corrections/", walked: false });
+  entries.push({ iso: w.iso, exact: w.exact, kind: "corrected", order: 100000 + i, head: clip(r.what, 160), more: "", src: "", href: "/corrections/", walked: false, place: "", pages: "" });
 });
 /* newest first; within a day, the later row of the log first */
 entries.sort((a, b) => (a.iso < b.iso ? 1 : a.iso > b.iso ? -1 : b.order - a.order));
 
+/* THE DAYS: entries of one day (month-only entries share their month), the corrections as cards of their own and the day's searches folded into one */
+const days = [];
+for (const e of entries) {
+  const key = e.exact ? e.iso : e.iso.slice(0, 7);
+  let d = days[days.length - 1];
+  if (!d || d.key !== key) days.push((d = { key, iso: e.iso, exact: e.exact, corrections: [], research: [] }));
+  (e.kind === "corrected" ? d.corrections : d.research).push(e);
+}
+const listOf = (a, max) => (a.length <= 1 ? a.join("") : a.length <= max ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a.slice(0, max).join(", ") + " and " + (a.length - max) + " more");
+for (const d of days) {
+  const r = d.research;
+  d.found = r.filter((e) => e.kind === "found").length;
+  const places = [...new Set(r.map((e) => e.place).filter(Boolean))];
+  d.summary = r.length ? `Research: ${r.length} ${r.length === 1 ? "search" : "searches"}${places.length ? " at " + listOf(places, 3) : ""}` : "";
+  d.tally = r.length ? ` · ${d.found} of ${r.length} found something` : "";
+}
+/* the flat list of cards, newest first, as the header panel shows it */
+export const cards = [];
+for (const d of days) {
+  for (const c of d.corrections) cards.push({ type: "corrected", iso: d.iso, exact: d.exact, head: c.head, href: c.href });
+  if (d.research.length) cards.push({ type: "research", iso: d.iso, exact: d.exact, head: d.summary + d.tally, href: "/whats-new/#d" + d.key });
+}
 const latest = entries.length ? entries[0].iso : "";
 const weekFrom = latest ? new Date(Date.parse(latest + "T00:00:00Z") - 6 * 864e5).toISOString().slice(0, 10) : "";
 const week = {};
@@ -78,7 +107,7 @@ for (const k of Object.keys(KIND)) total[k] = entries.filter((e) => e.kind === k
 
 const wl = worklist.rows || [];
 export const pulse = {
-  entries, latest, weekFrom, week, total,
+  entries, days, cards, latest, weekFrom, week, total,
   counts: {
     people: (roster.rows || []).length,
     logged: (searched.rows || []).length,

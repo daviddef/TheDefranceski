@@ -11,6 +11,7 @@ import SocialHead from "@daviddef/archive-kit/components/SocialHead.astro";
 import JsonLd from "@daviddef/archive-kit/components/JsonLd.astro";
 import VisitCount from "@daviddef/archive-kit/components/VisitCount.astro";
 import PulseRibbon from "../components/PulseRibbon.astro";
+import SearchPop from "../components/SearchPop.astro";
 import BookHead from "@daviddef/archive-kit/components/BookHead.astro";
 import BookFoot from "@daviddef/archive-kit/components/BookFoot.astro";
 import book from "../data/book.json";
@@ -109,7 +110,6 @@ const thisArchive =
         </details>
       ))}
       <PulseRibbon />
-      <a class="findbtn" href={u("/search/")} aria-label="Search">Search</a>
     </nav>
   </div>
   <div class="drawer" id="drawer" hidden>
@@ -119,10 +119,11 @@ const thisArchive =
       </div>
     ))}
       {/* the header's Search pill is hidden with the nav below 1181px; without this a phone or a tablet has no way to /search/ */}
-      <div class="dgrp"><a href={u("/search/")} class={here === u("/search/") ? "on" : ""}>Search the archive</a></div>
+      <div class="dgrp"><a href={u("/search/")} data-search-open class={here === u("/search/") ? "on" : ""}>Search the archive</a></div>
     </div>
   </div>
 </header>
+<SearchPop />
 
 {/* THE BOOK (17 October 2026): the running head sits below the site header, Previous / Next above the footer. Both read
     the page's own path against src/data/book.json; no page passes anything. */}
@@ -164,6 +165,8 @@ const thisArchive =
      Ignored while the caret is in a field, so it never eats a typed slash. */
   document.addEventListener("keydown", (e) => {
     if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
+    /* the instant search (components/SearchPop.astro) answers "/" itself; this stays as the fallback to the /search/ page */
+    if (document.getElementById("sdlg")) return;
     const t = e.target;
     if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
     e.preventDefault();
