@@ -1,0 +1,155 @@
+---
+/* WHAT'S NEW (prototype, 11 November 2026). Every finding, nil and correction of the archive, newest first, from the same logs that
+   /searched/ and /corrections/ print: nothing is written here by hand, and a line that is logged and told appears by the next build.
+   Computed in src/lib/pulse.js. The newest 150 are on the page; the rest are folded under «Earlier». The kind chips and the text box
+   filter in the browser (a reader with scripts off still has the whole list). */
+import Base from "../layouts/Base.astro";
+import { u } from "../lib/url.js";
+import { pulse, KIND, fmtDay, nf, tiles } from "../lib/pulse.js";
+const SHOWN = 150;
+const kinds = Object.keys(KIND);
+const group = (list) => {
+  const days = [];
+  for (const e of list) {
+    const key = e.exact ? e.iso : e.iso.slice(0, 7);
+    const last = days[days.length - 1];
+    if (last && last.key === key) last.items.push(e);
+    else days.push({ key, label: fmtDay(e.iso, e.exact), exact: e.exact, items: [e] });
+  }
+  return days;
+};
+const recent = group(pulse.entries.slice(0, SHOWN));
+const earlier = group(pulse.entries.slice(SHOWN));
+const c = pulse.counts;
+---
+<Base
+  title="What's new"
+  eyebrow="Fresh from the workbench"
+  dek={`The finds, the nils and the corrections of this archive, newest first, from the same logs as [What Has Been Read](/searched/) and [Corrections](/corrections/). The latest entry is ${fmtDay(pulse.latest)}.`}
+  description="What is new in the Defranceschi Archive: recent finds, searches that found nothing, and corrections, newest first, with the archive in numbers."
+  noautolink>
+
+  <section class="blk" id="numbers" aria-label="The archive in numbers">
+    <div class="wn-tiles">
+      {tiles().map(([n, l, d]) => <div><b>{n}</b><span>{l}</span><em>{d}</em></div>)}
+    </div>
+    <p class="wn-week">In the seven days to {fmtDay(pulse.latest)}: <b>{pulse.week.found}</b> found, <b>{pulse.week.nil}</b> searched with nothing, <b>{pulse.week.corrected}</b> corrected.</p>
+  </section>
+
+  <section class="blk wn" aria-label="Updates">
+    <div class="wn-bar">
+      <div class="wn-chips" role="group" aria-label="Filter by kind">
+        <button type="button" class="wn-chip on" data-k="all">All <i>{nf(pulse.entries.length)}</i></button>
+        {kinds.filter((k) => pulse.total[k] > 0).map((k) => (
+          <button type="button" class={`wn-chip k-${k}`} data-k={k} title={KIND[k].note}><span aria-hidden="true">{KIND[k].glyph}</span> {KIND[k].label} <i>{nf(pulse.total[k])}</i></button>
+        ))}
+      </div>
+      <label class="wn-find"><span class="sr-only">Filter the list by a word</span><input type="search" id="wn-q" placeholder="Filter by a word" autocomplete="off" /></label>
+    </div>
+    <p class="wn-count" id="wn-count" aria-live="polite"></p>
+
+    <ol class="wn-line" id="wn-list">
+      {recent.map((d) => (
+        <li class="wn-day"><h2 class="wn-when"><time datetime={d.key}>{d.label}</time></h2>
+          <ul class="wn-items">
+            {d.items.map((e) => (
+              <li class="wn-item" data-kind={e.kind} data-q={(e.head + " " + e.more + " " + e.src).toLowerCase()}>
+                <span class={`wn-k k-${e.kind}`} title={KIND[e.kind].note}><i aria-hidden="true">{KIND[e.kind].glyph}</i> {KIND[e.kind].label}</span>
+                <div class="wn-b">
+                  <a class="wn-h" href={u(e.href)}>{e.head}</a>{e.walked && <span class="wn-w" title="every entry of the book was read">walked</span>}
+                  {e.more && <p class="wn-m">{e.more}</p>}
+                  {e.src && <p class="wn-s">{e.src}</p>}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ol>
+
+    {earlier.length > 0 && (
+      <details class="wn-older" id="wn-older">
+        <summary>Earlier: {nf(pulse.entries.length - SHOWN)} more, back to {fmtDay(pulse.entries[pulse.entries.length - 1].iso, pulse.entries[pulse.entries.length - 1].exact)}</summary>
+        <ol class="wn-line" id="wn-list2">
+          {earlier.map((d) => (
+            <li class="wn-day"><h2 class="wn-when"><time datetime={d.key}>{d.label}</time></h2>
+              <ul class="wn-items">
+                {d.items.map((e) => (
+                  <li class="wn-item" data-kind={e.kind} data-q={(e.head + " " + e.more + " " + e.src).toLowerCase()}>
+                    <span class={`wn-k k-${e.kind}`} title={KIND[e.kind].note}><i aria-hidden="true">{KIND[e.kind].glyph}</i> {KIND[e.kind].label}</span>
+                    <div class="wn-b">
+                      <a class="wn-h" href={u(e.href)}>{e.head}</a>{e.walked && <span class="wn-w" title="every entry of the book was read">walked</span>}
+                      {e.more && <p class="wn-m">{e.more}</p>}
+                      {e.src && <p class="wn-s">{e.src}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </details>
+    )}
+    <p class="wn-foot">Entries marked <b>Found</b>, <b>Nothing found</b>, <b>Partly</b> and <b>Blocked</b> are rows of the search log; <b>Corrected</b> are rows of the corrections list. {nf(pulse.entries.length)} of {nf(c.logged + c.corrections)} rows carry a date the page can read; the rest are listed in the logs themselves.</p>
+  </section>
+</Base>
+
+<style is:global>
+  .wn-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 12px}
+  .wn-tiles div{border:1px solid var(--rule);border-radius:4px;background:var(--panel);padding:12px 14px}
+  .wn-tiles b{display:block;font-family:var(--serif,Georgia,serif);font-size:28px;line-height:1.05;color:var(--ink);font-weight:600}
+  .wn-tiles span{display:block;margin-top:4px;font-family:var(--sans);font-size:13px;color:var(--ink);line-height:1.35}
+  .wn-tiles em{display:block;font-style:normal;font-family:var(--sans);font-size:12px;color:var(--ink-3,#777);line-height:1.35;margin-top:1px}
+  .wn-week{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);margin:0}
+  .wn-bar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .wn-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .wn-chip{font-family:var(--sans);font-size:12.5px;padding:6px 12px;border-radius:99px;border:1px solid var(--rule);background:var(--panel);color:var(--ink-2);cursor:pointer}
+  .wn-chip i{font-style:normal;opacity:.65;margin-left:3px}
+  .wn-chip:hover{border-color:var(--accent);color:var(--accent)}
+  .wn-chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .wn-find input{font-family:var(--sans);font-size:13.5px;padding:8px 12px;width:min(380px,100%);border:1px solid var(--rule);border-radius:4px;background:var(--panel);color:var(--ink)}
+  .wn-count{font-family:var(--sans);font-size:12.5px;color:var(--ink-3,#777);margin:2px 0 14px;min-height:1.2em}
+  .wn-line{list-style:none;margin:0;padding:0}
+  .wn-day{display:grid;grid-template-columns:118px 1fr;gap:6px 22px;padding:14px 0;border-top:1px solid var(--rule)}
+  .wn-day .wn-when{margin:0;padding:0;font-family:var(--sans);font-size:13px;line-height:1.35;font-weight:600;letter-spacing:.02em;text-transform:none;color:var(--ink);align-self:start;position:sticky;top:70px}
+  .wn-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .wn-item{display:grid;grid-template-columns:104px 1fr;gap:0 12px;align-items:baseline}
+  .wn-item[hidden],.wn-day[hidden]{display:none}
+  .wn-b{min-width:0}
+  .wn-k{display:inline-block;justify-self:start;font-family:var(--sans);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--panel-2);color:var(--ink-2);white-space:nowrap}
+  .wn-k.k-found{background:var(--accent-wash);color:var(--accent)}
+  .wn-k.k-corrected{background:#f6ead9;color:#8a5a12}
+  .wn-h{font-family:var(--sans);font-size:14.5px;font-weight:500;color:var(--ink);text-decoration:none;line-height:1.4}
+  .wn-h:hover{color:var(--accent);text-decoration:underline}
+  .wn-w{font-family:var(--sans);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;margin-left:8px;color:var(--ink-3,#777);border:1px solid var(--rule);border-radius:3px;padding:1px 5px}
+  .wn-m{margin:4px 0 0;font-size:14px;line-height:1.5;color:var(--ink-2)}
+  .wn-s{margin:3px 0 0;font-family:var(--sans);font-size:12px;color:var(--ink-3,#777)}
+  .wn-older{margin-top:8px;border-top:1px solid var(--rule)}
+  .wn-older>summary{cursor:pointer;padding:14px 0;font-family:var(--sans);font-size:13.5px;color:var(--accent);font-weight:600}
+  .wn-foot{font-family:var(--sans);font-size:12.5px;color:var(--ink-3,#777);margin-top:18px}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  @media (max-width:640px){.wn-day{grid-template-columns:1fr}.wn-day .wn-when{position:static}.wn-item{grid-template-columns:1fr;gap:4px}}
+  @media (prefers-color-scheme:dark){.wn-k.k-corrected{background:#3a2c14;color:#e6bd7c}}
+</style>
+<script is:inline>
+  (function(){
+    var items=[].slice.call(document.querySelectorAll(".wn-item")), days=[].slice.call(document.querySelectorAll(".wn-day"));
+    var chips=[].slice.call(document.querySelectorAll(".wn-chip")), q=document.getElementById("wn-q"), out=document.getElementById("wn-count"), older=document.getElementById("wn-older");
+    var kind="all";
+    function run(){
+      var w=(q.value||"").trim().toLowerCase(), n=0;
+      items.forEach(function(li){
+        var ok=(kind==="all"||li.getAttribute("data-kind")===kind)&&(!w||li.getAttribute("data-q").indexOf(w)>-1);
+        li.hidden=!ok; if(ok)n++;
+      });
+      days.forEach(function(d){d.hidden=!d.querySelector(".wn-item:not([hidden])")});
+      var active=kind!=="all"||w;
+      if(older&&active)older.open=true;
+      out.textContent=active?(n+" of "+items.length+" entries"):"";
+    }
+    chips.forEach(function(b){b.addEventListener("click",function(){
+      kind=b.getAttribute("data-k"); chips.forEach(function(x){x.classList.toggle("on",x===b)}); run();
+    })});
+    if(q)q.addEventListener("input",run);
+  })();
+</script>
