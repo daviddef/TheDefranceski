@@ -183,6 +183,12 @@ RULES = [
     ("the Gologorica priest called «ex Parocho Gallegna[nensi]» / formerly parish priest of Gallignana-Gra\u010di\u0161\u0107 (11 Nov 2026: the word reads «gallogaz», Gologorica itself)",
      r"GALLEGNA|Gallegna\[|ex Parocho Gallign|Gallegnanensi|formerly parish priest of (?:GALLIGNANA|Gallignana)|Gallignana window|second churchman of that parish|HELD THE CURE OF GRA|He was parish priest of Gra\u010di\u0161\u0107|had been parish priest of Gra\u010di\u0161\u0107|Gra\u010di\u0161\u0107's former",
      {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
+    # --- 11 November 2026. The Svetvinčenat baptism book 1589-1646 was told as holding ONE record of the name (1628) because it had been checked
+    # through its index, which carries children and not godparents; read page by page it holds the name in some forty godparent cells from 1605.
+    # The correction, the search log and the worklist quote the old claim on purpose; generated files mirror them.
+    ("Svetvin\u010denat 1628 told as the only sighting in the 1589-1646 book, or second in Istria only to the Rovinj burial of 1619 (11 Nov 2026: godparent cells from 1605)",
+     r"second in Istria only to the Rovinj burial of 1619|\*\*And it is the only one\.\*\* The 1589|So 1628 is a first sighting, not the top of a run|holds \*\*one\*\* De Franceschi record in fifty-seven years|until the Svetvin\u010denat baptism of 1628 was found",
+     {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
