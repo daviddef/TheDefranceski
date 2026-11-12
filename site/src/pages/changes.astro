@@ -6,10 +6,13 @@ import { u } from "../lib/url.js";
 import { linkParts } from "../lib/exists.js";
 import c from "../data/changes.json";
 import { mdHtml } from "../lib/md.js";
+/* the archive's one outcome vocabulary (scripts/vocab.py): found / partial / nil / blocked / pending, plus correction; "build", "fix"
+   and "note" are the hand-written entries about the site (changes-built.json). The old words stay understood, never dropped. */
 const K = {
-  hit: ["Found", "k-hit"], yield: ["Yield", "k-hit"], correction: ["Correction", "k-corr"],
-  nothing: ["Nothing", "k-none"], blocked: ["Blocked", "k-none"], pending: ["Pending", "k-none"],
-  partial: ["Partial", "k-part"], mixed: ["Mixed", "k-part"], miss: ["Miss", "k-none"], search: ["Search", "k-part"],
+  found: ["Found", "k-hit"], partial: ["Partial", "k-part"], nil: ["Nothing", "k-none"], blocked: ["Blocked", "k-none"],
+  pending: ["Pending", "k-none"], correction: ["Correction", "k-corr"], build: ["Built", "k-part"], fix: ["Fixed", "k-part"], note: ["Note", "k-part"],
+  hit: ["Found", "k-hit"], yield: ["Found", "k-hit"], nothing: ["Nothing", "k-none"], miss: ["Nothing", "k-none"], mixed: ["Partial", "k-part"],
+  search: ["Search", "k-part"],
 };
 ---
 <Base title={c.title} eyebrow={c.eyebrow} dek={c.dek}>

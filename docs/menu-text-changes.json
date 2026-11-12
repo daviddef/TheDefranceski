@@ -1,0 +1,57 @@
+{
+ "note": "What the research-menu trial (12 November 2026) changed ON PURPOSE, so that menu-inventory.py compare does not call it a loss. Everything else must be found, word for word, somewhere on the new site.",
+ "token_swaps": [
+  {
+   "pages": [
+    "/searched/"
+   ],
+   "old": "yielded",
+   "new": "found",
+   "why": "outcome chip of a Search Register row: the eleven outcome words are one set now (found / nil / partial / blocked / pending); the page says Found where it said Yielded"
+  },
+  {
+   "pages": [
+    "/searched/"
+   ],
+   "old": "other",
+   "new": "nothing",
+   "why": "78 rows carried the outcome «nil», which the page did not map, so it printed them as Other; they now read Nothing, like the 163 that were written «nothing»"
+  }
+ ],
+ "accepted": [
+  {
+   "pages": [
+    "/searched/"
+   ],
+   "starts": "any yielded (",
+   "why": "the page's own outcome filter: its options and their counts follow from the two changes above"
+  },
+  {
+   "pages": [
+    "/searched/"
+   ],
+   "starts": "915 sources.",
+   "why": "the kit's count of searches that returned nothing: it was always 0, because the page passed lower-case outcome words and the rows carry capitalised labels; it now counts"
+  },
+  {
+   "pages": [
+    "/corrections/"
+   ],
+   "starts": "271 entries",
+   "why": "the page's eyebrow counts the serious degree: 77 before, 113 after, because the 36 rows written «major» are Serious now"
+  },
+  {
+   "pages": [
+    "/corrections/"
+   ],
+   "starts": "show all 271",
+   "why": "the page's severity filter lists its options and their counts: twelve words before, five now"
+  }
+ ],
+ "snapshot_pages": {
+  "/changes/": {
+   "file": "docs/changes-snapshot-before.json",
+   "why": "The page was a snapshot of 20 September (newest day 6 October) and is regenerated from the logs by scripts/build-changes.py; an entry whose log row has been reworded since shows the current wording."
+  }
+ }
+}

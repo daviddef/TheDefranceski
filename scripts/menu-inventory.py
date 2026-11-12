@@ -30,6 +30,7 @@ FLUSH_TAGS = {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6", "summary", "figcapt
               "div", "section", "article", "details", "ul", "ol", "dl", "table", "thead", "tbody", "form", "br", "hr", "aside"}
 COUNT_TAGS = {"p", "li", "tr", "h2", "h3", "section", "table", "details", "img", "a"}
 SKIP_TAGS = {"script", "style", "noscript", "svg", "head", "nav", "header", "footer"}
+ROW = "¦"   # marks a block that is a table row
 VOID = {"br", "hr", "img", "input", "meta", "link"}
 
 
@@ -38,6 +39,7 @@ class Reader(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.skip = 0
         self.tr = 0
+        self.in_row = False
         self.buf = []
         self.blocks = []
         self.links = []
@@ -47,7 +49,7 @@ class Reader(HTMLParser):
         txt = " ".join("".join(self.buf).split())
         self.buf = []
         if txt:
-            self.blocks.append(txt)
+            self.blocks.append((ROW + txt) if self.in_row else txt)
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -63,6 +65,7 @@ class Reader(HTMLParser):
         if tag == "tr":
             self.flush()
             self.tr += 1
+            self.in_row = True
         elif tag in FLUSH_TAGS and not self.tr:
             self.flush()
         elif tag in ("td", "th") and self.tr:
@@ -81,6 +84,7 @@ class Reader(HTMLParser):
             self.tr = max(0, self.tr - 1)
             if not self.tr:
                 self.flush()
+                self.in_row = False
         elif tag in FLUSH_TAGS and not self.tr:
             self.flush()
 
@@ -177,22 +181,30 @@ def resolve(dist, url, hops=0):
     return True, url, "page"
 
 
-def load_subs():
-    """docs/menu-text-changes.json: [[old, new], ...] words that were changed ON PURPOSE (a vocabulary tidied). Applied to the old
-    text before it is looked for, and printed, so a relabelling is never mistaken for a loss and never hidden either."""
+def load_changes():
+    """docs/menu-text-changes.json: what was changed ON PURPOSE, so it is never mistaken for a loss and never hidden either.
+      token_swaps   one word of a block changed for another (a vocabulary tidied): the old block counts as kept if a new block on the
+                    same page-family has the same words but for exactly that word. Only for the pages named.
+      accepted      a block whose wording changed in a way a swap cannot describe: matched by its start, with the reason.
+    Both are printed with their counts."""
     f = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs", "menu-text-changes.json")
     if not os.path.exists(f):
-        return []
-    return [(norm(a), norm(b)) for a, b in json.load(open(f, encoding="utf-8"))["substitutions"]]
+        return [], [], {}
+    d = json.load(open(f, encoding="utf-8"))
+    return d.get("token_swaps", []), d.get("accepted", []), d.get("snapshot_pages", {})
 
 
 def compare(before, dist):
     inv = json.load(open(before, encoding="utf-8"))
     where = all_blocks(dist)
-    subs = load_subs()
-    if subs:
-        print("intentional wording changes applied to the old text:", ", ".join("%r -> %r" % s for s in subs), "\n")
+    swaps, accepted, snaps = load_changes()
     big = None
+    heads = {}
+    for blk, w in where.items():
+        t = blk.split()
+        heads.setdefault((len(t), tuple(t[:6])), []).append((blk, w))
+    used = {i: 0 for i in range(len(swaps))}
+    used_acc = {i: 0 for i in range(len(accepted))}
 
     def contained(b):
         """an old block that now stands inside a longer one (a row that gained a link) is kept"""
@@ -201,21 +213,79 @@ def compare(before, dist):
             big = "\n".join(where)
         return b in big
 
-    def subst(b):
-        for a, c in subs:
-            b = re.sub(r"\b%s\b" % re.escape(a), c, b)
-        return b
+    def swapped(b, url):
+        """the same block but for one swapped word -> where it stands, or None"""
+        t = b.split()
+        for blk, w in heads.get((len(t), tuple(t[:6])), []):
+            u = blk.split()
+            diff = [(x, y) for x, y in zip(t, u) if x != y]
+            if len(diff) == 1:
+                for i, sw in enumerate(swaps):
+                    if url in sw["pages"] and norm(sw["old"]) == diff[0][0] and norm(sw["new"]) == diff[0][1]:
+                        used[i] += 1
+                        return w
+        # the swapped word may be among the first six: try the other direction of indexing
+        for i, sw in enumerate(swaps):
+            if url in sw["pages"] and norm(sw["old"]) in t:
+                k = t.index(norm(sw["old"]))
+                while True:
+                    u = t[:k] + [norm(sw["new"])] + t[k + 1:]
+                    cand = " ".join(u)
+                    if cand in where:
+                        used[i] += 1
+                        return where[cand]
+                    try:
+                        k = t.index(norm(sw["old"]), k + 1)
+                    except ValueError:
+                        break
+        return None
+
+    def accepted_by(b, url):
+        for i, a in enumerate(accepted):
+            if url in a["pages"] and b.lstrip(ROW).startswith(norm(a["starts"])):
+                used_acc[i] += 1
+                return True
+        return False
+
+    def tok(b):
+        return set(re.findall(r"\w+", b))
+
+    new_tok = {}
+
+    def near(b, url):
+        """best token overlap (Jaccard) between an old block and any block now standing on the same page"""
+        blocks = new_tok.get(url)
+        if blocks is None:
+            f = page_file(dist, url)
+            blocks = new_tok[url] = [tok(x) for x in read_page(f)["blocks"]] if f else []
+        t = tok(b)
+        return max((len(t & u) / len(t | u) for u in blocks if u), default=0)
+
+    reworded = {}
     bad = 0
     print("%-20s %-12s %7s %7s  %s" % ("old URL", "answers", "blocks", "kept", "where the rest went / what is lost"))
     for url, p in inv["scope"].items():
         if p is None:
             continue
         ok, fin, kind = resolve(dist, url)
-        lost = [b for b in p["blocks"] if subst(b) not in where and not contained(subst(b))]
+        lost = []
         moved = {}
         for b in p["blocks"]:
-            w = where.get(subst(b))
-            if w and w != url:
+            w = where.get(b)
+            if w is None:
+                w = swapped(b, url)
+            if w is None and (contained(b) or accepted_by(b, url)):
+                w = url
+            if w is None and url in snaps:
+                sim = near(b, url)
+                if sim >= 0.8:
+                    w = url          # the same entry; only the kind chip or a word of it differs
+                else:
+                    reworded.setdefault(url, []).append((sim, b))
+                    w = url
+            if w is None:
+                lost.append(b)
+            elif w != url:
                 moved[w] = moved.get(w, 0) + 1
         status = ("%s->%s" % (kind, fin)) if ok else "MISSING"
         print("%-20s %-12s %7d %7d  %s" % (url, status[:12], len(p["blocks"]), len(p["blocks"]) - len(lost),
@@ -225,6 +295,17 @@ def compare(before, dist):
         for b in lost:
             bad += 1
             print("    LOST on %s: %s" % (url, b[:150]))
+    print()
+    for url, lst in reworded.items():
+        print("REWORDED SINCE THE SNAPSHOT on %s: %d entr%s of the old page copy a log row (or a hand entry) whose wording has since been changed in the log itself;"
+              % (url, len(lst), "y" if len(lst) == 1 else "ies"))
+        print("    the old page, whole, is kept in %s. %s" % (snaps[url]["file"], snaps[url]["why"]))
+        for sim, b in sorted(lst)[:40]:
+            print("      %.2f  %s" % (sim, b[:130]))
+    for i, sw in enumerate(swaps):
+        print("intentional: %d block(s) on %s had %r changed to %r  (%s)" % (used[i], ", ".join(sw["pages"]), sw["old"], sw["new"], sw["why"]))
+    for i, a in enumerate(accepted):
+        print("intentional: %d block(s) on %s starting %r reworded  (%s)" % (used_acc[i], ", ".join(a["pages"]), a["starts"][:50], a["why"]))
     print("\n%s" % ("NOTHING LOST" if not bad else "%d problem(s)" % bad))
     return 1 if bad else 0
 
