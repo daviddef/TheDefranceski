@@ -1,20 +1,72 @@
 {
- "note": "PR A, the menu regroup (12 November 2026): what was changed ON PURPOSE, read by scripts/menu-inventory-kit.py. The research-trial's declarations are kept in docs/menu-text-changes-research-trial.json.",
- "token_swaps": [],
- "accepted": [],
- "snapshot_pages": {},
- "site_changes": [
-  {
-   "page": "/research/",
-   "why": "the Research hub lists the deep dives: one more, The DNA (it left the Start menu and is a deep dive under Sources, as David chose)"
-  },
-  {
-   "page": "/research/sources-and-method/",
-   "why": "the same: The DNA is a deep dive on the Sources & method page"
-  },
-  {
-   "page": "/sources/",
-   "why": "the two DNA rows (MyHeritage Y-DNA, 23andMe) link to the DNA page as a deep dive, like the other six deep dives"
-  }
- ]
+  "note": "PR A, the menu regroup (12 November 2026): what was changed ON PURPOSE, read by scripts/menu-inventory-kit.py. The research-trial's declarations are kept in docs/menu-text-changes-research-trial.json.",
+  "token_swaps": [],
+  "accepted": [],
+  "snapshot_pages": {},
+  "site_changes": [
+    {
+      "page": "/research/",
+      "why": "the Research hub lists the deep dives: one more, The DNA (it left the Start menu and is a deep dive under Sources, as David chose)"
+    },
+    {
+      "page": "/research/sources-and-method/",
+      "why": "the same: The DNA is a deep dive on the Sources & method page"
+    },
+    {
+      "page": "/sources/",
+      "why": "the two DNA rows (MyHeritage Y-DNA, 23andMe) link to the DNA page as a deep dive, like the other six deep dives"
+    },
+    {
+      "page": "/journeys/",
+      "why": "merged into /walk/ (section #journeys): the old address is now a redirect stub, its whole text stands on /walk/"
+    },
+    {
+      "page": "/walk/",
+      "why": "now also holds the old /journeys/ page as its section #journeys (whole text, sources unioned)"
+    },
+    {
+      "page": "/emigration/",
+      "why": "merged into /diaspora/ (section #leaving): the old address is now a redirect stub, its whole text stands on /diaspora/"
+    },
+    {
+      "page": "/diaspora/",
+      "why": "now also holds the old /emigration/ page ('Leaving') as its section #leaving (whole text, same sources)"
+    },
+    {
+      "page": "/trees/",
+      "why": "merged into /tree/ (section #trees): the old address is now a redirect stub, its whole text stands on /tree/"
+    },
+    {
+      "page": "/tree/",
+      "why": "now also holds the old /trees/ page ('The trees') as its section #trees, after Our line"
+    },
+    {
+      "page": "/explorer/",
+      "why": "merged into /bloodline/ (section #households): the old address is now a redirect stub, its whole text stands on /bloodline/"
+    },
+    {
+      "page": "/bloodline/",
+      "why": "now also holds the old /explorer/ page ('Household Explorer') as its section #households; the search, region, year and chain filters work on it unchanged"
+    },
+    {
+      "page": "/contents/",
+      "why": "the Contents page is built from book.json: four chapter rows folded into the page that now holds them (Journeys into Walk, Leaving into Where the Name Went, The trees into Our line, Household Explorer into Blood relatives), their blurbs joined to the surviving chapter's"
+    },
+    {
+      "page": "/part/leaving/",
+      "why": "the part page lists chapters from book.json: Journeys and Leaving are now inside Where the Name Went and Walk the line"
+    },
+    {
+      "page": "/part/seven-families/",
+      "why": "the part page lists chapters from book.json: The trees is now inside Our line, drawn"
+    },
+    {
+      "page": "/part/joins/",
+      "why": "the part page lists chapters from book.json: Household Explorer is now inside Blood relatives"
+    },
+    {
+      "page": "/part/our-line/",
+      "why": "the part page lists chapters from book.json: the Our line, drawn chapter's blurb now also names the trees (the old /trees/ chapter row folded into it)"
+    }
+  ]
 }

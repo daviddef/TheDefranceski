@@ -6,7 +6,12 @@ listed in DROPPED below with its reason."""
 import re, sys, html
 
 # an address that left the menu on purpose, and why
-DROPPED = {}
+DROPPED = {
+    "/trees/": "merged into /tree/ (PR B); the menu points at its section, /tree/#trees",
+    "/emigration/": "merged into /diaspora/ (PR B); the menu points at its section, /diaspora/#leaving",
+    "/journeys/": "merged into /walk/ (PR B); the menu's Walk entry carries it, /walk/#journeys",
+    "/explorer/": "merged into /bloodline/ (PR B); the menu points at its section, /bloodline/#households",
+}
 
 
 def menu(dist):

@@ -35,8 +35,8 @@ export const MENU = [
       ["/marriages/", "The Marriages"], ["/graves/", "Graves"], ["/burials/", "Burials"],
     ] },
     { head: "Drawn", items: [
-      ["/tree/", "Our line, drawn"], ["/trees/", "The trees"], ["/roots/", "Roots & Routes"], ["/timeline/", "The Timeline"],
-      ["/bloodline/", "Blood relatives, drawn"], ["/explorer/", "Explorer"],
+      ["/tree/", "Our line, drawn"], ["/tree/#trees", "The trees"], ["/roots/", "Roots & Routes"], ["/timeline/", "The Timeline"],
+      ["/bloodline/", "Blood relatives, drawn"], ["/bloodline/#households", "Household Explorer"],
     ] },
   ]],
   ["Places & families", [
@@ -47,11 +47,10 @@ export const MENU = [
       ["/corsica/", "Corsica — a parallel"], ["/trentino/", "Trentino — a blind spot"],
     ] },
     { head: "Places", items: [
-      ["/places/", "Places"], ["/istria-sweep/", "Every town"], ["/diaspora/", "Where the name went"], ["/emigration/", "Leaving"],
-      ["/journeys/", "Journeys"],
+      ["/places/", "Places"], ["/istria-sweep/", "Every town"], ["/diaspora/", "Where the name went"], ["/diaspora/#leaving", "Leaving"],
     ] },
     { head: "Walking it", items: [
-      ["/walk/", "Walk the line"], ["/walk/carnia/", "Carnia — Val Degano"], ["/walk/gologorica/", "Gologorica & Gračišće"],
+      ["/walk/", "Walk the line, and the journeys"], ["/walk/carnia/", "Carnia — Val Degano"], ["/walk/gologorica/", "Gologorica & Gračišće"],
     ] },
   ]],
   ["The name", [
