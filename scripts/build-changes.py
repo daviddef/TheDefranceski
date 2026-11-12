@@ -30,6 +30,16 @@ MON = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "ju
 NAME = {1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sept", 10: "Oct", 11: "Nov", 12: "Dec"}
 
 
+PLATE = re.compile(r"\[([^\]]+)\]\(rec:plate-[^)]+\)")
+
+
+def noplate(t):
+    """A log row may cite a plate of the family's own film as [words](rec:plate-<id>), which md.js turns into an anchor on the SAME
+    page; the plate is drawn on the page that cites it (the linking standard's L4) and this feed draws none, so the link would point
+    at nothing (check-rec fails it). The feed keeps the words and the row's own page (/searched/, /corrections/) keeps the link."""
+    return PLATE.sub(r"\1", t or "")
+
+
 def when_key(when):
     """(year, month, day, label) from the archive's informal dates. A month alone is day 0 and is labelled by its month;
     a range ("Aug–Sept 2026") takes its last month; no date at all sorts last under "Undated"."""
@@ -52,16 +62,16 @@ for r in load("searched.json")["rows"]:
     kind = vocab.OUTCOME.get(str(r.get("outcome", "")).strip().lower(), r.get("outcome", "search"))
     rows.append({"when": r.get("when", ""), "kind": kind,
                  "what": r.get("what", ""), "src": r.get("src", ""),
-                 "text": r.get("got", ""), "href": "/searched/"})
+                 "text": noplate(r.get("got", "")), "href": "/searched/"})
 for r in load("corrections.json")["rows"]:
     rows.append({"when": r.get("when", ""), "kind": "correction",
                  "what": r.get("what", ""), "src": "A claim taken back",
-                 "text": "**This archive said** " + r.get("said", "") +
+                 "text": noplate("**This archive said** " + r.get("said", "") +
                          "\n\n**What is true** " + r.get("true", "") +
-                         "\n\n**How it happened** " + r.get("how", ""),
+                         "\n\n**How it happened** " + r.get("how", "")),
                  "href": r.get("where") or "/corrections/"})
 for r in load("changes-built.json")["rows"]:
-    rows.append({k: r.get(k, "") for k in ("when", "kind", "what", "src", "text")} | {"href": r.get("href", "")})
+    rows.append({k: r.get(k, "") for k in ("when", "kind", "what", "src")} | {"text": noplate(r.get("text", "")), "href": r.get("href", "")})
 
 # newest day first; within a day the order of the logs is kept (Python's sort is stable), searches before corrections
 rows.sort(key=lambda r: when_key(r["when"])[:3], reverse=True)

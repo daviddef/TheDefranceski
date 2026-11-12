@@ -61,6 +61,7 @@ def apply():
         n = OUTCOME.get(str(w).strip().lower()) if w is not None else None
         if n and n != w:
             ch[(w, n)] += 1
+            r.setdefault("outcomeWas", w)
             r["outcome"] = n
     _dump(p, raw, d)
     print("searched.json:", sum(ch.values()), "outcome words rewritten", dict(ch))

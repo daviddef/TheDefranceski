@@ -1,4 +1,5 @@
 ---
+import AtlasNote from "../../components/AtlasNote.astro";
 /* The Map. One map, three questions.
 
    This archive had grown three of them off the same ground — the research map
@@ -134,6 +135,8 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
   eyebrow={`${m.places} places · ${s.volumes} register volumes catalogued · ${m.peoplePlaced} people placed · ${m.burials} burials`}
   dek="One map and four layers. Where are the record books and how far have we got with them; where can this archive put a named person; where is the family actually in the ground; and where does a record merely name somebody of the name on one day. Switch any of them on or off. A place that answers more than one question is still one dot, and it wears the colour of the rarest answer it has — so with everything on, the records, the graves and the people stand out of the shelf rather than hiding under it.">
 
+  <AtlasNote only={[["Where this map comes from, and what it is worth", "#where-from", "how the layer of register volumes was made, and what it is worth"], ["Our people, placed", "#people", "the second layer: where this archive can put a named person"], ["The ground, and its twelve heaviest places", "#ground", "the third layer: where the family lies, and the finding in it"]]} atlas={[["The Record Atlas map", "https://recordatlas.org/"], ["Places on the Atlas", "https://recordatlas.org/places/"], ["Roots & routes on the Atlas", "https://recordatlas.org/roots/"]]} />
+
   <div class="at-scheme">
     <div class="lab">Three layers — switch any of them on or off</div>
     <div class="at-sc-row"></div>
@@ -209,7 +212,7 @@ const yrs = (g) => (g.from === g.to ? `${g.from}` : `${g.from}–${g.to}`);
 **Living people are on this map by name and by town, and by nothing else.**`))}></div>
   </div>
 
-  <h2 style="font-size:30px;margin-top:50px">Where this map comes from, and what it is worth</h2>
+  <h2 id="where-from" style="font-size:30px;margin-top:50px">Where this map comes from, and what it is worth</h2>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:22px">
     <div class="lab">It is David's map, rebuilt because the original cannot be kept</div>
@@ -395,7 +398,7 @@ It is kept in the data, unpublished, and the useful question it answers is narro
     </div>
   </div>
 
-  <h2 style="font-size:30px;margin-top:50px">Our people: reading the second question</h2>
+  <h2 id="people" style="font-size:30px;margin-top:50px">Our people: reading the second question</h2>
 
   <div class="grid g3" style="margin-top:20px">
     <div class="panel">
@@ -424,7 +427,7 @@ It is kept in the data, unpublished, and the useful question it answers is narro
 **${jhb} of them are at Johannesburg and ${bne} at Brisbane**, and two are at both. That is the shape of it: the family left Senj for the Rand, and **one household of the three went on to Australia** — the aunt and her husband, the uncle's widow and his daughters, and the cousins are all still in South Africa. **Not one of them has a date on this map**, and none ever will.`))}></div>
   </div>
 
-  <h2 style="font-size:30px;margin-top:50px">The ground: the third question, and the finding in it</h2>
+  <h2 id="ground" style="font-size:30px;margin-top:50px">The ground: the third question, and the finding in it</h2>
 
   <div class="one" style="border-left-color:var(--accent);margin-top:22px">
     <div class="lab">The two colours never meet, and that is the finding</div>

@@ -53,5 +53,67 @@
    "file": "docs/changes-snapshot-before.json",
    "why": "The page was a snapshot of 20 September (newest day 6 October) and is regenerated from the logs by scripts/build-changes.py; an entry whose log row has been reworded since shows the current wording."
   }
- }
+ },
+ "site_changes": [
+  {
+   "page": "/changes/",
+   "why": "regenerated from the logs (newest day 6 Oct before, 11 Nov now); the old page is kept in docs/changes-snapshot-before.json"
+  },
+  {
+   "page": "/searched/",
+   "why": "outcome chips: Yielded is Found, and the 78 rows written «nil» are Nothing, not Other (see token_swaps)"
+  },
+  {
+   "page": "/corrections/",
+   "why": "the severity words are five, not twelve; the 36 rows once written «major» keep their chip and every Serious row has it"
+  },
+  {
+   "page": "/collections-walk/",
+   "why": "the ten collections of /elsewhere/ stand here (#elsewhere)"
+  },
+  {
+   "page": "/elsewhere/",
+   "why": "now a redirect to /collections-walk/#elsewhere"
+  },
+  {
+   "page": "/part/how-we-know/",
+   "why": "the book's part VII lists the three new Research pages and no longer lists /elsewhere/"
+  },
+  {
+   "page": "/contents/",
+   "why": "the book's contents lists the three new Research pages and no longer lists /elsewhere/"
+  },
+  {
+   "page": "/archive/",
+   "why": "the note at the top: what only this archive holds, and the Atlas pages for the registers and places"
+  },
+  {
+   "page": "/parish-books/",
+   "why": "the note at the top (as above)"
+  },
+  {
+   "page": "/map/",
+   "why": "the note at the top (as above)"
+  },
+  {
+   "page": "/antenati/",
+   "why": "the note at the top (as above)"
+  },
+  {
+   "page": "/undigitised/",
+   "why": "the note at the top (as above)"
+  },
+  {
+   "page": "/sources/",
+   "why": "each of the six deep-dive sources links to its study"
+  },
+  {
+   "page": "/",
+   "why": "the count of searches that found nothing: 163 before, 241 now. It counted the words «nothing» and «miss» and so left out the 78 rows written «nil»; it counts all of them now"
+  },
+  {
+   "page": "/who/jacobo-de-franceschi/",
+   "why": "a quoted snippet of method.json: the link to /elsewhere/ beside it was repointed to /collections-walk/#elsewhere, so the snippet's trailing words moved"
+  }
+ ]
 }
