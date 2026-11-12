@@ -2,6 +2,19 @@
  "note": "Names the narrative pages use that the roster does not hold, from the structured files (register.json, fsrecords.json, households.json) where the name has a field of its own. Every one is dead by the archive's rule; a name that could not be shown dead, or is not plainly a given name and a surname, is held out. Made by scripts/build-read-names.py. Do not edit by hand.",
  "names": [
   {
+   "name": "Fusca Našković",
+   "slug": "fusca-naskovic",
+   "records": [
+    {
+     "kind": "FamilySearch index entry",
+     "text": "FamilySearch index entry XQM3-B2XL · named on the index entry of Lucas Vojnić (b. 1847)",
+     "src": "register",
+     "id": "XQM3-B2XL"
+    }
+   ],
+   "basis": "every structured entry under this spelling shows the bearer dead (a death or burial recorded, a birth in or before 1900, or a relative of a person born by 1850)"
+  },
+  {
    "name": "Jacobo De Franceschi",
    "slug": "jacobo-de-franceschi",
    "records": [
@@ -10,6 +23,32 @@
      "text": "FamilySearch index entry X9DP-955G · named on the index entry of Casparg (b. 26 Dec 1737)",
      "src": "register",
      "id": "X9DP-955G"
+    }
+   ],
+   "basis": "every structured entry under this spelling shows the bearer dead (a death or burial recorded, a birth in or before 1900, or a relative of a person born by 1850)"
+  },
+  {
+   "name": "Josephus Perković",
+   "slug": "josephus-perkovic",
+   "records": [
+    {
+     "kind": "FamilySearch index entry",
+     "text": "FamilySearch index entry XQM3-P89C · b. 1861",
+     "src": "register",
+     "id": "XQM3-P89C"
+    }
+   ],
+   "basis": "every structured entry under this spelling shows the bearer dead (a death or burial recorded, a birth in or before 1900, or a relative of a person born by 1850)"
+  },
+  {
+   "name": "Lucas Vojnić",
+   "slug": "lucas-vojnic",
+   "records": [
+    {
+     "kind": "FamilySearch index entry",
+     "text": "FamilySearch index entry XQM3-B2XL · b. 1847",
+     "src": "register",
+     "id": "XQM3-B2XL"
     }
    ],
    "basis": "every structured entry under this spelling shows the bearer dead (a death or burial recorded, a birth in or before 1900, or a relative of a person born by 1850)"
