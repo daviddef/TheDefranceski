@@ -25199,6 +25199,74 @@
    "pages": "",
    "walked": "False",
    "got": "**Nothing was read.** The viewer says «Image Restricted — Image access is typically determined by local laws or the custodian who has the original document», and the image service answered 403 for the first image and for six more spread to the last (images 2, 3, 21, 41, 61, 77 of 77), in a session David had signed in (the account page showed his name). The same session read the Bakar births volume 9R26-HZC at once (200), so this is the volume, not a sign-out or a rate limit. This archive does not work round a custodian's restriction and did not try. The waypoint's own metadata names the place only «Podjezerja», and the place id it carries (1927181) is the country Croatia in FamilySearch's standards service (the same number in the other place service is an Australian hamlet, a different id space), so neither places the parish. Podjezerja stays unplaced. Not a nil for any name: no page of this volume was seen. Outcome «blocked» is used for a refusal by the holder; this was not a bot check or a login wall."
+  },
+  {
+   "when": "12 Nov 2026",
+   "outcome": "found",
+   "src": "⭐⭐⭐ FamilySearch — LIŽNJAN BIRTHS 1816–1883 (9R2Z-44D), all 83 frames looked at by readers and the hits enlarged: house 17's eight baptisms, house 3's nine, a child of 1863 nobody held, the tree's «Mathaei 1821» a GIRL",
+   "dest": "Ližnjan «Liber Baptizatorum», two books on one volume, waypoint 9R2Z-44D",
+   "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-GZ6Z?cc=2040054&wc=9R2Z-44D",
+   "waypoint": "9R2Z-44D",
+   "waypointNote": "Volume fixed by ark containment earlier (11 Oct 2026); the volume holds TWO books: I 1816–1864 on frames 3–38, II 1864–1883 on frames 44–81.",
+   "pages": "0-82 (all 83 frames looked at once by readers; book I frames 3-38, book II frames 44-81). walked:false: book II read at the 1400 px page size with hit cells enlarged; about a dozen rows in frames 70-82 under repair sheets; foot rows cut by the image edge on frames 45, 47, 48, 54, 63; frame 38 right is upside down (read rotated); frame 77 right does not fit its neighbours' dates; November-December 1883 is in the next book, not on this film.",
+   "walked": false,
+   "what": "Every Defranceschi/Defranceski baptism (child, parent or godparent) in the Ližnjan baptism registers 1816–1883, and the thirteen tree-only births of row 228",
+   "got": "**Seventy-five entries name the family (readers' count).** House 17, Mattio «detto Matulin/Marulin» di Antonio and Madalena Percovich: **eight baptisms 1816–1835** (15 Oct 1816, 16 Sep 1819, 7 Jan 1821, 23 May 1822, 27 Nov 1825, Aug 1827, 31 Jul 1830, 24 Jul 1835). **The tree's «Mathaei 1821» is a girl** (frame 5 right, p.5, 4th entry, sex column Femina, enlarged at level 13; the name cell reads Mattia or Maria and is not settled). House 17's second generation: Antonio fu Matteo + Maria Schiffich (Cattarina 1844, Antonio 7 Jun 1846, Antonio 20 Apr 1848, a child of 8 Jan 1850 read «Mattea», Giustina 28 Aug 1851) and Gregorio fu Matteo + Agata Schiffich (Giovanni 1845, Maria 1846, Cattarina 1847, Maria 1849, Gregorio 1851, 1853, Agata 1856). **House 3, Matteo fu Matteo + Maria Primus fu Pasqualino, nine baptisms 1857–1877:** Matteo **born 14 Nov 1857** (frame 32 left, enlarged; «9bre» = November; the tree's «Mattheus 1858» is this child, the index's 1857 was right), a girl born 27 Jan 1864 (frame 38 right, p.80, upside down, read rotated and enlarged; = Maria Defrančeski of the 1886 marriage, inf), Paschalis 1863 and 1867, Fusca 9 Jan 1870, Joannes 1871, Anna 12 May 1873, Magdalena 1877. **A child nobody held: Martinus Defranceschi, born 10 Aug 1863, baptised 12 Aug, house 59, father Antonius** (frame 37 right, enlarged; mother's cell ends -vich, probably Fosca Lazarić, inf). House 61: Gregorius + Maria Vojnić (twins 20 Feb 1875, Anastasia 1876, Maria 1878, Magdalena Justina 3 Oct 1879, Maria 26 Jan 1882 house 82). Justina's two children, father cell blank (1875, 1876). The daughters who married out (Jelčić, Ruman, Sandalj, Našković) are mothers in 1872–83. **The thirteen:** twelve found, Maria 1883 NOT in the book (stops 31 Oct 1883). **Terms typed to the readers:** Defranceschi, Defranceski, Defrančeski, De Franceschi, di Franceschi, de Franceschi, Franceschi, Franceski, Defranca, Defranci, Defrancesci, Defranceschy, Franchessi, Francetchi, Deffranceschi (`cover` exit 1: Defrancaschi and Defrancheski not typed); Kovačina, Kovacina, Kovacsina (`cover` exit 0: **nil for Kovačina**); Kalanj, Kalain, Kallayn, Kalani, Kalany, Callein, Kallanj (`cover` exit 1: Callain, Callajn, Callayn, Kalagnia, Kalaijn, Kalanij, Kalayn, Kalianj, Kallaijn, Kallajn, Kallanij, Kallein not typed, so **no nil is written for Kalanj**). Near-names seen, not counted: Demarin, Balde, Petech, De Betteti.",
+   "next": "Zoom the unsettled cells (the 1816 by-name, 1850 «Mattea» vs Mattio, the 1853 and 1856 Gregorio entries, house 59 mother's cell); read the deaths of Paschalis (1873) and Madalena (1828); roster rows for Martinus 1863 and the others; Ližnjan births from November 1883 are in the next book (not on this film).",
+   "tags": [
+    "Ližnjan",
+    "FamilySearch",
+    "parish registers",
+    "baptisms",
+    "defranceschi",
+    "hit"
+   ],
+   "key": "src/liznjan-births-9r2z-44d-read-12-nov-2026",
+   "ev": [
+    [
+     "/liznjan/#births",
+     "Ližnjan — the baptism books, read"
+    ],
+    [
+     "/searched/",
+     "The search log"
+    ]
+   ],
+   "outcomeWas": "hit"
+  },
+  {
+   "when": "12 Nov 2026",
+   "outcome": "found",
+   "src": "⭐⭐ FamilySearch — LIŽNJAN MARRIAGES 1815–1902 (9R2Z-44C), all 36 frames looked at by readers: twenty-four entries naming the family, the line from 1815 to Stana in 1899",
+   "dest": "Ližnjan «Liber Copulatorum», waypoint 9R2Z-44C",
+   "url": "https://www.familysearch.org/ark:/61903/3:1:3QS7-899X-GC54?cc=2040054&wc=9R2Z-44C",
+   "waypoint": "9R2Z-44C",
+   "waypointNote": "Volume fixed by ark containment earlier (11 Oct 2026); 36 frames: 0-2 slates and cover, register 3 right (page 1) to 34, 35 end-of-item card and title target.",
+   "pages": "0-35 (all 36 frames looked at once by readers). walked:false: read at the 1400 px page size with hit cells enlarged; the seam between frames 11 (ends April 1853, entry 135) and 12 (begins 20 Nov 1854) does not line up; frames 22 and 23 are cut at the right edge (priest column and part of the witness column missing); entry 144 (Aug 1856, house 2, groom Matteo Defranceschi) unsettled.",
+   "walked": false,
+   "what": "Every marriage naming the family in the Ližnjan marriage register 1815–1902",
+   "got": "**Twenty-four entries**: 1815 Mattio de Franceschi «deto Marulin» + Maddalena Percovich; 1817 witness Antonio di Franceschi q. Antonio; 15 Nov 1843 Antonio + Maria Schiffich; 22 Jan 1845 Gregorio + Agata Schiffich (witness Antonio Defranceschi); 23 Feb 1848 Maria fu Matteo + Martino Mocorich; 23 Jul 1849 Maddalena fu Matteo + Antonio Paolo Hoscovich (witness Giorgio Defranceschi); 29 Jun 1851 Maria, widow Mocorich, + Marco Druzetta of Pomer; 1 Jun 1861 Antonius q. Matthaei, widower, + Fosca Lazarić; 28 Nov 1868 Agatha, widow of Gregorius, + Antonius Klunić; 1869 Maria + Josephus Ruman; 1871 Catharina + Josephus Felčić; 1872 a Mohorić whose mother is «modo uxoris 2do voto Antonii Defranceski»; 1874 Lucia + Joannes Sandalj and Gregorius + Maria Vojnić; 1876 Euphemia Našković + Matthaeus Perković; 1880 Maria Našković + Joannes Jukopila; **21 May 1884 Matthaeus Defranceski b. 14 Nov 1857 + Anna Skoko of Promontore**; **10 Nov 1886 Maria Defrančeski b. 27 Jan 1864 + Josephus Perković**; 1888 Fusca Našković + Lucas Vojnić; 1894 Antonius Našković b. 8 Oct 1859 + Anna Perković; 22 Nov 1898 Justina Defrančeski + Josephus Fedel; 7 Feb 1899 Stanislava Jelčić (dau. of the late Cattarina Defrančeski) + Thomas Vodinelić; 7 Aug 1899 Stana Defranceski + Jacobus Vojnić. **No Kovačina** (cover exit 0 for the typed forms Kovačina, Kovacina, Kovacsina). Kalanj: no entry the readers described; the same twelve forms as in the births row were not typed, so no Kalanj nil is written. Near-names seen, not counted: Kalčić (1876, enlarged), Kohorić/Mohorić, Klunić, Sandalj, Druzetta, Demarin, Lovrovich, Franić/Pranić (1894, not settled).",
+   "next": "Zoom the 1856 entry 144; the seam at frames 11/12; the 1843 groom's by-name (matulin/malulin/marulin).",
+   "tags": [
+    "Ližnjan",
+    "FamilySearch",
+    "parish registers",
+    "marriages",
+    "defranceschi",
+    "hit"
+   ],
+   "key": "src/liznjan-marriages-9r2z-44c-read-12-nov-2026",
+   "ev": [
+    [
+     "/liznjan/#births",
+     "Ližnjan — the baptism and marriage books, read"
+    ],
+    [
+     "/searched/",
+     "The search log"
+    ]
+   ],
+   "outcomeWas": "hit"
   }
  ]
 }
