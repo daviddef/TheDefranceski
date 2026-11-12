@@ -449,6 +449,7 @@ a.kid.named:hover,a.kid.named:focus-visible{background:var(--accent-wash);border
 .hc{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule-strong);
   border-radius:2px;padding:11px 13px;text-align:left;cursor:pointer;font:inherit;color:inherit;
   display:flex;flex-direction:column;gap:4px;transition:.14s}
+.hc[hidden]{display:none}  /* the household filter sets hidden; display:flex above would otherwise win, and no card ever left */
 .hc:hover{border-color:var(--accent);border-left-color:var(--accent)}
 .hc[aria-current="true"]{border-color:var(--accent);border-left-color:var(--accent);
   background:var(--accent-wash)}
