@@ -14,6 +14,10 @@ SEVERITY (corrections.json `sev`). Three degrees (serious, moderate, minor) and 
 (process: how the archive worked, not what it claimed; note: not this archive's claim). The original word is kept
 in `sevWas` on any row it changed, so nothing is lost and the choice can be redone.
 
+STATUS (corrections.json `status`, optional). «fixed» and «struck» were written in the severity column but say what became of the
+problem, not how bad it was: «fixed» (a slip that was corrected), «struck» (a plan item that was struck out). They stay a tier
+(minor / process, see SEV) and also carry a `status`, which /corrections/ prints as a chip. A row with neither has no status.
+
     python3 scripts/vocab.py --apply      rewrite the two files to the canonical words
     python3 scripts/vocab.py --check      exit 1 if any row uses a word that is not canonical (the gate runs this)
 """
@@ -37,6 +41,8 @@ SEV = {
     "process": "process", "struck": "process",
     "note": "note",
 }
+STATUS = {"fixed": "fixed", "struck": "struck"}   # read from the severity word the row was written with
+STATUS_CANON = ["fixed", "struck"]
 SEV_CANON = ["serious", "moderate", "minor", "process", "note"]
 
 
@@ -69,6 +75,9 @@ def apply():
     ch = collections.Counter()
     for r in d["rows"]:
         w = r.get("sev")
+        st = STATUS.get(str(r.get("sevWas") or w).strip().lower())
+        if st:
+            r["status"] = st
         n = SEV.get(str(w).strip().lower()) if w is not None else None
         if n and n != w:
             ch[(w, n)] += 1
@@ -88,6 +97,9 @@ def check():
     for i, r in enumerate(d["rows"]):
         if r.get("sev") not in SEV_CANON:
             bad.append("corrections.json row %d (%s): sev %r is not one of %s" % (i, str(r.get("what"))[:50], r.get("sev"), SEV_CANON))
+    for i, r in enumerate(d["rows"]):
+        if "status" in r and r["status"] not in STATUS_CANON:
+            bad.append("corrections.json row %d (%s): status %r is not one of %s" % (i, str(r.get("what"))[:50], r["status"], STATUS_CANON))
     for b in bad[:20]:
         print("FAIL", b)
     print("vocab:", "OK, every outcome and every severity is a canonical word" if not bad else "%d row(s) off the vocabulary" % len(bad))

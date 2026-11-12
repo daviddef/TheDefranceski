@@ -14,6 +14,11 @@ import { mdHtml, mdpHtml, plain } from "../lib/md.js";
 /* the kit marks the most serious degree with a "material" chip; it compared the row's label with its own default word "major", which
    only the 36 rows still written «major» ever matched. `major` is now this page's word for the top degree, so all of them carry it. */
 const sev = { serious: "Serious", moderate: "Moderate", minor: "Minor", process: "Process", note: "Not ours" };
+/* What became of the problem, apart from how bad it was (corrections.json `status`, set by scripts/vocab.py from the rows once written
+   «fixed» and «struck» in the severity column). The kit's Corrections has no slot for it, so it rides in `who`, the header's
+   HTML slot, which this page does not otherwise use. */
+const status = { fixed: "Fixed", struck: "Struck" };
+const statusChip = (r) => status[r.status] ? `<span class="chip cx-status cx-status-${r.status}">${status[r.status]}</span>` : "";
 const order = ["serious", "moderate", "process", "minor", "note"];
 const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
 /* A scan beside the passage that cites it (the linking standard, L4). A correction that rests on a page of the family's own copy
@@ -46,6 +51,7 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
   <Corrections u={u} major="Serious" rows={rows.map(r => ({
     when: r.when,
     kind: plain(r.what),
+    who: statusChip(r),
     sev: sev[r.sev] || r.sev,
     /* The sentence being withdrawn, kept verbatim: its names are the old claim, quoted, not this archive's claim now. The mark is the
        linking standard's own (data-name-exempt, with its reason); the links stay, only L2 and L5 do not count the names inside it. */
@@ -78,12 +84,16 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
 </section>
 
 <style is:global>
+  .cx-status { font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; background: transparent; border: 1px solid currentColor; }
+  .cx-status-fixed { color: #4f7a4f; }
+  .cx-status-struck { color: #7a7a7a; text-decoration: line-through; }
   .cx-plate { display: block; margin: 12px 0 4px; max-width: 14rem; }
   .cx-plate-img { display: block; }
   .cx-plate img { display: block; width: 100%; height: auto; }
   .cx-plate-cap { display: block; font-size: 12px; line-height: 1.4; opacity: .7; margin-top: 4px; }
 </style>
 <style>
+
   .corr { border: 1px solid var(--rule, #dcd6cc); border-left-width: 4px; border-radius: 3px; padding: 20px 22px; }
   .sev-serious { border-left-color: var(--terra, #a5442c); }
   .sev-moderate { border-left-color: #b8895a; }
