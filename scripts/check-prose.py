@@ -41,6 +41,9 @@ DATA = "site/src/data"
 
 # Data files a person edits (or a person's session appends to). Each is read by the gate.
 HAND_EDITED = {
+    # 12 November 2026 (the Research menu): the six site-change entries of the What changed page, typed by hand and merged by
+    # scripts/build-changes.py with the Search Register and Corrections, so a regeneration never drops them.
+    "changes-built.json",
     "shelf-cats.json",   # 2 November 2026: the five shelf states (a label and a colour each) that /map/ and Roots & Routes both read
     "america.json", "ancestors.json", "antenati-catalogue.json", "arrivals.json", "art-src.json",
     "atlas-seed.json", "atsea.json", "austria.json", "book.json", "carlo.json", "carnia.json", "carnia-books.json",
@@ -72,6 +75,9 @@ HAND_EDITED = {
 # check-evidence.py ...) is the guard; scanning them here would only meet the homonyms of a family that
 # reuses its names, and a fix would be undone by the next run of the generator.
 GENERATED = {
+    # 12 November 2026 (the Atlas-overlap trim): archive parish name -> Record Atlas place id, written by scripts/build-atlas-place-ids.py
+    # from the Atlas's places.json, never typed. Names of parishes only; no person is in it.
+    "atlas-places.json",
     "atlas.json", "burials.json", "changes.json", "directline.json", "directline-pids.json",
     "dossiers.json", "elsewhere.json", "explorer.json", "fs-elsewhere.json", "givennames.json",
     "gologorica-toc.json", "gologorica.json", "graves.json", "gravesmap.json", "households.json",
