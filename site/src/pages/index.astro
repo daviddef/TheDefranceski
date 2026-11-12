@@ -46,7 +46,9 @@ const hasBanner = fs.existsSync(path.join(path.dirname(fileURLToPath(import.meta
 
    Counted at build time, so they stay true as the work grows instead of being
    re-typed and quietly going stale. */
-const nothing = searched.rows.filter((r) => ["nothing", "miss"].includes(r.outcome)).length;
+/* 12 Nov 2026: the outcome words are one set (scripts/vocab.py); «nil» is every search that found nothing. This counted «nothing» and «miss»
+   only, so the 78 rows written «nil» were left out (163); the old words stay in the list so a stray row is still counted. */
+const nothing = searched.rows.filter((r) => ["nil", "nothing", "miss"].includes(r.outcome)).length;
 /* The tiles below have been counted at build time since they were written. The
    PROSE beside them was not, and on 22 September 2026 every hand-typed figure
    on this page was stale: 594 searchable things against 2,286, 160 places

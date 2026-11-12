@@ -4,6 +4,7 @@ import { versioner } from "@daviddef/archive-kit/lib/assetv.js";
 /* every public asset gets a fingerprint, so a fix is never served stale */
 const v = versioner();
 import { u } from "../lib/url.js";
+import { navGroups } from "../lib/research-menu.js";
 import { md } from "../lib/md.js";
 import SiblingArchives from "@daviddef/archive-kit/components/SiblingArchives.astro";
 import SkipLink from "@daviddef/archive-kit/components/SkipLink.astro";
@@ -50,8 +51,11 @@ const nav = [
   ["Go there", [["/walk/carnia/", "1 · Carnia — Val Degano"], ["/walk/gologorica/", "2 · Gologorica & Gračišće"], ["/emigration/", "Leaving"], ["/burials/", "Burials"], ["/walk/", "Walk the line"], ["/journeys/", "Journeys"], ["/diaspora/", "Where the name went"], ["/istria-sweep/", "Every town"]]],
   ["People & places", [["/people/", "The People"], ["/who/", "Every Name"], ["/bloodline/", "Blood relatives, drawn"], ["/register/", "The Register"], ["/households/", "Households"], ["/marriages/", "The Marriages"], ["/graves/", "Graves"], ["/places/", "Places"], ["/explorer/", "Explorer"]]],
   ["The name", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"], ["/julius/", "Julius — a naval career"], ["/imperial/", "The name in imperial service"], ["/fiume-1626/", "Fiume, 1626"], ["/at-sea/", "At sea — Lloyd's List"], ["/giornaletto/", "The Giornaletto di Pola"], ["/namesakes/", "Namesakes"]]],
-  ["Evidence", [["/method/", "Method"], ["/sources/", "Sources"], ["/searched/", "What Has Been Read"], ["/open-questions/", "Open Questions"], ["/errands/", "Errands"], ["/worklist/", "The work list"], ["/corrections/", "Corrections"], ["/changes/", "What changed"], ["/gallery/", "Gallery"]]],
-  ["Investigations", [["/archive/", "Archive"], ["/parish-books/", "Parish Books"], ["/map/", "The Map"], ["/elsewhere/", "Croatia filed abroad"], ["/collections-walk/", "Every collection walked"], ["/undigitised/", "The undigitised"], ["/antenati/", "Antenati registers"], ["/the-library/", "The Library"], ["/carlos-letter/", "Carlo's Letter"], ["/carlos-book/", "Carlo's Book"], ["/old-site/", "defranceski.com"], ["/live-tree/", "The live tree, reconciled"], ["/findmypast/", "Findmypast, swept"]]],
+  /* 12 November 2026 (the research-menu trial): "Evidence" and "Investigations" are one "Research" menu with three groups, as David
+     chose. The list is lib/research-menu.js (the header, the drawer and the group pages all read it). A menu is a flat list of
+     [href, label], or a list of groups { head, href, items }, an item being [href, label] or { sub } (a plain sub-label). Every address
+     of the two old menus is still a built page; only /elsewhere/ moved (it redirects to /collections-walk/#elsewhere). */
+  ["Research", navGroups],
 ];
 
 const here = Astro.url.pathname;
@@ -105,8 +109,16 @@ const thisArchive =
       {nav.map(([label, links]) => (
         <details class="menu">
           <summary>{label}</summary>
-          <div class="panel">
-            {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
+          <div class={"panel" + (links[0] && links[0].items ? " wide" : "")}>
+            {links[0] && links[0].items
+              ? links.map((g) => (
+                  <div class="pg">
+                    <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a>
+                    {g.items.map((x) => Array.isArray(x)
+                      ? <a href={u(x[0])} class={here === u(x[0]) ? "on" : ""}>{x[1]}</a>
+                      : <span class="ps">{x.sub}</span>)}
+                  </div>))
+              : links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
           </div>
         </details>
       ))}
@@ -116,7 +128,15 @@ const thisArchive =
   <div class="drawer" id="drawer" hidden>
     <div class="wrap">{nav.map(([label, links]) => (
       <div class="dgrp"><span class="gl">{label}</span>
-        {links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
+        {links[0] && links[0].items
+          ? links.map((g) => (
+              <div class="dsub">
+                <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a>
+                {g.items.map((x) => Array.isArray(x)
+                  ? <a href={u(x[0])} class={here === u(x[0]) ? "on" : ""}>{x[1]}</a>
+                  : <span class="ps">{x.sub}</span>)}
+              </div>))
+          : links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
       </div>
     ))}
       {/* the header's Search pill is hidden with the nav below 1181px; without this a phone or a tablet has no way to /search/ */}

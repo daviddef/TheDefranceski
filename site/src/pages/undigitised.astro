@@ -1,4 +1,5 @@
 ---
+import AtlasNote from "../components/AtlasNote.astro";
 /* The hundred and fifty-four.
 
    Pazin's own register list is the only source in this archive that records
@@ -49,6 +50,8 @@ const holderName = (h) =>
   title="The hundred and fifty-four"
   eyebrow={`${rows.length} volumes Pazin has not digitised · ${nowhere.length} of them filmed by nobody else either`}
   dek="Every register in Pazin's own list marked «not digitised» — and, for each, whether anybody else has filmed it. Most of them somebody has. The ones nobody has are the short list worth a letter.">
+
+  <AtlasNote only={[["The ones nobody has filmed", "#nowhere", "the registers Pazin has not digitised that no one else has filmed"], ["Ours first", "#ours", "the undigitised books of Gologorica, Gračišće, Pićan, Pazin and Svetvinčenat"], ["Who to write to, and for how many", "#holders", "who holds the undigitised books, and how many each"]]} atlas={[["Državni arhiv u Pazinu, on the Atlas", "https://recordatlas.org/archive/dapa/"], ["What the Atlas does not know yet", "https://recordatlas.org/coverage/"]]} />
 
   <div class="one" style="border-left-color:var(--accent)">
     <div class="lab">Why this list is different from everything else here</div>

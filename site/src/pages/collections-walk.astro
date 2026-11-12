@@ -6,11 +6,23 @@ import Base from "../layouts/Base.astro";
 import { u } from "../lib/url.js";
 import { md, mdp } from "../lib/md.js";
 import s from "../data/collections-walk.json";
+import e from "../data/elsewhere.json";
 
 const link = (h) => h.replace(/\[([^\]]+)\]\((\/[^)]*)\)/g,
   (_, t, href) => `<a href="${u(href)}">${t}</a>`);
 const COLOUR = { "in the map": "#12703F", "nothing for us": "#9AA7B2" };
 const fs = (cc) => `https://www.familysearch.org/search/collection/${cc}`;
+/* 12 November 2026 (the research-menu trial): this page and /elsewhere/ shared one title and one subject, and the second
+   was the first's headline ten. They are one page now. The ten collections of /elsewhere/ stand in their own section
+   below, with the state each has on the research map; /elsewhere/ is a redirect to #elsewhere. */
+const STATE = {
+  harvesting: ["Being harvested now", "#1E5F8C"],
+  missing:  ["Not in the map", "#B04A16"],
+  untested: ["Not yet opened", "#E9A020"],
+  checked:  ["Opened, nothing for us", "#7A7A7A"],
+  "in the map": ["Already a provider here", "#12703F"],
+};
+const en = (k) => e.found.filter(x => x.state === k).length;
 ---
 <Base title={s.title} eyebrow={s.eyebrow} dek={s.dek}>
 
@@ -24,6 +36,44 @@ const fs = (cc) => `https://www.familysearch.org/search/collection/${cc}`;
       </div>
     ))}
   </div>
+
+  <h2 id="elsewhere" style="font-size:26px;margin-top:50px">Croatia, filed under other countries</h2>
+  <p class="dek" style="margin-top:8px">{e.eyebrow}. {e.found.length} collections examined · {en("missing")} hold Croatian places and are not on our map.</p>
+  <div class="prose" style="margin-top:12px" set:html={link(mdp(e.dek))}></div>
+  <div class="prose" style="margin-top:12px" set:html={link(mdp(e.lead))}></div>
+
+  <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:8px">
+    {Object.entries(STATE).map(([k, [label, c]]) => en(k) > 0 && (
+      <span class="at-cat on" style={`--c:${c};text-decoration:none`}>
+        <b style={`color:${c}`}>{label}</b> {en(k)}
+      </span>
+    ))}
+  </div>
+
+  <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+    {e.found.map(c => (
+      <div class="one" style={`border-left-color:${STATE[c.state][1]}`}>
+        <div class="lab">{STATE[c.state][0]} · collection {c.cc}</div>
+        <p style="margin:8px 0 0;font-size:17px;font-weight:600">
+          <a href={fs(c.cc)} target="_blank" rel="noopener">{c.title} ↗</a>
+        </p>
+        <div class="prose" style="margin-top:6px" set:html={md(c.what)}></div>
+        <div class="prose" style="margin-top:8px" set:html={link(mdp(c.note))}></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="one" style="margin-top:26px;border-left-color:var(--accent)">
+    <div class="lab">What this page is, and is not</div>
+    <div class="prose" style="margin-top:8px" set:html={link(mdp(e.close))}></div>
+  </div>
+
+  <p class="cap" style="margin-top:26px">
+    Walked from FamilySearch's own list of {`3,488`} historical record collections on 15 September 2026, filtered to anything naming Croatia, Istria, Dalmatia, Fiume, Trieste, Austria, Hungary, Slovenia or Italy, then opened one by one through <code>/platform/records/collections/&lt;cc&gt;/waypoints</code>.
+    <a href="#all">All 3,488 collections, walked →</a> ·
+    <a href={u("/map/")}>The research map →</a> ·
+    <a href={u("/worklist/")}>What is being done about it →</a>
+  </p>
 
   <h2 id="all" style="font-size:26px;margin-top:50px">All {s.rows.length}, one by one</h2>
   <p class="dek" style="margin-top:8px">
@@ -49,7 +99,7 @@ const fs = (cc) => `https://www.familysearch.org/search/collection/${cc}`;
   </div>
 
   <p class="cap" style="margin-top:36px">
-    <a href={u("/elsewhere/")}>Croatia, filed under other countries →</a> ·
+    <a href="#elsewhere">Croatia, filed under other countries →</a> ·
     <a href={u("/map/")}>The research map →</a> ·
     <a href={u("/method/")}>Why Croatia has no civil registration before 1946 →</a>
   </p>

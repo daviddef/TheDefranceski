@@ -1,4 +1,5 @@
 ---
+import AtlasNote from "../components/AtlasNote.astro";
 /* Antenati's Carnia registers, every volume a link.
 
    The research map's panel builds FamilySearch addresses, because that is what
@@ -30,6 +31,8 @@ const url = (ark) => cat.base + ark;
   title="Antenati — the Carnia registers"
   eyebrow={`${cat.comuni.length} comuni · ${n} volumes · ${nread} of them read · no name index on any of them`}
   dek="The Napoleonic and Austrian civil registers for Mione and Ovaro, held by the Archivio di Stato di Udine and photographed by the Portale Antenati, with Mieli next door where the numbering put it. Every line below opens the book at its first image.">
+
+  <AtlasNote only={[["Each volume's an_ua number, and how its identity was established", "#mione", "the state of every Carnia volume: read, ark confirmed, or unconfirmed"], ["What has been read out of these books", "/carnia/", "the finding, told once"]]} atlas={[["Antenati, on the Atlas", "https://recordatlas.org/archive/antenati/"], ["Archivio di Stato di Udine, on the Atlas", "https://recordatlas.org/archive/asd-udine/"], ["Mione on the Atlas", "https://recordatlas.org/place/mione/"]]} />
 
   <p class="dek" style="margin-top:8px" set:html={md(cat.note)}></p>
 

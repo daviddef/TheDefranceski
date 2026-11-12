@@ -51,7 +51,10 @@ def main():
     # somebody's stated decision rather than a silent hole in the count.
     internal = [r for r in rows if r.get("internal")]
     hits = [r for r in rows
-            if (r.get("outcome") or "").lower() == "hit" and not r.get("internal")]
+            if (r.get("outcomeWas") or r.get("outcome") or "").lower() == "hit" and not r.get("internal")]
+    # 12 Nov 2026: searched.json holds one set of outcome words now (scripts/vocab.py: hit and yield became «found»), the word each row
+    # was written with is kept in outcomeWas, and this check goes on examining exactly the rows it always examined (those written «hit»).
+    # It has never looked at the 222 rows written «yield» or «found»; widening it would raise its count, which is David's decision.
     orphans = []
     for r in hits:
         ev = r.get("ev") or []
