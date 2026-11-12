@@ -10,6 +10,7 @@ import pb from "../data/parishbooks.json";
 import hda from "../data/hda1448.json";
 import dal from "../data/dalmatia-books.json";
 import car from "../data/carnia-books.json";
+import ap from "../data/atlas-places.json";
 const RING = ["Pazin","Stari Pazin","Tinjan","Kringa","Krbune","Boljun","Lupoglav (Pazin)","Petar u Šumi","Polje Čepić","Kršan"];
 const ring = pb.list.filter(p => RING.includes(p.parish));
 const rest = pb.list.filter(p => !RING.includes(p.parish));
@@ -22,12 +23,19 @@ const film = (parish, title) => {
   return hit ? `https://www.familysearch.org/ark:/61903/${hit.ark}?cc=2040054&wc=${encodeURIComponent(hit.wc)}` : null;
 };
 const linked = pb.linked || 0;
+/* 12 November 2026 (the Atlas-overlap trim). The Record Atlas lists every one of these volumes, with its FamilySearch waypoint, on the
+   parish's own page (checked: 1,359 of 1,359 waypoints of the linked parishes are on the page of the Atlas place they link to), so a parish
+   the Atlas knows is a short row here: where it begins, how many volumes, and the link. A parish the Atlas has no place for (names in
+   neither list: scripts/build-atlas-place-ids.py) keeps its full list, so nothing is dropped that is not somewhere else. */
+const atlas = (name) => ap.ids[name] ? `https://recordatlas.org/place/${ap.ids[name]}/` : null;
+const nvol = (n) => n === 1 ? "1 volume" : `${n} volumes`;
+const ATLAS_ROW = "on the Atlas";
 ---
 <Base title="Parish Books"
       eyebrow={`${pb.volumes + kv.linked + dal.volumes + car.volumes} volumes · Istria, the Kvarner, Dalmatia and Carnia`}
-      dek="Every register volume photographed for the places this family came from, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name. The Croatian volumes open at their own first image; the Carnian ones name the volume but their images are restricted.">
+      dek="Every register volume photographed for the places this family came from, walked parish by parish through the image waypoints. This is what exists to be read — as against the quarter of it that can be found by typing a name. The volumes themselves, with their FamilySearch links, are on each parish's page of the Record Atlas; the Carnian ones name the volume but their images are restricted.">
 
-  <AtlasNote only={[["Which volumes exist for the places this family came from", "#ring", "the inventory, parish by parish, with the image waypoints walked"], ["Which have been read here", "/searched/", "every volume's reading is a row of the Search Register"], ["The ring around Gologorica", "#ring", "the parishes around the family's home book, and what is not on film"]]} atlas={[["Register volumes by place, on the Atlas", "https://recordatlas.org/places/"], ["Gologorica on the Atlas", "https://recordatlas.org/place/gologorica/"], ["Svetvinčenat on the Atlas", "https://recordatlas.org/place/svetvincenat/"]]} />
+  <AtlasNote only={[["The ring around Gologorica, and the volumes still to read", "#ring", "which parishes to open next, and why"], ["The Kvarner, Dalmatia and Carnia, parish by parish", "#kvarner", "why each one matters to this family, and what is not on film"], ["HR-HDA-1448: what to order, in order", "#hda", "the register holdings, the rolls and the marks, and the order to ask in"], ["Which have been read here", "/searched/", "every volume's reading is a row of the Search Register"]]} atlas={[["Register volumes by place, on the Atlas", "https://recordatlas.org/places/"], ["Pazin, on the Atlas", "https://recordatlas.org/place/pazin/"], ["Gologorica, on the Atlas", "https://recordatlas.org/place/gologorica/"], ["Svetvinčenat, on the Atlas", "https://recordatlas.org/place/svetvincenat/"]]} closing={`Every parish below that has a ↗ link opens its page on the <a href="https://recordatlas.org/" target="_blank" rel="noopener">Record Atlas</a>, which lists each of its volumes with the FamilySearch waypoint. This page keeps what the Atlas does not: why each parish matters to this family, what is not on film, and the HDA holdings and what to order.`} />
 
 <section class="blk">
   <p class="dek" style="margin-bottom:18px">This page is the <strong>inventory</strong> — the volumes that exist for the places this family came from. <a href={u("/map/")}>The Research Map</a> is the same question asked of the whole country: <strong>1,196 record-book places across Croatia</strong>, every confession, with a colour for how far this archive has got with each one. It is rebuilt from David's own Google My Map, which cannot otherwise be kept.</p>
@@ -39,12 +47,14 @@ const linked = pb.linked || 0;
       <thead><tr><th>Parish</th><th class="m">From</th><th>Volumes</th></tr></thead>
       <tbody>{ring.map(p => (
         <tr><td>{p.parish}</td><td class="m">{p.earliest}</td>
-          <td>{p.books.map(b => {
-            const href = film(p.parish, b);
-            return <div style="padding:1px 0">{href
-              ? <a href={href} rel="noopener" target="_blank">{b} &#8599;</a>
-              : <span>{b}</span>}</div>;
-          })}</td></tr>
+          <td>{atlas(p.parish)
+            ? <a href={atlas(p.parish)} rel="noopener" target="_blank">{nvol(p.books.length)}, {ATLAS_ROW} &#8599;</a>
+            : p.books.map(b => {
+                const href = film(p.parish, b);
+                return <div style="padding:1px 0">{href
+                  ? <a href={href} rel="noopener" target="_blank">{b} &#8599;</a>
+                  : <span>{b}</span>}</div>;
+              })}</td></tr>
       ))}</tbody>
     </table>
   </div>
@@ -61,29 +71,31 @@ const linked = pb.linked || 0;
   <p class="dek">Sorted by the earliest year the parish holds. Labin opens in 1536; Rovinj has twenty-nine volumes; Poreč has thirty-two.</p>
   <div class="scroll" style="margin-top:22px">
     <table>
-      <thead><tr><th style="width:18%">Parish</th><th class="m" style="width:9%">From</th><th class="m" style="width:9%">Volumes</th><th>Open one</th></tr></thead>
+      <thead><tr><th style="width:18%">Parish</th><th class="m" style="width:9%">From</th><th class="m" style="width:9%">Volumes</th><th>Open them</th></tr></thead>
       <tbody>{rest.map(p => (
         <tr>
           <td>{p.parish}</td>
           <td class="m">{p.earliest || "—"}</td>
           <td class="m">{p.volumes}</td>
-          <td>{p.books.map(b => {
-            const href = film(p.parish, b);
-            return <div style="padding:1px 0">{href
-              ? <a href={href} rel="noopener" target="_blank">{b} &#8599;</a>
-              : <span>{b}</span>}</div>;
-          })}</td>
+          <td>{atlas(p.parish)
+            ? <a href={atlas(p.parish)} rel="noopener" target="_blank">All {p.volumes}, {ATLAS_ROW} &#8599;</a>
+            : p.books.map(b => {
+                const href = film(p.parish, b);
+                return <div style="padding:1px 0">{href
+                  ? <a href={href} rel="noopener" target="_blank">{b} &#8599;</a>
+                  : <span>{b}</span>}</div>;
+              })}</td>
         </tr>
       ))}</tbody>
     </table>
   </div>
   <p class="cap">{pb.source}</p>
-  <p class="cap" style="margin-top:8px"><strong>{linked} of {pb.volumes} volumes open straight into the FamilySearch image viewer</strong>, at the first page of that book. The links were harvested from the collection's own image waypoints; a volume without one is a volume whose waypoint returned no image, and it is left as plain text rather than pointed somewhere it does not go. A FamilySearch account is needed to view the images, and it is free.</p>
+  <p class="cap" style="margin-top:8px"><strong>{linked} of {pb.volumes} volumes have an image waypoint at FamilySearch</strong>, which is how each one is opened at its first page. A volume without one returned no image and is not pointed anywhere. The Record Atlas lists each volume with that waypoint on its parish's page (the ↗ links), and a parish the Atlas has no place for keeps its volumes listed here. A FamilySearch account is needed to view the images, and it is free.</p>
 </section>
 <Rule name="pomegranate" />
 
 <section class="blk">
-  <h2>The Kvarner coast and the Vinodol</h2>
+  <h2 id="kvarner">The Kvarner coast and the Vinodol</h2>
   <p class="dek">The Istrian parishes above are where the line begins. These are the parishes it moved to — and unlike Gologorica and Gračišće, which have no film at all, every one of these is photographed. None of it is name-indexed. The point of the list is to say which volume to open.</p>
   <div class="scroll" style="margin-top:24px">
     <table>
@@ -91,7 +103,9 @@ const linked = pb.linked || 0;
       <tbody>{kv.parishes.map(p => (
         <tr>
           <td>{p.name}</td>
-          <td>{p.films && p.films.length
+          <td>{p.films && p.films.length && atlas(p.name)
+            ? <a href={atlas(p.name)} rel="noopener" target="_blank">{nvol(p.films.length)}, {ATLAS_ROW} &#8599;</a>
+            : p.films && p.films.length
             ? <ul style="margin:0;padding-left:16px">{p.films.map(f => (
                 <li style="font-size:12.5px;line-height:1.5">
                   <a href={`https://www.familysearch.org/ark:/61903/${f.ark}?cc=2040054&wc=${encodeURIComponent(f.wc)}`} rel="noopener" target="_blank">{f.t} &#8599;</a>
@@ -106,7 +120,7 @@ const linked = pb.linked || 0;
   </div>
   <div class="note" style="margin-top:24px">{kv.gap}</div>
   <p class="cap" style="margin-top:16px" set:html={mdHtml(kv.note)}></p>
-  <p class="cap" style="margin-top:8px"><strong>{kv.linked} volumes here open straight into the image viewer.</strong> {kv.harvested}</p>
+  <p class="cap" style="margin-top:8px"><strong>{kv.linked} volumes here have an image waypoint.</strong> {kv.harvested} The Atlas lists them parish by parish (the ↗ links).</p>
 </section>
 
 <Rule name="loom" label="Dalmatia" />
@@ -121,12 +135,14 @@ const linked = pb.linked || 0;
   </div>
   <div class="scroll" style="margin-top:22px">
     <table>
-      <thead><tr><th style="width:18%">Parish</th><th class="m" style="width:9%">Volumes</th><th>Open one</th></tr></thead>
+      <thead><tr><th style="width:18%">Parish</th><th class="m" style="width:9%">Volumes</th><th>Open them</th></tr></thead>
       <tbody>{dal.parishes.map(p => (
         <tr>
           <td>{p.name}</td>
           <td class="m">{p.films.length}</td>
-          <td>{p.films.map(f => (
+          <td>{atlas(p.name)
+            ? <a href={atlas(p.name)} rel="noopener" target="_blank">All {p.films.length}, {ATLAS_ROW} &#8599;</a>
+            : p.films.map(f => (
             <div style="padding:1px 0">
               <a href={`https://www.familysearch.org/ark:/61903/${f.ark}?cc=2040054&wc=${encodeURIComponent(f.wc)}`} rel="noopener" target="_blank">{f.t} &#8599;</a>
             </div>))}</td>
@@ -159,7 +175,9 @@ const linked = pb.linked || 0;
         <tr>
           <td>{p.name}</td>
           <td class="m">{p.films.length}</td>
-          <td>{p.films.map(f => (
+          <td>{atlas(p.name)
+            ? <a href={atlas(p.name)} rel="noopener" target="_blank">All {p.films.length}, with their register numbers, {ATLAS_ROW} &#8599;</a>
+            : p.films.map(f => (
             <div style="padding:1px 0">
               <a href={`https://www.familysearch.org/ark:/61903/${f.ark}?cc=1939238&wc=${encodeURIComponent(f.wc)}`} rel="noopener" target="_blank">{f.t} &#8599;</a>
             </div>))}</td>
@@ -173,7 +191,7 @@ const linked = pb.linked || 0;
 <Rule name="tablet" label="HR-HDA-1448" />
 
 <section class="blk">
-  <h2>{hda.heading}</h2>
+  <h2 id="hda">{hda.heading}</h2>
   <p class="dek" style="margin-top:10px" set:html={mdHtml(hda.lead)}></p>
 
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">

@@ -46,6 +46,41 @@
    ],
    "starts": "show all 271",
    "why": "the page's severity filter lists its options and their counts: twelve words before, five now"
+  },
+  {
+   "pages": [
+    "/parish-books/"
+   ],
+   "starts": "every register volume photographed for the places",
+   "why": "the dek: the volumes are on the Atlas now, and the sentence about them opening at their first image is gone"
+  },
+  {
+   "pages": [
+    "/parish-books/"
+   ],
+   "starts": "parish from volumes open one",
+   "why": "table header: «Open one» is «Open them» now (the cell is a link to the Atlas for most parishes)"
+  },
+  {
+   "pages": [
+    "/parish-books/"
+   ],
+   "starts": "parish volumes open one",
+   "why": "table header: «Open one» is «Open them» now (the cell is a link to the Atlas for most parishes)"
+  },
+  {
+   "pages": [
+    "/parish-books/"
+   ],
+   "starts": "263 of 263 volumes open straight into the familysearch image viewer",
+   "why": "the caption: it claimed each volume opens straight into the viewer from this page; it now says what is true (the waypoints, and that the Atlas lists the volumes)"
+  },
+  {
+   "pages": [
+    "/parish-books/"
+   ],
+   "starts": "255 volumes here open straight into the image viewer",
+   "why": "the caption: the same sentence, for the Kvarner list; the volumes are on the Atlas now"
   }
  ],
  "snapshot_pages": {
@@ -89,7 +124,7 @@
   },
   {
    "page": "/parish-books/",
-   "why": "the note at the top (as above)"
+   "why": "the note at the top (as above), and the volume lists: 158 parishes' volume lines are one link each to the parish's Record Atlas page (docs/atlas-covers.txt: 1,359 of 1,359 waypoints are on those pages); 11 parishes the Atlas has no place for keep theirs; the HDA tables are kept (the Atlas page does not carry the rolls)"
   },
   {
    "page": "/map/",
@@ -114,6 +149,44 @@
   {
    "page": "/who/jacobo-de-franceschi/",
    "why": "a quoted snippet of method.json: the link to /elsewhere/ beside it was repointed to /collections-walk/#elsewhere, so the snippet's trailing words moved"
+  }
+ ],
+ "token_inserts": [
+  {
+   "pages": [
+    "/corrections/"
+   ],
+   "words": [
+    "fixed",
+    "struck"
+   ],
+   "why": "the status chip (Fixed / Struck) drawn in the header of the 15 corrections that were written «fixed» or «struck» in the severity column"
+  }
+ ],
+ "rows_shortened": [
+  {
+   "pages": [
+    "/parish-books/"
+   ],
+   "names_from": [
+    {
+     "file": "site/src/data/parishbooks.json",
+     "path": "list[].parish"
+    },
+    {
+     "file": "site/src/data/kvarner-books.json",
+     "path": "parishes[].name"
+    },
+    {
+     "file": "site/src/data/dalmatia-books.json",
+     "path": "parishes[].name"
+    },
+    {
+     "file": "site/src/data/carnia-books.json",
+     "path": "comuni[].name"
+    }
+   ],
+   "why": "each volume list is a link to the parish's own Record Atlas page; scripts/check-atlas-covers.py found 1,359 of 1,359 waypoints on those pages; a parish the Atlas has no place for keeps its full row"
   }
  ]
 }

@@ -7,7 +7,7 @@
      atlas   [[label, href]]   where the same registers and places are on the Atlas
      only    [[label, href, what]]   what only this archive holds here, with where on this page it starts */
 import { u } from "../lib/url.js";
-const { atlas = [], only = [] } = Astro.props;
+const { atlas = [], only = [], closing = "These are on the <a href=\"https://recordatlas.org/\" target=\"_blank\" rel=\"noopener\">Record Atlas</a> as well. The page below is this archive's own account of them, in full." } = Astro.props;
 ---
 <aside class="atlas-note" aria-label="What is here and what is on the Record Atlas">
   <div class="an-col">
@@ -25,7 +25,7 @@ const { atlas = [], only = [] } = Astro.props;
         <li><a href={href} target="_blank" rel="noopener">{label} ↗</a></li>
       ))}
     </ul>
-    <p class="an-p">These are on the <a href="https://recordatlas.org/" target="_blank" rel="noopener">Record Atlas</a> as well. The page below is this archive's own account of them, in full.</p>
+    <p class="an-p" set:html={closing}></p>
   </div>
 </aside>
 <style>
