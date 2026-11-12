@@ -2,6 +2,20 @@
  "note": "Entries written by hand for the What changed page: changes to the SITE (a new page, a repair to the roster) that are not a search and not a correction. scripts/build-changes.py merges them with the Search Register and Corrections, so a regeneration never drops them. Taken from the page as it stood on 6 October 2026.",
  "rows": [
   {
+   "when": "13 Nov 2026",
+   "kind": "build",
+   "what": "What's new now shows each search's state at the Record Atlas, and the pages it updated",
+   "src": "Kit 0521bf1; /whats-new/",
+   "text": "Under each search row **What's new** now says whether the work has reached the **Record Atlas** («In the Atlas»), and names the **pages of this archive the search updated**, each as a link. Rows dated from 13 Nov 2026 must name their pages, or say they are a log entry only; older rows are left as they were. If the Atlas cannot be reached when the site is built, the Atlas line is simply left out and the build still passes. No research changed."
+  },
+  {
+   "when": "12 Nov 2026",
+   "kind": "build",
+   "what": "The menu regrouped into six menus, with one Research tab",
+   "src": "Site menu; no address changed",
+   "text": "The menu is now **Start, Our line, People, Places & families, The name** and a sixth, **Research**, which holds the search and method pages in one tab. It is one list for the whole menu. **No page was removed and no address changed**; every address in the old menu is still in the new one. «The DNA» is added as a deep dive linked from the two DNA test rows under Sources. What's new moved into Research."
+  },
+  {
    "when": "6 Oct 2026",
    "kind": "build",
    "what": "A new page: «Lives on one scale» — every dated person in a line, as a scrollable chart of lifespans",
