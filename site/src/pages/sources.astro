@@ -5,6 +5,7 @@ import Sources from "@daviddef/archive-kit/components/Sources.astro";
 import { md as _md } from "../lib/md.js";
 import { u } from "../lib/url.js";
 import all from "../data/sources.json";
+import { deepDiveLinks } from "../lib/research-menu.js";
 const blurb = {
   Archive: "Places that hold the original paper, and that will copy it for you if you write.",
   Database: "Indexes and image collections searched online.",
@@ -42,6 +43,8 @@ const groups = kinds.map(k => ({
     what: _md(s.what), cites: s.cites, /* two notes carry a literal <em> (a journal title); other `<` in this file are placeholders and stay escaped */
     note: s.note ? _md(s.note).replace(/&lt;(\/?)em&gt;/g, "<$1em>") : null,
     held: s.held,
+    /* 12 Nov 2026 (research-menu trial): the five source studies are "deep dives" under Sources, each linked from its own row */
+    links: deepDiveLinks[s.id] ? deepDiveLinks[s.id].map(([l, h]) => [l, u(h)]) : undefined,
   })),
 }));
 const reach = all.filter(s => s.url).length;

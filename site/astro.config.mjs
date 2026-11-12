@@ -48,6 +48,9 @@ export default defineConfig({
     '/research-log': '/open-questions/',
     '/gaps': '/open-questions/#gaps',
     '/photograph-these': '/errands/#photographs',
+    /* 12 November 2026 (the research-menu trial): /elsewhere/ and /collections-walk/ shared one title and one subject; the first is a
+       section of the second now (#elsewhere). */
+    '/elsewhere': '/collections-walk/#elsewhere',
     /* The six retired /who/ addresses (a rename on 12 October 2026, four surname-first pages from the 27 September
        Trove harvest, and a rename on 21 September) used to be redirects here. On 17 October 2026 the book made every
        built page a chapter with a running head, and an Astro redirect page has no layout to carry one, so they are now

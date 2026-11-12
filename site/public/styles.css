@@ -821,6 +821,15 @@ header.site nav.topnav{display:flex;align-items:center;gap:1px;flex-wrap:nowrap}
   padding:7px 11px;border-radius:8px;white-space:nowrap}
 .topnav .panel a:hover{background:var(--accent-wash);color:var(--accent)}
 .topnav .panel a.on{color:var(--ink);font-weight:600;background:var(--panel-2)}
+/* the Research menu (12 Nov 2026, menu trial): three groups side by side, a heading that links to the group's own page, and plain
+   sub-labels inside a group. It is the last menu in the bar, so its panel opens leftwards and never runs off the right edge. */
+.topnav .panel.wide{left:auto;right:0;display:grid;grid-template-columns:repeat(3,minmax(190px,1fr));gap:4px 14px;min-width:min(720px,92vw);padding:12px}
+.topnav .panel .pg{display:flex;flex-direction:column;min-width:0}
+.topnav .panel a.ph{font-weight:600;color:var(--ink);letter-spacing:.01em;border-bottom:1px solid var(--rule);border-radius:8px 8px 0 0;margin-bottom:4px}
+.topnav .panel .ps{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:11px 11px 3px}
+.drawer .dsub{margin:2px 0 8px;display:flex;flex-direction:column}
+.drawer a.ph{font-weight:600;color:var(--ink)}
+.drawer .ps{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:8px 0 2px}
 .findbtn{display:inline-block;font-family:var(--sans);font-size:12.5px;line-height:1;
   text-decoration:none;margin-left:10px;color:var(--on-accent)!important;background:var(--accent);
   padding:8px 15px;border-radius:999px;white-space:nowrap}
