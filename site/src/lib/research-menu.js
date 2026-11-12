@@ -33,6 +33,7 @@ export const RESEARCH = [
           { href: "/findmypast/", label: "Findmypast, swept", source: "findmypast" },
           { href: "/old-site/", label: "defranceski.com", source: "dfcom" },
           { href: "/live-tree/", label: "The live tree, reconciled", source: "myheritage-live" },
+          { href: "/dna/", label: "The DNA", source: ["ydna", "23andme"] },   /* 12 Nov 2026: left Start; the page reads these two tests */
         ] },
       { sub: "Registers and places (also on the Atlas)", id: "registers-and-places",
         note: "The registers and places themselves are on the Record Atlas; these pages keep what only this archive holds: what has been read, what was walked, the verdicts.",
@@ -52,7 +53,8 @@ export const navGroups = RESEARCH.map((g) => ({
   items: g.items.flatMap((x) => x.sub ? [{ sub: x.sub }, ...x.items.map((y) => [y.href, y.label])] : [[x.href, x.label]]),
 }));
 
-/* the deep dives, by the id of the Sources row each one is linked from: { sourceId: [[label, href]] } */
-export const deepDiveLinks = Object.fromEntries(
-  RESEARCH.flatMap((g) => g.items).filter((x) => x.id === "deep-dives").flatMap((x) => x.items)
-    .map((d) => [d.source, [["Deep dive: " + d.label, d.href]]]));
+/* the deep dives, by the id of the Sources row each one is linked from (one id or a list): { sourceId: [[label, href]] } */
+export const deepDiveLinks = {};
+for (const d of RESEARCH.flatMap((g) => g.items).filter((x) => x.id === "deep-dives").flatMap((x) => x.items)) {
+  for (const id of [].concat(d.source)) (deepDiveLinks[id] ||= []).push(["Deep dive: " + d.label, d.href]);
+}

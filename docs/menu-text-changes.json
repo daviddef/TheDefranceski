@@ -1,192 +1,20 @@
 {
- "note": "What the research-menu trial (12 November 2026) changed ON PURPOSE, so that menu-inventory.py compare does not call it a loss. Everything else must be found, word for word, somewhere on the new site.",
- "token_swaps": [
-  {
-   "pages": [
-    "/searched/"
-   ],
-   "old": "yielded",
-   "new": "found",
-   "why": "outcome chip of a Search Register row: the eleven outcome words are one set now (found / nil / partial / blocked / pending); the page says Found where it said Yielded"
-  },
-  {
-   "pages": [
-    "/searched/"
-   ],
-   "old": "other",
-   "new": "nothing",
-   "why": "78 rows carried the outcome «nil», which the page did not map, so it printed them as Other; they now read Nothing, like the 163 that were written «nothing»"
-  }
- ],
- "accepted": [
-  {
-   "pages": [
-    "/searched/"
-   ],
-   "starts": "any yielded (",
-   "why": "the page's own outcome filter: its options and their counts follow from the two changes above"
-  },
-  {
-   "pages": [
-    "/searched/"
-   ],
-   "starts": "915 sources.",
-   "why": "the kit's count of searches that returned nothing: it was always 0, because the page passed lower-case outcome words and the rows carry capitalised labels; it now counts"
-  },
-  {
-   "pages": [
-    "/corrections/"
-   ],
-   "starts": "271 entries",
-   "why": "the page's eyebrow counts the serious degree: 77 before, 113 after, because the 36 rows written «major» are Serious now"
-  },
-  {
-   "pages": [
-    "/corrections/"
-   ],
-   "starts": "show all 271",
-   "why": "the page's severity filter lists its options and their counts: twelve words before, five now"
-  },
-  {
-   "pages": [
-    "/parish-books/"
-   ],
-   "starts": "every register volume photographed for the places",
-   "why": "the dek: the volumes are on the Atlas now, and the sentence about them opening at their first image is gone"
-  },
-  {
-   "pages": [
-    "/parish-books/"
-   ],
-   "starts": "parish from volumes open one",
-   "why": "table header: «Open one» is «Open them» now (the cell is a link to the Atlas for most parishes)"
-  },
-  {
-   "pages": [
-    "/parish-books/"
-   ],
-   "starts": "parish volumes open one",
-   "why": "table header: «Open one» is «Open them» now (the cell is a link to the Atlas for most parishes)"
-  },
-  {
-   "pages": [
-    "/parish-books/"
-   ],
-   "starts": "263 of 263 volumes open straight into the familysearch image viewer",
-   "why": "the caption: it claimed each volume opens straight into the viewer from this page; it now says what is true (the waypoints, and that the Atlas lists the volumes)"
-  },
-  {
-   "pages": [
-    "/parish-books/"
-   ],
-   "starts": "255 volumes here open straight into the image viewer",
-   "why": "the caption: the same sentence, for the Kvarner list; the volumes are on the Atlas now"
-  }
- ],
- "snapshot_pages": {
-  "/changes/": {
-   "file": "docs/changes-snapshot-before.json",
-   "why": "The page was a snapshot of 20 September (newest day 6 October) and is regenerated from the logs by scripts/build-changes.py; an entry whose log row has been reworded since shows the current wording."
-  }
- },
+ "note": "PR A, the menu regroup (12 November 2026): what was changed ON PURPOSE, read by scripts/menu-inventory-kit.py. The research-trial's declarations are kept in docs/menu-text-changes-research-trial.json.",
+ "token_swaps": [],
+ "accepted": [],
+ "snapshot_pages": {},
  "site_changes": [
   {
-   "page": "/changes/",
-   "why": "regenerated from the logs (newest day 6 Oct before, 11 Nov now); the old page is kept in docs/changes-snapshot-before.json"
+   "page": "/research/",
+   "why": "the Research hub lists the deep dives: one more, The DNA (it left the Start menu and is a deep dive under Sources, as David chose)"
   },
   {
-   "page": "/searched/",
-   "why": "outcome chips: Yielded is Found, and the 78 rows written «nil» are Nothing, not Other (see token_swaps)"
-  },
-  {
-   "page": "/corrections/",
-   "why": "the severity words are five, not twelve; the 36 rows once written «major» keep their chip and every Serious row has it"
-  },
-  {
-   "page": "/collections-walk/",
-   "why": "the ten collections of /elsewhere/ stand here (#elsewhere)"
-  },
-  {
-   "page": "/elsewhere/",
-   "why": "now a redirect to /collections-walk/#elsewhere"
-  },
-  {
-   "page": "/part/how-we-know/",
-   "why": "the book's part VII lists the three new Research pages and no longer lists /elsewhere/"
-  },
-  {
-   "page": "/contents/",
-   "why": "the book's contents lists the three new Research pages and no longer lists /elsewhere/"
-  },
-  {
-   "page": "/archive/",
-   "why": "the note at the top: what only this archive holds, and the Atlas pages for the registers and places"
-  },
-  {
-   "page": "/parish-books/",
-   "why": "the note at the top (as above), and the volume lists: 158 parishes' volume lines are one link each to the parish's Record Atlas page (docs/atlas-covers.txt: 1,359 of 1,359 waypoints are on those pages); 11 parishes the Atlas has no place for keep theirs; the HDA tables are kept (the Atlas page does not carry the rolls)"
-  },
-  {
-   "page": "/map/",
-   "why": "the note at the top (as above)"
-  },
-  {
-   "page": "/antenati/",
-   "why": "the note at the top (as above)"
-  },
-  {
-   "page": "/undigitised/",
-   "why": "the note at the top (as above)"
+   "page": "/research/sources-and-method/",
+   "why": "the same: The DNA is a deep dive on the Sources & method page"
   },
   {
    "page": "/sources/",
-   "why": "each of the six deep-dive sources links to its study"
-  },
-  {
-   "page": "/",
-   "why": "the count of searches that found nothing: 163 before, 241 now. It counted the words «nothing» and «miss» and so left out the 78 rows written «nil»; it counts all of them now"
-  },
-  {
-   "page": "/who/jacobo-de-franceschi/",
-   "why": "a quoted snippet of method.json: the link to /elsewhere/ beside it was repointed to /collections-walk/#elsewhere, so the snippet's trailing words moved"
-  }
- ],
- "token_inserts": [
-  {
-   "pages": [
-    "/corrections/"
-   ],
-   "words": [
-    "fixed",
-    "struck"
-   ],
-   "why": "the status chip (Fixed / Struck) drawn in the header of the 15 corrections that were written «fixed» or «struck» in the severity column"
-  }
- ],
- "rows_shortened": [
-  {
-   "pages": [
-    "/parish-books/"
-   ],
-   "names_from": [
-    {
-     "file": "site/src/data/parishbooks.json",
-     "path": "list[].parish"
-    },
-    {
-     "file": "site/src/data/kvarner-books.json",
-     "path": "parishes[].name"
-    },
-    {
-     "file": "site/src/data/dalmatia-books.json",
-     "path": "parishes[].name"
-    },
-    {
-     "file": "site/src/data/carnia-books.json",
-     "path": "comuni[].name"
-    }
-   ],
-   "why": "each volume list is a link to the parish's own Record Atlas page; scripts/check-atlas-covers.py found 1,359 of 1,359 waypoints on those pages; a parish the Atlas has no place for keeps its full row"
+   "why": "the two DNA rows (MyHeritage Y-DNA, 23andMe) link to the DNA page as a deep dive, like the other six deep dives"
   }
  ]
 }

@@ -4,7 +4,7 @@ import { versioner } from "@daviddef/archive-kit/lib/assetv.js";
 /* every public asset gets a fingerprint, so a fix is never served stale */
 const v = versioner();
 import { u } from "../lib/url.js";
-import { navGroups } from "../lib/research-menu.js";
+import { MENU } from "../lib/site-menu.js";
 import { md } from "../lib/md.js";
 import SiblingArchives from "@daviddef/archive-kit/components/SiblingArchives.astro";
 import SkipLink from "@daviddef/archive-kit/components/SkipLink.astro";
@@ -43,20 +43,7 @@ const plain = (t) => (t && MARKUP.test(t)
   ? t.replace(/\[([^\]\n]+)\]\([^)\s]*\)/g, "$1").replace(/\*{1,3}([^*\n]+?)\*{1,3}/g, "$1").replace(/`/g, "")
   : t);
 const blurb = plain(dek || description);
-const nav = [
-  ["Start", [["/", "Home"], ["/story/", "Start with the story"], ["/trees/", "The trees"], ["/tree/", "Our line, drawn"], ["/roots/", "Roots & Routes"], ["/timeline/", "The Timeline"], ["/whats-new/", "What's new"], ["/dna/", "The DNA"], ["/about/", "About"]]],
-  ["Our line", [["/direct-line/", "The Spine"], ["/carlo/", "Carlo De Franceschi"], ["/cheryl-lerena/", "Cheryl Lerena — the poems"], ["/1948/", "Nineteen forty-eight"], ["/vodnjan/", "Vodnjan"], ["/carnia/", "1 · Carnia"], ["/gologorica-line/", "2 · Gologorica"], ["/the-eleven/", "3 · Gračišće — the Eleven"], ["/crikvenica-house/", "4 · Crikvenica"], ["/senj-line/", "5 · Senj"], ["/pfullingen/", "6 · Pfullingen"]]],
-  ["Maternal lines", [["/maternal/salomon/", "Salomon — Francisca"], ["/maternal/fernasar/", "Fernasar — Maria"], ["/kalanj/", "Kalanj — Anna"], ["/maternal/kovacina/", "Kovačina — Uršula"], ["/senj-line/", "Blažević — Hedviga"]]],
-  ["The families", [["/lines/", "The Lines"], ["/places/svetvincenat/", "Svetvinčenat — the castle"], ["/omis-line/", "Out of Venice — Omiš"], ["/imotski/", "…and Imotski"], ["/seget/", "Out of Crete — Seget"], ["/liznjan/", "Southern Istria — Ližnjan"], ["/rijeka/", "The Kvarner — Rijeka and Bakar"], ["/dubrovnik/", "Ragusa — Dubrovnik"], ["/corsica/", "Corsica — a parallel"], ["/trentino/", "Trentino — a blind spot"], ["/lines/#regions", "Bakar, Fiume & the unplaced"]]],
-  ["Go there", [["/walk/carnia/", "1 · Carnia — Val Degano"], ["/walk/gologorica/", "2 · Gologorica & Gračišće"], ["/emigration/", "Leaving"], ["/burials/", "Burials"], ["/walk/", "Walk the line"], ["/journeys/", "Journeys"], ["/diaspora/", "Where the name went"], ["/istria-sweep/", "Every town"]]],
-  ["People & places", [["/people/", "The People"], ["/who/", "Every Name"], ["/bloodline/", "Blood relatives, drawn"], ["/register/", "The Register"], ["/households/", "Households"], ["/marriages/", "The Marriages"], ["/graves/", "Graves"], ["/places/", "Places"], ["/explorer/", "Explorer"]]],
-  ["The name", [["/name/", "The Name"], ["/your-name/", "Say Your Name"], ["/arms/", "Arms & Flags"], ["/julius/", "Julius — a naval career"], ["/imperial/", "The name in imperial service"], ["/fiume-1626/", "Fiume, 1626"], ["/at-sea/", "At sea — Lloyd's List"], ["/giornaletto/", "The Giornaletto di Pola"], ["/namesakes/", "Namesakes"]]],
-  /* 12 November 2026 (the research-menu trial): "Evidence" and "Investigations" are one "Research" menu with three groups, as David
-     chose. The list is lib/research-menu.js (the header, the drawer and the group pages all read it). A menu is a flat list of
-     [href, label], or a list of groups { head, href, items }, an item being [href, label] or { sub } (a plain sub-label). Every address
-     of the two old menus is still a built page; only /elsewhere/ moved (it redirects to /collections-walk/#elsewhere). */
-  ["Research", navGroups],
-];
+const nav = MENU;   /* lib/site-menu.js: the whole menu in one list */
 
 const here = Astro.url.pathname;
 /* WHICH OF THE SEVEN THIS IS — by ORIGIN, not by base. Every archive on its own domain has
@@ -113,7 +100,7 @@ const thisArchive =
             {links[0] && links[0].items
               ? links.map((g) => (
                   <div class="pg">
-                    <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a>
+                    {g.href ? <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a> : <span class="ps ph0">{g.head}</span>}
                     {g.items.map((x) => Array.isArray(x)
                       ? <a href={u(x[0])} class={here === u(x[0]) ? "on" : ""}>{x[1]}</a>
                       : <span class="ps">{x.sub}</span>)}
@@ -131,7 +118,7 @@ const thisArchive =
         {links[0] && links[0].items
           ? links.map((g) => (
               <div class="dsub">
-                <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a>
+                {g.href ? <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a> : <span class="ps ph0">{g.head}</span>}
                 {g.items.map((x) => Array.isArray(x)
                   ? <a href={u(x[0])} class={here === u(x[0]) ? "on" : ""}>{x[1]}</a>
                   : <span class="ps">{x.sub}</span>)}
