@@ -192,13 +192,43 @@ def load_changes():
     if not os.path.exists(f):
         return [], [], {}
     d = json.load(open(f, encoding="utf-8"))
+    global INSERTS, SHORTENED
+    INSERTS, SHORTENED = d.get("token_inserts", []), d.get("rows_shortened", [])
     return d.get("token_swaps", []), d.get("accepted", []), d.get("snapshot_pages", {})
+
+
+INSERTS, SHORTENED = [], []
+
+
+def _path_values(obj, path):
+    """«parishes[].name» -> every name; «list[].parish» likewise. Only dotted keys and [] list steps."""
+    cur = [obj]
+    for step in path.split("."):
+        nxt = []
+        for c in cur:
+            if step.endswith("[]"):
+                nxt.extend(c.get(step[:-2], []))
+            else:
+                nxt.append(c.get(step))
+        cur = nxt
+    return [x for x in cur if isinstance(x, str)]
 
 
 def compare(before, dist):
     inv = json.load(open(before, encoding="utf-8"))
     where = all_blocks(dist)
     swaps, accepted, snaps = load_changes()
+    # rows_shortened: a table row whose long cell (a volume list) is now a link to the Atlas. The row is kept if a block with the same
+    # first cell still stands on the page; the dropped cell is covered by the coverage check the declaration names.
+    short = []
+    for sd in SHORTENED:
+        root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+        names = set()
+        for nf in sd["names_from"]:
+            names |= {norm(x) for x in _path_values(json.load(open(os.path.join(root, nf["file"]), encoding="utf-8")), nf["path"])}
+        short.append((sd, names))
+    used_short = {i: 0 for i in range(len(short))}
+    used_ins = {i: 0 for i in range(len(INSERTS))}
     big = None
     heads = {}
     for blk, w in where.items():
@@ -248,6 +278,42 @@ def compare(before, dist):
                 return True
         return False
 
+    def inserted(b, url):
+        """the same block with one declared word added in its first six words (a status chip drawn in a header)"""
+        t = b.split()
+        for i, ins in enumerate(INSERTS):
+            if url not in ins["pages"]:
+                continue
+            for word in ins["words"]:
+                for k in range(0, min(6, len(t)) + 1):
+                    if " ".join(t[:k] + [word] + t[k:]) in where:
+                        used_ins[i] += 1
+                        return True
+        return False
+
+    def shortened(b, url):
+        if not b.startswith(ROW):
+            return False
+        body = b[len(ROW):].lstrip()
+        for i, (sd, names) in enumerate(short):
+            if url not in sd["pages"]:
+                continue
+            for n in names:
+                if body.startswith(n + " ") or body == n:
+                    # some block on the page still begins with this first cell
+                    if any(blk.lstrip(ROW).lstrip().startswith(n + " ") or blk.lstrip(ROW).lstrip() == n for blk in page_blocks(url)):
+                        used_short[i] += 1
+                        return True
+        return False
+
+    pbl = {}
+
+    def page_blocks(url):
+        if url not in pbl:
+            f = page_file(dist, url)
+            pbl[url] = read_page(f)["blocks"] if f else []
+        return pbl[url]
+
     def tok(b):
         return set(re.findall(r"\w+", b))
 
@@ -275,7 +341,7 @@ def compare(before, dist):
             w = where.get(b)
             if w is None:
                 w = swapped(b, url)
-            if w is None and (contained(b) or accepted_by(b, url)):
+            if w is None and (contained(b) or accepted_by(b, url) or inserted(b, url) or shortened(b, url)):
                 w = url
             if w is None and url in snaps:
                 sim = near(b, url)
@@ -305,6 +371,10 @@ def compare(before, dist):
             print("      %.2f  %s" % (sim, b[:130]))
     for i, sw in enumerate(swaps):
         print("intentional: %d block(s) on %s had %r changed to %r  (%s)" % (used[i], ", ".join(sw["pages"]), sw["old"], sw["new"], sw["why"]))
+    for i, ins in enumerate(INSERTS):
+        print("intentional: %d block(s) on %s gained the word %s  (%s)" % (used_ins[i], ", ".join(ins["pages"]), "/".join(ins["words"]), ins["why"]))
+    for i, (sd, names) in enumerate(short):
+        print("intentional: %d table row(s) on %s shortened to a link to the Atlas  (%s)" % (used_short[i], ", ".join(sd["pages"]), sd["why"]))
     for i, a in enumerate(accepted):
         print("intentional: %d block(s) on %s starting %r reworded  (%s)" % (used_acc[i], ", ".join(a["pages"]), a["starts"][:50], a["why"]))
     print("\n%s" % ("NOTHING LOST" if not bad else "%d problem(s)" % bad))
