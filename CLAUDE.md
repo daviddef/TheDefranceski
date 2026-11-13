@@ -175,3 +175,12 @@ living page or a duplicate. The page prints one place and the person's years, so
 Given-name forms (Ivan = Johann = Giovanni = Zuane = Joannes) and a place's name in the year of the record (Salisbury before 1982, Fiume before 1945) come only from the Record Atlas catalogues, as surnames do: invoke the user-level `name-variants` skill, run `given_name_variants.py terms` / `place_names.py at PLACE YEAR` before searching, `cover` before any nil, `add` (with evidence) for every new form, `publish` once at the end. Keep no table of given-name forms or old place names here. Nothing about a person goes in the catalogues; `lead` is never a finding.
 
 This site's own given-name table (`site/src/data/givennames.json`, `givennames-forms.json`, `tools/givennames.py`) was folded into the Atlas catalogue on 2026-11-04 (people stripped). It is no longer the source: add new forms to the Atlas, and the `/your-name/` page is to read `https://recordatlas.org/given-names.json`; do not hand-edit the old table or re-run `tools/givennames.py`.
+
+## Every found row says what page it updated and who it is for (13 and 15 November 2026)
+
+The kit's `check_row_pages.py` (docs: `kit/docs/whats-new-receipts.md`; dates in `docs/row-pages.json`: `from` 2026-11-13, `peopleFrom` 2026-11-15) judges every `searched.json` row that reads as **found**, from its date on. What's new shows the pages updated and who each finding is for. Old rows are NOT backfilled and no existing row is edited (editing a row changes its Atlas key).
+
+* **Pages**: a found row names the page(s) it updated, `"ev": [["/page/","label"]]`, or says `"logOnly": true`.
+* **People**: a found row carries EITHER `"for": [["/person/slug/","Name"], …]` (each path a BUILT page of this archive that is that person's own page, the name that page uses, a page once per row, only people the finding is really about) OR `"nobody": true` (the pages were read and no new person came out; the reason can go in `what`). Never both.
+* **Living people**: only people this archive already publishes can be listed (the gate needs a built page). Never add a page or a name for a living person to satisfy the gate; the living rule beats it.
+* Nothing about the people goes to the Record Atlas: the receipts hold only the row key.
