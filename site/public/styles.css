@@ -842,7 +842,7 @@ header.site nav.topnav a.findbtn{padding:8px 15px;border-bottom:0;flex:0 0 auto}
   background:none;border:1px solid var(--rule-strong);border-radius:999px;padding:7px 14px;
   color:var(--ink);cursor:pointer}
 /* Tree Canvas trial (14 Nov 2026): an icon button at the right of the header, beside the kit's three round buttons (same size, border and hover as .pbtn). */
-header.site nav.topnav a.canvasbtn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;flex:none;margin-left:6px;
+header.site nav.topnav a.canvasbtn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;flex:none;margin-left:3px;
   border:1px solid var(--rule);border-radius:50%;background:var(--panel);color:var(--ink-2);text-decoration:none;line-height:1}
 header.site nav.topnav a.canvasbtn:hover,header.site nav.topnav a.canvasbtn:focus-visible{color:var(--accent);background:var(--accent-wash);border-color:var(--accent)}
 .drawer{border-top:1px solid var(--rule);background:var(--panel);padding:16px 0 22px;max-height:70vh;overflow:auto}
