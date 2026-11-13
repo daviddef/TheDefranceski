@@ -26093,6 +26093,39 @@
      "Rovinj: the 1619 burial re-read"
     ]
    ]
+  },
+  {
+   "when": "13 Nov 2026",
+   "walked": false,
+   "tags": [
+    "oesta",
+    "vienna",
+    "kriegsarchiv",
+    "justiz",
+    "omis",
+    "pula",
+    "catalogue",
+    "defranceschi"
+   ],
+   "outcome": "found",
+   "dest": "Vienna",
+   "src": "ÖStA Archivinformationssystem (archivinformationssystem.at), record pages re-read one by one: the four Dalmatian justice files, two navy/war-court person records, and the Marine tectonics walked by breadcrumb",
+   "url": "https://www.archivinformationssystem.at/",
+   "what": "Worklist 134/135/144: re-find the broken MGBBl 2651 signature, settle the access and cost of the four Dalmatian files, and look for people of the name with an Istrian or Dalmatian birthplace.",
+   "pages": "detail.aspx IDs 2476935, 2476852, 3477482, 3450496, 5467126, 6296543, 4941, 4961, 5035, 401575, 4871244, 3565729, 885782, 1422506; the error pages 6341942, 6341941, 3558352, 3558801",
+   "got": "Two person years new to the archive, both from the catalogue's own person fields (doc for the catalogue entry, the files unopened): **Josef Franceschi, corporal, born 1843 at Almissa (Omiš)** and **Humbert Defranceski, born 1896 at Pola, shipwright, Landsturminfanterist, charged under «§ 183, § 212» in 1918**. A correction: **«Franceschi, Antonio», 1843 (JS DS 80.3.4) is filed under the collegial court at CATTARO (Kotor), not Almissa** — the «Dalmatian cluster» of worklist 134 runs Omiš, Kotor, Pola/Rovigno and Šibenik. Access settled: 83.1.14 and 80.3.4 are public and permission-free yet still carry «Aus konservatorischen Gründen … nicht möglich» and have no reproduction; JM Präs. A 140.14 (Giovanni Pietro de Franceschi, b. Rovigno 9 Feb 1854) and A 134.22 (Carlo Dragutin Defranceschi, b. Zara 29 Jul 1883) are unrestricted and orderable. Fees from the ÖStA's own schedule of 28 Aug 2026: €6 a scan to A3, first half-hour of an enquiry free then €45 a half-hour, working scans free at the department's discretion, and the old €30 publication fee is gone. MGBBl 2651 NOT ESTABLISHED: its page and three neighbouring Marine person-file pages return a server error, and the whole item layer under «Offiziere und Beamte» is undisplayable while sibling NMA items load — so it is a per-series outage, not the site. The live series node is detail.aspx?ID=401575.",
+   "next": "Write to ka@oesta.gv.at for the current signature of MGBBl 2651 (Johann, b. 1833 Gallignana) and to avafhka@oesta.gv.at with a Reproauftrag for JM Präs. A 134.22 and A 140.14, asking in the same mail whether 83.1.14 and 80.3.4 can be copied under the conservation block (errand drafted, not sent). The systematic Feldsuche was NOT run: the catalogue's search is a JavaScript POST form that a fetch cannot submit and the detail pages are not indexed by search engines, so nothing here is a nil about what else the catalogue holds; it wants a browser session, with a «Ref. code contains AT-OeStA/KA Marine NMA Pers» pass that the September sweep never used.",
+   "ev": [
+    [
+     "/omis-line/",
+     "The Austrian courts and the navy: the four files, and Josef's year"
+    ],
+    [
+     "/places/pula/",
+     "Humbert Defranceski, shipwright of Pola, 1918"
+    ]
+   ],
+   "key": "src/oesta-catalogue-reread-13-nov-2026"
   }
  ]
 }
