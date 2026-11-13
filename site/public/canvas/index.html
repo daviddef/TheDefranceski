@@ -337,6 +337,26 @@ button{font-family:inherit}
 .ph #bMore{display:inline-grid!important}
 /* short windows (a laptop with the browser's own chrome, a small pane): a lower shelf so the canvas keeps room */
 @media (max-height:620px){.dock{bottom:8px}.shelf{min-height:0;padding:6px 6px 4px}.res{height:60px;padding-top:4px}.shelf .none{padding:6px 12px;line-height:1.4}}
+
+/* the relate zone: drop two people in, the whole path between them is drawn */
+#rz{position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:6;display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--lk-card);border:2px solid var(--lk-line);border-radius:22px;box-shadow:0 4px 0 var(--lk-line),0 12px 26px rgba(0,0,0,.12);max-width:calc(100vw - 600px)}
+#rz .rzs{flex:1 1 0;min-width:150px;height:54px;border:2px dashed var(--lk-line);border-radius:14px;display:flex;align-items:center;padding:4px 30px 4px 14px;position:relative;cursor:pointer;color:var(--lk-faint);font:800 12.5px Nunito,system-ui;overflow:hidden;transition:background .15s,border-color .15s}
+#rz .rzs:hover,#rz .rzs:focus-visible{border-color:var(--lk-accent);outline:none}
+#rz.over .rzs.empty,#rz .rzs.armed{border-color:var(--lk-accent);background:var(--lk-accent-soft);color:var(--lk-ink)}
+#rz .rzs.full{border-style:solid;color:var(--lk-ink);cursor:default;padding-left:18px}
+#rz .rzs.full::before{content:"";position:absolute;left:5px;top:7px;bottom:7px;width:6px;border-radius:4px;background:var(--ac)}
+#rz .rzp{min-width:0;line-height:1.2}
+#rz .rzp b{display:block;font:400 15px "Lilita One",system-ui;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#rz .rzp small{display:block;font:800 10.5px Nunito,system-ui;color:var(--lk-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#rz .rzs .rzd{position:absolute;right:6px;top:6px;width:22px;height:22px;border-radius:50%;border:0;background:transparent;color:var(--lk-soft);cursor:pointer;font:800 15px/22px Nunito}
+#rz .rzs .rzd:hover{background:var(--lk-hover);color:var(--lk-ink)}
+#rz .rzm{display:flex;flex-direction:column;align-items:center;font:400 22px/1 "Lilita One",system-ui;color:var(--lk-soft)}
+#rz .rzm small{font:800 9.5px Nunito,system-ui;letter-spacing:.04em;text-transform:uppercase;color:var(--lk-faint);margin-top:2px;white-space:nowrap}
+#rz .rzx{display:flex;flex-direction:column;align-items:flex-end;gap:3px;min-width:64px}
+#rzmsg{font:800 11px Nunito,system-ui;color:var(--lk-soft);white-space:nowrap}
+@media (max-width:1450px){#rz{top:64px;max-width:calc(100vw - 150px)}}
+.ph #rz{left:60px;right:8px;top:58px;transform:none;max-width:none;flex-wrap:wrap;padding:6px 8px;gap:6px}
+.ph #rz .rzs{min-width:120px;height:46px}.ph #rz .rzm small,.ph #rz .rzx #rzmsg{display:none}.ph #rz .rzx{min-width:0;flex-direction:row}
 </style>
 </head><body>
 <div id="stage"><div id="world"><svg id="edges" aria-hidden="true"></svg><div id="cards"></div></div></div>
@@ -351,6 +371,7 @@ button{font-family:inherit}
   <button class="lk-ibtn xtra" id="bClear" title="Clear the canvas (Undo brings it back)" aria-label="Clear"></button>
   <button class="lk-ibtn" id="bMore" title="More" aria-label="More" style="display:none"></button>
 </div>
+<div id="rz" aria-label="Relate two people"><div class="rzs" data-s="0" tabindex="0" role="button"></div><div class="rzm" title="Drop two people here and the whole path between them is drawn">&#8644;<small>how related</small></div><div class="rzs" data-s="1" tabindex="0" role="button"></div><div class="rzx"><span id="rzmsg"></span><button class="lk-btn is-small" id="rzClr" type="button">Clear</button></div></div>
 <div id="hint">Search anyone, from any archive, and drop them here
   <small>Pull up their parents, all the way back, one generation at a time.<br>Drop someone from another archive and ask how the two are related.<br>Solid means read from a register; dashed means not proven; dotted means the archive records no grade.</small>
   <div style="margin-top:14px;pointer-events:auto"><button class="lk-btn is-primary" id="exDemo">Show me an example</button></div></div>
@@ -1438,17 +1459,19 @@ function runSearchMarks() { document.querySelectorAll('#shelf .res').forEach(el 
   window.addEventListener('pointermove', e => {
     if (!d || e.pointerId !== d.id || d.touch) return;
     if (!d.ghost && Math.hypot(e.clientX - d.x, e.clientY - d.y) > 7) { d.ghost = d.el.cloneNode(true); d.ghost.className = 'res ghost'; d.ghost.style.setProperty('--ac', d.el.style.getPropertyValue('--ac')); document.body.appendChild(d.ghost); }
-    if (d.ghost) { d.ghost.style.left = e.clientX + 'px'; d.ghost.style.top = e.clientY + 'px'; const over = !e.target.closest('.dock'); $('#stage').classList.toggle('dropok', over); }
+    if (d.ghost) { d.ghost.style.left = e.clientX + 'px'; d.ghost.style.top = e.clientY + 'px'; const zo = rzOver(e.clientX, e.clientY); $('#rz').classList.toggle('over', zo); const over = !zo && !e.target.closest('.dock'); $('#stage').classList.toggle('dropok', over); }
   });
   window.addEventListener('pointerup', e => {
     if (!d || e.pointerId !== d.id) return;
     const el = d.el, ghost = d.ghost; d = null;
     $('#stage').classList.remove('dropok');
     const i = +el.dataset.i;
-    if (ghost) { ghost.remove(); const dock = $('.dock').getBoundingClientRect(); if (e.clientY < dock.top) addFromResult(i, toWorld(e.clientX, e.clientY)); }
+    $('#rz').classList.remove('over');
+    if (ghost) { ghost.remove(); const dock = $('.dock').getBoundingClientRect(); if (rzOver(e.clientX, e.clientY)) rzDrop(i); else if (e.clientY < dock.top) addFromResult(i, toWorld(e.clientX, e.clientY)); }
+    else if (S.rzArm != null) rzDrop(i);
     else addFromResult(i);
   });
-  window.addEventListener('pointercancel', () => { if (d && d.ghost) d.ghost.remove(); d = null; $('#stage').classList.remove('dropok'); });
+  window.addEventListener('pointercancel', () => { if (d && d.ghost) d.ghost.remove(); d = null; $('#stage').classList.remove('dropok'); $('#rz').classList.remove('over'); });
   $('#shelf').addEventListener('click', e => { const b = e.target.closest('[data-ex]'); if (b) { $('#q').value = b.dataset.ex; runSearch(); } });
   $('#tabs').addEventListener('click', e => {
     const b = e.target.closest('.lk-tab[data-a]'); if (!b) return;
@@ -1502,11 +1525,15 @@ function runSearchMarks() { document.querySelectorAll('#shelf .res').forEach(el 
     const dx = (e.clientX - drag.px) / S.view.k, dy = (e.clientY - drag.py) / S.view.k;
     if (!drag.moved && Math.hypot(dx, dy) * S.view.k > 4) { drag.moved = true; snapshot(); drag.c.el.classList.add('drag'); finishTween(); }
     if (drag.moved) { drag.c.x = drag.x0 + dx; drag.c.y = drag.y0 + dy; drag.c.pinned = true; setPos(drag.c); redraw(); }
+    if (drag.moved) $('#rz').classList.toggle('over', rzOver(e.clientX, e.clientY));
   });
   const dend = e => {
     if (!drag || e.pointerId !== drag.id) return;
-    const { c, moved, shift } = drag; drag = null; c.el.classList.remove('drag');
+    const { c, moved, shift, x0, y0 } = drag; drag = null; c.el.classList.remove('drag');
+    const overZone = moved && rzOver(e.clientX, e.clientY); $('#rz').classList.remove('over');
+    if (overZone) { c.x = x0; c.y = y0; setPos(c); drawEdges(); rzDrop(personOf(c).i); return; }   /* dropped on the relate zone: the card goes back, the person goes into the zone */
     if (moved) { drawEdges(); save(); return; }
+    if (S.rzArm != null) { rzDrop(personOf(c).i); return; }
     if (S.relateFrom && S.relateFrom !== c.key) { showPath(S.relateFrom, c.key); return; }
     if (shift) select([c.key], true); else select([c.key]);
   };
@@ -1807,6 +1834,56 @@ async function demo() {
   showPath(a.key, b.key);
 }
 
+/* ---------------- the relate zone: drop two people, the whole path is drawn ---------------- */
+S.rz = [null, null]; S.rzArm = null;
+function rzOver(x, y) { const r = $('#rz').getBoundingClientRect(); return x >= r.left - 6 && x <= r.right + 6 && y >= r.top - 6 && y <= r.bottom + 6; }
+function rzRender(msg) {
+  [0, 1].forEach(k => {
+    const el = document.querySelector(`#rz .rzs[data-s="${k}"]`), i = S.rz[k];
+    el.classList.toggle('armed', S.rzArm === k);
+    if (i == null) { el.className = 'rzs empty' + (S.rzArm === k ? ' armed' : ''); el.style.removeProperty('--ac'); el.innerHTML = S.rzArm === k ? 'Now tap a person' : `Drop person ${k ? 'B' : 'A'} here`; return; }
+    const p = M.P[i], a = M.archives[p.a];
+    el.className = 'rzs full'; el.style.setProperty('--ac', a.color);
+    el.innerHTML = `<div class="rzp"><b>${esc(p.name)}</b><small>${esc(a.name)} &middot; ${TC.years(p)}${p.bp ? ' &middot; ' + esc(p.bp) : ''}</small></div><button class="rzd" type="button" data-rx="${k}" aria-label="Take ${esc(p.name)} out">&times;</button>`;
+  });
+  $('#rzmsg').textContent = msg || '';
+}
+function rzDrop(i) {
+  const z = S.rz;
+  if (S.rzArm != null) { z[S.rzArm] = i; S.rzArm = null; }
+  else if (z[0] == null) z[0] = i;
+  else if (z[1] == null) { if (z[0] === i) { toast('Pick someone else for the other end'); rzRender(); return; } z[1] = i; }
+  else { z[0] = z[1]; z[1] = i; }
+  rzRender();
+  if (z[0] != null && z[1] != null && z[0] !== z[1]) rzRun(); else if (z[0] === z[1]) { z[1] = null; rzRender(); }
+}
+async function rzRun() {
+  const [a, b] = S.rz, v = viewCentre();
+  rzRender('drawing…');
+  if (!cardOfPerson(a)) dropPerson(a, v.x - 220, v.y);
+  if (!cardOfPerson(b)) dropPerson(b, v.x + 220, v.y);
+  refreshAll(); hideHint(); await sleep(200);
+  await showPath(M.P[a].key, M.P[b].key);
+  const n = S.path ? S.path.res.edges.length : 0;
+  rzRender(S.path ? n + (n === 1 ? ' step' : ' steps') : 'no path found');
+}
+function rzClear() {
+  S.rz = [null, null]; S.rzArm = null;
+  if (S.path || S.noPath) { S.path = null; S.noPath = null; clearPathUi(); refreshAll(); drawEdges(); S.tab = 'person'; renderInfo(); syncButtons(); }
+  rzRender();
+}
+(function wireRz() {
+  const z = $('#rz');
+  z.addEventListener('click', e => {
+    const x = e.target.closest('[data-rx]');
+    if (x) { const k = +x.dataset.rx; S.rz[k] = null; S.rzArm = null; if (S.path || S.noPath) { S.path = null; S.noPath = null; clearPathUi(); refreshAll(); drawEdges(); S.tab = 'person'; renderInfo(); syncButtons(); } rzRender(); e.stopPropagation(); return; }
+    if (e.target.closest('#rzClr')) { rzClear(); return; }
+    const s = e.target.closest('.rzs.empty'); if (s) { S.rzArm = S.rzArm === +s.dataset.s ? null : +s.dataset.s; rzRender(); if (S.rzArm != null) { document.documentElement.classList.remove('shelfoff'); dockH(); $('#q').focus(); } }
+  });
+  z.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('empty')) { e.preventDefault(); e.target.click(); } });
+  rzRender();
+})();
+
 /* ---------------- start-up ---------------- */
 function boot() {
   initTheme(); setPhone(); if (S.phone) S.infoOpen = false; wireToolbar(); renderTabs(); runSearch(); dockH();
@@ -1815,7 +1892,7 @@ function boot() {
   S.cards.forEach(refreshCard);
   applyView(); drawEdges(); hideHint(); syncButtons();
   if (had && !(d.view && d.view.k)) fit();
-  if (S._restorePath) { const [a, b] = S._restorePath; S._restorePath = null; showPath(a, b, { noPlace: true }); }
+  if (S._restorePath) { const [a, b] = S._restorePath; S._restorePath = null; const pa = M.byKey.get(a), pb = M.byKey.get(b); if (pa && pb) { S.rz = [pa.i, pb.i]; rzRender(); } showPath(a, b, { noPlace: true }); }
   else renderInfo();
   if (!had) { S.view = { x: innerWidth / 2 - 100, y: innerHeight / 2 - 150, k: 1 }; applyView(); $('#info').classList.remove('on'); }
   if (S.phone) { S.infoOpen = false; $('#info').classList.remove('on'); }
