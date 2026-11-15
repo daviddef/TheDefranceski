@@ -1,0 +1,364 @@
+{
+ "generated": "2026-11-15",
+ "rule": "living-people standard v2; name and relationship links only, no dates, no places. Not served, not indexed, not read by any built page.",
+ "counts": {
+  "people": 36,
+  "with_a_link": 10,
+  "isolated": 26,
+  "left_out_held": 0,
+  "left_out_undecidable": 0,
+  "relationship_stated_in_prose_only": 11
+ },
+ "note": "Relationship labels that are not a single edge — «first cousin», «uncle's wife» and the like — are counted above and are NOT drawn as links: they live on the person's own page, in words. Nothing here is read from the live tree.",
+ "people": [
+  {
+   "id": "alyssa-defranceschi",
+   "name": "Alyssa DeFranceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/alyssa-defranceschi/"
+  },
+  {
+   "id": "antonia-baviello-jeffery",
+   "name": "Antonia Baviello (Jeffery)",
+   "sex": "?",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/antonia-baviello-jeffery/"
+  },
+  {
+   "id": "antonia-baviello-jeffery-2",
+   "name": "Antonia Baviello (Jeffery)",
+   "sex": "?",
+   "parents": [
+    "michael-baviello-horsham"
+   ],
+   "spouses": [],
+   "children": [],
+   "page": "/person/antonia-baviello-jeffery-2/"
+  },
+  {
+   "id": "carla-baviello-hendy",
+   "name": "Carla Baviello (Hendy)",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/carla-baviello-hendy/"
+  },
+  {
+   "id": "carla-baviello-hendy-2",
+   "name": "Carla Baviello (Hendy)",
+   "sex": "f",
+   "parents": [
+    "michael-baviello-horsham"
+   ],
+   "spouses": [],
+   "children": [],
+   "page": "/person/carla-baviello-hendy-2/"
+  },
+  {
+   "id": "carol-ann-defranceschi",
+   "name": "Carol Ann Defranceschi",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/carol-ann-defranceschi/"
+  },
+  {
+   "id": "cheryl-lerena-defranceski",
+   "name": "Cheryl Lerena (Defranceski)",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [
+    "david-defranceski-johannesburg-brisbane"
+   ],
+   "page": "/person/cheryl-lerena-defranceski/"
+  },
+  {
+   "id": "corie-defranceschi",
+   "name": "Corie DeFranceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/corie-defranceschi/"
+  },
+  {
+   "id": "cristina-adele-d-arcy-defranceski",
+   "name": "Cristina Adele D'Arcy (Defranceski)",
+   "sex": "f",
+   "parents": [],
+   "spouses": [
+    "david-defranceski-johannesburg-brisbane"
+   ],
+   "children": [],
+   "page": "/person/cristina-adele-d-arcy-defranceski/"
+  },
+  {
+   "id": "daniel-defranceschi-brooklyn-new-york",
+   "name": "Daniel DeFranceschi",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/daniel-defranceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "david-defranceski-johannesburg-brisbane",
+   "name": "David Defranceski",
+   "sex": "m",
+   "parents": [
+    "ivan-defranceski-1951",
+    "cheryl-lerena-defranceski"
+   ],
+   "spouses": [
+    "cristina-adele-d-arcy-defranceski"
+   ],
+   "children": [],
+   "page": "/person/david-defranceski-johannesburg-brisbane/"
+  },
+  {
+   "id": "david-ivan-defranceski-johannesburg",
+   "name": "David Ivan Defranceski",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/david-ivan-defranceski-johannesburg/"
+  },
+  {
+   "id": "dean-defranceski",
+   "name": "Dean Defranceski",
+   "sex": "m",
+   "parents": [
+    "antony-de-franceski-1944"
+   ],
+   "spouses": [],
+   "children": [],
+   "page": "/person/dean-defranceski/"
+  },
+  {
+   "id": "deborah-de-franceschi-brooklyn-new-york",
+   "name": "Deborah de Franceschi",
+   "sex": "?",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/deborah-de-franceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "debra-defranceschi",
+   "name": "Debra Defranceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/debra-defranceschi/"
+  },
+  {
+   "id": "gabrielle-defranceschi",
+   "name": "Gabrielle DeFranceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/gabrielle-defranceschi/"
+  },
+  {
+   "id": "gary-defranceschi-brooklyn-new-york",
+   "name": "Gary DeFranceschi",
+   "sex": "?",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/gary-defranceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "gayle-diane-williams-defranceski",
+   "name": "Gayle Diane Williams (Defranceski)",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/gayle-diane-williams-defranceski/"
+  },
+  {
+   "id": "isabella-marie-defranceschi-allentown-pennsylvania",
+   "name": "Isabella Marie DeFranceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/isabella-marie-defranceschi-allentown-pennsylvania/"
+  },
+  {
+   "id": "kirsten-defranceski",
+   "name": "Kirsten Defranceski",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/kirsten-defranceski/"
+  },
+  {
+   "id": "kyle-defranceschi",
+   "name": "Kyle DeFranceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/kyle-defranceschi/"
+  },
+  {
+   "id": "ladislava-ada-defranceski-apker",
+   "name": "Ladislava “Ada” Defranceski (Apker)",
+   "sex": "f",
+   "parents": [
+    "ivan-defranceski-1925",
+    "hedviga-blazevic-defranceski-1926"
+   ],
+   "spouses": [],
+   "children": [],
+   "page": "/person/ladislava-ada-defranceski-apker/"
+  },
+  {
+   "id": "ladislava-defranceski-crikvenica",
+   "name": "Ladislava Defranceski",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/ladislava-defranceski-crikvenica/"
+  },
+  {
+   "id": "lewis-rose",
+   "name": "Lewis Rose",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/lewis-rose/"
+  },
+  {
+   "id": "lisa-de-franceschi",
+   "name": "Lisa de Franceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/lisa-de-franceschi/"
+  },
+  {
+   "id": "mark-robin-apker",
+   "name": "Mark Robin Apker",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/mark-robin-apker/"
+  },
+  {
+   "id": "matthew-michael-defranceschi-allentown-pennsylvania",
+   "name": "Matthew Michael DeFranceschi",
+   "sex": "?",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/matthew-michael-defranceschi-allentown-pennsylvania/"
+  },
+  {
+   "id": "michael-baviello",
+   "name": "Michael Baviello",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/michael-baviello/"
+  },
+  {
+   "id": "michael-baviello-horsham",
+   "name": "Michael Baviello",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [
+    "antonia-baviello-jeffery-2",
+    "carla-baviello-hendy-2"
+   ],
+   "page": "/person/michael-baviello-horsham/"
+  },
+  {
+   "id": "nicholas-defranceschi",
+   "name": "Nicholas DeFranceschi",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/nicholas-defranceschi/"
+  },
+  {
+   "id": "nicole-defranceski",
+   "name": "Nicole Defranceski",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/nicole-defranceski/"
+  },
+  {
+   "id": "petrica-defranceski-baviello",
+   "name": "Petrica Defranceski (Baviello)",
+   "sex": "f",
+   "parents": [
+    "zdravko-frank-defranceski-1921"
+   ],
+   "spouses": [],
+   "children": [],
+   "page": "/person/petrica-defranceski-baviello/"
+  },
+  {
+   "id": "petrica-defranceski-horsham",
+   "name": "Petrica Defranceski",
+   "sex": "f",
+   "parents": [
+    "zdravko-frank-defranceski-1921"
+   ],
+   "spouses": [],
+   "children": [],
+   "page": "/person/petrica-defranceski-horsham/"
+  },
+  {
+   "id": "roberto-de-franceschi-brooklyn-new-york",
+   "name": "Roberto de Franceschi",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/roberto-de-franceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "sandra-de-franceschi-brooklyn-new-york",
+   "name": "Sandra de Franceschi",
+   "sex": "f",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/sandra-de-franceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "steven-defranceschi",
+   "name": "Steven DeFranceschi",
+   "sex": "m",
+   "parents": [],
+   "spouses": [],
+   "children": [],
+   "page": "/person/steven-defranceschi/"
+  }
+ ]
+}

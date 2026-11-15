@@ -24,7 +24,7 @@ RULES.
            written» let a stranger keep their dates. There is one rule now, for
            everyone, and it is the kit's (living_rule.py).
 """
-import json, io, os, sys, datetime
+import json, io, os, re, sys, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROSTER = os.path.join(ROOT, "site/src/data/roster.json")
@@ -32,10 +32,89 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import living_v2 as L2
 WINDOW = L2.LIVING_YEARS + 1          # the estate's 80 years (living-people standard v2), not a private 95; L2.CUTOFF is the boundary year
 
+LIVING_NODES = os.path.join(ROOT, "data/tree-page/living-nodes.json")
+TREE_JSON = os.path.join(ROOT, "data/tree-page/tree.json")
+LEDGER = os.path.join(ROOT, "data/living-ledger.json")
+PUBLIC = os.path.join(ROOT, "site", "public")
+NODE_KEYS = {"id", "name", "sex", "parents", "spouses", "children", "page"}
+YEARISH = re.compile(r"\b(1[0-9]\d\d|20\d\d)\b")
+
+
+def check_living_nodes():
+    """`data/tree-page/living-nodes.json` — the living people the tree canvas may draw.
+
+    It carries a name and relationship links and NOTHING else, it is not served, and nothing
+    in the built site reads it. Each rule below is a way that could stop being true quietly.
+    """
+    out = []
+    if not os.path.exists(LIVING_NODES):
+        return out                                   # the file is optional; its absence is not a fault
+    doc = json.load(io.open(LIVING_NODES, encoding="utf-8"))
+    people = doc.get("people") or []
+
+    # 1. the shape: no key but the seven, and no year anywhere in any value
+    for p in people:
+        extra = sorted(set(p) - NODE_KEYS)
+        if extra:
+            out.append("living-nodes: %s carries %s — this file is a name and relationship links, nothing else."
+                       % (p.get("id", "?"), ", ".join(extra)))
+        for k, v in p.items():
+            if isinstance(v, (int, float)) and not isinstance(v, bool):
+                out.append("living-nodes: %s has a number in `%s`; no year or count belongs on a living node."
+                           % (p.get("id", "?"), k))
+            if isinstance(v, str) and k != "page" and YEARISH.search(v):
+                out.append("living-nodes: %s has what reads as a year in `%s`. The canvas's own living filter "
+                           "keys off a birth year: a year here drops the person it is meant to draw."
+                           % (p.get("id", "?"), k))
+
+    # 2. nobody held out, and nobody the archive does not publish as living
+    roster = {r.get("pid"): r for r in json.load(io.open(ROSTER, encoding="utf-8"))["rows"] if r.get("pid")}
+    ledger = json.load(io.open(LEDGER, encoding="utf-8")) if os.path.exists(LEDGER) else {}
+    held = {pid for pid, uid in (ledger.get("people") or {}).items() if uid in set(ledger.get("held") or [])}
+    for p in people:
+        pid = p.get("id")
+        if pid in held:
+            out.append("living-nodes: %s is held out by the ledger and must be absent, not blanked." % pid)
+        r = roster.get(pid)
+        if r is None:
+            out.append("living-nodes: %s is in no roster row." % pid)
+            continue
+        if not (r.get("living") or L2.row_is_living(r)):
+            out.append("living-nodes: %s is not a living person by the rule; this file is only for the living." % pid)
+        if r.get("b") or r.get("d"):
+            out.append("living-nodes: %s has a year in the roster — scrub the row before drawing them." % pid)
+
+    # 3. nobody is in both this file and the tree page's own data
+    if os.path.exists(TREE_JSON):
+        t = json.load(io.open(TREE_JSON, encoding="utf-8"))
+        ids = {q.get("id") for q in (t.get("people") or t.get("nodes") or []) if isinstance(q, dict)}
+        for p in people:
+            if p.get("id") in ids:
+                out.append("living-nodes: %s is in tree.json as well. tree.json omits the living and goes on "
+                           "omitting them." % p.get("id"))
+
+    # 4. it is not served and no built page reads it
+    if os.path.exists(os.path.join(PUBLIC, "tree-page", "living-nodes.json")):
+        out.append("living-nodes: a copy is in site/public — that would publish 36 living names on an indexed site.")
+    for base, _dirs, files in os.walk(os.path.join(ROOT, "site", "src")):
+        for f in files:
+            if not f.endswith((".astro", ".js", ".ts", ".jsx", ".tsx", ".json", ".md")):
+                continue
+            try:
+                s = io.open(os.path.join(base, f), encoding="utf-8").read()
+            except (OSError, UnicodeDecodeError):
+                continue
+            if "living-nodes" in s:
+                out.append("living-nodes: %s names the file. Nothing built may read it."
+                           % os.path.relpath(os.path.join(base, f), ROOT))
+    return out
+
+
 def main():
     rows = json.load(io.open(ROSTER, encoding="utf-8"))["rows"]
     year = datetime.date.today().year
     fails, review = [], []
+    fails.extend(check_living_nodes())
 
     for r in rows:
         nm, pid = r.get("name", "?"), r.get("pid", "?")
