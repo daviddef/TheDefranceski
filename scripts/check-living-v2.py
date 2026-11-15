@@ -732,6 +732,14 @@ def main():
     dist = a.dist if os.path.isabs(a.dist) else os.path.join(a.root, "site", a.dist)
     tree, tpath = (None, None) if a.no_tree else load_tree_if_any(a)
     P, N, S = run(a.root, dist, tree, a.year, a.require_tree)
+    # the living-nodes file for the tree canvas is judged where every other living-data rule lives
+    try:
+        import importlib.util as _ilu
+        _sp = _ilu.spec_from_file_location('check_living_data', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'check-living-data.py'))
+        _m = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_m)
+        P = list(P) + list(_m.check_living_nodes())
+    except Exception as e:                                   # a checker that cannot run is a failure, never a pass
+        P = list(P) + ['living-nodes: the check could not run (%s: %s)' % (type(e).__name__, e)]
     for n in N:
         print("  note  %s" % n)
     if P:

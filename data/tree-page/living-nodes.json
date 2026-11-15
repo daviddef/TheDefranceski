@@ -1,0 +1,454 @@
+{
+ "generated": "2026-11-15",
+ "rule": "living-people standard v2; name and relationship links only, no dates, no places. Not served, not indexed, not read by any built page.",
+ "rule_version": "living-people standard v2, 16 October 2026 (scripts/living_v2.py; the kit's living_rule.py)",
+ "counted_how": "every roster row the rule holds as living on the date above, derived through living_v2 from site/src/data/roster.json — never read off the living ledger, whose pid→UID map counts rows matched to the tree, dead people among them.",
+ "protection": "What this file buys is NON-INDEXABILITY, not secrecy. The names and the slugs in it are already committed in this public repository (the living ledger's own keys are name-slugs, and each person has a noindex page of their own). The point is that /roots/ is in the sitemap, carries no robots meta and embeds its tree data in the page, so a name that reaches it becomes searchable. Do not relax anything else on the belief that this file is hidden.",
+ "left_out": "Absent rather than blanked: the ledger's held ids; possible minors and the minor supplement; anyone with no birth year and no recorded death; and anyone whose years are an estimate (bEst / bEstRange / bye / dye). living_v2.row_is_living answers true or false and never reports doubt, so the doubt is applied here, in the caller, and declared.",
+ "sur_also_note": "`surAlso` holds other surnames this archive ALREADY publishes for that person — a married name the roster writes in brackets and the person's own page carries in its title. It is for search only, never for the drawn card. A married name is not a spelling of the maiden name and must never be filed in the Record Atlas's surname catalogue, which holds the spellings of one name.",
+ "sex_note": "`sex` is only what this archive RECORDS — a household row that states it. It is `u` for everyone else, because guessing a living person's sex from the end of their given name is Person data inferred from nothing, and the first run of such a guesser called the compiler's own mother male. A parent's role (father or mother) is never taken from it.",
+ "counts": {
+  "people": 36,
+  "with_a_link": 10,
+  "isolated": 26,
+  "left_out_held": 0,
+  "left_out_undecidable": 0,
+  "relationship_stated_in_prose_only": 11,
+  "parent_link_not_drawn": 0
+ },
+ "note": "The canvas draws two parent slots, so a parent whose role no source states and whose own sex is not already settled in tree.json is counted in `parent_link_not_drawn` and left out rather than guessed into a slot. Relationship labels that are not a single edge — «first cousin», «uncle's wife» and the like — are counted above and are NOT drawn as links: they live on the person's own page, in words. Nothing here is read from the live tree.",
+ "people": [
+  {
+   "id": "alyssa-defranceschi",
+   "sex": "u",
+   "given": "Alyssa",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/alyssa-defranceschi/"
+  },
+  {
+   "id": "antonia-baviello-jeffery",
+   "sex": "u",
+   "given": "Antonia",
+   "sur": "Baviello",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/antonia-baviello-jeffery/",
+   "surAlso": [
+    "Jeffery"
+   ]
+  },
+  {
+   "id": "antonia-baviello-jeffery-2",
+   "sex": "f",
+   "given": "Antonia",
+   "sur": "Baviello",
+   "father": "michael-baviello-horsham",
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/antonia-baviello-jeffery-2/",
+   "surAlso": [
+    "Jeffery"
+   ]
+  },
+  {
+   "id": "carla-baviello-hendy",
+   "sex": "u",
+   "given": "Carla",
+   "sur": "Baviello",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/carla-baviello-hendy/",
+   "surAlso": [
+    "Hendy"
+   ]
+  },
+  {
+   "id": "carla-baviello-hendy-2",
+   "sex": "f",
+   "given": "Carla",
+   "sur": "Baviello",
+   "father": "michael-baviello-horsham",
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/carla-baviello-hendy-2/",
+   "surAlso": [
+    "Hendy"
+   ]
+  },
+  {
+   "id": "carol-ann-defranceschi",
+   "sex": "u",
+   "given": "Carol Ann",
+   "sur": "Defranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/carol-ann-defranceschi/"
+  },
+  {
+   "id": "cheryl-lerena-defranceski",
+   "sex": "u",
+   "given": "Cheryl",
+   "sur": "Lerena",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [
+    "david-defranceski-johannesburg-brisbane"
+   ],
+   "page": "/person/cheryl-lerena-defranceski/",
+   "surAlso": [
+    "Defranceski"
+   ]
+  },
+  {
+   "id": "corie-defranceschi",
+   "sex": "u",
+   "given": "Corie",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/corie-defranceschi/"
+  },
+  {
+   "id": "cristina-adele-d-arcy-defranceski",
+   "sex": "u",
+   "given": "Cristina Adele",
+   "sur": "D'Arcy",
+   "father": null,
+   "mother": null,
+   "spouse": [
+    "david-defranceski-johannesburg-brisbane"
+   ],
+   "kids": [],
+   "page": "/person/cristina-adele-d-arcy-defranceski/",
+   "surAlso": [
+    "Defranceski"
+   ]
+  },
+  {
+   "id": "daniel-defranceschi-brooklyn-new-york",
+   "sex": "u",
+   "given": "Daniel",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/daniel-defranceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "david-defranceski-johannesburg-brisbane",
+   "sex": "u",
+   "given": "David",
+   "sur": "Defranceski",
+   "father": "ivan-defranceski-1951",
+   "mother": "cheryl-lerena-defranceski",
+   "spouse": [
+    "cristina-adele-d-arcy-defranceski"
+   ],
+   "kids": [],
+   "page": "/person/david-defranceski-johannesburg-brisbane/"
+  },
+  {
+   "id": "david-ivan-defranceski-johannesburg",
+   "sex": "u",
+   "given": "David Ivan",
+   "sur": "Defranceski",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/david-ivan-defranceski-johannesburg/"
+  },
+  {
+   "id": "dean-defranceski",
+   "sex": "u",
+   "given": "Dean",
+   "sur": "Defranceski",
+   "father": "antony-de-franceski-1944",
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/dean-defranceski/"
+  },
+  {
+   "id": "deborah-de-franceschi-brooklyn-new-york",
+   "sex": "u",
+   "given": "Deborah",
+   "sur": "de Franceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/deborah-de-franceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "debra-defranceschi",
+   "sex": "u",
+   "given": "Debra",
+   "sur": "Defranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/debra-defranceschi/"
+  },
+  {
+   "id": "gabrielle-defranceschi",
+   "sex": "u",
+   "given": "Gabrielle",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/gabrielle-defranceschi/"
+  },
+  {
+   "id": "gary-defranceschi-brooklyn-new-york",
+   "sex": "u",
+   "given": "Gary",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/gary-defranceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "gayle-diane-williams-defranceski",
+   "sex": "u",
+   "given": "Gayle Diane",
+   "sur": "Williams",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/gayle-diane-williams-defranceski/",
+   "surAlso": [
+    "Defranceski"
+   ]
+  },
+  {
+   "id": "isabella-marie-defranceschi-allentown-pennsylvania",
+   "sex": "u",
+   "given": "Isabella Marie",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/isabella-marie-defranceschi-allentown-pennsylvania/"
+  },
+  {
+   "id": "kirsten-defranceski",
+   "sex": "u",
+   "given": "Kirsten",
+   "sur": "Defranceski",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/kirsten-defranceski/"
+  },
+  {
+   "id": "kyle-defranceschi",
+   "sex": "u",
+   "given": "Kyle",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/kyle-defranceschi/"
+  },
+  {
+   "id": "ladislava-ada-defranceski-apker",
+   "sex": "u",
+   "given": "Ladislava “Ada”",
+   "sur": "Defranceski",
+   "father": "ivan-defranceski-1925",
+   "mother": "hedviga-blazevic-defranceski-1926",
+   "spouse": [],
+   "kids": [],
+   "page": "/person/ladislava-ada-defranceski-apker/",
+   "surAlso": [
+    "Apker"
+   ]
+  },
+  {
+   "id": "ladislava-defranceski-crikvenica",
+   "sex": "u",
+   "given": "Ladislava",
+   "sur": "Defranceski",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/ladislava-defranceski-crikvenica/"
+  },
+  {
+   "id": "lewis-rose",
+   "sex": "u",
+   "given": "Lewis",
+   "sur": "Rose",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/lewis-rose/"
+  },
+  {
+   "id": "lisa-de-franceschi",
+   "sex": "u",
+   "given": "Lisa",
+   "sur": "de Franceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/lisa-de-franceschi/"
+  },
+  {
+   "id": "mark-robin-apker",
+   "sex": "u",
+   "given": "Mark Robin",
+   "sur": "Apker",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/mark-robin-apker/"
+  },
+  {
+   "id": "matthew-michael-defranceschi-allentown-pennsylvania",
+   "sex": "u",
+   "given": "Matthew Michael",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/matthew-michael-defranceschi-allentown-pennsylvania/"
+  },
+  {
+   "id": "michael-baviello",
+   "sex": "u",
+   "given": "Michael",
+   "sur": "Baviello",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/michael-baviello/"
+  },
+  {
+   "id": "michael-baviello-horsham",
+   "sex": "u",
+   "given": "Michael",
+   "sur": "Baviello",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [
+    "antonia-baviello-jeffery-2",
+    "carla-baviello-hendy-2"
+   ],
+   "page": "/person/michael-baviello-horsham/"
+  },
+  {
+   "id": "nicholas-defranceschi",
+   "sex": "u",
+   "given": "Nicholas",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/nicholas-defranceschi/"
+  },
+  {
+   "id": "nicole-defranceski",
+   "sex": "u",
+   "given": "Nicole",
+   "sur": "Defranceski",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/nicole-defranceski/"
+  },
+  {
+   "id": "petrica-defranceski-baviello",
+   "sex": "u",
+   "given": "Petrica",
+   "sur": "Defranceski",
+   "father": "zdravko-frank-defranceski-1921",
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/petrica-defranceski-baviello/",
+   "surAlso": [
+    "Baviello"
+   ]
+  },
+  {
+   "id": "petrica-defranceski-horsham",
+   "sex": "u",
+   "given": "Petrica",
+   "sur": "Defranceski",
+   "father": "zdravko-frank-defranceski-1921",
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/petrica-defranceski-horsham/"
+  },
+  {
+   "id": "roberto-de-franceschi-brooklyn-new-york",
+   "sex": "u",
+   "given": "Roberto",
+   "sur": "de Franceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/roberto-de-franceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "sandra-de-franceschi-brooklyn-new-york",
+   "sex": "u",
+   "given": "Sandra",
+   "sur": "de Franceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/sandra-de-franceschi-brooklyn-new-york/"
+  },
+  {
+   "id": "steven-defranceschi",
+   "sex": "u",
+   "given": "Steven",
+   "sur": "DeFranceschi",
+   "father": null,
+   "mother": null,
+   "spouse": [],
+   "kids": [],
+   "page": "/person/steven-defranceschi/"
+  }
+ ]
+}
