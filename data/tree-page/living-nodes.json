@@ -5,6 +5,7 @@
  "counted_how": "every roster row the rule holds as living on the date above, derived through living_v2 from site/src/data/roster.json — never read off the living ledger, whose pid→UID map counts rows matched to the tree, dead people among them.",
  "protection": "What this file buys is NON-INDEXABILITY, not secrecy. The names and the slugs in it are already committed in this public repository (the living ledger's own keys are name-slugs, and each person has a noindex page of their own). The point is that /roots/ is in the sitemap, carries no robots meta and embeds its tree data in the page, so a name that reaches it becomes searchable. Do not relax anything else on the belief that this file is hidden.",
  "left_out": "Absent rather than blanked: the ledger's held ids; possible minors and the minor supplement; anyone with no birth year and no recorded death; and anyone whose years are an estimate (bEst / bEstRange / bye / dye). living_v2.row_is_living answers true or false and never reports doubt, so the doubt is applied here, in the caller, and declared.",
+ "sur_also_note": "`surAlso` holds other surnames this archive ALREADY publishes for that person — a married name the roster writes in brackets and the person's own page carries in its title. It is for search only, never for the drawn card. A married name is not a spelling of the maiden name and must never be filed in the Record Atlas's surname catalogue, which holds the spellings of one name.",
  "sex_note": "`sex` is only what this archive RECORDS — a household row that states it. It is `u` for everyone else, because guessing a living person's sex from the end of their given name is Person data inferred from nothing, and the first run of such a guesser called the compiler's own mother male. A parent's role (father or mother) is never taken from it.",
  "counts": {
   "people": 36,
@@ -37,7 +38,10 @@
    "mother": null,
    "spouse": [],
    "kids": [],
-   "page": "/person/antonia-baviello-jeffery/"
+   "page": "/person/antonia-baviello-jeffery/",
+   "surAlso": [
+    "Jeffery"
+   ]
   },
   {
    "id": "antonia-baviello-jeffery-2",
@@ -48,7 +52,10 @@
    "mother": null,
    "spouse": [],
    "kids": [],
-   "page": "/person/antonia-baviello-jeffery-2/"
+   "page": "/person/antonia-baviello-jeffery-2/",
+   "surAlso": [
+    "Jeffery"
+   ]
   },
   {
    "id": "carla-baviello-hendy",
@@ -59,7 +66,10 @@
    "mother": null,
    "spouse": [],
    "kids": [],
-   "page": "/person/carla-baviello-hendy/"
+   "page": "/person/carla-baviello-hendy/",
+   "surAlso": [
+    "Hendy"
+   ]
   },
   {
    "id": "carla-baviello-hendy-2",
@@ -70,7 +80,10 @@
    "mother": null,
    "spouse": [],
    "kids": [],
-   "page": "/person/carla-baviello-hendy-2/"
+   "page": "/person/carla-baviello-hendy-2/",
+   "surAlso": [
+    "Hendy"
+   ]
   },
   {
    "id": "carol-ann-defranceschi",
@@ -94,7 +107,10 @@
    "kids": [
     "david-defranceski-johannesburg-brisbane"
    ],
-   "page": "/person/cheryl-lerena-defranceski/"
+   "page": "/person/cheryl-lerena-defranceski/",
+   "surAlso": [
+    "Defranceski"
+   ]
   },
   {
    "id": "corie-defranceschi",
@@ -118,7 +134,10 @@
     "david-defranceski-johannesburg-brisbane"
    ],
    "kids": [],
-   "page": "/person/cristina-adele-d-arcy-defranceski/"
+   "page": "/person/cristina-adele-d-arcy-defranceski/",
+   "surAlso": [
+    "Defranceski"
+   ]
   },
   {
    "id": "daniel-defranceschi-brooklyn-new-york",
@@ -219,7 +238,10 @@
    "mother": null,
    "spouse": [],
    "kids": [],
-   "page": "/person/gayle-diane-williams-defranceski/"
+   "page": "/person/gayle-diane-williams-defranceski/",
+   "surAlso": [
+    "Defranceski"
+   ]
   },
   {
    "id": "isabella-marie-defranceschi-allentown-pennsylvania",
@@ -263,7 +285,10 @@
    "mother": "hedviga-blazevic-defranceski-1926",
    "spouse": [],
    "kids": [],
-   "page": "/person/ladislava-ada-defranceski-apker/"
+   "page": "/person/ladislava-ada-defranceski-apker/",
+   "surAlso": [
+    "Apker"
+   ]
   },
   {
    "id": "ladislava-defranceski-crikvenica",
@@ -376,7 +401,10 @@
    "mother": null,
    "spouse": [],
    "kids": [],
-   "page": "/person/petrica-defranceski-baviello/"
+   "page": "/person/petrica-defranceski-baviello/",
+   "surAlso": [
+    "Baviello"
+   ]
   },
   {
    "id": "petrica-defranceski-horsham",

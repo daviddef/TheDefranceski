@@ -36,7 +36,7 @@ LIVING_NODES = os.path.join(ROOT, "data/tree-page/living-nodes.json")
 TREE_JSON = os.path.join(ROOT, "data/tree-page/tree.json")
 LEDGER = os.path.join(ROOT, "data/living-ledger.json")
 PUBLIC = os.path.join(ROOT, "site", "public")
-NODE_KEYS = {"id", "sex", "given", "sur", "father", "mother", "spouse", "kids", "page"}
+NODE_KEYS = {"id", "sex", "given", "sur", "surAlso", "father", "mother", "spouse", "kids", "page"}
 YEARISH = re.compile(r"\b(1[0-9]\d\d|20\d\d)\b")
 
 
@@ -79,6 +79,16 @@ def check_living_nodes():
                 out.append("living-nodes: %s has what reads as a year in `%s`. The canvas's own living filter "
                            "keys off a birth year: a year here drops the person it is meant to draw."
                            % (p.get("id", "?"), k))
+
+    # 1b. the sex a node carries must agree with the role the file itself gives it (the coordinator's
+    #     fourteenth fault: thirteen planted faults all passed while a «mother» slot held sex «m»)
+    sexes = {p.get("id"): p.get("sex") for p in people}
+    for p in people:
+        for slot, wrong in (("father", "f"), ("mother", "m")):
+            q = p.get(slot)
+            if q and sexes.get(q) == wrong:
+                out.append("living-nodes: %s is in %s's `%s` slot with sex %r. The role is sourced; the sex is "
+                           "the field to doubt." % (q, p.get("id"), slot, wrong))
 
     # 2. nobody held out, and nobody the archive does not publish as living
     roster = {r.get("pid"): r for r in json.load(io.open(ROSTER, encoding="utf-8"))["rows"] if r.get("pid")}

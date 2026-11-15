@@ -78,6 +78,34 @@ def jl(path):
     return json.load(io.open(path, encoding="utf-8"))
 
 
+PAREN = re.compile(r"\(([^)]*)\)")
+NOT_A_NAME = re.compile(r"\d|\b(?:wife|husband|son|daughter|of|n[ée]e|born|house|living)\b", re.I)
+
+
+def also_surnames(name, sur):
+    """Other surnames THIS ARCHIVE ALREADY PUBLISHES for the person, from its own name string.
+
+    The roster writes a married name in brackets — «Cheryl Lerena (Defranceski)» — and the person's own
+    page is titled that way, so the name is already public. The tree page's `split_name` drops the
+    bracket, which is right for drawing and wrong for finding: «cheryl defranceski» found nobody. These
+    are for SEARCH only; the drawn card still shows what `given` and `sur` say.
+
+    A married name is NOT a spelling of the maiden name. It never goes to the Record Atlas's surname
+    catalogue, which holds the spellings of ONE name; a person known by two names is this archive's
+    business and stays here. Refuse any later attempt to «fix» this through surname_variants.py.
+    """
+    out = []
+    for m in PAREN.finditer(str(name or "")):
+        t = m.group(1).strip(" ,.")
+        if not t or NOT_A_NAME.search(t) or len(t.split()) > 2:
+            continue                                   # a note, not a name
+        if t.lower() == str(sur or "").lower():
+            continue
+        if t not in out:
+            out.append(t)
+    return out
+
+
 def recorded_sex(pid, row, household_sex):
     """The sex this archive RECORDS, never one read off the end of a name.
 
@@ -254,6 +282,9 @@ def build():
             "kids": [x for x in children[pid] if x in allowed],
             "page": "/person/%s/" % pid,
         })
+        extra = also_surnames(r.get("name"), sur)
+        if extra:
+            people[-1]["surAlso"] = extra
     people.sort(key=lambda p: p["id"])
     linked = sum(1 for p in people if p["father"] or p["mother"] or p["spouse"] or p["kids"])
     return {
@@ -265,6 +296,11 @@ def build():
                         "pid→UID map counts rows matched to the tree, dead people among them."),
         "protection": SECRECY,
         "left_out": LEFT_OUT,
+        "sur_also_note": ("`surAlso` holds other surnames this archive ALREADY publishes for that person — a "
+                          "married name the roster writes in brackets and the person's own page carries in its "
+                          "title. It is for search only, never for the drawn card. A married name is not a "
+                          "spelling of the maiden name and must never be filed in the Record Atlas's surname "
+                          "catalogue, which holds the spellings of one name."),
         "sex_note": ("`sex` is only what this archive RECORDS — a household row that states it. It is `u` for "
                      "everyone else, because guessing a living person's sex from the end of their given name is "
                      "Person data inferred from nothing, and the first run of such a guesser called the "
