@@ -330,6 +330,37 @@ def build(args):
                         "b": (yr(r.get("b")) if yr(r.get("b")) is None or yr(r.get("b")) < L2.CUTOFF else None), "place": (plain(r.get("place")) if r.get("place") and str(r.get("place")) != "None" else None),
                         "why": "year" if p["by"] is None else "place"})
     undrawn.sort(key=lambda u: (u["why"], u["name"]))
+    # ---- NAMED-ONLY SPOUSES. A wife or husband the archive names (the roster row's `spouse`, with how the name is known, or a household READ from
+    # a register that names the other parent without a person row) but holds no record for, so the page has no node and no link for them. The canvas
+    # draws them as a name-only card joined by the marriage mark (`spn`: [{"n": name, "how": how it is known}]); the roots page ignores the key.
+    # Two rules: (1) only for people born by SPN_BORN_MAX, because a spouse who may be alive must never be named in a served file (the same
+    # floor as the living rule, with a wide margin: a wife of a man born in 1900 is born by about 1925 and is 100); (2) a household that is only
+    # an index lead, or David's own tree, is not a source for a name here, only rows read from a register and the roster's own spouse field.
+    SPN_BORN_MAX = 1900
+    spn_of = {}
+    def _linked_spouse_matches(p, name):
+        toks = set(fold(name).split())
+        for s_ in p["spouse"]:
+            have = set(fold(P[s_]["given"] + " " + P[s_]["sur"]).split())
+            if have and len(have & toks) >= min(2, len(have)): return True
+        return False
+    for pid, p in keep.items():
+        if p["by"] is None or p["by"] > SPN_BORN_MAX: continue
+        cands = []
+        sp_ = p["row"].get("spouse")
+        if isinstance(sp_, dict) and sp_.get("name"): cands.append((sp_["name"], sp_.get("how")))
+        elif isinstance(sp_, str) and sp_.strip(): cands.append((sp_, None))
+        for h in households.get("households", households) if isinstance(households, dict) else households:
+            if h.get("src") != "read": continue
+            if h.get("fatherPid") == pid and h.get("mother") and not h.get("motherPid"): cands.append((h["mother"], "the mother in a household read from a register, with this person as the father"))
+            if h.get("motherPid") == pid and h.get("father") and not h.get("fatherPid"): cands.append((h["father"], "the father in a household read from a register, with this person as the mother"))
+        seen, out = set(), []
+        for nm, how in cands:
+            nm = plain(str(nm).split(",")[0]).strip()
+            if not nm or fold(nm) in seen or _linked_spouse_matches(p, nm): continue
+            seen.add(fold(nm)); out.append({"n": nm[:80], "how": (plain(how)[:200] if how else None)})
+        if out: spn_of[pid] = out
+    rep["named_spouses"] = sum(len(v) for v in spn_of.values())
     people = []
     for pid, p in keep.items():
         r = p["row"]; who = r.get("who")
@@ -343,6 +374,7 @@ def build(args):
                        "spouse": [s for s in p["spouse"] if s in keep], "kids": [k for k in p["kids"] if k in keep],
                        "srcs": srcs[:4], "href": who if who and str(who).startswith("/") else None, "page": "/person/%s/" % pid,   # this exact person's page (every roster person id has one); href is the name index several people share
                        "bye": p["bye"], "dye": p["dye"], "note": plain(r.get("note"))[:320] or None})
+        if spn_of.get(pid): people[-1]["spn"] = spn_of[pid]
     # symmetric relations after the filter
     ids = {x["id"] for x in people}
     for x in people:
@@ -377,6 +409,8 @@ def build(args):
     broken = [x["id"] for x in people if L2.row_is_living(rows[x["id"]]) or x["dye"] and x["by"] > NOW - 110 or x["by"] >= L2.CUTOFF and x["dye"]
               or any(u["b"] and u["b"] >= L2.CUTOFF for u in undrawn)]
     if broken: sys.exit("LIVING RULE: %d people in the output break it, e.g. %s. Nothing written." % (len(broken), broken[:3]))
+    badspn = [x["id"] for x in people if x.get("spn") and (x["by"] is None or x["by"] > SPN_BORN_MAX)]   # a named-only spouse of someone born after the cutoff could be alive
+    if badspn: sys.exit("NAMED-ONLY SPOUSE RULE: %d people carry a spouse name though born after %d, e.g. %s. Nothing written." % (len(badspn), SPN_BORN_MAX, badspn[:3]))
     json.dump(tree, io.open(os.path.join(OUT, "tree.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     json.dump(placemap, io.open(os.path.join(OUT, "place_map.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     deg = collections.Counter(("orphan" if not (x["father"] or x["mother"] or x["kids"] or x["spouse"]) else "linked") for x in people)
