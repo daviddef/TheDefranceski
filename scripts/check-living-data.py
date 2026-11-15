@@ -94,8 +94,10 @@ def check_living_nodes():
                            "omitting them." % p.get("id"))
 
     # 4. it is not served and no built page reads it
-    if os.path.exists(os.path.join(PUBLIC, "tree-page", "living-nodes.json")):
-        out.append("living-nodes: a copy is in site/public — that would publish 36 living names on an indexed site.")
+    for probe in (os.path.join(PUBLIC, "tree-page", "living-nodes.json"), os.path.join(PUBLIC, "living-nodes.json")):
+        if os.path.exists(probe):
+            out.append("living-nodes: a copy is at %s — /roots/ is in the sitemap and has no robots meta, so that "
+                       "would make every name on it indexable." % os.path.relpath(probe, ROOT))
     for base, _dirs, files in os.walk(os.path.join(ROOT, "site", "src")):
         for f in files:
             if not f.endswith((".astro", ".js", ".ts", ".jsx", ".tsx", ".json", ".md")):
@@ -107,6 +109,23 @@ def check_living_nodes():
             if "living-nodes" in s:
                 out.append("living-nodes: %s names the file. Nothing built may read it."
                            % os.path.relpath(os.path.join(base, f), ROOT))
+    # 5. and the name does not reach a BUILT artefact — a copy step or a glob is how this would really happen,
+    #    and it would not look like an import
+    dist = os.environ.get("ARCHIVE_OUT") or os.path.join(ROOT, "site", "dist")
+    if os.path.isdir(dist):
+        for base, _dirs, files in os.walk(dist):
+            for f in files:
+                if f == "living-nodes.json" or "living-nodes" in f:
+                    out.append("living-nodes: %s is in the built site." % os.path.relpath(os.path.join(base, f), ROOT))
+                    continue
+                if not f.endswith((".html", ".js", ".json", ".xml", ".txt")):
+                    continue
+                try:
+                    if "living-nodes" in io.open(os.path.join(base, f), encoding="utf-8", errors="ignore").read():
+                        out.append("living-nodes: the built file %s names it."
+                                   % os.path.relpath(os.path.join(base, f), ROOT))
+                except OSError:
+                    continue
     return out
 
 

@@ -51,6 +51,15 @@ import living_v2 as L2  # noqa: E402
 
 RULE = ("living-people standard v2; name and relationship links only, no dates, no places. "
         "Not served, not indexed, not read by any built page.")
+SECRECY = ("What this file buys is NON-INDEXABILITY, not secrecy. The names and the slugs in it are already "
+           "committed in this public repository (the living ledger's own keys are name-slugs, and each person "
+           "has a noindex page of their own). The point is that /roots/ is in the sitemap, carries no robots "
+           "meta and embeds its tree data in the page, so a name that reaches it becomes searchable. Do not "
+           "relax anything else on the belief that this file is hidden.")
+LEFT_OUT = ("Absent rather than blanked: the ledger's held ids; possible minors and the minor supplement; "
+            "anyone with no birth year and no recorded death; and anyone whose years are an estimate "
+            "(bEst / bEstRange / bye / dye). living_v2.row_is_living answers true or false and never reports "
+            "doubt, so the doubt is applied here, in the caller, and declared.")
 
 # a `rel` label that is exactly one edge, seen from the row towards the compiler
 EDGE = {"mother": "parent", "father": "parent", "wife": "spouse", "husband": "spouse",
@@ -189,6 +198,12 @@ def build():
     return {
         "generated": datetime.date.today().isoformat(),
         "rule": RULE,
+        "rule_version": "living-people standard v2, 16 October 2026 (scripts/living_v2.py; the kit's living_rule.py)",
+        "counted_how": ("every roster row the rule holds as living on the date above, derived through "
+                        "living_v2 from site/src/data/roster.json — never read off the living ledger, whose "
+                        "pid→UID map counts rows matched to the tree, dead people among them."),
+        "protection": SECRECY,
+        "left_out": LEFT_OUT,
         "counts": {
             "people": len(people),
             "with_a_link": linked,
