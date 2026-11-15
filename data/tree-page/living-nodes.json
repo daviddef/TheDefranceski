@@ -5,6 +5,7 @@
  "counted_how": "every roster row the rule holds as living on the date above, derived through living_v2 from site/src/data/roster.json — never read off the living ledger, whose pid→UID map counts rows matched to the tree, dead people among them.",
  "protection": "What this file buys is NON-INDEXABILITY, not secrecy. The names and the slugs in it are already committed in this public repository (the living ledger's own keys are name-slugs, and each person has a noindex page of their own). The point is that /roots/ is in the sitemap, carries no robots meta and embeds its tree data in the page, so a name that reaches it becomes searchable. Do not relax anything else on the belief that this file is hidden.",
  "left_out": "Absent rather than blanked: the ledger's held ids; possible minors and the minor supplement; anyone with no birth year and no recorded death; and anyone whose years are an estimate (bEst / bEstRange / bye / dye). living_v2.row_is_living answers true or false and never reports doubt, so the doubt is applied here, in the caller, and declared.",
+ "sex_note": "`sex` is only what this archive RECORDS — a household row that states it. It is `u` for everyone else, because guessing a living person's sex from the end of their given name is Person data inferred from nothing, and the first run of such a guesser called the compiler's own mother male. A parent's role (father or mother) is never taken from it.",
  "counts": {
   "people": 36,
   "with_a_link": 10,
@@ -18,7 +19,7 @@
  "people": [
   {
    "id": "alyssa-defranceschi",
-   "sex": "f",
+   "sex": "u",
    "given": "Alyssa",
    "sur": "DeFranceschi",
    "father": null,
@@ -40,7 +41,7 @@
   },
   {
    "id": "antonia-baviello-jeffery-2",
-   "sex": "u",
+   "sex": "f",
    "given": "Antonia",
    "sur": "Baviello",
    "father": "michael-baviello-horsham",
@@ -51,7 +52,7 @@
   },
   {
    "id": "carla-baviello-hendy",
-   "sex": "f",
+   "sex": "u",
    "given": "Carla",
    "sur": "Baviello",
    "father": null,
@@ -73,7 +74,7 @@
   },
   {
    "id": "carol-ann-defranceschi",
-   "sex": "m",
+   "sex": "u",
    "given": "Carol Ann",
    "sur": "Defranceschi",
    "father": null,
@@ -84,7 +85,7 @@
   },
   {
    "id": "cheryl-lerena-defranceski",
-   "sex": "m",
+   "sex": "u",
    "given": "Cheryl",
    "sur": "Lerena",
    "father": null,
@@ -97,7 +98,7 @@
   },
   {
    "id": "corie-defranceschi",
-   "sex": "f",
+   "sex": "u",
    "given": "Corie",
    "sur": "DeFranceschi",
    "father": null,
@@ -108,7 +109,7 @@
   },
   {
    "id": "cristina-adele-d-arcy-defranceski",
-   "sex": "f",
+   "sex": "u",
    "given": "Cristina Adele",
    "sur": "D'Arcy",
    "father": null,
@@ -121,7 +122,7 @@
   },
   {
    "id": "daniel-defranceschi-brooklyn-new-york",
-   "sex": "m",
+   "sex": "u",
    "given": "Daniel",
    "sur": "DeFranceschi",
    "father": null,
@@ -132,7 +133,7 @@
   },
   {
    "id": "david-defranceski-johannesburg-brisbane",
-   "sex": "m",
+   "sex": "u",
    "given": "David",
    "sur": "Defranceski",
    "father": "ivan-defranceski-1951",
@@ -145,7 +146,7 @@
   },
   {
    "id": "david-ivan-defranceski-johannesburg",
-   "sex": "m",
+   "sex": "u",
    "given": "David Ivan",
    "sur": "Defranceski",
    "father": null,
@@ -156,7 +157,7 @@
   },
   {
    "id": "dean-defranceski",
-   "sex": "m",
+   "sex": "u",
    "given": "Dean",
    "sur": "Defranceski",
    "father": "antony-de-franceski-1944",
@@ -178,7 +179,7 @@
   },
   {
    "id": "debra-defranceschi",
-   "sex": "f",
+   "sex": "u",
    "given": "Debra",
    "sur": "Defranceschi",
    "father": null,
@@ -189,7 +190,7 @@
   },
   {
    "id": "gabrielle-defranceschi",
-   "sex": "f",
+   "sex": "u",
    "given": "Gabrielle",
    "sur": "DeFranceschi",
    "father": null,
@@ -211,7 +212,7 @@
   },
   {
    "id": "gayle-diane-williams-defranceski",
-   "sex": "f",
+   "sex": "u",
    "given": "Gayle Diane",
    "sur": "Williams",
    "father": null,
@@ -222,7 +223,7 @@
   },
   {
    "id": "isabella-marie-defranceschi-allentown-pennsylvania",
-   "sex": "f",
+   "sex": "u",
    "given": "Isabella Marie",
    "sur": "DeFranceschi",
    "father": null,
@@ -233,7 +234,7 @@
   },
   {
    "id": "kirsten-defranceski",
-   "sex": "m",
+   "sex": "u",
    "given": "Kirsten",
    "sur": "Defranceski",
    "father": null,
@@ -244,7 +245,7 @@
   },
   {
    "id": "kyle-defranceschi",
-   "sex": "f",
+   "sex": "u",
    "given": "Kyle",
    "sur": "DeFranceschi",
    "father": null,
@@ -255,7 +256,7 @@
   },
   {
    "id": "ladislava-ada-defranceski-apker",
-   "sex": "f",
+   "sex": "u",
    "given": "Ladislava “Ada”",
    "sur": "Defranceski",
    "father": "ivan-defranceski-1925",
@@ -266,7 +267,7 @@
   },
   {
    "id": "ladislava-defranceski-crikvenica",
-   "sex": "f",
+   "sex": "u",
    "given": "Ladislava",
    "sur": "Defranceski",
    "father": null,
@@ -277,7 +278,7 @@
   },
   {
    "id": "lewis-rose",
-   "sex": "m",
+   "sex": "u",
    "given": "Lewis",
    "sur": "Rose",
    "father": null,
@@ -288,7 +289,7 @@
   },
   {
    "id": "lisa-de-franceschi",
-   "sex": "f",
+   "sex": "u",
    "given": "Lisa",
    "sur": "de Franceschi",
    "father": null,
@@ -299,7 +300,7 @@
   },
   {
    "id": "mark-robin-apker",
-   "sex": "m",
+   "sex": "u",
    "given": "Mark Robin",
    "sur": "Apker",
    "father": null,
@@ -321,7 +322,7 @@
   },
   {
    "id": "michael-baviello",
-   "sex": "m",
+   "sex": "u",
    "given": "Michael",
    "sur": "Baviello",
    "father": null,
@@ -332,7 +333,7 @@
   },
   {
    "id": "michael-baviello-horsham",
-   "sex": "m",
+   "sex": "u",
    "given": "Michael",
    "sur": "Baviello",
    "father": null,
@@ -346,7 +347,7 @@
   },
   {
    "id": "nicholas-defranceschi",
-   "sex": "m",
+   "sex": "u",
    "given": "Nicholas",
    "sur": "DeFranceschi",
    "father": null,
@@ -357,7 +358,7 @@
   },
   {
    "id": "nicole-defranceski",
-   "sex": "f",
+   "sex": "u",
    "given": "Nicole",
    "sur": "Defranceski",
    "father": null,
@@ -368,7 +369,7 @@
   },
   {
    "id": "petrica-defranceski-baviello",
-   "sex": "f",
+   "sex": "u",
    "given": "Petrica",
    "sur": "Defranceski",
    "father": "zdravko-frank-defranceski-1921",
@@ -379,7 +380,7 @@
   },
   {
    "id": "petrica-defranceski-horsham",
-   "sex": "f",
+   "sex": "u",
    "given": "Petrica",
    "sur": "Defranceski",
    "father": "zdravko-frank-defranceski-1921",
@@ -390,7 +391,7 @@
   },
   {
    "id": "roberto-de-franceschi-brooklyn-new-york",
-   "sex": "m",
+   "sex": "u",
    "given": "Roberto",
    "sur": "de Franceschi",
    "father": null,
@@ -401,7 +402,7 @@
   },
   {
    "id": "sandra-de-franceschi-brooklyn-new-york",
-   "sex": "f",
+   "sex": "u",
    "given": "Sandra",
    "sur": "de Franceschi",
    "father": null,
@@ -412,7 +413,7 @@
   },
   {
    "id": "steven-defranceschi",
-   "sex": "m",
+   "sex": "u",
    "given": "Steven",
    "sur": "DeFranceschi",
    "father": null,

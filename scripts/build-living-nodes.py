@@ -78,17 +78,18 @@ def jl(path):
     return json.load(io.open(path, encoding="utf-8"))
 
 
-def guess_sex(given, row):
-    """Only from the name's own ending and the row's own field; never from a relationship."""
-    g = unicodedata.normalize("NFKD", str(given or "")).encode("ascii", "ignore").decode().strip().lower()
-    first = re.split(r"[\s\-]+", g)[0] if g else ""
-    if str(row.get("sex", "")).lower().startswith("f"):
+def recorded_sex(pid, row, household_sex):
+    """The sex this archive RECORDS, never one read off the end of a name.
+
+    A guess from the name's ending is Person data about a living person inferred from nothing, and it
+    was wrong on a real person the first time it ran: «Cheryl» ends in a consonant, so the guesser
+    called David's own mother male. The archive records no sex for a living person, so this is `u`
+    unless a household row states it. The canvas takes m, f or u, and u is the truth here.
+    """
+    v = str(row.get("sex") or household_sex or "").strip().lower()
+    if v.startswith("f"):
         return "f"
-    if str(row.get("sex", "")).lower().startswith("m"):
-        return "m"
-    if first.endswith(("a", "e")) and not first.endswith(("ea", "ia")) and first not in ("luka", "nikola", "andrea", "mattia", "nicola"):
-        return "f"
-    if first.endswith(("o", "n", "r", "s", "k", "l", "d", "t", "p", "v")):
+    if v.startswith("m"):
         return "m"
     return "u"
 
@@ -127,7 +128,7 @@ def role_of_parents(pid, pars, by_pid, allowed):
         else:
             rest.append(q)
     for q in rest:
-        sx = TREE_SEX.get(q) or (guess_sex(split_name(by_pid[q].get("name"))[0], by_pid[q]) if split_name else "u")
+        sx = TREE_SEX.get(q, "u")          # the tree page already decided a dead parent's sex; never re-guess it
         if sx == "m" and fa is None:
             fa = q
         elif sx == "f" and mo is None:
@@ -147,6 +148,8 @@ def build():
     held_pids = {pid for pid, uid in uid_of.items() if uid in held_uids}
 
     by_pid = {r["pid"]: r for r in roster if r.get("pid")}
+    hh_sex = {c["pid"]: c.get("sex") for h in households for c in (h.get("children") or [])
+              if isinstance(c, dict) and c.get("pid") and c.get("sex")}
     me = next((r["pid"] for r in roster if r.get("me")), None)
 
     living, skipped_undecidable, skipped_held = [], 0, 0
@@ -242,7 +245,7 @@ def build():
         fa, mo = role_of_parents(pid, parents[pid], by_pid, allowed)
         people.append({
             "id": pid,
-            "sex": guess_sex(given, r),
+            "sex": recorded_sex(pid, r, hh_sex.get(pid)),
             "given": given if given != "?" else "",
             "sur": sur,
             "father": fa,
@@ -262,6 +265,10 @@ def build():
                         "pid→UID map counts rows matched to the tree, dead people among them."),
         "protection": SECRECY,
         "left_out": LEFT_OUT,
+        "sex_note": ("`sex` is only what this archive RECORDS — a household row that states it. It is `u` for "
+                     "everyone else, because guessing a living person's sex from the end of their given name is "
+                     "Person data inferred from nothing, and the first run of such a guesser called the "
+                     "compiler's own mother male. A parent's role (father or mother) is never taken from it."),
         "counts": {
             "people": len(people),
             "with_a_link": linked,
