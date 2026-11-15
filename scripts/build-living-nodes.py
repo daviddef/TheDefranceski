@@ -48,6 +48,14 @@ TREE = os.path.join(ROOT, "data", "tree-page", "tree.json")
 LEDGER = os.path.join(ROOT, "data", "living-ledger.json")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import living_v2 as L2  # noqa: E402
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location("_btp", os.path.join(os.path.dirname(os.path.abspath(__file__)), "build-tree-page.py"))
+_btp = _ilu.module_from_spec(_spec)
+try:                                   # the tree page's own splitter: «de Franceschi» is one surname, not two words
+    _spec.loader.exec_module(_btp)
+    split_name = _btp.split_name
+except Exception:                      # pragma: no cover - the builder refuses rather than guess at a name
+    split_name = None
 
 RULE = ("living-people standard v2; name and relationship links only, no dates, no places. "
         "Not served, not indexed, not read by any built page.")
@@ -82,7 +90,7 @@ def guess_sex(given, row):
         return "f"
     if first.endswith(("o", "n", "r", "s", "k", "l", "d", "t", "p", "v")):
         return "m"
-    return "?"
+    return "u"
 
 
 def undecidable(r):
@@ -91,6 +99,42 @@ def undecidable(r):
     if r.get("bEst") or r.get("bEstRange") or r.get("bye") or r.get("dye"):
         return True
     return (not dead) and not r.get("b") and not r.get("living")
+
+
+ROLE = {}          # (child, parent) -> "father" | "mother", where the source itself says which
+TREE_SEX = {}      # a dead parent's sex as the tree page already published it: exact, not guessed
+DROPPED = []       # (child, parent) links the canvas's two parent slots could not take, counted not hidden
+
+
+def role_of_parents(pid, pars, by_pid, allowed):
+    """father and mother, from the SOURCE where it states the role, else from the parent's own name.
+
+    The households give fatherPid and motherPid, and the compiler's own `rel` says «mother» or «father»
+    in as many words: those are recorded in ROLE as the data is read. Where no source says which parent
+    is which, the parent's own given name decides, and a parent whose name does not decide is dropped
+    rather than guessed into a slot — the canvas draws two parents, not a list.
+    """
+    fa = mo = None
+    rest = []
+    for q in pars:
+        if q not in allowed:
+            continue
+        role = ROLE.get((pid, q))
+        if role == "father" and fa is None:
+            fa = q
+        elif role == "mother" and mo is None:
+            mo = q
+        else:
+            rest.append(q)
+    for q in rest:
+        sx = TREE_SEX.get(q) or (guess_sex(split_name(by_pid[q].get("name"))[0], by_pid[q]) if split_name else "u")
+        if sx == "m" and fa is None:
+            fa = q
+        elif sx == "f" and mo is None:
+            mo = q
+        else:
+            DROPPED.append((pid, q))
+    return fa, mo
 
 
 def build():
@@ -152,6 +196,8 @@ def build():
             if isinstance(c, dict) and c.get("pid"):
                 for x in pars:
                     add_parent(c["pid"], x)
+                    if x == h.get("fatherPid"): ROLE[(c["pid"], x)] = "father"
+                    if x == h.get("motherPid"): ROLE[(c["pid"], x)] = "mother"
         if len(pars) == 2:
             add_spouse(pars[0], pars[1])
 
@@ -165,6 +211,7 @@ def build():
             kind = EDGE.get(rel)
             if kind == "parent":
                 add_parent(me, pid)
+                ROLE[(me, pid)] = "father" if rel == "father" else "mother"
             elif kind == "child":
                 add_parent(pid, me)
             elif kind == "spouse":
@@ -179,22 +226,33 @@ def build():
         for p in (t.get("people") or t.get("nodes") or []):
             if isinstance(p, dict) and p.get("id"):
                 in_tree.add(p["id"])
+                if p.get("sex") in ("m", "f"):
+                    TREE_SEX[p["id"]] = p["sex"]      # the tree page already decided it; do not re-guess
     allowed = live | in_tree
 
+    if split_name is None:
+        raise SystemExit("build-living-nodes: the tree page's split_name could not be loaded; "
+                         "a surname is never split on a space here (« de Franceschi », « van der Heide »).")
     people = []
     for pid in living:
         r = by_pid[pid]
+        given, sur = split_name(r.get("name"))
+        if not (given.strip(" ?") or sur.strip()):
+            raise SystemExit("build-living-nodes: %s has no name to draw." % pid)
+        fa, mo = role_of_parents(pid, parents[pid], by_pid, allowed)
         people.append({
             "id": pid,
-            "name": r.get("name"),
-            "sex": guess_sex(str(r.get("name") or "").split()[0] if r.get("name") else "", r),
-            "parents": [x for x in parents[pid] if x in allowed],
-            "spouses": [x for x in spouses[pid] if x in allowed],
-            "children": [x for x in children[pid] if x in allowed],
+            "sex": guess_sex(given, r),
+            "given": given if given != "?" else "",
+            "sur": sur,
+            "father": fa,
+            "mother": mo,
+            "spouse": [x for x in spouses[pid] if x in allowed],
+            "kids": [x for x in children[pid] if x in allowed],
             "page": "/person/%s/" % pid,
         })
     people.sort(key=lambda p: p["id"])
-    linked = sum(1 for p in people if p["parents"] or p["spouses"] or p["children"])
+    linked = sum(1 for p in people if p["father"] or p["mother"] or p["spouse"] or p["kids"])
     return {
         "generated": datetime.date.today().isoformat(),
         "rule": RULE,
@@ -211,8 +269,11 @@ def build():
             "left_out_held": skipped_held,
             "left_out_undecidable": skipped_undecidable,
             "relationship_stated_in_prose_only": prose_only,
+            "parent_link_not_drawn": len(DROPPED),
         },
-        "note": ("Relationship labels that are not a single edge — «first cousin», «uncle's wife» and the "
+        "note": ("The canvas draws two parent slots, so a parent whose role no source states and whose own sex "
+                 "is not already settled in tree.json is counted in `parent_link_not_drawn` and left out rather "
+                 "than guessed into a slot. Relationship labels that are not a single edge — «first cousin», «uncle's wife» and the "
                  "like — are counted above and are NOT drawn as links: they live on the person's own page, "
                  "in words. Nothing here is read from the live tree."),
         "people": people,

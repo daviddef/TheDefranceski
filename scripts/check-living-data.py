@@ -36,7 +36,7 @@ LIVING_NODES = os.path.join(ROOT, "data/tree-page/living-nodes.json")
 TREE_JSON = os.path.join(ROOT, "data/tree-page/tree.json")
 LEDGER = os.path.join(ROOT, "data/living-ledger.json")
 PUBLIC = os.path.join(ROOT, "site", "public")
-NODE_KEYS = {"id", "name", "sex", "parents", "spouses", "children", "page"}
+NODE_KEYS = {"id", "sex", "given", "sur", "father", "mother", "spouse", "kids", "page"}
 YEARISH = re.compile(r"\b(1[0-9]\d\d|20\d\d)\b")
 
 
@@ -58,11 +58,24 @@ def check_living_nodes():
         if extra:
             out.append("living-nodes: %s carries %s — this file is a name and relationship links, nothing else."
                        % (p.get("id", "?"), ", ".join(extra)))
+        if not (str(p.get("given") or "").strip() or str(p.get("sur") or "").strip()):
+            out.append("living-nodes: %s has neither a given name nor a surname; the canvas cannot draw it."
+                       % p.get("id", "?"))
+        if p.get("sex") not in ("m", "f", "u"):
+            out.append("living-nodes: %s has sex %r; the canvas takes m, f or u." % (p.get("id", "?"), p.get("sex")))
+        for k in ("fg", "mg", "grade", "conf"):
+            if k in p:
+                out.append("living-nodes: %s carries `%s`. A living person's parent link is ungraded, which is the "
+                           "truthful state: this archive publishes no evidence for it." % (p.get("id", "?"), k))
         for k, v in p.items():
+            if k in ("spouse", "kids", "spouses", "children"):
+                continue                                   # lists of relatives' pids; judged by rule 3, not by shape
             if isinstance(v, (int, float)) and not isinstance(v, bool):
                 out.append("living-nodes: %s has a number in `%s`; no year or count belongs on a living node."
                            % (p.get("id", "?"), k))
-            if isinstance(v, str) and k != "page" and YEARISH.search(v):
+            # father/mother/spouse/kids hold the pids of DEAD relatives, and a dead person's pid
+            # legitimately carries their year. The living person's own id and page never may.
+            if isinstance(v, str) and k not in ("page", "father", "mother") and YEARISH.search(v):
                 out.append("living-nodes: %s has what reads as a year in `%s`. The canvas's own living filter "
                            "keys off a birth year: a year here drops the person it is meant to draw."
                            % (p.get("id", "?"), k))
