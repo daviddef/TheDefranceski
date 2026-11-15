@@ -194,6 +194,11 @@ RULES = [
     ("Medulin weddings told as 1828 and 1831 (16 Nov 2026: the index years are the grooms' births; the weddings are 1 Feb 1858 and 12 Oct 1859)",
      r"Josephus Grahalich in 1828\*\* and \*\*Martinus Rakich in 1831",
      {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
+    # --- 16 November 2026. The soldier Mattheus Defranceschi's Medulin death entry (1833) was told as unsettled between «entry 43» and an «Apr» month;
+    # the month column read at level 13 is «Xbris» (December) and the entry is no. 9, house 43. The correction, the logs and the worklist quote the old readings on purpose.
+    ("Mattheus Defranceschi's Medulin entry told as unsettled (16 Nov 2026: entry 9, house 43, 19 December 1833; the month is Xbris)",
+     r"the month carried down by ditto marks from an \u00abApr\u00bb|neither reading is to be quoted as settled|the 1833 entry is read two ways",
+     {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
