@@ -60,13 +60,17 @@ def main():
         if c["have"] != "NOT FOUND" or not c["fs_links"]: continue
         r = recs[c["id"]]
         nm = (f1(r, "NAME") or [""])[0].replace("/", " "); nm = " ".join(nm.split())
-        if not frx.search(unicodedata.normalize("NFKD", nm).encode("ascii", "ignore").decode()): held.append((nm, "not a Defranceschi-form name (a spouse or in-law); decide separately")); continue
+        # 16 Nov 2026 (David): this is a public-record archive; a spouse or in-law the tree cites a record for is added like anyone else. The first
+        # pass held 21 of them back on a scope guess of mine, which is not a rule of the archive. The living rule below is unchanged.
         b = yr((sub(r, "BIRT", "DATE") or [""])[0]); d = yr((sub(r, "DEAT", "DATE") or [""])[0])
         dead = bool(f1(r, "DEAT"))
         mh = str(4000000 + int(c["id"].strip("@I")))
         if mh in have_mh: continue
-        if not dead: held.append((nm, "the tree records no death")); continue
-        if b is not None and b >= L2.CUTOFF: held.append((nm, "born %d, in the living window" % b)); continue
+        # the archive's own rule (CLAUDE.md): a person is living if 80 or younger with no death recorded (L2.CUTOFF = this year - 80). Someone born
+        # before the cutoff with no death recorded is not in that window and is added without a death year; someone with no birth year, or born
+        # in the window, with no death recorded, stays out.
+        if not dead and (b is None or b >= L2.CUTOFF): held.append((nm, "no death recorded and %s: the living rule" % ("no birth year" if b is None else "born %d, in the living window" % b))); continue
+        if dead and b is not None and b >= L2.CUTOFF: held.append((nm, "born %d, in the living window; the tree's death flag is not a death record (needs a source)" % b)); continue
         pl = ((sub(r, "BIRT", "PLAC") or sub(r, "CHR", "PLAC") or sub(r, "DEAT", "PLAC") or sub(r, "RESI", "PLAC") or [""])[0]).strip()
         parts = [p.strip() for p in pl.split(",") if p.strip()]
         # a parish church named first (Assunzione di Maria Santissima, Telve, Trento): the place is the town
