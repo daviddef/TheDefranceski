@@ -103,7 +103,9 @@ def build(args):
     dossiers = jl(os.path.join(DATA, "dossiers.json"))["persons"]
     # CORRECTIONS MARKS (cx): how many rows of corrections.json name this person. A row names people only by an explicit `pids` list
     # (written by hand, where the person is plain); a count, never the words. The person page counts the same way (site/src/pages/person/[pid].astro, `CX`).
-    cx_of = collections.Counter(pid for row in jl(os.path.join(DATA, "corrections.json"))["rows"] for pid in dict.fromkeys(row.get("pids") or []))
+    # a row that names a person's duplicate page (roster `sameAs`) counts for the person it points to, which the same row also lists; the duplicate's own page is only a notice and prints no count
+    dup_pids = {r["pid"]: r.get("sameAs") for r in roster if r.get("sameAs")}
+    cx_of = collections.Counter(pid for row in jl(os.path.join(DATA, "corrections.json"))["rows"] for pid in dict.fromkeys(row.get("pids") or []) if not dup_pids.get(pid))
     households = jl(os.path.join(DATA, "households.json"))
     site_atlas = jl(os.path.join(DATA, "atlas.json"))["places"]
     rep = collections.Counter()
