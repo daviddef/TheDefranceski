@@ -199,6 +199,11 @@ RULES = [
     ("Mattheus Defranceschi's Medulin entry told as unsettled (16 Nov 2026: entry 9, house 43, 19 December 1833; the month is Xbris)",
      r"the month carried down by ditto marks from an \u00abApr\u00bb|neither reading is to be quoted as settled|the 1833 entry is read two ways",
      {"corrections.json", "searched.json", "worklist.json", "dossiers.json", "searchindex.json"}),
+    # --- 16 November 2026. Bonetta De Franceschi's Vodnjan wedding of 19 Nov 1823: the groom is a Biasiol (house 654), not a Marich (house 684).
+    # The correction, the September search rows, the change log and the worklist quote the old reading on purpose.
+    ("Bonetta De Franceschi's 1823 groom told as Marich, house 684 (16 Nov 2026: Biasiol, house 654)",
+     r"Nicol\u00f2 Giacomo Marich|19 November 1823, house 684|Giacomo Marich on 19 November",
+     {"corrections.json", "searched.json", "worklist.json", "changes.json", "dossiers.json", "searchindex.json"}),
 ]
 
 def main():
