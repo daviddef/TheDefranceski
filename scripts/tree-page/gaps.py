@@ -5,7 +5,7 @@ Reads data/tree-page/tree.json and atlas-data.json (the files the page is built 
     {"kind": ..., "text": ..., "look": [{"place", "what", "url", "from", "to"}]}
 Nothing here guesses: a gap is stated from a field that is empty, estimated, borrowed from a relative, or an index-only link,
 and "look" lists only collections the Record Atlas holds for that place and a year inside the collection's range.
-Living people are never in tree.json, so none can appear here.
+A living row (living: true, a name and links for the Record Atlas canvas) has no year or place to have gaps in, so none appears here.
 
     python3 scripts/tree-page/gaps.py [--person ID] [--summary]
 """
@@ -80,8 +80,9 @@ def gaps_for(p, byid, atlas):
 
 def all_gaps(tree=None, atlas=None):
     t, a = load(tree, atlas)
-    byid = {p["id"]: p for p in t["people"]}
-    return {p["id"]: gaps_for(p, byid, a) for p in t["people"]}, t
+    people = [p for p in t["people"] if not p.get("living")]   # a living row is a name and links for the Record Atlas canvas (17 Nov 2026): it has no year or place to have gaps in
+    byid = {p["id"]: p for p in people}
+    return {p["id"]: gaps_for(p, byid, a) for p in people}, t
 
 
 if __name__ == "__main__":

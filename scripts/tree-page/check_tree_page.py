@@ -9,9 +9,24 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--tree', required=True); ap.add_argument('--atlas-data', required=True); ap.add_argument('--page')
     a = ap.parse_args()
     t = json.load(open(a.tree)); at = json.load(open(a.atlas_data))
-    P = {p['id']: p for p in t['people']}; places = {p['n'] for p in at['places']}
+    places = {p['n'] for p in at['places']}
     errs = []; warn = []
     pol = (t.get('meta') or {}).get('living', 'omit')
+    # policy "names" (17 Nov 2026, the Record Atlas Tree Canvas): a row with `living: true` is a NAME and RELATIONSHIP LINKS and nothing else. It is judged here on
+    # its own terms and is not a drawn person; under any other policy such a row is an error. A drawn (dead) person must never point at a living row.
+    LIVING_KEYS = {'id', 'sex', 'given', 'sur', 'father', 'mother', 'spouse', 'kids', 'living', 'surAlso'}
+    L = {p['id']: p for p in t['people'] if p.get('living') is True}
+    P = {p['id']: p for p in t['people'] if p.get('living') is not True}
+    if L and pol != 'names': errs.append('%d living rows but the policy is %r' % (len(L), pol))
+    for p in L.values():
+        if set(p) - LIVING_KEYS: errs.append('%s is living and carries more than a name and links: %s' % (p['id'], sorted(set(p) - LIVING_KEYS)))
+        if p['id'] in P: errs.append('%s is both a living row and a drawn person' % p['id'])
+        if p.get('sex') not in ('m', 'f', 'u'): errs.append('%s: living sex %r' % (p['id'], p.get('sex')))
+        for r_ in [p.get('father'), p.get('mother')] + list(p.get('spouse') or []) + list(p.get('kids') or []):
+            if r_ and r_ not in P and r_ not in L and r_ not in {u['id'] for u in t.get('undrawn', [])}: errs.append('%s links to %s, who is not in the file' % (p['id'], r_))
+    for p in P.values():
+        for r_ in [p.get('father'), p.get('mother')] + list(p.get('spouse') or []) + list(p.get('kids') or []):
+            if r_ in L: errs.append('%s (dead) links to a living row %s' % (p['id'], r_))
     for p in P.values():
         for k in ('bp', 'dp'):
             if p.get(k) and p[k] not in places: errs.append('%s: place %r is not in atlas-data' % (p['id'], p[k]))
@@ -30,6 +45,8 @@ def main():
             if pol == 'omit': errs.append('%s is living but the policy is omit' % p['id'])
             if p.get('given') or p.get('occ') or p.get('srcs') or p.get('dp'): errs.append('%s is living and carries personal details' % p['id'])
         elif p['by'] and p['by'] > NOW - 100 and p['dy'] is None: errs.append('%s recent birth without death' % p['id'])
+    for u in t.get('undrawn', []):
+        if u['id'] in L: errs.append('%s is in the not-drawn list and is a living row' % u['id'])
     if t.get('focus') not in P: errs.append('focus person %r is not in the tree' % t.get('focus'))
     gaps = [p['n'] for p in at['places'] if not p['id']]
     if gaps: warn.append('places not in the Atlas yet: ' + ', '.join(gaps))
@@ -38,7 +55,7 @@ def main():
         for ph in ('/*ATLAS_DATA*/null', '/*TREE_DATA*/null', '<!--EXT:', '/*EXT:'):
             if ph in h: errs.append('page still contains placeholder ' + ph)
         if len(h.encode()) > 12_000_000: errs.append('page is over 12 MB')
-        living_given = [p for p in t['people'] if p.get('dy') is None and p.get('given')]
+        living_given = [p for p in P.values() if p.get('dy') is None and p.get('given')]
         if living_given: errs.append('living given names are in the page')
     for w in warn: print('warn:', w)
     for e in errs[:40]: print('FAIL:', e)

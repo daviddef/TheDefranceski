@@ -56,6 +56,34 @@ def main():
                 fails.append("%s (%s) is published with a birth year (%s) and the rule (80 or younger, no "
                              "death recorded; a public source does not change that) calls them living." % (nm, pid, b))
 
+    # ---- THE LIVING NAMES IN data/tree-page/tree.json (David, 17 Nov 2026: "Dead and living, as asked"; policy meta.living = "names").
+    # A row with living:true is a NAME and RELATIONSHIP LINKS and nothing else, for the Record Atlas Tree Canvas. This file is embedded in /roots/ (indexed), so the
+    # committed file is judged here, not only at generation: only keys of the whitelist; only a roster row that is living; never a held-out id, a possible minor or
+    # a person whose status the committed row cannot decide; no dead row points at one; no living name stands in the not-drawn list.
+    TREE = os.path.join(ROOT, "data", "tree-page", "tree.json")
+    if os.path.exists(TREE):
+        t = json.load(io.open(TREE, encoding="utf-8"))
+        KEYS = {"id", "sex", "given", "sur", "father", "mother", "spouse", "kids", "living", "surAlso"}
+        by_pid = {r["pid"]: r for r in rows if r.get("pid")}
+        led = L2.load_ledger(); held_u = set(led.get("held") or []); held_p = {p_ for p_, u_ in (led.get("people") or {}).items() if u_ in held_u}
+        lv = {p["id"]: p for p in t.get("people", []) if p.get("living") is True}
+        if lv and (t.get("meta") or {}).get("living") != "names":
+            fails.append("tree.json carries %d living rows but meta.living is %r, not 'names'." % (len(lv), (t.get("meta") or {}).get("living")))
+        for pid_, p in lv.items():
+            r = by_pid.get(pid_)
+            if set(p) - KEYS: fails.append("tree.json: living row %s carries more than a name and links (%s)." % (pid_, sorted(set(p) - KEYS)))
+            if r is None or not (r.get("living") or L2.row_is_living(r, year)): fails.append("tree.json: %s is a living row but the roster does not call them living." % pid_)
+            if pid_ in held_p: fails.append("tree.json: %s is a held-out person (the ledger) and is named." % pid_)
+            if r is not None and isinstance(r.get("b"), int) and r["b"] >= L2.MINOR_BORN_FROM and not L2.row_recorded_dead(r): fails.append("tree.json: %s is a possible minor and is named." % pid_)
+        for p in t.get("people", []):
+            if p.get("living") is True: continue
+            for k in [p.get("father"), p.get("mother")] + list(p.get("spouse") or []) + list(p.get("kids") or []):
+                if k in lv: fails.append("tree.json: the dead person %s points at the living row %s." % (p.get("id"), k))
+        for u in t.get("undrawn", []):
+            if u.get("id") in lv or (by_pid.get(u.get("id")) or {}).get("living") or any(k in lv for k in [u.get("father"), u.get("mother")] + list(u.get("spouse") or []) + list(u.get("kids") or [])):
+                fails.append("tree.json: the not-drawn entry %s is a living person or points at one." % u.get("id"))
+            if isinstance(u.get("by"), int) and u["by"] >= L2.CUTOFF or isinstance(u.get("b"), int) and u["b"] >= L2.CUTOFF: fails.append("tree.json: the not-drawn entry %s carries a birth year at or after the cutoff." % u.get("id"))
+
     for m in fails:
         print("  FAIL  %s" % m)
     if review:

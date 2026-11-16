@@ -1,7 +1,7 @@
 ---
 /* Roots & Routes: built by scripts/build-tree-page.py from the roster, dossiers, households and direct line, and rendered here inside the
    site layout (header, menu, footer). The fragment carries its own scoped styles and script (every selector under #rr), and no living
-   person is in its data. Rebuild with `python3 scripts/build-tree-page.py`; see data/tree-page/README.md. A standalone copy of the
+   person is drawn: tree.json also carries the living people the archive already names as name-and-links rows (policy "names", David 17 Nov 2026), which this page drops on load. Rebuild with `python3 scripts/build-tree-page.py`; see data/tree-page/README.md. A standalone copy of the
    page is kept at data/tree-page/roots.html. */
 import Base from "../../layouts/Base.astro";
 import page from "../../../../data/tree-page/roots.embed.html?raw";

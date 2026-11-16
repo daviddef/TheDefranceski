@@ -39,9 +39,27 @@ claim with no one person in it carries none). The field is omitted when the coun
 person never does. The person page prints the same count from the same rows (`site/src/pages/person/[pid].astro`, the `CX` constant), linking to `/corrections/`. Added 16 November 2026 (Record Atlas Tree Canvas request;
 the coordinator's rules: a count only, derived in the build, never for a living person, the count agrees with the page).
 
+## Details on the not-drawn people, and the living names (17 November 2026, for the Record Atlas Tree Canvas)
+
+**`undrawn` entries carry details.** Besides `id`, `name`, `href`, `b`, `place`, `why`, each now has `given`, `sur`, `sex` (guessed from the first name unless a household says, as for every dead person here),
+`by` / `bye`, `dy` / `dye` (a year at or after the living cutoff is never sent), and `father`, `mother`, `spouse`, `kids` (ids in this file). Dead people only. The canvas draws them as unplaced cards.
+
+**Living rows (`meta.living` is `"names"`, was `"omit"`).** David decided on 17 November 2026, "Dead and living, as asked": the people whose own pages already name them as living appear in `people`
+as `{id, sex, given, sur, father, mother, spouse, kids, living: true}` (+ `surAlso`, a married name the roster already writes in brackets). **A name and relationship links and nothing else**: no year, place, route,
+page link, source, corrections count or occupation. `sex` is `u` unless a household records it (a guess from the end of a given name is Person data inferred from nothing). Who:
+roster rows the rule or the archive's own `living` flag calls living, minus the ledger's held ids, minus a birth year at or after the minor line, minus anyone the committed row cannot decide (no birth year and no
+death recorded; an estimated year). Anyone the archive does not name stays unnamed. A relationship label that is not one edge («first cousin») is not turned into a link, and a living parent whose role no household states
+is dropped, both counted in `tree.report.json`. The links run from the living row to the dead people (a dead person's `kids` does not list a living child).
+
+**The price, accepted by David on 17 November 2026:** `/roots/` is in the sitemap, carries no robots meta and embeds this file, so these names are searchable there. (The roots page itself draws no living
+person: the template drops `living: true` rows on load.) Until that day 30 scrubbed living rows were already named in `undrawn` as if dead, because the builder asked only the rule and not the row's own `living`
+flag; `is_living` now reads the flag, so they are living rows with a name and links, with no sex guess or page link. Guards: the builder refuses to write if a living row carries another key, is also a dead person, is
+held out or a minor, or if a dead row points at one; `scripts/check-living-data.py` judges the committed file the same way; `scripts/tree-page/check_tree_page.py` judges it again. This replaces the removed
+`living-nodes.json` (16 November): that file is not coming back, the rows live here.
+
 ## What is and is not on the page
 
-- **Living and possibly-living people are absent from the files**, decided by `living_v2.row_is_living` plus a floor: nobody with no recorded
+- **Living and possibly-living people are absent from the drawn people and from the page** (the 36 whom the archive names appear only as name-and-links rows, see above), decided by `living_v2.row_is_living` plus a floor: nobody with no recorded
   death born in the last 110 years, and nobody whose only evidence of death is an estimate. The builder refuses to write if its own
   output breaks the rule. No birth year at or after the cutoff is ever printed without a recorded death.
 - **Identity is by record** (see `roster.json`): two rows may be one person; the page shows them as two.
@@ -61,7 +79,7 @@ template, `scripts/tree-page/painted-lines.ext.html` (tabs, views, style and scr
 - **One selection.** They read the page's own `P`, `PL`, `ERA`, `ATLAS`, `st.focus` and `go()`, so choosing a person in the search box, the hourglass or the card redraws
   all fifteen views. Clicking a head, star, name or node inside an animated view re-centres everything.
 - **No new data.** Ancestors, descendants and spouses come from the people already in `tree.json`; ground colour and events from the Atlas slice already in `atlas-data.json`.
-  Only people with a recorded death are in `tree.json`, so no living person can be drawn.
+  Only people with a recorded death are drawn; a `living: true` row is never drawn.
 - **A parent link is not drawn where the parent would have been under 13 or over 60 at the birth** (the page says how many). The roster is not edited.
 - **Moves are windows.** A person's place is known at their birth, at their children's births, at a recorded move year (`my`) and at death. A leg is drawn between two such
   records and the dot travelling along it only marks the window. A child's birthplace is evidence, not proof.

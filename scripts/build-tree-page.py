@@ -148,7 +148,7 @@ def build(args):
 
     # ---- who is in
     def is_living(r):
-        if L2.row_is_living(r): return True
+        if r.get("living") or L2.row_is_living(r): return True   # a row the archive itself marks living (a scrubbed row has no year for the rule to read) is living: until 17 Nov 2026 only the rule was asked, and 30 such rows were named in `undrawn` as if dead
         b = yr(r.get("b")); dead = bool(r.get("d") or r.get("deathRecorded") or r.get("deceased") or r.get("deathSource"))
         return (not dead) and b is not None and b > NOW - 110
     P, order = {}, []
@@ -338,6 +338,13 @@ def build(args):
         undrawn.append({"id": pid, "name": plain(r["name"])[:80], "href": who if who and str(who).startswith("/") else None,
                         "b": (yr(r.get("b")) if yr(r.get("b")) is None or yr(r.get("b")) < L2.CUTOFF else None), "place": (plain(r.get("place")) if r.get("place") and str(r.get("place")) != "None" else None),
                         "why": "year" if p["by"] is None else "place"})
+        # DETAILS (17 Nov 2026, Record Atlas Tree Canvas): the canvas draws these people as unplaced cards, so each carries the same facts a drawn person does: name,
+        # sex, years (flagged when estimated), place, and the links to their relatives. Only dead people are in P, and a year at or after the cutoff is never sent.
+        u = undrawn[-1]
+        u.update({"given": p["given"], "sur": p["sur"], "sex": p["sex"],
+                  "by": (p["by"] if p["by"] is not None and p["by"] < L2.CUTOFF else None), "bye": bool(p["bye"]) if p["by"] is not None and p["by"] < L2.CUTOFF else False,
+                  "dy": (p["dy"] if p["dy"] is not None and p["dy"] < L2.CUTOFF else None), "dye": bool(p["dye"]) if p["dy"] is not None and p["dy"] < L2.CUTOFF else False,
+                  "father": p["father"], "mother": p["mother"], "spouse": list(p["spouse"]), "kids": list(p["kids"])})
     undrawn.sort(key=lambda u: (u["why"], u["name"]))
     # ---- NAMED-ONLY SPOUSES. A wife or husband the archive names (the roster row's `spouse`, with how the name is known, or a household READ from
     # a register that names the other parent without a person row) but holds no record for, so the page has no node and no link for them. The canvas
@@ -397,6 +404,92 @@ def build(args):
     kid_of = {x["id"]: x for x in people}
     for x in people:
         x["kids"] = [k for k in x["kids"] if k in ids and x["id"] in (kid_of[k]["father"], kid_of[k]["mother"])]
+    # ---- LIVING PEOPLE THE ARCHIVE ALREADY NAMES (David, 17 Nov 2026: "Dead and living, as asked"), for the Record Atlas Tree Canvas.
+    # A living person's own page already prints a name, the relationships and a town and country (living-people standard v2). A row here carries a NAME and
+    # RELATIONSHIP LINKS and stops: `{id, sex, given, sur, father, mother, spouse, kids, living: true}` (+ `surAlso`, a married name the roster already writes in brackets).
+    # No year, no place, no route, no page link, no source, no corrections count, no occupation. `sex` is `u` unless a household row records it (a guess from the
+    # end of a given name is Person data about a living person inferred from nothing). The roots page does not draw these rows (the template drops them on load).
+    # THE PRICE, accepted by David on 17 Nov 2026: /roots/ is in the sitemap, carries no robots meta and embeds this file, so these names are searchable there.
+    # Left out, never blanked: the ledger's held ids; a birth year at or after the minor line (nobody that young is published at all); anyone whose status the
+    # committed row cannot decide (no birth year and no death recorded, an estimated year); anyone the archive does not name.
+    living = []
+    if True:
+        ledger = L2.load_ledger(); held_uids = set(ledger.get("held") or []); held_pids = {pid for pid, uid in (ledger.get("people") or {}).items() if uid in held_uids}
+        by_pid = {r["pid"]: r for r in roster if r.get("pid")}
+        hh_sex = {c["pid"]: c.get("sex") for h in households for c in (h.get("children") or []) if isinstance(c, dict) and c.get("pid") and c.get("sex")}
+        EDGE = {"mother": "parent", "father": "parent", "wife": "spouse", "husband": "spouse", "spouse": "spouse", "son": "child", "daughter": "child"}
+        def undecidable(r):
+            dead = bool(r.get("d") or r.get("deathRecorded") or r.get("deceased") or r.get("deathSource"))
+            if r.get("bEst") or r.get("bEstRange") or r.get("bye") or r.get("dye"): return True
+            return (not dead) and not r.get("b") and not r.get("living")
+        live = []
+        for r in roster:
+            pid = r.get("pid")
+            if not pid or not (bool(r.get("living")) or L2.row_is_living(r)): continue
+            if pid in held_pids: rep["living_named_left_out_held"] += 1; continue
+            if undecidable(r): rep["living_named_left_out_undecidable"] += 1; continue
+            if isinstance(r.get("b"), int) and r["b"] >= L2.MINOR_BORN_FROM: rep["living_named_left_out_minor"] += 1; continue
+            live.append(pid)
+        live_set = set(live)
+        allowed = live_set | set(P)          # a link may point only at somebody this file holds (drawn, not drawn, or a living row)
+        lpar = {x: [] for x in live}; lkid = {x: [] for x in live}; lsp = {x: [] for x in live}; role = {}
+        def l_parent(child, par):
+            if child == par or child not in by_pid or par not in by_pid: return
+            if child in lpar and par not in lpar[child]: lpar[child].append(par)
+            if par in lkid and child not in lkid[par]: lkid[par].append(child)
+        def l_spouse(a_, b_):
+            if a_ == b_ or a_ not in by_pid or b_ not in by_pid: return
+            for x, y in ((a_, b_), (b_, a_)):
+                if x in lsp and y not in lsp[x]: lsp[x].append(y)
+        for pid_, v in dossiers.items():
+            for q in ((v.get("ptree") or {}).get("parents") or []):
+                if q.get("pid"): l_parent(pid_, q["pid"])
+        for h in households:
+            pars = [x for x in (h.get("fatherPid"), h.get("motherPid")) if x]
+            for c in (h.get("children") or []):
+                if isinstance(c, dict) and c.get("pid"):
+                    for x in pars:
+                        l_parent(c["pid"], x)
+                        if x == h.get("fatherPid"): role[(c["pid"], x)] = "father"
+                        if x == h.get("motherPid"): role[(c["pid"], x)] = "mother"
+            if len(pars) == 2: l_spouse(pars[0], pars[1])
+        me = next((r["pid"] for r in roster if r.get("me")), None)
+        if me:
+            for r in roster:
+                pid_, rel = r.get("pid"), str(r.get("rel") or "").strip().lower()
+                if not pid_ or pid_ not in live_set or not rel or pid_ == me: continue
+                kind = EDGE.get(rel)
+                if kind == "parent": l_parent(me, pid_); role[(me, pid_)] = "father" if rel == "father" else "mother"
+                elif kind == "child": l_parent(pid_, me)
+                elif kind == "spouse": l_spouse(me, pid_)
+                elif rel and rel != "this archive's compiler": rep["living_relationship_in_prose_only"] += 1
+        for pid_ in live:
+            r = by_pid[pid_]; given, sur = split_name(r.get("name"))
+            if not (given.strip(" ?") or sur.strip()): sys.exit("LIVING NAMES: %s has no name to draw." % pid_)
+            fa = mo = None; rest = []
+            for q in lpar[pid_]:
+                if q not in allowed: continue
+                rl = role.get((pid_, q))
+                if rl == "father" and fa is None: fa = q
+                elif rl == "mother" and mo is None: mo = q
+                else: rest.append(q)
+            for q in rest:   # no source says which parent this is: a dead parent's sex is already settled in this file; a living parent's is not, so the link is dropped, counted
+                sx = P[q]["sex"] if q in P else "u"
+                if sx == "m" and fa is None: fa = q
+                elif sx == "f" and mo is None: mo = q
+                else: rep["living_parent_link_not_drawn"] += 1
+            sv = str(r.get("sex") or hh_sex.get(pid_) or "").strip().lower()
+            row_ = {"id": pid_, "sex": "f" if sv.startswith("f") else "m" if sv.startswith("m") else "u", "given": given if given != "?" else "", "sur": sur,
+                    "father": fa, "mother": mo, "spouse": [x for x in lsp[pid_] if x in allowed], "kids": [x for x in lkid[pid_] if x in allowed], "living": True}
+            extra = []
+            for m_ in re.finditer(r"\(([^)]*)\)", str(r.get("name") or "")):
+                t_ = m_.group(1).strip(" ,.")
+                if t_ and not re.search(r"\d|\b(?:wife|husband|son|daughter|of|n[ée]e|born|house|living)\b", t_, re.I) and len(t_.split()) <= 2 and t_.lower() != sur.lower() and t_ not in extra: extra.append(t_)
+            if extra: row_["surAlso"] = extra
+            living.append(row_)
+        living.sort(key=lambda x: x["id"])
+        rep["living_named"] = len(living)
+        rep["living_named_with_a_link"] = sum(1 for x in living if x["father"] or x["mother"] or x["spouse"] or x["kids"])
     # focus: the direct line's best-connected deceased member
     def n_desc(i, seen=None):
         seen = seen if seen is not None else set()
@@ -413,15 +506,21 @@ def build(args):
         sc = min(len(n_desc(pid)), 40) + min(len(n_anc(pid)), 40) + (25 if p["row"].get("direct") else 0)
         if sc > best: best, focus = sc, pid
     meta = {"title": "Roots & Routes", "sub": "Every person this archive holds, by generation, place, era and relationship. Click anyone and every view follows. A dashed line is a link seen in an index entry only, not yet read from a register.",
-            "living": "omit", "generated": datetime.date.today().isoformat(), "inputs": inputs_hash(), "source": "the archive's own roster, dossiers, households and direct line",
+            "living": "names", "generated": datetime.date.today().isoformat(), "inputs": inputs_hash(), "source": "the archive's own roster, dossiers, households and direct line",
             "rowLabel": "Research line", "lineLabel": "Research line"}
-    tree = {"meta": meta, "lines": [{"sur": n, "host": HOST} for _, n in LINES] + [{"sur": "Other", "host": HOST}], "focus": focus, "people": people, "undrawn": undrawn}
+    tree = {"meta": meta, "lines": [{"sur": n, "host": HOST} for _, n in LINES] + [{"sur": "Other", "host": HOST}], "focus": focus, "people": people + living, "undrawn": undrawn}
     tree["lines"] = tree["lines"][:8]
     os.makedirs(OUT, exist_ok=True)
     # the living rule, asked once more of the finished file: refuse to write it if anyone breaks it
     rows = {r["pid"]: r for r in roster}
     broken = [x["id"] for x in people if L2.row_is_living(rows[x["id"]]) or x["dye"] and x["by"] > NOW - 110 or x["by"] >= L2.CUTOFF and x["dye"]
               or any(u["b"] and u["b"] >= L2.CUTOFF for u in undrawn)]
+    LIVING_KEYS = {"id", "sex", "given", "sur", "father", "mother", "spouse", "kids", "living", "surAlso"}
+    drawn_ids = {y["id"] for y in people}; every_id = drawn_ids | {u_["id"] for u_ in undrawn} | {x["id"] for x in living}
+    badliving = [x["id"] for x in living if set(x) - LIVING_KEYS or x["id"] in drawn_ids or x["id"] in P or (not L2.row_is_living(rows[x["id"]]) and not rows[x["id"]].get("living"))
+                 or any(l_ and l_ not in every_id for l_ in [x["father"], x["mother"]] + x["spouse"] + x["kids"])]
+    if badliving:
+        sys.exit("LIVING NAMES RULE: %d living rows carry more than a name and links, are also in the dead set, or are not living, e.g. %s. Nothing written." % (len(badliving), badliving[:3]))
     if broken: sys.exit("LIVING RULE: %d people in the output break it, e.g. %s. Nothing written." % (len(broken), broken[:3]))
     badspn = [x["id"] for x in people if x.get("spn") and (x["by"] is None or x["by"] > SPN_BORN_MAX)]   # a named-only spouse of someone born after the cutoff could be alive
     if badspn: sys.exit("NAMED-ONLY SPOUSE RULE: %d people carry a spouse name though born after %d, e.g. %s. Nothing written." % (len(badspn), SPN_BORN_MAX, badspn[:3]))
@@ -514,7 +613,7 @@ def link_map(ad):
 def write_roots_links(tree):
     """site/public/roots-links.json: the people Roots & Routes DRAWS (one id each). /map/ (site/src/components/AtlasRootsLinks.astro) offers 'in Roots & Routes'
     only for those: a person the page withholds (living, possibly living) or cannot place would be a link to nothing."""
-    ids = sorted(p["id"] for p in jl(tree)["people"])
+    ids = sorted(p["id"] for p in jl(tree)["people"] if not p.get("living"))   # a living row is a name and links for the Record Atlas canvas; the roots page does not draw it
     out = {"note": "The people Roots & Routes draws, by person id. Made by scripts/build-tree-page.py; do not edit by hand.", "people": ids}
     io.open(os.path.join(ROOT, "site", "public", "roots-links.json"), "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     print("roots-links: %d people" % len(ids))
@@ -523,18 +622,18 @@ def write_gaps(tree, ad):
     """What is missing for each person and where to look (scripts/tree-page/gaps.py), written into tree.json as p.gaps for the person card's 'What's missing' list."""
     import gaps as G
     t = jl(tree); allg, _ = G.all_gaps(tree, ad); n = 0
-    for p in t["people"]:
+    for p in (x for x in t["people"] if not x.get("living")):
         g = [{"k": x["kind"], "t": x["text"], "l": [{"w": l["what"], "u": l["url"], "y": "%s–%s" % (l["from"], l["to"]), "b": l["by"], "p": l["place"]} for l in x["look"]]} for x in allg.get(p["id"], [])]
         if g: p["gaps"] = g; n += 1
         else: p.pop("gaps", None)
     io.open(tree, "w", encoding="utf-8").write(json.dumps(t, ensure_ascii=False, separators=(",", ":")))
-    print("gaps: %d of %d people have a 'what's missing' list" % (n, len(t["people"])))
+    print("gaps: %d of %d people have a 'what's missing' list" % (n, sum(1 for x in t["people"] if not x.get("living"))))
 
 def write_gap_rows(tree, ad):
     """One worklist row per birthplace with five or more people who have an actionable gap (no parents, an index-only parent link), one row for the smaller places,
     and one each for estimated birth years and children with no spouse. Rows are tagged roots-routes:gap:* and replaced in place; rows for a place that no longer qualifies are removed."""
     import gaps as G
-    t = jl(tree); allg, _ = G.all_gaps(tree, ad); P = {p["id"]: p for p in t["people"]}
+    t = jl(tree); allg, _ = G.all_gaps(tree, ad); P = {p["id"]: p for p in t["people"] if not p.get("living")}
     today = datetime.date.today().isoformat(); base = dict(state="next", owner="this archive", since=today, covers=[])
     def link(p): return "[%s](%s)" % ((p["given"] + " " + p["sur"]).strip(), p["page"]) if p.get("page") else (p["given"] + " " + p["sur"]).strip()
     def table(head, rows, cap=30):
