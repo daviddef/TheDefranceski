@@ -16,7 +16,13 @@ def main():
     # its own terms and is not a drawn person; under any other policy such a row is an error. A drawn (dead) person must never point at a living row.
     LIVING_KEYS = {'id', 'sex', 'given', 'sur', 'father', 'mother', 'spouse', 'kids', 'living', 'surAlso'}
     L = {p['id']: p for p in t['people'] if p.get('living') is True}
-    P = {p['id']: p for p in t['people'] if p.get('living') is not True}
+    PH_KEYS = {'id', 'sex', 'given', 'sur', 'father', 'mother', 'spouse', 'kids', 'placeholder'}
+    PH = {p['id']: p for p in t['people'] if p.get('placeholder') is True}
+    for p in PH.values():
+        if set(p) - PH_KEYS: errs.append('%s is a stand-in and carries more than a name and links: %s' % (p['id'], sorted(set(p) - PH_KEYS)))
+        for r_ in [p.get('father'), p.get('mother')] + list(p.get('spouse') or []) + list(p.get('kids') or []):
+            if r_ and r_ not in PH and r_ not in {q['id'] for q in t['people']} and r_ not in {u['id'] for u in t.get('undrawn', [])}: errs.append('%s (stand-in) links to %s, who is not in the file' % (p['id'], r_))
+    P = {p['id']: p for p in t['people'] if p.get('living') is not True and p.get('placeholder') is not True}
     if L and pol != 'names': errs.append('%d living rows but the policy is %r' % (len(L), pol))
     for p in L.values():
         if set(p) - LIVING_KEYS: errs.append('%s is living and carries more than a name and links: %s' % (p['id'], sorted(set(p) - LIVING_KEYS)))
@@ -26,7 +32,7 @@ def main():
             if r_ and r_ not in P and r_ not in L and r_ not in {u['id'] for u in t.get('undrawn', [])}: errs.append('%s links to %s, who is not in the file' % (p['id'], r_))
     for p in P.values():
         for r_ in [p.get('father'), p.get('mother')] + list(p.get('spouse') or []) + list(p.get('kids') or []):
-            if r_ in L: errs.append('%s (dead) links to a living row %s' % (p['id'], r_))
+            if r_ in L or r_ in PH: errs.append('%s (dead) links to a living or stand-in row %s' % (p['id'], r_))
     for p in P.values():
         for k in ('bp', 'dp'):
             if p.get(k) and p[k] not in places: errs.append('%s: place %r is not in atlas-data' % (p['id'], p[k]))

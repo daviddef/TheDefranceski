@@ -3,9 +3,10 @@
    #profile&p=<id>&embed=1 shows the person's own panel (the Atlas places, the route, what changed around them, what is missing,
    where to look) full width, and every other view is the chart alone (the panel is hidden: that section is already on the page), in a reading order, with the parts the person page already has left out; it reports its height to the
    parent page so the frame is exactly as tall as its content. The panel's content is the viewer's own, so the two never disagree. */
+/* NOINDEX (David, 17 Nov 2026): this page embeds data/tree-page/tree.json, which names living people (policy "names"), so it asks not to be harvested; the meta is injected after <head> below. */
 import page from "../../../../data/tree-page/roots.html?raw";
 
-const EMBED = `<script>
+const EMBED = `<meta name="robots" content="noindex"><script>
 (function(){
   var h=location.hash, emb=/[#&]embed=1/.test(h), prof=/^#profile\\b/.test(h);
   if(!emb)return;

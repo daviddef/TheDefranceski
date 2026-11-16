@@ -80,7 +80,7 @@ def gaps_for(p, byid, atlas):
 
 def all_gaps(tree=None, atlas=None):
     t, a = load(tree, atlas)
-    people = [p for p in t["people"] if not p.get("living")]   # a living row is a name and links for the Record Atlas canvas (17 Nov 2026): it has no year or place to have gaps in
+    people = [p for p in t["people"] if not (p.get("living") or p.get("placeholder"))]   # a living row is a name and links for the Record Atlas canvas (17 Nov 2026): it has no year or place to have gaps in
     byid = {p["id"]: p for p in people}
     return {p["id"]: gaps_for(p, byid, a) for p in people}, t
 

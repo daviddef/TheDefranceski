@@ -72,13 +72,22 @@ def main():
         for pid_, p in lv.items():
             r = by_pid.get(pid_)
             if set(p) - KEYS: fails.append("tree.json: living row %s carries more than a name and links (%s)." % (pid_, sorted(set(p) - KEYS)))
-            if r is None or not (r.get("living") or L2.row_is_living(r, year) or (not (r.get("d") or r.get("deathRecorded") or r.get("deceased") or r.get("deathSource")) and isinstance(r.get("b"), int) and r["b"] > year - 110)): fails.append("tree.json: %s is a living row but the roster does not call them living (the rule, the row's flag, or no death recorded within 110 years)." % pid_)
+            # a name-only row is a roster row with no death YEAR recorded: living by the rule, by its own flag, by the floor (no death within 110 years), or one whose birth year is only
+            # an estimate (withheld as possibly living by the builder; David named them 17 Nov 2026). Never one with a death year, and never a held-out or possible-minor row (below).
+            if r is None or r.get("d"): fails.append("tree.json: %s is a living row but the roster has no such person, or records a death year." % pid_)
             if pid_ in held_p: fails.append("tree.json: %s is a held-out person (the ledger) and is named." % pid_)
             if r is not None and isinstance(r.get("b"), int) and r["b"] >= L2.MINOR_BORN_FROM and not L2.row_recorded_dead(r): fails.append("tree.json: %s is a possible minor and is named." % pid_)
-        for p in t.get("people", []):
-            if p.get("living") is True: continue
+        PHK = {"id", "sex", "given", "sur", "father", "mother", "spouse", "kids", "placeholder"}
+        phs = {p["id"]: p for p in t.get("people", []) if p.get("placeholder") is True}
+        for pid_, p in phs.items():
+            if set(p) - PHK: fails.append("tree.json: stand-in %s carries more than a name and links (%s)." % (pid_, sorted(set(p) - PHK)))
+            if pid_ in lv or pid_ in by_pid: fails.append("tree.json: stand-in %s is also a living row or a roster person." % pid_)
             for k in [p.get("father"), p.get("mother")] + list(p.get("spouse") or []) + list(p.get("kids") or []):
-                if k in lv: fails.append("tree.json: the dead person %s points at the living row %s." % (p.get("id"), k))
+                if k in lv: fails.append("tree.json: stand-in %s points at the living row %s." % (pid_, k))
+        for p in t.get("people", []):
+            if p.get("living") is True or p.get("placeholder") is True: continue
+            for k in [p.get("father"), p.get("mother")] + list(p.get("spouse") or []) + list(p.get("kids") or []):
+                if k in lv or k in phs: fails.append("tree.json: the dead person %s points at the living or stand-in row %s." % (p.get("id"), k))
         for u in t.get("undrawn", []):
             if u.get("id") in lv or (by_pid.get(u.get("id")) or {}).get("living") or any(k in lv for k in [u.get("father"), u.get("mother")] + list(u.get("spouse") or []) + list(u.get("kids") or [])):
                 fails.append("tree.json: the not-drawn entry %s is a living person or points at one." % u.get("id"))

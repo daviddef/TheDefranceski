@@ -261,7 +261,7 @@ const JOURNEY = LIVE ? [] : journeyOf(r, atlasData.places, GRADE_SAY).map((s) =>
 const WORLD = LIVE ? [] : eventsAround(r, atlasSlice, atlasEvents);
 /* a `living: true` row of tree.json is a name and links for the Record Atlas canvas (17 Nov 2026) and is not a tree person here: filtered out, so nothing on a page changes */
 /* the kit reads a tree row's `href`; this archive's tree rows carry `page` (and only under /person/ is it a page of this archive) */
-const TREE_BY = Object.fromEntries(treeData.people.filter((x) => x.living !== true).map((x) => [x.id, { ...x, href: x.page && String(x.page).startsWith("/person/") ? x.page : "" }]));
+const TREE_BY = Object.fromEntries(treeData.people.filter((x) => x.living !== true && x.placeholder !== true).map((x) => [x.id, { ...x, href: x.page && String(x.page).startsWith("/person/") ? x.page : "" }]));
 const evidenceOf = (row) => _evidenceOf(row, { docSrc: ["read", "register", "burial", "grave", "oesta", "paper", "gazette", "press"], treeSrc: ["myheritage"] });
 const FAM = !LIVE && !dupOf && inRoots && TREE_BY[r.pid] ? familyOf(TREE_BY, r.pid, RULE) : null;
 /* Roots & Routes omits the living, so a child or a brother or sister who may be living is missing from its data. The archive's own family record

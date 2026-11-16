@@ -695,8 +695,8 @@ function drawIcon(parent,place,year,x,y,w,h){
 function iconEl(place,year,w,h){const s=S('svg',{width:w,height:h,viewBox:'0 0 '+w+' '+h,role:'img','aria-label':place+' on the Atlas map'});drawIcon(s,place,year,0,0,w,h);return s}
 
 const TREE=/*TREE_DATA*/null;
-/* a row with living:true is a name and relationship links for the Record Atlas canvas (policy "names"); this page draws no living person */
-if(TREE&&TREE.people)TREE.people=TREE.people.filter(function(p){return p.living!==true});
+/* a row with living:true or placeholder:true is a name and relationship links for the Record Atlas canvas (policy "names"); this page draws no living person */
+if(TREE&&TREE.people)TREE.people=TREE.people.filter(function(p){return p.living!==true&&p.placeholder!==true});
 //#DATA-START
 /* Real trees come in as TREE (built from a GEDCOM by the family-tree-page skill). With no TREE the page runs on invented sample people. */
 function loadTree(T){
