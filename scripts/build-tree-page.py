@@ -425,7 +425,7 @@ def build(args):
         live = []
         for r in roster:
             pid = r.get("pid")
-            if not pid or not (bool(r.get("living")) or L2.row_is_living(r)): continue
+            if not pid or not is_living(r): continue   # is_living: the rule, the row's own flag, and the floor (no death recorded, born within 110 years): David, 17 Nov 2026, "yes, name and links only" for the 51 the floor withheld
             if pid in held_pids: rep["living_named_left_out_held"] += 1; continue
             if undecidable(r): rep["living_named_left_out_undecidable"] += 1; continue
             if isinstance(r.get("b"), int) and r["b"] >= L2.MINOR_BORN_FROM: rep["living_named_left_out_minor"] += 1; continue
@@ -517,7 +517,7 @@ def build(args):
               or any(u["b"] and u["b"] >= L2.CUTOFF for u in undrawn)]
     LIVING_KEYS = {"id", "sex", "given", "sur", "father", "mother", "spouse", "kids", "living", "surAlso"}
     drawn_ids = {y["id"] for y in people}; every_id = drawn_ids | {u_["id"] for u_ in undrawn} | {x["id"] for x in living}
-    badliving = [x["id"] for x in living if set(x) - LIVING_KEYS or x["id"] in drawn_ids or x["id"] in P or (not L2.row_is_living(rows[x["id"]]) and not rows[x["id"]].get("living"))
+    badliving = [x["id"] for x in living if set(x) - LIVING_KEYS or x["id"] in drawn_ids or x["id"] in P or not is_living(rows[x["id"]])
                  or any(l_ and l_ not in every_id for l_ in [x["father"], x["mother"]] + x["spouse"] + x["kids"])]
     if badliving:
         sys.exit("LIVING NAMES RULE: %d living rows carry more than a name and links, are also in the dead set, or are not living, e.g. %s. Nothing written." % (len(badliving), badliving[:3]))

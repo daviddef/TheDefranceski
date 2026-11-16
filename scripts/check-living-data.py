@@ -72,7 +72,7 @@ def main():
         for pid_, p in lv.items():
             r = by_pid.get(pid_)
             if set(p) - KEYS: fails.append("tree.json: living row %s carries more than a name and links (%s)." % (pid_, sorted(set(p) - KEYS)))
-            if r is None or not (r.get("living") or L2.row_is_living(r, year)): fails.append("tree.json: %s is a living row but the roster does not call them living." % pid_)
+            if r is None or not (r.get("living") or L2.row_is_living(r, year) or (not (r.get("d") or r.get("deathRecorded") or r.get("deceased") or r.get("deathSource")) and isinstance(r.get("b"), int) and r["b"] > year - 110)): fails.append("tree.json: %s is a living row but the roster does not call them living (the rule, the row's flag, or no death recorded within 110 years)." % pid_)
             if pid_ in held_p: fails.append("tree.json: %s is a held-out person (the ledger) and is named." % pid_)
             if r is not None and isinstance(r.get("b"), int) and r["b"] >= L2.MINOR_BORN_FROM and not L2.row_recorded_dead(r): fails.append("tree.json: %s is a possible minor and is named." % pid_)
         for p in t.get("people", []):
