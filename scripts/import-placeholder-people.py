@@ -17,6 +17,14 @@ DATA = os.path.join(ROOT, "site", "src", "data")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import living_v2 as L2
 
+# People born inside the living window whose death a FamilySearch record states (read 16 Nov 2026): the record is the death source the living
+# rule asks for (the tree's bare flag is not). Keyed by the tree's person id.
+DEATH_SOURCES = {
+    "@I507527@": "Find a Grave Index record on FamilySearch (1:1:QVG8-PPM7), read 16 November 2026: death 26 April 2010, burial at Loud Cemetery, Michigan",
+    "@I507818@": "Find a Grave Index record on FamilySearch (1:1:CVK7-XNN2), read 16 November 2026: death 8 January 2020, burial at New Saint Francis Cemetery, Torrington, Connecticut",
+    "@I508146@": "South Africa, Gauteng, Johannesburg, Cemetery Records on FamilySearch (1:1:6X6D-KCBT), read 16 November 2026: death 2 May 1993, burial 4 May 1993, Randburg",
+}
+
 def parse(path):
     recs, cur = {}, None
     for line in io.open(path, encoding="utf-8", errors="replace"):
@@ -70,7 +78,8 @@ def main():
         # before the cutoff with no death recorded is not in that window and is added without a death year; someone with no birth year, or born
         # in the window, with no death recorded, stays out.
         if not dead and (b is None or b >= L2.CUTOFF): held.append((nm, "no death recorded and %s: the living rule" % ("no birth year" if b is None else "born %d, in the living window" % b))); continue
-        if dead and b is not None and b >= L2.CUTOFF: held.append((nm, "born %d, in the living window; the tree's death flag is not a death record (needs a source)" % b)); continue
+        dsrc = DEATH_SOURCES.get(c["id"])
+        if dead and b is not None and b >= L2.CUTOFF and not dsrc: held.append((nm, "born %d, in the living window; the tree's death flag is not a death record (needs a source)" % b)); continue
         pl = ((sub(r, "BIRT", "PLAC") or sub(r, "CHR", "PLAC") or sub(r, "DEAT", "PLAC") or sub(r, "RESI", "PLAC") or [""])[0]).strip()
         parts = [p.strip() for p in pl.split(",") if p.strip()]
         # a parish church named first (Assunzione di Maria Santissima, Telve, Trento): the place is the town
@@ -94,6 +103,7 @@ def main():
                 "and the name, years and place are the tree's word (lore) until it is." % (branch, cite))
         row = {"name": nm, "b": b, "d": d, "place": pl, "src": "myheritage", "href": "/people/", "note": note, "notable": False,
                "ark": ark, "mh": mh, "line": "unplaced", "pid": pid}
+        if dsrc: row["deathSource"], row["deathGrade"], row["deathRecorded"] = dsrc, "doc", True
         if len(re.sub(r"\s*\(.*?\)\s*", "", nm)) >= 5: row["who"] = "/who/%s/" % slug(nm)
         out.append(row)
     print("to add", len(out), "held back", len(held))
