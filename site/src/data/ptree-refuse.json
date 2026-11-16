@@ -1,0 +1,19 @@
+{
+ "_note": "Households a person's page must NOT take as parents, one named person at a time, read by scripts/build-dossiers.py. This is not the general fix for the name-only «unchecked» match (worklist 337, David's decision); it only withdraws a match shown to be wrong for one person. Each entry: the person's pid, the household's father and mother exactly as households.json writes them, the reason and the date.",
+ "refuse": [
+  {
+   "pid": "giovanni-defranceschi-1750",
+   "father": "Pietro De Franceschi q.m Domenico",
+   "mother": "Domenica Manzin",
+   "why": "A Vodnjan household with a daughter born about 1800, matched to the first man of the direct line by a first name alone (the household child has no year). His own register evidence is the Gologorica marriage of 9 June 1774 («q.m Leonardi filius»).",
+   "when": "2026-11-16"
+  },
+  {
+   "pid": "giovanni-defranceschi-1750",
+   "father": "Giacomo de Franceschi",
+   "mother": "Pascasia",
+   "why": "A Svetvinčenat household whose child «Giovanni» was baptised on 10 January 1756; matched by a first name alone and six years after the birth year the family chart gives the first man of the direct line.",
+   "when": "2026-11-16"
+  }
+ ]
+}

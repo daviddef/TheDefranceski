@@ -360,6 +360,10 @@ for _g, _gp in zip(_DL, _DLP):
     if _spn and _gp.get("pid"):
         _DL_BY_HUSBAND.setdefault(_nm(_g["name"]), []).append((_wifekey(_spn), _gp["pid"]))
 _ROW_BY_PID = {r["pid"]: r for r in roster["rows"] if r.get("pid")}
+try:
+    _REFUSE = json.load(open(os.path.join(DATA, "ptree-refuse.json"), encoding="utf-8")).get("refuse", [])
+except Exception:
+    _REFUSE = []
 
 
 def _direct_line_row(name, hh):
@@ -582,6 +586,15 @@ def ptree(name, row=None):
     if row and row.get("rel"): t["self"]["rel"] = row["rel"]
     if row and row.get("me"): t["self"]["me"] = True
     up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t, estY)]
+    # A household shown to be the wrong one for this person is refused by name (site/src/data/ptree-refuse.json):
+    # not the general fix for a name-only match (worklist 337), only a withdrawal for one person at a time.
+    _refused = [r for r in _REFUSE if row and row.get("pid") == r.get("pid")]
+    if _refused:
+        _keep = [(hh, me) for hh, me in up
+                 if not any(hh.get("father") == r.get("father") and hh.get("mother") == r.get("mother") for r in _refused)]
+        for hh, me in up:
+            if (hh, me) not in _keep: t["gate"].append(["refused", hh.get("father") or "", hh.get("mother") or "", ""])
+        up = _keep
     _dieY = _yr(row.get("d")) if row and row.get("d") else None
     # A CHILD WHO DIED A CHILD IS NOBODY'S PARENT, and the household gates
     # cannot say so on their own: a household with no `from` year falls
@@ -616,6 +629,7 @@ def ptree(name, row=None):
     t["upN"], t["downN"] = len(up), len(down)
     t["dropped"] = [g for g in t["gate"] if g[0] == "dropped"]
     t["unchecked"] = [g for g in t["gate"] if g[0] == "unchecked"]
+    t["refused"] = [g for g in t["gate"] if g[0] == "refused"]
     t["estRej"] = [g for g in t["gate"] if g[0] == "estimate"]
     t.pop("gate", None)
     # No household could be matched. But the index row that names this person may
