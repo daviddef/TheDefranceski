@@ -22,6 +22,15 @@ Rebuild after any finding that changes the roster, `dossiers.json`, `households.
 of what the page was built from is `tree.json` → `meta.inputs`. Needs the Record Atlas checkout (`RECORD_ATLAS`, default
 `~/Projects/Family Projects/Record Atlas`) and the kit's `living_rule.py` (via `scripts/living_v2.py`).
 
+## Full dates (`bd`, `dd`) in `tree.json`
+
+Each person in `tree.json` may carry two optional strings for the Record Atlas Tree Canvas (recordatlas.org/tree-canvas/): `bd`, the full birth date, and `dd`, the
+full death date. Each is the roster's own `b` / `d` string, **byte for byte**, and only where a day is present: `1882-02-22`, `1950-Mar-19`, or `22 February 1882`. A year alone,
+a year and month, or an estimate gets no field (`by` / `dy` and `bye` / `dye` carry those). Only people the builder draws appear (never living, never withheld), so a
+living person can never carry either field. **Today no roster row carries a day: `b` and `d` are years, the person pages print years, and no person has `bd` or `dd`.**
+The code is in place so the field appears the moment a day-level date is printed for someone. Day-level dates that exist in `households.json` (for example «06 Sep 1626») are
+NOT used: the pages do not print them, and the rule is that the canvas shows what the page shows. Decision recorded 16 November 2026 (Record Atlas request; the Lerena pilot, TheLerena 78a663b9).
+
 ## What is and is not on the page
 
 - **Living and possibly-living people are absent from the files**, decided by `living_v2.row_is_living` plus a floor: nobody with no recorded

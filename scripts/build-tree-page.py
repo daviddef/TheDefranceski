@@ -57,6 +57,10 @@ LINES = [("carnia", "Carnia"), ("south", "S. Istria"), ("venice", "Venice"), ("a
 LINE_OF = {"carnia": 0, "gologorica": 0, "married-in": 0, "south": 1, "istria": 1, "liznjan": 1, "svetvincenat": 1, "venice": 2, "corsica": 2, "abroad": 3,
            "trentino": 4, "other": 5}   # everything else shares the last colour
 
+# A FULL DATE (a day is present, no approximation mark) in the shape the person page prints it: "1882-02-22", "1950-Mar-19" / "1971-Jul-1", or "22 February 1882" /
+# "22 Feb 1882". A year alone, a year-month or an approximate value ("1875c", "c.1812") is not a full date. The roster's `b` / `d` are years only today, so this
+# is a no-op until a day-level date is printed for a person; it is here so the field appears the moment one is (Record Atlas Tree Canvas, 16 Nov 2026).
+FULLDATE = re.compile(r"^(?:\d{4}-(?:\d{2}|[A-Z][a-z]{2})-\d{1,2}|\d{1,2} [A-Z][a-z]{2,8} \d{4})$")
 SURN = re.compile(r"\b(?:(?:de|di|da|degli|dei|del)\s+)?(?:de)?fran[cz]esch\w*|\bdefranceski\w*|\bfranceschi\w*|\bfranchesch\w*", re.I)
 FEMALE_A = {"luca", "nicola", "andrea", "battista", "toma", "jaka", "ilija", "sava", "costa", "mattia", "zaccaria"}
 def split_name(name):
@@ -375,6 +379,9 @@ def build(args):
                        "srcs": srcs[:4], "href": who if who and str(who).startswith("/") else None, "page": "/person/%s/" % pid,   # this exact person's page (every roster person id has one); href is the name index several people share
                        "bye": p["bye"], "dye": p["dye"], "note": plain(r.get("note"))[:320] or None})
         if spn_of.get(pid): people[-1]["spn"] = spn_of[pid]
+        # FULL DATES (bd, dd): only for the dead people `keep` lets through (never living, never withheld), the roster's own string BYTE FOR BYTE, and never an estimate.
+        if FULLDATE.match(str(r.get("b") or "")) and not p["bye"]: people[-1]["bd"] = r["b"]
+        if FULLDATE.match(str(r.get("d") or "")) and not p["dye"]: people[-1]["dd"] = r["d"]
     # symmetric relations after the filter
     ids = {x["id"] for x in people}
     for x in people:
