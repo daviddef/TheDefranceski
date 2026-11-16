@@ -39,6 +39,7 @@ import { ledeOf, lifeSentence, gapsOf, leadOf, journeyOf, chaptersOf, eraFlag, e
 import { inWindow, isLiving as isLivingKit } from "@daviddef/archive-kit/lib/person.js";
 import otherArchives from "../../data/other-archives.json";
 import personNotes from "../../data/person-notes.json";
+import correctionsData from "../../data/corrections.json";
 import lore1948 from "../../data/y1948.json";
 import familyLinks from "../../data/family-links.json";
 import { evidenceOf as _evidenceOf, linkTable } from "@daviddef/archive-kit/lib/personevidence.js";
@@ -355,6 +356,8 @@ const STORY = LIVE ? [] : storyOf(CHAPTERS, FAM, JOURNEY, r, THREADS, { metaRx: 
 /* what this archive cannot account for: a card at the end of the life, from the stops that rest on the family's account or on no year, plus
    anything written for this person (data/person-notes.json) */
 const NOTES = personNotes[r.pid] || {};
+/* how many rows of corrections.json name this person (the Roots tree's `cx` counts the same rows, scripts/build-tree-page.py) */
+const CX = LIVE ? 0 : correctionsData.rows.filter((x) => (x.pids || []).includes(r.pid)).length;
 /* where a reader can write; unset until the archive has an address to give (no link is drawn without one) */
 const CONTACT = "";
 const HELP = `**Can you help?** A name for someone in a photograph, or a certificate, a register entry or a letter for any of this, is the most useful thing that could reach this page.${CONTACT ? ` [Write to the archive](${CONTACT}).` : ""}`;
@@ -472,6 +475,7 @@ const HEADNAME = dupOf ? _nq.name : r.name;
   {inRoots && <Fragment slot="where"><PersonRootsViews pid={r.pid} u={u} /></Fragment>}
   <Fragment slot="namesakes"><Namesakes kin={kin} u={u} nameIndex={r.who ? u(r.who) : ""} name={r.name} /></Fragment>
   <PersonSection kind="more" title="The record, line by line">
+    {!LIVE && CX > 0 && <p class="prose cx-line">Corrections that name this person: <a href={u("/corrections/")}>{CX}</a>. This archive has had to take back {CX === 1 ? "one claim" : `${CX} claims`} that concerned them; the list gives the old wording and what is true.</p>}
     <details class="fold fold-rec">
       <summary>Open the record</summary>
       <div class="rec">

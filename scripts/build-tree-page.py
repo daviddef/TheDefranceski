@@ -101,6 +101,9 @@ def build(args):
     apl = jl(os.path.join(atlas, "data", "places.json"))["places"]
     roster = jl(os.path.join(DATA, "roster.json"))["rows"]
     dossiers = jl(os.path.join(DATA, "dossiers.json"))["persons"]
+    # CORRECTIONS MARKS (cx): how many rows of corrections.json name this person. A row names people only by an explicit `pids` list
+    # (written by hand, where the person is plain); a count, never the words. The person page counts the same way (site/src/pages/person/[pid].astro, `CX`).
+    cx_of = collections.Counter(pid for row in jl(os.path.join(DATA, "corrections.json"))["rows"] for pid in dict.fromkeys(row.get("pids") or []))
     households = jl(os.path.join(DATA, "households.json"))
     site_atlas = jl(os.path.join(DATA, "atlas.json"))["places"]
     rep = collections.Counter()
@@ -382,6 +385,8 @@ def build(args):
         # FULL DATES (bd, dd): only for the dead people `keep` lets through (never living, never withheld), the roster's own string BYTE FOR BYTE, and never an estimate.
         if FULLDATE.match(str(r.get("b") or "")) and not p["bye"]: people[-1]["bd"] = r["b"]
         if FULLDATE.match(str(r.get("d") or "")) and not p["dye"]: people[-1]["dd"] = r["d"]
+        # CORRECTIONS (cx): a whole number >= 1, only for the dead people `keep` lets through (never living, never withheld); omitted when 0.
+        if cx_of.get(pid): people[-1]["cx"] = cx_of[pid]
     # symmetric relations after the filter
     ids = {x["id"] for x in people}
     for x in people:

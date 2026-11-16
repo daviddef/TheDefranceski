@@ -31,6 +31,14 @@ living person can never carry either field. **Today no roster row carries a day:
 The code is in place so the field appears the moment a day-level date is printed for someone. Day-level dates that exist in `households.json` (for example «06 Sep 1626») are
 NOT used: the pages do not print them, and the rule is that the canvas shows what the page shows. Decision recorded 16 November 2026 (Record Atlas request; the Lerena pilot, TheLerena 78a663b9).
 
+## Corrections marks (`cx`) in `tree.json`
+
+Each person in `tree.json` may carry `cx`, a whole number of 1 or more: how many rows of `site/src/data/corrections.json` (the archive's public list at `/corrections/`) name this
+person. **A count only, never what a correction says.** A row names people through its own `pids` list (person ids, written by hand where the person is plain; a correction about a
+claim with no one person in it carries none). The field is omitted when the count is 0, and, like `bd` / `dd`, only people the builder draws can carry it, so a living or withheld
+person never does. The person page prints the same count from the same rows (`site/src/pages/person/[pid].astro`, the `CX` constant), linking to `/corrections/`. Added 16 November 2026 (Record Atlas Tree Canvas request;
+the coordinator's rules: a count only, derived in the build, never for a living person, the count agrees with the page).
+
 ## What is and is not on the page
 
 - **Living and possibly-living people are absent from the files**, decided by `living_v2.row_is_living` plus a floor: nobody with no recorded
