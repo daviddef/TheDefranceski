@@ -505,7 +505,13 @@ def _yr(x):
     m = re.search(r"\b(1[3-9]\d\d|20\d\d)\b", str(x or ""))
     return int(m.group()) if m else None
 
-def _fits_child(myY, me, hh, t, estY=None):
+def _same_place(a, b):
+    """The first place-word of each, lower case: «Horsham, Australia» is «Horsham»."""
+    f = lambda x: unicodedata.normalize("NFKD", str(x or "")).encode("ascii", "ignore").decode().lower().split(",")[0].strip()
+    a, b = f(a), f(b)
+    return bool(a) and bool(b) and (a in b or b in a)
+
+def _fits_child(myY, me, hh, t, estY=None, row=None):
     """Is the person plausibly THIS household's child? A name is not enough."""
     cY = _yr(me.get("birth")) or _yr(me.get("death"))
     if myY is None and estY is not None and cY is not None:
@@ -513,7 +519,35 @@ def _fits_child(myY, me, hh, t, estY=None):
         if abs(estY - cY) <= 25: return True
         t["gate"].append(["estimate", hh.get("father") or "", hh.get("mother") or "", str(cY)])
         return False
-    if myY is None or cY is None:
+    if cY is None:
+        # WORKLIST 337 (David chose option b, 17 Nov 2026): a household child with NO year is matched to
+        # a person only when the name is unique in the roster, or when a sibling's year
+        # fits the person's year (own or estimated) within 25 years, or the household began within
+        # a child's span of the person's year, or the person's place is the household's place. A name alone, with
+        # other people of the name in the roster and no sibling to test against, joined the
+        # Vodnjan Domenica Manzin to 26 men of other places and centuries.
+        _cn = _nm(me.get("name"))
+        if len(ROWS_BY_NAME.get(_cn) or []) <= 1:
+            t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
+            return True
+        _ref = myY if myY is not None else estY
+        _sib = [_yr(c.get("birth")) or _yr(c.get("death")) for c in (hh.get("children") or []) if c is not me]
+        _sib = [y for y in _sib if y is not None]
+        if _ref is not None and any(abs(_ref - y) <= 25 for y in _sib):
+            t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
+            return True
+        _f = hh.get("from")
+        if _ref is not None and isinstance(_f, int) and _f - 2 <= _ref <= _f + 32:
+            # the household began within the years a child of it can be born in
+            t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
+            return True
+        if row and _same_place(row.get("place"), hh.get("place")):
+            # no year to test, but the person stands in the place of the household
+            t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
+            return True
+        t["gate"].append(["nameonly", hh.get("father") or "", hh.get("mother") or "", ""])
+        return False
+    if myY is None:
         t["gate"].append(["unchecked", hh.get("father") or "", hh.get("mother") or "", ""])
         return True
     if abs(myY - cY) <= 6: return True
@@ -590,9 +624,9 @@ def ptree(name, row=None):
     t["gate"] = []
     if row and row.get("rel"): t["self"]["rel"] = row["rel"]
     if row and row.get("me"): t["self"]["me"] = True
-    up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t, estY)]
+    up = [(hh, me) for hh, me in up if _fits_child(myY, me, hh, t, estY, row)]
     # A household shown to be the wrong one for this person is refused by name (site/src/data/ptree-refuse.json):
-    # not the general fix for a name-only match (worklist 337), only a withdrawal for one person at a time.
+    # a withdrawal for one person at a time (the general name-only fix is in `_fits_child`, worklist 337, 17 Nov 2026).
     _refused = [r for r in _REFUSE if row and row.get("pid") == r.get("pid")]
     if _refused:
         _keep = [(hh, me) for hh, me in up
@@ -635,6 +669,8 @@ def ptree(name, row=None):
     t["dropped"] = [g for g in t["gate"] if g[0] == "dropped"]
     t["unchecked"] = [g for g in t["gate"] if g[0] == "unchecked"]
     t["refused"] = [g for g in t["gate"] if g[0] == "refused"]
+    _no = [g for g in t["gate"] if g[0] == "nameonly"]
+    if _no: t["nameonly"] = _no
     t["estRej"] = [g for g in t["gate"] if g[0] == "estimate"]
     t.pop("gate", None)
     # No household could be matched. But the index row that names this person may
