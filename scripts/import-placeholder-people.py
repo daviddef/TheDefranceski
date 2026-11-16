@@ -81,6 +81,7 @@ def main():
             u = u.strip()
             m = re.match(r"(?:https?://)?(?:www\.)?familysearch\.org/(ark:/61903/[0-9:A-Za-z\-]+)(\?[^\s]*)?", u)
             if m: links.append("https://www.familysearch.org/" + m.group(1) + (m.group(2) or ""))
+        if not links: held.append((nm, "cites a tree page, not a record")); continue
         ark = next((re.search(r"ark:/61903/(1:1:[0-9A-Z\-]+)", u).group(1) for u in links if "/1:1:" in u), "")
         base = slug(nm) + ("-%d" % b if b else "")
         pid, n = base, 2
