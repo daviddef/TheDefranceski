@@ -2996,6 +2996,15 @@
    "covers": [],
    "what": "Person pages: a household child with no year is matched to every person of the same name (976 «unchecked» lines in 143 households), so the first man of the direct line shows a Vodnjan woman as his mother",
    "note": "**Found 16 November 2026 while working worklist 336; nothing changed.** `scripts/build-dossiers.py` (`_fits_child`) lets a household child with no year through as «unchecked» and gives the person that household's parents. The household «Pietro q.m Domenico + Domenica Manzin» (Vodnjan, a daughter b. about 1800) names two children with no years, «Giovanni» and «Pietro»: **26 person pages** print her as a parent, among them [Giovanni](/person/giovanni-defranceschi-1750/) (b. 1750, Gologorica), and Roots & Routes draws her as the mother of five unrelated men with estimated years c. 1667–c. 1757, a century before the register's woman. Counted across the archive: 976 «unchecked» lines in 143 households (the largest: Antonio de Franceschi + Mattea, 68; Domenico De Franceschi + Zacchera Cerlon, 40; Mattio Defranceschi di Antonio + Madalena Percovich, 35).\n\n**Decision for David, not taken:** (a) leave the test as it is and print a name-only match as such; (b) a household child with no year matches only a person whose name is unique in the roster, or only when a sibling's year fits (within about 25 years); (c) drop all name-only matches on a person with a recorded birth year that no sibling's year supports. Each changes many public pages and the tree; the gate (`check-propagation`, the tree build) must be re-run after any of them.\n\n**Not part of this row:** the dossier test for a person of an estimated year (`estY`), which already refuses a match more than 25 years out."
+  },
+  {
+   "n": 338,
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-11-16",
+   "covers": [],
+   "what": "Read the FamilySearch records of the 132 placeholder people added on 16 Nov 2026, then settle the 46 held back",
+   "note": "The 132 rows (`src: myheritage`, `line: unplaced`) carry the tree's FamilySearch citation as a link and are *lore* until opened: FamilySearch was down for maintenance on 16 Nov 2026 (persona calls returned 401; not retried, not worked around). **Next:** when it is back, open each citation, set the grade, place the person in a line, and correct the name, years and place the tree gave. **For David:** the 25 people with no death recorded or born inside the living window (name and relationships only, if at all) and the 21 spouses and in-laws with other surnames (`data` list in the scratchpad CSV `placeholders_vs_archive.csv`, those marked held)."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
