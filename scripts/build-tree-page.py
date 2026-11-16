@@ -173,7 +173,7 @@ def build(args):
         if child in P and par in P and child != par:
             if par not in parents[child]: parents[child].append(par)
             grade[(child, par)] = max(g, grade.get((child, par), 0))
-    VIA = {"read": 2, "tree": 1, "index": 0}
+    VIA = {"read": 2, "tree": 1, "inferred": 1, "index": 0}
     for pid, v in dossiers.items():
         for q in v.get("ptree", {}).get("parents", []): add(pid, q.get("pid"), VIA.get(q.get("via"), 0))
     for h in households:

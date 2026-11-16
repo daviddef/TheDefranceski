@@ -44,7 +44,7 @@ HAND_EDITED = {
     # 12 November 2026 (the Research menu): the six site-change entries of the What changed page, typed by hand and merged by
     # scripts/build-changes.py with the Search Register and Corrections, so a regeneration never drops them.
     "changes-built.json",
-    "ptree-refuse.json",   # 16 November 2026: households a person page must not take as parents, one person at a time (worklist 337)
+    "ptree-refuse.json", "ptree-add.json",   # 16 November 2026: households a person page must not take as parents, one person at a time (worklist 337)
     "shelf-cats.json",   # 2 November 2026: the five shelf states (a label and a colour each) that /map/ and Roots & Routes both read
     "america.json", "ancestors.json", "antenati-catalogue.json", "arrivals.json", "art-src.json",
     "atlas-seed.json", "atsea.json", "austria.json", "book.json", "carlo.json", "carnia.json", "carnia-books.json",

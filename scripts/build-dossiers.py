@@ -313,7 +313,7 @@ def record_strip(rows):
 #   read     a register this archive has read with its own eyes
 #   index    a FamilySearch index entry — a transcription, not the page
 #   tree     David's MyHeritage tree, unverified here
-VIA_RANK = {"line": 0, "read": 1, "index": 2, "tree": 3, "": 4}
+VIA_RANK = {"line": 0, "read": 1, "index": 2, "inferred": 2, "tree": 3, "": 4}
 
 ROW_BY_NAME = {}
 # AND EVERY ROW OF THAT NAME, NOT ONLY THE FIRST. `setdefault` below means the
@@ -364,6 +364,10 @@ try:
     _REFUSE = json.load(open(os.path.join(DATA, "ptree-refuse.json"), encoding="utf-8")).get("refuse", [])
 except Exception:
     _REFUSE = []
+try:   # a parent link written by hand (site/src/data/ptree-add.json), graded «inferred»; applies only where the build drew no parents
+    _ADD = json.load(open(os.path.join(DATA, "ptree-add.json"), encoding="utf-8")).get("add", [])
+except Exception:
+    _ADD = []
 
 
 def _direct_line_row(name, hh):
@@ -493,7 +497,8 @@ def node(name, hh=None, child=None, small=False):
     return n
 
 VIA_WORD = {"line": "the archive's own line", "read": "a register this archive has read",
-            "index": "a FamilySearch index entry", "tree": "the family tree, unverified"}
+            "index": "a FamilySearch index entry", "tree": "the family tree, unverified",
+            "inferred": "an inference from a register entry, written by the archive"}
 
 
 def _yr(x):
@@ -656,6 +661,28 @@ def ptree(name, row=None):
                 t["parentsCaveat"] = ("Drawn from the one indexed entry that names this person, not from a "
                                       "household this archive has built. The entry names these people together; "
                                       "it does not prove the relationship it implies.")
+
+
+    # A parent link written by hand (ptree-add.json), where the build drew none: this person's father, or this person as someone's father.
+    def _hand_node(pid_):
+        rw = _ROW_BY_PID.get(pid_)
+        if not rw: return None
+        n = {"n": rw["name"], "dt": _dates(rw), "via": "inferred", "pid": pid_}
+        if len(re.sub(r"\s*\(.*?\)\s*", "", rw["name"]).strip()) >= 5: n["slug"] = slugify(rw["name"])
+        return n
+    for _a in _ADD:
+        if row and row.get("pid") == _a.get("pid") and not t.get("parents"):
+            _fn = _hand_node(_a.get("father"))
+            if _fn:
+                t["parents"] = [_fn]
+                t["parentsPlace"] = ""
+                t["parentsHref"] = "/gologorica-line/"
+                t["parentsFromRow"] = True
+                t["parentsCaveat"] = ("An inference, written by the archive: the register that marries him names his father as a Leonardus, "
+                                      "already dead, and does not say which. ")
+        elif row and row.get("pid") == _a.get("father") and not t.get("children"):
+            _cn = _hand_node(_a.get("pid"))
+            if _cn: t["children"] = [_cn]; t["childrenPlace"] = ""
 
     if not t.get("parents") and not t.get("children") and not t.get("spouse"):
         return {"none": True, "dropped": t["dropped"], "self": t["self"]} if t["dropped"] else None

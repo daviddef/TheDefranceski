@@ -1,0 +1,11 @@
+{
+ "_note": "Hand-edited. A parent link written by a person, for a case the household build cannot reach, with the evidence behind it in `why`. build-dossiers.py reads it (after ptree-refuse.json) and draws the link, graded «inferred», on both people's pages; build-tree-page.py then draws it on Roots & Routes. It never replaces a link the build found by itself: it applies only where the person has no parents drawn.",
+ "add": [
+  {
+   "pid": "giovanni-defranceschi-1750",
+   "father": "leonardus-defranceschi-1697",
+   "when": "16 Nov 2026",
+   "why": "The marriage entry of 9 June 1774 at Gologorica (M01068999) names the groom as «Joannes Baptista Defranceschi q.m Leonardi filius, Textor»: his father was a Leonardus, already dead (doc). Which Leonardus is not written there. Leonardus of the roster (1697–1773, a weaver from Carnia, died 14 March 1773 at house 45) is the one who fits a weaver son, and the other candidate, a Leonardo who died 2 November 1751, also fits the entry; the choice is the archive owner's, made 16 November 2026 (inf)."
+  }
+ ]
+}

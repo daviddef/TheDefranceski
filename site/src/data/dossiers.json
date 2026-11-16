@@ -7965,7 +7965,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would have made him a brother of Antonio and"
+     "text": "16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log mattio-defranceschi-1850 The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would"
     },
     {
      "page": "/map/",
@@ -10305,7 +10305,13 @@
     "downN": 2
    },
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Leonardus Defranceschi",
+     "dt": "1697 – 1773",
+     "via": "read"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -10320,11 +10326,28 @@
       "1847"
      ]
     ],
-    "self": {
-     "n": "Leonardus Defranceschi",
-     "dt": "1697 – 1773",
-     "via": "read"
-    }
+    "unchecked": [],
+    "refused": [],
+    "estRej": [],
+    "children": [
+     {
+      "n": "Giovanni Defranceschi",
+      "dt": "1750 – 1829",
+      "via": "inferred",
+      "pid": "giovanni-defranceschi-1750",
+      "slug": "giovanni-defranceschi"
+     }
+    ],
+    "childrenPlace": "",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    },
    "rec": null,
    "chain": null,
@@ -18613,17 +18636,17 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "one the archive keeps relearning and did not apply here: when a book's baptisms are split by sex, assume its deaths are too, and look before counting. A nil taken from half a register is not a nil. 10 Oct 2026 Margarita Defranceschi — the obit calendar's «20 April» is the 25th's copy of the 22nd, and her age was 22, not 35 serious /person/margarita-defranceschi-1747/· /gologorica-line/· /searched/ Yesterday this archive gave Margarita Defranceschi"
+     "text": "one the archive keeps relearning and did not apply here: when a book's baptisms are split by sex, assume its deaths are too, and look before counting. A nil taken from half a register is not a nil. 10 Oct 2026 Margarita Defranceschi — the obit calendar's «20 April» is the 25th's copy of the 22nd, and her age was 22, not 35 serious /person/margarita-defranceschi-1747/· /gologorica-line/· /searched/ margarita-defranceschi-1747 Yesterday"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "Defranceschi — the obit calendar's «20 April» is the 25th's copy of the 22nd, and her age was 22, not 35 serious /person/margarita-defranceschi-1747/· /gologorica-line/· /searched/ Yesterday this archive gave Margarita Defranceschi her death from the obit calendar — «20.· Margarita figlia q. Sig.ʳ Giuseppe Defranceschi, N.º 36 — 1783» — and computed her age from the family tree's 1747, calling her"
+     "text": "«20 April» is the 25th's copy of the 22nd, and her age was 22, not 35 serious /person/margarita-defranceschi-1747/· /gologorica-line/· /searched/ margarita-defranceschi-1747 Yesterday this archive gave Margarita Defranceschi her death from the obit calendar — «20.· Margarita figlia q. Sig.ʳ Giuseppe Defranceschi, N.º 36 — 1783» — and computed her age from the family tree's 1747, calling her"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "within fourteen months» of the witnessing — it was five; the figure was arithmetic off a bare tree year minor /person/margarita-defranceschi-1747/· /searched/· /gologorica-line/ This afternoon this archive gave Margarita Defranceschi her first document — a marriage she witnessed on 9 November 1782 — and wrote, twice: «she is thirty-five, standing as a named witness at a neighbour's wedding in her own parish, and she is dead within"
+     "text": "— it was five; the figure was arithmetic off a bare tree year minor /person/margarita-defranceschi-1747/· /searched/· /gologorica-line/ margarita-defranceschi-1747 This afternoon this archive gave Margarita Defranceschi her first document — a marriage she witnessed on 9 November 1782 — and wrote, twice: «she is thirty-five, standing as a named witness at a neighbour's wedding in her own parish, and she is dead within"
     },
     {
      "page": "/gologorica-line/",
@@ -18900,7 +18923,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "/person/margarita-defranceschi-1747/· /gologorica-line/· /searched/ Yesterday this archive gave Margarita Defranceschi her death from the obit calendar — «20.· Margarita figlia q. Sig.ʳ Giuseppe Defranceschi, N.º 36 — 1783» — and computed her age from the family tree's 1747, calling her «thirty-five» at a witnessing in November 1782. ⚠ The contemporary register has now been opened. «Die 22. Aprilis anno"
+     "text": "/gologorica-line/· /searched/ margarita-defranceschi-1747 Yesterday this archive gave Margarita Defranceschi her death from the obit calendar — «20.· Margarita figlia q. Sig.ʳ Giuseppe Defranceschi, N.º 36 — 1783» — and computed her age from the family tree's 1747, calling her «thirty-five» at a witnessing in November 1782. ⚠ The contemporary register has now been opened. «Die 22. Aprilis anno"
     },
     {
      "page": "/",
@@ -19517,7 +19540,13 @@
     "downN": 1
    },
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Giovanni Defranceschi",
+     "dt": "1750 – 1829",
+     "via": "line"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -19538,11 +19567,51 @@
       "1778"
      ]
     ],
-    "self": {
-     "n": "Giovanni Defranceschi",
-     "dt": "1750 – 1829",
-     "via": "line"
-    }
+    "unchecked": [
+     [
+      "unchecked",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ]
+    ],
+    "refused": [
+     [
+      "refused",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ],
+     [
+      "refused",
+      "Giacomo de Franceschi",
+      "Pascasia",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Leonardus Defranceschi",
+      "dt": "1697 – 1773",
+      "via": "inferred",
+      "pid": "leonardus-defranceschi-1697",
+      "slug": "leonardus-defranceschi"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/gologorica-line/",
+    "parentsFromRow": true,
+    "parentsCaveat": "An inference, written by the archive: the register that marries him names his father as a Leonardus, already dead, and does not say which. ",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    },
    "rec": {
     "id": "6B47-D95P",
@@ -21217,12 +21286,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "— and this archive had walked that book six days ago and asked the other one twice. Worklist 184 is reopened, not re-closed. The method note is here. golo-1826-sestan-marriages 6 Oct 2026 Jacobus de Franceschi was born in 1762, not 1761 — and the census gives a date where this archive had arithmetic minor Jacobus de Franceschi· /gologorica-line/ This archive published 21 July 1761 and"
+     "text": "— and this archive had walked that book six days ago and asked the other one twice. Worklist 184 is reopened, not re-closed. The method note is here. golo-1826-sestan-marriages 6 Oct 2026 Jacobus de Franceschi was born in 1762, not 1761 — and the census gives a date where this archive had arithmetic minor Jacobus de Franceschi· /gologorica-line/ jacobus-de-franceschi-1761 This"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "The method note is here. golo-1826-sestan-marriages 6 Oct 2026 Jacobus de Franceschi was born in 1762, not 1761 — and the census gives a date where this archive had arithmetic minor Jacobus de Franceschi· /gologorica-line/ This archive published 21 July 1761 and recorded that the tree said 1762, keeping its own figure because the archive's came «off the register». The"
+     "text": "The method note is here. golo-1826-sestan-marriages 6 Oct 2026 Jacobus de Franceschi was born in 1762, not 1761 — and the census gives a date where this archive had arithmetic minor Jacobus de Franceschi· /gologorica-line/ jacobus-de-franceschi-1761 This archive published 21 July 1761 and recorded that the tree said 1762, keeping its own figure because"
     },
     {
      "page": "/gologorica-line/",
@@ -29396,7 +29465,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "the weddings. 16 Nov 2026 minor The Medulin death entry of a soldier of the name was told as read two ways (entry 43 / entry 9 and an «Apr» month) the Medulin page and the roster note of Mattheus Defranceschi; both are fixed. The searched.json rows and the worklist of 12 and 15 November keep the readings as those days' receipts That the entry might be «entry 43, 19 December 1833» (12 October) or «entry 9, house"
+     "text": "the weddings. 16 Nov 2026 minor The Medulin death entry of a soldier of the name was told as read two ways (entry 43 / entry 9 and an «Apr» month) the Medulin page and the roster note of Mattheus Defranceschi; both are fixed. The searched.json rows and the worklist of 12 and 15 November keep the readings as those days' receipts mattheus-defranceschi-1793 That the entry might be «entry 43, 19"
     },
     {
      "page": "/",
@@ -36490,12 +36559,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "in four in two hundred years. golo-1876-mercator-bishop ordinary 6 Oct 2026 A second death year wrong by decades — and the two together name the fault serious /gologorica-line/· Josephus Lambertus Defranceschi This archive published that Josephus Lambertus Defranceschi, born 13 March 1808, died on 22 December 1857. He died on 22 December 1878. «1878 Decembris 22.· 7· Josephus"
+     "text": "in four in two hundred years. golo-1876-mercator-bishop ordinary 6 Oct 2026 A second death year wrong by decades — and the two together name the fault serious /gologorica-line/· Josephus Lambertus Defranceschi josephus-lambertus-defranceschi-1808 This archive published that Josephus Lambertus Defranceschi, born 13 March 1808, died on 22 December 1857. He died on 22 December 1878."
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "A second death year wrong by decades — and the two together name the fault serious /gologorica-line/· Josephus Lambertus Defranceschi This archive published that Josephus Lambertus Defranceschi, born 13 March 1808, died on 22 December 1857. He died on 22 December 1878. «1878 Decembris 22.· 7· Josephus Defranceschi, possidens, munitus SS. et sepultus die 24. Dec. 1878· 70· Senectus» ( M01069295"
+     "text": "and the two together name the fault serious /gologorica-line/· Josephus Lambertus Defranceschi josephus-lambertus-defranceschi-1808 This archive published that Josephus Lambertus Defranceschi, born 13 March 1808, died on 22 December 1857. He died on 22 December 1878. «1878 Decembris 22.· 7· Josephus Defranceschi, possidens, munitus SS. et sepultus die 24. Dec. 1878· 70· Senectus» ( M01069295"
     },
     {
      "page": "/gologorica-line/",
@@ -38886,7 +38955,13 @@
     "downN": 1
    },
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Giovanni de Franceschi",
+     "dt": "1750 – 1829",
+     "via": "line"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -38907,11 +38982,51 @@
       "1778"
      ]
     ],
-    "self": {
-     "n": "Giovanni de Franceschi",
-     "dt": "1750 – 1829",
-     "via": "line"
-    }
+    "unchecked": [
+     [
+      "unchecked",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ]
+    ],
+    "refused": [
+     [
+      "refused",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ],
+     [
+      "refused",
+      "Giacomo de Franceschi",
+      "Pascasia",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Leonardus Defranceschi",
+      "dt": "1697 – 1773",
+      "via": "inferred",
+      "pid": "leonardus-defranceschi-1697",
+      "slug": "leonardus-defranceschi"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/gologorica-line/",
+    "parentsFromRow": true,
+    "parentsCaveat": "An inference, written by the archive: the register that marries him names his father as a Leonardus, already dead, and does not say which. ",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    },
    "rec": {
     "id": "6B47-9BJ9",
@@ -40179,12 +40294,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "and M01069140.) golo-1862-victor golo-1864-caesar major 16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log The scout's table (frame 18, 16"
+     "text": "and M01069140.) golo-1862-victor golo-1864-caesar major 16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would have made him a brother of Antonio and Gregorio and put a second Matteo at house 17 in 1850. At full size the father is «Antonio»: «Li 16 Gennajo 1850· 17· Mattio figlio di Antonio Defranceschi·"
+     "text": "household (/liznjan/pomer)· Mattio Defranceschi, 1850· the search log mattio-defranceschi-1850 The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would have made him a brother of Antonio and Gregorio and put a second Matteo at house 17 in 1850. At full size the father is «Antonio»: «Li 16 Gennajo 1850· 17· Mattio figlio di Antonio Defranceschi·"
     },
     {
      "page": "/",
@@ -45651,12 +45766,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "prose half. The headline was not new. The body largely was. 7 Oct 2026 ⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September serious /gologorica-line/· Joanna Defranceschi (Sestan)· /worklist/ Yesterday this page announced «⭐⭐ Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never read», closed work-list row 184"
+     "text": "prose half. The headline was not new. The body largely was. 7 Oct 2026 ⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September serious /gologorica-line/· Joanna Defranceschi (Sestan)· /worklist/ joanna-defranceschi-sestan-1818 Yesterday this page announced «⭐⭐ Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "names her ROSA, born the 7th — and gives her death Her page· the Gologorica line· the pedigree Carried from the family tree since this roster was built: «Joanna Defranceschi, born 9 June 1848, Gologorica», daughter of Antonius Defranceschi and Francisca — with no death year. «Junii 8ᵃ· domus 5· ROSA nata heri», of «Antonius Defranceschi» and «Francisca nata Defranceschi», godparents «Giovanni L—"
+     "text": "and gives her death Her page· the Gologorica line· the pedigree joanna-defranceschi-1848 Carried from the family tree since this roster was built: «Joanna Defranceschi, born 9 June 1848, Gologorica», daughter of Antonius Defranceschi and Francisca — with no death year. «Junii 8ᵃ· domus 5· ROSA nata heri», of «Antonius Defranceschi» and «Francisca nata Defranceschi», godparents «Giovanni L—"
     },
     {
      "page": "/",
@@ -46973,7 +47088,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "days old in 1821, and the death register proves it to the hour Her page· her sister's· the pedigree This roster gave Clementina Defranceschi, born 28 January 1821, a death of 1870, carried over from the family tree — while recording as an inference that she had probably died in infancy, because her parents gave the name again twenty months later."
+     "text": "page· her sister's· the pedigree clementina-defranceschi-1821 clementina-maria-defranceschi-1822 This roster gave Clementina Defranceschi, born 28 January 1821, a death of 1870, carried over from the family tree — while recording as an inference that she had probably died in infancy, because her parents gave the name again twenty months later."
     },
     {
      "page": "/",
@@ -47596,12 +47711,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "in data/decisions.json in the same commit. golo-1878-josephus 6 Oct 2026 A death year was wrong by thirty years — and the row had said exactly how to find out serious /gologorica-line/· Clementina Maria Defranceschi This archive published that Clementina Maria Defranceschi, born 3 October 1822, died on 10 March 1840. She died on 10 March 1870. The day and the month were right; the decade was not. ⭐ The"
+     "text": "in data/decisions.json in the same commit. golo-1878-josephus 6 Oct 2026 A death year was wrong by thirty years — and the row had said exactly how to find out serious /gologorica-line/· Clementina Maria Defranceschi clementina-maria-defranceschi-1822 This archive published that Clementina Maria Defranceschi, born 3 October 1822, died on 10 March 1840. She died on 10 March 1870. The day and the"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "death year was wrong by thirty years — and the row had said exactly how to find out serious /gologorica-line/· Clementina Maria Defranceschi This archive published that Clementina Maria Defranceschi, born 3 October 1822, died on 10 March 1840. She died on 10 March 1870. The day and the month were right; the decade was not. ⭐ The good part: the row had already said how to settle it. A note of 20 September 2026 recorded that the family"
+     "text": "the row had said exactly how to find out serious /gologorica-line/· Clementina Maria Defranceschi clementina-maria-defranceschi-1822 This archive published that Clementina Maria Defranceschi, born 3 October 1822, died on 10 March 1840. She died on 10 March 1870. The day and the month were right; the decade was not. ⭐ The good part: the row had already said how to settle it. A note of 20 September 2026 recorded that the family"
     },
     {
      "page": "/",
@@ -48715,7 +48830,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "X, Y and Z» is a finding. «Nothing in every spelling» is an assertion about a list that no longer exists. 28 Sept 2026 serious «Antonio was dead by November 1780» — he was alive, and titled «Capo», in 1783 Gregorio Defranceschi, Antonio de Franceschi, the Svetvinčenat line, Searched — all published the same morning «What it means,"
+     "text": "X, Y and Z» is a finding. «Nothing in every spelling» is an assertion about a list that no longer exists. 28 Sept 2026 serious «Antonio was dead by November 1780» — he was alive, and titled «Capo», in 1783 Gregorio Defranceschi, Antonio de Franceschi, the Svetvinčenat line, Searched — all published the same morning"
     },
     {
      "page": "/",
@@ -58449,7 +58564,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "column of the page is the entry number and the second the house. 16 Nov 2026 minor The groom of Bonetta De Franceschi's wedding at Vodnjan (19 November 1823) and the house were told wrongly the roster note of Bonetta De Franceschi, the households list, the gaps list and the Vodnjan page; all fixed. The searched.json rows of September 2026 and the changes log keep the old reading as that day's receipt That the groom was a Marich and"
+     "text": "column of the page is the entry number and the second the house. 16 Nov 2026 minor The groom of Bonetta De Franceschi's wedding at Vodnjan (19 November 1823) and the house were told wrongly the roster note of Bonetta De Franceschi, the households list, the gaps list and the Vodnjan page; all fixed. The searched.json rows of September 2026 and the changes log keep the old reading as that day's receipt bonetta-de-franceschi-1800"
     },
     {
      "page": "/open-questions/",
@@ -59588,7 +59703,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "below it, where the 8 is a double loop and the 9 a single loop with a descender. 5 Oct 2026 minor Two roster rows for one Teresia — resolved by the archive's own precedent, not by a decision it asked David for Teresia Defranceschi· the duplicate row· worklist 173 Earlier today this archive found that teresia-defranceschi-1843 and theresia-defranceschi-1843 are one child —"
+     "text": "below it, where the 8 is a double loop and the 9 a single loop with a descender. 5 Oct 2026 minor Two roster rows for one Teresia — resolved by the archive's own precedent, not by a decision it asked David for Teresia Defranceschi· the duplicate row· worklist 173 teresia-defranceschi-1843 theresia-defranceschi-1843 Earlier today this archive found that"
     },
     {
      "page": "/gologorica-line/",
@@ -67594,7 +67709,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "years, and it untangles two children the archive had standing in the same year His page· the pedigree Carried on the pedigree and in the roster: «Robertus Franciscus Josephus Defranceschi, born 21 November 1860, Gologorica», with no death. «1869 Decemb. 5ta· domus 7· ROBERTUS FRANCISCUS JOSEPHUS die 21 Nov. natus», of «Franc. Defranceschi, possidens» and «Clotildis nata Ortis»; godparents «Albertus"
+     "text": "in the same year His page· the pedigree robertus-franciscus-josephus-defranceschi-1860 Carried on the pedigree and in the roster: «Robertus Franciscus Josephus Defranceschi, born 21 November 1860, Gologorica», with no death. «1869 Decemb. 5ta· domus 7· ROBERTUS FRANCISCUS JOSEPHUS die 21 Nov. natus», of «Franc. Defranceschi, possidens» and «Clotildis nata Ortis»; godparents «Albertus"
     },
     {
      "page": "/gologorica-line/",
@@ -105786,7 +105901,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "/person/catharina-defranceschi-jablich-gologorica/ The Bakar household page carries this sentence, written when the household was reconstructed from the FamilySearch indexes: «A separate entry has a «Joannem Defranceschi» marrying «Catharinam Sablich» — either the same man remarried, or a brother.» ⚠ The register was opened today and he is neither. «Die 10 9bris pro domo D. Sebastiani Sablich, Nuptiis in facie Ecclesiæ contractis inter"
+     "text": "catharina-defranceschi-jablich-gologorica The Bakar household page carries this sentence, written when the household was reconstructed from the FamilySearch indexes: «A separate entry has a «Joannem Defranceschi» marrying «Catharinam Sablich» — either the same man remarried, or a brother.» ⚠ The register was opened today and he is neither. «Die 10 9bris pro domo D. Sebastiani Sablich, Nuptiis in facie Ecclesiæ contractis inter"
     },
     {
      "page": "/",
@@ -149830,12 +149945,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "the daughter of the woman who had married into her father's household in 1808; the older death book, read the same night, gives the father a different wife until 1800 the Pula page and the roster note of Agata, wife of Francesco De Franceschi of Pomer; both are fixed. The searched.json row of 15 November says only «Agata's first husband's daughter», which is still, and is left standing as that day's receipt That"
+     "text": "the daughter of the woman who had married into her father's household in 1808; the older death book, read the same night, gives the father a different wife until 1800 the Pula page and the roster note of Agata, wife of Francesco De Franceschi of Pomer; both are fixed. The searched.json row of 15 November says only «Agata's first husband's daughter», which is still, and is left standing as that day's receipt"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "says only «Agata's first husband's daughter», which is still, and is left standing as that day's receipt That the eighteen-year-old «figlia del q.m Antonio Corranich» buried at Pula on 14 July 1809 was «almost certainly Agata, wife of Francesco De Franceschi of Pomer's own, dead nine months after her mother remarried» (inf, written on 15 November 2026 from the printed Liber Defunctorum alone). The prose death book of the same parish,"
+     "text": "and is left standing as that day's receipt agata-wife-of-francesco-de-franceschi-of-pomer-d1824 That the eighteen-year-old «figlia del q.m Antonio Corranich» buried at Pula on 14 July 1809 was «almost certainly Agata, wife of Francesco De Franceschi of Pomer's own, dead nine months after her mother remarried» (inf, written on 15 November 2026 from the printed Liber Defunctorum alone). The prose death book of the same parish,"
     },
     {
      "page": "/gologorica-line/",
@@ -158476,7 +158591,13 @@
     "downN": 1
    },
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Giovanni de Franceschi (b. 1756)",
+     "dt": "1750 – 1829",
+     "via": "line"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -158497,11 +158618,51 @@
       "1778"
      ]
     ],
-    "self": {
-     "n": "Giovanni de Franceschi (b. 1756)",
-     "dt": "1750 – 1829",
-     "via": "line"
-    }
+    "unchecked": [
+     [
+      "unchecked",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ]
+    ],
+    "refused": [
+     [
+      "refused",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ],
+     [
+      "refused",
+      "Giacomo de Franceschi",
+      "Pascasia",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Leonardus Defranceschi",
+      "dt": "1697 – 1773",
+      "via": "inferred",
+      "pid": "leonardus-defranceschi-1697",
+      "slug": "leonardus-defranceschi"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/gologorica-line/",
+    "parentsFromRow": true,
+    "parentsCaveat": "An inference, written by the archive: the register that marries him names his father as a Leonardus, already dead, and does not say which. ",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    },
    "rec": null,
    "chain": [
@@ -160490,7 +160651,13 @@
     "downN": 1
    },
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Giovanni de Franceschi (b. 1778)",
+     "dt": "1750 – 1829",
+     "via": "line"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -160511,11 +160678,51 @@
       "1778"
      ]
     ],
-    "self": {
-     "n": "Giovanni de Franceschi (b. 1778)",
-     "dt": "1750 – 1829",
-     "via": "line"
-    }
+    "unchecked": [
+     [
+      "unchecked",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ]
+    ],
+    "refused": [
+     [
+      "refused",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ],
+     [
+      "refused",
+      "Giacomo de Franceschi",
+      "Pascasia",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Leonardus Defranceschi",
+      "dt": "1697 – 1773",
+      "via": "inferred",
+      "pid": "leonardus-defranceschi-1697",
+      "slug": "leonardus-defranceschi"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/gologorica-line/",
+    "parentsFromRow": true,
+    "parentsCaveat": "An inference, written by the archive: the register that marries him names his father as a Leonardus, already dead, and does not say which. ",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    },
    "rec": null,
    "chain": [
@@ -164103,12 +164310,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "and M01069140.) golo-1862-victor golo-1864-caesar major 16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log The scout's table (frame 18, 16"
+     "text": "and M01069140.) golo-1862-victor golo-1864-caesar major 16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would have made him a brother of Antonio and Gregorio and put a second Matteo at house 17 in 1850. At full size the father is «Antonio»: «Li 16 Gennajo 1850· 17· Mattio figlio di Antonio Defranceschi·"
+     "text": "household (/liznjan/pomer)· Mattio Defranceschi, 1850· the search log mattio-defranceschi-1850 The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would have made him a brother of Antonio and Gregorio and put a second Matteo at house 17 in 1850. At full size the father is «Antonio»: «Li 16 Gennajo 1850· 17· Mattio figlio di Antonio Defranceschi·"
     },
     {
      "page": "/",
@@ -167317,7 +167524,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would have made him a brother of Antonio and"
+     "text": "16 Oct 2026 minor The 12 October Ližnjan deaths scout wrote «Matteo figlio di Matteo Defranceschi» — the page says «Mattio figlio di Antonio» Pomer — a second Defranceschi household· Mattio Defranceschi, 1850· the search log mattio-defranceschi-1850 The scout's table (frame 18, 16 Jan 1850, house 17) read «Matteo figlio di Matteo Defranceschi» — a child of a Matteo, which would"
     },
     {
      "page": "/map/",
@@ -168503,12 +168710,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "prose half. The headline was not new. The body largely was. 7 Oct 2026 ⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September serious /gologorica-line/· Joanna Defranceschi (Sestan)· /worklist/ Yesterday this page announced «⭐⭐ Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never read», closed work-list row 184"
+     "text": "prose half. The headline was not new. The body largely was. 7 Oct 2026 ⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September serious /gologorica-line/· Joanna Defranceschi (Sestan)· /worklist/ joanna-defranceschi-sestan-1818 Yesterday this page announced «⭐⭐ Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "names her ROSA, born the 7th — and gives her death Her page· the Gologorica line· the pedigree Carried from the family tree since this roster was built: «Joanna Defranceschi, born 9 June 1848, Gologorica», daughter of Antonius Defranceschi and Francisca — with no death year. «Junii 8ᵃ· domus 5· ROSA nata heri», of «Antonius Defranceschi» and «Francisca nata Defranceschi», godparents «Giovanni L—"
+     "text": "and gives her death Her page· the Gologorica line· the pedigree joanna-defranceschi-1848 Carried from the family tree since this roster was built: «Joanna Defranceschi, born 9 June 1848, Gologorica», daughter of Antonius Defranceschi and Francisca — with no death year. «Junii 8ᵃ· domus 5· ROSA nata heri», of «Antonius Defranceschi» and «Francisca nata Defranceschi», godparents «Giovanni L—"
     },
     {
      "page": "/",
@@ -174040,7 +174247,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "X, Y and Z» is a finding. «Nothing in every spelling» is an assertion about a list that no longer exists. 28 Sept 2026 serious «Antonio was dead by November 1780» — he was alive, and titled «Capo», in 1783 Gregorio Defranceschi, Antonio de Franceschi, the Svetvinčenat line, Searched — all published the same morning «What it means,"
+     "text": "X, Y and Z» is a finding. «Nothing in every spelling» is an assertion about a list that no longer exists. 28 Sept 2026 serious «Antonio was dead by November 1780» — he was alive, and titled «Capo», in 1783 Gregorio Defranceschi, Antonio de Franceschi, the Svetvinčenat line, Searched — all published the same morning"
     },
     {
      "page": "/",
@@ -179415,7 +179622,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "full name Her page· the other row the tree carried· the pedigree Carried on the pedigree and in the roster: «Hermenegildus Defranceschi, 1865, Gologorica» — a son of Franciscus Xaverius Defranceschi and Clotilda Ortis. «1865 Aprilis 23ᵗⁱᵃ· domus 7· BEATRIX HERMENGILDIS n. 10 Apr.», of «Franciscus Defranceschi, Possidens» and «Clotilde n. Ortis»; godparents"
+     "text": "row the tree carried (/person/beatrix-hermenegildis-de-franceschi-1865/)· the pedigree hermenegildus-defranceschi-1865 beatrix-hermenegildis-de-franceschi-1865 Carried on the pedigree and in the roster: «Hermenegildus Defranceschi, 1865, Gologorica» — a son of Franciscus Xaverius Defranceschi and Clotilda Ortis. «1865 Aprilis 23ᵗⁱᵃ· domus 7· BEATRIX HERMENGILDIS n. 10 Apr.», of «Franciscus Defranceschi, Possidens» and «Clotilde n. Ortis»; godparents"
     },
     {
      "page": "/marriages/",
@@ -227268,7 +227475,7 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "X, Y and Z» is a finding. «Nothing in every spelling» is an assertion about a list that no longer exists. 28 Sept 2026 serious «Antonio was dead by November 1780» — he was alive, and titled «Capo», in 1783 Gregorio Defranceschi, Antonio de Franceschi, the Svetvinčenat line, Searched — all published the same morning «What it means,"
+     "text": "X, Y and Z» is a finding. «Nothing in every spelling» is an assertion about a list that no longer exists. 28 Sept 2026 serious «Antonio was dead by November 1780» — he was alive, and titled «Capo», in 1783 Gregorio Defranceschi, Antonio de Franceschi, the Svetvinčenat line, Searched — all published the same morning"
     },
     {
      "page": "/",
@@ -237179,12 +237386,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "prose half. The headline was not new. The body largely was. 7 Oct 2026 ⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September serious /gologorica-line/· Joanna Defranceschi (Sestan)· /worklist/ Yesterday this page announced «⭐⭐ Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never read», closed work-list row 184"
+     "text": "prose half. The headline was not new. The body largely was. 7 Oct 2026 ⚠⚠ Joanna's Gračišće house 4 was published as a discovery — this archive documented it on 30 September serious /gologorica-line/· Joanna Defranceschi (Sestan)· /worklist/ joanna-defranceschi-sestan-1818 Yesterday this page announced «⭐⭐ Both brides came from Gračišće — houses 4 and 5 — and the census said so in a column I never"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "names her ROSA, born the 7th — and gives her death Her page· the Gologorica line· the pedigree Carried from the family tree since this roster was built: «Joanna Defranceschi, born 9 June 1848, Gologorica», daughter of Antonius Defranceschi and Francisca — with no death year. «Junii 8ᵃ· domus 5· ROSA nata heri», of «Antonius Defranceschi» and «Francisca nata Defranceschi», godparents «Giovanni L—"
+     "text": "and gives her death Her page· the Gologorica line· the pedigree joanna-defranceschi-1848 Carried from the family tree since this roster was built: «Joanna Defranceschi, born 9 June 1848, Gologorica», daughter of Antonius Defranceschi and Francisca — with no death year. «Junii 8ᵃ· domus 5· ROSA nata heri», of «Antonius Defranceschi» and «Francisca nata Defranceschi», godparents «Giovanni L—"
     },
     {
      "page": "/",
@@ -242929,7 +243136,13 @@
     "downN": 1
    },
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Giovanni Defranceschi (godfather at Pola, 1869)",
+     "dt": "1750 – 1829",
+     "via": "line"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -242950,11 +243163,51 @@
       "1778"
      ]
     ],
-    "self": {
-     "n": "Giovanni Defranceschi (godfather at Pola, 1869)",
-     "dt": "1750 – 1829",
-     "via": "line"
-    }
+    "unchecked": [
+     [
+      "unchecked",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ]
+    ],
+    "refused": [
+     [
+      "refused",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ],
+     [
+      "refused",
+      "Giacomo de Franceschi",
+      "Pascasia",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Leonardus Defranceschi",
+      "dt": "1697 – 1773",
+      "via": "inferred",
+      "pid": "leonardus-defranceschi-1697",
+      "slug": "leonardus-defranceschi"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/gologorica-line/",
+    "parentsFromRow": true,
+    "parentsCaveat": "An inference, written by the archive: the register that marries him names his father as a Leonardus, already dead, and does not say which. ",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    },
    "rec": null,
    "chain": [
@@ -249462,12 +249715,12 @@
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "as almost certainly the daughter of the woman who had married into her father's household in 1808; the older death book, read the same night, gives the father a different wife until 1800 the Pula page and the roster note of Agata, wife of Francesco De Franceschi of Pomer; both are fixed. The searched.json row of 15 November says only «Agata's first husband's daughter», which is still, and is left standing as that day's receipt That the"
+     "text": "as almost certainly the daughter of the woman who had married into her father's household in 1808; the older death book, read the same night, gives the father a different wife until 1800 the Pula page and the roster note of Agata, wife of Francesco De Franceschi of Pomer; both are fixed. The searched.json row of 15 November says only «Agata's first husband's daughter», which is still, and is left standing as that day's receipt"
     },
     {
      "page": "/",
      "title": "The Defranceschi Archive",
-     "text": "row of 15 November says only «Agata's first husband's daughter», which is still, and is left standing as that day's receipt That the eighteen-year-old «figlia del q.m Antonio Corranich» buried at Pula on 14 July 1809 was «almost certainly Agata, wife of Francesco De Franceschi of Pomer's own, dead nine months after her mother remarried» (inf, written on 15 November 2026 from the printed Liber Defunctorum alone). The prose death book of the same parish, walked end"
+     "text": "which is still, and is left standing as that day's receipt agata-wife-of-francesco-de-franceschi-of-pomer-d1824 That the eighteen-year-old «figlia del q.m Antonio Corranich» buried at Pula on 14 July 1809 was «almost certainly Agata, wife of Francesco De Franceschi of Pomer's own, dead nine months after her mother remarried» (inf, written on 15 November 2026 from the printed Liber Defunctorum alone). The prose death book of the same parish, walked end"
     }
    ],
    "facts": [
@@ -302180,7 +302433,13 @@
    "pid": "giovanni-defranceschi-1750",
    "name": "Giovanni Defranceschi",
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Giovanni Defranceschi",
+     "dt": "1750 – 1829",
+     "via": "line"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -302201,11 +302460,51 @@
       "1778"
      ]
     ],
-    "self": {
-     "n": "Giovanni Defranceschi",
-     "dt": "1750 – 1829",
-     "via": "line"
-    }
+    "unchecked": [
+     [
+      "unchecked",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ]
+    ],
+    "refused": [
+     [
+      "refused",
+      "Pietro De Franceschi q.m Domenico",
+      "Domenica Manzin",
+      ""
+     ],
+     [
+      "refused",
+      "Giacomo de Franceschi",
+      "Pascasia",
+      ""
+     ]
+    ],
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Leonardus Defranceschi",
+      "dt": "1697 – 1773",
+      "via": "inferred",
+      "pid": "leonardus-defranceschi-1697",
+      "slug": "leonardus-defranceschi"
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/gologorica-line/",
+    "parentsFromRow": true,
+    "parentsCaveat": "An inference, written by the archive: the register that marries him names his father as a Leonardus, already dead, and does not say which. ",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    }
   },
   "giovanni-defranceschi-1829": {
@@ -314749,7 +315048,13 @@
    "pid": "leonardus-defranceschi-1697",
    "name": "Leonardus Defranceschi",
    "ptree": {
-    "none": true,
+    "self": {
+     "n": "Leonardus Defranceschi",
+     "dt": "1697 – 1773",
+     "via": "read"
+    },
+    "upN": 0,
+    "downN": 0,
     "dropped": [
      [
       "dropped",
@@ -314764,11 +315069,28 @@
       "1847"
      ]
     ],
-    "self": {
-     "n": "Leonardus Defranceschi",
-     "dt": "1697 – 1773",
-     "via": "read"
-    }
+    "unchecked": [],
+    "refused": [],
+    "estRej": [],
+    "children": [
+     {
+      "n": "Giovanni Defranceschi",
+      "dt": "1750 – 1829",
+      "via": "inferred",
+      "pid": "giovanni-defranceschi-1750",
+      "slug": "giovanni-defranceschi"
+     }
+    ],
+    "childrenPlace": "",
+    "tally": [
+     [
+      "inferred",
+      1
+     ]
+    ],
+    "nrel": 1,
+    "nread": 0,
+    "dupNames": []
    }
   },
   "leonardus-defranceschi-1766": {
