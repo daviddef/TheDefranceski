@@ -5,11 +5,54 @@ import { u } from "../../lib/url.js";
 import Rule from "../../components/Rule.astro";
 import { mdp } from "../../lib/md.js";
 import m from "../../data/maternal.json";
+import PersonTree from "@daviddef/archive-kit/components/PersonTree.astro";
+import "@daviddef/archive-kit/styles/persontree.css";
+import dline from "../../data/directline.json";
+import dlp from "../../data/directline-pids.json";
+
+/* THE TREE is drawn from two files and nothing else: maternal.json's `tree`
+   (her own dates, her parents where a document names them, the caption) and
+   directline.json (the husband, who is a direct-line generation, and the
+   household's children). `tree.husbandGen` is the husband's position in
+   directline.json; the build STOPS if the spouse written there is not this
+   woman, so a reordered file cannot hang one woman's children on another.
+   Where nothing names her parents the chart draws a dashed gap, never a guess.
+   Everyone drawn was born before 1946; nobody drawn is living. */
+const plain = (t) => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 export function getStaticPaths() {
   return Object.entries(m.lines).map(([line, d]) => ({ params: { line }, props: { d } }));
 }
 const { d } = Astro.props;
+let tree = null;
+if (d.tree) {
+  const gi = d.tree.husbandGen;
+  const g = dline.generations[gi];
+  const pg = dlp.generations[gi] || {};
+  if (!g || !g.spouse || !plain(g.spouse.name).includes(plain(Astro.params.line))) {
+    throw new Error(`maternal/${Astro.params.line}: directline.json generation ${gi} has spouse ${g && g.spouse && g.spouse.name}, not this line`);
+  }
+  if (pg.name !== g.name) throw new Error(`maternal/${Astro.params.line}: directline-pids.json is out of step with directline.json at ${gi}`);
+  const nextPid = (dlp.generations[gi + 1] || {}).pid;
+  const yr = (x) => (x.bornExact ? x.bornExact.replace(/, baptised.*/, "") : String(x.born));
+  const known = (b) => b && b !== "—" && !/unknown/i.test(b);
+  tree = {
+    self: { name: d.woman, dates: d.tree.dates,
+            gen: `married into the direct line, generation ${gi + 1}` },
+    parents: d.tree.parents,
+    spouses: [{ name: g.name,
+                dates: `${yr(g)}${g.died ? ` – ${g.diedExact || g.died}` : ""}`,
+                cls: "via-line", mark: "the direct line",
+                href: pg.pid ? u(`/person/${pg.pid}/`) : u("/direct-line/") }],
+    children: (g.children || []).map((c) => ({
+      name: c.name,
+      dates: known(c.born) ? `b. ${c.born}` : "",
+      cls: c.line ? "via-line" : undefined,
+      mark: c.line ? "the direct line" : (d.tree.childMarks || {})[c.name],
+      href: c.line && nextPid ? u(`/person/${nextPid}/`) : undefined,
+    })),
+  };
+}
 ---
 <Base title={d.name}
       eyebrow={`A maternal line — ${d.woman}`}
@@ -21,6 +64,18 @@ const { d } = Astro.props;
   <FamilyBand id={`maternal-${Astro.params.line}`} />
 
   <Rule name="arrows" />
+
+  {tree && (
+    <section class="blk" style="margin-top:38px">
+      <h2 style="font-size:26px">Where she stands in the family</h2>
+      <div style="margin-top:20px">
+        <PersonTree self={tree.self} parents={tree.parents} spouses={tree.spouses}
+                    children={tree.children}
+                    labels={{ parents: d.tree.parentsLabel || "Her parents" }} />
+      </div>
+      <p class="cap" style="margin-top:14px">{d.tree.caption}</p>
+    </section>
+  )}
 
   {/* Two shapes, deliberately. A line whose research has landed is written in
       SECTIONS — the Kosina shape David asked for: a citation above the
