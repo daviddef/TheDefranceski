@@ -841,10 +841,11 @@ header.site nav.topnav a.findbtn{padding:8px 15px;border-bottom:0;flex:0 0 auto}
 .burger{display:none!important;align-items:center;gap:9px;font-family:var(--sans);font-size:13px;
   background:none;border:1px solid var(--rule-strong);border-radius:999px;padding:7px 14px;
   color:var(--ink);cursor:pointer}
-/* Tree Canvas trial (14 Nov 2026): an icon button at the right of the header, beside the kit's three round buttons (same size, border and hover as .pbtn). */
+/* Tree Canvas (16 Nov 2026): the same round orange button as the Record Atlas header, at the end of the icon group (estate spec, all eight archives alike). */
 header.site nav.topnav a.canvasbtn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;flex:none;margin-left:3px;
-  border:1px solid var(--rule);border-radius:50%;background:var(--panel);color:var(--ink-2);text-decoration:none;line-height:1}
-header.site nav.topnav a.canvasbtn:hover,header.site nav.topnav a.canvasbtn:focus-visible{color:var(--accent);background:var(--accent-wash);border-color:var(--accent)}
+  border:1px solid #D9822B;border-radius:50%;background:#D9822B;color:#fff;text-decoration:none;line-height:1}
+header.site nav.topnav a.canvasbtn:hover,header.site nav.topnav a.canvasbtn:focus-visible{background:#C4721F;border-color:#C4721F;color:#fff}
+header.site nav.topnav a.canvasbtn:focus-visible{outline:2px solid #C4721F;outline-offset:2px}
 .drawer{border-top:1px solid var(--rule);background:var(--panel);padding:16px 0 22px;max-height:70vh;overflow:auto}
 .drawer .dgrp{padding:10px 0;border-bottom:1px solid var(--rule)}
 .drawer .dgrp:last-child{border-bottom:0}
