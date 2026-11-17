@@ -8,7 +8,7 @@ import c from "../data/corrections.json";
 import plateTable from "../data/plates.json";
 import { claim } from "@daviddef/archive-kit/lib/rec.js";
 import { corrIdMap } from "@daviddef/archive-kit/lib/corrections.js";
-import { bookIndex } from "@daviddef/archive-kit/lib/booklinks.js";
+import { bookIndex, linkBooks } from "@daviddef/archive-kit/lib/booklinks.js";
 import { placeIndex } from "@daviddef/archive-kit/lib/placelinks.js";
 import pb from "../data/parishbooks.json";
 import placeRows from "../data/places.json";
@@ -44,6 +44,9 @@ const books = bookIndex(pb.list.flatMap((p) => (p.books || []).map((b) => ({ par
    flag art is the kit's own, resolved by the build. No name index is read here: the names on this page are linked after the build (autolink). */
 const FLAG_ART = import.meta.glob("../../node_modules/@daviddef/archive-kit/kit/data/flags/*.svg", { eager: true, query: "?url", import: "default" });
 const flagUrl = (svg) => { const k = Object.keys(FLAG_ART).find((p) => p.endsWith("/" + svg)); return k ? FLAG_ART[k] : ""; };
+/* The kit links places before books, and a place link round "Svetvinčenat" breaks the phrase "Svetvinčenat baptism book 1764–1791" it matches; so the books are
+   linked here, first, and the kit's own pass (the `books` prop) then finds nothing left to do. Places inside a linked book are not linked twice. */
+const bk = (h) => (h ? linkBooks(h, books) : h);
 const places = placeIndex(placeRows.map((p) => ({ name: p.name, aliases: Object.values(p.alt || {}), href: u(`/places/${p.slug}/`) })), placeFlags, flagUrl);
 /* A scan beside the passage that cites it (the linking standard, L4). A correction that rests on a page of the family's own copy
    of a parish register carries that plate, a small picture inside the entry, linked to the full file; the plate is already
@@ -81,16 +84,16 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
     sev: sev[r.sev] || r.sev,
     /* The sentence being withdrawn, kept verbatim: its names are the old claim, quoted, not this archive's claim now. The mark is the
        linking standard's own (data-name-exempt, with its reason); the links stay, only L2 and L5 do not count the names inside it. */
-    was: r.said ? `<span data-name-exempt="the sentence being withdrawn, kept verbatim: its names are the old claim, quoted">${based(mdHtml(r.said))}</span>` : "",
-    now: based(mdHtml(r.true)),
-    how: based(mdHtml(r.how)) + (r.how ? thumbs(r.plates) : ""),
+    was: r.said ? `<span data-name-exempt="the sentence being withdrawn, kept verbatim: its names are the old claim, quoted">${bk(based(mdHtml(r.said)))}</span>` : "",
+    now: bk(based(mdHtml(r.true))),
+    how: bk(based(mdHtml(r.how))) + (r.how ? thumbs(r.plates) : ""),
     /* 231 rows, and the shape drifted: 205 are written said/true/how, but 26 —
        every one added since late September — carry a single narrative `note`
        instead, and this page rendered none of it. They published as a title
        with an empty body. `why` is the component's only unlabelled prose slot,
        which is what a narrative note is. Found 9 October 2026 by grepping the
        BUILT page for a correction's own text and getting nothing back. */
-    why: r.note ? based(mdpHtml(r.note)) + (!r.how ? thumbs(r.plates) : "") : (!r.how && r.plates ? thumbs(r.plates) : ""),
+    why: r.note ? bk(based(mdpHtml(r.note))) + (!r.how ? thumbs(r.plates) : "") : (!r.how && r.plates ? thumbs(r.plates) : ""),
     extra: r.where
       /* A «where» part is sometimes a bare path, sometimes a markdown link,
          and sometimes a sentence with links and code spans inside it —
