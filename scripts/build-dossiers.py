@@ -933,7 +933,10 @@ for slug, rows in by_slug.items():
                    ((BY_SLUG.get(slug, []) + RECORDS.get(" ".join(_key(name)), []))[:12]
                     or [mh_record(r) for r in rows if r.get("mh") and r["src"] == "myheritage"][:2]),
         "tree": mini_tree(name),
-        "ptree": ptree(name),
+        # A page for ONE person (a year-qualified slug such as domenica-de-franceschi-b-1776, or any slug with a single roster row) takes THAT person's tree.
+        # ptree(name) alone falls back on the first roster row sharing the name once the «(b. 1776)» is stripped by _nm, which gave the 1776 Domenica the
+        # 1703 Domenica's parents and sisters, and the bloodline page her "b. 1703" and 23 sisters (15 of the 40 year-qualified pages had another person's tree).
+        "ptree": ptree(name, rows[0]) if len(rows) == 1 else ptree(name),
         "rec": record_strip(rows),
         "chain": chain_tree(name),
         "recyear": None if _all_living else YEAR_FROM.get(slug),
