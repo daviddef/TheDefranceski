@@ -2523,6 +2523,18 @@
    "said": "His page named a husband and wife of Vodnjan as his parents and marked them as read from a register.",
    "true": "**They were matched to him by a first name alone.** The Vodnjan household has a daughter born about 1800 and two children entered with no years, and the page builder accepts any person of the same first name as such a child when the household gives no year to test against. **The register that marries him, on 9 June 1774, names his father as the son of a man already dead, and no Vodnjan woman is anywhere in it** ([cited on his page](/person/giovanni-defranceschi-1750/)). The mother is not named in any entry this archive holds. His page's parents box is withdrawn; the citation and the doubts are told in the note under his name. **The family tree's father for him is not followed either:** the volume the tree cites for it holds no such record, and the marriage entry gives his father a different forename ([worklist 336](/worklist/)). **Not changed:** the same name-only match on the other pages, which is a decision about the test itself ([worklist 337](/worklist/)).",
    "how": "A rule meant to show a family where the household's years could not be tested let every person of the same first name through, and the band under the names said «read» because the household had been read, not because the match had. It is withdrawn for this one page by name (`site/src/data/ptree-refuse.json`); the general test waits for a decision."
+  },
+  {
+   "when": "17 Nov 2026",
+   "sev": "minor",
+   "what": "The 1826 census was read as giving Josephus and Lambertina a daughter «Maria Adelgidis»",
+   "where": "[The Gologorica line](/gologorica-line/), three paragraphs and the people list, each marked superseded",
+   "pids": [
+    "adelaidis-defranceschi-1824",
+    "anastasia-defranceschi-1824"
+   ],
+   "said": "The 1826 status animarum was read as listing a daughter Maria Adelgidis beside the pedigree's Anastasia and the roster's Adelaidis: three names for one birth year.",
+   "true": "**The census house 7 cell reads «Adelaidis» at zoom, and the baptism of 8 December 1824 (p. 78, M01069091) reads «Hedvigis Maria» with «Adelhaidis» written above it.** One daughter, Adelaidis; «Anastasia» is found only in the family tree (`inf`). The ids are not merged."
   }
  ]
 }
