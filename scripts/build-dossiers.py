@@ -593,6 +593,10 @@ def _fits_parent(myY, hh, t, estY=None, dieY=None):
                       f"{f}\u2013{to}" if to else str(f)])
     return False
 
+_EXACT_B = {}
+for _r in roster["rows"]:
+    if re.search(r"\(b\. ?\d{4}\)\s*$", _r["name"]): _EXACT_B.setdefault(_r["name"], _r)
+
 def ptree(name, row=None):
     """The family, for ONE PERSON.
 
@@ -617,6 +621,10 @@ def ptree(name, row=None):
     up, down = CHILD_IN.get(k, []), PARENT_OF.get(k, [])
     # no household either way — but one register row may still name this person's parents
     if not up and not down and len(REG_BY_NAME.get(k, [])) != 1: return None
+    # A roster name that carries its own birth year, «Domenica de Franceschi (b. 1776)», is one person: `_nm` drops the
+    # bracket, so ROW_BY_NAME gave her the FIRST Domenica De Franceschi row (b. 1703) and the bloodline page drew the
+    # 1703 girl's parents and twenty-three siblings under her (worklist 337, 18 Nov 2026).
+    if row is None: row = _EXACT_B.get(name)
     if row is None: row = ROW_BY_NAME.get(k)
     t = {"self": {"n": name, "dt": _dates(row), "via": _via(row)}}
     myY = estY = None
