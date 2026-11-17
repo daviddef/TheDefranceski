@@ -113378,10 +113378,6 @@
      "/places/pazin/"
     ],
     [
-     "Years",
-     "1766 · from **withdrawn 27 September 2026** — the year was copied from another entry on a name match and the record does not support it"
-    ],
-    [
      "Line",
      "The record names no place, or names only «Croatia» or «Austria»"
     ],
@@ -349808,176 +349804,294 @@
    "ptree": {
     "self": {
      "n": "Maria Defranceschi (Covaz)",
-     "dt": "b. 1766",
+     "dt": "b. 1757",
      "via": "index"
     },
+    "parents": [
+     {
+      "n": "Valentino Defranceschi",
+      "dt": "",
+      "via": "index",
+      "ambiguous": 3,
+      "own": 11
+     },
+     {
+      "n": "Elena Defranceschi",
+      "dt": "",
+      "via": "index",
+      "ambiguous": 2,
+      "own": 11
+     }
+    ],
+    "parentsPlace": "Rijeka",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Mattio Defranceschi",
+      "dt": "d. 11 Jul 1742",
+      "via": "index",
+      "slug": "mattio-defranceschi",
+      "pid": "mattio-defranceschi-d1742",
+      "small": true,
+      "own": 5
+     },
+     {
+      "n": "Nicolo Defranceschi",
+      "dt": "d. 1742",
+      "via": "index",
+      "slug": "nicolo-defranceschi",
+      "pid": "nicolo-defranceschi-d1742",
+      "small": true
+     },
+     {
+      "n": "Antonio De Franceschi",
+      "dt": "13 Jun 1753 – 1 Sep 1753",
+      "via": "index",
+      "ambiguous": 31,
+      "small": true,
+      "own": 6
+     },
+     {
+      "n": "Aloisio Defranceschi",
+      "dt": "1757 – 14 Sep 1757",
+      "via": "index",
+      "slug": "aloisio-defranceschi",
+      "pid": "aloysia-defranceschi-1757",
+      "small": true
+     },
+     {
+      "n": "Matheus Franciscus De Franceschi",
+      "dt": "b. 17 Sep 1739",
+      "via": "index",
+      "slug": "matheus-franciscus-de-franceschi",
+      "pid": "matheus-franciscus-de-franceschi-c1749",
+      "small": true
+     },
+     {
+      "n": "Aloysium Joannes Petre Defranceschi",
+      "dt": "b. 26 Jun 1752",
+      "via": "index",
+      "slug": "aloysium-joannes-petre-defranceschi",
+      "pid": "aloysium-joannes-petre-defranceschi-c1749",
+      "small": true
+     },
+     {
+      "n": "Franciscam Joanne Theresiam Defranceschi",
+      "dt": "b. 19 Dec 1742",
+      "via": "index",
+      "slug": "franciscam-joanne-theresiam-defranceschi",
+      "pid": "franciscam-joanne-theresiam-defranceschi-c1749",
+      "small": true
+     },
+     {
+      "n": "Nicolaus Francus De Franceschi",
+      "dt": "b. 4 Sep 1741",
+      "via": "index",
+      "slug": "nicolaus-francus-de-franceschi",
+      "pid": "nicolaus-francus-de-franceschi-c1749",
+      "small": true
+     },
+     {
+      "n": "Josepham Catharinam Defranceschi",
+      "dt": "b. 26 Nov 1737",
+      "via": "index",
+      "slug": "josepham-catharinam-defranceschi",
+      "pid": "josepham-catharinam-defranceschi-c1749",
+      "small": true
+     },
+     {
+      "n": "Jacobus Vincentius Defranceschi",
+      "dt": "20 Jul 1757 – 4 Jul 1759",
+      "via": "read",
+      "slug": "jacobus-vincentius-defranceschi",
+      "pid": "jacobus-vincentius-defranceschi-1757",
+      "small": true
+     }
+    ],
     "spouse": {
-     "n": "Antonius Defranceschi",
-     "dt": "b. 1806",
-     "via": "index",
-     "slug": "antonius-defranceschi",
-     "pid": "antonius-defranceschi-1806",
-     "own": 7
+     "n": "Giovanni Moscarda",
+     "dt": "",
+     "via": "read",
+     "slug": "giovanni-moscarda",
+     "pid": "giovanni-moscarda-fazana",
+     "own": 3
     },
     "children": [
      {
-      "n": "Josephus Dobrez",
-      "dt": "b. 1823",
-      "via": "index",
-      "slug": "josephus-dobrez",
-      "pid": "josephus-dobrez-1823"
+      "n": "Antonio Moscarda",
+      "dt": "b. 25 Jan 1835",
+      "via": "read",
+      "slug": "antonio-moscarda",
+      "pid": "antonio-moscarda-1835"
      },
      {
-      "n": "Zuanne Contossich",
-      "dt": "",
-      "via": "index",
-      "slug": "zuanne-contossich",
-      "pid": "zuanne-contossich"
+      "n": "Marianna Moscarda",
+      "dt": "b. Feb 1838",
+      "via": "read",
+      "slug": "marianna-moscarda",
+      "pid": "marianna-moscarda-1838"
+     },
+     {
+      "n": "Giuseppe Moscarda",
+      "dt": "b. 19 Mar 1841",
+      "via": "read",
+      "slug": "giuseppe-moscarda",
+      "pid": "giuseppe-moscarda-1841"
      }
     ],
-    "span": "1823–1823",
-    "childrenPlace": "—",
-    "upN": 0,
-    "downN": 1,
-    "dropped": [
+    "span": "1835–1841",
+    "childrenPlace": "Fažana",
+    "upN": 15,
+    "downN": 7,
+    "dropped": [],
+    "unchecked": [
      [
-      "dropped",
+      "unchecked",
       "Valentino Defranceschi",
       "Elena Defranceschi",
-      "1757"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Valentini Defranceschi",
       "Ursulæ Defranceschi",
-      "1804"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Domenico De Franceschi",
       "Zacchera Cerlon",
-      "1833"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Stefano De Franceschi",
       "Bonetta Vellico",
-      "1829"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Vittorio Defranceschi",
       "Stella",
-      "1819"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Antonio de Franceschi",
       "Mattea",
-      "1776"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Matteo Defranceschi",
       "Francesca",
-      "1745"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Vittorio Defranceschi",
       "Dominica",
-      "1749"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Antonius Defranceschi, filius Usualdi et Apoloniæ",
       "Francisca née Defranceschi",
-      "1845"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Antonius Defranceschi",
       "Francisca Defranceschi",
-      "1845"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Aloysius Arturius Defranceschi",
       "Albina Defranceschi (Lovrinović)",
-      "1920"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Mattio Defranceschi (di Antonio, detto Matulin)",
       "Madalena Percovich",
-      "1816"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Mattio Defranceschi (di Antonio, detto Matulin)",
       "Madalena Percovich",
-      "1821"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Gregorio Defranceschi (di Mattio, detto Matulin)",
       "Agata Schiffich (di Lorenzo)",
-      "1846"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Gregorio Defranceschi (di Mattio, detto Matulin)",
       "Agata Schiffich (di Lorenzo)",
-      "1849"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Giovanni Moscarda",
       "Maria Defranceschi",
-      "1835–1841"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
+      "Antonius Defranceschi",
+      "Maria Defranceschi",
+      ""
+     ],
+     [
+      "unchecked",
       "Nicolaus Cernobori",
       "Maria Defranceschi",
-      "1841–1853"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Joseph Dobrez",
       "Maria Defranceschi",
-      "1852–1867"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Laurentius Gorlato",
       "Maria De Franceschi",
-      "1857–1864"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Josephus Ruman",
       "Maria Defranceschi",
-      "1875–1875"
+      ""
      ],
      [
-      "dropped",
+      "unchecked",
       "Martino Mocorich",
       "Maria Defranceschi (fu Matteo; house 17)",
-      "1848–1849"
+      ""
      ]
     ],
-    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
      [
+      "read",
+      5
+     ],
+     [
       "index",
-      3
+      11
      ]
     ],
-    "nrel": 3,
-    "nread": 0,
+    "nrel": 16,
+    "nread": 5,
     "dupNames": []
    }
   },
