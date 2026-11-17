@@ -21,6 +21,10 @@ import living_v2 as L2
 spec = importlib.util.spec_from_file_location("ipp", os.path.join(ROOT, "scripts", "import-placeholder-people.py"))
 ipp = importlib.util.module_from_spec(spec); spec.loader.exec_module(ipp)
 parse, f1, sub, yr, slug = ipp.parse, ipp.f1, ipp.sub, ipp.yr, ipp.slug
+def dslug(s):    # the /who/ page slug is build-dossiers.py's slugify (NFD, strip marks), NOT the pid slug (NFKD, ascii): they differ for æ
+    import unicodedata
+    s = "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn").lower().replace("đ", "d")
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 BRANCH = "PLACEHOLDERS Defranceschi's for Investigation (not real)"
 FSRX = re.compile(r"(?:https?://)?(?:www\.)?familysearch\.org/(ark:/61903/[0-9:A-Za-z\-]+)(\?[^\s\"']*)?")
 
@@ -103,7 +107,7 @@ def main():
             note += " The tree cites FamilySearch: " + "; ".join("[%s](%s)" % (re.search(r"ark:/61903/([0-9:A-Za-z\-]+)", u).group(1), u) for u in links) + "."
         row = {"name": nm, "b": b, "d": d if dead else None, "place": pl, "src": "myheritage", "href": "/people/", "note": note, "notable": False,
                "ark": ark, "mh": mh, "line": "unplaced", "pid": pid}
-        if len(re.sub(r"\s*\(.*?\)\s*", "", nm)) >= 5: row["who"] = "/who/%s/" % slug(nm)
+        if len(re.sub(r"\s*\(.*?\)\s*", "", nm)) >= 5: row["who"] = "/who/%s/" % dslug(nm)
         out.append((label, row))
     by = collections.Counter(l for l, _ in out)
     print("to add %d; held back %d; skipped stubs %d; already on the roster by name and year %d" % (len(out), len(held), len(skipped), len(dups)))
