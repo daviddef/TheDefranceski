@@ -2564,25 +2564,25 @@
    "where": "site/src/data/roster.json (martinus-defranceschi-1863-liznjan), site/src/data/liznjan.json (the births text and any list of children of house 59), worklist 328, any household row that lists him as living or as «not in the marriage book»",
    "pids": [],
    "said": "See the claim quoted in the first column.",
-   "true": "He died on 14 August 1863; the death is a later-hand margin note at the head of page 45 of the Ližnjan deaths (9R2Z-4WG image 26 right), naming his mother Fusca (doc); roster d: 1863"
+   "true": "He died on 14 August 1863; the death is a later-hand margin note at the head of page 45 of the Ližnjan deaths, naming his mother (`doc`); roster d: 1863"
   },
   {
    "when": "17 Nov 2026",
    "sev": "minor",
-   "what": "The Ližnjan deaths scout's table (searched row liznjan-deaths-scouted-end-to-end): frame 26, 1861 «Gregorius Defranceschi… not yet verified»; and the sentence that «-ski first appears in the register in 1896»",
+   "what": "The Ližnjan deaths scout's table (searched row liznjan-deaths-scouted-end-to-end): an 1861 entry marked «not yet verified»; and the sentence that «-ski first appears in the register in 1896»",
    "where": "site/src/data/searched.json (the scout row text), site/src/data/liznjan.json, roster note for the 1896 Josephus Defranceski, /liznjan/ story text that says -ski begins in 1896",
    "pids": [],
    "said": "See the claim quoted in the first column.",
-   "true": "Frame 26 is verified: Gregorius Defranceski, filius Mattaei, agr., house 50, age 35, febris perniciosa, died 25 Nov 1861, spelt -ski (level 13, page 44). The -ski form is therefore in this book from 1861, not only from 1896 (the 1896 entry is the first for a servant's child). The scout read only the top 44% of each page and only the name column; its list is a floor, not a count."
+   "true": "The 1861 entry of 25 November, a farmer of house 50 aged 35 who died of a pernicious fever, is verified at level 13 and spelt -ski, so the -ski form is in this book from 1861, not only from 1896 (the 1896 entry is the first for a servant's child). The scout read only the top 44% of each page and only the name column: its list is a floor, not a count."
   },
   {
    "when": "17 Nov 2026",
    "sev": "minor",
-   "what": "«Paschalis 1863-1873» (tree-derived roster row) read as one child, and /liznjan/'s open question whether the first Paschalis died young",
-   "where": "roster paschalis-defranceschi-1863, site/src/data/liznjan.json (the sentence beginning «Paschalis again, 16 Apr 1867»), households.json if it lists him",
+   "what": "The tree-derived roster row for one child of house 3, read as living 1863–1873, and the question on /liznjan/ whether the first child of that name died young",
+   "where": "the roster row, the births text on /liznjan/ (the sentence on the second baptism of 16 Apr 1867), households if it lists him",
    "pids": [],
    "said": "See the claim quoted in the first column.",
-   "true": "The first Paschalis (born 9 Jan 1863, house 3) was buried on 16 Jan 1863 (died the 15th, age 6, doc for the entry; days by inference); the second Paschalis was baptised 16 Apr 1867; the row's years join two children"
+   "true": "The first child of that name (born 9 Jan 1863, house 3) was buried on 16 Jan 1863 (died the 15th; `doc` for the entry, days by inference); the second was baptised 16 Apr 1867; the row's years join two children"
   }
  ]
 }
