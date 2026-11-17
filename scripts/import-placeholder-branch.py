@@ -72,6 +72,8 @@ def main():
         mh = str(4000000 + int(p.strip("@I")))
         if mh in have_mh: continue
         b = yr((sub(r, "BIRT", "DATE") or [""])[0]); d = yr((sub(r, "DEAT", "DATE") or [""])[0]); dead = bool(f1(r, "DEAT"))
+        dnote = ""
+        if b is not None and d is not None and d < b: dnote = " The tree gives a death year (%d) earlier than the birth year (%d); neither can be right, so no death year is shown here." % (d, b); d = None
         pl0 = ((sub(r, "BIRT", "PLAC") or sub(r, "CHR", "PLAC") or sub(r, "DEAT", "PLAC") or sub(r, "RESI", "PLAC") or [""])[0]).strip()
         stub = (not nm) or nm.isupper() or re.search(r"\bUnknown\b|\(Deceased\)|^PLACEHOLDER|^N\s", nm, re.I) or len(re.sub(r"[^A-Za-zÀ-ÿ]", "", nm)) < 4
         bs = have_nb.get(norm(nm), [])
@@ -96,6 +98,7 @@ def main():
         note = ("**From David's MyHeritage tree** (filed under the investigation branch «%s»; the tree itself calls that node not real). "
                 "**Tree only (`lore`):** the name, years and place are the tree's word; no register or index record has been read here, and **no kinship to this archive's lines is claimed**. "
                 "Added on 18 November 2026 so that the country can be searched; what a search finds will be told here." % label)
+        note += dnote
         if links:
             note += " The tree cites FamilySearch: " + "; ".join("[%s](%s)" % (re.search(r"ark:/61903/([0-9:A-Za-z\-]+)", u).group(1), u) for u in links) + "."
         row = {"name": nm, "b": b, "d": d if dead else None, "place": pl, "src": "myheritage", "href": "/people/", "note": note, "notable": False,
