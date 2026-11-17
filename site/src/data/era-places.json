@@ -1,6 +1,8 @@
 {
  "_about": "Built by scripts/build-era.py from data/era-ground.tsv and data/era-towns.tsv. Place as printed -> {region, lat, lon}, or null where no Atlas region covers it. Read by kit erasnap.py.",
  "places": {
+  "1874": null,
+  "4 Floretin rear house, New York, New York": null,
   "Aachen, Germany": null,
   "Adelaide": null,
   "Adelaide, South Australia, Australia": null,
@@ -16,6 +18,8 @@
   "Amblàr, Trento, Italy": null,
   "Argentina": null,
   "Arlington, Virginia, USA": null,
+  "Armonk, Westchester, New York": null,
+  "Arraial de Souzas, Campinas, São Paulo": null,
   "Assunzione di Maria Santissima, Telve, Trento, Italy": {
    "lat": 46.07,
    "lon": 11.47,
@@ -24,6 +28,7 @@
   "Athens, Clarke County, Georgia, USA": null,
   "Athens, Clarke, Georgia": null,
   "Atlanta, Georgia": null,
+  "Atlanta, Georgia, United States": null,
   "Austria": null,
   "B Calabro, Italy": null,
   "Bad Urach": null,
@@ -57,8 +62,12 @@
    "lon": 13.78,
    "region": "istria-south"
   },
+  "Baltimore, Maryland": null,
+  "Barban, Istria, Croatia": null,
   "Basel, Switzerland": null,
+  "Basel-Stadt, Switzerland": null,
   "Bastia, Corsica, France": null,
+  "Bedonia, Provincia di Parma, Emilia-Romagna": null,
   "Belgrade, Serbia": {
    "lat": 44.8,
    "lon": 20.46,
@@ -66,13 +75,21 @@
   },
   "Beverley, Western Australia": null,
   "Bitonto": null,
+  "Bol, Općina Bol, otok Brač": null,
   "Bologna": null,
   "Bologna · Milano": null,
   "Bologna · Torino": null,
   "Bolonha, Italy": null,
   "Borgo Sansepolcro": null,
+  "Borgoricco, Padova, Veneto": null,
   "Boulogne": null,
+  "Bozen, Österreich": null,
+  "Branzoll": null,
+  "Branzoll, Bozen, Tirol": null,
+  "Brasil": null,
+  "Brescia": null,
   "Brescia, Lombardia, Italia": null,
+  "Briana, Noale, Venezia": null,
   "Brisbane, Queensland, Australia": {
    "lat": -27.47,
    "lon": 153.03,
@@ -85,13 +102,23 @@
    "lon": 13.61,
    "region": "istria-west"
   },
+  "Brás, São Paulo, São Paulo": null,
+  "Budrio, Bologna, Emilia-Romagna": null,
   "Buenos Aires · Washington": null,
   "Bulleen, Victoria, Australia": null,
   "Bushnell, Sumter County, Florida, USA": null,
   "Cadillac, Wexford County, Michigan": null,
+  "Campinas, São Paulo, Brasil": null,
+  "Campodarsego, Padua, Veneto": null,
   "Candia, Crete": null,
+  "Capodistria, Diocese of Capodistria (Capo d’Istria)(Koper), Slovenia": null,
+  "Capraia": null,
+  "Caprino Bg": null,
+  "Carnia, Italy": null,
   "Carnia, Mione, Italy": null,
+  "Carthage, Missouri, USA": null,
   "Casca, Rio Grande do Sul, Brasil": null,
+  "Castel Guelfo di Bologna, Bologna, Emilia-Romagna": null,
   "Castelgomberto, Italy": {
    "lat": 45.58,
    "lon": 11.4,
@@ -107,15 +134,23 @@
    "lon": 11.4,
    "region": "veneto"
   },
+  "Castelnovo Di Sotto": null,
   "Castelnovo del Friuli, Pordenone": {
    "lat": 46.2,
    "lon": 12.9,
    "region": "veneto"
   },
+  "Castelnovo del Friuli, Pordenone, Friuli-Venezia Giulia": {
+   "lat": 46.2,
+   "lon": 12.9,
+   "region": "veneto"
+  },
+  "Castelnuovo, Friuli, Italy": null,
   "Castronovo": null,
   "Castronovo → Torrington, Connecticut": null,
   "Cathedral City, Riverside County, California, USA": null,
   "Cavrano → Pola": null,
+  "Cefalonia e Zante, Greece": null,
   "Chalfont, Bucks County, Pennsylvania, USA": null,
   "Charlieu, France": null,
   "Chialina": {
@@ -127,6 +162,7 @@
   "Chiriqui, Panama": null,
   "Clarksburg, Harrison County, West Virginia, USA": null,
   "Clarksburg, Harrison, West Virginia": null,
+  "Clavaiis - Ovaro, 33025, Udine": null,
   "Cles, Trento": {
    "lat": 46.36,
    "lon": 11.03,
@@ -141,7 +177,9 @@
   },
   "Colorado, Paraná, Brazil": null,
   "Concesio, Brescia": null,
+  "Concord, New Hampshire, USA": null,
   "Connecticut": null,
+  "Connecticut, United States": null,
   "Cook, Illinois": null,
   "Corrientes, Argentina": null,
   "Corsica · France": null,
@@ -163,9 +201,13 @@
    "lon": -0.1,
    "region": "england"
   },
+  "Crystal Falls, Iron, Michigan": null,
   "Dachau, Dachauer Landkreis, Bavaria (Bayern)": null,
   "Dallas, Texas": null,
+  "Dallas, Texas, United States": null,
+  "Dearborn, MI, USA": null,
   "Detroit, Wayne, Michigan": null,
+  "Doddridge, West Virginia, United States": null,
   "Dolo, Venezia, Veneto, Italy": {
    "lat": 45.42,
    "lon": 12.08,
@@ -182,6 +224,7 @@
   "East Farmingdale, Suffolk County, New York, USA": null,
   "El Trébol, San Martín, Santa Fe": null,
   "Ellis Island": null,
+  "Eppan, Bolzano, Italien": null,
   "Fasana": {
    "lat": 44.93,
    "lon": 13.81,
@@ -213,6 +256,7 @@
    "lon": 14.44,
    "region": "kvarner"
   },
+  "Fiume, Modrus-Fiume, Croatia": null,
   "Fiume, Modrus-Fiume, Ungheria": {
    "lat": 45.33,
    "lon": 14.44,
@@ -257,6 +301,11 @@
    "lon": 14.03,
    "region": "istria-central"
   },
+  "Gologorica, Općina Cerovlje, Istarska županija": {
+   "lat": 45.26,
+   "lon": 14.03,
+   "region": "istria-central"
+  },
   "Gologorica, Pazin, Istria": {
    "lat": 45.26,
    "lon": 14.03,
@@ -278,6 +327,11 @@
    "region": "istria-central"
   },
   "Gracisce, Istra": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
+  "Gracisce, Istra, Croatia": {
    "lat": 45.22,
    "lon": 14.01,
    "region": "istria-central"
@@ -311,8 +365,15 @@
    "lon": 14.01,
    "region": "istria-central"
   },
+  "Gračišće, Istria, Croatia": {
+   "lat": 45.22,
+   "lon": 14.01,
+   "region": "istria-central"
+  },
   "Grecia": null,
+  "Grigno, Trento, Italy": null,
   "Harrison, West Virginia": null,
+  "Hartford, Hartford, Connecticut": null,
   "Hartsdale, Westchester County, New York, USA": null,
   "Horsham, Australia": null,
   "Horsham, Rural City of Horsham, Victoria, Australia": null,
@@ -326,10 +387,17 @@
    "lon": 11.52,
    "region": "trentino"
   },
+  "Imotski": null,
+  "Imotski, Općina Imotski, Split-Dalmatia County": null,
+  "Imotski, Split-Dalmatia County, Croatia": null,
   "Isola Vicentina, Vicenza, Veneto": null,
   "Istra, Croatia": null,
   "Istria": null,
+  "Italia": null,
   "Italy": null,
+  "Italy, Italian North": null,
+  "Itália": null,
+  "Jaguari, Mogi Mirim, São Paulo": null,
   "Johannesburg": {
    "lat": -26.2,
    "lon": 28.04,
@@ -347,6 +415,7 @@
   },
   "Kanahooka, Wollongong, New South Wales, Australia": null,
   "Kastav": null,
+  "Kastav, Croatia": null,
   "Kastav? · Ljubljana": null,
   "Kastelir": {
    "lat": 45.3,
@@ -408,6 +477,8 @@
   "Koper": null,
   "Koper · Padua · Udine": null,
   "Korčula": null,
+  "Kotor, Municipio de Kotor, Montenegro": null,
+  "Laag, Südtirol, Italien": null,
   "Labin": null,
   "Laives": {
    "lat": 46.43,
@@ -439,6 +510,11 @@
    "lon": 11.34,
    "region": "trentino"
   },
+  "Laives, Österreich": {
+   "lat": 46.43,
+   "lon": 11.34,
+   "region": "trentino"
+  },
   "Lake City, Missaukee County, Michigan, USA": null,
   "Laterza, Taranto": null,
   "Laterza, Taranto, Italy": null,
@@ -454,16 +530,29 @@
    "lon": 14.84,
    "region": "kvarner"
   },
+  "Leifers, Bolzano, Italien": null,
+  "Lestans, Friuli-Venezia Giulia, Italy": {
+   "lat": 46.16,
+   "lon": 12.89,
+   "region": "veneto"
+  },
   "Lestans, Sequals, Udine": {
    "lat": 46.16,
    "lon": 12.89,
    "region": "veneto"
   },
+  "Lestans, Udine, Friuli-Venezia Giulia": {
+   "lat": 46.16,
+   "lon": 12.89,
+   "region": "veneto"
+  },
+  "Levada, Piombino, Padova": null,
   "Liariis, Ovaro": {
    "lat": 46.49,
    "lon": 12.88,
    "region": "carnia"
   },
+  "Liaris, Ovaro, Udine": null,
   "Lilydale, Victoria, Australia": null,
   "Lilydale, Yarra Ranges Shire, Victoria, Australia": null,
   "Lismore, New South Wales, Australia": null,
@@ -496,6 +585,7 @@
    "region": "istria-south"
   },
   "Ljubljana · Kastav": null,
+  "Ljubljana, Slovenija, Jugoslavija": null,
   "Loud Township, Montmorency County, Michigan, USA": null,
   "Loud Township, Montmorency, Michigan": null,
   "Luincis, Pieve di Santa Maria di Gorto": {
@@ -508,23 +598,35 @@
    "lon": 12.86,
    "region": "carnia"
   },
+  "MI": null,
   "Makarska": {
    "lat": 43.3,
    "lon": 17.02,
    "region": "dalmatia"
   },
+  "Makarska, Općina Makarska, Split-Dalmatia County": {
+   "lat": 43.3,
+   "lon": 17.02,
+   "region": "dalmatia"
+  },
+  "Mamel, East Prussia, Germany": null,
   "Mandolacce di Tomino": null,
+  "Mansfield, DeSoto Parish, Louisiana": null,
   "Marina (Trogir)": {
    "lat": 43.51,
    "lon": 16.11,
    "region": "dalmatia"
   },
+  "Marsango, Provincia Di Padova, Veneto": null,
+  "Martellago, Venezia, Veneto": null,
   "Maryborough, Queensland, Australia": {
    "lat": -25.54,
    "lon": 152.7,
    "region": "queensland"
   },
   "Maryland, United States": null,
+  "Massanzago, Padova, Veneto": null,
+  "Masteleone, Italy": null,
   "Mauthausen": null,
   "Medulin": {
    "lat": 44.82,
@@ -532,6 +634,11 @@
    "region": "istria-south"
   },
   "Medulin → Pola": null,
+  "Medulin, Croatia": {
+   "lat": 44.82,
+   "lon": 13.94,
+   "region": "istria-south"
+  },
   "Medulin, Istra": {
    "lat": 44.82,
    "lon": 13.94,
@@ -552,8 +659,18 @@
    "lon": 12.85,
    "region": "carnia"
   },
+  "Mione - Ovaro, 33025, Udine": {
+   "lat": 46.48,
+   "lon": 12.85,
+   "region": "carnia"
+  },
   "Mione → Ovaro": null,
   "Mione, Ovaro": {
+   "lat": 46.48,
+   "lon": 12.85,
+   "region": "carnia"
+  },
+  "Mione, Ovaro, Italy": {
    "lat": 46.48,
    "lon": 12.85,
    "region": "carnia"
@@ -574,7 +691,15 @@
    "region": "carnia"
   },
   "Mitchell, Canberra, ACT, Australia": null,
+  "Mogi Mirim, São Paulo, Brasil": null,
+  "Mogliano Veneto, Treviso": null,
+  "Molinella, Bologna, Emilia-Romagna": null,
   "Molinella, Bologna, Emilia-Romagna, Italia": null,
+  "Moniego di Noale": null,
+  "Moniego, Noale, Venezia": null,
+  "Monteleone, Province of Calabria, Kingdom of Italy": null,
+  "Mostacin": null,
+  "Mostacin, Italy": null,
   "Muina, Ovaro": {
    "lat": 46.46,
    "lon": 12.87,
@@ -599,9 +724,11 @@
   },
   "Neuhausen": null,
   "Neuhausen, Kreis Reutlingen": null,
+  "New Jersey, USA": null,
   "New South Wales, Australia": null,
   "New York": null,
   "Niles, Cook County, Illinois, USA": null,
+  "Noale, Venezia, Veneto": null,
   "North Lismore, New South Wales, Australia": null,
   "Novaki": null,
   "Novo Cabrais, Cachoeira do Sul, Rio Grande do Sul": null,
@@ -615,6 +742,16 @@
   "Omiš · Imotski": null,
   "Omiš · Zadar": null,
   "Omiš, Općina Omiš, Split-Dalmatia County": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "Omiš, Split, Croatia": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "Omiš, Split-Dalmatia County, Croatia": {
    "lat": 43.44,
    "lon": 16.69,
    "region": "dalmatia"
@@ -634,8 +771,10 @@
    "lon": 16.69,
    "region": "dalmatia"
   },
+  "Općina Trogir / Omiš": null,
   "Osijek · Istria": null,
   "Osoppo (Friuli) → Pola": null,
+  "Osoppo, Udine, Italy": null,
   "Ovaro": {
    "lat": 46.48,
    "lon": 12.87,
@@ -651,6 +790,11 @@
    "lon": 12.85,
    "region": "carnia"
   },
+  "Ovasta, Ovaro, Udine": {
+   "lat": 46.5,
+   "lon": 12.85,
+   "region": "carnia"
+  },
   "Padova, Padova, Veneto": null,
   "Padova, Veneto, Italy": {
    "lat": 45.41,
@@ -662,6 +806,7 @@
    "lon": 11.88,
    "region": "veneto"
   },
+  "Pag, Croatia": null,
   "Pag, Zara, Dalmatien, Österreich": null,
   "Paluzza, Udine": {
    "lat": 46.53,
@@ -693,11 +838,17 @@
    "region": "istria-central"
   },
   "Pazin · Graz · Ljubljana": null,
+  "Pazin, Općina Pazin, Istria County": {
+   "lat": 45.24,
+   "lon": 13.94,
+   "region": "istria-central"
+  },
   "Pederobba, Treviso, Italy": {
    "lat": 45.87,
    "lon": 11.97,
    "region": "veneto"
   },
+  "Pedreira, São Paulo, Brasil": null,
   "Pfullingen": null,
   "Phoenix, Maricopa County, Arizona, USA": null,
   "Pieve di Santa Maria di Gorto": {
@@ -734,6 +885,11 @@
    "region": "istria-south"
   },
   "Pomer → Pula": null,
+  "Pomer, Croatia": {
+   "lat": 44.82,
+   "lon": 13.9,
+   "region": "istria-south"
+  },
   "Pomer, Istra": {
    "lat": 44.82,
    "lon": 13.9,
@@ -744,6 +900,7 @@
    "lon": 13.9,
    "region": "istria-south"
   },
+  "Pordenone, Italy": null,
   "Poreč": {
    "lat": 45.23,
    "lon": 13.6,
@@ -755,11 +912,17 @@
    "lon": 13.6,
    "region": "istria-west"
   },
+  "Poreč, Istra, Croatia": {
+   "lat": 45.23,
+   "lon": 13.6,
+   "region": "istria-west"
+  },
   "Poreč, Požeško-slavonska, Croazia": {
    "lat": 45.23,
    "lon": 13.6,
    "region": "istria-west"
   },
+  "Porto Alegre, Rio Grande do Sul, Brasil": null,
   "Porto Alegre, Rio Grande do Sul, Brazil": null,
   "Portodenoue": null,
   "Postira": {
@@ -772,8 +935,14 @@
    "lon": 16.63,
    "region": "dalmatia"
   },
+  "Praga": null,
   "Prague · Vienna": null,
   "Premantura": {
+   "lat": 44.8,
+   "lon": 13.91,
+   "region": "istria-south"
+  },
+  "Premantura, Croatia": {
    "lat": 44.8,
    "lon": 13.91,
    "region": "istria-south"
@@ -789,6 +958,7 @@
    "region": "istria-south"
   },
   "Provincia di Parma": null,
+  "Puerto Rico": null,
   "Puerto Rico, Estados Unidos de América": null,
   "Pula": {
    "lat": 44.87,
@@ -822,6 +992,11 @@
   },
   "Queens, New York": null,
   "Ragusa, Dubrovnik": null,
+  "Ravina. Trento, Italien": {
+   "lat": 46.02,
+   "lon": 11.1,
+   "region": "trentino"
+  },
   "Ravina/Trentino": {
    "lat": 46.02,
    "lon": 11.1,
@@ -847,6 +1022,7 @@
    "lon": 14.44,
    "region": "kvarner"
   },
+  "Rio San Martino (scorze VE)": null,
   "Rio de Janeiro, Brazil": null,
   "Rio de Janeiro, Rio de Janeiro, Brasil": null,
   "River Grove, Cook County, Illinois, USA": null,
@@ -870,6 +1046,7 @@
    "lon": 12.5,
    "region": "lazio"
   },
+  "Romeno, Trient, Tirol": null,
   "Rookwood, New South Wales, Australia": null,
   "Rosario, Rosario, Santa Fe": null,
   "Rovereto, Trento, Italy": {
@@ -887,7 +1064,10 @@
    "lon": 13.64,
    "region": "istria-south"
   },
+  "SCORZE": null,
   "Saint-Jean-Froidmentel, France": null,
+  "Salorno, Bolzano, Trentino-Alto Adige": null,
+  "Salò": null,
   "San Daniele del Friuli": null,
   "San Germán, Puerto Rico, USA": null,
   "San Giacomo, Grigno, Trento, Italy": null,
@@ -905,8 +1085,10 @@
    "region": "santafe"
   },
   "San Rocco di Vernazza, Genoa": null,
+  "Sancy, 54560, Meurthe-et-Moselle": null,
   "Sansepolcro, Tuscany": null,
   "Sansepolcro, Tuscany, Italy": null,
+  "Santa Gustina-Belluno-Vénétie-Italie": null,
   "Santa Maria Assunta, Fiera di Primiero, Trento, Trentino-Alto Adige, Italia": {
    "lat": 46.17,
    "lon": 11.83,
@@ -922,10 +1104,18 @@
    "lon": 12.04,
    "region": "veneto"
   },
+  "Santa Rita do Passa Quatro, São Paulo, Brasi": null,
+  "Santa Rita do Passa Quatro, São Paulo, Brasil": null,
   "Santi Angeli Custodi, Genoa": null,
   "Santo Antônio de Posse, São Paulo, Brasil": null,
+  "Santo Stefano Protomartire, Cloz, Trento": null,
+  "Sao Paulo": null,
   "Sao Paulo, Brazil": null,
+  "Sassari, Sassari, Sardinia": null,
   "Sassari, Sassari, Sardinia, Italy": null,
+  "Sasso Marconi, Italy": null,
+  "Scorzè, Venezia": null,
+  "Scorzè, Venezia, Veneto": null,
   "Seget": {
    "lat": 43.54,
    "lon": 16.22,
@@ -940,6 +1130,21 @@
    "region": "veneto"
   },
   "Sequals → Washington, D.C.": null,
+  "Sequals, Friuli-Venezia Giulia, Italy": {
+   "lat": 46.17,
+   "lon": 12.9,
+   "region": "veneto"
+  },
+  "Sequals, Pordenone, Frioul-Venetie Julienne": {
+   "lat": 46.17,
+   "lon": 12.9,
+   "region": "veneto"
+  },
+  "Sequals, Pordenone, Frioul-Vénétie julienne": {
+   "lat": 46.17,
+   "lon": 12.9,
+   "region": "veneto"
+  },
   "Serodino, Iriondo, Santa Fe": null,
   "Sherwood Park, Alberta, Canada": null,
   "Siena · Venice": null,
@@ -960,6 +1165,16 @@
    "region": "dalmatia"
   },
   "Split (Sv. Dujam)": {
+   "lat": 43.51,
+   "lon": 16.44,
+   "region": "dalmatia"
+  },
+  "Split, Općina Split, Splitsko-dalmatinska županija": {
+   "lat": 43.51,
+   "lon": 16.44,
+   "region": "dalmatia"
+  },
+  "Split-Dalmatia County, Croatia": {
    "lat": 43.51,
    "lon": 16.44,
    "region": "dalmatia"
@@ -1018,6 +1233,8 @@
   "São José do Rio Preto, São Paulo, Brazil": null,
   "São Paulo, Brasil": null,
   "São Paulo, Brazil": null,
+  "São Paulo, São Paulo, Brazil": null,
+  "São Paulo, São Paulo, São Paulo": null,
   "Tar": {
    "lat": 45.3,
    "lon": 13.63,
@@ -1049,35 +1266,47 @@
    "lon": 11.47,
    "region": "trentino"
   },
+  "Tennessee, United States": null,
   "Thiébauménil, Meurthe-et-Moselle, France": null,
   "Thunder Bay, Ontario, Canada": null,
   "Thunder Bay, Thunder Bay District, Ontario": null,
   "Tignale, Brescia, Lombardia, Italy": null,
   "Tirol": null,
+  "Tolmezzo": null,
   "Tomino": null,
   "Tomino, Haute-Corse": null,
   "Torrington L*, Connecticut, United States": null,
   "Torrington, Litchfield County, Connecticut": null,
   "Torrington, Litchfield County, Connecticut, USA": null,
+  "Torrington, Litchfield, Connecticut": null,
+  "Trebaseleghe Padova": null,
   "Trento, Sacco": null,
   "Trento, Sacco, Parrochia di San Giovanni Battista": null,
   "Trento, Trento, Trentino-Alto Adige": null,
+  "Trenton, Mercer, New Jersey": null,
+  "Triest, Küstenland": null,
   "Trieste": null,
+  "Trogir, Općina Trogir, Split-Dalmatia County": null,
+  "Trostberg, Traunstein, Oberbayern": null,
+  "Udine, Castelunova, Italy": null,
   "Udine, Udine, Friuli-Venezia Giulia": null,
   "Urach": null,
   "Urach, Württemberg": null,
   "Uruguay": null,
+  "Valinhos, Campinas, São Paulo": null,
   "Varaždin": {
    "lat": 46.31,
    "lon": 16.34,
    "region": "civil-croatia"
   },
+  "Vedelago, Treviso, Veneto": null,
   "Veglia (Krk) → Pola": null,
   "Venezia": {
    "lat": 45.44,
    "lon": 12.33,
    "region": "veneto"
   },
+  "Venezia, Veneto, Italia": null,
   "Venice": {
    "lat": 45.44,
    "lon": 12.33,
@@ -1090,12 +1319,16 @@
    "lon": 12.33,
    "region": "veneto"
   },
+  "Vicenza, Veneto, Itália": null,
   "Vicenza, Vicenza, Veneto": null,
   "Vigonza, Padova, Veneto, Italy": {
    "lat": 45.43,
    "lon": 11.99,
    "region": "veneto"
   },
+  "Villa Lagarina": null,
+  "Villanova di Camposampiero, Padova, Veneto": null,
+  "Villanova, Camposampiero, Padova": null,
   "Visinada → Pola": null,
   "Vitipolis, Modrus-Fiume": {
    "lat": 45.33,
@@ -1135,8 +1368,10 @@
    "region": "istria-west"
   },
   "Washington, District of Columbia, USA": null,
+  "Washington, District of Columbia, United States": null,
   "Washington, Washington D C, United States": null,
   "Wayne, Michigan": null,
+  "West Virginia, United States": null,
   "Whiting, Ocean County, New Jersey, USA": null,
   "Willowbank, City of Ipswich, Queensland, Australia": {
    "lat": -27.68,
@@ -1172,8 +1407,15 @@
    "region": "civil-croatia"
   },
   "Zoppola, Udine, Italia": null,
+  "Zürich, Switzerland": null,
   "born Ližnjan (Istra); died Zagreb": null,
   "dalmatia": null,
+  "of Omiš, Općina Omiš, Split-Dalmatia County": {
+   "lat": 43.44,
+   "lon": 16.69,
+   "region": "dalmatia"
+  },
+  "of Villanova, Camposampiero, Padova": null,
   "Österreich": null,
   "Šimuni (Simino)": null,
   "Šterna": {

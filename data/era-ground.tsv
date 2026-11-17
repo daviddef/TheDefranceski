@@ -4,6 +4,9 @@
 # string, a homonym nobody settled. The region (column 2) is NOT chosen by hand: scripts/build-era.py --decide <context.json> sets it from the
 # ring geometry of the Atlas's contract (the ring that contains the town's point); '-' means no region covers it, and no note is drawn.
 place	region	why	town
+1874	-	a country, region or town not yet placed; left silent	
+4 Floretin rear house, New York, New York	-	a country, region or town not yet placed; left silent	
+Aachen, Germany	-	a country, region or town not yet placed; left silent	
 Adelaide	-	Adelaide: inside no ring of the Atlas's regions	Adelaide
 Adelaide, South Australia, Australia	-	Adelaide: inside no ring of the Atlas's regions	Adelaide
 Ajdovščina	-	Ajdovščina: excluded: the carniola ring reaches over the Küstenland: Ajdovščina (Haidenschaft) lay in the County of Gorizia and Gradisca, not Carniola; left silent	Ajdovščina
@@ -14,10 +17,13 @@ Almissa, Spalato, Dalmazia, Austria	dalmatia	Omiš: inside the rings of dalmatia
 Amblàr, Trento, Italy	-	a country, region or town not yet placed; left silent	
 Argentina	-	a country, no point	
 Arlington, Virginia, USA	-	Arlington (Virginia): inside no ring of the Atlas's regions	Arlington (Virginia)
+Armonk, Westchester, New York	-	a country, region or town not yet placed; left silent	
+Arraial de Souzas, Campinas, São Paulo	-	a country, region or town not yet placed; left silent	
 Assunzione di Maria Santissima, Telve, Trento, Italy	trentino	Telve: inside the rings of trentino (the smallest, 10 km from its edge) and veneto	Telve
 Athens, Clarke County, Georgia, USA	-	Athens (Georgia): inside no ring of the Atlas's regions	Athens (Georgia)
 Athens, Clarke, Georgia	-	a country, region or town not yet placed; left silent	
 Atlanta, Georgia	-	Atlanta: inside no ring of the Atlas's regions	Atlanta
+Atlanta, Georgia, United States	-	Atlanta: inside no ring of the Atlas's regions	Atlanta
 Austria	-	a country, no point	
 B Calabro, Italy	-	a country, region or town not yet placed; left silent	
 Bad Urach	-	Bad Urach: inside no ring of the Atlas's regions	Bad Urach
@@ -27,49 +33,80 @@ Bakar, Primorsko-goranska	kvarner	Bakar: inside the ring of kvarner (12 km from 
 Bakar, Primorsko-goranska, Croatia	kvarner	Bakar: inside the ring of kvarner (12 km from its edge)	Bakar
 Bakar, Primorsko-goranska, Hrvatska	kvarner	Bakar: inside the ring of kvarner (12 km from its edge)	Bakar
 Bale	istria-south	Bale: inside the ring of istria-south (10 km from its edge)	Bale
+Baltimore, Maryland	-	a country, region or town not yet placed; left silent	
+Barban, Istria, Croatia	-	a country, region or town not yet placed; left silent	
 Basel, Switzerland	-	Basel: excluded: the alsace-lorraine ring reaches over Basel, which is Swiss	Basel
+Basel-Stadt, Switzerland	-	Basel: excluded: the alsace-lorraine ring reaches over Basel, which is Swiss	Basel
+Bastia, Corsica, France	-	a country, region or town not yet placed; left silent	
+Bedonia, Provincia di Parma, Emilia-Romagna	-	a country, region or town not yet placed; left silent	
 Belgrade, Serbia	serbia	Belgrade: inside the rings of serbia (the smallest, 8 km from its edge) and vojvodina	Belgrade
 Beverley, Western Australia	-	Beverley (Western Australia): inside no ring of the Atlas's regions	Beverley (Western Australia)
 Bitonto	-	a country, region or town not yet placed; left silent	
+Bol, Općina Bol, otok Brač	-	a country, region or town not yet placed; left silent	
 Bologna	-	Bologna: inside no ring of the Atlas's regions	Bologna
 Bologna · Milano	-	two or more places in one string: no single town	
 Bologna · Torino	-	two or more places in one string: no single town	
 Bolonha, Italy	-	a country, region or town not yet placed; left silent	
 Borgo Sansepolcro	-	Sansepolcro: inside no ring of the Atlas's regions	Sansepolcro
+Borgoricco, Padova, Veneto	-	a country, region or town not yet placed; left silent	
 Boulogne	-	a homonym (several places of the name), not settled	
+Bozen, Österreich	-	a country, region or town not yet placed; left silent	
+Branzoll	-	a country, region or town not yet placed; left silent	
+Branzoll, Bozen, Tirol	-	a country, region or town not yet placed; left silent	
+Brasil	-	a country, region or town not yet placed; left silent	
+Brescia	-	a country, region or town not yet placed; left silent	
 Brescia, Lombardia, Italia	-	a country, region or town not yet placed; left silent	
+Briana, Noale, Venezia	-	a country, region or town not yet placed; left silent	
 Brisbane, Queensland, Australia	queensland	Brisbane: inside the ring of queensland (56 km from its edge)	Brisbane
 Broken Hill, New South Wales, Australia	-	Broken Hill: inside no ring of the Atlas's regions	Broken Hill
 Bronx, New York, USA	-	Bronx: inside no ring of the Atlas's regions	Bronx
 Brtonigla	istria-west	Brtonigla: inside the ring of istria-west (12 km from its edge)	Brtonigla
+Brás, São Paulo, São Paulo	-	a country, region or town not yet placed; left silent	
+Budrio, Bologna, Emilia-Romagna	-	a country, region or town not yet placed; left silent	
 Buenos Aires · Washington	-	a route or two places in one string	
 Bulleen, Victoria, Australia	-	Bulleen: inside no ring of the Atlas's regions	Bulleen
 Bushnell, Sumter County, Florida, USA	-	Bushnell (Florida): inside no ring of the Atlas's regions	Bushnell (Florida)
 Cadillac, Wexford County, Michigan	-	Cadillac (Michigan): inside no ring of the Atlas's regions	Cadillac (Michigan)
+Campinas, São Paulo, Brasil	-	a country, region or town not yet placed; left silent	
+Campodarsego, Padua, Veneto	-	a country, region or town not yet placed; left silent	
 Candia, Crete	-	Candia: inside no ring of the Atlas's regions	Candia
+Capodistria, Diocese of Capodistria (Capo d’Istria)(Koper), Slovenia	-	a country, region or town not yet placed; left silent	
+Capraia	-	a country, region or town not yet placed; left silent	
+Caprino Bg	-	a country, region or town not yet placed; left silent	
+Carnia, Italy	-	a country, region or town not yet placed; left silent	
 Carnia, Mione, Italy	-	a country, region or town not yet placed; left silent	
+Carthage, Missouri, USA	-	a country, region or town not yet placed; left silent	
 Casca, Rio Grande do Sul, Brasil	-	a country, region or town not yet placed; left silent	
+Castel Guelfo di Bologna, Bologna, Emilia-Romagna	-	a country, region or town not yet placed; left silent	
 Castelgomberto, Italy	veneto	Castelgomberto: inside the ring of veneto (50 km from its edge)	Castelgomberto
 Castelgomberto, Vicenza	veneto	Castelgomberto: inside the ring of veneto (50 km from its edge)	Castelgomberto
 Castelgomberto, Vicenza, Veneto	veneto	Castelgomberto: inside the ring of veneto (50 km from its edge)	Castelgomberto
+Castelnovo Di Sotto	-	a country, region or town not yet placed; left silent	
 Castelnovo del Friuli, Pordenone	veneto	Castelnovo del Friuli: inside the ring of veneto (3 km from its edge)	Castelnovo del Friuli
+Castelnovo del Friuli, Pordenone, Friuli-Venezia Giulia	veneto	Castelnovo del Friuli: inside the ring of veneto (3 km from its edge)	Castelnovo del Friuli
+Castelnuovo, Friuli, Italy	-	a country, region or town not yet placed; left silent	
 Castronovo	-	a homonym (several places of the name), not settled	
 Castronovo → Torrington, Connecticut	-	a route or two places in one string	
 Cathedral City, Riverside County, California, USA	-	Cathedral City: inside no ring of the Atlas's regions	Cathedral City
 Cavrano → Pola	-	a route or two places in one string	
+Cefalonia e Zante, Greece	-	a country, region or town not yet placed; left silent	
 Chalfont, Bucks County, Pennsylvania, USA	-	Chalfont (Pennsylvania): inside no ring of the Atlas's regions	Chalfont (Pennsylvania)
+Charlieu, France	-	a country, region or town not yet placed; left silent	
 Chialina	carnia	Chialina: inside the rings of carnia (the smallest, 11 km from its edge) and veneto	Chialina
 Chiari, Brescia, Lombardia	-	a country, region or town not yet placed; left silent	
 Chiriqui, Panama	-	a country, region or town not yet placed; left silent	
 Clarksburg, Harrison County, West Virginia, USA	-	Clarksburg (West Virginia): inside no ring of the Atlas's regions	Clarksburg (West Virginia)
 Clarksburg, Harrison, West Virginia	-	Clarksburg (West Virginia): inside no ring of the Atlas's regions	Clarksburg (West Virginia)
+Clavaiis - Ovaro, 33025, Udine	-	a country, region or town not yet placed; left silent	
 Cles, Trento	trentino	Cles: inside the ring of trentino (10 km from its edge)	Cles
 Clifton, Passaic, New Jersey	-	Clifton (New Jersey): inside no ring of the Atlas's regions	Clifton (New Jersey)
 Clinton, East Feliciana Parish, Louisiana, USA	-	Clinton (Louisiana): inside no ring of the Atlas's regions	Clinton (Louisiana)
 Colonia, Uruguay	uruguay	Colonia del Sacramento: inside the ring of uruguay (6 km from its edge)	Colonia del Sacramento
 Colorado, Paraná, Brazil	-	a country, region or town not yet placed; left silent	
 Concesio, Brescia	-	Concesio: inside no ring of the Atlas's regions	Concesio
+Concord, New Hampshire, USA	-	a country, region or town not yet placed; left silent	
 Connecticut	-	a state, no point	
+Connecticut, United States	-	a country, region or town not yet placed; left silent	
 Cook, Illinois	-	a county, no point	
 Corrientes, Argentina	-	a country, region or town not yet placed; left silent	
 Corsica · France	-	a route or two places in one string	
@@ -79,9 +116,13 @@ Crikvenica, Modrus-Fiume, Mađarska	kvarner	Crikvenica: inside the ring of kvarn
 Croatia, parish not named	-	a country, no point	
 Croazia, Austria	-	a country, no point	
 Croydon, Surrey	england	Croydon: inside the ring of england (116 km from its edge)	Croydon
+Crystal Falls, Iron, Michigan	-	a country, region or town not yet placed; left silent	
 Dachau, Dachauer Landkreis, Bavaria (Bayern)	-	a country, region or town not yet placed; left silent	
 Dallas, Texas	-	Dallas: inside no ring of the Atlas's regions	Dallas
+Dallas, Texas, United States	-	Dallas: inside no ring of the Atlas's regions	Dallas
+Dearborn, MI, USA	-	a country, region or town not yet placed; left silent	
 Detroit, Wayne, Michigan	-	Detroit: inside no ring of the Atlas's regions	Detroit
+Doddridge, West Virginia, United States	-	a country, region or town not yet placed; left silent	
 Dolo, Venezia, Veneto, Italy	veneto	Dolo: inside the ring of veneto (44 km from its edge)	Dolo
 Draguč	-	Draguć: excluded: not settled whether Draguć was the County of Pazin's or Venice's; left silent	Draguć
 Dubrovnik	-	Dubrovnik: inside no ring of the Atlas's regions	Dubrovnik
@@ -90,6 +131,7 @@ Dueville, Vicenza	veneto	Dueville: inside the ring of veneto (58 km from its edg
 East Farmingdale, Suffolk County, New York, USA	-	East Farmingdale: inside no ring of the Atlas's regions	East Farmingdale
 El Trébol, San Martín, Santa Fe	-	a country, region or town not yet placed; left silent	
 Ellis Island	-	Ellis Island: inside no ring of the Atlas's regions	Ellis Island
+Eppan, Bolzano, Italien	-	a country, region or town not yet placed; left silent	
 Fasana	istria-south	Fažana: inside the ring of istria-south (18 km from its edge)	Fažana
 Fawkner, Victoria, Australia	-	Fawkner: inside no ring of the Atlas's regions	Fawkner
 Fažana	istria-south	Fažana: inside the ring of istria-south (18 km from its edge)	Fažana
@@ -97,6 +139,7 @@ Fažana (Fasana), Istria	istria-south	Fažana: inside the ring of istria-south (
 Fiera di Primiero, Trento	trentino	Fiera di Primiero: inside the rings of trentino (the smallest, 7 km from its edge) and veneto	Fiera di Primiero
 Fiera di Primiero, Trento, Trentino-Alto Adige	trentino	Fiera di Primiero: inside the rings of trentino (the smallest, 7 km from its edge) and veneto	Fiera di Primiero
 Fiume, Modrus-Fiume	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
+Fiume, Modrus-Fiume, Croatia	-	a country, region or town not yet placed; left silent	
 Fiume, Modrus-Fiume, Ungheria	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
 Fiume, Rijeka	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
 Forlì	-	Forlì: inside no ring of the Atlas's regions	Forlì
@@ -113,11 +156,13 @@ Gologorica → Gračišće	-	a route or two places in one string
 Gologorica, Istra	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gologorica, Istra, Croatia	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gologorica, Općina Cerovlje	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
+Gologorica, Općina Cerovlje, Istarska županija	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gologorica, Pazin, Istria	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gologorica, house 2	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gologorica, house 3	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gologorica, house 6 · 10	istria-central	Gologorica: inside the ring of istria-central (19 km from its edge)	Gologorica
 Gracisce, Istra	istria-central	Gračišće: inside the ring of istria-central (19 km from its edge)	Gračišće
+Gracisce, Istra, Croatia	istria-central	Gračišće: inside the ring of istria-central (19 km from its edge)	Gračišće
 Gračišće	istria-central	Gračišće: inside the ring of istria-central (19 km from its edge)	Gračišće
 Gračišće (Galignana) → Pola	-	a route or two places in one string	
 Gračišće (Gallignana)	istria-central	Gračišće: inside the ring of istria-central (19 km from its edge)	Gračišće
@@ -127,22 +172,33 @@ Gračišće (Gallignana), house 5	istria-central	Gračišće: inside the ring of
 Gračišće → Crikvenica	-	a route or two places in one string	
 Gračišće → Pola	-	a route or two places in one string	
 Gračišće, Istria	istria-central	Gračišće: inside the ring of istria-central (19 km from its edge)	Gračišće
+Gračišće, Istria, Croatia	istria-central	Gračišće: inside the ring of istria-central (19 km from its edge)	Gračišće
 Grecia	-	a country, region or town not yet placed; left silent	
+Grigno, Trento, Italy	-	Grigno: excluded: the veneto ring reaches over the Valsugana, which was Tyrol; it sits just outside the trentino ring	Grigno
 Harrison, West Virginia	-	a county, no point	
+Hartford, Hartford, Connecticut	-	a country, region or town not yet placed; left silent	
 Hartsdale, Westchester County, New York, USA	-	Hartsdale: inside no ring of the Atlas's regions	Hartsdale
 Horsham, Australia	-	Horsham (Victoria): inside no ring of the Atlas's regions	Horsham (Victoria)
 Horsham, Rural City of Horsham, Victoria, Australia	-	Horsham (Victoria): inside no ring of the Atlas's regions	Horsham (Victoria)
 Illegio, Tolmezzo	carnia	Illegio: inside the ring of carnia (10 km from its edge)	Illegio
 Immacolata Concezione, Strigno, Trento, Trentino-Alto Adige, Italia	trentino	Strigno: inside the rings of trentino (the smallest, 8 km from its edge) and veneto	Strigno
+Imotski	-	a country, region or town not yet placed; left silent	
+Imotski, Općina Imotski, Split-Dalmatia County	-	a country, region or town not yet placed; left silent	
+Imotski, Split-Dalmatia County, Croatia	-	a country, region or town not yet placed; left silent	
 Isola Vicentina, Vicenza, Veneto	-	a country, region or town not yet placed; left silent	
 Istra, Croatia	-	a country, region or town not yet placed; left silent	
 Istria	-	a province, no point	
+Italia	-	a country, region or town not yet placed; left silent	
 Italy	-	a country, no point	
+Italy, Italian North	-	a country, region or town not yet placed; left silent	
+Itália	-	a country, region or town not yet placed; left silent	
+Jaguari, Mogi Mirim, São Paulo	-	a country, region or town not yet placed; left silent	
 Johannesburg	transvaal	Johannesburg: inside the ring of transvaal (59 km from its edge)	Johannesburg
 Johannesburg, Gauteng, South Africa	transvaal	Johannesburg: inside the ring of transvaal (59 km from its edge)	Johannesburg
 Johannesburg, South Africa	transvaal	Johannesburg: inside the ring of transvaal (59 km from its edge)	Johannesburg
 Kanahooka, Wollongong, New South Wales, Australia	-	Kanahooka: inside no ring of the Atlas's regions	Kanahooka
 Kastav	-	Kastav: inside no ring of the Atlas's regions	Kastav
+Kastav, Croatia	-	Kastav: inside no ring of the Atlas's regions	Kastav
 Kastav? · Ljubljana	-	two or more places in one string: no single town	
 Kastelir	istria-west	Kaštelir: inside the ring of istria-west (11 km from its edge)	Kaštelir
 Kastelir, Croatia	istria-west	Kaštelir: inside the ring of istria-west (11 km from its edge)	Kaštelir
@@ -160,6 +216,8 @@ Klenovica, house 22 → Pfullingen	-	a route or two places in one string
 Koper	-	Koper: excluded: the carniola ring reaches over the Küstenland (Koper was Italian from 1918, Carniola not)	Koper
 Koper · Padua · Udine	-	a route or two places in one string	
 Korčula	-	Korčula: excluded: the bosnia ring reaches out over the Dalmatian coast and its islands; Korčula was Venetian then Dalmatian, never Bosnian; left silent	Korčula
+Kotor, Municipio de Kotor, Montenegro	-	a country, region or town not yet placed; left silent	
+Laag, Südtirol, Italien	-	a country, region or town not yet placed; left silent	
 Labin	-	Labin: excluded: the Albona (Labin) territory was Venetian; the istria-central ring (the County of Pazin, Habsburg) reaches over it	Labin
 Laives	trentino	Laives: inside the ring of trentino (2 km from its edge)	Laives
 Laives, Bolzano	trentino	Laives: inside the ring of trentino (2 km from its edge)	Laives
@@ -167,6 +225,7 @@ Laives, Bolzano, Italy	trentino	Laives: inside the ring of trentino (2 km from i
 Laives, Bolzano, South Tyrol	trentino	Laives: inside the ring of trentino (2 km from its edge)	Laives
 Laives, Bozen	trentino	Laives: inside the ring of trentino (2 km from its edge)	Laives
 Laives, Bozen, Tirol	trentino	Laives: inside the ring of trentino (2 km from its edge)	Laives
+Laives, Österreich	trentino	Laives: inside the ring of trentino (2 km from its edge)	Laives
 Lake City, Missaukee County, Michigan, USA	-	Lake City (Michigan): inside no ring of the Atlas's regions	Lake City (Michigan)
 Laterza, Taranto	-	Laterza: inside no ring of the Atlas's regions	Laterza
 Laterza, Taranto, Italy	-	Laterza: inside no ring of the Atlas's regions	Laterza
@@ -174,8 +233,13 @@ Laterza, Taranto, Puglia	-	Laterza: inside no ring of the Atlas's regions	Laterz
 Ledenice	kvarner	Ledenice: inside the ring of kvarner (16 km from its edge)	Ledenice
 Ledenice / Klenovica 22, Klenovica	-	two places in one string	
 Ledenice, Modrus-Fiume, Mađarska	kvarner	Ledenice: inside the ring of kvarner (16 km from its edge)	Ledenice
+Leifers, Bolzano, Italien	-	a country, region or town not yet placed; left silent	
+Lestans, Friuli-Venezia Giulia, Italy	veneto	Lestans: inside the ring of veneto (4 km from its edge)	Lestans
 Lestans, Sequals, Udine	veneto	Lestans: inside the ring of veneto (4 km from its edge)	Lestans
+Lestans, Udine, Friuli-Venezia Giulia	veneto	Lestans: inside the ring of veneto (4 km from its edge)	Lestans
+Levada, Piombino, Padova	-	a country, region or town not yet placed; left silent	
 Liariis, Ovaro	carnia	Liariis: inside the rings of carnia (the smallest, 12 km from its edge) and veneto	Liariis
+Liaris, Ovaro, Udine	-	a country, region or town not yet placed; left silent	
 Lilydale, Victoria, Australia	-	Lilydale (Victoria): inside no ring of the Atlas's regions	Lilydale (Victoria)
 Lilydale, Yarra Ranges Shire, Victoria, Australia	-	Lilydale (Victoria): inside no ring of the Atlas's regions	Lilydale (Victoria)
 Lismore, New South Wales, Australia	-	Lismore: excluded: the queensland ring reaches over north-eastern New South Wales	Lismore
@@ -188,18 +252,28 @@ Ližnjan, Istra	istria-south	Ližnjan: inside the ring of istria-south (7 km fro
 Ližnjan, Istra, Croatia	istria-south	Ližnjan: inside the ring of istria-south (7 km from its edge)	Ližnjan
 Ližnjan, Istria, Italia	istria-south	Ližnjan: inside the ring of istria-south (7 km from its edge)	Ližnjan
 Ljubljana · Kastav	-	two or more places in one string: no single town	
+Ljubljana, Slovenija, Jugoslavija	-	a country, region or town not yet placed; left silent	
 Loud Township, Montmorency County, Michigan, USA	-	Loud Township: inside no ring of the Atlas's regions	Loud Township
 Loud Township, Montmorency, Michigan	-	Loud Township: inside no ring of the Atlas's regions	Loud Township
 Luincis, Pieve di Santa Maria di Gorto	carnia	Luincis: inside the rings of carnia (the smallest, 11 km from its edge) and veneto	Luincis
 Luint, Mione	carnia	Luint: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Luint
+MI	-	a country, region or town not yet placed; left silent	
 Makarska	dalmatia	Makarska: inside the rings of dalmatia (the smallest, 7 km from its edge) and bosnia	Makarska
+Makarska, Općina Makarska, Split-Dalmatia County	dalmatia	Makarska: inside the rings of dalmatia (the smallest, 7 km from its edge) and bosnia	Makarska
+Mamel, East Prussia, Germany	-	a country, region or town not yet placed; left silent	
 Mandolacce di Tomino	-	Mandolacce: inside no ring of the Atlas's regions	Mandolacce
+Mansfield, DeSoto Parish, Louisiana	-	a country, region or town not yet placed; left silent	
 Marina (Trogir)	dalmatia	Marina: inside the ring of dalmatia (17 km from its edge)	Marina
+Marsango, Provincia Di Padova, Veneto	-	a country, region or town not yet placed; left silent	
+Martellago, Venezia, Veneto	-	a country, region or town not yet placed; left silent	
 Maryborough, Queensland, Australia	queensland	Maryborough (Queensland): inside the ring of queensland (90 km from its edge)	Maryborough (Queensland)
 Maryland, United States	-	a country, region or town not yet placed; left silent	
+Massanzago, Padova, Veneto	-	a country, region or town not yet placed; left silent	
+Masteleone, Italy	-	a country, region or town not yet placed; left silent	
 Mauthausen	-	Mauthausen: inside no ring of the Atlas's regions	Mauthausen
 Medulin	istria-south	Medulin: inside the ring of istria-south (7 km from its edge)	Medulin
 Medulin → Pola	-	a route or two places in one string	
+Medulin, Croatia	istria-south	Medulin: inside the ring of istria-south (7 km from its edge)	Medulin
 Medulin, Istra	istria-south	Medulin: inside the ring of istria-south (7 km from its edge)	Medulin
 Memphis, Shelby County, Tennessee	-	Memphis: inside no ring of the Atlas's regions	Memphis
 Memphis, Shelby, Tennessee	-	Memphis: inside no ring of the Atlas's regions	Memphis
@@ -212,13 +286,23 @@ Middle Village, Queens County, New York, USA	-	Middle Village: inside no ring of
 Milan, Lombardia, Italy	-	Milan: inside no ring of the Atlas's regions	Milan
 Millbrook, Dutchess County, New York, USA	-	Millbrook (New York): inside no ring of the Atlas's regions	Millbrook (New York)
 Mione	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
+Mione - Ovaro, 33025, Udine	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
 Mione → Ovaro	-	a route or two places in one string	
 Mione, Ovaro	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
+Mione, Ovaro, Italy	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
 Mione, Ovaro, Udine	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
 Mione, Ovaro, Udine, Friuli Venezia Giulia, Italia	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
 Mione, Ovaro, Udine, Italia	carnia	Mione: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Mione
 Mitchell, Canberra, ACT, Australia	-	Mitchell (ACT): inside no ring of the Atlas's regions	Mitchell (ACT)
+Mogi Mirim, São Paulo, Brasil	-	a country, region or town not yet placed; left silent	
+Mogliano Veneto, Treviso	-	a country, region or town not yet placed; left silent	
+Molinella, Bologna, Emilia-Romagna	-	Molinella: inside no ring of the Atlas's regions	Molinella
 Molinella, Bologna, Emilia-Romagna, Italia	-	Molinella: inside no ring of the Atlas's regions	Molinella
+Moniego di Noale	-	a country, region or town not yet placed; left silent	
+Moniego, Noale, Venezia	-	a country, region or town not yet placed; left silent	
+Monteleone, Province of Calabria, Kingdom of Italy	-	a country, region or town not yet placed; left silent	
+Mostacin	-	a country, region or town not yet placed; left silent	
+Mostacin, Italy	-	a country, region or town not yet placed; left silent	
 Muina, Ovaro	carnia	Muina: inside the rings of carnia (the smallest, 11 km from its edge) and veneto	Muina
 Muina, Ovaro — married at Svetvinčenat	-	two places in one string	
 Napoli, Napoli, Italia	-	a country, region or town not yet placed; left silent	
@@ -227,9 +311,11 @@ Naunina, Paluzza, Udine	carnia	Naunina: inside the ring of carnia (12 km from it
 Naunina, Paluzza, Udine, Italia	carnia	Naunina: inside the ring of carnia (12 km from its edge)	Naunina
 Neuhausen	-	a homonym (several places of the name), not settled	
 Neuhausen, Kreis Reutlingen	-	a homonym (several places of the name), not settled	
+New Jersey, USA	-	a country, region or town not yet placed; left silent	
 New South Wales, Australia	-	a state, no point	
 New York	-	New York: inside no ring of the Atlas's regions	New York
 Niles, Cook County, Illinois, USA	-	Niles (Illinois): inside no ring of the Atlas's regions	Niles (Illinois)
+Noale, Venezia, Veneto	-	a country, region or town not yet placed; left silent	
 North Lismore, New South Wales, Australia	-	North Lismore: excluded: the queensland ring reaches over north-eastern New South Wales	North Lismore
 Novaki	-	a homonym (several places of the name), not settled	
 Novo Cabrais, Cachoeira do Sul, Rio Grande do Sul	-	a country, region or town not yet placed; left silent	
@@ -239,28 +325,37 @@ Omiš	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its
 Omiš · Imotski	-	a route or two places in one string	
 Omiš · Zadar	-	a route or two places in one string	
 Omiš, Općina Omiš, Split-Dalmatia County	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
+Omiš, Split, Croatia	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
+Omiš, Split-Dalmatia County, Croatia	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
 Omiš, Split-Dalmatia, Croazia	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
 Omiš, Splitsko-dalmatinska	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
 Omiš, Splitsko-dalmatinska, Hrvatska	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
+Općina Trogir / Omiš	-	a country, region or town not yet placed; left silent	
 Osijek · Istria	-	a route or two places in one string	
 Osoppo (Friuli) → Pola	-	a route or two places in one string	
+Osoppo, Udine, Italy	-	a country, region or town not yet placed; left silent	
 Ovaro	carnia	Ovaro: inside the rings of carnia (the smallest, 11 km from its edge) and veneto	Ovaro
 Ovaro, Udine	carnia	Ovaro: inside the rings of carnia (the smallest, 11 km from its edge) and veneto	Ovaro
 Ovasta, Mione	carnia	Ovasta: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Ovasta
+Ovasta, Ovaro, Udine	carnia	Ovasta: inside the rings of carnia (the smallest, 10 km from its edge) and veneto	Ovasta
 Padova, Padova, Veneto	-	a country, region or town not yet placed; left silent	
 Padova, Veneto, Italy	veneto	Padua: inside the ring of veneto (45 km from its edge)	Padua
 Padua, Veneto, Italy	veneto	Padua: inside the ring of veneto (45 km from its edge)	Padua
+Pag, Croatia	-	Pag: excluded: the vojna-krajina ring (the Military Frontier) reaches over the island of Pag, which was Dalmatia	Pag
 Pag, Zara, Dalmatien, Österreich	-	Pag: excluded: the vojna-krajina ring (the Military Frontier) reaches over the island of Pag, which was Dalmatia	Pag
 Paluzza, Udine	carnia	Paluzza: inside the ring of carnia (12 km from its edge)	Paluzza
 Paluzza, Udine, Italia	carnia	Paluzza: inside the ring of carnia (12 km from its edge)	Paluzza
 Parenzo (Poreč)	istria-west	Poreč: inside the ring of istria-west (8 km from its edge)	Poreč
+Paris, France	-	a country, region or town not yet placed; left silent	
 Parkville, Victoria, Australia	-	Parkville (Victoria): inside no ring of the Atlas's regions	Parkville (Victoria)
 Pasian di Prato, Udine	-	Pasian di Prato: inside no ring of the Atlas's regions	Pasian di Prato
 Pasian di Prato, Udine, Italy	-	Pasian di Prato: inside no ring of the Atlas's regions	Pasian di Prato
 Pazin	istria-central	Pazin: inside the ring of istria-central (14 km from its edge)	Pazin
 Pazin (Pisino)	istria-central	Pazin: inside the ring of istria-central (14 km from its edge)	Pazin
 Pazin · Graz · Ljubljana	-	two or more places in one string: no single town	
+Pazin, Općina Pazin, Istria County	istria-central	Pazin: inside the ring of istria-central (14 km from its edge)	Pazin
 Pederobba, Treviso, Italy	veneto	Pederobba: inside the ring of veneto (59 km from its edge)	Pederobba
+Pedreira, São Paulo, Brasil	-	a country, region or town not yet placed; left silent	
 Pfullingen	-	Pfullingen: inside no ring of the Atlas's regions	Pfullingen
 Phoenix, Maricopa County, Arizona, USA	-	Phoenix: inside no ring of the Atlas's regions	Phoenix
 Pieve di Santa Maria di Gorto	carnia	Ovaro: inside the rings of carnia (the smallest, 11 km from its edge) and veneto	Ovaro
@@ -273,21 +368,28 @@ Pola	istria-south	Pula: inside the ring of istria-south (15 km from its edge)	Pu
 Pola, Italia	istria-south	Pula: inside the ring of istria-south (15 km from its edge)	Pula
 Pomer	istria-south	Pomer: inside the ring of istria-south (9 km from its edge)	Pomer
 Pomer → Pula	-	a route or two places in one string	
+Pomer, Croatia	istria-south	Pomer: inside the ring of istria-south (9 km from its edge)	Pomer
 Pomer, Istra	istria-south	Pomer: inside the ring of istria-south (9 km from its edge)	Pomer
 Pomer, Istra, Croatia	istria-south	Pomer: inside the ring of istria-south (9 km from its edge)	Pomer
+Pordenone, Italy	-	a country, region or town not yet placed; left silent	
 Poreč	istria-west	Poreč: inside the ring of istria-west (8 km from its edge)	Poreč
 Poreč → Pola	-	a route or two places in one string	
 Poreč, Croatia	istria-west	Poreč: inside the ring of istria-west (8 km from its edge)	Poreč
+Poreč, Istra, Croatia	istria-west	Poreč: inside the ring of istria-west (8 km from its edge)	Poreč
 Poreč, Požeško-slavonska, Croazia	istria-west	Poreč: inside the ring of istria-west (8 km from its edge)	Poreč
+Porto Alegre, Rio Grande do Sul, Brasil	-	Porto Alegre: inside no ring of the Atlas's regions	Porto Alegre
 Porto Alegre, Rio Grande do Sul, Brazil	-	Porto Alegre: inside no ring of the Atlas's regions	Porto Alegre
 Portodenoue	-	a country, region or town not yet placed; left silent	
 Postira	dalmatia	Postira: inside the rings of dalmatia (the smallest, 18 km from its edge) and bosnia	Postira
 Postira, Spalato, Dalmazia, Austria	dalmatia	Postira: inside the rings of dalmatia (the smallest, 18 km from its edge) and bosnia	Postira
+Praga	-	a country, region or town not yet placed; left silent	
 Prague · Vienna	-	a route or two places in one string	
 Premantura	istria-south	Premantura: inside the ring of istria-south (6 km from its edge)	Premantura
+Premantura, Croatia	istria-south	Premantura: inside the ring of istria-south (6 km from its edge)	Premantura
 Promontore	istria-south	Premantura: inside the ring of istria-south (6 km from its edge)	Premantura
 Promontore, Istra, Croazia	istria-south	Premantura: inside the ring of istria-south (6 km from its edge)	Premantura
 Provincia di Parma	-	a province, no point	
+Puerto Rico	-	a country, region or town not yet placed; left silent	
 Puerto Rico, Estados Unidos de América	-	a territory, no point	
 Pula	istria-south	Pula: inside the ring of istria-south (15 km from its edge)	Pula
 Pula (Pola)	istria-south	Pula: inside the ring of istria-south (15 km from its edge)	Pula
@@ -297,11 +399,13 @@ Pula, Istria, Croatia	istria-south	Pula: inside the ring of istria-south (15 km 
 Pula, Istria, Küstenland, Austria	istria-south	Pula: inside the ring of istria-south (15 km from its edge)	Pula
 Queens, New York	-	Queens: inside no ring of the Atlas's regions	Queens
 Ragusa, Dubrovnik	-	Dubrovnik: inside no ring of the Atlas's regions	Dubrovnik
+Ravina. Trento, Italien	trentino	Ravina: inside the rings of trentino (the smallest, 15 km from its edge) and veneto	Ravina
 Ravina/Trentino	trentino	Ravina: inside the rings of trentino (the smallest, 15 km from its edge) and veneto	Ravina
 Rijeka	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
 Rijeka, Croatia	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
 Rijeka, Modrus-Fiume, Hungary	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
 Rijeka, Primorsko-goranska, Hrvatska	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
+Rio San Martino (scorze VE)	-	a country, region or town not yet placed; left silent	
 Rio de Janeiro, Brazil	-	Rio de Janeiro: inside no ring of the Atlas's regions	Rio de Janeiro
 Rio de Janeiro, Rio de Janeiro, Brasil	-	Rio de Janeiro: inside no ring of the Atlas's regions	Rio de Janeiro
 River Grove, Cook County, Illinois, USA	-	River Grove: inside no ring of the Atlas's regions	River Grove
@@ -313,11 +417,16 @@ Rivolta d'Adda, Cremona, Lombardy, Italy	-	Rivolta d'Adda: inside no ring of the
 Robegano, Salzano, Venezia	veneto	Robegano: inside the ring of veneto (54 km from its edge)	Robegano
 Rome	lazio	Rome: inside the ring of lazio (33 km from its edge)	Rome
 Rome, Lazio, Italy	lazio	Rome: inside the ring of lazio (33 km from its edge)	Rome
+Romeno, Trient, Tirol	-	a country, region or town not yet placed; left silent	
 Rookwood, New South Wales, Australia	-	Rookwood: inside no ring of the Atlas's regions	Rookwood
 Rosario, Rosario, Santa Fe	-	a country, region or town not yet placed; left silent	
 Rovereto, Trento, Italy	trentino	Rovereto: inside the rings of trentino (the smallest, 2 km from its edge) and veneto	Rovereto
 Rovigno (Rovinj)	istria-south	Rovinj: inside the ring of istria-south (6 km from its edge)	Rovinj
 Rovinj	istria-south	Rovinj: inside the ring of istria-south (6 km from its edge)	Rovinj
+SCORZE	-	a country, region or town not yet placed; left silent	
+Saint-Jean-Froidmentel, France	-	a country, region or town not yet placed; left silent	
+Salorno, Bolzano, Trentino-Alto Adige	-	a country, region or town not yet placed; left silent	
+Salò	-	a country, region or town not yet placed; left silent	
 San Daniele del Friuli	-	San Daniele del Friuli: inside no ring of the Atlas's regions	San Daniele del Friuli
 San Germán, Puerto Rico, USA	-	San Germán: inside no ring of the Atlas's regions	San Germán
 San Giacomo, Grigno, Trento, Italy	-	Grigno: excluded: the veneto ring reaches over the Valsugana, which was Tyrol; it sits just outside the trentino ring	Grigno
@@ -327,21 +436,34 @@ San Lorenzo, San Lorenzo, Santa Fe	-	a country, region or town not yet placed; l
 San Lorenzo, Santa Fe	santafe	San Lorenzo (Santa Fe): inside the ring of santafe (115 km from its edge)	San Lorenzo (Santa Fe)
 San Lorenzo, Santa Fe, Argentina	santafe	San Lorenzo (Santa Fe): inside the ring of santafe (115 km from its edge)	San Lorenzo (Santa Fe)
 San Rocco di Vernazza, Genoa	-	Vernazza: inside no ring of the Atlas's regions	Vernazza
+Sancy, 54560, Meurthe-et-Moselle	-	a country, region or town not yet placed; left silent	
 Sansepolcro, Tuscany	-	Sansepolcro: inside no ring of the Atlas's regions	Sansepolcro
 Sansepolcro, Tuscany, Italy	-	Sansepolcro: inside no ring of the Atlas's regions	Sansepolcro
+Santa Gustina-Belluno-Vénétie-Italie	-	a country, region or town not yet placed; left silent	
 Santa Maria Assunta, Fiera di Primiero, Trento, Trentino-Alto Adige, Italia	trentino	Fiera di Primiero: inside the rings of trentino (the smallest, 7 km from its edge) and veneto	Fiera di Primiero
 Santa Maria del Carmelo, Rovereto, Trento	trentino	Rovereto: inside the rings of trentino (the smallest, 2 km from its edge) and veneto	Rovereto
 Santa Maria di Sala, Venezia, Veneto, Italy	veneto	Santa Maria di Sala: inside the ring of veneto (55 km from its edge)	Santa Maria di Sala
+Santa Rita do Passa Quatro, São Paulo, Brasi	-	a country, region or town not yet placed; left silent	
+Santa Rita do Passa Quatro, São Paulo, Brasil	-	a country, region or town not yet placed; left silent	
 Santi Angeli Custodi, Genoa	-	Genoa: inside no ring of the Atlas's regions	Genoa
 Santo Antônio de Posse, São Paulo, Brasil	-	a country, region or town not yet placed; left silent	
+Santo Stefano Protomartire, Cloz, Trento	-	a country, region or town not yet placed; left silent	
+Sao Paulo	-	São Paulo: inside no ring of the Atlas's regions	São Paulo
 Sao Paulo, Brazil	-	a country, region or town not yet placed; left silent	
+Sassari, Sassari, Sardinia	-	Sassari: inside no ring of the Atlas's regions	Sassari
 Sassari, Sassari, Sardinia, Italy	-	Sassari: inside no ring of the Atlas's regions	Sassari
+Sasso Marconi, Italy	-	a country, region or town not yet placed; left silent	
+Scorzè, Venezia	-	a country, region or town not yet placed; left silent	
+Scorzè, Venezia, Veneto	-	a country, region or town not yet placed; left silent	
 Seget	dalmatia	Seget: inside the ring of dalmatia (26 km from its edge)	Seget
 Senj → Crikvenica → Harare → Johannesburg	-	a route or two places in one string	
 Senj → Harare → Johannesburg → Brisbane	-	a route or two places in one string	
 Seqnols, Italy	-	a country, region or town not yet placed; left silent	
 Sequals	veneto	Sequals: inside the ring of veneto (3 km from its edge)	Sequals
 Sequals → Washington, D.C.	-	a route or two places in one string	
+Sequals, Friuli-Venezia Giulia, Italy	veneto	Sequals: inside the ring of veneto (3 km from its edge)	Sequals
+Sequals, Pordenone, Frioul-Venetie Julienne	veneto	Sequals: inside the ring of veneto (3 km from its edge)	Sequals
+Sequals, Pordenone, Frioul-Vénétie julienne	veneto	Sequals: inside the ring of veneto (3 km from its edge)	Sequals
 Serodino, Iriondo, Santa Fe	-	a country, region or town not yet placed; left silent	
 Sherwood Park, Alberta, Canada	-	Sherwood Park: inside no ring of the Atlas's regions	Sherwood Park
 Siena · Venice	-	a route or two places in one string	
@@ -354,6 +476,8 @@ Sovinjak	-	Sovinjak: excluded: not settled whether Sovinjak was the County of Pa
 Spalato, Dalmazia, Austria	dalmatia	Split: inside the rings of dalmatia (the smallest, 33 km from its edge) and bosnia	Split
 Split	dalmatia	Split: inside the rings of dalmatia (the smallest, 33 km from its edge) and bosnia	Split
 Split (Sv. Dujam)	dalmatia	Split: inside the rings of dalmatia (the smallest, 33 km from its edge) and bosnia	Split
+Split, Općina Split, Splitsko-dalmatinska županija	dalmatia	Split: inside the rings of dalmatia (the smallest, 33 km from its edge) and bosnia	Split
+Split-Dalmatia County, Croatia	dalmatia	Split: inside the rings of dalmatia (the smallest, 33 km from its edge) and bosnia	Split
 Split-Veli Varoš	dalmatia	Split: inside the rings of dalmatia (the smallest, 33 km from its edge) and bosnia	Split
 Sterna	istria-west	Šterna: inside the ring of istria-west (2 km from its edge)	Šterna
 Sterna, Litorale Austriaco, Austria	istria-west	Šterna: inside the ring of istria-west (2 km from its edge)	Šterna
@@ -368,6 +492,8 @@ Switzerland	-	a country, region or town not yet placed; left silent
 São José do Rio Preto, São Paulo, Brazil	-	a country, region or town not yet placed; left silent	
 São Paulo, Brasil	-	São Paulo: inside no ring of the Atlas's regions	São Paulo
 São Paulo, Brazil	-	São Paulo: inside no ring of the Atlas's regions	São Paulo
+São Paulo, São Paulo, Brazil	-	São Paulo: inside no ring of the Atlas's regions	São Paulo
+São Paulo, São Paulo, São Paulo	-	São Paulo: inside no ring of the Atlas's regions	São Paulo
 Tar	istria-west	Tar: inside the ring of istria-west (13 km from its edge)	Tar
 Taranto, Italy	-	a country, region or town not yet placed; left silent	
 Tarsatica, Modrus-Fiume	kvarner	Trsat: inside the ring of kvarner (7 km from its edge)	Trsat
@@ -375,33 +501,49 @@ Telve, Trentin	trentino	Telve: inside the rings of trentino (the smallest, 10 km
 Telve, Trentin, Italien	trentino	Telve: inside the rings of trentino (the smallest, 10 km from its edge) and veneto	Telve
 Telve, Trento	trentino	Telve: inside the rings of trentino (the smallest, 10 km from its edge) and veneto	Telve
 Telve, Trento, Italy	trentino	Telve: inside the rings of trentino (the smallest, 10 km from its edge) and veneto	Telve
+Tennessee, United States	-	a country, region or town not yet placed; left silent	
 Thiébauménil, Meurthe-et-Moselle, France	-	Thiébauménil: excluded: the alsace-lorraine ring reaches over Meurthe-et-Moselle, which stayed French after 1871	Thiébauménil
 Thunder Bay, Ontario, Canada	-	Thunder Bay: inside no ring of the Atlas's regions	Thunder Bay
 Thunder Bay, Thunder Bay District, Ontario	-	Thunder Bay: inside no ring of the Atlas's regions	Thunder Bay
 Tignale, Brescia, Lombardia, Italy	-	Tignale: inside no ring of the Atlas's regions	Tignale
 Tirol	-	a province, no point	
+Tolmezzo	-	a country, region or town not yet placed; left silent	
 Tomino	-	a homonym (several places of the name), not settled	
 Tomino, Haute-Corse	-	Tomino (Haute-Corse): inside no ring of the Atlas's regions	Tomino (Haute-Corse)
 Torrington L*, Connecticut, United States	-	a country, region or town not yet placed; left silent	
 Torrington, Litchfield County, Connecticut	-	Torrington (Connecticut): inside no ring of the Atlas's regions	Torrington (Connecticut)
 Torrington, Litchfield County, Connecticut, USA	-	Torrington (Connecticut): inside no ring of the Atlas's regions	Torrington (Connecticut)
+Torrington, Litchfield, Connecticut	-	a country, region or town not yet placed; left silent	
+Trebaseleghe Padova	-	a country, region or town not yet placed; left silent	
 Trento, Sacco	-	a province and a parish district, the point is not settled	
 Trento, Sacco, Parrochia di San Giovanni Battista	-	a province and a parish district, the point is not settled	
 Trento, Trento, Trentino-Alto Adige	-	a country, region or town not yet placed; left silent	
+Trenton, Mercer, New Jersey	-	a country, region or town not yet placed; left silent	
+Triest, Küstenland	-	a country, region or town not yet placed; left silent	
 Trieste	-	Trieste: excluded: the carniola ring reaches over the Küstenland (Trieste was Italian from 1918, Carniola not)	Trieste
+Trogir, Općina Trogir, Split-Dalmatia County	-	a country, region or town not yet placed; left silent	
+Trostberg, Traunstein, Oberbayern	-	a country, region or town not yet placed; left silent	
+Udine, Castelunova, Italy	-	Udine: inside no ring of the Atlas's regions	Udine
 Udine, Udine, Friuli-Venezia Giulia	-	Udine: inside no ring of the Atlas's regions	Udine
 Urach	-	a homonym (several places of the name), not settled	
 Urach, Württemberg	-	Bad Urach: inside no ring of the Atlas's regions	Bad Urach
 Uruguay	-	a country, no point	
+Valinhos, Campinas, São Paulo	-	a country, region or town not yet placed; left silent	
 Varaždin	civil-croatia	Varaždin: inside the rings of civil-croatia (the smallest, 2 km from its edge) and carniola, hungary	Varaždin
+Vedelago, Treviso, Veneto	-	a country, region or town not yet placed; left silent	
 Veglia (Krk) → Pola	-	a route or two places in one string	
 Venezia	veneto	Venice: inside the ring of veneto (33 km from its edge)	Venice
+Venezia, Veneto, Italia	-	a country, region or town not yet placed; left silent	
 Venice	veneto	Venice: inside the ring of veneto (33 km from its edge)	Venice
 Venice · Padua	-	a route or two places in one string	
 Venice · Zadar	-	a route or two places in one string	
 Venice, Veneto, Italy	veneto	Venice: inside the ring of veneto (33 km from its edge)	Venice
+Vicenza, Veneto, Itália	-	a country, region or town not yet placed; left silent	
 Vicenza, Vicenza, Veneto	-	a country, region or town not yet placed; left silent	
 Vigonza, Padova, Veneto, Italy	veneto	Vigonza: inside the ring of veneto (46 km from its edge)	Vigonza
+Villa Lagarina	-	a country, region or town not yet placed; left silent	
+Villanova di Camposampiero, Padova, Veneto	-	a country, region or town not yet placed; left silent	
+Villanova, Camposampiero, Padova	-	a country, region or town not yet placed; left silent	
 Visinada → Pola	-	a route or two places in one string	
 Vitipolis, Modrus-Fiume	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
 Vitipolis, Modrus-Fiume, Magyarország	kvarner	Rijeka: inside the ring of kvarner (6 km from its edge)	Rijeka
@@ -413,8 +555,10 @@ Volosca (Volosko)	-	Volosko: inside no ring of the Atlas's regions	Volosko
 Volosca, Opatija	-	Volosko: inside no ring of the Atlas's regions	Volosko
 Vrsar	istria-west	Vrsar: inside the ring of istria-west (2 km from its edge)	Vrsar
 Washington, District of Columbia, USA	-	Washington (DC): inside no ring of the Atlas's regions	Washington (DC)
+Washington, District of Columbia, United States	-	a country, region or town not yet placed; left silent	
 Washington, Washington D C, United States	-	a country, region or town not yet placed; left silent	
 Wayne, Michigan	-	Wayne (Michigan): inside no ring of the Atlas's regions	Wayne (Michigan)
+West Virginia, United States	-	a country, region or town not yet placed; left silent	
 Whiting, Ocean County, New Jersey, USA	-	Whiting (New Jersey): inside no ring of the Atlas's regions	Whiting (New Jersey)
 Willowbank, City of Ipswich, Queensland, Australia	queensland	Willowbank: inside the ring of queensland (92 km from its edge)	Willowbank
 Wimber, Pennsylvania, United States	-	a country, region or town not yet placed; left silent	
@@ -426,13 +570,11 @@ Zagreb	civil-croatia	Zagreb: inside the rings of civil-croatia (the smallest, 20
 Zagreb (widow of Grga Defranceschi of Ližnjan)	civil-croatia	Zagreb: inside the rings of civil-croatia (the smallest, 20 km from its edge) and carniola, vojna-krajina	Zagreb
 Zagreb, City of Zagreb, Croatia	civil-croatia	Zagreb: inside the rings of civil-croatia (the smallest, 20 km from its edge) and carniola, vojna-krajina	Zagreb
 Zoppola, Udine, Italia	-	a country, region or town not yet placed; left silent	
+Zürich, Switzerland	-	a country, region or town not yet placed; left silent	
 born Ližnjan (Istra); died Zagreb	-	a route or two places in one string	
 dalmatia	-	a province, no point	
+of Omiš, Općina Omiš, Split-Dalmatia County	dalmatia	Omiš: inside the rings of dalmatia (the smallest, 24 km from its edge) and bosnia	Omiš
+of Villanova, Camposampiero, Padova	-	a country, region or town not yet placed; left silent	
 Österreich	-	a country, no point	
 Šimuni (Simino)	-	Šimuni: excluded: the vojna-krajina ring (the Military Frontier) reaches over the island of Pag, which was Dalmatia	Šimuni
 Šterna	istria-west	Šterna: inside the ring of istria-west (2 km from its edge)	Šterna
-Aachen, Germany	-	a country, region or town not yet placed; left silent	
-Bastia, Corsica, France	-	a country, region or town not yet placed; left silent	
-Charlieu, France	-	a country, region or town not yet placed; left silent	
-Paris, France	-	a country, region or town not yet placed; left silent	
-Saint-Jean-Froidmentel, France	-	a country, region or town not yet placed; left silent	
