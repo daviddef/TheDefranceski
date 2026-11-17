@@ -32,6 +32,9 @@ const rows = c.rows;
 /* the anchor of each entry (c-<day>-<hash of the headline>), from the SAME rows in FILE order that src/lib/pulse.js hands buildPulse as `corrections`, so a
    card on /whats-new/ lands on its entry. */
 const ids = corrIdMap(c.rows);
+/* the kit puts every internal address through `u`, and the Sources chip of a plate link is the in-page anchor "#plate-<id>": based, it became "/#plate-<id>"
+   (the kit's anchors gate found 28 of them pointing at the home page). An anchor stays an anchor. */
+const uh = (p) => String(p).startsWith("#") ? p : u(p);
 /* the archive's catalogue of register books (parishbooks.json), so "the Svetvinčenat baptism book 1764-1791" in a correction links to that volume's
    FamilySearch image; a volume with no ark is left out. */
 const arkOf = (parish, label) => { const a = pb.links?.[parish]?.[label]?.ark; return a ? `https://www.familysearch.org/ark:/61903/${a}` : ""; };
@@ -69,7 +72,7 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
 <Rule name="arrows" label="The list" />
 
 <section class="blk">
-  <Corrections u={u} major="Serious" books={books} places={places} rows={rows.map(r => ({
+  <Corrections u={uh} major="Serious" books={books} places={places} rows={rows.map(r => ({
     id: ids.get(r),
     about: r.for,
     when: r.when,
