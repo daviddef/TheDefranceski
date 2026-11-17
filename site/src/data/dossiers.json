@@ -3479,6 +3479,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "marie-defranceschi",
      "name": "Marie Defranceschi"
     },
@@ -3493,10 +3497,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -11357,9 +11357,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -12139,9 +12140,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -13281,66 +13283,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria De Franceschi",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -13371,6 +13314,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -13469,25 +13418,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria De Franceschi",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": {
     "id": "X9DG-T88P",
@@ -13582,6 +13517,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "maria-di-nardo-defranceschi",
      "name": "Maria di Nardo Defranceschi"
     },
@@ -13600,10 +13539,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -16171,66 +16106,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -16261,6 +16137,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -16359,25 +16241,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": {
     "id": "X9DP-QDF8",
@@ -16473,6 +16341,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "maria-di-giacomo-defranceschi-1733",
      "name": "Maria di Giacomo Defranceschi (1733)"
     },
@@ -16491,10 +16363,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -20774,7 +20642,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -22198,9 +22066,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -28867,6 +28736,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -28877,10 +28750,6 @@
     {
      "slug": "marietta-de-franceschi",
      "name": "Marietta De Franceschi"
-    },
-    {
-     "slug": "marietta-defranceschi",
-     "name": "Marietta Defranceschi"
     }
    ]
   },
@@ -29913,7 +29782,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -30485,7 +30354,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -30907,7 +30776,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -31345,7 +31214,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -32253,7 +32122,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -32634,7 +32503,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -33218,7 +33087,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -33798,7 +33667,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -34113,7 +33982,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -34544,7 +34413,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -35217,7 +35086,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -36361,7 +36230,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -41108,66 +40977,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Ivich)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -41198,6 +41008,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -41296,25 +41112,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Ivich)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -41395,6 +41197,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -41413,10 +41219,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -43104,7 +42906,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -44420,66 +44222,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Marcorich)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -44510,6 +44253,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -44608,25 +44357,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Marcorich)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -44707,6 +44442,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -44725,10 +44464,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -46349,7 +46084,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -48689,7 +48424,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -48705,7 +48440,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -48731,14 +48466,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -49096,7 +48831,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -49112,7 +48847,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -49138,14 +48873,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -51128,7 +50863,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -51348,7 +51083,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -51878,7 +51613,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -52062,7 +51797,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -52460,7 +52195,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -56555,66 +56290,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Dobrez)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -56645,6 +56321,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -56743,25 +56425,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Dobrez)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -56842,6 +56510,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -56860,10 +56532,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -60002,7 +59670,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -60366,7 +60034,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -62982,7 +62650,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -71869,66 +71537,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Perkovic)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -71959,6 +71568,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -72057,25 +71672,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Perkovic)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -72156,6 +71757,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -72174,10 +71779,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -72521,7 +72122,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -84889,7 +84490,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -85866,6 +85467,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -85880,10 +85485,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -90613,7 +90214,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -93950,7 +93551,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -100060,7 +99661,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -100706,7 +100307,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -104329,7 +103930,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -108397,7 +107998,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -111849,66 +111450,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Browachio)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -111939,6 +111481,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -112037,25 +111585,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Browachio)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -112136,6 +111670,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -112154,10 +111692,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -112600,66 +112134,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Buman)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -112690,6 +112165,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -112788,25 +112269,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Buman)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -112887,6 +112354,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -112905,10 +112376,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -113351,66 +112818,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Contossich)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -113441,6 +112849,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -113539,25 +112953,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Contossich)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -113638,6 +113038,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -113656,10 +113060,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -114107,66 +113507,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Covaz)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -114197,6 +113538,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -114295,25 +113642,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Covaz)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -114394,6 +113727,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -114412,10 +113749,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -116775,7 +116108,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -117293,7 +116626,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -117563,7 +116896,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -122533,7 +121866,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -126078,7 +125411,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -129671,7 +129004,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -131438,7 +130771,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -133112,7 +132445,7 @@
      "n": "Maria De Franceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -134954,6 +134287,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -134968,10 +134305,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -146164,7 +145497,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -146180,7 +145513,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -148329,6 +147662,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -148343,10 +147680,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -148667,7 +148000,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -153217,66 +152550,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria De Franceschi (of Paluzza)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -153307,6 +152581,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -153405,25 +152685,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria De Franceschi (of Paluzza)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -153504,6 +152770,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -153522,10 +152792,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -156955,7 +156221,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -157487,7 +156753,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -157740,6 +157006,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -157754,10 +157024,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -158936,9 +158202,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -161176,9 +160443,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -161446,9 +160714,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -161946,66 +161215,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria de Franceschi (daughter of Antonio)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -162036,6 +161246,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -162134,25 +161350,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria de Franceschi (daughter of Antonio)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -162233,6 +161435,10 @@
      "name": "Maria Defranceski"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -162251,10 +161457,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -162443,9 +161645,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -162499,7 +161702,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -176462,7 +175665,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -176478,7 +175681,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -176504,14 +175707,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -178296,9 +177499,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -180631,7 +179835,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -184414,7 +183618,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -190957,7 +190161,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -191861,7 +191065,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -199474,7 +198678,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -199764,7 +198968,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -201260,7 +200464,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "read",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -206147,7 +205351,7 @@
      },
      {
       "n": "Maria de Franceschi",
-      "d": ""
+      "d": "bapt. 21 Jan 1776, nata gemina"
      }
     ],
     "span": "1758–1777",
@@ -206199,9 +205403,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -209337,7 +208542,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -209615,7 +208820,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -210232,7 +209437,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -212093,7 +211298,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -212246,7 +211451,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -212410,7 +211615,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -213673,66 +212878,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceski",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -213763,6 +212909,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -213861,25 +213013,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceski",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -213964,6 +213102,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -213978,10 +213120,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -216485,7 +215623,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -216673,7 +215811,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -217845,7 +216983,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -217988,7 +217126,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -218131,7 +217269,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -219476,7 +218614,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -219669,7 +218807,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -229592,9 +228730,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -230095,7 +229234,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -230111,7 +229250,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -230137,14 +229276,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -235015,9 +234154,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -235783,9 +234923,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -236717,66 +235858,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (b. 1821 Ližnjan)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -236807,6 +235889,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -236905,25 +235993,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (b. 1821 Ližnjan)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -237004,6 +236078,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -237022,10 +236100,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -237246,7 +236320,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -237260,7 +236334,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -237758,66 +236832,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (b. 27 Oct 1849 Ližnjan, daughter of Gregorio)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -237848,6 +236863,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -237946,25 +236967,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (b. 27 Oct 1849 Ližnjan, daughter of Gregorio)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -238049,6 +237056,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -238063,10 +237074,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -238272,7 +237279,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -238288,7 +237295,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -238553,14 +237560,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -238711,7 +237718,7 @@
      "n": "Maria Defranceschi (fu Matteo; house 17)",
      "dt": "",
      "via": "read",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -238829,7 +237836,7 @@
       "n": "Maria Defranceschi (fu Matteo; house 17)",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -239620,7 +238627,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -241766,66 +240773,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (Salamon, of Gologorica)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -241856,6 +240804,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -241954,25 +240908,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (Salamon, of Gologorica)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -242053,6 +240993,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -242071,10 +241015,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -251339,9 +250279,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -252723,66 +251664,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (wife of Antonius Voinić, Medulin)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -252813,6 +251695,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -252911,25 +251799,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (wife of Antonius Voinić, Medulin)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -253010,6 +251884,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -253028,10 +251906,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -255419,9 +254293,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -256732,66 +255607,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (fu Giuseppe, of Dignano, wife of Giovanni Moscarda)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -256822,6 +255638,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -256920,25 +255742,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (fu Giuseppe, of Dignano, wife of Giovanni Moscarda)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -257019,6 +255827,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -257037,10 +255849,6 @@
     {
      "slug": "marija-defranceski",
      "name": "Marija Defrančeski"
-    },
-    {
-     "slug": "marija-de-franceschi",
-     "name": "Marija de Franceschi"
     }
    ]
   },
@@ -257908,6 +256716,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -257918,10 +256730,6 @@
     {
      "slug": "marietta-defranceschi",
      "name": "Marietta Defranceschi"
-    },
-    {
-     "slug": "marija-defranceski",
-     "name": "Marija Defrančeski"
     }
    ]
   },
@@ -259785,6 +258593,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -259795,10 +258607,6 @@
     {
      "slug": "marietta-de-franceschi",
      "name": "Marietta De Franceschi"
-    },
-    {
-     "slug": "marietta-defranceschi",
-     "name": "Marietta Defranceschi"
     }
    ]
   },
@@ -263679,6 +262487,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -263689,10 +262501,6 @@
     {
      "slug": "marietta-de-franceschi",
      "name": "Marietta De Franceschi"
-    },
-    {
-     "slug": "marietta-defranceschi",
-     "name": "Marietta Defranceschi"
     }
    ]
   },
@@ -268354,66 +267162,7 @@
     "downN": 7
    },
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (b. 28 Nov 1873, Svetvinčenat)",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -268444,6 +267193,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -268542,25 +267297,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (b. 28 Nov 1873, Svetvinčenat)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    },
    "rec": null,
    "chain": null,
@@ -268649,6 +267390,10 @@
      "name": "Maria de Franceschi (daughter of Antonio)"
     },
     {
+     "slug": "maria-de-franceschi-twin-b-1776",
+     "name": "Maria de Franceschi (twin, b. 1776)"
+    },
+    {
      "slug": "mariam-de-franceschi",
      "name": "Mariam de Franceschi"
     },
@@ -268659,10 +267404,6 @@
     {
      "slug": "marietta-de-franceschi",
      "name": "Marietta De Franceschi"
-    },
-    {
-     "slug": "marietta-defranceschi",
-     "name": "Marietta Defranceschi"
     }
    ]
   },
@@ -269412,7 +268153,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -273703,6 +272444,480 @@
    "recyear": null,
    "adjacent": null,
    "roster": true
+  },
+  "maria-de-franceschi-twin-b-1776": {
+   "name": "Maria de Franceschi (twin, b. 1776)",
+   "slug": "maria-de-franceschi-twin-b-1776",
+   "n": 9,
+   "pages": [
+    {
+     "h": "/carnia/",
+     "t": "Back to Carnia"
+    },
+    {
+     "h": "/changes/",
+     "t": "Changes"
+    },
+    {
+     "h": "/fiume-1626/",
+     "t": "Fiume 1626"
+    },
+    {
+     "h": "/tree/",
+     "t": "Our line, drawn"
+    },
+    {
+     "h": "/the-library/",
+     "t": "The Library in Zagreb"
+    },
+    {
+     "h": "/corrections/",
+     "t": "Corrections"
+    },
+    {
+     "h": "/live-tree/",
+     "t": "The live tree, read against this archive"
+    },
+    {
+     "h": "/lives/",
+     "t": "Lives on one scale"
+    },
+    {
+     "h": "/about/",
+     "t": "About"
+    },
+    {
+     "h": "/seget/",
+     "t": "Seget, and Crete"
+    }
+   ],
+   "hits": [
+    {
+     "page": "/carnia/",
+     "title": "Back to Carnia",
+     "text": "baptismal name was Osvaldo Antonio, for the father who would be dead before he married. She was born at Muina on 3 May 1782, daughter of Antonio, son of the late Pietro Galante, and Speranza née Micoli. documented n Anna Maria de Franceschi Born at Muina at eleven in the morning on 30 December 1809, and presented to the registrar by the midwife Speranza Galante — who was, by the marriage act, her own maternal grandmother. documented One name in that chain"
+    },
+    {
+     "page": "/carnia/",
+     "title": "Back to Carnia",
+     "text": "condizione, portando seco un Infante di sesso femminile» — a girl of about eighteen, carrying the baby herself Born that same day at two in the morning at Mione, and given two names: Giovanna-Maddalena «La suddetta Maria de Franceschi ha pure dichiarato essere la neonata figlia di Matteo de Franceschi di professione Calzolajo, e di Anna nata Fasiol sua moglie» — a shoemaker and his wife, both of Mione Valentino Lupieri, thirty-one, possidente, and Gio:"
+    },
+    {
+     "page": "/changes/",
+     "title": "Changes",
+     "text": "Francesca de Franceschi stands twice on one opening of the Omiš book. A father styled Cap.n Zuane de Franceschi. An emergency baptism at Split in 1700, «l'acqua in casa, in caso di necessità», to Egidio de Franceschi and Maria. And Gioannes Maria de Franceschi, died 29 March 1645 aged 64 — born about 1581, the oldest birth year this archive holds for the surname anywhere in Croatia. The fourth, a Split burial of 1716, is still unopened and is labelled so. /searched/ 9 Sept"
+    },
+    {
+     "page": "/fiume-1626/",
+     "title": "Fiume 1626",
+     "text": "in Habsburg Fiume, a century before ours arrives, and no connection shown. But it is the right kind of not-this-family It is worth saying why this matters anyway. This archive's own line ends at Senj, and the man who baptised Maria de Franceschi in 1632 was the Bishop of Senj. The line's own century in Crikvenica and Klenovica sits between the two cities. The surname was already in the Kvarner, at the top of it, three hundred years before Anton Rudolf was born at Klenovica house 22. Whoever"
+    },
+    {
+     "page": "/fiume-1626/",
+     "title": "Fiume 1626",
+     "text": "of the Omiš book is exactly the pattern this archive found at Svetvinčenat — the family that is always being asked. Neither appearance is in any index. Omiš, 29 March 1645 — born about 1581, the oldest of all Gioannes Maria de Franceschi obijt die 29 Martij, anno etatis suae 64. Giovanni Maria de Franceschi died on the 29th of March, in the 64th year of his age. One line in a column of deaths, with the year 1645 ruled off at the right. Sixty-four in 1645 means"
+    },
+    {
+     "page": "/fiume-1626/",
+     "title": "Fiume 1626",
+     "text": "family that is always being asked. Neither appearance is in any index. Omiš, 29 March 1645 — born about 1581, the oldest of all Gioannes Maria de Franceschi obijt die 29 Martij, anno etatis suae 64. Giovanni Maria de Franceschi died on the 29th of March, in the 64th year of his age. One line in a column of deaths, with the year 1645 ruled off at the right. Sixty-four in 1645 means born about 1581 — the earliest birth year for this surname anywhere in the Croatian"
+    },
+    {
+     "page": "/live-tree/",
+     "title": "The live tree, read against this archive",
+     "text": "de Franceschi 1922 living Doris de Franceschi 1927 Ellis Island living Dionigi Dijonisius de Franceschi 1927 Gracisce living Basiliana Maria de Franceschi 1929 Gracisce living Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi"
+    },
+    {
+     "page": "/live-tree/",
+     "title": "The live tree, read against this archive",
+     "text": "Nelida Albina de Franceschi 1931 Mercedes living Feliciano de Franceschi 1932 living Richard Defranceschi 1932 living Assunta Maria de Franceschi 1935 Gracisce living Nenad Defranceski 1935 Varaždin living Lidija Defranceski 1936 Crikvenica living Dario de Franceschi 1937–1991"
+    },
+    {
+     "page": "/seget/",
+     "title": "Seget, and Crete",
+     "text": "own. Giorgio (1788 – 30 March 1865) m. Marianna Alessandri, 1806 The patron of the classicist rebuild of 1843–45 — the front of the house as it now stands. Four children: Eufemia, Maria, Marc'Antonio, Giacomo. Marc'Antonio (1811–1850) m. Maria de Franceschi di Nicolò, 1835 A marriage inside the surname. Seven children: Giorgio, Luigi, Marianna, Giov. Battista, Nicolò, Ida, Dot. Giacomo. His widow appears in the 1865 inventory as a neighbouring proprietor, «la Sig.a Maria Vedova de Franceschi». The five"
+    }
+   ],
+   "facts": [
+    [
+     "Place",
+     "Svetvinčenat",
+     "/places/svetvincenat/"
+    ],
+    [
+     "Years",
+     "1776"
+    ],
+    [
+     "Line",
+     "A documented Istrian or Kvarner household this archive will not attach to any line"
+    ],
+    [
+     "Found in",
+     "Read off the register"
+    ]
+   ],
+   "known": "**The twin of Domenica, baptised in danger of death on 21 January 1776** (Svetvinčenat baptisms 1764–1791, 57 right, the first entry of the page, read at the second reading of 12 November 2026; `doc`, enlarged): «Maria filia legitima gemina … Antonij Defranceschi ac Matthiae ejus conjugis, nata hac nocte elapsa. Baptizata ob imminens periculum», godmother Giacoba, no godfather; her sister Domenica's entry follows with Dnus Antonius Fabris as godfather. **No death of either twin has been looked for** (`open`). She is a different person from the Maria «figlia del S.r Antonio Defranceschi» who made her first sponsali with Zuanne Contossich on 16 January 1788: a girl baptised in 1776 was twelve in 1788. Which daughter of Antonio that bride was is not settled. *Added 18 Nov 2026: until then the household's last child, a Maria with no year, was matched by name to every Maria De Franceschi of Svetvinčenat (1709, 1715, 1733 and a Covaz of Pazin) and made their mother Mattea.*",
+   "more": [],
+   "records": [
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 2 Mar 1829 · Croazia, Austria · parents: Bonetta Vellico & Stefano De Franceschi · spouse: Stefano De Franceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 12 Aug 1709 · Croazia, Austria · parents: Zuanna & Nardo De Franceschi · spouse: Nardo De Franceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 27 Jul 1804 · Vitipolis, Modrus-Fiume, Magyarország · parents: Valentini & Ursulæ · spouse: Valentini",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 1751 · Death 17 Nov 1817 · Vitipolis, Modrus-Fiume, Magyarország",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 6 Dec 1819 · Pola, Italia · parents: Vittorio Defranceschi & Stella · spouse: Vittorio Defranceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 15 Oct 1816 · Ližnjan, Istria, Italia · parents: Mario De Franceschi & Madalena · spouse: Mario De Franceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Fiume, Modrus-Fiume, Ungheria · parents: Orsola & Valentino · spouse: Valentino",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 1798 · Death 27 Mar 1840 · Kraljevina Hrvatska",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 1804 · Burial 2 Aug 1804 · Fiume, Modrus-Fiume, Ungheria · parents: Valentino Defranceschi & Orsola Defranceschi · spouse: Valentino Defranceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 1846 · Death 8 Dec 1846 · Ližnjan, Istria, Italia · parents: Gregoria Defranceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 20 Sep 1833 · Croazia, Austria · parents: Zacchera Cerlon & Domenico De Franceschi · spouse: Domenico De Franceschi",
+     "href": "/archive/",
+     "url": null
+    },
+    {
+     "kind": "FamilySearch record",
+     "text": "Birth 4 Nov 1733 · Croazia, Austria · parents: Giacomo Defranceschi & Anzoletta · spouse: Giacomo Defranceschi",
+     "href": "/archive/",
+     "url": null
+    }
+   ],
+   "tree": {
+    "ambiguous": true,
+    "parents": [
+     "Valentino Defranceschi",
+     "Elena Defranceschi"
+    ],
+    "parentsPlace": "Rijeka",
+    "siblings": [
+     "Mattio Defranceschi",
+     "Nicolo Defranceschi",
+     "Antonio De Franceschi",
+     "Aloisio Defranceschi",
+     "Matheus Franciscus De Franceschi",
+     "Aloysium Joannes Petre Defranceschi",
+     "Franciscam Joanne Theresiam Defranceschi",
+     "Nicolaus Francus De Franceschi",
+     "Josepham Catharinam Defranceschi",
+     "Jacobus Vincentius Defranceschi"
+    ],
+    "asChild": "1757",
+    "spouse": "Giovanni Moscarda",
+    "children": [
+     {
+      "n": "Antonio Moscarda",
+      "d": "25 Jan 1835"
+     },
+     {
+      "n": "Marianna Moscarda",
+      "d": "Feb 1838"
+     },
+     {
+      "n": "Giuseppe Moscarda",
+      "d": "19 Mar 1841"
+     }
+    ],
+    "span": "1835–1841",
+    "childrenPlace": "Fažana",
+    "upN": 15,
+    "downN": 7
+   },
+   "ptree": {
+    "none": true,
+    "dropped": [
+     [
+      "dropped",
+      "Valentino Defranceschi",
+      "Elena Defranceschi",
+      "1757"
+     ],
+     [
+      "dropped",
+      "Valentini Defranceschi",
+      "Ursulæ Defranceschi",
+      "1804"
+     ],
+     [
+      "dropped",
+      "Domenico De Franceschi",
+      "Zacchera Cerlon",
+      "1833"
+     ],
+     [
+      "dropped",
+      "Stefano De Franceschi",
+      "Bonetta Vellico",
+      "1829"
+     ],
+     [
+      "dropped",
+      "Vittorio Defranceschi",
+      "Stella",
+      "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
+      "Matteo Defranceschi",
+      "Francesca",
+      "1745"
+     ],
+     [
+      "dropped",
+      "Vittorio Defranceschi",
+      "Dominica",
+      "1749"
+     ],
+     [
+      "dropped",
+      "Antonius Defranceschi, filius Usualdi et Apoloniæ",
+      "Francisca née Defranceschi",
+      "1845"
+     ],
+     [
+      "dropped",
+      "Antonius Defranceschi",
+      "Francisca Defranceschi",
+      "1845"
+     ],
+     [
+      "dropped",
+      "Aloysius Arturius Defranceschi",
+      "Albina Defranceschi (Lovrinović)",
+      "1920"
+     ],
+     [
+      "dropped",
+      "Mattio Defranceschi (di Antonio, detto Matulin)",
+      "Madalena Percovich",
+      "1816"
+     ],
+     [
+      "dropped",
+      "Mattio Defranceschi (di Antonio, detto Matulin)",
+      "Madalena Percovich",
+      "1821"
+     ],
+     [
+      "dropped",
+      "Gregorio Defranceschi (di Mattio, detto Matulin)",
+      "Agata Schiffich (di Lorenzo)",
+      "1846"
+     ],
+     [
+      "dropped",
+      "Gregorio Defranceschi (di Mattio, detto Matulin)",
+      "Agata Schiffich (di Lorenzo)",
+      "1849"
+     ],
+     [
+      "dropped",
+      "Giovanni Moscarda",
+      "Maria Defranceschi",
+      "1835–1841"
+     ],
+     [
+      "dropped",
+      "Antonius Defranceschi",
+      "Maria Defranceschi",
+      "1823–1823"
+     ],
+     [
+      "dropped",
+      "Nicolaus Cernobori",
+      "Maria Defranceschi",
+      "1841–1853"
+     ],
+     [
+      "dropped",
+      "Joseph Dobrez",
+      "Maria Defranceschi",
+      "1852–1867"
+     ],
+     [
+      "dropped",
+      "Laurentius Gorlato",
+      "Maria De Franceschi",
+      "1857–1864"
+     ],
+     [
+      "dropped",
+      "Josephus Ruman",
+      "Maria Defranceschi",
+      "1875–1875"
+     ],
+     [
+      "dropped",
+      "Martino Mocorich",
+      "Maria Defranceschi (fu Matteo; house 17)",
+      "1848–1849"
+     ]
+    ],
+    "self": {
+     "n": "Maria de Franceschi (twin, b. 1776)",
+     "dt": "b. 1709",
+     "via": "index"
+    }
+   },
+   "rec": null,
+   "chain": null,
+   "recyear": null,
+   "adjacent": null,
+   "roster": true,
+   "alsoWritten": [
+    {
+     "slug": "maria-de-franceschi",
+     "name": "Maria De Franceschi"
+    },
+    {
+     "slug": "maria-de-franceschi-of-paluzza",
+     "name": "Maria De Franceschi (of Paluzza)"
+    },
+    {
+     "slug": "maria-defranceschi",
+     "name": "Maria Defranceschi"
+    },
+    {
+     "slug": "maria-defranceschi-browachio",
+     "name": "Maria Defranceschi (Browachio)"
+    },
+    {
+     "slug": "maria-defranceschi-buman",
+     "name": "Maria Defranceschi (Buman)"
+    },
+    {
+     "slug": "maria-defranceschi-contossich",
+     "name": "Maria Defranceschi (Contossich)"
+    },
+    {
+     "slug": "maria-defranceschi-covaz",
+     "name": "Maria Defranceschi (Covaz)"
+    },
+    {
+     "slug": "maria-defranceschi-dobrez",
+     "name": "Maria Defranceschi (Dobrez)"
+    },
+    {
+     "slug": "maria-defranceschi-ivich",
+     "name": "Maria Defranceschi (Ivich)"
+    },
+    {
+     "slug": "maria-defranceschi-marcorich",
+     "name": "Maria Defranceschi (Marcorich)"
+    },
+    {
+     "slug": "maria-defranceschi-perkovic",
+     "name": "Maria Defranceschi (Perkovic)"
+    },
+    {
+     "slug": "maria-defranceschi-salamon-of-gologorica",
+     "name": "Maria Defranceschi (Salamon, of Gologorica)"
+    },
+    {
+     "slug": "maria-defranceschi-b-1821-liznjan",
+     "name": "Maria Defranceschi (b. 1821 Ližnjan)"
+    },
+    {
+     "slug": "maria-defranceschi-b-27-oct-1849-liznjan-daughter-of-gregorio",
+     "name": "Maria Defranceschi (b. 27 Oct 1849 Ližnjan, daughter of Gregorio)"
+    },
+    {
+     "slug": "maria-defranceschi-b-28-nov-1873-svetvincenat",
+     "name": "Maria Defranceschi (b. 28 Nov 1873, Svetvinčenat)"
+    },
+    {
+     "slug": "maria-defranceschi-fu-giuseppe-of-dignano-wife-of-giovanni-moscarda",
+     "name": "Maria Defranceschi (fu Giuseppe, of Dignano, wife of Giovanni Moscarda)"
+    },
+    {
+     "slug": "maria-defranceschi-wife-of-antonius-voinic-medulin",
+     "name": "Maria Defranceschi (wife of Antonius Voinić, Medulin)"
+    },
+    {
+     "slug": "maria-defranceski",
+     "name": "Maria Defranceski"
+    },
+    {
+     "slug": "maria-de-franceschi-daughter-of-antonio",
+     "name": "Maria de Franceschi (daughter of Antonio)"
+    },
+    {
+     "slug": "mariam-de-franceschi",
+     "name": "Mariam de Franceschi"
+    },
+    {
+     "slug": "marie-defranceschi",
+     "name": "Marie Defranceschi"
+    },
+    {
+     "slug": "marietta-de-franceschi",
+     "name": "Marietta De Franceschi"
+    },
+    {
+     "slug": "marietta-defranceschi",
+     "name": "Marietta Defranceschi"
+    },
+    {
+     "slug": "marija-defranceski",
+     "name": "Marija Defrančeski"
+    }
+   ]
   },
   "maria-di-franceschi-wife-of-giuseppe-ilovar-dead-by-1863": {
    "name": "Maria di Franceschi (wife of Giuseppe Ilovar, dead by 1863)",
@@ -283153,14 +282368,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -283279,7 +282494,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -283337,7 +282552,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -283749,7 +282964,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -283981,7 +283196,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -284127,7 +283342,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -286629,7 +285844,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -286826,7 +286041,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -286997,7 +286212,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -287925,7 +287140,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -288059,7 +287274,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -289425,7 +288640,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -290285,9 +289500,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -290407,9 +289623,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -290520,7 +289737,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -290676,7 +289893,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -290832,7 +290049,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -291079,7 +290296,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -291087,7 +290304,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -291468,7 +290685,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -291706,7 +290923,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -291952,7 +291169,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -292044,9 +291261,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -292158,9 +291376,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -292424,7 +291643,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -292432,7 +291651,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -292585,7 +291804,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -292593,7 +291812,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -292746,7 +291965,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -292754,7 +291973,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -293783,7 +293002,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -294041,7 +293260,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -294049,7 +293268,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -294845,7 +294064,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -295547,7 +294766,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -295692,7 +294911,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -295988,7 +295207,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -296093,7 +295312,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -296216,7 +295435,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -296499,7 +295718,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -296921,7 +296140,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -297092,7 +296311,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -297311,7 +296530,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -297600,7 +296819,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -297829,7 +297048,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -300204,7 +299423,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -305598,9 +304817,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -305753,7 +304973,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -306140,7 +305360,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -307772,9 +306992,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -307828,7 +307049,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -307957,7 +307178,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -308097,7 +307318,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -308231,7 +307452,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -308365,7 +307586,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -308499,7 +307720,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -308661,9 +307882,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -308717,7 +307939,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -309201,7 +308423,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -309488,7 +308710,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -310481,7 +309703,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -310578,7 +309800,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -310641,7 +309863,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -310916,7 +310138,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -311048,7 +310270,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -313938,7 +313160,7 @@
       "n": "Maria Defranceschi (fu Matteo; house 17)",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -314246,9 +313468,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -314326,9 +313549,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -315337,7 +314561,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -315430,7 +314654,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -315633,7 +314857,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -315796,7 +315020,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -316312,7 +315536,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -316477,7 +315701,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -316612,7 +315836,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -316747,7 +315971,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -316882,7 +316106,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -317229,7 +316453,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -321407,7 +320631,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -323754,7 +322978,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -323809,7 +323033,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -324761,7 +323985,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "read",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -326803,7 +326027,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -327066,7 +326290,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -327082,7 +326306,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -327108,14 +326332,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -327180,7 +326404,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -327196,7 +326420,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -327222,14 +326446,14 @@
       "n": "Maria Defranceschi",
       "dt": "d. 8 Dec 1846",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
       "n": "Maria Defranceschi",
       "dt": "b. 27 Oct 1849",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -327294,7 +326518,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -327310,7 +326534,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -327479,7 +326703,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -329599,7 +328823,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -329954,7 +329178,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -330062,7 +329286,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -330433,7 +329657,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -330891,7 +330115,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -331185,7 +330409,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -333465,7 +332689,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -333507,7 +332731,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -333599,7 +332823,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -333789,7 +333013,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -333952,7 +333176,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -334094,7 +333318,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -334244,7 +333468,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -334491,7 +333715,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -334947,7 +334171,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -336241,7 +335465,7 @@
      "n": "Maria De Franceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -336320,7 +335544,7 @@
      "n": "Maria De Franceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -336519,7 +335743,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -339254,7 +338478,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -339270,7 +338494,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -339333,7 +338557,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -339349,7 +338573,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -339419,7 +338643,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 15 Oct 1816",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -339433,7 +338657,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Jan 1821",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -342119,7 +341343,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -342155,6 +341379,12 @@
      ],
      [
       "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
+      ""
+     ],
+     [
+      "unchecked",
       "Matteo Defranceschi",
       "Francesca",
       ""
@@ -342251,14 +341481,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -342279,66 +341501,7 @@
    "pid": "maria-de-franceschi-1709",
    "name": "Maria De Franceschi",
    "ptree": {
-    "self": {
-     "n": "Maria De Franceschi",
-     "dt": "b. 1709",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -342369,6 +341532,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -342467,91 +341636,18 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria De Franceschi",
+     "dt": "b. 1709",
+     "via": "index"
+    }
    }
   },
   "maria-de-franceschi-1715": {
    "pid": "maria-de-franceschi-1715",
    "name": "Maria De Franceschi",
    "ptree": {
-    "self": {
-     "n": "Maria De Franceschi",
-     "dt": "b. 1715",
-     "via": ""
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -342582,6 +341678,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -342680,24 +341782,237 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
+    "self": {
+     "n": "Maria De Franceschi",
+     "dt": "b. 1715",
+     "via": ""
+    }
+   }
+  },
+  "maria-de-franceschi-1776-svetvincenat": {
+   "pid": "maria-de-franceschi-1776-svetvincenat",
+   "name": "Maria de Franceschi (twin, b. 1776)",
+   "ptree": {
+    "self": {
+     "n": "Maria de Franceschi (twin, b. 1776)",
+     "dt": "b. 1776",
+     "via": "read"
+    },
+    "parents": [
+     {
+      "n": "Antonio de Franceschi",
+      "dt": "",
+      "via": "read",
+      "ambiguous": 31,
+      "own": 6
+     },
+     {
+      "n": "Mattea",
+      "dt": "",
+      "via": "read",
+      "slug": "mattea",
+      "pid": "mattea-svetvincenat",
+      "own": 5
+     }
+    ],
+    "parentsPlace": "Svetvinčenat",
+    "parentsHref": "/households/",
+    "siblings": [
+     {
+      "n": "Vittorio de Franceschi",
+      "dt": "c. 1758 – 8 Oct 1812",
+      "via": "read",
+      "ambiguous": 8,
+      "small": true,
+      "own": 4
+     },
+     {
+      "n": "Franca de Franceschi",
+      "dt": "b. 8 Dec 1769",
+      "via": "read",
+      "ambiguous": 2,
+      "small": true
+     },
+     {
+      "n": "Domenica de Franceschi",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
+      "via": "read",
+      "slug": "domenica-de-franceschi-b-1776",
+      "pid": "domenica-de-franceschi-b-1776-1776",
+      "small": true,
+      "own": 5
+     },
+     {
+      "n": "Domenico de Franceschi",
+      "dt": "b. 25 Dec 1777",
+      "via": "read",
+      "ambiguous": 12,
+      "small": true,
+      "own": 6
+     }
+    ],
+    "spouse": {
+     "n": "Giovanni Moscarda",
+     "dt": "",
+     "via": "read",
+     "slug": "giovanni-moscarda",
+     "pid": "giovanni-moscarda-fazana",
+     "own": 3
+    },
+    "children": [
+     {
+      "n": "Antonio Moscarda",
+      "dt": "b. 25 Jan 1835",
+      "via": "read",
+      "slug": "antonio-moscarda",
+      "pid": "antonio-moscarda-1835"
+     },
+     {
+      "n": "Marianna Moscarda",
+      "dt": "b. Feb 1838",
+      "via": "read",
+      "slug": "marianna-moscarda",
+      "pid": "marianna-moscarda-1838"
+     },
+     {
+      "n": "Giuseppe Moscarda",
+      "dt": "b. 19 Mar 1841",
+      "via": "read",
+      "slug": "giuseppe-moscarda",
+      "pid": "giuseppe-moscarda-1841"
+     }
+    ],
+    "span": "1835–1841",
+    "childrenPlace": "Fažana",
+    "upN": 1,
+    "downN": 2,
+    "dropped": [
      [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
+      "dropped",
+      "Valentino Defranceschi",
+      "Elena Defranceschi",
+      "1757"
+     ],
+     [
+      "dropped",
+      "Valentini Defranceschi",
+      "Ursulæ Defranceschi",
+      "1804"
+     ],
+     [
+      "dropped",
+      "Domenico De Franceschi",
+      "Zacchera Cerlon",
+      "1833"
+     ],
+     [
+      "dropped",
+      "Stefano De Franceschi",
+      "Bonetta Vellico",
+      "1829"
+     ],
+     [
+      "dropped",
+      "Vittorio Defranceschi",
+      "Stella",
+      "1819"
+     ],
+     [
+      "dropped",
+      "Matteo Defranceschi",
+      "Francesca",
+      "1745"
+     ],
+     [
+      "dropped",
+      "Vittorio Defranceschi",
+      "Dominica",
+      "1749"
+     ],
+     [
+      "dropped",
+      "Antonius Defranceschi, filius Usualdi et Apoloniæ",
+      "Francisca née Defranceschi",
+      "1845"
+     ],
+     [
+      "dropped",
+      "Antonius Defranceschi",
+      "Francisca Defranceschi",
+      "1845"
+     ],
+     [
+      "dropped",
+      "Aloysius Arturius Defranceschi",
+      "Albina Defranceschi (Lovrinović)",
+      "1920"
+     ],
+     [
+      "dropped",
+      "Mattio Defranceschi (di Antonio, detto Matulin)",
+      "Madalena Percovich",
+      "1816"
+     ],
+     [
+      "dropped",
+      "Mattio Defranceschi (di Antonio, detto Matulin)",
+      "Madalena Percovich",
+      "1821"
+     ],
+     [
+      "dropped",
+      "Gregorio Defranceschi (di Mattio, detto Matulin)",
+      "Agata Schiffich (di Lorenzo)",
+      "1846"
+     ],
+     [
+      "dropped",
+      "Gregorio Defranceschi (di Mattio, detto Matulin)",
+      "Agata Schiffich (di Lorenzo)",
+      "1849"
+     ],
+     [
+      "dropped",
+      "Nicolaus Cernobori",
+      "Maria Defranceschi",
+      "1841–1853"
+     ],
+     [
+      "dropped",
+      "Joseph Dobrez",
+      "Maria Defranceschi",
+      "1852–1867"
+     ],
+     [
+      "dropped",
+      "Laurentius Gorlato",
+      "Maria De Franceschi",
+      "1857–1864"
+     ],
+     [
+      "dropped",
+      "Josephus Ruman",
+      "Maria Defranceschi",
+      "1875–1875"
+     ],
+     [
+      "dropped",
+      "Martino Mocorich",
+      "Maria Defranceschi (fu Matteo; house 17)",
+      "1848–1849"
      ]
     ],
+    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
      [
       "read",
-      6
+      10
      ]
     ],
-    "nrel": 6,
-    "nread": 6,
+    "nrel": 10,
+    "nread": 10,
     "dupNames": []
    }
   },
@@ -342800,6 +342115,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -342861,14 +342182,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -342984,6 +342297,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -343033,14 +342352,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -343183,6 +342494,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -343250,14 +342567,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -343413,6 +342722,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -343486,14 +342801,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -343590,6 +342897,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -343681,14 +342994,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -343795,6 +343100,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -343850,14 +343161,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -344202,6 +343505,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -344608,66 +343917,7 @@
    "pid": "maria-defranceschi-1733",
    "name": "Maria Defranceschi",
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi",
-     "dt": "b. 1733",
-     "via": "index"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -344698,6 +343948,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -344796,25 +344052,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi",
+     "dt": "b. 1733",
+     "via": "index"
+    }
    }
   },
   "maria-defranceschi-1751": {
@@ -344927,7 +344169,7 @@
       "small": true
      }
     ],
-    "upN": 4,
+    "upN": 3,
     "downN": 0,
     "dropped": [
      [
@@ -344953,6 +344195,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -344997,14 +344245,7 @@
       "1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
@@ -345132,7 +344373,7 @@
       "small": true
      }
     ],
-    "upN": 2,
+    "upN": 1,
     "downN": 0,
     "dropped": [
      [
@@ -345158,6 +344399,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -345214,14 +344461,7 @@
       "1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
@@ -345349,7 +344589,7 @@
       "small": true
      }
     ],
-    "upN": 2,
+    "upN": 1,
     "downN": 0,
     "dropped": [
      [
@@ -345375,6 +344615,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -345431,14 +344677,7 @@
       "1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
@@ -345526,6 +344765,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -345579,22 +344824,8 @@
       "1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [
-     [
-      "refused",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
+    "refused": [],
     "estRej": [],
     "tally": [
      [
@@ -345757,7 +344988,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 2,
+    "upN": 1,
     "downN": 2,
     "dropped": [
      [
@@ -345783,6 +345014,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -345839,14 +345076,7 @@
       "1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
@@ -346010,6 +345240,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -346065,14 +345301,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -346207,6 +345435,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -346262,14 +345496,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -346348,6 +345574,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -346391,14 +345623,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -346550,6 +345774,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -346623,14 +345853,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -346792,6 +346014,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -346859,14 +346087,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -347037,6 +346257,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -347098,14 +346324,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -347242,6 +346460,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -347273,14 +346497,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -347384,6 +346600,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -347463,14 +346685,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -347555,6 +346769,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -347649,14 +346869,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -347704,6 +346916,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -347847,6 +347065,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -347987,6 +347211,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -348051,66 +347281,7 @@
    "pid": "maria-defranceschi-1873",
    "name": "Maria Defranceschi (b. 28 Nov 1873, Svetvinčenat)",
    "ptree": {
-    "self": {
-     "n": "Maria Defranceschi (b. 28 Nov 1873, Svetvinčenat)",
-     "dt": "1873 – 1953",
-     "via": "read"
-    },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
-    "upN": 1,
-    "downN": 0,
+    "none": true,
     "dropped": [
      [
       "dropped",
@@ -348141,6 +347312,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -348239,25 +347416,11 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
-     [
-      "read",
-      6
-     ]
-    ],
-    "nrel": 6,
-    "nread": 6,
-    "dupNames": []
+    "self": {
+     "n": "Maria Defranceschi (b. 28 Nov 1873, Svetvinčenat)",
+     "dt": "1873 – 1953",
+     "via": "read"
+    }
    }
   },
   "maria-defranceschi-1875": {
@@ -348295,6 +347458,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -348393,6 +347562,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -348536,6 +347711,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -348673,6 +347854,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -348816,6 +348003,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -348911,6 +348104,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -349054,6 +348253,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -349191,6 +348396,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -349395,6 +348606,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -349444,14 +348661,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -349613,6 +348822,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -349680,14 +348895,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -349847,7 +349054,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -349879,6 +349086,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -349979,14 +349192,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -350146,7 +349351,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -350178,6 +349383,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -350278,14 +349489,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -350445,7 +349648,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -350477,6 +349680,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -350577,14 +349786,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -350610,59 +349811,6 @@
      "dt": "b. 1766",
      "via": "index"
     },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Vittorio de Franceschi",
-      "dt": "c. 1758 – 8 Oct 1812",
-      "via": "read",
-      "ambiguous": 8,
-      "small": true,
-      "own": 4
-     },
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     }
-    ],
     "spouse": {
      "n": "Antonius Defranceschi",
      "dt": "b. 1806",
@@ -350689,7 +349837,7 @@
     ],
     "span": "1823–1823",
     "childrenPlace": "—",
-    "upN": 1,
+    "upN": 0,
     "downN": 1,
     "dropped": [
      [
@@ -350721,6 +349869,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -350813,28 +349967,17 @@
       "1848–1849"
      ]
     ],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
     "refused": [],
     "estRej": [],
     "tally": [
-     [
-      "read",
-      6
-     ],
      [
       "index",
       3
      ]
     ],
-    "nrel": 9,
-    "nread": 6,
+    "nrel": 3,
+    "nread": 0,
     "dupNames": []
    }
   },
@@ -350913,6 +350056,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -350962,14 +350111,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -351017,6 +350158,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -351223,7 +350370,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -351255,6 +350402,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -351355,14 +350508,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -351522,7 +350667,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -351554,6 +350699,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -351654,14 +350805,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -351821,7 +350964,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -351853,6 +350996,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -351953,14 +351102,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -352120,7 +351261,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -352152,6 +351293,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -352252,14 +351399,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -352419,7 +351558,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -352451,6 +351590,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -352551,14 +351696,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -352718,7 +351855,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -352750,6 +351887,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -352850,14 +351993,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -352965,6 +352100,12 @@
      ],
      [
       "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
+     ],
+     [
+      "dropped",
       "Matteo Defranceschi",
       "Francesca",
       "1745"
@@ -353044,14 +352185,6 @@
     ],
     "unchecked": [],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -353211,7 +352344,7 @@
     ],
     "span": "1835–1841",
     "childrenPlace": "Fažana",
-    "upN": 14,
+    "upN": 15,
     "downN": 7,
     "dropped": [],
     "unchecked": [
@@ -353243,6 +352376,12 @@
       "unchecked",
       "Vittorio Defranceschi",
       "Stella",
+      ""
+     ],
+     [
+      "unchecked",
+      "Antonio de Franceschi",
+      "Mattea",
       ""
      ],
      [
@@ -353343,14 +352482,6 @@
      ]
     ],
     "refused": [],
-    "nameonly": [
-     [
-      "nameonly",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
     "estRej": [],
     "tally": [
      [
@@ -353528,14 +352659,7 @@
     "upN": 5,
     "downN": 6,
     "dropped": [],
-    "unchecked": [
-     [
-      "unchecked",
-      "Antonio de Franceschi",
-      "Mattea",
-      ""
-     ]
-    ],
+    "unchecked": [],
     "refused": [],
     "estRej": [
      [
@@ -353649,6 +352773,12 @@
       "Vittorio Defranceschi",
       "Stella",
       "1819"
+     ],
+     [
+      "dropped",
+      "Antonio de Franceschi",
+      "Mattea",
+      "1776"
      ],
      [
       "dropped",
@@ -358002,7 +357132,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -358712,7 +357842,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -358802,7 +357932,7 @@
      "n": "Maria Defranceschi (fu Matteo; house 17)",
      "dt": "",
      "via": "read",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -359464,7 +358594,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -360169,9 +359299,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "own": 5
      }
     ],
@@ -362300,7 +361431,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -362650,7 +361781,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -364307,7 +363438,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -364380,7 +363511,7 @@
      "n": "Maria Defranceschi",
      "dt": "",
      "via": "index",
-     "ambiguous": 57,
+     "ambiguous": 58,
      "own": 5
     },
     "children": [
@@ -364490,7 +363621,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -364866,7 +363997,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -365010,7 +364141,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -365186,7 +364317,7 @@
       "n": "Maria Defranceschi",
       "dt": "1757 – 1757",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -365361,7 +364492,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1920",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -366531,7 +365662,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -366620,7 +365751,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -366709,7 +365840,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -366798,7 +365929,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -366900,7 +366031,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      }
@@ -368068,7 +367199,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -377158,7 +376289,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 2 Mar 1829",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -377578,7 +376709,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -378148,7 +377279,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -378255,7 +377386,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 18 Jul 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -378377,7 +377508,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 1845",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -378777,7 +377908,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "small": true,
       "own": 5
      },
@@ -379281,7 +378412,7 @@
       "n": "Maria Defranceschi",
       "dt": "1804 – 2 Aug 1804",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -382645,62 +381776,9 @@
    "ptree": {
     "self": {
      "n": "Vittorio de Franceschi",
-     "dt": "b. c. 1758",
+     "dt": "",
      "via": ""
     },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     },
-     {
-      "n": "Maria de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 57,
-      "small": true,
-      "own": 5
-     }
-    ],
     "spouse": {
      "n": "Stella",
      "dt": "",
@@ -382714,7 +381792,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -382726,7 +381804,7 @@
     ],
     "span": "1819–1825",
     "childrenPlace": "Pula",
-    "upN": 1,
+    "upN": 0,
     "downN": 3,
     "dropped": [],
     "unchecked": [
@@ -382755,20 +381833,41 @@
       ""
      ]
     ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
+    "refused": [
      [
-      "read",
-      6
-     ],
-     [
-      "index",
-      3
+      "refused",
+      "Antonio de Franceschi",
+      "Mattea",
+      ""
      ]
     ],
-    "nrel": 9,
-    "nread": 6,
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Ant Defranceschi",
+      "dt": "",
+      "via": "index"
+     },
+     {
+      "n": "Maria Bergamo",
+      "dt": "",
+      "via": "index",
+      "ambiguous": 2,
+      "own": 6
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/register/",
+    "parentsFromRow": true,
+    "parentsCaveat": "Drawn from the one indexed entry that names this person, not from a household this archive has built. The entry names these people together; it does not prove the relationship it implies.",
+    "tally": [
+     [
+      "index",
+      5
+     ]
+    ],
+    "nrel": 5,
+    "nread": 0,
     "dupNames": []
    }
   },
@@ -382822,62 +381921,9 @@
    "ptree": {
     "self": {
      "n": "Vittorio De Franceschi",
-     "dt": "b. c. 1758",
+     "dt": "",
      "via": "index"
     },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     },
-     {
-      "n": "Maria de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 57,
-      "small": true,
-      "own": 5
-     }
-    ],
     "spouse": {
      "n": "Stella",
      "dt": "",
@@ -382891,7 +381937,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -382903,7 +381949,7 @@
     ],
     "span": "1819–1825",
     "childrenPlace": "Pula",
-    "upN": 1,
+    "upN": 0,
     "downN": 3,
     "dropped": [],
     "unchecked": [
@@ -382932,20 +381978,41 @@
       ""
      ]
     ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
+    "refused": [
      [
-      "read",
-      6
-     ],
-     [
-      "index",
-      3
+      "refused",
+      "Antonio de Franceschi",
+      "Mattea",
+      ""
      ]
     ],
-    "nrel": 9,
-    "nread": 6,
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Ant Defranceschi",
+      "dt": "",
+      "via": "index"
+     },
+     {
+      "n": "Maria Bergamo",
+      "dt": "",
+      "via": "index",
+      "ambiguous": 2,
+      "own": 6
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/register/",
+    "parentsFromRow": true,
+    "parentsCaveat": "Drawn from the one indexed entry that names this person, not from a household this archive has built. The entry names these people together; it does not prove the relationship it implies.",
+    "tally": [
+     [
+      "index",
+      5
+     ]
+    ],
+    "nrel": 5,
+    "nread": 0,
     "dupNames": []
    }
   },
@@ -383012,9 +382079,10 @@
      },
      {
       "n": "Maria de Franceschi",
-      "dt": "",
+      "dt": "b. bapt. 21 Jan 1776, nata gemina",
       "via": "read",
-      "ambiguous": 57,
+      "slug": "maria-de-franceschi-twin-b-1776",
+      "pid": "maria-de-franceschi-1776-svetvincenat",
       "small": true,
       "own": 5
      }
@@ -383032,7 +382100,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -383078,62 +382146,9 @@
    "ptree": {
     "self": {
      "n": "Vittorio De Franceschi",
-     "dt": "b. c. 1758",
+     "dt": "",
      "via": "read"
     },
-    "parents": [
-     {
-      "n": "Antonio de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 31,
-      "own": 6
-     },
-     {
-      "n": "Mattea",
-      "dt": "",
-      "via": "read",
-      "slug": "mattea",
-      "pid": "mattea-svetvincenat",
-      "own": 5
-     }
-    ],
-    "parentsPlace": "Svetvinčenat",
-    "parentsHref": "/households/",
-    "siblings": [
-     {
-      "n": "Franca de Franceschi",
-      "dt": "b. 8 Dec 1769",
-      "via": "read",
-      "ambiguous": 2,
-      "small": true
-     },
-     {
-      "n": "Domenica de Franceschi",
-      "dt": "b. bapt. 21 Jan 1776, nata gemina",
-      "via": "read",
-      "slug": "domenica-de-franceschi-b-1776",
-      "pid": "domenica-de-franceschi-b-1776-1776",
-      "small": true,
-      "own": 5
-     },
-     {
-      "n": "Domenico de Franceschi",
-      "dt": "b. 25 Dec 1777",
-      "via": "read",
-      "ambiguous": 12,
-      "small": true,
-      "own": 6
-     },
-     {
-      "n": "Maria de Franceschi",
-      "dt": "",
-      "via": "read",
-      "ambiguous": 57,
-      "small": true,
-      "own": 5
-     }
-    ],
     "spouse": {
      "n": "Stella",
      "dt": "",
@@ -383147,7 +382162,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -383159,7 +382174,7 @@
     ],
     "span": "1819–1825",
     "childrenPlace": "Pula",
-    "upN": 1,
+    "upN": 0,
     "downN": 3,
     "dropped": [],
     "unchecked": [
@@ -383188,20 +382203,41 @@
       ""
      ]
     ],
-    "refused": [],
-    "estRej": [],
-    "tally": [
+    "refused": [
      [
-      "read",
-      6
-     ],
-     [
-      "index",
-      3
+      "refused",
+      "Antonio de Franceschi",
+      "Mattea",
+      ""
      ]
     ],
-    "nrel": 9,
-    "nread": 6,
+    "estRej": [],
+    "parents": [
+     {
+      "n": "Ant Defranceschi",
+      "dt": "",
+      "via": "index"
+     },
+     {
+      "n": "Maria Bergamo",
+      "dt": "",
+      "via": "index",
+      "ambiguous": 2,
+      "own": 6
+     }
+    ],
+    "parentsPlace": "",
+    "parentsHref": "/register/",
+    "parentsFromRow": true,
+    "parentsCaveat": "Drawn from the one indexed entry that names this person, not from a household this archive has built. The entry names these people together; it does not prove the relationship it implies.",
+    "tally": [
+     [
+      "index",
+      5
+     ]
+    ],
+    "nrel": 5,
+    "nread": 0,
     "dupNames": []
    }
   },
@@ -383304,7 +382340,7 @@
       "n": "Maria Defranceschi",
       "dt": "b. 6 Dec 1819",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      },
      {
@@ -383567,7 +382603,7 @@
       "n": "Maria De Franceschi",
       "dt": "b. 20 Sep 1833",
       "via": "read",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -384163,7 +383199,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -384268,7 +383304,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -384362,7 +383398,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
@@ -384444,7 +383480,7 @@
       "n": "Maria Defranceschi",
       "dt": "",
       "via": "index",
-      "ambiguous": 57,
+      "ambiguous": 58,
       "own": 5
      }
     ],
