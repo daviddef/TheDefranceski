@@ -94,6 +94,9 @@ GENERATED = {
     # 2 November 2026, the map and Roots & Routes: place-crosswalk.json is written by scripts/build-place-crosswalk.py (place strings, marker names,
     # distances), never typed, and its --check fails on a hand edit.
     "place-crosswalk.json",
+    # 18 November 2026, the corrections page (kit/docs/corrections.md, places in prose): written by scripts/build-place-flags.py from places.json, the era
+    # snapshot and the kit's regime table (the kit's placeflags.py), never typed, and its --check fails on a hand edit. Place names and flag files only.
+    "place-flags.json",
     # 4 November 2026, Say Your Name: given-names.json is the Record Atlas's given-name catalogue (https://recordatlas.org/given-names.json),
     # fetched by the Archive Kit's tools/atlas_given_names.py and committed as fetched, never typed here; the forms are kept once, in the
     # Atlas (scripts/given_name_variants.py), and nothing about a person is in it. This archive's own forms table (givennames-forms.json) is deleted.

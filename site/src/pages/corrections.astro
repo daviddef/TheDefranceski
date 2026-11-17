@@ -7,6 +7,12 @@ import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
 import plateTable from "../data/plates.json";
 import { claim } from "@daviddef/archive-kit/lib/rec.js";
+import { corrIdMap } from "@daviddef/archive-kit/lib/corrections.js";
+import { bookIndex, linkBooks } from "@daviddef/archive-kit/lib/booklinks.js";
+import { placeIndex } from "@daviddef/archive-kit/lib/placelinks.js";
+import pb from "../data/parishbooks.json";
+import placeRows from "../data/places.json";
+import placeFlags from "../data/place-flags.json";
 import { mdHtml, mdpHtml, plain } from "../lib/md.js";
 /* 12 November 2026: corrections.json used twelve severity words and this page knew four, so 101 rows printed a raw word and sorted
    above the rest. scripts/vocab.py rewrote them to these five (three degrees, and two kinds that are not a degree); the original
@@ -20,7 +26,28 @@ const sev = { serious: "Serious", moderate: "Moderate", minor: "Minor", process:
 const status = { fixed: "Fixed", struck: "Struck" };
 const statusChip = (r) => status[r.status] ? `<span class="chip cx-status cx-status-${r.status}">${status[r.status]}</span>` : "";
 const order = ["serious", "moderate", "process", "minor", "note"];
-const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
+/* 18 November 2026 (kit pin eb8ce42, kit/docs/corrections.md): this page no longer sorts the rows. It used to put the serious ones first, which scattered
+   the dates; the kit's Corrections now sorts newest first itself (sort="date"), and rows on one day keep the order of the file. */
+const rows = c.rows;
+/* the anchor of each entry (c-<day>-<hash of the headline>), from the SAME rows in FILE order that src/lib/pulse.js hands buildPulse as `corrections`, so a
+   card on /whats-new/ lands on its entry. */
+const ids = corrIdMap(c.rows);
+/* the kit puts every internal address through `u`, and the Sources chip of a plate link is the in-page anchor "#plate-<id>": based, it became "/#plate-<id>"
+   (the kit's anchors gate found 28 of them pointing at the home page). An anchor stays an anchor. */
+const uh = (p) => String(p).startsWith("#") ? p : u(p);
+/* the archive's catalogue of register books (parishbooks.json), so "the Svetvinčenat baptism book 1764-1791" in a correction links to that volume's
+   FamilySearch image; a volume with no ark is left out. */
+const arkOf = (parish, label) => { const a = pb.links?.[parish]?.[label]?.ark; return a ? `https://www.familysearch.org/ark:/61903/${a}` : ""; };
+const books = bookIndex(pb.list.flatMap((p) => (p.books || []).map((b) => ({ parish: p.parish, label: b, href: arkOf(p.parish, b) }))));
+/* a place named in a correction links to its page, with the flag of the state that held it in the year the sentence names (the kit's placeIndex; the
+   table, src/data/place-flags.json, is made in the build by scripts/build-place-flags.py from the era snapshot and the kit's regime table). The
+   flag art is the kit's own, resolved by the build. No name index is read here: the names on this page are linked after the build (autolink). */
+const FLAG_ART = import.meta.glob("../../node_modules/@daviddef/archive-kit/kit/data/flags/*.svg", { eager: true, query: "?url", import: "default" });
+const flagUrl = (svg) => { const k = Object.keys(FLAG_ART).find((p) => p.endsWith("/" + svg)); return k ? FLAG_ART[k] : ""; };
+/* The kit links places before books, and a place link round "Svetvinčenat" breaks the phrase "Svetvinčenat baptism book 1764–1791" it matches; so the books are
+   linked here, first, and the kit's own pass (the `books` prop) then finds nothing left to do. Places inside a linked book are not linked twice. */
+const bk = (h) => (h ? linkBooks(h, books) : h);
+const places = placeIndex(placeRows.map((p) => ({ name: p.name, aliases: Object.values(p.alt || {}), href: u(`/places/${p.slug}/`) })), placeFlags, flagUrl);
 /* A scan beside the passage that cites it (the linking standard, L4). A correction that rests on a page of the family's own copy
    of a parish register carries that plate, a small picture inside the entry, linked to the full file; the plate is already
    published (components/Plates.astro, /gallery/), and the words that cite it link here (md.js, [words](rec:plate-<id>)).
@@ -48,23 +75,25 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
 <Rule name="arrows" label="The list" />
 
 <section class="blk">
-  <Corrections u={u} major="Serious" rows={rows.map(r => ({
+  <Corrections u={uh} major="Serious" books={books} places={places} rows={rows.map(r => ({
+    id: ids.get(r),
+    about: r.for,
     when: r.when,
     kind: plain(r.what),
     who: statusChip(r),
     sev: sev[r.sev] || r.sev,
     /* The sentence being withdrawn, kept verbatim: its names are the old claim, quoted, not this archive's claim now. The mark is the
        linking standard's own (data-name-exempt, with its reason); the links stay, only L2 and L5 do not count the names inside it. */
-    was: r.said ? `<span data-name-exempt="the sentence being withdrawn, kept verbatim: its names are the old claim, quoted">${based(mdHtml(r.said))}</span>` : "",
-    now: based(mdHtml(r.true)),
-    how: based(mdHtml(r.how)) + (r.how ? thumbs(r.plates) : ""),
+    was: r.said ? `<span data-name-exempt="the sentence being withdrawn, kept verbatim: its names are the old claim, quoted">${bk(based(mdHtml(r.said)))}</span>` : "",
+    now: bk(based(mdHtml(r.true))),
+    how: bk(based(mdHtml(r.how))) + (r.how ? thumbs(r.plates) : ""),
     /* 231 rows, and the shape drifted: 205 are written said/true/how, but 26 —
        every one added since late September — carry a single narrative `note`
        instead, and this page rendered none of it. They published as a title
        with an empty body. `why` is the component's only unlabelled prose slot,
        which is what a narrative note is. Found 9 October 2026 by grepping the
        BUILT page for a correction's own text and getting nothing back. */
-    why: r.note ? based(mdpHtml(r.note)) + (!r.how ? thumbs(r.plates) : "") : (!r.how && r.plates ? thumbs(r.plates) : ""),
+    why: r.note ? bk(based(mdpHtml(r.note))) + (!r.how ? thumbs(r.plates) : "") : (!r.how && r.plates ? thumbs(r.plates) : ""),
     extra: r.where
       /* A «where» part is sometimes a bare path, sometimes a markdown link,
          and sometimes a sentence with links and code spans inside it —
