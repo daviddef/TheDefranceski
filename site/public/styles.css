@@ -10,7 +10,7 @@
   --serif:"EB Garamond",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --maxw:1240px;
+  --maxw:1080px;
   --maxw-wide:1560px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -1124,3 +1124,6 @@ table td, table th{overflow-wrap:break-word;word-break:normal;hyphens:manual}
    --rule, --panel, --accent, --sans, --serif) and its 1240px measure, so nothing is mapped. The cover's picture used to sit flush
    under the site header; with the running head between them it gets a small gap of its own. */
 body.is-home .bk-head + main{padding-top:12px}
+
+/* The book's running head and foot (kit BookHead, BookFoot) sit on the page column; the kit reads --bk-width. */
+:root{--bk-width:var(--maxw)}
