@@ -33,6 +33,7 @@ fi
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=2048}"
 echo "gate: building into $OUT (dist left alone)"
 npm run publish:index >/dev/null 2>&1 || { echo "gate: publish:index failed"; exit 2; }
+python3 ../scripts/build-place-flags.py >/dev/null 2>&1 || { echo "gate: build-place-flags failed"; exit 2; }
 npx astro build --outDir "$OUT" > "/tmp/gate-$$.log" 2>&1 || {
   echo "gate: BUILD FAILED"; tail -12 "/tmp/gate-$$.log"; exit 2; }
 echo "gate: built $(grep -oE '[0-9]+ page\(s\) built' "/tmp/gate-$$.log" | tail -1)"

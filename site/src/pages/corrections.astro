@@ -7,6 +7,12 @@ import { linkParts } from "../lib/exists.js";
 import c from "../data/corrections.json";
 import plateTable from "../data/plates.json";
 import { claim } from "@daviddef/archive-kit/lib/rec.js";
+import { corrIdMap } from "@daviddef/archive-kit/lib/corrections.js";
+import { bookIndex } from "@daviddef/archive-kit/lib/booklinks.js";
+import { placeIndex } from "@daviddef/archive-kit/lib/placelinks.js";
+import pb from "../data/parishbooks.json";
+import placeRows from "../data/places.json";
+import placeFlags from "../data/place-flags.json";
 import { mdHtml, mdpHtml, plain } from "../lib/md.js";
 /* 12 November 2026: corrections.json used twelve severity words and this page knew four, so 101 rows printed a raw word and sorted
    above the rest. scripts/vocab.py rewrote them to these five (three degrees, and two kinds that are not a degree); the original
@@ -20,7 +26,22 @@ const sev = { serious: "Serious", moderate: "Moderate", minor: "Minor", process:
 const status = { fixed: "Fixed", struck: "Struck" };
 const statusChip = (r) => status[r.status] ? `<span class="chip cx-status cx-status-${r.status}">${status[r.status]}</span>` : "";
 const order = ["serious", "moderate", "process", "minor", "note"];
-const rows = [...c.rows].sort((a, b) => order.indexOf(a.sev) - order.indexOf(b.sev));
+/* 18 November 2026 (kit pin eb8ce42, kit/docs/corrections.md): this page no longer sorts the rows. It used to put the serious ones first, which scattered
+   the dates; the kit's Corrections now sorts newest first itself (sort="date"), and rows on one day keep the order of the file. */
+const rows = c.rows;
+/* the anchor of each entry (c-<day>-<hash of the headline>), from the SAME rows in FILE order that src/lib/pulse.js hands buildPulse as `corrections`, so a
+   card on /whats-new/ lands on its entry. */
+const ids = corrIdMap(c.rows);
+/* the archive's catalogue of register books (parishbooks.json), so "the Svetvinčenat baptism book 1764-1791" in a correction links to that volume's
+   FamilySearch image; a volume with no ark is left out. */
+const arkOf = (parish, label) => { const a = pb.links?.[parish]?.[label]?.ark; return a ? `https://www.familysearch.org/ark:/61903/${a}` : ""; };
+const books = bookIndex(pb.list.flatMap((p) => (p.books || []).map((b) => ({ parish: p.parish, label: b, href: arkOf(p.parish, b) }))));
+/* a place named in a correction links to its page, with the flag of the state that held it in the year the sentence names (the kit's placeIndex; the
+   table, src/data/place-flags.json, is made in the build by scripts/build-place-flags.py from the era snapshot and the kit's regime table). The
+   flag art is the kit's own, resolved by the build. No name index is read here: the names on this page are linked after the build (autolink). */
+const FLAG_ART = import.meta.glob("../../node_modules/@daviddef/archive-kit/kit/data/flags/*.svg", { eager: true, query: "?url", import: "default" });
+const flagUrl = (svg) => { const k = Object.keys(FLAG_ART).find((p) => p.endsWith("/" + svg)); return k ? FLAG_ART[k] : ""; };
+const places = placeIndex(placeRows.map((p) => ({ name: p.name, aliases: Object.values(p.alt || {}), href: u(`/places/${p.slug}/`) })), placeFlags, flagUrl);
 /* A scan beside the passage that cites it (the linking standard, L4). A correction that rests on a page of the family's own copy
    of a parish register carries that plate, a small picture inside the entry, linked to the full file; the plate is already
    published (components/Plates.astro, /gallery/), and the words that cite it link here (md.js, [words](rec:plate-<id>)).
@@ -48,7 +69,9 @@ const counts = Object.fromEntries(order.map(k => [k, c.rows.filter(r => r.sev ==
 <Rule name="arrows" label="The list" />
 
 <section class="blk">
-  <Corrections u={u} major="Serious" rows={rows.map(r => ({
+  <Corrections u={u} major="Serious" books={books} places={places} rows={rows.map(r => ({
+    id: ids.get(r),
+    about: r.for,
     when: r.when,
     kind: plain(r.what),
     who: statusChip(r),
