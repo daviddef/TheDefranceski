@@ -469,6 +469,16 @@ def _via(row, hh=None, child=None):
 def node(name, hh=None, child=None, small=False):
     if not name or name == "—": return None
     row = _row_fitting(name, hh, child)
+    # A PARENT OR SPOUSE IN A HOUSEHOLD begun in `from` was born twelve to sixty-five years before it
+    # (the household starts with its first child). A roster row of the same name outside that window is
+    # another person (17 Nov 2026: Piero b. 1707 was drawn as the father of children born 1703-1710, and
+    # a Maria b. 1791 as the mother of children born 1872-1888). The name stays; the link and the dates go.
+    if row and hh is not None and child is None and not small and hh.get("noLinkParents"):
+        row = None   # a household whose parents are only forenames (h137): never resolve them by name
+    if row and hh is not None and child is None and not small:
+        _b, _f = row.get("b"), hh.get("from")
+        if isinstance(_b, int) and isinstance(_f, int) and not (12 <= _f - _b <= 65):
+            row = None
     sl = slugify(row["name"]) if row else None
     # A /who/ page is only BUILT for a name of five or more letters (see the `needle` guard where
     # the people are made). Linking to one that is not built is a dead link in every page that
@@ -677,6 +687,10 @@ def ptree(name, row=None):
     # name their parents too — draw that, clearly marked as a single index entry.
     if not t.get("parents"):
         cand = REG_BY_NAME.get(k) or []
+        # an index row withdrawn for one person (ptree-refuse.json entry with "indexRow": true): the row names this
+        # person together with people who are not the parents (17 Nov 2026: a bride's marriage row drawn as the groom's parents)
+        if row and any(r.get("indexRow") and r.get("pid") == row.get("pid") for r in _REFUSE):
+            cand = []
         # the same date gate the household path uses. Without it a Domenico de' Franceschi
         # of the 1560s collects the parents of a Domenico baptised at Svetvinčenat in the 1800s.
         if len(cand) == 1 and myY is not None:
