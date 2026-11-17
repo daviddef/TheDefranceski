@@ -32034,6 +32034,35 @@
     "france"
    ],
    "got": "Index test of the digitised inventories, not a read of any act. No answer for: Franceschi, Franceschi Rougemont, De Franceschi, Defranceschi, Franceschy, Francesqui, Franchesqui, Chouayne, Chouaine. Hits that are not this family and were not counted: «Francisque» (one military record of 1905-24), «Rougemont» (eight volumes of medieval charters of the Forez), «Thurin» (380, a commune and a surname of the Loire). The link in the third-party answer that sent us here (ark vta12d78a310eb1ed81) is the Charlieu population censuses, which cannot hold a 17th-century act. Only the French line's forms were tried: no nil is claimed for the Defranceschi family."
+  },
+  {
+   "when": "18 Nov 2026",
+   "outcome": "found",
+   "key": "src/siv-archives-nationales-francischy-rougemont-18-nov-2026",
+   "src": "Archives nationales, salle des inventaires virtuelle (SIV): searched «francischy», «francisqui», «francesqui», «franchesqui», «francesquy», «franceski», «franceschy», «francesche», «rougemont franceschi», «franceschi dunois», «froidmentel», «chouaine», «chouayne», «defranceschi», «de franceschi»; control «zzzqqq» returned 0",
+   "url": "https://www.siv.archives-nationales.culture.gouv.fr/siv/rechercheconsultation/recherche/ir/rechercheGeneralisteResultat.action",
+   "what": "the French de Franceschi / Francischy family of Rougemont (Dunois), against the SIV's own index",
+   "pages": "result pages of each query (finding-aid abstracts); the notice of Y//183 fol. 144 opened",
+   "walked": false,
+   "tags": [
+    "franceschi",
+    "rougemont",
+    "france",
+    "siv"
+   ],
+   "got": "doc (finding-aid abstract; the act not seen). New: Châtelet de Paris, insinuations Y//183 (6 May 1643 - 15 Oct 1644), fol. 144, act of 16 Aug 1643: Charles de Francischy, seigneur de Rougemont, gives a life annuity of 150 livres to Simon Repérant, conseiller secrétaire du Roi, and Marguerite de Neufbourg, his wife, his cousin and cousine. The other hits repeat FranceArchives (Cartier MC/ET/XIII/9 with Charles de Franchesqui in Toutain MC/ET/XXXV; Y//242-276 'Francesquy (Joseph de) de Turin' 1682-1704, a Turin man, not counted). «Chouaine»/«Chouayne» gave Paris and Chartres acts as leads only. Same limits as the portal: no entry from the departmental archives of the Loire, Eure-et-Loir or Loir-et-Cher. Method note: a GET to the result page returns a stale earlier search; the search is a POST of the form with the date fields cleared. The Istrian-family forms (Defranceski, Defrančeski and the rest of the Atlas list) were not typed here except «defranceschi» and «de franceschi», whose 13 and 515 hits are 19th-20th-century naturalisation decrees, Napoleon-fonds and ministry files: no nil is claimed for the other forms.",
+   "ev": [
+    [
+     "/namesakes/",
+     "Namesakes"
+    ]
+   ],
+   "for": [
+    [
+     "/person/charles-francisque-1605/",
+     "Charles Francisque"
+    ]
+   ]
   }
  ]
 }
