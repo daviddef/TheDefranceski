@@ -63,7 +63,7 @@ HAND_EDITED = {
     "rivers.json", "searched.json", "seget.json", "seget-voce.json", "senjline.json", "shots.json",
     "sources.json", "sovereignty.json", "spines.json", "story.json", "story-book.json", "story-maps.json", "sweep.json", "trees.json",
     "trentino.json", "triage.json", "valentino.json", "vodnjan.json", "walk.json", "waypoints.json",
-    "worklist.json", "y1948.json",
+    "worklist.json", "y1948.json", "same-person.json",
     # 27 October 2026, the mini flags (kit/docs/ribbon-flags.md): the archive's own answers for today's country of a card's
     # place, and a card's place text -> the era table's, each entry with its evidence; typed by a person.
     "flag-countries.json", "flag-places.json",
