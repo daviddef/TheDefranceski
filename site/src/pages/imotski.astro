@@ -9,6 +9,8 @@ import ScenePerinusa from "../components/ScenePerinusa.astro";
 import Rule from "../components/Rule.astro";
 import Sources from "../components/Sources.astro";
 import { u } from "../lib/url.js";
+import Plates from "../components/Plates.astro";
+import Lightbox from "../components/Lightbox.astro";
 import d from "../data/imotski.json";
 ---
 <Base
@@ -226,6 +228,23 @@ import d from "../data/imotski.json";
   </div>
   <p class="cap" style="margin-top:14px" set:html={_md(d.prolozac.source_pro)}></p>
 </section>
+
+<Rule name="pomegranate" label="The stones" />
+
+<section class="blk">
+  <h2>{d.stones.heading}</h2>
+  <p class="dek" style="margin-top:8px" set:html={_md(d.stones.lead)}></p>
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:22px">
+    {d.stones.rows.map(r => (
+      <div class="one" style={r.key ? "border-left-color:var(--accent)" : ""}>
+        <div class="lab">{r.lab}</div>
+        <p style="margin-top:8px" set:html={mdHtml(r.text)}></p>
+        {r.plates && <div style="margin-top:14px"><Plates ids={r.plates} cols={1} /></div>}
+      </div>
+    ))}
+  </div>
+</section>
+<Lightbox />
 
   <Sources ids={["myheritage", "findagrave", "dapa"]} />
 </Base>
