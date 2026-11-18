@@ -8,6 +8,7 @@ import e from "../data/errands.json";
 import Shotlist from "@daviddef/archive-kit/components/Shotlist.astro";
 import p from "../data/shots.json";
 import { md, mdps, mdpsUnbased } from "../lib/md.js";
+import { inPlaces, placeCss } from "../lib/placeprose.js";
 
 /* 21 September 2026. The card moved to the kit. The PRIORITY did not: `pri`
    ranks these by what the answer would buy, which is this archive's question
@@ -31,16 +32,16 @@ const rowsFor = (wk) => p.rows.filter(r => r.walk === wk).map(r => ({
 }));
 
 const groups = [{
-  rows: e.rows.map((r) => ({
-    n: r.n, who: r.who, what: mdpsUnbased(r.what), ref: mdpsUnbased(r.ref), why: mdpsUnbased(r.why),
+  rows: e.rows.map((r) => { const seen = new Set(); const pl = (h) => inPlaces(h, { unbased: true, seen }); return ({
+    n: r.n, who: pl(mdpsUnbased(r.who)), what: `<span id="errand-${r.n}"></span>` + pl(mdpsUnbased(r.what)), ref: mdpsUnbased(r.ref), why: pl(mdpsUnbased(r.why)),
     ask: mdpsUnbased(r.ask), draft: mdpsUnbased(r.draft), sent: _plainq(r.sent),
     stateLabel: (PRI[r.pri] || [r.pri])[0],
     colour: (PRI[r.pri] || [])[1],
-  })),
+  }); }),
 }];
 ---
 <Base title={e.title} eyebrow={`${e.eyebrow} · ${p.rows.length} shots on ${walks.length} walks`} dek={e.dek}>
-<section class="blk"><p class="prose" set:html={mdps(e.lead)}></p>
+<section class="blk"><p class="prose" set:html={inPlaces(mdps(e.lead))}></p>
   {unlabelled.length > 0 && (
     <p class="small">Filed under a priority this page has no label for: {unlabelled.join(", ")}.</p>
   )}
@@ -57,14 +58,14 @@ const groups = [{
     <Rule name="arrows" label="What has come back" />
     <section class="blk">
       {e.rows.filter((r) => r.reply).map((r) => (
-        <div class="blk fix" style="margin-top:26px">
-          <div class="lab">Errand {r.n} · {r.who}</div>
+        <div class="blk fix" id={`answer-${r.n}`} style="margin-top:26px">
+          <div class="lab">Errand {r.n} · {r.who} · <a href={`#errand-${r.n}`}>the request ↓</a></div>
           <h2 style="font-size:24px">{r.what}</h2>
-          <p class="prose" set:html={mdps(r.reply)} style="margin-top:14px"></p>
+          <p class="prose" set:html={inPlaces(mdps(r.reply))} style="margin-top:14px"></p>
           {r.next && (
             <p class="prose" style="margin-top:14px">
               <span class="lab">Where it goes next</span>
-              <span set:html={mdps(r.next)}></span>
+              <span set:html={inPlaces(mdps(r.next))}></span>
             </p>
           )}
         </div>
@@ -99,3 +100,4 @@ const groups = [{
   <p class="cap" style="margin-top:14px"><a href={u("/searched/")}>The Search Register →</a> · <a href={u("/parish-books/")}>Parish Books →</a> · <a href={u("/worklist/")}>The Work List →</a></p>
 </section>
 </Base>
+<style is:global set:html={placeCss}></style>

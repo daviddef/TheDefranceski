@@ -7,6 +7,7 @@ import Base from "../layouts/Base.astro";
 import Rule from "../components/Rule.astro";
 import { u } from "../lib/url.js";
 import { md, mdp } from "../lib/md.js";
+import { inPlaces, placeCss } from "../lib/placeprose.js";
 import d from "../data/findmypast.json";
 import fm from "../data/findmypast-map.json";
 
@@ -17,7 +18,7 @@ const GRADE = { doc: "documented", inf: "inferred", lore: "family lore" };
 ---
 <Base title={d.title} eyebrow={d.eyebrow} dek={d.dek}>
 
-<section class="blk"><div class="prose" set:html={mdp(d.lead)}></div></section>
+<section class="blk"><div class="prose" set:html={inPlaces(mdp(d.lead))}></div></section>
 
 <Rule name="tablet" label="The four spellings" />
 <section class="blk">
@@ -65,8 +66,8 @@ const GRADE = { doc: "documented", inf: "inferred", lore: "family lore" };
   <div class="finds">{d.findings.map((f) => (
     <article class="find">
       <div class="fh"><h3>{f.h}</h3><span class={"gr gr-" + f.grade}>{GRADE[f.grade] || f.grade}</span></div>
-      <div class="prose" set:html={mdp(f.t)}></div>
-      <p class="cap" style="margin-top:12px"><span class="lab">Next</span> {f.next}</p>
+      <div class="prose" set:html={inPlaces(mdp(f.t))}></div>
+      <p class="cap" style="margin-top:12px"><span class="lab">Next</span> <Fragment set:html={inPlaces(md(f.next))} /></p>
     </article>))}
   </div>
 </section>
@@ -113,10 +114,10 @@ const GRADE = { doc: "documented", inf: "inferred", lore: "family lore" };
 
 <Rule name="helm" label="How it was read, and what is left" />
 <section class="blk">
-  <p class="prose" set:html={mdp(d.how)}></p>
+  <p class="prose" set:html={inPlaces(mdp(d.how))}></p>
   <div class="one" style="margin-top:22px;border-left-color:var(--accent)">
     <div class="lab">What is left</div>
-    <div class="prose" style="margin-top:8px" set:html={mdp(d.next)}></div>
+    <div class="prose" style="margin-top:8px" set:html={inPlaces(mdp(d.next))}></div>
   </div>
   <p class="cap" style="margin-top:20px">
     <a href={u("/searched/")}>What has been read →</a> ·
@@ -186,3 +187,4 @@ const GRADE = { doc: "documented", inf: "inferred", lore: "family lore" };
   @media (max-width: 720px) { .recs .pl > ol, .recs.flat { columns: 1; } }
 </style>
 </Base>
+<style is:global set:html={placeCss}></style>
