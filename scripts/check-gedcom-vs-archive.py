@@ -420,7 +420,7 @@ def main():
                 # is the relative at least in the archive?
                 have = "in archive" if conf(r) else ("possible" if matched.get(r, ("", []))[0].startswith("possible") else "not in archive")
                 gaps.append(dict(person=nm(i), life=p["life"], relation=kind, gap="in tree, not linked in archive", relative=nm(r),
-                                 relative_life=q["life"], relative_kind=q["kind"], relative_in_archive=have, archive_pid=";".join(pids),
+                                 relative_life=q["life"], relative_kind=q["kind"], relative_in_archive=have, person_tier=matched[i][0], relative_tier=matched[r][0], person_gid=i, relative_gid=r, archive_pid=";".join(pids),
                                  relative_pid=";".join(matched[r][1]) if r in matched else ""))
             for r in sorted(ag - gset):
                 linkstat[(kind, "on the archive's page, not in tree")] += 1
@@ -448,7 +448,7 @@ def main():
             arkcount += 1
             tail = ark.split(":", 2)[2]
             if tail not in corpus:
-                arkgaps.append(dict(person=nm(i), life=p["life"], ark=ark, archive_pid=";".join(matched[i][1]) if i in matched else ""))
+                arkgaps.append(dict(person=nm(i), life=p["life"], ark=ark, archive_pid=";".join(matched[i][1]) if i in matched else "", given=p["given"], sur=p["sur"], by=p["by"] or "", dy=p["dy"] or "", gid=i, tier=matched[i][0] if i in matched else ""))
 
     # ---- 4. archive people with the surname that the tree does not hold
     tree_names = set()
@@ -482,8 +482,8 @@ def main():
         else: missing.append(rec)
     cols = ["gedcom_id", "name", "role", "kind", "life", "tier", "archive_pid", "birth_year", "death_year", "place", "mh_rin", "parents"]
     w("present-in-archive.csv", present, cols); w("possible-matches.csv", possible, cols); w("missing-from-archive.csv", missing, cols)
-    w("link-gaps.csv", gaps, ["person", "life", "relation", "gap", "relative", "relative_life", "relative_kind", "relative_in_archive", "archive_pid", "relative_pid"])
-    w("record-links-not-in-archive.csv", arkgaps, ["person", "life", "ark", "archive_pid"])
+    w("link-gaps.csv", gaps, ["person", "life", "relation", "gap", "relative", "relative_life", "relative_kind", "relative_in_archive", "archive_pid", "relative_pid", "person_tier", "relative_tier", "person_gid", "relative_gid"])
+    w("record-links-not-in-archive.csv", arkgaps, ["person", "life", "ark", "archive_pid", "given", "sur", "by", "dy", "gid", "tier"])
     w("archive-people-not-in-tree.csv", [dict(pid=q["pid"], name=q["name"], b=q["b"], d=q["d"], place=q["place"], line=q["line"], src=q["src"]) for q in arch_only],
       ["pid", "name", "b", "d", "place", "line", "src"])
     # tallies

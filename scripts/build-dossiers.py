@@ -364,6 +364,10 @@ try:
     _REFUSE = json.load(open(os.path.join(DATA, "ptree-refuse.json"), encoding="utf-8")).get("refuse", [])
 except Exception:
     _REFUSE = []
+try:   # parent, spouse and child links from David's family tree (site/src/data/tree-links.json, scripts/build-tree-links.py), graded «tree»
+    _TREE_LINKS = json.load(open(os.path.join(DATA, "tree-links.json"), encoding="utf-8")).get("links", {})
+except Exception:
+    _TREE_LINKS = {}
 try:   # a parent link written by hand (site/src/data/ptree-add.json), graded «inferred»; applies only where the build drew no parents
     _ADD = json.load(open(os.path.join(DATA, "ptree-add.json"), encoding="utf-8")).get("add", [])
 except Exception:
@@ -620,7 +624,7 @@ def ptree(name, row=None):
     if not k: return None
     up, down = CHILD_IN.get(k, []), PARENT_OF.get(k, [])
     # no household either way — but one register row may still name this person's parents
-    if not up and not down and len(REG_BY_NAME.get(k, [])) != 1: return None
+    if not up and not down and len(REG_BY_NAME.get(k, [])) != 1 and not (row and _TREE_LINKS.get(row.get("pid"))): return None
     # A roster name that carries its own birth year, «Domenica de Franceschi (b. 1776)», is one person: `_nm` drops the
     # bracket, so ROW_BY_NAME gave her the FIRST Domenica De Franceschi row (b. 1703) and the bloodline page drew the
     # 1703 girl's parents and twenty-three siblings under her (worklist 337, 18 Nov 2026).
@@ -741,6 +745,34 @@ def ptree(name, row=None):
         elif row and row.get("pid") == _a.get("father") and not t.get("children"):
             _cn = _hand_node(_a.get("pid"))
             if _cn: t["children"] = [_cn]; t["childrenPlace"] = ""
+
+    # THE FAMILY TREE'S LINKS (tree-links.json): drawn only where nothing better was found, and graded «tree», the band that says «the
+    # family tree, unverified». A register, an index household or a hand-written link always wins; a tree link never replaces one.
+    _tl = _TREE_LINKS.get(row.get("pid")) if row and row.get("pid") else None
+    if _tl:
+        def _tree_node(pid_):
+            rw = _ROW_BY_PID.get(pid_)
+            if not rw: return None
+            n = {"n": rw["name"], "dt": _dates(rw), "via": "tree", "pid": pid_}
+            if len(re.sub(r"\s*\(.*?\)\s*", "", rw["name"]).strip()) >= 5: n["slug"] = slugify(rw["name"])
+            return n
+        if not t.get("parents"):
+            _pn = [x for x in (_tree_node(_tl.get("father")), _tree_node(_tl.get("mother"))) if x]
+            if _pn:
+                t["parents"] = _pn
+                t["parentsPlace"] = ""
+                t["parentsHref"] = "/live-tree/"
+                t["parentsFromRow"] = True
+                t["parentsCaveat"] = ("From David's family tree on MyHeritage, not from a register: no record this archive has read names these people as "
+                                      "his or her parents. ")
+        if not t.get("spouse"):
+            _sn = [x for x in (_tree_node(q) for q in _tl.get("spouse") or []) if x]
+            if _sn: t["spouse"] = _sn[0]
+        _have = {c.get("pid") for c in (t.get("children") or []) if c.get("pid")}
+        _kn = [x for x in (_tree_node(q) for q in _tl.get("kids") or [] if q not in _have) if x]
+        if _kn:
+            t["children"] = (t.get("children") or []) + _kn
+            t.setdefault("childrenPlace", "")
 
     if not t.get("parents") and not t.get("children") and not t.get("spouse"):
         return {"none": True, "dropped": t["dropped"], "self": t["self"]} if t["dropped"] else None
