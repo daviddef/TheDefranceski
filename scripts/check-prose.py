@@ -70,6 +70,9 @@ HAND_EDITED = {
     # 4 November 2026, the people pages (kit PersonPage): person-notes.json is the notes a person writes for a page (the lore stages, the gaps,
     # the dek), other-archives.json the page of the same person on a sister archive; both typed by a person.
     "person-notes.json", "other-archives.json",
+    # 18 November 2026, the FamilySearch citations: fs-images.json maps each cited ark to [its image number as the viewer labels it, images in the volume,
+    # waypoint], recorded from the viewer (scripts/fold-fs-images.py) and checked against the rows by scripts/build-records.py. Arks and numbers only; no person.
+    "fs-images.json",
 }
 
 # Data files a script writes. Their generator's own scrub gate (check-living-v2.py, checkliving.py,
