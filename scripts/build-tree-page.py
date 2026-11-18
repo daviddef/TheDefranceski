@@ -249,8 +249,11 @@ def build(args):
             if par not in parents[child]: parents[child].append(par)
             grade[(child, par)] = max(g, grade.get((child, par), 0))
     VIA = {"read": 2, "tree": 1, "inferred": 1, "index": 0}
+    tree_only = []   # parents the family tree (tree-links.json) gives and nothing else does: applied LAST, and only to a child with no parent at all
     for pid, v in dossiers.items():
-        for q in v.get("ptree", {}).get("parents", []): add(pid, q.get("pid"), VIA.get(q.get("via"), 0))
+        for q in v.get("ptree", {}).get("parents", []):
+            if q.get("via") == "tree" and v.get("ptree", {}).get("parentsHref") == "/live-tree/": tree_only.append((pid, q.get("pid")))   # only those drawn from tree-links.json (older hand-graded «tree» parents keep their rank)
+            else: add(pid, q.get("pid"), VIA.get(q.get("via"), 0))
     for h in households:
         pars = [x for x in (h.get("fatherPid"), h.get("motherPid")) if x]
         for c in h["children"]:
@@ -261,6 +264,8 @@ def build(args):
             if a_ and b_: add(b_, a_, 2)
     except Exception:
         rep["directline_skipped"] += 1
+    for pid_, q_ in tree_only:   # a tree link never displaces a register, household or direct-line parent, and never pairs with one (a duplicate row of the same man had taken the place of the direct line's father, 18 Nov 2026)
+        if pid_ not in parents: add(pid_, q_, 1)
     # sex-aware father/mother; a parent who is also a descendant would make a loop, so test before linking
     def descends(x, of, seen=None):
         seen = seen if seen is not None else set()
