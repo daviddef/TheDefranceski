@@ -1,0 +1,325 @@
+{
+ "note": "Which image of its volume each FamilySearch image ark in the narrative pages' prose opens: [image number as FamilySearch labels it (1-based), images in the volume, waypoint]. Read on 18 Nov 2026 from FamilySearch's own image record (GET /platform/records/images/3:1:<ark>, signed in: links.self offset and results, the waypoint from its wc=). It is what lets the records table say 'image 159 of 174' and lets scripts/build-records.py refuse a link that names image N but opens a different one (the volume's first image, above all). Refresh with the familysearch-volume-sweep skill's scripts/ark-images.js whenever a new ark is cited; an ark not listed here is not checked and the table says so.",
+ "images": {
+  "3QS7-899X-5RLG": [
+   207,
+   272,
+   "9R28-3Y9"
+  ],
+  "3QS7-899X-GC4J": [
+   19,
+   72,
+   "9R2Z-4WG"
+  ],
+  "3QS7-899X-K31T": [
+   104,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QS7-899X-KQQL": [
+   120,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QS7-899X-R9Q6-M": [
+   328,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9S2-H": [
+   648,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9S2-W": [
+   626,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9S5-J": [
+   614,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9S5-S": [
+   575,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SD-6": [
+   665,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SF-Y": [
+   633,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SG-B": [
+   589,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SG-M": [
+   613,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9ST-C": [
+   594,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SV-S": [
+   654,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SW-1": [
+   668,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9SZ-9": [
+   662,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9WM-4": [
+   687,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-R9WZ-V": [
+   696,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-899X-RHZD": [
+   192,
+   581,
+   "9R2D-927"
+  ],
+  "3QS7-L99F-6NJH": [
+   159,
+   174,
+   "9R2X-BZD"
+  ],
+  "3QS7-L99F-W4CK": [
+   150,
+   205,
+   "9R2X-ZNT"
+  ],
+  "3QS7-L99X-5RBL": [
+   203,
+   272,
+   "9R28-3Y9"
+  ],
+  "3QS7-L99X-5RLT": [
+   186,
+   272,
+   "9R28-3Y9"
+  ],
+  "3QS7-L99X-5RV1": [
+   246,
+   272,
+   "9R28-3Y9"
+  ],
+  "3QS7-L99X-G4TN": [
+   424,
+   651,
+   "9R2Z-4WB"
+  ],
+  "3QS7-L99X-K354": [
+   1,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QS7-L99X-K3FV": [
+   106,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QS7-L99X-K3PM": [
+   86,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QS7-L99X-KZM5": [
+   12,
+   41,
+   "9R2H-444"
+  ],
+  "3QS7-L99X-KZQK": [
+   11,
+   41,
+   "9R2H-444"
+  ],
+  "3QS7-L99X-R111": [
+   607,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-L99X-R1R7": [
+   658,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-L99X-R93D-L": [
+   691,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-L99X-R9M9-1": [
+   653,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-L99X-R9M9-L": [
+   622,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-L99X-R9MS-1": [
+   636,
+   702,
+   "9R28-RMH"
+  ],
+  "3QS7-L99X-RXF8": [
+   12,
+   213,
+   "9R28-DPV"
+  ],
+  "3QSQ-G99F-6N9N": [
+   160,
+   174,
+   "9R2X-BZD"
+  ],
+  "3QSQ-G99X-5R3M": [
+   329,
+   410,
+   "9R28-SPX"
+  ],
+  "3QSQ-G99X-5RBC": [
+   200,
+   410,
+   "9R28-SPX"
+  ],
+  "3QSQ-G99X-G4C4": [
+   427,
+   651,
+   "9R2Z-4WB"
+  ],
+  "3QSQ-G99X-G4G6": [
+   410,
+   651,
+   "9R2Z-4WB"
+  ],
+  "3QSQ-G99X-GC5T": [
+   28,
+   83,
+   "9R2Z-44D"
+  ],
+  "3QSQ-G99X-K3K5": [
+   122,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QSQ-G99X-KQ3N": [
+   112,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QSQ-G99X-KQ9J": [
+   99,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QSQ-G99X-KQCR": [
+   91,
+   367,
+   "9R2H-PTL"
+  ],
+  "3QSQ-G99X-KQP1": [
+   439,
+   559,
+   "9R2H-RM4"
+  ],
+  "3QSQ-G99X-KZYJ": [
+   10,
+   40,
+   "9R2H-HZ7"
+  ],
+  "3QSQ-G99X-R93N-B": [
+   493,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R97": [
+   205,
+   272,
+   "9R28-3Y9"
+  ],
+  "3QSQ-G99X-R9L": [
+   194,
+   272,
+   "9R28-3Y9"
+  ],
+  "3QSQ-G99X-R9QW-F": [
+   326,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9S3-F": [
+   652,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SB-4": [
+   615,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SB-M": [
+   586,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SC-R": [
+   646,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SD-5": [
+   629,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SG-1": [
+   621,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SK-1": [
+   631,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SX-T": [
+   601,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-R9SX-X": [
+   599,
+   702,
+   "9R28-RMH"
+  ],
+  "3QSQ-G99X-RX3F": [
+   172,
+   412,
+   "9R28-82Z"
+  ]
+ }
+}
