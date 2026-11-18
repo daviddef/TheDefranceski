@@ -1,0 +1,32 @@
+{
+ "note": "One row per decision that several roster rows are ONE person. Read by scripts/build-tree-page.py (not by any page): the tree draws the `keep` row as a single card carrying the relatives of every row in `also`, and lists the others on it as «also recorded as». Nothing is deleted or renumbered: every row keeps its id, its page and its note. `status` is «same» (merged) or «maybe» (drawn apart, the doubt kept on the keep card). `grade` is how the identity is known: doc (one record names both), inf (name, parents or spouse and place agree and nothing disagrees), lore (family word). The builder REFUSES a merge when the rows disagree on sex, on a recorded (not estimated) birth or death year, or on a parent, or when a row is a living or stand-in person. To add one: a row here, then `python3 scripts/build-tree-page.py`. A row is changed or removed only by a person's edit that says why.",
+ "rows": [
+  {
+   "id": "sp001",
+   "keep": "anna-kalanj-de-franceschi-1864-1936-1864",
+   "also": ["ana-kalanj-ledenice", "ana-kalanj-crikvenica"],
+   "status": "same",
+   "grade": "inf",
+   "date": "2026-11-18",
+   "why": "The index households h046 (Ledenice 1890-92) and h048 (Crikvenica 1894-96) each name «Ana Kalanj» as the wife of Josip Defranceschi, and the registers name Ana Kalanj in all four Crikvenica baptisms of the children; the baptism of 3 January 1864 (Klenovica house 22) is the register woman the archive already carries as Josip's wife. The household builder keys on parents plus place, so one couple that moved parishes became two households and two mothers. The birth and death years on the two household cards are estimates (~). OPEN and untouched by this mark: the Crikvenica gravestone gives Josip a wife Ana Grubisic (1863-1936), which the registers do not support (see her roster note)."
+  },
+  {
+   "id": "sp002",
+   "keep": "anton-rudolf-defranceski-1890",
+   "also": ["anton-antonius-rudolph-rudolf-ante-defranceschi-1890", "anton-rudolf-franceschi-1890"],
+   "status": "same",
+   "grade": "inf",
+   "date": "2026-11-18",
+   "why": "Three rows for the son of Josip Defranceschi born in 1890: the family chart (Klenovica house 22, died 1943), the MyHeritage row «Anton / Antonius Rudolph / Rudolf Ante» (Ledenice, died 1943) and the household row «Anton Rudolf Franceschi» (Ledenice, a death year of 1960 that is an estimate). Same given names, same year, same father, household h046 puts the Ledenice child on the MyHeritage row, and the two recorded death years agree (1943)."
+  },
+  {
+   "id": "sp003",
+   "keep": "anton-rudolf-defranceski-1890",
+   "also": ["anton-defranceski-1890"],
+   "status": "maybe",
+   "grade": "lore",
+   "date": "2026-11-18",
+   "why": "NOT merged. The Pfullingen row «Anton Defranceski» (b. 1890, «the eldest of the six») is certified by the mayor of Pfullingen in 1950 as having worked for Hermann Sauer, and the chart gives Anton Rudolf's death as 1943. Either this is another man or one of those facts is wrong; it is not settled."
+  }
+ ]
+}

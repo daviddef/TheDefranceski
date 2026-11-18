@@ -42,7 +42,7 @@ def yr(v):
     try: return int(v)
     except (TypeError, ValueError): return None
 
-INPUTS = ["roster.json", "dossiers.json", "households.json", "directline.json", "directline-pids.json", "atlas.json"]
+INPUTS = ["roster.json", "dossiers.json", "households.json", "directline.json", "directline-pids.json", "atlas.json", "same-person.json"]
 def inputs_hash():
     h = hashlib.sha1()
     for n in INPUTS: h.update(io.open(os.path.join(DATA, n), "rb").read())
@@ -86,6 +86,81 @@ def find_atlas():
     for c in ATLAS_CANDIDATES:
         if c and os.path.exists(os.path.join(c, "data", "countries.json")): return c
     sys.exit("Record Atlas checkout not found; set RECORD_ATLAS")
+
+def apply_same(people, undrawn, living, placeholders, roster_by_pid, rep):
+    """site/src/data/same-person.json: several roster rows that are ONE person are drawn as one card. The `keep` row takes the relatives of every `also` row
+    (parents it lacks, spouses and children added), takes a recorded year where its own is an estimate, lists the others as `also` («recorded as»), and every
+    link in the file that pointed at an `also` row is moved to `keep`. Nothing is deleted from the roster. A `maybe` row only leaves a note on the keep card.
+    Refused (nothing written): an unknown or living row, a stand-in, a row in two decisions, disagreement on sex, on a RECORDED birth or death year, or on a parent."""
+    path = os.path.join(DATA, "same-person.json")
+    if not os.path.exists(path): return {}
+    rows_ = jl(path)["rows"]
+    lists = (people, undrawn, living, placeholders)
+    node = {n["id"]: n for lst in lists for n in lst}
+    in_people = {n["id"] for n in people}; in_dead = in_people | {n["id"] for n in undrawn}
+    bad, used, redirect = [], {}, {}
+    for r in rows_:
+        ids = [r["keep"]] + list(r["also"])
+        if len(set(ids)) != len(ids): bad.append("%s repeats an id" % r["id"])
+        for i in ids:
+            if i not in roster_by_pid: bad.append("%s: no roster row %s" % (r["id"], i)); continue
+            if i not in in_dead: bad.append("%s: %s is not a dead person on the tree (living, stand-in, or not drawn at all)" % (r["id"], i)); continue
+            if r.get("status") == "same":
+                if i in used: bad.append("%s: %s is already in %s" % (r["id"], i, used[i]))
+                used[i] = r["id"]
+        if r.get("status") == "same" and r["keep"] not in in_people: bad.append("%s: the kept row %s is not drawn" % (r["id"], r["keep"]))
+    if bad: sys.exit("SAME-PERSON RULE: %s. Nothing written." % "; ".join(bad[:6]))
+    for r in rows_:
+        if r.get("status") == "same":
+            for o in r["also"]: redirect[o] = r["keep"]
+    def rd(i): return redirect.get(i, i)
+    merged = 0
+    for r in rows_:
+        kn = node[r["keep"]]
+        if r.get("status") == "maybe":
+            kn.setdefault("maybe", []).extend({"id": o, "name": (node[o].get("given", "") + " " + node[o].get("sur", "")).strip(), "page": node[o].get("page"), "why": r["why"]} for o in r["also"] if o in node)
+            continue
+        for o in r["also"]:
+            on = node[o]; clash = []
+            if kn.get("sex") and on.get("sex") and kn["sex"] != on["sex"]: clash.append("sex")
+            for yv, ev in (("by", "bye"), ("dy", "dye")):
+                if kn.get(yv) is not None and on.get(yv) is not None and kn[yv] != on[yv] and not kn.get(ev) and not on.get(ev): clash.append(yv)
+            for par in ("father", "mother"):
+                if kn.get(par) and on.get(par) and rd(kn[par]) != rd(on[par]): clash.append(par)
+            if clash: sys.exit("SAME-PERSON RULE: %s: %s and %s disagree on %s. Nothing written." % (r["id"], r["keep"], o, ", ".join(clash)))
+            for yv, ev, pl, pe in (("by", "bye", "bp", "bpe"), ("dy", "dye", "dp", None)):
+                if on.get(yv) is not None and (kn.get(yv) is None or (kn.get(ev) and not on.get(ev))):
+                    kn[yv], kn[ev] = on[yv], on.get(ev, False)
+                    if on.get(pl): kn[pl] = on[pl]
+                    if pe and pe in on: kn[pe] = on[pe]
+                elif not kn.get(pl) and on.get(pl): kn[pl] = on[pl]
+            for par, gr in (("father", "fg"), ("mother", "mg")):
+                if not kn.get(par) and on.get(par): kn[par] = on[par]; kn[gr] = on.get(gr)
+            for fld in ("spouse", "kids"): kn[fld] = list(kn.get(fld) or []) + [x for x in (on.get(fld) or []) if x not in (kn.get(fld) or [])]
+            for fld in ("srcs", "spn"):
+                if on.get(fld): kn[fld] = list(kn.get(fld) or []) + [x for x in on[fld] if x not in (kn.get(fld) or [])]
+            kn.setdefault("also", []).append({"id": o, "name": (on.get("given", "") + " " + on.get("sur", "")).strip(), "page": on.get("page"), "grade": r["grade"], "set": r["id"]})
+            merged += 1
+    for lst in lists:   # drop the merged rows, then move every link that pointed at one
+        lst[:] = [n for n in lst if n["id"] not in redirect]
+    for lst in lists:
+        for n in lst:
+            for par in ("father", "mother"):
+                if n.get(par): n[par] = rd(n[par])
+            for fld in ("spouse", "kids"):
+                if n.get(fld) is not None:
+                    seen, out = set(), []
+                    for x in n[fld]:
+                        x = rd(x)
+                        if x != n["id"] and x not in seen: seen.add(x); out.append(x)
+                    n[fld] = out
+    for n in people:   # a named-only spouse who is now a linked spouse is not named twice
+        if n.get("spn") and n.get("spouse"):
+            have = {fold((node[x].get("given", "") + " " + node[x].get("sur", ""))) for x in n["spouse"] if x in node}
+            n["spn"] = [s_ for s_ in n["spn"] if fold(s_.get("n", "")) not in have] or None
+    rep["same_person_merged"] = merged
+    return redirect
+
 
 def plain(s):
     s = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", str(s or "")); s = re.sub(r"[*_`]+", "", s)
@@ -557,6 +632,8 @@ def build(args):
     for pid, p in keep.items():
         sc = min(len(n_desc(pid)), 40) + min(len(n_anc(pid)), 40) + (25 if p["row"].get("direct") else 0)
         if sc > best: best, focus = sc, pid
+    redirect = apply_same(people, undrawn, living, placeholders, {r["pid"]: r for r in roster}, rep)
+    if focus in redirect: focus = redirect[focus]
     meta = {"title": "Roots & Routes", "sub": "Every person this archive holds, by generation, place, era and relationship. Click anyone and every view follows. A dashed line is a link seen in an index entry only, not yet read from a register.",
             "living": "names", "generated": datetime.date.today().isoformat(), "inputs": inputs_hash(), "source": "the archive's own roster, dossiers, households and direct line",
             "rowLabel": "Research line", "lineLabel": "Research line"}
