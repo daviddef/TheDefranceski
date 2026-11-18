@@ -89,7 +89,7 @@ GENERATED = {
     "onename.json", "plates.json", "reconcile.json", "researchmap.json", "roster.json", "searchindex.json",
     # 18 October 2026, the linking standard: both are written by a script from the archive's own data (scripts/build-records.py,
     # scripts/build-read-names.py), never typed, and each script has a --check that fails on a hand edit.
-    "read-names.json", "records.json",
+    "read-names.json", "records.json", "tree-links.json",
     # 25 October 2026, the "at the time" notes (kit/docs/era-notes.md): both are written by scripts/build-era.py (era-places.json from
     # data/era-ground.tsv and data/era-towns.tsv: place strings and a region id; era-snapshot.json from the Record Atlas's context.json:
     # region eras and regime labels), never typed, and its --check fails on a hand edit. No person's name is in either.
