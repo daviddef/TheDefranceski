@@ -31,7 +31,6 @@ export const RESEARCH = [
           { href: "/carlos-book/", label: "Carlo's Book", source: "carlo1879" },
           { href: "/the-library/", label: "The Library", source: "nsk2022" },
           { href: "/findmypast/", label: "Findmypast, swept", source: "findmypast" },
-          { href: "/old-site/", label: "defranceski.com", source: "dfcom" },
           { href: "/live-tree/", label: "The live tree, reconciled", source: "myheritage-live" },
           { href: "/dna/", label: "The DNA", source: ["ydna", "23andme"] },   /* 12 Nov 2026: left Start; the page reads these two tests */
         ] },

@@ -53,6 +53,10 @@ export default defineConfig({
     '/elsewhere': '/collections-walk/#elsewhere',
     /* 12 November 2026 (the page merges, PR B): /journeys/ is a section of /walk/ */
     '/journeys': '/walk/#journeys',
+    /* 22 November 2026: /old-site/ ("defranceski.com", the reckoning of the old Google Site: the Wayback captures, the KML exports, the
+       page-by-page table) was taken off at David's word, his users being new. The text is kept, unserved, in docs/retired-pages/old-site.md.
+       The one page that still speaks of the old Google My Map, and what was saved from it, is /mymap/. */
+    '/old-site': '/mymap/',
     '/emigration': '/diaspora/#leaving',
     '/trees': '/tree/#trees',
     '/explorer': '/bloodline/#households',

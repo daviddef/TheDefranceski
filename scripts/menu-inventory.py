@@ -24,7 +24,7 @@ SCOPE = [
     "/method/", "/sources/", "/searched/", "/open-questions/", "/errands/", "/worklist/", "/corrections/",
     "/changes/", "/gallery/", "/whats-new/",
     "/archive/", "/parish-books/", "/map/", "/elsewhere/", "/collections-walk/", "/undigitised/",
-    "/antenati/", "/the-library/", "/carlos-letter/", "/carlos-book/", "/old-site/", "/live-tree/", "/findmypast/",
+    "/antenati/", "/the-library/", "/carlos-letter/", "/carlos-book/", "/live-tree/", "/findmypast/",
 ]
 # a text block ends wherever one of these starts or ends; a table row (<tr>) is one block, however it is laid out inside
 FLUSH_TAGS = {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6", "summary", "figcaption", "blockquote", "dt", "dd", "caption",

@@ -8903,12 +8903,7 @@
    "got": "**Checked, found nearly empty, and filled.** A CDX query for every URL under that host returned **two** successful captures: the site root of **1 January 2022** and the home page of **11 July 2025**. Family Trees, The People, The Places, The Map, The Name, The Coat of Arms, Publications, Resources and About were archived **nowhere on the public net** — Google Sites builds its navigation in script, so the crawler never followed it below the front page.\n\nThe same fact made the page list uncrawlable, so it was read out of the page source instead: **twelve live addresses, not the nine of this archive's own reckoning table**, which had folded the two sub-pages under *The Story* into their parent.\n\n**All twelve were submitted to Save Page Now on 14 September 2026 and all twelve captured**, every job reporting success, verified by fetching the snapshots back — *The People* returns at 413 KB, byte for byte the live page. Two drew **429** on the first pass and were taken on a later one.\n\nTwo things learned in the doing. **Save Page Now no longer accepts anonymous requests**: a POST without a session returns *401 «You need to be logged in to use Save Page Now»*. And a Wayback capture of a Google Sites page keeps the **frame** around an embedded My Map, not the map — which is why the KML export of 8 September 2026 is the only thing standing between those pins and the account being closed.",
    "url": "https://web.archive.org/web/20250711044602/https://sites.google.com/defranceski.com/defranceski/home",
    "dest": "Wayback Machine — defranceski.com, 11 July 2025",
-   "ev": [
-    [
-     "/old-site/",
-     "defranceski.com — the reckoning, and the twelve permanent addresses"
-    ]
-   ],
+   "logOnly": true,
    "tags": [
     "archives",
     "indexes"
@@ -9040,10 +9035,6 @@
     [
      "/map/",
      "The Atlas — the arrows and the hot-spots"
-    ],
-    [
-     "/old-site/",
-     "defranceski.com — the reckoning"
     ]
    ],
    "tags": [
