@@ -31,6 +31,10 @@ const rowsFor = (wk) => p.rows.filter(r => r.walk === wk).map(r => ({
   what: mdps(r.shot),
 }));
 
+/* The head count is counted, not typed: every row is a request; a row is "already sent" when its `sent` field is set,
+   except the rows that say Done (read in full online, no letter needed). */
+const sentCount = e.rows.filter((r) => r.sent && !/^\*\*Done/.test(String(r.sent))).length;
+
 const groups = [{
   rows: e.rows.map((r) => { const seen = new Set(); const pl = (h) => inPlaces(h, { unbased: true, seen }); return ({
     n: r.n, who: pl(mdpsUnbased(r.who)), what: `<span id="errand-${r.n}"></span>` + pl(mdpsUnbased(r.what)), ref: mdpsUnbased(r.ref), why: pl(mdpsUnbased(r.why)),
@@ -40,7 +44,7 @@ const groups = [{
   }); }),
 }];
 ---
-<Base title={e.title} eyebrow={`${e.eyebrow} · ${p.rows.length} shots on ${walks.length} walks`} dek={e.dek}>
+<Base title={e.title} eyebrow={`${e.rows.length} ${e.eyebrow} · ${sentCount} already sent · ${p.rows.length} shots on ${walks.length} walks`} dek={e.dek}>
 <section class="blk"><p class="prose" set:html={inPlaces(mdps(e.lead))}></p>
   {unlabelled.length > 0 && (
     <p class="small">Filed under a priority this page has no label for: {unlabelled.join(", ")}.</p>
