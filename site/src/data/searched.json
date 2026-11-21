@@ -33756,6 +33756,66 @@
    "got": "nil: no web hit for Defranceschi as Marinediener, Matrose or marinaio of Gallignana; IsTraJ19 no hit (captains and owners only, so weak); the ÖStA page still errors. The route stays the Kriegsarchiv letter (drafted, not sent).",
    "logOnly": true,
    "nobody": true
+  },
+  {
+   "when": "22 Nov 2026",
+   "outcome": "found",
+   "key": "src/zale-grave-search-diona-de-franceski-and-dolzan-22-nov-2026",
+   "src": "Žale (Ljubljana) cemetery public grave search, grobovi.zale.si: Diona, Dionizija, Dolžan, Bernat, Bernot",
+   "url": "https://grobovi.zale.si/Home/Show?lang=sl&id=f60919c9-4f59-4824-bbd7-9af0dd66634f",
+   "what": "worklist row 296: Dionysia Dolžan, wife of Peter Simon Defranceschi, d. Ljubljana 1962, and her parents",
+   "walked": false,
+   "tags": [
+    "defranceschi",
+    "dolzan",
+    "ljubljana",
+    "zale"
+   ],
+   "got": "inf: «DIONA DE FRANCESKI, * -2962», Žale [A], section 36A, row 12, grave 1 (page read on 22 Nov 2026; 2962 is a slip for 1962; the only Diona in the database); the same grave holds JOSIP DOLŽAN, death year 1922 (probably her father; same grave only). Terms typed for the mother: Albertina, Berta, Alberta, Ada, Dolžanova, Bernat, Bernot: no match. The database holds only graves with complete data, so absence is no nil. Also: dLib keywords «Dolžan Bernat» 0 (full text not a nil); WikiTree 403 and ANNO blocked, not worked round.",
+   "logOnly": true,
+   "nobody": true
+  },
+  {
+   "when": "22 Nov 2026",
+   "outcome": "nil",
+   "key": "src/mgv-census-and-banjica-oresanin-geiger-anka-nera-22-nov-2026",
+   "src": "Museum of Genocide Victims census (baza.muzejgenocida.rs) and the Banjica camp database (arhiv-beograda.org)",
+   "url": "https://baza.muzejgenocida.rs",
+   "what": "worklist row 53: Anka Nera Defranceski (b. 1915), married names Oreščanin and Geiger, dead at Belgrade in 1944",
+   "walked": false,
+   "tags": [
+    "defranceschi",
+    "kovacina",
+    "belgrade",
+    "1944"
+   ],
+   "got": "nil. Terms typed: Oreščanin, Orešćanin, Orescanin, Orešanin, Geiger, Gajger, Defranceski, Defrančeski, Defranceschi, Franceski, Frančeski, Defranci, Franceschi, Defran (substring), Kovačina, Kovacina, Kovačin, Anka/Ana/Ankica with Beograd 1944 and with Crikvenica, Crikvenica as a place. Controls: Horvat 402 (census) and 11 (Banjica). No Anka born 1915 anywhere; the only relevant hits are Anton of Gologorica and the two Vodnjan men, already known. Both are victim lists: an illness death would be in neither. Not reached: Paunović on the April 1944 raids (host does not resolve), the Belgrade cemetery search.",
+   "logOnly": true,
+   "nobody": true
+  },
+  {
+   "when": "22 Nov 2026",
+   "outcome": "nil",
+   "key": "src/omis-district-parishes-grubisic-ana-fs-22-nov-2026",
+   "src": "FamilySearch — the other parishes of the Omiš district (Podgrađe 9R24-C6Y, Tugare 9R2C-C68, Duće 9R2S-GPL; Zakučac from the Atlas list) and the persona index, for the baptism of Ana Grubišić",
+   "url": "https://www.familysearch.org/en/search/catalog/",
+   "what": "whether any Omiš-district parish has a birth book on FamilySearch for the 1870s in which the baptism of Ana Grubišić (given 1876, daughter of Nicolaus Grubišić) could be read; and whether the name index holds her",
+   "pages": "the waypoint titles of each parish read from FamilySearch (Podgrađe: marriages 1825-1857, deaths 1825-1832, births 1825-1829; Tugare: births 1711-1865, marriages 1825-1905, deaths 1711-1871; Duće: marriages 1825-1877); no register page opened",
+   "walked": false,
+   "tags": [
+    "grubisic",
+    "franceschi",
+    "omis",
+    "familysearch"
+   ],
+   "got": "No volume to read: none of those parishes has a birth book on FamilySearch that reaches the 1870s (Zakučac, from the Atlas list: births 1825-1850). The persona index searched for Ana/Anna/Anica/Anka × Grubišić/Grubisic/Grubisich/Grubissich born 1873-79 (ranked results, about 560 persons) returned no Ana at Omiš; its hits are in Mali Dol, Bakar, Mrkopalj, Hungary and America. An index nil is a different claim from a walked-pages nil and is not one for the district's registers. The books for those years exist only as State Archives copies (HR-HDA-1448, Zagreb reading room; Split State Archives): not online.",
+   "ev": [
+    [
+     "/imotski/",
+     "Imotski and Perinuša"
+    ]
+   ],
+   "nobody": true
   }
  ]
 }
