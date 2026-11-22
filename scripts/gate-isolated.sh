@@ -180,11 +180,11 @@ if ! ../scripts/check-absence.py --dist "site/$OUT"; then fail=1; fi
 # gate on them would only teach people to stop running the gate. The number is
 # printed on every build and should only ever go down. --strict to enforce.
 ../scripts/check-story.py | head -2
-# The tree page (Roots & Routes, /roots/) is built from the roster, dossiers, households, direct line and atlas by
+# The tree data (data/tree-page/: the views the person pages frame, drawn by /roots/view.html; the /roots/ page itself was removed on 23 Nov 2026) is built from the roster, dossiers, households, direct line and atlas by
 # scripts/build-tree-page.py and committed. It SPEAKS when it is older than that data, and does not block: a finding that changes
 # a person should not be held up by a page a different command rebuilds. Rebuild with `python3 scripts/build-tree-page.py`.
 python3 ../scripts/build-tree-page.py --check | head -3
-# The map and Roots & Routes meet at two committed files: person ids on the map's people (scripts/patch-map-pids.py) and which marker is which
+# The map and the tree data meet at two committed files (nothing on the site reads the map's person ids any more, since the map's 'in Roots & Routes' links were removed on 23 Nov 2026; the check is kept until someone retires it): person ids on the map's people (scripts/patch-map-pids.py) and which marker is which
 # place (scripts/build-place-crosswalk.py). Both SPEAK when stale, like the tree page; rebuild order is in each script's docstring.
 python3 ../scripts/patch-map-pids.py --check | head -3
 python3 ../scripts/build-place-crosswalk.py --check | head -2

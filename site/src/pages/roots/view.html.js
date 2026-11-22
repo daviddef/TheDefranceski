@@ -1,4 +1,5 @@
-/* The Roots & Routes page, served bare for framing on a person's page (the kit's PersonRootsViews.astro).
+/* 23 Nov 2026: the Roots & Routes PAGE (/roots/) was removed (its old address redirects to /tree/); this viewer stays because the person pages frame it
+   (the kit's PersonRootsViews.astro). It is served bare, for framing on a person's page.
    #<view>&p=<id>&embed=1 hides the site chrome, the Record Atlas banner, the description row and the filters, so only the view shows.
    #profile&p=<id>&embed=1 shows the person's own panel (the Atlas places, the route, what changed around them, what is missing,
    where to look) full width, and every other view is the chart alone (the panel is hidden: that section is already on the page), in a reading order, with the parts the person page already has left out; it reports its height to the

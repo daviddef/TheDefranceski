@@ -1,4 +1,4 @@
-/* /roots/lines.json: the lines drawing (/lines/) as data, for the Tree Canvas's Lines mode (the Record Atlas reads it beside this archive's /roots/ page).
+/* /roots/lines.json: the lines drawing (/lines/) as data, for the Tree Canvas's Lines mode (which is written to read it; the /roots/ PAGE itself was removed on 23 Nov 2026, this data address stays).
 
    It is rivers.json as the /lines/ page draws it: the lanes (a status and the years the evidence reaches, the dated places along each, where each goes), the pens of
    households not yet placed on any lane, and the bridges the archive has argued between them. Nothing is added or worked out here. The pens' `members` are person

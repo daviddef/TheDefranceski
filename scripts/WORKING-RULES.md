@@ -116,7 +116,7 @@ pushed a red gate. Then:
 
 - **Commit and push after each finding**, not in batches.
 - Rebuild `build-dossiers.py` and `build-search-index.py` when roster changes.
-- Rebuild the tree page too: `python3 scripts/build-tree-page.py` (`--check` says if it is stale). It is built from the roster, dossiers,
+- Rebuild the tree data too: `python3 scripts/build-tree-page.py` (`--check` says if it is stale). (The /roots/ page is gone since 23 Nov 2026; this data still draws the views on every person page.) It is built from the roster, dossiers,
   households and direct line only, so every finding that adds or corrects a person, a parent link, a year or a place changes it.
   See `data/tree-page/README.md`.
 - Person ids are **minted once and frozen**. A moved id is a dead URL.
