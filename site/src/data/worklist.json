@@ -3095,6 +3095,24 @@
    "covers": [],
    "what": "Bakar open cells that no reading has settled: the 1855 «Zalanj/Kalanj» mother (9R2C-L23 image 111 right), «Kalgna» (425 right), 9R2C-GPX image 30 left (Franciski/Franceski) and 9R28-82Z image 212 right (Kalani)",
    "note": "**Made 23 Nov 2026** from the re-read of the Bakar and Crikvenica open cells (told on /places/bakar/). Each needs a second construction of the same scribe's capital (K against Z, F against S) found on the same page and set beside it at one magnification, or a record that names the person in a second place (the 1855 mother against the 1857 «Antoniae Kalanj», the Barić marriage). Run `cover` for Defranceschi and Kalanj with every catalogued form before any nil is written: on 23 Nov 2026 the typed lists did NOT cover the catalogue (Deffranceschi, Defranca, Defrancaschi, Defranceschy, Defrancheski, Defranci, Defranzeschi, Defranzesi, Francetchi, Franchessi; and fourteen Kalanj forms, Callain to Kallein), so no nil is claimed for the cells re-read."
+  },
+  {
+   "n": 349,
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-11-23",
+   "covers": [],
+   "what": "Rijeka (50 FamilySearch volumes, about 17,600 images) and Rovinj (29 volumes plus 3 at Rovinjsko Selo, about 12,100 images): choose which pages to read; none is walked",
+   "note": "**Made 23 Nov 2026.** About 29,700 images cannot be read end to end in one session, so no volume of either place is claimed «walked»; the rows that exist name the images actually read. The map of what the record index points at and which volume holds each page is `data/rijeka-rovinj-triage.md` (local data only, no FamilySearch call). Suggested order, David to choose: (1) Rijeka births 1769-1812, 9R2X-82Q, DPX and DP6, the Vitipolis household's baptisms by name from the index and the leaves round them; (2) Rijeka births 1838-1859, 9R2F-N3D and 9R2X-HZ3, for the 1849, 1856 and 1858 baptisms; (3) Rovinj births 9R2C-SP8 (1790) and 9R26-YWR (1853); (4) the printed surname indexes, where a nil means only «not in the printed index». Run `cover` for Defranceschi, Kalanj and Kovačina with every catalogued form before any nil."
+  },
+  {
+   "n": 350,
+   "state": "next",
+   "owner": "this archive",
+   "since": "2026-11-23",
+   "covers": [],
+   "what": "Vodnjan baptism book 9R2Z-GP5: the cells to look at yourself at level 13, the Calan Manzin line as a lead for Domenica Manzin's father, and the Atlas form «Calan» that could not be added",
+   "note": "**Made 23 Nov 2026** from the reading told on /places/vodnjan/. (1) The book was read by subagent readers at page size; **nothing in it has been zoomed by me**. The cells worth a level-13 look first: the 1839 entry at house 286 (image 186 left, entry 184, «Domenico di Cristoforo qm Gio. Maria», the answer to the house 418 patronymic); the 1859–65 entries at 419 and 478 (Maria Forlanichio / Fortanichio against Maria Francin); the Dominica «Defranceschi q. Francisci» of entry 37, 7 March 1852, house 361 (images 312–343); the house digits at 478, 481 and 406. (2) **The «dto Calan» Manzin line** (1816, 1819, 1821, 1834, 1837, 1838, 1846; the father Domenico Manzin of Veniera, house 188 in 1815) is a **lead**, not a finding, for worklist 335: look for a Domenica Manzin as a daughter of a Domenico Manzin dto Calan in the books before 1815 (none are on this film) and in the marriage book. (3) The Atlas form «Calan» was **not added**: `surname_variants.py add --status case-by-case` refused to write, because the catalogue's own check fails on another session's uncommitted edit in `data/surname-families.json` (the rule «norwegian-aa» is not one of the allowed rules). Add it, with the evidence «a parish baptism register of Dignano writes a by-name «dto Calan» on a Manzin line, 1816–1846», once the Atlas session has its file in order; say «added locally» only after it prints. (4) Do not call the book walked: the unsettled cells (about 180 lines of «unsettled» in the readers' files) are named there."
   }
  ],
  "close": "**Four things are waiting on people rather than on searching**: Ovaro's undigitised registers, the Y-DNA test, the three archive request forms that need David's own data, and a 404 page that belongs to another session. Everything else here is either finished or is a book that can be opened tonight.",
