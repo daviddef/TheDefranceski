@@ -1,0 +1,40 @@
+---
+/* DEEP DIVES: the hub of every study, check and deep dive of the archive that is not one of the eight core Research pages. 23 November 2026 (the estate clean-up,
+   Task C): the Research menu carries one "Deep dives" entry whose heading is this page. The lists are read from lib/research-menu.js (the deep dives, the registers and
+   places also on the Atlas, the name's single studies) and src/data/researchmap.json (the map one provider at a time), so the menu and this page cannot disagree. */
+import Base from "../../../layouts/Base.astro";
+import ResearchList from "../../../components/ResearchList.astro";
+import KitList from "@daviddef/archive-kit/components/ResearchList.astro";
+import { u } from "../../../lib/url.js";
+import { RESEARCH, NAME_STUDIES } from "../../../lib/research-menu.js";
+import { blurbOf } from "../../../lib/research-counts.js";
+import rm from "../../../data/researchmap.json";
+
+const subs = RESEARCH.flatMap((g) => g.items).filter((x) => x.sub);
+const dives = subs.find((s) => s.id === "deep-dives");
+const places = subs.find((s) => s.id === "registers-and-places");
+const names = NAME_STUDIES.map((x) => ({ ...x, blurb: blurbOf(x) }));
+const layers = rm.sources.map((s) => ({ href: `/map/${s.key}/`, label: s.label, blurb: s.what + "." }));
+---
+<Base title="Deep dives" eyebrow="Research · the long studies"
+      dek="Everything the archive has studied on its own, at length: one source read through, a register or a place walked, a name followed through the records. The eight core Research pages are in the menu; these are the rest.">
+  <section class="blk">
+    <h2 id={dives.id} style="font-size:24px;margin-top:10px">{dives.sub}</h2>
+    <p class="cap">{dives.note}</p>
+    <ResearchList items={dives.items} />
+
+    <h2 id={places.id} style="font-size:24px;margin-top:34px">{places.sub}</h2>
+    <p class="cap">{places.note}</p>
+    <ResearchList items={places.items} />
+
+    <h2 id="map-layers" style="font-size:24px;margin-top:34px">The map, one provider at a time</h2>
+    <p class="cap"><a href={u("/map/")}>The Map</a> shows every provider at once; each of these shows one on its own, in the same three colours.</p>
+    <KitList items={layers} />
+
+    <h2 id="the-name" style="font-size:24px;margin-top:34px">The name in the records</h2>
+    <p class="cap">Single studies of the name as it turns up in service, at sea and in print. <a href={u("/name/")}>The Name</a> is the page they hang from.</p>
+    <KitList items={names} />
+
+    <p class="cap" style="margin-top:22px">The rest of Research: <a href={u("/research/to-do/")}>To do</a> · <a href={u("/whats-new/")}>What's new</a> · <a href={u("/research/sources-and-method/")}>Sources &amp; method</a> · <a href={u("/research/")}>all of it on one page</a>.</p>
+  </section>
+</Base>

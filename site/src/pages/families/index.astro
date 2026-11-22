@@ -1,0 +1,38 @@
+---
+/* ALL THE FAMILIES: the hub of every family page. 23 November 2026 (the estate clean-up, Task C): the menu names four families and carries this one link, "All the
+   families"; this page lists every family of the book (Part III, "Seven families, one surname", the mothers' families, and the 21 /married-in/ pages), each with its
+   blurb from src/data/book.json. It reads the same book the Contents page does, so a family cannot be on one and missing from the other. */
+import Base from "../../layouts/Base.astro";
+import ResearchList from "@daviddef/archive-kit/components/ResearchList.astro";
+import { u } from "../../lib/url.js";
+import book from "../../data/book.json";
+import mi from "../../data/marriedin.json";
+import { blurbOf } from "../../lib/research-counts.js";
+
+const chapters = book.parts.flatMap((p) => p.chapters.map((c) => ({ ...c, part: p.id })));
+const item = (c) => ({ href: c.path, label: c.title, blurb: blurbOf({ href: c.path }) });
+const seven = chapters.filter((c) => c.part === "seven-families" && c.path !== "/families/").map(item);
+const mothers = chapters.filter((c) => c.group === "The mothers' families").map(item);
+const other = chapters.filter((c) => c.group === "Other families married into the direct line" || c.group === "Families that married in").map(item);
+/* every /married-in/ page of the data, listed once: a family the book does not group is still here */
+const listed = new Set([...mothers, ...other].map((x) => x.href));
+const rest = Object.keys(mi.detail).map((slug) => `/married-in/${slug}/`).filter((h) => !listed.has(h))
+  .map((h) => ({ href: h, label: (mi.rows.find((r) => `/married-in/${r.slug}/` === h) || {}).name || h, blurb: "A family that married into this one." }));
+const married = [...other, ...rest].sort((a, b) => a.label.localeCompare(b.label, "en"));
+---
+<Base title="All the families" eyebrow="Places & families · every family page"
+      dek="One surname, many origins: the families of the name, the mothers' families behind the direct line, and the families that married in. Each has a page of its own, at the address it always had.">
+  <section class="blk">
+    <h2 id="seven" style="font-size:24px;margin-top:10px">Seven families, one surname</h2>
+    <p class="cap">The origins the name comes from, and the stations on each family's road. <a href={u("/lines/")}>The Lines</a> draws them together.</p>
+    <ResearchList items={seven} />
+
+    <h2 id="mothers" style="font-size:24px;margin-top:34px">The mothers' families</h2>
+    <p class="cap">The families of the women of the direct line: what can be proved about each, and what it would take to prove the rest.</p>
+    <ResearchList items={mothers} />
+
+    <h2 id="married-in" style="font-size:24px;margin-top:34px">Families that married in</h2>
+    <p class="cap">The families that married into the direct line or into its branches, A to Z. <a href={u("/marriages/")}>The Marriages</a> sets out who married whom, and by which route.</p>
+    <ResearchList items={married} />
+  </section>
+</Base>
