@@ -5,12 +5,12 @@
   "flag_km": 5.0
  },
  "stats": {
-  "places": 127,
-  "ok": 123,
+  "places": 133,
+  "ok": 129,
   "offset": 4,
   "ambiguous": 0,
   "absent": 0,
-  "with_shelf": 37
+  "with_shelf": 40
  },
  "places": [
   {
@@ -685,6 +685,23 @@
    "births": null
   },
   {
+   "rr": "Imotski",
+   "rr_lat": 43.447,
+   "rr_lon": 17.214,
+   "atlas_id": "imotski",
+   "map": "Imotski",
+   "map_lat": 43.4471,
+   "map_lon": 17.214,
+   "km": 0.01,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": null
+  },
+  {
    "rr": "Johannesburg",
    "rr_lat": -26.204,
    "rr_lon": 28.047,
@@ -1019,6 +1036,22 @@
    "births": null
   },
   {
+   "rr": "Molinella",
+   "rr_lat": 44.621,
+   "rr_lon": 11.669,
+   "atlas_id": null,
+   "map": "Molinella",
+   "map_lat": 44.62127,
+   "map_lon": 11.66862,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
    "rr": "Muina",
    "rr_lat": 46.472,
    "rr_lon": 12.858,
@@ -1257,7 +1290,7 @@
    "rr": "Poreč",
    "rr_lat": 45.23,
    "rr_lon": 13.6,
-   "atlas_id": null,
+   "atlas_id": "porec",
    "map": "Poreč (Poreč)",
    "map_lat": 45.23,
    "map_lon": 13.6,
@@ -1323,6 +1356,22 @@
    "births": "1 volume · not tracked per volume"
   },
   {
+   "rr": "Provincia autonoma di Trento",
+   "rr_lat": 46.07,
+   "rr_lon": 11.122,
+   "atlas_id": "trento",
+   "map": "Provincia autonoma di Trento",
+   "map_lat": 46.06966,
+   "map_lon": 11.12177,
+   "km": 0.04,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
    "rr": "Provincia di Padova",
    "rr_lat": 45.35,
    "rr_lon": 11.817,
@@ -1334,6 +1383,22 @@
    "status": "ok",
    "layers": [
     "graves",
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Provincia di Sassari",
+   "rr_lat": 40.77,
+   "rr_lon": 8.759,
+   "atlas_id": null,
+   "map": "Provincia di Sassari",
+   "map_lat": 40.77014,
+   "map_lon": 8.75885,
+   "km": 0.02,
+   "status": "ok",
+   "layers": [
     "people"
    ],
    "shelf": null,
@@ -1626,7 +1691,7 @@
    "rr": "Senj",
    "rr_lat": 44.99,
    "rr_lon": 14.9,
-   "atlas_id": null,
+   "atlas_id": "senj",
    "map": "Senj (Senj)",
    "map_lat": 44.99,
    "map_lon": 14.9,
@@ -1895,6 +1960,23 @@
    "births": "3 volumes, covering 1848–1913 · not tracked per volume"
   },
   {
+   "rr": "Trogir",
+   "rr_lat": 43.513,
+   "rr_lon": 16.252,
+   "atlas_id": "trogir",
+   "map": "Trogir",
+   "map_lat": 43.52061,
+   "map_lon": 16.25144,
+   "km": 0.85,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": null
+  },
+  {
    "rr": "Trsat",
    "rr_lat": 45.334,
    "rr_lon": 14.465,
@@ -2131,6 +2213,23 @@
    ],
    "shelf": "worked",
    "births": "25 volumes, covering 1569–1891 · not tracked per volume"
+  },
+  {
+   "rr": "Zagreb",
+   "rr_lat": 45.812,
+   "rr_lon": 15.977,
+   "atlas_id": "zagreb-hr",
+   "map": "Zagreb, Sv. Ivan",
+   "map_lat": 45.81463,
+   "map_lon": 15.9813,
+   "km": 0.44,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "untouched",
+   "births": "16 volumes, covering 1677–1923 · not tracked per volume"
   },
   {
    "rr": "Šterna",
