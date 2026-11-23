@@ -35,6 +35,8 @@ import atlasSlice from "../../../../data/tree-page/atlas-data.json";
 import flagEras from "../../data/flag-eras.json";
 import Namesakes from "../../components/person/Namesakes.astro";
 import { bearersBySlug, whoSlugOf, byBirth } from "../../lib/namesets.js";
+import DossierFold from "../../components/person/DossierFold.astro";
+import { dossierFold } from "../../lib/dossierfold.js";
 import atlasEvents from "../../data/atlas-events.json";
 import { ledeOf, lifeSentence, gapsOf, leadOf, journeyOf, chaptersOf, eraFlag, eventsAround, flagUrl, placeHref, familyOf, ancestryOf, storyOf, hasStory, GRADE_SAY } from "@daviddef/archive-kit/lib/personstory.js";
 import { inWindow, isLiving as isLivingKit } from "@daviddef/archive-kit/lib/person.js";
@@ -430,6 +432,15 @@ const STORYMODE = !LIVE && !dupOf && hasStory(STORY);
    name and the qualifier goes in the line under it (ruling 4, 16 Oct 2026), as PersonPage does for every other page. */
 const _nq = splitQualifier(r.name);
 const HEADNAME = dupOf ? _nq.name : r.name;
+/* WHAT THE NAME PAGE HOLDS FOR THIS PERSON AND THIS PAGE DID NOT SAY (23 November 2026; lib/dossierfold.js has the rule). /who/<name>/ is a
+   dossier on a name and stays as it is. Its "What the archive knows" is the roster rows' own notes, which a page in story mode tells itself
+   (the check measures that); a duplicate's pointer tells none of its row's note, so the note is shown there, verbatim. And the one indexed
+   entry the name page draws for a name with no household is shown on the page of the person whose own row was read from it. Never on a
+   living page. The name page is the one that LISTS this person (whoHref is set only for it). */
+const _wd = !LIVE && whoHref ? doss.people[whoSlugOf(r)] : undefined;
+const _shown = JSON.stringify([TREE_SRCS, r.note, STORY]);
+const FOLD = _wd ? dossierFold({ r, d: _wd, told: STORYMODE, lede: [SHAPE, LEDE].join(" "), idShown: (() => { const m = /([0-9A-Z]{4}-[0-9A-Z]{3,4})/.exec(String(r.ark || "")); return !!m && _shown.includes(m[1]); })() }) : null;
+const FOLD_TITLE = "From the research page on this name";
 ---
 <Base noautolink title={LIVE ? r.name : [HEADNAME, (r.b || r.d || r.bEst) ? span : null,
               placeSeparates ? WHERE : null].filter(Boolean).join(", ")}
@@ -479,6 +490,11 @@ const HEADNAME = dupOf ? _nq.name : r.name;
   {WORLD.length > 0 && <Fragment slot="world"><PersonWorldAround events={WORLD} name={r.name.split(" ")[0]} /></Fragment>}
   {inRoots && <Fragment slot="where"><PersonRootsViews pid={r.pid} u={u} /></Fragment>}
   <Fragment slot="namesakes"><Namesakes kin={kin} u={u} nameIndex={whoHref ? u(whoHref) : ""} name={r.name} /></Fragment>
+  {FOLD && (
+  <PersonSection kind="more" title={FOLD_TITLE}>
+    <DossierFold fold={FOLD} who={whoSlugOf(r)} pid={r.pid} name={r.name} n={_wd.n} pages={_wd.pages.length} />
+  </PersonSection>
+  )}
   <PersonSection kind="more" title="The record, line by line">
     {!LIVE && CX > 0 && <p class="prose cx-line">Corrections that name this person: <a href={u("/corrections/")}>{CX}</a>. This archive has had to take back {CX === 1 ? "one claim" : `${CX} claims`} that concerned them; the list gives the old wording and what is true.</p>}
     <details class="fold fold-rec">
@@ -497,7 +513,7 @@ const HEADNAME = dupOf ? _nq.name : r.name;
     <AlsoIn archive="defranceski" path={`/person/${r.pid}/`} />
   </PersonSection>
 </PersonPage>
-)}
+)}{dupOf && FOLD && (<section class="blk dfold-sec" id="more-from-the-research-page-on-this-name"><h2>{FOLD_TITLE}</h2><DossierFold fold={FOLD} who={whoSlugOf(r)} pid={r.pid} name={_nq.name} n={_wd.n} pages={_wd.pages.length} /></section>)}
 {!LIVE && !dupOf && <Lightbox />}
 </Base>
 
