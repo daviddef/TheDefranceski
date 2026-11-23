@@ -17,7 +17,7 @@ Written 23 November 2026 from local data only (Record Atlas `fs-volumes.json`, t
 | 1813 | Catharina d. 1813 | 9R2X-PY4, 9R2X-PYH (1813 only) | no row |
 | 1849, 1856, 1858 | Carlo Francesco Andrea (1849), Giulio Giuseppe (1856), Virginia Lambertina (1858) | births 9R2X-HZ3 (1850-1859) and 9R2F-N3D (1838-1850) | no row |
 | 1829 | Antonija, Trsat | Trsat, not Rijeka | n/a |
-| 1790, 1852 | Rovinj: Petrus (b. 1790: death found 12 Jun 1864, baptism not on 3YM 5 Jan 1788–27 May 1790 or SP8 to 9 Jul 1790; 23 Nov 2026), Julius (b. 1852 found 23 Nov 2026; buried 13 Feb 1854, death book read) | births 9R2C-SP8 (1790-1816), 9R26-YWR (1816-1863) | no row |
+| 1790, 1852 | Rovinj: Petrus (b. 1790: death found 12 Jun 1864, baptism not on 3YM from its first page 15 Aug 1786 to 27 May 1790 or SP8 to 9 Jul 1790; 23 Nov 2026), Julius (b. 1852 found 23 Nov 2026; buried 13 Feb 1854, death book read) | births 9R2C-SP8 (1790-1816), 9R26-YWR (1816-1863) | no row |
 
 **What a reading plan would be** (David may choose; none of it done here):
 1. Rijeka births 1769-1812 (9R2X-82Q, DPX, DP6): the Defranceschi household's baptisms by name from the index, then the year pages around each, about 40 leaves.
