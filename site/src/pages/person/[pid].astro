@@ -34,6 +34,7 @@ import atlasData from "../../data/atlas.json";
 import atlasSlice from "../../../../data/tree-page/atlas-data.json";
 import flagEras from "../../data/flag-eras.json";
 import Namesakes from "../../components/person/Namesakes.astro";
+import { bearersBySlug, whoSlugOf, byBirth } from "../../lib/namesets.js";
 import atlasEvents from "../../data/atlas-events.json";
 import { ledeOf, lifeSentence, gapsOf, leadOf, journeyOf, chaptersOf, eraFlag, eventsAround, flagUrl, placeHref, familyOf, ancestryOf, storyOf, hasStory, GRADE_SAY } from "@daviddef/archive-kit/lib/personstory.js";
 import { inWindow, isLiving as isLivingKit } from "@daviddef/archive-kit/lib/person.js";
@@ -61,8 +62,11 @@ import directLine from "../../data/direct-line.json";
 
 export function getStaticPaths() {
   const rows = roster.rows.filter(r => r.pid);
-  const byName = {};
-  rows.forEach(r => { const k = r.who || r.name; (byName[k] = byName[k] || []).push(r); });
+  /* THE OTHERS OF THE SAME NAME ARE THE OTHER BEARERS OF THE NAME PAGE THAT LISTS THIS PERSON (23 November 2026). This used to group rows
+     by the raw `who` or name string, so a row with no `who` never met the rows of its name that had one, and 316 pages left out a
+     person /who/<name>/ lists. The rule is lib/namesets.js, the one the name page uses; tools/checknamesakes.py judges the built pages. */
+  const bearers = bearersBySlug(rows, new Set(Object.keys(doss.people)));
+  const kinOf = (r) => { const s = whoSlugOf(r); return (bearers.get(s) || []).filter(x => x.pid !== r.pid).sort(byBirth); };
   /* SAME NAME, SAME YEAR, DIFFERENT PEOPLE — which is this archive's whole
      subject and was invisible in a page title. Seven men called Pietro De
      Franceschi are recorded in 1734: one at Svetvinčenat, one at Bale, five at
@@ -83,12 +87,12 @@ export function getStaticPaths() {
       group.filter(x => (x.parish || x.place || "") === where).length === 1;
     return {
       params: { pid: r.pid },
-      props: { r, kin: (byName[r.who || r.name] || []).filter(x => x.pid !== r.pid),
+      props: { r, kin: kinOf(r), whoHref: bearers.has(whoSlugOf(r)) ? `/who/${whoSlugOf(r)}/` : (r.who || ""),
                placeSeparates },
     };
   });
 }
-const { r, kin, placeSeparates } = Astro.props;
+const { r, kin, whoHref, placeSeparates } = Astro.props;
 
 /* WHO IS LIVING IS THE KIT'S RULE AND THE ARCHIVE'S OWN LIST, WHICHEVER IS STRICTER. The roster's `living` is this archive's own computation; the kit's
    isLiving (80 years, no death recorded; 60 for a child's parent) is the estate's standard. A page is a living person's if EITHER says so, so neither can
@@ -474,7 +478,7 @@ const HEADNAME = dupOf ? _nq.name : r.name;
   {LEDGER.length > 0 && <Fragment slot="sources"><PersonEvidence name={r.name} rows={LEDGER} summary={LEDGER_SUMMARY} treeSources={TREE_SRCS} /></Fragment>}
   {WORLD.length > 0 && <Fragment slot="world"><PersonWorldAround events={WORLD} name={r.name.split(" ")[0]} /></Fragment>}
   {inRoots && <Fragment slot="where"><PersonRootsViews pid={r.pid} u={u} /></Fragment>}
-  <Fragment slot="namesakes"><Namesakes kin={kin} u={u} nameIndex={r.who ? u(r.who) : ""} name={r.name} /></Fragment>
+  <Fragment slot="namesakes"><Namesakes kin={kin} u={u} nameIndex={whoHref ? u(whoHref) : ""} name={r.name} /></Fragment>
   <PersonSection kind="more" title="The record, line by line">
     {!LIVE && CX > 0 && <p class="prose cx-line">Corrections that name this person: <a href={u("/corrections/")}>{CX}</a>. This archive has had to take back {CX === 1 ? "one claim" : `${CX} claims`} that concerned them; the list gives the old wording and what is true.</p>}
     <details class="fold fold-rec">
