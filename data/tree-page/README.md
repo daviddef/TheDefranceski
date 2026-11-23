@@ -1,5 +1,10 @@
 # Roots & Routes (the tree page)
 
+> **23 November 2026 (the estate clean-up): the /roots/ page was removed** (the Tree Canvas on recordatlas.org replaced it; `/roots/` now redirects to `/tree/`). What is kept, because it is read:
+> `tree.json`, `atlas-data.json`, `place_map.json` (the person pages read them), `roots.html` (served at `/roots/view.html`, the viewer the person pages frame) and the build script.
+> `roots.embed.html` (the fragment the page rendered) is deleted and no longer built. `/roots/lines.json` stays: the Tree Canvas's Lines mode is written to read it.
+
+
 Ten views of every person the archive holds: hourglass, fan, whole-tree and close-family maps, Atlas map, movements, kinship, place lanes,
 eras, lifespans, and an Orphans tab that says where to start next. One self-contained page, `roots.html`.
 

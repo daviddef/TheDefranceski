@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Roots & Routes: the tree page for this archive, built from this archive's own committed data.
+"""The tree data behind the person pages' views (formerly the Roots & Routes page, removed 23 Nov 2026; the viewer stays at /roots/view.html), for this archive, built from this archive's own committed data.
 
-    python3 scripts/build-tree-page.py            # rebuild data/tree-page/ (tree.json, atlas-data.json, roots.html, roots.embed.html)
+    python3 scripts/build-tree-page.py            # rebuild data/tree-page/ (tree.json, atlas-data.json, roots.html: the viewer the person pages frame)
     python3 scripts/build-tree-page.py --check    # exit 1 if the page is older than the data it was built from
 
 WHERE THE PEOPLE COME FROM. There is no committed GEDCOM (David's tree export carries living dates and stays outside the repo), so
@@ -695,11 +695,11 @@ def worklist_rows(rep):
     def why(c):
         if "child_born" in c: return "a child is dated %d years later (%d)" % (c["child_born"] - c["born"], c["child_born"])
         return "recorded death %s is over 110 years after the birth, or before it" % c["died"]
-    rows.append(dict(gen="roots-routes:conflicts", what="Roots & Routes: %d people whose recorded dates cannot be one life" % len(conf), **base,
+    rows.append(dict(gen="roots-routes:conflicts", what="The tree: %d people whose recorded dates cannot be one life" % len(conf), **base,
         note="**The archive's own rows disagree with themselves.** Either two people are one row, or a year is a misreading, or a child belongs to a different parent. The tree page keeps the person and does not trust the impossible date. Open the person and the register behind each date.\n\n"
         + table(["person", "born", "the conflict"], [(nm(c["pid"]), c["born"], why(c)) for c in conf])))
     dr = [d for d in D["dropped"]]
-    rows.append(dict(gen="roots-routes:dropped", what="Roots & Routes: %d parent links dropped because the two recorded years cannot be parent and child" % len(dr), **base,
+    rows.append(dict(gen="roots-routes:dropped", what="The tree: %d parent links dropped because the two recorded years cannot be parent and child" % len(dr), **base,
         note="**A link was asserted by a dossier or a household, but the recorded birth years put parent and child less than 12 or more than 75 years apart, so the tree page does not draw it.** Either the link is wrong (two people with one name) or a year is. Each needs the page it came from.\n\n"
         + table(["child", "born", "asserted parent", "born"], [(nm(d["child"]), d["child_born"], nm(d["parent"]), d["parent_born"]) for d in dr])))
     wk = [w for w in D["weak"] if w["child"] in drawn and w["parent"] in drawn]
@@ -708,17 +708,17 @@ def worklist_rows(rep):
         line = {g.get("pid") for g in jl(os.path.join(DATA, "directline-pids.json"))["generations"]}
     except Exception: pass
     wl = sorted([w for w in wk if w["child"] in line or w["parent"] in line], key=lambda w: (N.get(w["child"], {}).get("b") or 9999))
-    rows.append(dict(gen="roots-routes:weak", what="Roots & Routes: %d parent links rest on an index entry only; read the register behind them" % len(wk), **base,
-        note="**These links are drawn as dashed lines on [Roots & Routes](/roots/).** Each was seen in an index or a household built from index entries, and no register page has been read to confirm the parents.\n\n"
+    rows.append(dict(gen="roots-routes:weak", what="The tree: %d parent links rest on an index entry only; read the register behind them" % len(wk), **base,
+        note="**These links are drawn as dashed lines in the tree views on each person's page.** Each was seen in an index or a household built from index entries, and no register page has been read to confirm the parents.\n\n"
         "**%d of them touch the direct line, and those are worth doing first:**\n\n" % len(wl)
         + table(["child", "born", "index-only parent", "born"], [(nm(w["child"]), N.get(w["child"], {}).get("b") or "?", nm(w["parent"]), N.get(w["parent"], {}).get("b") or "?") for w in wl])))
     ip = [x for x in D["inferred_place"] if x["pid"] in drawn]
-    rows.append(dict(gen="roots-routes:inferred", what="Roots & Routes: %d people drawn at a place taken from a relative, not recorded" % len(ip), **base,
+    rows.append(dict(gen="roots-routes:inferred", what="The tree: %d people drawn at a place taken from a relative, not recorded" % len(ip), **base,
         note="**These people have a birth year and no place of their own, so the tree page puts them where their parent, spouse or child was (marked with an asterisk).** Each needs its own record.\n\n"
         + table(["person", "born", "drawn at", "taken from"], [(nm(x["pid"]), N.get(x["pid"], {}).get("b") or "?", x["place"], nm(x["from"])) for x in ip])))
-    rows.append(dict(gen="roots-routes:undrawn", what="Roots & Routes: %d people are not drawn yet (%d with no year, %d with no place)" % (rep["not_drawn_no_year"] + rep["not_drawn_no_place"], rep["not_drawn_no_year"], rep["not_drawn_no_place"]), **base,
+    rows.append(dict(gen="roots-routes:undrawn", what="The tree: %d people are not drawn yet (%d with no year, %d with no place)" % (rep["not_drawn_no_year"] + rep["not_drawn_no_place"], rep["not_drawn_no_year"], rep["not_drawn_no_place"]), **base,
         note="**Anyone with no birth year (own or from a relative) or no place is left off the picture and listed in its *Not drawn yet* tab.** The fastest way to shrink the number is a person who links two people already drawn: a year or a place for them also places their relatives.\n\n"
-        "The list is on [Roots & Routes](/roots/), tab *Not drawn yet*, with each person's page."))
+        "Each of them has a page of their own."))
     return rows
 
 def write_worklist(rep):
@@ -749,8 +749,9 @@ def link_map(ad):
     print("link-map: %d of %d places carry a marker on /map/" % (n, len(d["places"])))
 
 def write_roots_links(tree):
-    """site/public/roots-links.json: the people Roots & Routes DRAWS (one id each). /map/ (site/src/components/AtlasRootsLinks.astro) offers 'in Roots & Routes'
-    only for those: a person the page withholds (living, possibly living) or cannot place would be a link to nothing."""
+    """site/public/roots-links.json: the people Roots & Routes DRAWS (one id each). the person pages (site/src/pages/person/[pid].astro) frame the views
+    only for those: a person the viewer withholds (living, possibly living) or cannot place would be a frame of nothing. (Until 23 Nov 2026 /map/ read it too, for its
+    'in Roots & Routes' links, which went with the page.)"""
     ids = sorted(p["id"] for p in jl(tree)["people"] if not (p.get("living") or p.get("placeholder")))   # a living row is a name and links for the Record Atlas canvas; the roots page does not draw it
     out = {"note": "The people Roots & Routes draws, by person id. Made by scripts/build-tree-page.py; do not edit by hand.", "people": ids}
     io.open(os.path.join(ROOT, "site", "public", "roots-links.json"), "w", encoding="utf-8").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
@@ -776,7 +777,7 @@ def write_gap_rows(tree, ad):
     def link(p): return "[%s](%s)" % ((p["given"] + " " + p["sur"]).strip(), p["page"]) if p.get("page") else (p["given"] + " " + p["sur"]).strip()
     def table(head, rows, cap=30):
         out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)] + ["| " + " | ".join(str(c) for c in r) + " |" for r in rows[:cap]]
-        if len(rows) > cap: out.append("\n*…and %d more, each listed in its *What is missing* box on [Roots & Routes](/roots/).*" % (len(rows) - cap))
+        if len(rows) > cap: out.append("\n*…and %d more, each listed in the *What is missing* box on their own pages.*" % (len(rows) - cap))
         return "\n".join(out)
     def look(ids, want):
         seen = {}
@@ -794,17 +795,17 @@ def write_gap_rows(tree, ad):
         if len(ids) < 5: small += ids; continue
         kinds = lambda i: ", ".join("no parents" if x["kind"] == "parents" else "parent link from an index only" for x in allg[i] if x["kind"] in ("parents", "parent_index"))
         rows.append(dict(gen="roots-routes:gap:" + re.sub(r"[^a-z0-9]+", "-", unicodedata.normalize("NFKD", place).encode("ascii", "ignore").decode().lower()).strip("-"),
-            what="Roots & Routes: find the missing parents of %d people born at %s" % (len(ids), place), **base,
+            what="The tree: find the missing parents of %d people born at %s" % (len(ids), place), **base,
             note="**%d people born at %s have no parents recorded or only an index-entry link.** Direct-line people are listed first. Where to look: %s.\n\n" % (len(ids), place, look(ids, ("parents", "parent_index")))
             + table(["person", "born", "gap"], [(link(P[i]), P[i]["by"], kinds(i)) for i in ids])))
     if small:
-        rows.append(dict(gen="roots-routes:gap:other-places", what="Roots & Routes: find the missing parents of %d people born at the %d smaller places" % (len(small), len({P[i]["bp"] for i in small})), **base,
-            note="**These places each have fewer than five people with this gap.** Where to look: see each person's *What is missing* box on [Roots & Routes](/roots/).\n\n" + table(["person", "born at", "born"], [(link(P[i]), P[i]["bp"], P[i]["by"]) for i in small])))
+        rows.append(dict(gen="roots-routes:gap:other-places", what="The tree: find the missing parents of %d people born at the %d smaller places" % (len(small), len({P[i]["bp"] for i in small})), **base,
+            note="**These places each have fewer than five people with this gap.** Where to look: see the *What is missing* box on each person's own page.\n\n" + table(["person", "born at", "born"], [(link(P[i]), P[i]["bp"], P[i]["by"]) for i in small])))
     ey = sorted((i for i, v in allg.items() if any(x["kind"] == "birth_year" for x in v)), key=lambda i: P[i]["by"])
-    rows.append(dict(gen="roots-routes:gap:birth-years", what="Roots & Routes: %d birth years are estimates, not recorded dates" % len(ey), **base,
+    rows.append(dict(gen="roots-routes:gap:birth-years", what="The tree: %d birth years are estimates, not recorded dates" % len(ey), **base,
         note="**Each of these people is drawn at an estimated birth year.** A baptism or birth entry replaces the estimate.\n\n" + table(["person", "estimated", "born at"], [(link(P[i]), P[i]["by"], P[i]["bp"]) for i in ey])))
     ns = sorted((i for i, v in allg.items() if any(x["kind"] == "spouse" for x in v)), key=lambda i: P[i]["by"])
-    rows.append(dict(gen="roots-routes:gap:spouses", what="Roots & Routes: %d people have children recorded but no spouse" % len(ns), **base,
+    rows.append(dict(gen="roots-routes:gap:spouses", what="The tree: %d people have children recorded but no spouse" % len(ns), **base,
         note="**The marriage record would name the other parent and often both sets of grandparents.**\n\n" + table(["person", "born", "born at"], [(link(P[i]), P[i]["by"], P[i]["bp"]) for i in ns])))
     path = os.path.join(DATA, "worklist.json"); w = jl(path)
     have = {r.get("gen"): r for r in w["rows"] if r.get("gen")}; keep = {r["gen"] for r in rows}
@@ -839,9 +840,7 @@ def main():
     write_gaps(tree, ad)
     if a.worklist: write_gap_rows(tree, ad)
     run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", page, "--ext", EXT])
-    embed = os.path.join(OUT, "roots.embed.html")   # the same page as a fragment, rendered inside the site layout by site/src/pages/roots/index.astro
-    run([py, os.path.join(TP, "build_page.py"), "--template", os.path.join(TP, "tree-views.template.html"), "--tree", tree, "--atlas-data", ad, "--out", embed, "--embed", "--ext", EXT])
+    # 23 Nov 2026: the /roots/ page (its roots.embed.html fragment) was removed; roots.html stays, it is the viewer behind /roots/view.html.
     run([py, os.path.join(TP, "check_tree_page.py"), "--tree", tree, "--atlas-data", ad, "--page", page])
-    run([py, os.path.join(TP, "check_tree_page.py"), "--tree", tree, "--atlas-data", ad, "--page", embed])
 
 if __name__ == "__main__": main()

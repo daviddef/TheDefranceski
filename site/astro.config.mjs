@@ -59,6 +59,10 @@ export default defineConfig({
     '/old-site': '/mymap/',
     '/emigration': '/diaspora/#leaving',
     '/trees': '/tree/#trees',
+    /* 23 November 2026 (the estate clean-up): the archive's own Roots & Routes page was taken off, the Tree Canvas on recordatlas.org having
+       replaced it. Its old address lands on the archive's own drawn tree. What stays under /roots/ is the viewer that the person pages frame
+       (/roots/view.html) and the lines data (/roots/lines.json); neither is a page to read, and neither is in the sitemap. */
+    '/roots': '/tree/',
     '/explorer': '/bloodline/#households',
     /* The six retired /who/ addresses (a rename on 12 October 2026, four surname-first pages from the 27 September
        Trove harvest, and a rename on 21 September) used to be redirects here. On 17 October 2026 the book made every

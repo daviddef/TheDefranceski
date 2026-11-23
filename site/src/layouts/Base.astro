@@ -104,7 +104,7 @@ const thisArchive =
                     {g.href ? <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a> : <span class="ps ph0">{g.head}</span>}
                     {g.items.map((x) => Array.isArray(x)
                       ? <a href={u(x[0])} class={here === u(x[0]) ? "on" : ""}>{x[1]}</a>
-                      : <span class="ps">{x.sub}</span>)}
+                      : x.href ? <a href={u(x.href)} class={"ps" + (here === u(x.href) ? " on" : "")}>{x.sub}</a> : <span class="ps">{x.sub}</span>)}
                   </div>))
               : links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
           </div>
@@ -123,7 +123,7 @@ const thisArchive =
                 {g.href ? <a href={u(g.href)} class={"ph" + (here === u(g.href) ? " on" : "")}>{g.head}</a> : <span class="ps ph0">{g.head}</span>}
                 {g.items.map((x) => Array.isArray(x)
                   ? <a href={u(x[0])} class={here === u(x[0]) ? "on" : ""}>{x[1]}</a>
-                  : <span class="ps">{x.sub}</span>)}
+                  : x.href ? <a href={u(x.href)} class={"ps" + (here === u(x.href) ? " on" : "")}>{x.sub}</a> : <span class="ps">{x.sub}</span>)}
               </div>))
           : links.map(([h, l]) => <a href={u(h)} class={here === u(h) ? "on" : ""}>{l}</a>)}
       </div>

@@ -10,7 +10,7 @@ const g = RESEARCH.find((x) => x.id === "sources-and-method");
     <ResearchList items={g.items.filter((x) => !x.sub)} />
     {g.items.filter((x) => x.sub).map((s) => (
       <>
-        <h2 id={s.id} style="font-size:24px;margin-top:34px">{s.sub}</h2>
+        <h2 id={s.id} style="font-size:24px;margin-top:34px">{s.hub ? <a href={u(s.hub)}>{s.sub}</a> : s.sub}</h2>
         <p class="cap">{s.note}</p>
         <ResearchList items={s.items} />
       </>

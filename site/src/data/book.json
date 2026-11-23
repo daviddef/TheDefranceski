@@ -113,11 +113,6 @@
      "blurb": "Eight generations of a single descent, each as the couple it actually was; every child listed; and the trees: five of the seven families drawn, each in the form its evidence supports."
     },
     {
-     "path": "/roots/",
-     "title": "Roots & Routes",
-     "blurb": "Every person the archive holds, drawn by generation, place, era and relationship, with the Record Atlas behind each place."
-    },
-    {
      "path": "/gologorica-line/",
      "title": "The Gologorica Line",
      "blurb": "Read off the parish register itself, page by page: the ancestral line.",
@@ -240,6 +235,11 @@
    "flags": "🇭🇷 🇮🇹 🇫🇷",
    "intro": "The archive follows seven families of the name. They arrive from different directions and the records join no two of them. This part separates a family, which is an origin, from a station on one family's road and from a namesake, then takes the others in turn: the castle parish of Svetvinčenat, the Dalmatian line out of Venice, the Cretan estate at Seget, southern Istria, Vodnjan, the Kvarner households, Dubrovnik, Corsica and the Alpine clusters of Trentino.",
    "chapters": [
+    {
+     "path": "/families/",
+     "title": "All the families",
+     "blurb": "Every family page in one place: the seven families of the name, the mothers' families, and the families that married in."
+    },
     {
      "path": "/lines/",
      "title": "The Lines",
@@ -553,6 +553,11 @@
      "blurb": "Every place carries all of its names, because which name a document uses tells you who was keeping it."
     },
     {
+     "path": "/drawn/",
+     "title": "Drawn",
+     "blurb": "The pages that draw the family instead of listing it: the tree, the trees, blood relatives, the timeline, the lives on one scale and the lines."
+    },
+    {
      "path": "/timeline/",
      "title": "The Timeline",
      "blurb": "Sovereignty, pressure and family event on one scale."
@@ -591,6 +596,12 @@
      "path": "/research/sources-and-method/",
      "title": "Sources & method",
      "blurb": "What this archive stands on, how it reads a register, and the long studies of single sources.",
+     "group": "The record"
+    },
+    {
+     "path": "/research/deep-dives/",
+     "title": "Deep dives",
+     "blurb": "Every long study of the archive that is not one of the eight core Research pages: one source read through, a register or place walked, the name followed through the records.",
      "group": "The record"
     },
     {
