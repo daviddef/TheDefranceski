@@ -1,5 +1,9 @@
 ---
-/* People in this archive who carry the same name, as cards a reader can tell apart at a glance: who, when, which way they travelled.
+/* Nothing is drawn when nobody else carries the name (23 November 2026: the kit draws no section for an empty slot, so the page has no
+   "Others of the same name" heading then; it used to print "No one else in this archive carries this name" under one). The block is
+   #others-of-this-name inside the kit's #namesakes section. The people are the other bearers of the name page that lists this person
+   (lib/namesets.js); tools/checknamesakes.py judges the built pages.
+   People in this archive who carry the same name, as cards a reader can tell apart at a glance: who, when, which way they travelled.
    Each card is one link to that person's own page. Nothing here says they are related or the same person: the line above the cards
    says they are not. A living person shows only the name, the word «living» and the places, as everywhere else on this site. */
 import { ledeOf } from "@daviddef/archive-kit/lib/personstory.js";
@@ -8,35 +12,31 @@ const span = (k) => k.living ? "Living" : ([k.b || (k.bEst ? `about ${k.bEst}` :
 const route = (k) => String(k.place || "").split("→").map((s) => s.trim().split(",")[0].trim()).filter(Boolean);
 const gist = (k) => (k.living ? (k.rel ? k.rel[0].toUpperCase() + k.rel.slice(1) + "." : "") : ledeOf(k));
 ---
-<div class="ns">
-  {kin.length > 0 ? (
-    <>
-      <p class="ns-why">{kin.length} other {kin.length === 1 ? "person" : "people"} in this archive {kin.length === 1 ? "is" : "are"} also called {name}. They are different individuals and are not this person.{nameIndex && <> <a href={nameIndex}>See the name index →</a></>}</p>
-      <ul class="ns-list">
-        {kin.map((k) => (
-          <li class="ns-item">
-            <a class="ns-card" href={u(`/person/${k.pid}/`)}>
-              <span class="ns-top">
-                <span class="ns-name">{k.name}</span>
-                {k.direct ? <span class="ns-chip">Direct line</span> : null}
-              </span>
-              <span class="ns-span">{span(k)}</span>
-              {route(k).length > 0 ? (
-                <span class="ns-route" aria-label="Places, in order">
-                  {route(k).map((p, i) => <>{i > 0 ? <span class="ns-arrow" aria-hidden="true">→</span> : null}<span class="ns-stop">{p}</span></>)}
-                </span>
-              ) : null}
-              {gist(k) ? <span class="ns-gist">{gist(k)}</span> : null}
-              <span class="ns-go" aria-hidden="true">Open their page →</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </>
-  ) : (
-    <p class="ns-why">No one else in this archive carries this name.{nameIndex && <> <a href={nameIndex}>See the name index →</a></>}</p>
-  )}
+{kin.length > 0 && (
+<div class="ns" id="others-of-this-name">
+  <p class="ns-why">{kin.length} other {kin.length === 1 ? "person" : "people"} in this archive {kin.length === 1 ? "is" : "are"} also called {name}. They are different individuals and are not this person.{nameIndex && <>{" "}<a href={nameIndex}>See the name page →</a></>}</p>
+  <ul class="ns-list">
+    {kin.map((k) => (
+      <li class="ns-item">
+        <a class="ns-card" href={u(`/person/${k.pid}/`)}>
+          <span class="ns-top">
+            <span class="ns-name">{k.name}</span>
+            {k.direct ? <span class="ns-chip">Direct line</span> : null}
+          </span>
+          <span class="ns-span">{span(k)}</span>
+          {route(k).length > 0 ? (
+            <span class="ns-route" aria-label="Places, in order">
+              {route(k).map((p, i) => <>{i > 0 ? <span class="ns-arrow" aria-hidden="true">→</span> : null}<span class="ns-stop">{p}</span></>)}
+            </span>
+          ) : null}
+          {gist(k) ? <span class="ns-gist">{gist(k)}</span> : null}
+          <span class="ns-go" aria-hidden="true">Open their page →</span>
+        </a>
+      </li>
+    ))}
+  </ul>
 </div>
+)}
 
 <style>
   .ns { margin: 0 0 2.4rem; }

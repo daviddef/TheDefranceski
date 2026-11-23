@@ -136,7 +136,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
 
 {allLiving && (
 <section class="blk">
-  <ul>
+  <ul class="who-bearers">
     {sameName.map(x => (
       <li><a href={u(`/person/${x.pid}/`)}>{x.name}</a>{x.place ? ` \u2014 ${x.place}` : ""}</li>
     ))}
@@ -168,7 +168,7 @@ const pdata = pics.map(a => ({ id: a.id, title: a.desc || a.file.replace(/^File:
       ? "This page is a name index. The person has their own page."
       : "This page gathers every mention of the name. These are separate individuals \u2014 not one life \u2014 and each has their own page."}
   </p>
-  <ul style="margin-top:16px">
+  <ul class="who-bearers" style="margin-top:16px">
     {sameName.map(x => (
       <li>
         <a href={u(`/person/${x.pid}/`)}>{x.name}</a>{" \u2014 "}{x.living ? (x.place || "living") : <>{spanOf(x)}{x.place ? `, ${x.place}` : ""}</>}
