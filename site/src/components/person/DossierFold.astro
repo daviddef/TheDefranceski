@@ -1,0 +1,43 @@
+---
+/* What the name page /who/<name>/ holds for THIS person and the person's own page did not say (lib/dossierfold.js has the rule and the
+   reasons). Drawn inside a section the page supplies: a kit PersonSection ("More", local to this archive) on a person's page, a plain
+   section on a duplicate's pointer. The words are the dossier's, unchanged: the roster note's paragraphs through the same renderer the
+   name page uses (mdHtml), and the index entry's own `says`, `place` and names. The block carries the name page it comes from
+   (data-who) and the person (data-pid) so tools/checkdossierfold.py can find it in the built page.
+   PROPS  fold      { notes: [paragraph…], rec: {id, says, place, others:[{n, slug?}], url} | null }
+          who       the slug of the name page; pid the person's id; name the person's name; n / pages the name page's mention counts */
+import { mdHtml } from "../../lib/md.js";
+import { u } from "../../lib/url.js";
+const { fold, who, pid, name, n = 0, pages = 0 } = Astro.props;
+const rec = fold.rec;
+---
+<div class="dfold" data-who={who} data-pid={pid}>
+  <p class="dfold-why">This is what <a href={u(`/who/${who}/`)}>the research page on the name {name}</a> holds for this person. That page also lists every mention of the name across the archive ({n} mention{n === 1 ? "" : "s"} on {pages} page{pages === 1 ? "" : "s"}).</p>
+  {fold.notes.map((t) => (<div class="dfold-p" data-fold="note" set:html={mdHtml(t)}></div>))}
+  {rec && (
+    <div class="dfold-rec" data-fold="rec" data-id={rec.id}>
+      <span class="dfold-lab">The one indexed entry</span>
+      <p class="dfold-says"><strong>{name}</strong>{rec.says ? <> <span class="dfold-s">{rec.says}</span></> : null}{rec.place && !String(rec.says || "").includes(rec.place) ? <> <span class="dfold-pl">{rec.place}</span></> : null}</p>
+      {rec.others.length > 0 && (
+        <p class="dfold-others">Named on the same record: {rec.others.map((o, i) => (<>{i > 0 ? " · " : ""}{o.slug ? <a href={u(`/who/${o.slug}/`)}>{o.n}</a> : o.n}</>))}.
+          The index names these people on one page and does not say how they are related — a parent, a spouse and a godparent look identical here.</p>
+      )}
+      <p class="dfold-link"><a href={rec.url} rel="noopener">FamilySearch <span class="mono">{rec.id}</span> →</a></p>
+    </div>
+  )}
+</div>
+
+<!-- Inline, not bundled: the bundled person-page stylesheet is also linked by the /who/ pages, which must stay byte-identical, and only the pages
+     that draw this block need these rules. Every selector starts with .dfold. -->
+<style is:inline>
+  .dfold { max-width: 74ch; }
+  .dfold .dfold-why { margin: 0 0 1rem; color: var(--ink-2); font-family: var(--sans); font-size: .95rem; line-height: 1.55; }
+  .dfold .dfold-p { margin: 0 0 .9rem; padding: .2rem 0 .2rem 1rem; border-left: 3px solid var(--accent, #8a5a3b); font-size: 1rem; line-height: 1.65; overflow-wrap: anywhere; }
+  .dfold .dfold-rec { margin: 0 0 .9rem; padding: .8rem 1rem; border: 1px solid var(--rule, #dcd6cc); border-left: 3px solid #6d7f8a; border-radius: 3px; overflow-wrap: anywhere; }
+  .dfold .dfold-lab { display: block; font-family: var(--sans); font-size: .7rem; letter-spacing: .09em; text-transform: uppercase; opacity: .62; }
+  .dfold .dfold-rec p { margin: .4rem 0 0; font-size: .98rem; line-height: 1.55; }
+  .dfold .dfold-s, .dfold .dfold-pl { opacity: .8; }
+  .dfold .dfold-others { font-size: .9rem; color: var(--ink-2); }
+  .dfold .dfold-link { font-size: .9rem; }
+  .dfold .mono { font-variant-numeric: tabular-nums; }
+</style>
