@@ -36392,6 +36392,57 @@
     ]
    ],
    "nobody": true
+  },
+  {
+   "when": "24 Nov 2026",
+   "outcome": "found",
+   "key": "src/dlib-slovenski-narod-bernot-dolzan-vipava-1884-24-nov-2026",
+   "src": "dLib.si (Slovenian digital library) — Slovenski narod, Slovenec and Jutro, full text: Dolžan, Bernot and Diona, 1884–1922",
+   "url": "https://www.dlib.si/details/URN:NBN:SI:DOC-B60SMFDZ",
+   "dest": "dLib",
+   "walked": false,
+   "tags": [
+    "dolzan",
+    "bernot",
+    "vipava",
+    "pazin",
+    "defranceschi",
+    "newspapers"
+   ],
+   "what": "worklist 296: the marriage of Josef Dolžan and Albertha Bernat, and Dionysia's people",
+   "got": "**Found (`doc` for the printed words, OCR; read by a subagent):** a death notice of 15 May 1884 at Vipava (Antonija, wife of the tax collector Josip Bernot) naming «Adalbertina Dolžan roj. Bernot», «Josip Dolžan, c. kr. telegrafski uradnik, zet» and «Diona Dolžan, vnukinja»: the mother is Adalbertina Bernot of Vipava. Josip Dolžan's career (Maribor 1905, Graz 1907, postal director) and death on 12 Aug 1922 at Ljubljana (Slovenec 18 Aug; Jutro 14 Aug, «tast primarija dr. Defranceschija»). **Typed:** the exact phrases «josef dolžan», «josef dolzan» and «dolžan pazin» gave nothing. The marriage place and year are not found. ANNO text refused (Cloudflare check, not worked round).",
+   "ev": [
+    [
+     "/namesakes/",
+     "Dionysia's mother and her people, from the Slovenian newspapers",
+     "Adalbertina Dolžan roj. Bernot"
+    ]
+   ],
+   "for": [
+    [
+     "/person/dionysia-maria-anna-dolzan-1881/",
+     "Dionysia Maria Anna Dolžan"
+    ]
+   ]
+  },
+  {
+   "when": "24 Nov 2026",
+   "outcome": "nil",
+   "key": "src/oesta-archivinformationssystem-kalanj-kovacina-dolzan-bernat-24-nov-2026",
+   "src": "ÖStA Archivinformationssystem (Vienna) — catalogue titles: Kalanj, Kovačina, Dolžan, Bernat/Bernot",
+   "url": "https://www.archivinformationssystem.at/",
+   "dest": "ÖStA",
+   "walked": false,
+   "tags": [
+    "kalanj",
+    "kovacina",
+    "dolzan",
+    "bernot",
+    "oesta",
+    "catalogue"
+   ],
+   "what": "worklist 349 and 296: whether the Vienna state archive's catalogue names a Kalanj, Kovačina, Dolžan or Bernat",
+   "got": "**Nil for the catalogue's title field (operator «contains»), stated narrowly:** no Kalanj form (19 typed; one «Kalani» is a Hawaiian king's letter), no Kovačina form (Kovačina, Kovacina, Kovacin, Kovačin, Kovacsina, Kovatschina, Kowatschina), no Dolžan form (Dolžan, Dolž, Dolšan, Dolsan, Dolschan, Dolshan; «Dolzan» gave five other names), nothing relevant for Bernat or Bernot. `cover` exit 0 on 24 Nov 2026 for Kalanj, Kovačina and Defranceschi (and the Atlas form Bernot). Not counted: Kalan (46 hits, none linked to a Kalanj). The «Darin» field gave nothing usable, so no nil from it; officers' files are catalogued as alphabetical boxes, not persons. Defranceschi was re-run: only re-finds."
   }
  ]
 }
