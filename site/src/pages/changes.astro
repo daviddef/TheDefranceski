@@ -23,7 +23,7 @@ const K = {
     title: r.what,
     kind: (K[r.kind] || K.search)[0],
     did: mdHtml(r.text),
-    found: r.src ? `<span class="src">${mdHtml(r.src)}</span>` : "",
+    src: r.src ? mdHtml(r.src) : "",
   })),
 }))} />
 <Rule name="pomegranate" />
