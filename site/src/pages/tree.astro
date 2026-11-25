@@ -6,6 +6,7 @@ import { u } from "../lib/url.js";
 import dl from "../data/directline.json";
 import anc from "../data/ancestors.json";
 import AncChart from "@daviddef/archive-kit/components/AncChart.astro";
+import CanvasLink from "@daviddef/archive-kit/components/CanvasLink.astro";
 import River from "../components/River.astro";
 import Kin from "../components/Kin.astro";
 import spines from "../data/spines.json";
@@ -99,6 +100,8 @@ const CONF = {
   eyebrow={`${gens.length} generations down · 17 named ancestors and 11 walls back`}
   dek="This is one family of the five — ours. Eight generations of a single descent, each as the couple it actually was. Every mother is named, with her own birthplace and — where her family keeps one — a link to her own archive. Every child is listed, not only the one who carried the line.">
 
+
+  <CanvasLink archive="defranceski" person="giovanni-defranceschi-1750" />
 
   <section class="blk">
     <div class="lab">The line as ground covered</div>
