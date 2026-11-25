@@ -79,7 +79,7 @@ def gedcom():
     out += indi(5, UID["dead"], "Qx /Deadone/", YEAR - 50, dead=True)
     out += indi(6, UID["cited"], "Qx /Citedone/", YEAR - 30, cite="FamilySearch ark:/61903/1:1:TEST")
     out += indi(7, UID["undated"], "Qx /Undatedone/", None, fam=True)       # no birth year, a living parent
-    out += indi(8, UID["flag"], "Qx /Flagone/", YEAR - 30, flag=True)      # born in the window, a bare flag: still living
+    out += indi(8, UID["flag"], "Qx /Flagone/", YEAR - 30, flag=True)      # born in the window, a bare flag: dead (26 November 2026)
     # (25 October 2026) THE MINORS SUPPLEMENT. A known child (born YEAR-9, parent live1) is held out; so is a child with a RARE
     # given name; so is an UNDATED child of a DEAD parent born in 1980 (the kit's rule would publish her: her parent is not
     # living); and a person born exactly YEAR-19 is an adult and stays published (the control).
@@ -117,10 +117,11 @@ def fixture(root):
                  "place": "Oldtown, Testland", "src": "index", "note": ""})
     rows.append({"name": "Qx Gone", "pid": "qx-gone", "who": "/who/qx-gone/", "b": YEAR - 30, "d": YEAR - 3,
                  "place": "Oldtown, Testland", "src": "index", "note": ""})
-    # a bare death flag in the tree for a person born in the window: the person is LIVING (the flag is not a record)
-    rows.append({"name": "Qx Flagone", "pid": "qx-flagone", "who": "/who/qx-flagone/", "line": "x", "place": "Testville, Testland",
-                 "places": ["Testville, Testland"], "src": "life", "href": "/x/", "b": None, "d": None, "note": "", "ark": "",
-                 "mh": "", "notable": False, "living": True})
+    # POSITIVE CONTROLS (26 November 2026): marked deceased is deceased, dated or not. One by the tree's bare flag
+    # (in the ledger, so the tree check must agree), one by the roster's own bare mark.
+    for name, pid in (("Qx Flagone", "qx-flagone"), ("Qx Marked", "qx-marked")):
+        rows.append({"name": name, "pid": pid, "who": "/who/%s/" % pid, "b": YEAR - 30, "d": None,
+                     "place": "Oldtown, Testland", "src": "index", "note": "", "deceased": True, "deathRecorded": True})
     # POSITIVE CONTROL: born in the window, dead on a RECORDED source with no date (family confirmation): not living, year shown
     rows.append({"name": "Qx Confirmed", "pid": "qx-confirmed", "who": "/who/qx-confirmed/", "b": YEAR - 30, "d": None,
                  "place": "Oldtown, Testland", "src": "index", "note": "", "deceased": True,
@@ -322,15 +323,18 @@ def _about(root, extra):
     p = os.path.join(root, "site", "dist", "about", "index.html")
     w(p, io.open(p, encoding="utf-8").read().replace("</main>", extra + "</main>"))
 
-def F_flag_row(root):
-    d, _ = row(root, "qx-oldone"); d["rows"].append({"name": "Qx Flagrow", "pid": "qx-flagrow", "b": YEAR - 30, "d": None,
-                                                     "src": "index", "note": "", "deceased": True}); save(root, d)
-    w(person(root, "qx-flagrow"), page("Qx Flagrow", False))
+def F_unmarked(root):
+    d, r = row(root, "qx-marked"); r.pop("deceased"); r.pop("deathRecorded"); save(root, d)
 
 def F_flag_tree(root):
     d, r = row(root, "qx-flagone"); r.clear(); r.update({"name": "Qx Flagone", "pid": "qx-flagone", "who": "/who/qx-flagone/",
-                                                         "b": YEAR - 30, "d": None, "src": "index", "note": "", "deceased": True}); save(root, d)
-    w(person(root, "qx-flagone"), page("Qx Flagone", False))
+                                                         "line": "x", "place": "Testville, Testland", "places": ["Testville, Testland"],
+                                                         "src": "life", "href": "/x/", "b": None, "d": None, "note": "", "ark": "",
+                                                         "mh": "", "notable": False, "living": True}); save(root, d)
+    w(person(root, "qx-flagone"), page("Qx Flagone", True))
+
+def F_living_and_dead(root):
+    d, r = row(root, "qx-livone"); r["deceased"] = True; save(root, d)
 
 def F_source_no_grade(root):
     d, r = row(root, "qx-confirmed"); r.pop("deathGrade"); save(root, d)
@@ -426,8 +430,9 @@ FAULTS = [
     ("empty: no built person pages", "empty:", F_empty_dist, {}),
     ("tree absent but required", "tree:", F_no_tree, {"tree": False, "require_tree": True}),
     ("rule 7: a person born in the cutoff year (exactly 80) published with no living mark", "rule:", F_boundary, {}),
-    ("rule 9: a bare `deceased` mark frees a person born in the window (no record, no source)", "rule:", F_flag_row, {}),
-    ("rule 9: the tree holds only a bare death flag, the roster publishes the person as dead", "tree:", F_flag_tree, {}),
+    ("rule 9: a person born in the window loses the deceased mark and stays published as dead", "rule:", F_unmarked, {}),
+    ("rule 9: the tree marks the person deceased, the roster publishes them as living", "tree:", F_flag_tree, {}),
+    ("rule 9: a row marked both living and deceased", "marked living AND deceased", F_living_and_dead, {}),
     ("rule 9: a death on a source with no date, and no grade for it", "deathGrade", F_source_no_grade, {}),
     ("rule 7: a dated person under 81 with a public-source citation published as not living (the 1946 fault)", "rule:", F_cited_dated, {}),
     ("rule 7: a data row naming a living person carries a birth year", "year:", F_data_living, {}),

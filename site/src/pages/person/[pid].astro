@@ -100,9 +100,9 @@ const { r, kin, whoHref, placeSeparates } = Astro.props;
    isLiving (80 years, no death recorded; 60 for a child's parent) is the estate's standard. A page is a living person's if EITHER says so, so neither can
    make it more generous than the other. */
 const RULE = { now: new Date().getFullYear(), sources: PS, heldIds: [] };
-/* A death the roster records without a date («deceased», with a deathSource or deathRecorded) is a death RECORD to the kit; a bare «deceased» flag is
-   not, for a person born inside the window. Without these two fields a man the family has confirmed dead (Robbie, 1953) would be called living. */
-const DEATHINFO = { deathRecorded: !!(r.deathRecorded || r.deathSource), deceased: r.deceased === true };
+/* Marked deceased is deceased (the owner's ruling, 26 November 2026). The kit reads an undated death from deathRecorded, so a row marked «deceased», or carrying a
+   deathSource, is passed to it as recorded; without that a person born inside the window would be called living. */
+const DEATHINFO = { deathRecorded: !!(r.deathRecorded || r.deathSource || r.deceased === true), deceased: r.deceased === true };
 const LIVE = !!r.living || isLivingKit({ id: r.pid, born: r.b || (r.bEst ? `c. ${r.bEst}` : null), died: r.d || null, ...DEATHINFO }, RULE);
 
 /* A DUPLICATE KEEPS ITS URL.
@@ -323,7 +323,7 @@ const datesOf = (dt) => {
 const relRow = (n, extra = {}) => {
   const row = n.pid ? ROW_OF[n.pid] : null;
   const d = row ? { born: row.b ? row.b : row.bEst ? `c. ${row.bEst}` : null, died: row.d || null,
-    deathRecorded: !!(row.deathRecorded || row.deathSource) || undefined, deceased: row.deceased === true || undefined, saidLiving: row.living === true || undefined } : datesOf(n.dt);
+    deathRecorded: !!(row.deathRecorded || row.deathSource || row.deceased === true) || undefined, deceased: row.deceased === true || undefined, saidLiving: row.living === true || undefined } : datesOf(n.dt);
   return { id: n.pid || undefined, name: n.n, href: n.pid ? u(`/person/${n.pid}/`) : undefined, ambiguous: n.ambiguous ? true : undefined,
            source: n.via || "", line: n.via === "line" || undefined, slug: n.pid && oursOf(directLine, n.pid) ? n.pid : undefined, ...d, ...extra };
 };
