@@ -451,6 +451,9 @@ const FOLD_TITLE = "From the research page on this name";
 {dupOf ? (
 <section class="blk">
   <p class="warn"><strong>This page and <a href={u(`/person/${dupOf.pid}/`)}>{dupOf.name}</a> are the same person.</strong></p>
+  {r.dupWhy ? (
+  <p class="prose">{r.dupWhy} This address stays because it was published.</p>
+  ) : (
   <p class="prose">
     Both rows were built from one record — FamilySearch <code>{r.ark}</code> — by two
     passes of this archive that spelled the name differently, one from the register
@@ -459,6 +462,7 @@ const FOLD_TITLE = "From the research page on this name";
     this notice was written. The page stays here because its address was published, and
     an archive that moves its own addresses is not much of an archive.
   </p>
+  )}
   <p class="prose"><a href={u(`/person/${dupOf.pid}/`)}>Go to {dupOf.name}</a>.</p>
   <p class="warn pempty">No family is drawn on this page: it points to the person, where the family is.</p>
 </section>

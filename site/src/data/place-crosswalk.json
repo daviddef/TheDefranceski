@@ -5,12 +5,12 @@
   "flag_km": 5.0
  },
  "stats": {
-  "places": 133,
-  "ok": 129,
+  "places": 135,
+  "ok": 131,
   "offset": 4,
   "ambiguous": 0,
   "absent": 0,
-  "with_shelf": 40
+  "with_shelf": 41
  },
  "places": [
   {
@@ -532,6 +532,23 @@
    ],
    "shelf": null,
    "births": null
+  },
+  {
+   "rr": "Fužine",
+   "rr_lat": 45.305,
+   "rr_lon": 14.714,
+   "atlas_id": "fuzine",
+   "map": "Fužine",
+   "map_lat": 45.30528,
+   "map_lon": 14.71556,
+   "km": 0.13,
+   "status": "ok",
+   "layers": [
+    "people",
+    "shelf"
+   ],
+   "shelf": "worked",
+   "births": "3 volumes, covering 1725–1889 · not tracked per volume"
   },
   {
    "rr": "Gaillard",
@@ -1463,6 +1480,22 @@
    "map_lat": 46.03816,
    "map_lon": 11.1077,
    "km": 0.03,
+   "status": "ok",
+   "layers": [
+    "people"
+   ],
+   "shelf": null,
+   "births": null
+  },
+  {
+   "rr": "Reutlingen",
+   "rr_lat": 48.491,
+   "rr_lon": 9.204,
+   "atlas_id": null,
+   "map": "Reutlingen",
+   "map_lat": 48.4914,
+   "map_lon": 9.2043,
+   "km": 0.05,
    "status": "ok",
    "layers": [
     "people"

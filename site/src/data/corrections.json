@@ -657,7 +657,7 @@
    "sev": "serious",
    "where": "/who/antony-de-franceski/",
    "said": "The page opened: *«**Anton Mario De Franceski**, born **21 August 1944 at Reutlingen** — Zdravko and Ruža's **only child**, and the four-year-old who sailed with them.»* Below it, in the same column, the archive printed **«No family is drawn for this name, and no record stands behind it»** — under four sentences naming his parents, his father's date of birth and the file they are all three on.",
-   "true": "**He had a sister, and this archive found her the same afternoon it wrote «only child».** **Petrica Defranceski** was born at Horsham nine years after the family landed, and she is the reason the whole Australian branch came into the archive at all — David asked why she was not here.\n\n**The second sentence was worse than wrong, it was structural.** `households.json` is built from registers, and this family's modern generations have never been in a register this archive can reach, so **the mini-tree had nothing to draw from** — for Antony, for Zdravko, for David's own father, for David. Nine households have been added from the family's own tree and the documents already held, marked as tree-derived and not register-read. Antony's page now draws his parents, his sister, his wife and his two children.\n\n**And thirty internal links across the person pages were printing as literal square brackets** — including the one on this page — because the renderer that page keeps has never understood a link. It does now.",
+   "true": "**He had a sister, and this archive found her the same afternoon it wrote «only child».** **Petrica Defranceski** was born at Horsham, and she is the reason the whole Australian branch came into the archive at all — David asked why she was not here.\n\n**The second sentence was worse than wrong, it was structural.** `households.json` is built from registers, and this family's modern generations have never been in a register this archive can reach, so **the mini-tree had nothing to draw from** — for Antony, for Zdravko, for David's own father, for David. Nine households have been added from the family's own tree and the documents already held, marked as tree-derived and not register-read. Antony's page now draws his parents, his sister, his wife and his two children.\n\n**And thirty internal links across the person pages were printing as literal square brackets** — including the one on this page — because the renderer that page keeps has never understood a link. It does now.",
    "how": "David: *«this doesnt make sense. if he is Zdravko's son then you should be able to draw this tree? along with his sister, and kids».* Both faults were visible on one screen and neither had been noticed by the archive that wrote them.",
    "sevWas": "major",
    "for": [
@@ -3622,6 +3622,20 @@
    "how": "Only a search snippet had been read, and the paper's city was taken for the place. The dateline stood in the first line of the column. The burial in the cemetery's index, sent to the archive, raised the question.",
    "pids": [
     "giordano-de-franceschi-d1954"
+   ]
+  },
+  {
+   "when": "26 Nov 2026",
+   "sev": "moderate",
+   "what": "A couple of Horsham entered twice each, wrong birthplaces for them and their son, and a burial date given as a death",
+   "where": "/person/zdravko-frank-defranceski-1921/",
+   "said": "The pages of Zdravko Defranceski and Ruža Defranceski printed Pfullingen or Horsham beside «Born»; the page of Anton Mario De Franceski printed Willowbank, where he is buried; two of the couple's four pages said «Died not recorded»; and Ruža Defranceski's death was given as 1 February 1996.",
+   "true": "Zdravko Defranceski was born at Crikvenica in April 1921 and died at Horsham on 22 December 1979. Ruža Defranceski, born Hreljac, was born at Fužine on 13 February 1922 and died on **30 January 1996**: [her headstone](https://www.findagrave.com/memorial/211578037) says so, and the 1 February on that memorial is the burial. Anton Mario De Franceski was born at Reutlingen on 21 August 1944, as the household file and the German lists say. The couple now have one page each; the other address points to it. The household was also placed as starting from Klenovica, the father's village, and now starts from Crikvenica.",
+   "how": "Asked after on 26 November 2026: the pages were read against the archive's own documents, and the headstone photograph was read.",
+   "pids": [
+    "zdravko-frank-defranceski-1921",
+    "ruza-rosa-defranceski-d1996",
+    "antony-de-franceski-1944"
    ]
   }
  ]
