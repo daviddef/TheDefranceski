@@ -507,6 +507,7 @@ def build(args):
         for r in roster:
             pid = r.get("pid")
             if not pid or not (is_living(r) or pid in est_withheld): continue
+            if r.get("sameAs"): continue   # a duplicate page of a living person: the row it points to is the card (26 Nov 2026)
             if pid in held_pids: rep["living_named_left_out_held"] += 1; continue
             if undecidable(r) and pid not in est_withheld: rep["living_named_left_out_undecidable"] += 1; continue
             if isinstance(r.get("b"), int) and r["b"] >= L2.MINOR_BORN_FROM: rep["living_named_left_out_minor"] += 1; continue
