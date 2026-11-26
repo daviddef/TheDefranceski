@@ -98,8 +98,6 @@ def match(row, tree, led, by_name):
 def reason_not_living(p, year):
     if p["dead"]:
         return "death recorded"
-    if p.get("undated_dead") and p["by"] is None:
-        return "death flag, no birth year"
     if lr.public_source(p["cites"]):
         return "public source"
     if p["by"] is None:
@@ -149,11 +147,12 @@ def restore_ordinary(r, p, year):
     if p is not None:
         if p["by"] and not out.get("b"):
             out["b"] = p["by"]
-        if p["dead"] or p.get("undated_dead"):
+        if p["dead"]:
             if p["dy"] and not out.get("d"):
                 out["d"] = p["dy"]
             elif not p["dy"]:
                 out["deceased"] = True
+                out["deathRecorded"] = True      # how the kit's printed-year gate reads an undated death
     if p is not None and lr.public_source(p["cites"]) and not L2.row_citations(out):
         # why this person is not living has to be readable from the committed row, not only from the tree
         out["cited"] = "FamilySearch" if any("familysearch" in c.lower() for c in p["cites"]) else "MyHeritage record collection"

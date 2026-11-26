@@ -96,7 +96,7 @@ def _dead_names():
     except Exception:
         return out
     for r in rows:
-        if r.get("d") or L2.row_dead(r):
+        if L2.row_recorded_dead(r):
             out.add(_norm(r.get("name")))
     return out
 
