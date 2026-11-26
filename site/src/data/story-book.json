@@ -1425,7 +1425,7 @@
         "g": "doc",
         "ev": "/direct-line/",
         "why": "The Spine, generations seven to nine, as the archive publishes them",
-        "t": "His wife is [Cheryl Lerena](/cheryl-lerena/), of Brisbane, Australia. Their son is David Defranceski, who keeps this archive, in Brisbane. David's two sons, A. and M., are Ivan's grandchildren, and they carry the name on in Australia. All of them are living, and by this archive's rule the living are named with their relationships and their towns and nothing more; the two youngest, by their initials only."
+        "t": "His wife is [Cheryl Lerena](/cheryl-lerena/), of Brisbane, Australia. Their son is David Defranceski, who keeps this archive, in Brisbane. Ivan's grandchildren carry the name on in Australia. All of them are living, and by this archive's rule the living are named with their relationships and their towns and nothing more, and children are not named at all."
       },
       {
         "id": "vii-3",
@@ -1439,7 +1439,7 @@
     "cards": [],
     "tree": {
       "glyph": "ship",
-      "note": "Living people are drawn as filled nodes: the adults by first name or as «living», the two grandchildren by their initials only, with no dates.",
+      "note": "Living people are drawn as filled nodes: adults only, by first name or as «living», with no dates.",
       "rows": [
         {
           "role": "couple",
@@ -1465,21 +1465,6 @@
               "years": "",
               "g": "living",
               "line": true
-            }
-          ]
-        },
-        {
-          "role": "grand",
-          "people": [
-            {
-              "name": "A.",
-              "years": "",
-              "g": "living"
-            },
-            {
-              "name": "M.",
-              "years": "",
-              "g": "living"
             }
           ]
         }
